@@ -41,7 +41,7 @@ Someone other than the analyst can reproduce at least one important result from 
 
 **Comparators.** Reconcile against operator-labelled events and Harbour's operational record. That record is server-timestamped for queueing and claiming but agent-reported for progress and completion, so treat the agent-reported parts as claims to be checked, not as ground truth. Examine disagreements at the event level. Include a known small coordination event if available, so the analysis tests whether low-volume activity with broad consequences remains visible.
 
-**Analysis.** Produce an activity timeline, a flow account with duplicate observations identified, and a before-and-after state comparison. Report timing error, event detection, missingness, collection overhead and the limits of inferred dependencies. Keep observed relationships separate from hypothesised causal links.
+**Analysis.** Produce an activity timeline, a flow account with duplicate observations identified, a before-and-after state comparison, and a record of any subsequent activity the change enabled within the follow-up window, such as further dispatches, CI runs or deployments. That last record is the smallest observable instance of propagation and gives the follow-up window its purpose. Report timing error, event detection, missingness, collection overhead and the limits of inferred dependencies. Keep observed relationships separate from hypothesised causal links.
 
 **Alternatives.** Check whether bursts reflect retries, scheduled jobs, cache behaviour, shared host load or sensor overhead. Determine whether apparently persistent activity is ordinary background processing.
 
@@ -61,7 +61,7 @@ Someone other than the analyst can reproduce at least one important result from 
 
 **Identity.** Contributor names and addresses are personal data even when public. Keep raw identifiers in the protected store. Publish counts, categories (identified bot, identified human account, unknown) and pseudonymous identifiers only.
 
-**Analysis.** Produce a time map of observed activity and a typed dependency map. Keep forks, vendored content, generated files and repeated observations visible in the inclusion rules. Compare totals with rates per observed repository-day, showing missing intervals and cohort coverage.
+**Analysis.** Produce a time map of observed activity and a typed dependency map. Where a dependency change in one repository is followed within the window by a change in a repository that depends on it, record the pair as a candidate propagation link and test the ordinary explanations (dependency-update bots, release trains, shared maintainers) before calling it anything else. Keep forks, vendored content, generated files and repeated observations visible in the inclusion rules. Compare totals with rates per observed repository-day, showing missing intervals and cohort coverage.
 
 **Interpretation boundary.** These readings describe public development activity. They do not establish deployed code, runtime traffic, operational importance or the fraction of software produced by AI. The missing connection between source and operation is an intended finding about observability.
 

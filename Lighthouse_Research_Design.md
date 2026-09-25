@@ -12,6 +12,10 @@ Represent the observed environment as entities, relationships and events over ti
 
 Use a declared level of detail for each view. A service may contain many processes; one process may support many tasks. Aggregated identities must retain a path to the underlying records where access allows it.
 
+### Three observational layers
+
+Activity is computation happening. Residue is the altered structure and state that activity leaves behind. Propagation is the influence of that residue on subsequent activity elsewhere. Activity and residue are measured directly on the surfaces listed below. Propagation is not a surface: it is a typed link between a residue record and later activity that the residue enabled, such as a dispatch whose prompt was produced by an earlier run, a dependency change followed by changes in a dependent, or a deployment followed by new traffic. A propagation link is a derived measurement until the enabling relationship has been tested against records or a controlled comparison.
+
 ### An illustrative sequence
 
 The sequence below is invented to show how the model applies. It is not an observation, and no timing in it should be quoted as one.
@@ -19,6 +23,8 @@ The sequence below is invented to show how the model applies. It is not an obser
 A Harbour user marks a task ready. Harbour grounds it into a prompt and queues a dispatch at 10:02, recording the requested model and harness. An agent on a developer's machine claims the dispatch at 10:03. Over the next sixteen minutes the machine shows a burst of process activity and several hundred requests to a model provider. The provider's own compute is not visible from the machine. At 10:19 the agent opens a pull request and posts a completion marker with its token usage. Continuous integration runs on a hosted runner at 10:31. A person merges the change at 11:00. A deployment at 11:20 alters a production service, and that service's traffic pattern shifts for the rest of the day.
 
 In the model, the user, the machine, the agent, the provider endpoint, the repository, the CI runner and the production service are entities. The dispatch, the claim, each request, the pull request, the merge and the deployment are events. The agent's permission to change the repository, the merge's effect on production, and the service's dependence on the changed code are typed relationships. The burst of activity is a set of observations. A total of busy core seconds for the burst is a derived measurement. The statement that the deployment caused the traffic shift is an interpretation. A description of what would follow if the change were reverted is a scenario.
+
+By layer, the burst of process activity and the provider requests are activity; the merged code and the changed production service are residue; the traffic shift, and any later dispatch that the change makes necessary or possible, are propagation.
 
 ### The busy core second as a starting unit
 
@@ -30,24 +36,24 @@ Real hardware requires the device type, allocation and measurement method to be 
 
 Absolute activity shows continuing work. Deviation from an appropriate baseline highlights change. Flow views show direction and volume. Dependency views show what relies on what. State comparisons show persistent alterations. None replaces the others.
 
-The global now is represented through time windows. Record event time, collection time, clock uncertainty and late arrivals. A lag between two series can suggest a relationship, but clock error, queues or a common cause may explain it.
+The global now is represented through time windows. Record event time, collection time, clock uncertainty and late arrivals. The picture of the whole network is assembled from observations with different delays and resolutions, so the apparent shape of a burst partly depends on the instruments and timescale chosen; state both. A lag between two series can suggest a relationship, but clock error, queues or a common cause may explain it.
 
 Information meaning and value require a separate account of purpose, context and consequences. A study might test which constraints survive a handoff, or whether a warning changes an operator's decision. Physical readings make those questions investigable; they do not answer them automatically. Health is assessed against declared functions and outcomes, including quiet reserves and maintenance, rather than maximum throughput.
 
 ## Initial measurement surfaces
 
-Begin with readings the study can define and calibrate. Collection frequency follows the phenomenon and the cost of observation. Preserve native units and the boundaries of the measured entity.
+Begin with readings the study can define and calibrate. Collection frequency follows the phenomenon and the cost of observation. Preserve native units and the boundaries of the measured entity. Each surface belongs to a layer; outcomes sit outside the layers and score activity and residue against a declared purpose.
 
-| Surface | Initial readings | Essential qualification |
-| --- | --- | --- |
-| Processing | Busy core seconds, accelerator utilisation, task wall time | Waiting time and occupied capacity differ |
-| Electricity | Watts and energy over an interval | Declare the device, facility or allocated boundary |
-| Communication | Requests, bytes, direction, latency, errors | Duplication and compression affect volume |
-| State | Storage volume, reads, writes, configuration versions | Volume does not establish relevance or value |
-| Inference | Calls, model, input and output tokens, cache use | Provider and tokenizer definitions vary |
-| Authority | Tokens issued, scopes, write actions, approvals, actions reserved for humans | A permission is a relationship, not a volume; held and exercised authority differ |
-| Structure | Code changes, deployments, dependency changes | Count turnover separately from net growth |
-| Outcomes | Completion, rework, incidents, interventions | Define the task and beneficiary before scoring |
+| Surface | Layer | Initial readings | Essential qualification |
+| --- | --- | --- | --- |
+| Processing | Activity | Busy core seconds, accelerator utilisation, task wall time | Waiting time and occupied capacity differ |
+| Electricity | Activity | Watts and energy over an interval | Declare the device, facility or allocated boundary |
+| Communication | Activity | Requests, bytes, direction, latency, errors | Duplication and compression affect volume |
+| Inference | Activity | Calls, model, input and output tokens, cache use | Provider and tokenizer definitions vary |
+| State | Residue | Storage volume, reads, writes, configuration versions | Volume does not establish relevance or value |
+| Structure | Residue | Code changes, deployments, dependency changes | Count turnover separately from net growth |
+| Authority | Residue when held, activity when exercised | Tokens issued, scopes, write actions, approvals, actions reserved for humans | A permission is a relationship, not a volume |
+| Outcomes | Consequence | Completion, rework, incidents, interventions | Define the task and beneficiary before scoring |
 
 ## Measurement rules
 
@@ -104,6 +110,8 @@ Assess concentration, propagation, persistence, recovery and observability separ
 ### Studying the digital Kessler hypothesis
 
 The name borrows from Kessler and Cour-Palais, who described how collisions between orbiting objects could generate debris faster than it decays, degrading the usability of an orbit [S8]. For Lighthouse, the hypothesis is a proposed scenario in which harmful digital activity creates further harmful capacity, replenishes itself after its initial support ends, and degrades the usability of shared infrastructure. The name is an analogy. It is not a physical law and not a finding that the condition exists.
+
+In the three layers, the hypothesis predicts a distinctive propagation signature: residue left by one burst of activity enabling similar activity elsewhere, repeated until the population's continuity is visible even as its individual processes disappear. Measurements could in principle reveal reproduction, persistence and expanding influence before every local action is understood. They could equally reveal an ordinary release train, which is why the competing explanations below are tested first.
 
 Evidence would need to distinguish continuing external support from endogenous replacement, successful reproduction from repeated attempts, and real environmental degradation from rising counts or improved detection. Benign deployment, scheduled automation and common external triggers are competing explanations for apparent propagation.
 

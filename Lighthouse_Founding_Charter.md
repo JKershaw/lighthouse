@@ -14,9 +14,11 @@ A lighthouse does not steer ships. It makes positions and hazards visible to who
 
 Software accumulates into structures that outlast the work that created them. Information passes through those structures, is stored and transformed, and eventually informs a decision or an action. A small signal may coordinate a great deal of activity. A busy region may be routine. A quiet connection may be essential.
 
-Three images help us form questions. Coral describes the accumulated habitat: layers of code, configuration and data built on earlier layers. Veins describe its circulation: the flows of requests, messages and data between parts. A ripple of light describes transient processing at a moment of change, such as a model producing an answer. These are working metaphors. They do not establish that the network is alive, conscious or governed by biological laws.
+Running inference is a transient event: existing information and context are used to produce a next action. When that action changes code, configuration, data or another process, it leaves a durable alteration behind. Information can then flow through that structure long after the inference has finished, and later flows may need no further model invocation. A brief event can leave a persistent change in how a system behaves.
 
-Running inference is a transient event that can leave a durable alteration in code, configuration, data or another process. Subsequent information flows may continue without another model invocation. Lighthouse studies both the transient event and the structure and behaviour that follow it.
+Lighthouse therefore observes at three layers. Activity is computation happening: inference, and the processing, communication and energy it consumes. Residue is the altered structure and state that activity leaves behind: changed code, configuration, data, messages and decisions. Propagation is how those alterations influence subsequent activity elsewhere: one event leaves a structure that enables similar activity in another place, and that activity leaves further enabling structures. The layers are observed with different instruments on different timescales, and a finding at one layer does not settle the others.
+
+Three images help us form questions. Coral describes the accumulated residue: layers of code, configuration and data built on earlier layers. Veins describe circulation: the flows of requests, messages and data through which propagation happens. A ripple of light describes activity at a moment of change, such as a model producing an answer. These are working metaphors. They do not establish that the network is alive, conscious or governed by biological laws.
 
 Humans and AI inhabit the same field of observation. Its origins include human knowledge, purposes, institutions and physical infrastructure. Authorship and agency are useful distinctions when they explain a mechanism. A complete division between human and AI activity is not a prerequisite for measurement.
 
@@ -33,6 +35,8 @@ Lighthouse looks inward to systems it can observe closely and outward to the wid
 ### Close observation
 
 Harbour is the first proposed calibration subject. Harbour is an open-source control plane that reads a task backlog, grounds each task into a prompt, dispatches it to an AI coding agent, and verifies the result on evidence. Each dispatch leaves records: what was asked, when, with which model and harness, what the agent reported, and what it consumed. Those records describe a known workflow. Independent instruments can be tested against them, and the relationship between a request, its processing, its communication, the changes it makes and its later effects can be studied end to end.
+
+Lighthouse is a complement to Harbour rather than a part of it. Harbour is a control plane: it keeps human intent in command of AI execution and verifies each task on evidence. Lighthouse is an observatory: it studies what execution leaves behind and what that enables, across many tasks, over longer periods, and beyond any one control plane. Harbour asks whether a task did what was asked. Lighthouse asks what the activity changed, and what the change made possible.
 
 Harbour may also coordinate Lighthouse investigations. This makes it both an operational partner and a subject of study. Where the steward of Lighthouse also maintains Harbour, that overlap is a further interest to disclose. Lighthouse records the relationship in every study that relies on Harbour evidence and includes its own research footprint in its observations. Findings about Harbour require further testing before they are generalised to other systems.
 
@@ -54,7 +58,7 @@ Our scope includes computational activity, information flows, persistent state, 
 
 Mapping, explanation and risk assessment are complementary outputs. A map describes what is visible. An explanation proposes a mechanism. A risk assessment relates evidence and possible mechanisms to consequences over a stated time horizon.
 
-Self-replicating agents and a possible digital Kessler effect are research questions within this wider programme. They do not determine the conclusion, and they do not restrict Lighthouse to malicious activity. Beneficial automation and ordinary background behaviour provide essential comparisons.
+Self-replicating agents and a possible digital Kessler effect are research questions within this wider programme. The three layers make them investigable. A self-sustaining pattern would appear not in any single burst of activity, which might be unremarkable, but in the relationship between bursts, where each leaves residue that enables the next. Such a phenomenon could endure while every individual process in it is transient; its identity would lie in the pattern being maintained and propagated. An ordinary deployment or a useful agent workflow can produce a similar pattern, so appearance alone establishes neither replication nor intent. These questions do not determine the conclusion, and they do not restrict Lighthouse to malicious activity. Beneficial automation and ordinary background behaviour provide essential comparisons.
 
 ### What Lighthouse is not
 

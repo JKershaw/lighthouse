@@ -22,12 +22,15 @@ Read F01 first. F02 and F03 can be read in either order. F04 assumes both. F05 i
 
 [Harbour](https://harbour.cat) is an open-source control plane for AI coding agents ([source](https://github.com/JKershaw/LinearViewer)). It reads a task backlog, grounds each task into a prompt checked against the current code, dispatches the prompt to an agent, and verifies the result on evidence such as diffs, continuous integration and merges.
 
+Lighthouse is a complement to Harbour. Harbour is a control plane that keeps human intent in command of AI execution and verifies each task on evidence. Lighthouse is an observatory that studies what execution leaves behind and what that enables, across many tasks and beyond any one control plane.
+
 Lighthouse uses Harbour in two ways. Harbour is the first calibration subject: its dispatch, feedback and usage records describe a known workflow that independent instruments can be tested against. Harbour may also coordinate Lighthouse's own research tasks. The documents treat that dual role as something to record and check, not to hide.
 
 Harbour already publishes empirical papers about its own workflow under its own writing standard. Lighthouse does not duplicate that programme. Its distinct contribution is the computational and informational footprint of such workflows, and the comparison between what can be seen up close and what can be seen across the wider internet.
 
 ## Glossary
 
+- **Activity, residue, propagation.** The three observational layers in F01 and F02: computation happening; the altered structure and state it leaves behind; and the influence of that residue on later activity elsewhere. Propagation is measured as typed links between residue and later activity, not as a surface of its own.
 - **Entity, relationship, event.** The elements of the observable model in F02. An entity persists (a host, service, person or workflow). A relationship is a typed connection between entities. An event happens at a time.
 - **Observation.** A captured event or reading, with its source, time and status. Harbour has a view named Observation that shows agent sessions; that is a different thing, and this glossary means the Lighthouse one.
 - **Derived measurement, interpretation, scenario.** Together with observation, the four kinds of statement that Lighthouse labels in publications (F02).
@@ -44,4 +47,4 @@ Harbour already publishes empirical papers about its own workflow under its own 
 | Edition | Date | Change |
 | --- | --- | --- |
 | 0.1 | 25 September 2026 | First draft of F01 to F04 |
-| 0.2 (draft) | 25 September 2026 | Review edition. Sources re-checked and extended; Harbour interface aligned with Harbour's documented records; templates added as F05; this index added. Details in [REVIEW.md](REVIEW.md) |
+| 0.2 (draft) | 25 September 2026 | Review edition. Sources re-checked and extended; Harbour interface aligned with Harbour's documented records; templates added as F05; this index added; the three observational layers and the complement-to-Harbour framing made explicit from the originating conversation. Details in [REVIEW.md](REVIEW.md) |

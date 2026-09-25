@@ -117,3 +117,16 @@ Harbour's fields, states and retention windows were taken from its documentation
 - **LH F03 Handbook.** Harbour section rewritten from its documented records; integration contract mapped to dispatch fields and feedback entries; publication practice adopts Harbour's paper standard with additions; agent runs retained for reproduction; references to F05.
 - **LH F04 Programme.** Launch table includes record confirmation and export; LH001 gains target, retention and comparator caveats; LH002 gains Software Heritage, deps.dev, a completeness caveat and an identity rule; a Harbour-bridging follow-up question; two decision rows.
 - **LH F05 Templates** (new). Nine compact templates.
+
+## Addendum: the originating conversation
+
+The steward supplied an extract from the conversation that produced edition 0.1. It clarified four things that the drafts implied but never stated, and each is now explicit.
+
+- **Three observational layers.** Activity (computation happening), residue (the altered structure and state it leaves) and propagation (how that residue influences later activity elsewhere). This is the organising idea of the whole project and belongs at the front of F01 and F02, not only inside the metaphors. Added to both, with a Layer column in F02's measurement table and a statement that propagation is a typed link between residue and later activity rather than a surface of its own.
+- **An enduring pattern with transient participants.** The strongest sentence in the extract: the phenomenon's identity would lie in the pattern being maintained and propagated, while every individual process disappears. Added to F01's scope section and F02's Kessler section, with the existing caveat that a release train can look the same.
+- **Complement, not component.** Harbour is the control plane; Lighthouse is the observatory. Harbour asks whether a task did what was asked; Lighthouse asks what the activity changed and what the change made possible. Added to F01's close-observation section and the README.
+- **The apparent ripple depends on the instrument.** The picture is assembled from observations with different delays and resolutions. F02 now says to state the instrument and timescale alongside any description of a burst.
+
+Two consequences for the pilots. LH001's follow-up window now has a stated purpose: recording any activity the change enabled, the smallest observable instance of propagation. LH002 now records a dependency change followed by a change in a dependent as a candidate propagation link, after testing the ordinary explanations.
+
+One naming question for the steward. Residue is precise and is the word the conversation used, but it carries a faint sense of waste. Deposit or sediment would fit the coral image; trace is neutral. The documents keep residue until you choose.
