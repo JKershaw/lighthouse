@@ -1,6 +1,6 @@
 # Lighthouse
 
-Lighthouse is a proposed observatory and research practice for the computational world. It studies how information moves through software, infrastructure, humans and AI, how those structures change, and what that behaviour means for the people who depend on them. It also works on better ways to conduct that study.
+Lighthouse is a proposed observatory for the computational world: a standing watch on how information flows through software, infrastructure, humans and AI, what that activity leaves behind, and whether patterns appear that people should know about, such as AI activity that sustains and spreads itself. The watch is kept largely by AI agents within a small daily budget; people set the questions, read the results and decide what is published. Lighthouse also works on better ways to conduct that study.
 
 This repository holds the founding documents. They are drafts. They define an intended practice; they do not grant access to any system, commit spending, or authorise a publication.
 
@@ -10,7 +10,7 @@ This repository holds the founding documents. They are drafts. They define an in
 | --- | --- | --- | --- |
 | LH F01 | [Founding Charter](Lighthouse_Founding_Charter.md) | Purpose, scope, commitments, authority | You want to know what Lighthouse is for and what it will not do |
 | LH F02 | [Research Design](Lighthouse_Research_Design.md) | The observable model, measurement surfaces and rules, evidence records, risk assessment, sources | You are designing or reviewing a study |
-| LH F03 | [Operating Handbook](Lighthouse_Operating_Handbook.md) | Roles, the investigation lifecycle, the Harbour interface, publication, corrections, boundaries | You are running or publishing a study |
+| LH F03 | [Operating Handbook](Lighthouse_Operating_Handbook.md) | Who does the work, the investigation lifecycle, the Harbour interface, outward sources, publication, corrections, boundaries | You are running or publishing a study |
 | LH F04 | [Initial Research Programme](Lighthouse_Initial_Research_Programme.md) | The first twelve weeks: LH001 to LH004 and the decisions to make at commencement | You are about to start work |
 | LH F05 | [Study Templates](Lighthouse_Study_Templates.md) | The editable records the other documents refer to | You are opening a study, registering an instrument, or recording a decision |
 | LH F06 | [Harbour Workspace Plan](Lighthouse_Harbour_Workspace_Plan.md) | North star, budget and seed tickets for the first workspace | You are opening the Lighthouse workspace in Harbour |
@@ -29,6 +29,10 @@ Lighthouse uses Harbour in two ways. Harbour is the first calibration subject: i
 
 Harbour already publishes empirical papers about its own workflow under its own writing standard. Lighthouse does not duplicate that programme. Its distinct contribution is the computational and informational footprint of such workflows, and the comparison between what can be seen up close and what can be seen across the wider internet.
 
+## The wider internet
+
+The wider internet is the reason for the watch; Harbour is how the instruments are calibrated. Lighthouse sees the internet through what emits into public data: repository events, dependency graphs, identified crawler traffic, model usage rankings, vulnerability records and archived source history. F02 lists the sources and what each can and cannot see. F04's outward studies begin with a survey of those surveys (LH003), a historical propagation case (LH004) and a bounded neighbourhood map (LH002). This edition says little about the internet that is not borrowed from those sources, because Lighthouse has not yet observed it. That is the gap the first programme is designed to close.
+
 ## Glossary
 
 - **Activity, residue, propagation.** The three observational layers in F01 and F02: computation happening; the altered structure and state it leaves behind; and the influence of that residue on later activity elsewhere. Propagation is measured as typed links between residue and later activity, not as a surface of its own. The charter's images for the three are the ripple of light, its afterglow, and the spreading pattern.
@@ -40,9 +44,11 @@ Harbour already publishes empirical papers about its own workflow under its own 
 - **Question register, decision record, release record, correction record.** The bookkeeping forms in F05.
 - **Steward, owner, methods reviewer, editor.** The four roles in F03. One person may hold several; the record says which checks were independent.
 - **Close observation, outward observation.** The two directions in F01: systems Lighthouse can instrument directly, and the wider internet seen through public data.
+- **Watch.** Lighthouse's standing observation of the wider internet, published on its own cadence. Not an alerting service: nobody subscribes to it for warnings about their own systems.
 - **Standard candle.** A source whose output is known, used to calibrate an instrument and to scale unknown sources. LH001's workflow is Lighthouse's first.
 - **Luminous fraction.** The part of a population that emits into public data. The rest is dark, meaning unobserved rather than sinister, and is inferred from its effects.
 - **Dispatch.** Harbour's unit of work: a prompt queued for an agent, with its requested model, harness, timestamps and the agent's feedback.
+- **Autopilot.** The automated loop in a Harbour workspace that turns ready tickets into agent tasks without a person initiating each one. In the Lighthouse workspace it does most of the research work; a person reads and releases.
 - **Digital Kessler hypothesis.** A proposed scenario, named by analogy with orbital debris, in which harmful digital activity replenishes itself and degrades shared infrastructure. A question, not a finding.
 
 ## Edition history
@@ -50,4 +56,4 @@ Harbour already publishes empirical papers about its own workflow under its own 
 | Edition | Date | Change |
 | --- | --- | --- |
 | 0.1 | 25 September 2026 | First draft of F01 to F04 |
-| 0.2 (draft) | 25 September 2026 | Review edition. Sources re-checked and extended; Harbour interface aligned with Harbour's documented records; templates added as F05; this index added; the three observational layers and the complement-to-Harbour framing made explicit from the originating conversation; F06 workspace plan added; the observatory sequence (catalogue, calibrate, explain, dynamics), the standard candle and the luminous fraction folded in, with LH003 and LH004 added; images given their literal anchors and the writing style set out in F03. Details in [REVIEW.md](REVIEW.md) |
+| 0.2 (draft) | 25 September 2026 | Review edition. Sources re-checked and extended; Harbour interface aligned with Harbour's documented records; templates added as F05; this index added; the three observational layers and the complement-to-Harbour framing made explicit from the originating conversation; F06 workspace plan added; the observatory sequence (catalogue, calibrate, explain, dynamics), the standard candle and the luminous fraction folded in, with LH003 and LH004 added; images given their literal anchors and the writing style set out in F03; the reason for the watch stated at the head of the charter, the handbook's default inverted so that agents do the work and people read and release, the wider internet given a section here and a concrete paragraph in the charter, and the monitoring line replaced with the standing-watch distinction. Details in [REVIEW.md](REVIEW.md) |

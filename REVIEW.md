@@ -98,7 +98,7 @@ Subtitle lines had lost their commas ("Purpose scope and commitments"). "Looks t
 
 - **Clause labels.** Harbour's charter labels every clause BINDING, PRINCIPLE or DEFERRED and tests each with "how would an outsider know this was broken?" Most of F01's Commitments would pass that test. I recommend adopting the labels but did not, because it changes the document's form and is your call.
 - **The steward is unnamed.** Every document says "the founding steward". Harbour's charter names its maintainer. F01 now discloses the overlap conditionally ("where the steward of Lighthouse also maintains Harbour"). Replace that with a plain statement when you are ready.
-- **Is the Kessler hypothesis the real motivation?** The documents hedge it into one paragraph of the scope section. If it is why Lighthouse exists, say so near the top of F01 and then apply the commitments to it. "We are worried about X, and here is how we will stop ourselves seeing X everywhere" reads more honestly than X appearing as one item in a list.
+- **Is the Kessler hypothesis the real motivation?** The documents hedge it into one paragraph of the scope section. If it is why Lighthouse exists, say so near the top of F01 and then apply the commitments to it. "We are worried about X, and here is how we will stop ourselves seeing X everywhere" reads more honestly than X appearing as one item in a list. Since addressed: see the addendum on purpose, automation and the watch.
 - **Twelve weeks is heavy for one person.** Three roles, two studies, an instrument register, a synthesis and a publication surface. If the steward is also the analyst, consider making LH002 a feasibility note in the first programme and a full study in the second.
 - **Should Lighthouse run inside Harbour?** Harbour supports a local task store and a research task kind. Running Lighthouse's own tasks through it would exercise the integration contract from day one and would itself generate the known workflow LH001 needs. The cost is deeper entanglement of subject and instrument, which F01 already commits to disclosing.
 - **Retention could be extended for a research workspace.** As Harbour's maintainer you could lengthen the thirty-day windows. F01 treats any change to the subject as a separately scoped decision. Either way, write the decision record.
@@ -152,3 +152,27 @@ What replaced them:
 - **A palette.** F03's publication practice states the three families and their jobs: biological for what we observe, astronomical for how we observe, nautical for what people do with the result. Studies use the plain names; essays and the charter may extend the images.
 - **Residue keeps its name and gains an image.** Afterglow, the change that persists after the ripple, appears in the charter; residue remains the term in studies and tables. F02's Kessler section now says that collisions, debris and further collisions are the three layers in orbit.
 - **One collision resolved.** "Pilot" meant a preliminary study in F02 and F04 and a human session in Harbour and F06. The study sense is now "calibration run" or "first studies". "Observation" keeps both senses, with the glossary note.
+
+## Addendum: purpose, automation and the watch
+
+A count of the prose by subject, section by section, found the documents talking most about Lighthouse itself, then about Harbour and the abstract world equally, and least about the wider internet. Harbour got the numbers and the warmest images; the internet got the metaphors and the caveats. Set against the originating idea, an automated watch on the shape of the internet kept for AI safety reasons, three things had gone quiet: the reason for the watch, the fact that agents keep it, and the watch itself, which the charter's line "not a monitoring or alerting product" half disavowed.
+
+| Document | Lighthouse itself | Harbour | Wider internet | The world in the abstract |
+| --- | --- | --- | --- | --- |
+| F01 Charter | 41% | 22% | 10% | 25% |
+| F02 Research Design | 16% | 11% | 16% | 55% |
+| F03 Handbook | 73% | 25% | 1% | 0% |
+| F04 Programme | 32% | 25% | 38% | 2% |
+| F05 Templates | 97% | 2% | 0% | 0% |
+| F06 Workspace Plan | 31% | 48% | 19% | 0% |
+| README | 61% | 23% | 3% | 10% |
+| All | 42% | 20% | 15% | 20% |
+
+Shares are of words before this pass, with mixed sections split by judgement. The steward confirmed the reading. The pass added about a thousand words across the set, most of them the charter's opening and the README's new section.
+
+- **The reason at the top.** F01 now opens with what the watch is kept for, in plain words, and with the honest answer that we do not know and intend to be able to tell. The scope section names self-replicating agents and the digital Kessler effect as the questions the watch is kept for rather than as items in a list. F02's Kessler section says the same in one sentence.
+- **Agents keep the watch; people read it.** F03's first section is rewritten: agents do the collection, analysis, checking and drafting within budget and scope; people set questions, read, judge and release. The four roles remain as responsibilities. F01, F05, F06 and the README carry the same default in a sentence each.
+- **A standing watch, not an alerting service.** The "not a monitoring product" line is replaced in F01 with the distinction actually meant. The README glossary defines the watch.
+- **The internet made concrete.** F01's outward section gains a paragraph naming what already emits into public data; the README gains a section on the wider internet beside the one on Harbour; F03 gains a short section on registering outward sources; F04's purpose and completion criteria now end at the question of what the watch would and would not see.
+
+Recounted after the pass, the overall shares moved by two points at most: the wider internet rose from 15 to 17 per cent and Harbour fell from 20 to 19, with the largest shifts inside the charter, where the internet went from 10 to 16 per cent, and the README, from 3 to 13. The order in which a reader meets the subjects changed more than the counts.

@@ -4,7 +4,7 @@ Launch sequence, first studies and decisions
 
 Founding edition 0.2 (draft) | 25 September 2026 | LH F04
 
-The initial programme establishes one close observation of Harbour, one bounded outward survey, a catalogue of the surveys that already exist, and one historical case. It follows the order observatories have always followed: catalogue, calibrate, explain, then dynamics. Its deliverable is a tested research practice: instruments with known limits, reproducible findings and publications that can be corrected. The sequence below is an indicative twelve-week plan from commencement, not a calendar booking or an approved spending commitment.
+The initial programme establishes one close observation of Harbour, one bounded outward survey, a catalogue of the surveys that already exist, and one historical case. It follows the order observatories have always followed: catalogue, calibrate, explain, then dynamics. Its deliverable is a tested research practice: instruments with known limits, reproducible findings and publications that can be corrected. By its end the watch should be able to say what it would and would not see if activity of the kind the charter describes, residue enabling further activity elsewhere, appeared in the regions it observes. The sequence below is an indicative twelve-week plan from commencement, not a calendar booking or an approved spending commitment.
 
 ## Launch sequence
 
@@ -25,7 +25,7 @@ Begin with existing collection and storage tools. Build additional infrastructur
 
 ## Completion criteria for this programme
 
-Someone other than the analyst can reproduce at least one important result from the retained evidence and method. The documents explain a measurement failure or blind spot as clearly as a successful detection. At least one outward observation has been compared with its source's coverage limits, and one has been interpreted through the LH001 calibration, or the study says why it could not be. Lighthouse's own consumption is recorded. The next programme follows from what these studies teach us.
+Someone other than the analyst can reproduce at least one important result from the retained evidence and method. The documents explain a measurement failure or blind spot as clearly as a successful detection. At least one outward observation has been compared with its source's coverage limits, and one has been interpreted through the LH001 calibration, or the study says why it could not be. Lighthouse's own consumption is recorded. The synthesis states what the watch would now detect of a self-sustaining propagation pattern and what it would miss. The next programme follows from what these studies teach us.
 
 ## LH001 Observing a known Harbour workflow
 

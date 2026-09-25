@@ -22,6 +22,7 @@ status: open | in study LHnnn | closed (reason)
 ```
 study: LHnnn                      edition: 0.1          date opened:
 owner:                            methods reviewer:     editor:
+initiated by: person | autopilot
 question:
 scope (systems, population, period):
 evidence available:

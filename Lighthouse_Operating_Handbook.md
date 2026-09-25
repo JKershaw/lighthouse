@@ -6,15 +6,17 @@ Founding edition 0.2 (draft) | 25 September 2026 | LH F03
 
 Lighthouse begins as a small research practice with bounded investigations and a visible evidence trail. This handbook sets initial operating defaults. Responsibilities may be combined while the project is small, but responsibility and the independence of review must remain explicit.
 
-## A small research desk
+## A watch kept by agents, read by people
 
-The founding steward chooses priorities, allocates resources and assigns an accountable owner to each investigation. The research owner defines the question and produces an evidence packet. A methods reviewer checks collection and analysis. An editor prepares the publication and records its release decision.
+Most of Lighthouse's work is done by AI agents: collection, analysis, source checking, drafting and the upkeep of the registers, dispatched as bounded tasks within a stated budget and scope. People do the parts that give the work its meaning. They set the questions, read what comes back, judge whether it is interesting and true, and decide what is published. Agent output is the ordinary case; a person's reading is the scarce resource, and the practice is arranged to spend it well.
 
-Agents may perform parts of each role within a declared scope. The person responsible for a study remains identifiable. If one person fills several roles, the publication records that limitation rather than implying independent review.
+Four roles remain, and they name responsibilities rather than people. The founding steward chooses priorities, sets the budget and assigns an accountable owner to each investigation. The owner defines the question and answers for the evidence packet, whoever or whatever produced it. A methods reviewer checks collection and analysis. An editor prepares the publication and records its release decision.
+
+An agent may do the working part of any role within its declared scope. The release decision is a person's, as cutting a release is in Harbour's charter. The person responsible for a study remains identifiable. If one person fills several roles, the publication records that limitation rather than implying independent review.
 
 ## The investigation lifecycle
 
-An idea enters the question register with a reason it matters. Before work starts, its owner writes a brief specifying scope, available evidence, alternatives, intended output, resource limit and stopping condition. The study receives a stable identifier of the form LHnnn. The templates in LH F05 provide the register entry and the brief.
+An idea enters the question register with a reason it matters, whether a person or an agent proposed it. Before work starts, its owner writes a brief specifying scope, available evidence, alternatives, intended output, resource limit and stopping condition. The study receives a stable identifier of the form LHnnn. The templates in LH F05 provide the register entry and the brief.
 
 Collection produces versioned observations and instrument records. Analysis produces reproducible transformations and candidate claims. Review checks whether the evidence supports those claims. Publication exposes the relevant account and its limitations. The study then closes or names a specific follow-up question.
 
@@ -22,7 +24,7 @@ Exploratory work is welcome and labelled. If an unexpected pattern changes the s
 
 ### Suggested starting capacity
 
-Keep one close-observation study and one outward study active. Maintain a small methods queue. Admit another investigation when an existing one closes or a documented reason justifies the additional load. These are workload defaults, not claims about team size or funding.
+Keep one close-observation study and one outward study active. Maintain a small methods queue. Admit another investigation when an existing one closes or a documented reason justifies the additional load. These are workload defaults, not claims about team size or funding. The daily budget in LH F06 is the throttle on agent work; the reader's time is the throttle on publication.
 
 Each brief defines a bounded discovery allowance and a full execution ceiling before incurring new paid usage. Record existing service consumption as well as new spend. Reaching a limit produces a status record and a decision about further work; it does not silently extend the investigation.
 
@@ -50,6 +52,10 @@ Lighthouse stores the dispatch identifier in the study record and copies the dis
 When Harbour is also the subject, record the overlap. Check collection against another observation point where possible. Sensor failures and missing operational records may share a cause, so agreement between them is not sufficient on its own.
 
 The first workspace's north star, budget and seed tickets are in LH F06.
+
+## Outward sources
+
+Public sources are instruments too. Each one a study uses is registered with the instrument record in LH F05: its population, coverage boundary, unit, cadence, licence and access conditions, and its version at the date of use. A source's terms can forbid some uses and its coverage can change without notice, so a study cites the register entry and the export it made, not the live site. LH003 in LH F04 builds the first such register.
 
 ## Initial technical shape
 
@@ -113,7 +119,7 @@ Use the decision record in LH F05: question, options considered, choice, reason,
 
 ## Reviewing progress
 
-At the end of the initial programme, review the clarity gained, instruments calibrated, claims reproduced or corrected, evidence gaps made visible, and the cost of maintaining the work. Ask whether a reader or an operator made a better-informed decision because of the findings.
+At the end of the initial programme, review the clarity gained, instruments calibrated, claims reproduced or corrected, evidence gaps made visible, and the cost of maintaining the work. Ask whether a reader or an operator made a better-informed decision because of the findings. Ask also whether the watch would now detect the kind of event it is kept for, or can say honestly that it could not.
 
 Publication count and task completion describe throughput; they do not establish understanding. Useful progress can include showing that a proposed metric fails, or that an attractive metaphor does not predict the observations.
 

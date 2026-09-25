@@ -4,13 +4,13 @@ North star, budget and seed tickets
 
 Founding edition 0.2 (draft) | 25 September 2026 | LH F06
 
-Text to file when the Lighthouse workspace opens in Harbour. The workspace coordinates Lighthouse work and is also the first contained instance of what Lighthouse studies: an autopilot that leaves residue enabling its next run. Studies that use its records say so.
+Text to file when the Lighthouse workspace opens in Harbour. The autopilot does the work within the budget below; a person reads what it produces and decides what is published. The workspace is also the first contained instance of what Lighthouse studies: an autopilot that leaves residue enabling its next run. Here the observer, the subject it calibrates on and the phenomenon it studies are one object, and studies that use its records say so.
 
 ## North star
 
 Lighthouse publishes one reproducible observation of a known workflow and an honest account of its limits.
 
-We keep going until the results are interesting: writing worth reading, evidence that we are measuring real phenomena, and a clear relation to wider research. Task counts do not count. Publishing stays a human decision, as Harbour's charter already says. LH001 is the standard candle, the known light by which unknown ones are measured: until it exists, outward numbers are only counts.
+We keep going until the results are interesting: writing worth reading, evidence that we are measuring real phenomena, and a clear relation to wider research. Task counts do not count. Publishing stays a human decision, as cutting a release is in Harbour's charter. LH001 is the standard candle, the known light by which unknown ones are measured: until it exists, outward numbers are only counts.
 
 ## Budget
 

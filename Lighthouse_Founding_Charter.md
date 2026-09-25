@@ -6,6 +6,10 @@ Founding edition 0.2 (draft) | 25 September 2026 | LH F01
 
 Lighthouse is an observatory and research practice for the computational world. We study how information moves through software, infrastructure, humans and AI, how those structures change, and what their behaviour means for the people who depend on them. We also develop better ways to conduct that study.
 
+We keep this watch for a reason. AI systems now write code, run tasks and call one another across the internet, and what they leave behind can set the next run in motion without a person choosing it. Nobody yet knows whether such activity could sustain and spread itself in ways that degrade the infrastructure everyone shares, or how much of it already happens out of sight. Today the honest answer is that we do not know, and we intend to be able to tell. Lighthouse exists so that the shape of the internet, the flows of information through it, the compute behind them and the patterns they form are visible to the people who must decide what to do about them.
+
+The watch is kept largely by AI agents working within a stated budget and scope. People set the questions, read what comes back, and decide what is published. That division is deliberate: agent output is the ordinary case, and a person's attention is the scarce resource.
+
 Our promise is to make more of this world observable and to make our explanations answerable to evidence. We publish research notes, studies, reports, articles and essays, supported where possible by inspectable instruments, methods and datasets.
 
 A lighthouse does not steer ships. It stands at the harbour mouth and makes positions and hazards visible to whoever is navigating. The name states the ambition, its limit, and where it stands in relation to Harbour.
@@ -28,7 +32,7 @@ Our first durable contribution should be a trustworthy observation and an honest
 
 ## Two directions of observation
 
-Lighthouse looks inward to systems it can observe closely and outward to the wider internet. The two directions share methods and differ in access and certainty.
+Lighthouse looks inward to systems it can observe closely and outward to the wider internet. The outward direction is the purpose; the close direction is how the instruments earn the right to be believed. The two directions share methods and differ in access and certainty.
 
 ### Close observation
 
@@ -46,6 +50,8 @@ In astronomical terms, Harbour is the nearest star: the one source Lighthouse ca
 
 Public data, published measurements, passive observation and willing collaborators can provide a broader view. Each source exposes part of the environment. Coverage, sampling, revisions and inaccessible regions belong in the map itself.
 
+What emits is already considerable. Every public event on the largest code forge is archived hourly. The dependency graphs of the major package ecosystems are resolved and queryable. One of the largest networks publishes how much of its traffic comes from identified AI crawlers, and an API broker publishes which models its developers are running, by tokens. Vulnerability databases record disclosed compromises with dates, and archived source history survives the forge it came from. None of this was collected for Lighthouse's question, and each source has its own boundary, but together they are the light by which the shape of the wider internet is first read.
+
 An outward map records what emits into public data. Provider compute, private repositories and internal infrastructure are dark: their existence is inferred from effects such as usage reports, energy statements and patch waves, never observed directly. Each outward view states how much of its population it can see, or says that it cannot. A dark region is not an empty one.
 
 A complete and permanently current map is not our operating assumption. The internet is more like an expanding space than a fixed territory: it can grow faster than light from its far regions reaches us, so the map is always somewhat behind. Whether activity or infrastructure is in fact growing faster than our ability to measure it is a question to investigate within a defined population and period, not a premise.
@@ -62,11 +68,11 @@ Our scope includes computational activity, information flows, persistent state, 
 
 Mapping, explanation and risk assessment are complementary outputs. A map describes what is visible. An explanation proposes a mechanism. A risk assessment relates evidence and possible mechanisms to consequences over a stated time horizon.
 
-Self-replicating agents and a possible digital Kessler effect are research questions within this wider programme. Kessler's scenario is the orbital one in which debris from collisions causes further collisions until an orbit becomes unusable; the digital version asks whether harmful activity could sustain itself the same way. The three layers make such questions investigable. A self-sustaining pattern would appear not in any single burst of activity, which might be unremarkable, but in the relationship between bursts, where each leaves residue that enables the next. Such a phenomenon could endure while every individual process in it is transient; its identity would lie in the pattern being maintained and propagated. An ordinary deployment or a useful agent workflow can produce a similar pattern, so appearance alone establishes neither replication nor intent. These questions do not determine the conclusion, and they do not restrict Lighthouse to malicious activity. Beneficial automation and ordinary background behaviour provide essential comparisons.
+Self-replicating agents and a possible digital Kessler effect are the questions this watch is kept for, and they sit inside this wider programme rather than replacing it. Kessler's scenario is the orbital one in which debris from collisions causes further collisions until an orbit becomes unusable; the digital version asks whether harmful activity could sustain itself the same way. The three layers make such questions investigable. A self-sustaining pattern would appear not in any single burst of activity, which might be unremarkable, but in the relationship between bursts, where each leaves residue that enables the next. Such a phenomenon could endure while every individual process in it is transient; its identity would lie in the pattern being maintained and propagated. An ordinary deployment or a useful agent workflow can produce a similar pattern, so appearance alone establishes neither replication nor intent. These questions do not determine the conclusion, and they do not restrict Lighthouse to malicious activity. Beneficial automation and ordinary background behaviour provide essential comparisons.
 
 ### What Lighthouse is not
 
-Lighthouse is not a monitoring or alerting product, and its maps are not a census. It does not run experiments on systems without their operator's authority. It does not publish a risk it cannot connect to observations and a stated mechanism.
+Lighthouse is a standing watch, not an alerting service. It publishes what it sees on its own cadence; nobody subscribes to it for warnings about their own systems, and its maps are not a census. It does not run experiments on systems without their operator's authority. It does not publish a risk it cannot connect to observations and a stated mechanism.
 
 ## Commitments that guide the work
 
@@ -84,7 +90,7 @@ We keep research proportionate. Work begins with a bounded question, an accounta
 
 ## Authority and stewardship
 
-The founding steward sets direction and assigns responsibility for investigations and publication. Human responsibility remains explicit when agents perform research or execution. These documents define the intended practice. They do not grant access to any system, create a spending commitment, or authorise a public release.
+The founding steward sets direction and assigns responsibility for investigations and publication. Agents do most of the research and execution; a named person remains responsible for each study and for every release. These documents define the intended practice. They do not grant access to any system, create a spending commitment, or authorise a public release.
 
 Work uses public sources or access granted for a specified purpose. An experiment that changes a system needs that system's operator's authority. Where Harbour is the subject, Lighthouse respects the boundary Harbour's own charter draws between actions its AI may take and actions reserved for humans. Transparency includes explaining restrictions on evidence that cannot responsibly be shared.
 
@@ -92,6 +98,6 @@ The charter should change when evidence or experience reveals a flaw in the remi
 
 ## The founding commitment
 
-We will begin with a known workflow and a modest outward survey. Each will produce useful evidence even if its first hypothesis fails. Together they establish the close and broad views on which Lighthouse can grow.
+We will begin with a known workflow, a catalogue of the surveys that already exist, one historical case and a modest outward survey. Each will produce useful evidence even if its first hypothesis fails. Together they establish the close and broad views on which Lighthouse can grow, and bring the watch to the point where it can say what it would and would not see.
 
 The companion documents define the research design (LH F02), the operating practice (LH F03), the first programme (LH F04), the study templates (LH F05) and the first workspace plan (LH F06). Their initial choices can be revised as the work teaches us what is useful.
