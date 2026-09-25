@@ -27,6 +27,10 @@ Lighthouse uses Harbour in two ways, as its first calibration subject and as the
 
 The wider internet is the reason for the watch; Harbour is how the instruments are calibrated. Lighthouse sees the internet through what emits into public data: repository events, dependency graphs, identified crawler traffic, model usage rankings, vulnerability records and archived source history. F02 lists the sources and what each can and cannot see. F04's outward studies begin with a survey of those surveys (LH003), a historical propagation case (LH004) and a bounded neighbourhood map (LH002). This edition says little about the internet that is not borrowed from those sources, because Lighthouse has not yet observed it. That is the gap the first programme is designed to close.
 
+## Running the watch
+
+The workspace as files lives in [harbour/](harbour/): the north star, the tickets, the boot and export script, and the exports of what Harbour recorded. [AGENTS.md](AGENTS.md) holds the house rules for any agent; [CLAUDE.md](CLAUDE.md) the procedure for a Claude Code session.
+
 ## Glossary
 
 - **Activity, residue, propagation.** The three observational layers in F01 and F02: computation happening; the altered structure and state it leaves behind; and the influence of that residue on later activity elsewhere. Propagation is measured as typed links between residue and later activity, not as a surface of its own. The charter's images for the three are the ripple of light, its afterglow, and the spreading pattern.

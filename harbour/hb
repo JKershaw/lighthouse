@@ -1,0 +1,206 @@
+#!/usr/bin/env bash
+# hb: run a local Harbour for the Lighthouse workspace, load it from this
+# repository, drive dispatches, and export what it recorded. See CLAUDE.md.
+set -euo pipefail
+REPO="$(cd "$(dirname "$0")/.." && pwd)"
+WS="$REPO/harbour"
+SESSION="$WS/.session"
+SRC="${HARBOUR_SRC:-$HOME/.cache/harbour-src}"
+PORT="${HARBOUR_PORT:-3123}"
+H="http://localhost:$PORT"
+JAR="$SESSION/cookies.txt"
+mkdir -p "$SESSION"
+
+die() { echo "hb: $*" >&2; exit 1; }
+need() { [ -s "$SESSION/$1" ] || die "no $1 in $SESSION; run 'hb up' first"; cat "$SESSION/$1"; }
+key() { need urlkey; }
+dtok() { need dispatch-token; }
+ptok() { need proxy-token; }
+jq_() { python3 -c "import json,sys; d=json.load(sys.stdin); $1"; }
+curl_s() { curl -sS -c "$JAR" -b "$JAR" "$@"; }
+curl_d() { curl -sS -H "Authorization: Bearer $(dtok)" "$@"; }
+curl_p() { curl -sS -H "Authorization: Bearer $(ptok)" "$@"; }
+
+cmd_up() {
+  if [ ! -d "$SRC/node_modules" ]; then
+    echo "cloning Harbour into $SRC"
+    rm -rf "$SRC"; git clone -q --depth 1 https://github.com/JKershaw/LinearViewer.git "$SRC"
+    (cd "$SRC" && npm install --no-audit --no-fund >/dev/null 2>&1)
+  fi
+  git -C "$SRC" rev-parse HEAD > "$SESSION/harbour-commit"
+  rm -rf "$SESSION/data"; mkdir -p "$SESSION/data"
+  SECRET="$(head -c 32 /dev/urandom | base64 | tr -d '=+/')"
+  printf 'SESSION_SECRET=%s\nPORT=%s\nHARBOUR_DATA_DIR=%s\n' "$SECRET" "$PORT" "$SESSION/data" > "$SRC/.env"
+  if [ "${HARBOUR_AI:-1}" = "1" ]; then AI=""; else AI="-u OPENROUTER_API_KEY"; fi
+  (cd "$SRC" && env $AI nohup node server.js > "$SESSION/harbour.log" 2>&1 & echo $! > "$SESSION/pid")
+  curl -sS --retry 40 --retry-delay 1 --retry-connrefused -o /dev/null "$H/" || die "server did not come up; see $SESSION/harbour.log"
+  rm -f "$JAR"
+  LOC="$(curl_s -o /dev/null -w '%{redirect_url}' -X POST -d 'name=Lighthouse' "$H/workspace/new")"
+  KEY="$(echo "$LOC" | sed -n 's#.*/workspace/\([^/]*\).*#\1#p')"; [ -n "$KEY" ] || die "workspace creation failed: $LOC"
+  echo "$KEY" > "$SESSION/urlkey"
+  # the proxy, roadmap and next-run pages are per-session feature flags; switch them on
+  for f in proxy roadmap nextRun dispatch; do
+    curl_s -o /dev/null -X POST -H 'content-type: application/json' -H 'x-requested-with: fetch' -d "{\"feature\":\"$f\",\"enabled\":true}" "$H/workspace/$KEY/settings/features"
+  done
+  curl_s -X POST -H 'content-type: application/json' -d '{"label":"lighthouse-driver"}' "$H/workspace/$KEY/api/dispatch/tokens" | jq_ "print(d['token'])" > "$SESSION/dispatch-token" || die "dispatch token mint failed"
+  curl_s -X POST -H 'content-type: application/json' -d '{"label":"lighthouse-driver","scope":"readWrite"}' "$H/workspace/$KEY/api/proxy/tokens" > "$SESSION/proxy-mint.json"
+  python3 -c "import json,sys; d=json.load(open('$SESSION/proxy-mint.json')); t=d.get('token'); sys.exit('proxy token mint failed: '+json.dumps(d)) if not t else open('$SESSION/proxy-token','w').write(t)" || die "see $SESSION/proxy-mint.json"
+  rm -f "$SESSION/proxy-mint.json"
+  echo "harbour $(cut -c1-12 "$SESSION/harbour-commit") up on $H, workspace $KEY, tokens minted into $SESSION (git-ignored)"
+}
+
+cmd_load() {
+  KEY="$(key)"
+  PROJ="$(curl_p "$H/api/proxy/projects" | jq_ "p=(d.get('projects') or [])[0]; print(p['id']+'|'+p['name'])")"
+  PID="${PROJ%%|*}"; PNAME="${PROJ#*|}"
+  python3 - "$WS/tickets.json" "$SESSION/issues.json" "$PID" "$H" "$(ptok)" <<'PY'
+import json,sys,urllib.request
+tickets,out,pid,H,tok=sys.argv[1:6]
+rows=json.load(open(tickets)); mapping={}
+for t in rows:
+    body={"title":f"{t['id']} {t['title']}","description":t["description"],"projectId":pid,
+          "stateId":{"todo":"todo","backlog":"backlog","started":"in-progress","done":"done"}[t.get("status","todo")],
+          "priorityLevel":t.get("priorityLevel",2)}
+    req=urllib.request.Request(H+"/api/proxy/issues",data=json.dumps(body).encode(),method="POST",
+        headers={"content-type":"application/json","Authorization":"Bearer "+tok})
+    with urllib.request.urlopen(req) as r: d=json.load(r)
+    iss=d.get("issue",d); mapping[t["id"]]={"identifier":iss.get("identifier"),"issueId":iss.get("id"),"state":(iss.get("state") or {}).get("name")}
+    print(f"{t['id']:8} -> {iss.get('identifier'):9} {iss.get('state',{}).get('name','?'):12} {t['title']}")
+json.dump(mapping,open(out,"w"),indent=2)
+PY
+  cmd_northstar
+  echo "loaded into project '$PNAME'"
+}
+
+cmd_northstar() {
+  KEY="$(key)"
+  NS="$(python3 -c "import json; print(json.dumps(open('$WS/north-star.md').read().strip()))")"
+  curl_s -o /dev/null -w 'north star: %{http_code}\n' -X PUT -H 'content-type: application/json' -d "{\"northStar\":$NS}" "$H/workspace/$KEY/api/roadmap/north-star"
+}
+
+cmd_status() {
+  KEY="$(key)"
+  echo "server: $(curl -s -o /dev/null -w '%{http_code}' "$H/") workspace: $KEY harbour: $(cut -c1-12 "$SESSION/harbour-commit")"
+  curl_p "$H/api/proxy/issues?limit=250" | jq_ "[print(f\"{i['identifier']:9} {i['state']['name']:12} {i['title']}\") for i in d['issues']]"
+  echo "queued for consumers: $(curl_d "$H/api/dispatch/poll" | jq_ "print(len(d['items']))")"
+}
+
+cmd_next() {
+  KEY="$(key)"; TS="$(date -u +%Y%m%dT%H%M%SZ)"
+  curl_s -X POST -H 'content-type: application/json' -d '{}' --max-time 180 "$H/workspace/$KEY/api/next-run/suggest" | tee "$SESSION/next-run-$TS.json" | python3 -c "
+import json,sys; d=json.load(sys.stdin)
+print('model:', d.get('model'))
+for o in d.get('options', d.get('suggestions', [])):
+    print('-', o.get('size') or o.get('effort') or '', '|', o.get('title') or o.get('label') or o.get('identifier'), '|', (o.get('reasoning') or o.get('why') or '')[:220])
+if not d.get('options') and not d.get('suggestions'): print(json.dumps(d)[:1500])"
+}
+
+cmd_roadmap() {
+  KEY="$(key)"; TS="$(date -u +%Y%m%dT%H%M%SZ)"
+  NS="$(python3 -c "import json; print(json.dumps(open('$WS/north-star.md').read().strip()))")"
+  curl_s -X POST -H 'content-type: application/json' -d "{\"northStar\":$NS}" --max-time 240 "$H/workspace/$KEY/api/roadmap/generate" | tee "$SESSION/roadmap-$TS.json" | python3 -c "
+import json,sys; d=json.load(sys.stdin); r=d.get('report',d)
+for k in ('id','model','createdAt','northStarReading','gap','summary','headline'):
+    if r.get(k): print(k+':', str(r[k])[:600])
+print('keys:', list(r.keys())[:20])"
+}
+
+cmd_dispatch() {
+  ID="${1:?ticket id}"; KIND="${2:-}"
+  python3 - "$WS/tickets.json" "$SESSION/issues.json" "$ID" "$KIND" "$H" "$(ptok)" "$REPO" <<'PY'
+import json,sys,urllib.request
+tf,mf,tid,kind,H,tok,repo=sys.argv[1:8]
+t=next((t for t in json.load(open(tf)) if t["id"]==tid),None) or sys.exit(f"no ticket {tid}")
+m=json.load(open(mf)).get(tid) or sys.exit(f"{tid} not loaded; run hb load")
+kind=kind or t["kind"]
+prompt=(f"{t['id']} {t['title']}\n\n{t['description']}\n\nWork in the repository at {repo}. Follow AGENTS.md there. "
+        "Commit the deliverable. When finished, report what you did, what could not be done, and the files you changed.")
+body={"prompt":prompt,"promptName":kind,"kind":kind,"issueIdentifier":m["identifier"],"issueId":m["issueId"],"issueTitle":f"{t['id']} {t['title']}","target":"cli","appendProxyContext":False}
+def post(b):
+    req=urllib.request.Request(H+"/api/proxy/dispatch",data=json.dumps(b).encode(),method="POST",headers={"content-type":"application/json","Authorization":"Bearer "+tok})
+    try:
+        with urllib.request.urlopen(req) as r: return json.load(r)
+    except urllib.error.HTTPError as e: return {"error":e.read().decode()[:300],"status":e.code}
+d=post(body)
+if "error" in d and "issueId" in str(d.get("error")): body.pop("issueId"); d=post(body)
+print(json.dumps({k:d.get(k) for k in ("id","status","kind","issueIdentifier","error","code")}))
+PY
+}
+
+cmd_take() {
+  ITEM="$(curl_d "$H/api/dispatch/poll" | jq_ "print(d['items'][0]['id'] if d['items'] else '')")"
+  [ -n "$ITEM" ] || die "queue is empty"
+  mkdir -p "$SESSION/taken"
+  curl_d -X POST "$H/api/dispatch/take/$ITEM" > "$SESSION/taken/$ITEM.json"
+  python3 -c "import json; d=json.load(open('$SESSION/taken/$ITEM.json'))['item']; print('taken', d['id'], d['kind'], d['issueIdentifier']); print('---'); print(d['prompt'])"
+}
+
+cmd_feedback() { ID="${1:?item id}"; MSG="${2:?message}"; KIND="${3:-}"
+  python3 - "$ID" "$MSG" "$KIND" "$H" "$(dtok)" <<'PY'
+import json,sys,urllib.request
+id_,msg,kind,H,tok=sys.argv[1:6]
+b={"message":msg}; 
+if kind: b["kind"]=kind
+req=urllib.request.Request(f"{H}/api/dispatch/feedback/{id_}",data=json.dumps(b).encode(),method="POST",headers={"content-type":"application/json","Authorization":"Bearer "+tok})
+with urllib.request.urlopen(req) as r: print(r.read().decode())
+PY
+}
+cmd_usage() { ID="${1:?item id}"; JSON="${2:?usage json}"; cmd_feedback "$ID" "[usage] $JSON" usage; }
+cmd_done() { ID="${1:?item id}"; MSG="${2:?message}"; cmd_feedback "$ID" "[done] $MSG"; }
+cmd_failed() { ID="${1:?item id}"; MSG="${2:?message}"; cmd_feedback "$ID" "[failed] $MSG"; }
+cmd_resources() { ID="${1:?item id}"
+  J="$(python3 -c "
+import json,os
+la=float(open('/proc/loadavg').read().split()[0]); mi={l.split(':')[0]:int(l.split()[1])*1024 for l in open('/proc/meminfo')}
+print(json.dumps({'loadAvg1':la,'cpuCount':os.cpu_count(),'hostMemTotalBytes':mi['MemTotal'],'hostMemAvailableBytes':mi['MemAvailable']}))")"
+  cmd_feedback "$ID" "[resources] $J" resources; echo "$J"; }
+
+cmd_export() {
+  KEY="$(key)"; TS="$(date -u +%Y%m%dT%H%M%SZ)"; DIR="$WS/exports/$TS"; mkdir -p "$DIR"
+  curl_p "$H/api/proxy/issues?limit=250" > "$DIR/issues.json"
+  curl_p "$H/api/proxy/dispatch" > "$DIR/dispatches.json"
+  curl_s "$H/workspace/$KEY/api/dispatch/history" > "$DIR/history.json"
+  curl_p "$H/api/proxy/north-star" > "$DIR/north-star.json"
+  curl_s "$H/workspace/$KEY/api/roadmap/reports" > "$DIR/roadmap-reports.json"
+  python3 - "$DIR" "$H" "$(ptok)" <<'PY'
+import json,sys,urllib.request
+d,H,tok=sys.argv[1:4]; cost={}
+for i in json.load(open(f"{d}/issues.json")).get("issues",[]):
+    req=urllib.request.Request(f"{H}/api/proxy/issues/{i['identifier']}/cost",headers={"Authorization":"Bearer "+tok})
+    try:
+        with urllib.request.urlopen(req) as r: cost[i["identifier"]]=json.load(r)
+    except Exception as e: cost[i["identifier"]]={"error":str(e)[:120]}
+json.dump(cost,open(f"{d}/cost.json","w"),indent=2)
+PY
+  cp "$SESSION"/next-run-*.json "$SESSION"/roadmap-*.json "$DIR"/ 2>/dev/null || true
+  python3 - "$DIR" "$SESSION" "$KEY" "$WS/tickets.json" <<'PY'
+import json,sys,os,re,glob
+d,s,key,tf=sys.argv[1:5]
+manifest={"collectedAt":os.path.basename(d),"harbourCommit":open(f"{s}/harbour-commit").read().strip(),"workspace":key,"files":sorted(os.listdir(d))}
+json.dump(manifest,open(f"{d}/manifest.json","w"),indent=2)
+# never let a token leave the session directory
+secrets=[open(f"{s}/{n}").read().strip() for n in ("dispatch-token","proxy-token") if os.path.exists(f"{s}/{n}")]
+for f in glob.glob(f"{d}/*.json"):
+    t=open(f).read(); u=t
+    for sec in secrets: u=u.replace(sec,"[redacted]")
+    u=re.sub(r"Bearer [A-Za-z0-9_-]{30,}","Bearer [redacted]",u)
+    if u!=t: open(f,"w").write(u); print("redacted a credential in",os.path.basename(f))
+# round-trip ticket status from Harbour's issue states
+states={"backlog":"backlog","unstarted":"todo","started":"started","completed":"done","canceled":"done"}
+issues=json.load(open(f"{d}/issues.json")).get("issues",[]); tickets=json.load(open(tf)); changed=0
+for t in tickets:
+    for i in issues:
+        if i["title"].startswith(t["id"]+" "):
+            new=states.get((i.get("state") or {}).get("type"),t["status"])
+            if new!=t["status"]: t["status"]=new; changed+=1
+json.dump(tickets,open(tf,"w"),indent=2,ensure_ascii=False)
+print(f"exported to {d}: {len(manifest['files'])} files; ticket statuses changed: {changed}")
+PY
+}
+
+cmd_down() { if [ -s "$SESSION/pid" ]; then kill "$(cat "$SESSION/pid")" 2>/dev/null && echo "stopped" || echo "not running"; rm -f "$SESSION/pid"; fi; }
+
+case "${1:-}" in
+  up|load|northstar|status|next|roadmap|dispatch|take|feedback|usage|done|failed|resources|export|down) c="$1"; shift; "cmd_$c" "$@";;
+  *) echo "usage: hb up|load|northstar|status|next|roadmap|dispatch <ticket> [kind]|take|feedback <id> <msg> [kind]|usage <id> <json>|resources <id>|done <id> <msg>|failed <id> <msg>|export|down"; exit 2;;
+esac

@@ -1,86 +1,44 @@
 # CLAUDE.md
 
-Working notes for agents in the Lighthouse repository. Read the README first; it indexes the founding documents. This file records how the practice is run from a Claude Code session, as verified on 25 September 2026.
+Procedure for driving Lighthouse from a Claude Code session. The house rules for any agent are in AGENTS.md; read it first. Verified in a Claude Code cloud session on 25 September 2026.
 
-## What this repository is
+## The shape of a session
 
-Lighthouse is an observatory for the computational world: a standing watch, kept largely by agents, on how information flows through software and AI and what that activity leaves behind. The founding documents, LH F01 to F06, define the practice. Harbour (https://harbour.cat, source at https://github.com/JKershaw/LinearViewer) is the control plane that coordinates Lighthouse's tasks and is also its first calibration subject.
+A session is a tick, not a daemon. Nothing in the container survives it, and the repository is public, so Harbour's store and its tokens are never committed. The repository holds the workspace as files; each session rehydrates a fresh local Harbour from them and exports what Harbour recorded before it ends.
 
-## House rules for any agent working here
+1. `harbour/hb up` boots Harbour with its file store under `harbour/.session/` (git-ignored), creates the workspace, switches on the proxy, roadmap and next-run features, and mints a dispatch token and a readWrite proxy token into the same directory.
+2. `harbour/hb load` files every ticket in `harbour/tickets.json` and sets the north star from `harbour/north-star.md`.
+3. `harbour/hb roadmap` and `harbour/hb next` ask Harbour for a roadmap report and a suggested next run. Both call an LLM through OpenRouter with the environment's key, so keep them to once per session unless the backlog has changed.
+4. `harbour/hb dispatch <ticket>` queues a ticket. `harbour/hb take` claims the next queued item and prints its prompt.
+5. Hand the taken item to a subagent, as below. When it reports, post the result: `hb feedback <id> "<what was done>"`, `hb usage <id> '<json>'` with the launcher's token figures, `hb resources <id>` for a host sample, then `hb done <id> "<message>"` or `hb failed <id> "<reason>"`.
+6. `harbour/hb export` writes what Harbour recorded into `harbour/exports/<collection time>/` and carries ticket statuses back into `tickets.json`. `harbour/hb down` stops the server. Commit and push.
 
-- British English. No em dashes or en dashes in prose; use commas, colons or full stops. Hyphens inside identifiers, file names and command output are data, not punctuation.
-- Studies use the plain names: activity, residue, propagation, observation, instrument. Images such as the coral, the ripple, the afterglow, the nearest star and the standard candle belong to essays and the charter, and arrive with their literal meaning the first time they are used.
-- Label a statement as observation, derived measurement, interpretation or scenario wherever a reader could confuse them.
-- Leave unfillable fields blank and say what could not be filled. Never invent a timing, a count or a source.
-- Study write-ups use the skeleton in LH F05: header, Answer, Findings, Method, Limits, Next, Corrections.
-- Agents do not publish, do not spend beyond the stated budget, and do not change Harbour. A person reads and releases.
-- Tables keep the same number of columns in every row. Identifiers: LHnnn for studies, I-nnnn for instruments, Q-nnnn for questions, D-nnnn for decisions, C-nnnn for claims, L-nnnn for ledger entries.
-- Commit with a clear message and never rewrite history on a shared branch.
+`HARBOUR_SRC` names an existing clone to reuse; otherwise `hb up` clones Harbour into `~/.cache/harbour-src` and installs it, about a minute. `HARBOUR_AI=0` starts Harbour without the OpenRouter key. `hb status` shows the server, the issues and the queue at any time.
 
-## Running Harbour in a Claude Code cloud session
+## Subagents as consumers
 
-Verified in this environment with Node 22, no MongoDB and no Linear account.
+Spawn one subagent per taken item. Give it the item's prompt, the repository path, AGENTS.md, a scratch directory, and two rules: it must not read keys from the environment, and it must not post to Harbour itself. The driver posts the feedback, because only the driver can see the subagent's token usage.
 
-1. Clone and install outside this repository; the session scratchpad is fine.
+Model choice: Haiku for chores such as polling, running commands and posting results; Sonnet for analysis and writing; Opus or Fable for review. The Agent launcher's `model` parameter takes `haiku`, `sonnet`, `opus` or `fable`. A Fable subagent that took one trivial dispatch used about 71,000 tokens over 13 tool calls in four and a half minutes.
 
-```
-git clone --depth 1 https://github.com/JKershaw/LinearViewer.git harbour
-cd harbour && npm install --no-audit --no-fund
-```
+## What persists and what does not
 
-2. Configure and start. Two variables are enough. `HARBOUR_DATA_DIR` points the file store at a directory of your choice; unset, it is `./data` inside the clone. Do not pass the OpenRouter key unless the AI features are wanted, because they spend money.
+- Persisted, in git: `tickets.json` with statuses, `north-star.md`, `exports/`, and every deliverable a task commits.
+- Not persisted: Harbour's store, sessions, tokens, and the clone. Each boot creates a new workspace, so Harbour-side history lives on only through the exports, which redact any credential before writing.
+- The export is an observation with a collection time, as LH F02 asks. Its manifest records the Harbour commit it was taken from.
 
-```
-printf 'SESSION_SECRET=<random string>\nPORT=3123\n' > .env
-env -u OPENROUTER_API_KEY nohup node server.js > harbour.log 2>&1 &
-curl -sS --retry 30 --retry-delay 1 --retry-connrefused -o /dev/null -w "%{http_code}\n" http://localhost:3123/
-```
+## Harbour facts that matter here
 
-Boot warnings about missing Linear OAuth variables are expected. The web UI is not reachable from outside the container, so everything below goes through the HTTP API with curl.
+- The proxy, roadmap and next-run pages are per-session feature flags; `hb up` switches them on, and token minting is refused until the proxy flag is on.
+- Proxy-issued dispatches may target `cli`, `web` or `dash` only. A second dispatch for the same issue and kind within five minutes is refused as a duplicate.
+- `kind` must be a real template key: `research`, `plan`, `implementation`, `review`, `design`, `breakdown`, `look-into`, `triage`, `scoping`, `spike`, `context`, `retro`, `blocked`, or `custom`.
+- A usage entry is a feedback entry with `"kind": "usage"` and a `[usage]` message carrying JSON: `model`, `harness`, `effort`, `inputTokens`, `outputTokens`, `cacheReadInputTokens`, `cacheCreationInputTokens`, `costUsd`. The marker in the message alone is not enough. A `resources` entry carries `loadAvg1`, `cpuCount`, `hostMemTotalBytes`, `hostMemAvailableBytes` and others; Harbour parses it and nothing produced it before `hb resources`.
+- A taken item's stored status stays `taken`; the terminal status is derived from the last feedback message beginning `[done]`, `[failed]` or `[aborted]`.
+- Harbour's own LLM calls use OpenRouter's `openai/gpt-5.4-mini` by default.
 
-3. Create a local workspace. No login is needed. The redirect names the workspace's `urlKey`, which is also its partition in the store. Keep the cookie jar: it is the human session.
+## Requests to file against Harbour
 
-```
-J=cookies.txt
-curl -sS -c $J -b $J -o /dev/null -w "%{redirect_url}\n" -X POST -d "name=Lighthouse" http://localhost:3123/workspace/new
-```
-
-The workspace is seeded with two issues, LOCAL-1 and LOCAL-2.
-
-4. Mint a consumer token. It is shown once.
-
-```
-curl -sS -c $J -b $J -X POST -H "content-type: application/json" -d '{"label":"lighthouse-consumer"}' http://localhost:3123/workspace/<urlKey>/api/dispatch/tokens
-```
-
-5. Queue a task. `prompt` is required. Omit `issueId` for local issues, since the validator expects a provider id; `issueIdentifier` is enough. `kind` must be a real template key such as `research`. A second dispatch for the same issue and kind within five minutes is refused as a duplicate unless the body carries `"force": true`.
-
-```
-curl -sS -c $J -b $J -X POST -H "content-type: application/json" \
-  -d '{"prompt":"...","promptName":"research","kind":"research","issueIdentifier":"LOCAL-2","target":"cli"}' \
-  http://localhost:3123/workspace/<urlKey>/api/dispatch
-```
-
-6. Consume. The consumer API needs only the bearer token, no session.
-
-```
-GET  /api/dispatch/poll
-POST /api/dispatch/take/<item id>
-POST /api/dispatch/feedback/<item id>    {"message":"...","url":"...","urlLabel":"..."}
-```
-
-End every run with exactly one terminal marker at the start of a feedback message: `[done]`, `[failed]` or `[aborted]`. The stored status stays `taken`; the terminal status is derived from the marker. Report usage as a feedback entry whose body carries `"kind": "usage"` and whose message is `[usage]` followed by JSON with any of `model`, `harness`, `effort`, `inputTokens`, `outputTokens`, `cacheReadInputTokens`, `cacheCreationInputTokens` and `costUsd`. The `kind` field is what Harbour's cost parser keys on; the marker in the message alone is not enough, and the smoke test's usage entry, posted without `kind`, was stored as plain feedback. The last usage entry wins, and Harbour prices it on `GET /api/proxy/issues/<identifier>/cost`, which needs a proxy token. An entry with `"kind": "resources"` and a `[resources]` message carrying host figures (`loadAvg1`, `cpuCount`, `peakRssBytes`, `hostMemTotalBytes` and others) is parsed but nothing produces it yet; Lighthouse's host sampler could be the first producer.
-
-7. What persists. The file store writes JSON under the data directory: `dispatch-history.json`, `dispatch-tokens.json`, `local-issues.json`, `sessions.json`, `accounts.json` and others. Sessions and the human cookie survived a server restart. `sessions.json` and the token files are secrets: if the data directory ever lives in a repository, keep them out of it or keep that repository private.
-
-## A subagent as the consumer
-
-A Claude Code subagent can take a dispatch. Verified with dispatch `75516e46` on 25 September 2026: taken 42 seconds after queueing, three feedback entries posted, an observation note written, queue empty afterwards. Spawn the agent with the server URL, the bearer token, the steps above, a directory it may write to, and the rule that it must not touch this repository or read keys from the environment. Ask it to report the item id, the fields it received, what it wrote and what failed.
-
-Model choice: the consumer role needs none of Fable's judgement. Use Haiku for polling, taking, running commands and posting feedback. Use Sonnet when the task involves analysis or writing a study. Reserve Opus or Fable for review. The Agent launcher's `model` parameter takes `haiku`, `sonnet`, `opus` or `fable`. The Fable run above used about 71,000 tokens over 13 tool calls in four and a half minutes for a trivial task; a Haiku run should cost a small fraction of that. A subagent cannot see its own token usage from inside the task, so its usage entry names only the model and harness unless the launcher supplies the figures afterwards.
-
-## Things learned that belong in Harbour requests
-
-- No route was found to re-enter an existing local workspace from a fresh browser session. Headless use is unaffected, because tokens persist; the human view is not.
-- The `[resources]` feedback kind has no producer.
-- The two asks already in LH F06: a study marker beside the ticket markers, and a labelled read token so that Lighthouse's collection traffic is recognisable in the audit log.
+- Import and export a local workspace as plain files, which would replace `hb load` and most of `hb export`.
+- A headless way to boot a local workspace with its features on and its tokens printed, without a browser session.
+- A producer for the `resources` feedback kind in Harbour's own runners.
+- From LH F06: a study marker beside the ticket markers, and a labelled read token so that Lighthouse's collection traffic is recognisable in the audit log.
