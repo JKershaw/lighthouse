@@ -11,7 +11,7 @@ This repository holds the founding documents. They are drafts. They define an in
 | LH F01 | [Founding Charter](Lighthouse_Founding_Charter.md) | Purpose, scope, commitments, authority | You want to know what Lighthouse is for and what it will not do |
 | LH F02 | [Research Design](Lighthouse_Research_Design.md) | The observable model, measurement surfaces and rules, evidence records, risk assessment, sources | You are designing or reviewing a study |
 | LH F03 | [Operating Handbook](Lighthouse_Operating_Handbook.md) | Roles, the investigation lifecycle, the Harbour interface, publication, corrections, boundaries | You are running or publishing a study |
-| LH F04 | [Initial Research Programme](Lighthouse_Initial_Research_Programme.md) | The first twelve weeks: LH001, LH002, and the decisions to make at commencement | You are about to start work |
+| LH F04 | [Initial Research Programme](Lighthouse_Initial_Research_Programme.md) | The first twelve weeks: LH001 to LH004 and the decisions to make at commencement | You are about to start work |
 | LH F05 | [Study Templates](Lighthouse_Study_Templates.md) | The editable records the other documents refer to | You are opening a study, registering an instrument, or recording a decision |
 | LH F06 | [Harbour Workspace Plan](Lighthouse_Harbour_Workspace_Plan.md) | North star, budget and seed tickets for the first workspace | You are opening the Lighthouse workspace in Harbour |
 
@@ -40,6 +40,8 @@ Harbour already publishes empirical papers about its own workflow under its own 
 - **Question register, decision record, release record, correction record.** The bookkeeping forms in F05.
 - **Steward, owner, methods reviewer, editor.** The four roles in F03. One person may hold several; the record says which checks were independent.
 - **Close observation, outward observation.** The two directions in F01: systems Lighthouse can instrument directly, and the wider internet seen through public data.
+- **Standard candle.** A source whose output is known, used to calibrate an instrument and to scale unknown sources. LH001's workflow is Lighthouse's first.
+- **Luminous fraction.** The part of a population that emits into public data. The rest is dark and is inferred from its effects.
 - **Dispatch.** Harbour's unit of work: a prompt queued for an agent, with its requested model, harness, timestamps and the agent's feedback.
 - **Digital Kessler hypothesis.** A proposed scenario, named by analogy with orbital debris, in which harmful digital activity replenishes itself and degrades shared infrastructure. A question, not a finding.
 
@@ -48,4 +50,4 @@ Harbour already publishes empirical papers about its own workflow under its own 
 | Edition | Date | Change |
 | --- | --- | --- |
 | 0.1 | 25 September 2026 | First draft of F01 to F04 |
-| 0.2 (draft) | 25 September 2026 | Review edition. Sources re-checked and extended; Harbour interface aligned with Harbour's documented records; templates added as F05; this index added; the three observational layers and the complement-to-Harbour framing made explicit from the originating conversation; F06 workspace plan added. Details in [REVIEW.md](REVIEW.md) |
+| 0.2 (draft) | 25 September 2026 | Review edition. Sources re-checked and extended; Harbour interface aligned with Harbour's documented records; templates added as F05; this index added; the three observational layers and the complement-to-Harbour framing made explicit from the originating conversation; F06 workspace plan added; the observatory sequence (catalogue, calibrate, explain, dynamics), the standard candle and the luminous fraction folded in, with LH003 and LH004 added. Details in [REVIEW.md](REVIEW.md) |

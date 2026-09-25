@@ -34,7 +34,7 @@ Real hardware requires the device type, allocation and measurement method to be 
 
 ### Several views of the same observations
 
-Absolute activity shows continuing work. Deviation from an appropriate baseline highlights change. Flow views show direction and volume. Dependency views show what relies on what. State comparisons show persistent alterations. None replaces the others.
+Absolute activity shows continuing work. Deviation from an appropriate baseline highlights change; a transient is a deviation from a reference image of the same region, and the reference, its date and its instrument are part of the observation. Flow views show direction and volume. Dependency views show what relies on what. State comparisons show persistent alterations. None replaces the others.
 
 The global now is represented through time windows. Record event time, collection time, clock uncertainty and late arrivals. The picture of the whole network is assembled from observations with different delays and resolutions, so the apparent shape of a burst partly depends on the instruments and timescale chosen; state both. A lag between two series can suggest a relationship, but clock error, queues or a common cause may explain it.
 
@@ -85,6 +85,8 @@ Every material claim identifies its supporting evidence, method version, scope, 
 
 Use known events, repeatable workloads and independently recorded operational outcomes to test detection and timing. Measure false positives and missed events where labels allow it.
 
+A standard candle is a source whose intrinsic output is known, so that its observed signal calibrates the instrument and scales unknown sources. LH001's workflow is Lighthouse's first: a dispatch with recorded tokens, requests and changes, observed by the same instruments that will later observe unknown activity. A standard candle is valid only within the instrument, observation point and boundary it was measured with, and only while the relation between input and signature holds; re-check it when any of those change. An outward reading interpreted through a standard candle carries the candle's version.
+
 Harbour's records are the first comparator [S12]. They are server-timestamped for queueing and claiming, but progress and completion are reported by the agent itself, so they show what was asked and what was claimed rather than what happened on the host. They may be incomplete or share a failure with the sensor. At the time of writing, dispatch items expire after twenty-four hours and feedback, status and audit records are retained for thirty days, so the export rule above applies.
 
 Separate exploratory findings from tests specified in advance. Preserve failed runs and protocol changes. When comparing workflows, declare the unit of comparison, task selection, sample size rationale, exclusions and likely confounders. A pilot calibrates a method; a small convenience sample cannot estimate internet-wide prevalence.
@@ -92,6 +94,8 @@ Separate exploratory findings from tests specified in advance. Preserve failed r
 ### Collection and interpretation boundaries
 
 Start from metadata sufficient to answer the question. Contents, personal data, secrets and customer material require a specific research need and a recorded handling decision. Published datasets use a reviewed subset or aggregation, with restrictions described. The Menlo Report's principles for research on information and communication technology are the reference for these decisions [S9].
+
+The outward map covers the luminous fraction: what emits into public data. Provider compute, private repositories and internal infrastructure are dark and are inferred from their effects. Every outward view states its luminous fraction where it can be estimated and says unknown where it cannot. A dark region is not an empty one, and a bright one is not necessarily important.
 
 A visually important node may be a measurement artefact. A central node in an incomplete graph may simply be better observed. Test claims about criticality against dependency records or authorised controlled tests before describing a node as essential.
 
@@ -203,3 +207,39 @@ https://github.com/JKershaw/LinearViewer/blob/main/docs/proxy-integration.md
 Harbour's writing standard for papers and essays defines the header fields and the Answer, Findings, Method, Limits and Next structure that Lighthouse studies adopt in LH F03. Checked: page resolves and matches.
 
 https://github.com/JKershaw/LinearViewer/blob/main/docs/papers/standard.md
+
+### S14 The xz backdoor report
+
+Andres Freund, backdoor in upstream xz/liblzma leading to ssh server compromise, oss-security list, 29 March 2024. A first-hand account of detecting the compromise from ssh logins taking unusual CPU and running more slowly. The primary source for the activity-layer detection in LH004. Checked: page resolves and matches.
+
+https://www.openwall.com/lists/oss-security/2024/03/29/4
+
+### S15 CVE-2024-3094
+
+National Vulnerability Database record for the xz backdoor: malicious code in upstream tarballs from version 5.6.0, published 29 March 2024, base score 10.0. Checked through the NVD API on 25 September 2026; the web page renders with scripts and was not readable from the checking environment.
+
+https://nvd.nist.gov/vuln/detail/CVE-2024-3094
+
+### S16 CVE-2021-44228
+
+National Vulnerability Database record for Log4Shell: remote code execution through Log4j 2 message lookups, published 10 December 2021, base score 10.0. A propagation case through the Java dependency graph. Checked through the NVD API as above.
+
+https://nvd.nist.gov/vuln/detail/CVE-2021-44228
+
+### S17 The left-pad removal
+
+npm, kik, left-pad, and npm, 23 March 2016. Account of an unpublished package causing hundreds of dependent build failures per minute, and restoration within hours. A propagation case for a removal rather than an addition. Checked: page resolves and matches.
+
+https://blog.npmjs.org/post/141577284765/kik-left-pad-and-npm
+
+### S18 Cloudflare Radar
+
+Documentation for Cloudflare's published view of global traffic, attacks and technology adoption, with a free API under a non-commercial licence, derived from Cloudflare's network and its public resolver. An observation boundary, not the internet. Checked: documentation resolves; the Radar site itself refused the checking environment.
+
+https://developers.cloudflare.com/radar/
+
+### S19 OpenRouter rankings
+
+Live model usage ranked by tokens processed through one API broker. Its population is that broker's developers, not inference generally. Checked: page resolves; data shown through 24 September 2026.
+
+https://openrouter.ai/rankings

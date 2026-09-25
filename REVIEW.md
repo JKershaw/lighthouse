@@ -130,3 +130,14 @@ The steward supplied an extract from the conversation that produced edition 0.1.
 Two consequences for the pilots. LH001's follow-up window now has a stated purpose: recording any activity the change enabled, the smallest observable instance of propagation. LH002 now records a dependency change followed by a change in a dependent as a candidate propagation link, after testing the ordinary explanations.
 
 One naming question for the steward. Residue is precise and is the word the conversation used, but it carries a faint sense of waste. Deposit or sediment would fit the coral image; trace is neutral. The documents keep residue until you choose.
+
+## Addendum: the observatory sequence
+
+A later exchange asked when, in astronomical terms, Lighthouse would learn about the noteworthy objects and the shape of the wider space. The answer folded into the documents is that observatories have always gone catalogue, calibrate, explain, then dynamics, and that the first programme as drafted covered only calibration.
+
+- **Standard candle.** LH001 is now named as one in F01, F02, F04 and F06: a workflow with recorded inputs whose signature makes outward readings interpretable. F02 states the validity conditions.
+- **Luminous fraction.** F01 and F02 now say that outward maps see what emits into public data, that provider compute and private infrastructure are dark and inferred from effects, and that a dark region is not an empty one.
+- **Two outward studies.** LH003, a survey of surveys, and LH004, a historical propagation case retold through the three layers with the xz backdoor as first choice. Both are reading and writing, both fit the first month, and both are added as seeds in F06. Six sources were verified and added for them (S14 to S19).
+- **Sequence in the plan.** F04's launch table, completion criteria, decision register and first public collection reflect the order.
+
+All astronomical vocabulary is marked in F01 as borrowed for method, not for physics.

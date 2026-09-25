@@ -10,7 +10,7 @@ Text to file when the Lighthouse workspace opens in Harbour. The workspace coord
 
 Lighthouse publishes one reproducible observation of a known workflow and an honest account of its limits.
 
-We keep going until the results are interesting: writing worth reading, evidence that we are measuring real phenomena, and a clear relation to wider research. Task counts do not count. Publishing stays a human decision, as Harbour's charter already says.
+We keep going until the results are interesting: writing worth reading, evidence that we are measuring real phenomena, and a clear relation to wider research. Task counts do not count. Publishing stays a human decision, as Harbour's charter already says. LH001 is the standard candle: until it exists, outward numbers are only counts.
 
 ## Budget
 
@@ -31,5 +31,9 @@ Each ticket starts with its identifier so that it shows in Harbour's records.
 **L-0001 Keep a ledger.** Cost per study from the weekly export, split by whether a human or the autopilot initiated the work. Done when the first week's figures exist.
 
 **C-0001 Check the sources monthly.** Fetch every source in LH F02 and note anything that has moved or changed. Done when the first check has run.
+
+**LH003 Survey of surveys.** Reading only. List the observatories that already exist, such as GH Archive, Cloudflare Radar, Software Heritage, Open Source Insights, OpenRouter's rankings and the vulnerability databases, with the layer each sees, its population, boundary, unit, cadence and licence. Done when every candidate has a row or a reason for exclusion.
+
+**LH004 A historical propagation case.** Retell the xz backdoor through activity, residue and propagation from the public record, noting which layer carried the first detectable signal and which LH F02 instrument would have recorded it. Done when the essay exists with its reading list.
 
 Two asks of Harbour when convenient: a study marker beside the ticket markers, and a labelled read token so that Lighthouse's collection traffic is recognisable in the audit log.

@@ -42,15 +42,21 @@ Harbour may also coordinate Lighthouse investigations. This makes it both an ope
 
 Harbour publishes its own empirical papers about its workflow. Lighthouse does not repeat that work. Where a Harbour paper and a Lighthouse study touch the same events, each cites the other and states what its own evidence adds.
 
+In astronomical terms, Harbour is the nearest star: the one source Lighthouse can resolve in detail. The first close study, LH001, observes a workflow whose inputs are recorded in order to learn the signature those inputs produce. That signature is a standard candle. Once it is known, an outward observation can be interpreted rather than merely counted. The astronomical vocabulary is borrowed for method, not for physics.
+
 ### Outward observation
 
 Public data, published measurements, passive observation and willing collaborators can provide a broader view. Each source exposes part of the environment. Coverage, sampling, revisions and inaccessible regions belong in the map itself.
+
+An outward map records what emits into public data. Provider compute, private repositories and internal infrastructure are dark: their existence is inferred from effects such as usage reports, energy statements and patch waves, never observed directly. Each outward view states how much of its population it can see, or says that it cannot. A dark region is not an empty one.
 
 A complete and permanently current map is not our operating assumption. The internet behaves more like an expanding space than a fixed territory. Whether activity or infrastructure is growing faster than our ability to measure it is a question to investigate within a defined population and period, not a premise.
 
 ### Exchange between the two
 
 Close observation helps establish what a signal means. Outward observation tests whether a pattern appears elsewhere and exposes cases our local instruments missed. Disagreement between the two is evidence worth investigating.
+
+Observatories have grown in a fixed order: catalogue what is visible, calibrate on known objects, explain the mechanism, then measure the dynamics. Lighthouse follows that order. Its first programme catalogues the existing surveys and the known noteworthy events, calibrates on Harbour, and begins to explain. Dynamics come later and cannot honestly come sooner.
 
 ## Research scope
 
