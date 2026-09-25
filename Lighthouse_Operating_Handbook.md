@@ -49,7 +49,7 @@ Lighthouse stores the dispatch identifier in the study record and copies the dis
 
 When Harbour is also the subject, record the overlap. Check collection against another observation point where possible. Sensor failures and missing operational records may share a cause, so agreement between them is not sufficient on its own.
 
-The first workspace, its north star, budget rule, seed tickets and periodicals are set out in LH F06.
+The first workspace's north star, budget and seed tickets are in LH F06.
 
 ## Initial technical shape
 
