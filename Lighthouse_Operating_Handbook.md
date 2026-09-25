@@ -49,6 +49,8 @@ Lighthouse stores the dispatch identifier in the study record and copies the dis
 
 When Harbour is also the subject, record the overlap. Check collection against another observation point where possible. Sensor failures and missing operational records may share a cause, so agreement between them is not sufficient on its own.
 
+The first workspace, its north star, budget rule, seed tickets and periodicals are set out in LH F06.
+
 ## Initial technical shape
 
 Use a versioned document and method repository, a protected store for observations, reproducible analysis jobs and a static publication surface. An index can connect studies, instruments, claims and releases. These are logical components; existing tools can supply them.

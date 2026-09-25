@@ -13,8 +13,9 @@ This repository holds the founding documents. They are drafts. They define an in
 | LH F03 | [Operating Handbook](Lighthouse_Operating_Handbook.md) | Roles, the investigation lifecycle, the Harbour interface, publication, corrections, boundaries | You are running or publishing a study |
 | LH F04 | [Initial Research Programme](Lighthouse_Initial_Research_Programme.md) | The first twelve weeks: LH001, LH002, and the decisions to make at commencement | You are about to start work |
 | LH F05 | [Study Templates](Lighthouse_Study_Templates.md) | The editable records the other documents refer to | You are opening a study, registering an instrument, or recording a decision |
+| LH F06 | [Harbour Workspace Plan](Lighthouse_Harbour_Workspace_Plan.md) | North star, budget rule, seed tickets, periodicals and asks of Harbour | You are opening the Lighthouse workspace in Harbour |
 
-Read F01 first. F02 and F03 can be read in either order. F04 assumes both. F05 is reference material.
+Read F01 first. F02 and F03 can be read in either order. F04 assumes both. F05 is reference material. F06 is the operational plan for the first workspace and assumes all of them.
 
 [REVIEW.md](REVIEW.md) records the review that produced edition 0.2 and the questions it left open.
 
@@ -47,4 +48,4 @@ Harbour already publishes empirical papers about its own workflow under its own 
 | Edition | Date | Change |
 | --- | --- | --- |
 | 0.1 | 25 September 2026 | First draft of F01 to F04 |
-| 0.2 (draft) | 25 September 2026 | Review edition. Sources re-checked and extended; Harbour interface aligned with Harbour's documented records; templates added as F05; this index added; the three observational layers and the complement-to-Harbour framing made explicit from the originating conversation. Details in [REVIEW.md](REVIEW.md) |
+| 0.2 (draft) | 25 September 2026 | Review edition. Sources re-checked and extended; Harbour interface aligned with Harbour's documented records; templates added as F05; this index added; the three observational layers and the complement-to-Harbour framing made explicit from the originating conversation; F06 workspace plan added. Details in [REVIEW.md](REVIEW.md) |
