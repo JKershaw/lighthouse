@@ -28,6 +28,7 @@ cmd_up() {
     (cd "$SRC" && npm install --no-audit --no-fund >/dev/null 2>&1)
   fi
   git -C "$SRC" rev-parse HEAD > "$SESSION/harbour-commit"
+  cmd_down >/dev/null 2>&1 || die "could not stop the server already on $H"
   rm -rf "$SESSION/data"; mkdir -p "$SESSION/data"
   SECRET="$(head -c 32 /dev/urandom | base64 | tr -d '=+/')"
   printf 'SESSION_SECRET=%s\nPORT=%s\nHARBOUR_DATA_DIR=%s\n' "$SECRET" "$PORT" "$SESSION/data" > "$SRC/.env"
@@ -96,13 +97,34 @@ if not d.get('options') and not d.get('suggestions'): print(json.dumps(d)[:1500]
 }
 
 cmd_roadmap() {
-  KEY="$(key)"; TS="$(date -u +%Y%m%dT%H%M%SZ)"
-  NS="$(python3 -c "import json; print(json.dumps(open('$WS/north-star.md').read().strip()))")"
-  curl_s -X POST -H 'content-type: application/json' -d "{\"northStar\":$NS}" --max-time 240 "$H/workspace/$KEY/api/roadmap/generate" | tee "$SESSION/roadmap-$TS.json" | python3 -c "
-import json,sys; d=json.load(sys.stdin); r=d.get('report',d)
-for k in ('id','model','createdAt','northStarReading','gap','summary','headline'):
-    if r.get(k): print(k+':', str(r[k])[:600])
-print('keys:', list(r.keys())[:20])"
+  KEY="$(key)"; TS="$(date -u +%Y%m%dT%H%M%SZ)"; STREAM="$SESSION/roadmap-stream-$TS.txt"
+  if [ "${1:-}" = "--from" ]; then STREAM="${2:?stream file}"; else
+    NS="$(python3 -c "import json; print(json.dumps(open('$WS/north-star.md').read().strip()))")"
+    # the generate route streams server-sent events: layer tokens, an orientation, then done
+    curl -sS -c "$JAR" -b "$JAR" -X POST -H 'content-type: application/json' -d "{\"northStar\":$NS}" --max-time 300 "$H/workspace/$KEY/api/roadmap/generate" > "$STREAM"
+  fi
+  # assemble the narrative per layer and save it as a report, which is what the UI does after the stream
+  python3 - "$STREAM" "$WS/north-star.md" "$H/workspace/$KEY/api/roadmap/reports" "$JAR" "$SESSION/roadmap-$TS.json" <<'PY'
+import json,sys,subprocess
+stream,nsf,url,jar,out=sys.argv[1:6]
+layers={}; orientation=[]; ev=None
+for line in open(stream):
+    line=line.rstrip("\n")
+    if line.startswith("event: "): ev=line[7:]; continue
+    if not line.startswith("data: "): continue
+    d=json.loads(line[6:])
+    if ev=="token": layers[d["layer"]]=layers.get(d["layer"],"")+d.get("token","")
+    elif ev=="orientation": orientation=d.get("orientation",[])
+body=json.dumps({"northStar":open(nsf).read().strip(),"narrative":layers,"orientation":orientation})
+r=subprocess.run(["curl","-sS","-c",jar,"-b",jar,"-X","POST","-H","content-type: application/json","-d",body,url],capture_output=True,text=True)
+open(out,"w").write(r.stdout)
+try: rep=json.loads(r.stdout).get("report",{})
+except Exception: rep={}
+print("layers:", ", ".join(f"{k} ({len(v)} chars)" for k,v in layers.items()))
+print("saved report:", rep.get("id") or r.stdout[:200])
+for o in orientation: print(f"  {o.get('identifier'):9} {o.get('bearing'):3} {str(o.get('reason'))[:150]}")
+if layers.get("digest"): print("digest:", layers["digest"][:900])
+PY
 }
 
 cmd_dispatch() {
@@ -198,7 +220,12 @@ print(f"exported to {d}: {len(manifest['files'])} files; ticket statuses changed
 PY
 }
 
-cmd_down() { if [ -s "$SESSION/pid" ]; then kill "$(cat "$SESSION/pid")" 2>/dev/null && echo "stopped" || echo "not running"; rm -f "$SESSION/pid"; fi; }
+cmd_down() {
+  local pids; pids="$(pgrep -f '^node server.js' || true)"
+  if [ -n "$pids" ]; then kill $pids 2>/dev/null || true; fi
+  for i in $(seq 1 30); do curl -s -o /dev/null "$H/" || { echo "stopped"; rm -f "$SESSION/pid"; return 0; }; done
+  echo "hb: a server is still answering on $H" >&2; return 1
+}
 
 case "${1:-}" in
   up|load|northstar|status|next|roadmap|dispatch|take|feedback|usage|done|failed|resources|export|down) c="$1"; shift; "cmd_$c" "$@";;
