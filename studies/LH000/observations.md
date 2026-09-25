@@ -47,8 +47,12 @@ $ ps -eo pid,pcpu,pmem,etimes,comm --sort=-pcpu | head -12
    31  0.0  0.0    8816 migration/3
    21  0.0  0.0    8816 migration/1
 
-established (state 01) count in /proc/net/tcp: 23
-/proc/net/tcp6: No such file or directory
+$ awk of /proc/net/tcp state 01 (ESTABLISHED) count
+23
+
+$ /proc/net/tcp6 readable check
+/bin/bash: line 42: /proc/net/tcp6: No such file or directory
+not readable
 ```
 
 ## Sample 2, collected 2026-09-25T22:28:32Z
@@ -77,8 +81,12 @@ $ ps -eo pid,pcpu,pmem,etimes,comm --sort=-pcpu | head -12
    31  0.0  0.0    9133 migration/3
    21  0.0  0.0    9133 migration/1
 
-established (state 01) count in /proc/net/tcp: 21
-/proc/net/tcp6: No such file or directory
+$ awk of /proc/net/tcp state 01 (ESTABLISHED) count
+21
+
+$ /proc/net/tcp6 readable check
+/bin/bash: line 42: /proc/net/tcp6: No such file or directory
+not readable
 ```
 
 ## Process identification

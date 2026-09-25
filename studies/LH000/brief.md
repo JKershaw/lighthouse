@@ -17,7 +17,7 @@ Following the study brief block in LH F05 (Lighthouse_Study_Templates.md).
 
 **evidence available:** The take response Harbour returned for this dispatch (`take.json`, handed to this study, not queried live); two host samples taken by hand during this session; the founding documents (LH F01 to F06); an observation note written by a different agent about a different dispatch (`75516e46-c767-4dd7-aac0-e65782a9c73d`, issue `LOCAL-2`) on an earlier server instance, held for structural comparison only.
 
-**evidence needed and access status:** Harbour's end-of-session export, which will hold this dispatch's feedback, usage and any audit entries; not available while this study is being written. Its path is recorded here as `EXPORT_PATH_TBD` for the driver to fill in once `harbour/hb export` has run. This study did not call the Harbour server itself to check for it.
+**evidence needed and access status:** Harbour's end-of-session export, which will hold this dispatch's feedback, usage and any audit entries; not available while this study is being written. Its path is recorded here as `harbour/exports/20260925T224443Z` for the driver to fill in once `harbour/hb export` has run. This study did not call the Harbour server itself to check for it.
 
 **readings and instruments (by instrument id):** None registered. `registers/` does not yet exist in this repository, so no instrument has an I-nnnn record. Two ad hoc instruments were used informally: the take record returned by Harbour's dispatch API, and a hand-run host sample (commands listed in LH000.md's Method). Ticket I-0002 ("Sample the host") proposes a proper sampler; this study is not that sampler.
 
