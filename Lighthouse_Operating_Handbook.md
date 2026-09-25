@@ -2,7 +2,7 @@
 
 Research organisation, publication and stewardship
 
-Founding edition 0.2 (draft) | 25 September 2026 | LH F03
+Draft | 25 September 2026 | LH F03
 
 Lighthouse begins as a small research practice with bounded investigations and a visible evidence trail. This handbook sets initial operating defaults. Responsibilities may be combined while the project is small, but responsibility and the independence of review must remain explicit.
 
@@ -121,7 +121,7 @@ Use the decision record in LH F05: question, options considered, choice, reason,
 
 At the end of the initial programme, review the clarity gained, instruments calibrated, claims reproduced or corrected, evidence gaps made visible, and the cost of maintaining the work. Ask whether a reader or an operator made a better-informed decision because of the findings. Ask also whether the watch would now detect the kind of event it is kept for, or can say honestly that it could not.
 
-Publication count and task completion describe throughput; they do not establish understanding. Useful progress can include showing that a proposed metric fails, or that an attractive metaphor does not predict the observations.
+Useful progress can include showing that a proposed metric fails, or that an attractive metaphor does not predict the observations.
 
 ## Responsibility before launch
 

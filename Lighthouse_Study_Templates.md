@@ -2,7 +2,7 @@
 
 Editable records for questions, studies, instruments, observations, claims, decisions and releases
 
-Founding edition 0.2 (draft) | 25 September 2026 | LH F05
+Draft | 25 September 2026 | LH F05
 
 These templates are the editable source bundle that LH F02, F03 and F04 refer to. Copy the relevant block into a new file, fill it in, and keep the file under version control with the study. Every field is filled or marked unknown unless it is labelled optional. Example values are illustrative, not observed.
 

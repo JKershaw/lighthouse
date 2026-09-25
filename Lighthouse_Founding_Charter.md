@@ -2,7 +2,7 @@
 
 Purpose, scope and commitments
 
-Founding edition 0.2 (draft) | 25 September 2026 | LH F01
+Draft | 25 September 2026 | LH F01
 
 Lighthouse is an observatory and research practice for the computational world. We study how information moves through software, infrastructure, humans and AI, how those structures change, and what their behaviour means for the people who depend on them. We also develop better ways to conduct that study.
 

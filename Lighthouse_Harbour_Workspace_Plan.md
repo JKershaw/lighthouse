@@ -2,7 +2,7 @@
 
 North star, budget and seed tickets
 
-Founding edition 0.2 (draft) | 25 September 2026 | LH F06
+Draft | 25 September 2026 | LH F06
 
 Text to file when the Lighthouse workspace opens in Harbour. The autopilot does the work within the budget below; a person reads what it produces and decides what is published. The workspace is also the first contained instance of what Lighthouse studies: an autopilot that leaves residue enabling its next run. Here the observer, the subject it calibrates on and the phenomenon it studies are one object, and studies that use its records say so.
 

@@ -2,7 +2,7 @@
 
 Launch sequence, first studies and decisions
 
-Founding edition 0.2 (draft) | 25 September 2026 | LH F04
+Draft | 25 September 2026 | LH F04
 
 The initial programme establishes one close observation of Harbour, one bounded outward survey, a catalogue of the surveys that already exist, and one historical case. It follows the order observatories have always followed: catalogue, calibrate, explain, then dynamics. Its deliverable is a tested research practice: instruments with known limits, reproducible findings and publications that can be corrected. By its end the watch should be able to say what it would and would not see if activity of the kind the charter describes, residue enabling further activity elsewhere, appeared in the regions it observes. The sequence below is an indicative twelve-week plan from commencement, not a calendar booking or an approved spending commitment.
 
@@ -39,7 +39,7 @@ Someone other than the analyst can reproduce at least one important result from 
 
 **Readings.** Start with Harbour's dispatch fields (identifier, kind, target, model, harness, effort, queue and claim times), feedback entries with their timestamps and terminal marker, usage entries and proxy audit entries [S12 in LH F02]; the repository's pull request, review, CI and merge records; host process activity where available; and versions of affected artefacts. Preserve remote calls as remote activity: local CPU readings do not measure a provider's inference compute. Add electricity only if the measurement boundary is defensible.
 
-**Retention.** At the time of writing, Harbour's feedback, status and audit records are retained for thirty days and dispatch items expire after twenty-four hours. Export what the study needs within that window and record each export as an observation. Repository and CI records persist longer and can anchor the follow-up window, which is proposed as seven days after the last repetition.
+**Retention.** Harbour's records are time-limited; LH F03 states the windows at the time of writing. Export what the study needs within them and record each export as an observation. Repository and CI records persist longer and can anchor the follow-up window, which is proposed as seven days after the last repetition.
 
 **Comparators.** Reconcile against operator-labelled events and Harbour's operational record. That record is server-timestamped for queueing and claiming but agent-reported for progress and completion, so treat the agent-reported parts as claims to be checked, not as ground truth. Examine disagreements at the event level. Include a known small coordination event if available, so the analysis tests whether low-volume activity with broad consequences remains visible.
 

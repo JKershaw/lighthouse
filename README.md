@@ -17,17 +17,11 @@ This repository holds the founding documents. They are drafts. They define an in
 
 Read F01 first. F02 and F03 can be read in either order. F04 assumes both. F05 is reference material. F06 is the operational plan for the first workspace and assumes all of them.
 
-[REVIEW.md](REVIEW.md) records the review that produced edition 0.2 and the questions it left open.
-
 ## Harbour
 
-[Harbour](https://harbour.cat) is an open-source control plane for AI coding agents ([source](https://github.com/JKershaw/LinearViewer)). It reads a task backlog, grounds each task into a prompt checked against the current code, dispatches the prompt to an agent, and verifies the result on evidence such as diffs, continuous integration and merges.
+[Harbour](https://harbour.cat) is an open-source control plane for AI coding agents ([source](https://github.com/JKershaw/LinearViewer)). It reads a task backlog, grounds each task into a prompt, dispatches it to an agent and verifies the result on evidence. Lighthouse is a complement to it, not a part of it: Harbour asks whether a task did what was asked; Lighthouse asks what the activity changed and what the change made possible.
 
-Lighthouse is a complement to Harbour. Harbour is a control plane that keeps human intent in command of AI execution and verifies each task on evidence. Lighthouse is an observatory that studies what execution leaves behind and what that enables, across many tasks and beyond any one control plane.
-
-Lighthouse uses Harbour in two ways. Harbour is the first calibration subject: its dispatch, feedback and usage records describe a known workflow that independent instruments can be tested against. Harbour may also coordinate Lighthouse's own research tasks. The documents treat that dual role as something to record and check, not to hide.
-
-Harbour already publishes empirical papers about its own workflow under its own writing standard. Lighthouse does not duplicate that programme. Its distinct contribution is the computational and informational footprint of such workflows, and the comparison between what can be seen up close and what can be seen across the wider internet.
+Lighthouse uses Harbour in two ways, as its first calibration subject and as the coordinator of its own research tasks, and records that dual role in every study that relies on Harbour evidence. Harbour publishes its own papers about its workflow under its own writing standard; Lighthouse adopts that standard and does not duplicate the programme. F01 has the full account.
 
 ## The wider internet
 
@@ -51,9 +45,13 @@ The wider internet is the reason for the watch; Harbour is how the instruments a
 - **Autopilot.** The automated loop in a Harbour workspace that turns ready tickets into agent tasks without a person initiating each one. In the Lighthouse workspace it does most of the research work; a person reads and releases.
 - **Digital Kessler hypothesis.** A proposed scenario, named by analogy with orbital debris, in which harmful digital activity replenishes itself and degrades shared infrastructure. A question, not a finding.
 
-## Edition history
+## Open questions
 
-| Edition | Date | Change |
-| --- | --- | --- |
-| 0.1 | 25 September 2026 | First draft of F01 to F04 |
-| 0.2 (draft) | 25 September 2026 | Review edition. Sources re-checked and extended; Harbour interface aligned with Harbour's documented records; templates added as F05; this index added; the three observational layers and the complement-to-Harbour framing made explicit from the originating conversation; F06 workspace plan added; the observatory sequence (catalogue, calibrate, explain, dynamics), the standard candle and the luminous fraction folded in, with LH003 and LH004 added; images given their literal anchors and the writing style set out in F03; the reason for the watch stated at the head of the charter, the handbook's default inverted so that agents do the work and people read and release, the wider internet given a section here and a concrete paragraph in the charter, and the monitoring line replaced with the standing-watch distinction. Details in [REVIEW.md](REVIEW.md) |
+Decisions the drafts leave to the steward.
+
+- Whether to label charter clauses BINDING, PRINCIPLE or DEFERRED, as Harbour's charter does.
+- Naming the steward, and stating plainly that Lighthouse and Harbour share one.
+- Whether twelve weeks is realistic for one person, or LH002 should be a feasibility note in the first programme.
+- Whether to extend Harbour's retention windows for a research workspace, recorded as a change to the subject.
+- Whether Lighthouse's unit needs a name other than observation, to keep clear of Harbour's Observation view; reading is the candidate.
+- Whether residue keeps its name; deposit, sediment and trace are the alternatives.
