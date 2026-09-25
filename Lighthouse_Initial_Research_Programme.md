@@ -1,6 +1,6 @@
 # Lighthouse Initial Research Programme
 
-Launch sequence, pilot studies and decisions
+Launch sequence, first studies and decisions
 
 Founding edition 0.2 (draft) | 25 September 2026 | LH F04
 
@@ -21,7 +21,7 @@ The periods can overlap where dependencies allow. If access or data quality prev
 
 The first release needs a question register, a versioned observation format, an instrument register, reproducible analysis and a publication archive with correction history. The templates in LH F05 are the starting forms. A time-series view and a small dependency view are sufficient if their underlying readings are inspectable.
 
-Begin with existing collection and storage tools. Build additional infrastructure only when a pilot demonstrates a specific limitation. Keep the work usable if Harbour integration is initially manual: study identifiers and links can precede automation.
+Begin with existing collection and storage tools. Build additional infrastructure only when a study demonstrates a specific limitation. Keep the work usable if Harbour integration is initially manual: study identifiers and links can precede automation.
 
 ## Completion criteria for this programme
 
@@ -35,7 +35,7 @@ Someone other than the analyst can reproduce at least one important result from 
 
 **Design.** Select one bounded Harbour workflow with identifiable initiation, processing, communication and completion records. Prefer a test environment or an existing routine task whose normal execution can be observed without changing its purpose. Choose a dispatch target whose host can be instrumented: a command-line or local agent runs on a machine Lighthouse can observe, whereas a web session runs on a provider's infrastructure and exposes only what the provider reports. Capture an idle baseline, the workflow, and a declared follow-up window for persistent changes.
 
-**Initial sample.** Use a calibration pilot of three repetitions under comparable conditions, with the ordering and collection interval recorded. Include one ordinary non-LLM operation where available, such as a CI run or a dependency install, to test whether the proposed signature is specific to inference. This is an instrument pilot, not a population estimate. Record each instance and task variation.
+**Initial sample.** Use a calibration run of three repetitions under comparable conditions, with the ordering and collection interval recorded. Include one ordinary non-LLM operation where available, such as a CI run or a dependency install, to test whether the proposed signature is specific to inference. This is an instrument calibration, not a population estimate. Record each instance and task variation.
 
 **Readings.** Start with Harbour's dispatch fields (identifier, kind, target, model, harness, effort, queue and claim times), feedback entries with their timestamps and terminal marker, usage entries and proxy audit entries [S12 in LH F02]; the repository's pull request, review, CI and merge records; host process activity where available; and versions of affected artefacts. Preserve remote calls as remote activity: local CPU readings do not measure a provider's inference compute. Add electricity only if the measurement boundary is defensible.
 
@@ -99,7 +99,7 @@ Someone other than the analyst can reproduce at least one important result from 
 
 **Stop and output.** One case, one essay in the Harbour standard's essay form with an annotated reading list. It is the first piece intended to be read outside the project.
 
-## Questions to follow the pilots
+## Questions to follow the first studies
 
 Choose follow-up work from observed gaps. Candidate questions include whether small control signals predict large downstream changes, which state changes survive after inference ends, how much apparent growth comes from changed visibility, which layer carries the earliest detectable signal in a propagation event, whether a standard candle measured on one workflow transfers to another, and which of Harbour's own workflow findings leave a computational signature that an outside observer could detect. A later risk study could test whether the instruments distinguish benign repeated deployment from a propagation scenario in a contained model.
 
@@ -113,7 +113,7 @@ Prioritise questions by scientific value, decision relevance, evidence access, t
 | Observation scales | Close study of Harbour and bounded outward surveys | Evidence suggests a missing scale or subject |
 | Sequence | Catalogue, calibrate, explain, then dynamics | Calibration fails to transfer, or a dynamics question becomes tractable earlier |
 | Attribution | Mixed human and AI activity is valid; unknown is explicit | A question needs stronger provenance |
-| Architecture | Reuse tools and keep versioned evidence and methods | Pilots expose a concrete limitation |
+| Architecture | Reuse tools and keep versioned evidence and methods | The first studies expose a concrete limitation |
 | Publishing | Notes, studies, reports, articles, essays and supporting artefacts | Readers cannot follow or verify the work |
 | Publication format | Adopt Harbour's paper structure and header, with Lighthouse additions | Reviewers or readers find the shared form insufficient |
 | Source retention | Export time-limited records within their window and record the export | A source offers durable access or its window changes |

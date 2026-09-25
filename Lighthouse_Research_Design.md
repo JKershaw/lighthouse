@@ -89,7 +89,7 @@ A standard candle is a source whose intrinsic output is known, so that its obser
 
 Harbour's records are the first comparator [S12]. They are server-timestamped for queueing and claiming, but progress and completion are reported by the agent itself, so they show what was asked and what was claimed rather than what happened on the host. They may be incomplete or share a failure with the sensor. At the time of writing, dispatch items expire after twenty-four hours and feedback, status and audit records are retained for thirty days, so the export rule above applies.
 
-Separate exploratory findings from tests specified in advance. Preserve failed runs and protocol changes. When comparing workflows, declare the unit of comparison, task selection, sample size rationale, exclusions and likely confounders. A pilot calibrates a method; a small convenience sample cannot estimate internet-wide prevalence.
+Separate exploratory findings from tests specified in advance. Preserve failed runs and protocol changes. When comparing workflows, declare the unit of comparison, task selection, sample size rationale, exclusions and likely confounders. A calibration run tests a method; a small convenience sample cannot estimate internet-wide prevalence.
 
 ### Collection and interpretation boundaries
 
@@ -113,7 +113,7 @@ Assess concentration, propagation, persistence, recovery and observability separ
 
 ### Studying the digital Kessler hypothesis
 
-The name borrows from Kessler and Cour-Palais, who described how collisions between orbiting objects could generate debris faster than it decays, degrading the usability of an orbit [S8]. For Lighthouse, the hypothesis is a proposed scenario in which harmful digital activity creates further harmful capacity, replenishes itself after its initial support ends, and degrades the usability of shared infrastructure. The name is an analogy. It is not a physical law and not a finding that the condition exists.
+The name borrows from Kessler and Cour-Palais, who described how collisions between orbiting objects could generate debris faster than it decays, degrading the usability of an orbit [S8]. In the three layers, collisions are activity, debris is residue, and the further collisions the debris causes are propagation; the analogy and the frame speak the same language. For Lighthouse, the hypothesis is a proposed scenario in which harmful digital activity creates further harmful capacity, replenishes itself after its initial support ends, and degrades the usability of shared infrastructure. The name is an analogy. It is not a physical law and not a finding that the condition exists.
 
 In the three layers, the hypothesis predicts a distinctive propagation signature: residue left by one burst of activity enabling similar activity elsewhere, repeated until the population's continuity is visible even as its individual processes disappear. Measurements could in principle reveal reproduction, persistence and expanding influence before every local action is understood. They could equally reveal an ordinary release train, which is why the competing explanations below are tested first.
 

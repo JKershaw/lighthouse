@@ -75,6 +75,12 @@ Lighthouse publishes at several levels of depth. The same evidence may support s
 
 Harbour's papers follow a written standard [S13 in LH F02]: a header naming title, kind, version, date, authors, model, grounding date and citations, then Answer, Findings, Method, Limits and Next, with verifiable citations and numbers only where they affect a conclusion. Lighthouse studies adopt that order and header so that a reader of one programme can read the other, and add what the standard does not require: the observation period, instrument versions, the labels distinguishing observation, derived measurement, interpretation and scenario, and a correction record. Essays follow the standard's essay form. The study skeleton in LH F05 carries this structure.
 
+### Images and plain names
+
+Three families of image run through Lighthouse's writing, and each has a job. Biological images, the coral, the veins, the ripple of light and its afterglow, describe what we observe, because it grows, circulates and accumulates. Astronomical images, the observatory, the nearest star, the standard candle, the luminous fraction and the dark, the reference image, describe how we observe, because we look from far away by partial light. Nautical images, the harbour, the pilot, the lighthouse itself, describe what people do with the result. The hazard analogies are not a fourth family: Kessler's debris is astronomical and the epidemic is biological, and propagation looks the same through either. The name Lighthouse stands where the astronomical and the nautical meet: a light for navigators.
+
+The practice is a habit, not a register. An image arrives with its literal meaning beside it the first time it appears in a document, then walks alone. Studies use the plain names: activity, residue, propagation, observation, instrument. Essays and the charter may extend the images. An image that cannot be given a literal meaning beside it is a sign that the idea is not yet clear.
+
 ## The release check
 
 The editor checks that material factual claims have support, primary sources have been read where relevant, charts use stated denominators, and uncertainties remain attached to the claims they qualify. Model-generated source summaries need verification against the source.

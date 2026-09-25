@@ -31,7 +31,7 @@ Harbour already publishes empirical papers about its own workflow under its own 
 
 ## Glossary
 
-- **Activity, residue, propagation.** The three observational layers in F01 and F02: computation happening; the altered structure and state it leaves behind; and the influence of that residue on later activity elsewhere. Propagation is measured as typed links between residue and later activity, not as a surface of its own.
+- **Activity, residue, propagation.** The three observational layers in F01 and F02: computation happening; the altered structure and state it leaves behind; and the influence of that residue on later activity elsewhere. Propagation is measured as typed links between residue and later activity, not as a surface of its own. The charter's images for the three are the ripple of light, its afterglow, and the spreading pattern.
 - **Entity, relationship, event.** The elements of the observable model in F02. An entity persists (a host, service, person or workflow). A relationship is a typed connection between entities. An event happens at a time.
 - **Observation.** A captured event or reading, with its source, time and status. Harbour has a view named Observation that shows agent sessions; that is a different thing, and this glossary means the Lighthouse one.
 - **Derived measurement, interpretation, scenario.** Together with observation, the four kinds of statement that Lighthouse labels in publications (F02).
@@ -41,7 +41,7 @@ Harbour already publishes empirical papers about its own workflow under its own 
 - **Steward, owner, methods reviewer, editor.** The four roles in F03. One person may hold several; the record says which checks were independent.
 - **Close observation, outward observation.** The two directions in F01: systems Lighthouse can instrument directly, and the wider internet seen through public data.
 - **Standard candle.** A source whose output is known, used to calibrate an instrument and to scale unknown sources. LH001's workflow is Lighthouse's first.
-- **Luminous fraction.** The part of a population that emits into public data. The rest is dark and is inferred from its effects.
+- **Luminous fraction.** The part of a population that emits into public data. The rest is dark, meaning unobserved rather than sinister, and is inferred from its effects.
 - **Dispatch.** Harbour's unit of work: a prompt queued for an agent, with its requested model, harness, timestamps and the agent's feedback.
 - **Digital Kessler hypothesis.** A proposed scenario, named by analogy with orbital debris, in which harmful digital activity replenishes itself and degrades shared infrastructure. A question, not a finding.
 
@@ -50,4 +50,4 @@ Harbour already publishes empirical papers about its own workflow under its own 
 | Edition | Date | Change |
 | --- | --- | --- |
 | 0.1 | 25 September 2026 | First draft of F01 to F04 |
-| 0.2 (draft) | 25 September 2026 | Review edition. Sources re-checked and extended; Harbour interface aligned with Harbour's documented records; templates added as F05; this index added; the three observational layers and the complement-to-Harbour framing made explicit from the originating conversation; F06 workspace plan added; the observatory sequence (catalogue, calibrate, explain, dynamics), the standard candle and the luminous fraction folded in, with LH003 and LH004 added. Details in [REVIEW.md](REVIEW.md) |
+| 0.2 (draft) | 25 September 2026 | Review edition. Sources re-checked and extended; Harbour interface aligned with Harbour's documented records; templates added as F05; this index added; the three observational layers and the complement-to-Harbour framing made explicit from the originating conversation; F06 workspace plan added; the observatory sequence (catalogue, calibrate, explain, dynamics), the standard candle and the luminous fraction folded in, with LH003 and LH004 added; images given their literal anchors and the writing style set out in F03. Details in [REVIEW.md](REVIEW.md) |

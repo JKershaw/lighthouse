@@ -8,17 +8,15 @@ Lighthouse is an observatory and research practice for the computational world. 
 
 Our promise is to make more of this world observable and to make our explanations answerable to evidence. We publish research notes, studies, reports, articles and essays, supported where possible by inspectable instruments, methods and datasets.
 
-A lighthouse does not steer ships. It makes positions and hazards visible to whoever is navigating. The name states both the ambition and its limit.
+A lighthouse does not steer ships. It stands at the harbour mouth and makes positions and hazards visible to whoever is navigating. The name states the ambition, its limit, and where it stands in relation to Harbour.
 
 ## The world we want to observe
 
-Software accumulates into structures that outlast the work that created them. Information passes through those structures, is stored and transformed, and eventually informs a decision or an action. A small signal may coordinate a great deal of activity. A busy region may be routine. A quiet connection may be essential.
+Software accumulates like coral: each layer built on the last by many small builders, most of them long gone, into structures that outlast the work that created them. Information circulates through it like blood through veins, carrying requests, messages and data between the parts, until somewhere it informs a decision or an action. A small signal may coordinate a great deal of activity. A busy region may be routine. A quiet connection may be essential.
 
-Running inference is a transient event: existing information and context are used to produce a next action. When that action changes code, configuration, data or another process, it leaves a durable alteration behind. Information can then flow through that structure long after the inference has finished, and later flows may need no further model invocation. A brief event can leave a persistent change in how a system behaves.
+Inference is a ripple of light across that surface, a brief event in which stored context becomes a next action. When the action changes code, configuration or data, the ripple leaves an afterglow, a change that persists and through which information keeps flowing after the model has stopped. Where one afterglow lights the next ripple somewhere else, the pattern spreads.
 
-Lighthouse therefore observes at three layers. Activity is computation happening: inference, and the processing, communication and energy it consumes. Residue is the altered structure and state that activity leaves behind: changed code, configuration, data, messages and decisions. Propagation is how those alterations influence subsequent activity elsewhere: one event leaves a structure that enables similar activity in another place, and that activity leaves further enabling structures. The layers are observed with different instruments on different timescales, and a finding at one layer does not settle the others.
-
-Three images help us form questions. Coral describes the accumulated residue: layers of code, configuration and data built on earlier layers. Veins describe circulation: the flows of requests, messages and data through which propagation happens. A ripple of light describes activity at a moment of change, such as a model producing an answer. These are working metaphors. They do not establish that the network is alive, conscious or governed by biological laws.
+Lighthouse observes at those three layers and names them plainly in its studies. Activity is the computation happening: inference, and the processing, communication and energy it consumes. Residue is the altered structure and state that activity leaves behind: changed code, configuration, data, messages and decisions. Propagation is the influence of that residue on activity elsewhere: one event leaves a structure that enables similar activity in another place, and that activity leaves further enabling structures. The layers are observed with different instruments on different timescales, and a finding at one layer does not settle the others.
 
 Humans and AI inhabit the same field of observation. Its origins include human knowledge, purposes, institutions and physical infrastructure. Authorship and agency are useful distinctions when they explain a mechanism. A complete division between human and AI activity is not a prerequisite for measurement.
 
@@ -42,7 +40,7 @@ Harbour may also coordinate Lighthouse investigations. This makes it both an ope
 
 Harbour publishes its own empirical papers about its workflow. Lighthouse does not repeat that work. Where a Harbour paper and a Lighthouse study touch the same events, each cites the other and states what its own evidence adds.
 
-In astronomical terms, Harbour is the nearest star: the one source Lighthouse can resolve in detail. The first close study, LH001, observes a workflow whose inputs are recorded in order to learn the signature those inputs produce. That signature is a standard candle. Once it is known, an outward observation can be interpreted rather than merely counted. The astronomical vocabulary is borrowed for method, not for physics.
+In astronomical terms, Harbour is the nearest star: the one source Lighthouse can resolve in detail. The first close study, LH001, observes a workflow whose inputs are recorded in order to learn the signature those inputs produce. That signature is a standard candle, a known light by which unknown ones are measured. Once it exists, an outward observation can be interpreted rather than merely counted.
 
 ### Outward observation
 
@@ -50,7 +48,7 @@ Public data, published measurements, passive observation and willing collaborato
 
 An outward map records what emits into public data. Provider compute, private repositories and internal infrastructure are dark: their existence is inferred from effects such as usage reports, energy statements and patch waves, never observed directly. Each outward view states how much of its population it can see, or says that it cannot. A dark region is not an empty one.
 
-A complete and permanently current map is not our operating assumption. The internet behaves more like an expanding space than a fixed territory. Whether activity or infrastructure is growing faster than our ability to measure it is a question to investigate within a defined population and period, not a premise.
+A complete and permanently current map is not our operating assumption. The internet is more like an expanding space than a fixed territory: it can grow faster than light from its far regions reaches us, so the map is always somewhat behind. Whether activity or infrastructure is in fact growing faster than our ability to measure it is a question to investigate within a defined population and period, not a premise.
 
 ### Exchange between the two
 
@@ -64,7 +62,7 @@ Our scope includes computational activity, information flows, persistent state, 
 
 Mapping, explanation and risk assessment are complementary outputs. A map describes what is visible. An explanation proposes a mechanism. A risk assessment relates evidence and possible mechanisms to consequences over a stated time horizon.
 
-Self-replicating agents and a possible digital Kessler effect are research questions within this wider programme. The three layers make them investigable. A self-sustaining pattern would appear not in any single burst of activity, which might be unremarkable, but in the relationship between bursts, where each leaves residue that enables the next. Such a phenomenon could endure while every individual process in it is transient; its identity would lie in the pattern being maintained and propagated. An ordinary deployment or a useful agent workflow can produce a similar pattern, so appearance alone establishes neither replication nor intent. These questions do not determine the conclusion, and they do not restrict Lighthouse to malicious activity. Beneficial automation and ordinary background behaviour provide essential comparisons.
+Self-replicating agents and a possible digital Kessler effect are research questions within this wider programme. Kessler's scenario is the orbital one in which debris from collisions causes further collisions until an orbit becomes unusable; the digital version asks whether harmful activity could sustain itself the same way. The three layers make such questions investigable. A self-sustaining pattern would appear not in any single burst of activity, which might be unremarkable, but in the relationship between bursts, where each leaves residue that enables the next. Such a phenomenon could endure while every individual process in it is transient; its identity would lie in the pattern being maintained and propagated. An ordinary deployment or a useful agent workflow can produce a similar pattern, so appearance alone establishes neither replication nor intent. These questions do not determine the conclusion, and they do not restrict Lighthouse to malicious activity. Beneficial automation and ordinary background behaviour provide essential comparisons.
 
 ### What Lighthouse is not
 
@@ -96,4 +94,4 @@ The charter should change when evidence or experience reveals a flaw in the remi
 
 We will begin with a known workflow and a modest outward survey. Each will produce useful evidence even if its first hypothesis fails. Together they establish the close and broad views on which Lighthouse can grow.
 
-The companion documents define the research design (LH F02), the operating practice (LH F03), the first programme (LH F04) and the study templates (LH F05). Their initial choices can be revised as the work teaches us what is useful.
+The companion documents define the research design (LH F02), the operating practice (LH F03), the first programme (LH F04), the study templates (LH F05) and the first workspace plan (LH F06). Their initial choices can be revised as the work teaches us what is useful.

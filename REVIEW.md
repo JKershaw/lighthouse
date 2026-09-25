@@ -141,3 +141,14 @@ A later exchange asked when, in astronomical terms, Lighthouse would learn about
 - **Sequence in the plan.** F04's launch table, completion criteria, decision register and first public collection reflect the order.
 
 All astronomical vocabulary is marked in F01 as borrowed for method, not for physics.
+
+## Addendum: images and plain names
+
+An inventory of the documents' metaphors found three families doing three jobs without having been told so, one paragraph of apology for them, and two vocabulary collisions with Harbour. A metaphor register and a rule requiring registration before use were proposed and withdrawn: they would have treated a communication style as compliance.
+
+What replaced them:
+
+- **A habit.** An image arrives with its literal meaning beside it the first time it appears, then walks alone. The charter's opening now does this for coral, veins, the ripple, the afterglow, the nearest star, the standard candle, the dark, the expanding space and Kessler's debris, and the "these are working metaphors" paragraph is gone because the anchors make it unnecessary.
+- **A palette.** F03's publication practice states the three families and their jobs: biological for what we observe, astronomical for how we observe, nautical for what people do with the result. Studies use the plain names; essays and the charter may extend the images.
+- **Residue keeps its name and gains an image.** Afterglow, the change that persists after the ripple, appears in the charter; residue remains the term in studies and tables. F02's Kessler section now says that collisions, debris and further collisions are the three layers in orbit.
+- **One collision resolved.** "Pilot" meant a preliminary study in F02 and F04 and a human session in Harbour and F06. The study sense is now "calibration run" or "first studies". "Observation" keeps both senses, with the glossary note.
