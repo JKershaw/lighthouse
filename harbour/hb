@@ -149,6 +149,20 @@ print(json.dumps({k:d.get(k) for k in ("id","status","kind","issueIdentifier","e
 PY
 }
 
+cmd_close() { TID="${1:?ticket id}"; MSG="${2:?message}"
+  python3 - "$SESSION/issues.json" "$TID" "$MSG" "$H" "$(ptok)" <<'PY'
+import json,sys,urllib.request
+mf,tid,msg,H,tok=sys.argv[1:6]
+m=json.load(open(mf)).get(tid) or sys.exit(f"{tid} not loaded")
+def call(method,path,body):
+    req=urllib.request.Request(H+path,data=json.dumps(body).encode(),method=method,headers={"content-type":"application/json","Authorization":"Bearer "+tok})
+    with urllib.request.urlopen(req) as r: return json.load(r)
+d=call("PATCH",f"/api/proxy/issues/{m['issueId']}",{"stateId":"done"})
+c=call("POST",f"/api/proxy/issues/{m['issueId']}/comments",{"body":msg})
+print(tid, m["identifier"], "->", (d.get("issue") or d).get("state",{}).get("name"), "| comment", "ok" if c.get("success", c.get("comment")) else c)
+PY
+}
+
 cmd_take() {
   ITEM="$(curl_d "$H/api/dispatch/poll" | jq_ "print(d['items'][0]['id'] if d['items'] else '')")"
   [ -n "$ITEM" ] || die "queue is empty"
@@ -228,6 +242,6 @@ cmd_down() {
 }
 
 case "${1:-}" in
-  up|load|northstar|status|next|roadmap|dispatch|take|feedback|usage|done|failed|resources|export|down) c="$1"; shift; "cmd_$c" "$@";;
-  *) echo "usage: hb up|load|northstar|status|next|roadmap|dispatch <ticket> [kind]|take|feedback <id> <msg> [kind]|usage <id> <json>|resources <id>|done <id> <msg>|failed <id> <msg>|export|down"; exit 2;;
+  up|load|northstar|status|next|roadmap|dispatch|take|feedback|usage|done|failed|resources|close|export|down) c="$1"; shift; "cmd_$c" "$@";;
+  *) echo "usage: hb up|load|northstar|status|next|roadmap|dispatch <ticket> [kind]|take|feedback <id> <msg> [kind]|usage <id> <json>|resources <id>|done <id> <msg>|failed <id> <msg>|close <ticket> <msg>|export|down"; exit 2;;
 esac
