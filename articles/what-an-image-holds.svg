@@ -1,0 +1,103 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 720 484" width="720" height="484" role="img" aria-labelledby="t d">
+<title id="t">Which mcp each published image installed, against what each project named, 19 March to 30 May 2026</title>
+<desc id="d">One row for each of five projects. Each tick is one published image of the project, placed at the time it was built and coloured by the version of the library mcp installed inside it: orange for a version older than 1.27.0, blue for 1.27.0 or later. The line beneath is the version the project itself named, in its git lockfile or, for keboola and octobot, in its published package, and the diamond marks when that named version first became 1.27.0. mcp 1.27.0 was released on 2 April. agentcrew's images held 1.27.0 from 8 April, 16 days before its lockfile moved on 24 April. serena's images moved on 27 April, three days after its pin. keboola's moved on 17 April, three days before its package release requiring 1.27.0. mcp-snowflake-server's held 1.14.0 until 6 May and moved 11 minutes after its pin. octobot's held 1.26.0, and its next image, on 30 July, still did. A sixth project, jesse, is left out: the one image of it read held no mcp.</desc>
+<style>
+svg { --bg:#fcfcfb; --ink:#0b0b0b; --ink2:#52514e; --muted:#6f6e69; --grid:#e4e3df; --old:#eb6834; --new:#2a78d6; }
+@media (prefers-color-scheme: dark) { svg { --bg:#1a1a19; --ink:#ffffff; --ink2:#c3c2b7; --muted:#9a9890; --grid:#383835; --old:#e0703f; --new:#3987e5; } }
+text { font-family: system-ui, -apple-system, "Segoe UI", Roboto, Helvetica, Arial, sans-serif; fill: var(--ink); }
+.head { font-size: 17px; font-weight: 600; } .sub { font-size: 13px; fill: var(--ink2); }
+.lab { font-size: 13.5px; font-weight: 600; } .note { font-size: 12px; fill: var(--muted); }
+.ann { font-size: 12px; fill: var(--ink2); } .ax { font-size: 12px; fill: var(--muted); }
+</style>
+<rect width="720" height="484" fill="var(--bg)"/>
+<text x="16" y="30" class="head">What each image installed, and what its project had named</text>
+<text x="16" y="51" class="sub">Each tick is one published image at its build time, coloured by the mcp inside it.</text>
+<text x="16" y="69" class="sub">The line beneath is the version the project named in its lockfile or published package.</text>
+<rect x="16" y="82" width="4" height="15" rx="1" fill="var(--old)"/>
+<text x="26" y="94" class="ann">older than 1.27.0</text>
+<rect x="146" y="82" width="4" height="15" rx="1" fill="var(--new)"/>
+<text x="156" y="94" class="ann">1.27.0 or later</text>
+<path d="M272,89.5 l6,-6 l6,6 l-6,6 z" fill="var(--ink)"/>
+<text x="290" y="94" class="ann">project first names 1.27.0</text>
+<line x1="288.3" y1="124" x2="288.3" y2="440" stroke="var(--grid)" stroke-width="1"/>
+<text x="288.3" y="458" class="ax" text-anchor="middle">1 April</text>
+<line x1="383.5" y1="124" x2="383.5" y2="440" stroke="var(--grid)" stroke-width="1"/>
+<text x="383.5" y="458" class="ax" text-anchor="middle">15 April</text>
+<line x1="492.2" y1="124" x2="492.2" y2="440" stroke="var(--grid)" stroke-width="1"/>
+<text x="492.2" y="458" class="ax" text-anchor="middle">1 May</text>
+<line x1="587.3" y1="124" x2="587.3" y2="440" stroke="var(--grid)" stroke-width="1"/>
+<text x="587.3" y="458" class="ax" text-anchor="middle">15 May</text>
+<line x1="299.3" y1="116" x2="299.3" y2="440" stroke="var(--ink)" stroke-width="1.5" stroke-dasharray="4 3"/>
+<text x="293.3" y="122" class="ann" text-anchor="end">mcp 1.27.0 released, 2 April</text>
+<text x="16" y="156" class="lab">agentcrew</text>
+<text x="16" y="172" class="note">image installs from a range</text>
+<line x1="200.0" y1="170" x2="255.1" y2="170" stroke="var(--old)" stroke-width="3" stroke-opacity="0.55"/>
+<line x1="255.1" y1="170" x2="446.8" y2="170" stroke="var(--old)" stroke-width="3" stroke-opacity="0.55"/>
+<line x1="446.8" y1="170" x2="588.2" y2="170" stroke="var(--new)" stroke-width="3" stroke-opacity="0.55"/>
+<line x1="588.2" y1="170" x2="696.0" y2="170" stroke="var(--new)" stroke-width="3" stroke-opacity="0.55"/>
+<path d="M446.8,163 l7,7 l-7,7 l-7,-7 z" fill="var(--ink)" stroke="var(--bg)" stroke-width="1.5"/>
+<rect x="294.4" y="144" width="4" height="18" rx="1" fill="var(--old)" stroke="var(--bg)" stroke-width="0.75"/>
+<rect x="334.9" y="144" width="4" height="18" rx="1" fill="var(--new)" stroke="var(--bg)" stroke-width="0.75"/>
+<rect x="433.7" y="144" width="4" height="18" rx="1" fill="var(--new)" stroke="var(--bg)" stroke-width="0.75"/>
+<rect x="634.7" y="144" width="4" height="18" rx="1" fill="var(--new)" stroke="var(--bg)" stroke-width="0.75"/>
+<path d="M336.9,139 v-5 H446.8 v5" fill="none" stroke="var(--ink2)" stroke-width="1"/>
+<text x="391.8" y="130" class="ann" text-anchor="middle">16 days ahead of its lockfile</text>
+<text x="16" y="220" class="lab">serena</text>
+<text x="16" y="236" class="note">image installs from a pin</text>
+<line x1="200.0" y1="234" x2="236.7" y2="234" stroke="var(--old)" stroke-width="3" stroke-opacity="0.55"/>
+<line x1="236.7" y1="234" x2="448.7" y2="234" stroke="var(--old)" stroke-width="3" stroke-opacity="0.55"/>
+<line x1="448.7" y1="234" x2="696.0" y2="234" stroke="var(--new)" stroke-width="3" stroke-opacity="0.55"/>
+<path d="M448.7,227 l7,7 l-7,7 l-7,-7 z" fill="var(--ink)" stroke="var(--bg)" stroke-width="1.5"/>
+<rect x="304.0" y="208" width="4" height="18" rx="1" fill="var(--old)" stroke="var(--bg)" stroke-width="0.75"/>
+<rect x="358.1" y="208" width="4" height="18" rx="1" fill="var(--old)" stroke="var(--bg)" stroke-width="0.75"/>
+<rect x="364.5" y="208" width="4" height="18" rx="1" fill="var(--old)" stroke="var(--bg)" stroke-width="0.75"/>
+<rect x="379.1" y="208" width="4" height="18" rx="1" fill="var(--old)" stroke="var(--bg)" stroke-width="0.75"/>
+<rect x="466.3" y="208" width="4" height="18" rx="1" fill="var(--new)" stroke="var(--bg)" stroke-width="0.75"/>
+<rect x="563.4" y="208" width="4" height="18" rx="1" fill="var(--new)" stroke="var(--bg)" stroke-width="0.75"/>
+<rect x="563.4" y="208" width="4" height="18" rx="1" fill="var(--new)" stroke="var(--bg)" stroke-width="0.75"/>
+<rect x="563.4" y="208" width="4" height="18" rx="1" fill="var(--new)" stroke="var(--bg)" stroke-width="0.75"/>
+<rect x="609.2" y="208" width="4" height="18" rx="1" fill="var(--new)" stroke="var(--bg)" stroke-width="0.75"/>
+<rect x="611.4" y="208" width="4" height="18" rx="1" fill="var(--new)" stroke="var(--bg)" stroke-width="0.75"/>
+<rect x="664.3" y="208" width="4" height="18" rx="1" fill="var(--new)" stroke="var(--bg)" stroke-width="0.75"/>
+<text x="460.3" y="202" class="ann" text-anchor="end">3 days after its pin</text>
+<text x="16" y="284" class="lab">keboola mcp-server</text>
+<text x="16" y="300" class="note">package pins exactly</text>
+<line x1="200.0" y1="298" x2="210.5" y2="298" stroke="var(--old)" stroke-width="3" stroke-opacity="0.55"/>
+<line x1="210.5" y1="298" x2="419.2" y2="298" stroke="var(--old)" stroke-width="3" stroke-opacity="0.55"/>
+<line x1="419.2" y1="298" x2="696.0" y2="298" stroke="var(--new)" stroke-width="3" stroke-opacity="0.55"/>
+<path d="M419.2,291 l7,7 l-7,7 l-7,-7 z" fill="var(--ink)" stroke="var(--bg)" stroke-width="1.5"/>
+<rect x="240.9" y="272" width="4" height="18" rx="1" fill="var(--old)" stroke="var(--bg)" stroke-width="0.75"/>
+<rect x="281.7" y="272" width="4" height="18" rx="1" fill="var(--old)" stroke="var(--bg)" stroke-width="0.75"/>
+<rect x="297.1" y="272" width="4" height="18" rx="1" fill="var(--old)" stroke="var(--bg)" stroke-width="0.75"/>
+<rect x="351.2" y="272" width="4" height="18" rx="1" fill="var(--old)" stroke="var(--bg)" stroke-width="0.75"/>
+<rect x="397.0" y="272" width="4" height="18" rx="1" fill="var(--old)" stroke="var(--bg)" stroke-width="0.75"/>
+<rect x="397.7" y="272" width="4" height="18" rx="1" fill="var(--old)" stroke="var(--bg)" stroke-width="0.75"/>
+<rect x="398.7" y="272" width="4" height="18" rx="1" fill="var(--new)" stroke="var(--bg)" stroke-width="0.75"/>
+<rect x="430.5" y="272" width="4" height="18" rx="1" fill="var(--new)" stroke="var(--bg)" stroke-width="0.75"/>
+<rect x="628.9" y="272" width="4" height="18" rx="1" fill="var(--new)" stroke="var(--bg)" stroke-width="0.75"/>
+<rect x="657.0" y="272" width="4" height="18" rx="1" fill="var(--new)" stroke="var(--bg)" stroke-width="0.75"/>
+<text x="410.7" y="266" class="ann">3 days before its package release</text>
+<text x="16" y="348" class="lab">mcp-snowflake-server</text>
+<text x="16" y="364" class="note">image uses its lockfile</text>
+<line x1="426.2" y1="362" x2="531.0" y2="362" stroke="var(--old)" stroke-width="3" stroke-opacity="0.55"/>
+<line x1="531.0" y1="362" x2="572.3" y2="362" stroke="var(--new)" stroke-width="3" stroke-opacity="0.55"/>
+<line x1="572.3" y1="362" x2="696.0" y2="362" stroke="var(--new)" stroke-width="3" stroke-opacity="0.55"/>
+<path d="M531.0,355 l7,7 l-7,7 l-7,-7 z" fill="var(--ink)" stroke="var(--bg)" stroke-width="1.5"/>
+<rect x="519.9" y="336" width="4" height="18" rx="1" fill="var(--old)" stroke="var(--bg)" stroke-width="0.75"/>
+<rect x="526.3" y="336" width="4" height="18" rx="1" fill="var(--old)" stroke="var(--bg)" stroke-width="0.75"/>
+<rect x="526.6" y="336" width="4" height="18" rx="1" fill="var(--old)" stroke="var(--bg)" stroke-width="0.75"/>
+<rect x="529.0" y="336" width="4" height="18" rx="1" fill="var(--new)" stroke="var(--bg)" stroke-width="0.75"/>
+<rect x="560.6" y="336" width="4" height="18" rx="1" fill="var(--new)" stroke="var(--bg)" stroke-width="0.75"/>
+<rect x="629.6" y="336" width="4" height="18" rx="1" fill="var(--new)" stroke="var(--bg)" stroke-width="0.75"/>
+<rect x="668.9" y="336" width="4" height="18" rx="1" fill="var(--new)" stroke="var(--bg)" stroke-width="0.75"/>
+<text x="513.9" y="348" class="ann" text-anchor="end">held 1.14.0 until its pin moved</text>
+<text x="531.0" y="330" class="ann" text-anchor="middle">11 minutes after its pin</text>
+<text x="16" y="412" class="lab">octobot</text>
+<text x="16" y="428" class="note">package pins exactly</text>
+<line x1="200.0" y1="426" x2="696.0" y2="426" stroke="var(--old)" stroke-width="3" stroke-opacity="0.55"/>
+<rect x="222.7" y="400" width="4" height="18" rx="1" fill="var(--old)" stroke="var(--bg)" stroke-width="0.75"/>
+<rect x="270.3" y="400" width="4" height="18" rx="1" fill="var(--old)" stroke="var(--bg)" stroke-width="0.75"/>
+<rect x="274.6" y="400" width="4" height="18" rx="1" fill="var(--old)" stroke="var(--bg)" stroke-width="0.75"/>
+<text x="363.1" y="412" class="ann">next image, 30 July: still 1.26.0 →</text>
+<text x="16" y="472" class="note">Registries read 26 September 2026. Build times from each image's configuration, UTC.</text>
+</svg>
