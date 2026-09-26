@@ -40,7 +40,7 @@ Harbour is the first proposed calibration subject. Harbour is an open-source con
 
 Lighthouse is a complement to Harbour rather than a part of it. Harbour is a control plane: it keeps human intent in command of AI execution and verifies each task on evidence. Lighthouse is an observatory: it studies what execution leaves behind and what that enables, across many tasks, over longer periods, and beyond any one control plane. Harbour asks whether a task did what was asked. Lighthouse asks what the activity changed, and what the change made possible.
 
-Harbour may also coordinate Lighthouse investigations. This makes it both an operational partner and a subject of study. Lighthouse and Harbour have the same keeper, and that overlap is a further interest to disclose. Lighthouse records the relationship in every study that relies on Harbour evidence and includes its own research footprint in its observations. Findings about Harbour require further testing before they are generalised to other systems.
+Harbour may also coordinate Lighthouse investigations. This makes it both an operational partner and a subject of study. Lighthouse and Harbour have the same keeper, the person who keeps the light lit and decides what is shown, and that overlap is a further interest to disclose. Lighthouse records the relationship in every study that relies on Harbour evidence and includes its own research footprint in its observations. Findings about Harbour require further testing before they are generalised to other systems.
 
 Harbour publishes its own empirical papers about its workflow. Lighthouse does not repeat that work. Where a Harbour paper and a Lighthouse study touch the same events, each cites the other and states what its own evidence adds.
 
@@ -89,9 +89,9 @@ The labels follow Harbour's charter. BINDING names a rule with an observable bre
 - **[BINDING] We keep research proportionate.** Work begins with a bounded question, an accountable owner, a resource envelope and a stopping condition. A small team may combine roles; it still records which checks were independent. *Breach: a study open with no brief naming those four things, or a publication that implies a check was independent when it was not.*
 - **[PRINCIPLE] A finding at one layer does not settle the others.** Activity, residue and propagation are observed with different instruments on different timescales, and a claim about one is not evidence about another.
 
-## Authority and keeping
+## Authority and the keeper
 
-A lighthouse has a keeper, the person who keeps the light lit and decides what is shown. Lighthouse's keeper sets direction and assigns responsibility for investigations and publication. Agents do most of the research and execution; a named person remains responsible for each study and for every release. These documents define the intended practice. They do not grant access to any system, create a spending commitment, or authorise a public release.
+The keeper sets direction and assigns responsibility for investigations and publication. Agents do most of the research and execution; a named person remains responsible for each study and for every release. These documents define the intended practice. They do not grant access to any system, create a spending commitment, or authorise a public release.
 
 Work uses public sources or access granted for a specified purpose. An experiment that changes a system needs that system's operator's authority. Where Harbour is the subject, Lighthouse respects the boundary Harbour's own charter draws between actions its AI may take and actions reserved for humans. Transparency includes explaining restrictions on evidence that cannot responsibly be shared.
 

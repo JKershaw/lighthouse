@@ -1,6 +1,6 @@
 # Lighthouse Operating Handbook
 
-Research organisation, publication and keeping
+Research organisation, publication and responsibility
 
 Draft | 25 September 2026 | LH F03
 
@@ -10,7 +10,7 @@ Lighthouse begins as a small research practice with bounded investigations and a
 
 Most of Lighthouse's work is done by AI agents: collection, analysis, source checking, drafting and the upkeep of the registers, dispatched as bounded tasks within a stated budget and scope. People do the parts that give the work its meaning. They set the questions, read what comes back, judge whether it is interesting and true, and decide what is published. Agent output is the ordinary case; a person's reading is the scarce resource, and the practice is arranged to spend it well. The session that drives the watch is itself an observer, and its own runs are part of the record it exports.
 
-Four roles remain, and they name responsibilities rather than people. The founding keeper chooses priorities, sets the budget and assigns an accountable owner to each investigation. The owner defines the question and answers for the evidence packet, whoever or whatever produced it. A methods reviewer checks collection and analysis. An editor prepares the publication and records its release decision.
+Four roles remain, and they name responsibilities rather than people. The founding keeper, the person who keeps the light lit and decides what is shown, chooses priorities, sets the budget and assigns an accountable owner to each investigation. The owner defines the question and answers for the evidence packet, whoever or whatever produced it. A methods reviewer checks collection and analysis. An editor prepares the publication and records its release decision.
 
 An agent may do the working part of any role within its declared scope. The release decision is a person's, as cutting a release is in Harbour's charter. The person responsible for a study remains identifiable. If one person fills several roles, the publication records that limitation rather than implying independent review.
 
@@ -103,7 +103,7 @@ Time-sensitive assessments state a review trigger or expiry. A superseded map is
 
 The first public surface makes it easy to find the remit, current investigations, publications, methods and corrections. A modest searchable archive is sufficient for the initial programme.
 
-## Keeping and research boundaries
+## Responsibility and research boundaries
 
 Prefer metadata and aggregate readings when they answer the question. Record access scope, retention and sharing conditions before collection. Separate private evidence from public releases. Avoid collecting credentials or raw customer content as incidental telemetry. Harbour's own charter commits it to store customer content only for operational need; Lighthouse does not become a route around that commitment.
 
