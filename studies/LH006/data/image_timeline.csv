@@ -1,0 +1,43 @@
+image,package,tags,position,pushed_utc,created_utc,label_revision,days_from_release,mcp_installed,reading,git_requirement_at_build,git_lock_at_build,pypi_release,pypi_requires,push_minus_created_min,lh005_share_1_27_0_on_build_day
+docker.io/daltonnyx/agentcrew,agentcrew-ai,0.11.1 v0.11.1 v0.11.1-7eb39ee-60,nearest before period,2026-03-20T15:20:30Z,2026-03-20T14:51:14Z,7eb39ee2b5e2,-13.0,,not determined: byte cap reached before mcp was seen,>=1.24.0,1.25.0,0.11.1,mcp>=1.24.0,29.3,0.0
+docker.io/daltonnyx/agentcrew,agentcrew-ai,0.12.3 v0.12.3-bc17243-65,in window,2026-04-02T05:04:26Z,2026-04-02T04:37:44Z,bc17243f969e,-0.4,1.26.0,mcp dist-info found,>=1.24.0,1.26.0,0.12.3,mcp>=1.24.0,26.7,0.223
+docker.io/daltonnyx/agentcrew,agentcrew-ai,v0.12.3,in window,2026-04-08T03:37:57Z,2026-04-08T03:33:19Z,,5.5,1.27.0,mcp dist-info found,>=1.24.0,1.26.0,0.12.3,mcp>=1.24.0,4.6,0.5399
+docker.io/daltonnyx/agentcrew,agentcrew-ai,0.13.0 v0.13.0 v0.13.0-42a774e-78,in window,2026-04-22T17:01:31Z,2026-04-22T16:29:59Z,42a774ec152a,20.1,1.27.0,mcp dist-info found,>=1.24.0,1.26.0,0.13.0,mcp>=1.24.0,31.5,0.5956
+docker.io/daltonnyx/agentcrew,agentcrew-ai,0.15.7 v0.15.7 v0.15.7-eef3e7c-98,in month after,2026-05-22T06:59:16Z,2026-05-22T06:31:54Z,eef3e7c22d37,49.7,1.27.1,mcp dist-info found,==1.27.1,1.27.1,0.15.7,mcp==1.27.1,27.4,
+docker.io/drakkarsoftware/octobot,octobot,prediction-market-2.1.0,nearest before period,2026-03-23T20:03:40Z,2026-03-22T15:21:22Z,,-11.0,1.26.0,mcp dist-info found,,,,,1722.3,0.0
+docker.io/drakkarsoftware/octobot,octobot,2.1.1,in window,2026-03-29T15:39:10Z,2026-03-29T15:28:31Z,,-4.0,1.26.0,mcp dist-info found,,,2.1.1,mcp==1.26.0,10.7,0.0
+docker.io/drakkarsoftware/octobot,octobot,marketmaking-2.1.1 marketmaking-latest marketmaking-stable,in window,2026-03-30T06:26:11Z,2026-03-30T06:25:21Z,,-3.3,1.26.0,mcp dist-info found,,,,,0.8,0.0
+docker.io/drakkarsoftware/octobot,octobot,3.0.0-beta1,nearest after period,2026-07-30T19:00:55Z,2026-07-30T18:46:19Z,,119.2,1.26.0,mcp dist-info found,,,,,14.6,
+docker.io/keboola/mcp-server,keboola-mcp-server,canary-orion-f9293dda144db5e12b33e0de0d13762e4178a596 sha-f9293dda144db5e12b33e0de0d13762e4178a596,nearest before period,2026-03-25T07:39:53Z,2026-03-25T07:37:31Z,f9293dda144d,-8.3,1.26.0,mcp dist-info found,,,,,2.4,0.0
+docker.io/keboola/mcp-server,keboola-mcp-server,production-6aa7aa98476d57f3df74f1293f82bd6b8e8a7b3e sha-6aa7aa98476d57f3df74f1293f82bd6b8e8a7b3e,in window,2026-03-31T07:47:06Z,2026-03-31T07:45:23Z,6aa7aa98476d,-2.3,1.26.0,mcp dist-info found,,,,,1.7,0.0
+docker.io/keboola/mcp-server,keboola-mcp-server,canary-orion-83b16a3786710eaf3f510f74ae45e7fccb2f6eb9 sha-83b16a3786710eaf3f510f74ae45e7fccb2f6eb9,in window,2026-04-02T13:54:11Z,2026-04-02T13:52:23Z,83b16a378671,-0.0,1.26.0,mcp dist-info found,,,,,1.8,0.223
+docker.io/keboola/mcp-server,keboola-mcp-server,canary-orion-389d57dc205308c0183dcc4b2ad836e6b4dcb110 sha-389d57dc205308c0183dcc4b2ad836e6b4dcb110,in window,2026-04-10T13:17:20Z,2026-04-10T13:15:23Z,389d57dc2053,7.9,1.26.0,mcp dist-info found,,,,,1.9,0.4825
+docker.io/keboola/mcp-server,keboola-mcp-server,canary-orion-956f6866c92530f19171da212c9c02a48f386a4d sha-956f6866c92530f19171da212c9c02a48f386a4d,in window,2026-04-17T06:53:39Z,2026-04-17T06:51:43Z,956f6866c925,14.7,1.26.0,mcp dist-info found,,,,,1.9,0.5983
+docker.io/keboola/mcp-server,keboola-mcp-server,production-5305f800e97af42382b9128f263aa9f34692c86e sha-5305f800e97af42382b9128f263aa9f34692c86e,in window,2026-04-17T09:19:27Z,2026-04-17T09:17:17Z,5305f800e97a,14.8,1.26.0,mcp dist-info found,,,,,2.2,0.5983
+docker.io/keboola/mcp-server,keboola-mcp-server,canary-orion-cb2df01dc54a45a14dbfe11a166fc444363d08bf,in window,2026-04-17T12:52:29Z,2026-04-17T12:50:20Z,cb2df01dc54a,14.9,1.27.0,mcp dist-info found,,,,,2.1,0.5983
+docker.io/keboola/mcp-server,keboola-mcp-server,production-c8d71cce25ed6a35f2b4e17fbf02932a953849c3 sha-c8d71cce25ed6a35f2b4e17fbf02932a953849c3,in window,2026-04-22T05:27:12Z,2026-04-22T05:25:28Z,c8d71cce25ed,19.6,1.27.0,mcp dist-info found,,,,,1.7,0.5956
+docker.io/keboola/mcp-server,keboola-mcp-server,canary-orion-496c21fc6e3abce09c49927ad5a61553417c2968 sha-496c21fc6e3abce09c49927ad5a61553417c2968,in month after,2026-05-21T10:05:15Z,2026-05-21T10:03:15Z,496c21fc6e3a,48.8,1.27.0,mcp dist-info found,,,,,2.0,
+docker.io/keboola/mcp-server,keboola-mcp-server,canary-orion-d39fde04319c051ab8f04a430e503109557369d1 sha-d39fde04319c051ab8f04a430e503109557369d1,nearest after period,2026-05-25T13:16:28Z,2026-05-25T13:14:39Z,d39fde04319c,52.9,1.27.0,mcp dist-info found,,,,,1.8,
+docker.io/nsphung/mcp-snowflake-server-nsp,mcp-snowflake-server-nsp,0.8.0,in month after,2026-05-05T09:10:45Z,2026-05-05T09:03:30Z,,32.8,1.14.0,mcp dist-info found,>=1.0.0,1.14.0,0.8.0,mcp>=1.0.0,7.2,
+docker.io/nsphung/mcp-snowflake-server-nsp,mcp-snowflake-server-nsp,0.10.0,in month after,2026-05-06T07:37:56Z,2026-05-06T07:36:55Z,,33.7,1.14.0,mcp dist-info found,>=1.0.0,1.14.0,0.10.0,mcp>=1.0.0,1.0,
+docker.io/nsphung/mcp-snowflake-server-nsp,mcp-snowflake-server-nsp,0.10.1,in month after,2026-05-06T08:33:57Z,2026-05-06T08:32:02Z,,33.7,1.14.0,mcp dist-info found,>=1.0.0,1.14.0,0.10.1,mcp>=1.0.0,1.9,
+docker.io/nsphung/mcp-snowflake-server-nsp,mcp-snowflake-server-nsp,0.11.0,in month after,2026-05-06T17:15:05Z,2026-05-06T17:13:44Z,,34.1,1.27.0,mcp dist-info found,==1.27.0,1.27.0,0.11.0,mcp==1.27.0,1.4,
+docker.io/nsphung/mcp-snowflake-server-nsp,mcp-snowflake-server-nsp,0.11.3,in month after,2026-05-11T08:55:06Z,2026-05-11T08:49:58Z,2a3840900999,38.8,1.27.0,mcp dist-info found,==1.27.0,1.27.0,0.11.3,mcp==1.27.0,5.1,
+docker.io/nsphung/mcp-snowflake-server-nsp,mcp-snowflake-server-nsp,0.12.1,in month after,2026-05-21T12:27:18Z,2026-05-21T12:25:47Z,53ae8eac866b,48.9,1.27.1,mcp dist-info found,==1.27.1,1.27.1,0.12.1,mcp==1.27.1,1.5,
+docker.io/nsphung/mcp-snowflake-server-nsp,mcp-snowflake-server-nsp,0.13.0,nearest after period,2026-05-27T07:23:52Z,2026-05-27T07:22:07Z,1a42023381de,54.7,1.27.1,mcp dist-info found,==1.27.1,1.27.1,0.13.0,mcp==1.27.1,1.8,
+docker.io/salehmir/jesse,jesse,1.13.8,in window,2026-03-28T15:18:06Z,2026-03-28T15:15:12Z,,-5.0,,no mcp dist-info in any layer read (all non-base layers read to the end),==1.26.0,,1.13.8,none,2.9,0.0
+docker.io/salehmir/jesse,jesse,1.13.9,in window,2026-04-06T14:49:44Z,2026-04-06T14:48:53Z,,4.0,,not determined: byte cap reached before mcp was seen,==1.26.0,,1.13.9,none,0.8,0.4778
+docker.io/salehmir/jesse,jesse,1.13.11,in window,2026-04-09T18:10:33Z,2026-04-09T18:09:39Z,,7.1,,configuration read; layers not read (byte cap),==1.26.0,,1.13.11,none,0.9,0.5238
+docker.io/salehmir/jesse,jesse,2.1.3,in month after,2026-05-20T19:04:29Z,2026-05-20T19:01:12Z,,48.2,,configuration read; layers not read (byte cap),==1.26.0,,2.1.3,mcp==1.26.0,3.3,
+ghcr.io/oraios/serena,serena-agent,dev,nearest before period,,2025-12-11T08:58:34Z,2ec96089f619,-112.2,1.12.3,mcp dist-info found,,,,,,
+ghcr.io/oraios/serena,serena-agent,1.0 1.0.0,in window,,2026-04-03T14:18:59Z,f65980bd8cb9,1.0,1.26.0,mcp dist-info found,==1.26.0,1.26.0,1.0.0,mcp==1.26.0,,0.4809
+ghcr.io/oraios/serena,serena-agent,1.1.0,in window,,2026-04-11T13:32:02Z,870e6184a45a,8.9,1.26.0,mcp dist-info found,==1.26.0,1.26.0,1.1.0,mcp==1.26.0,,0.5686
+ghcr.io/oraios/serena,serena-agent,1.1.1,in window,,2026-04-12T12:10:00Z,f3de97084b7c,9.9,1.26.0,mcp dist-info found,==1.26.0,1.26.0,1.1.1,mcp==1.26.0,,0.7055
+ghcr.io/oraios/serena,serena-agent,1.1 1.1.2,in window,,2026-04-14T15:48:25Z,1e6345cae95b,12.0,1.26.0,mcp dist-info found,==1.26.0,1.26.0,1.1.2,mcp==1.26.0,,0.6299
+ghcr.io/oraios/serena,serena-agent,1.2 1.2.0,in month after,,2026-04-27T11:38:19Z,0a96f71bd90c,24.9,1.27.0,mcp dist-info found,==1.27.0,1.27.0,1.2.0,mcp==1.27.0,,0.4794
+ghcr.io/oraios/serena,serena-agent,1.4.1,in month after,,2026-05-11T18:32:44Z,d9cd671f8118,39.2,1.27.0,mcp dist-info found,==1.27.0,1.27.0,,,,
+ghcr.io/oraios/serena,serena-agent,1.4 1.4.0,in month after,,2026-05-11T18:33:00Z,8d7f2e48e439,39.2,1.27.0,mcp dist-info found,==1.27.0,1.27.0,,,,
+ghcr.io/oraios/serena,serena-agent,1.3 1.3.0,in month after,,2026-05-11T18:33:09Z,ad7cf51ec3cd,39.2,1.27.0,mcp dist-info found,==1.27.0,1.27.0,1.3.0,mcp==1.27.0,,
+ghcr.io/oraios/serena,serena-agent,1.5.0,in month after,,2026-05-18T12:34:53Z,6fbbbadc8857,45.9,1.27.0,mcp dist-info found,==1.27.0,1.27.0,1.5.0,mcp==1.27.0,,
+ghcr.io/oraios/serena,serena-agent,1.5.1,in month after,,2026-05-18T20:16:29Z,c3a8d5a9c546,46.2,1.27.0,mcp dist-info found,==1.27.0,1.27.0,1.5.1,mcp==1.27.0,,
+ghcr.io/oraios/serena,serena-agent,1.5.2,nearest after period,,2026-05-26T15:06:56Z,2ee8f100b25c,54.0,1.27.0,mcp dist-info found,==1.27.0,1.27.0,1.5.2,mcp==1.27.0,,

@@ -1,0 +1,38 @@
+package,lh002_id,in_frame_a,repo,dockerfile_at_head,dockerfile_at_period_end,matching_lines,qualifies,image_repository,named_in,reason
+fast-agent-mcp,,yes,,no,no,0,no,,PyPI description,no repository link in Open Source Insights or PyPI; PyPI metadata names no image
+aicompatible-rag,,yes,github.com/saramali15792/agentrag,no,no,0,no,,,no image reference in the files read or in PyPI metadata
+loredocs,,yes,,no,no,0,no,,PyPI description,no repository link in Open Source Insights or PyPI; PyPI metadata names no image
+audiagentic,,yes,github.com/audumla/audiagentic,yes,yes,21,no,,repository,test Dockerfiles only; ci-tests.yml builds with load: true and no push; README runs a local test container
+beebjit-mcp,,yes,github.com/acscpt/beebjit-mcp,no,no,0,no,,,no image reference in the files read or in PyPI metadata
+cognirepo,,yes,github.com/ashlesh-t/cognirepo,yes,yes,6,yes,ghcr.io/ashlesh-t/cognirepo,repository,".github/workflows/docker.yml, added 2026-03-28, pushes ghcr.io/${{ github.repository }} on published releases and on manual dispatch"
+dartlab,R06,yes,github.com/eddmpython/dartlab,no,no,0,no,,,no image reference in the files read or in PyPI metadata
+databricks-tellr-app,R02,yes,github.com/robertwhiffin/ai-slide-generator,no,no,14,no,,repository,no image of its own; a postgres service image in a test workflow
+mistral-vibe,R07,yes,github.com/mistralai/mistral-vibe,no,no,6,no,,repository,no image of its own; manylinux build containers in release workflows
+govuk-mcp,,yes,github.com/paulieb89/govuk-mcp,yes,yes,0,no,,repository,"Dockerfile, no published image named"
+hal0ai,,yes,github.com/hal0ai/hal0,yes,yes,100,no,,repository,"names published images (ghcr.io/hal0ai/hal0-toolbox-*), but they are model-server runtime toolboxes; their Dockerfiles (packaging/toolbox/*.Dockerfile) do not install the hal0ai package or mcp. Excluded as not an image of the package"
+keboola-mcp-server,,yes,,no,no,4,yes,docker.io/keboola/mcp-server,PyPI description,no repository link in Open Source Insights or PyPI; the PyPI description gives docker pull keboola/mcp-server:latest
+lean-lsp-mcp,R03,yes,github.com/ooo0ooo/lean-lsp-mcp,yes,yes,8,no,,repository,"Dockerfile, no published image named: the README runs lean-lsp-mcp:containerized, a locally built tag"
+loreconvo,,yes,github.com/labyrinth-analytics/loreconvo,no,no,0,no,,,no image reference in the files read or in PyPI metadata
+anyvm-mcp,,yes,github.com/anyvm-org/mcp,no,no,0,no,,,no image reference in the files read or in PyPI metadata
+mcp-google-drive,,yes,,no,no,0,no,,PyPI description,no repository link in Open Source Insights or PyPI; PyPI metadata names no image
+mcp-server-r4j,,yes,,no,no,0,no,,PyPI description,no repository link in Open Source Insights or PyPI; PyPI metadata names no image
+mcp-snowflake-server-nsp,,yes,github.com/nsphung/mcp-snowflake-server,yes,yes,38,yes,docker.io/nsphung/mcp-snowflake-server-nsp,repository and PyPI description,"README and PyPI description: ""The image is published on Docker Hub"", docker pull nsphung/mcp-snowflake-server-nsp; publish.yml pushes it; server.json names it as an OCI package"
+agentcrew-ai,R01,yes,github.com/saigontechnology/agentcrew,yes,yes,20,yes,docker.io/daltonnyx/agentcrew,repository,.github/workflows/docker-build-publish.yml builds linux/amd64 and linux/arm64 and pushes to docker.io/daltonnyx/agentcrew on version tags (present at both commits read)
+prosuite-mcp,,yes,github.com/prosuite/prosuite-mcp,no,no,0,no,,,no image reference in the files read or in PyPI metadata
+pyp6xer-mcp,R04,yes,github.com/paulieb89/pyp6xer-mcp,yes,yes,2,no,,repository,"Dockerfile, no published image named (the only registry reference is the uv base image)"
+reboot,,yes,,no,no,0,no,,PyPI description,no repository link in Open Source Insights or PyPI; PyPI metadata names no image
+scibudy,,yes,github.com/onemule/scibudy,no,no,0,no,,,no image reference in the files read or in PyPI metadata
+senbai,,yes,,no,no,0,no,,PyPI description,no repository link in Open Source Insights or PyPI; PyPI metadata names no image
+serena-agent,R05,yes,github.com/oraios/serena,yes,yes,8,yes,ghcr.io/oraios/serena,repository,.github/workflows/docker.yml pushes ghcr.io/${{ github.repository }} on pushes to main and v* tags (present at both commits read)
+snyk-agent-scan,,yes,,no,no,0,no,,PyPI description,no repository link in Open Source Insights or PyPI; PyPI metadata names no image
+stemmatry,,yes,,no,no,0,no,,PyPI description,no repository link in Open Source Insights or PyPI; PyPI metadata names no image
+telecom-mcp,,yes,,no,no,0,no,,PyPI description,no repository link in Open Source Insights or PyPI; PyPI metadata names no image
+traceweave-mcp,,yes,github.com/gokeshenzhen/traceweave,no,no,0,no,,,no image reference in the files read or in PyPI metadata
+uk-business-mcp,,yes,github.com/paulieb89/uk-business-mcp,yes,yes,0,no,,repository,"Dockerfile, no published image named"
+uk-due-diligence-mcp,,yes,github.com/paulieb89/uk-due-diligence-mcp,yes,yes,1,no,,repository,"Dockerfile, no published image named (the only registry reference is the uv base image)"
+uk-legal-mcp,,yes,github.com/paulieb89/uk-legal-mcp,yes,yes,4,no,,repository,"Dockerfile, no published image named: README and workflow run a locally built uk-legal-mcp tag"
+unimcp,,yes,github.com/barada02/unimcp,no,no,0,no,,,no image reference in the files read or in PyPI metadata
+agentbrain-mcp,,yes,github.com/agentbrainhq/agentbrain-mcp,no,no,0,no,,,"repository named by Open Source Insights could not be cloned (the server asked for credentials: private, renamed or deleted); PyPI metadata names no image"
+mcp,R00,no,github.com/modelcontextprotocol/python-sdk,no,no,0,no,,,no image reference in the files read or in PyPI metadata
+octobot,R08,no,github.com/drakkar-software/octobot,yes,yes,33,yes,docker.io/drakkarsoftware/octobot,repository and PyPI description,README and PyPI description give docker run drakkarsoftware/octobot:stable; .github/workflows/main.yml builds and pushes with docker/build-push-action
+jesse,R09,no,github.com/jesse-ai/jesse,yes,yes,6,yes,docker.io/salehmir/jesse,repository and PyPI description,".github/workflows/docker-publish.yml pushes IMAGE: salehmir/jesse on v* tags; the workflow was added on 2026-05-30, after the period, and is absent at the period-end commit; README and PyPI description link hub.docker.com/r/salehmir/jesse. LH002 found no mcp requirement in jesse's git in the window"

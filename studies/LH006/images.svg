@@ -1,0 +1,189 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1000 490" width="1000" height="490" role="img" aria-labelledby="t d">
+<title id="t">Installed mcp version in published images, 19 March to 30 May 2026</title>
+<desc id="d">One row per image repository. Each image whose layers were read is marked by the mcp version its site-packages records; grey ticks are images tagged in the period that were not read; diamonds are the project's first commit pinning or locking mcp 1.27.0.</desc>
+<style>
+svg { --bg:#fcfcfb; --ink:#0b0b0b; --ink2:#52514e; --muted:#898781; --grid:#e4e3df; --win:#f0efec; --s1:#2a78d6; --s2:#eb6834; --s3:#1baf7a; }
+@media (prefers-color-scheme: dark) { svg { --bg:#1a1a19; --ink:#ffffff; --ink2:#c3c2b7; --muted:#898781; --grid:#383835; --win:#2a2a28; --s1:#3987e5; --s2:#d95926; --s3:#199e70; } }
+text { font-family: system-ui, -apple-system, "Segoe UI", sans-serif; fill: var(--ink); }
+.t2 { fill: var(--ink2); } .mu { fill: var(--muted); }
+</style>
+<rect width="1000" height="490" fill="var(--bg)"/>
+<text x="16" y="30" font-size="17" font-weight="600">What was installed: the mcp version inside each published image read</text>
+<text x="16" y="52" font-size="12.5" class="t2">Build time from each image's configuration (Docker Hub push time where the configuration was not read). Registries read 26 September 2026.</text>
+<rect x="17.5" y="74.5" width="11" height="11" rx="2" fill="var(--s2)" stroke="var(--bg)" stroke-width="2"/>
+<text x="36" y="84.5" font-size="12.5">mcp 1.26.0</text>
+<circle cx="135.0" cy="80" r="6" fill="var(--s1)" stroke="var(--bg)" stroke-width="2"/>
+<text x="148.0" y="84.5" font-size="12.5">mcp 1.27.0</text>
+<path d="M247.0,73 l6.5,11.5 h-13 z" fill="var(--s3)" stroke="var(--bg)" stroke-width="2"/>
+<text x="260.0" y="84.5" font-size="12.5">another version</text>
+<circle cx="395.0" cy="80" r="5" fill="var(--bg)" stroke="var(--ink2)" stroke-width="2"/>
+<text x="408.0" y="84.5" font-size="12.5">no mcp installed</text>
+<line x1="20" y1="98" x2="20" y2="110" stroke="var(--muted)" stroke-width="2"/><text x="30" y="108.5" font-size="12.5">image, installed version not read</text>
+<path d="M278,97 l7,7 l-7,7 l-7,-7 z" fill="var(--ink)"/><text x="291" y="108.5" font-size="12.5">project pins or locks 1.27.0 in git</text>
+<rect x="265.8" y="126" width="303.3" height="278" fill="var(--win)"/>
+<text x="565.2" y="138" font-size="11.5" text-anchor="end" class="t2">LH002 window</text>
+<line x1="222.5" y1="126" x2="222.5" y2="404" stroke="var(--grid)" stroke-width="1"/>
+<text x="222.5" y="422" font-size="11.5" text-anchor="middle" class="t2">22 Mar</text>
+<line x1="330.8" y1="126" x2="330.8" y2="404" stroke="var(--grid)" stroke-width="1"/>
+<text x="330.8" y="422" font-size="11.5" text-anchor="middle" class="t2">1 Apr</text>
+<line x1="406.7" y1="126" x2="406.7" y2="404" stroke="var(--grid)" stroke-width="1"/>
+<text x="406.7" y="422" font-size="11.5" text-anchor="middle" class="t2">8 Apr</text>
+<line x1="482.5" y1="126" x2="482.5" y2="404" stroke="var(--grid)" stroke-width="1"/>
+<text x="482.5" y="422" font-size="11.5" text-anchor="middle" class="t2">15 Apr</text>
+<line x1="558.3" y1="126" x2="558.3" y2="404" stroke="var(--grid)" stroke-width="1"/>
+<text x="558.3" y="422" font-size="11.5" text-anchor="middle" class="t2">22 Apr</text>
+<line x1="655.8" y1="126" x2="655.8" y2="404" stroke="var(--grid)" stroke-width="1"/>
+<text x="655.8" y="422" font-size="11.5" text-anchor="middle" class="t2">1 May</text>
+<line x1="731.7" y1="126" x2="731.7" y2="404" stroke="var(--grid)" stroke-width="1"/>
+<text x="731.7" y="422" font-size="11.5" text-anchor="middle" class="t2">8 May</text>
+<line x1="807.5" y1="126" x2="807.5" y2="404" stroke="var(--grid)" stroke-width="1"/>
+<text x="807.5" y="422" font-size="11.5" text-anchor="middle" class="t2">15 May</text>
+<line x1="883.3" y1="126" x2="883.3" y2="404" stroke="var(--grid)" stroke-width="1"/>
+<text x="883.3" y="422" font-size="11.5" text-anchor="middle" class="t2">22 May</text>
+<line x1="894.2" y1="126" x2="894.2" y2="404" stroke="var(--muted)" stroke-width="1" stroke-dasharray="3 3"/>
+<text x="898.2" y="138" font-size="11.5" class="t2">period ends</text>
+<line x1="348.3" y1="126" x2="348.3" y2="404" stroke="var(--ink)" stroke-width="1.5"/>
+<text x="352.3" y="438" font-size="11.5">mcp 1.27.0 released, 2 Apr 14:48 UTC</text>
+<text x="178" y="166" font-size="12.5" text-anchor="end">serena (ghcr.io)</text>
+<line x1="190" y1="162" x2="970" y2="162" stroke="var(--grid)" stroke-width="1"/>
+<path d="M586.5,145 l6,6 l-6,6 l-6,-6 z" fill="var(--ink)"/>
+<rect x="353.5" y="156.5" width="11" height="11" rx="2" fill="var(--s2)" stroke="var(--bg)" stroke-width="2"/>
+<rect x="439.8" y="156.5" width="11" height="11" rx="2" fill="var(--s2)" stroke="var(--bg)" stroke-width="2"/>
+<rect x="450.0" y="156.5" width="11" height="11" rx="2" fill="var(--s2)" stroke="var(--bg)" stroke-width="2"/>
+<rect x="473.3" y="156.5" width="11" height="11" rx="2" fill="var(--s2)" stroke="var(--bg)" stroke-width="2"/>
+<circle cx="617.8" cy="162" r="6" fill="var(--s1)" stroke="var(--bg)" stroke-width="2"/>
+<circle cx="772.5" cy="162" r="6" fill="var(--s1)" stroke="var(--bg)" stroke-width="2"/>
+<circle cx="772.5" cy="162" r="6" fill="var(--s1)" stroke="var(--bg)" stroke-width="2"/>
+<circle cx="772.5" cy="162" r="6" fill="var(--s1)" stroke="var(--bg)" stroke-width="2"/>
+<circle cx="845.7" cy="162" r="6" fill="var(--s1)" stroke="var(--bg)" stroke-width="2"/>
+<circle cx="849.2" cy="162" r="6" fill="var(--s1)" stroke="var(--bg)" stroke-width="2"/>
+<circle cx="933.5" cy="162" r="6" fill="var(--s1)" stroke="var(--bg)" stroke-width="2"/>
+<text x="178" y="210" font-size="12.5" text-anchor="end">agentcrew</text>
+<line x1="190" y1="206" x2="970" y2="206" stroke="var(--grid)" stroke-width="1"/>
+<line x1="207.8" y1="200" x2="207.8" y2="212" stroke="var(--muted)" stroke-width="1.5"/>
+<line x1="280.0" y1="200" x2="280.0" y2="212" stroke="var(--muted)" stroke-width="1.5"/>
+<line x1="280.6" y1="200" x2="280.6" y2="212" stroke="var(--muted)" stroke-width="1.5"/>
+<line x1="284.3" y1="200" x2="284.3" y2="212" stroke="var(--muted)" stroke-width="1.5"/>
+<line x1="315.3" y1="200" x2="315.3" y2="212" stroke="var(--muted)" stroke-width="1.5"/>
+<line x1="332.3" y1="200" x2="332.3" y2="212" stroke="var(--muted)" stroke-width="1.5"/>
+<line x1="457.1" y1="200" x2="457.1" y2="212" stroke="var(--muted)" stroke-width="1.5"/>
+<line x1="457.4" y1="200" x2="457.4" y2="212" stroke="var(--muted)" stroke-width="1.5"/>
+<line x1="463.8" y1="200" x2="463.8" y2="212" stroke="var(--muted)" stroke-width="1.5"/>
+<line x1="464.6" y1="200" x2="464.6" y2="212" stroke="var(--muted)" stroke-width="1.5"/>
+<line x1="475.7" y1="200" x2="475.7" y2="212" stroke="var(--muted)" stroke-width="1.5"/>
+<line x1="484.9" y1="200" x2="484.9" y2="212" stroke="var(--muted)" stroke-width="1.5"/>
+<line x1="489.5" y1="200" x2="489.5" y2="212" stroke="var(--muted)" stroke-width="1.5"/>
+<line x1="508.2" y1="200" x2="508.2" y2="212" stroke="var(--muted)" stroke-width="1.5"/>
+<line x1="511.6" y1="200" x2="511.6" y2="212" stroke="var(--muted)" stroke-width="1.5"/>
+<line x1="544.2" y1="200" x2="544.2" y2="212" stroke="var(--muted)" stroke-width="1.5"/>
+<line x1="544.4" y1="200" x2="544.4" y2="212" stroke="var(--muted)" stroke-width="1.5"/>
+<line x1="549.7" y1="200" x2="549.7" y2="212" stroke="var(--muted)" stroke-width="1.5"/>
+<line x1="551.4" y1="200" x2="551.4" y2="212" stroke="var(--muted)" stroke-width="1.5"/>
+<line x1="554.8" y1="200" x2="554.8" y2="212" stroke="var(--muted)" stroke-width="1.5"/>
+<line x1="565.6" y1="200" x2="565.6" y2="212" stroke="var(--muted)" stroke-width="1.5"/>
+<line x1="583.7" y1="200" x2="583.7" y2="212" stroke="var(--muted)" stroke-width="1.5"/>
+<line x1="619.2" y1="200" x2="619.2" y2="212" stroke="var(--muted)" stroke-width="1.5"/>
+<line x1="625.3" y1="200" x2="625.3" y2="212" stroke="var(--muted)" stroke-width="1.5"/>
+<line x1="630.2" y1="200" x2="630.2" y2="212" stroke="var(--muted)" stroke-width="1.5"/>
+<line x1="641.0" y1="200" x2="641.0" y2="212" stroke="var(--muted)" stroke-width="1.5"/>
+<line x1="652.6" y1="200" x2="652.6" y2="212" stroke="var(--muted)" stroke-width="1.5"/>
+<line x1="690.3" y1="200" x2="690.3" y2="212" stroke="var(--muted)" stroke-width="1.5"/>
+<line x1="705.9" y1="200" x2="705.9" y2="212" stroke="var(--muted)" stroke-width="1.5"/>
+<line x1="724.6" y1="200" x2="724.6" y2="212" stroke="var(--muted)" stroke-width="1.5"/>
+<line x1="733.0" y1="200" x2="733.0" y2="212" stroke="var(--muted)" stroke-width="1.5"/>
+<line x1="734.4" y1="200" x2="734.4" y2="212" stroke="var(--muted)" stroke-width="1.5"/>
+<line x1="778.4" y1="200" x2="778.4" y2="212" stroke="var(--muted)" stroke-width="1.5"/>
+<line x1="787.6" y1="200" x2="787.6" y2="212" stroke="var(--muted)" stroke-width="1.5"/>
+<line x1="800.7" y1="200" x2="800.7" y2="212" stroke="var(--muted)" stroke-width="1.5"/>
+<line x1="858.2" y1="200" x2="858.2" y2="212" stroke="var(--muted)" stroke-width="1.5"/>
+<line x1="863.5" y1="200" x2="863.5" y2="212" stroke="var(--muted)" stroke-width="1.5"/>
+<line x1="865.2" y1="200" x2="865.2" y2="212" stroke="var(--muted)" stroke-width="1.5"/>
+<line x1="868.4" y1="200" x2="868.4" y2="212" stroke="var(--muted)" stroke-width="1.5"/>
+<line x1="875.6" y1="200" x2="875.6" y2="212" stroke="var(--muted)" stroke-width="1.5"/>
+<line x1="879.4" y1="200" x2="879.4" y2="212" stroke="var(--muted)" stroke-width="1.5"/>
+<line x1="933.4" y1="200" x2="933.4" y2="212" stroke="var(--muted)" stroke-width="1.5"/>
+<path d="M583.5,189 l6,6 l-6,6 l-6,-6 z" fill="var(--ink)"/>
+<line x1="207.5" y1="200" x2="207.5" y2="212" stroke="var(--muted)" stroke-width="1.5"/>
+<rect x="338.3" y="200.5" width="11" height="11" rx="2" fill="var(--s2)" stroke="var(--bg)" stroke-width="2"/>
+<circle cx="408.3" cy="206" r="6" fill="var(--s1)" stroke="var(--bg)" stroke-width="2"/>
+<circle cx="565.8" cy="206" r="6" fill="var(--s1)" stroke="var(--bg)" stroke-width="2"/>
+<path d="M886.3,199 l6.5,11.5 h-13 z" fill="var(--s3)" stroke="var(--bg)" stroke-width="2"/>
+<text x="886.3" y="228" font-size="11" text-anchor="middle" class="t2">1.27.1</text>
+<text x="178" y="254" font-size="12.5" text-anchor="end">keboola mcp-server</text>
+<line x1="190" y1="250" x2="970" y2="250" stroke="var(--grid)" stroke-width="1"/>
+<line x1="473.6" y1="244" x2="473.6" y2="256" stroke="var(--muted)" stroke-width="1.5"/>
+<line x1="486.1" y1="244" x2="486.1" y2="256" stroke="var(--muted)" stroke-width="1.5"/>
+<line x1="487.6" y1="244" x2="487.6" y2="256" stroke="var(--muted)" stroke-width="1.5"/>
+<line x1="487.7" y1="244" x2="487.7" y2="256" stroke="var(--muted)" stroke-width="1.5"/>
+<line x1="488.5" y1="244" x2="488.5" y2="256" stroke="var(--muted)" stroke-width="1.5"/>
+<line x1="498.7" y1="244" x2="498.7" y2="256" stroke="var(--muted)" stroke-width="1.5"/>
+<line x1="507.0" y1="244" x2="507.0" y2="256" stroke="var(--muted)" stroke-width="1.5"/>
+<line x1="508.0" y1="244" x2="508.0" y2="256" stroke="var(--muted)" stroke-width="1.5"/>
+<line x1="509.1" y1="244" x2="509.1" y2="256" stroke="var(--muted)" stroke-width="1.5"/>
+<line x1="539.2" y1="244" x2="539.2" y2="256" stroke="var(--muted)" stroke-width="1.5"/>
+<line x1="539.5" y1="244" x2="539.5" y2="256" stroke="var(--muted)" stroke-width="1.5"/>
+<line x1="540.5" y1="244" x2="540.5" y2="256" stroke="var(--muted)" stroke-width="1.5"/>
+<line x1="626.6" y1="244" x2="626.6" y2="256" stroke="var(--muted)" stroke-width="1.5"/>
+<line x1="638.8" y1="244" x2="638.8" y2="256" stroke="var(--muted)" stroke-width="1.5"/>
+<line x1="639.1" y1="244" x2="639.1" y2="256" stroke="var(--muted)" stroke-width="1.5"/>
+<line x1="639.5" y1="244" x2="639.5" y2="256" stroke="var(--muted)" stroke-width="1.5"/>
+<line x1="812.4" y1="244" x2="812.4" y2="256" stroke="var(--muted)" stroke-width="1.5"/>
+<line x1="842.6" y1="244" x2="842.6" y2="256" stroke="var(--muted)" stroke-width="1.5"/>
+<line x1="842.6" y1="244" x2="842.6" y2="256" stroke="var(--muted)" stroke-width="1.5"/>
+<line x1="854.1" y1="244" x2="854.1" y2="256" stroke="var(--muted)" stroke-width="1.5"/>
+<line x1="854.6" y1="244" x2="854.6" y2="256" stroke="var(--muted)" stroke-width="1.5"/>
+<line x1="855.9" y1="244" x2="855.9" y2="256" stroke="var(--muted)" stroke-width="1.5"/>
+<line x1="856.4" y1="244" x2="856.4" y2="256" stroke="var(--muted)" stroke-width="1.5"/>
+<line x1="857.1" y1="244" x2="857.1" y2="256" stroke="var(--muted)" stroke-width="1.5"/>
+<line x1="867.4" y1="244" x2="867.4" y2="256" stroke="var(--muted)" stroke-width="1.5"/>
+<rect x="252.9" y="244.5" width="11" height="11" rx="2" fill="var(--s2)" stroke="var(--bg)" stroke-width="2"/>
+<rect x="318.0" y="244.5" width="11" height="11" rx="2" fill="var(--s2)" stroke="var(--bg)" stroke-width="2"/>
+<rect x="342.4" y="244.5" width="11" height="11" rx="2" fill="var(--s2)" stroke="var(--bg)" stroke-width="2"/>
+<rect x="428.8" y="244.5" width="11" height="11" rx="2" fill="var(--s2)" stroke="var(--bg)" stroke-width="2"/>
+<rect x="501.8" y="244.5" width="11" height="11" rx="2" fill="var(--s2)" stroke="var(--bg)" stroke-width="2"/>
+<rect x="502.9" y="244.5" width="11" height="11" rx="2" fill="var(--s2)" stroke="var(--bg)" stroke-width="2"/>
+<circle cx="510.0" cy="250" r="6" fill="var(--s1)" stroke="var(--bg)" stroke-width="2"/>
+<circle cx="560.8" cy="250" r="6" fill="var(--s1)" stroke="var(--bg)" stroke-width="2"/>
+<circle cx="877.0" cy="250" r="6" fill="var(--s1)" stroke="var(--bg)" stroke-width="2"/>
+<circle cx="921.8" cy="250" r="6" fill="var(--s1)" stroke="var(--bg)" stroke-width="2"/>
+<text x="178" y="298" font-size="12.5" text-anchor="end">mcp-snowflake-server</text>
+<line x1="190" y1="294" x2="970" y2="294" stroke="var(--grid)" stroke-width="1"/>
+<line x1="718.9" y1="288" x2="718.9" y2="300" stroke="var(--muted)" stroke-width="1.5"/>
+<line x1="795.1" y1="288" x2="795.1" y2="300" stroke="var(--muted)" stroke-width="1.5"/>
+<path d="M717.7,277 l6,6 l-6,6 l-6,-6 z" fill="var(--ink)"/>
+<path d="M703.3,287 l6.5,11.5 h-13 z" fill="var(--s3)" stroke="var(--bg)" stroke-width="2"/>
+<text x="703.3" y="316" font-size="11" text-anchor="middle" class="t2">1.14.0</text>
+<path d="M713.4,287 l6.5,11.5 h-13 z" fill="var(--s3)" stroke="var(--bg)" stroke-width="2"/>
+<path d="M713.9,287 l6.5,11.5 h-13 z" fill="var(--s3)" stroke="var(--bg)" stroke-width="2"/>
+<circle cx="717.8" cy="294" r="6" fill="var(--s1)" stroke="var(--bg)" stroke-width="2"/>
+<circle cx="768.2" cy="294" r="6" fill="var(--s1)" stroke="var(--bg)" stroke-width="2"/>
+<path d="M878.1,287 l6.5,11.5 h-13 z" fill="var(--s3)" stroke="var(--bg)" stroke-width="2"/>
+<text x="878.1" y="316" font-size="11" text-anchor="middle" class="t2">1.27.1</text>
+<path d="M940.8,287 l6.5,11.5 h-13 z" fill="var(--s3)" stroke="var(--bg)" stroke-width="2"/>
+<text x="178" y="342" font-size="12.5" text-anchor="end">octobot</text>
+<line x1="190" y1="338" x2="970" y2="338" stroke="var(--grid)" stroke-width="1"/>
+<line x1="312.1" y1="332" x2="312.1" y2="344" stroke="var(--muted)" stroke-width="1.5"/>
+<line x1="312.1" y1="332" x2="312.1" y2="344" stroke="var(--muted)" stroke-width="1.5"/>
+<line x1="312.1" y1="332" x2="312.1" y2="344" stroke="var(--muted)" stroke-width="1.5"/>
+<rect x="223.9" y="332.5" width="11" height="11" rx="2" fill="var(--s2)" stroke="var(--bg)" stroke-width="2"/>
+<rect x="299.8" y="332.5" width="11" height="11" rx="2" fill="var(--s2)" stroke="var(--bg)" stroke-width="2"/>
+<rect x="306.6" y="332.5" width="11" height="11" rx="2" fill="var(--s2)" stroke="var(--bg)" stroke-width="2"/>
+<text x="178" y="386" font-size="12.5" text-anchor="end">jesse</text>
+<line x1="190" y1="382" x2="970" y2="382" stroke="var(--grid)" stroke-width="1"/>
+<line x1="391.7" y1="376" x2="391.7" y2="388" stroke="var(--muted)" stroke-width="1.5"/>
+<line x1="401.0" y1="376" x2="401.0" y2="388" stroke="var(--muted)" stroke-width="1.5"/>
+<line x1="425.7" y1="376" x2="425.7" y2="388" stroke="var(--muted)" stroke-width="1.5"/>
+<line x1="630.7" y1="376" x2="630.7" y2="388" stroke="var(--muted)" stroke-width="1.5"/>
+<line x1="673.2" y1="376" x2="673.2" y2="388" stroke="var(--muted)" stroke-width="1.5"/>
+<line x1="739.3" y1="376" x2="739.3" y2="388" stroke="var(--muted)" stroke-width="1.5"/>
+<line x1="750.6" y1="376" x2="750.6" y2="388" stroke="var(--muted)" stroke-width="1.5"/>
+<line x1="823.8" y1="376" x2="823.8" y2="388" stroke="var(--muted)" stroke-width="1.5"/>
+<line x1="870.3" y1="376" x2="870.3" y2="388" stroke="var(--muted)" stroke-width="1.5"/>
+<line x1="901.4" y1="376" x2="901.4" y2="388" stroke="var(--muted)" stroke-width="1.5"/>
+<circle cx="294.4" cy="382" r="5" fill="var(--bg)" stroke="var(--ink2)" stroke-width="2"/>
+<line x1="391.7" y1="376" x2="391.7" y2="388" stroke="var(--muted)" stroke-width="1.5"/>
+<line x1="425.7" y1="376" x2="425.7" y2="388" stroke="var(--muted)" stroke-width="1.5"/>
+<line x1="870.3" y1="376" x2="870.3" y2="388" stroke="var(--muted)" stroke-width="1.5"/>
+<text x="16" y="460" font-size="11.5" class="mu">Not every image could be read: Docker Hub reads were limited by a shared anonymous allowance and a byte cap (LH006.md, Method).</text>
+<text x="16" y="477" font-size="11.5" class="mu">Sources: data/image_timeline.csv (registries and layer contents); data/project_mcp_pins_git.csv (git). octobot's next image, 30 July, still held 1.26.0.</text>
+</svg>

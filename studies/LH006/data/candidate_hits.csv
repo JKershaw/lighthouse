@@ -1,0 +1,272 @@
+package,where,file,line,text
+audiagentic,pypi listed,description,45,docker run --rm \
+audiagentic,pypi latest,description,45,docker run --rm \
+audiagentic,git head 39d044ae9e,.github/workflows/ci-tests.yml,137,uses: docker/build-push-action@v6
+audiagentic,git head 39d044ae9e,.github/workflows/ci-tests.yml,150,run: docker run --rm ${{ matrix.tag }}
+audiagentic,git head 39d044ae9e,README.md,45,docker run --rm \
+audiagentic,git head 39d044ae9e,tests/docker/Dockerfile.acp-e2e,10,# Run:   docker run --rm audia-acp-e2e
+audiagentic,git head 39d044ae9e,tests/docker/Dockerfile.consumer-pipeline,18,#   docker run --rm audiagentic-consumer-pipeline:local
+audiagentic,git head 39d044ae9e,tests/docker/Dockerfile.gateway-concurrency,19,#   docker run --rm audiagentic-gateway-concurrency:local
+audiagentic,git head 39d044ae9e,tests/docker/Dockerfile.gateway-crash-matrix,16,#   docker run --rm audiagentic-gateway-crash-matrix:local
+audiagentic,git head 39d044ae9e,tests/docker/Dockerfile.gateway-opencode,14,#   docker run --rm audiagentic-gateway-opencode:local
+audiagentic,git head 39d044ae9e,tests/docker/Dockerfile.gateway-pi-smoke,20,#   docker run --rm audiagentic-gateway-pi-smoke:local
+audiagentic,git head 39d044ae9e,tests/docker/Dockerfile.lsp-install-test,24,# Run:   docker run --rm audiagentic-lsp-install-test
+audiagentic,git head 39d044ae9e,tests/docker/Dockerfile.packaging,10,# Run:   docker run --rm audia-packaging
+audiagentic,git head 39d044ae9e,tests/docker/Dockerfile.pi-acp-resume-e2e,25,#   docker run --rm audiagentic-pi-acp-resume-e2e:local
+audiagentic,git head 39d044ae9e,tests/docker/Dockerfile.pi-rpc-tap-e2e,23,#   docker run --rm audiagentic-pi-rpc-tap-e2e:local
+audiagentic,git head 39d044ae9e,tests/docker/Dockerfile.provider-config-matrix-e2e,14,# Run:   docker run --rm audiagentic-provider-config-matrix-e2e
+audiagentic,git head 39d044ae9e,tests/docker/Dockerfile.provider-lifecycle-e2e,14,# Run:   docker run --rm audiagentic-provider-lifecycle-e2e
+audiagentic,git head 39d044ae9e,tests/docker/Dockerfile.provider-lsp-e2e,11,#   docker run -e AUDIAGENTIC_LSP_E2E_ALL=1 ...
+audiagentic,git head 39d044ae9e,tests/docker/Dockerfile.provider-lsp-e2e,34,# Run:   docker run --rm audiagentic-provider-lsp-e2e
+audiagentic,git head 39d044ae9e,tests/docker/Dockerfile.reconciliation-policy-e2e,22,# Run:   docker run --rm audiagentic-reconciliation-policy-e2e
+audiagentic,git head 39d044ae9e,tests/docker/Dockerfile.test,19,# Run:   docker run --rm audiagentic-test
+cognirepo,git head 48925dcb55,.github/workflows/docker.yml,9,REGISTRY: ghcr.io
+cognirepo,git head 48925dcb55,.github/workflows/docker.yml,44,uses: docker/build-push-action@v6
+cognirepo,git period_end f787323dd4,.github/workflows/docker.yml,9,REGISTRY: ghcr.io
+cognirepo,git period_end f787323dd4,.github/workflows/docker.yml,44,uses: docker/build-push-action@v6
+cognirepo,git period_end f787323dd4,USAGE.md,785,docker run --rm -v cognirepo_data:/data -v $(pwd):/backup \
+cognirepo,git period_end f787323dd4,USAGE.md,791,docker run --rm -v cognirepo_data:/data -v $(pwd):/backup \
+databricks-tellr-app,git head 40d5e6004a,.github/workflows/test.yml,131,image: postgres:15
+databricks-tellr-app,git head 40d5e6004a,.github/workflows/test.yml,176,image: postgres:15
+databricks-tellr-app,git head 40d5e6004a,.github/workflows/test.yml,226,image: postgres:15
+databricks-tellr-app,git head 40d5e6004a,.github/workflows/test.yml,271,image: postgres:15
+databricks-tellr-app,git head 40d5e6004a,.github/workflows/test.yml,316,image: postgres:15
+databricks-tellr-app,git head 40d5e6004a,.github/workflows/test.yml,361,image: postgres:15
+databricks-tellr-app,git head 40d5e6004a,.github/workflows/test.yml,506,image: postgres:15
+databricks-tellr-app,git period_end a3a1791cd8,.github/workflows/test.yml,131,image: postgres:15
+databricks-tellr-app,git period_end a3a1791cd8,.github/workflows/test.yml,176,image: postgres:15
+databricks-tellr-app,git period_end a3a1791cd8,.github/workflows/test.yml,226,image: postgres:15
+databricks-tellr-app,git period_end a3a1791cd8,.github/workflows/test.yml,271,image: postgres:15
+databricks-tellr-app,git period_end a3a1791cd8,.github/workflows/test.yml,316,image: postgres:15
+databricks-tellr-app,git period_end a3a1791cd8,.github/workflows/test.yml,361,image: postgres:15
+databricks-tellr-app,git period_end a3a1791cd8,.github/workflows/test.yml,497,image: postgres:15
+mistral-vibe,git head 7c19608af0,.github/workflows/build-and-upload.yml,26,"{""runner"": ""ubuntu-22.04"", ""os"": ""linux"", ""arch"": ""x86_64"", ""container"": ""quay.io/pypa/manylinux_2_28_x86_64@sha256:65140ef21cef92d0c13d001708afd7d304d7a154f7120d039df99dac708f3ffb""},"
+mistral-vibe,git head 7c19608af0,.github/workflows/build-and-upload.yml,27,"{""runner"": ""ubuntu-22.04-arm"", ""os"": ""linux"", ""arch"": ""aarch64"", ""container"": ""quay.io/pypa/manylinux_2_28_aarch64@sha256:360bf4ec4349372e9bcfb123bf11bcc4f085072bfa4f3b946d98f5a28f9c03b0""},"
+mistral-vibe,git head 7c19608af0,.github/workflows/release.yml,24,"{""runner"": ""ubuntu-22.04"", ""os"": ""linux"", ""arch"": ""x86_64"", ""container"": ""quay.io/pypa/manylinux_2_28_x86_64@sha256:65140ef21cef92d0c13d001708afd7d304d7a154f7120d039df99dac708f3ffb"", ""cargo_flags"": ""--no-default-features""},"
+mistral-vibe,git head 7c19608af0,.github/workflows/release.yml,25,"{""runner"": ""ubuntu-22.04-arm"", ""os"": ""linux"", ""arch"": ""aarch64"", ""container"": ""quay.io/pypa/manylinux_2_28_aarch64@sha256:360bf4ec4349372e9bcfb123bf11bcc4f085072bfa4f3b946d98f5a28f9c03b0"", ""cargo_flags"": ""--no-default-features""},"
+mistral-vibe,git period_end f71bfd3b8c,.github/workflows/build-and-upload.yml,25,"{""runner"": ""ubuntu-22.04"", ""os"": ""linux"", ""arch"": ""x86_64"", ""container"": ""quay.io/pypa/manylinux_2_28_x86_64""},"
+mistral-vibe,git period_end f71bfd3b8c,.github/workflows/build-and-upload.yml,26,"{""runner"": ""ubuntu-22.04-arm"", ""os"": ""linux"", ""arch"": ""aarch64"", ""container"": ""quay.io/pypa/manylinux_2_28_aarch64""},"
+hal0ai,pypi listed,description,288,| image                    | `comfyui` (`docker.io/kyuz0/amd-strix-halo-comfyui`) | ROCm | Exclusive GPU via arbiter; SD Turbo / Flux-2-Klein-9B        |
+hal0ai,pypi listed,description,310,"| **Experimental** | NVIDIA RTX 30/40/50 (10–32 GB)                                           | Dedicated `cuda` seed profile — upstream `ghcr.io/ggml-org/llama.cpp:server-cuda` via CDI (`nvidia-container-toolkit`), with multi-GPU `gpu_inde"
+hal0ai,pypi latest,description,531,"| **Experimental** | NVIDIA RTX 30/40/50 (10–32 GB)                                           | Dedicated `cuda` runner — upstream `ghcr.io/ggml-org/llama.cpp:server-cuda` via CDI (`nvidia-container-toolkit`), with multi-GPU `gpu_index` pin"
+hal0ai,pypi latest,description,637,"| `hal0 doctor toolbox-pull` | Every image pinned in `manifest.json` is anonymously pullable from ghcr.io. | — (`--json`, `--manifest PATH`) |"
+hal0ai,git head 0984f531fa,.github/workflows/cosign-pin.yml,13,#   only refreshes ghcr.io image digests in manifest.json. A hand-maintained
+hal0ai,git head 0984f531fa,.github/workflows/release.yml,23,#     main before cutting the release (it queries ghcr.io and patches
+hal0ai,git head 0984f531fa,.github/workflows/toolbox.yml,4,# ghcr.io/hal0ai/. Runtime images owned by other projects remain upstream
+hal0ai,git head 0984f531fa,.github/workflows/toolbox.yml,24,"description: ""Push to ghcr.io (true) or build-only dry-run (false)"""
+hal0ai,git head 0984f531fa,.github/workflows/toolbox.yml,46,image: ghcr.io/hal0ai/hal0-toolbox-cpu
+hal0ai,git head 0984f531fa,.github/workflows/toolbox.yml,52,image: ghcr.io/hal0ai/hal0-toolbox-qwen3tts
+hal0ai,git head 0984f531fa,.github/workflows/toolbox.yml,59,IMAGE: ${{ matrix.image }}
+hal0ai,git head 0984f531fa,.github/workflows/toolbox.yml,66,- name: Log in to ghcr.io
+hal0ai,git head 0984f531fa,.github/workflows/toolbox.yml,70,registry: ghcr.io
+hal0ai,git head 0984f531fa,.github/workflows/toolbox.yml,87,org.opencontainers.image.title=hal0-toolbox-${{ matrix.name }}
+hal0ai,git head 0984f531fa,.github/workflows/toolbox.yml,88,org.opencontainers.image.source=https://github.com/Hal0ai/hal0
+hal0ai,git head 0984f531fa,.github/workflows/toolbox.yml,89,org.opencontainers.image.documentation=https://github.com/Hal0ai/hal0/blob/main/${{ matrix.file }}
+hal0ai,git head 0984f531fa,.github/workflows/toolbox.yml,93,uses: docker/build-push-action@v6
+hal0ai,git head 0984f531fa,ARCHITECTURE.md,153,`podman run … <image> --model <path> --port <n> <flags>`. It doesn't
+hal0ai,git head 0984f531fa,ARCHITECTURE.md,562,"`podman run` of the slot's container (llama-server, FLM, Kokoro, or"
+hal0ai,git head 0984f531fa,CHANGELOG.md,743,`ghcr.io/hal0ai/hal0-comfyui` (digest-pinned in `manifest.json`) instead of
+hal0ai,git head 0984f531fa,CHANGELOG.md,744,the third-party `docker.io/kyuz0/amd-strix-halo-comfyui`. The image mirrors
+hal0ai,git head 0984f531fa,CHANGELOG.md,838,The `cpu` runner now resolves `ghcr.io/hal0ai/hal0-toolbox-cpu:v1` — a real
+hal0ai,git head 0984f531fa,CHANGELOG.md,945,`podman pull` behind** (#2140). The teardown now escalates
+hal0ai,git head 0984f531fa,CHANGELOG.md,1827,"`ghcr.io/hal0ai/hal0-combined:0822`, which restores a correct Vulkan backend"
+hal0ai,git head 0984f531fa,CHANGELOG.md,1913,matrix (`ghcr.io/hal0ai/hal0-combined:0822` or later) — an image outside
+hal0ai,git head 0984f531fa,CHANGELOG.md,2268,`ghcr.io/hal0ai/hal0-combined:0822` did; there is no shortcut where a later
+hal0ai,git head 0984f531fa,CHANGELOG.md,2313,§3-C validation matrix (`ghcr.io/hal0ai/hal0-combined:0822` or later) is
+hal0ai,git head 0984f531fa,CHANGELOG.md,3141,"root unit's `podman run` argv, so a persistent flag like `--runtime <path>`"
+hal0ai,git head 0984f531fa,CHANGELOG.md,3260,free-form `extra_args` carries a `podman run` flag outside
+hal0ai,git head 0984f531fa,CHANGELOG.md,3847,"- Real FastFlowLM v0.9.44 toolbox image (`ghcr.io/hal0ai/hal0-toolbox-flm:0.9.44`), rebuilt from the actual v0.9.44 binary."
+hal0ai,git head 0984f531fa,CHANGELOG.md,3925,- **New canonical ROCmFPX runner: `ghcr.io/hal0ai/hal0-rocmfpx:vulkan-minicpm5`** —
+hal0ai,git head 0984f531fa,CHANGELOG.md,3956,All four reference `ghcr.io/hal0ai/hal0-rocmfpx:vulkan-minicpm5`
+hal0ai,git head 0984f531fa,CHANGELOG.md,3970,"`/etc/hal0/slots/<name>.toml` and add a top-level `image = ""ghcr.io/hal0ai/"
+hal0ai,git head 0984f531fa,CHANGELOG.md,3983,`hal0 slot <name> image ghcr.io/hal0ai/hal0-rocmfpx:vulkan-minicpm5 && hal0
+hal0ai,git head 0984f531fa,CHANGELOG.md,4705,"slot. (#972, #976) The toolbox image builds + pushes to ghcr.io and its digest"
+hal0ai,git head 0984f531fa,CHANGELOG.md,5254,"`BaseEnvironment` subclasses (no Modal credits, no docker pulls in"
+hal0ai,git head 0984f531fa,README.md,531,"| **Experimental** | NVIDIA RTX 30/40/50 (10–32 GB)                                           | Dedicated `cuda` runner — upstream `ghcr.io/ggml-org/llama.cpp:server-cuda` via CDI (`nvidia-container-toolkit`), with multi-GPU `gpu_index` pin"
+hal0ai,git head 0984f531fa,README.md,637,"| `hal0 doctor toolbox-pull` | Every image pinned in `manifest.json` is anonymously pullable from ghcr.io. | — (`--json`, `--manifest PATH`) |"
+hal0ai,git head 0984f531fa,installer/bench/README.md,30,- `harness.py` — composes the full `podman run … llama-bench -o json` argv (backend/lane
+hal0ai,git head 0984f531fa,packaging/toolbox/cpu.Dockerfile,3,# Published image:  ghcr.io/hal0ai/hal0-toolbox-cpu:v1
+hal0ai,git head 0984f531fa,packaging/toolbox/cpu.Dockerfile,60,#   docker run --rm hal0-toolbox-cpu:dev --help | head
+hal0ai,git head 0984f531fa,packaging/toolbox/cpu.Dockerfile,61,#   docker run --rm -v /path/to/model:/m hal0-toolbox-cpu:dev \
+hal0ai,git head 0984f531fa,packaging/toolbox/flm.Dockerfile,3,# Target image:    ghcr.io/<owner>/hal0-toolbox-flm:v1
+hal0ai,git head 0984f531fa,packaging/toolbox/flm.Dockerfile,29,#   docker run --rm --device=/dev/accel --device=/dev/dri \
+hal0ai,git head 0984f531fa,packaging/toolbox/qwen3tts.Dockerfile,14,#   podman build -t ghcr.io/hal0ai/hal0-toolbox-qwen3tts:v1 \
+hal0ai,git head 0984f531fa,packaging/toolbox/qwen3tts.Dockerfile,18,#   podman run --rm --device=/dev/kfd --device=/dev/dri/renderD128 \
+hal0ai,git head 0984f531fa,packaging/toolbox/qwen3tts.Dockerfile,22,#       --publish=127.0.0.1:8087:8087 ghcr.io/hal0ai/hal0-toolbox-qwen3tts:v1 \
+hal0ai,git head 0984f531fa,packaging/toolbox/qwen3tts.Dockerfile,26,FROM docker.io/rocm/pytorch:rocm7.2.4_ubuntu24.04_py3.12_pytorch_release_2.10.0
+hal0ai,git head 0984f531fa,tests/harness/README.md,336,"The toolbox image probably can't be pulled (ghcr.io unauthorised,"
+hal0ai,git head 0984f531fa,tests/release-validation/README.md,230,"`ghcr.io/hal0ai/hal0-combined:0822`, `8f23afba`). Composed with v6/v7's `image_status`"
+hal0ai,git head 0984f531fa,tests/release-validation/README.md,287,lands `image_pin = ghcr.io/hal0ai/hal0-combined:0822` (both the legacy `image` key and the
+hal0ai,git period_end e79a945d73,.github/workflows/integration.yml,84,uses: docker/build-push-action@v6
+hal0ai,git period_end e79a945d73,.github/workflows/integration.yml,101,docker run --rm --entrypoint /bin/bash hal0-toolbox-cpu:ci -c \
+hal0ai,git period_end e79a945d73,.github/workflows/integration.yml,191,# ghcr.io/open-webui/open-webui:main against a real hal0-api
+hal0ai,git period_end e79a945d73,.github/workflows/integration.yml,226,run: docker pull ghcr.io/open-webui/open-webui:main
+hal0ai,git period_end e79a945d73,.github/workflows/toolbox.yml,6,"# Publish target: ghcr.io/<owner>/hal0-toolbox-<name>:{v1, sha-<git-sha>}."
+hal0ai,git period_end e79a945d73,.github/workflows/toolbox.yml,30,REGISTRY: ghcr.io
+hal0ai,git period_end e79a945d73,.github/workflows/toolbox.yml,149,uses: docker/build-push-action@v6
+hal0ai,git period_end e79a945d73,.github/workflows/toolbox.yml,292,published images on ghcr.io. Falls back to `:v1` tag-pull at
+hal0ai,git period_end e79a945d73,PLAN.md,173,by slot name. Each slot's `ExecStart` is `docker run` against a toolbox
+hal0ai,git period_end e79a945d73,PLAN.md,181,"├── hal0-openwebui.service     (docker run open-webui, host :3001)"
+hal0ai,git period_end e79a945d73,PLAN.md,238,- Toolbox image org: `ghcr.io/hal0ai/`
+hal0ai,git period_end e79a945d73,PLAN.md,437,8. Pull toolbox images in background (`docker pull` for `hal0-toolbox-vulkan` etc. + `open-webui` container)
+hal0ai,git period_end e79a945d73,PLAN.md,485,`docker run` against `ghcr.io/open-webui/open-webui:main` (pinned per
+hal0ai,git period_end e79a945d73,PLAN.md,634,Rename + republish. Current source: `ghcr.io/hal0ai/amd-strix-halo-toolboxes:*-server`
+hal0ai,git period_end e79a945d73,PLAN.md,638,- `ghcr.io/hal0ai/hal0-toolbox-vulkan:v1`
+hal0ai,git period_end e79a945d73,PLAN.md,639,- `ghcr.io/hal0ai/hal0-toolbox-rocm:v1`
+hal0ai,git period_end e79a945d73,PLAN.md,640,- `ghcr.io/hal0ai/hal0-toolbox-flm:v1` (NPU)
+hal0ai,git period_end e79a945d73,PLAN.md,641,- `ghcr.io/hal0ai/hal0-toolbox-moonshine:v1`
+hal0ai,git period_end e79a945d73,PLAN.md,642,- `ghcr.io/hal0ai/hal0-toolbox-kokoro:v1`
+hal0ai,git period_end e79a945d73,PLAN.md,643,"- `ghcr.io/hal0ai/hal0-toolbox-comfyui:v1` (image gen, ROCm — added via"
+hal0ai,git period_end e79a945d73,PLAN.md,683,layout. Anyone who pulled `:v1` before this date should `docker pull`
+hal0ai,git period_end e79a945d73,PLAN.md,787,- `make release-test` on hal0-test (full NPU + ROCm + Vulkan matrix) — ⏳ blocked behind FLM toolbox build (Team I) + ghcr.io image visibility (task #25)
+hal0ai,git period_end e79a945d73,PLAN.md,844,| ~~Toolbox images on `ghcr.io/hal0ai/` blocked by org provisioning~~ | RESOLVED | `Hal0ai` GitHub org exists (decided 2026-05-15) |
+hal0ai,git period_end e79a945d73,PLAN.md,845,| **GHCR image visibility — `ghcr.io/hal0ai/*` returns `unauthorized` on pull** | **High** | Task #25 — launch blocker; user must flip org-package visibility to public OR document `docker login` requirement in installer/README.md. Harness f
+hal0ai,git period_end e79a945d73,PLAN.md,868,- [ ] Release-gate `make release-test` passes on hal0-test (NPU + ROCm + Vulkan) — *blocked behind FLM toolbox build (task #15) + ghcr.io visibility (task #25)*
+hal0ai,git period_end e79a945d73,PLAN.md,876,| 25 | `ghcr.io/hal0ai/*` toolbox pulls `unauthorized` | **user** | Flip org-package visibility OR document login in installer/README.md |
+hal0ai,git period_end e79a945d73,installer/README.md,21,The toolbox container images (`ghcr.io/hal0ai/hal0-toolbox-*:v1`) are
+hal0ai,git period_end e79a945d73,installer/README.md,22,public on GHCR — `docker pull` works without a `docker login`. The
+hal0ai,git period_end e79a945d73,installer/README.md,40,Toolbox images live under `ghcr.io/hal0ai/hal0-toolbox-*` and are **public**;
+hal0ai,git period_end e79a945d73,installer/README.md,49,no `docker pull` needed).
+hal0ai,git period_end e79a945d73,packaging/toolbox/comfyui.Dockerfile,3,# Target image:    ghcr.io/hal0ai/hal0-toolbox-comfyui:v1
+hal0ai,git period_end e79a945d73,packaging/toolbox/comfyui.Dockerfile,21,#   docker run --rm -p 8188:8188 \
+hal0ai,git period_end e79a945d73,packaging/toolbox/comfyui.Dockerfile,142,# at runtime. This default is what gets hit during a `docker run` smoke
+hal0ai,git period_end e79a945d73,packaging/toolbox/cpu.Dockerfile,39,#   docker run --rm hal0-toolbox-cpu:dev --help | head
+hal0ai,git period_end e79a945d73,packaging/toolbox/cpu.Dockerfile,40,#   docker run --rm -v /path/to/model:/m hal0-toolbox-cpu:dev \
+hal0ai,git period_end e79a945d73,packaging/toolbox/flm.Dockerfile,3,# Target image:    ghcr.io/<owner>/hal0-toolbox-flm:v1
+hal0ai,git period_end e79a945d73,packaging/toolbox/flm.Dockerfile,29,#   docker run --rm --device=/dev/accel --device=/dev/dri \
+hal0ai,git period_end e79a945d73,packaging/toolbox/kokoro.Dockerfile,3,# Target image:    ghcr.io/<owner>/hal0-toolbox-kokoro:v1
+hal0ai,git period_end e79a945d73,packaging/toolbox/kokoro.Dockerfile,22,#   docker run --rm -p 8090:8090 hal0-toolbox-kokoro:dev \
+hal0ai,git period_end e79a945d73,packaging/toolbox/moonshine.Dockerfile,3,# Target image:    ghcr.io/<owner>/hal0-toolbox-moonshine:v1
+hal0ai,git period_end e79a945d73,packaging/toolbox/moonshine.Dockerfile,22,#   docker run --rm -p 8089:8089 hal0-toolbox-moonshine:dev \
+hal0ai,git period_end e79a945d73,packaging/toolbox/rocm.Dockerfile,3,# Target image:    ghcr.io/<owner>/hal0-toolbox-rocm:v1
+hal0ai,git period_end e79a945d73,packaging/toolbox/rocm.Dockerfile,19,#   docker run --rm --device=/dev/kfd --device=/dev/dri \
+hal0ai,git period_end e79a945d73,packaging/toolbox/vulkan.Dockerfile,3,# Target image:    ghcr.io/hal0ai/hal0-toolbox-vulkan:v2
+hal0ai,git period_end e79a945d73,packaging/toolbox/vulkan.Dockerfile,23,#   docker run --rm hal0-toolbox-vulkan:dev vulkaninfo --summary
+hal0ai,git period_end e79a945d73,packaging/toolbox/vulkan.Dockerfile,24,#   docker run --rm hal0-toolbox-vulkan:dev --help | head
+hal0ai,git period_end e79a945d73,packaging/toolbox/vulkan.Dockerfile,27,#   docker run --rm --device=/dev/dri/renderD128 --device=/dev/kfd \
+hal0ai,git period_end e79a945d73,packaging/toolbox/vulkan.Dockerfile,123,# operator convenience (e.g. `docker run ... llama-server --help`).
+hal0ai,git period_end e79a945d73,tests/harness/README.md,325,"The toolbox image probably can't be pulled (ghcr.io unauthorised,"
+keboola-mcp-server,pypi listed,description,355,docker pull keboola/mcp-server:latest
+keboola-mcp-server,pypi listed,description,357,docker run \
+keboola-mcp-server,pypi latest,description,368,docker pull keboola/mcp-server:latest
+keboola-mcp-server,pypi latest,description,370,docker run \
+lean-lsp-mcp,pypi listed,description,736,docker run --rm -i \
+lean-lsp-mcp,pypi listed,description,749,- `LEAN_MCP_DISABLED_TOOLS` is a startup default and can be overridden by `docker run -e`.
+lean-lsp-mcp,pypi latest,description,395,docker run --rm -i \
+lean-lsp-mcp,pypi latest,description,408,- `LEAN_MCP_DISABLED_TOOLS` is a startup default and can be overridden by `docker run -e`.
+lean-lsp-mcp,git head bb176c58a4,README.md,395,docker run --rm -i \
+lean-lsp-mcp,git head bb176c58a4,README.md,408,- `LEAN_MCP_DISABLED_TOOLS` is a startup default and can be overridden by `docker run -e`.
+lean-lsp-mcp,git period_end 8e29b50dfa,README.md,351,docker run --rm -i \
+lean-lsp-mcp,git period_end 8e29b50dfa,README.md,364,- `LEAN_MCP_DISABLED_TOOLS` is a startup default and can be overridden by `docker run -e`.
+mcp-snowflake-server-nsp,pypi listed,description,5,[![PyPI](https://img.shields.io/pypi/v/mcp-snowflake-server-nsp)](https://pypi.org/project/mcp-snowflake-server-nsp/) • [![codecov](https://codecov.io/gh/nsphung/mcp-snowflake-server/graph/badge.svg?token=CODECOV_BADGE)](https://codecov.io/
+mcp-snowflake-server-nsp,pypi listed,description,393,The image is published on [Docker Hub](https://hub.docker.com/r/nsphung/mcp-snowflake-server-nsp) — no build step required:
+mcp-snowflake-server-nsp,pypi listed,description,396,docker pull nsphung/mcp-snowflake-server-nsp
+mcp-snowflake-server-nsp,pypi latest,description,5,[![PyPI](https://img.shields.io/pypi/v/mcp-snowflake-server-nsp)](https://pypi.org/project/mcp-snowflake-server-nsp/) • [![codecov](https://codecov.io/gh/nsphung/mcp-snowflake-server/graph/badge.svg?token=CODECOV_BADGE)](https://codecov.io/
+mcp-snowflake-server-nsp,pypi latest,description,392,The image is published on [Docker Hub](https://hub.docker.com/r/nsphung/mcp-snowflake-server-nsp) — no build step required:
+mcp-snowflake-server-nsp,pypi latest,description,395,docker pull nsphung/mcp-snowflake-server-nsp
+mcp-snowflake-server-nsp,git head d2971d3fa6,.github/workflows/docker-check.yml,26,uses: docker/build-push-action@53b7df96c91f9c12dcc8a07bcb9ccacbed38856a # v7.3.0
+mcp-snowflake-server-nsp,git head d2971d3fa6,.github/workflows/docker-check.yml,68,uses: docker/build-push-action@53b7df96c91f9c12dcc8a07bcb9ccacbed38856a # v7.3.0
+mcp-snowflake-server-nsp,git head d2971d3fa6,.github/workflows/docker-check.yml,80,docker run --rm mcp-snowflake-server:test --help
+mcp-snowflake-server-nsp,git head d2971d3fa6,.github/workflows/publish.yml,149,"if curl -fsS ""https://hub.docker.com/v2/repositories/nsphung/mcp-snowflake-server-nsp/tags/${VERSION}"" > /dev/null; then"
+mcp-snowflake-server-nsp,git head d2971d3fa6,.github/workflows/publish.yml,169,url: https://hub.docker.com/r/nsphung/mcp-snowflake-server-nsp
+mcp-snowflake-server-nsp,git head d2971d3fa6,CHANGELOG.md,56,* **deps:** bump docker/build-push-action from 7.2.0 to 7.3.0 ([#95](https://github.com/nsphung/mcp-snowflake-server/issues/95)) ([49c09f3](https://github.com/nsphung/mcp-snowflake-server/commit/49c09f3fb9e40f8e728a41cac1920d6cce332b04))
+mcp-snowflake-server-nsp,git head d2971d3fa6,CHANGELOG.md,88,* **deps:** bump docker/build-push-action from 7.1.0 to 7.2.0 ([#83](https://github.com/nsphung/mcp-snowflake-server/issues/83)) ([9bdcd7a](https://github.com/nsphung/mcp-snowflake-server/commit/9bdcd7a2f9194f2a0d18616bd4bce13084fd9e3a))
+mcp-snowflake-server-nsp,git head d2971d3fa6,CONTRIBUTING.md,183,"> **Prerequisites:** The `Dockerfile` uses [Docker Hardened Images (DHI)](https://docs.docker.com/dhi/) as base images. You need registry access, so run `docker login dhi.io` first. If you do not have access, replace the `dhi.io/python` and"
+mcp-snowflake-server-nsp,git head d2971d3fa6,CONTRIBUTING.md,191,docker run --rm -i --env-file .env mcp-snowflake-server
+mcp-snowflake-server-nsp,git head d2971d3fa6,CONTRIBUTING.md,194,docker run --rm -i \
+mcp-snowflake-server-nsp,git head d2971d3fa6,CONTRIBUTING.md,206,docker run --rm -i mcp-snowflake-server \
+mcp-snowflake-server-nsp,git head d2971d3fa6,CONTRIBUTING.md,218,docker run --rm -i \
+mcp-snowflake-server-nsp,git head d2971d3fa6,README.md,5,[![PyPI](https://img.shields.io/pypi/v/mcp-snowflake-server-nsp)](https://pypi.org/project/mcp-snowflake-server-nsp/) • [![codecov](https://codecov.io/gh/nsphung/mcp-snowflake-server/graph/badge.svg?token=CODECOV_BADGE)](https://codecov.io/
+mcp-snowflake-server-nsp,git head d2971d3fa6,README.md,392,The image is published on [Docker Hub](https://hub.docker.com/r/nsphung/mcp-snowflake-server-nsp) — no build step required:
+mcp-snowflake-server-nsp,git head d2971d3fa6,README.md,395,docker pull nsphung/mcp-snowflake-server-nsp
+mcp-snowflake-server-nsp,git head d2971d3fa6,server.json,242,"""registryType"": ""oci"","
+mcp-snowflake-server-nsp,git head d2971d3fa6,server.json,243,"""identifier"": ""docker.io/nsphung/mcp-snowflake-server-nsp:${VERSION}"","
+mcp-snowflake-server-nsp,git period_end 53ae8eac86,.github/workflows/docker-check.yml,26,uses: docker/build-push-action@bcafcacb16a39f128d818304e6c9c0c18556b85f # v7.1.0
+mcp-snowflake-server-nsp,git period_end 53ae8eac86,.github/workflows/docker-check.yml,68,uses: docker/build-push-action@bcafcacb16a39f128d818304e6c9c0c18556b85f # v7.1.0
+mcp-snowflake-server-nsp,git period_end 53ae8eac86,.github/workflows/docker-check.yml,80,docker run --rm mcp-snowflake-server:test --help
+mcp-snowflake-server-nsp,git period_end 53ae8eac86,.github/workflows/publish.yml,149,"if curl -fsS ""https://hub.docker.com/v2/repositories/nsphung/mcp-snowflake-server-nsp/tags/${VERSION}"" > /dev/null; then"
+mcp-snowflake-server-nsp,git period_end 53ae8eac86,.github/workflows/publish.yml,169,url: https://hub.docker.com/r/nsphung/mcp-snowflake-server-nsp
+mcp-snowflake-server-nsp,git period_end 53ae8eac86,CONTRIBUTING.md,183,"> **Prerequisites:** The `Dockerfile` uses [Docker Hardened Images (DHI)](https://docs.docker.com/dhi/) as base images. You need registry access, so run `docker login dhi.io` first. If you do not have access, replace the `dhi.io/python` and"
+mcp-snowflake-server-nsp,git period_end 53ae8eac86,CONTRIBUTING.md,191,docker run --rm -i --env-file .env mcp-snowflake-server
+mcp-snowflake-server-nsp,git period_end 53ae8eac86,CONTRIBUTING.md,194,docker run --rm -i \
+mcp-snowflake-server-nsp,git period_end 53ae8eac86,CONTRIBUTING.md,206,docker run --rm -i mcp-snowflake-server \
+mcp-snowflake-server-nsp,git period_end 53ae8eac86,CONTRIBUTING.md,218,docker run --rm -i \
+mcp-snowflake-server-nsp,git period_end 53ae8eac86,README.md,5,[![PyPI](https://img.shields.io/pypi/v/mcp-snowflake-server-nsp)](https://pypi.org/project/mcp-snowflake-server-nsp/) • [![codecov](https://codecov.io/gh/nsphung/mcp-snowflake-server/graph/badge.svg?token=CODECOV_BADGE)](https://codecov.io/
+mcp-snowflake-server-nsp,git period_end 53ae8eac86,README.md,390,The image is published on [Docker Hub](https://hub.docker.com/r/nsphung/mcp-snowflake-server-nsp) — no build step required:
+mcp-snowflake-server-nsp,git period_end 53ae8eac86,README.md,393,docker pull nsphung/mcp-snowflake-server-nsp
+mcp-snowflake-server-nsp,git period_end 53ae8eac86,server.json,242,"""registryType"": ""oci"","
+mcp-snowflake-server-nsp,git period_end 53ae8eac86,server.json,243,"""identifier"": ""docker.io/nsphung/mcp-snowflake-server-nsp:${VERSION}"","
+agentcrew-ai,git head 7c3df2efa1,.github/workflows/docker-build-publish.yml,55,org.opencontainers.image.title=AgentCrew AI
+agentcrew-ai,git head 7c3df2efa1,.github/workflows/docker-build-publish.yml,56,org.opencontainers.image.description=Multi-Agents Interactive Chat Tool
+agentcrew-ai,git head 7c3df2efa1,.github/workflows/docker-build-publish.yml,57,org.opencontainers.image.vendor=AgentCrew
+agentcrew-ai,git head 7c3df2efa1,.github/workflows/docker-build-publish.yml,58,org.opencontainers.image.url=https://github.com/saigontechnology/AgentCrew
+agentcrew-ai,git head 7c3df2efa1,.github/workflows/docker-build-publish.yml,59,org.opencontainers.image.source=https://github.com/saigontechnology/AgentCrew
+agentcrew-ai,git head 7c3df2efa1,.github/workflows/docker-build-publish.yml,60,org.opencontainers.image.documentation=https://github.com/saigontechnology/AgentCrew/blob/main/README.md
+agentcrew-ai,git head 7c3df2efa1,.github/workflows/docker-build-publish.yml,61,org.opencontainers.image.licenses=Apache-2.0
+agentcrew-ai,git head 7c3df2efa1,.github/workflows/docker-build-publish.yml,64,uses: docker/build-push-action@v6
+agentcrew-ai,git head 7c3df2efa1,.github/workflows/docker-build-publish.yml,104,"echo ""docker pull ${{ env.REGISTRY }}/${{ env.IMAGE_NAME }}:${GITHUB_REF#refs/tags/v}"" >> $GITHUB_STEP_SUMMARY"
+agentcrew-ai,git head 7c3df2efa1,.github/workflows/docker-build-publish.yml,106,"echo ""docker pull ${{ env.REGISTRY }}/${{ env.IMAGE_NAME }}:latest"" >> $GITHUB_STEP_SUMMARY"
+agentcrew-ai,git period_end 1b9b1fc7a1,.github/workflows/docker-build-publish.yml,55,org.opencontainers.image.title=AgentCrew AI
+agentcrew-ai,git period_end 1b9b1fc7a1,.github/workflows/docker-build-publish.yml,56,org.opencontainers.image.description=Multi-Agents Interactive Chat Tool
+agentcrew-ai,git period_end 1b9b1fc7a1,.github/workflows/docker-build-publish.yml,57,org.opencontainers.image.vendor=AgentCrew
+agentcrew-ai,git period_end 1b9b1fc7a1,.github/workflows/docker-build-publish.yml,58,org.opencontainers.image.url=https://github.com/saigontechnology/AgentCrew
+agentcrew-ai,git period_end 1b9b1fc7a1,.github/workflows/docker-build-publish.yml,59,org.opencontainers.image.source=https://github.com/saigontechnology/AgentCrew
+agentcrew-ai,git period_end 1b9b1fc7a1,.github/workflows/docker-build-publish.yml,60,org.opencontainers.image.documentation=https://github.com/saigontechnology/AgentCrew/blob/main/README.md
+agentcrew-ai,git period_end 1b9b1fc7a1,.github/workflows/docker-build-publish.yml,61,org.opencontainers.image.licenses=Apache-2.0
+agentcrew-ai,git period_end 1b9b1fc7a1,.github/workflows/docker-build-publish.yml,64,uses: docker/build-push-action@v6
+agentcrew-ai,git period_end 1b9b1fc7a1,.github/workflows/docker-build-publish.yml,104,"echo ""docker pull ${{ env.REGISTRY }}/${{ env.IMAGE_NAME }}:${GITHUB_REF#refs/tags/v}"" >> $GITHUB_STEP_SUMMARY"
+agentcrew-ai,git period_end 1b9b1fc7a1,.github/workflows/docker-build-publish.yml,106,"echo ""docker pull ${{ env.REGISTRY }}/${{ env.IMAGE_NAME }}:latest"" >> $GITHUB_STEP_SUMMARY"
+pyp6xer-mcp,git head 5a88c0c1e7,Dockerfile,6,COPY --from=ghcr.io/astral-sh/uv:latest /uv /usr/local/bin/uv
+pyp6xer-mcp,git period_end 5a88c0c1e7,Dockerfile,6,COPY --from=ghcr.io/astral-sh/uv:latest /uv /usr/local/bin/uv
+serena-agent,git head 7a2968335f,.github/workflows/docker.yml,9,REGISTRY: ghcr.io
+serena-agent,git head 7a2968335f,.github/workflows/docker.yml,50,uses: docker/build-push-action@v5
+serena-agent,git head 7a2968335f,DOCKER.md,95,docker run -it --rm \
+serena-agent,git head 7a2968335f,compose.yaml,3,image: serena:latest
+serena-agent,git period_end 981f560fa3,.github/workflows/docker.yml,9,REGISTRY: ghcr.io
+serena-agent,git period_end 981f560fa3,.github/workflows/docker.yml,50,uses: docker/build-push-action@v5
+serena-agent,git period_end 981f560fa3,DOCKER.md,95,docker run -it --rm \
+serena-agent,git period_end 981f560fa3,compose.yaml,3,image: serena:latest
+uk-due-diligence-mcp,git head 4ea57d4f86,Dockerfile,10,COPY --from=ghcr.io/astral-sh/uv:0.9.5 /uv /bin/uv
+uk-legal-mcp,pypi listed,description,239,docker run -p 8000:8000 uk-legal-mcp
+uk-legal-mcp,git head 8821bf4125,.github/workflows/release.yml,105,docker run -d --name uk-legal-preflight -p 8080:8080 uk-legal-mcp:preflight
+uk-legal-mcp,git head 8821bf4125,Dockerfile,7,COPY --from=ghcr.io/astral-sh/uv:0.9.5@sha256:f459f6f73a8c4ef5d69f4e6fbbdb8af751d6fa40ec34b39a1ab469acd6e289b7 /uv /bin/uv
+uk-legal-mcp,git period_end 0d12958118,README.md,304,docker run -p 8080:8080 uk-legal-mcp
+octobot,pypi latest,description,4,[![Dockerhub](https://img.shields.io/docker/pulls/drakkarsoftware/octobot.svg?logo=docker)](https://hub.docker.com/r/drakkarsoftware/octobot)
+octobot,pypi latest,description,146,You can also install OctoBot using the [OctoBot Docker image](https://hub.docker.com/r/drakkarsoftware/octobot). Here is our [using Docker installation guide](https://www.octobot.cloud/en/guides/octobot-installation/install-octobot-with-doc
+octobot,pypi latest,description,150,docker run -itd --name OctoBot -p 80:5001 -v $(pwd)/user:/octobot/user -v $(pwd)/tentacles:/octobot/tentacles -v $(pwd)/logs:/octobot/logs drakkarsoftware/octobot:stable
+octobot,git head 85ae511a56,.github/workflows/main.yml,300,uses: docker/build-push-action@v6
+octobot,git head 85ae511a56,.github/workflows/main.yml,324,docker run -i -v $(pwd)/tentacles:/octobot/tentacles -e DISABLE_SENTRY=True ${{ env.IMAGE }}:${{ env.TEST }}
+octobot,git head 85ae511a56,.github/workflows/main.yml,330,docker run -id -v $(pwd)/tentacles:/octobot/tentacles -e DISABLE_SENTRY=True --name ${{ env.CONTAINER_NAME }} ${{ env.IMAGE }}:${{ env.LATEST }}
+octobot,git head 85ae511a56,.github/workflows/main.yml,337,uses: docker/build-push-action@v6
+octobot,git head 85ae511a56,.github/workflows/main.yml,351,uses: docker/build-push-action@v6
+octobot,git head 85ae511a56,.github/workflows/main.yml,365,uses: docker/build-push-action@v6
+octobot,git head 85ae511a56,README.md,5,[![Dockerhub](https://img.shields.io/docker/pulls/drakkarsoftware/octobot.svg?logo=docker)](https://hub.docker.com/r/drakkarsoftware/octobot)
+octobot,git head 85ae511a56,README.md,190,You can also install OctoBot using the [OctoBot Docker image](https://hub.docker.com/r/drakkarsoftware/octobot). Here is our [using Docker installation guide](https://www.octobot.cloud/en/guides/octobot-installation/install-octobot-with-doc
+octobot,git head 85ae511a56,README.md,195,docker run -itd --name OctoBot -p 80:5001 -v $(pwd)/user:/octobot/user -v $(pwd)/tentacles:/octobot/tentacles -v $(pwd)/logs:/octobot/logs drakkarsoftware/octobot:stable
+octobot,git head 85ae511a56,docker-compose.https.yml,5,image: drakkarsoftware/octobot:stable
+octobot,git head 85ae511a56,docker-compose.https.yml,22,image: traefik:v2
+octobot,git head 85ae511a56,docker-compose.https.yml,45,image: containrrr/watchtower
+octobot,git head 85ae511a56,docker-compose.yml,5,image: drakkarsoftware/octobot:stable
+octobot,git head 85ae511a56,docker-compose.yml,18,image: containrrr/watchtower
+octobot,git head 85ae511a56,packages/node/README.md,92,docker run -p 6379:6379 --name redis -d redis redis-server --save 60 1 --loglevel warning
+octobot,git period_end ab4136d9d5,.github/workflows/main.yml,296,uses: docker/build-push-action@v6
+octobot,git period_end ab4136d9d5,.github/workflows/main.yml,320,docker run -i -v $(pwd)/tentacles:/octobot/tentacles -e DISABLE_SENTRY=True ${{ env.IMAGE }}:${{ env.TEST }}
+octobot,git period_end ab4136d9d5,.github/workflows/main.yml,326,docker run -id -v $(pwd)/tentacles:/octobot/tentacles -e DISABLE_SENTRY=True --name ${{ env.CONTAINER_NAME }} ${{ env.IMAGE }}:${{ env.LATEST }}
+octobot,git period_end ab4136d9d5,.github/workflows/main.yml,333,uses: docker/build-push-action@v6
+octobot,git period_end ab4136d9d5,.github/workflows/main.yml,347,uses: docker/build-push-action@v6
+octobot,git period_end ab4136d9d5,.github/workflows/main.yml,361,uses: docker/build-push-action@v6
+octobot,git period_end ab4136d9d5,README.md,4,[![Dockerhub](https://img.shields.io/docker/pulls/drakkarsoftware/octobot.svg?logo=docker)](https://hub.docker.com/r/drakkarsoftware/octobot)
+octobot,git period_end ab4136d9d5,README.md,146,You can also install OctoBot using the [OctoBot Docker image](https://hub.docker.com/r/drakkarsoftware/octobot). Here is our [using Docker installation guide](https://www.octobot.cloud/en/guides/octobot-installation/install-octobot-with-doc
+octobot,git period_end ab4136d9d5,README.md,150,docker run -itd --name OctoBot -p 80:5001 -v $(pwd)/user:/octobot/user -v $(pwd)/tentacles:/octobot/tentacles -v $(pwd)/logs:/octobot/logs drakkarsoftware/octobot:stable
+octobot,git period_end ab4136d9d5,docker-compose.https.yml,5,image: drakkarsoftware/octobot:stable
+octobot,git period_end ab4136d9d5,docker-compose.https.yml,22,image: traefik:v2
+octobot,git period_end ab4136d9d5,docker-compose.https.yml,45,image: containrrr/watchtower
+octobot,git period_end ab4136d9d5,docker-compose.yml,5,image: drakkarsoftware/octobot:stable
+octobot,git period_end ab4136d9d5,docker-compose.yml,16,image: containrrr/watchtower
+octobot,git period_end ab4136d9d5,packages/node/README.md,92,docker run -p 6379:6379 --name redis -d redis redis-server --save 60 1 --loglevel warning
+jesse,pypi latest,description,15,[![Docker Pulls](https://img.shields.io/docker/pulls/salehmir/jesse)](https://hub.docker.com/r/salehmir/jesse)
+jesse,git head 1fc46f5fe2,.github/workflows/docker-publish.yml,19,IMAGE: salehmir/jesse
+jesse,git head 1fc46f5fe2,.github/workflows/docker-publish.yml,88,uses: docker/build-push-action@v6
+jesse,git head 1fc46f5fe2,.github/workflows/docker-publish.yml,183,image: ${{ env.IMAGE }}
+jesse,git head 1fc46f5fe2,README.md,15,[![Docker Pulls](https://img.shields.io/docker/pulls/salehmir/jesse)](https://hub.docker.com/r/salehmir/jesse)
+jesse,git period_end f7ca1744df,README.md,15,[![Docker Pulls](https://img.shields.io/docker/pulls/salehmir/jesse)](https://hub.docker.com/r/salehmir/jesse)

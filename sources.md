@@ -144,3 +144,16 @@ https://pypistats.org/api/
 A third-party service giving download totals and, anonymously, per-version daily counts for the last three months: 27 June to 25 September 2026 when read on 26 September 2026. Longer history and CI filtering need a paid key. It calls downloads "installs"; Lighthouse does not.
 
 https://pepy.tech/pepy-api
+
+### S24 Docker Hub
+
+Docker's public container registry: for each repository, tags with their current digest, push time and last-pull time through hub.docker.com's API, and manifests, configurations and layers through the OCI distribution API at registry-1.docker.io with an anonymous token. An image's configuration gives its build time and history, and its layers hold what was installed, down to an installer's own package records. It keeps no history of what a tag named before: an earlier build stays visible only while another tag names it. Anonymous reads are limited per address; the limit served on 26 September 2026 was 100 pulls an hour, against six hours in Docker's documentation, and through a shared address it was spent by other traffic. LH006 assesses it in studies/LH006/sources.md. Read 26 September 2026.
+
+https://docs.docker.com/docker-hub/usage/
+https://hub.docker.com/
+
+### S25 GitHub Container Registry
+
+GitHub's container registry at ghcr.io, readable anonymously for public packages through the OCI distribution API with a token from ghcr.io/token. Its tag list gives names only, without times or digests; the history of a package's versions is in GitHub's REST API, which needs a token. A package that is not public answers the anonymous token request with 401. LH006 assesses it in studies/LH006/sources.md. Read 26 September 2026.
+
+https://docs.github.com/en/packages/working-with-a-github-packages-registry/working-with-the-container-registry
