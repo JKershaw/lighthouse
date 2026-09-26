@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 # hb: run a local Harbour for the Lighthouse workspace, load it from this
-# repository, drive dispatches, and export what it recorded. See CLAUDE.md.
+# repository, drive dispatches, and export what it recorded. See harbour/README.md.
 set -euo pipefail
 REPO="$(cd "$(dirname "$0")/.." && pwd)"
 WS="$REPO/harbour"

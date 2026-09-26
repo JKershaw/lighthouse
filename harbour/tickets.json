@@ -24,28 +24,12 @@
     "description": "A sampler for the machine that claims dispatches: process activity, busy core seconds and requests per destination, at a stated interval, tagged as Lighthouse traffic. Post one sample per dispatch to Harbour as a resources feedback entry. Done when it has captured an idle baseline and one dispatch, with its own overhead measured."
   },
   {
-    "id": "Q-0001",
-    "title": "Start the question register",
-    "kind": "implementation",
-    "priorityLevel": 2,
-    "status": "todo",
-    "description": "Enter LH F04's follow-up questions into registers/questions.md with a reason each matters, using the entry form in LH F05. Score nothing yet. Done when the register exists."
-  },
-  {
-    "id": "L-0001",
-    "title": "Keep a ledger of cost",
-    "kind": "implementation",
-    "priorityLevel": 2,
-    "status": "todo",
-    "description": "Cost per study, in registers/ledger.md: the token totals the driver posts in dispatch feedback for each subagent run, Harbour's cost endpoint for its own model calls, and OpenRouter's figures where they exist. Split by whether a person or the autopilot initiated the work. Task counts are not recorded as progress. The driver session's own tokens are not visible from inside it and are entered as unknown. Done when the first session's figures exist."
-  },
-  {
     "id": "C-0001",
     "title": "Check the sources",
     "kind": "implementation",
     "priorityLevel": 1,
     "status": "todo",
-    "description": "Fetch every source in LH F02 and note anything that has moved or changed, in a dated entry. Run monthly. Done when the first check has run."
+    "description": "Fetch every source in sources.md and note anything that has moved or changed, in a dated entry. Run monthly. Done when the first check has run."
   },
   {
     "id": "LH003",
@@ -93,7 +77,7 @@
     "kind": "research",
     "priorityLevel": 2,
     "status": "todo",
-    "description": "LH002 A bounded neighbourhood over a historical window. Follow the design in LH F04's LH002 section: up to ten public repositories from a declared ecosystem, a fixed twenty-eight-day historical window, cohort recorded before analysis, sources S5, S10 and S11 as LH003 surveyed them, identifiers kept out of the published record. The question the observer put: when something changes in this neighbourhood, where does the change appear next? Done when either a pattern is shown with its evidence, or the records are shown unable to connect the events, with the boundary, the window, the sources and the collection dates stated in studies/LH002/. It does not wait for LH001 (D-0003). This will let us establish whether propagation can be read from public records at all."
+    "description": "LH002 A bounded neighbourhood over a historical window. Follow the design in programme.md's LH002 section: up to ten public repositories from a declared ecosystem, a fixed twenty-eight-day historical window, cohort recorded before analysis, sources S5, S10 and S11 as LH003 surveyed them, identifiers kept out of the published record. The question the observer put: when something changes in this neighbourhood, where does the change appear next? Done when either a pattern is shown with its evidence, or the records are shown unable to connect the events, with the boundary, the window, the sources and the collection dates stated in studies/LH002/. It does not wait for LH001 (D-0003). This will let us establish whether propagation can be read from public records at all."
   },
   {
     "id": "I-0003",
@@ -102,14 +86,6 @@
     "priorityLevel": 3,
     "status": "done",
     "description": "I-0003 Harden the export instrument. Make harbour/hb export fail on any HTTP error rather than writing an error body into a file, record in the manifest the issue count, whether the dispatch list was truncated, and which files were fetched and which were copied from the session directory, and version the I-0001 record to 0.2 with the change noted as one that affects comparisons. This will let us trust that an export that exists is complete."
-  },
-  {
-    "id": "I-0004",
-    "title": "Register LH003's sources as candidate instruments",
-    "kind": "implementation",
-    "priorityLevel": 3,
-    "status": "todo",
-    "description": "I-0004 Register LH003's sources as candidate instruments. For each source with a row in studies/LH003/sources.md, add a candidate instrument record to registers/instruments.md in the LH F05 form, or one line saying why it is not a candidate, as LH F04's LH003 design asks. This will let us say which outward surfaces Lighthouse could read next and at what cost."
   },
   {
     "id": "E-0003",

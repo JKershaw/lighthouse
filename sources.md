@@ -2,7 +2,7 @@
 
 The sources the design and the studies cite by S number.
 
-These sources provide starting methods, concepts and candidate data. They do not establish Lighthouse's proposed hypotheses. Every link resolved on 25 September 2026; where the check could not confirm the content, the entry says so. Documentation changes, so studies preserve the exact version they use. Each source entry, and each survey row that draws on one, carries the source's publication date and observation window beside the date Lighthouse read it, so that a report can be told from its successors.
+These sources provide starting methods, concepts and candidate data. They do not establish Lighthouse's proposed hypotheses. Every link resolved on 25 September 2026; where the check could not confirm the content, the entry says so. Documentation changes, so studies preserve the exact version they use. Re-check every link monthly and note here what moved. Each source entry, and each survey row that draws on one, carries the source's publication date and observation window beside the date Lighthouse read it, so that a report can be told from its successors.
 
 ### S1 Computer epidemics
 

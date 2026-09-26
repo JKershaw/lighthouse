@@ -48,7 +48,7 @@ Begin with readings the study can define and calibrate. Collection frequency fol
 | Electricity | Activity | Watts and energy over an interval | Declare the device, facility or allocated boundary |
 | Communication | Activity | Requests, bytes, direction, latency, errors | Duplication and compression affect volume |
 | Inference | Activity | Calls, model, input and output tokens, cache use | Provider and tokenizer definitions vary |
-| Correctness | Activity | Test, sanitiser and build outcomes: passes, failures, errors and their timing | Read only by whoever runs the check and visible only where results are published; a pass does not establish correctness and an error does not establish malice (D-0004) |
+| Correctness | Activity | Test, sanitiser and build outcomes: passes, failures, errors and their timing | Read only by whoever runs the check and visible only where results are published; a pass does not establish correctness and an error does not establish malice; added after LH004 |
 | State | Residue | Storage volume, reads, writes, configuration versions | Volume does not establish relevance or value |
 | Structure | Residue | Code changes, deployments, dependency changes | Count turnover separately from net growth |
 | Authority | Residue when held, activity when exercised | Tokens issued, scopes, write actions, approvals, actions reserved for humans | A permission is a relationship, not a volume |
@@ -118,7 +118,7 @@ In the three layers, the hypothesis predicts a distinctive propagation signature
 
 Evidence would need to distinguish continuing external support from endogenous replacement, successful reproduction from repeated attempts, and real environmental degradation from rising counts or improved detection. Benign deployment, scheduled automation and common external triggers are competing explanations for apparent propagation.
 
-Studies can begin with historical evidence and contained models. Any claim of a growth threshold must specify the population, resources, removal processes and assumptions used. The thresholds in established computer-epidemic models are relevant antecedents, not universal constants for agent networks [S1].
+Studies begin with literature, historical evidence and contained simulations; releasing a self-propagating program on any system, Lighthouse's own included, is not part of the programme. Any claim of a growth threshold must specify the population, resources, removal processes and assumptions used. The thresholds in established computer-epidemic models are relevant antecedents, not universal constants for agent networks [S1].
 
 ### Decision and review
 
