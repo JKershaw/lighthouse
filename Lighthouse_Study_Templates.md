@@ -112,18 +112,17 @@ How easily it changes: <one sentence>.
 <rationale and alternatives, a short paragraph>
 ```
 
-## Release record
+## Release note
 
 ```
-release:                          publication id and edition:
+release:                          piece and version:
 form: note | study | report | article | essay | dataset | instrument
-responsible person:               methods reviewer:     editor:
+written by:                       edited by:            reviewed in:
 evidence versions:                method versions:
 publication date:                 evidence cutoff:
 observation period covered:
-roles combined (state which checks were not independent):
+checks that were not independent:
 restrictions on supporting material:
-authority for release:
 review trigger or expiry:
 ```
 

@@ -1,6 +1,6 @@
 # Lighthouse
 
-Lighthouse is a proposed observatory for the computational world: a standing watch on how information flows through software, infrastructure, humans and AI, what that activity leaves behind, and whether patterns appear that people should know about, such as AI activity that sustains and spreads itself. The watch is kept largely by AI agents within a small daily budget; people set the questions, read the results and decide what is published. Lighthouse also works on better ways to conduct that study.
+Lighthouse is a proposed observatory for the computational world: a standing watch on how information flows through software, infrastructure, humans and AI, what that activity leaves behind, and whether patterns appear that people should know about, such as AI activity that sustains and spreads itself. The watch is kept largely by AI agents within a small daily budget, and it reviews and releases its own work; people set the direction and read what interests them. Lighthouse also works on better ways to conduct that study.
 
 This repository holds the founding documents. They are drafts. They define an intended practice; they do not grant access to any system, commit spending, or authorise a publication.
 
@@ -39,12 +39,12 @@ The workspace as files lives in [harbour/](harbour/): the north star, the ticket
 - **Derived measurement, interpretation, scenario.** Together with observation, the four kinds of statement that Lighthouse labels in publications (F02).
 - **Instrument.** A sensor or collection method together with the record that says what it detects, what it misses and what it costs.
 - **Study.** One bounded investigation with a stable identifier (LH001, LH002), a brief, an owner and a stopping condition.
-- **Question register, decision record, release record, correction record.** The bookkeeping forms in F05.
-- **Keeper, owner, methods reviewer, editor.** The four roles in F03. One person may hold several; the record says which checks were independent.
+- **Question register, decision record, release note, correction record.** The bookkeeping forms in F05.
+- **Keeper, owner, reviewer, editor.** The four functions in F03, any of which an agent may fill; the record says which checks were independent.
 - **Close observation, outward observation.** The two directions in F01: systems Lighthouse can instrument directly, and the wider internet seen through public data.
 - **Watch.** Lighthouse's standing observation of the wider internet, published on its own cadence. Not an alerting service: nobody subscribes to it for warnings about their own systems.
 - **Standard candle.** A source whose output is known, used to calibrate an instrument and to scale unknown sources. LH001's workflow is Lighthouse's first.
 - **Luminous fraction.** The part of a population that emits into public data. The rest is dark, meaning unobserved rather than sinister, and is inferred from its effects.
 - **Dispatch.** Harbour's unit of work: a prompt queued for an agent, with its requested model, harness, timestamps and the agent's feedback.
-- **Autopilot.** The automated loop in a Harbour workspace that turns ready tickets into agent tasks without a person initiating each one. In the Lighthouse workspace it does most of the research work; a person reads and releases.
+- **Autopilot.** The automated loop in a Harbour workspace that turns ready tickets into agent tasks without a person initiating each one. In the Lighthouse workspace it does the research, the review and the release; a person reads and steers.
 - **Digital Kessler hypothesis.** A proposed scenario, named by analogy with orbital debris, in which harmful digital activity replenishes itself and degrades shared infrastructure. A question, not a finding.

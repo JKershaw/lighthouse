@@ -42,11 +42,11 @@ Pieces, under one editorial direction: write for a curious person who has never 
 - A colophon at the end, in the form LH F05 gives: sources, method in a sentence, authorship, review, version and corrections, and one line on what Lighthouse is. Commit hashes, task identifiers and dispatch details stay in the record beneath the piece, never in the piece.
 - Illustrations drawn, not described, with a one-line caption.
 - Read it aloud before handing it over; anything that trips is rewritten.
-- No piece reaches the keeper without a review record.
+- No piece is released without a review record that finds nothing that must be fixed.
 
 ## Conduct
 
-- Agents do not publish, do not spend beyond the budget in LH F06, and do not change Harbour. A person reads and releases.
+- Agents release what passes review. They do not spend beyond the budget in LH F06, do not change Harbour, and do not make the decisions LH F01 reserves for a person: a claim that harm is happening now, a claim that a named system is compromised, or any act that is irreversible outside the repository.
 - Do not read or use credentials from the environment unless the task names them. Never write a token, a session id or a key into the repository.
 - Tag your own activity so that it is recognisable as Lighthouse's, and measure your overhead where you can.
 - Commit with a clear message that says what changed and why. Never rewrite history on a shared branch.

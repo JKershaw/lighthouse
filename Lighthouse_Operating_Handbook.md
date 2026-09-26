@@ -8,11 +8,11 @@ Lighthouse begins as a small research practice with bounded investigations and a
 
 ## A watch kept by agents, read by people
 
-Most of Lighthouse's work is done by AI agents: collection, analysis, source checking, drafting and the upkeep of the registers, dispatched as bounded tasks within a stated budget and scope. People do the parts that give the work its meaning. They set the questions, read what comes back, judge whether it is interesting and true, and decide what is published. Agent output is the ordinary case; a person's reading is the scarce resource, and the practice is arranged to spend it well. The session that drives the watch is itself an observer, and its own runs are part of the record it exports.
+Most of Lighthouse's work is done by AI agents: collection, analysis, source checking, drafting and the upkeep of the registers, dispatched as bounded tasks within a stated budget and scope. Agents also review and release, so that publication never waits on a person. People set the direction, read what interests them, and keep the few decisions LH F01 reserves for a person. Agent output is the ordinary case; a person's reading is the scarce resource, and the practice is arranged so that it is spent on judgement rather than on signing. The session that drives the watch is itself an observer, and its own runs are part of the record it exports.
 
-Four roles remain, and they name responsibilities rather than people. The founding keeper, the person who keeps the light lit and decides what is shown, chooses priorities, sets the budget and assigns an accountable owner to each investigation. The owner defines the question and answers for the evidence packet, whoever or whatever produced it. A methods reviewer checks collection and analysis. An editor prepares the publication and records its release decision.
+Four functions run through the work, and any of them may be filled by an agent. The keeper, the person who keeps the light lit and sets its direction, chooses priorities and sets the budget. The owner of a study defines its question and answers for its evidence packet. A reviewer checks collection, analysis and claims against the sources. An editor turns a record into a piece. The record of each study and each piece says which of these were done by which agent or person, and which checks were independent.
 
-An agent may do the working part of any role within its declared scope. The release decision is a person's, as cutting a release is in Harbour's charter. The person responsible for a study remains identifiable. If one person fills several roles, the publication records that limitation rather than implying independent review.
+A piece is released by the process: it goes out when a review on the strongest available model finds nothing that must be fixed, and its release note says so. A person can pull anything, and the decisions LH F01 reserves for a person wait for one. If the same agent or person fills several functions, the record says so rather than implying independent review.
 
 ## The investigation lifecycle
 
@@ -97,11 +97,11 @@ The practice is a habit, not a register. An image arrives with its literal meani
 
 The editor checks that material factual claims have support, primary sources have been read where relevant, charts use stated denominators, and uncertainties remain attached to the claims they qualify. Model-generated source summaries need verification against the source.
 
-A piece reaches the keeper only with a review record (R-nnnn) that names what was checked, what was found and what was changed.
+A piece is released only with a review record (R-nnnn) that names what was checked, what was found and what was changed, and finds nothing that must be fixed.
 
-The methods reviewer reproduces the important calculation or explains why reproduction was not possible. Where an agent run produced the numbers, the run, its inputs and its queries are retained so the reviewer can repeat it. Review includes at least one plausible competing explanation. A second agent's agreement is a review contribution, not independent empirical confirmation.
+The reviewer reproduces the important calculation or explains why reproduction was not possible. Where an agent run produced the numbers, the run, its inputs and its queries are retained so the reviewer can repeat it. Review includes at least one plausible competing explanation. A second agent's agreement is a review contribution, not independent empirical confirmation.
 
-The release record names the responsible person, versions of the evidence and method, publication date, evidence cutoff and any restrictions on access to supporting material. Public communication and external publication follow the authority already granted to the project; drafting a publication does not itself release it.
+The release note names the reviews the piece passed, the versions of the evidence and method, the publication date, the evidence cutoff and any restrictions on access to supporting material. Drafting a piece does not itself release it; the review does.
 
 ## Corrections and retirement
 
@@ -133,6 +133,6 @@ Useful progress can include showing that a proposed metric fails, or that an att
 
 ## Responsibility before launch
 
-Name the founding keeper, study owners and release responsibility. Record the actual budget and access boundaries for the first studies. These are operational records to complete when execution begins.
+Record the actual budget and access boundaries for the first studies. These are operational records to complete when execution begins.
 
 Use the templates in LH F05 to open the first studies, register the instruments and preserve the initial decisions. Revise this handbook after the first completed studies reveal which parts of the process are necessary.

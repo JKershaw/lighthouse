@@ -16,12 +16,12 @@ Run one tick of the watch, bounded. The first argument is the most dispatches th
 - Programme: only tickets already in `harbour/tickets.json` whose status is not done, in the order Harbour suggests. The drive files no tickets and edits no ticket text. Proposed tickets go in the report for the keeper.
 - Harbour's own model: one `hb next` per drive. `hb roadmap` only if a ticket closed in this drive and the report would change what comes next.
 - Documents: the founding documents change only when a ticket asks for it.
-- Never: publish, create a scheduled routine, change Harbour, alter the budget, read a credential the task does not name, or write a token, a session id or an agent id into the repository or into a Harbour entry.
+- Never: create a scheduled routine, change Harbour, alter the budget, make a decision LH F01 reserves for a person, read a credential the task does not name, or write a token, a session id or an agent id into the repository or into a Harbour entry.
 
 ## Stop early when
 
 - a dispatch ends `[failed]`, or its subagent reports nothing usable;
-- Harbour's suggestion is outside the programme, or would need a person under Harbour's charter (anything irreversible, money, a release);
+- Harbour's suggestion is outside the programme, or needs a person under LH F01 (a claim of present harm, a named compromised system, anything irreversible outside the repository);
 - `hb up`, `hb load` or a token mint fails;
 - the cost limit is reached.
 
@@ -30,14 +30,14 @@ Stopping early is not a failure. Say what stopped the drive and leave the rest f
 ## Procedure
 
 1. Note the start time. `harbour/hb up`, `harbour/hb load`, `harbour/hb next`. Read the suggestion against the bounds.
-2. For each dispatch: `hb dispatch <ticket> <kind>`, then `hb take`. Spawn one subagent with the taken prompt, the repository path, AGENTS.md, a scratch directory and the two rules in CLAUDE.md. Model by kind (D-0002): `opus` for research, essays, study write-ups and review; `sonnet` for collection scripts, source checks and tabulation; `haiku` only for a chore the driver cannot do with `hb`.
+2. For each dispatch: `hb dispatch <ticket> <kind>`, then `hb take`. Spawn one subagent with the taken prompt, the repository path, AGENTS.md, a scratch directory and the two rules in CLAUDE.md. Model by kind (D-0002): `opus` for research, essays and study write-ups; `fable` for the release review; `sonnet` for collection scripts, source checks and tabulation; `haiku` only for a chore the driver cannot do with `hb`.
 3. When it reports: `hb feedback <id> "<what was done>"`, `hb usage <id> --latest`, `hb resources <id>`, then `hb done` or `hb failed`. Commit the deliverable. `hb close <ticket> "<message naming the commit>"` when it is done.
 4. After the last dispatch: `hb export`, `hb down`, `hb drivercost --since <start time>`. Commit and push.
 5. Report.
 
 ## Editing brief
 
-When a dispatch turns a record into a piece, the subagent's brief carries the piece rules from AGENTS.md and nothing that contradicts them: open with the thing itself; one idea; say it, then qualify once; provenance to the notes; no internal references; a drawn illustration; the colophon; read aloud. Never ask for a source in every sentence, and never put the record's header on a piece. Corrections to the record come first, in its Corrections section and its text, and the piece is drawn from the corrected record. A review dispatch (R-nnnn, kind review) follows every piece before it goes to the keeper, and the editors fix what it finds before the drive ends.
+When a dispatch turns a record into a piece, the subagent's brief carries the piece rules from AGENTS.md and nothing that contradicts them: open with the thing itself; one idea; say it, then qualify once; provenance to the notes; no internal references; a drawn illustration; the colophon; read aloud. Never ask for a source in every sentence, and never put the record's header on a piece. Corrections to the record come first, in its Corrections section and its text, and the piece is drawn from the corrected record. A review dispatch (R-nnnn, kind review) follows every piece, and the editors fix what it finds before the drive ends. When a review on Fable finds nothing that must be fixed, the drive releases the piece: the Draft label comes off, the colophon gains its release note, and the front page is updated.
 
 ## Report
 

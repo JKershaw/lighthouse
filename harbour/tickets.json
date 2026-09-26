@@ -150,5 +150,13 @@
     "priorityLevel": 3,
     "status": "todo",
     "description": "E-0006 Short forms of the first two articles. After release, cut each released article to a short form under two hundred words, under the piece rules, with a colophon pointing to the article. Done when both exist in articles/short/. This will let the ideas travel where a five-minute read cannot."
+  },
+  {
+    "id": "R-0002",
+    "title": "Release review of the first two articles",
+    "kind": "review",
+    "priorityLevel": 1,
+    "status": "todo",
+    "description": "R-0002 Release review of the first two articles. On Fable 5.1, the release gate under D-0005: read articles/what-we-can-see.md and articles/the-xz-backdoor.md as a curious reader, then check each against the record beneath it (studies/LH003/ at version 0.3, studies/LH004/ at version 0.3) and against the primary sources where reachable; check that every must-fix in notes/R-0001.md is answered; check the piece rules in AGENTS.md. Write notes/R-0002.md in the review form with numbered findings, severities, and a verdict per piece: release, or not yet and why. Done when the note exists. This will let the first two pieces go out under the process the charter describes."
   }
 ]

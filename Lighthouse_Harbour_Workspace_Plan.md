@@ -4,13 +4,13 @@ North star, budget and seed tickets
 
 Draft | 25 September 2026 | LH F06
 
-Text to file when the Lighthouse workspace opens in Harbour. The autopilot does the work within the budget below; a person reads what it produces and decides what is published. The workspace is also the first contained instance of what Lighthouse studies: an autopilot that leaves residue enabling its next run. Here the observer, the subject it calibrates on and the phenomenon it studies are one object, and studies that use its records say so. The filed copy of the seeds below is harbour/tickets.json, which harbour/hb loads into a local Harbour at the start of each session; ticket statuses travel back from Harbour's export at the end.
+Text to file when the Lighthouse workspace opens in Harbour. The autopilot does the work within the budget below and releases what passes review; a person reads what interests them and sets the direction. The workspace is also the first contained instance of what Lighthouse studies: an autopilot that leaves residue enabling its next run. Here the observer, the subject it calibrates on and the phenomenon it studies are one object, and studies that use its records say so. The filed copy of the seeds below is harbour/tickets.json, which harbour/hb loads into a local Harbour at the start of each session; ticket statuses travel back from Harbour's export at the end.
 
 ## North star
 
 Lighthouse publishes one reproducible observation of a known workflow and an honest account of its limits.
 
-We keep going until the results are interesting: writing worth reading, evidence that we are measuring real phenomena, and a clear relation to wider research. Task counts do not count. Publishing stays a human decision, as cutting a release is in Harbour's charter. LH001 is the standard candle, the known light by which unknown ones are measured: it calibrates the instruments Lighthouse runs itself. An outward study validates its own sources within its own boundary and says whose instruments supplied the evidence; it does not wait for LH001 (D-0003).
+We keep going until the results are interesting: writing worth reading, evidence that we are measuring real phenomena, and a clear relation to wider research. Task counts do not count. Release follows review, not a signature. LH001 is the standard candle, the known light by which unknown ones are measured: it calibrates the instruments Lighthouse runs itself. An outward study validates its own sources within its own boundary and says whose instruments supplied the evidence; it does not wait for LH001 (D-0003).
 
 ## Budget
 

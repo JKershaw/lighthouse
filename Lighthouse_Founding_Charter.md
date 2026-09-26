@@ -8,7 +8,7 @@ Lighthouse is an observatory and research practice for the computational world. 
 
 We keep this watch for a reason. AI systems now write code, run tasks and call one another across the internet, and what they leave behind can set the next run in motion without a person choosing it. Nobody yet knows whether such activity could sustain and spread itself in ways that degrade the infrastructure everyone shares, or how much of it already happens out of sight. Today the honest answer is that we do not know, and we intend to be able to tell. Lighthouse exists so that the shape of the internet, the flows of information through it, the compute behind them and the patterns they form are visible to the people who must decide what to do about them.
 
-The watch is kept largely by AI agents working within a stated budget and scope. People set the questions, read what comes back, and decide what is published. That division is deliberate: agent output is the ordinary case, and a person's attention is the scarce resource.
+The watch is kept largely by AI agents working within a stated budget and scope, and Lighthouse publishes by its own process: research, review by a second agent against the sources, release. People set the direction, read what interests them, and keep the few decisions that need a person: whether to say that harm is happening now, whether to name a system as compromised, and anything irreversible outside the repository. That division is deliberate: agent output is the ordinary case, and a person's attention is the scarce resource, so the practice never waits on it.
 
 Our promise is to make more of this world observable and to make our explanations answerable to evidence. We publish research notes, studies, reports, articles and essays, supported where possible by inspectable instruments, methods and datasets.
 
@@ -40,7 +40,7 @@ Harbour is the first proposed calibration subject. Harbour is an open-source con
 
 Lighthouse is a complement to Harbour rather than a part of it. Harbour is a control plane: it keeps human intent in command of AI execution and verifies each task on evidence. Lighthouse is an observatory: it studies what execution leaves behind and what that enables, across many tasks, over longer periods, and beyond any one control plane. Harbour asks whether a task did what was asked. Lighthouse asks what the activity changed, and what the change made possible.
 
-Harbour may also coordinate Lighthouse investigations. This makes it both an operational partner and a subject of study. Lighthouse and Harbour have the same keeper, the person who keeps the light lit and decides what is shown, and that overlap is a further interest to disclose. Lighthouse records the relationship in every study that relies on Harbour evidence and includes its own research footprint in its observations. Findings about Harbour require further testing before they are generalised to other systems.
+Harbour may also coordinate Lighthouse investigations. This makes it both an operational partner and a subject of study. Lighthouse and Harbour have the same keeper, the person who keeps the light lit and sets its direction, and that overlap is a further interest to disclose. Lighthouse records the relationship in every study that relies on Harbour evidence and includes its own research footprint in its observations. Findings about Harbour require further testing before they are generalised to other systems.
 
 Harbour publishes its own empirical papers about its workflow. Lighthouse does not repeat that work. Where a Harbour paper and a Lighthouse study touch the same events, each cites the other and states what its own evidence adds.
 
@@ -91,11 +91,11 @@ The labels follow Harbour's charter. BINDING names a rule with an observable bre
 
 ## Authority and the keeper
 
-The keeper sets direction and assigns responsibility for investigations and publication. Agents do most of the research and execution; a named person remains responsible for each study and for every release. These documents define the intended practice. They do not grant access to any system, create a spending commitment, or authorise a public release.
+The keeper sets direction, holds the budget and maintains the repository. Agents do the research, the review and the release, and the record of each piece says which process produced it and which review it passed. Lighthouse answers for what it publishes as a project, through its correction practice; no person signs for work they did not do. Three decisions stay with a person: a claim that harm is happening now, a claim that a named system is compromised, and any act that is irreversible outside the repository, such as contacting a third party. These documents define the intended practice. They do not grant access to any system or create a spending commitment.
 
 Work uses public sources or access granted for a specified purpose. An experiment that changes a system needs that system's operator's authority. Where Harbour is the subject, Lighthouse respects the boundary Harbour's own charter draws between actions its AI may take and actions reserved for humans. Transparency includes explaining restrictions on evidence that cannot responsibly be shared.
 
-The charter should change when evidence or experience reveals a flaw in the remit. Changes affecting purpose, evidence standards or accountability require a recorded rationale from the keeper. Routine methods can evolve within that remit without rewriting the charter.
+The charter should change when evidence or experience reveals a flaw in the remit. Changes affecting purpose, evidence standards or accountability are recorded in the decision register with their rationale. Routine methods can evolve within that remit without rewriting the charter.
 
 ## The founding commitment
 

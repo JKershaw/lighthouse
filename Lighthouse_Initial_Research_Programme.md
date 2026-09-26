@@ -13,7 +13,7 @@ The initial programme establishes one close observation of Harbour, one bounded 
 | Establish | Assign owners, access and budgets; open study records; register instruments and sources; confirm Harbour's current record fields and retention; run LH003, which needs only reading |
 | Calibrate | Run LH001, the standard candle; export Harbour records; reconcile readings with known events; document overhead and gaps; write LH004 |
 | Compare | Run LH002, which does not wait for LH001 (D-0003); interpret one outward series through the LH001 calibration once it exists; repeat selected observations; test collection and cohort artefacts |
-| Publish and review | Release reviewed studies and one synthesis; decide what to retain, change or stop |
+| Publish and review | Release the studies and one synthesis as their reviews pass; decide what to retain, change or stop |
 
 The stages can overlap where dependencies allow. If access or data quality prevents a study, complete the feasibility note and choose a replacement question. Do not broaden the claim to compensate for a small sample.
 
@@ -121,7 +121,7 @@ Prioritise questions by scientific value, decision relevance, evidence access, t
 
 ## Assignments and choices for commencement
 
-The keeper records named owners, available access, a resource envelope and publication responsibility. Choose the first Harbour workflow and its dispatch target, and the public cohort. Decide the retention and sharing rules for those particular sources. These choices can be made when the studies open and need not delay use of the founding documents.
+Record available access and a resource envelope for the first studies. Choose the first Harbour workflow and its dispatch target, and the public cohort. Decide the retention and sharing rules for those particular sources. These choices can be made when the studies open and need not delay use of the founding documents.
 
 ## The first public collection
 
