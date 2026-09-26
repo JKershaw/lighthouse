@@ -37,7 +37,7 @@ Pieces, under one editorial direction: write for a curious person who has never 
 - Open with the thing itself, a person, a moment or a surprise, never with Lighthouse or its method.
 - One idea a reader could say back in a sentence, developed one thought at a time, so that the reader knows which thought to hold while the next one arrives. Say it, then qualify it once, in the sentence where the qualification matters. Routine provenance goes to the notes at the end.
 - Plain words. Define a term where it is first needed, and only if it is needed; the three layers appear only where they earn their place. The charter's images are welcome, each arriving with its literal meaning the first time.
-- No internal references: no document numbers, ticket or study ids, "the study" or "the keeper". The piece speaks as "we".
+- No internal references in the prose: no document numbers, ticket or study ids, "the study" or "the keeper". The piece speaks as "we". The colophon may link to the record beneath the piece, so that a reader can reach the evidence when they want it; an id may appear there only inside the link.
 - Honesty about what is known lives in the verbs, not in labels: the record shows, nobody has measured, we think.
 - A colophon at the end, in the form LH F05 gives: sources, method in a sentence, authorship, review, version and corrections, and one line on what Lighthouse is. Commit hashes, task identifiers and dispatch details stay in the record beneath the piece, never in the piece.
 - Illustrations drawn, not described, with a one-line caption.
