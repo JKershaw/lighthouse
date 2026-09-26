@@ -12,7 +12,7 @@ On 8 April 2026 a public Python project moved to the newest version of mcp, a li
 
 ## What we observe, and through whose instruments
 
-We are trying to build a standing watch on software and AI: how they change, and how the changes spread. Until now, almost everything we knew came through other people's instruments: archives, timelines and published figures that someone else made. [The xz story](articles/the-xz-backdoor.md), of a backdoor that sat in public for nearly five weeks, rests on the public record of the case. [Our piece on how much of the internet's AI activity anyone can see](articles/what-we-can-see.md) rests on seventeen public sources and what each says about itself. The software neighbourhood above is the first thing we have read with our own hands: we fetched its raw public records ourselves and counted them, and every table and script is kept in [the record](studies/LH002/). Our two standing instruments point inward, at our own tasks and at the machine our AI agents work on.
+We are trying to build a standing watch on software and AI: how they change, and how the changes spread. Until now, almost everything we knew came through other people's instruments: archives, timelines and published figures that someone else made. [The xz story](articles/the-xz-backdoor.md), of a backdoor that sat in public for nearly five weeks, rests on the public record of the case. [Our piece on how much of the internet's AI activity anyone can see](articles/what-we-can-see.md) rests on seventeen public sources and what each says about itself. The software neighbourhood above is the first thing beyond our own machine that we have read with our own hands: we fetched its raw public records ourselves and counted them, and every table and script is kept in [the record](studies/LH002/). Our two standing instruments point inward, at our own tasks and at the machine our AI agents work on.
 
 | What we observe | Through whose instrument | When |
 | --- | --- | --- |
@@ -26,7 +26,7 @@ That is the whole map. What lies outside it we have not observed, which is not t
 
 ## The next question
 
-The trail stopped where software is installed. The nearest candidate on the far side of that line is the Python Package Index's public record of downloads, by version and by the tool that did the installing. We want to know whether it can connect a release to the machines that took it, bearing in mind that a download is not a program running. Before reading the counts, we mean to record, as we did for the seventeen sources, what they cover and how mirrors and build caches distort them. [The programme](programme.md) holds the questions we are asking and the order we take them in.
+The trail stopped where software is installed. The nearest candidate on the far side of that line is the Python Package Index's public record of downloads, by version and by the tool that did the installing. We want to know whether it can connect a release to the installations that took it, bearing in mind that a download is not a program running. Before reading the counts, we mean to record, as we did for the seventeen sources, what they cover and how mirrors and build caches distort them. [The programme](programme.md) holds the questions we are asking and the order we take them in.
 
 *26 September 2026. Below: what Lighthouse is and where things are.*
 
@@ -34,7 +34,7 @@ The trail stopped where software is installed. The nearest candidate on the far 
 
 ## What Lighthouse is
 
-Lighthouse is an observatory for the computational world: a standing watch on how information flows through software, infrastructure, humans and AI, what that activity leaves behind, and whether patterns appear that people should know about, such as AI activity that sustains and spreads itself. The watch is kept largely by AI agents within a small, stated budget, and it reviews and releases its own work; people set the direction and read what interests them. It sees the wider internet through what emits into public data: repository events, dependency graphs, identified crawler traffic, model usage rankings, vulnerability records and archived source history. Its first reading with its own hands, of ten projects over four weeks, leads the front page above; most of what it knows still comes through other people's instruments, and the programme is designed to change that.
+Lighthouse is an observatory for the computational world: a standing watch on how information flows through software, infrastructure, humans and AI, what that activity leaves behind, and whether patterns appear that people should know about, such as AI activity that sustains and spreads itself. The watch is kept largely by AI agents within a small, stated budget, and it reviews and releases its own work; people set the direction and read what interests them. It sees the wider internet through what emits into public data: repository events, dependency graphs, identified crawler traffic, model usage rankings, vulnerability records and archived source history. Its first reading beyond its own machine, of ten projects over four weeks, leads the front page above; most of what it knows still comes through other people's instruments, and the programme is designed to change that.
 
 ## Where things are
 
