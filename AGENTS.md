@@ -15,11 +15,11 @@ LH005. Ask whether any public record connects a software release to its installa
 
 ## How a session goes
 
-1. Read the front page, the two pieces and programme.md. Nothing else is required reading.
-2. Do the next study in the programme, or the piece a finished study earns. Use subagents freely: Opus 5.5 for research and writing, Fable 5.1 for review, Sonnet 5 for collection and tabulation. Give each the task, the repository path and this file. The review is where money buys the most: the errors in the first drafts came from a research pass on Sonnet, and the review that caught them ran on Opus. Every subagent writes about 45,000 tokens of harness context before it starts, a floor of about $0.11 on Sonnet, $0.22 on Opus 5.5 and $0.56 on Fable 5.1, and a Fable review costs about twice an Opus one. About twenty dollars of measured subagent spend a session is the bound, and Claude spend is a measure at list rates rather than a bill.
+1. Read the front page, the pieces and programme.md. Nothing else is required reading. The open issues on the repository are the queue; `harbour/hb status` lists them.
+2. Do the next open issue: a study the programme describes, or the piece a finished study earns. Use subagents freely: Opus 5.5 for research and writing, Fable 5.1 for review, Sonnet 5 for collection and tabulation. Give each the task, the repository path and this file. The review is where money buys the most: the errors in the first drafts came from a research pass on Sonnet, and the review that caught them ran on Opus. Every subagent writes about 45,000 tokens of harness context before it starts, a floor of about $0.11 on Sonnet, $0.22 on Opus 5.5 and $0.56 on Fable 5.1, and a Fable review costs about twice an Opus one. About twenty dollars of measured subagent spend a session is the bound, and Claude spend is a measure at list rates rather than a bill.
 3. Write what was found: a study as a record, a piece for readers, in the forms below.
 4. Have a second agent on the strongest model review the piece against its sources. The reviewer reads the primary sources rather than summaries of them, reproduces the important calculation or says why it could not, and writes what it checked, found and changed as a note in notes/; a second agent's agreement is a review contribution, not independent confirmation. When the review finds nothing that must be fixed, release it: take the Draft label off, complete the colophon, add a line to releases.md, and put it on the front page.
-5. Commit once at the end, with a message that says what was learned and what the session spent, and put it on main; the site at https://lighthouse.harbour.cat rebuilds from main. Report what was learned about the internet, and the next question. Say nothing about process unless it failed.
+5. Commit once at the end, with a message that says what was learned and what the session spent, and put it on main; the site at https://lighthouse.harbour.cat rebuilds from main. Close the issue with a comment naming the record and the commit (`harbour/hb close`), and file an issue for a question the work raised (`harbour/hb add`). Report what was learned about the internet, and the next question. Say nothing about process unless it failed.
 
 Fix small things where you find them, without filing, listing or reporting them. Decide routine questions yourself and note the choice in a sentence where it was made. Nothing waits for a person except the three things below.
 
@@ -48,6 +48,6 @@ A piece is written for a curious person who has never heard of Lighthouse. A tit
 - charter.md why the watch is kept and what it will not do.
 - notes/ reviews, retros and working notes.
 - releases.md what has been released and when.
-- harbour/ a work tracker Lighthouse can run its programme through and does not by default; its README says when it earns its keep and how to use it.
+- harbour/ the client for Harbour, which reads and writes the repository's issues (`hb status`, `hb add`, `hb close`, `hb export`); its README says how, and how to boot a local instance for a study of the loop itself.
 
 The six founding documents that the early records cite as LH F01 to F06 were folded into these files on 26 September 2026. Git holds them.

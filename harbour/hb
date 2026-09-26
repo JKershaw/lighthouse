@@ -1,27 +1,190 @@
 #!/usr/bin/env bash
-# hb: run a local Harbour for the Lighthouse workspace, load it from this
-# repository, drive dispatches, and export what it recorded. See harbour/README.md.
+# hb: Lighthouse's client for Harbour. The backlog is the repository's issues,
+# read and written through the hosted Harbour at harbour.cat; a local Harbour
+# can be booted for a study that observes the loop itself. See harbour/README.md.
 set -euo pipefail
 REPO="$(cd "$(dirname "$0")/.." && pwd)"
 WS="$REPO/harbour"
 SESSION="$WS/.session"
 SRC="${HARBOUR_SRC:-$HOME/.cache/harbour-src}"
 PORT="${HARBOUR_PORT:-3123}"
-H="http://localhost:$PORT"
 JAR="$SESSION/cookies.txt"
 mkdir -p "$SESSION"
 
 die() { echo "hb: $*" >&2; exit 1; }
 need() { [ -s "$SESSION/$1" ] || die "no $1 in $SESSION; run 'hb up' first"; cat "$SESSION/$1"; }
+jq_() { python3 -c "import json,sys; d=json.load(sys.stdin); $1"; }
+
+# Mode. Hosted when a token is at hand (HARBOUR_TOKEN, named by the task that
+# needs it, or the git-ignored file a bootstrap exchange wrote); local otherwise,
+# or when HARBOUR_MODE=local asks for the calibration instance.
+if [ "${HARBOUR_MODE:-}" != "local" ] && { [ -n "${HARBOUR_TOKEN:-}" ] || [ -s "$SESSION/hosted-token" ]; }; then
+  MODE=hosted; H="${HARBOUR_URL:-https://harbour.cat}"
+  ptok() { if [ -n "${HARBOUR_TOKEN:-}" ]; then printf '%s' "$HARBOUR_TOKEN"; else cat "$SESSION/hosted-token"; fi; }
+else
+  MODE=local; H="http://localhost:$PORT"
+  ptok() { need proxy-token; }
+fi
 key() { need urlkey; }
 dtok() { need dispatch-token; }
-ptok() { need proxy-token; }
-jq_() { python3 -c "import json,sys; d=json.load(sys.stdin); $1"; }
 curl_s() { curl -sS -c "$JAR" -b "$JAR" "$@"; }
 curl_d() { curl -sS -H "Authorization: Bearer $(dtok)" "$@"; }
 curl_p() { curl -sS -H "Authorization: Bearer $(ptok)" "$@"; }
+local_only() { [ "$MODE" = local ] || die "'$1' needs the local instance (hb up); the hosted workspace has no dispatch consumer here"; }
 
-cmd_up() {
+# Proxy calls in python, so that bodies with quotes and newlines survive.
+px() { # px METHOD PATH [json body]
+  python3 - "$H" "$(ptok)" "$1" "$2" "${3:-}" <<'PY'
+import json,sys,urllib.request,urllib.error,urllib.parse
+H,tok,method,path,body=sys.argv[1:6]
+path=urllib.parse.quote(path,safe="/?=&")  # GitHub-backed identifiers look like "#1"
+req=urllib.request.Request(H+path,data=body.encode() if body else None,method=method,
+    headers={"content-type":"application/json","Authorization":"Bearer "+tok})
+try:
+    with urllib.request.urlopen(req,timeout=120) as r: sys.stdout.write(r.read().decode())
+except urllib.error.HTTPError as e:
+    sys.stdout.write(e.read().decode()); sys.exit(1 if e.code>=500 else 0)
+PY
+}
+
+# ---- shared: the backlog through the proxy, by issue identifier ----
+
+cmd_status() {
+  if [ "$MODE" = local ]; then echo "local harbour: $(curl -s -o /dev/null -w '%{http_code}' "$H/") workspace: $(key) commit: $(cut -c1-12 "$SESSION/harbour-commit")"; else echo "hosted harbour: $H"; fi
+  px GET '/api/proxy/stack?limit=50&view=digest' | jq_ "
+ts=d.get('tasks') or []
+print(f'stack: {d.get(\"total\",len(ts))} open')
+[print(f\"  {t.get('identifier'):8} {(t.get('state') or {}).get('name','?'):12} {t.get('title')}\") for t in ts]"
+  px GET '/api/proxy/dispatch?limit=10' | jq_ "print('dispatches:', d.get('total',0), 'recent;', sum(1 for i in d.get('items',[]) if i.get('status')=='queued'), 'queued')"
+}
+
+cmd_issue() { ID="${1:?issue identifier}"
+  # the GitHub-backed workspace has no single-issue read; the open stack and search carry the description
+  { px GET '/api/proxy/stack?limit=50'; echo; px GET "/api/proxy/search?q=$(python3 -c "import urllib.parse,sys; print(urllib.parse.quote(sys.argv[1].lstrip('#')))" "$ID")"; } | python3 -c "
+import json,sys
+want=sys.argv[1]; want=want if want.startswith('#') or not want.isdigit() else '#'+want
+found=None
+for line in sys.stdin.read().split('\n'):
+    if not line.strip(): continue
+    d=json.loads(line)
+    for t in d.get('tasks') or d.get('issues') or []:
+        if t.get('identifier')==want: found=found or t
+if not found: sys.exit(f'{want} not found in the open stack or by search')
+d=found
+print(d.get('identifier'), '|', (d.get('state') or {}).get('name'), '|', d.get('title')); print('labels:', ', '.join(d.get('labels') or []) or 'none'); print('---'); print(d.get('description') or '')
+cs=d.get('comments') or []
+if cs: print('--- comments'); [print('-', (c.get('createdAt') or '')[:10], (c.get('body') or '').replace(chr(10),' ')[:300]) for c in cs]" "$ID"
+}
+
+cmd_add() { # hb add "<title>" <description file> [label]
+  TITLE="${1:?title}"; DESC="${2:?description file}"; LABEL="${3:-}"
+  [ -s "$DESC" ] || die "no description file $DESC"
+  BODY="$(python3 -c "import json,sys; print(json.dumps({'title':sys.argv[1],'description':open(sys.argv[2]).read().strip()}))" "$TITLE" "$DESC")"
+  OUT="$(px POST /api/proxy/issues "$BODY")"
+  IDENT="$(echo "$OUT" | jq_ "print((d.get('issue') or {}).get('identifier') or '')")"
+  [ -n "$IDENT" ] || die "create failed: $(echo "$OUT" | head -c 300)"
+  if [ -n "$LABEL" ]; then px POST "/api/proxy/issues/$IDENT/labels" "{\"labelId\":\"$LABEL\"}" >/dev/null; fi
+  echo "$IDENT $TITLE"
+}
+
+cmd_comment() { ID="${1:?issue identifier}"; MSG="${2:?body}"
+  BODY="$(python3 -c "import json,sys; print(json.dumps({'body':sys.argv[1]}))" "$MSG")"
+  px POST "/api/proxy/issues/$ID/comments" "$BODY" | jq_ "print('comment', 'ok' if d.get('success') else d)"
+}
+
+cmd_record() { # hb record <issue> <action> <status> "<summary>": an agent status entry, the trace a session leaves when it does the work itself
+  ID="${1:?issue identifier}"; ACT="${2:?action}"; ST="${3:?status}"; SUM="${4:?summary}"
+  BODY="$(python3 -c "import json,sys; print(json.dumps({'taskIdentifier':sys.argv[1],'action':sys.argv[2],'status':sys.argv[3],'summary':sys.argv[4]}))" "$ID" "$ACT" "$ST" "$SUM")"
+  px POST /api/proxy/agent/status "$BODY" | jq_ "print('recorded', 'ok' if d.get('success') else d)"
+}
+
+cmd_close() { ID="${1:?issue identifier}"; MSG="${2:?message}"
+  cmd_comment "$ID" "$MSG"
+  px PATCH "/api/proxy/issues/$ID" '{"stateId":"done"}' | jq_ "print('$ID ->', ((d.get('issue') or d).get('state') or {}).get('name', d))"
+}
+
+cmd_dispatch() { # hb dispatch <issue> [kind]: queue the issue's description as a prompt for a dispatch consumer
+  ID="${1:?issue identifier}"; KIND="${2:-research}"
+  python3 - "$H" "$(ptok)" "$ID" "$KIND" "$REPO" <<'PY'
+import json,sys,urllib.request,urllib.error,urllib.parse
+H,tok,ident,kind,repo=sys.argv[1:6]
+def call(method,path,body=None):
+    req=urllib.request.Request(H+urllib.parse.quote(path,safe="/?=&"),data=json.dumps(body).encode() if body else None,method=method,headers={"content-type":"application/json","Authorization":"Bearer "+tok})
+    try:
+        with urllib.request.urlopen(req,timeout=120) as r: return json.load(r)
+    except urllib.error.HTTPError as e: return {"error":e.read().decode()[:300],"status":e.code}
+iss=call("GET",f"/api/proxy/issues/{ident}")
+if "error" in iss: sys.exit(json.dumps(iss))
+prompt=(f"{iss['title']}\n\n{iss.get('description') or ''}\n\nWork in the repository at {repo}. Follow AGENTS.md there. "
+        "Commit the deliverable. When finished, report what you did, what could not be done, and the files you changed.")
+body={"prompt":prompt,"promptName":kind,"kind":kind,"issueIdentifier":iss["identifier"],"issueId":iss["id"],"issueTitle":iss["title"],"target":"cli","appendProxyContext":False}
+d=call("POST","/api/proxy/dispatch",body)
+if "error" in d and "issueId" in str(d.get("error")): body.pop("issueId"); d=call("POST","/api/proxy/dispatch",body)
+print(json.dumps({k:d.get(k) for k in ("id","status","kind","issueIdentifier","warning","error","code")}))
+PY
+}
+
+cmd_export() {
+  TS="$(date -u +%Y%m%dT%H%M%SZ)"; DIR="$WS/exports/$TS"; mkdir -p "$DIR"
+  # every read fails the export on an HTTP error rather than writing an error body into a file (I-0003)
+  curl_p -f "$H/api/proxy/stack?limit=50" > "$DIR/stack.json"
+  curl_p -f "$H/api/proxy/dispatch?limit=100" > "$DIR/dispatches.json"
+  curl_p -f "$H/api/proxy/agent/status" > "$DIR/agent-status.json"
+  curl_p -f "$H/api/proxy/north-star" > "$DIR/north-star.json"
+  if [ "$MODE" = local ]; then
+    curl_s -f "$H/workspace/$(key)/api/dispatch/history" > "$DIR/history.json"
+    curl_s -f "$H/workspace/$(key)/api/roadmap/reports" > "$DIR/roadmap-reports.json"
+    cp "$SESSION"/next-run-*.json "$SESSION"/roadmap-*.json "$DIR"/ 2>/dev/null || true
+  fi
+  python3 - "$DIR" "$H" "$(ptok)" <<'PY'
+import json,sys,urllib.request,urllib.parse
+d,H,tok=sys.argv[1:4]; cost={}
+for i in json.load(open(f"{d}/stack.json")).get("tasks",[]):
+    req=urllib.request.Request(f"{H}/api/proxy/issues/{urllib.parse.quote(i['identifier'],safe='')}/cost",headers={"Authorization":"Bearer "+tok})
+    try:
+        with urllib.request.urlopen(req,timeout=60) as r: cost[i["identifier"]]=json.load(r)
+    except Exception as e: cost[i["identifier"]]={"error":str(e)[:120]}
+json.dump(cost,open(f"{d}/cost.json","w"),indent=2)
+PY
+  python3 - "$DIR" "$SESSION" "$MODE" "$H" <<'PY'
+import json,sys,os,re,glob
+d,s,mode,H=sys.argv[1:5]
+fetched=sorted(f for f in os.listdir(d) if f.endswith(".json"))
+stack=json.load(open(f"{d}/stack.json")); disp=json.load(open(f"{d}/dispatches.json"))
+manifest={"collectedAt":os.path.basename(d),"mode":mode,"harbour":H if mode=="hosted" else "local",
+  "harbourCommit":open(f"{s}/harbour-commit").read().strip() if mode=="local" and os.path.exists(f"{s}/harbour-commit") else None,
+  "files":fetched,"openIssues":len(stack.get("tasks",[])),"stackLimit":50,"dispatchListTruncated":bool(disp.get("truncated",False))}
+json.dump(manifest,open(f"{d}/manifest.json","w"),indent=2)
+# never let a token leave the session directory
+secrets=[open(f"{s}/{n}").read().strip() for n in ("dispatch-token","proxy-token","hosted-token") if os.path.exists(f"{s}/{n}")]
+secrets+= [t for t in [os.environ.get("HARBOUR_TOKEN","")] if t]
+for f in glob.glob(f"{d}/*.json"):
+    t=open(f).read(); u=t
+    for sec in secrets: u=u.replace(sec,"[redacted]")
+    u=re.sub(r"Bearer [A-Za-z0-9_-]{30,}","Bearer [redacted]",u)
+    if u!=t: open(f,"w").write(u); print("redacted a credential in",os.path.basename(f))
+print(f"exported to {d}: {len(fetched)+1} files; {manifest['openIssues']} open issues")
+PY
+}
+
+# ---- spend, from Claude Code transcripts on this machine ----
+# Never from the launcher's token figure, which is the subagent's final context size. Paths and ids stay here.
+PROJ="$HOME/.claude/projects/$(echo "$REPO" | tr '/' '-')"
+transcript() { case "${1:-}" in
+    --agent) ls "$PROJ"/*/subagents/agent-"$2".jsonl 2>/dev/null | head -1;;
+    --latest) ls -t "$PROJ"/*/subagents/agent-*.jsonl 2>/dev/null | head -1;;
+    --driver) ls -t "$PROJ"/*.jsonl 2>/dev/null | head -1;;
+    *) echo "${1:-}";; esac; }
+cmd_tokens() { # hb tokens --agent <id> | --latest | --driver | <file> [--since ISO] [--until ISO] [--effort label]
+  local T; case "${1:-}" in --agent) T="$(transcript --agent "$2")"; shift 2;; --latest|--driver) T="$(transcript "$1")"; shift;; *) T="${1:-}"; shift;; esac
+  [ -s "$T" ] || die "no transcript found"
+  python3 "$WS/usage.py" "$T" "$@"
+}
+cmd_drivercost() { cmd_tokens --driver --effort driver "$@"; }
+
+# ---- local only: boot a calibration instance and consume its dispatches ----
+
+cmd_up() { local_only up
   if [ ! -d "$SRC/node_modules" ]; then
     echo "cloning Harbour into $SRC"
     rm -rf "$SRC"; git clone -q --depth 1 https://github.com/JKershaw/LinearViewer.git "$SRC"
@@ -47,67 +210,18 @@ cmd_up() {
   curl_s -X POST -H 'content-type: application/json' -d '{"label":"lighthouse-driver","scope":"readWrite"}' "$H/workspace/$KEY/api/proxy/tokens" > "$SESSION/proxy-mint.json"
   python3 -c "import json,sys; d=json.load(open('$SESSION/proxy-mint.json')); t=d.get('token'); sys.exit('proxy token mint failed: '+json.dumps(d)) if not t else open('$SESSION/proxy-token','w').write(t)" || die "see $SESSION/proxy-mint.json"
   rm -f "$SESSION/proxy-mint.json"
-  echo "harbour $(cut -c1-12 "$SESSION/harbour-commit") up on $H, workspace $KEY, tokens minted into $SESSION (git-ignored)"
-}
-
-cmd_load() {
-  KEY="$(key)"
-  PROJ="$(curl_p "$H/api/proxy/projects" | jq_ "p=(d.get('projects') or [])[0]; print(p['id']+'|'+p['name'])")"
-  PID="${PROJ%%|*}"; PNAME="${PROJ#*|}"
-  python3 - "$WS/tickets.json" "$SESSION/issues.json" "$PID" "$H" "$(ptok)" <<'PY'
-import json,sys,urllib.request
-tickets,out,pid,H,tok=sys.argv[1:6]
-rows=json.load(open(tickets)); mapping={}
-for t in rows:
-    body={"title":f"{t['id']} {t['title']}","description":t["description"],"projectId":pid,
-          "stateId":{"todo":"todo","backlog":"backlog","started":"in-progress","done":"done"}[t.get("status","todo")],
-          "priorityLevel":t.get("priorityLevel",2)}
-    req=urllib.request.Request(H+"/api/proxy/issues",data=json.dumps(body).encode(),method="POST",
-        headers={"content-type":"application/json","Authorization":"Bearer "+tok})
-    with urllib.request.urlopen(req) as r: d=json.load(r)
-    iss=d.get("issue",d); mapping[t["id"]]={"identifier":iss.get("identifier"),"issueId":iss.get("id"),"state":(iss.get("state") or {}).get("name")}
-    print(f"{t['id']:8} -> {iss.get('identifier'):9} {iss.get('state',{}).get('name','?'):12} {t['title']}")
-json.dump(mapping,open(out,"w"),indent=2)
-PY
   cmd_northstar
-  echo "loaded into project '$PNAME'"
+  echo "harbour $(cut -c1-12 "$SESSION/harbour-commit") up on $H, workspace $KEY, tokens minted into $SESSION (git-ignored); file its issues with hb add"
 }
 
-cmd_add() { # hb add <ticket>: file one ticket from tickets.json into the running Harbour without reloading the rest
-  TID="${1:?ticket id}"
-  PROJ="$(curl_p "$H/api/proxy/projects" | jq_ "p=(d.get('projects') or [])[0]; print(p['id'])")"
-  python3 - "$WS/tickets.json" "$SESSION/issues.json" "$PROJ" "$TID" "$H" "$(ptok)" <<'PYADD'
-import json,sys,urllib.request,os
-tf,mf,pid,tid,H,tok=sys.argv[1:7]
-t=next((t for t in json.load(open(tf)) if t["id"]==tid),None) or sys.exit(f"no ticket {tid}")
-mapping=json.load(open(mf)) if os.path.exists(mf) else {}
-if tid in mapping: sys.exit(f"{tid} already loaded as {mapping[tid]['identifier']}")
-body={"title":f"{t['id']} {t['title']}","description":t["description"],"projectId":pid,
-      "stateId":{"todo":"todo","backlog":"backlog","started":"in-progress","done":"done"}[t.get("status","todo")],
-      "priorityLevel":t.get("priorityLevel",2)}
-req=urllib.request.Request(H+"/api/proxy/issues",data=json.dumps(body).encode(),method="POST",headers={"content-type":"application/json","Authorization":"Bearer "+tok})
-with urllib.request.urlopen(req) as r: d=json.load(r)
-iss=d.get("issue",d); mapping[tid]={"identifier":iss.get("identifier"),"issueId":iss.get("id"),"state":(iss.get("state") or {}).get("name")}
-json.dump(mapping,open(mf,"w"),indent=2); print(f"{tid} -> {iss.get('identifier')} {(iss.get('state') or {}).get('name')}")
-PYADD
-}
-
-cmd_northstar() {
-  KEY="$(key)"
+cmd_northstar() { local_only northstar
   NS="$(python3 -c "import json; print(json.dumps(open('$WS/north-star.md').read().strip()))")"
-  curl_s -o /dev/null -w 'north star: %{http_code}\n' -X PUT -H 'content-type: application/json' -d "{\"northStar\":$NS}" "$H/workspace/$KEY/api/roadmap/north-star"
+  curl_s -o /dev/null -w 'north star: %{http_code}\n' -X PUT -H 'content-type: application/json' -d "{\"northStar\":$NS}" "$H/workspace/$(key)/api/roadmap/north-star"
 }
 
-cmd_status() {
-  KEY="$(key)"
-  echo "server: $(curl -s -o /dev/null -w '%{http_code}' "$H/") workspace: $KEY harbour: $(cut -c1-12 "$SESSION/harbour-commit")"
-  curl_p "$H/api/proxy/issues?limit=250" | jq_ "[print(f\"{i['identifier']:9} {i['state']['name']:12} {i['title']}\") for i in d['issues']]"
-  echo "queued for consumers: $(curl_d "$H/api/dispatch/poll" | jq_ "print(len(d['items']))")"
-}
-
-cmd_next() {
-  KEY="$(key)"; TS="$(date -u +%Y%m%dT%H%M%SZ)"
-  curl_s -X POST -H 'content-type: application/json' -d '{}' --max-time 180 "$H/workspace/$KEY/api/next-run/suggest" | tee "$SESSION/next-run-$TS.json" | python3 -c "
+cmd_next() { local_only next
+  TS="$(date -u +%Y%m%dT%H%M%SZ)"
+  curl_s -X POST -H 'content-type: application/json' -d '{}' --max-time 180 "$H/workspace/$(key)/api/next-run/suggest" | tee "$SESSION/next-run-$TS.json" | python3 -c "
 import json,sys; d=json.load(sys.stdin)
 print('model:', d.get('model'))
 for o in d.get('options', d.get('suggestions', [])):
@@ -115,7 +229,7 @@ for o in d.get('options', d.get('suggestions', [])):
 if not d.get('options') and not d.get('suggestions'): print(json.dumps(d)[:1500])"
 }
 
-cmd_roadmap() {
+cmd_roadmap() { local_only roadmap
   KEY="$(key)"; TS="$(date -u +%Y%m%dT%H%M%SZ)"; STREAM="$SESSION/roadmap-stream-$TS.txt"
   if [ "${1:-}" = "--from" ]; then STREAM="${2:?stream file}"; else
     NS="$(python3 -c "import json; print(json.dumps(open('$WS/north-star.md').read().strip()))")"
@@ -146,43 +260,7 @@ if layers.get("digest"): print("digest:", layers["digest"][:900])
 PY
 }
 
-cmd_dispatch() {
-  ID="${1:?ticket id}"; KIND="${2:-}"
-  python3 - "$WS/tickets.json" "$SESSION/issues.json" "$ID" "$KIND" "$H" "$(ptok)" "$REPO" <<'PY'
-import json,sys,urllib.request
-tf,mf,tid,kind,H,tok,repo=sys.argv[1:8]
-t=next((t for t in json.load(open(tf)) if t["id"]==tid),None) or sys.exit(f"no ticket {tid}")
-m=json.load(open(mf)).get(tid) or sys.exit(f"{tid} not loaded; run hb load")
-kind=kind or t["kind"]
-prompt=(f"{t['id']} {t['title']}\n\n{t['description']}\n\nWork in the repository at {repo}. Follow AGENTS.md there. "
-        "Commit the deliverable. When finished, report what you did, what could not be done, and the files you changed.")
-body={"prompt":prompt,"promptName":kind,"kind":kind,"issueIdentifier":m["identifier"],"issueId":m["issueId"],"issueTitle":f"{t['id']} {t['title']}","target":"cli","appendProxyContext":False}
-def post(b):
-    req=urllib.request.Request(H+"/api/proxy/dispatch",data=json.dumps(b).encode(),method="POST",headers={"content-type":"application/json","Authorization":"Bearer "+tok})
-    try:
-        with urllib.request.urlopen(req) as r: return json.load(r)
-    except urllib.error.HTTPError as e: return {"error":e.read().decode()[:300],"status":e.code}
-d=post(body)
-if "error" in d and "issueId" in str(d.get("error")): body.pop("issueId"); d=post(body)
-print(json.dumps({k:d.get(k) for k in ("id","status","kind","issueIdentifier","error","code")}))
-PY
-}
-
-cmd_close() { TID="${1:?ticket id}"; MSG="${2:?message}"
-  python3 - "$SESSION/issues.json" "$TID" "$MSG" "$H" "$(ptok)" <<'PY'
-import json,sys,urllib.request
-mf,tid,msg,H,tok=sys.argv[1:6]
-m=json.load(open(mf)).get(tid) or sys.exit(f"{tid} not loaded")
-def call(method,path,body):
-    req=urllib.request.Request(H+path,data=json.dumps(body).encode(),method=method,headers={"content-type":"application/json","Authorization":"Bearer "+tok})
-    with urllib.request.urlopen(req) as r: return json.load(r)
-d=call("PATCH",f"/api/proxy/issues/{m['issueId']}",{"stateId":"done"})
-c=call("POST",f"/api/proxy/issues/{m['issueId']}/comments",{"body":msg})
-print(tid, m["identifier"], "->", (d.get("issue") or d).get("state",{}).get("name"), "| comment", "ok" if c.get("success", c.get("comment")) else c)
-PY
-}
-
-cmd_take() {
+cmd_take() { local_only take
   ITEM="$(curl_d "$H/api/dispatch/poll" | jq_ "print(d['items'][0]['id'] if d['items'] else '')")"
   [ -n "$ITEM" ] || die "queue is empty"
   mkdir -p "$SESSION/taken"
@@ -190,88 +268,26 @@ cmd_take() {
   python3 -c "import json; d=json.load(open('$SESSION/taken/$ITEM.json'))['item']; print('taken', d['id'], d['kind'], d['issueIdentifier']); print('---'); print(d['prompt'])"
 }
 
-cmd_feedback() { ID="${1:?item id}"; MSG="${2:?message}"; KIND="${3:-}"
+cmd_feedback() { local_only feedback; ID="${1:?item id}"; MSG="${2:?message}"; KIND="${3:-}"
   python3 - "$ID" "$MSG" "$KIND" "$H" "$(dtok)" <<'PY'
 import json,sys,urllib.request
 id_,msg,kind,H,tok=sys.argv[1:6]
-b={"message":msg}; 
+b={"message":msg}
 if kind: b["kind"]=kind
 req=urllib.request.Request(f"{H}/api/dispatch/feedback/{id_}",data=json.dumps(b).encode(),method="POST",headers={"content-type":"application/json","Authorization":"Bearer "+tok})
 with urllib.request.urlopen(req) as r: print(r.read().decode())
 PY
 }
-# Spend is read from Claude Code transcripts, never from the launcher's token figure,
-# which is the subagent's final context size. Paths and ids stay on this machine.
-PROJ="$HOME/.claude/projects/$(echo "$REPO" | tr '/' '-')"
-transcript() { case "${1:-}" in
-    --agent) ls "$PROJ"/*/subagents/agent-"$2".jsonl 2>/dev/null | head -1;;
-    --latest) ls -t "$PROJ"/*/subagents/agent-*.jsonl 2>/dev/null | head -1;;
-    --driver) ls -t "$PROJ"/*.jsonl 2>/dev/null | head -1;;
-    *) echo "${1:-}";; esac; }
-cmd_tokens() { # hb tokens --agent <id> | --latest | --driver | <file> [--since ISO] [--until ISO] [--effort label]
-  local T; case "${1:-}" in --agent) T="$(transcript --agent "$2")"; shift 2;; --latest|--driver) T="$(transcript "$1")"; shift;; *) T="${1:-}"; shift;; esac
-  [ -s "$T" ] || die "no transcript found"
-  python3 "$WS/usage.py" "$T" "$@"
-}
 cmd_usage() { ID="${1:?item id}"; shift
   case "${1:-}" in --agent|--latest|--driver) J="$(cmd_tokens "$@")";; *) J="${1:?usage json, or --agent <id> | --latest}";; esac
   cmd_feedback "$ID" "[usage] $J" usage >/dev/null; echo "$J"; }
-cmd_drivercost() { cmd_tokens --driver --effort driver "$@"; }
 cmd_done() { ID="${1:?item id}"; MSG="${2:?message}"; cmd_feedback "$ID" "[done] $MSG"; }
 cmd_failed() { ID="${1:?item id}"; MSG="${2:?message}"; cmd_feedback "$ID" "[failed] $MSG"; }
 cmd_resources() { ID="${1:?item id}"
   J="$(python3 "$WS/sample.py" --interval 5 --label "resources-$ID")"
   cmd_feedback "$ID" "[resources] $J" resources; echo "$J"; }
 
-cmd_export() {
-  KEY="$(key)"; TS="$(date -u +%Y%m%dT%H%M%SZ)"; DIR="$WS/exports/$TS"; mkdir -p "$DIR"
-  # every read fails the export on an HTTP error rather than writing an error body into a file (I-0003)
-  curl_p -f "$H/api/proxy/issues?limit=250" > "$DIR/issues.json"
-  curl_p -f "$H/api/proxy/dispatch" > "$DIR/dispatches.json"
-  curl_s -f "$H/workspace/$KEY/api/dispatch/history" > "$DIR/history.json"
-  curl_p -f "$H/api/proxy/north-star" > "$DIR/north-star.json"
-  curl_s -f "$H/workspace/$KEY/api/roadmap/reports" > "$DIR/roadmap-reports.json"
-  python3 - "$DIR" "$H" "$(ptok)" <<'PY'
-import json,sys,urllib.request
-d,H,tok=sys.argv[1:4]; cost={}
-for i in json.load(open(f"{d}/issues.json")).get("issues",[]):
-    req=urllib.request.Request(f"{H}/api/proxy/issues/{i['identifier']}/cost",headers={"Authorization":"Bearer "+tok})
-    try:
-        with urllib.request.urlopen(req) as r: cost[i["identifier"]]=json.load(r)
-    except Exception as e: cost[i["identifier"]]={"error":str(e)[:120]}
-json.dump(cost,open(f"{d}/cost.json","w"),indent=2)
-PY
-  cp "$SESSION"/next-run-*.json "$SESSION"/roadmap-*.json "$DIR"/ 2>/dev/null || true
-  python3 - "$DIR" "$SESSION" "$KEY" "$WS/tickets.json" <<'PY'
-import json,sys,os,re,glob
-d,s,key,tf=sys.argv[1:5]
-fetched=["issues.json","dispatches.json","history.json","north-star.json","roadmap-reports.json","cost.json"]
-issues=json.load(open(f"{d}/issues.json")); disp=json.load(open(f"{d}/dispatches.json"))
-manifest={"collectedAt":os.path.basename(d),"harbourCommit":open(f"{s}/harbour-commit").read().strip(),"workspace":key,
-  "files":sorted(os.listdir(d)),"fetched":fetched,"copiedFromSession":sorted(f for f in os.listdir(d) if f not in fetched),
-  "issueCount":len(issues.get("issues",[])),"issueLimit":250,"dispatchListTruncated":bool(disp.get("truncated",False))}
-json.dump(manifest,open(f"{d}/manifest.json","w"),indent=2)
-# never let a token leave the session directory
-secrets=[open(f"{s}/{n}").read().strip() for n in ("dispatch-token","proxy-token") if os.path.exists(f"{s}/{n}")]
-for f in glob.glob(f"{d}/*.json"):
-    t=open(f).read(); u=t
-    for sec in secrets: u=u.replace(sec,"[redacted]")
-    u=re.sub(r"Bearer [A-Za-z0-9_-]{30,}","Bearer [redacted]",u)
-    if u!=t: open(f,"w").write(u); print("redacted a credential in",os.path.basename(f))
-# round-trip ticket status from Harbour's issue states
-states={"backlog":"backlog","unstarted":"todo","started":"started","completed":"done","canceled":"done"}
-issues=json.load(open(f"{d}/issues.json")).get("issues",[]); tickets=json.load(open(tf)); changed=0
-for t in tickets:
-    for i in issues:
-        if i["title"].startswith(t["id"]+" "):
-            new=states.get((i.get("state") or {}).get("type"),t["status"])
-            if new!=t["status"]: t["status"]=new; changed+=1
-json.dump(tickets,open(tf,"w"),indent=2,ensure_ascii=False)
-print(f"exported to {d}: {len(manifest['files'])} files; ticket statuses changed: {changed}")
-PY
-}
-
-cmd_down() {
+cmd_down() { local_only down
   local pids; pids="$(pgrep -f '^node server.js' || true)"
   if [ -n "$pids" ]; then kill $pids 2>/dev/null || true; fi
   for i in $(seq 1 30); do curl -s -o /dev/null "$H/" || { echo "stopped"; rm -f "$SESSION/pid"; return 0; }; done
@@ -279,6 +295,13 @@ cmd_down() {
 }
 
 case "${1:-}" in
-  up|load|add|northstar|status|next|roadmap|dispatch|take|feedback|usage|tokens|drivercost|done|failed|resources|close|export|down) c="$1"; shift; "cmd_$c" "$@";;
-  *) echo "usage: hb up|load|add <ticket>|northstar|status|next|roadmap|dispatch <ticket> [kind]|take|feedback <id> <msg> [kind]|usage <id> --latest|--agent <id>|<json>|tokens --latest|--agent <id>|--driver [--since ISO]|drivercost [--since ISO]|resources <id>|done <id> <msg>|failed <id> <msg>|close <ticket> <msg>|export|down"; exit 2;;
+  status|issue|add|comment|record|close|dispatch|export|tokens|drivercost|up|northstar|next|roadmap|take|feedback|usage|done|failed|resources|down) c="$1"; shift; "cmd_$c" "$@";;
+  *) cat >&2 <<EOF
+usage: hb <command>   (mode: $MODE, $H)
+  backlog, either mode:  status | issue <id> | add "<title>" <description file> [label] | comment <id> "<body>"
+                         record <id> <action> <status> "<summary>" | close <id> "<message>" | dispatch <id> [kind] | export
+  spend, this machine:   tokens --latest|--agent <id>|--driver [--since ISO] | drivercost [--since ISO]
+  local instance only:   up | northstar | next | roadmap | take | feedback <id> <msg> [kind] | usage <id> --latest | done <id> <msg> | failed <id> <msg> | resources <id> | down
+EOF
+     exit 2;;
 esac

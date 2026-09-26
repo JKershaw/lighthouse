@@ -42,6 +42,8 @@ It also round-trips ticket status: after writing the files above, it reads `issu
 
 **changes:** 2026-09-26, version 0.2 (I-0003): every read fails the export on an HTTP error instead of writing an error body into a file; the manifest records the issue count and limit, whether the dispatch list was truncated, and which files were fetched from Harbour and which were copied from the session directory. Exports from 20260926T075104Z and earlier predate the change and their completeness was not checked at collection.
 
+2026-09-26, later, version 0.3: the instrument now reads the hosted Harbour workspace at harbour.cat, whose backlog is the repository's own issues, and reads the local instance only when `HARBOUR_MODE=local`. It fetches the open stack (`/api/proxy/stack`, limit 50) in place of the issue list, the dispatch list, the agent status entries, the north star and a cost read per open issue; the workspace-session reads (dispatch history, roadmap reports) and the copies from the session directory happen only in local mode. The ticket round-trip is gone with the tickets file: an issue's state lives in the issue. The manifest records the mode and host, and the redaction covers the hosted token and `HARBOUR_TOKEN`. Exports from 20260926T154938Z onward are of this version; comparisons across the change set an export of a fresh local workspace against one of a persistent hosted one, and the retention pressure described above applies to the hosted instance's own thirty-day windows.
+
 ## Instrument I-0002
 
 ```
