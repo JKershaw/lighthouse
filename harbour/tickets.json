@@ -76,7 +76,7 @@
     "title": "Edit LH003 into an article",
     "kind": "implementation",
     "priorityLevel": 2,
-    "status": "todo",
+    "status": "done",
     "description": "E-0001 Edit LH003 into an article. Draft, from studies/LH003/, the article that answers for a reader what we can actually see of AI activity on the internet: what repository activity, model usage reports and crawler measurements each expose, where their populations overlap or differ, and what remains invisible, without pretending the measurements add up to a census. Five minutes to read. Lead with the strongest supported finding and why it matters; keep the qualifications that change its meaning; remove the procedural clutter; name every source as the supplier of its evidence; describe one illustration in words if none can be drawn. Write it to articles/what-we-can-see.md as a draft. Done when the draft exists; release is the keeper's decision under LH F03. This will let us explain what the existing observatories reveal."
   },
   {
@@ -84,7 +84,7 @@
     "title": "Edit LH004 into an article",
     "kind": "implementation",
     "priorityLevel": 2,
-    "status": "todo",
+    "status": "done",
     "description": "E-0002 Edit LH004 into an article. Draft, from studies/LH004/, the article that follows the xz backdoor through the structures that carried it: what became visible first, who could see it, and what stayed hidden until later. Five minutes to read, same form as E-0001, every source named as the supplier of its evidence. Write it to articles/the-xz-backdoor.md as a draft. Done when the draft exists; release is the keeper's decision under LH F03. This will let us explain which layer carried a real propagation event and who could have seen it."
   },
   {
@@ -100,7 +100,7 @@
     "title": "Harden the export instrument",
     "kind": "implementation",
     "priorityLevel": 3,
-    "status": "todo",
+    "status": "done",
     "description": "I-0003 Harden the export instrument. Make harbour/hb export fail on any HTTP error rather than writing an error body into a file, record in the manifest the issue count, whether the dispatch list was truncated, and which files were fetched and which were copied from the session directory, and version the I-0001 record to 0.2 with the change noted as one that affects comparisons. This will let us trust that an export that exists is complete."
   },
   {

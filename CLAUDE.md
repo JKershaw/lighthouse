@@ -17,7 +17,7 @@ A session is a tick, not a daemon. Nothing in the container survives it, and the
 
 ## Subagents as consumers
 
-Spawn one subagent per taken item. Give it the item's prompt, the repository path, AGENTS.md, a scratch directory, and two rules: it must not read keys from the environment, and it must not post to Harbour itself. The driver posts the feedback, because only the driver can see the subagent's token usage.
+Spawn one subagent per taken item. Give it the item's prompt, the repository path, AGENTS.md, a scratch directory, and two rules: it must not read keys from the environment, and it must not post to Harbour itself. Tell it to keep searches out of `harbour/.session/`, which holds dispatch records and tokens; one subagent's repository-wide grep matched files there. The driver posts the feedback, because only the driver can see the subagent's token usage.
 
 Model choice (D-0002 in registers/decisions.md): Opus for research, essays, study write-ups and review; Sonnet for collection scripts, source checks and tabulation; Haiku only for a chore the driver cannot do with `hb`. The Agent launcher's `model` parameter takes `haiku`, `sonnet`, `opus` or `fable`; `opus` resolved to Opus 5.5 on 26 September 2026, and the model field of `hb tokens` says what actually ran. Every subagent writes about 45,000 tokens of harness context to cache before it starts, a floor of about $0.11 on Sonnet, $0.22 on Opus 5.5 and $0.56 on Fable 5.1 (derived from a probe that did nothing else). A subagent inherits the driver's effort setting, which was `max` in every run so far; the launcher exposes no effort control. `notes/Q-0002-model-choices.md` has the reasoning and its correction.
 
