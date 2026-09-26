@@ -1,0 +1,79 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 600 556" width="600" height="556" role="img" aria-labelledby="t d">
+<title id="t">How much of each day's downloads of mcp were the new version, 26 March to 22 April 2026</title>
+<desc id="d">A bar for each day from 26 March to 22 April 2026 shows the share of that day's downloads of the Python library mcp that were its new version, 1.27.0, published on 2 April at 14:48 UTC. The share is 22 per cent on the day of release, 48 per cent the next day, 51 per cent the day after, and between 45 and 71 per cent on every day to 22 April. Beneath, the days on which four of nine neighbouring projects that depend on the library were seen taking it up: 4, 8, 13, 14 and 22 April. The downloads reach about half before the first of those days.</desc>
+<style>
+svg { --bg:#fcfcfb; --ink:#0b0b0b; --ink2:#52514e; --muted:#6f6e69; --grid:#e4e3df; --bar:#2a78d6; --acc:#0b0b0b; }
+@media (prefers-color-scheme: dark) { svg { --bg:#1a1a19; --ink:#ffffff; --ink2:#c3c2b7; --muted:#9a9890; --grid:#383835; --bar:#3987e5; --acc:#ffffff; } }
+text { font-family: system-ui, -apple-system, "Segoe UI", Roboto, Helvetica, Arial, sans-serif; fill: var(--ink); }
+.head { font-size: 17px; font-weight: 600; } .sub { font-size: 13px; fill: var(--ink2); }
+.ax { font-size: 12px; fill: var(--muted); } .lab { font-size: 13px; fill: var(--ink2); }
+.strong { font-size: 13px; font-weight: 600; } .note { font-size: 12px; fill: var(--muted); }
+</style>
+<rect width="600" height="556" fill="var(--bg)"/>
+<text class="head" x="16" y="30">The new version, as a share of each day's downloads</text>
+<text class="sub" x="16" y="52">mcp 1.27.0, UTC days, 26 March to 22 April 2026</text>
+<line x1="52" y1="318.0" x2="580" y2="318.0" stroke="var(--grid)" stroke-width="1"/>
+<text class="ax" x="44" y="322.0" text-anchor="end">0%</text>
+<line x1="52" y1="264.5" x2="580" y2="264.5" stroke="var(--grid)" stroke-width="1"/>
+<text class="ax" x="44" y="268.5" text-anchor="end">25%</text>
+<line x1="52" y1="211.0" x2="580" y2="211.0" stroke="var(--grid)" stroke-width="1"/>
+<text class="ax" x="44" y="215.0" text-anchor="end">50%</text>
+<line x1="52" y1="157.5" x2="580" y2="157.5" stroke="var(--grid)" stroke-width="1"/>
+<text class="ax" x="44" y="161.5" text-anchor="end">75%</text>
+<line x1="52" y1="104.0" x2="580" y2="104.0" stroke="var(--grid)" stroke-width="1"/>
+<text class="ax" x="44" y="108.0" text-anchor="end">100%</text>
+<path d="M186.0,318 V273.3 Q186.0,270.3 189.0,270.3 H197.9 Q200.9,270.3 200.9,273.3 V318 Z" fill="var(--bar)"><title>2026-04-02: 22.3%, 1,639,539 of 7,351,271 downloads</title></path>
+<path d="M204.9,318 V218.1 Q204.9,215.1 207.9,215.1 H216.7 Q219.7,215.1 219.7,218.1 V318 Z" fill="var(--bar)"><title>2026-04-03: 48.1%, 3,201,463 of 6,657,180 downloads</title></path>
+<path d="M223.7,318 V211.9 Q223.7,208.9 226.7,208.9 H235.6 Q238.6,208.9 238.6,211.9 V318 Z" fill="var(--bar)"><title>2026-04-04: 51.0%, 2,673,423 of 5,243,831 downloads</title></path>
+<path d="M242.6,318 V217.0 Q242.6,214.0 245.6,214.0 H254.4 Q257.4,214.0 257.4,217.0 V318 Z" fill="var(--bar)"><title>2026-04-05: 48.6%, 2,364,033 of 4,863,318 downloads</title></path>
+<path d="M261.4,318 V218.8 Q261.4,215.8 264.4,215.8 H273.3 Q276.3,215.8 276.3,218.8 V318 Z" fill="var(--bar)"><title>2026-04-06: 47.8%, 3,143,999 of 6,579,801 downloads</title></path>
+<path d="M280.3,318 V223.9 Q280.3,220.9 283.3,220.9 H292.1 Q295.1,220.9 295.1,223.9 V318 Z" fill="var(--bar)"><title>2026-04-07: 45.4%, 3,323,927 of 7,324,154 downloads</title></path>
+<path d="M299.1,318 V205.5 Q299.1,202.5 302.1,202.5 H311.0 Q314.0,202.5 314.0,205.5 V318 Z" fill="var(--bar)"><title>2026-04-08: 54.0%, 4,756,070 of 8,809,977 downloads</title></path>
+<path d="M318.0,318 V208.9 Q318.0,205.9 321.0,205.9 H329.9 Q332.9,205.9 332.9,208.9 V318 Z" fill="var(--bar)"><title>2026-04-09: 52.4%, 4,490,220 of 8,573,153 downloads</title></path>
+<path d="M336.9,318 V217.7 Q336.9,214.7 339.9,214.7 H348.7 Q351.7,214.7 351.7,217.7 V318 Z" fill="var(--bar)"><title>2026-04-10: 48.2%, 3,564,905 of 7,387,765 downloads</title></path>
+<path d="M355.7,318 V199.3 Q355.7,196.3 358.7,196.3 H367.6 Q370.6,196.3 370.6,199.3 V318 Z" fill="var(--bar)"><title>2026-04-11: 56.9%, 3,418,925 of 6,012,894 downloads</title></path>
+<path d="M374.6,318 V170.0 Q374.6,167.0 377.6,167.0 H386.4 Q389.4,167.0 389.4,170.0 V318 Z" fill="var(--bar)"><title>2026-04-12: 70.5%, 6,161,983 of 8,733,743 downloads</title></path>
+<path d="M393.4,318 V188.0 Q393.4,185.0 396.4,185.0 H405.3 Q408.3,185.0 408.3,188.0 V318 Z" fill="var(--bar)"><title>2026-04-13: 62.2%, 6,095,603 of 9,807,050 downloads</title></path>
+<path d="M412.3,318 V186.2 Q412.3,183.2 415.3,183.2 H424.1 Q427.1,183.2 427.1,186.2 V318 Z" fill="var(--bar)"><title>2026-04-14: 63.0%, 6,699,084 of 10,634,843 downloads</title></path>
+<path d="M431.1,318 V200.9 Q431.1,197.9 434.1,197.9 H443.0 Q446.0,197.9 446.0,200.9 V318 Z" fill="var(--bar)"><title>2026-04-15: 56.1%, 5,164,703 of 9,204,985 downloads</title></path>
+<path d="M450.0,318 V207.7 Q450.0,204.7 453.0,204.7 H461.9 Q464.9,204.7 464.9,207.7 V318 Z" fill="var(--bar)"><title>2026-04-16: 52.9%, 4,419,869 of 8,348,061 downloads</title></path>
+<path d="M468.9,318 V193.0 Q468.9,190.0 471.9,190.0 H480.7 Q483.7,190.0 483.7,193.0 V318 Z" fill="var(--bar)"><title>2026-04-17: 59.8%, 5,657,695 of 9,455,932 downloads</title></path>
+<path d="M487.7,318 V178.6 Q487.7,175.6 490.7,175.6 H499.6 Q502.6,175.6 502.6,178.6 V318 Z" fill="var(--bar)"><title>2026-04-18: 66.5%, 5,074,850 of 7,628,519 downloads</title></path>
+<path d="M506.6,318 V178.5 Q506.6,175.5 509.6,175.5 H518.4 Q521.4,175.5 521.4,178.5 V318 Z" fill="var(--bar)"><title>2026-04-19: 66.6%, 5,099,824 of 7,657,148 downloads</title></path>
+<path d="M525.4,318 V189.5 Q525.4,186.5 528.4,186.5 H537.3 Q540.3,186.5 540.3,189.5 V318 Z" fill="var(--bar)"><title>2026-04-20: 61.5%, 6,163,316 of 10,026,084 downloads</title></path>
+<path d="M544.3,318 V192.6 Q544.3,189.6 547.3,189.6 H556.1 Q559.1,189.6 559.1,192.6 V318 Z" fill="var(--bar)"><title>2026-04-21: 60.0%, 6,380,683 of 10,632,131 downloads</title></path>
+<path d="M563.1,318 V193.5 Q563.1,190.5 566.1,190.5 H575.0 Q578.0,190.5 578.0,193.5 V318 Z" fill="var(--bar)"><title>2026-04-22: 59.6%, 6,178,183 of 10,372,956 downloads</title></path>
+<text class="strong" x="382.0" y="159.0" text-anchor="middle">peak: 71%</text>
+<line x1="165.1" y1="215.1" x2="202.9" y2="215.1" stroke="var(--muted)" stroke-width="1"/>
+<text class="strong" x="161.1" y="219.1" text-anchor="end">next day: 48%</text>
+<line x1="195.6" y1="82" x2="195.6" y2="318" stroke="var(--acc)" stroke-width="1.5" stroke-dasharray="4 3"/>
+<text class="strong" x="201.6" y="92">released 2 Apr, 14:48 UTC</text>
+<line x1="61.4" y1="318" x2="61.4" y2="323" stroke="var(--muted)"/>
+<text class="ax" x="61.4" y="338" text-anchor="middle">26 Mar</text>
+<line x1="193.4" y1="318" x2="193.4" y2="323" stroke="var(--muted)"/>
+<text class="ax" x="193.4" y="338" text-anchor="middle">2 Apr</text>
+<line x1="325.4" y1="318" x2="325.4" y2="323" stroke="var(--muted)"/>
+<text class="ax" x="325.4" y="338" text-anchor="middle">9 Apr</text>
+<line x1="457.4" y1="318" x2="457.4" y2="323" stroke="var(--muted)"/>
+<text class="ax" x="457.4" y="338" text-anchor="middle">16 Apr</text>
+<line x1="570.6" y1="318" x2="570.6" y2="323" stroke="var(--muted)"/>
+<text class="ax" x="580.0" y="338" text-anchor="end">22 Apr</text>
+<text class="strong" x="16" y="368">When four of nine neighbouring projects took it up</text>
+<line x1="52" y1="392" x2="580" y2="392" stroke="var(--grid)" stroke-width="1"/>
+<circle cx="234.5" cy="392" r="5" fill="var(--acc)"/>
+<text class="lab" x="244.5" y="396.5"><tspan font-weight="600" fill="var(--ink)">4 Apr</tspan> already held by a project new to GitHub</text>
+<line x1="52" y1="416" x2="580" y2="416" stroke="var(--grid)" stroke-width="1"/>
+<circle cx="311.6" cy="416" r="5" fill="var(--acc)"/>
+<text class="lab" x="301.6" y="420.5" text-anchor="end"><tspan font-weight="600" fill="var(--ink)">8 Apr</tspan> first exact pin; own release follows</text>
+<line x1="52" y1="440" x2="580" y2="440" stroke="var(--grid)" stroke-width="1"/>
+<circle cx="402.4" cy="440" r="5" fill="var(--acc)"/>
+<text class="lab" x="392.4" y="444.5" text-anchor="end"><tspan font-weight="600" fill="var(--ink)">13 Apr</tspan> a busy project&#39;s lockfile</text>
+<line x1="52" y1="464" x2="580" y2="464" stroke="var(--grid)" stroke-width="1"/>
+<circle cx="410.4" cy="464" r="5" fill="var(--acc)"/>
+<text class="lab" x="400.4" y="468.5" text-anchor="end"><tspan font-weight="600" fill="var(--ink)">14 Apr</tspan> a second exact pin</text>
+<line x1="52" y1="488" x2="580" y2="488" stroke="var(--grid)" stroke-width="1"/>
+<circle cx="579.2" cy="488" r="5" fill="var(--acc)"/>
+<text class="lab" x="569.2" y="492.5" text-anchor="end"><tspan font-weight="600" fill="var(--ink)">22 Apr</tspan> a first-time user</text>
+<text class="note" x="16" y="526">Downloads: PyPI's public download log, in ClickHouse's copy, read 26 September 2026.</text>
+<text class="note" x="16" y="543">Projects: their public histories, read the same day. The other five did not take it up.</text>
+</svg>
