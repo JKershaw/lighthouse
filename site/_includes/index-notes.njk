@@ -1,0 +1,15 @@
+---
+layout: base.njk
+---
+<article class="index">
+  <h1>Notes</h1>
+  <p class="lede">Reviews, retros and working notes, newest first.</p>
+  <ol class="entries">
+    {% for n in repo.notes %}
+    <li class="entry">
+      <h2 class="entry-title"><a href="{{ n.url }}">{{ n.title }}</a></h2>
+      <p class="when">{% if n.kind %}{{ n.kind | capitalize }}{% else %}Note{% endif %}, {{ n.docDate or n.changed }} <span class="path">{{ n.path }}</span></p>
+    </li>
+    {% endfor %}
+  </ol>
+</article>

@@ -1,0 +1,9 @@
+---
+layout: base.njk
+---
+<article class="index">
+  <p class="kicker"><a href="/studies/">Studies</a> <span aria-hidden="true">/</span> {{ study.id }}</p>
+  <h1><a href="{{ study.lead.url }}">{{ study.lead.title }}</a></h1>
+  {% include "entry-study.njk" %}
+  <p class="provenance">From <a href="{{ study.source }}">{{ study.dir }}/</a> in the repository, last changed {{ study.changed }}.</p>
+</article>

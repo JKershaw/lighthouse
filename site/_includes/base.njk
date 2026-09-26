@@ -1,0 +1,43 @@
+<!doctype html>
+<html lang="en-GB">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>{% if page.url == "/" %}Lighthouse{% else %}{{ pageTitle }} · Lighthouse{% endif %}</title>
+<meta name="description" content="{{ (doc.summary if doc and doc.summary else repo.strap) }}">
+<meta name="color-scheme" content="light dark">
+<meta name="generator" content="Eleventy">
+<link rel="icon" href="/assets/favicon.svg" type="image/svg+xml">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Source+Serif+4:ital,opsz,wght@0,8..60,400;0,8..60,600;1,8..60,400&amp;display=swap">
+<link rel="stylesheet" href="/assets/site.css">
+</head>
+<body>
+<a class="skip" href="#main">Skip to the text</a>
+<header class="masthead">
+  <p class="wordmark"><a href="/"{% if page.url == "/" %} aria-current="page"{% endif %}>Lighthouse</a></p>
+  {% if repo.strap %}<p class="strap">{{ repo.strap }}</p>{% endif %}
+  <nav class="sections" aria-label="Sections">
+    <ul>
+      <li><a href="/articles/"{% if navSection == "articles" %} aria-current="page"{% endif %}>Pieces</a></li>
+      <li><a href="/studies/"{% if navSection == "studies" %} aria-current="page"{% endif %}>Studies</a></li>
+      {% if repo.byPath["programme.md"] %}<li><a href="/programme/"{% if navSection == "programme" %} aria-current="page"{% endif %}>Programme</a></li>{% endif %}
+      <li><a href="/notes/"{% if navSection == "notes" %} aria-current="page"{% endif %}>Notes</a></li>
+      {% if repo.byPath["AGENTS.md"] %}<li><a href="{{ repo.byPath['AGENTS.md'].url }}"{% if navSection == "about" %} aria-current="page"{% endif %}>About</a></li>{% endif %}
+    </ul>
+  </nav>
+</header>
+<main id="main">
+{{ content | safe }}
+</main>
+<footer class="footer">
+  <nav aria-label="Founding documents">
+    <ul>
+      {% for file in ["charter.md", "design.md", "sources.md", "programme.md", "releases.md"] %}{% set d = repo.byPath[file] %}{% if d %}<li><a href="{{ d.url }}">{{ d.label }}</a></li>{% endif %}{% endfor %}
+    </ul>
+  </nav>
+  <p>Built from <a href="{{ repo.repoUrl }}">the repository</a> on <time datetime="{{ repo.buildIso }}">{{ repo.buildDate }}</time>{% if repo.commit %}, at commit <a href="{{ repo.commitUrl }}">{{ repo.commit }}</a>{% endif %}.</p>
+</footer>
+</body>
+</html>

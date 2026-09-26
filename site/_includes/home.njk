@@ -1,0 +1,15 @@
+{% set parts = content | homeParts %}
+<div class="front prose">
+{{ parts.front | safe }}
+</div>
+<div class="below prose">
+  {% for s in parts.sections %}{% if loop.first %}<section>{{ s | safe }}</section>{% endif %}{% endfor %}
+  <section class="latest">
+    <h2 id="latest">Latest</h2>
+    <ol class="entries">
+      {% for p in repo.latest %}<li><a href="{{ p.url }}">{{ p.listTitle }}</a> <span class="when">{% if p.showLabel %}{{ p.label }} · {% endif %}<time>{{ p.changed }}</time></span></li>
+      {% endfor %}
+    </ol>
+  </section>
+  {% for s in parts.sections %}{% if not loop.first %}<section>{{ s | safe }}</section>{% endif %}{% endfor %}
+</div>

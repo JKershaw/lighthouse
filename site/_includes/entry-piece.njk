@@ -1,0 +1,5 @@
+<li class="entry{% if p.short %} is-short{% endif %}">
+  <h2 class="entry-title">{% if p.short %}<span class="tag">Short</span> {% endif %}<a href="{{ p.url }}">{{ p.title }}</a></h2>
+  {% if p.summary %}<p class="dek">{{ p.summary }}</p>{% endif %}
+  <p class="when">Last changed {{ p.changed }}</p>
+</li>

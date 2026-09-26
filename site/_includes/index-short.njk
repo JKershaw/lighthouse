@@ -1,0 +1,11 @@
+---
+layout: base.njk
+---
+<article class="index">
+  <p class="kicker"><a href="/articles/">Pieces</a></p>
+  <h1>Short forms</h1>
+  <p class="lede">The pieces, cut to a few paragraphs each.</p>
+  <ol class="entries">
+    {% for p in repo.shorts %}{% include "entry-piece.njk" %}{% endfor %}
+  </ol>
+</article>

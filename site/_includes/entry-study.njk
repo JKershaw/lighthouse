@@ -1,0 +1,7 @@
+<p class="when">{% if study.writeup %}{% if study.writeup.kind %}{{ study.writeup.kind | capitalize }}{% else %}Write-up{% endif %}{% if study.writeup.version %}, version {{ study.writeup.version }}{% endif %}{% if study.writeup.docDate %}, {{ study.writeup.docDate }}{% endif %}{% else %}No write-up yet{% endif %} <span class="path">{{ study.lead.path }}</span></p>
+{% if study.others.length %}
+<ul class="files">
+  {% for f in study.others %}<li><a href="{{ f.url }}">{{ f.title }}</a> <span class="path">{{ f.path }}</span></li>
+  {% endfor %}
+</ul>
+{% endif %}

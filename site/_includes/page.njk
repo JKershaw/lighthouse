@@ -1,0 +1,26 @@
+---
+layout: base.njk
+---
+{% if page.inputPath == "./README.md" %}{% include "home.njk" %}{% else %}
+<article class="doc{% if doc.header %} is-record{% endif %}{% if doc.section == 'articles' %} is-piece{% endif %}">
+  {% if doc.short %}<p class="kicker"><a href="/articles/short/">Short form</a></p>
+  {% elif doc.section == "articles" %}<p class="kicker"><a href="/articles/">Pieces</a></p>
+  {% elif doc.study %}<p class="kicker"><a href="/studies/">Studies</a> <span aria-hidden="true">/</span> <a href="/studies/{{ doc.study }}/">{{ doc.study }}</a></p>
+  {% elif doc.section == "notes" %}<p class="kicker"><a href="/notes/">Notes</a></p>
+  {% elif doc.section == "about" %}<p class="kicker">About</p>
+  {% endif %}
+  {% if doc.header or not doc.ownH1 %}<h1>{{ doc.title }}</h1>{% endif %}
+  {% if doc.header and doc.header.length %}
+  <dl class="meta">
+    {% for f in doc.header %}<div>
+      <dt>{{ f.key | replace("_", " ") }}</dt>
+      <dd>{% if f.value %}{{ f.value | mdInline(page) | safe }}{% endif %}{% if f.items.length %}<ul>{% for item in f.items %}<li>{{ item | mdInline(page) | safe }}</li>{% endfor %}</ul>{% endif %}</dd>
+    </div>{% endfor %}
+  </dl>
+  {% endif %}
+  <div class="prose">
+{{ content | safe }}
+  </div>
+  <p class="provenance">From <a href="{{ doc.source }}">{{ doc.path }}</a> in the repository, last changed {{ doc.changed }}.</p>
+</article>
+{% endif %}

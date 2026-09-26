@@ -1,0 +1,16 @@
+{
+  "name": "lighthouse-site",
+  "private": true,
+  "description": "The Lighthouse website, built with Eleventy from the repository's Markdown.",
+  "type": "module",
+  "scripts": {
+    "build": "cd .. && eleventy --config=site/eleventy.config.js",
+    "serve": "cd .. && eleventy --config=site/eleventy.config.js --serve"
+  },
+  "engines": {
+    "node": ">=18"
+  },
+  "dependencies": {
+    "@11ty/eleventy": "3.1.6"
+  }
+}

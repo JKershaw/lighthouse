@@ -1,0 +1,16 @@
+---
+layout: base.njk
+---
+<article class="index">
+  <h1>Studies</h1>
+  <p class="lede">The record behind the pieces, for checking. One folder per study: its write-up first, then its brief and working files.</p>
+  <ol class="entries">
+    {% for study in repo.studies %}
+    <li class="entry">
+      <p class="kicker"><a href="{{ study.url }}">{{ study.id }}</a></p>
+      <h2 class="entry-title"><a href="{{ study.lead.url }}">{{ study.lead.title }}</a></h2>
+      {% include "entry-study.njk" %}
+    </li>
+    {% endfor %}
+  </ol>
+</article>
