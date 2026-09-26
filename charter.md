@@ -1,8 +1,6 @@
-# Lighthouse Founding Charter
+# Charter
 
-Purpose, scope and commitments
-
-Draft | 25 September 2026 | LH F01
+Purpose, scope and commitments. 25 September 2026, revised 26 September 2026. The records cite this document as LH F01.
 
 Lighthouse is an observatory and research practice for the computational world. We study how information moves through software, infrastructure, humans and AI, how those structures change, and what their behaviour means for the people who depend on them. We also develop better ways to conduct that study.
 
@@ -78,27 +76,27 @@ Self-replicating agents and a possible digital Kessler effect are the questions 
 
 ## Commitments that guide the work
 
-The labels follow Harbour's charter. BINDING names a rule with an observable breach. PRINCIPLE names a value that guides judgement. DEFERRED names a commitment not yet in force.
+The labels follow Harbour's charter. BINDING names a rule with an observable breach. PRINCIPLE names a value that guides judgement.
 
 - **[BINDING] We preserve the distinction between an observation, a derived measurement, an interpretation and a scenario.** A reader should be able to trace a published claim to the evidence and method supporting it. *Breach: a published claim whose kind a reader cannot tell, or that cannot be traced to its evidence and method.*
 - **[BINDING] We make uncertainty visible.** Missing readings remain missing; unknown attribution remains unknown. A poorly observed system is not thereby a dangerous one. We report collection boundaries and never present a sample as a census. *Breach: a sample presented as a census, a missing reading filled in, or an unknown attribution asserted.*
 - **[BINDING] We seek explanations that can fail.** Investigations name plausible alternatives and identify what would change the conclusion. Correlation, agreement between models, and repetition of the same underlying source do not independently establish a mechanism. *Breach: a published study that names no competing explanation and nothing that would change its conclusion.*
 - **[BINDING] We keep correction possible.** Methods and publications have stable identities, versions and correction records. Discovering an error should improve both the public record and the instrument that produced it. *Breach: a corrected publication with no stable identity, version or correction record.*
 - **[BINDING] We account for our own presence.** Collection, experiments, inference and publication create activity, and Lighthouse labels its contribution. *Breach: Lighthouse's own activity appearing in an observation without its label.*
-- **[DEFERRED] We measure our collection overhead.** In force once the host sampler, I-0002, exists and reports its own cost.
+- **[BINDING] We measure our collection overhead.** The host sampler reports its own cost beside every reading. *Breach: a collection whose overhead was neither measured nor estimated.*
 - **[BINDING] We keep research proportionate.** Work begins with a bounded question, an accountable owner, a resource envelope and a stopping condition. A small team may combine roles; it still records which checks were independent. *Breach: a study open with no brief naming those four things, or a publication that implies a check was independent when it was not.*
 - **[PRINCIPLE] A finding at one layer does not settle the others.** Activity, residue and propagation are observed with different instruments on different timescales, and a claim about one is not evidence about another.
 
-## Authority and the keeper
+## Authority
 
-The keeper sets direction, holds the budget and maintains the repository. Agents do the research, the review and the release, and the record of each piece says which process produced it and which review it passed. Lighthouse answers for what it publishes through its process and its corrections. Three decisions stay with a person: a claim that harm is happening now, a claim that a named system is compromised, and any act that is irreversible outside the repository, such as contacting a third party. These documents define the intended practice. They do not grant access to any system or create a spending commitment.
+A person sets direction and holds the budget. Agents do the research, the review and the release, and each piece says who wrote, edited and reviewed it. Lighthouse answers for what it publishes through its process and its corrections. Three decisions stay with a person: a claim that harm is happening now, a claim that a named system is compromised, and any act that is irreversible outside the repository, such as contacting a third party. These documents define the intended practice. They do not grant access to any system or create a spending commitment.
 
 Work uses public sources or access granted for a specified purpose. An experiment that changes a system needs that system's operator's authority. Where Harbour is the subject, Lighthouse respects the boundary Harbour's own charter draws between actions its AI may take and actions reserved for humans. Transparency includes explaining restrictions on evidence that cannot responsibly be shared.
 
-The charter should change when evidence or experience reveals a flaw in the remit. Changes affecting purpose, evidence standards or accountability are recorded in the decision register with their rationale. Routine methods can evolve within that remit without rewriting the charter.
+The charter should change when evidence or experience reveals a flaw in the remit, and the commit that changes it says why. Routine methods evolve within that remit without rewriting the charter.
 
 ## The founding commitment
 
 We will begin with a known workflow, a catalogue of the surveys that already exist, one historical case and a modest outward survey. Each will produce useful evidence even if its first hypothesis fails. Together they establish the close and broad views on which Lighthouse can grow, and bring the watch to the point where it can say what it would and would not see.
 
-The companion documents define the research design (LH F02), the operating practice (LH F03), the first programme (LH F04), the study templates (LH F05) and the first workspace plan (LH F06). Their initial choices can be revised as the work teaches us what is useful.
+The method is in design.md, the sources in sources.md and the programme in programme.md. Their initial choices are revised as the work teaches us what is useful.

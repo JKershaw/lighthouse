@@ -31,7 +31,7 @@ Fields printed (all numeric, exact names from harbour/requests.md):
                           as the single /proc/<pid>/comm reading exactly
                           "claude" (the Claude Code CLI binary this
                           container runs as PID 103 in the run this script
-                          was calibrated against; see registers/instruments.md
+                          was calibrated against; see harbour/instruments.md
                           I-0002). Left out entirely, rather than guessed,
                           when zero or more than one process match, since
                           then there is no single process the field could
@@ -47,7 +47,7 @@ Not measured here, and not printed: requestsOut, bytesOut and
 requestsByDestination (outbound traffic goes through an agent proxy on
 localhost whose status endpoint reports configuration, not traffic counts,
 and there is no `ss` on this host to read sockets by destination another
-way). The limit is recorded in registers/instruments.md and, in a sample,
+way). The limit is recorded in harbour/instruments.md and, in a sample,
 shows only as these fields' absence; nothing prints a null in their place.
 
 With --label <text>, each sample is also appended, as its own JSON line,

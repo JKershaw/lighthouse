@@ -1,56 +1,52 @@
-# AGENTS.md
+# Lighthouse
 
-House rules for any agent working in the Lighthouse repository, whatever harness runs it. Read the README first; it indexes the founding documents. Harness-specific procedure lives in CLAUDE.md.
+Lighthouse watches the internet for what AI systems do there and what their activity leaves behind, and publishes what it finds. The question the watch is kept for is whether such activity could sustain and spread itself in ways that degrade the infrastructure everyone shares. Nobody knows yet, and Lighthouse means to be able to tell. The charter says why. This file says how a session works, for any agent in any harness.
 
-## What this repository is
+## What is known
 
-Lighthouse is an observatory for the computational world: a standing watch, kept largely by agents, on how information flows through software and AI and what that activity leaves behind. The founding documents, LH F01 to F06, define the practice. Harbour (https://harbour.cat, source at https://github.com/JKershaw/LinearViewer) coordinates Lighthouse's tasks and is also its first calibration subject.
+- The xz backdoor sat in public release files for about five weeks before a slow login gave it away. Both signals anyone noticed came from running code: a memory checker in a distribution's builds, then one engineer's timing. No public observatory watches those pipelines. The piece is articles/the-xz-backdoor.md; the record is studies/LH004/.
+- The public observatories of AI activity are partial views. Seventeen sources each cover one forge, one broker, one vendor's tier or one network; their counts cannot be added, and their overlap is unmeasured. The piece is articles/what-we-can-see.md; the record is studies/LH003/.
+- Lighthouse has not yet observed anything with its own instruments. The two it runs point inward, at its own tasks and its own machine.
 
-## Where things live
+## What is next
 
-- `Lighthouse_*.md`: the founding documents. Change them only when a task asks for it.
-- `harbour/`: the workspace as files. `north-star.md` and `tickets.json` are loaded into a fresh local Harbour at boot; `exports/` holds what Harbour recorded, one directory per export, named by collection time. `harbour/hb` is the boot, load, dispatch, consume and export script.
-- `notes/`: research notes at the notebook level of LH F03's publication table.
-- `studies/LHnnn/`: one directory per study, using the skeleton in LH F05. Created when the first study opens.
-- `registers/`: the question, instrument, decision, claim and ledger registers from LH F05. Created by the tickets that start them.
+LH002. Choose an ecosystem and up to ten public repositories, read a fixed twenty-eight days of their history, and say what happened there and what of it the public record connects from one project to the next. The design is in programme.md, which also names the questions after it.
+
+## How a session goes
+
+1. Read the front page, the two pieces and programme.md. Nothing else is required reading.
+2. Do the next study in the programme, or the piece a finished study earns. Use subagents freely: Opus 5.5 for research and writing, Fable 5.1 for review, Sonnet 5 for collection and tabulation. Give each the task, the repository path and this file. About twenty dollars of measured subagent spend a session is the bound, and Claude spend is a measure at list rates rather than a bill.
+3. Write what was found: a study as a record, a piece for readers, in the forms below.
+4. Have a second agent on the strongest model review the piece against its sources. When the review finds nothing that must be fixed, release it: take the Draft label off, complete the colophon, add a line to releases.md, and put it on the front page.
+5. Commit once at the end, with a message that says what was learned. Report what was learned about the internet, and the next question. Say nothing about process unless it failed.
+
+Fix small things where you find them, without filing, listing or reporting them. Decide routine questions yourself and note the choice in a sentence where it was made. Nothing waits for a person except the three things below.
+
+## Rules that matter
+
+- Every claim says where it came from and when the source was read. Label a statement as observation, derived measurement, interpretation or scenario wherever a reader could confuse them. Never invent a timing, a count or a source. Say what was not checked.
+- Three things wait for a person: a claim that harm is happening now, a claim that a named system is compromised, and anything irreversible outside this repository, such as contacting a third party. Everything else is the session's to decide.
+- Do not read or use credentials from the environment unless the task names them. Never write a token, a session id or a key into the repository.
+- No piece is released without a review that found nothing that must be fixed. Commit with a message that says what changed and why, and never rewrite history on a shared branch.
 
 ## Writing
 
-Two kinds of writing live here, and each has its own rules. Records are for checking: studies, notes, registers, and the instrument, decision and review records. Pieces are for reading: articles, essays, short forms and the front page. Text a person will read in isolation is a piece, and its first duty is to be a good read.
+Records are for checking: studies and notes. Pieces are for reading: articles, essays, short forms and the front page. Both in British English, with no em or en dashes in prose, and no invented figures.
 
-Both:
+A study lives in studies/LHnnn/ with its brief, its sources and its write-up. The write-up has a header (the question as its title, version, date, who wrote it and on which model, the observation period, what it cites) and then Answer, Findings, Method, Limits, Next and Corrections. Cite a source by its S number in sources.md or by URL with the date read, and give the source's publication date and observation window beside it. Leave unfillable fields blank and say what could not be filled.
 
-- British English. No em dashes or en dashes in prose; use commas, colons or full stops. Hyphens inside identifiers, file names and command output are data, not punctuation.
-- Never invent a timing, a count or a source. Tables keep the same number of columns in every row.
-- Identifiers: LHnnn for studies, I-nnnn for instruments, Q-nnnn for questions, D-nnnn for decisions, C-nnnn for claims, L-nnnn for ledger entries, E-nnnn for editing tasks, R-nnnn for reviews.
+A piece is written for a curious person who has never heard of Lighthouse. A title that says the finding, a short opening that gives a reason to care, a discreet date and byline, and a small Draft label while it is under review. Open with the thing itself, a person, a moment or a surprise, never with Lighthouse or its method. One idea a reader could say back in a sentence, developed one thought at a time; say it, then qualify it once, where the qualification matters. Plain words; define a term where it is first needed and only if it is needed. No internal references in the prose: no document names, study numbers, tickets or roles; the piece speaks as "we". Honesty lives in the verbs: the record shows, nobody has measured, we think. An illustration drawn, not described, with a one-line caption. A colophon at the end: sources with dates, the method in a sentence, who wrote, edited and reviewed it, version and date, corrections, and one line on what Lighthouse is; it may link to the record beneath. Read it aloud before handing it over, and rewrite anything that trips.
 
-Records:
+## Where things are
 
-- Use the plain names: activity, residue, propagation, observation, instrument.
-- Label a statement as observation, derived measurement, interpretation or scenario wherever a reader could confuse them.
-- Leave unfillable fields blank and say what could not be filled. Cite sources by the S numbers in LH F02 where one exists, or by URL with the date read, and give each source's publication date and observation window beside the date read.
-- Study write-ups use the skeleton in LH F05: header, Answer, Findings, Method, Limits, Next, Corrections. Notes follow the Harbour paper standard's form.
+- articles/ the pieces, with short forms in articles/short/.
+- studies/ the record behind each piece, one directory per study.
+- programme.md the questions: answered, next, and after that.
+- design.md the method: the three layers, the surfaces, the four kinds of statement, calibration and risk.
+- sources.md the numbered sources.
+- charter.md why the watch is kept and what it will not do.
+- notes/ reviews, retros and working notes.
+- releases.md what has been released and when.
+- harbour/ a work tracker Lighthouse can run its programme through and does not by default; its README says when it earns its keep and how to use it.
 
-Pieces, under one editorial direction: write for a curious person who has never heard of Lighthouse's internal process; give them a reason to read, develop one idea at a time, and let them reach the evidence when they want it.
-
-- A title that says the finding, a short opening that gives a reason to care, and a discreet date and byline. A small Draft label there is enough while a piece is under review.
-- Open with the thing itself, a person, a moment or a surprise, never with Lighthouse or its method.
-- One idea a reader could say back in a sentence, developed one thought at a time, so that the reader knows which thought to hold while the next one arrives. Say it, then qualify it once, in the sentence where the qualification matters. Routine provenance goes to the notes at the end.
-- Plain words. Define a term where it is first needed, and only if it is needed; the three layers appear only where they earn their place. The charter's images are welcome, each arriving with its literal meaning the first time.
-- No internal references in the prose: no document numbers, ticket or study ids, "the study" or "the keeper". The piece speaks as "we". The colophon may link to the record beneath the piece, so that a reader can reach the evidence when they want it; an id may appear there only inside the link.
-- Honesty about what is known lives in the verbs, not in labels: the record shows, nobody has measured, we think.
-- A colophon at the end, in the form LH F05 gives: sources, method in a sentence, authorship, review, version and corrections, and one line on what Lighthouse is. Commit hashes, task identifiers and dispatch details stay in the record beneath the piece, never in the piece.
-- Illustrations drawn, not described, with a one-line caption.
-- Read it aloud before handing it over; anything that trips is rewritten.
-- No piece is released without a review record that finds nothing that must be fixed.
-
-## Conduct
-
-- Agents release what passes review. They do not spend beyond the budget in LH F06, do not change Harbour, and do not make the decisions LH F01 reserves for a person: a claim that harm is happening now, a claim that a named system is compromised, or any act that is irreversible outside the repository.
-- Do not read or use credentials from the environment unless the task names them. Never write a token, a session id or a key into the repository.
-- Tag your own activity so that it is recognisable as Lighthouse's, and measure your overhead where you can.
-- Commit with a clear message that says what changed and why. Never rewrite history on a shared branch.
-
-## Finishing a dispatched task
-
-A task begins with its ticket identifier so that it shows in Harbour's records. It ends with the deliverable the ticket names, committed to this repository, and with feedback posted to Harbour: a short account of what was done, a usage entry, and exactly one terminal marker. If the deliverable cannot be produced, say why in the feedback, mark the task failed, and leave the ticket open.
+The six founding documents that the early records cite as LH F01 to F06 were folded into these files on 26 September 2026. Git holds them.
