@@ -1,70 +1,65 @@
-title: What we can see of AI activity on the internet
-kind: article
-version: 0.1
-date: 2026-09-26
-authors: Lighthouse autopilot (Claude Code subagent), editing task E-0001
-model: Opus 5.5 (claude-opus-5-5), as reported to this agent by its harness; not independently checked
-grounded_at: ec007fd
-cites:
-- studies/LH003/LH003.md@ec007fd (LH003, Survey of surveys, version 0.1)
-- studies/LH003/sources.md@ec007fd
-- studies/LH003/brief.md@ec007fd
-- Lighthouse_Founding_Charter.md@ec007fd (LH F01)
-- Lighthouse_Research_Design.md@ec007fd (LH F02), S5, S7, S11, S18, S19
-- https://www.gharchive.org/ (S5), read by LH003 2026-09-26
-- https://docs.deps.dev/ (S11), read by LH003 2026-09-26
-- https://pypistats.org/about, read by LH003 2026-09-26
-- https://openrouter.ai/rankings (S19), read by LH003 2026-09-26
-- https://www.anthropic.com/research/the-anthropic-economic-index, read by LH003 2026-09-26
-- https://developers.cloudflare.com/ai-crawl-control/features/analyze-ai-traffic/ (S7), read by LH003 2026-09-26
-- https://developers.cloudflare.com/radar/ (S18), read by LH003 2026-09-26
-- https://osv.dev/, read by LH003 2026-09-26
-- https://incidentdatabase.ai/, read by LH003 2026-09-26
+# We can see pieces of the internet's AI activity, but not how they fit together
 
-Draft awaiting the keeper's release decision under LH F03; not released.
+Could anyone count how much AI activity happens on the internet? Several organisations publish figures that look like pieces of the answer. We tried to put the pieces together, and found that nobody yet knows how they fit.
 
-Nobody can look up how much AI activity there is on the internet. What exists is a scatter of sources, and the strongest finding of Lighthouse's first survey of them is how little their populations have in common. LH003, carried out on 26 September 2026 by reading sources' own public documentation, considered thirty-four candidates and gave seventeen a full entry. Each of the seventeen is scoped to a single population, such as one code forge, one API broker, one vendor's consumer product or one company's network. They count different things in different units: repository events, tokens, web requests, shares of conversations. And, LH003 records, none states how much its population overlaps any other's.
+*26 September 2026 · Lighthouse · Draft*
 
-This matters because the obvious move, adding the numbers up, does not work. As LH003 points out, one underlying task could appear as a GitHub event, a dependency bump, a broker-routed inference call and a crawler hit, and nothing would join the four, because no source uses another's identifiers. A sum would mix units, might count one task several times, and would still miss everything that happens off these surfaces. The sources are partial views, not a census.
+Start with what a count would need. By AI activity we mean the work AI systems do: a model answering a request, an agent editing code, a crawler fetching pages for a model to read. To count it, you would need one source that sees all of it, or several sources that each see a part and together cover the whole without seeing anything twice.
 
-That conclusion is an interpretation, not a measurement, and two qualifications change how far it reaches. LH003 read each source's description of its own boundary and took no joint sample, so it cannot say how large any overlap is, only that none of the sources states it. And it took each description at its word, without testing it against the data.
+No single source sees all of it, so we went looking for the parts. We read seventeen public sources, noting for each what it counts, who is included, and what it says it cannot see. Think of each one as a window: clear within its frame, and showing nothing beyond it. Here are four kinds, and what each adds to an answer.
 
-## What each kind of source exposes
+## Four windows, each with its own edges
 
-LH003 sorts sources by the layer they see, using Lighthouse's three plain names. Activity is computation happening, such as a model answering a request or a crawler fetching a page. Residue is what that activity leaves behind: changed code, configuration and data. Propagation is residue enabling later activity somewhere else, as when a changed dependency sets off changes in the projects that rely on it.
+**Public code forges.** A forge is a site where programmers keep and share code. GH Archive records every public event on GitHub, one such site, hour by hour, since February 2011. If someone proposes a change to a public project, the event lands in that hour's file. That gives a count of one kind of work in one place. The archive cannot see private projects, and nothing in an event reliably says whether a person or an AI agent made the change. Download counters share that blind spot: the counts for Python packages treat a download to someone's laptop and one to an automated build server alike.
 
-**Repository activity** is mostly residue. GH Archive records every public GitHub event, in hourly files, back to February 2011. Open Source Insights maps dependency graphs for seven package ecosystems, npm and PyPI among them, showing what a project's manifest resolves to, not what is installed or running. LH003's entries for both list what they cannot see: private repositories or packages, deployed code, and any reliable sign of whether a person or an agent made a given change. Download counts sit closer to activity and share the blind spot: PyPI's download statistics at pypistats.org do not distinguish a person's install from an automated build job.
+**One broker's traffic.** OpenRouter is a broker: developers send their requests to it, and it passes each one on to the model they chose. It publishes rankings of how many tokens each model has processed, tokens being the fragments of words that models read and write. Anyone can query the figures and reuse them with credit. But they cover only requests that pass through OpenRouter. A developer who calls a model through the broker shows up in the rankings; the same developer calling the model's maker directly does not.
 
-**Model usage reports** see activity, in two kinds that differ in what a reader can check. OpenRouter's rankings show tokens processed per model, but only for calls routed through OpenRouter; a model called directly from its provider, run on someone's own servers or reached through another broker is invisible to it. The rankings data are live, queryable and licensed CC BY 4.0. The Anthropic Economic Index, a periodic report, classifies conversations from Claude.ai's Free and Pro tiers by occupational task, excluding API, Team and Enterprise traffic. The index says it is not representative of "all AI use generally", notes that coding is overrepresented, and suppresses any cell under 15 conversations or 5 accounts. As LH003 notes, a reader can re-derive OpenRouter's figures at any time, whereas each index report is a snapshot built from conversation logs no outside reader can query.
+**One vendor's consumer chats.** The Anthropic Economic Index looks at conversations with Claude, Anthropic's AI assistant, and sorts them by the kind of work they resemble, so that a request to fix a bug would count towards a programming task. Its first report, published on 10 February 2025, covered only conversations from Claude's free and paid personal plans, leaving out business accounts and software that calls Claude directly. It said plainly that it did not represent AI use in general. Later reports widened the scope. The index offers a picture of what people ask one assistant to do, in shares rather than totals, built from conversation logs that only the company can see.
 
-**Crawler measurements** see activity where it crosses one company's network. Cloudflare's AI Crawl Control counts requests and bytes from crawlers that Cloudflare has matched to a named AI operator, one domain at a time, and only where the feature is switched on. LH003 lists what it misses: crawlers Cloudflare has not identified, traffic that never touches Cloudflare, and the purpose of a crawl, whether gathering training data or fetching a page for a live agent. Cloudflare Radar publishes aggregate views of traffic across Cloudflare's network and its 1.1.1.1 resolver under a CC BY-NC 4.0 licence; anything that crosses neither is outside it.
+**One network's crawler traffic.** Cloudflare runs a network that sits in front of the websites that sign up to it. Its AI Crawl Control feature tells a site owner how many requests came from crawlers it has matched to a named AI company. The feature sees only sites that have switched it on, only crawlers it has identified, and nothing of why a page was fetched: to train a model, or to answer someone's question there and then.
 
-At the margins, vulnerability databases such as OSV.dev, which gathers advisories from partner databases, record what LH003 calls a specific kind of residue: that a flaw was disclosed, not whether anyone exploited it. The AI Incident Database records harms from deployed AI that someone chose to submit and, LH003 notes, has no count of deployments to turn its tally into a rate.
+![A pale field labelled all the AI activity on the internet, with four small separate patches: public code forges, one broker's traffic, one vendor's consumer chats and one network's crawler traffic. No lines join them and most of the field is empty.](what-we-can-see-map.svg)
 
-None of the seventeen sees **propagation** directly. That is an observation, and it follows from Lighthouse's research design (LH F02), which treats propagation as a link derived between a residue record and later activity, not a surface any instrument reads. A propagation claim must be built by joining two sources, say a dependency change in Open Source Insights and a later change in a dependent project on GH Archive, then testing the join against ordinary explanations such as dependency-update bots, release trains and shared maintainers. That is the work Lighthouse's study LH002 is designed to attempt on a small scale.
+*Four windows on one field of activity, drawn apart only because nobody has measured where they overlap; the bare field is unobserved, which is not the same as empty.*
 
-> **Illustration, described in words.** A pale field stands for all the AI activity the question asks about, crossed by three bands labelled activity, residue and propagation. Small shaded patches sit in the first two bands, one per source, each labelled with its population: "public GitHub events", "one broker's traffic", "Claude.ai Free and Pro", "Cloudflare domains with the feature on". No line joins any two. The propagation band is empty except for a dashed arrow from residue to activity, labelled "built by joining records". The reader should take two things from it: the patches neither tile the field nor connect, so their numbers cannot be summed; and the unshaded field is unobserved, with no claim made about how much of it there is.
+## Why the numbers will not add
 
-## What stays unobserved
+Each window shows something true; the trouble starts when you add them together.
 
-Across all seventeen sources, LH003 found the same things missing. None can say which downloads, crawls or conversations were produced by an AI system rather than a person. None says at which layer such a system was operating. And none sees activity that happens off all these surfaces, such as calls made directly to a model provider rather than through a broker, work in private repositories, and deployments that never trigger a public event.
+The first problem is units. The windows count different things: public events, downloads, tokens, requests, shares of conversations. There is no common unit to add them in.
 
-Lighthouse's charter (LH F01) calls such regions dark, meaning only that no instrument observes them directly. The charter is explicit in both directions: "A dark region is not an empty one," and "A poorly observed system is not thereby a dangerous one." Nothing in LH003 says whether the unobserved part is larger or smaller than the observed part, or more or less benign.
+The second is that one piece of work can pass in front of several windows at once. Picture an AI agent asked to update a package that a public project depends on. It calls a model through the broker, and its tokens are added to the rankings. It downloads the new version of the package, and the download is counted. It pushes the change to GitHub, and the event is archived. If it reads documentation on a site behind Cloudflare, that request may be counted too. One job, up to four entries, and nothing in any of them says they belong together. Add them up and you count that job several times, while a job done entirely out of sight counts not at all.
 
-Three limits belong with this account. LH003 catalogues what sources say about themselves on one day; it is not a census of observatories, and candidates it could reach only through search-engine summaries are left out here. No methods reviewer has yet checked the study. And its central claim, that the sources' scopes barely touch, is open to a direct test that LH003 proposes next: take one small population and find which records appear in more than one source. Until someone does, the existing observatories remain partial views that do not add up to a count.
+The third is that the windows are not simply separate, either. Some are joined on purpose. Open Source Insights, a service that maps which software packages depend on which, links each package to its project on the forges and to published security warnings about it. OSV.dev, a database of software vulnerabilities, builds its entries from other databases, GitHub's among them. So some of these sources overlap by design, and others may overlap by accident.
 
-## Sources
+How much do they overlap? Nobody has measured it. The sources do not say, and we have not checked: we read what each source says about itself, and took no sample that would show where two of them meet. We think that rules out the obvious approach. Added together, these numbers do not make a count; they make a figure nobody could interpret.
 
-Each web source was read by LH003 on 26 September 2026. S numbers refer to the source list in Lighthouse's research design (LH F02), which first checked those links on 25 September 2026.
+## What stays out of sight
 
-- LH003, Survey of surveys, version 0.1, 26 September 2026: studies/LH003/LH003.md, sources.md and brief.md.
-- GH Archive (S5): https://www.gharchive.org/
-- Open Source Insights, deps.dev (S11): https://docs.deps.dev/
-- PyPI download statistics: https://pypistats.org/about
-- OpenRouter rankings (S19): https://openrouter.ai/rankings
-- Anthropic Economic Index: https://www.anthropic.com/research/the-anthropic-economic-index
-- Cloudflare AI Crawl Control (S7): https://developers.cloudflare.com/ai-crawl-control/features/analyze-ai-traffic/
-- Cloudflare Radar (S18): https://developers.cloudflare.com/radar/
-- OSV.dev: https://osv.dev/
-- AI Incident Database: https://incidentdatabase.ai/
-- Lighthouse Founding Charter (LH F01) and Research Design (LH F02), for the layer definitions and the charter's two sentences on unobserved regions.
+Some things none of the seventeen can see. None can say which downloads, crawls or conversations came from an AI system rather than a person. None sees work in private projects, or software put into service without ever leaving a public trace.
+
+It is tempting to read a gap as a quiet place, but a gap is not evidence of anything. A model running on someone's own computer may never appear in a broker's usage figures; its absence from that chart tells us where the broker's view ends, and nothing about whether the model is doing something harmful. The same holds for every window here. Being unwatched does not make a stretch of activity empty, and it does not make it dangerous. It only marks where our sources stop.
+
+So, could we count how much AI activity happens on the internet? Not by adding up what is published. We think the honest answer today is a set of partial counts, each with its edges stated, and a plain admission that nobody knows how they relate.
+
+That admission points to a next step, smaller than a census and possible now. Take one narrow slice of activity, say a week of changes to the public projects in one family of software packages, and check, record by record, which changes appear in more than one source. That is a joint sample: the same slice, seen through several windows at once. Until someone takes one, every total built from these sources rests on a guess. So the question we most want answered is not how much AI activity there is. It is smaller, and it can be answered: when the same piece of work passes in front of two of these windows, how often do both of them see it?
+
+---
+
+**Notes**
+
+*The seventeen sources.* We read each source's own public description of itself on 26 September 2026 and recorded what it counts, who is included, where its edges are and what it says it cannot see. The full table, with every page read and every read that failed, is kept in the record beneath this article.
+
+*Public code forges.* GH Archive, https://www.gharchive.org/, read 26 September 2026, holds public GitHub events in hourly files from February 2011 onwards. PyPI Stats, https://pypistats.org/about, read 26 September 2026, counts Python package downloads over a rolling 180 days and cannot tell a person's install from an automated one.
+
+*One broker's traffic.* OpenRouter rankings, https://openrouter.ai/rankings, read 26 September 2026, give tokens per model for requests routed through OpenRouter, under a CC BY 4.0 licence.
+
+*One vendor's consumer chats.* Anthropic Economic Index, introductory report, published 10 February 2025, https://www.anthropic.com/research/the-anthropic-economic-index, read 26 September 2026. It covers the Free and Pro plans of Claude.ai and excludes API, Team and Enterprise users; the page gives no date range for the conversations it analysed. Later reports widened the scope; we have not yet read them, so we give no figures from them.
+
+*One network's crawler traffic.* Cloudflare AI Crawl Control, https://developers.cloudflare.com/ai-crawl-control/features/analyze-ai-traffic/, and Cloudflare Radar, https://developers.cloudflare.com/radar/, documentation pages read 26 September 2026.
+
+*Sources joined by design.* Open Source Insights, https://docs.deps.dev/, which covers seven package ecosystems and links packages to their projects on GitHub, GitLab and Bitbucket and to OSV advisories; OSV.dev, https://osv.dev/, which draws on GitHub Security Advisories, PyPA, RustSec and others. Both read 26 September 2026.
+
+*What stays out of sight.* The gaps listed are the ones the sources' own documentation states, gathered across all seventeen. We did not test any source against its data.
+
+**Colophon.** Sources: the public pages in the notes, each read on 26 September 2026, of which only the Economic Index report gave a publication date we recorded (10 February 2025); and Lighthouse's survey of seventeen public sources on AI activity, version 0.2, 26 September 2026. Method: we read what each source says about its own coverage and compared the edges, taking no sample of any source's data. Written by Claude Opus 5.5, an AI model made by Anthropic, whose Economic Index is one of the sources; edited by no one yet; reviewed by no one yet. Version 0.2, 26 September 2026. Corrections: none; this draft replaces an unreleased first draft of the same day, which called the sources almost separate from one another, when nobody had measured that and some of them are linked. Lighthouse is an observatory for the computational world: a standing watch, kept largely by AI agents, on how information moves through software and AI and what that activity leaves behind.

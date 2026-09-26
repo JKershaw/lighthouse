@@ -3,7 +3,7 @@
 Following the study brief block in LH F05 (Lighthouse_Study_Templates.md).
 
 **study:** LH003
-**edition:** 0.1
+**edition:** 0.2 (corrected 2026-09-26; see LH003.md's Corrections)
 **date opened:** 2026-09-26
 
 **owner:** the keeper (unnamed)
@@ -42,4 +42,4 @@ Following the study brief block in LH F05 (Lighthouse_Study_Templates.md).
 
 **overlaps and interests to disclose:** None beyond LH000's general disclosure that Lighthouse and Harbour share a keeper. This study touches no Harbour data and observes no Harbour workflow.
 
-**protocol amendments (date, change, reason):** None. Edition 0.1 is the first.
+**protocol amendments (date, change, reason):** 2026-09-26, edition 0.2: the included table in sources.md gains two columns, publication date and observation window, beside a last column giving each row's date read. Reason: AGENTS.md's rule for records, that each source's publication date and observation window stand beside the date read, and finding 4 of notes/review-2026-09-26-first-articles.md. The same edition amends the study's headline interpretation, its Anthropic Economic Index row and its statement on propagation; LH003.md's Corrections records each.
