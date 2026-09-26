@@ -121,7 +121,7 @@ Prioritise questions by scientific value, decision relevance, evidence access, t
 
 ## Assignments and choices for commencement
 
-The steward records named owners, available access, a resource envelope and publication responsibility. Choose the first Harbour workflow and its dispatch target, and the public cohort. Decide the retention and sharing rules for those particular sources. These choices can be made when the studies open and need not delay use of the founding documents.
+The keeper records named owners, available access, a resource envelope and publication responsibility. Choose the first Harbour workflow and its dispatch target, and the public cohort. Decide the retention and sharing rules for those particular sources. These choices can be made when the studies open and need not delay use of the founding documents.
 
 ## The first public collection
 

@@ -6,7 +6,7 @@ Following the study brief block in LH F05 (Lighthouse_Study_Templates.md).
 **edition:** 0.1
 **date opened:** 2026-09-25
 
-**owner:** the steward (unnamed)
+**owner:** the keeper (unnamed)
 **methods reviewer:** (blank; none assigned)
 **editor:** (blank; none assigned)
 **initiated by:** unknown. The take record names a `dispatchedBy` identifier (`0b284c47-41e5-4f48-bd28-570a4ad178e4`) but does not say whether a person or Harbour's autopilot loop queued the dispatch, and this study had no access to resolve that identifier to a role.

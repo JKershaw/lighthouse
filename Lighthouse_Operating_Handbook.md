@@ -1,6 +1,6 @@
 # Lighthouse Operating Handbook
 
-Research organisation, publication and stewardship
+Research organisation, publication and keeping
 
 Draft | 25 September 2026 | LH F03
 
@@ -10,7 +10,7 @@ Lighthouse begins as a small research practice with bounded investigations and a
 
 Most of Lighthouse's work is done by AI agents: collection, analysis, source checking, drafting and the upkeep of the registers, dispatched as bounded tasks within a stated budget and scope. People do the parts that give the work its meaning. They set the questions, read what comes back, judge whether it is interesting and true, and decide what is published. Agent output is the ordinary case; a person's reading is the scarce resource, and the practice is arranged to spend it well. The session that drives the watch is itself an observer, and its own runs are part of the record it exports.
 
-Four roles remain, and they name responsibilities rather than people. The founding steward chooses priorities, sets the budget and assigns an accountable owner to each investigation. The owner defines the question and answers for the evidence packet, whoever or whatever produced it. A methods reviewer checks collection and analysis. An editor prepares the publication and records its release decision.
+Four roles remain, and they name responsibilities rather than people. The founding keeper chooses priorities, sets the budget and assigns an accountable owner to each investigation. The owner defines the question and answers for the evidence packet, whoever or whatever produced it. A methods reviewer checks collection and analysis. An editor prepares the publication and records its release decision.
 
 An agent may do the working part of any role within its declared scope. The release decision is a person's, as cutting a release is in Harbour's charter. The person responsible for a study remains identifiable. If one person fills several roles, the publication records that limitation rather than implying independent review.
 
@@ -83,7 +83,7 @@ Harbour's papers follow a written standard [S13 in LH F02]: a header naming titl
 
 ### Images and plain names
 
-Three families of image run through Lighthouse's writing, and each has a job. Biological images, the coral, the veins, the ripple of light and its afterglow, describe what we observe, because it grows, circulates and accumulates. Astronomical images, the observatory, the nearest star, the standard candle, the luminous fraction and the dark, the reference image, describe how we observe, because we look from far away by partial light. Nautical images, the harbour, the pilot, the lighthouse itself, describe what people do with the result. The hazard analogies are not a fourth family: Kessler's debris is astronomical and the epidemic is biological, and propagation looks the same through either. The name Lighthouse stands where the astronomical and the nautical meet: a light for navigators.
+Three families of image run through Lighthouse's writing, and each has a job. Biological images, the coral, the veins, the ripple of light and its afterglow, describe what we observe, because it grows, circulates and accumulates. Astronomical images, the observatory, the nearest star, the standard candle, the luminous fraction and the dark, the reference image, describe how we observe, because we look from far away by partial light. Nautical images, the harbour, the pilot, the keeper, the lighthouse itself, describe what people do with the result. The hazard analogies are not a fourth family: Kessler's debris is astronomical and the epidemic is biological, and propagation looks the same through either. The name Lighthouse stands where the astronomical and the nautical meet: a light for navigators.
 
 The practice is a habit, not a register. An image arrives with its literal meaning beside it the first time it appears in a document, then walks alone. Studies use the plain names: activity, residue, propagation, observation, instrument. Essays and the charter may extend the images. An image that cannot be given a literal meaning beside it is a sign that the idea is not yet clear.
 
@@ -103,7 +103,7 @@ Time-sensitive assessments state a review trigger or expiry. A superseded map is
 
 The first public surface makes it easy to find the remit, current investigations, publications, methods and corrections. A modest searchable archive is sufficient for the initial programme.
 
-## Stewardship and research boundaries
+## Keeping and research boundaries
 
 Prefer metadata and aggregate readings when they answer the question. Record access scope, retention and sharing conditions before collection. Separate private evidence from public releases. Avoid collecting credentials or raw customer content as incidental telemetry. Harbour's own charter commits it to store customer content only for operational need; Lighthouse does not become a route around that commitment.
 
@@ -125,6 +125,6 @@ Useful progress can include showing that a proposed metric fails, or that an att
 
 ## Responsibility before launch
 
-Name the founding steward, study owners and release responsibility. Record the actual budget and access boundaries for the first studies. These are operational records to complete when execution begins.
+Name the founding keeper, study owners and release responsibility. Record the actual budget and access boundaries for the first studies. These are operational records to complete when execution begins.
 
 Use the templates in LH F05 to open the first studies, register the instruments and preserve the initial decisions. Revise this handbook after the first completed studies reveal which parts of the process are necessary.

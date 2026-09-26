@@ -21,7 +21,7 @@ Read F01 first. F02 and F03 can be read in either order. F04 assumes both. F05 i
 
 [Harbour](https://harbour.cat) is an open-source control plane for AI coding agents ([source](https://github.com/JKershaw/LinearViewer)). It reads a task backlog, grounds each task into a prompt, dispatches it to an agent and verifies the result on evidence. Lighthouse is a complement to it, not a part of it: Harbour asks whether a task did what was asked; Lighthouse asks what the activity changed and what the change made possible.
 
-Lighthouse uses Harbour in two ways, as its first calibration subject and as the coordinator of its own research tasks, and records that dual role in every study that relies on Harbour evidence. Harbour publishes its own papers about its workflow under its own writing standard; Lighthouse adopts that standard and does not duplicate the programme. F01 has the full account.
+Lighthouse uses Harbour in two ways, as its first calibration subject and as the coordinator of its own research tasks, and records that dual role in every study that relies on Harbour evidence. The keeper of Lighthouse is the maintainer of Harbour, named in [Harbour's charter](https://github.com/JKershaw/LinearViewer/blob/main/docs/charter/charter.md). Harbour publishes its own papers about its workflow under its own writing standard; Lighthouse adopts that standard and does not duplicate the programme. F01 has the full account.
 
 ## The wider internet
 
@@ -40,7 +40,7 @@ The workspace as files lives in [harbour/](harbour/): the north star, the ticket
 - **Instrument.** A sensor or collection method together with the record that says what it detects, what it misses and what it costs.
 - **Study.** One bounded investigation with a stable identifier (LH001, LH002), a brief, an owner and a stopping condition.
 - **Question register, decision record, release record, correction record.** The bookkeeping forms in F05.
-- **Steward, owner, methods reviewer, editor.** The four roles in F03. One person may hold several; the record says which checks were independent.
+- **Keeper, owner, methods reviewer, editor.** The four roles in F03. One person may hold several; the record says which checks were independent.
 - **Close observation, outward observation.** The two directions in F01: systems Lighthouse can instrument directly, and the wider internet seen through public data.
 - **Watch.** Lighthouse's standing observation of the wider internet, published on its own cadence. Not an alerting service: nobody subscribes to it for warnings about their own systems.
 - **Standard candle.** A source whose output is known, used to calibrate an instrument and to scale unknown sources. LH001's workflow is Lighthouse's first.
@@ -48,9 +48,3 @@ The workspace as files lives in [harbour/](harbour/): the north star, the ticket
 - **Dispatch.** Harbour's unit of work: a prompt queued for an agent, with its requested model, harness, timestamps and the agent's feedback.
 - **Autopilot.** The automated loop in a Harbour workspace that turns ready tickets into agent tasks without a person initiating each one. In the Lighthouse workspace it does most of the research work; a person reads and releases.
 - **Digital Kessler hypothesis.** A proposed scenario, named by analogy with orbital debris, in which harmful digital activity replenishes itself and degrades shared infrastructure. A question, not a finding.
-
-## Open questions
-
-Decisions the drafts leave to the steward.
-
-- How the steward is named in these documents, and the word for the role.
