@@ -12,7 +12,7 @@
     "title": "Register the export as an instrument",
     "kind": "implementation",
     "priorityLevel": 3,
-    "status": "todo",
+    "status": "done",
     "description": "harbour/hb export already pulls this workspace's issues, dispatches with their feedback, cost, north star and roadmap reports at the end of every session, stamped with a collection time and the Harbour commit. Write its instrument record in registers/instruments.md using the LH F05 form: what it detects, what it misses (the proxy audit log, proxy events, the driver's own tokens), how it was calibrated, its overhead, and the changes that would invalidate comparisons. The weekly cadence applies once Harbour is hosted. Done when the record exists."
   },
   {
@@ -20,7 +20,7 @@
     "title": "Sample the host",
     "kind": "implementation",
     "priorityLevel": 3,
-    "status": "todo",
+    "status": "done",
     "description": "A sampler for the machine that claims dispatches: process activity, busy core seconds and requests per destination, at a stated interval, tagged as Lighthouse traffic. Post one sample per dispatch to Harbour as a resources feedback entry. Done when it has captured an idle baseline and one dispatch, with its own overhead measured."
   },
   {
@@ -52,7 +52,7 @@
     "title": "Survey of surveys",
     "kind": "research",
     "priorityLevel": 2,
-    "status": "todo",
+    "status": "done",
     "description": "Reading only. List the observatories that already exist, such as GH Archive, Cloudflare Radar, Software Heritage, Open Source Insights, OpenRouter's rankings and the vulnerability databases, with the layer each sees, its population, boundary, unit, cadence and licence, in studies/LH003/. Done when every candidate has a row or a reason for exclusion."
   },
   {
@@ -60,7 +60,7 @@
     "title": "A historical propagation case",
     "kind": "research",
     "priorityLevel": 2,
-    "status": "todo",
+    "status": "done",
     "description": "Retell the xz backdoor through activity, residue and propagation from the public record, noting which layer carried the first detectable signal and which LH F02 instrument would have recorded it. An essay in the Harbour standard's essay form with an annotated reading list, in studies/LH004/. Done when the essay exists with its reading list."
   },
   {
