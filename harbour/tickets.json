@@ -9,11 +9,11 @@
   },
   {
     "id": "I-0001",
-    "title": "Export Harbour's records",
+    "title": "Register the export as an instrument",
     "kind": "implementation",
     "priorityLevel": 3,
     "status": "todo",
-    "description": "A script that pulls this workspace's dispatch, feedback, usage and audit records through a read token and stores them with a collection timestamp, so that nothing ages past Harbour's thirty-day retention. While Harbour runs locally from this repository, the driver exports at the end of every session with harbour/hb export; the weekly cadence applies to the hosted version. Done when one export has run and its instrument record in registers/instruments.md says what it cannot see."
+    "description": "harbour/hb export already pulls this workspace's issues, dispatches with their feedback, cost, north star and roadmap reports at the end of every session, stamped with a collection time and the Harbour commit. Write its instrument record in registers/instruments.md using the LH F05 form: what it detects, what it misses (the proxy audit log, proxy events, the driver's own tokens), how it was calibrated, its overhead, and the changes that would invalidate comparisons. The weekly cadence applies once Harbour is hosted. Done when the record exists."
   },
   {
     "id": "I-0002",
@@ -33,11 +33,11 @@
   },
   {
     "id": "L-0001",
-    "title": "Keep a ledger",
+    "title": "Keep a ledger of cost",
     "kind": "implementation",
     "priorityLevel": 2,
     "status": "todo",
-    "description": "Cost per study from the export, split by whether a person or the autopilot initiated the work, in registers/ledger.md. Done when the first session's figures exist."
+    "description": "Cost per study, in registers/ledger.md: the token totals the driver posts in dispatch feedback for each subagent run, Harbour's cost endpoint for its own model calls, and OpenRouter's figures where they exist. Split by whether a person or the autopilot initiated the work. Task counts are not recorded as progress. The driver session's own tokens are not visible from inside it and are entered as unknown. Done when the first session's figures exist."
   },
   {
     "id": "C-0001",
