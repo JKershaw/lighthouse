@@ -11,7 +11,7 @@ Run one tick of the watch, bounded. The first argument is the most dispatches th
 
 ## Bounds
 
-- Dispatches: at most the count given, one subagent per dispatch, run one at a time so that the cost of each is known before the next starts.
+- Dispatches: at most the count given, one subagent per dispatch. Run them one at a time when the cost limit is near, so that each cost is known before the next starts. Runs may be parallel when the limit is far, the tasks touch different files and the driver does the commits; then `hb usage <id> --agent <agent>` names each transcript rather than `--latest`.
 - Cost: before each dispatch, sum the `costUsd` of the usage entries posted in this drive; at or over the limit, stop. One dispatch may overrun the limit, since its cost is known only when it ends. Report the overrun; never follow it with another dispatch.
 - Programme: only tickets already in `harbour/tickets.json` whose status is not done, in the order Harbour suggests. The drive files no tickets and edits no ticket text. Proposed tickets go in the report for the keeper.
 - Harbour's own model: one `hb next` per drive. `hb roadmap` only if a ticket closed in this drive and the report would change what comes next.
