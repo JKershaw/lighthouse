@@ -2,7 +2,7 @@
 
 ## [The xz backdoor sat in public for nearly five weeks until a slow login gave it away](articles/the-xz-backdoor.md)
 
-In March 2024 an engineer noticed that logging in to his machines took about half a second too long, and followed the delay to a backdoor hidden in a compression library. For nearly five weeks the code had sat in releases that anyone could download and read, and earlier complaints from a memory checker had been explained away, with a fix supplied by the attacker. The piece asks why evidence open to everyone went unrecognised until one person felt it, and what that means for anyone keeping watch on software.
+In March 2024 an engineer reported that logging in to his machines had been taking about half a second too long, and that he had followed the delay to a backdoor hidden in a compression library. For nearly five weeks the code had sat in releases that anyone could download and read, and earlier complaints from a memory checker had been explained away, with a fix supplied by the attacker. The piece asks why evidence open to everyone went unrecognised until one person felt it, and what that means for anyone keeping watch on software.
 
 ![Timeline from 24 February to 30 March 2024 in three lanes: what was released, where it was built in, and what people noticed](articles/the-xz-backdoor-timeline.svg)
 
