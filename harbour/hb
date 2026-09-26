@@ -23,7 +23,7 @@ if [ "${HARBOUR_MODE:-}" != "local" ] && { [ -n "${HARBOUR_TOKEN:-}" ] || [ -s "
   ptok() { if [ -n "${HARBOUR_TOKEN:-}" ]; then printf '%s' "$HARBOUR_TOKEN"; else cat "$SESSION/hosted-token"; fi; }
 else
   MODE=local; H="http://localhost:$PORT"
-  ptok() { need proxy-token; }
+  ptok() { [ -s "$SESSION/proxy-token" ] || die "no Harbour token (HARBOUR_TOKEN or $SESSION/hosted-token) and no local instance (hb up); without one, read the issues with the GitHub tools"; cat "$SESSION/proxy-token"; }
 fi
 key() { need urlkey; }
 dtok() { need dispatch-token; }
@@ -34,7 +34,8 @@ local_only() { [ "$MODE" = local ] || die "'$1' needs the local instance (hb up)
 
 # Proxy calls in python, so that bodies with quotes and newlines survive.
 px() { # px METHOD PATH [json body]
-  python3 - "$H" "$(ptok)" "$1" "$2" "${3:-}" <<'PY'
+  local tok; tok=$(ptok) || exit 1
+  python3 - "$H" "$tok" "$1" "$2" "${3:-}" <<'PY'
 import json,sys,urllib.request,urllib.error,urllib.parse
 H,tok,method,path,body=sys.argv[1:6]
 path=urllib.parse.quote(path,safe="/?=&")  # GitHub-backed identifiers look like "#1"
@@ -50,6 +51,7 @@ PY
 # ---- shared: the backlog through the proxy, by issue identifier ----
 
 cmd_status() {
+  ptok >/dev/null || exit 1
   if [ "$MODE" = local ]; then echo "local harbour: $(curl -s -o /dev/null -w '%{http_code}' "$H/") workspace: $(key) commit: $(cut -c1-12 "$SESSION/harbour-commit")"; else echo "hosted harbour: $H"; fi
   px GET '/api/proxy/stack?limit=50&view=digest' | jq_ "
 ts=d.get('tasks') or []
