@@ -121,7 +121,7 @@ https://openrouter.ai/rankings
 
 ### S20 PyPI download records
 
-The Python Package Index's public table of file downloads, bigquery-public-data.pypi.file_downloads, one row per file downloaded from PyPI with its version, day and time, and the installer, Python, system and CI flag the client reports; streamed by PyPI's log processor, Linehaul, since 2016. Reading it needs a Google Cloud account. The Python Packaging guide, updated 22 September 2026, calls the counts "highly inaccurate": local caches lower them, mirrors both raise and lower them, and scripts inflate them. A download is not an installation. Pages read 26 September 2026; the table itself was not read. LH005 assesses it in studies/LH005/sources.md.
+The Python Package Index's public table of file downloads, bigquery-public-data.pypi.file_downloads, one row per file downloaded from PyPI with its version, day and time, and the installer, Python, system and CI flag the client reports; streamed by PyPI's log processor, Linehaul, since 2016. Reading it needs a Google Cloud account. The Python Packaging guide, updated 22 September 2026, calls the counts "Highly inaccurate": local caches lower them, mirrors both raise and lower them, and scripts inflate them. A download is not an installation. Pages read 26 September 2026; the table itself was not read. LH005 assesses it in studies/LH005/sources.md.
 
 https://docs.pypi.org/api/bigquery/
 https://packaging.python.org/en/latest/guides/analyzing-pypi-package-downloads/
