@@ -1,0 +1,86 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="800" height="394" viewBox="0 0 800 394" role="img" aria-labelledby="t d">
+  <title id="t">One release, nine projects, four weeks: where mcp 1.27.0 went, 26 March to 22 April 2026</title>
+  <desc id="d">A timeline from 26 March to 22 April 2026. A vertical line marks mcp 1.27.0 published on the Python Package Index on 2 April at 14:48 UTC. Four of nine projects that depend on the library take it up. A project that pins the newest release moves its exact pin on 8 April, and its own release follows. A busy project's lockfile takes it on 13 April in a bulk refresh. A project whose history on GitHub begins on 4 April already holds it in its first commit there, and writes an exact pin on 14 April; before 4 April its row is hatched, because there is no history on GitHub to read. A first-time user of the library adopts it on 22 April, and its lockfile takes the newest version. The other five do not take it up: two exact pins and two lockfiles end the period on 1.26.0, and one does not use the library. Beneath the timeline, a dashed band across the whole period says that which version anyone installed or ran is in no public source read. No line joins the release to any move, because the records give the order of events and not their cause.</desc>
+  <style>
+    text { font-family: system-ui, -apple-system, "Segoe UI", Roboto, Helvetica, Arial, sans-serif; fill: #ece8df; }
+    .head { font-size: 16px; font-weight: 600; }
+    .sub { font-size: 12.5px; fill: #aaa498; }
+    .lab { font-size: 13px; }
+    .ev { font-size: 12.5px; }
+    .mute { font-size: 12.5px; fill: #aaa498; }
+    .axis { font-size: 11.5px; fill: #aaa498; }
+    .rel-text { font-size: 12.5px; fill: #e3b262; }
+    .grid { stroke: #343c40; stroke-width: 1; }
+    .tick { stroke: #6b7478; stroke-width: 1; }
+    .sep { stroke: #3d4549; stroke-width: 1; }
+    .rel { stroke: #e3b262; stroke-width: 2; }
+    .dot { fill: #8ec4d4; }
+    .ring { fill: #1b2124; stroke: #8ec4d4; stroke-width: 2; }
+    .band { fill: none; stroke: #aaa498; stroke-width: 1.2; stroke-dasharray: 5 4; }
+  </style>
+  <defs>
+    <pattern id="hatch" width="6" height="6" patternUnits="userSpaceOnUse" patternTransform="rotate(45)">
+      <line x1="0" y1="0" x2="0" y2="6" stroke="#4d565a" stroke-width="1.5"/>
+    </pattern>
+  </defs>
+
+  <!-- plain background, the same in light and dark schemes -->
+  <rect x="0" y="0" width="800" height="394" fill="#1b2124"/>
+
+  <text class="head" x="16" y="32">One release, nine projects, four weeks</text>
+  <text class="sub" x="16" y="52">mcp 1.27.0 and nine projects that depend on it, from public records read on 26 September 2026</text>
+
+  <!-- time axis: x = 252 + 18.5 px per UTC day from 26 March 2026 00:00 -->
+  <line class="grid" x1="252" y1="92" x2="252" y2="286"/>
+  <line class="grid" x1="770" y1="92" x2="770" y2="286"/>
+  <line class="tick" x1="381.5" y1="90" x2="381.5" y2="95"/>
+  <line class="tick" x1="511" y1="90" x2="511" y2="95"/>
+  <line class="tick" x1="640.5" y1="90" x2="640.5" y2="95"/>
+  <text class="axis" x="252" y="84">26 Mar</text>
+  <text class="axis" x="381.5" y="84" text-anchor="middle">2 Apr</text>
+  <text class="axis" x="511" y="84" text-anchor="middle">9 Apr</text>
+  <text class="axis" x="640.5" y="84" text-anchor="middle">16 Apr</text>
+  <text class="axis" x="770" y="84" text-anchor="end">22 Apr</text>
+
+  <!-- the release, 2 April 14:48 UTC; no line joins it to any move -->
+  <line class="rel" x1="392.9" y1="92" x2="392.9" y2="286"/>
+  <text class="rel-text" x="399" y="114">1.27.0 published, 2 Apr, 14:48 UTC</text>
+
+  <!-- row 1: exact pin, 8 April 18:26 UTC; own release at 18:49 -->
+  <text class="lab" x="16" y="134">A project that pins</text>
+  <text class="lab" x="16" y="149">the newest release</text>
+  <circle class="dot" cx="506.7" cy="140" r="6"/>
+  <text class="ev" x="518" y="144">8 Apr: pin moved, own release follows</text>
+
+  <!-- row 2: lockfile, 13 April 13:57 UTC -->
+  <text class="lab" x="16" y="178">A busy project's</text>
+  <text class="lab" x="16" y="193">lockfile</text>
+  <circle class="dot" cx="595.8" cy="184" r="6"/>
+  <text class="ev" x="607" y="188">13 Apr: bulk refresh</text>
+
+  <!-- row 3: history on GitHub from 4 April 16:20 UTC; exact pin 14 April 00:09 UTC -->
+  <text class="lab" x="16" y="222">A project new to</text>
+  <text class="lab" x="16" y="237">GitHub on 4 April</text>
+  <rect x="252" y="221" width="179.1" height="14" fill="url(#hatch)"/>
+  <circle class="ring" cx="431.1" cy="228" r="6"/>
+  <text class="ev" x="442" y="232">already holds it</text>
+  <circle class="dot" cx="603.6" cy="228" r="6"/>
+  <text class="ev" x="615" y="232">14 Apr: exact pin</text>
+
+  <!-- row 4: first adoption, 22 April 23:02 UTC -->
+  <text class="lab" x="16" y="266">A first-time user</text>
+  <text class="lab" x="16" y="281">of the library</text>
+  <circle class="dot" cx="769.3" cy="272" r="6"/>
+  <text class="ev" x="757" y="276" text-anchor="end">22 Apr: first use, lockfile takes the newest</text>
+
+  <line class="sep" x1="16" y1="298" x2="784" y2="298"/>
+
+  <!-- row 5: the five that did not move -->
+  <text class="lab" x="16" y="318">The other five did</text>
+  <text class="lab" x="16" y="333">not take it up</text>
+  <text class="mute" x="252" y="324">two pins and two lockfiles ended on 1.26.0; one did not use the library</text>
+
+  <!-- what no public source read records -->
+  <rect class="band" x="16" y="346" width="768" height="36" rx="6"/>
+  <text class="ev" x="400" y="369" text-anchor="middle">Which version anyone installed or ran: in no public source we read</text>
+</svg>

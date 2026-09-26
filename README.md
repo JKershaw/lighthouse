@@ -1,23 +1,24 @@
 # Lighthouse
 
-## [The xz backdoor sat in public for nearly five weeks until a slow login gave it away](articles/the-xz-backdoor.md)
+## [Public records show where a software update went, but not why, or whether anyone ran it](articles/where-a-software-update-went.md)
 
-In March 2024 an engineer reported that logging in to his machines had been taking about half a second too long, and that he had followed the delay to a backdoor hidden in a compression library. For nearly five weeks the code had sat in releases that anyone could download and read, and earlier complaints from a memory checker had been explained away, with a fix supplied by the attacker. The piece asks why evidence open to everyone went unrecognised until one person felt it, and what that means for anyone keeping watch on software.
+On 8 April 2026 a public Python project moved to the newest version of mcp, a library that AI agents use, and less than half an hour later put out a release of its own that would hand that version to anyone who installed it. We read four weeks of public records around the library and nine projects that depend on it, and could follow the new version into four of them. The records showed where it went but not why, and connected none of it to software anyone was running. The piece follows the trail to the point where every public record we read stops: the machines where software is installed.
 
-![Timeline from 24 February to 30 March 2024 in three lanes: what was released, where it was built in, and what people noticed](articles/the-xz-backdoor-timeline.svg)
+![Timeline from 26 March to 22 April 2026. The library's new release is published on 2 April. Four of nine dependent projects take it up: one moves its exact pin on 8 April and then publishes its own release; one busy project's lockfile takes it on 13 April in a bulk refresh; one project, whose history on GitHub begins on 4 April, already holds it there and pins it on 14 April; one adopts the library on 22 April. The other five do not take it up. Beneath the timeline, a dashed band across the whole period: which version anyone installed or ran is recorded in no public source we read.](articles/where-a-software-update-went-timeline.svg)
 
-*The backdoor was public from 24 February and in Debian two days later; the errors of early March were answered by the 5.6.1 release, and nobody recognised the attack until late March.*
+*Four of nine projects took up the new version within the four weeks; the records show when each one held it, never why, and none says which version anyone ran.*
 
-[Read the piece.](articles/the-xz-backdoor.md)
+[Read the piece.](articles/where-a-software-update-went.md)
 
 ## What we observe, and through whose instruments
 
-We are trying to build a standing watch on software and AI: how they change, and how the changes spread. So far, almost everything we know has come through other people's instruments: archives, timelines and published figures that someone else made. The xz story rests on the public record of the case. [Our other released piece](articles/what-we-can-see.md), on how much of the internet's AI activity anyone can see, rests on seventeen public sources and what each says about itself. The two instruments we run ourselves point inward, at our own tasks and at the machine our agents work on.
+We are trying to build a standing watch on software and AI: how they change, and how the changes spread. Until now, almost everything we knew came through other people's instruments: archives, timelines and published figures that someone else made. [The xz story](articles/the-xz-backdoor.md), of a backdoor that sat in public for nearly five weeks, rests on the public record of the case. [Our piece on how much of the internet's AI activity anyone can see](articles/what-we-can-see.md) rests on seventeen public sources and what each says about itself. The software neighbourhood above is the first thing we have read with our own hands: we fetched its raw public records ourselves and counted them, and every table and script is kept in [the record](studies/LH002/). Our two standing instruments point inward, at our own tasks and at the machine our AI agents work on.
 
 | What we observe | Through whose instrument | When |
 | --- | --- | --- |
 | How the xz backdoor was released, spread and found, February to March 2024 | Other people's: Andres Freund's report, Russ Cox's timeline, the xz project's own account and the distributions' security notices, among others | Read on 26 September 2026 |
 | What public sources can and cannot see of AI activity, as each describes itself | Other people's: seventeen sources, among them GH Archive, Open Source Insights, OpenRouter's rankings, Cloudflare's crawler figures and the vulnerability databases | Read on 26 September 2026; none of their data sampled |
+| The public history of ten projects around one library over twenty-eight days in March and April 2026 | Ours: reading git, the package registry, Open Source Insights, Software Heritage and one hour of GH Archive, with the tables and scripts in [the record](studies/LH002/) | Read on 26 September 2026 |
 | Our own tasks: what each asked for and what came back | Ours: a copy of the records kept by [Harbour](https://harbour.cat), the open-source tool that hands our tasks to AI agents | Since 25 September 2026, in snapshots |
 | The machine our agents work on: its processor, memory and network connections | Ours: a sampler that reads the machine's own counters | Since 26 September 2026, in snapshots |
 
@@ -25,7 +26,7 @@ That is the whole map. What lies outside it we have not observed, which is not t
 
 ## The next question
 
-The xz backdoor could be traced afterwards, through public records, from one project's release into the Linux distributions that took it; we want to know whether ordinary changes can be followed the same way. We mean to look at a small neighbourhood of public software, up to ten projects from one family over a fixed four weeks in the past, and ask: when something changes in one of them, where does the change appear next? The work has not begun; [its design](programme.md#lh002-mapping-a-bounded-public-software-neighbourhood) is written, and its record will appear in [the studies folder](studies/), whether the answer turns out to be a pattern or a finding that public records cannot connect one change to the next.
+The trail stopped where software is installed. The nearest candidate on the far side of that line is the Python Package Index's public record of downloads, by version and by the tool that did the installing. We want to know whether it can connect a release to the machines that took it, bearing in mind that a download is not a program running. Before reading the counts, we mean to record, as we did for the seventeen sources, what they cover and how mirrors and build caches distort them. [The programme](programme.md) holds the questions we are asking and the order we take them in.
 
 *26 September 2026. Below: what Lighthouse is and where things are.*
 
