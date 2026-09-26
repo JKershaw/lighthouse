@@ -2,10 +2,10 @@
 
 What was decided, why it matters, the choice, and how easily it can change, in the form LH F05 gives. The kind says which sort of decision it is: a direction, an operating choice, an accounting convention, or a refinement to the method.
 
-D-0005, 26 September 2026. Direction: Lighthouse publishes by its process, and no person signs for a piece.
+D-0005, 26 September 2026. Direction: Lighthouse publishes by its process.
 Why it matters: it is the difference between a watch that publishes and one that waits. A piece goes out when a review on the strongest available model finds nothing that must be fixed; its release note names the reviews; a person can pull anything. Three decisions stay with a person: a claim that harm is happening now, a claim that a named system is compromised, and any act that is irreversible outside the repository.
 How easily it changes: not easily; it is founding scope, and the charter says it.
-The first drive showed the process catching what a person had not: an editor and then a reviewer found five factual errors in the first drafts against the primary sources. A person's reading is the scarce resource, and it is spent on direction, not on signatures.
+The first drive showed the process working: an editor and then a reviewer found five factual errors in the first drafts against the primary sources, and the corrections are in the records. A person's reading is the scarce resource, and it is spent on direction.
 
 D-0003, 26 September 2026. Direction: outward research does not wait for local calibration.
 Why it matters: it decides what Lighthouse spends its first months on. LH001, the standard candle, calibrates the instruments Lighthouse runs itself; an outward study validates its own sources within its own boundary and says whose instruments supplied the evidence.
