@@ -1,0 +1,196 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1000 580" width="1000" height="580" role="img" aria-labelledby="t d">
+<title id="t">Share of mcp daily downloads by version, 19 March to 29 April 2026</title>
+<desc id="d">Lines for mcp 1.27.0, 1.26.0 and every other version, as shares of each UTC day's downloads in ClickPy's copy of the PyPI download table, with the LH002 window shaded and the dependents' moves marked.</desc>
+<style>
+svg { --bg:#fcfcfb; --ink:#0b0b0b; --ink2:#52514e; --muted:#898781; --grid:#e4e3df; --win:#f0efec; --s1:#2a78d6; --s2:#eb6834; --s3:#1baf7a; --acc:#0b0b0b; }
+@media (prefers-color-scheme: dark) { svg { --bg:#1a1a19; --ink:#ffffff; --ink2:#c3c2b7; --muted:#898781; --grid:#383835; --win:#2a2a28; --s1:#3987e5; --s2:#d95926; --s3:#199e70; --acc:#ffffff; } }
+text { font-family: system-ui, -apple-system, "Segoe UI", sans-serif; fill: var(--ink); }
+.t2 { fill: var(--ink2); } .mu { fill: var(--muted); }
+</style>
+<rect width="1000" height="580" fill="var(--bg)"/>
+<text x="16" y="30" font-size="17" font-weight="600">What was downloaded: mcp versions as a share of each day's downloads</text>
+<text x="16" y="52" font-size="12.5" class="t2">All installers, UTC days, 19 March to 29 April 2026. ClickPy (ClickHouse's copy of PyPI's BigQuery download table), read 26 September 2026.</text>
+<text x="16" y="70" font-size="12.5" class="t2">Denominator: every download of any mcp version that day, 3.6 to 11.7 million a day.</text>
+<rect x="191.7" y="92" width="510.7" height="268" fill="var(--win)"/>
+<text x="195.7" y="106" font-size="11" class="mu">LH002 window, 26 Mar to 22 Apr</text>
+<line x1="64" y1="360.0" x2="830" y2="360.0" stroke="var(--grid)" stroke-width="1"/>
+<text x="56" y="364.0" font-size="11" text-anchor="end" class="mu">0%</text>
+<line x1="64" y1="293.0" x2="830" y2="293.0" stroke="var(--grid)" stroke-width="1"/>
+<text x="56" y="297.0" font-size="11" text-anchor="end" class="mu">25%</text>
+<line x1="64" y1="226.0" x2="830" y2="226.0" stroke="var(--grid)" stroke-width="1"/>
+<text x="56" y="230.0" font-size="11" text-anchor="end" class="mu">50%</text>
+<line x1="64" y1="159.0" x2="830" y2="159.0" stroke="var(--grid)" stroke-width="1"/>
+<text x="56" y="163.0" font-size="11" text-anchor="end" class="mu">75%</text>
+<line x1="64" y1="92.0" x2="830" y2="92.0" stroke="var(--grid)" stroke-width="1"/>
+<text x="56" y="96.0" font-size="11" text-anchor="end" class="mu">100%</text>
+<line x1="137.0" y1="360" x2="137.0" y2="365" stroke="var(--muted)"/>
+<text x="137.0" y="378" font-size="11" text-anchor="middle" class="mu">Mon 23 Mar</text>
+<line x1="264.6" y1="360" x2="264.6" y2="365" stroke="var(--muted)"/>
+<text x="264.6" y="378" font-size="11" text-anchor="middle" class="mu">Mon 30 Mar</text>
+<line x1="392.3" y1="360" x2="392.3" y2="365" stroke="var(--muted)"/>
+<text x="392.3" y="378" font-size="11" text-anchor="middle" class="mu">Mon 6 Apr</text>
+<line x1="520.0" y1="360" x2="520.0" y2="365" stroke="var(--muted)"/>
+<text x="520.0" y="378" font-size="11" text-anchor="middle" class="mu">Mon 13 Apr</text>
+<line x1="647.6" y1="360" x2="647.6" y2="365" stroke="var(--muted)"/>
+<text x="647.6" y="378" font-size="11" text-anchor="middle" class="mu">Mon 20 Apr</text>
+<line x1="775.3" y1="360" x2="775.3" y2="365" stroke="var(--muted)"/>
+<text x="775.3" y="378" font-size="11" text-anchor="middle" class="mu">Mon 27 Apr</text>
+<line x1="330.6" y1="86" x2="330.6" y2="360" stroke="var(--acc)" stroke-width="1.5" stroke-dasharray="4 3"/>
+<text x="334.6" y="82" font-size="11.5" font-weight="600">mcp 1.27.0 on PyPI, 2 Apr 14:48 UTC</text>
+<polyline points="73.1,360.0 91.4,360.0 109.6,360.0 127.8,360.0 146.1,360.0 164.3,360.0 182.5,360.0 200.8,360.0 219.0,360.0 237.3,360.0 255.5,360.0 273.7,360.0 292.0,360.0 310.2,360.0 328.5,300.2 346.7,231.1 364.9,223.4 383.2,229.7 401.4,231.9 419.6,238.4 437.9,215.3 456.1,219.6 474.4,230.7 492.6,207.6 510.8,170.9 529.1,193.4 547.3,191.2 565.5,209.6 583.8,218.1 602.0,199.7 620.3,181.7 638.5,181.5 656.7,195.3 675.0,199.2 693.2,200.4 711.5,201.7 729.7,201.9 747.9,197.9 766.2,213.6 784.4,231.5 802.6,233.5 820.9,232.7" fill="none" stroke="var(--s1)" stroke-width="2" stroke-linejoin="round"/>
+<circle cx="73.1" cy="360.0" r="7" fill="transparent"><title>2026-03-19 (Thu): 1.27.0 0.0%, 0 of 7,446,385</title></circle>
+<circle cx="91.4" cy="360.0" r="7" fill="transparent"><title>2026-03-20 (Fri): 1.27.0 0.0%, 0 of 6,168,088</title></circle>
+<circle cx="109.6" cy="360.0" r="7" fill="transparent"><title>2026-03-21 (Sat): 1.27.0 0.0%, 0 of 3,639,811</title></circle>
+<circle cx="127.8" cy="360.0" r="7" fill="transparent"><title>2026-03-22 (Sun): 1.27.0 0.0%, 0 of 4,271,930</title></circle>
+<circle cx="146.1" cy="360.0" r="7" fill="transparent"><title>2026-03-23 (Mon): 1.27.0 0.0%, 0 of 8,471,800</title></circle>
+<circle cx="164.3" cy="360.0" r="7" fill="transparent"><title>2026-03-24 (Tue): 1.27.0 0.0%, 0 of 6,760,173</title></circle>
+<circle cx="182.5" cy="360.0" r="7" fill="transparent"><title>2026-03-25 (Wed): 1.27.0 0.0%, 0 of 7,014,054</title></circle>
+<circle cx="200.8" cy="360.0" r="7" fill="transparent"><title>2026-03-26 (Thu): 1.27.0 0.0%, 0 of 11,727,399</title></circle>
+<circle cx="219.0" cy="360.0" r="7" fill="transparent"><title>2026-03-27 (Fri): 1.27.0 0.0%, 0 of 8,481,296</title></circle>
+<circle cx="237.3" cy="360.0" r="7" fill="transparent"><title>2026-03-28 (Sat): 1.27.0 0.0%, 0 of 4,075,518</title></circle>
+<circle cx="255.5" cy="360.0" r="7" fill="transparent"><title>2026-03-29 (Sun): 1.27.0 0.0%, 0 of 4,093,513</title></circle>
+<circle cx="273.7" cy="360.0" r="7" fill="transparent"><title>2026-03-30 (Mon): 1.27.0 0.0%, 0 of 5,904,115</title></circle>
+<circle cx="292.0" cy="360.0" r="7" fill="transparent"><title>2026-03-31 (Tue): 1.27.0 0.0%, 0 of 6,524,343</title></circle>
+<circle cx="310.2" cy="360.0" r="7" fill="transparent"><title>2026-04-01 (Wed): 1.27.0 0.0%, 0 of 7,788,556</title></circle>
+<circle cx="328.5" cy="300.2" r="7" fill="transparent"><title>2026-04-02 (Thu): 1.27.0 22.3%, 1,639,539 of 7,351,271</title></circle>
+<circle cx="346.7" cy="231.1" r="7" fill="transparent"><title>2026-04-03 (Fri): 1.27.0 48.1%, 3,201,463 of 6,657,180</title></circle>
+<circle cx="364.9" cy="223.4" r="7" fill="transparent"><title>2026-04-04 (Sat): 1.27.0 51.0%, 2,673,423 of 5,243,831</title></circle>
+<circle cx="383.2" cy="229.7" r="7" fill="transparent"><title>2026-04-05 (Sun): 1.27.0 48.6%, 2,364,033 of 4,863,318</title></circle>
+<circle cx="401.4" cy="231.9" r="7" fill="transparent"><title>2026-04-06 (Mon): 1.27.0 47.8%, 3,143,999 of 6,579,801</title></circle>
+<circle cx="419.6" cy="238.4" r="7" fill="transparent"><title>2026-04-07 (Tue): 1.27.0 45.4%, 3,323,927 of 7,324,154</title></circle>
+<circle cx="437.9" cy="215.3" r="7" fill="transparent"><title>2026-04-08 (Wed): 1.27.0 54.0%, 4,756,070 of 8,809,977</title></circle>
+<circle cx="456.1" cy="219.6" r="7" fill="transparent"><title>2026-04-09 (Thu): 1.27.0 52.4%, 4,490,220 of 8,573,153</title></circle>
+<circle cx="474.4" cy="230.7" r="7" fill="transparent"><title>2026-04-10 (Fri): 1.27.0 48.2%, 3,564,905 of 7,387,765</title></circle>
+<circle cx="492.6" cy="207.6" r="7" fill="transparent"><title>2026-04-11 (Sat): 1.27.0 56.9%, 3,418,925 of 6,012,894</title></circle>
+<circle cx="510.8" cy="170.9" r="7" fill="transparent"><title>2026-04-12 (Sun): 1.27.0 70.5%, 6,161,983 of 8,733,743</title></circle>
+<circle cx="529.1" cy="193.4" r="7" fill="transparent"><title>2026-04-13 (Mon): 1.27.0 62.2%, 6,095,603 of 9,807,050</title></circle>
+<circle cx="547.3" cy="191.2" r="7" fill="transparent"><title>2026-04-14 (Tue): 1.27.0 63.0%, 6,699,084 of 10,634,843</title></circle>
+<circle cx="565.5" cy="209.6" r="7" fill="transparent"><title>2026-04-15 (Wed): 1.27.0 56.1%, 5,164,703 of 9,204,985</title></circle>
+<circle cx="583.8" cy="218.1" r="7" fill="transparent"><title>2026-04-16 (Thu): 1.27.0 52.9%, 4,419,869 of 8,348,061</title></circle>
+<circle cx="602.0" cy="199.7" r="7" fill="transparent"><title>2026-04-17 (Fri): 1.27.0 59.8%, 5,657,695 of 9,455,932</title></circle>
+<circle cx="620.3" cy="181.7" r="7" fill="transparent"><title>2026-04-18 (Sat): 1.27.0 66.5%, 5,074,850 of 7,628,519</title></circle>
+<circle cx="638.5" cy="181.5" r="7" fill="transparent"><title>2026-04-19 (Sun): 1.27.0 66.6%, 5,099,824 of 7,657,148</title></circle>
+<circle cx="656.7" cy="195.3" r="7" fill="transparent"><title>2026-04-20 (Mon): 1.27.0 61.5%, 6,163,316 of 10,026,084</title></circle>
+<circle cx="675.0" cy="199.2" r="7" fill="transparent"><title>2026-04-21 (Tue): 1.27.0 60.0%, 6,380,683 of 10,632,131</title></circle>
+<circle cx="693.2" cy="200.4" r="7" fill="transparent"><title>2026-04-22 (Wed): 1.27.0 59.6%, 6,178,183 of 10,372,956</title></circle>
+<circle cx="711.5" cy="201.7" r="7" fill="transparent"><title>2026-04-23 (Thu): 1.27.0 59.1%, 5,770,412 of 9,771,232</title></circle>
+<circle cx="729.7" cy="201.9" r="7" fill="transparent"><title>2026-04-24 (Fri): 1.27.0 59.0%, 5,641,553 of 9,565,835</title></circle>
+<circle cx="747.9" cy="197.9" r="7" fill="transparent"><title>2026-04-25 (Sat): 1.27.0 60.5%, 4,118,356 of 6,809,161</title></circle>
+<circle cx="766.2" cy="213.6" r="7" fill="transparent"><title>2026-04-26 (Sun): 1.27.0 54.6%, 3,321,239 of 6,080,967</title></circle>
+<circle cx="784.4" cy="231.5" r="7" fill="transparent"><title>2026-04-27 (Mon): 1.27.0 47.9%, 3,575,925 of 7,459,282</title></circle>
+<circle cx="802.6" cy="233.5" r="7" fill="transparent"><title>2026-04-28 (Tue): 1.27.0 47.2%, 3,612,194 of 7,654,972</title></circle>
+<circle cx="820.9" cy="232.7" r="7" fill="transparent"><title>2026-04-29 (Wed): 1.27.0 47.5%, 3,657,849 of 7,702,219</title></circle>
+<text x="838" y="236.7" font-size="12" font-weight="600" class="t2"><tspan fill="var(--s1)">●</tspan> 1.27.0</text>
+<polyline points="73.1,182.3 91.4,193.6 109.6,214.9 127.8,208.1 146.1,179.9 164.3,208.8 182.5,203.2 200.8,158.2 219.0,172.5 237.3,211.9 255.5,213.5 273.7,218.9 292.0,214.3 310.2,188.0 328.5,257.5 346.7,322.7 364.9,332.0 383.2,331.2 401.4,322.7 419.6,318.6 437.9,324.9 456.1,323.4 474.4,321.8 492.6,334.4 510.8,341.3 529.1,331.4 547.3,331.9 565.5,326.8 583.8,323.7 602.0,330.3 620.3,341.5 638.5,341.5 656.7,332.4 675.0,332.0 693.2,332.0 711.5,329.8 729.7,331.4 747.9,338.1 766.2,335.0 784.4,324.7 802.6,323.4 820.9,324.0" fill="none" stroke="var(--s2)" stroke-width="2" stroke-linejoin="round"/>
+<circle cx="73.1" cy="182.3" r="7" fill="transparent"><title>2026-03-19 (Thu): 1.26.0 66.3%, 4,937,029 of 7,446,385</title></circle>
+<circle cx="91.4" cy="193.6" r="7" fill="transparent"><title>2026-03-20 (Fri): 1.26.0 62.1%, 3,829,155 of 6,168,088</title></circle>
+<circle cx="109.6" cy="214.9" r="7" fill="transparent"><title>2026-03-21 (Sat): 1.26.0 54.1%, 1,970,605 of 3,639,811</title></circle>
+<circle cx="127.8" cy="208.1" r="7" fill="transparent"><title>2026-03-22 (Sun): 1.26.0 56.7%, 2,421,533 of 4,271,930</title></circle>
+<circle cx="146.1" cy="179.9" r="7" fill="transparent"><title>2026-03-23 (Mon): 1.26.0 67.2%, 5,693,531 of 8,471,800</title></circle>
+<circle cx="164.3" cy="208.8" r="7" fill="transparent"><title>2026-03-24 (Tue): 1.26.0 56.4%, 3,813,612 of 6,760,173</title></circle>
+<circle cx="182.5" cy="203.2" r="7" fill="transparent"><title>2026-03-25 (Wed): 1.26.0 58.5%, 4,102,849 of 7,014,054</title></circle>
+<circle cx="200.8" cy="158.2" r="7" fill="transparent"><title>2026-03-26 (Thu): 1.26.0 75.3%, 8,831,073 of 11,727,399</title></circle>
+<circle cx="219.0" cy="172.5" r="7" fill="transparent"><title>2026-03-27 (Fri): 1.26.0 70.0%, 5,934,866 of 8,481,296</title></circle>
+<circle cx="237.3" cy="211.9" r="7" fill="transparent"><title>2026-03-28 (Sat): 1.26.0 55.3%, 2,252,034 of 4,075,518</title></circle>
+<circle cx="255.5" cy="213.5" r="7" fill="transparent"><title>2026-03-29 (Sun): 1.26.0 54.7%, 2,238,473 of 4,093,513</title></circle>
+<circle cx="273.7" cy="218.9" r="7" fill="transparent"><title>2026-03-30 (Mon): 1.26.0 52.6%, 3,108,569 of 5,904,115</title></circle>
+<circle cx="292.0" cy="214.3" r="7" fill="transparent"><title>2026-03-31 (Tue): 1.26.0 54.4%, 3,546,627 of 6,524,343</title></circle>
+<circle cx="310.2" cy="188.0" r="7" fill="transparent"><title>2026-04-01 (Wed): 1.26.0 64.2%, 4,998,932 of 7,788,556</title></circle>
+<circle cx="328.5" cy="257.5" r="7" fill="transparent"><title>2026-04-02 (Thu): 1.26.0 38.2%, 2,810,245 of 7,351,271</title></circle>
+<circle cx="346.7" cy="322.7" r="7" fill="transparent"><title>2026-04-03 (Fri): 1.26.0 13.9%, 926,943 of 6,657,180</title></circle>
+<circle cx="364.9" cy="332.0" r="7" fill="transparent"><title>2026-04-04 (Sat): 1.26.0 10.5%, 548,597 of 5,243,831</title></circle>
+<circle cx="383.2" cy="331.2" r="7" fill="transparent"><title>2026-04-05 (Sun): 1.26.0 10.8%, 523,127 of 4,863,318</title></circle>
+<circle cx="401.4" cy="322.7" r="7" fill="transparent"><title>2026-04-06 (Mon): 1.26.0 13.9%, 916,484 of 6,579,801</title></circle>
+<circle cx="419.6" cy="318.6" r="7" fill="transparent"><title>2026-04-07 (Tue): 1.26.0 15.4%, 1,131,309 of 7,324,154</title></circle>
+<circle cx="437.9" cy="324.9" r="7" fill="transparent"><title>2026-04-08 (Wed): 1.26.0 13.1%, 1,154,126 of 8,809,977</title></circle>
+<circle cx="456.1" cy="323.4" r="7" fill="transparent"><title>2026-04-09 (Thu): 1.26.0 13.7%, 1,169,965 of 8,573,153</title></circle>
+<circle cx="474.4" cy="321.8" r="7" fill="transparent"><title>2026-04-10 (Fri): 1.26.0 14.3%, 1,054,528 of 7,387,765</title></circle>
+<circle cx="492.6" cy="334.4" r="7" fill="transparent"><title>2026-04-11 (Sat): 1.26.0 9.6%, 575,158 of 6,012,894</title></circle>
+<circle cx="510.8" cy="341.3" r="7" fill="transparent"><title>2026-04-12 (Sun): 1.26.0 7.0%, 608,781 of 8,733,743</title></circle>
+<circle cx="529.1" cy="331.4" r="7" fill="transparent"><title>2026-04-13 (Mon): 1.26.0 10.7%, 1,046,112 of 9,807,050</title></circle>
+<circle cx="547.3" cy="331.9" r="7" fill="transparent"><title>2026-04-14 (Tue): 1.26.0 10.5%, 1,116,832 of 10,634,843</title></circle>
+<circle cx="565.5" cy="326.8" r="7" fill="transparent"><title>2026-04-15 (Wed): 1.26.0 12.4%, 1,139,943 of 9,204,985</title></circle>
+<circle cx="583.8" cy="323.7" r="7" fill="transparent"><title>2026-04-16 (Thu): 1.26.0 13.5%, 1,130,627 of 8,348,061</title></circle>
+<circle cx="602.0" cy="330.3" r="7" fill="transparent"><title>2026-04-17 (Fri): 1.26.0 11.1%, 1,047,358 of 9,455,932</title></circle>
+<circle cx="620.3" cy="341.5" r="7" fill="transparent"><title>2026-04-18 (Sat): 1.26.0 6.9%, 526,762 of 7,628,519</title></circle>
+<circle cx="638.5" cy="341.5" r="7" fill="transparent"><title>2026-04-19 (Sun): 1.26.0 6.9%, 528,856 of 7,657,148</title></circle>
+<circle cx="656.7" cy="332.4" r="7" fill="transparent"><title>2026-04-20 (Mon): 1.26.0 10.3%, 1,031,966 of 10,026,084</title></circle>
+<circle cx="675.0" cy="332.0" r="7" fill="transparent"><title>2026-04-21 (Tue): 1.26.0 10.5%, 1,112,156 of 10,632,131</title></circle>
+<circle cx="693.2" cy="332.0" r="7" fill="transparent"><title>2026-04-22 (Wed): 1.26.0 10.5%, 1,084,763 of 10,372,956</title></circle>
+<circle cx="711.5" cy="329.8" r="7" fill="transparent"><title>2026-04-23 (Thu): 1.26.0 11.3%, 1,101,984 of 9,771,232</title></circle>
+<circle cx="729.7" cy="331.4" r="7" fill="transparent"><title>2026-04-24 (Fri): 1.26.0 10.7%, 1,019,477 of 9,565,835</title></circle>
+<circle cx="747.9" cy="338.1" r="7" fill="transparent"><title>2026-04-25 (Sat): 1.26.0 8.2%, 556,268 of 6,809,161</title></circle>
+<circle cx="766.2" cy="335.0" r="7" fill="transparent"><title>2026-04-26 (Sun): 1.26.0 9.3%, 566,195 of 6,080,967</title></circle>
+<circle cx="784.4" cy="324.7" r="7" fill="transparent"><title>2026-04-27 (Mon): 1.26.0 13.2%, 983,001 of 7,459,282</title></circle>
+<circle cx="802.6" cy="323.4" r="7" fill="transparent"><title>2026-04-28 (Tue): 1.26.0 13.7%, 1,046,653 of 7,654,972</title></circle>
+<circle cx="820.9" cy="324.0" r="7" fill="transparent"><title>2026-04-29 (Wed): 1.26.0 13.4%, 1,033,270 of 7,702,219</title></circle>
+<text x="838" y="328.0" font-size="12" font-weight="600" class="t2"><tspan fill="var(--s2)">●</tspan> 1.26.0</text>
+<polyline points="73.1,269.7 91.4,258.4 109.6,237.1 127.8,243.9 146.1,272.1 164.3,243.2 182.5,248.8 200.8,293.8 219.0,279.5 237.3,240.1 255.5,238.5 273.7,233.1 292.0,237.7 310.2,264.0 328.5,254.2 346.7,258.2 364.9,256.7 383.2,251.1 401.4,257.4 419.6,255.0 437.9,271.8 456.1,269.0 474.4,259.6 492.6,270.0 510.8,299.8 529.1,287.2 547.3,289.0 565.5,275.6 583.8,270.2 602.0,282.0 620.3,288.8 638.5,289.0 656.7,284.3 675.0,280.9 693.2,279.7 711.5,280.5 729.7,278.6 747.9,276.0 766.2,263.3 784.4,255.8 802.6,255.1 820.9,255.2" fill="none" stroke="var(--s3)" stroke-width="2" stroke-linejoin="round"/>
+<circle cx="73.1" cy="269.7" r="7" fill="transparent"><title>2026-03-19 (Thu): every other version 33.7%, 2,509,356 of 7,446,385</title></circle>
+<circle cx="91.4" cy="258.4" r="7" fill="transparent"><title>2026-03-20 (Fri): every other version 37.9%, 2,338,933 of 6,168,088</title></circle>
+<circle cx="109.6" cy="237.1" r="7" fill="transparent"><title>2026-03-21 (Sat): every other version 45.9%, 1,669,206 of 3,639,811</title></circle>
+<circle cx="127.8" cy="243.9" r="7" fill="transparent"><title>2026-03-22 (Sun): every other version 43.3%, 1,850,397 of 4,271,930</title></circle>
+<circle cx="146.1" cy="272.1" r="7" fill="transparent"><title>2026-03-23 (Mon): every other version 32.8%, 2,778,269 of 8,471,800</title></circle>
+<circle cx="164.3" cy="243.2" r="7" fill="transparent"><title>2026-03-24 (Tue): every other version 43.6%, 2,946,561 of 6,760,173</title></circle>
+<circle cx="182.5" cy="248.8" r="7" fill="transparent"><title>2026-03-25 (Wed): every other version 41.5%, 2,911,205 of 7,014,054</title></circle>
+<circle cx="200.8" cy="293.8" r="7" fill="transparent"><title>2026-03-26 (Thu): every other version 24.7%, 2,896,326 of 11,727,399</title></circle>
+<circle cx="219.0" cy="279.5" r="7" fill="transparent"><title>2026-03-27 (Fri): every other version 30.0%, 2,546,430 of 8,481,296</title></circle>
+<circle cx="237.3" cy="240.1" r="7" fill="transparent"><title>2026-03-28 (Sat): every other version 44.7%, 1,823,484 of 4,075,518</title></circle>
+<circle cx="255.5" cy="238.5" r="7" fill="transparent"><title>2026-03-29 (Sun): every other version 45.3%, 1,855,040 of 4,093,513</title></circle>
+<circle cx="273.7" cy="233.1" r="7" fill="transparent"><title>2026-03-30 (Mon): every other version 47.4%, 2,795,546 of 5,904,115</title></circle>
+<circle cx="292.0" cy="237.7" r="7" fill="transparent"><title>2026-03-31 (Tue): every other version 45.6%, 2,977,716 of 6,524,343</title></circle>
+<circle cx="310.2" cy="264.0" r="7" fill="transparent"><title>2026-04-01 (Wed): every other version 35.8%, 2,789,624 of 7,788,556</title></circle>
+<circle cx="328.5" cy="254.2" r="7" fill="transparent"><title>2026-04-02 (Thu): every other version 39.5%, 2,901,487 of 7,351,271</title></circle>
+<circle cx="346.7" cy="258.2" r="7" fill="transparent"><title>2026-04-03 (Fri): every other version 38.0%, 2,528,774 of 6,657,180</title></circle>
+<circle cx="364.9" cy="256.7" r="7" fill="transparent"><title>2026-04-04 (Sat): every other version 38.6%, 2,021,811 of 5,243,831</title></circle>
+<circle cx="383.2" cy="251.1" r="7" fill="transparent"><title>2026-04-05 (Sun): every other version 40.6%, 1,976,158 of 4,863,318</title></circle>
+<circle cx="401.4" cy="257.4" r="7" fill="transparent"><title>2026-04-06 (Mon): every other version 38.3%, 2,519,318 of 6,579,801</title></circle>
+<circle cx="419.6" cy="255.0" r="7" fill="transparent"><title>2026-04-07 (Tue): every other version 39.2%, 2,868,918 of 7,324,154</title></circle>
+<circle cx="437.9" cy="271.8" r="7" fill="transparent"><title>2026-04-08 (Wed): every other version 32.9%, 2,899,781 of 8,809,977</title></circle>
+<circle cx="456.1" cy="269.0" r="7" fill="transparent"><title>2026-04-09 (Thu): every other version 34.0%, 2,912,968 of 8,573,153</title></circle>
+<circle cx="474.4" cy="259.6" r="7" fill="transparent"><title>2026-04-10 (Fri): every other version 37.5%, 2,768,332 of 7,387,765</title></circle>
+<circle cx="492.6" cy="270.0" r="7" fill="transparent"><title>2026-04-11 (Sat): every other version 33.6%, 2,018,811 of 6,012,894</title></circle>
+<circle cx="510.8" cy="299.8" r="7" fill="transparent"><title>2026-04-12 (Sun): every other version 22.5%, 1,962,979 of 8,733,743</title></circle>
+<circle cx="529.1" cy="287.2" r="7" fill="transparent"><title>2026-04-13 (Mon): every other version 27.2%, 2,665,335 of 9,807,050</title></circle>
+<circle cx="547.3" cy="289.0" r="7" fill="transparent"><title>2026-04-14 (Tue): every other version 26.5%, 2,818,927 of 10,634,843</title></circle>
+<circle cx="565.5" cy="275.6" r="7" fill="transparent"><title>2026-04-15 (Wed): every other version 31.5%, 2,900,339 of 9,204,985</title></circle>
+<circle cx="583.8" cy="270.2" r="7" fill="transparent"><title>2026-04-16 (Thu): every other version 33.5%, 2,797,565 of 8,348,061</title></circle>
+<circle cx="602.0" cy="282.0" r="7" fill="transparent"><title>2026-04-17 (Fri): every other version 29.1%, 2,750,879 of 9,455,932</title></circle>
+<circle cx="620.3" cy="288.8" r="7" fill="transparent"><title>2026-04-18 (Sat): every other version 26.6%, 2,026,907 of 7,628,519</title></circle>
+<circle cx="638.5" cy="289.0" r="7" fill="transparent"><title>2026-04-19 (Sun): every other version 26.5%, 2,028,468 of 7,657,148</title></circle>
+<circle cx="656.7" cy="284.3" r="7" fill="transparent"><title>2026-04-20 (Mon): every other version 28.2%, 2,830,802 of 10,026,084</title></circle>
+<circle cx="675.0" cy="280.9" r="7" fill="transparent"><title>2026-04-21 (Tue): every other version 29.5%, 3,139,292 of 10,632,131</title></circle>
+<circle cx="693.2" cy="279.7" r="7" fill="transparent"><title>2026-04-22 (Wed): every other version 30.0%, 3,110,010 of 10,372,956</title></circle>
+<circle cx="711.5" cy="280.5" r="7" fill="transparent"><title>2026-04-23 (Thu): every other version 29.7%, 2,898,836 of 9,771,232</title></circle>
+<circle cx="729.7" cy="278.6" r="7" fill="transparent"><title>2026-04-24 (Fri): every other version 30.4%, 2,904,805 of 9,565,835</title></circle>
+<circle cx="747.9" cy="276.0" r="7" fill="transparent"><title>2026-04-25 (Sat): every other version 31.4%, 2,134,537 of 6,809,161</title></circle>
+<circle cx="766.2" cy="263.3" r="7" fill="transparent"><title>2026-04-26 (Sun): every other version 36.1%, 2,193,533 of 6,080,967</title></circle>
+<circle cx="784.4" cy="255.8" r="7" fill="transparent"><title>2026-04-27 (Mon): every other version 38.9%, 2,900,356 of 7,459,282</title></circle>
+<circle cx="802.6" cy="255.1" r="7" fill="transparent"><title>2026-04-28 (Tue): every other version 39.1%, 2,996,125 of 7,654,972</title></circle>
+<circle cx="820.9" cy="255.2" r="7" fill="transparent"><title>2026-04-29 (Wed): every other version 39.1%, 3,011,100 of 7,702,219</title></circle>
+<text x="838" y="259.2" font-size="12" font-weight="600" class="t2"><tspan fill="var(--s3)">●</tspan> every other version</text>
+<text x="16" y="396" font-size="12" font-weight="600">LH002 moves</text>
+<line x1="64" y1="404" x2="830" y2="404" stroke="var(--grid)"/>
+<line x1="368.2" y1="92" x2="368.2" y2="360" stroke="var(--muted)" stroke-width="1" stroke-dasharray="1 3"/>
+<circle cx="368.2" cy="404" r="5" fill="var(--acc)"/>
+<line x1="368.2" y1="404" x2="368.2" y2="422" stroke="var(--muted)" stroke-width="1"/>
+<text x="374.2" y="426" font-size="11.5" text-anchor="start" class="t2">04 Apr 16:20 R04 first GitHub commit, lockfile holds 1.27.0</text>
+<line x1="442.8" y1="92" x2="442.8" y2="360" stroke="var(--muted)" stroke-width="1" stroke-dasharray="1 3"/>
+<circle cx="442.8" cy="404" r="5" fill="var(--acc)"/>
+<line x1="442.8" y1="404" x2="442.8" y2="442" stroke="var(--muted)" stroke-width="1"/>
+<text x="448.8" y="446" font-size="11.5" text-anchor="start" class="t2">08 Apr 18:26 R03 lean-lsp-mcp pins mcp==1.27.0; its 0.26.0 22 min later</text>
+<line x1="530.6" y1="92" x2="530.6" y2="360" stroke="var(--muted)" stroke-width="1" stroke-dasharray="1 3"/>
+<circle cx="530.6" cy="404" r="5" fill="var(--acc)"/>
+<line x1="530.6" y1="404" x2="530.6" y2="462" stroke="var(--muted)" stroke-width="1"/>
+<text x="524.6" y="466" font-size="11.5" text-anchor="end" class="t2">13 Apr 13:57 R06 dartlab lockfile to 1.27.0</text>
+<line x1="538.3" y1="92" x2="538.3" y2="360" stroke="var(--muted)" stroke-width="1" stroke-dasharray="1 3"/>
+<circle cx="538.3" cy="404" r="5" fill="var(--acc)"/>
+<line x1="538.3" y1="404" x2="538.3" y2="482" stroke="var(--muted)" stroke-width="1"/>
+<text x="532.3" y="486" font-size="11.5" text-anchor="end" class="t2">14 Apr 00:09 R04 pyp6xer-mcp adds mcp==1.27.0</text>
+<line x1="701.6" y1="92" x2="701.6" y2="360" stroke="var(--muted)" stroke-width="1" stroke-dasharray="1 3"/>
+<circle cx="701.6" cy="404" r="5" fill="var(--acc)"/>
+<line x1="701.6" y1="404" x2="701.6" y2="502" stroke="var(--muted)" stroke-width="1"/>
+<text x="695.6" y="506" font-size="11.5" text-anchor="end" class="t2">22 Apr 23:02 R02 ai-slide-generator adds mcp, lock 1.27.0</text>
+<text x="16" y="552" font-size="11" class="mu">Moves from studies/LH002/data/propagation_candidates.csv (commit times, UTC).</text>
+<text x="16" y="568" font-size="11" class="mu">Shares from studies/LH005/data/mcp_daily_by_version_share.csv. Hover a point for the count.</text>
+</svg>

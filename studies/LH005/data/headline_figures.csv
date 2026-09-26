@@ -1,0 +1,135 @@
+figure,value,denominator,basis
+pypistats mcp overall series: first and last day held,2026-03-29 to 2026-09-25,181 days,"pypistats_mcp_overall.csv, read 2026-09-26"
+"ClickPy per-day table against pypistats with mirrors, LH002 window days both hold: days compared",25,,cross_copy_daily_totals.csv
+"ClickPy per-day table against pypistats with mirrors, LH002 window days both hold: days identical",17,25 days,cross_copy_daily_totals.csv
+"ClickPy per-day table against pypistats with mirrors, LH002 window days both hold: median absolute daily difference, per cent",0.0,25 days,cross_copy_daily_totals.csv
+"ClickPy per-day table against pypistats with mirrors, LH002 window days both hold: largest absolute daily difference, per cent",1.004,7788556 against 7711168,cross_copy_daily_totals.csv
+"ClickPy per-day table against pypistats with mirrors, LH002 window days both hold: summed over the days compared",195550849 against 195206736 (0.18 per cent),25 days,cross_copy_daily_totals.csv
+"ClickPy per-day table against pypistats with mirrors, every day both hold: days compared",181,,cross_copy_daily_totals.csv
+"ClickPy per-day table against pypistats with mirrors, every day both hold: days identical",120,181 days,cross_copy_daily_totals.csv
+"ClickPy per-day table against pypistats with mirrors, every day both hold: median absolute daily difference, per cent",0.0,181 days,cross_copy_daily_totals.csv
+"ClickPy per-day table against pypistats with mirrors, every day both hold: largest absolute daily difference, per cent",2.69,9807955 against 10079074,cross_copy_daily_totals.csv
+"ClickPy per-day table against pypistats with mirrors, every day both hold: summed over the days compared",1664535872 against 1667159270 (-0.16 per cent),181 days,cross_copy_daily_totals.csv
+"ClickPy installer table less pypistats mirror list, against pypistats without mirrors, window and margin days both hold: days compared",32,,cross_copy_daily_totals.csv
+"ClickPy installer table less pypistats mirror list, against pypistats without mirrors, window and margin days both hold: days identical",0,32 days,cross_copy_daily_totals.csv
+"ClickPy installer table less pypistats mirror list, against pypistats without mirrors, window and margin days both hold: median absolute daily difference, per cent",0.088,32 days,cross_copy_daily_totals.csv
+"ClickPy installer table less pypistats mirror list, against pypistats without mirrors, window and margin days both hold: largest absolute daily difference, per cent",2.092,9565476 against 9369430,cross_copy_daily_totals.csv
+"ClickPy installer table less pypistats mirror list, against pypistats without mirrors, window and margin days both hold: summed over the days compared",250696216 against 249788734 (0.36 per cent),32 days,cross_copy_daily_totals.csv
+"ClickPy installer table less pypistats mirror list and less downloads with no installer name, against pypistats without mirrors: days compared",32,,cross_copy_daily_totals.csv
+"ClickPy installer table less pypistats mirror list and less downloads with no installer name, against pypistats without mirrors: days identical",22,32 days,cross_copy_daily_totals.csv
+"ClickPy installer table less pypistats mirror list and less downloads with no installer name, against pypistats without mirrors: median absolute daily difference, per cent",0.0,32 days,cross_copy_daily_totals.csv
+"ClickPy installer table less pypistats mirror list and less downloads with no installer name, against pypistats without mirrors: largest absolute daily difference, per cent",2.001,9556911 against 9369430,cross_copy_daily_totals.csv
+"ClickPy installer table less pypistats mirror list and less downloads with no installer name, against pypistats without mirrors: summed over the days compared",250408232 against 249788734 (0.25 per cent),32 days,cross_copy_daily_totals.csv
+days on which ClickPy and pypistats agree on the total and ClickPy less mirrors and no-installer rows equals pypistats without mirrors exactly,22,"22 days with identical totals, 29 March to 29 April",cross_copy_daily_totals.csv
+"ClickPy by-version table against ClickPy per-day table, window and margin: days compared",42,,cross_copy_daily_totals.csv
+"ClickPy by-version table against ClickPy per-day table, window and margin: days identical",41,42 days,cross_copy_daily_totals.csv
+"ClickPy by-version table against ClickPy per-day table, window and margin: median absolute daily difference, per cent",0.0,42 days,cross_copy_daily_totals.csv
+"ClickPy by-version table against ClickPy per-day table, window and margin: largest absolute daily difference, per cent",0.998,6524343 against 6459869,cross_copy_daily_totals.csv
+"ClickPy by-version table against ClickPy per-day table, window and margin: summed over the days compared",318715445 against 318650971 (0.02 per cent),42 days,cross_copy_daily_totals.csv
+"ClickPy per-download table against ClickPy by-version table, window and margin: days compared",42,,cross_copy_daily_totals.csv
+"ClickPy per-download table against ClickPy by-version table, window and margin: days identical",36,42 days,cross_copy_daily_totals.csv
+"ClickPy per-download table against ClickPy by-version table, window and margin: median absolute daily difference, per cent",0.0,42 days,cross_copy_daily_totals.csv
+"ClickPy per-download table against ClickPy by-version table, window and margin: largest absolute daily difference, per cent",0.988,6459869 against 6524343,cross_copy_daily_totals.csv
+"ClickPy per-download table against ClickPy by-version table, window and margin: summed over the days compared",318422940 against 318715445 (-0.09 per cent),42 days,cross_copy_daily_totals.csv
+"ClickPy installer table against ClickPy by-version table, window and margin: days compared",42,,cross_copy_daily_totals.csv
+"ClickPy installer table against ClickPy by-version table, window and margin: days identical",40,42 days,cross_copy_daily_totals.csv
+"ClickPy installer table against ClickPy by-version table, window and margin: median absolute daily difference, per cent",0.0,42 days,cross_copy_daily_totals.csv
+"ClickPy installer table against ClickPy by-version table, window and margin: largest absolute daily difference, per cent",0.99,10737425 against 10632131,cross_copy_daily_totals.csv
+"ClickPy installer table against ClickPy by-version table, window and margin: summed over the days compared",318756265 against 318715445 (0.01 per cent),42 days,cross_copy_daily_totals.csv
+"pypistats mcp: mirror downloads (with minus without), share of with-mirrors total",0.21,3470677 of 1667159270 over 181 days,pypistats_mcp_overall.csv
+pepy anonymous v2 API for mcp: days held,2026-06-27 to 2026-09-25,91 days,pepy_mcp_daily_by_version.csv
+pepy against ClickPy: version-days with identical counts,4139,6062 version-days,cross_copy_pepy_clickpy.csv
+"pepy daily total against ClickPy by-version daily total, days pepy holds: days compared",91,,cross_copy_pepy_clickpy.csv
+"pepy daily total against ClickPy by-version daily total, days pepy holds: days identical",57,91 days,cross_copy_pepy_clickpy.csv
+"pepy daily total against ClickPy by-version daily total, days pepy holds: median absolute daily difference, per cent",0.0,91 days,cross_copy_pepy_clickpy.csv
+"pepy daily total against ClickPy by-version daily total, days pepy holds: largest absolute daily difference, per cent",98.226,207746 against 11708293,cross_copy_pepy_clickpy.csv
+"pepy daily total against ClickPy by-version daily total, days pepy holds: summed over the days compared",855025716 against 880036381 (-2.84 per cent),91 days,cross_copy_pepy_clickpy.csv
+"pepy daily total against pypistats with mirrors, days pepy holds: days compared",91,,cross_copy_pepy_clickpy.csv
+"pepy daily total against pypistats with mirrors, days pepy holds: days identical",72,91 days,cross_copy_pepy_clickpy.csv
+"pepy daily total against pypistats with mirrors, days pepy holds: median absolute daily difference, per cent",0.0,91 days,cross_copy_pepy_clickpy.csv
+"pepy daily total against pypistats with mirrors, days pepy holds: largest absolute daily difference, per cent",98.226,207746 against 11709432,cross_copy_pepy_clickpy.csv
+"pepy daily total against pypistats with mirrors, days pepy holds: summed over the days compared",855025716 against 883216499 (-3.19 per cent),91 days,cross_copy_pepy_clickpy.csv
+mcp downloads in the LH002 window (ClickPy installer table),219940356,28 UTC days,mcp_installer_and_file_type_window.csv
+"window share of mcp downloads, installer class uv",78.56,172783051 of 219940356,mcp_installer_and_file_type_window.csv
+"window share of mcp downloads, installer class pip",20.4,44872032 of 219940356,mcp_installer_and_file_type_window.csv
+"window share of mcp downloads, installer class poetry, pdm and other project managers",0.81,1788688 of 219940356,mcp_installer_and_file_type_window.csv
+"window share of mcp downloads, installer class none recorded",0.12,255315 of 219940356,mcp_installer_and_file_type_window.csv
+"window share of mcp downloads, installer class requests",0.05,119237 of 219940356,mcp_installer_and_file_type_window.csv
+"window share of mcp downloads, installer class mirror or proxy (bandersnatch, devpi, Artifactory, Nexus)",0.02,50791 of 219940356,mcp_installer_and_file_type_window.csv
+"window share of mcp downloads, installer class Bazel",0.02,38023 of 219940356,mcp_installer_and_file_type_window.csv
+"window share of mcp downloads, installer class Browser",0.01,31724 of 219940356,mcp_installer_and_file_type_window.csv
+"window share of mcp downloads, installer class other named (Homebrew, OS, setuptools, conda, and a ""pip"" with an invisible character)",0.0,1495 of 219940356,mcp_installer_and_file_type_window.csv
+"share of mcp 1.27.0 downloads flagged CI, 3 to 22 April",10.58,9940759 of 93961053,mcp_daily_by_ci_flag.csv
+"share of all mcp downloads flagged CI, LH002 window",34.58,75971844 of 219695030,mcp_daily_by_ci_flag.csv
+"mcp downloads with CI flag unknown, LH002 window",0,219695030,mcp_daily_by_ci_flag.csv
+"mcp downloads with CI flag unknown, 17 January to 27 February",0,118760434,clickpy_mcp_daily_by_ci_contrast.csv
+"weekend mean over weekday mean, mcp all versions, 6 to 26 April",0.786,"6 weekend days, 15 weekdays; means 7153739 and 9099597",derived from the daily tables
+"weekend mean over weekday mean, mcp 1.27.0, 6 to 26 April",0.878,"6 weekend days, 15 weekdays; means 4532530 and 5163348",derived from the daily tables
+"weekend mean over weekday mean, mcp 1.26.0, 6 to 26 April",0.517,"6 weekend days, 15 weekdays; means 560337 and 1083842",derived from the daily tables
+"weekend mean over weekday mean, mcp 1.27.0 flagged CI, 6 to 26 April",0.659,"6 weekend days, 15 weekdays; means 397641 and 603033",derived from the daily tables
+"weekend mean over weekday mean, mcp 1.27.0 not flagged CI, 6 to 26 April",0.908,"6 weekend days, 15 weekdays; means 4134888 and 4552062",derived from the daily tables
+"weekend mean over weekday mean, mcp 1.27.0 by uv, 6 to 26 April",0.924,"6 weekend days, 15 weekdays; means 3850613 and 4166305",derived from the daily tables
+"weekend mean over weekday mean, mcp 1.26.0 by uv, 6 to 26 April",0.476,"6 weekend days, 15 weekdays; means 405174 and 851494",derived from the daily tables
+"weekend mean over weekday mean, mcp 1.27.0 by pip, 6 to 26 April",0.691,"6 weekend days, 15 weekdays; means 674568 and 976856",derived from the daily tables
+"weekend mean over weekday mean, mcp 1.26.0 by pip, 6 to 26 April",0.737,"6 weekend days, 15 weekdays; means 141670 and 192332",derived from the daily tables
+"lean-lsp-mcp 0.26.0 and 0.26.1 downloads, 8 April to 3 May (before 0.26.2)",38953,26 UTC days,lean_lsp_mcp_daily.csv
+"the same, as a share of mcp 1.27.0 downloads over the days ClickPy holds both",0.04,38953 of 109023441 (mcp 1.27.0 over 8 to 29 April only; days after 29 April were not read by version),lean_lsp_mcp_daily.csv
+"lean-lsp-mcp 0.26.0 and 0.26.1 downloads as a share of mcp 1.27.0 downloads, 8 to 29 April",0.03,35024 of 109023441,lean_lsp_mcp_daily.csv
+"all installers, 1.27.0: first UTC day with any download",2026-04-02 (day 0),1639539 of 7351271 (22.3 per cent),uptake_thresholds.csv
+"all installers, 1.27.0: first UTC day with share at or above 10 per cent",2026-04-02 (day 0),1639539 of 7351271 (22.3 per cent),uptake_thresholds.csv
+"all installers, 1.27.0: first UTC day with share at or above 25 per cent",2026-04-03 (day 1),3201463 of 6657180 (48.09 per cent),uptake_thresholds.csv
+"all installers, 1.27.0: first UTC day with share at or above 50 per cent",2026-04-04 (day 2),2673423 of 5243831 (50.98 per cent),uptake_thresholds.csv
+"all installers, 1.27.0: highest daily share in the span read",2026-04-12 (day 10),6161983 of 8733743 (70.55 per cent),uptake_thresholds.csv
+"all installers, 1.26.0: first UTC day with any download",2026-01-24 (day 0),188077 of 1585920 (11.86 per cent),uptake_thresholds.csv
+"all installers, 1.26.0: first UTC day with share at or above 10 per cent",2026-01-24 (day 0),188077 of 1585920 (11.86 per cent),uptake_thresholds.csv
+"all installers, 1.26.0: first UTC day with share at or above 25 per cent",2026-01-25 (day 1),1042794 of 1690307 (61.69 per cent),uptake_thresholds.csv
+"all installers, 1.26.0: first UTC day with share at or above 50 per cent",2026-01-25 (day 1),1042794 of 1690307 (61.69 per cent),uptake_thresholds.csv
+"all installers, 1.26.0: highest daily share in the span read",2026-02-22 (day 29),1597467 of 2344703 (68.13 per cent),uptake_thresholds.csv
+"installer class: pip, 1.27.0: first UTC day with any download",2026-04-02 (day 0),357603 of 1778264 (20.11 per cent),uptake_thresholds.csv
+"installer class: pip, 1.27.0: first UTC day with share at or above 10 per cent",2026-04-02 (day 0),357603 of 1778264 (20.11 per cent),uptake_thresholds.csv
+"installer class: pip, 1.27.0: first UTC day with share at or above 25 per cent",2026-04-03 (day 1),793472 of 1497963 (52.97 per cent),uptake_thresholds.csv
+"installer class: pip, 1.27.0: first UTC day with share at or above 50 per cent",2026-04-03 (day 1),793472 of 1497963 (52.97 per cent),uptake_thresholds.csv
+"installer class: pip, 1.27.0: highest daily share in the span read",2026-04-25 (day 23),731375 of 1213205 (60.28 per cent),uptake_thresholds.csv
+"installer class: uv, 1.27.0: first UTC day with any download",2026-04-02 (day 0),1275361 of 5465976 (23.33 per cent),uptake_thresholds.csv
+"installer class: uv, 1.27.0: first UTC day with share at or above 10 per cent",2026-04-02 (day 0),1275361 of 5465976 (23.33 per cent),uptake_thresholds.csv
+"installer class: uv, 1.27.0: first UTC day with share at or above 25 per cent",2026-04-03 (day 1),2396226 of 5090516 (47.07 per cent),uptake_thresholds.csv
+"installer class: uv, 1.27.0: first UTC day with share at or above 50 per cent",2026-04-08 (day 6),3662636 of 6662402 (54.97 per cent),uptake_thresholds.csv
+"installer class: uv, 1.27.0: highest daily share in the span read",2026-04-12 (day 10),5491378 of 7537813 (72.85 per cent),uptake_thresholds.csv
+"installer class: pip, 1.26.0: first UTC day with any download",2026-01-24 (day 0),84927 of 788026 (10.78 per cent),uptake_thresholds.csv
+"installer class: pip, 1.26.0: first UTC day with share at or above 10 per cent",2026-01-24 (day 0),84927 of 788026 (10.78 per cent),uptake_thresholds.csv
+"installer class: pip, 1.26.0: first UTC day with share at or above 25 per cent",2026-01-25 (day 1),468597 of 741065 (63.23 per cent),uptake_thresholds.csv
+"installer class: pip, 1.26.0: first UTC day with share at or above 50 per cent",2026-01-25 (day 1),468597 of 741065 (63.23 per cent),uptake_thresholds.csv
+"installer class: pip, 1.26.0: highest daily share in the span read",2026-01-25 (day 1),468597 of 741065 (63.23 per cent),uptake_thresholds.csv
+"installer class: uv, 1.26.0: first UTC day with any download",2026-01-24 (day 0),102034 of 768050 (13.28 per cent),uptake_thresholds.csv
+"installer class: uv, 1.26.0: first UTC day with share at or above 10 per cent",2026-01-24 (day 0),102034 of 768050 (13.28 per cent),uptake_thresholds.csv
+"installer class: uv, 1.26.0: first UTC day with share at or above 25 per cent",2026-01-25 (day 1),566733 of 911507 (62.18 per cent),uptake_thresholds.csv
+"installer class: uv, 1.26.0: first UTC day with share at or above 50 per cent",2026-01-25 (day 1),566733 of 911507 (62.18 per cent),uptake_thresholds.csv
+"installer class: uv, 1.26.0: highest daily share in the span read",2026-02-22 (day 29),1042474 of 1400207 (74.45 per cent),uptake_thresholds.csv
+"CI flag: false, 1.27.0: first UTC day with any download",2026-04-02 (day 0),1453665 of 4404452 (33.0 per cent),uptake_thresholds.csv
+"CI flag: false, 1.27.0: first UTC day with share at or above 10 per cent",2026-04-02 (day 0),1453665 of 4404452 (33.0 per cent),uptake_thresholds.csv
+"CI flag: false, 1.27.0: first UTC day with share at or above 25 per cent",2026-04-02 (day 0),1453665 of 4404452 (33.0 per cent),uptake_thresholds.csv
+"CI flag: false, 1.27.0: first UTC day with share at or above 50 per cent",2026-04-03 (day 1),2861438 of 4050077 (70.65 per cent),uptake_thresholds.csv
+"CI flag: false, 1.27.0: highest daily share in the span read",2026-04-12 (day 10),5808116 of 6658425 (87.23 per cent),uptake_thresholds.csv
+"CI flag: true, 1.27.0: first UTC day with any download",2026-04-02 (day 0),185874 of 2946819 (6.31 per cent),uptake_thresholds.csv
+"CI flag: true, 1.27.0: first UTC day with share at or above 10 per cent",2026-04-03 (day 1),340025 of 2607103 (13.04 per cent),uptake_thresholds.csv
+"CI flag: true, 1.27.0: first UTC day with share at or above 25 per cent",not reached (day ), of  ( per cent),uptake_thresholds.csv
+"CI flag: true, 1.27.0: first UTC day with share at or above 50 per cent",not reached (day ), of  ( per cent),uptake_thresholds.csv
+"CI flag: true, 1.27.0: highest daily share in the span read",2026-04-29 (day 27),794048 of 3493846 (22.73 per cent),uptake_thresholds.csv
+"CI flag: false, 1.26.0: first UTC day with any download",2026-01-24 (day 0),162090 of 1232817 (13.15 per cent),uptake_thresholds.csv
+"CI flag: false, 1.26.0: first UTC day with share at or above 10 per cent",2026-01-24 (day 0),162090 of 1232817 (13.15 per cent),uptake_thresholds.csv
+"CI flag: false, 1.26.0: first UTC day with share at or above 25 per cent",2026-01-25 (day 1),903339 of 1343038 (67.26 per cent),uptake_thresholds.csv
+"CI flag: false, 1.26.0: first UTC day with share at or above 50 per cent",2026-01-25 (day 1),903339 of 1343038 (67.26 per cent),uptake_thresholds.csv
+"CI flag: false, 1.26.0: highest daily share in the span read",2026-02-22 (day 29),1378520 of 1897971 (72.63 per cent),uptake_thresholds.csv
+"CI flag: true, 1.26.0: first UTC day with any download",2026-01-24 (day 0),25987 of 353103 (7.36 per cent),uptake_thresholds.csv
+"CI flag: true, 1.26.0: first UTC day with share at or above 10 per cent",2026-01-25 (day 1),139455 of 347269 (40.16 per cent),uptake_thresholds.csv
+"CI flag: true, 1.26.0: first UTC day with share at or above 25 per cent",2026-01-25 (day 1),139455 of 347269 (40.16 per cent),uptake_thresholds.csv
+"CI flag: true, 1.26.0: first UTC day with share at or above 50 per cent",not reached (day ), of  ( per cent),uptake_thresholds.csv
+"CI flag: true, 1.26.0: highest daily share in the span read",2026-02-22 (day 29),218947 of 446732 (49.01 per cent),uptake_thresholds.csv
+"share of mcp 1.25.0 downloads flagged CI, 3 to 22 April",59.61,2712570 of 4550323,mcp_ci_by_version_class.csv
+"share of mcp 1.26.0 downloads flagged CI, 3 to 22 April",48.59,8920844 of 18359190,mcp_ci_by_version_class.csv
+"share of mcp 1.27.0 downloads flagged CI, 3 to 22 April",10.58,9940759 of 93961053,mcp_ci_by_version_class.csv
+"share of mcp other downloads flagged CI, 3 to 22 April",72.9,34233448 of 46957197,mcp_ci_by_version_class.csv
+"share of CI-flagged mcp downloads that were 1.25.0, 3 to 22 April",4.86,2712570 of 55807621,mcp_ci_by_version_class.csv
+"share of CI-flagged mcp downloads that were 1.26.0, 3 to 22 April",15.98,8920844 of 55807621,mcp_ci_by_version_class.csv
+"share of CI-flagged mcp downloads that were 1.27.0, 3 to 22 April",17.81,9940759 of 55807621,mcp_ci_by_version_class.csv
+"share of CI-flagged mcp downloads that were other, 3 to 22 April",61.34,34233448 of 55807621,mcp_ci_by_version_class.csv

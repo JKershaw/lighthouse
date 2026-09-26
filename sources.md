@@ -118,3 +118,29 @@ https://developers.cloudflare.com/radar/
 Live model usage ranked by tokens processed through one API broker. Its population is that broker's developers, not inference generally. Data shown through 24 September 2026 at the check.
 
 https://openrouter.ai/rankings
+
+### S20 PyPI download records
+
+The Python Package Index's public table of file downloads, bigquery-public-data.pypi.file_downloads, one row per file downloaded from PyPI with its version, day and time, and the installer, Python, system and CI flag the client reports; streamed by PyPI's log processor, Linehaul, since 2016. Reading it needs a Google Cloud account. The Python Packaging guide, updated 22 September 2026, calls the counts "highly inaccurate": local caches lower them, mirrors both raise and lower them, and scripts inflate them. A download is not an installation. Pages read 26 September 2026; the table itself was not read. LH005 assesses it in studies/LH005/sources.md.
+
+https://docs.pypi.org/api/bigquery/
+https://packaging.python.org/en/latest/guides/analyzing-pypi-package-downloads/
+
+### S21 ClickPy
+
+ClickHouse's public copy of S20, queryable anonymously in SQL, with daily sums by project, version, installer, file type, Python, system and country. It keeps the day and drops the time of each download, stores an unreported CI flag as not CI, re-ingests days it finds wrong, and one of its tables keeps an arbitrary file type when rows merge (studies/LH005/LH005.md). Its account of the pipeline is ClickHouse's blog of 21 January 2026. Held data to 25 September 2026 when read on 26 September 2026.
+
+https://clickpy.clickhouse.com/
+https://clickhouse.com/blog/clickpy-2-trillion-rows
+
+### S22 PyPI Stats
+
+pypistats.org, operated by the Python Software Foundation: daily download totals per project from S20, with and without mirrors, and by Python version and operating system, but not by release. It keeps 180 days: when read on 26 September 2026 it held 29 March to 25 September 2026. Its "without mirrors" series also drops downloads that name no installer, which its FAQ does not say (studies/LH005/LH005.md).
+
+https://pypistats.org/api/
+
+### S23 pepy.tech
+
+A third-party service giving download totals and, anonymously, per-version daily counts for the last three months: 27 June to 25 September 2026 when read on 26 September 2026. Longer history and CI filtering need a paid key. It calls downloads "installs"; Lighthouse does not.
+
+https://pepy.tech/pepy-api

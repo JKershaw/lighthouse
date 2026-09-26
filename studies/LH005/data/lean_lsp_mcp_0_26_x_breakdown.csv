@@ -1,0 +1,12 @@
+grouping,group,downloads,share_pct,denominator
+installer,uv,39073,97.59,40036
+installer,"mirror or proxy (bandersnatch, devpi, Artifactory, Nexus)",302,0.75,40036
+installer,none recorded,272,0.68,40036
+installer,pip,193,0.48,40036
+installer,Browser,125,0.31,40036
+installer,requests,70,0.17,40036
+installer,"poetry, pdm and other project managers",1,0.0,40036
+ci,false,38623,96.47,40036
+ci,true,1413,3.53,40036
+type,bdist_wheel,39598,98.91,40036
+type,sdist,438,1.09,40036
