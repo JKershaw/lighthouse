@@ -1,0 +1,235 @@
+repo,commit,committed,author_class,author_subclass,file,section,package,change,before,after,packages_changed_in_commit,message_class
+R00,37891f42a4,2026-03-31T20:33:33+00:00,unknown,"no bot marker, not a GitHub noreply address",pyproject.toml,group:dev,logfire,added,,>=3.0.0,2,other
+R00,37891f42a4,2026-03-31T20:33:33+00:00,unknown,"no bot marker, not a GitHub noreply address",pyproject.toml,project,opentelemetry-api,added,,>=1.28.0,2,other
+R01,e7dafccff4,2026-03-26T22:25:00+07:00,unknown,"no bot marker, not a GitHub noreply address",pyproject.toml,project,tree-sitter-language-pack,changed,>=0.10.0,">=0.10.0,<1.0.0",1,dependency-update wording
+R01,85f57ef1bb,2026-03-26T22:53:51+07:00,unknown,"no bot marker, not a GitHub noreply address",pyproject.toml,project,groq,removed,>=0.18.0,,1,dependency-update wording
+R01,70220ef6c5,2026-03-27T11:44:15+07:00,unknown,"no bot marker, not a GitHub noreply address",pyproject.toml,project,together,added,,>=2.5.0,1,other
+R01,e03b732cf3,2026-03-27T23:17:27+07:00,unknown,"no bot marker, not a GitHub noreply address",pyproject.toml,project,tree-sitter-language-pack,changed,">=0.10.0,<1.0.0",">=1.3.3,<2.0.0",1,dependency-update wording
+R01,a7be87b65e,2026-04-02T22:47:32+07:00,unknown,"no bot marker, not a GitHub noreply address",pyproject.toml,project,html-to-markdown,changed,>=2.9.1,">=2.9.1,<3.0.0",1,dependency-update wording
+R01,8a8ae0d378,2026-04-20T23:08:33+07:00,unknown,"no bot marker, not a GitHub noreply address",pyproject.toml,project,a2a-sdk,changed,>=0.3.10,">=0.3.10,<1.0.0",1,other
+R02,b2686c3dd3,2026-03-30T20:47:59+01:00,unknown,"no bot marker, not a GitHub noreply address",pyproject.toml,project,databricks-mcp,added,,>=0.1.0,2,dependency-update wording
+R02,b2686c3dd3,2026-03-30T20:47:59+01:00,unknown,"no bot marker, not a GitHub noreply address",requirements.txt,req,databricks-mcp,added,,>=0.1.0,2,dependency-update wording
+R02,380974f3e0,2026-04-23T00:02:10+01:00,unknown,"no bot marker, not a GitHub noreply address",pyproject.toml,project,mcp,added,,>=1.0.0,1,dependency-update wording
+R03,6eda487de0,2026-04-08T19:00:46+02:00,unknown,"no bot marker, not a GitHub noreply address",pyproject.toml,project,leanclient,changed,==0.9.3,==0.9.4,1,dependency-update wording
+R03,35601f7b30,2026-04-08T20:26:34+02:00,unknown,"no bot marker, not a GitHub noreply address",pyproject.toml,project,mcp,changed,==1.26.0,==1.27.0,1,dependency-update wording
+R04,9e7430aef2,2026-04-14T01:09:17+01:00,unknown,"no bot marker, not a GitHub noreply address",pyproject.toml,project,fastmcp,changed,>=3.0.0,==3.2.3,5,dependency-update wording
+R04,9e7430aef2,2026-04-14T01:09:17+01:00,unknown,"no bot marker, not a GitHub noreply address",pyproject.toml,project,httpx,changed,>=0.28.1,==0.28.1,5,dependency-update wording
+R04,9e7430aef2,2026-04-14T01:09:17+01:00,unknown,"no bot marker, not a GitHub noreply address",pyproject.toml,project,mcp,added,,==1.27.0,5,dependency-update wording
+R04,9e7430aef2,2026-04-14T01:09:17+01:00,unknown,"no bot marker, not a GitHub noreply address",pyproject.toml,project,pydantic,added,,==2.12.5,5,dependency-update wording
+R04,9e7430aef2,2026-04-14T01:09:17+01:00,unknown,"no bot marker, not a GitHub noreply address",pyproject.toml,project,xerparser,changed,>=0.13.9,==0.13.9,5,dependency-update wording
+R05,52a42232ca,2026-03-27T09:53:04+01:00,bot,dependency-update bot,pyproject.toml,project,requests,changed,==2.32.5,==2.33.0,1,dependency-update wording
+R05,fe6aca4de5,2026-03-27T16:56:08+01:00,unknown,"no bot marker, not a GitHub noreply address",pyproject.toml,project,regex,added,,==2026.2.28,1,other
+R05,b5cf58372d,2026-03-29T02:00:19+00:00,bot,dependency-update bot,pyproject.toml,project,cryptography,changed,==46.0.5,==46.0.6,1,dependency-update wording
+R05,e53e487cae,2026-03-31T11:27:11+02:00,unknown,"no bot marker, not a GitHub noreply address",pyproject.toml,project,pystray,changed,>=0.19.5,==0.19.5,1,other
+R05,823d5bbe30,2026-04-01T09:03:00+02:00,unknown,"no bot marker, not a GitHub noreply address",pyproject.toml,extra:dev,pyjwt,changed,==2.10.1,==2.12.0,1,dependency-update wording
+R05,15f1db02d4,2026-04-01T15:07:56+02:00,unknown,"no bot marker, not a GitHub noreply address",pyproject.toml,project,pythonnet,added,,==3.1.0-rc0,1,dependency-update wording
+R05,d9b278c357,2026-04-01T15:09:08+02:00,unknown,"no bot marker, not a GitHub noreply address",pyproject.toml,project,pythonnet,added,,==3.1.0-rc0,1,dependency-update wording
+R05,cd1ce8dc60,2026-04-07T01:54:03+02:00,unknown,"no bot marker, not a GitHub noreply address",pyproject.toml,extra:dev,sphinx-book-theme,added,,==1.1.4,1,release wording
+R05,0ea7a46593,2026-04-07T13:53:36+02:00,unknown,"no bot marker, not a GitHub noreply address",pyproject.toml,extra:dev,sphinx-book-theme,added,,==1.1.4,1,release wording
+R05,a0519d183d,2026-04-08T22:58:26+00:00,bot,dependency-update bot,pyproject.toml,project,cryptography,changed,==46.0.6,==46.0.7,1,dependency-update wording
+R05,d572f48e4c,2026-04-10T17:20:33+02:00,unknown,"no bot marker, not a GitHub noreply address",pyproject.toml,project,oraios-pywebview,added,,==6.2,2,release wording
+R05,d572f48e4c,2026-04-10T17:20:33+02:00,unknown,"no bot marker, not a GitHub noreply address",pyproject.toml,project,pywebview,removed,,,2,release wording
+R05,ab67ecab3b,2026-04-13T08:47:51+02:00,human account,"GitHub noreply address, not marked as bot",pyproject.toml,project,lsprotocol,added,,==2025.0.0,2,dependency-update wording
+R05,ab67ecab3b,2026-04-13T08:47:51+02:00,human account,"GitHub noreply address, not marked as bot",pyproject.toml,project,pygls,added,,==2.1.1,2,dependency-update wording
+R05,a2061c1f4e,2026-04-15T13:35:01+02:00,unknown,"no bot marker, not a GitHub noreply address",pyproject.toml,project,oraios-pywebview,removed,==6.2,,2,release wording
+R05,a2061c1f4e,2026-04-15T13:35:01+02:00,unknown,"no bot marker, not a GitHub noreply address",pyproject.toml,project,pywebview,added,,==6.2,2,release wording
+R05,8691ae3046,2026-04-15T21:21:13+00:00,bot,dependency-update bot,pyproject.toml,project,python-multipart,changed,==0.0.22,==0.0.26,1,dependency-update wording
+R05,8ebe6322f2,2026-04-21T18:12:38+00:00,bot,dependency-update bot,pyproject.toml,extra:dev,nbconvert,changed,==7.17.0,==7.17.1,1,dependency-update wording
+R05,91977532fd,2026-04-22T00:49:41+02:00,unknown,"no bot marker, not a GitHub noreply address",pyproject.toml,extra:dev,nbconvert,removed,==7.17.1,,2,dependency-update wording
+R05,91977532fd,2026-04-22T00:49:41+02:00,unknown,"no bot marker, not a GitHub noreply address",pyproject.toml,extra:dev,nbsphinx,removed,==0.9.7,,2,dependency-update wording
+R06,36e21d88d6,2026-03-27T01:42:01+09:00,human account,"GitHub noreply address, not marked as bot",pyproject.toml,extra:all,plotly,removed,">=5.0.0,<6",,5,other
+R06,36e21d88d6,2026-03-27T01:42:01+09:00,human account,"GitHub noreply address, not marked as bot",pyproject.toml,extra:all,yfinance,removed,">=0.2.30,<1",,5,other
+R06,36e21d88d6,2026-03-27T01:42:01+09:00,human account,"GitHub noreply address, not marked as bot",pyproject.toml,extra:charts,plotly,removed,">=5.0.0,<6",,5,other
+R06,36e21d88d6,2026-03-27T01:42:01+09:00,human account,"GitHub noreply address, not marked as bot",pyproject.toml,extra:event,yfinance,removed,">=0.2.30,<1",,5,other
+R06,36e21d88d6,2026-03-27T01:42:01+09:00,human account,"GitHub noreply address, not marked as bot",pyproject.toml,project,plotly,added,,">=5.0.0,<6",5,other
+R06,2bf5058916,2026-03-27T09:57:00+09:00,human account,"GitHub noreply address, not marked as bot",spaces/requirements.txt,req,gradio,changed,">=5.0,<6",">=6.0,<7",1,other
+R06,029f8ff3ab,2026-03-27T11:03:34+09:00,human account,"GitHub noreply address, not marked as bot",spaces/requirements.txt,req,gradio,removed,">=6.0,<7",,2,other
+R06,029f8ff3ab,2026-03-27T11:03:34+09:00,human account,"GitHub noreply address, not marked as bot",spaces/requirements.txt,req,streamlit,added,,">=1.45,<2",2,other
+R06,c9d6848bd9,2026-03-27T11:20:54+09:00,human account,"GitHub noreply address, not marked as bot",spaces/requirements.txt,req,openpyxl,added,,>=3.1,1,other
+R06,10fa04d892,2026-03-27T11:22:19+09:00,human account,"GitHub noreply address, not marked as bot",spaces/requirements.txt,req,huggingface-hub,added,,>=0.25,1,other
+R06,b247a99f45,2026-03-27T13:57:42+09:00,human account,"GitHub noreply address, not marked as bot",pyproject.toml,project,prompt-toolkit,added,,">=3.0,<4",1,other
+R06,45c738d874,2026-03-27T20:12:41+09:00,human account,"GitHub noreply address, not marked as bot",pyproject.toml,extra:search,duckduckgo-search,added,,">=7.0.0,<8",2,other
+R06,45c738d874,2026-03-27T20:12:41+09:00,human account,"GitHub noreply address, not marked as bot",pyproject.toml,extra:search,tavily-python,added,,">=0.5.0,<1",2,other
+R06,8b3eb28290,2026-03-27T21:47:26+09:00,human account,"GitHub noreply address, not marked as bot",pyproject.toml,extra:ai,dartlab,added,,,54,dependency-update wording
+R06,8b3eb28290,2026-03-27T21:47:26+09:00,human account,"GitHub noreply address, not marked as bot",pyproject.toml,extra:ai,fastapi,removed,">=0.135.1,<1",,54,dependency-update wording
+R06,8b3eb28290,2026-03-27T21:47:26+09:00,human account,"GitHub noreply address, not marked as bot",pyproject.toml,extra:ai,httpx,removed,">=0.28.1,<1",,54,dependency-update wording
+R06,8b3eb28290,2026-03-27T21:47:26+09:00,human account,"GitHub noreply address, not marked as bot",pyproject.toml,extra:ai,msgpack,removed,">=1.1.0,<2",,54,dependency-update wording
+R06,8b3eb28290,2026-03-27T21:47:26+09:00,human account,"GitHub noreply address, not marked as bot",pyproject.toml,extra:ai,sse-starlette,removed,">=2.0.0,<3",,54,dependency-update wording
+R06,8b3eb28290,2026-03-27T21:47:26+09:00,human account,"GitHub noreply address, not marked as bot",pyproject.toml,extra:ai,uvicorn,removed,">=0.30.0,<1",,54,dependency-update wording
+R06,8b3eb28290,2026-03-27T21:47:26+09:00,human account,"GitHub noreply address, not marked as bot",pyproject.toml,extra:all,anthropic,removed,">=0.30.0,<2",,54,dependency-update wording
+R06,8b3eb28290,2026-03-27T21:47:26+09:00,human account,"GitHub noreply address, not marked as bot",pyproject.toml,extra:all,dartlab,added,,,54,dependency-update wording
+R06,8b3eb28290,2026-03-27T21:47:26+09:00,human account,"GitHub noreply address, not marked as bot",pyproject.toml,extra:all,fastapi,removed,">=0.135.1,<1",,54,dependency-update wording
+R06,8b3eb28290,2026-03-27T21:47:26+09:00,human account,"GitHub noreply address, not marked as bot",pyproject.toml,extra:all,httpx,removed,">=0.28.1,<1",,54,dependency-update wording
+R06,8b3eb28290,2026-03-27T21:47:26+09:00,human account,"GitHub noreply address, not marked as bot",pyproject.toml,extra:all,msgpack,removed,">=1.1.0,<2",,54,dependency-update wording
+R06,8b3eb28290,2026-03-27T21:47:26+09:00,human account,"GitHub noreply address, not marked as bot",pyproject.toml,extra:all,networkx,removed,">=3.6.1,<4",,54,dependency-update wording
+R06,8b3eb28290,2026-03-27T21:47:26+09:00,human account,"GitHub noreply address, not marked as bot",pyproject.toml,extra:all,openai,removed,">=1.0.0,<3",,54,dependency-update wording
+R06,8b3eb28290,2026-03-27T21:47:26+09:00,human account,"GitHub noreply address, not marked as bot",pyproject.toml,extra:all,scipy,removed,">=1.17.1,<2",,54,dependency-update wording
+R06,8b3eb28290,2026-03-27T21:47:26+09:00,human account,"GitHub noreply address, not marked as bot",pyproject.toml,extra:all,sse-starlette,removed,">=2.0.0,<3",,54,dependency-update wording
+R06,8b3eb28290,2026-03-27T21:47:26+09:00,human account,"GitHub noreply address, not marked as bot",pyproject.toml,extra:all,uvicorn,removed,">=0.30.0,<1",,54,dependency-update wording
+R06,8b3eb28290,2026-03-27T21:47:26+09:00,human account,"GitHub noreply address, not marked as bot",pyproject.toml,extra:channel,dartlab,removed,,,54,dependency-update wording
+R06,8b3eb28290,2026-03-27T21:47:26+09:00,human account,"GitHub noreply address, not marked as bot",pyproject.toml,extra:channel-ngrok,dartlab,removed,,,54,dependency-update wording
+R06,8b3eb28290,2026-03-27T21:47:26+09:00,human account,"GitHub noreply address, not marked as bot",pyproject.toml,extra:charts,dartlab,added,,,54,dependency-update wording
+R06,8b3eb28290,2026-03-27T21:47:26+09:00,human account,"GitHub noreply address, not marked as bot",pyproject.toml,extra:charts,networkx,removed,">=3.6.1,<4",,54,dependency-update wording
+R06,8b3eb28290,2026-03-27T21:47:26+09:00,human account,"GitHub noreply address, not marked as bot",pyproject.toml,extra:charts,scipy,removed,">=1.17.1,<2",,54,dependency-update wording
+R06,8b3eb28290,2026-03-27T21:47:26+09:00,human account,"GitHub noreply address, not marked as bot",pyproject.toml,extra:display,dartlab,added,,,54,dependency-update wording
+R06,8b3eb28290,2026-03-27T21:47:26+09:00,human account,"GitHub noreply address, not marked as bot",pyproject.toml,extra:display,great-tables,removed,">=0.15.0,<1",,54,dependency-update wording
+R06,8b3eb28290,2026-03-27T21:47:26+09:00,human account,"GitHub noreply address, not marked as bot",pyproject.toml,extra:display,itables,removed,">=2.0.0,<3",,54,dependency-update wording
+R06,8b3eb28290,2026-03-27T21:47:26+09:00,human account,"GitHub noreply address, not marked as bot",pyproject.toml,extra:hf,dartlab,added,,,54,dependency-update wording
+R06,8b3eb28290,2026-03-27T21:47:26+09:00,human account,"GitHub noreply address, not marked as bot",pyproject.toml,extra:hf,huggingface-hub,removed,">=0.20.0,<1",,54,dependency-update wording
+R06,8b3eb28290,2026-03-27T21:47:26+09:00,human account,"GitHub noreply address, not marked as bot",pyproject.toml,extra:llm,dartlab,added,,,54,dependency-update wording
+R06,8b3eb28290,2026-03-27T21:47:26+09:00,human account,"GitHub noreply address, not marked as bot",pyproject.toml,extra:llm,google-genai,removed,">=1.0.0,<2",,54,dependency-update wording
+R06,8b3eb28290,2026-03-27T21:47:26+09:00,human account,"GitHub noreply address, not marked as bot",pyproject.toml,extra:llm,openai,removed,">=1.0.0,<3",,54,dependency-update wording
+R06,8b3eb28290,2026-03-27T21:47:26+09:00,human account,"GitHub noreply address, not marked as bot",pyproject.toml,extra:llm-anthropic,anthropic,removed,">=0.30.0,<2",,54,dependency-update wording
+R06,8b3eb28290,2026-03-27T21:47:26+09:00,human account,"GitHub noreply address, not marked as bot",pyproject.toml,extra:llm-anthropic,dartlab,added,,,54,dependency-update wording
+R06,8b3eb28290,2026-03-27T21:47:26+09:00,human account,"GitHub noreply address, not marked as bot",pyproject.toml,extra:llm-anthropic,google-genai,removed,">=1.0.0,<2",,54,dependency-update wording
+R06,8b3eb28290,2026-03-27T21:47:26+09:00,human account,"GitHub noreply address, not marked as bot",pyproject.toml,extra:llm-anthropic,openai,removed,">=1.0.0,<3",,54,dependency-update wording
+R06,8b3eb28290,2026-03-27T21:47:26+09:00,human account,"GitHub noreply address, not marked as bot",pyproject.toml,extra:mcp,dartlab,added,,,54,dependency-update wording
+R06,8b3eb28290,2026-03-27T21:47:26+09:00,human account,"GitHub noreply address, not marked as bot",pyproject.toml,extra:mcp,mcp,removed,">=1.0,<2",,54,dependency-update wording
+R06,8b3eb28290,2026-03-27T21:47:26+09:00,human account,"GitHub noreply address, not marked as bot",pyproject.toml,extra:search,dartlab,added,,,54,dependency-update wording
+R06,8b3eb28290,2026-03-27T21:47:26+09:00,human account,"GitHub noreply address, not marked as bot",pyproject.toml,extra:search,duckduckgo-search,removed,">=7.0.0,<8",,54,dependency-update wording
+R06,8b3eb28290,2026-03-27T21:47:26+09:00,human account,"GitHub noreply address, not marked as bot",pyproject.toml,extra:search,tavily-python,removed,">=0.5.0,<1",,54,dependency-update wording
+R06,8b3eb28290,2026-03-27T21:47:26+09:00,human account,"GitHub noreply address, not marked as bot",pyproject.toml,group:dev,radon,added,,>=6.0.0,54,dependency-update wording
+R06,8b3eb28290,2026-03-27T21:47:26+09:00,human account,"GitHub noreply address, not marked as bot",pyproject.toml,group:dev,vulture,added,,>=2.0,54,dependency-update wording
+R06,8b3eb28290,2026-03-27T21:47:26+09:00,human account,"GitHub noreply address, not marked as bot",pyproject.toml,project,anthropic,added,,">=0.30.0,<2",54,dependency-update wording
+R06,8b3eb28290,2026-03-27T21:47:26+09:00,human account,"GitHub noreply address, not marked as bot",pyproject.toml,project,duckduckgo-search,added,,">=7.0.0,<8",54,dependency-update wording
+R06,8b3eb28290,2026-03-27T21:47:26+09:00,human account,"GitHub noreply address, not marked as bot",pyproject.toml,project,fastapi,added,,">=0.135.1,<1",54,dependency-update wording
+R06,8b3eb28290,2026-03-27T21:47:26+09:00,human account,"GitHub noreply address, not marked as bot",pyproject.toml,project,google-genai,added,,">=1.0.0,<2",54,dependency-update wording
+R06,8b3eb28290,2026-03-27T21:47:26+09:00,human account,"GitHub noreply address, not marked as bot",pyproject.toml,project,great-tables,added,,">=0.15.0,<1",54,dependency-update wording
+R06,8b3eb28290,2026-03-27T21:47:26+09:00,human account,"GitHub noreply address, not marked as bot",pyproject.toml,project,huggingface-hub,added,,">=0.20.0,<1",54,dependency-update wording
+R06,8b3eb28290,2026-03-27T21:47:26+09:00,human account,"GitHub noreply address, not marked as bot",pyproject.toml,project,itables,added,,">=2.0.0,<3",54,dependency-update wording
+R06,8b3eb28290,2026-03-27T21:47:26+09:00,human account,"GitHub noreply address, not marked as bot",pyproject.toml,project,msgpack,added,,">=1.1.0,<2",54,dependency-update wording
+R06,8b3eb28290,2026-03-27T21:47:26+09:00,human account,"GitHub noreply address, not marked as bot",pyproject.toml,project,networkx,added,,">=3.6.1,<4",54,dependency-update wording
+R06,8b3eb28290,2026-03-27T21:47:26+09:00,human account,"GitHub noreply address, not marked as bot",pyproject.toml,project,openai,added,,">=1.0.0,<3",54,dependency-update wording
+R06,8b3eb28290,2026-03-27T21:47:26+09:00,human account,"GitHub noreply address, not marked as bot",pyproject.toml,project,scipy,added,,">=1.17.1,<2",54,dependency-update wording
+R06,8b3eb28290,2026-03-27T21:47:26+09:00,human account,"GitHub noreply address, not marked as bot",pyproject.toml,project,sse-starlette,added,,">=2.0.0,<3",54,dependency-update wording
+R06,8b3eb28290,2026-03-27T21:47:26+09:00,human account,"GitHub noreply address, not marked as bot",pyproject.toml,project,tavily-python,added,,">=0.5.0,<1",54,dependency-update wording
+R06,8b3eb28290,2026-03-27T21:47:26+09:00,human account,"GitHub noreply address, not marked as bot",pyproject.toml,project,uvicorn,added,,">=0.30.0,<1",54,dependency-update wording
+R06,0f69162e4e,2026-03-28T13:59:36+09:00,human account,"GitHub noreply address, not marked as bot",pyproject.toml,project,textual,added,,">=2.0,<3",1,other
+R06,a29b412aaf,2026-03-29T18:10:38+09:00,human account,"GitHub noreply address, not marked as bot",pyproject.toml,group:dev,hypothesis,added,,>=6.100.0,2,other
+R06,a29b412aaf,2026-03-29T18:10:38+09:00,human account,"GitHub noreply address, not marked as bot",pyproject.toml,group:dev,pytest-benchmark,added,,>=5.0.0,2,other
+R06,fff3b325b2,2026-03-31T06:54:04+09:00,human account,"GitHub noreply address, not marked as bot",pyproject.toml,extra:vector,lancedb,added,,">=0.15.0,<1",2,dependency-update wording
+R06,fff3b325b2,2026-03-31T06:54:04+09:00,human account,"GitHub noreply address, not marked as bot",pyproject.toml,extra:vector,sentence-transformers,added,,">=3.0.0,<4",2,dependency-update wording
+R06,80ecc3408a,2026-03-31T15:27:10+09:00,human account,"GitHub noreply address, not marked as bot",pyproject.toml,extra:vector,turboquant-vectors,added,,">=0.3.0,<1",1,dependency-update wording
+R06,7bddc1dcfa,2026-04-01T07:46:25+09:00,human account,"GitHub noreply address, not marked as bot",pyproject.toml,extra:ai,anthropic,added,,">=0.30.0,<2",24,other
+R06,7bddc1dcfa,2026-04-01T07:46:25+09:00,human account,"GitHub noreply address, not marked as bot",pyproject.toml,extra:ai,dartlab,removed,,,24,other
+R06,7bddc1dcfa,2026-04-01T07:46:25+09:00,human account,"GitHub noreply address, not marked as bot",pyproject.toml,extra:ai,google-genai,added,,">=1.0.0,<2",24,other
+R06,7bddc1dcfa,2026-04-01T07:46:25+09:00,human account,"GitHub noreply address, not marked as bot",pyproject.toml,extra:ai,openai,added,,">=1.0.0,<3",24,other
+R06,7bddc1dcfa,2026-04-01T07:46:25+09:00,human account,"GitHub noreply address, not marked as bot",pyproject.toml,extra:charts,dartlab,removed,,,24,other
+R06,7bddc1dcfa,2026-04-01T07:46:25+09:00,human account,"GitHub noreply address, not marked as bot",pyproject.toml,extra:display,dartlab,removed,,,24,other
+R06,7bddc1dcfa,2026-04-01T07:46:25+09:00,human account,"GitHub noreply address, not marked as bot",pyproject.toml,extra:mcp,dartlab,removed,,,24,other
+R06,7bddc1dcfa,2026-04-01T07:46:25+09:00,human account,"GitHub noreply address, not marked as bot",pyproject.toml,extra:search,dartlab,removed,,,24,other
+R06,7bddc1dcfa,2026-04-01T07:46:25+09:00,human account,"GitHub noreply address, not marked as bot",pyproject.toml,extra:tui,prompt-toolkit,added,,">=3.0,<4",24,other
+R06,7bddc1dcfa,2026-04-01T07:46:25+09:00,human account,"GitHub noreply address, not marked as bot",pyproject.toml,extra:tui,textual,added,,">=2.0,<3",24,other
+R06,7bddc1dcfa,2026-04-01T07:46:25+09:00,human account,"GitHub noreply address, not marked as bot",pyproject.toml,project,alive-progress,removed,">=3.3.0,<4",,24,other
+R06,7bddc1dcfa,2026-04-01T07:46:25+09:00,human account,"GitHub noreply address, not marked as bot",pyproject.toml,project,anthropic,removed,">=0.30.0,<2",,24,other
+R06,7bddc1dcfa,2026-04-01T07:46:25+09:00,human account,"GitHub noreply address, not marked as bot",pyproject.toml,project,google-genai,removed,">=1.0.0,<2",,24,other
+R06,7bddc1dcfa,2026-04-01T07:46:25+09:00,human account,"GitHub noreply address, not marked as bot",pyproject.toml,project,great-tables,removed,">=0.15.0,<1",,24,other
+R06,7bddc1dcfa,2026-04-01T07:46:25+09:00,human account,"GitHub noreply address, not marked as bot",pyproject.toml,project,itables,removed,">=2.0.0,<3",,24,other
+R06,7bddc1dcfa,2026-04-01T07:46:25+09:00,human account,"GitHub noreply address, not marked as bot",pyproject.toml,project,marimo,removed,">=0.20.4,<1",,24,other
+R06,7bddc1dcfa,2026-04-01T07:46:25+09:00,human account,"GitHub noreply address, not marked as bot",pyproject.toml,project,msgpack,removed,">=1.1.0,<2",,24,other
+R06,7bddc1dcfa,2026-04-01T07:46:25+09:00,human account,"GitHub noreply address, not marked as bot",pyproject.toml,project,networkx,removed,">=3.6.1,<4",,24,other
+R06,7bddc1dcfa,2026-04-01T07:46:25+09:00,human account,"GitHub noreply address, not marked as bot",pyproject.toml,project,openai,removed,">=1.0.0,<3",,24,other
+R06,7bddc1dcfa,2026-04-01T07:46:25+09:00,human account,"GitHub noreply address, not marked as bot",pyproject.toml,project,orjson,removed,">=3.10.0,<4",,24,other
+R06,7bddc1dcfa,2026-04-01T07:46:25+09:00,human account,"GitHub noreply address, not marked as bot",pyproject.toml,project,prompt-toolkit,removed,">=3.0,<4",,24,other
+R06,7bddc1dcfa,2026-04-01T07:46:25+09:00,human account,"GitHub noreply address, not marked as bot",pyproject.toml,project,requests,removed,">=2.32.5,<3",,24,other
+R06,7bddc1dcfa,2026-04-01T07:46:25+09:00,human account,"GitHub noreply address, not marked as bot",pyproject.toml,project,scipy,removed,">=1.17.1,<2",,24,other
+R06,7bddc1dcfa,2026-04-01T07:46:25+09:00,human account,"GitHub noreply address, not marked as bot",pyproject.toml,project,textual,removed,">=2.0,<3",,24,other
+R06,caf41df1e4,2026-04-01T16:16:50+09:00,human account,"GitHub noreply address, not marked as bot",pyproject.toml,extra:tui,prompt-toolkit,removed,">=3.0,<4",,6,other
+R06,caf41df1e4,2026-04-01T16:16:50+09:00,human account,"GitHub noreply address, not marked as bot",pyproject.toml,extra:tui,textual,removed,">=2.0,<3",,6,other
+R06,caf41df1e4,2026-04-01T16:16:50+09:00,human account,"GitHub noreply address, not marked as bot",pyproject.toml,extra:ui,dartlab,removed,,,6,other
+R06,caf41df1e4,2026-04-01T16:16:50+09:00,human account,"GitHub noreply address, not marked as bot",pyproject.toml,extra:vector,lancedb,removed,">=0.15.0,<1",,6,other
+R06,caf41df1e4,2026-04-01T16:16:50+09:00,human account,"GitHub noreply address, not marked as bot",pyproject.toml,extra:vector,sentence-transformers,removed,">=3.0.0,<4",,6,other
+R06,caf41df1e4,2026-04-01T16:16:50+09:00,human account,"GitHub noreply address, not marked as bot",pyproject.toml,extra:vector,turboquant-vectors,removed,">=0.3.0,<1",,6,other
+R06,be37845154,2026-04-01T16:47:53+09:00,human account,"GitHub noreply address, not marked as bot",pyproject.toml,extra:ai,google-genai,removed,">=1.0.0,<2",,21,other
+R06,be37845154,2026-04-01T16:47:53+09:00,human account,"GitHub noreply address, not marked as bot",pyproject.toml,extra:ai,openai,removed,">=1.0.0,<3",,21,other
+R06,be37845154,2026-04-01T16:47:53+09:00,human account,"GitHub noreply address, not marked as bot",pyproject.toml,extra:charts,plotly,added,,">=5.0.0,<6",21,other
+R06,be37845154,2026-04-01T16:47:53+09:00,human account,"GitHub noreply address, not marked as bot",pyproject.toml,extra:diff,diff-match-patch,added,,>=20230430,21,other
+R06,be37845154,2026-04-01T16:47:53+09:00,human account,"GitHub noreply address, not marked as bot",pyproject.toml,extra:export,openpyxl,added,,">=3.1.5,<4",21,other
+R06,be37845154,2026-04-01T16:47:53+09:00,human account,"GitHub noreply address, not marked as bot",pyproject.toml,extra:mcp,mcp,added,,>=1.0,21,other
+R06,be37845154,2026-04-01T16:47:53+09:00,human account,"GitHub noreply address, not marked as bot",pyproject.toml,extra:search,tavily-python,added,,">=0.5.0,<1",21,other
+R06,be37845154,2026-04-01T16:47:53+09:00,human account,"GitHub noreply address, not marked as bot",pyproject.toml,extra:server,fastapi,added,,">=0.135.1,<1",21,other
+R06,be37845154,2026-04-01T16:47:53+09:00,human account,"GitHub noreply address, not marked as bot",pyproject.toml,extra:server,sse-starlette,added,,">=2.0.0,<3",21,other
+R06,be37845154,2026-04-01T16:47:53+09:00,human account,"GitHub noreply address, not marked as bot",pyproject.toml,extra:server,uvicorn,added,,">=0.30.0,<1",21,other
+R06,be37845154,2026-04-01T16:47:53+09:00,human account,"GitHub noreply address, not marked as bot",pyproject.toml,project,diff-match-patch,removed,>=20230430,,21,other
+R06,be37845154,2026-04-01T16:47:53+09:00,human account,"GitHub noreply address, not marked as bot",pyproject.toml,project,duckduckgo-search,removed,">=7.0.0,<8",,21,other
+R06,be37845154,2026-04-01T16:47:53+09:00,human account,"GitHub noreply address, not marked as bot",pyproject.toml,project,fastapi,removed,">=0.135.1,<1",,21,other
+R06,be37845154,2026-04-01T16:47:53+09:00,human account,"GitHub noreply address, not marked as bot",pyproject.toml,project,google-genai,added,,">=1.0.0,<2",21,other
+R06,be37845154,2026-04-01T16:47:53+09:00,human account,"GitHub noreply address, not marked as bot",pyproject.toml,project,mcp,removed,>=1.0,,21,other
+R06,be37845154,2026-04-01T16:47:53+09:00,human account,"GitHub noreply address, not marked as bot",pyproject.toml,project,openai,added,,">=1.0.0,<3",21,other
+R06,be37845154,2026-04-01T16:47:53+09:00,human account,"GitHub noreply address, not marked as bot",pyproject.toml,project,openpyxl,removed,">=3.1.5,<4",,21,other
+R06,be37845154,2026-04-01T16:47:53+09:00,human account,"GitHub noreply address, not marked as bot",pyproject.toml,project,plotly,removed,">=5.0.0,<6",,21,other
+R06,be37845154,2026-04-01T16:47:53+09:00,human account,"GitHub noreply address, not marked as bot",pyproject.toml,project,sse-starlette,removed,">=2.0.0,<3",,21,other
+R06,be37845154,2026-04-01T16:47:53+09:00,human account,"GitHub noreply address, not marked as bot",pyproject.toml,project,tavily-python,removed,">=0.5.0,<1",,21,other
+R06,be37845154,2026-04-01T16:47:53+09:00,human account,"GitHub noreply address, not marked as bot",pyproject.toml,project,uvicorn,removed,">=0.30.0,<1",,21,other
+R06,6514cd32ef,2026-04-01T17:06:47+09:00,human account,"GitHub noreply address, not marked as bot",pyproject.toml,extra:altair,altair,removed,">=5.0.0,<6",,19,other
+R06,6514cd32ef,2026-04-01T17:06:47+09:00,human account,"GitHub noreply address, not marked as bot",pyproject.toml,extra:channel,pycloudflared,removed,>=0.3,,19,other
+R06,6514cd32ef,2026-04-01T17:06:47+09:00,human account,"GitHub noreply address, not marked as bot",pyproject.toml,extra:channel-full,dartlab,removed,,,19,other
+R06,6514cd32ef,2026-04-01T17:06:47+09:00,human account,"GitHub noreply address, not marked as bot",pyproject.toml,extra:channel-full,discord-py,removed,">=2.4,<3",,19,other
+R06,6514cd32ef,2026-04-01T17:06:47+09:00,human account,"GitHub noreply address, not marked as bot",pyproject.toml,extra:channel-full,python-telegram-bot,removed,">=21.0,<22",,19,other
+R06,6514cd32ef,2026-04-01T17:06:47+09:00,human account,"GitHub noreply address, not marked as bot",pyproject.toml,extra:channel-full,slack-bolt,removed,">=1.18,<2",,19,other
+R06,6514cd32ef,2026-04-01T17:06:47+09:00,human account,"GitHub noreply address, not marked as bot",pyproject.toml,extra:channel-ngrok,pyngrok,removed,">=7.0,<8",,19,other
+R06,6514cd32ef,2026-04-01T17:06:47+09:00,human account,"GitHub noreply address, not marked as bot",pyproject.toml,extra:charts,plotly,removed,">=5.0.0,<6",,19,other
+R06,6514cd32ef,2026-04-01T17:06:47+09:00,human account,"GitHub noreply address, not marked as bot",pyproject.toml,extra:diff,diff-match-patch,removed,>=20230430,,19,other
+R06,6514cd32ef,2026-04-01T17:06:47+09:00,human account,"GitHub noreply address, not marked as bot",pyproject.toml,extra:export,openpyxl,removed,">=3.1.5,<4",,19,other
+R06,6514cd32ef,2026-04-01T17:06:47+09:00,human account,"GitHub noreply address, not marked as bot",pyproject.toml,extra:hf,dartlab,removed,,,19,other
+R06,6514cd32ef,2026-04-01T17:06:47+09:00,human account,"GitHub noreply address, not marked as bot",pyproject.toml,extra:llm,dartlab,removed,,,19,other
+R06,6514cd32ef,2026-04-01T17:06:47+09:00,human account,"GitHub noreply address, not marked as bot",pyproject.toml,extra:llm-anthropic,dartlab,removed,,,19,other
+R06,6514cd32ef,2026-04-01T17:06:47+09:00,human account,"GitHub noreply address, not marked as bot",pyproject.toml,extra:mcp,mcp,removed,>=1.0,,19,other
+R06,6514cd32ef,2026-04-01T17:06:47+09:00,human account,"GitHub noreply address, not marked as bot",pyproject.toml,extra:search,tavily-python,removed,">=0.5.0,<1",,19,other
+R06,6514cd32ef,2026-04-01T17:06:47+09:00,human account,"GitHub noreply address, not marked as bot",pyproject.toml,extra:server,mcp,added,,>=1.0,19,other
+R06,6514cd32ef,2026-04-01T17:06:47+09:00,human account,"GitHub noreply address, not marked as bot",pyproject.toml,extra:viz,plotly,added,,">=5.0.0,<6",19,other
+R06,6514cd32ef,2026-04-01T17:06:47+09:00,human account,"GitHub noreply address, not marked as bot",pyproject.toml,project,diff-match-patch,added,,>=20230430,19,other
+R06,6514cd32ef,2026-04-01T17:06:47+09:00,human account,"GitHub noreply address, not marked as bot",pyproject.toml,project,openpyxl,added,,">=3.1.5,<4",19,other
+R06,2596d10437,2026-04-02T16:45:40+09:00,human account,"GitHub noreply address, not marked as bot",pyproject.toml,project,marimo,added,,>=0.22.0,1,other
+R06,1ff328249a,2026-04-02T17:01:54+09:00,human account,"GitHub noreply address, not marked as bot",pyproject.toml,project,numpy,added,,">=1.26.0,<3",1,other
+R06,b24019d89e,2026-04-06T09:03:00+09:00,human account,"GitHub noreply address, not marked as bot",spaces/requirements.txt,req,dartlab,removed,>=0.7.8,,4,other
+R06,b24019d89e,2026-04-06T09:03:00+09:00,human account,"GitHub noreply address, not marked as bot",spaces/requirements.txt,req,huggingface-hub,removed,>=0.25,,4,other
+R06,b24019d89e,2026-04-06T09:03:00+09:00,human account,"GitHub noreply address, not marked as bot",spaces/requirements.txt,req,openpyxl,removed,>=3.1,,4,other
+R06,b24019d89e,2026-04-06T09:03:00+09:00,human account,"GitHub noreply address, not marked as bot",spaces/requirements.txt,req,streamlit,removed,">=1.45,<2",,4,other
+R06,cb4f21362b,2026-04-06T23:20:33+09:00,human account,"GitHub noreply address, not marked as bot",pyproject.toml,extra:server,pycloudflared,added,,">=0.3,<1",2,other
+R06,cb4f21362b,2026-04-06T23:20:33+09:00,human account,"GitHub noreply address, not marked as bot",pyproject.toml,extra:server,qrcode,added,,">=7.0,<9",2,other
+R06,42b9952044,2026-04-07T02:20:42+09:00,human account,"GitHub noreply address, not marked as bot",pyproject.toml,extra:server,pycloudflared,removed,">=0.3,<1",,1,release wording
+R06,454efcc9c6,2026-04-10T00:20:03+09:00,human account,"GitHub noreply address, not marked as bot",pyproject.toml,extra:ai,anthropic,removed,">=0.30.0,<2",,15,dependency-update wording
+R06,454efcc9c6,2026-04-10T00:20:03+09:00,human account,"GitHub noreply address, not marked as bot",pyproject.toml,extra:all,dartlab,removed,,,15,dependency-update wording
+R06,454efcc9c6,2026-04-10T00:20:03+09:00,human account,"GitHub noreply address, not marked as bot",pyproject.toml,extra:server,fastapi,removed,">=0.135.1,<1",,15,dependency-update wording
+R06,454efcc9c6,2026-04-10T00:20:03+09:00,human account,"GitHub noreply address, not marked as bot",pyproject.toml,extra:server,mcp,removed,>=1.0,,15,dependency-update wording
+R06,454efcc9c6,2026-04-10T00:20:03+09:00,human account,"GitHub noreply address, not marked as bot",pyproject.toml,extra:server,qrcode,removed,">=7.0,<9",,15,dependency-update wording
+R06,454efcc9c6,2026-04-10T00:20:03+09:00,human account,"GitHub noreply address, not marked as bot",pyproject.toml,extra:server,sse-starlette,removed,">=2.0.0,<3",,15,dependency-update wording
+R06,454efcc9c6,2026-04-10T00:20:03+09:00,human account,"GitHub noreply address, not marked as bot",pyproject.toml,extra:server,uvicorn,removed,">=0.30.0,<1",,15,dependency-update wording
+R06,454efcc9c6,2026-04-10T00:20:03+09:00,human account,"GitHub noreply address, not marked as bot",pyproject.toml,extra:viz,plotly,removed,">=5.0.0,<6",,15,dependency-update wording
+R06,454efcc9c6,2026-04-10T00:20:03+09:00,human account,"GitHub noreply address, not marked as bot",pyproject.toml,project,anthropic,added,,">=0.30.0,<2",15,dependency-update wording
+R06,454efcc9c6,2026-04-10T00:20:03+09:00,human account,"GitHub noreply address, not marked as bot",pyproject.toml,project,fastapi,added,,">=0.135.1,<1",15,dependency-update wording
+R06,454efcc9c6,2026-04-10T00:20:03+09:00,human account,"GitHub noreply address, not marked as bot",pyproject.toml,project,mcp,added,,>=1.0,15,dependency-update wording
+R06,454efcc9c6,2026-04-10T00:20:03+09:00,human account,"GitHub noreply address, not marked as bot",pyproject.toml,project,plotly,added,,">=5.0.0,<6",15,dependency-update wording
+R06,454efcc9c6,2026-04-10T00:20:03+09:00,human account,"GitHub noreply address, not marked as bot",pyproject.toml,project,qrcode,added,,">=7.0,<9",15,dependency-update wording
+R06,454efcc9c6,2026-04-10T00:20:03+09:00,human account,"GitHub noreply address, not marked as bot",pyproject.toml,project,sse-starlette,added,,">=2.0.0,<3",15,dependency-update wording
+R06,454efcc9c6,2026-04-10T00:20:03+09:00,human account,"GitHub noreply address, not marked as bot",pyproject.toml,project,uvicorn,added,,">=0.30.0,<1",15,dependency-update wording
+R06,761d5e749d,2026-04-13T07:52:50+09:00,human account,"GitHub noreply address, not marked as bot",pyproject.toml,extra:pyodide,diff-match-patch,added,,>=20230430,2,other
+R06,761d5e749d,2026-04-13T07:52:50+09:00,human account,"GitHub noreply address, not marked as bot",pyproject.toml,extra:pyodide,openpyxl,added,,">=3.1.5,<4",2,other
+R06,54b933011e,2026-04-13T14:32:29+09:00,human account,"GitHub noreply address, not marked as bot",pyproject.toml,extra:pyodide,diff-match-patch,removed,>=20230430,,2,other
+R06,54b933011e,2026-04-13T14:32:29+09:00,human account,"GitHub noreply address, not marked as bot",pyproject.toml,extra:pyodide,openpyxl,removed,">=3.1.5,<4",,2,other
+R06,3b4fa3d1b0,2026-04-13T22:57:18+09:00,human account,"GitHub noreply address, not marked as bot",pyproject.toml,project,httpx,changed,">=0.28.1,<1",,7,other
+R06,3b4fa3d1b0,2026-04-13T22:57:18+09:00,human account,"GitHub noreply address, not marked as bot",pyproject.toml,project,lxml,changed,">=6.0.2,<7",,7,other
+R06,3b4fa3d1b0,2026-04-13T22:57:18+09:00,human account,"GitHub noreply address, not marked as bot",pyproject.toml,project,marimo,changed,>=0.22.0,>=0.23.1,7,other
+R06,3b4fa3d1b0,2026-04-13T22:57:18+09:00,human account,"GitHub noreply address, not marked as bot",pyproject.toml,project,numpy,changed,">=1.26.0,<3",,7,other
+R06,3b4fa3d1b0,2026-04-13T22:57:18+09:00,human account,"GitHub noreply address, not marked as bot",pyproject.toml,project,polars,changed,">=1.0.0,<2",,7,other
+R06,3b4fa3d1b0,2026-04-13T22:57:18+09:00,human account,"GitHub noreply address, not marked as bot",pyproject.toml,project,pyarrow,added,,,7,other
+R06,3b4fa3d1b0,2026-04-13T22:57:18+09:00,human account,"GitHub noreply address, not marked as bot",pyproject.toml,project,rich,changed,">=14.3.3,<15",,7,other
+R06,3fba7f2dd7,2026-04-20T04:44:46+09:00,human account,"GitHub noreply address, not marked as bot",pyproject.toml,group:dev,networkx,added,,>=3.0,1,dependency-update wording
+R06,f479da0321,2026-04-21T10:03:17+09:00,human account,"GitHub noreply address, not marked as bot",pyproject.toml,project,plotext,added,,">=5.2.8,<6",1,other
+R07,6a50d1d521,2026-03-26T10:11:34+01:00,unknown,"no bot marker, not a GitHub noreply address",pyproject.toml,project,mistralai,changed,==2.0.0,==2.1.3,1,release wording
+R07,54b9a17457,2026-03-31T16:28:55+02:00,unknown,"no bot marker, not a GitHub noreply address",pyproject.toml,project,agent-client-protocol,changed,==0.8.1,==0.9.0,1,release wording
+R07,e9a9217cc8,2026-04-09T18:40:46+02:00,unknown,"no bot marker, not a GitHub noreply address",pyproject.toml,group:dev,pyinstrument,added,,>=5.1.2,1,release wording
+R07,e1a25caa52,2026-04-14T10:33:15+02:00,unknown,"no bot marker, not a GitHub noreply address",pyproject.toml,project,charset-normalizer,added,,>=3.4.4,3,release wording
+R07,e1a25caa52,2026-04-14T10:33:15+02:00,unknown,"no bot marker, not a GitHub noreply address",pyproject.toml,project,jsonpatch,added,,>=1.33,3,release wording
+R07,e1a25caa52,2026-04-14T10:33:15+02:00,unknown,"no bot marker, not a GitHub noreply address",pyproject.toml,project,textual,changed,>=8.1.1,>=8.2.1,3,release wording
+R07,95336528f6,2026-04-16T11:10:26+02:00,unknown,"no bot marker, not a GitHub noreply address",pyproject.toml,project,mistralai,changed,==2.1.3,==2.3.2,1,release wording
+R08,a8b30bd0fc,2026-03-29T18:09:11+02:00,unknown,"no bot marker, not a GitHub noreply address",requirements.txt,req,sentry-sdk,changed,==2.51.0,==2.56.0,1,dependency-update wording
+R08,37e5e67bba,2026-03-29T22:36:38+02:00,unknown,"no bot marker, not a GitHub noreply address",infra/node/requirements.txt,req,ansible-core,added,,">=2.16,<2.18",1,dependency-update wording
+R08,5288460f4e,2026-04-09T09:14:49+02:00,unknown,"no bot marker, not a GitHub noreply address",packages/node/requirements.txt,req,dbos,changed,==2.15.0,==2.17.0,1,other
+R08,07bb29b010,2026-04-14T15:50:11+02:00,unknown,"no bot marker, not a GitHub noreply address",infra/node/requirements.txt,req,ansible-core,removed,">=2.16,<2.18",,2,other
+R08,07bb29b010,2026-04-14T15:50:11+02:00,unknown,"no bot marker, not a GitHub noreply address",infra/sync/requirements.txt,req,ansible-core,removed,">=2.16,<2.18",,2,other
+R08,194276b1eb,2026-04-15T22:17:40+02:00,unknown,"no bot marker, not a GitHub noreply address",extra_requirements.txt,req,aiohttp-socks,added,,==0.11.0,1,other
+R08,f1a0bfd3bb,2026-04-21T23:00:16+02:00,unknown,"no bot marker, not a GitHub noreply address",packages/sync/full_requirements.txt,req,starfish-server,changed,==1.1.0,==1.18.1,2,dependency-update wording
+R08,f1a0bfd3bb,2026-04-21T23:00:16+02:00,unknown,"no bot marker, not a GitHub noreply address",packages/sync/requirements.txt,req,starfish-sdk,changed,==1.1.1,==1.18.1,2,dependency-update wording
+R09,5a7c0c03be,2026-04-16T19:37:44+03:30,unknown,"no bot marker, not a GitHub noreply address",requirements.txt,req,matplotlib,added,,~=3.10.3,1,other

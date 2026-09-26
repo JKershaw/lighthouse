@@ -1,0 +1,21 @@
+repo,at,commit,manifests,mcp_requirements,locked_mcp
+R00,start,98f8ef295a,20,examples/clients/simple-auth-client/pyproject.toml[project]: mcp; examples/clients/simple-chatbot/mcp_simple_chatbot/requirements.txt[req]: mcp>=1.0.0; examples/clients/simple-chatbot/pyproject.toml[project]: mcp; examples/clients/simple-task-client/pyproject.toml[project]: mcp; examples/clients/simple-task-interactive-client/pyproject.toml[project]: mcp; examples/clients/sse-polling-client/pyproject.toml[project]: mcp; examples/servers/everything-server/pyproject.toml[project]: mcp; examples/servers/simple-auth/pyproject.toml[project]: mcp; examples/servers/simple-pagination/pyproject.toml[project]: mcp; examples/servers/simple-prompt/pyproject.toml[project]: mcp; examples/servers/simple-resource/pyproject.toml[project]: mcp; examples/servers/simple-streamablehttp-stateless/pyproject.toml[project]: mcp; examples/servers/simple-streamablehttp/pyproject.toml[project]: mcp; examples/servers/simple-task-interactive/pyproject.toml[project]: mcp; examples/servers/simple-task/pyproject.toml[project]: mcp; examples/servers/simple-tool/pyproject.toml[project]: mcp; examples/servers/sse-polling-demo/pyproject.toml[project]: mcp; examples/servers/structured-output-lowlevel/pyproject.toml[project]: mcp; examples/snippets/pyproject.toml[project]: mcp; pyproject.toml[group:dev]: mcp,uv.lock: absent
+R00,end,3d7b311de0,20,examples/clients/simple-auth-client/pyproject.toml[project]: mcp; examples/clients/simple-chatbot/mcp_simple_chatbot/requirements.txt[req]: mcp>=1.0.0; examples/clients/simple-chatbot/pyproject.toml[project]: mcp; examples/clients/simple-task-client/pyproject.toml[project]: mcp; examples/clients/simple-task-interactive-client/pyproject.toml[project]: mcp; examples/clients/sse-polling-client/pyproject.toml[project]: mcp; examples/servers/everything-server/pyproject.toml[project]: mcp; examples/servers/simple-auth/pyproject.toml[project]: mcp; examples/servers/simple-pagination/pyproject.toml[project]: mcp; examples/servers/simple-prompt/pyproject.toml[project]: mcp; examples/servers/simple-resource/pyproject.toml[project]: mcp; examples/servers/simple-streamablehttp-stateless/pyproject.toml[project]: mcp; examples/servers/simple-streamablehttp/pyproject.toml[project]: mcp; examples/servers/simple-task-interactive/pyproject.toml[project]: mcp; examples/servers/simple-task/pyproject.toml[project]: mcp; examples/servers/simple-tool/pyproject.toml[project]: mcp; examples/servers/sse-polling-demo/pyproject.toml[project]: mcp; examples/servers/structured-output-lowlevel/pyproject.toml[project]: mcp; examples/snippets/pyproject.toml[project]: mcp; pyproject.toml[group:dev]: mcp,uv.lock: absent
+R01,start,67325d713b,2,pyproject.toml[project]: mcp>=1.24.0,uv.lock: 1.25.0
+R01,end,42a774ec15,2,pyproject.toml[project]: mcp>=1.24.0,uv.lock: 1.26.0
+R02,start,5509330696,6,,uv.lock: absent
+R02,end,246984c1e1,6,pyproject.toml[project]: mcp>=1.0.0,uv.lock: 1.27.0
+R03,start,b19f256575,1,pyproject.toml[project]: mcp==1.26.0,uv.lock: 1.26.0
+R03,end,135997851a,1,pyproject.toml[project]: mcp==1.27.0,uv.lock: 1.27.0
+R04,start,,,,
+R04,end,1bd81250ab,1,pyproject.toml[project]: mcp==1.27.0,uv.lock: 1.27.0
+R05,start,8c62b0d991,2,pyproject.toml[project]: mcp==1.26.0,uv.lock: 1.26.0
+R05,end,1beb2523f7,2,pyproject.toml[project]: mcp==1.26.0,uv.lock: 1.26.0
+R06,start,3c50a67a9d,4,"pyproject.toml[project]: mcp>=1.0; pyproject.toml[extra:mcp]: mcp>=1.0,<2",uv.lock: 1.26.0
+R06,end,0a31884669,4,pyproject.toml[project]: mcp>=1.0,uv.lock: 1.27.0
+R07,start,5ea69b547b,1,pyproject.toml[project]: mcp>=1.14.0,uv.lock: 1.26.0
+R07,end,a83c81ecf5,1,pyproject.toml[project]: mcp>=1.14.0,uv.lock: 1.26.0
+R08,start,1f7c1fa1c7,24,packages/services/full_requirements.txt[req]: mcp==1.26.0,
+R08,end,e8b34de1f3,24,packages/services/full_requirements.txt[req]: mcp==1.26.0,
+R09,start,949dd9ba5d,2,,
+R09,end,6491627fb9,2,,

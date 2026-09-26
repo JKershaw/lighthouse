@@ -1,0 +1,21 @@
+repo,package,at,version,mcp_relation,mcp_resolved,mcp_requirement,nodes,direct,cohort_nodes,error
+R00,mcp,start,1.26.0,SELF,1.26.0,,29,13,,
+R00,mcp,end,1.27.0,SELF,1.27.0,,29,13,,
+R01,agentcrew-ai,start,0.11.1,DIRECT,2.2.0,>=1.24.0,147,32,R00:2.2.0:DIRECT,
+R01,agentcrew-ai,end,0.13.0,DIRECT,2.2.0,>=1.24.0,151,32,R00:2.2.0:DIRECT,
+R02,databricks-tellr-app,start,0.2.7,,,,182,35,,
+R02,databricks-tellr-app,end,0.2.7,,,,182,35,,
+R03,lean-lsp-mcp,start,0.25.1,DIRECT,1.26.0,==1.26.0,41,4,R00:1.26.0:DIRECT,
+R03,lean-lsp-mcp,end,0.26.1,DIRECT,1.27.0,==1.27.0,41,4,R00:1.27.0:DIRECT,
+R04,pyp6xer-mcp,start,1.0.0,DIRECT,2.2.0,>=1.0.0,30,3,R00:2.2.0:DIRECT,
+R04,pyp6xer-mcp,end,1.1.0,DIRECT,2.2.0,>=1.0.0,33,5,R00:2.2.0:DIRECT,
+R05,serena-agent,start,0.1.4,DIRECT,1.12.3,==1.12.3,57,20,R00:1.12.3:DIRECT,
+R05,serena-agent,end,1.1.2,DIRECT,1.26.0,==1.26.0,74,33,R00:1.26.0:DIRECT,
+R06,dartlab,start,0.7.9,DIRECT,2.2.0,>=1.0,71,12,R00:2.2.0:DIRECT,
+R06,dartlab,end,0.9.19,DIRECT,1.30.0,>=1.0,91,20,R00:1.30.0:DIRECT,
+R07,mistral-vibe,start,2.6.2,DIRECT,2.2.0,>=1.14.0,90,34,R00:2.2.0:DIRECT,
+R07,mistral-vibe,end,2.8.1,DIRECT,2.2.0,>=1.14.0,93,36,R00:2.2.0:DIRECT,
+R08,octobot,start,2.1.0,DIRECT,1.26.0,==1.26.0,187,62,R00:1.26.0:DIRECT,
+R08,octobot,end,2.1.1,DIRECT,1.26.0,==1.26.0,190,65,R00:1.26.0:DIRECT,
+R09,jesse,start,1.13.7,,,,1,0,,missing operator in `not in3.13`
+R09,jesse,end,1.13.11,,,,1,0,,missing operator in `not in3.13`

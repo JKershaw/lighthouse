@@ -1,0 +1,393 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1040 728" width="1040" height="728" role="img" aria-labelledby="tm-title tm-desc">
+<style>
+  svg { --bg:#fcfcfb; --ink:#0b0b0b; --ink2:#52514e; --muted:#898781; --grid:#e4e3df; --zero:#f0efec;
+        --b1:#86b6ef; --b2:#5598e7; --b3:#2a78d6; --b4:#1c5cab; --b5:#104281; --b6:#0d366b; --acc:#eb6834; --blue:#2a78d6; }
+  @media (prefers-color-scheme: dark) {
+    svg { --bg:#1a1a19; --ink:#ffffff; --ink2:#c3c2b7; --muted:#898781; --grid:#383835; --zero:#2a2a28;
+          --b1:#184f95; --b2:#1c5cab; --b3:#256abf; --b4:#3987e5; --b5:#6da7ec; --b6:#9ec5f4; --acc:#d95926; --blue:#3987e5; } }
+  text { font-family: system-ui, -apple-system, "Segoe UI", sans-serif; fill: var(--ink); }
+  .t2 { fill: var(--ink2); } .mu { fill: var(--muted); } .bg { fill: var(--bg); }
+</style>
+<defs><pattern id="hatch" width="6" height="6" patternUnits="userSpaceOnUse" patternTransform="rotate(45)"><line x1="0" y1="0" x2="0" y2="6" stroke="var(--muted)" stroke-width="1.5"/></pattern></defs>
+<rect class="bg" x="0" y="0" width="1040" height="728"/>
+<title id="tm-title">LH002 time map: ten repositories, 26 March to 22 April 2026</title>
+<desc id="tm-desc">One lane per repository. Each cell is one UTC day, shaded by commits that day from git. An orange line marks mcp 1.27.0 on PyPI; diamonds mark days with a manifest dependency change; orange dots mark the moment a repository's manifest or lockfile first holds mcp 1.27.0.</desc>
+<text x="16" y="30" font-size="17" font-weight="600">Time map: commits by day, the library release and dependency changes</text>
+<text x="16" y="52" font-size="12.5" class="t2">Ten GitHub repositories (the mcp library and nine PyPI dependents), 26 March to 22 April 2026, UTC days. Git history read 26 September 2026.</text>
+<text x="263.5" y="92" font-size="11" text-anchor="middle" class="mu">26 Mar</text>
+<line x1="250" y1="100" x2="250" y2="572" stroke="var(--grid)" stroke-width="1"/>
+<text x="452.5" y="92" font-size="11" text-anchor="middle" class="mu">02 Apr</text>
+<line x1="439" y1="100" x2="439" y2="572" stroke="var(--grid)" stroke-width="1"/>
+<text x="641.5" y="92" font-size="11" text-anchor="middle" class="mu">09 Apr</text>
+<line x1="628" y1="100" x2="628" y2="572" stroke="var(--grid)" stroke-width="1"/>
+<text x="830.5" y="92" font-size="11" text-anchor="middle" class="mu">16 Apr</text>
+<line x1="817" y1="100" x2="817" y2="572" stroke="var(--grid)" stroke-width="1"/>
+<text x="992.5" y="92" font-size="11" text-anchor="middle" class="mu">22 Apr</text>
+<line x1="979" y1="100" x2="979" y2="572" stroke="var(--grid)" stroke-width="1"/>
+<text x="16" y="135" font-size="12.5" font-weight="600">R00 python-sdk (mcp, library)</text>
+<text x="16" y="151" font-size="11" class="mu">95 commits, 28 observed days</text>
+<rect x="251" y="122" width="25" height="26" rx="4" fill="var(--b5)"><title>R00 2026-03-26: 32 commits; +3129/-525 lines outside lockfiles; 0 manifest dependency changes</title></rect>
+<rect x="278" y="122" width="25" height="26" rx="4" fill="var(--b4)"><title>R00 2026-03-27: 17 commits; +898/-465 lines outside lockfiles; 0 manifest dependency changes</title></rect>
+<rect x="305" y="122" width="25" height="26" rx="4" fill="var(--zero)"><title>R00 2026-03-28: 0 commits; +0/-0 lines outside lockfiles; 0 manifest dependency changes</title></rect>
+<rect x="332" y="122" width="25" height="26" rx="4" fill="var(--zero)"><title>R00 2026-03-29: 0 commits; +0/-0 lines outside lockfiles; 0 manifest dependency changes</title></rect>
+<rect x="359" y="122" width="25" height="26" rx="4" fill="var(--zero)"><title>R00 2026-03-30: 0 commits; +0/-0 lines outside lockfiles; 0 manifest dependency changes</title></rect>
+<rect x="386" y="122" width="25" height="26" rx="4" fill="var(--b2)"><title>R00 2026-03-31: 4 commits; +616/-190 lines outside lockfiles; 2 manifest dependency changes</title></rect>
+<path d="M398.5 151 L403.5 156 L398.5 161 L393.5 156 Z" fill="var(--ink2)"><title>R00 2026-03-31: 4 commits; +616/-190 lines outside lockfiles; 2 manifest dependency changes</title></path>
+<rect x="413" y="122" width="25" height="26" rx="4" fill="var(--zero)"><title>R00 2026-04-01: 0 commits; +0/-0 lines outside lockfiles; 0 manifest dependency changes</title></rect>
+<rect x="440" y="122" width="25" height="26" rx="4" fill="var(--b2)"><title>R00 2026-04-02: 3 commits; +200/-145 lines outside lockfiles; 0 manifest dependency changes</title></rect>
+<rect x="467" y="122" width="25" height="26" rx="4" fill="var(--b3)"><title>R00 2026-04-03: 6 commits; +893/-82 lines outside lockfiles; 0 manifest dependency changes</title></rect>
+<rect x="494" y="122" width="25" height="26" rx="4" fill="var(--zero)"><title>R00 2026-04-04: 0 commits; +0/-0 lines outside lockfiles; 0 manifest dependency changes</title></rect>
+<rect x="521" y="122" width="25" height="26" rx="4" fill="var(--zero)"><title>R00 2026-04-05: 0 commits; +0/-0 lines outside lockfiles; 0 manifest dependency changes</title></rect>
+<rect x="548" y="122" width="25" height="26" rx="4" fill="var(--zero)"><title>R00 2026-04-06: 0 commits; +0/-0 lines outside lockfiles; 0 manifest dependency changes</title></rect>
+<rect x="575" y="122" width="25" height="26" rx="4" fill="var(--zero)"><title>R00 2026-04-07: 0 commits; +0/-0 lines outside lockfiles; 0 manifest dependency changes</title></rect>
+<rect x="602" y="122" width="25" height="26" rx="4" fill="var(--b1)"><title>R00 2026-04-08: 1 commits; +50/-22 lines outside lockfiles; 0 manifest dependency changes</title></rect>
+<rect x="629" y="122" width="25" height="26" rx="4" fill="var(--b1)"><title>R00 2026-04-09: 1 commits; +235/-5 lines outside lockfiles; 0 manifest dependency changes</title></rect>
+<rect x="656" y="122" width="25" height="26" rx="4" fill="var(--zero)"><title>R00 2026-04-10: 0 commits; +0/-0 lines outside lockfiles; 0 manifest dependency changes</title></rect>
+<rect x="683" y="122" width="25" height="26" rx="4" fill="var(--zero)"><title>R00 2026-04-11: 0 commits; +0/-0 lines outside lockfiles; 0 manifest dependency changes</title></rect>
+<rect x="710" y="122" width="25" height="26" rx="4" fill="var(--b1)"><title>R00 2026-04-12: 2 commits; +170/-185 lines outside lockfiles; 0 manifest dependency changes</title></rect>
+<rect x="737" y="122" width="25" height="26" rx="4" fill="var(--b2)"><title>R00 2026-04-13: 5 commits; +360/-183 lines outside lockfiles; 0 manifest dependency changes</title></rect>
+<rect x="764" y="122" width="25" height="26" rx="4" fill="var(--b1)"><title>R00 2026-04-14: 2 commits; +447/-66 lines outside lockfiles; 0 manifest dependency changes</title></rect>
+<rect x="791" y="122" width="25" height="26" rx="4" fill="var(--zero)"><title>R00 2026-04-15: 0 commits; +0/-0 lines outside lockfiles; 0 manifest dependency changes</title></rect>
+<rect x="818" y="122" width="25" height="26" rx="4" fill="var(--b4)"><title>R00 2026-04-16: 16 commits; +3380/-369 lines outside lockfiles; 0 manifest dependency changes</title></rect>
+<rect x="845" y="122" width="25" height="26" rx="4" fill="var(--zero)"><title>R00 2026-04-17: 0 commits; +0/-0 lines outside lockfiles; 0 manifest dependency changes</title></rect>
+<rect x="872" y="122" width="25" height="26" rx="4" fill="var(--zero)"><title>R00 2026-04-18: 0 commits; +0/-0 lines outside lockfiles; 0 manifest dependency changes</title></rect>
+<rect x="899" y="122" width="25" height="26" rx="4" fill="var(--zero)"><title>R00 2026-04-19: 0 commits; +0/-0 lines outside lockfiles; 0 manifest dependency changes</title></rect>
+<rect x="926" y="122" width="25" height="26" rx="4" fill="var(--b2)"><title>R00 2026-04-20: 5 commits; +662/-81 lines outside lockfiles; 0 manifest dependency changes</title></rect>
+<rect x="953" y="122" width="25" height="26" rx="4" fill="var(--zero)"><title>R00 2026-04-21: 0 commits; +0/-0 lines outside lockfiles; 0 manifest dependency changes</title></rect>
+<rect x="980" y="122" width="25" height="26" rx="4" fill="var(--b1)"><title>R00 2026-04-22: 1 commits; +122/-2 lines outside lockfiles; 0 manifest dependency changes</title></rect>
+<text x="16" y="181" font-size="12.5" font-weight="400">R01 agentcrew</text>
+<text x="16" y="197" font-size="11" class="mu">97 commits, 28 observed days</text>
+<rect x="251" y="168" width="25" height="26" rx="4" fill="var(--b3)"><title>R01 2026-03-26: 6 commits; +196/-900 lines outside lockfiles; 2 manifest dependency changes</title></rect>
+<path d="M263.5 197 L268.5 202 L263.5 207 L258.5 202 Z" fill="var(--ink2)"><title>R01 2026-03-26: 6 commits; +196/-900 lines outside lockfiles; 2 manifest dependency changes</title></path>
+<rect x="278" y="168" width="25" height="26" rx="4" fill="var(--b3)"><title>R01 2026-03-27: 7 commits; +2159/-344 lines outside lockfiles; 2 manifest dependency changes</title></rect>
+<path d="M290.5 197 L295.5 202 L290.5 207 L285.5 202 Z" fill="var(--ink2)"><title>R01 2026-03-27: 7 commits; +2159/-344 lines outside lockfiles; 2 manifest dependency changes</title></path>
+<rect x="305" y="168" width="25" height="26" rx="4" fill="var(--b1)"><title>R01 2026-03-28: 1 commits; +553/-325 lines outside lockfiles; 0 manifest dependency changes</title></rect>
+<rect x="332" y="168" width="25" height="26" rx="4" fill="var(--b1)"><title>R01 2026-03-29: 1 commits; +191/-3 lines outside lockfiles; 0 manifest dependency changes</title></rect>
+<rect x="359" y="168" width="25" height="26" rx="4" fill="var(--b1)"><title>R01 2026-03-30: 1 commits; +5/-1 lines outside lockfiles; 0 manifest dependency changes</title></rect>
+<rect x="386" y="168" width="25" height="26" rx="4" fill="var(--b1)"><title>R01 2026-03-31: 2 commits; +972/-414 lines outside lockfiles; 0 manifest dependency changes</title></rect>
+<rect x="413" y="168" width="25" height="26" rx="4" fill="var(--b3)"><title>R01 2026-04-01: 6 commits; +166/-159 lines outside lockfiles; 0 manifest dependency changes</title></rect>
+<rect x="440" y="168" width="25" height="26" rx="4" fill="var(--b2)"><title>R01 2026-04-02: 3 commits; +638/-434 lines outside lockfiles; 1 manifest dependency changes</title></rect>
+<path d="M452.5 197 L457.5 202 L452.5 207 L447.5 202 Z" fill="var(--ink2)"><title>R01 2026-04-02: 3 commits; +638/-434 lines outside lockfiles; 1 manifest dependency changes</title></path>
+<rect x="467" y="168" width="25" height="26" rx="4" fill="var(--b1)"><title>R01 2026-04-03: 2 commits; +45/-3 lines outside lockfiles; 0 manifest dependency changes</title></rect>
+<rect x="494" y="168" width="25" height="26" rx="4" fill="var(--zero)"><title>R01 2026-04-04: 0 commits; +0/-0 lines outside lockfiles; 0 manifest dependency changes</title></rect>
+<rect x="521" y="168" width="25" height="26" rx="4" fill="var(--zero)"><title>R01 2026-04-05: 0 commits; +0/-0 lines outside lockfiles; 0 manifest dependency changes</title></rect>
+<rect x="548" y="168" width="25" height="26" rx="4" fill="var(--zero)"><title>R01 2026-04-06: 0 commits; +0/-0 lines outside lockfiles; 0 manifest dependency changes</title></rect>
+<rect x="575" y="168" width="25" height="26" rx="4" fill="var(--zero)"><title>R01 2026-04-07: 0 commits; +0/-0 lines outside lockfiles; 0 manifest dependency changes</title></rect>
+<rect x="602" y="168" width="25" height="26" rx="4" fill="var(--b1)"><title>R01 2026-04-08: 1 commits; +4/-2 lines outside lockfiles; 0 manifest dependency changes</title></rect>
+<rect x="629" y="168" width="25" height="26" rx="4" fill="var(--b1)"><title>R01 2026-04-09: 1 commits; +387/-35 lines outside lockfiles; 0 manifest dependency changes</title></rect>
+<rect x="656" y="168" width="25" height="26" rx="4" fill="var(--zero)"><title>R01 2026-04-10: 0 commits; +0/-0 lines outside lockfiles; 0 manifest dependency changes</title></rect>
+<rect x="683" y="168" width="25" height="26" rx="4" fill="var(--zero)"><title>R01 2026-04-11: 0 commits; +0/-0 lines outside lockfiles; 0 manifest dependency changes</title></rect>
+<rect x="710" y="168" width="25" height="26" rx="4" fill="var(--b3)"><title>R01 2026-04-12: 6 commits; +1956/-101 lines outside lockfiles; 0 manifest dependency changes</title></rect>
+<rect x="737" y="168" width="25" height="26" rx="4" fill="var(--b4)"><title>R01 2026-04-13: 12 commits; +764/-361 lines outside lockfiles; 0 manifest dependency changes</title></rect>
+<rect x="764" y="168" width="25" height="26" rx="4" fill="var(--b2)"><title>R01 2026-04-14: 3 commits; +380/-152 lines outside lockfiles; 0 manifest dependency changes</title></rect>
+<rect x="791" y="168" width="25" height="26" rx="4" fill="var(--b4)"><title>R01 2026-04-15: 11 commits; +750/-342 lines outside lockfiles; 0 manifest dependency changes</title></rect>
+<rect x="818" y="168" width="25" height="26" rx="4" fill="var(--b2)"><title>R01 2026-04-16: 3 commits; +416/-347 lines outside lockfiles; 0 manifest dependency changes</title></rect>
+<rect x="845" y="168" width="25" height="26" rx="4" fill="var(--b4)"><title>R01 2026-04-17: 11 commits; +244/-232 lines outside lockfiles; 0 manifest dependency changes</title></rect>
+<rect x="872" y="168" width="25" height="26" rx="4" fill="var(--zero)"><title>R01 2026-04-18: 0 commits; +0/-0 lines outside lockfiles; 0 manifest dependency changes</title></rect>
+<rect x="899" y="168" width="25" height="26" rx="4" fill="var(--zero)"><title>R01 2026-04-19: 0 commits; +0/-0 lines outside lockfiles; 0 manifest dependency changes</title></rect>
+<rect x="926" y="168" width="25" height="26" rx="4" fill="var(--b3)"><title>R01 2026-04-20: 7 commits; +590/-267 lines outside lockfiles; 1 manifest dependency changes</title></rect>
+<path d="M938.5 197 L943.5 202 L938.5 207 L933.5 202 Z" fill="var(--ink2)"><title>R01 2026-04-20: 7 commits; +590/-267 lines outside lockfiles; 1 manifest dependency changes</title></path>
+<rect x="953" y="168" width="25" height="26" rx="4" fill="var(--b3)"><title>R01 2026-04-21: 7 commits; +702/-340 lines outside lockfiles; 0 manifest dependency changes</title></rect>
+<rect x="980" y="168" width="25" height="26" rx="4" fill="var(--b3)"><title>R01 2026-04-22: 6 commits; +220/-776 lines outside lockfiles; 0 manifest dependency changes</title></rect>
+<text x="16" y="227" font-size="12.5" font-weight="400">R02 ai-slide-generator</text>
+<text x="16" y="243" font-size="11" class="mu">210 commits, 28 observed days</text>
+<rect x="251" y="214" width="25" height="26" rx="4" fill="var(--b1)"><title>R02 2026-03-26: 2 commits; +5/-5 lines outside lockfiles; 0 manifest dependency changes</title></rect>
+<rect x="278" y="214" width="25" height="26" rx="4" fill="var(--b4)"><title>R02 2026-03-27: 20 commits; +993/-101 lines outside lockfiles; 0 manifest dependency changes</title></rect>
+<rect x="305" y="214" width="25" height="26" rx="4" fill="var(--zero)"><title>R02 2026-03-28: 0 commits; +0/-0 lines outside lockfiles; 0 manifest dependency changes</title></rect>
+<rect x="332" y="214" width="25" height="26" rx="4" fill="var(--b1)"><title>R02 2026-03-29: 2 commits; +490/-31 lines outside lockfiles; 0 manifest dependency changes</title></rect>
+<rect x="359" y="214" width="25" height="26" rx="4" fill="var(--b6)"><title>R02 2026-03-30: 73 commits; +10039/-2619 lines outside lockfiles; 2 manifest dependency changes</title></rect>
+<path d="M371.5 243 L376.5 248 L371.5 253 L366.5 248 Z" fill="var(--ink2)"><title>R02 2026-03-30: 73 commits; +10039/-2619 lines outside lockfiles; 2 manifest dependency changes</title></path>
+<rect x="386" y="214" width="25" height="26" rx="4" fill="var(--b5)"><title>R02 2026-03-31: 29 commits; +1005/-469 lines outside lockfiles; 0 manifest dependency changes</title></rect>
+<rect x="413" y="214" width="25" height="26" rx="4" fill="var(--b5)"><title>R02 2026-04-01: 35 commits; +6395/-3359 lines outside lockfiles; 0 manifest dependency changes</title></rect>
+<rect x="440" y="214" width="25" height="26" rx="4" fill="var(--b4)"><title>R02 2026-04-02: 11 commits; +2337/-966 lines outside lockfiles; 0 manifest dependency changes</title></rect>
+<rect x="467" y="214" width="25" height="26" rx="4" fill="var(--zero)"><title>R02 2026-04-03: 0 commits; +0/-0 lines outside lockfiles; 0 manifest dependency changes</title></rect>
+<rect x="494" y="214" width="25" height="26" rx="4" fill="var(--zero)"><title>R02 2026-04-04: 0 commits; +0/-0 lines outside lockfiles; 0 manifest dependency changes</title></rect>
+<rect x="521" y="214" width="25" height="26" rx="4" fill="var(--zero)"><title>R02 2026-04-05: 0 commits; +0/-0 lines outside lockfiles; 0 manifest dependency changes</title></rect>
+<rect x="548" y="214" width="25" height="26" rx="4" fill="var(--zero)"><title>R02 2026-04-06: 0 commits; +0/-0 lines outside lockfiles; 0 manifest dependency changes</title></rect>
+<rect x="575" y="214" width="25" height="26" rx="4" fill="var(--b2)"><title>R02 2026-04-07: 3 commits; +348/-46 lines outside lockfiles; 0 manifest dependency changes</title></rect>
+<rect x="602" y="214" width="25" height="26" rx="4" fill="var(--b4)"><title>R02 2026-04-08: 11 commits; +227/-103 lines outside lockfiles; 0 manifest dependency changes</title></rect>
+<rect x="629" y="214" width="25" height="26" rx="4" fill="var(--b3)"><title>R02 2026-04-09: 8 commits; +85/-27 lines outside lockfiles; 0 manifest dependency changes</title></rect>
+<rect x="656" y="214" width="25" height="26" rx="4" fill="var(--b1)"><title>R02 2026-04-10: 1 commits; +0/-0 lines outside lockfiles; 0 manifest dependency changes</title></rect>
+<rect x="683" y="214" width="25" height="26" rx="4" fill="var(--zero)"><title>R02 2026-04-11: 0 commits; +0/-0 lines outside lockfiles; 0 manifest dependency changes</title></rect>
+<rect x="710" y="214" width="25" height="26" rx="4" fill="var(--zero)"><title>R02 2026-04-12: 0 commits; +0/-0 lines outside lockfiles; 0 manifest dependency changes</title></rect>
+<rect x="737" y="214" width="25" height="26" rx="4" fill="var(--zero)"><title>R02 2026-04-13: 0 commits; +0/-0 lines outside lockfiles; 0 manifest dependency changes</title></rect>
+<rect x="764" y="214" width="25" height="26" rx="4" fill="var(--b2)"><title>R02 2026-04-14: 4 commits; +164/-68 lines outside lockfiles; 0 manifest dependency changes</title></rect>
+<rect x="791" y="214" width="25" height="26" rx="4" fill="var(--zero)"><title>R02 2026-04-15: 0 commits; +0/-0 lines outside lockfiles; 0 manifest dependency changes</title></rect>
+<rect x="818" y="214" width="25" height="26" rx="4" fill="var(--zero)"><title>R02 2026-04-16: 0 commits; +0/-0 lines outside lockfiles; 0 manifest dependency changes</title></rect>
+<rect x="845" y="214" width="25" height="26" rx="4" fill="var(--zero)"><title>R02 2026-04-17: 0 commits; +0/-0 lines outside lockfiles; 0 manifest dependency changes</title></rect>
+<rect x="872" y="214" width="25" height="26" rx="4" fill="var(--zero)"><title>R02 2026-04-18: 0 commits; +0/-0 lines outside lockfiles; 0 manifest dependency changes</title></rect>
+<rect x="899" y="214" width="25" height="26" rx="4" fill="var(--zero)"><title>R02 2026-04-19: 0 commits; +0/-0 lines outside lockfiles; 0 manifest dependency changes</title></rect>
+<rect x="926" y="214" width="25" height="26" rx="4" fill="var(--zero)"><title>R02 2026-04-20: 0 commits; +0/-0 lines outside lockfiles; 0 manifest dependency changes</title></rect>
+<rect x="953" y="214" width="25" height="26" rx="4" fill="var(--zero)"><title>R02 2026-04-21: 0 commits; +0/-0 lines outside lockfiles; 0 manifest dependency changes</title></rect>
+<rect x="980" y="214" width="25" height="26" rx="4" fill="var(--b4)"><title>R02 2026-04-22: 11 commits; +4807/-38 lines outside lockfiles; 1 manifest dependency changes</title></rect>
+<path d="M992.5 243 L997.5 248 L992.5 253 L987.5 248 Z" fill="var(--ink2)"><title>R02 2026-04-22: 11 commits; +4807/-38 lines outside lockfiles; 1 manifest dependency changes</title></path>
+<circle cx="1004.9" cy="227" r="6" fill="var(--acc)" stroke="var(--bg)" stroke-width="2"><title>R02 22 Apr 23:02 UTC: lockfile mcp moved, now 1.27.0</title></circle>
+<text x="16" y="273" font-size="12.5" font-weight="400">R03 lean-lsp-mcp</text>
+<text x="16" y="289" font-size="11" class="mu">26 commits, 28 observed days</text>
+<rect x="251" y="260" width="25" height="26" rx="4" fill="var(--zero)"><title>R03 2026-03-26: 0 commits; +0/-0 lines outside lockfiles; 0 manifest dependency changes</title></rect>
+<rect x="278" y="260" width="25" height="26" rx="4" fill="var(--zero)"><title>R03 2026-03-27: 0 commits; +0/-0 lines outside lockfiles; 0 manifest dependency changes</title></rect>
+<rect x="305" y="260" width="25" height="26" rx="4" fill="var(--zero)"><title>R03 2026-03-28: 0 commits; +0/-0 lines outside lockfiles; 0 manifest dependency changes</title></rect>
+<rect x="332" y="260" width="25" height="26" rx="4" fill="var(--zero)"><title>R03 2026-03-29: 0 commits; +0/-0 lines outside lockfiles; 0 manifest dependency changes</title></rect>
+<rect x="359" y="260" width="25" height="26" rx="4" fill="var(--zero)"><title>R03 2026-03-30: 0 commits; +0/-0 lines outside lockfiles; 0 manifest dependency changes</title></rect>
+<rect x="386" y="260" width="25" height="26" rx="4" fill="var(--zero)"><title>R03 2026-03-31: 0 commits; +0/-0 lines outside lockfiles; 0 manifest dependency changes</title></rect>
+<rect x="413" y="260" width="25" height="26" rx="4" fill="var(--zero)"><title>R03 2026-04-01: 0 commits; +0/-0 lines outside lockfiles; 0 manifest dependency changes</title></rect>
+<rect x="440" y="260" width="25" height="26" rx="4" fill="var(--zero)"><title>R03 2026-04-02: 0 commits; +0/-0 lines outside lockfiles; 0 manifest dependency changes</title></rect>
+<rect x="467" y="260" width="25" height="26" rx="4" fill="var(--zero)"><title>R03 2026-04-03: 0 commits; +0/-0 lines outside lockfiles; 0 manifest dependency changes</title></rect>
+<rect x="494" y="260" width="25" height="26" rx="4" fill="var(--zero)"><title>R03 2026-04-04: 0 commits; +0/-0 lines outside lockfiles; 0 manifest dependency changes</title></rect>
+<rect x="521" y="260" width="25" height="26" rx="4" fill="var(--zero)"><title>R03 2026-04-05: 0 commits; +0/-0 lines outside lockfiles; 0 manifest dependency changes</title></rect>
+<rect x="548" y="260" width="25" height="26" rx="4" fill="var(--zero)"><title>R03 2026-04-06: 0 commits; +0/-0 lines outside lockfiles; 0 manifest dependency changes</title></rect>
+<rect x="575" y="260" width="25" height="26" rx="4" fill="var(--zero)"><title>R03 2026-04-07: 0 commits; +0/-0 lines outside lockfiles; 0 manifest dependency changes</title></rect>
+<rect x="602" y="260" width="25" height="26" rx="4" fill="var(--b4)"><title>R03 2026-04-08: 17 commits; +3257/-541 lines outside lockfiles; 2 manifest dependency changes</title></rect>
+<path d="M614.5 289 L619.5 294 L614.5 299 L609.5 294 Z" fill="var(--ink2)"><title>R03 2026-04-08: 17 commits; +3257/-541 lines outside lockfiles; 2 manifest dependency changes</title></path>
+<rect x="629" y="260" width="25" height="26" rx="4" fill="var(--b1)"><title>R03 2026-04-09: 1 commits; +0/-0 lines outside lockfiles; 0 manifest dependency changes</title></rect>
+<rect x="656" y="260" width="25" height="26" rx="4" fill="var(--b3)"><title>R03 2026-04-10: 8 commits; +85/-43 lines outside lockfiles; 0 manifest dependency changes</title></rect>
+<rect x="683" y="260" width="25" height="26" rx="4" fill="var(--zero)"><title>R03 2026-04-11: 0 commits; +0/-0 lines outside lockfiles; 0 manifest dependency changes</title></rect>
+<rect x="710" y="260" width="25" height="26" rx="4" fill="var(--zero)"><title>R03 2026-04-12: 0 commits; +0/-0 lines outside lockfiles; 0 manifest dependency changes</title></rect>
+<rect x="737" y="260" width="25" height="26" rx="4" fill="var(--zero)"><title>R03 2026-04-13: 0 commits; +0/-0 lines outside lockfiles; 0 manifest dependency changes</title></rect>
+<rect x="764" y="260" width="25" height="26" rx="4" fill="var(--zero)"><title>R03 2026-04-14: 0 commits; +0/-0 lines outside lockfiles; 0 manifest dependency changes</title></rect>
+<rect x="791" y="260" width="25" height="26" rx="4" fill="var(--zero)"><title>R03 2026-04-15: 0 commits; +0/-0 lines outside lockfiles; 0 manifest dependency changes</title></rect>
+<rect x="818" y="260" width="25" height="26" rx="4" fill="var(--zero)"><title>R03 2026-04-16: 0 commits; +0/-0 lines outside lockfiles; 0 manifest dependency changes</title></rect>
+<rect x="845" y="260" width="25" height="26" rx="4" fill="var(--zero)"><title>R03 2026-04-17: 0 commits; +0/-0 lines outside lockfiles; 0 manifest dependency changes</title></rect>
+<rect x="872" y="260" width="25" height="26" rx="4" fill="var(--zero)"><title>R03 2026-04-18: 0 commits; +0/-0 lines outside lockfiles; 0 manifest dependency changes</title></rect>
+<rect x="899" y="260" width="25" height="26" rx="4" fill="var(--zero)"><title>R03 2026-04-19: 0 commits; +0/-0 lines outside lockfiles; 0 manifest dependency changes</title></rect>
+<rect x="926" y="260" width="25" height="26" rx="4" fill="var(--zero)"><title>R03 2026-04-20: 0 commits; +0/-0 lines outside lockfiles; 0 manifest dependency changes</title></rect>
+<rect x="953" y="260" width="25" height="26" rx="4" fill="var(--zero)"><title>R03 2026-04-21: 0 commits; +0/-0 lines outside lockfiles; 0 manifest dependency changes</title></rect>
+<rect x="980" y="260" width="25" height="26" rx="4" fill="var(--zero)"><title>R03 2026-04-22: 0 commits; +0/-0 lines outside lockfiles; 0 manifest dependency changes</title></rect>
+<circle cx="621.7" cy="273" r="6" fill="var(--acc)" stroke="var(--bg)" stroke-width="2"><title>R03 08 Apr 18:26 UTC: manifest mcp changed, now ==1.27.0</title></circle>
+<circle cx="621.7" cy="273" r="6" fill="var(--acc)" stroke="var(--bg)" stroke-width="2"><title>R03 08 Apr 18:26 UTC: lockfile mcp moved, now 1.27.0</title></circle>
+<text x="16" y="319" font-size="12.5" font-weight="400">R04 pyp6xer-mcp</text>
+<text x="16" y="335" font-size="11" class="mu">13 commits, 19 observed days</text>
+<rect x="251" y="306" width="25" height="26" rx="4" fill="url(#hatch)"><title>R04 2026-03-26: no history on GitHub yet</title></rect>
+<rect x="278" y="306" width="25" height="26" rx="4" fill="url(#hatch)"><title>R04 2026-03-27: no history on GitHub yet</title></rect>
+<rect x="305" y="306" width="25" height="26" rx="4" fill="url(#hatch)"><title>R04 2026-03-28: no history on GitHub yet</title></rect>
+<rect x="332" y="306" width="25" height="26" rx="4" fill="url(#hatch)"><title>R04 2026-03-29: no history on GitHub yet</title></rect>
+<rect x="359" y="306" width="25" height="26" rx="4" fill="url(#hatch)"><title>R04 2026-03-30: no history on GitHub yet</title></rect>
+<rect x="386" y="306" width="25" height="26" rx="4" fill="url(#hatch)"><title>R04 2026-03-31: no history on GitHub yet</title></rect>
+<rect x="413" y="306" width="25" height="26" rx="4" fill="url(#hatch)"><title>R04 2026-04-01: no history on GitHub yet</title></rect>
+<rect x="440" y="306" width="25" height="26" rx="4" fill="url(#hatch)"><title>R04 2026-04-02: no history on GitHub yet</title></rect>
+<rect x="467" y="306" width="25" height="26" rx="4" fill="url(#hatch)"><title>R04 2026-04-03: no history on GitHub yet</title></rect>
+<rect x="494" y="306" width="25" height="26" rx="4" fill="var(--b3)"><title>R04 2026-04-04: 6 commits; +1808/-15 lines outside lockfiles; 0 manifest dependency changes</title></rect>
+<rect x="521" y="306" width="25" height="26" rx="4" fill="var(--b1)"><title>R04 2026-04-05: 2 commits; +219/-1 lines outside lockfiles; 0 manifest dependency changes</title></rect>
+<rect x="548" y="306" width="25" height="26" rx="4" fill="var(--zero)"><title>R04 2026-04-06: 0 commits; +0/-0 lines outside lockfiles; 0 manifest dependency changes</title></rect>
+<rect x="575" y="306" width="25" height="26" rx="4" fill="var(--b1)"><title>R04 2026-04-07: 2 commits; +3/-2 lines outside lockfiles; 0 manifest dependency changes</title></rect>
+<rect x="602" y="306" width="25" height="26" rx="4" fill="var(--zero)"><title>R04 2026-04-08: 0 commits; +0/-0 lines outside lockfiles; 0 manifest dependency changes</title></rect>
+<rect x="629" y="306" width="25" height="26" rx="4" fill="var(--zero)"><title>R04 2026-04-09: 0 commits; +0/-0 lines outside lockfiles; 0 manifest dependency changes</title></rect>
+<rect x="656" y="306" width="25" height="26" rx="4" fill="var(--zero)"><title>R04 2026-04-10: 0 commits; +0/-0 lines outside lockfiles; 0 manifest dependency changes</title></rect>
+<rect x="683" y="306" width="25" height="26" rx="4" fill="var(--zero)"><title>R04 2026-04-11: 0 commits; +0/-0 lines outside lockfiles; 0 manifest dependency changes</title></rect>
+<rect x="710" y="306" width="25" height="26" rx="4" fill="var(--zero)"><title>R04 2026-04-12: 0 commits; +0/-0 lines outside lockfiles; 0 manifest dependency changes</title></rect>
+<rect x="737" y="306" width="25" height="26" rx="4" fill="var(--zero)"><title>R04 2026-04-13: 0 commits; +0/-0 lines outside lockfiles; 0 manifest dependency changes</title></rect>
+<rect x="764" y="306" width="25" height="26" rx="4" fill="var(--b1)"><title>R04 2026-04-14: 1 commits; +5/-3 lines outside lockfiles; 5 manifest dependency changes</title></rect>
+<path d="M776.5 335 L781.5 340 L776.5 345 L771.5 340 Z" fill="var(--ink2)"><title>R04 2026-04-14: 1 commits; +5/-3 lines outside lockfiles; 5 manifest dependency changes</title></path>
+<rect x="791" y="306" width="25" height="26" rx="4" fill="var(--zero)"><title>R04 2026-04-15: 0 commits; +0/-0 lines outside lockfiles; 0 manifest dependency changes</title></rect>
+<rect x="818" y="306" width="25" height="26" rx="4" fill="var(--zero)"><title>R04 2026-04-16: 0 commits; +0/-0 lines outside lockfiles; 0 manifest dependency changes</title></rect>
+<rect x="845" y="306" width="25" height="26" rx="4" fill="var(--zero)"><title>R04 2026-04-17: 0 commits; +0/-0 lines outside lockfiles; 0 manifest dependency changes</title></rect>
+<rect x="872" y="306" width="25" height="26" rx="4" fill="var(--zero)"><title>R04 2026-04-18: 0 commits; +0/-0 lines outside lockfiles; 0 manifest dependency changes</title></rect>
+<rect x="899" y="306" width="25" height="26" rx="4" fill="var(--zero)"><title>R04 2026-04-19: 0 commits; +0/-0 lines outside lockfiles; 0 manifest dependency changes</title></rect>
+<rect x="926" y="306" width="25" height="26" rx="4" fill="var(--zero)"><title>R04 2026-04-20: 0 commits; +0/-0 lines outside lockfiles; 0 manifest dependency changes</title></rect>
+<rect x="953" y="306" width="25" height="26" rx="4" fill="var(--b1)"><title>R04 2026-04-21: 2 commits; +7/-5 lines outside lockfiles; 0 manifest dependency changes</title></rect>
+<rect x="980" y="306" width="25" height="26" rx="4" fill="var(--zero)"><title>R04 2026-04-22: 0 commits; +0/-0 lines outside lockfiles; 0 manifest dependency changes</title></rect>
+<circle cx="763.2" cy="319" r="6" fill="var(--acc)" stroke="var(--bg)" stroke-width="2"><title>R04 14 Apr 00:09 UTC: manifest mcp added, now ==1.27.0</title></circle>
+<circle cx="511.4" cy="319" r="6" fill="var(--acc)" stroke="var(--bg)" stroke-width="2"><title>R04 04 Apr 16:20 UTC: first commit on GitHub; lockfile already holds mcp, now 1.27.0</title></circle>
+<text x="16" y="365" font-size="12.5" font-weight="400">R05 serena</text>
+<text x="16" y="381" font-size="11" class="mu">435 commits, 28 observed days</text>
+<rect x="251" y="352" width="25" height="26" rx="4" fill="var(--b4)"><title>R05 2026-03-26: 22 commits; +693/-279 lines outside lockfiles; 0 manifest dependency changes</title></rect>
+<rect x="278" y="352" width="25" height="26" rx="4" fill="var(--b5)"><title>R05 2026-03-27: 32 commits; +10596/-2385 lines outside lockfiles; 2 manifest dependency changes</title></rect>
+<path d="M290.5 381 L295.5 386 L290.5 391 L285.5 386 Z" fill="var(--ink2)"><title>R05 2026-03-27: 32 commits; +10596/-2385 lines outside lockfiles; 2 manifest dependency changes</title></path>
+<rect x="305" y="352" width="25" height="26" rx="4" fill="var(--b3)"><title>R05 2026-03-28: 9 commits; +144/-43 lines outside lockfiles; 0 manifest dependency changes</title></rect>
+<rect x="332" y="352" width="25" height="26" rx="4" fill="var(--b3)"><title>R05 2026-03-29: 8 commits; +240/-161 lines outside lockfiles; 1 manifest dependency changes</title></rect>
+<path d="M344.5 381 L349.5 386 L344.5 391 L339.5 386 Z" fill="var(--ink2)"><title>R05 2026-03-29: 8 commits; +240/-161 lines outside lockfiles; 1 manifest dependency changes</title></path>
+<rect x="359" y="352" width="25" height="26" rx="4" fill="var(--b4)"><title>R05 2026-03-30: 12 commits; +762/-89 lines outside lockfiles; 0 manifest dependency changes</title></rect>
+<rect x="386" y="352" width="25" height="26" rx="4" fill="var(--b4)"><title>R05 2026-03-31: 22 commits; +847/-516 lines outside lockfiles; 1 manifest dependency changes</title></rect>
+<path d="M398.5 381 L403.5 386 L398.5 391 L393.5 386 Z" fill="var(--ink2)"><title>R05 2026-03-31: 22 commits; +847/-516 lines outside lockfiles; 1 manifest dependency changes</title></path>
+<rect x="413" y="352" width="25" height="26" rx="4" fill="var(--b4)"><title>R05 2026-04-01: 25 commits; +2255/-840 lines outside lockfiles; 3 manifest dependency changes</title></rect>
+<path d="M425.5 381 L430.5 386 L425.5 391 L420.5 386 Z" fill="var(--ink2)"><title>R05 2026-04-01: 25 commits; +2255/-840 lines outside lockfiles; 3 manifest dependency changes</title></path>
+<rect x="440" y="352" width="25" height="26" rx="4" fill="var(--b4)"><title>R05 2026-04-02: 12 commits; +351/-334 lines outside lockfiles; 0 manifest dependency changes</title></rect>
+<rect x="467" y="352" width="25" height="26" rx="4" fill="var(--b4)"><title>R05 2026-04-03: 19 commits; +172/-76 lines outside lockfiles; 0 manifest dependency changes</title></rect>
+<rect x="494" y="352" width="25" height="26" rx="4" fill="var(--b4)"><title>R05 2026-04-04: 19 commits; +333/-156 lines outside lockfiles; 0 manifest dependency changes</title></rect>
+<rect x="521" y="352" width="25" height="26" rx="4" fill="var(--b2)"><title>R05 2026-04-05: 5 commits; +13/-7 lines outside lockfiles; 0 manifest dependency changes</title></rect>
+<rect x="548" y="352" width="25" height="26" rx="4" fill="var(--b4)"><title>R05 2026-04-06: 18 commits; +545/-257 lines outside lockfiles; 1 manifest dependency changes</title></rect>
+<path d="M560.5 381 L565.5 386 L560.5 391 L555.5 386 Z" fill="var(--ink2)"><title>R05 2026-04-06: 18 commits; +545/-257 lines outside lockfiles; 1 manifest dependency changes</title></path>
+<rect x="575" y="352" width="25" height="26" rx="4" fill="var(--b4)"><title>R05 2026-04-07: 21 commits; +1919/-529 lines outside lockfiles; 1 manifest dependency changes</title></rect>
+<path d="M587.5 381 L592.5 386 L587.5 391 L582.5 386 Z" fill="var(--ink2)"><title>R05 2026-04-07: 21 commits; +1919/-529 lines outside lockfiles; 1 manifest dependency changes</title></path>
+<rect x="602" y="352" width="25" height="26" rx="4" fill="var(--b4)"><title>R05 2026-04-08: 13 commits; +260/-351 lines outside lockfiles; 1 manifest dependency changes</title></rect>
+<path d="M614.5 381 L619.5 386 L614.5 391 L609.5 386 Z" fill="var(--ink2)"><title>R05 2026-04-08: 13 commits; +260/-351 lines outside lockfiles; 1 manifest dependency changes</title></path>
+<rect x="629" y="352" width="25" height="26" rx="4" fill="var(--b3)"><title>R05 2026-04-09: 9 commits; +738/-25 lines outside lockfiles; 0 manifest dependency changes</title></rect>
+<rect x="656" y="352" width="25" height="26" rx="4" fill="var(--b5)"><title>R05 2026-04-10: 33 commits; +2413/-429 lines outside lockfiles; 2 manifest dependency changes</title></rect>
+<path d="M668.5 381 L673.5 386 L668.5 391 L663.5 386 Z" fill="var(--ink2)"><title>R05 2026-04-10: 33 commits; +2413/-429 lines outside lockfiles; 2 manifest dependency changes</title></path>
+<rect x="683" y="352" width="25" height="26" rx="4" fill="var(--b4)"><title>R05 2026-04-11: 12 commits; +41/-63 lines outside lockfiles; 0 manifest dependency changes</title></rect>
+<rect x="710" y="352" width="25" height="26" rx="4" fill="var(--b4)"><title>R05 2026-04-12: 22 commits; +810/-267 lines outside lockfiles; 0 manifest dependency changes</title></rect>
+<rect x="737" y="352" width="25" height="26" rx="4" fill="var(--b4)"><title>R05 2026-04-13: 23 commits; +3786/-1952 lines outside lockfiles; 2 manifest dependency changes</title></rect>
+<path d="M749.5 381 L754.5 386 L749.5 391 L744.5 386 Z" fill="var(--ink2)"><title>R05 2026-04-13: 23 commits; +3786/-1952 lines outside lockfiles; 2 manifest dependency changes</title></path>
+<rect x="764" y="352" width="25" height="26" rx="4" fill="var(--b4)"><title>R05 2026-04-14: 25 commits; +658/-132 lines outside lockfiles; 0 manifest dependency changes</title></rect>
+<rect x="791" y="352" width="25" height="26" rx="4" fill="var(--b3)"><title>R05 2026-04-15: 7 commits; +23/-42 lines outside lockfiles; 3 manifest dependency changes</title></rect>
+<path d="M803.5 381 L808.5 386 L803.5 391 L798.5 386 Z" fill="var(--ink2)"><title>R05 2026-04-15: 7 commits; +23/-42 lines outside lockfiles; 3 manifest dependency changes</title></path>
+<rect x="818" y="352" width="25" height="26" rx="4" fill="var(--b3)"><title>R05 2026-04-16: 8 commits; +586/-212 lines outside lockfiles; 0 manifest dependency changes</title></rect>
+<rect x="845" y="352" width="25" height="26" rx="4" fill="var(--b4)"><title>R05 2026-04-17: 15 commits; +340/-255 lines outside lockfiles; 0 manifest dependency changes</title></rect>
+<rect x="872" y="352" width="25" height="26" rx="4" fill="var(--b2)"><title>R05 2026-04-18: 3 commits; +21/-33 lines outside lockfiles; 0 manifest dependency changes</title></rect>
+<rect x="899" y="352" width="25" height="26" rx="4" fill="var(--b3)"><title>R05 2026-04-19: 7 commits; +1062/-59 lines outside lockfiles; 0 manifest dependency changes</title></rect>
+<rect x="926" y="352" width="25" height="26" rx="4" fill="var(--b4)"><title>R05 2026-04-20: 15 commits; +194/-102 lines outside lockfiles; 0 manifest dependency changes</title></rect>
+<rect x="953" y="352" width="25" height="26" rx="4" fill="var(--b4)"><title>R05 2026-04-21: 14 commits; +256/-386 lines outside lockfiles; 3 manifest dependency changes</title></rect>
+<path d="M965.5 381 L970.5 386 L965.5 391 L960.5 386 Z" fill="var(--ink2)"><title>R05 2026-04-21: 14 commits; +256/-386 lines outside lockfiles; 3 manifest dependency changes</title></path>
+<rect x="980" y="352" width="25" height="26" rx="4" fill="var(--b2)"><title>R05 2026-04-22: 5 commits; +46/-139 lines outside lockfiles; 0 manifest dependency changes</title></rect>
+<text x="16" y="411" font-size="12.5" font-weight="400">R06 dartlab</text>
+<text x="16" y="427" font-size="11" class="mu">1482 commits, 28 observed days</text>
+<rect x="251" y="398" width="25" height="26" rx="4" fill="var(--b5)"><title>R06 2026-03-26: 31 commits; +455162/-446764 lines outside lockfiles; 5 manifest dependency changes</title></rect>
+<path d="M263.5 427 L268.5 432 L263.5 437 L258.5 432 Z" fill="var(--ink2)"><title>R06 2026-03-26: 31 commits; +455162/-446764 lines outside lockfiles; 5 manifest dependency changes</title></path>
+<rect x="278" y="398" width="25" height="26" rx="4" fill="var(--b6)"><title>R06 2026-03-27: 53 commits; +25645/-6287 lines outside lockfiles; 62 manifest dependency changes</title></rect>
+<path d="M290.5 427 L295.5 432 L290.5 437 L285.5 432 Z" fill="var(--ink2)"><title>R06 2026-03-27: 53 commits; +25645/-6287 lines outside lockfiles; 62 manifest dependency changes</title></path>
+<rect x="305" y="398" width="25" height="26" rx="4" fill="var(--b5)"><title>R06 2026-03-28: 27 commits; +29831/-15413 lines outside lockfiles; 1 manifest dependency changes</title></rect>
+<path d="M317.5 427 L322.5 432 L317.5 437 L312.5 432 Z" fill="var(--ink2)"><title>R06 2026-03-28: 27 commits; +29831/-15413 lines outside lockfiles; 1 manifest dependency changes</title></path>
+<rect x="332" y="398" width="25" height="26" rx="4" fill="var(--b5)"><title>R06 2026-03-29: 32 commits; +59630/-31702 lines outside lockfiles; 2 manifest dependency changes</title></rect>
+<path d="M344.5 427 L349.5 432 L344.5 437 L339.5 432 Z" fill="var(--ink2)"><title>R06 2026-03-29: 32 commits; +59630/-31702 lines outside lockfiles; 2 manifest dependency changes</title></path>
+<rect x="359" y="398" width="25" height="26" rx="4" fill="var(--b6)"><title>R06 2026-03-30: 59 commits; +35483/-38456 lines outside lockfiles; 2 manifest dependency changes</title></rect>
+<path d="M371.5 427 L376.5 432 L371.5 437 L366.5 432 Z" fill="var(--ink2)"><title>R06 2026-03-30: 59 commits; +35483/-38456 lines outside lockfiles; 2 manifest dependency changes</title></path>
+<rect x="386" y="398" width="25" height="26" rx="4" fill="var(--b6)"><title>R06 2026-03-31: 72 commits; +18935/-7928 lines outside lockfiles; 25 manifest dependency changes</title></rect>
+<path d="M398.5 427 L403.5 432 L398.5 437 L393.5 432 Z" fill="var(--ink2)"><title>R06 2026-03-31: 72 commits; +18935/-7928 lines outside lockfiles; 25 manifest dependency changes</title></path>
+<rect x="413" y="398" width="25" height="26" rx="4" fill="var(--b6)"><title>R06 2026-04-01: 101 commits; +50337/-38675 lines outside lockfiles; 46 manifest dependency changes</title></rect>
+<path d="M425.5 427 L430.5 432 L425.5 437 L420.5 432 Z" fill="var(--ink2)"><title>R06 2026-04-01: 101 commits; +50337/-38675 lines outside lockfiles; 46 manifest dependency changes</title></path>
+<rect x="440" y="398" width="25" height="26" rx="4" fill="var(--b6)"><title>R06 2026-04-02: 120 commits; +89270/-100220 lines outside lockfiles; 2 manifest dependency changes</title></rect>
+<path d="M452.5 427 L457.5 432 L452.5 437 L447.5 432 Z" fill="var(--ink2)"><title>R06 2026-04-02: 120 commits; +89270/-100220 lines outside lockfiles; 2 manifest dependency changes</title></path>
+<rect x="467" y="398" width="25" height="26" rx="4" fill="var(--b5)"><title>R06 2026-04-03: 43 commits; +6770/-1311 lines outside lockfiles; 0 manifest dependency changes</title></rect>
+<rect x="494" y="398" width="25" height="26" rx="4" fill="var(--b6)"><title>R06 2026-04-04: 93 commits; +76253/-37817 lines outside lockfiles; 0 manifest dependency changes</title></rect>
+<rect x="521" y="398" width="25" height="26" rx="4" fill="var(--b4)"><title>R06 2026-04-05: 25 commits; +7952/-969 lines outside lockfiles; 0 manifest dependency changes</title></rect>
+<rect x="548" y="398" width="25" height="26" rx="4" fill="var(--b6)"><title>R06 2026-04-06: 54 commits; +18542/-13168 lines outside lockfiles; 7 manifest dependency changes</title></rect>
+<path d="M560.5 427 L565.5 432 L560.5 437 L555.5 432 Z" fill="var(--ink2)"><title>R06 2026-04-06: 54 commits; +18542/-13168 lines outside lockfiles; 7 manifest dependency changes</title></path>
+<rect x="575" y="398" width="25" height="26" rx="4" fill="var(--b5)"><title>R06 2026-04-07: 29 commits; +4811/-2601 lines outside lockfiles; 0 manifest dependency changes</title></rect>
+<rect x="602" y="398" width="25" height="26" rx="4" fill="var(--b6)"><title>R06 2026-04-08: 64 commits; +75136/-68024 lines outside lockfiles; 0 manifest dependency changes</title></rect>
+<rect x="629" y="398" width="25" height="26" rx="4" fill="var(--b6)"><title>R06 2026-04-09: 56 commits; +12604/-54826 lines outside lockfiles; 15 manifest dependency changes</title></rect>
+<path d="M641.5 427 L646.5 432 L641.5 437 L636.5 432 Z" fill="var(--ink2)"><title>R06 2026-04-09: 56 commits; +12604/-54826 lines outside lockfiles; 15 manifest dependency changes</title></path>
+<rect x="656" y="398" width="25" height="26" rx="4" fill="var(--b6)"><title>R06 2026-04-10: 73 commits; +699061/-671453 lines outside lockfiles; 0 manifest dependency changes</title></rect>
+<rect x="683" y="398" width="25" height="26" rx="4" fill="var(--b3)"><title>R06 2026-04-11: 10 commits; +1416/-127 lines outside lockfiles; 0 manifest dependency changes</title></rect>
+<rect x="710" y="398" width="25" height="26" rx="4" fill="var(--b6)"><title>R06 2026-04-12: 82 commits; +41512/-11126 lines outside lockfiles; 2 manifest dependency changes</title></rect>
+<path d="M722.5 427 L727.5 432 L722.5 437 L717.5 432 Z" fill="var(--ink2)"><title>R06 2026-04-12: 82 commits; +41512/-11126 lines outside lockfiles; 2 manifest dependency changes</title></path>
+<rect x="737" y="398" width="25" height="26" rx="4" fill="var(--b5)"><title>R06 2026-04-13: 44 commits; +508256/-195306 lines outside lockfiles; 9 manifest dependency changes</title></rect>
+<path d="M749.5 427 L754.5 432 L749.5 437 L744.5 432 Z" fill="var(--ink2)"><title>R06 2026-04-13: 44 commits; +508256/-195306 lines outside lockfiles; 9 manifest dependency changes</title></path>
+<rect x="764" y="398" width="25" height="26" rx="4" fill="var(--b4)"><title>R06 2026-04-14: 23 commits; +251203/-9699 lines outside lockfiles; 0 manifest dependency changes</title></rect>
+<rect x="791" y="398" width="25" height="26" rx="4" fill="var(--b5)"><title>R06 2026-04-15: 40 commits; +215161/-13058 lines outside lockfiles; 0 manifest dependency changes</title></rect>
+<rect x="818" y="398" width="25" height="26" rx="4" fill="var(--b6)"><title>R06 2026-04-16: 61 commits; +2417114/-23620 lines outside lockfiles; 0 manifest dependency changes</title></rect>
+<rect x="845" y="398" width="25" height="26" rx="4" fill="var(--b5)"><title>R06 2026-04-17: 30 commits; +212321/-452477 lines outside lockfiles; 0 manifest dependency changes</title></rect>
+<rect x="872" y="398" width="25" height="26" rx="4" fill="var(--b6)"><title>R06 2026-04-18: 91 commits; +2501033/-2552353 lines outside lockfiles; 0 manifest dependency changes</title></rect>
+<rect x="899" y="398" width="25" height="26" rx="4" fill="var(--b5)"><title>R06 2026-04-19: 27 commits; +8774/-2734718 lines outside lockfiles; 1 manifest dependency changes</title></rect>
+<path d="M911.5 427 L916.5 432 L911.5 437 L906.5 432 Z" fill="var(--ink2)"><title>R06 2026-04-19: 27 commits; +8774/-2734718 lines outside lockfiles; 1 manifest dependency changes</title></path>
+<rect x="926" y="398" width="25" height="26" rx="4" fill="var(--b3)"><title>R06 2026-04-20: 10 commits; +2542/-116 lines outside lockfiles; 0 manifest dependency changes</title></rect>
+<rect x="953" y="398" width="25" height="26" rx="4" fill="var(--b6)"><title>R06 2026-04-21: 82 commits; +22902/-47971 lines outside lockfiles; 1 manifest dependency changes</title></rect>
+<path d="M965.5 427 L970.5 432 L965.5 437 L960.5 432 Z" fill="var(--ink2)"><title>R06 2026-04-21: 82 commits; +22902/-47971 lines outside lockfiles; 1 manifest dependency changes</title></path>
+<rect x="980" y="398" width="25" height="26" rx="4" fill="var(--b5)"><title>R06 2026-04-22: 50 commits; +18229/-2926 lines outside lockfiles; 0 manifest dependency changes</title></rect>
+<circle cx="751.7" cy="411" r="6" fill="var(--acc)" stroke="var(--bg)" stroke-width="2"><title>R06 13 Apr 13:57 UTC: lockfile mcp moved, now 1.27.0</title></circle>
+<text x="16" y="457" font-size="12.5" font-weight="400">R07 mistral-vibe</text>
+<text x="16" y="473" font-size="11" class="mu">9 commits, 28 observed days</text>
+<rect x="251" y="444" width="25" height="26" rx="4" fill="var(--b1)"><title>R07 2026-03-26: 1 commits; +3711/-94 lines outside lockfiles; 1 manifest dependency changes</title></rect>
+<path d="M263.5 473 L268.5 478 L263.5 483 L258.5 478 Z" fill="var(--ink2)"><title>R07 2026-03-26: 1 commits; +3711/-94 lines outside lockfiles; 1 manifest dependency changes</title></path>
+<rect x="278" y="444" width="25" height="26" rx="4" fill="var(--zero)"><title>R07 2026-03-27: 0 commits; +0/-0 lines outside lockfiles; 0 manifest dependency changes</title></rect>
+<rect x="305" y="444" width="25" height="26" rx="4" fill="var(--zero)"><title>R07 2026-03-28: 0 commits; +0/-0 lines outside lockfiles; 0 manifest dependency changes</title></rect>
+<rect x="332" y="444" width="25" height="26" rx="4" fill="var(--zero)"><title>R07 2026-03-29: 0 commits; +0/-0 lines outside lockfiles; 0 manifest dependency changes</title></rect>
+<rect x="359" y="444" width="25" height="26" rx="4" fill="var(--zero)"><title>R07 2026-03-30: 0 commits; +0/-0 lines outside lockfiles; 0 manifest dependency changes</title></rect>
+<rect x="386" y="444" width="25" height="26" rx="4" fill="var(--b1)"><title>R07 2026-03-31: 1 commits; +987/-195 lines outside lockfiles; 1 manifest dependency changes</title></rect>
+<path d="M398.5 473 L403.5 478 L398.5 483 L393.5 478 Z" fill="var(--ink2)"><title>R07 2026-03-31: 1 commits; +987/-195 lines outside lockfiles; 1 manifest dependency changes</title></path>
+<rect x="413" y="444" width="25" height="26" rx="4" fill="var(--b1)"><title>R07 2026-04-01: 1 commits; +585/-177 lines outside lockfiles; 0 manifest dependency changes</title></rect>
+<rect x="440" y="444" width="25" height="26" rx="4" fill="var(--zero)"><title>R07 2026-04-02: 0 commits; +0/-0 lines outside lockfiles; 0 manifest dependency changes</title></rect>
+<rect x="467" y="444" width="25" height="26" rx="4" fill="var(--b1)"><title>R07 2026-04-03: 1 commits; +5943/-605 lines outside lockfiles; 0 manifest dependency changes</title></rect>
+<rect x="494" y="444" width="25" height="26" rx="4" fill="var(--zero)"><title>R07 2026-04-04: 0 commits; +0/-0 lines outside lockfiles; 0 manifest dependency changes</title></rect>
+<rect x="521" y="444" width="25" height="26" rx="4" fill="var(--zero)"><title>R07 2026-04-05: 0 commits; +0/-0 lines outside lockfiles; 0 manifest dependency changes</title></rect>
+<rect x="548" y="444" width="25" height="26" rx="4" fill="var(--zero)"><title>R07 2026-04-06: 0 commits; +0/-0 lines outside lockfiles; 0 manifest dependency changes</title></rect>
+<rect x="575" y="444" width="25" height="26" rx="4" fill="var(--zero)"><title>R07 2026-04-07: 0 commits; +0/-0 lines outside lockfiles; 0 manifest dependency changes</title></rect>
+<rect x="602" y="444" width="25" height="26" rx="4" fill="var(--zero)"><title>R07 2026-04-08: 0 commits; +0/-0 lines outside lockfiles; 0 manifest dependency changes</title></rect>
+<rect x="629" y="444" width="25" height="26" rx="4" fill="var(--b1)"><title>R07 2026-04-09: 1 commits; +7158/-539 lines outside lockfiles; 1 manifest dependency changes</title></rect>
+<path d="M641.5 473 L646.5 478 L641.5 483 L636.5 478 Z" fill="var(--ink2)"><title>R07 2026-04-09: 1 commits; +7158/-539 lines outside lockfiles; 1 manifest dependency changes</title></path>
+<rect x="656" y="444" width="25" height="26" rx="4" fill="var(--zero)"><title>R07 2026-04-10: 0 commits; +0/-0 lines outside lockfiles; 0 manifest dependency changes</title></rect>
+<rect x="683" y="444" width="25" height="26" rx="4" fill="var(--zero)"><title>R07 2026-04-11: 0 commits; +0/-0 lines outside lockfiles; 0 manifest dependency changes</title></rect>
+<rect x="710" y="444" width="25" height="26" rx="4" fill="var(--zero)"><title>R07 2026-04-12: 0 commits; +0/-0 lines outside lockfiles; 0 manifest dependency changes</title></rect>
+<rect x="737" y="444" width="25" height="26" rx="4" fill="var(--zero)"><title>R07 2026-04-13: 0 commits; +0/-0 lines outside lockfiles; 0 manifest dependency changes</title></rect>
+<rect x="764" y="444" width="25" height="26" rx="4" fill="var(--b1)"><title>R07 2026-04-14: 1 commits; +2797/-586 lines outside lockfiles; 3 manifest dependency changes</title></rect>
+<path d="M776.5 473 L781.5 478 L776.5 483 L771.5 478 Z" fill="var(--ink2)"><title>R07 2026-04-14: 1 commits; +2797/-586 lines outside lockfiles; 3 manifest dependency changes</title></path>
+<rect x="791" y="444" width="25" height="26" rx="4" fill="var(--zero)"><title>R07 2026-04-15: 0 commits; +0/-0 lines outside lockfiles; 0 manifest dependency changes</title></rect>
+<rect x="818" y="444" width="25" height="26" rx="4" fill="var(--b1)"><title>R07 2026-04-16: 1 commits; +3984/-395 lines outside lockfiles; 1 manifest dependency changes</title></rect>
+<path d="M830.5 473 L835.5 478 L830.5 483 L825.5 478 Z" fill="var(--ink2)"><title>R07 2026-04-16: 1 commits; +3984/-395 lines outside lockfiles; 1 manifest dependency changes</title></path>
+<rect x="845" y="444" width="25" height="26" rx="4" fill="var(--zero)"><title>R07 2026-04-17: 0 commits; +0/-0 lines outside lockfiles; 0 manifest dependency changes</title></rect>
+<rect x="872" y="444" width="25" height="26" rx="4" fill="var(--zero)"><title>R07 2026-04-18: 0 commits; +0/-0 lines outside lockfiles; 0 manifest dependency changes</title></rect>
+<rect x="899" y="444" width="25" height="26" rx="4" fill="var(--zero)"><title>R07 2026-04-19: 0 commits; +0/-0 lines outside lockfiles; 0 manifest dependency changes</title></rect>
+<rect x="926" y="444" width="25" height="26" rx="4" fill="var(--zero)"><title>R07 2026-04-20: 0 commits; +0/-0 lines outside lockfiles; 0 manifest dependency changes</title></rect>
+<rect x="953" y="444" width="25" height="26" rx="4" fill="var(--b1)"><title>R07 2026-04-21: 2 commits; +3505/-1800 lines outside lockfiles; 0 manifest dependency changes</title></rect>
+<rect x="980" y="444" width="25" height="26" rx="4" fill="var(--zero)"><title>R07 2026-04-22: 0 commits; +0/-0 lines outside lockfiles; 0 manifest dependency changes</title></rect>
+<text x="16" y="503" font-size="12.5" font-weight="400">R08 octobot</text>
+<text x="16" y="519" font-size="11" class="mu">124 commits, 28 observed days</text>
+<rect x="251" y="490" width="25" height="26" rx="4" fill="var(--zero)"><title>R08 2026-03-26: 0 commits; +0/-0 lines outside lockfiles; 0 manifest dependency changes</title></rect>
+<rect x="278" y="490" width="25" height="26" rx="4" fill="var(--b1)"><title>R08 2026-03-27: 1 commits; +243/-8 lines outside lockfiles; 0 manifest dependency changes</title></rect>
+<rect x="305" y="490" width="25" height="26" rx="4" fill="var(--b2)"><title>R08 2026-03-28: 3 commits; +34/-15 lines outside lockfiles; 0 manifest dependency changes</title></rect>
+<rect x="332" y="490" width="25" height="26" rx="4" fill="var(--b2)"><title>R08 2026-03-29: 4 commits; +1268/-6 lines outside lockfiles; 2 manifest dependency changes</title></rect>
+<path d="M344.5 519 L349.5 524 L344.5 529 L339.5 524 Z" fill="var(--ink2)"><title>R08 2026-03-29: 4 commits; +1268/-6 lines outside lockfiles; 2 manifest dependency changes</title></path>
+<rect x="359" y="490" width="25" height="26" rx="4" fill="var(--b4)"><title>R08 2026-03-30: 22 commits; +12360/-6150 lines outside lockfiles; 0 manifest dependency changes</title></rect>
+<rect x="386" y="490" width="25" height="26" rx="4" fill="var(--b1)"><title>R08 2026-03-31: 1 commits; +901/-117 lines outside lockfiles; 0 manifest dependency changes</title></rect>
+<rect x="413" y="490" width="25" height="26" rx="4" fill="var(--zero)"><title>R08 2026-04-01: 0 commits; +0/-0 lines outside lockfiles; 0 manifest dependency changes</title></rect>
+<rect x="440" y="490" width="25" height="26" rx="4" fill="var(--zero)"><title>R08 2026-04-02: 0 commits; +0/-0 lines outside lockfiles; 0 manifest dependency changes</title></rect>
+<rect x="467" y="490" width="25" height="26" rx="4" fill="var(--zero)"><title>R08 2026-04-03: 0 commits; +0/-0 lines outside lockfiles; 0 manifest dependency changes</title></rect>
+<rect x="494" y="490" width="25" height="26" rx="4" fill="var(--b2)"><title>R08 2026-04-04: 4 commits; +1754/-268 lines outside lockfiles; 0 manifest dependency changes</title></rect>
+<rect x="521" y="490" width="25" height="26" rx="4" fill="var(--b2)"><title>R08 2026-04-05: 4 commits; +651/-159 lines outside lockfiles; 0 manifest dependency changes</title></rect>
+<rect x="548" y="490" width="25" height="26" rx="4" fill="var(--zero)"><title>R08 2026-04-06: 0 commits; +0/-0 lines outside lockfiles; 0 manifest dependency changes</title></rect>
+<rect x="575" y="490" width="25" height="26" rx="4" fill="var(--zero)"><title>R08 2026-04-07: 0 commits; +0/-0 lines outside lockfiles; 0 manifest dependency changes</title></rect>
+<rect x="602" y="490" width="25" height="26" rx="4" fill="var(--zero)"><title>R08 2026-04-08: 0 commits; +0/-0 lines outside lockfiles; 0 manifest dependency changes</title></rect>
+<rect x="629" y="490" width="25" height="26" rx="4" fill="var(--b5)"><title>R08 2026-04-09: 38 commits; +51702/-7014 lines outside lockfiles; 1 manifest dependency changes</title></rect>
+<path d="M641.5 519 L646.5 524 L641.5 529 L636.5 524 Z" fill="var(--ink2)"><title>R08 2026-04-09: 38 commits; +51702/-7014 lines outside lockfiles; 1 manifest dependency changes</title></path>
+<rect x="656" y="490" width="25" height="26" rx="4" fill="var(--b1)"><title>R08 2026-04-10: 2 commits; +5086/-656 lines outside lockfiles; 0 manifest dependency changes</title></rect>
+<rect x="683" y="490" width="25" height="26" rx="4" fill="var(--zero)"><title>R08 2026-04-11: 0 commits; +0/-0 lines outside lockfiles; 0 manifest dependency changes</title></rect>
+<rect x="710" y="490" width="25" height="26" rx="4" fill="var(--zero)"><title>R08 2026-04-12: 0 commits; +0/-0 lines outside lockfiles; 0 manifest dependency changes</title></rect>
+<rect x="737" y="490" width="25" height="26" rx="4" fill="var(--zero)"><title>R08 2026-04-13: 0 commits; +0/-0 lines outside lockfiles; 0 manifest dependency changes</title></rect>
+<rect x="764" y="490" width="25" height="26" rx="4" fill="var(--b2)"><title>R08 2026-04-14: 5 commits; +652/-3216 lines outside lockfiles; 2 manifest dependency changes</title></rect>
+<path d="M776.5 519 L781.5 524 L776.5 529 L771.5 524 Z" fill="var(--ink2)"><title>R08 2026-04-14: 5 commits; +652/-3216 lines outside lockfiles; 2 manifest dependency changes</title></path>
+<rect x="791" y="490" width="25" height="26" rx="4" fill="var(--b4)"><title>R08 2026-04-15: 19 commits; +2842/-502 lines outside lockfiles; 1 manifest dependency changes</title></rect>
+<path d="M803.5 519 L808.5 524 L803.5 529 L798.5 524 Z" fill="var(--ink2)"><title>R08 2026-04-15: 19 commits; +2842/-502 lines outside lockfiles; 1 manifest dependency changes</title></path>
+<rect x="818" y="490" width="25" height="26" rx="4" fill="var(--b2)"><title>R08 2026-04-16: 4 commits; +135/-135 lines outside lockfiles; 0 manifest dependency changes</title></rect>
+<rect x="845" y="490" width="25" height="26" rx="4" fill="var(--zero)"><title>R08 2026-04-17: 0 commits; +0/-0 lines outside lockfiles; 0 manifest dependency changes</title></rect>
+<rect x="872" y="490" width="25" height="26" rx="4" fill="var(--zero)"><title>R08 2026-04-18: 0 commits; +0/-0 lines outside lockfiles; 0 manifest dependency changes</title></rect>
+<rect x="899" y="490" width="25" height="26" rx="4" fill="var(--b1)"><title>R08 2026-04-19: 1 commits; +6/-0 lines outside lockfiles; 0 manifest dependency changes</title></rect>
+<rect x="926" y="490" width="25" height="26" rx="4" fill="var(--b3)"><title>R08 2026-04-20: 10 commits; +4915/-2025 lines outside lockfiles; 0 manifest dependency changes</title></rect>
+<rect x="953" y="490" width="25" height="26" rx="4" fill="var(--b2)"><title>R08 2026-04-21: 4 commits; +1646/-1906 lines outside lockfiles; 2 manifest dependency changes</title></rect>
+<path d="M965.5 519 L970.5 524 L965.5 529 L960.5 524 Z" fill="var(--ink2)"><title>R08 2026-04-21: 4 commits; +1646/-1906 lines outside lockfiles; 2 manifest dependency changes</title></path>
+<rect x="980" y="490" width="25" height="26" rx="4" fill="var(--b1)"><title>R08 2026-04-22: 2 commits; +118/-15 lines outside lockfiles; 0 manifest dependency changes</title></rect>
+<text x="16" y="549" font-size="12.5" font-weight="400">R09 jesse</text>
+<text x="16" y="565" font-size="11" class="mu">17 commits, 28 observed days</text>
+<rect x="251" y="536" width="25" height="26" rx="4" fill="var(--zero)"><title>R09 2026-03-26: 0 commits; +0/-0 lines outside lockfiles; 0 manifest dependency changes</title></rect>
+<rect x="278" y="536" width="25" height="26" rx="4" fill="var(--b1)"><title>R09 2026-03-27: 1 commits; +83/-82 lines outside lockfiles; 0 manifest dependency changes</title></rect>
+<rect x="305" y="536" width="25" height="26" rx="4" fill="var(--b2)"><title>R09 2026-03-28: 4 commits; +103/-5 lines outside lockfiles; 0 manifest dependency changes</title></rect>
+<rect x="332" y="536" width="25" height="26" rx="4" fill="var(--zero)"><title>R09 2026-03-29: 0 commits; +0/-0 lines outside lockfiles; 0 manifest dependency changes</title></rect>
+<rect x="359" y="536" width="25" height="26" rx="4" fill="var(--zero)"><title>R09 2026-03-30: 0 commits; +0/-0 lines outside lockfiles; 0 manifest dependency changes</title></rect>
+<rect x="386" y="536" width="25" height="26" rx="4" fill="var(--b1)"><title>R09 2026-03-31: 1 commits; +1/-1 lines outside lockfiles; 0 manifest dependency changes</title></rect>
+<rect x="413" y="536" width="25" height="26" rx="4" fill="var(--zero)"><title>R09 2026-04-01: 0 commits; +0/-0 lines outside lockfiles; 0 manifest dependency changes</title></rect>
+<rect x="440" y="536" width="25" height="26" rx="4" fill="var(--zero)"><title>R09 2026-04-02: 0 commits; +0/-0 lines outside lockfiles; 0 manifest dependency changes</title></rect>
+<rect x="467" y="536" width="25" height="26" rx="4" fill="var(--zero)"><title>R09 2026-04-03: 0 commits; +0/-0 lines outside lockfiles; 0 manifest dependency changes</title></rect>
+<rect x="494" y="536" width="25" height="26" rx="4" fill="var(--zero)"><title>R09 2026-04-04: 0 commits; +0/-0 lines outside lockfiles; 0 manifest dependency changes</title></rect>
+<rect x="521" y="536" width="25" height="26" rx="4" fill="var(--zero)"><title>R09 2026-04-05: 0 commits; +0/-0 lines outside lockfiles; 0 manifest dependency changes</title></rect>
+<rect x="548" y="536" width="25" height="26" rx="4" fill="var(--b1)"><title>R09 2026-04-06: 1 commits; +8/-8 lines outside lockfiles; 0 manifest dependency changes</title></rect>
+<rect x="575" y="536" width="25" height="26" rx="4" fill="var(--b1)"><title>R09 2026-04-07: 2 commits; +28/-2 lines outside lockfiles; 0 manifest dependency changes</title></rect>
+<rect x="602" y="536" width="25" height="26" rx="4" fill="var(--zero)"><title>R09 2026-04-08: 0 commits; +0/-0 lines outside lockfiles; 0 manifest dependency changes</title></rect>
+<rect x="629" y="536" width="25" height="26" rx="4" fill="var(--b1)"><title>R09 2026-04-09: 1 commits; +2/-2 lines outside lockfiles; 0 manifest dependency changes</title></rect>
+<rect x="656" y="536" width="25" height="26" rx="4" fill="var(--zero)"><title>R09 2026-04-10: 0 commits; +0/-0 lines outside lockfiles; 0 manifest dependency changes</title></rect>
+<rect x="683" y="536" width="25" height="26" rx="4" fill="var(--zero)"><title>R09 2026-04-11: 0 commits; +0/-0 lines outside lockfiles; 0 manifest dependency changes</title></rect>
+<rect x="710" y="536" width="25" height="26" rx="4" fill="var(--zero)"><title>R09 2026-04-12: 0 commits; +0/-0 lines outside lockfiles; 0 manifest dependency changes</title></rect>
+<rect x="737" y="536" width="25" height="26" rx="4" fill="var(--zero)"><title>R09 2026-04-13: 0 commits; +0/-0 lines outside lockfiles; 0 manifest dependency changes</title></rect>
+<rect x="764" y="536" width="25" height="26" rx="4" fill="var(--zero)"><title>R09 2026-04-14: 0 commits; +0/-0 lines outside lockfiles; 0 manifest dependency changes</title></rect>
+<rect x="791" y="536" width="25" height="26" rx="4" fill="var(--zero)"><title>R09 2026-04-15: 0 commits; +0/-0 lines outside lockfiles; 0 manifest dependency changes</title></rect>
+<rect x="818" y="536" width="25" height="26" rx="4" fill="var(--b1)"><title>R09 2026-04-16: 1 commits; +725/-11 lines outside lockfiles; 1 manifest dependency changes</title></rect>
+<path d="M830.5 565 L835.5 570 L830.5 575 L825.5 570 Z" fill="var(--ink2)"><title>R09 2026-04-16: 1 commits; +725/-11 lines outside lockfiles; 1 manifest dependency changes</title></path>
+<rect x="845" y="536" width="25" height="26" rx="4" fill="var(--zero)"><title>R09 2026-04-17: 0 commits; +0/-0 lines outside lockfiles; 0 manifest dependency changes</title></rect>
+<rect x="872" y="536" width="25" height="26" rx="4" fill="var(--zero)"><title>R09 2026-04-18: 0 commits; +0/-0 lines outside lockfiles; 0 manifest dependency changes</title></rect>
+<rect x="899" y="536" width="25" height="26" rx="4" fill="var(--b1)"><title>R09 2026-04-19: 1 commits; +1008/-48 lines outside lockfiles; 0 manifest dependency changes</title></rect>
+<rect x="926" y="536" width="25" height="26" rx="4" fill="var(--zero)"><title>R09 2026-04-20: 0 commits; +0/-0 lines outside lockfiles; 0 manifest dependency changes</title></rect>
+<rect x="953" y="536" width="25" height="26" rx="4" fill="var(--zero)"><title>R09 2026-04-21: 0 commits; +0/-0 lines outside lockfiles; 0 manifest dependency changes</title></rect>
+<rect x="980" y="536" width="25" height="26" rx="4" fill="var(--b2)"><title>R09 2026-04-22: 5 commits; +141/-161 lines outside lockfiles; 0 manifest dependency changes</title></rect>
+<line x1="455.7" y1="104" x2="455.7" y2="572" stroke="var(--acc)" stroke-width="2"/>
+<text x="460.7" y="112" font-size="11.5" font-weight="600">mcp 1.27.0 on PyPI, 2 Apr 14:48 UTC</text>
+<text x="16" y="608" font-size="12" font-weight="600">Commits per day</text>
+<rect x="160" y="596" width="22" height="16" rx="4" fill="var(--b1)"/><text x="187" y="608" font-size="11.5" class="t2">1-2</text>
+<rect x="230" y="596" width="22" height="16" rx="4" fill="var(--b2)"/><text x="257" y="608" font-size="11.5" class="t2">3-5</text>
+<rect x="300" y="596" width="22" height="16" rx="4" fill="var(--b3)"/><text x="327" y="608" font-size="11.5" class="t2">6-10</text>
+<rect x="370" y="596" width="22" height="16" rx="4" fill="var(--b4)"/><text x="397" y="608" font-size="11.5" class="t2">11-25</text>
+<rect x="440" y="596" width="22" height="16" rx="4" fill="var(--b5)"/><text x="467" y="608" font-size="11.5" class="t2">26-50</text>
+<rect x="510" y="596" width="22" height="16" rx="4" fill="var(--b6)"/><text x="537" y="608" font-size="11.5" class="t2">51+</text>
+<rect x="580" y="596" width="22" height="16" rx="4" fill="var(--zero)"/><text x="607" y="608" font-size="11.5" class="t2">0</text>
+<rect x="640" y="596" width="22" height="16" rx="4" fill="url(#hatch)"/><text x="667" y="608" font-size="11.5" class="t2">no GitHub history yet</text>
+<path d="M22 629 L27 634 L22 639 L17 634 Z" fill="var(--ink2)"/><text x="34" y="638" font-size="11.5" class="t2">day with at least one dependency change in a manifest (pyproject, requirements, setup)</text>
+<circle cx="22" cy="656" r="6" fill="var(--acc)"/><text x="34" y="660" font-size="11.5" class="t2">a manifest or lockfile first holds mcp 1.27.0, placed at the commit time</text>
+<line x1="16" y1="678" x2="28" y2="678" stroke="var(--acc)" stroke-width="2"/><text x="34" y="682" font-size="11.5" class="t2">the library release, from the PyPI upload time as Open Source Insights gives it</text>
+<text x="16" y="716" font-size="11" class="mu">Commits deduplicated across branches and tags, placed by committer time. Hover a cell for counts. Source: studies/LH002/data/repo_day.csv.</text>
+</svg>

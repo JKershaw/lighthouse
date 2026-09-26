@@ -1,0 +1,39 @@
+figure,value,basis
+observed repository-days,271,repo_day.csv status=observed
+missing repository-days (no GitHub history yet),9,"repo_day.csv, R04 before 2026-04-04"
+active repository-days,143,observed days with at least one commit
+commits in window,2508,repo_day.csv
+commits per observed repository-day,9.25,commits / observed days
+commits in window excluding R06,1026,repo_day.csv
+commits per observed repository-day excluding R06,4.22,
+commits by author class: bot,13,share 0.005 of all; excluding R06 12
+commits by author class: human_account,1625,share 0.648 of all; excluding R06 144
+commits by author class: unknown,870,share 0.347 of all; excluding R06 870
+additions outside lockfiles and vendored paths,8065850,
+deletions outside lockfiles and vendored paths,7632433,
+additions in lockfiles,77205,
+deletions in lockfiles,39128,
+additions in vendored paths,0,
+commits naming an AI tool in a trailer,24,self-declared; not an authorship measure
+manifest dependency changes,234,per package per file per commit
+PyPI releases of cohort packages in window,74,pypi_releases_in_window.csv
+git tags created in window,83,creatordate; a lightweight tag carries its commit date
+GH Archive hour: events,153261,2026-04-02-14.json.gz
+GH Archive hour: compressed bytes,35617941,2026-04-02-14.json.gz
+GH Archive hour: cohort events,4,
+GH Archive window estimate: files,672,28 days x 24 hours
+GH Archive window estimate: compressed bytes if every hour matched this one,23935256352,"scenario, not a measurement"
+GH Archive hour: parse seconds on this container,2.6,"gharchive_hour.py, one run"
+GH Archive window estimate: parse hours at that rate,0.49,"scenario, not a measurement"
+Software Heritage: GitHub origins archived,5,of 10
+Software Heritage: window-end heads archived,5,of archived origins
+R00 commits per observed day,3.39,"95 commits over 28 days, 13 active"
+R01 commits per observed day,3.46,"97 commits over 28 days, 20 active"
+R02 commits per observed day,7.5,"210 commits over 28 days, 13 active"
+R03 commits per observed day,0.93,"26 commits over 28 days, 3 active"
+R04 commits per observed day,0.68,"13 commits over 19 days, 5 active"
+R05 commits per observed day,15.54,"435 commits over 28 days, 28 active"
+R06 commits per observed day,52.93,"1482 commits over 28 days, 28 active"
+R07 commits per observed day,0.32,"9 commits over 28 days, 8 active"
+R08 commits per observed day,4.43,"124 commits over 28 days, 16 active"
+R09 commits per observed day,0.61,"17 commits over 28 days, 9 active"

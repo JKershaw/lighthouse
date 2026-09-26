@@ -1,0 +1,85 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1040 680" width="1040" height="680" role="img" aria-labelledby="dm-title dm-desc">
+<style>
+  svg { --bg:#fcfcfb; --ink:#0b0b0b; --ink2:#52514e; --muted:#898781; --grid:#e4e3df; --zero:#f0efec;
+        --b1:#86b6ef; --b2:#5598e7; --b3:#2a78d6; --b4:#1c5cab; --b5:#104281; --b6:#0d366b; --acc:#eb6834; --blue:#2a78d6; }
+  @media (prefers-color-scheme: dark) {
+    svg { --bg:#1a1a19; --ink:#ffffff; --ink2:#c3c2b7; --muted:#898781; --grid:#383835; --zero:#2a2a28;
+          --b1:#184f95; --b2:#1c5cab; --b3:#256abf; --b4:#3987e5; --b5:#6da7ec; --b6:#9ec5f4; --acc:#d95926; --blue:#3987e5; } }
+  text { font-family: system-ui, -apple-system, "Segoe UI", sans-serif; fill: var(--ink); }
+  .t2 { fill: var(--ink2); } .mu { fill: var(--muted); } .bg { fill: var(--bg); }
+</style>
+<rect class="bg" x="0" y="0" width="1040" height="680"/>
+<title id="dm-title">LH002 dependency map: the cohort as Open Source Insights resolves it</title>
+<desc id="dm-desc">The library mcp on the left, the nine dependents on the right. Each line is the dependency Open Source Insights resolves for the dependent's PyPI version current at window end, typed by the requirement. No dependent resolves another cohort member.</desc>
+<text x="16" y="30" font-size="17" font-weight="600">Dependency map: typed links among the cohort, as Open Source Insights resolves them</text>
+<text x="16" y="52" font-size="12.5" class="t2">Each dependent's PyPI version current at 22 April 2026. Resolved versions are as the service gave them on 26 September 2026, not as installed in April.</text>
+<rect x="40" y="296" width="200" height="68" rx="8" fill="none" stroke="var(--ink)" stroke-width="2"/>
+<text x="140" y="322" font-size="14" font-weight="600" text-anchor="middle">mcp (R00)</text>
+<text x="140" y="340" font-size="11.5" text-anchor="middle" class="t2">1.27.0 released in window</text>
+<text x="140" y="355" font-size="11" text-anchor="middle" class="mu">repo link: attested</text>
+<path d="M560 100 C 380 100, 410 330, 240 314" fill="none" stroke="var(--blue)" stroke-width="1.5"><title>R01 agentcrew-ai 0.13.0: mcp&gt;=1.24.0, resolves 2.2.0 (lower bound)</title></path>
+<rect x="560" y="80" width="200" height="40" rx="6" fill="var(--bg)" stroke="var(--ink2)" stroke-width="1"/>
+<text x="570" y="97" font-size="12.5" font-weight="600">R01 agentcrew-ai</text>
+<text x="570" y="113" font-size="10.5" class="mu">repo link: unverified metadata</text>
+<text x="772" y="97" font-size="11.5" class="t2">0.13.0: mcp&gt;=1.24.0, resolves 2.2.0</text>
+<text x="772" y="113" font-size="10.5" class="mu">git at window end: mcp&gt;=1.24.0; lock 1.26.0</text>
+<path d="M560 156 C 380 156, 410 330, 240 318" fill="none" stroke="var(--muted)" stroke-width="1.5" stroke-dasharray="6 5"><title>R02 databricks-tellr-app 0.2.7: no mcp in resolved graph (no mcp dependency)</title></path>
+<rect x="560" y="136" width="200" height="40" rx="6" fill="var(--bg)" stroke="var(--ink2)" stroke-width="1"/>
+<text x="570" y="153" font-size="12.5" font-weight="600">R02 databricks-tellr-app</text>
+<text x="570" y="169" font-size="10.5" class="mu">repo link: attested</text>
+<text x="772" y="153" font-size="11.5" class="t2">0.2.7: no mcp in resolved graph</text>
+<text x="772" y="169" font-size="10.5" class="mu">git at window end: mcp&gt;=1.0.0; lock 1.27.0</text>
+<circle cx="552" cy="156" r="6" fill="var(--acc)" stroke="var(--bg)" stroke-width="2"><title>R02: moved to mcp 1.27.0 inside the window, per git</title></circle>
+<path d="M560 212 C 380 212, 410 330, 240 322" fill="none" stroke="var(--blue)" stroke-width="3"><title>R03 lean-lsp-mcp 0.26.1: mcp==1.27.0, resolves 1.27.0 (exact pin)</title></path>
+<rect x="560" y="192" width="200" height="40" rx="6" fill="var(--bg)" stroke="var(--ink2)" stroke-width="1"/>
+<text x="570" y="209" font-size="12.5" font-weight="600">R03 lean-lsp-mcp</text>
+<text x="570" y="225" font-size="10.5" class="mu">repo link: unverified metadata</text>
+<text x="772" y="209" font-size="11.5" class="t2">0.26.1: mcp==1.27.0, resolves 1.27.0</text>
+<text x="772" y="225" font-size="10.5" class="mu">git at window end: mcp==1.27.0; lock 1.27.0</text>
+<circle cx="552" cy="212" r="6" fill="var(--acc)" stroke="var(--bg)" stroke-width="2"><title>R03: moved to mcp 1.27.0 inside the window, per git</title></circle>
+<path d="M560 268 C 380 268, 410 330, 240 326" fill="none" stroke="var(--blue)" stroke-width="1.5"><title>R04 pyp6xer-mcp 1.1.0: mcp&gt;=1.0.0, resolves 2.2.0 (lower bound)</title></path>
+<rect x="560" y="248" width="200" height="40" rx="6" fill="var(--bg)" stroke="var(--ink2)" stroke-width="1"/>
+<text x="570" y="265" font-size="12.5" font-weight="600">R04 pyp6xer-mcp</text>
+<text x="570" y="281" font-size="10.5" class="mu">repo link names a GitLab repository</text>
+<text x="772" y="265" font-size="11.5" class="t2">1.1.0: mcp&gt;=1.0.0, resolves 2.2.0</text>
+<text x="772" y="281" font-size="10.5" class="mu">git at window end: mcp==1.27.0; lock 1.27.0</text>
+<circle cx="552" cy="268" r="6" fill="var(--acc)" stroke="var(--bg)" stroke-width="2"><title>R04: moved to mcp 1.27.0 inside the window, per git</title></circle>
+<path d="M560 324 C 380 324, 410 330, 240 330" fill="none" stroke="var(--blue)" stroke-width="3"><title>R05 serena-agent 1.1.2: mcp==1.26.0, resolves 1.26.0 (exact pin)</title></path>
+<rect x="560" y="304" width="200" height="40" rx="6" fill="var(--bg)" stroke="var(--ink2)" stroke-width="1"/>
+<text x="570" y="321" font-size="12.5" font-weight="600">R05 serena-agent</text>
+<text x="570" y="337" font-size="10.5" class="mu">repo link: unverified metadata</text>
+<text x="772" y="321" font-size="11.5" class="t2">1.1.2: mcp==1.26.0, resolves 1.26.0</text>
+<text x="772" y="337" font-size="10.5" class="mu">git at window end: mcp==1.26.0; lock 1.26.0</text>
+<path d="M560 380 C 380 380, 410 330, 240 334" fill="none" stroke="var(--blue)" stroke-width="1.5"><title>R06 dartlab 0.9.19: mcp&gt;=1.0, resolves 1.30.0 (lower bound)</title></path>
+<rect x="560" y="360" width="200" height="40" rx="6" fill="var(--bg)" stroke="var(--ink2)" stroke-width="1"/>
+<text x="570" y="377" font-size="12.5" font-weight="600">R06 dartlab</text>
+<text x="570" y="393" font-size="10.5" class="mu">repo link: attested</text>
+<text x="772" y="377" font-size="11.5" class="t2">0.9.19: mcp&gt;=1.0, resolves 1.30.0</text>
+<text x="772" y="393" font-size="10.5" class="mu">git at window end: mcp&gt;=1.0; lock 1.27.0</text>
+<circle cx="552" cy="380" r="6" fill="var(--acc)" stroke="var(--bg)" stroke-width="2"><title>R06: moved to mcp 1.27.0 inside the window, per git</title></circle>
+<path d="M560 436 C 380 436, 410 330, 240 338" fill="none" stroke="var(--blue)" stroke-width="1.5"><title>R07 mistral-vibe 2.8.1: mcp&gt;=1.14.0, resolves 2.2.0 (lower bound)</title></path>
+<rect x="560" y="416" width="200" height="40" rx="6" fill="var(--bg)" stroke="var(--ink2)" stroke-width="1"/>
+<text x="570" y="433" font-size="12.5" font-weight="600">R07 mistral-vibe</text>
+<text x="570" y="449" font-size="10.5" class="mu">repo link: attested</text>
+<text x="772" y="433" font-size="11.5" class="t2">2.8.1: mcp&gt;=1.14.0, resolves 2.2.0</text>
+<text x="772" y="449" font-size="10.5" class="mu">git at window end: mcp&gt;=1.14.0; lock 1.26.0</text>
+<path d="M560 492 C 380 492, 410 330, 240 342" fill="none" stroke="var(--blue)" stroke-width="3"><title>R08 octobot 2.1.1: mcp==1.26.0, resolves 1.26.0 (exact pin)</title></path>
+<rect x="560" y="472" width="200" height="40" rx="6" fill="var(--bg)" stroke="var(--ink2)" stroke-width="1"/>
+<text x="570" y="489" font-size="12.5" font-weight="600">R08 octobot</text>
+<text x="570" y="505" font-size="10.5" class="mu">repo link: unverified metadata</text>
+<text x="772" y="489" font-size="11.5" class="t2">2.1.1: mcp==1.26.0, resolves 1.26.0</text>
+<text x="772" y="505" font-size="10.5" class="mu">git at window end: mcp==1.26.0; lock none</text>
+<path d="M560 548 C 380 548, 410 330, 240 346" fill="none" stroke="var(--muted)" stroke-width="1.5" stroke-dasharray="2 4"><title>R09 jesse resolution error in the service (graph not resolved)</title></path>
+<rect x="560" y="528" width="200" height="40" rx="6" fill="var(--bg)" stroke="var(--ink2)" stroke-width="1"/>
+<text x="570" y="545" font-size="12.5" font-weight="600">R09 jesse</text>
+<text x="570" y="561" font-size="10.5" class="mu">repo link: unverified metadata</text>
+<text x="772" y="545" font-size="11.5" class="t2">resolution error in the service</text>
+<text x="772" y="561" font-size="10.5" class="mu">git at window end: no mcp; lock none</text>
+<line x1="16" y1="610" x2="44" y2="610" stroke="var(--blue)" stroke-width="3"/><text x="52" y="614" font-size="11.5" class="t2">direct dependency, exact pin (==)</text>
+<line x1="290" y1="610" x2="318" y2="610" stroke="var(--blue)" stroke-width="1.5"/><text x="326" y="614" font-size="11.5" class="t2">direct dependency, lower bound (&gt;=)</text>
+<line x1="570" y1="610" x2="598" y2="610" stroke="var(--muted)" stroke-width="1.5" stroke-dasharray="6 5"/><text x="606" y="614" font-size="11.5" class="t2">no mcp in the window-time version</text>
+<line x1="16" y1="632" x2="44" y2="632" stroke="var(--muted)" stroke-width="1.5" stroke-dasharray="2 4"/><text x="52" y="636" font-size="11.5" class="t2">the service could not resolve the graph</text>
+<circle cx="298" cy="632" r="6" fill="var(--acc)"/><text x="310" y="636" font-size="11.5" class="t2">git shows a move to mcp 1.27.0 inside the window</text>
+<text x="16" y="658" font-size="11" class="mu">Seven of nine dependents resolve mcp, each as a direct dependency; no dependent resolves another cohort member. mcp 2.2.0 and 1.30.0 were published on 7 September 2026.</text>
+<text x="16" y="674" font-size="11" class="mu">Right-hand grey lines are what git holds at window end. Source: studies/LH002/data/depsdev_graphs_window_start_end.csv and mcp_state_window_start_end.csv.</text>
+</svg>

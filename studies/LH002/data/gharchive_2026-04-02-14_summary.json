@@ -1,0 +1,54 @@
+{
+ "file": "2026-04-02-14.json.gz",
+ "bytes": 35617941,
+ "parse_seconds": 2.6,
+ "events": 153261,
+ "duplicate_ids": 0,
+ "events_without_repo_name": {
+  "ForkEvent": 3
+ },
+ "created_min": "2026-04-02T14:00:00Z",
+ "created_max": "2026-04-02T14:59:59Z",
+ "types": {
+  "PushEvent": 111213,
+  "CreateEvent": 13515,
+  "PullRequestEvent": 7597,
+  "DeleteEvent": 5457,
+  "IssuesEvent": 4085,
+  "IssueCommentEvent": 3065,
+  "WatchEvent": 2864,
+  "PullRequestReviewCommentEvent": 2184,
+  "PullRequestReviewEvent": 2077,
+  "ReleaseEvent": 469,
+  "ForkEvent": 390,
+  "MemberEvent": 205,
+  "GollumEvent": 45,
+  "CommitCommentEvent": 45,
+  "PublicEvent": 26,
+  "DiscussionEvent": 24
+ },
+ "pushevent_payload_fields": {
+  "repository_id": 111213,
+  "push_id": 111213,
+  "ref": 111213,
+  "head": 111213,
+  "before": 111213
+ },
+ "cohort": [
+  {
+   "repo": "R02",
+   "type": "DeleteEvent",
+   "events": 1
+  },
+  {
+   "repo": "R02",
+   "type": "PushEvent",
+   "events": 1
+  },
+  {
+   "repo": "R05",
+   "type": "PushEvent",
+   "events": 2
+  }
+ ]
+}
