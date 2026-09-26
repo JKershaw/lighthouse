@@ -10,33 +10,21 @@ The programme follows the order observatories have always followed: catalogue wh
 
 **LH004 A historical propagation case.** What would the three layers have shown during a documented propagation event, and which layer carried the first detectable signal? The xz backdoor of 2024. The malicious code was public in release tarballs from 24 February, and nobody detected it there. Both signals that were noticed were activity: a memory checker's errors in Red Hat's distributions from 4 March, which the attacker answered with a fix, and one engineer's slow logins on 29 March. The first fitted no surface in the design, which gained a Correctness surface as a result. None of the seventeen sources LH003 surveyed, and no instrument Lighthouse has proposed, watches the distribution package pipelines the compromise travelled through. The record is studies/LH004/; the piece is articles/the-xz-backdoor.md. What it leaves open: what an undetected case of the same kind would lack, which one detected case cannot say.
 
+**LH002 A bounded public software neighbourhood.** What can public activity reveal about change and dependency in a small software neighbourhood, and where does it fail to reveal running activity? Ten repositories around the Model Context Protocol Python SDK, over twenty-eight days in March and April 2026 fixed before collection by the SDK's 1.27.0 release. Four of the nine dependents came to hold the new release within the window, and in one case the change went a step further, a dependent pinning it and publishing its own release 22 minutes later. Every move fits ordinary maintenance, none was made by an identified bot, and the records tie a move to the release only by the version string and the order in time, which shows what came first and not what prompted it. No source read, git, the registry, Open Source Insights, Software Heritage or one hour of GH Archive, says what anyone installed or ran. Git and GH Archive disagree in both directions for the one hour compared, and a full window of GH Archive would be about 24 GB. The record is studies/LH002/, with the executed design in its brief; the piece is articles/where-a-software-update-went.md. What it leaves open: whether any public record connects a release to installation; how long exact-pin dependents take to move, across all of a release's dependents rather than a cohort selected on uptake; and how complete GH Archive is for a small cohort over a whole window.
+
 **LH000 One dispatch end to end.** A first look at what Harbour records about one of Lighthouse's own tasks and what the host shows while it runs. Harbour's record is of what was asked and what the agent claimed, not of what happened on the host, and the host was close to idle. The record is studies/LH000/.
 
 ## Next
 
-### LH002 Mapping a bounded public software neighbourhood
+### LH005 Connecting a release to installation
 
-**Question.** What can public activity reveal about change and dependency in a small software neighbourhood, and where does it fail to reveal running activity?
+**Question.** Can any public record connect a software release to its installation, and so carry an observation across the boundary LH002 found between what is offered and what is taken?
 
-**Design.** Select up to ten public repositories from a declared ecosystem and observe a fixed twenty-eight-day historical window. Record the selection criteria and the full cohort before analysis. Include a quieter or older project where feasible so that activity does not become the selection rule.
+**Design.** Start from the Python Package Index's download records by version and installer, the nearest public candidate for the taken side. Before any reading, record an access decision on the dataset (its public BigQuery copy needs an account), its field definitions, and its known distortions: mirrors, continuous-integration caches and automated re-downloads, which count as downloads without anyone running the code. Read the downloads of the LH002 library's releases across the LH002 window, by version and by installer class, and set them beside the dependents' moves the record holds. Publish counts and rates with their denominators; the source's own statements of coverage go in the map, not the footnotes.
 
-**Sources.** Use GH Archive as the candidate event source [S5]. Use accessible repository histories for the code changes the question requires; Software Heritage can supply history that does not depend on the live forge [S10]. Capture dependency manifests where available and compare them with the resolved graphs in Open Source Insights [S11]. Check event completeness and field definitions for the chosen dates: GH Archive draws on GitHub's Events API and payload structures change. Record the archives and repository snapshots used.
+**Interpretation boundary.** A download is not an installation and an installation is not a run. The study says which of the three the record reaches and stops there.
 
-**Readings.** Count events and active days, distinguish additions from deletions, and identify releases and manifest dependency changes. Separate bots explicitly identified in records from unknown contributors. Do not infer AI authorship from writing style or high output.
-
-**Identity.** Contributor names and addresses are personal data even when public. Keep raw identifiers out of the published record. Publish counts, categories (identified bot, identified human account, unknown) and pseudonymous identifiers only.
-
-**Analysis.** Produce a time map of observed activity and a typed dependency map. Where a dependency change in one repository is followed within the window by a change in a repository that depends on it, record the pair as a candidate propagation link and test the ordinary explanations (dependency-update bots, release trains, shared maintainers) before calling it anything else. Keep forks, vendored content, generated files and repeated observations visible in the inclusion rules. Compare totals with rates per observed repository-day, showing missing intervals and cohort coverage.
-
-**Interpretation boundary.** These readings describe public development activity. They do not establish deployed code, runtime traffic, operational importance or the fraction of software produced by AI. The missing connection between source and operation is an intended finding about observability.
-
-**Alternatives.** Check bulk imports, release schedules, repository migrations, changed collection and normal dependency updates before explaining a spike as altered agent activity.
-
-**Stop and output.** Close when the fixed window has been analysed and the coverage review completed. Publish the cohort, method, map and one concise account of what cannot be inferred. A failure to retrieve adequate history produces a feasibility result and a source assessment.
-
-**Bridge outward.** Treat published inference-use and identified-crawler series [S7] as separate candidate instruments, with their units and populations recorded in the study. Their units, populations and sampling differ from repository events; plotting them together must not imply that one caused the other. A later study may investigate an explicit connection.
-
-**Execution record.** Name the ecosystem, the selection rule, the dates, the collection limits, retention and the resource ceiling in the study's brief before running it, and recheck source availability and access conditions at commencement. The window is historical, so the observation is of the public record, not of live activity, and the study says so.
+**Stop and output.** Close when the source has been assessed and one release's downloads have been read against the window, or when the access decision is that it cannot be read, which produces a source assessment. One record; a piece if the record earns one.
 
 ### LH001 Observing a known Harbour workflow
 
@@ -64,7 +52,7 @@ The programme follows the order observatories have always followed: catalogue wh
 
 ## Questions after these
 
-Choose follow-up work from observed gaps. Candidate questions include whether small control signals predict large downstream changes, which state changes survive after inference ends, how much apparent growth comes from changed visibility, which layer carries the earliest detectable signal in a propagation event, whether a standard candle measured on one workflow transfers to another, and which of Harbour's own workflow findings leave a computational signature that an outside observer could detect. A later risk study could test whether the instruments distinguish benign repeated deployment from a propagation scenario in a contained model.
+Choose follow-up work from observed gaps. Candidate questions from LH002 are how long exact-pin dependents take to move across all of a release's dependents, and how complete GH Archive is for a small cohort over a whole window. Others include whether small control signals predict large downstream changes, which state changes survive after inference ends, how much apparent growth comes from changed visibility, which layer carries the earliest detectable signal in a propagation event, whether a standard candle measured on one workflow transfers to another, and which of Harbour's own workflow findings leave a computational signature that an outside observer could detect. A later risk study could test whether the instruments distinguish benign repeated deployment from a propagation scenario in a contained model.
 
 Prioritise questions by scientific value, decision relevance, evidence access, tractability and cost. Record the reasoning rather than hiding it behind a single numerical priority score. Keep speculative essays connected to the questions in this file so that ideas can become testable when suitable evidence appears.
 

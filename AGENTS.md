@@ -6,11 +6,12 @@ Lighthouse watches the internet for what AI systems do there and what their acti
 
 - The xz backdoor sat in public release files for about five weeks before a slow login gave it away. Both signals anyone noticed came from running code: a memory checker's errors in Red Hat's distributions from 4 March, then one engineer's timing. None of the seventeen sources surveyed, and no instrument Lighthouse has proposed, watches the distribution pipelines the compromise travelled through. The piece is articles/the-xz-backdoor.md; the record is studies/LH004/.
 - The public observatories of AI activity are partial views. Seventeen sources each cover one population, such as one forge, one broker, one vendor's tier or one network; their counts cannot be added, because no source says how much they overlap and Lighthouse has not measured it. The piece is articles/what-we-can-see.md; the record is studies/LH003/.
-- Lighthouse has not yet observed anything with its own instruments. The two it runs point inward, at its own tasks and its own machine.
+- In one small neighbourhood of Python projects, the public record followed a new release into four of nine dependents within four weeks, and one step further where a project pinned it exactly, but could not say why any of them moved or whether anyone ran it. This is the first thing Lighthouse read with its own hands. The piece is articles/where-a-software-update-went.md; the record is studies/LH002/.
+- The two instruments Lighthouse runs otherwise point inward, at its own tasks and its own machine.
 
 ## What is next
 
-LH002. Choose an ecosystem and up to ten public repositories, read a fixed twenty-eight days of their history, and say what happened there and what of it the public record connects from one project to the next. The design is in programme.md, which also names the questions after it.
+LH005. Ask whether any public record connects a software release to its installation, starting from the Python Package Index's download records by version and installer, read for the LH002 library across the LH002 window and set beside the dependents' moves the record holds. The design is in programme.md, which also names the questions after it.
 
 ## How a session goes
 
