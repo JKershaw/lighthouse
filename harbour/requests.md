@@ -28,6 +28,15 @@ Requests that already had tickets, now carrying the label and this project's wor
 | Resources producer | LIN-1788, with LIN-1805 and LIN-1807 |
 | Duplicate-guard retry path | LIN-2900 |
 
+## Not yet filed
+
+Found on 26 September 2026 while measuring spend from transcripts. To be filed under the same epic when convenient.
+
+| Request | What it replaces here |
+| --- | --- |
+| Rate card rows for Fable 5.1 and Opus 5.5, with their cache-read exceptions (a fortieth and a twentieth of input on the caching page) | The `costUsd` that `hb usage` computes locally from `harbour/prices.json` |
+| A workspace-level read of Harbour's own model spend through the proxy; the store can summarise it but no route an agent token can reach exposes it | Nothing yet; the export carries only the per-issue attribution |
+
 ## Field list: study marker (LIN-3070)
 
 A feedback marker beside `[ticket]` and `[usage]`, posted by the driver or by the agent that took the dispatch, linking the dispatch to the Lighthouse record it produced or used. Posted as a feedback entry with `"kind": "study"` and a message of the form `[study] { ...json... }`, so that the export can join a dispatch to a study and the ledger can attribute cost per study.
