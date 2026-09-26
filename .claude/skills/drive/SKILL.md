@@ -10,4 +10,4 @@ Do the next thing in programme.md, the way AGENTS.md says a session goes. The ar
 
 Harbour is optional. harbour/README.md says when it earns its keep and how to run a tick through it; without it, the programme is the backlog.
 
-Commit once at the end. Report in a paragraph: what was learned about the internet, each point labelled observation or interpretation, and the next question. Say nothing about process unless it failed. Never create a scheduled routine.
+Commit once at the end, push the working branch, and fast-forward main from it; the site rebuilds from main. Report in a paragraph: what was learned about the internet, each point labelled observation or interpretation, and the next question. Say nothing about process unless it failed. Never create a scheduled routine.
