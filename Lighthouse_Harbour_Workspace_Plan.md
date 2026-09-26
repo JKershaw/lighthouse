@@ -14,7 +14,7 @@ We keep going until the results are interesting: writing worth reading, evidence
 
 ## Budget
 
-One to ten dollars a day of autonomous work, flexible as the instruments improve, with each change noted in a decision record. Pilot and flight companion sessions are outside the budget but inside the ledger. Harbour's cost endpoint is the unit; there is no second accounting.
+One to ten dollars a day of autonomous work, flexible as the instruments improve, with each change noted in a decision record. Pilot and flight companion sessions are outside the budget but inside the ledger. Harbour's cost endpoint is the unit; there is no second accounting. Until the ledger runs, a drive is bounded by a count of dispatches and by measured subagent cost, as CLAUDE.md sets out; the driver session's own cost is measured but not yet bounded.
 
 ## Seed tickets
 

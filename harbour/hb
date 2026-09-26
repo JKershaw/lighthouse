@@ -181,7 +181,23 @@ req=urllib.request.Request(f"{H}/api/dispatch/feedback/{id_}",data=json.dumps(b)
 with urllib.request.urlopen(req) as r: print(r.read().decode())
 PY
 }
-cmd_usage() { ID="${1:?item id}"; JSON="${2:?usage json}"; cmd_feedback "$ID" "[usage] $JSON" usage; }
+# Spend is read from Claude Code transcripts, never from the launcher's token figure,
+# which is the subagent's final context size. Paths and ids stay on this machine.
+PROJ="$HOME/.claude/projects/$(echo "$REPO" | tr '/' '-')"
+transcript() { case "${1:-}" in
+    --agent) ls "$PROJ"/*/subagents/agent-"$2".jsonl 2>/dev/null | head -1;;
+    --latest) ls -t "$PROJ"/*/subagents/agent-*.jsonl 2>/dev/null | head -1;;
+    --driver) ls -t "$PROJ"/*.jsonl 2>/dev/null | head -1;;
+    *) echo "${1:-}";; esac; }
+cmd_tokens() { # hb tokens --agent <id> | --latest | --driver | <file> [--since ISO] [--until ISO] [--effort label]
+  local T; case "${1:-}" in --agent) T="$(transcript --agent "$2")"; shift 2;; --latest|--driver) T="$(transcript "$1")"; shift;; *) T="${1:-}"; shift;; esac
+  [ -s "$T" ] || die "no transcript found"
+  python3 "$WS/usage.py" "$T" "$@"
+}
+cmd_usage() { ID="${1:?item id}"; shift
+  case "${1:-}" in --agent|--latest|--driver) J="$(cmd_tokens "$@")";; *) J="${1:?usage json, or --agent <id> | --latest}";; esac
+  cmd_feedback "$ID" "[usage] $J" usage >/dev/null; echo "$J"; }
+cmd_drivercost() { cmd_tokens --driver --effort driver "$@"; }
 cmd_done() { ID="${1:?item id}"; MSG="${2:?message}"; cmd_feedback "$ID" "[done] $MSG"; }
 cmd_failed() { ID="${1:?item id}"; MSG="${2:?message}"; cmd_feedback "$ID" "[failed] $MSG"; }
 cmd_resources() { ID="${1:?item id}"
@@ -242,6 +258,6 @@ cmd_down() {
 }
 
 case "${1:-}" in
-  up|load|northstar|status|next|roadmap|dispatch|take|feedback|usage|done|failed|resources|close|export|down) c="$1"; shift; "cmd_$c" "$@";;
-  *) echo "usage: hb up|load|northstar|status|next|roadmap|dispatch <ticket> [kind]|take|feedback <id> <msg> [kind]|usage <id> <json>|resources <id>|done <id> <msg>|failed <id> <msg>|close <ticket> <msg>|export|down"; exit 2;;
+  up|load|northstar|status|next|roadmap|dispatch|take|feedback|usage|tokens|drivercost|done|failed|resources|close|export|down) c="$1"; shift; "cmd_$c" "$@";;
+  *) echo "usage: hb up|load|northstar|status|next|roadmap|dispatch <ticket> [kind]|take|feedback <id> <msg> [kind]|usage <id> --latest|--agent <id>|<json>|tokens --latest|--agent <id>|--driver [--since ISO]|drivercost [--since ISO]|resources <id>|done <id> <msg>|failed <id> <msg>|close <ticket> <msg>|export|down"; exit 2;;
 esac
