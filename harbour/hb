@@ -201,10 +201,7 @@ cmd_drivercost() { cmd_tokens --driver --effort driver "$@"; }
 cmd_done() { ID="${1:?item id}"; MSG="${2:?message}"; cmd_feedback "$ID" "[done] $MSG"; }
 cmd_failed() { ID="${1:?item id}"; MSG="${2:?message}"; cmd_feedback "$ID" "[failed] $MSG"; }
 cmd_resources() { ID="${1:?item id}"
-  J="$(python3 -c "
-import json,os
-la=float(open('/proc/loadavg').read().split()[0]); mi={l.split(':')[0]:int(l.split()[1])*1024 for l in open('/proc/meminfo')}
-print(json.dumps({'loadAvg1':la,'cpuCount':os.cpu_count(),'hostMemTotalBytes':mi['MemTotal'],'hostMemAvailableBytes':mi['MemAvailable']}))")"
+  J="$(python3 "$WS/sample.py" --interval 5 --label "resources-$ID")"
   cmd_feedback "$ID" "[resources] $J" resources; echo "$J"; }
 
 cmd_export() {
