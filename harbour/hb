@@ -73,6 +73,25 @@ PY
   echo "loaded into project '$PNAME'"
 }
 
+cmd_add() { # hb add <ticket>: file one ticket from tickets.json into the running Harbour without reloading the rest
+  TID="${1:?ticket id}"
+  PROJ="$(curl_p "$H/api/proxy/projects" | jq_ "p=(d.get('projects') or [])[0]; print(p['id'])")"
+  python3 - "$WS/tickets.json" "$SESSION/issues.json" "$PROJ" "$TID" "$H" "$(ptok)" <<'PYADD'
+import json,sys,urllib.request,os
+tf,mf,pid,tid,H,tok=sys.argv[1:7]
+t=next((t for t in json.load(open(tf)) if t["id"]==tid),None) or sys.exit(f"no ticket {tid}")
+mapping=json.load(open(mf)) if os.path.exists(mf) else {}
+if tid in mapping: sys.exit(f"{tid} already loaded as {mapping[tid]['identifier']}")
+body={"title":f"{t['id']} {t['title']}","description":t["description"],"projectId":pid,
+      "stateId":{"todo":"todo","backlog":"backlog","started":"in-progress","done":"done"}[t.get("status","todo")],
+      "priorityLevel":t.get("priorityLevel",2)}
+req=urllib.request.Request(H+"/api/proxy/issues",data=json.dumps(body).encode(),method="POST",headers={"content-type":"application/json","Authorization":"Bearer "+tok})
+with urllib.request.urlopen(req) as r: d=json.load(r)
+iss=d.get("issue",d); mapping[tid]={"identifier":iss.get("identifier"),"issueId":iss.get("id"),"state":(iss.get("state") or {}).get("name")}
+json.dump(mapping,open(mf,"w"),indent=2); print(f"{tid} -> {iss.get('identifier')} {(iss.get('state') or {}).get('name')}")
+PYADD
+}
+
 cmd_northstar() {
   KEY="$(key)"
   NS="$(python3 -c "import json; print(json.dumps(open('$WS/north-star.md').read().strip()))")"
@@ -260,6 +279,6 @@ cmd_down() {
 }
 
 case "${1:-}" in
-  up|load|northstar|status|next|roadmap|dispatch|take|feedback|usage|tokens|drivercost|done|failed|resources|close|export|down) c="$1"; shift; "cmd_$c" "$@";;
-  *) echo "usage: hb up|load|northstar|status|next|roadmap|dispatch <ticket> [kind]|take|feedback <id> <msg> [kind]|usage <id> --latest|--agent <id>|<json>|tokens --latest|--agent <id>|--driver [--since ISO]|drivercost [--since ISO]|resources <id>|done <id> <msg>|failed <id> <msg>|close <ticket> <msg>|export|down"; exit 2;;
+  up|load|add|northstar|status|next|roadmap|dispatch|take|feedback|usage|tokens|drivercost|done|failed|resources|close|export|down) c="$1"; shift; "cmd_$c" "$@";;
+  *) echo "usage: hb up|load|add <ticket>|northstar|status|next|roadmap|dispatch <ticket> [kind]|take|feedback <id> <msg> [kind]|usage <id> --latest|--agent <id>|<json>|tokens --latest|--agent <id>|--driver [--since ISO]|drivercost [--since ISO]|resources <id>|done <id> <msg>|failed <id> <msg>|close <ticket> <msg>|export|down"; exit 2;;
 esac
