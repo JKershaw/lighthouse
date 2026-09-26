@@ -12,7 +12,7 @@ The initial programme establishes one close observation of Harbour, one bounded 
 | --- | --- |
 | Establish | Assign owners, access and budgets; open study records; register instruments and sources; confirm Harbour's current record fields and retention; run LH003, which needs only reading |
 | Calibrate | Run LH001, the standard candle; export Harbour records; reconcile readings with known events; document overhead and gaps; write LH004 |
-| Compare | Run LH002; interpret one outward series through the LH001 calibration; repeat selected observations; test collection and cohort artefacts |
+| Compare | Run LH002, which does not wait for LH001 (D-0003); interpret one outward series through the LH001 calibration once it exists; repeat selected observations; test collection and cohort artefacts |
 | Publish and review | Release reviewed studies and one synthesis; decide what to retain, change or stop |
 
 The stages can overlap where dependencies allow. If access or data quality prevents a study, complete the feasibility note and choose a replacement question. Do not broaden the claim to compensate for a small sample.

@@ -70,5 +70,45 @@
     "priorityLevel": 3,
     "status": "done",
     "description": "A research note. Compare the models available to the driver, Haiku 4.5, Sonnet 5, Opus 5.5 and Fable 5.1, for the kinds of task Lighthouse dispatches: consumer chores such as polling, taking, running commands and posting feedback; collection scripts; source checks; reading surveys; historical essays; study write-ups; and review. For each kind recommend a default model and say why, using published pricing and capability descriptions and the one measured run recorded in CLAUDE.md. State what is not known. Done when notes/Q-0002-model-choices.md exists in the Harbour standard's paper form."
+  },
+  {
+    "id": "E-0001",
+    "title": "Edit LH003 into an article",
+    "kind": "implementation",
+    "priorityLevel": 2,
+    "status": "todo",
+    "description": "E-0001 Edit LH003 into an article. Draft, from studies/LH003/, the article that answers for a reader what we can actually see of AI activity on the internet: what repository activity, model usage reports and crawler measurements each expose, where their populations overlap or differ, and what remains invisible, without pretending the measurements add up to a census. Five minutes to read. Lead with the strongest supported finding and why it matters; keep the qualifications that change its meaning; remove the procedural clutter; name every source as the supplier of its evidence; describe one illustration in words if none can be drawn. Write it to articles/what-we-can-see.md as a draft. Done when the draft exists; release is the keeper's decision under LH F03. This will let us explain what the existing observatories reveal."
+  },
+  {
+    "id": "E-0002",
+    "title": "Edit LH004 into an article",
+    "kind": "implementation",
+    "priorityLevel": 2,
+    "status": "todo",
+    "description": "E-0002 Edit LH004 into an article. Draft, from studies/LH004/, the article that follows the xz backdoor through the structures that carried it: what became visible first, who could see it, and what stayed hidden until later. Five minutes to read, same form as E-0001, every source named as the supplier of its evidence. Write it to articles/the-xz-backdoor.md as a draft. Done when the draft exists; release is the keeper's decision under LH F03. This will let us explain which layer carried a real propagation event and who could have seen it."
+  },
+  {
+    "id": "LH002",
+    "title": "A bounded neighbourhood over a historical window",
+    "kind": "research",
+    "priorityLevel": 2,
+    "status": "todo",
+    "description": "LH002 A bounded neighbourhood over a historical window. Follow the design in LH F04's LH002 section: up to ten public repositories from a declared ecosystem, a fixed twenty-eight-day historical window, cohort recorded before analysis, sources S5, S10 and S11 as LH003 surveyed them, identifiers kept out of the published record. The question the observer put: when something changes in this neighbourhood, where does the change appear next? Done when either a pattern is shown with its evidence, or the records are shown unable to connect the events, with the boundary, the window, the sources and the collection dates stated in studies/LH002/. It does not wait for LH001 (D-0003). This will let us establish whether propagation can be read from public records at all."
+  },
+  {
+    "id": "I-0003",
+    "title": "Harden the export instrument",
+    "kind": "implementation",
+    "priorityLevel": 3,
+    "status": "todo",
+    "description": "I-0003 Harden the export instrument. Make harbour/hb export fail on any HTTP error rather than writing an error body into a file, record in the manifest the issue count, whether the dispatch list was truncated, and which files were fetched and which were copied from the session directory, and version the I-0001 record to 0.2 with the change noted as one that affects comparisons. This will let us trust that an export that exists is complete."
+  },
+  {
+    "id": "I-0004",
+    "title": "Register LH003's sources as candidate instruments",
+    "kind": "implementation",
+    "priorityLevel": 3,
+    "status": "todo",
+    "description": "I-0004 Register LH003's sources as candidate instruments. For each source with a row in studies/LH003/sources.md, add a candidate instrument record to registers/instruments.md in the LH F05 form, or one line saying why it is not a candidate, as LH F04's LH003 design asks. This will let us say which outward surfaces Lighthouse could read next and at what cost."
   }
 ]

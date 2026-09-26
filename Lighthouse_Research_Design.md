@@ -50,6 +50,7 @@ Begin with readings the study can define and calibrate. Collection frequency fol
 | Electricity | Activity | Watts and energy over an interval | Declare the device, facility or allocated boundary |
 | Communication | Activity | Requests, bytes, direction, latency, errors | Duplication and compression affect volume |
 | Inference | Activity | Calls, model, input and output tokens, cache use | Provider and tokenizer definitions vary |
+| Correctness | Activity | Test, sanitiser and build outcomes: passes, failures, errors and their timing | Read only by whoever runs the check, and visible only where results are published (D-0004) |
 | State | Residue | Storage volume, reads, writes, configuration versions | Volume does not establish relevance or value |
 | Structure | Residue | Code changes, deployments, dependency changes | Count turnover separately from net growth |
 | Authority | Residue when held, activity when exercised | Tokens issued, scopes, write actions, approvals, actions reserved for humans | A permission is a relationship, not a volume |

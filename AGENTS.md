@@ -21,7 +21,7 @@ Lighthouse is an observatory for the computational world: a standing watch, kept
 - Label a statement as observation, derived measurement, interpretation or scenario wherever a reader could confuse them.
 - Leave unfillable fields blank and say what could not be filled. Never invent a timing, a count or a source. Cite sources by the S numbers in LH F02 where one exists, or by URL with the date read.
 - Study write-ups use the skeleton in LH F05: header, Answer, Findings, Method, Limits, Next, Corrections. Notes and essays follow the Harbour paper standard's form.
-- Tables keep the same number of columns in every row. Identifiers: LHnnn for studies, I-nnnn for instruments, Q-nnnn for questions, D-nnnn for decisions, C-nnnn for claims, L-nnnn for ledger entries.
+- Tables keep the same number of columns in every row. Identifiers: LHnnn for studies, I-nnnn for instruments, Q-nnnn for questions, D-nnnn for decisions, C-nnnn for claims, L-nnnn for ledger entries, E-nnnn for editing tasks that turn a study into an article.
 
 ## Conduct
 

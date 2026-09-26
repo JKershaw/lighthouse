@@ -5,7 +5,7 @@ This file is the instrument register named in AGENTS.md and defined by the instr
 ## Instrument I-0001
 
 ```
-instrument: I-0001                version: 0.1          owner: (blank; no owner has
+instrument: I-0001                version: 0.2          owner: (blank; no owner has
                                                           been assigned to instruments yet)
 ```
 
@@ -39,6 +39,8 @@ It also round-trips ticket status: after writing the files above, it reads `issu
 **source retention window (if reading an external source):** Not an external source in the S1 to S19 sense; it reads Lighthouse's own Harbour instance. That instance's stated retention still bounds when this instrument must run: dispatch items expire after twenty-four hours, and feedback, status and audit records after thirty days (Lighthouse_Operating_Handbook.md, citing S12); an export must be taken before those windows close if it is to carry a given dispatch's feedback at all.
 
 **retired on and reason (optional):** (blank; the instrument is in use)
+
+**changes:** 2026-09-26, version 0.2 (I-0003): every read fails the export on an HTTP error instead of writing an error body into a file; the manifest records the issue count and limit, whether the dispatch list was truncated, and which files were fetched from Harbour and which were copied from the session directory. Exports from 20260926T075104Z and earlier predate the change and their completeness was not checked at collection.
 
 ## Instrument I-0002
 

@@ -21,3 +21,23 @@ reason: The keeper's steer on 26 September 2026, once a Sonnet task was measured
 kind: provisional implementation choice
 revisit when: a task kind has been measured on both models, as notes/Q-0002 proposes under Next, or prices change.
 ```
+
+```
+decision: D-0003                  date: 2026-09-26      owner: the keeper
+question: Does LH001 gate outward work?
+options considered: keep the north star's sentence that outward numbers are only counts until LH001 exists; let outward studies validate their own sources within their own boundary, with LH001 calibrating the instruments Lighthouse runs itself
+choice: The second. The north star now says that LH001 calibrates Lighthouse's own instruments and that an outward study validates its sources within its boundary and says whose instruments supplied the evidence. LH002 is filed as a historical window so that change can be studied without waiting to accumulate observations. Editing an article is its own ticket, E-nnnn, distinct from the study it draws on, and release stays the keeper's decision under LH F03.
+reason: An observing agent's reading on 26 September 2026, which the keeper passed on, and the first drive's own result: LH003 and LH004 produced defensible records from others' observations before LH001 existed.
+kind: founding scope
+revisit when: LH001 exists and its calibration changes how an outward series should be read.
+```
+
+```
+decision: D-0004                  date: 2026-09-26      owner: the keeper
+question: Where does a correctness signal sit among LH F02's activity surfaces?
+options considered: leave it out, since it is not a resource reading; add a Correctness surface for test, sanitiser and build outcomes
+choice: Add the surface to the initial measurement surfaces table in LH F02.
+reason: LH004 found that the earliest xz signal was a memory sanitiser's output in a distribution's build pipeline, weeks before the timing anomaly that led to detection, and that no surface in the table would have recorded it.
+kind: founding scope
+revisit when: a study reads the surface and finds its unit or caveat wrong.
+```

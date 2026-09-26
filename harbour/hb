@@ -206,11 +206,12 @@ cmd_resources() { ID="${1:?item id}"
 
 cmd_export() {
   KEY="$(key)"; TS="$(date -u +%Y%m%dT%H%M%SZ)"; DIR="$WS/exports/$TS"; mkdir -p "$DIR"
-  curl_p "$H/api/proxy/issues?limit=250" > "$DIR/issues.json"
-  curl_p "$H/api/proxy/dispatch" > "$DIR/dispatches.json"
-  curl_s "$H/workspace/$KEY/api/dispatch/history" > "$DIR/history.json"
-  curl_p "$H/api/proxy/north-star" > "$DIR/north-star.json"
-  curl_s "$H/workspace/$KEY/api/roadmap/reports" > "$DIR/roadmap-reports.json"
+  # every read fails the export on an HTTP error rather than writing an error body into a file (I-0003)
+  curl_p -f "$H/api/proxy/issues?limit=250" > "$DIR/issues.json"
+  curl_p -f "$H/api/proxy/dispatch" > "$DIR/dispatches.json"
+  curl_s -f "$H/workspace/$KEY/api/dispatch/history" > "$DIR/history.json"
+  curl_p -f "$H/api/proxy/north-star" > "$DIR/north-star.json"
+  curl_s -f "$H/workspace/$KEY/api/roadmap/reports" > "$DIR/roadmap-reports.json"
   python3 - "$DIR" "$H" "$(ptok)" <<'PY'
 import json,sys,urllib.request
 d,H,tok=sys.argv[1:4]; cost={}
@@ -225,7 +226,11 @@ PY
   python3 - "$DIR" "$SESSION" "$KEY" "$WS/tickets.json" <<'PY'
 import json,sys,os,re,glob
 d,s,key,tf=sys.argv[1:5]
-manifest={"collectedAt":os.path.basename(d),"harbourCommit":open(f"{s}/harbour-commit").read().strip(),"workspace":key,"files":sorted(os.listdir(d))}
+fetched=["issues.json","dispatches.json","history.json","north-star.json","roadmap-reports.json","cost.json"]
+issues=json.load(open(f"{d}/issues.json")); disp=json.load(open(f"{d}/dispatches.json"))
+manifest={"collectedAt":os.path.basename(d),"harbourCommit":open(f"{s}/harbour-commit").read().strip(),"workspace":key,
+  "files":sorted(os.listdir(d)),"fetched":fetched,"copiedFromSession":sorted(f for f in os.listdir(d) if f not in fetched),
+  "issueCount":len(issues.get("issues",[])),"issueLimit":250,"dispatchListTruncated":bool(disp.get("truncated",False))}
 json.dump(manifest,open(f"{d}/manifest.json","w"),indent=2)
 # never let a token leave the session directory
 secrets=[open(f"{s}/{n}").read().strip() for n in ("dispatch-token","proxy-token") if os.path.exists(f"{s}/{n}")]
