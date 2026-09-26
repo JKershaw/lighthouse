@@ -50,7 +50,7 @@ Begin with readings the study can define and calibrate. Collection frequency fol
 | Electricity | Activity | Watts and energy over an interval | Declare the device, facility or allocated boundary |
 | Communication | Activity | Requests, bytes, direction, latency, errors | Duplication and compression affect volume |
 | Inference | Activity | Calls, model, input and output tokens, cache use | Provider and tokenizer definitions vary |
-| Correctness | Activity | Test, sanitiser and build outcomes: passes, failures, errors and their timing | Read only by whoever runs the check, and visible only where results are published (D-0004) |
+| Correctness | Activity | Test, sanitiser and build outcomes: passes, failures, errors and their timing | Read only by whoever runs the check and visible only where results are published; a pass does not establish correctness and an error does not establish malice (D-0004) |
 | State | Residue | Storage volume, reads, writes, configuration versions | Volume does not establish relevance or value |
 | Structure | Residue | Code changes, deployments, dependency changes | Count turnover separately from net growth |
 | Authority | Residue when held, activity when exercised | Tokens issued, scopes, write actions, approvals, actions reserved for humans | A permission is a relationship, not a volume |
@@ -128,7 +128,7 @@ A published assessment names its author, evidence reviewer, as-of date, time hor
 
 ## Sources and scientific antecedents
 
-These sources provide starting methods, concepts and candidate data. They do not establish Lighthouse's proposed hypotheses. Every link resolved on 25 September 2026; where the check could not confirm the content, the entry says so. Documentation changes, so studies preserve the exact version they use.
+These sources provide starting methods, concepts and candidate data. They do not establish Lighthouse's proposed hypotheses. Every link resolved on 25 September 2026; where the check could not confirm the content, the entry says so. Documentation changes, so studies preserve the exact version they use. Each source entry, and each survey row that draws on one, carries the source's publication date and observation window beside the date Lighthouse read it, so that a report can be told from its successors.
 
 ### S1 Computer epidemics
 

@@ -1,10 +1,10 @@
-title: The first drive: what one bounded tick of the watch showed
-kind: retro
-version: 0.1
-date: 2026-09-26
-authors: the driver (Claude Code session, Fable 5.1), for the keeper
-grounded_at: ec007fd
-cites: harbour/exports/20260926T075104Z/; registers/instruments.md; registers/decisions.md D-0001 to D-0004; notes/Q-0002-model-choices.md; CLAUDE.md; .claude/skills/drive/SKILL.md
+# The first drive
+
+Lighthouse produced its first outward research within one bounded drive on 26 September 2026. Coordinating the work cost about as much as the work. The drafts still needed a person's review, and got one.
+
+## What the watch saw
+
+Two things outside the project, both through other people's instruments. First, the public observatories of AI activity are partial views. Seventeen sources have a row in our survey, each scoped to one forge, one broker, one vendor's tier or one network, and none states how its population relates to another's. Their numbers cannot be added, and how they overlap is unmeasured; that is the question the survey leaves. Second, in the one historical case read so far, the xz backdoor, the evidence sat in public release files for five weeks and nobody read it. Detection came from running code: a memory checker's complaints in a build pipeline, then one engineer's slow logins. The pipelines that carried the compromise are watched by none of the public observatories, and a checker's output fitted no surface in our own design, which has since gained one. Lighthouse has not yet observed anything itself; that is LH002's job.
 
 ## What was attempted
 
@@ -54,3 +54,7 @@ Subagents cost $4.18 and the driver $4.28, at list rates (derived measurement; o
 ## Limits
 
 One drive on one morning, four tasks on one model. The cost figures depend on a price table read that day and on an output-token estimate. Wall times include waiting on fetches. The driver's cost is for the drive window only and excludes the tooling written before it.
+
+## Colophon
+
+Written by the driver, a Claude Code session on Fable 5.1, for the keeper; a record, not a piece. Grounded at ec007fd. Rests on harbour/exports/20260926T075104Z/, registers/instruments.md, registers/decisions.md D-0001 to D-0004, notes/Q-0002-model-choices.md, CLAUDE.md and .claude/skills/drive/SKILL.md. Reviewed in notes/review-2026-09-26-first-articles.md, which found it useful internal reading and asked that a drive's cost stay distinct from later editing work; it does.

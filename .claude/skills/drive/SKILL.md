@@ -35,6 +35,10 @@ Stopping early is not a failure. Say what stopped the drive and leave the rest f
 4. After the last dispatch: `hb export`, `hb down`, `hb drivercost --since <start time>`. Commit and push.
 5. Report.
 
+## Editing brief
+
+When a dispatch turns a record into a piece, the subagent's brief carries the piece rules from AGENTS.md and nothing that contradicts them: open with the thing itself; one idea; say it, then qualify once; provenance to the notes; no internal references; a drawn illustration; the colophon; read aloud. Never ask for a source in every sentence, and never put the record's header on a piece. Corrections to the record come first, in its Corrections section and its text, and the piece is drawn from the corrected record. A review dispatch (R-nnnn, kind review) follows every piece before it goes to the keeper, and the editors fix what it finds before the drive ends.
+
 ## Report
 
 Under a hundred lines, in this order: what Harbour suggested and what was dispatched; one row per dispatch with ticket, model, calls, cache read tokens, cache creation tokens and cost; the driver's own measured cost for the drive; what was learned, each point labelled observation or interpretation; what was left undone and why; proposals for the keeper, not filed.

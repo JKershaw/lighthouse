@@ -110,5 +110,45 @@
     "priorityLevel": 3,
     "status": "todo",
     "description": "I-0004 Register LH003's sources as candidate instruments. For each source with a row in studies/LH003/sources.md, add a candidate instrument record to registers/instruments.md in the LH F05 form, or one line saying why it is not a candidate, as LH F04's LH003 design asks. This will let us say which outward surfaces Lighthouse could read next and at what cost."
+  },
+  {
+    "id": "E-0003",
+    "title": "Correct LH004 and redraft its article",
+    "kind": "implementation",
+    "priorityLevel": 1,
+    "status": "todo",
+    "description": "E-0003 Correct LH004 and redraft its article. First the record: in studies/LH004/, add a Corrections section entry dated today citing notes/review-2026-09-26-first-articles.md, and amend the text so that (a) the claim that a gap in Lighthouse's surfaces explains why the 2024 signal was not believed is withdrawn and replaced by the defensible conclusion that the case exposes a limit in Lighthouse's proposed instruments, and (b) the opening's claim that nearly every Linux system links liblzma into sshd is narrowed to what the findings support, several distributions through distribution-specific dependencies. Then the piece: redraft articles/the-xz-backdoor.md from the corrected record under the piece rules in AGENTS.md, as a story with a person and a moment, one idea, provenance in the notes, no internal references, and a colophon in the LH F05 piece form; draw the three-lane timeline as a plain SVG at articles/the-xz-backdoor-timeline.svg and place it with a one-line caption. Done when the record is corrected and the piece reads aloud without tripping. This will let us publish a first piece about a real propagation event that is right. Let the reader follow the investigation: a slow login, an unexpected dependency, a compromised release, and the difference between evidence being available and someone recognising it; introduce the three layers only where they help explain something."
+  },
+  {
+    "id": "E-0004",
+    "title": "Correct LH003 and redraft its article",
+    "kind": "implementation",
+    "priorityLevel": 1,
+    "status": "todo",
+    "description": "E-0004 Correct LH003 and redraft its article. First the record: in studies/LH003/, add a Corrections section entry dated today citing notes/review-2026-09-26-first-articles.md, and amend the text and table so that (a) 'almost disjoint by construction' is replaced by partial views whose relationships are unmeasured, acknowledging the connections the table itself records, such as deps.dev joining package ecosystems, forge projects and OSV advisories; (b) the table gains two columns, publication date and observation window, beside the date read, filled where the source states them and blank with a note where it does not; (c) the Anthropic Economic Index row is dated to the report it describes and says that later reports widened the scope; (d) the statement that no source observes propagation directly is restated as Lighthouse's classification, with the empirical question being which records support identifying and testing such relationships. Then the piece: redraft articles/what-we-can-see.md from the corrected record under the piece rules in AGENTS.md, opening with the question a reader actually has, one idea, provenance in the notes, no internal references, ending on the joint-sample question, with a colophon in the LH F05 piece form; draw the illustration as a plain SVG at articles/what-we-can-see-map.svg with a one-line caption. Done when the record is corrected and the piece reads aloud without tripping. This will let us explain what the existing observatories reveal and what they cannot. Follow one concrete question, could we count how much AI activity happens on the internet, and let each source contribute something to the attempted answer. For the voice, this is the target for the passage about what stays unobserved: a model running on someone's own computer may never appear in a broker's usage figures; its absence from that chart tells us where the broker's view ends, and nothing about whether the model is doing something harmful."
+  },
+  {
+    "id": "R-0001",
+    "title": "Review the redrafted articles and corrected studies",
+    "kind": "review",
+    "priorityLevel": 1,
+    "status": "todo",
+    "description": "R-0001 Review the redrafted articles and corrected studies. Read notes/review-2026-09-26-first-articles.md, then check that each of its findings is answered in studies/LH003/, studies/LH004/, articles/what-we-can-see.md and articles/the-xz-backdoor.md; check the pieces against the piece rules in AGENTS.md, reading each aloud; check three central claims in each piece against the record beneath it. Write notes/R-0001.md in the review form used by the first review note: findings numbered, each naming the file and what must change, and a verdict for each piece: ready for the keeper, or not yet and why. Done when the note exists. This will let the keeper read two pieces that have been checked."
+  },
+  {
+    "id": "E-0005",
+    "title": "The front page",
+    "kind": "implementation",
+    "priorityLevel": 3,
+    "status": "todo",
+    "description": "E-0005 The front page. After the first release, reshape the top of README.md as a reader's front page: one released piece, a small map of what Lighthouse currently observes and through whose instruments, and the visible next question. The documents table and the rest move below. Done when the keeper can land on the page and read one piece without knowing what Lighthouse is. This will let a reader find the one thing worth reading first."
+  },
+  {
+    "id": "E-0006",
+    "title": "Short forms of the first two articles",
+    "kind": "implementation",
+    "priorityLevel": 3,
+    "status": "todo",
+    "description": "E-0006 Short forms of the first two articles. After release, cut each released article to a short form under two hundred words, under the piece rules, with a colophon pointing to the article. Done when both exist in articles/short/. This will let the ideas travel where a five-minute read cannot."
   }
 ]

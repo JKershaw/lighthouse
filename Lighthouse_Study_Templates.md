@@ -103,14 +103,13 @@ status: candidate | reviewed | published in <release> | corrected in <release> |
 
 ## Decision record
 
+A short entry in a human voice that makes four things clear at once: what was being decided, why it matters, the choice made, and how easily it can change. The kind says which sort of decision it is, so that a temporary choice sounds temporary: a direction, an operating choice, an accounting convention, or a refinement to the method. Rationale and alternatives follow underneath.
+
 ```
-decision: D-0001                  date:                 owner:
-question:
-options considered:
-choice:
-reason:
-kind: founding scope | provisional implementation choice
-revisit when:
+D-nnnn, <date>. <Kind>: <the choice in one sentence>.
+Why it matters: <one or two sentences>.
+How easily it changes: <one sentence>.
+<rationale and alternatives, a short paragraph>
 ```
 
 ## Release record
@@ -137,6 +136,14 @@ what changed:
 why:
 did the conclusions change: yes | no (explain)
 earlier edition retained at:
+```
+
+## Piece form
+
+An article, essay or short form. At the top: a title that says the finding, a short opening that gives a reason to care, a discreet date and byline, and a small Draft label while under review. The body: the explanation, with concrete examples and the qualifications that affect its meaning. At the bottom, the colophon. Commit hashes, task identifiers and dispatch details stay in the supporting record.
+
+```
+Sources: <the records and public sources this rests on, with dates>. Method: <one sentence>. Written by <model or person>, edited by <person or model>, reviewed by <person or model>. Version <n>, <date>. Corrections: <none, or a line each>. Lighthouse is <one line>.
 ```
 
 ## Study publication skeleton
