@@ -1,0 +1,79 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="800" height="300" viewBox="0 0 800 300" role="img" aria-labelledby="t d">
+  <title id="t">The xz backdoor, 24 February to 30 March 2024</title>
+  <desc id="d">Three lanes. What was released: version 5.6.0 on 24 February and 5.6.1 on 9 March, both public and unrecognised until late March. Where it was built in: Fedora took each release soon after it came out, dates estimated; Debian unstable and testing and openSUSE Tumbleweed also carried it, undated; Fedora reverted on 29 March. What people noticed: valgrind errors in Fedora's tests, about 4 to 9 March; Fedora notified on 28 March; Andres Freund's report and the CVE on 29 March.</desc>
+  <style>
+    text { font-family: system-ui, -apple-system, "Segoe UI", Roboto, Helvetica, Arial, sans-serif; fill: #1f1f1f; }
+    .lane { font-size: 13px; font-weight: 600; }
+    .ev { font-size: 11.5px; }
+    .note { font-size: 11px; font-style: italic; fill: #4a4a4a; }
+    .axis { font-size: 11px; fill: #4a4a4a; }
+    .solid { fill: #1f4e5f; stroke: #1f4e5f; stroke-width: 2; }
+    .hollow { fill: #faf8f3; stroke: #1f4e5f; stroke-width: 2; }
+    .grid { stroke: #e8e3d7; stroke-width: 1; }
+    .sep { stroke: #d6d0c2; stroke-width: 1; }
+    .link { stroke: #7d8f96; stroke-width: 1.2; stroke-dasharray: 3 3; fill: none; }
+  </style>
+  <rect x="0" y="0" width="800" height="300" fill="#faf8f3"/>
+
+  <!-- weekly gridlines; x = 165 + 17.5 per day from 24 February 2024 -->
+  <line class="grid" x1="165" y1="18" x2="165" y2="246"/>
+  <line class="grid" x1="270" y1="18" x2="270" y2="246"/>
+  <line class="grid" x1="392.5" y1="18" x2="392.5" y2="246"/>
+  <line class="grid" x1="515" y1="18" x2="515" y2="246"/>
+  <line class="grid" x1="637.5" y1="18" x2="637.5" y2="246"/>
+  <line class="grid" x1="760" y1="18" x2="760" y2="246"/>
+
+  <!-- lane separators -->
+  <line class="sep" x1="12" y1="92" x2="788" y2="92"/>
+  <line class="sep" x1="12" y1="168" x2="788" y2="168"/>
+
+  <!-- lane labels -->
+  <text class="lane" x="16" y="51">What was</text>
+  <text class="lane" x="16" y="67">released</text>
+  <text class="lane" x="16" y="124">Where it was</text>
+  <text class="lane" x="16" y="140">built in</text>
+  <text class="lane" x="16" y="202">What people</text>
+  <text class="lane" x="16" y="218">noticed</text>
+
+  <!-- lane 1: what was released -->
+  <rect x="165" y="47" width="595" height="16" rx="3" fill="#e6dfcf"/>
+  <text class="note" x="600" y="59" text-anchor="middle" style="fill:#3a3a3a">in public, unrecognised until late March</text>
+  <circle class="solid" cx="165" cy="55" r="6.5"/>
+  <circle class="solid" cx="410" cy="55" r="6.5"/>
+  <text class="ev" x="158" y="36">5.6.0 released, 24 Feb</text>
+  <text class="ev" x="410" y="36" text-anchor="middle">5.6.1 released, 9 Mar</text>
+
+  <!-- lane 2: where it was built in -->
+  <line class="link" x1="168" y1="62" x2="197" y2="121"/>
+  <line class="link" x1="413" y1="62" x2="442" y2="121"/>
+  <circle class="hollow" cx="200" cy="128" r="6.5"/>
+  <circle class="hollow" cx="445" cy="128" r="6.5"/>
+  <circle class="solid" cx="760" cy="128" r="6.5"/>
+  <text class="ev" x="212" y="112">Fedora takes 5.6.0</text>
+  <text class="ev" x="457" y="112">Fedora takes 5.6.1</text>
+  <text class="ev" x="772" y="112" text-anchor="end">Fedora reverts, 29 Mar</text>
+  <text class="note" x="190" y="154">Also carried it, on dates the sources do not give: Debian unstable and testing, openSUSE Tumbleweed</text>
+
+  <!-- lane 3: what people noticed -->
+  <rect class="hollow" x="322.5" y="199" width="87.5" height="14" rx="7"/>
+  <circle class="solid" cx="742.5" cy="206" r="6.5"/>
+  <circle class="solid" cx="760" cy="206" r="6.5"/>
+  <text class="ev" x="322.5" y="190">valgrind errors in Fedora's tests, about 4 to 9 Mar</text>
+  <text class="ev" x="772" y="232" text-anchor="end">Fedora notified 28 Mar; Freund's report and CVE 29 Mar</text>
+
+  <!-- axis -->
+  <line class="sep" x1="165" y1="250" x2="777.5" y2="250"/>
+  <text class="axis" x="16" y="268">2024</text>
+  <text class="axis" x="165" y="268" text-anchor="middle">24 Feb</text>
+  <text class="axis" x="270" y="268" text-anchor="middle">1 Mar</text>
+  <text class="axis" x="392.5" y="268" text-anchor="middle">8 Mar</text>
+  <text class="axis" x="515" y="268" text-anchor="middle">15 Mar</text>
+  <text class="axis" x="637.5" y="268" text-anchor="middle">22 Mar</text>
+  <text class="axis" x="760" y="268" text-anchor="middle">29 Mar</text>
+
+  <!-- legend -->
+  <circle class="solid" cx="171" cy="287" r="5"/>
+  <text class="axis" x="182" y="291">dated in the sources</text>
+  <circle class="hollow" cx="311" cy="287" r="5"/>
+  <text class="axis" x="322" y="291">date estimated</text>
+</svg>
