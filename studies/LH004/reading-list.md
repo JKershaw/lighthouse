@@ -30,7 +30,7 @@ https://research.swtch.com/xz-timeline. Posted 1 April 2024, updated 3 April 202
 
 ### thesamesam (Sam James), "xz-utils backdoor situation" gist
 
-A comprehensive, community-maintained technical write-up, including the specific mechanism by which the malicious `build-to-host.m4` script, present only in the release tarball and excluded from git via `.gitignore`, decoded a payload hidden in two committed test files. Also the source, in the author's own reflective aside, confirming that valgrind problems had been reported from Fedora before the disclosure, and that he could not reproduce them on Gentoo at the time. Version 0.2 of this list said the reports "went uninvestigated"; the aside shows only that one developer did not reproduce them (corrected at version 0.3, following R-0001, finding 1).
+A comprehensive, community-maintained technical write-up, including the specific mechanism by which the malicious `build-to-host.m4` script, present only in the release tarball and absent from git, decoded a payload hidden in two committed test files. Also the source, in the author's own reflective aside, confirming that valgrind problems had been reported from Fedora before the disclosure, and that he could not reproduce them on Gentoo at the time. Version 0.2 of this list said the reports "went uninvestigated"; the aside shows only that one developer did not reproduce them (corrected at version 0.3, following R-0001, finding 1).
 
 https://gist.github.com/thesamesam/223949d5a074ebc3dce9ee78baad9e27. First publication date not recorded; last updated 9 September 2026, as the page stated; observation window: the incident and its aftermath, with no stated range. Read 2026-09-26.
 
