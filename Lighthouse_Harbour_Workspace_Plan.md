@@ -14,7 +14,7 @@ We keep going until the results are interesting: writing worth reading, evidence
 
 ## Budget
 
-One to ten dollars a day of autonomous work, flexible as the instruments improve, with each change noted in a decision record. Pilot and flight companion sessions are outside the budget but inside the ledger. Harbour's cost endpoint is the unit; there is no second accounting. Until the ledger runs, a drive is bounded by a count of dispatches and by measured subagent cost, as CLAUDE.md sets out; the driver session's own cost is measured but not yet bounded.
+Up to twenty dollars of measured subagent spend a drive, and no more than five dispatches, flexible as the instruments improve, with each change noted in a decision record (D-0001 in registers/decisions.md). Claude spend is paid from the keeper's subscription and is recorded at list rates as a measure; Harbour's own model calls through OpenRouter are the only cost paid as it goes. Pilot and flight companion sessions are outside the budget but inside the ledger. Harbour's cost endpoint is the unit; there is no second accounting. The driver session's own cost is measured but not yet bounded.
 
 ## Seed tickets
 

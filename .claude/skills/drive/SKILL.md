@@ -7,7 +7,7 @@ disable-model-invocation: true
 
 # /drive
 
-Run one tick of the watch, bounded. The first argument is the most dispatches this drive may make (default 3, never more than 5). The second is the most it may spend on subagents in dollars as `hb usage` measures it (default 5). `/drive 1` is one dispatch. `/drive 0` boots, asks Harbour for its suggestion, reports it and stops.
+Run one tick of the watch, bounded. The first argument is the most dispatches this drive may make (default 3, never more than 5). The second is the most it may spend on subagents in dollars as `hb usage` measures it (default 20, per D-0001; Claude spend is subscription, priced at list rates as a measure). `/drive 1` is one dispatch. `/drive 0` boots, asks Harbour for its suggestion, reports it and stops.
 
 ## Bounds
 
