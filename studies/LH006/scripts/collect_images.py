@@ -230,7 +230,7 @@ def layers(images, order):
                             mcp_installed=';'.join(found.get('mcp', [])),
                             own_installed=';'.join(found.get(R.norm(own_pkg(row['package'])), [])),
                             lock_pins=';'.join(locks)[:300], bytes_read=bytes_img,
-                            method=('dist-info in layers' if 'mcp' in found else ('lockfile only' if locks else 'not found in layers read')) + (f'; {note}' if note else '')))
+                            method=('dist-info in layers' if 'mcp' in found else ('no dist-info; requirements or lock file seen' if locks else 'not found in layers read')) + (f'; {note}' if note else '')))
         print(img, row['tags'][:40], found.get('mcp'), found.get(R.norm(own_pkg(row['package']))), bytes_img, note)
         write_csv('layer_reads.csv', reads, ['image', 'index_digest', 'layer_index', 'layer_digest', 'layer_size', 'created_by', 'read_utc',
                                              'http_status', 'bytes_read', 'ended', 'entries', 'mcp_found', 'own_found', 'mcp_paths', 'lock_pins'])
