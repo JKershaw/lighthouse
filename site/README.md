@@ -15,7 +15,7 @@ npm run serve    # rebuilds on change, at http://localhost:8080
 
 ## Publish with GitHub Pages
 
-.github/workflows/site.yml builds and deploys on every push to main. To enable it, open the repository's Settings, then Pages, and set Source to GitHub Actions. The site appears at https://jkershaw.github.io/lighthouse/.
+.github/workflows/site.yml builds and deploys on every push to main. To enable it, open the repository's Settings, then Pages, and set Source to GitHub Actions. A run made before Pages was enabled fails at its Pages step; re-run it from the Actions page, or push to main again, and the next run deploys. The site appears at https://jkershaw.github.io/lighthouse/.
 
 For a custom domain, enter it under Settings, Pages, Custom domain. At your DNS provider, point a subdomain such as www at jkershaw.github.io with a CNAME record, or an apex domain at the A and AAAA addresses GitHub's Pages documentation lists. Tick Enforce HTTPS once the certificate is issued. Deploying from Actions needs no CNAME file.
 
