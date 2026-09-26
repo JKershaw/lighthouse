@@ -3,7 +3,7 @@
 Following the study brief block in LH F05 (Lighthouse_Study_Templates.md).
 
 **study:** LH003
-**edition:** 0.2 (corrected 2026-09-26; see LH003.md's Corrections)
+**edition:** 0.3 (corrected twice on 2026-09-26; see LH003.md's Corrections)
 **date opened:** 2026-09-26
 
 **owner:** the keeper (unnamed)
