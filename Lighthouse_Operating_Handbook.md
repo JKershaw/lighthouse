@@ -8,7 +8,7 @@ Lighthouse begins as a small research practice with bounded investigations and a
 
 ## A watch kept by agents, read by people
 
-Most of Lighthouse's work is done by AI agents: collection, analysis, source checking, drafting and the upkeep of the registers, dispatched as bounded tasks within a stated budget and scope. People do the parts that give the work its meaning. They set the questions, read what comes back, judge whether it is interesting and true, and decide what is published. Agent output is the ordinary case; a person's reading is the scarce resource, and the practice is arranged to spend it well.
+Most of Lighthouse's work is done by AI agents: collection, analysis, source checking, drafting and the upkeep of the registers, dispatched as bounded tasks within a stated budget and scope. People do the parts that give the work its meaning. They set the questions, read what comes back, judge whether it is interesting and true, and decide what is published. Agent output is the ordinary case; a person's reading is the scarce resource, and the practice is arranged to spend it well. The session that drives the watch is itself an observer, and its own runs are part of the record it exports.
 
 Four roles remain, and they name responsibilities rather than people. The founding steward chooses priorities, sets the budget and assigns an accountable owner to each investigation. The owner defines the question and answers for the evidence packet, whoever or whatever produced it. A methods reviewer checks collection and analysis. An editor prepares the publication and records its release decision.
 

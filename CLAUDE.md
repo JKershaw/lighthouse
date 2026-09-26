@@ -36,9 +36,6 @@ Model choice: Haiku for chores such as polling, running commands and posting res
 - A taken item's stored status stays `taken`; the terminal status is derived from the last feedback message beginning `[done]`, `[failed]` or `[aborted]`.
 - Harbour's own LLM calls use OpenRouter's `openai/gpt-5.4-mini` by default.
 
-## Requests to file against Harbour
+## Requests to Harbour
 
-- Import and export a local workspace as plain files, which would replace `hb load` and most of `hb export`.
-- A headless way to boot a local workspace with its features on and its tokens printed, without a browser session.
-- A producer for the `resources` feedback kind in Harbour's own runners.
-- From LH F06: a study marker beside the ticket markers, and a labelled read token so that Lighthouse's collection traffic is recognisable in the audit log.
+Filed and tracked in Harbour's own backlog under epic LIN-3057. The list, the ticket numbers and the two shared field lists are in `harbour/requests.md`. Cite those numbers; do not file again.

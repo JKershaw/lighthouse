@@ -40,7 +40,7 @@ Harbour is the first proposed calibration subject. Harbour is an open-source con
 
 Lighthouse is a complement to Harbour rather than a part of it. Harbour is a control plane: it keeps human intent in command of AI execution and verifies each task on evidence. Lighthouse is an observatory: it studies what execution leaves behind and what that enables, across many tasks, over longer periods, and beyond any one control plane. Harbour asks whether a task did what was asked. Lighthouse asks what the activity changed, and what the change made possible.
 
-Harbour may also coordinate Lighthouse investigations. This makes it both an operational partner and a subject of study. Where the steward of Lighthouse also maintains Harbour, that overlap is a further interest to disclose. Lighthouse records the relationship in every study that relies on Harbour evidence and includes its own research footprint in its observations. Findings about Harbour require further testing before they are generalised to other systems.
+Harbour may also coordinate Lighthouse investigations. This makes it both an operational partner and a subject of study. Lighthouse and Harbour have the same steward, and that overlap is a further interest to disclose. Lighthouse records the relationship in every study that relies on Harbour evidence and includes its own research footprint in its observations. Findings about Harbour require further testing before they are generalised to other systems.
 
 Harbour publishes its own empirical papers about its workflow. Lighthouse does not repeat that work. Where a Harbour paper and a Lighthouse study touch the same events, each cites the other and states what its own evidence adds.
 
@@ -72,21 +72,22 @@ Self-replicating agents and a possible digital Kessler effect are the questions 
 
 ### What Lighthouse is not
 
-Lighthouse is a standing watch, not an alerting service. It publishes what it sees on its own cadence; nobody subscribes to it for warnings about their own systems, and its maps are not a census. It does not run experiments on systems without their operator's authority. It does not publish a risk it cannot connect to observations and a stated mechanism.
+- **[BINDING] Lighthouse is a standing watch, not an alerting service.** It publishes what it sees on its own cadence; nobody subscribes to it for warnings about their own systems, and its maps are not a census. *Breach: a warning sent to anyone about their own systems on request, or a map presented as complete.*
+- **[BINDING] It does not run experiments on systems without their operator's authority.** *Breach: a change made to an observed system without that operator's recorded authority.*
+- **[BINDING] It does not publish a risk it cannot connect to observations and a stated mechanism.** *Breach: a published risk with neither.*
 
 ## Commitments that guide the work
 
-We preserve the distinction between an observation, a derived measurement, an interpretation and a scenario. A reader should be able to trace a published claim to the evidence and method supporting it.
+The labels follow Harbour's charter. BINDING names a rule with an observable breach. PRINCIPLE names a value that guides judgement. DEFERRED names a commitment not yet in force.
 
-We make uncertainty visible. Missing readings remain missing; unknown attribution remains unknown. A poorly observed system is not thereby a dangerous one. We report collection boundaries and never present a sample as a census.
-
-We seek explanations that can fail. Investigations name plausible alternatives and identify what would change the conclusion. Correlation, agreement between models, and repetition of the same underlying source do not independently establish a mechanism.
-
-We keep correction possible. Methods and publications have stable identities, versions and correction records. Discovering an error should improve both the public record and the instrument that produced it.
-
-We account for our own presence. Collection, experiments, inference and publication create activity. Lighthouse labels its contribution and measures collection overhead where feasible.
-
-We keep research proportionate. Work begins with a bounded question, an accountable owner, a resource envelope and a stopping condition. A small team may combine roles; it still records which checks were independent.
+- **[BINDING] We preserve the distinction between an observation, a derived measurement, an interpretation and a scenario.** A reader should be able to trace a published claim to the evidence and method supporting it. *Breach: a published claim whose kind a reader cannot tell, or that cannot be traced to its evidence and method.*
+- **[BINDING] We make uncertainty visible.** Missing readings remain missing; unknown attribution remains unknown. A poorly observed system is not thereby a dangerous one. We report collection boundaries and never present a sample as a census. *Breach: a sample presented as a census, a missing reading filled in, or an unknown attribution asserted.*
+- **[BINDING] We seek explanations that can fail.** Investigations name plausible alternatives and identify what would change the conclusion. Correlation, agreement between models, and repetition of the same underlying source do not independently establish a mechanism. *Breach: a published study that names no competing explanation and nothing that would change its conclusion.*
+- **[BINDING] We keep correction possible.** Methods and publications have stable identities, versions and correction records. Discovering an error should improve both the public record and the instrument that produced it. *Breach: a corrected publication with no stable identity, version or correction record.*
+- **[BINDING] We account for our own presence.** Collection, experiments, inference and publication create activity, and Lighthouse labels its contribution. *Breach: Lighthouse's own activity appearing in an observation without its label.*
+- **[DEFERRED] We measure our collection overhead.** In force once the host sampler, I-0002, exists and reports its own cost.
+- **[BINDING] We keep research proportionate.** Work begins with a bounded question, an accountable owner, a resource envelope and a stopping condition. A small team may combine roles; it still records which checks were independent. *Breach: a study open with no brief naming those four things, or a publication that implies a check was independent when it was not.*
+- **[PRINCIPLE] A finding at one layer does not settle the others.** Activity, residue and propagation are observed with different instruments on different timescales, and a claim about one is not evidence about another.
 
 ## Authority and stewardship
 

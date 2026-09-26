@@ -4,18 +4,18 @@ Launch sequence, first studies and decisions
 
 Draft | 25 September 2026 | LH F04
 
-The initial programme establishes one close observation of Harbour, one bounded outward survey, a catalogue of the surveys that already exist, and one historical case. It follows the order observatories have always followed: catalogue, calibrate, explain, then dynamics. Its deliverable is a tested research practice: instruments with known limits, reproducible findings and publications that can be corrected. By its end the watch should be able to say what it would and would not see if activity of the kind the charter describes, residue enabling further activity elsewhere, appeared in the regions it observes. The sequence below is an indicative twelve-week plan from commencement, not a calendar booking or an approved spending commitment.
+The initial programme establishes one close observation of Harbour, one bounded outward survey, a catalogue of the surveys that already exist, and one historical case. It follows the order observatories have always followed: catalogue, calibrate, explain, then dynamics. Its deliverable is a tested research practice: instruments with known limits, reproducible findings and publications that can be corrected. By its end the watch should be able to say what it would and would not see if activity of the kind the charter describes, residue enabling further activity elsewhere, appeared in the regions it observes. The sequence below is an order of work, not a calendar or an approved spending commitment. The work is dispatched to agents within the budget in LH F06, so it is paced by budget and evidence rather than by weeks.
 
 ## Launch sequence
 
-| Stage | Intended period | Work and completion evidence |
-| --- | --- | --- |
-| Establish | Weeks 1 and 2 | Assign owners, access and budgets; open study records; register instruments and sources; confirm Harbour's current record fields and retention; run LH003, which needs only reading |
-| Calibrate | Weeks 3 and 4 | Run LH001, the standard candle; export Harbour records; reconcile readings with known events; document overhead and gaps; write LH004 |
-| Compare | Weeks 5 to 8 | Run LH002; interpret one outward series through the LH001 calibration; repeat selected observations; test collection and cohort artefacts |
-| Publish and review | Weeks 9 to 12 | Release reviewed studies and one synthesis; decide what to retain, change or stop |
+| Stage | Work and completion evidence |
+| --- | --- |
+| Establish | Assign owners, access and budgets; open study records; register instruments and sources; confirm Harbour's current record fields and retention; run LH003, which needs only reading |
+| Calibrate | Run LH001, the standard candle; export Harbour records; reconcile readings with known events; document overhead and gaps; write LH004 |
+| Compare | Run LH002; interpret one outward series through the LH001 calibration; repeat selected observations; test collection and cohort artefacts |
+| Publish and review | Release reviewed studies and one synthesis; decide what to retain, change or stop |
 
-The periods can overlap where dependencies allow. If access or data quality prevents a study, complete the feasibility note and choose a replacement question. Do not broaden the claim to compensate for a small sample.
+The stages can overlap where dependencies allow. If access or data quality prevents a study, complete the feasibility note and choose a replacement question. Do not broaden the claim to compensate for a small sample.
 
 ## Minimum useful observatory
 

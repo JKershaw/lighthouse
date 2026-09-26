@@ -11,7 +11,7 @@ This repository holds the founding documents. They are drafts. They define an in
 | LH F01 | [Founding Charter](Lighthouse_Founding_Charter.md) | Purpose, scope, commitments, authority | You want to know what Lighthouse is for and what it will not do |
 | LH F02 | [Research Design](Lighthouse_Research_Design.md) | The observable model, measurement surfaces and rules, evidence records, risk assessment, sources | You are designing or reviewing a study |
 | LH F03 | [Operating Handbook](Lighthouse_Operating_Handbook.md) | Who does the work, the investigation lifecycle, the Harbour interface, outward sources, publication, corrections, boundaries | You are running or publishing a study |
-| LH F04 | [Initial Research Programme](Lighthouse_Initial_Research_Programme.md) | The first twelve weeks: LH001 to LH004 and the decisions to make at commencement | You are about to start work |
+| LH F04 | [Initial Research Programme](Lighthouse_Initial_Research_Programme.md) | The first programme: LH001 to LH004 and the decisions to make at commencement | You are about to start work |
 | LH F05 | [Study Templates](Lighthouse_Study_Templates.md) | The editable records the other documents refer to | You are opening a study, registering an instrument, or recording a decision |
 | LH F06 | [Harbour Workspace Plan](Lighthouse_Harbour_Workspace_Plan.md) | North star, budget and seed tickets for the first workspace | You are opening the Lighthouse workspace in Harbour |
 
@@ -53,9 +53,4 @@ The workspace as files lives in [harbour/](harbour/): the north star, the ticket
 
 Decisions the drafts leave to the steward.
 
-- Whether to label charter clauses BINDING, PRINCIPLE or DEFERRED, as Harbour's charter does.
-- Naming the steward, and stating plainly that Lighthouse and Harbour share one.
-- Whether twelve weeks is realistic for one person, or LH002 should be a feasibility note in the first programme.
-- Whether to extend Harbour's retention windows for a research workspace, recorded as a change to the subject.
-- Whether Lighthouse's unit needs a name other than observation, to keep clear of Harbour's Observation view; reading is the candidate.
-- Whether residue keeps its name; deposit, sediment and trace are the alternatives.
+- How the steward is named in these documents, and the word for the role.
