@@ -1,0 +1,7 @@
+id,aliases,published,modified,severity,introduced,fixed,summary
+GHSA-j975-95f5-7wqh,CVE-2025-53365 PYSEC-2026-1618,2025-07-04T22:06:31Z,2026-07-16T18:45:48.211743797Z,HIGH,0,1.10.0,"MCP Python SDK has Unhandled Exception in Streamable HTTP Transport, Leading to Denial of Service"
+GHSA-3qhf-m339-9g5v,CVE-2025-53366 PYSEC-2026-1616,2025-07-04T22:06:49Z,2026-07-16T18:45:48.199122861Z,HIGH,0,1.9.4,"MCP Python SDK vulnerability in the FastMCP Server causes validation error, leading to DoS"
+GHSA-9h52-p55h-vw2f,CVE-2025-66416 PYSEC-2026-1617,2025-12-02T16:52:08Z,2026-09-10T03:50:31.741008234Z,HIGH,0,1.23.0,Model Context Protocol (MCP) Python SDK does not enable DNS rebinding protection by default
+GHSA-hvrp-rf83-w775,CVE-2026-52870 PYSEC-2026-3481,2026-07-16T19:56:12Z,2026-09-10T03:51:11.568526826Z,HIGH,1.23.0,1.27.2,MCP Python SDK: Experimental task handlers allow any client to access and cancel other clients' tasks
+GHSA-jpw9-pfvf-9f58,CVE-2026-52869 PYSEC-2026-3482,2026-07-16T19:58:53Z,2026-09-10T03:50:52.526763662Z,HIGH,0,1.27.2,MCP Python SDK: HTTP transports serve session requests without verifying the authenticated principal
+GHSA-vj7q-gjh5-988w,CVE-2026-59950 PYSEC-2026-3483,2026-07-16T20:14:34Z,2026-09-10T03:50:53.083568399Z,HIGH,0,1.28.1,MCP Python SDK: WebSocket server transport does not support Host/Origin validation

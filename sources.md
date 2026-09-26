@@ -157,3 +157,16 @@ https://hub.docker.com/
 GitHub's container registry at ghcr.io, readable anonymously for public packages through the OCI distribution API with a token from ghcr.io/token. Its tag list gives names only, without times or digests; the history of a package's versions is in GitHub's REST API, which needs a token. A package that is not public answers the anonymous token request with 401. LH006 assesses it in studies/LH006/sources.md. Read 26 September 2026.
 
 https://docs.github.com/en/packages/working-with-a-github-packages-registry/working-with-the-container-registry
+
+### S26 OSV
+
+The Open Source Vulnerabilities database, run by Google's open source security team: advisories gathered from GitHub's advisory database, the Python Packaging Authority's and others, queryable anonymously by package and version, each with its aliases, severity, affected and fixed versions, and the time it was published and last modified. Its publication time is when the advisory entered the source it came from, not when the flaw was found or fixed. LH007 read it for `mcp` 1.28.0 and found GHSA-vj7q-gjh5-988w, published 16 July 2026, fixed in 1.28.1 (studies/LH007/sources.md, S9). Read 26 September 2026.
+
+https://osv.dev/
+https://google.github.io/osv.dev/api/
+
+### S27 Amazon ECR Public
+
+Amazon's public container registry at public.ecr.aws, readable anonymously through the OCI distribution API with a token from its own token endpoint. It answered 429 to unpaced anonymous requests on 26 September 2026 and served when they were paced to about one a second; its documentation on anonymous limits was not read. Like the other registries, it keeps no history of what a tag named before. Read 26 September 2026.
+
+https://gallery.ecr.aws/

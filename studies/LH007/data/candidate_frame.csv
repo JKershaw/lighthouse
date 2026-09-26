@@ -1,0 +1,121 @@
+hash_rank,package,listed_version,latest_version,in_1.27.2,in_1.28.0,in_1.28.1,repo,repo_via,clone,head_commit,head_date,period_end_commit,period_end_date,files_head,files_period_end,dockerfile_head,dockerfile_period_end
+1,langflow-base,0.7.2,1.12.3,0.7.2,,,github.com/langflow-ai/langflow,deps.dev relation,cloned,df9711c952,2026-09-22T11:27:53-07:00,d447000e3d,2026-07-14T20:58:20+00:00,92,91,.devcontainer/Dockerfile;docker/build_and_push.Dockerfile;docker/build_and_push_backend.Dockerfile;docker/build_and_push_ep.Dockerfile;docker/cdk.Dockerfile;docker/dev.Dockerfile;docker/frontend/build_and_push_frontend.Dockerfile;docker/render.Dockerfile;docker/render.pre-release.Dockerfile;docker_example/Dockerfile;docker_example/pre.Dockerfile;scripts/ci/base_extension.Dockerfile;src/frontend/cdk.Dockerfile;src/frontend/dev.Dockerfile;src/lfx/docker/Dockerfile;src/lfx/docker/Dockerfile.dev,.devcontainer/Dockerfile;docker/build_and_push.Dockerfile;docker/build_and_push_backend.Dockerfile;docker/build_and_push_base.Dockerfile;docker/build_and_push_ep.Dockerfile;docker/build_and_push_with_extras.Dockerfile;docker/cdk.Dockerfile;docker/dev.Dockerfile;docker/frontend/build_and_push_frontend.Dockerfile;docker/render.Dockerfile;docker/render.pre-release.Dockerfile;docker_example/Dockerfile;docker_example/pre.Dockerfile;src/frontend/cdk.Dockerfile;src/frontend/dev.Dockerfile;src/lfx/docke
+2,browser-use,0.13.9,0.13.10,,,0.13.9,github.com/browser-use/browser-use,deps.dev relation,cloned,4cbe921673,2026-09-26T00:29:32-07:00,dbc4d46e0c,2026-07-14T14:31:26-07:00,30,29,Dockerfile;Dockerfile.fast;docker/base-images/chromium/Dockerfile;docker/base-images/python-deps/Dockerfile;docker/base-images/system/Dockerfile,Dockerfile;Dockerfile.fast;docker/base-images/chromium/Dockerfile;docker/base-images/python-deps/Dockerfile;docker/base-images/system/Dockerfile
+3,getbible-mcp,1.0.0,2.1.2,,,1.0.0,github.com/getbible/mcp,deps.dev relation,cloned,76965ad57f,2026-09-18T16:15:39+02:00,,,10,0,,
+4,agentmail-mcp,1.0.0,1.0.0,,,1.0.0,github.com/agentmail-to/agentmail-mcp,deps.dev relation,cloned,7a7c3f0d91,2026-09-24T15:17:38-07:00,3cba0f952f,2026-07-14T12:55:38-07:00,10,8,,
+5,agentops-cockpit,1.3.0,2.0.35,,,1.3.0,github.com/enriquekalven/agent-ops-cockpit,deps.dev relation,failed,,,,,0,0,,
+6,aurite,0.2.2,0.4.2,0.2.2,,,github.com/aurite-ai/aurite-agents,deps.dev relation,cloned,e4a5c14d49,2026-08-27T03:02:30-07:00,a6feb2332b,2025-12-10T16:18:31-05:00,22,22,Dockerfile;Dockerfile.dev;frontend/Dockerfile;src/aurite/bin/cli/docker_templates/Dockerfile.aurite.template,Dockerfile;Dockerfile.dev;frontend/Dockerfile;src/aurite/bin/cli/docker_templates/Dockerfile.aurite.template
+7,cortex-local-rag,2026.808.0,2026.909.4,,,2026.808.0,github.com/vblackjack/cortex,deps.dev relation,cloned,3c43225b21,2026-09-09T20:32:12+02:00,37f626f37f,2026-07-14T22:54:10+02:00,15,3,,
+8,haive-mcp,1.0.1,1.0.1,1.0.1,,,github.com/pr1m8/haive-mcp,deps.dev relation,cloned,1d2edbdee4,2026-04-29T13:51:31-04:00,1d2edbdee4,2026-04-29T13:51:31-04:00,11,11,,
+9,hypergolic,0.23.1,0.27.0,,0.23.1,0.23.2,github.com/roberttownley/hypergolic,deps.dev relation,failed,,,,,0,0,,
+10,powerbi-report-mcp,1.0.0,1.0.0,,,1.0.0,github.com/mattbeard0/powerbi-report-mcp,deps.dev relation,cloned,a4f568d169,2026-07-05T19:46:09+10:00,a4f568d169,2026-07-05T19:46:09+10:00,3,3,,
+11,snyk-agent-scan,0.6.4,0.6.4,,,0.6.4,,,,,,,,0,0,,
+12,aevrin-scanner-core,0.1.7,0.5.0,,,0.1.7,github.com/aevrin-projects/aevrin-mcp-scanner,deps.dev relation,cloned,0052a14cf5,2026-09-06T18:25:13+05:30,,,29,0,backend/api/Dockerfile;backend/infra/defectdojo/Dockerfile.beat;backend/infra/defectdojo/Dockerfile.init;backend/infra/defectdojo/Dockerfile.uwsgi;backend/infra/defectdojo/Dockerfile.worker;backend/scanner-image/Dockerfile,
+13,expertflow,1.0.0,1.0.7,1.0.0,,,github.com/expertflow/expertflow,PyPI project_urls,failed,,,,,0,0,,
+14,cognirepo,2.0.1,2.4.0,,,2.0.1,github.com/ashlesh-t/cognirepo,deps.dev relation,cloned,48925dcb55,2026-09-19T00:05:08+05:30,f1aac6c870,2026-07-15T02:03:10+05:30,28,27,Dockerfile,Dockerfile
+15,better-rlm,0.10.0,0.12.0,,,0.10.0,github.com/logunovfgp/better-rlm,deps.dev relation,cloned,2a6a62b0b8,2026-09-20T01:30:27+04:00,9de1ffeb28,2026-07-07T13:19:35+04:00,7,2,docker/Dockerfile.sandbox,docker/Dockerfile.sandbox
+16,extend-ai-toolkit,1.1.0,1.3.0,1.1.0,,,github.com/paywithextend/extend-ai-toolkit,deps.dev relation,cloned,5250b1e51f,2026-07-14T23:32:38+00:00,f32290d811,2025-10-30T09:02:07-07:00,3,3,,
+17,assistants-framework,0.9.1,0.9.7,0.9.1,,,github.com/nihilok/assistants,deps.dev relation,cloned,9ae7a17745,2026-05-03T08:07:28+01:00,9ae7a17745,2026-05-03T08:07:28+01:00,5,5,,
+18,iflow-mcp-kaluso-nolodjska-ai-team-mcp,4.0.0,4.0.0,4.0.0,,,github.com/kaluso-nolodjska/ai-team-mcp,deps.dev relation,cloned,9774d65375,2025-11-26T20:39:27+08:00,9774d65375,2025-11-26T20:39:27+08:00,10,10,,
+19,mcp-pinot-server,1.1.0,4.1.0,1.1.0,,,github.com/startreedata/mcp-pinot,deps.dev relation,cloned,3841dbe13b,2026-09-21T11:50:35-07:00,e5c749682b,2026-07-10T15:36:44+05:30,22,20,Dockerfile,Dockerfile
+20,prosuite-mcp,0.0.5,0.2.3,,,0.0.5,github.com/prosuite/prosuite-mcp,deps.dev relation,cloned,4454ffa1bb,2026-09-25T15:45:40+00:00,939c27cce1,2026-07-10T02:13:07+00:00,5,5,,
+21,iflow-mcp-mcp-server-twelve-data,0.2.4,0.2.4,0.2.4,,,,,,,,,,0,0,,
+22,iflow-mcp-trakt-mcp-server,0.1.0,0.1.0,0.1.0,,,,,,,,,,0,0,,
+23,chainlit,2.5.5,2.12.0,2.5.5,,,github.com/chainlit/chainlit,deps.dev relation,cloned,190ea74239,2026-08-26T08:54:31+00:00,b094a8fb20,2026-05-26T16:53:51+00:00,20,20,,
+24,secure-mcp-gateway,2.2.2,2.2.4,,,2.2.2,github.com/enkryptai/secure-mcp-gateway,deps.dev relation,cloned,b624edfc22,2026-09-24T10:18:29+05:30,84298d3169,2026-05-12T09:55:43+05:30,20,14,Dockerfile;Dockerfile-Base;Dockerfile.patch-tier1metrics;tests/Dockerfile.sandbox-test,Dockerfile;Dockerfile-Base;tests/Dockerfile.sandbox-test
+25,dnallm,0.5.2,0.5.2,0.5.2,,,github.com/zhangtaolab/dnallm,deps.dev relation,cloned,81bbd02f02,2026-09-24T13:08:25+08:00,9f26a4bf44,2026-07-08T16:38:34+08:00,11,11,,
+26,facets-cp-mcp-server,0.0.1,0.1.1,0.0.1,,,github.com/facets-cloud/control-plane-mcp-server,deps.dev relation,cloned,9ee499cdae,2025-10-06T23:19:23+05:30,9ee499cdae,2025-10-06T23:19:23+05:30,3,3,,
+27,mcp-mm-cs-mai,0.1.0,0.1.10,,,0.1.0,,,,,,,,0,0,,
+28,git-debug-oracle,0.1.0,0.1.0,0.1.0,,,,,,,,,,0,0,,
+29,chainlit-jlfel,2.5.5,2.6.9,2.5.5,,,github.com/chainlit/chainlit,deps.dev relation,already cloned,190ea74239,2026-08-26T08:54:31+00:00,b094a8fb20,2026-05-26T16:53:51+00:00,20,20,,
+30,ghidra-mcp-c64,0.1.0,0.1.0,,,0.1.0,,,,,,,,0,0,,
+31,lean-lsp-mcp,0.27.0,0.30.0,0.27.0,,0.28.0,github.com/ooo0ooo/lean-lsp-mcp,deps.dev relation,cloned,bb176c58a4,2026-08-19T21:08:30+02:00,83b0286574,2026-07-06T14:55:01+02:00,4,4,Dockerfile,Dockerfile
+32,mcp-server-spreadsheet,0.3.3,0.3.3,,0.3.3,,github.com/marekrost/mcp-server-spreadsheet,deps.dev relation,cloned,13e9e2548d,2026-08-11T13:48:08+02:00,2dcef9fed7,2026-06-29T15:40:32+02:00,3,3,,
+33,mseep-snyk-agent-scan,0.5.17,0.5.17,,,0.5.17,,,,,,,,0,0,,
+34,loreconvo,0.10.0,0.10.12,,,0.10.0,github.com/labyrinth-analytics/loreconvo,deps.dev relation,cloned,91cd391a8b,2026-09-24T20:58:53-07:00,c3546e178d,2026-07-12T10:05:02-07:00,6,4,,
+35,async-hermes-agent,0.20.0.5,0.20.4.1,,,0.20.0.5,github.com/ykoh42/async-hermes-agent,deps.dev relation,cloned,71d9c845e4,2026-08-19T02:20:20+09:00,ec926ce89e,2026-07-14T17:20:35-04:00,14,44,,Dockerfile
+36,holmesgpt,0.38.0,0.42.0,,,0.38.0,,,,,,,,0,0,,
+37,mcpm,2.10.0,2.15.0,2.10.0,,,github.com/pathintegral-institute/mcpm.sh,deps.dev relation,cloned,6a92e54c74,2026-05-22T04:59:35+00:00,6a92e54c74,2026-05-22T04:59:35+00:00,21,21,dockerfiles/frpc/Dockerfile;dockerfiles/frps/Dockerfile,dockerfiles/frpc/Dockerfile;dockerfiles/frps/Dockerfile
+38,mcp-tollbooth,0.2.1,0.3.0,0.2.1,,,github.com/realgagenichols/tollbooth,deps.dev relation,cloned,80f2d2c52c,2026-07-25T09:05:52-04:00,88a3960f74,2026-07-01T07:59:30-04:00,3,2,,
+39,nacos-mcp-wrapper-python,1.1.0,1.1.0,1.1.0,,,github.com/nacos-group/nacos-mcp-wrapper-python,deps.dev relation,cloned,89cb01d46b,2025-12-23T17:59:42+08:00,89cb01d46b,2025-12-23T17:59:42+08:00,2,2,,
+40,chainlit-chandru20,2.5.10,2.11.1.post1,2.5.10,,,github.com/chandru20/chainlit,deps.dev relation,cloned,5848d91a23,2025-09-14T23:31:14-04:00,5848d91a23,2025-09-14T23:31:14-04:00,21,21,,
+41,aurapro-ui,3.8.0,3.9.3,3.8.0,,,github.com/sakurame1/aurapro-ui,deps.dev relation,failed,,,,,0,0,,
+42,iflow-mcp-adam-paterson-mcp-crew-ai,0.1.0,0.1.0,,,0.1.0,github.com/adam-paterson/mcp-crew-ai,deps.dev relation,cloned,9c7068887a,2025-03-18T08:17:19+00:00,9c7068887a,2025-03-18T08:17:19+00:00,1,1,,
+43,mcp-behaviour-guard,0.4.1,0.5.0,,,0.4.1,github.com/hacker-vs-cracker/mcp-behaviour-guard,deps.dev relation,cloned,2c106fd06b,2026-09-25T14:38:20+12:00,,,9,0,Dockerfile;Dockerfile.runner,
+44,c64-mcp,0.100.0,0.102.1,,,0.100.0,,,,,,,,0,0,,
+45,jesse,3.2.2,3.2.2,,,3.2.2,github.com/jesse-ai/jesse,deps.dev relation,cloned,1fc46f5fe2,2026-09-26T14:00:08+02:00,fa63531cae,2026-07-13T19:15:03+03:30,7,10,Dockerfile,Dockerfile;jesse/static/_nuxt/nuxt-monaco-editor/vs/basic-languages/dockerfile/dockerfile.contribution.d.ts;jesse/static/_nuxt/nuxt-monaco-editor/vs/basic-languages/dockerfile/dockerfile.contribution.js;jesse/static/_nuxt/nuxt-monaco-editor/vs/basic-languages/dockerfile/dockerfile.js
+46,mcp-standards-server,0.1.0,1.0.1,0.1.0,,,github.com/williamzujkowski/mcp-standards-server,deps.dev relation,cloned,c068f867d5,2026-05-22T03:38:13-04:00,c068f867d5,2026-05-22T03:38:13-04:00,58,58,Dockerfile;web/deployment/Dockerfile.backend;web/deployment/Dockerfile.frontend,Dockerfile;web/deployment/Dockerfile.backend;web/deployment/Dockerfile.frontend
+47,aind-data-access-mcp,0.1.0,0.1.0,0.1.0,,,,,,,,,,0,0,,
+48,aimeat-crewai,0.1.0,0.29.0,,,0.1.0,github.com/miikkij/aimeat-protocol,deps.dev relation,cloned,ac8401fb6a,2026-09-26T23:10:35+03:00,c089b38c02,2026-07-15T00:06:15+03:00,50,23,aimeat/Dockerfile;tools/aimeat-openhands/runtime/Dockerfile;tools/systemone/docker/jeff/Dockerfile;tools/systemone/docker/laya/Dockerfile;tools/systemone/docker/von/Dockerfile,aimeat/Dockerfile
+49,instana-fix-wrapper,1.0.0,1.0.2,1.0.0,,,,,,,,,,0,0,,
+50,traia-iatp,0.1.112,0.1.112,,,0.1.112,github.com/traia-io/iatp,deps.dev relation,failed,,,,,0,0,,
+51,eon-mcp-local,0.1.0,0.1.0,,,0.1.0,,,,,,,,0,0,,
+52,quellgeist,0.1.0,0.1.0,,0.1.0,,github.com/rajeev-shyam/quellgeist,deps.dev relation,cloned,63c0260165,2026-07-20T13:03:05+01:00,836e8dc0f6,2026-07-10T15:25:09+01:00,16,16,Dockerfile,Dockerfile
+53,seclab-taskflow-agent,0.5.0,0.5.0,,,0.5.0,github.com/githubsecuritylab/seclab-taskflow-agent,deps.dev relation,cloned,afd64f4e00,2026-08-21T11:54:32+01:00,f306663715,2026-07-13T14:09:56+02:00,14,14,.devcontainer/Dockerfile;docker/Dockerfile,.devcontainer/Dockerfile;docker/Dockerfile
+54,knowledge-manager,0.5.1,0.5.2,0.5.1,,,,,,,,,,0,0,,
+55,langflow-base-nightly,1.8.0.dev13,1.10.0.dev70,1.8.0.dev13,,,github.com/langflow-ai/langflow,deps.dev relation,already cloned,df9711c952,2026-09-22T11:27:53-07:00,d447000e3d,2026-07-14T20:58:20+00:00,92,91,.devcontainer/Dockerfile;docker/build_and_push.Dockerfile;docker/build_and_push_backend.Dockerfile;docker/build_and_push_ep.Dockerfile;docker/cdk.Dockerfile;docker/dev.Dockerfile;docker/frontend/build_and_push_frontend.Dockerfile;docker/render.Dockerfile;docker/render.pre-release.Dockerfile;docker_example/Dockerfile;docker_example/pre.Dockerfile;scripts/ci/base_extension.Dockerfile;src/frontend/cdk.Dockerfile;src/frontend/dev.Dockerfile;src/lfx/docker/Dockerfile;src/lfx/docker/Dockerfile.dev,.devcontainer/Dockerfile;docker/build_and_push.Dockerfile;docker/build_and_push_backend.Dockerfile;docker/build_and_push_base.Dockerfile;docker/build_and_push_ep.Dockerfile;docker/build_and_push_with_extras.Dockerfile;docker/cdk.Dockerfile;docker/dev.Dockerfile;docker/frontend/build_and_push_frontend.Dockerfile;docker/render.Dockerfile;docker/render.pre-release.Dockerfile;docker_example/Dockerfile;docker_example/pre.Dockerfile;src/frontend/cdk.Dockerfile;src/frontend/dev.Dockerfile;src/lfx/docke
+56,algenta-mcp,1.0.10,1.0.31,,,1.0.10,github.com/thyn-ai/algenta,deps.dev relation,failed,,,,,0,0,,
+57,prompt-copilot-cli,0.1.1,0.7.0,,0.1.1,,github.com/woshiliyihang/prompt-copilot-cli,deps.dev relation,cloned,be06fdc026,2026-08-27T11:31:57+08:00,,,3,0,,
+58,guiji-mcp,0.0.7,0.0.7,0.0.7,,,,,,,,,,0,0,,
+59,flink-agents,0.1.0,0.3.1,0.1.0,,,,,,,,,,0,0,,
+60,agentdomain-crewai,0.11.0,0.11.0,,,0.11.0,github.com/0xmdrakib/agentdomain,deps.dev relation,cloned,e81861a00e,2026-09-24T00:15:15+06:00,,,23,0,,
+61,jobescape-concierge,0.1.4,0.1.5,,,0.1.4,,,,,,,,0,0,,
+62,cloudsmith-cli,1.19.0,1.27.0,1.19.0,,1.27.0,github.com/cloudsmith-io/cloudsmith-cli,deps.dev relation,cloned,ad971c6271,2026-09-25T10:52:42+01:00,20598c45f1,2026-06-16T12:46:24+01:00,16,12,Dockerfile;dev.Dockerfile,Dockerfile
+63,bigindexer,0.1.4,0.1.4,0.1.4,,,github.com/ahmedxuhri/bigindexer,deps.dev relation,cloned,b9b92ed268,2026-08-21T11:01:49+00:00,0bf0f9292b,2026-07-13T08:41:54+00:00,12,13,Dockerfile,Dockerfile
+64,irigate,0.4.1,0.5.1,,,0.4.1,github.com/irigate/irigate-mcp-proxy,deps.dev relation,cloned,bcd6b5e53d,2026-08-15T09:50:03+02:00,bb685c10a9,2026-07-12T09:48:02+02:00,11,8,,
+65,codens-mcp,0.1.0,0.8.1,,,0.1.0,github.com/corevice/purple-codens,deps.dev relation,failed,,,,,0,0,,
+66,relay-shell,0.3.0,0.3.0,,,0.3.0,github.com/rmednitzer/relay-shell,deps.dev relation,cloned,8f397f1d11,2026-09-22T19:15:08+02:00,4256f73d5e,2026-06-29T18:34:45+00:00,21,18,,
+67,mcp-leadsclean,0.1.0,0.2.0,0.1.0,,,github.com/edition/leadsclean,deps.dev relation,cloned,cb7cfd2b12,2026-03-04T23:07:35+08:00,cb7cfd2b12,2026-03-04T23:07:35+08:00,2,2,Dockerfile,Dockerfile
+68,crewai,1.15.22,1.15.22,,,1.15.22,github.com/crewaiinc/crewai,deps.dev relation,cloned,4ed2abc7bb,2026-09-25T18:00:20+00:00,0e5d0ecfb9,2026-07-14T14:47:18-04:00,25,22,,
+69,elasticsearch-mcp-server-es9,2.1.0,2.1.3,2.1.0,,,,,,,,,,0,0,,
+70,memscope-mcp,0.3.0,0.4.0,0.3.0,,,github.com/boti-ormandi/memscope-mcp,deps.dev relation,cloned,a07f102ad7,2026-08-31T16:41:18+02:00,c534fbdd8b,2026-05-30T23:55:01+02:00,9,5,,
+71,mnemo-unified-context,0.1.0a1,0.1.0a26,,,0.1.0a1,github.com/keith-fajardo/mnemo-memory,deps.dev relation,cloned,4b6381a7a8,2026-09-09T10:05:42+08:00,,,10,0,,
+72,iflow-mcp-codebadger,0.3.2,0.3.2,0.3.2,,,,,,,,,,0,0,,
+73,better-telegram-mcp,4.18.0,4.22.0,,,4.18.0,github.com/n24q02m/better-telegram-mcp,deps.dev relation,cloned,6338bf4631,2026-09-13T08:14:34+00:00,61f6baf90e,2026-07-14T12:32:25+00:00,17,16,Dockerfile,Dockerfile
+74,datus-agent-clickzetta,0.2.1,0.2.2,0.2.1,,,github.com/datus-ai/datus-agent-clickzetta,deps.dev relation,failed,,,,,0,0,,
+75,amsdal-ml,0.1.0,1.6.2,0.1.0,,,,,,,,,,0,0,,
+76,hybrid-groups,0.1.0,0.2.2,0.1.0,,,github.com/gradion-ai/hybrid-groups,deps.dev relation,cloned,4f723e21e4,2026-07-22T18:52:20+02:00,65c0e3e046,2026-02-05T13:43:41+01:00,9,9,docker/Dockerfile,docker/Dockerfile
+77,chainlit-mardonio,2.6.0,2.6.0,2.6.0,,,github.com/mardonioeng/chainlit,deps.dev relation,cloned,ef7eed468a,2025-09-14T13:15:33+02:00,ef7eed468a,2025-09-14T13:15:33+02:00,15,15,,
+78,chemgraph,0.7.0,0.7.0,,,0.7.0,github.com/argonne-lcf/chemgraph,deps.dev relation,cloned,864ab0f286,2026-09-25T20:59:08+02:00,2f35bde48c,2026-07-09T18:14:50+02:00,26,16,Dockerfile;Dockerfile.arm,Dockerfile;Dockerfile.arm
+79,mcp-instana,0.7.1,1.0.3,0.7.1,,,,,,,,,,0,0,,
+80,modulector-sdk,2.4.0,2.6.1,2.4.0,,,github.com/omics-datascience/modulector,deps.dev relation,cloned,b23999902a,2026-07-30T15:01:36-03:00,dd10eab097,2026-07-11T11:11:53-03:00,11,11,Dockerfile,Dockerfile
+81,loopskill-mcp,0.9.42,0.9.42,,,0.9.42,github.com/wisechef-ai/loopskill-api,deps.dev relation,cloned,6a638ada48,2026-09-22T20:31:06+02:00,9d66c2ad62,2026-07-13T15:04:40+02:00,23,19,Dockerfile,Dockerfile
+82,mcp-atlassian,0.11.10,0.23.1,0.11.10,,,,,,,,,,0,0,,
+83,mcp-proxy-for-aws-cli,1.6.5,1.7.0,,,1.6.5,github.com/aws/mcp-proxy-for-aws,deps.dev relation,cloned,14ec70c79c,2026-09-21T09:10:36+00:00,9edf678bbe,2026-07-01T11:59:40+00:00,18,17,Dockerfile,Dockerfile
+84,saihm-crewai,0.1.0,0.1.1,,,0.1.0,github.com/saihm-admin/saihm-crewai,deps.dev relation,cloned,b775cf0031,2026-09-01T04:47:02+00:00,,,3,0,,
+85,instana-comprehensive-wrapper,1.0.0,1.0.1,1.0.0,,,github.com/yourusername/instana-comprehensive-wrapper,deps.dev relation,failed,,,,,0,0,,
+86,airflow-chat,0.1.0a6,0.1.0a14,0.1.0a6,,,github.com/hipposys-ltd/airflow-schedule-insights,deps.dev relation,cloned,ae80f07093,2025-10-26T17:11:23+02:00,ae80f07093,2025-10-26T17:11:23+02:00,6,6,local_airflow/.Dockerfile,local_airflow/.Dockerfile
+87,bridgic-amphibious,0.2.0,0.2.0,0.2.0,,,,,,,,,,0,0,,
+88,alation-ai-agent-mcp,0.12.0,0.12.0,0.12.0,,,github.com/alation/alation-ai-agent-sdk,deps.dev relation,cloned,61a80051ff,2026-08-04T17:44:12-04:00,815fb2268d,2026-06-05T22:45:29+05:30,17,17,python/dist-mcp/Dockerfile,python/dist-mcp/Dockerfile
+89,http-privacy-sdk,1.0.3,1.0.3,,1.0.3,,github.com/ai-robotic-labs/http-privacy,deps.dev relation,cloned,4e6b8a40aa,2026-08-31T07:47:31-03:00,dd36d888c1,2026-07-14T15:05:50-03:00,4,4,,
+90,any-agent,0.16.0,1.18.0,0.16.0,,,github.com/mozilla-ai/any-agent,deps.dev relation,cloned,a469723ac4,2026-09-21T12:54:58-04:00,3e248d1c5a,2026-04-30T15:43:32-05:00,19,19,demo/Dockerfile,demo/Dockerfile
+91,cli-wrap-mcp,0.1.0,0.2.1,,,0.1.0,github.com/hkak03key/cli-wrap-mcp,deps.dev relation,cloned,40dce1a509,2026-07-29T16:10:51+09:00,,,3,0,,
+92,mcp-quickbooks,0.1.0,0.1.0,,,0.1.0,,,,,,,,0,0,,
+93,iflow-mcp-jbeno-cursor-notebook-mcp,0.3.2,0.3.2,0.3.2,,,github.com/jbeno/cursor-notebook-mcp,deps.dev relation,cloned,65331a8fde,2025-11-07T21:09:54-08:00,65331a8fde,2025-11-07T21:09:54-08:00,6,6,,
+94,intsig-mcp-atlassian,0.2.0,0.2.0,0.2.0,,,,,,,,,,0,0,,
+95,plane-mcp-server,0.3.3,0.3.3,,,0.3.3,,,,,,,,0,0,,
+96,mcp-mesh,3.0.1,3.7.1,,,3.0.1,github.com/dhyansraj/mcp-mesh,deps.dev relation,cloned,d590ce37dd,2026-09-19T10:25:46-04:00,04cdf69ac1,2026-07-12T21:11:22-04:00,248,253,cmd/meshctl/templates/java/a2a-consumer/Dockerfile.tmpl;cmd/meshctl/templates/java/api/Dockerfile.tmpl;cmd/meshctl/templates/java/basic/Dockerfile.tmpl;cmd/meshctl/templates/java/llm-agent/Dockerfile.tmpl;cmd/meshctl/templates/java/llm-provider/Dockerfile.tmpl;cmd/meshctl/templates/python/a2a-consumer/Dockerfile.tmpl;cmd/meshctl/templates/python/api/Dockerfile.tmpl;cmd/meshctl/templates/python/basic/Dockerfile.tmpl;cmd/meshctl/templates/python/llm-agent/Dockerfile.tmpl;cmd/meshctl/templates/pyth,cmd/meshctl/templates/java/a2a-consumer/Dockerfile.tmpl;cmd/meshctl/templates/java/api/Dockerfile.tmpl;cmd/meshctl/templates/java/basic/Dockerfile.tmpl;cmd/meshctl/templates/java/llm-agent/Dockerfile.tmpl;cmd/meshctl/templates/java/llm-provider/Dockerfile.tmpl;cmd/meshctl/templates/python/a2a-consumer/Dockerfile.tmpl;cmd/meshctl/templates/python/api/Dockerfile.tmpl;cmd/meshctl/templates/python/basic/Dockerfile.tmpl;cmd/meshctl/templates/python/llm-agent/Dockerfile.tmpl;cmd/meshctl/templates/pyth
+97,gfg-mcp-atlassian,0.1.21,0.1.22,0.1.21,,,,,,,,,,0,0,,
+98,gatecore-crewai,0.1.0,0.1.3,,,0.1.0,github.com/gatecoreai-com/gatecoreai,deps.dev relation,failed,,,,,0,0,,
+99,crewai-adapters,0.1.2,0.1.2,,,0.1.2,github.com/dshivendra/crewai_mcp_adapter,deps.dev relation,cloned,4ced903b40,2025-07-28T12:51:01+05:30,4ced903b40,2025-07-28T12:51:01+05:30,3,3,,
+100,mcp-mm-cs,0.1.0,0.1.0,,,0.1.0,,,,,,,,0,0,,
+101,mcpcat,0.1.10,0.1.15,0.1.10,,,github.com/mcpcat/mcpcat-python-sdk,deps.dev relation,cloned,8533bdfee7,2026-08-31T13:19:55-04:00,bb1e9bc11e,2026-07-10T15:33:41-04:00,7,5,,
+102,copernicus-mcp,0.1.2,0.7.0,0.1.2,,,github.com/clidyn/copernicus-mcp,PyPI project_urls,cloned,da3cc24801,2026-08-05T15:33:51+02:00,361ae2f572,2026-06-13T22:36:44+02:00,1,1,,
+103,elasticsearch-mcp-server-es7,2.1.0,2.1.3,2.1.0,,,,,,,,,,0,0,,
+104,kwork-mcp,1.0.0,1.0.0,,,1.0.0,github.com/simonether/kwork-mcp,deps.dev relation,cloned,e97ed0191e,2026-09-25T08:11:54+05:00,a6b4211b4a,2026-07-09T15:22:38+05:00,7,5,,
+105,attestation,0.2.0,0.2.1,,,0.2.0,github.com/mgoldey/attestation,deps.dev relation,cloned,5e39c65e70,2026-09-25T12:30:08-04:00,,,29,0,,
+106,performance-agent,0.1.0,0.13.0,,,0.1.0,github.com/clementrx/performance-agent,deps.dev relation,failed,,,,,0,0,,
+107,serena-agent,1.6.1,1.7.0,,,1.6.1,github.com/oraios/serena,deps.dev relation,cloned,7a2968335f,2026-09-24T10:57:40+02:00,1e63867224,2026-07-14T22:30:20+02:00,20,18,Dockerfile,Dockerfile
+108,phpipam-mcp-server,0.3.0,0.3.0,,,0.3.0,github.com/inframcp/phpipam-mcp-server,deps.dev relation,cloned,8f66270d8a,2026-09-01T14:59:24+08:00,7e0af509d8,2026-05-06T10:33:00+08:00,11,8,Dockerfile,
+109,azurefunctions-agents-runtime,0.0.0.dev6,0.1.0b16,0.0.0.dev6,,,,,,,,,,0,0,,
+110,semantic-code-review,0.28.0,0.35.0,,,0.28.0,github.com/populationgenomics/semantic-code-review,deps.dev relation,cloned,3739950889,2026-09-08T04:30:08+01:00,217564474a,2026-07-13T13:53:02+10:00,10,10,,
+111,jira-ticket-mcp,0.1.0,0.2.1,,,0.1.0,github.com/antolu/jira-ticket-mcp,deps.dev relation,cloned,64adf89c16,2026-07-27T14:01:43+02:00,,,6,0,,
+112,openroad-mcp,0.6.0,0.6.1,,,0.6.0,github.com/the-openroad-project/openroad-mcp,deps.dev relation,cloned,849da45058,2026-09-26T09:46:30-03:00,3696627c21,2026-06-24T08:10:53+08:00,19,15,.devcontainer/Dockerfile;Dockerfile,.devcontainer/Dockerfile;Dockerfile
+113,iflow-mcp-pdfmathtranslate-pdf2zh,1.9.11,1.9.11,1.9.11,,,github.com/byaidu/pdfmathtranslate,deps.dev relation,cloned,845e383801,2026-09-26T15:42:47+00:00,44c4d5b332,2026-05-13T01:03:15+08:00,17,16,Dockerfile;script/Dockerfile.China;script/Dockerfile.Demo,Dockerfile;script/Dockerfile.China;script/Dockerfile.Demo
+114,k8s-mcp-bilbilmyc,1.0.0,2.0.0,,,1.0.0,github.com/bilbilmyc/k8s-mcp,deps.dev relation,cloned,36698610a9,2026-08-28T16:51:54+08:00,b41a8f8e55,2026-07-12T10:23:07+08:00,9,5,,
+115,chainlit-hl-custom,2.6.2,2.6.2,2.6.2,,,github.com/rpidhe/chainlit-pypi,deps.dev relation,cloned,afc262dfa6,2025-07-17T23:15:23+00:00,afc262dfa6,2025-07-17T23:15:23+00:00,14,14,,
+116,aurapro-webui,3.9.11,3.9.42,,,3.9.11,github.com/aurapro-official/aurapro-webui,deps.dev relation,cloned,79c7ea03f9,2026-09-21T19:45:53-05:00,,,18,0,Dockerfile,
+117,geopera-mcp,0.1.0,0.1.0,0.1.0,,,github.com/geo-pera/geopera-mcp,deps.dev relation,cloned,c36b01cb4f,2026-06-20T23:27:56+10:00,c36b01cb4f,2026-06-20T23:27:56+10:00,2,2,,
+118,bridgic-protocols-mcp,0.1.0,0.1.1,0.1.0,,,,,,,,,,0,0,,
+119,mcp-server-bitbucket,0.1.0,0.12.0,0.1.0,,,github.com/simplekyc/bitbucket-mcp,deps.dev relation,failed,,,,,0,0,,
+120,iflow-mcp-topoteretes-cognee-mcp,0.5.0,0.5.0,0.5.0,,,,,,,,,,0,0,,

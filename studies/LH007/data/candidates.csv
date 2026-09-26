@@ -1,0 +1,121 @@
+hash_rank,package,in_127_2,in_128_0,in_128_1,repo,clone,dockerfile_at_head,dockerfile_at_period_end,matching_lines,qualifies,image_repository,named_in,reason
+1,langflow-base,0.7.2,,,github.com/langflow-ai/langflow,cloned,yes,yes,306,yes,ghcr.io/langflow-ai/langflow,repository,.github/workflows/docker-build-v2.yml pushes ghcr.io/langflow-ai/langflow (and docker.io/langflowai/langflow) from the repository that builds langflow-base; ghcr.io copy read (brief: prefer ghcr.io)
+2,browser-use,,,0.13.9,github.com/browser-use/browser-use,cloned,yes,yes,26,yes,ghcr.io/browser-use/browser-use,repository,".github/workflows/docker.yml, build-push-action with images ghcr.io/browser-use/browser-use (present at both commits)"
+3,getbible-mcp,,,1.0.0,github.com/getbible/mcp,cloned,no,no,0,no,,,no image reference in the files read or in PyPI metadata
+4,agentmail-mcp,,,1.0.0,github.com/agentmail-to/agentmail-mcp,cloned,no,no,0,no,,,no image reference in the files read or in PyPI metadata
+5,agentops-cockpit,,,1.3.0,github.com/enriquekalven/agent-ops-cockpit,failed,no,no,0,no,,,repository could not be cloned (github.com/enriquekalven/agent-ops-cockpit); PyPI metadata names no image
+6,aurite,0.2.2,,,github.com/aurite-ai/aurite-agents,cloned,yes,yes,154,yes,docker.io/aurite/aurite-agents,repository,".github/workflows/docker-publish.yml pushes REGISTRY docker.io, IMAGE_NAME aurite/aurite-agents"
+7,cortex-local-rag,,,2026.808.0,github.com/vblackjack/cortex,cloned,no,no,0,no,,,no image reference in the files read or in PyPI metadata
+8,haive-mcp,1.0.1,,,github.com/pr1m8/haive-mcp,cloned,no,no,0,no,,,no image reference in the files read or in PyPI metadata
+9,hypergolic,,0.23.1,0.23.2,github.com/roberttownley/hypergolic,failed,no,no,0,no,,,repository could not be cloned (github.com/roberttownley/hypergolic); PyPI metadata names no image
+10,powerbi-report-mcp,,,1.0.0,github.com/mattbeard0/powerbi-report-mcp,cloned,no,no,0,no,,,no image reference in the files read or in PyPI metadata
+11,snyk-agent-scan,,,0.6.4,,,no,no,0,no,,PyPI description,no repository link in Open Source Insights or PyPI; PyPI metadata names no image
+12,aevrin-scanner-core,,,0.1.7,github.com/aevrin-projects/aevrin-mcp-scanner,cloned,yes,no,8,no,,repository,docker run of a sandbox container built locally; no published image named
+13,expertflow,1.0.0,,,github.com/expertflow/expertflow,failed,no,no,0,no,,,repository could not be cloned (github.com/expertflow/expertflow); PyPI metadata names no image
+14,cognirepo,,,2.0.1,github.com/ashlesh-t/cognirepo,cloned,yes,yes,6,yes,ghcr.io/ashlesh-t/cognirepo,repository,.github/workflows/docker.yml pushes ghcr.io/${{ github.repository }} (LH006 found this package answering 401 at ghcr.io/token)
+15,better-rlm,,,0.10.0,github.com/logunovfgp/better-rlm,cloned,yes,yes,0,no,,,"Dockerfile, no published image named: docker/Dockerfile.sandbox"
+16,extend-ai-toolkit,1.1.0,,,github.com/paywithextend/extend-ai-toolkit,cloned,no,no,0,no,,,no image reference in the files read or in PyPI metadata
+17,assistants-framework,0.9.1,,,github.com/nihilok/assistants,cloned,no,no,0,no,,,no image reference in the files read or in PyPI metadata
+18,iflow-mcp-kaluso-nolodjska-ai-team-mcp,4.0.0,,,github.com/kaluso-nolodjska/ai-team-mcp,cloned,no,no,10,no,,repository,"a republish of another project under a prefixed name; the image named is that project's, not published by this package"
+19,mcp-pinot-server,1.1.0,,,github.com/startreedata/mcp-pinot,cloned,yes,yes,36,yes,ghcr.io/startreedata/mcp-pinot,repository,".github/workflows/release.yml pushes ghcr.io/${{ github.repository }}:<version> and says ""Docker image published to ghcr.io/..."""
+20,prosuite-mcp,,,0.0.5,github.com/prosuite/prosuite-mcp,cloned,no,no,0,no,,,no image reference in the files read or in PyPI metadata
+21,iflow-mcp-mcp-server-twelve-data,0.2.4,,,,,no,no,2,no,,PyPI description,docker run of a locally built tag; no published image named
+22,iflow-mcp-trakt-mcp-server,0.1.0,,,,,no,no,0,no,,PyPI description,no repository link in Open Source Insights or PyPI; PyPI metadata names no image
+23,chainlit,2.5.5,,,github.com/chainlit/chainlit,cloned,no,no,0,no,,,no image reference in the files read or in PyPI metadata
+24,secure-mcp-gateway,,,2.2.2,github.com/enkryptai/secure-mcp-gateway,cloned,yes,yes,104,no,,repository,workflows push to a private Amazon ECR with account credentials; README runs locally built images; no public image named
+25,dnallm,0.5.2,,,github.com/zhangtaolab/dnallm,cloned,no,no,0,no,,,no image reference in the files read or in PyPI metadata
+26,facets-cp-mcp-server,0.0.1,,,github.com/facets-cloud/control-plane-mcp-server,cloned,no,no,0,no,,,no image reference in the files read or in PyPI metadata
+27,mcp-mm-cs-mai,,,0.1.0,,,no,no,0,no,,PyPI description,no repository link in Open Source Insights or PyPI; PyPI metadata names no image
+28,git-debug-oracle,0.1.0,,,,,no,no,0,no,,PyPI description,no repository link in Open Source Insights or PyPI; PyPI metadata names no image
+29,chainlit-jlfel,2.5.5,,,github.com/chainlit/chainlit,already cloned,no,no,0,no,,,no image reference in the files read or in PyPI metadata
+30,ghidra-mcp-c64,,,0.1.0,,,no,no,0,no,,PyPI description,no repository link in Open Source Insights or PyPI; PyPI metadata names no image
+31,lean-lsp-mcp,0.27.0,,0.28.0,github.com/ooo0ooo/lean-lsp-mcp,cloned,yes,yes,8,no,,repository,"Dockerfile, no published image named (as LH006)"
+32,mcp-server-spreadsheet,,0.3.3,,github.com/marekrost/mcp-server-spreadsheet,cloned,no,no,0,no,,,no image reference in the files read or in PyPI metadata
+33,mseep-snyk-agent-scan,,,0.5.17,,,no,no,0,no,,PyPI description,no repository link in Open Source Insights or PyPI; PyPI metadata names no image
+34,loreconvo,,,0.10.0,github.com/labyrinth-analytics/loreconvo,cloned,no,no,0,no,,,no image reference in the files read or in PyPI metadata
+35,async-hermes-agent,,,0.20.0.5,github.com/ykoh42/async-hermes-agent,cloned,no,yes,15,no,,repository,"a fork whose workflow at the period-end commit names nousresearch/hermes-agent, the upstream image"
+36,holmesgpt,,,0.38.0,,,no,no,0,no,,PyPI description,no repository link in Open Source Insights or PyPI; PyPI metadata names no image
+37,mcpm,2.10.0,,,github.com/pathintegral-institute/mcpm.sh,cloned,yes,yes,14,no,,repository,"the only pushing workflow (frp.yml) publishes frpc and frps tunnel images, which do not install mcpm"
+38,mcp-tollbooth,0.2.1,,,github.com/realgagenichols/tollbooth,cloned,no,no,0,no,,,no image reference in the files read or in PyPI metadata
+39,nacos-mcp-wrapper-python,1.1.0,,,github.com/nacos-group/nacos-mcp-wrapper-python,cloned,no,no,0,no,,,no image reference in the files read or in PyPI metadata
+40,chainlit-chandru20,2.5.10,,,github.com/chandru20/chainlit,cloned,no,no,0,no,,,no image reference in the files read or in PyPI metadata
+41,aurapro-ui,3.8.0,,,github.com/sakurame1/aurapro-ui,failed,no,no,6,no,,PyPI description,"names ghcr.io/open-webui/open-webui, the image of the project it is derived from, not one it publishes"
+42,iflow-mcp-adam-paterson-mcp-crew-ai,,,0.1.0,github.com/adam-paterson/mcp-crew-ai,cloned,no,no,0,no,,,no image reference in the files read or in PyPI metadata
+43,mcp-behaviour-guard,,,0.4.1,github.com/hacker-vs-cracker/mcp-behaviour-guard,cloned,yes,no,7,no,,repository,ci.yml builds with push: false; no published image named
+44,c64-mcp,,,0.100.0,,,no,no,0,no,,PyPI description,no repository link in Open Source Insights or PyPI; PyPI metadata names no image
+45,jesse,,,3.2.2,github.com/jesse-ai/jesse,cloned,yes,yes,12,yes,docker.io/salehmir/jesse,repository and PyPI description,.github/workflows/docker-publish.yml pushes salehmir/jesse on v* tags; README and PyPI link hub.docker.com/r/salehmir/jesse (as LH006)
+46,mcp-standards-server,0.1.0,,,github.com/williamzujkowski/mcp-standards-server,cloned,yes,yes,60,yes,ghcr.io/williamzujkowski/mcp-standards-server,repository,.github/workflows/release.yml pushes ghcr.io/williamzujkowski/mcp-standards-server
+47,aind-data-access-mcp,0.1.0,,,,,no,no,0,no,,PyPI description,no repository link in Open Source Insights or PyPI; PyPI metadata names no image
+48,aimeat-crewai,,,0.1.0,github.com/miikkij/aimeat-protocol,cloned,yes,yes,13,no,,repository,"service images (postgres, openhands) only"
+49,instana-fix-wrapper,1.0.0,,,,,no,no,0,no,,PyPI description,no repository link in Open Source Insights or PyPI; PyPI metadata names no image
+50,traia-iatp,,,0.1.112,github.com/traia-io/iatp,failed,no,no,0,no,,,repository could not be cloned (github.com/traia-io/iatp); PyPI metadata names no image
+51,eon-mcp-local,,,0.1.0,,,no,no,0,no,,PyPI description,no repository link in Open Source Insights or PyPI; PyPI metadata names no image
+52,quellgeist,,0.1.0,,github.com/rajeev-shyam/quellgeist,cloned,yes,yes,4,no,,repository,a comment about a third-party action image and an ollama service image only
+53,seclab-taskflow-agent,,,0.5.0,github.com/githubsecuritylab/seclab-taskflow-agent,cloned,yes,yes,14,yes,ghcr.io/githubsecuritylab/seclab-taskflow-agent,repository and PyPI description,README and PyPI description run ghcr.io/githubsecuritylab/seclab-taskflow-agent; release.yml attests the oci image
+54,knowledge-manager,0.5.1,,,,,no,no,0,no,,PyPI description,no repository link in Open Source Insights or PyPI; PyPI metadata names no image
+55,langflow-base-nightly,1.8.0.dev13,,,github.com/langflow-ai/langflow,already cloned,yes,yes,306,yes,ghcr.io/langflow-ai/langflow-nightly,repository,the same repository's workflows push ghcr.io/langflow-ai/langflow-nightly (and docker.io/langflowai/langflow-nightly) from the nightly builds; ghcr.io copy read
+56,algenta-mcp,,,1.0.10,github.com/thyn-ai/algenta,failed,no,no,0,no,,,repository could not be cloned (github.com/thyn-ai/algenta); PyPI metadata names no image
+57,prompt-copilot-cli,,0.1.1,,github.com/woshiliyihang/prompt-copilot-cli,cloned,no,no,0,no,,,no image reference in the files read or in PyPI metadata
+58,guiji-mcp,0.0.7,,,,,no,no,0,no,,PyPI description,no repository link in Open Source Insights or PyPI; PyPI metadata names no image
+59,flink-agents,0.1.0,,,,,no,no,0,no,,PyPI description,no repository link in Open Source Insights or PyPI; PyPI metadata names no image
+60,agentdomain-crewai,,,0.11.0,github.com/0xmdrakib/agentdomain,cloned,no,no,0,no,,,no image reference in the files read or in PyPI metadata
+61,jobescape-concierge,,,0.1.4,,,no,no,0,no,,PyPI description,no repository link in Open Source Insights or PyPI; PyPI metadata names no image
+62,cloudsmith-cli,1.19.0,,1.27.0,github.com/cloudsmith-io/cloudsmith-cli,cloned,yes,yes,29,yes,docker.io/cloudsmith/cloudsmith-cli,repository,.github/workflows/release.yml at the period-end commit pushes cloudsmith/cloudsmith-cli (Docker Hub) and docker.cloudsmith.io; the head commit moves image publishing into variables
+63,bigindexer,0.1.4,,,github.com/ahmedxuhri/bigindexer,cloned,yes,yes,0,no,,,"Dockerfile, no published image named: Dockerfile"
+64,irigate,,,0.4.1,github.com/irigate/irigate-mcp-proxy,cloned,no,no,0,no,,,no image reference in the files read or in PyPI metadata
+65,codens-mcp,,,0.1.0,github.com/corevice/purple-codens,failed,no,no,0,no,,,repository could not be cloned (github.com/corevice/purple-codens); PyPI metadata names no image
+66,relay-shell,,,0.3.0,github.com/rmednitzer/relay-shell,cloned,no,no,0,no,,,no image reference in the files read or in PyPI metadata
+67,mcp-leadsclean,0.1.0,,,github.com/edition/leadsclean,cloned,yes,yes,0,no,,,"Dockerfile, no published image named: Dockerfile"
+68,crewai,,,1.15.22,github.com/crewaiinc/crewai,cloned,no,no,0,no,,,no image reference in the files read or in PyPI metadata
+69,elasticsearch-mcp-server-es9,2.1.0,,,,,no,no,2,no,,PyPI description,"names ghcr.io/cr7258/elasticsearch-mcp-server, the image of the sibling distribution elasticsearch-mcp-server; no repository or author in the metadata ties this distribution to it"
+70,memscope-mcp,0.3.0,,,github.com/boti-ormandi/memscope-mcp,cloned,no,no,0,no,,,no image reference in the files read or in PyPI metadata
+71,mnemo-unified-context,,,0.1.0a1,github.com/keith-fajardo/mnemo-memory,cloned,no,no,0,no,,,no image reference in the files read or in PyPI metadata
+72,iflow-mcp-codebadger,0.3.2,,,,,no,no,0,no,,PyPI description,no repository link in Open Source Insights or PyPI; PyPI metadata names no image
+73,better-telegram-mcp,,,4.18.0,github.com/n24q02m/better-telegram-mcp,cloned,yes,yes,44,yes,ghcr.io/n24q02m/better-telegram-mcp,repository,.github/workflows/cd.yml pushes ghcr.io/n24q02m/better-telegram-mcp; server.json names an OCI package
+74,datus-agent-clickzetta,0.2.1,,,github.com/datus-ai/datus-agent-clickzetta,failed,no,no,0,no,,,repository could not be cloned (github.com/datus-ai/datus-agent-clickzetta); PyPI metadata names no image
+75,amsdal-ml,0.1.0,,,,,no,no,0,no,,PyPI description,no repository link in Open Source Insights or PyPI; PyPI metadata names no image
+76,hybrid-groups,0.1.0,,,github.com/gradion-ai/hybrid-groups,cloned,yes,yes,8,yes,ghcr.io/gradion-ai/hybrid-groups,repository,.github/workflows/docker.yml pushes ghcr.io/gradion-ai/hybrid-groups
+77,chainlit-mardonio,2.6.0,,,github.com/mardonioeng/chainlit,cloned,no,no,0,no,,,no image reference in the files read or in PyPI metadata
+78,chemgraph,,,0.7.0,github.com/argonne-lcf/chemgraph,cloned,yes,yes,39,yes,ghcr.io/argonne-lcf/chemgraph,repository,.github/workflows/ghcr-publish.yml pushes ghcr.io/${owner}/chemgraph
+79,mcp-instana,0.7.1,,,,,no,no,5,no,,PyPI description,docker run of a locally built tag; no published image named
+80,modulector-sdk,2.4.0,,,github.com/omics-datascience/modulector,cloned,yes,yes,18,yes,docker.io/omicsdatascience/modulector,repository,".github/workflows/prod-env-wf.yml pushes omicsdatascience/modulector; the image is built from the repository whose root project requires mcp==1.27.2 (sdk/ holds the SDK package); image of the repository, not of the SDK distribution alone"
+81,loopskill-mcp,,,0.9.42,github.com/wisechef-ai/loopskill-api,cloned,yes,yes,9,no,,,"Dockerfile, no published image named: Dockerfile"
+82,mcp-atlassian,0.11.10,,,,,no,no,25,yes,ghcr.io/sooperset/mcp-atlassian,PyPI description,"no repository link in Open Source Insights or PyPI; the description gives docker pull ghcr.io/sooperset/mcp-atlassian:latest, published by the same author as the package"
+83,mcp-proxy-for-aws-cli,,,1.6.5,github.com/aws/mcp-proxy-for-aws,cloned,yes,yes,14,yes,public.ecr.aws/mcp-proxy-for-aws/mcp-proxy-for-aws,repository,".github/workflows/ecr-publish-on-release.yml pushes to public ECR alias mcp-proxy-for-aws; the Dockerfile runs pip install mcp-proxy-for-aws-cli, the package itself"
+84,saihm-crewai,,,0.1.0,github.com/saihm-admin/saihm-crewai,cloned,no,no,0,no,,,no image reference in the files read or in PyPI metadata
+85,instana-comprehensive-wrapper,1.0.0,,,github.com/yourusername/instana-comprehensive-wrapper,failed,no,no,0,no,,,repository could not be cloned (github.com/yourusername/instana-comprehensive-wrapper); PyPI metadata names no image
+86,airflow-chat,0.1.0a6,,,github.com/hipposys-ltd/airflow-schedule-insights,cloned,yes,yes,4,no,,,"Dockerfile, no published image named: local_airflow/.Dockerfile"
+87,bridgic-amphibious,0.2.0,,,,,no,no,0,no,,PyPI description,no repository link in Open Source Insights or PyPI; PyPI metadata names no image
+88,alation-ai-agent-mcp,0.12.0,,,github.com/alation/alation-ai-agent-sdk,cloned,yes,yes,102,yes,ghcr.io/alation/alation-ai-agent-sdk/alation-mcp-server,repository,.github/workflows/build-docker-image.yml pushes ghcr.io/alation/alation-ai-agent-sdk/alation-mcp-server
+89,http-privacy-sdk,,1.0.3,,github.com/ai-robotic-labs/http-privacy,cloned,no,no,0,no,,,no image reference in the files read or in PyPI metadata
+90,any-agent,0.16.0,,,github.com/mozilla-ai/any-agent,cloned,yes,yes,0,no,,,"Dockerfile, no published image named: demo/Dockerfile"
+91,cli-wrap-mcp,,,0.1.0,github.com/hkak03key/cli-wrap-mcp,cloned,no,no,0,no,,,no image reference in the files read or in PyPI metadata
+92,mcp-quickbooks,,,0.1.0,,,no,no,2,no,,PyPI description,docker run of a locally built tag; no published image named
+93,iflow-mcp-jbeno-cursor-notebook-mcp,0.3.2,,,github.com/jbeno/cursor-notebook-mcp,cloned,no,no,0,no,,,no image reference in the files read or in PyPI metadata
+94,intsig-mcp-atlassian,0.2.0,,,,,no,no,16,yes,registry.intsig.net/confluence-mcp/confluence-mcp,PyPI description,"the description gives docker pull registry.intsig.net/confluence-mcp/confluence-mcp:latest, a registry of the package author's organisation"
+95,plane-mcp-server,,,0.3.3,,,no,no,0,no,,PyPI description,no repository link in Open Source Insights or PyPI; PyPI metadata names no image
+96,mcp-mesh,,,3.0.1,github.com/dhyansraj/mcp-mesh,cloned,yes,yes,259,yes,ghcr.io/dhyansraj/mcp-mesh/python-runtime,repository,".github/workflows/release.yml pushes python-runtime images (packaging/docker/python-runtime.Dockerfile, pip install mcp-mesh==VERSION with a constraints file) to mcpmesh/ on Docker Hub and ghcr.io/dhyansraj/mcp-mesh/; ghcr.io copy read. Its registry and typescript-runtime images do not install the Python package"
+97,gfg-mcp-atlassian,0.1.21,,,,,no,no,50,no,,PyPI description,"names ghcr.io/sooperset/mcp-atlassian, the upstream project's image, not one it publishes"
+98,gatecore-crewai,,,0.1.0,github.com/gatecoreai-com/gatecoreai,failed,no,no,0,no,,,repository could not be cloned (github.com/gatecoreai-com/gatecoreai); PyPI metadata names no image
+99,crewai-adapters,,,0.1.2,github.com/dshivendra/crewai_mcp_adapter,cloned,no,no,0,no,,,no image reference in the files read or in PyPI metadata
+100,mcp-mm-cs,,,0.1.0,,,no,no,0,no,,PyPI description,no repository link in Open Source Insights or PyPI; PyPI metadata names no image
+101,mcpcat,0.1.10,,,github.com/mcpcat/mcpcat-python-sdk,cloned,no,no,0,no,,,no image reference in the files read or in PyPI metadata
+102,copernicus-mcp,0.1.2,,,github.com/clidyn/copernicus-mcp,cloned,no,no,0,no,,,no image reference in the files read or in PyPI metadata
+103,elasticsearch-mcp-server-es7,2.1.0,,,,,no,no,2,no,,PyPI description,as elasticsearch-mcp-server-es9
+104,kwork-mcp,,,1.0.0,github.com/simonether/kwork-mcp,cloned,no,no,0,no,,,no image reference in the files read or in PyPI metadata
+105,attestation,,,0.2.0,github.com/mgoldey/attestation,cloned,no,no,0,no,,,no image reference in the files read or in PyPI metadata
+106,performance-agent,,,0.1.0,github.com/clementrx/performance-agent,failed,no,no,0,no,,,repository could not be cloned (github.com/clementrx/performance-agent); PyPI metadata names no image
+107,serena-agent,,,1.6.1,github.com/oraios/serena,cloned,yes,yes,10,yes,ghcr.io/oraios/serena,repository,.github/workflows/docker.yml pushes ghcr.io/${{ github.repository }} (as LH006)
+108,phpipam-mcp-server,,,0.3.0,github.com/inframcp/phpipam-mcp-server,cloned,yes,no,3,no,,repository,compose file names a locally built tag; no published image named
+109,azurefunctions-agents-runtime,0.0.0.dev6,,,,,no,no,2,no,,PyPI description,an azurite storage emulator container only
+110,semantic-code-review,,,0.28.0,github.com/populationgenomics/semantic-code-review,cloned,no,no,0,no,,,no image reference in the files read or in PyPI metadata
+111,jira-ticket-mcp,,,0.1.0,github.com/antolu/jira-ticket-mcp,cloned,no,no,0,no,,,no image reference in the files read or in PyPI metadata
+112,openroad-mcp,,,0.6.0,github.com/the-openroad-project/openroad-mcp,cloned,yes,yes,29,yes,ghcr.io/the-openroad-project/openroad-mcp,repository,.github/workflows/docker-publish.yml pushes ghcr.io/the-openroad-project/openroad-mcp; server.json names an OCI package
+113,iflow-mcp-pdfmathtranslate-pdf2zh,1.9.11,,,github.com/byaidu/pdfmathtranslate,cloned,yes,yes,90,no,,repository,"a republish of another project under a prefixed name; the image named is that project's, not published by this package"
+114,k8s-mcp-bilbilmyc,,,1.0.0,github.com/bilbilmyc/k8s-mcp,cloned,no,no,0,no,,,no image reference in the files read or in PyPI metadata
+115,chainlit-hl-custom,2.6.2,,,github.com/rpidhe/chainlit-pypi,cloned,no,no,0,no,,,no image reference in the files read or in PyPI metadata
+116,aurapro-webui,,,3.9.11,github.com/aurapro-official/aurapro-webui,cloned,yes,no,14,yes,ghcr.io/aurapro-official/aurapro-webui,repository,".github/workflows/docker.yaml pushes ghcr.io/${GITHUB_REPOSITORY,,}"
+117,geopera-mcp,0.1.0,,,github.com/geo-pera/geopera-mcp,cloned,no,no,0,no,,,no image reference in the files read or in PyPI metadata
+118,bridgic-protocols-mcp,0.1.0,,,,,no,no,0,no,,PyPI description,no repository link in Open Source Insights or PyPI; PyPI metadata names no image
+119,mcp-server-bitbucket,0.1.0,,,github.com/simplekyc/bitbucket-mcp,failed,no,no,0,no,,,repository could not be cloned (github.com/simplekyc/bitbucket-mcp); PyPI metadata names no image
+120,iflow-mcp-topoteretes-cognee-mcp,0.5.0,,,,,no,no,34,no,,PyPI description,"a republish of another project under a prefixed name; the image named is that project's, not published by this package"

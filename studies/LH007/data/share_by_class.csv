@@ -1,0 +1,19 @@
+install_class,days_bin,images_read,holding_new,repositories,which
+exact pin,before period,1,0,1,serena
+exact pin,28 days before,3,0,2,browseruse serena
+exact pin,0 to 7,1,0,1,browseruse
+exact pin,21 to 28,2,2,1,python-runtime
+exact pin,after period,2,1,2,seclab-taskflow-agent serena
+lockfile,before period,3,0,3,better-telegram-mcp hybrid-groups mcp-atlassian
+lockfile,28 days before,5,0,2,better-telegram-mcp openroad-mcp
+lockfile,0 to 7,2,2,1,better-telegram-mcp
+lockfile,14 to 21,1,1,1,better-telegram-mcp
+lockfile,21 to 28,4,2,2,better-telegram-mcp mcp-atlassian
+lockfile,after period,5,4,5,better-telegram-mcp hybrid-groups mcp-atlassian mcp-pinot openroad-mcp
+open range,before period,4,0,4,alation-mcp-server mcp-pinot mcp-proxy-for-aws mcp-standards-server
+open range,28 days before,9,0,4,chemgraph mcp-pinot mcp-proxy-for-aws python-runtime
+open range,0 to 7,1,1,1,mcp-proxy-for-aws
+open range,7 to 14,1,1,1,python-runtime
+open range,14 to 21,2,1,2,chemgraph python-runtime
+open range,21 to 28,2,2,1,mcp-pinot
+open range,after period,1,1,1,mcp-proxy-for-aws

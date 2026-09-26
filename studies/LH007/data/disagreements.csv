@@ -1,0 +1,11 @@
+image,tags,created,days_since_release,install_class,what_fixes_mcp,mcp_installed,project_spec,project_lock,install_vs_project
+ghcr.io/alation/alation-ai-agent-sdk/alation-mcp-server,latest v1.0.0rc3,2026-01-31T22:49:12Z,-135.95,open range,python/dist-mcp/pyproject.toml mcp>=1.12.0,1.26.0,python/dist-mcp/pyproject.toml: mcp>=1.12.0,python/dist-mcp/uv.lock=1.25.0,project lock 1.25.0 differs
+ghcr.io/startreedata/mcp-pinot,3.0 3.0.1,2026-05-18T19:11:12Z,-29.1,open range,pyproject.toml mcp>=1.10.0,1.27.1,pyproject.toml: mcp>=1.10.0,uv.lock=1.25.0,project lock 1.25.0 differs
+ghcr.io/startreedata/mcp-pinot,3.1 3.1.0,2026-05-25T06:16:37Z,-22.64,open range,pyproject.toml mcp>=1.26.0,1.27.1,pyproject.toml: mcp>=1.26.0,uv.lock=1.26.0,project lock 1.26.0 differs
+ghcr.io/startreedata/mcp-pinot,3.2 3.2.0,2026-07-08T01:05:54Z,21.14,open range,pyproject.toml mcp>=1.26.0,1.28.1,pyproject.toml: mcp>=1.26.0,uv.lock=1.26.0,project lock 1.26.0 differs
+ghcr.io/startreedata/mcp-pinot,3.3 3.3.0,2026-07-10T10:11:47Z,23.52,open range,pyproject.toml mcp>=1.26.0,1.28.1,pyproject.toml: mcp>=1.26.0,uv.lock=1.26.0,project lock 1.26.0 differs
+public.ecr.aws/mcp-proxy-for-aws/mcp-proxy-for-aws,1.4.1 sha-3c5909c72bde2a9090a03574d1541116dd250cab,2026-04-29T10:57:39Z,-48.44,open range,mcp-proxy-for-aws 1.4.1 requires fastmcp~=3.2.0,1.27.0,,uv.lock=1.24.0,project lock 1.24.0 differs
+public.ecr.aws/mcp-proxy-for-aws/mcp-proxy-for-aws,1.5.0 sha-4777b65fd4e5cc977b5293a8d0042f52110d9e8c,2026-05-22T11:46:40Z,-25.41,open range,"mcp-proxy-for-aws 1.5.0 requires fastmcp<3.4,>=3.2",1.27.1,,uv.lock=1.24.0,project lock 1.24.0 differs
+public.ecr.aws/mcp-proxy-for-aws/mcp-proxy-for-aws,1.6.0 sha-90e2cfd06e1275dad2a2dbe0901e323aa9dde8fe,2026-05-29T14:52:10Z,-18.28,open range,"mcp-proxy-for-aws 1.6.0 requires fastmcp<3.4,>=3.2",1.27.1,,uv.lock=1.24.0,project lock 1.24.0 differs
+public.ecr.aws/mcp-proxy-for-aws/mcp-proxy-for-aws,1.6.1 sha-e0d305989622eba2e66209a93454ff2b471c1b57,2026-06-12T14:31:52Z,-4.3,open range,"mcp-proxy-for-aws 1.6.1 requires fastmcp<3.5,>=3.2",1.27.2,,uv.lock=1.24.0,project lock 1.24.0 differs
+public.ecr.aws/mcp-proxy-for-aws/mcp-proxy-for-aws,1.6.2,2026-06-19T12:37:16Z,2.62,open range,"mcp-proxy-for-aws 1.6.2 requires fastmcp<3.5,>=3.2",1.28.0,,uv.lock=1.24.0,project lock 1.24.0 differs

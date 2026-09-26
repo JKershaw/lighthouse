@@ -1,0 +1,29 @@
+measure,value
+requests logged,4388
+first and last logged read (UTC),2026-09-26T21:15:38Z to 2026-09-26T21:52:06Z
+Docker Hub counted manifest GETs (200),25
+Docker Hub rate-limit headers recorded,2026-09-26T21:52:06Z ratelimit-limit 100;w=3600; ratelimit-remaining 11;w=3600
+layer streams,129
+compressed layer bytes read,3221286098
+layer streams by registry,docker.io:12 ghcr.io:105 public.ecr.aws:12
+"layer bytes read, docker.io",750156858
+"layer bytes read, ghcr.io",2316656544
+"layer bytes read, public.ecr.aws",154472696
+"requests: ClickPy (ClickHouse public demo), status 200",1
+"requests: OSV API, status 200",1
+"requests: Open Source Insights, status 200",130
+"requests: PyPI JSON API, status 200",797
+"requests: docker.io registry API, status 200",65
+"requests: docker.io registry API, status 404",4
+"requests: docker.io token endpoint (anonymous), status 200",8
+"requests: ghcr.io registry API, status 200",3080
+"requests: ghcr.io token endpoint (anonymous), status 200",49
+"requests: ghcr.io token endpoint (anonymous), status 401",7
+"requests: git over HTTPS, status not applicable (git clone)",89
+"requests: hub.docker.com v2 API, status 200",36
+"requests: hub.docker.com v2 API, status 403",3
+"requests: public.ecr.aws registry API, status 200",97
+"requests: public.ecr.aws registry API, status 401",4
+"requests: public.ecr.aws registry API, status 429",11
+"requests: public.ecr.aws token endpoint (anonymous), status 200",4
+"requests: registry.intsig.net registry API, status 403",2
