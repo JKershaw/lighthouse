@@ -37,6 +37,18 @@ Found on 26 September 2026 while measuring spend from transcripts. To be filed u
 | Rate card rows for Fable 5.1 and Opus 5.5, with their cache-read exceptions (a fortieth and a twentieth of input on the caching page) | The `costUsd` that `hb usage` computes locally from `harbour/prices.json` |
 | A workspace-level read of Harbour's own model spend through the proxy; the store can summarise it but no route an agent token can reach exposes it | Nothing yet; the export carries only the per-issue attribution |
 
+Found on 26 September 2026 while moving the backlog to the hosted workspace, which is backed by this repository's issues. These are what would let Harbour start Lighthouse's sessions rather than only list its work, in the order they matter. To be searched against the backlog before filing, since several touch LIN-3061, LIN-3063 and LIN-3066.
+
+| Request | What it replaces here |
+| --- | --- |
+| A consumer for cloud sessions: a dispatch whose target is a Claude Code session started on Anthropic's infrastructure, needing no runner on a machine of the keeper's; or, if simple-dispatcher's web target already does this, the documentation of how a workspace gets one | The person typing `/drive`, or a scheduled routine outside Harbour |
+| Rulings an agent can raise through the proxy: a session that reaches a decision reserved for a person (a claim of present harm, a named compromised system, anything irreversible outside the repository) posts the question with its options and parks; today the proxy only lets an agent suggest answers to rulings that already exist | The session's report, and the person reading it in time |
+| Usage on an agent status entry: let `POST /api/proxy/agent/status` carry the `[usage]` fields (model, harness, effort, token counts, costUsd) so that a self-driven session's spend joins cost per issue without a taken dispatch | The spend line in the commit message; `cost.json` in the export reads nothing for a self-driven issue |
+| GitHub provider gaps: `GET /issues/{id}`, an issue list including closed issues, and label creation; today `issueDetail`, `issues`, `projects` and `viewer` answer `CAPABILITY_NOT_SUPPORTED`, so `hb issue` reads the open stack and search, and a closed issue cannot be read at all | The stack-and-search fallback in `hb issue`; nothing for closed issues |
+| Periodicals declared from an issue: an issue carrying a cadence (the monthly source check, C-0001) that Harbour dispatches on schedule, rather than a server-side template registry | A session remembering the cadence, and the "stays open, comment per check" convention on the issue |
+
+The ruling request in fields, so that it can be filed as one: `POST /api/proxy/rulings` with `{ "issueIdentifier", "question", "options": [{ "id", "label" }], "context", "effect": "record|dispatch" }`, returning the ruling's id; the ruling appears in the Observation Rulings tab like a runner-raised one; answering it, by a person only, records the answer and, when `effect` is `dispatch`, queues the issue's next step with the answer in the prompt. The session that raised it ends; it does not wait.
+
 ## Field list: study marker (LIN-3070)
 
 A feedback marker beside `[ticket]` and `[usage]`, posted by the driver or by the agent that took the dispatch, linking the dispatch to the Lighthouse record it produced or used. Posted as a feedback entry with `"kind": "study"` and a message of the form `[study] { ...json... }`, so that the export can join a dispatch to a study and the ledger can attribute cost per study.
