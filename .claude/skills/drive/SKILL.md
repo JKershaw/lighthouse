@@ -30,7 +30,7 @@ Stopping early is not a failure. Say what stopped the drive and leave the rest f
 ## Procedure
 
 1. Note the start time. `harbour/hb up`, `harbour/hb load`, `harbour/hb next`. Read the suggestion against the bounds.
-2. For each dispatch: `hb dispatch <ticket> <kind>`, then `hb take`. Spawn one subagent with the taken prompt, the repository path, AGENTS.md, a scratch directory and the two rules in CLAUDE.md. Model by kind: `sonnet` for research, plan, implementation and writing; `opus` for review; `haiku` only for a chore the driver cannot do with `hb`.
+2. For each dispatch: `hb dispatch <ticket> <kind>`, then `hb take`. Spawn one subagent with the taken prompt, the repository path, AGENTS.md, a scratch directory and the two rules in CLAUDE.md. Model by kind (D-0002): `opus` for research, essays, study write-ups and review; `sonnet` for collection scripts, source checks and tabulation; `haiku` only for a chore the driver cannot do with `hb`.
 3. When it reports: `hb feedback <id> "<what was done>"`, `hb usage <id> --latest`, `hb resources <id>`, then `hb done` or `hb failed`. Commit the deliverable. `hb close <ticket> "<message naming the commit>"` when it is done.
 4. After the last dispatch: `hb export`, `hb down`, `hb drivercost --since <start time>`. Commit and push.
 5. Report.
