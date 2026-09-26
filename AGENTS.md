@@ -4,6 +4,7 @@ Lighthouse watches the internet for what AI systems do there and what their acti
 
 ## What is known
 
+- The one public record past a release that we know of, the Python Package Index's download log, reaches the download and stops. It showed a new version of mcp at about half of all the library's downloads within two days, five days before the first dependent we watched pinned it, carried mostly by installers resolving open ranges. It cannot say what was installed or run, or tie one download to another, so the one second hop we had seen is invisible in it. It is the second thing beyond its own machine that Lighthouse has read with its own hands, through public copies, since the original needs a Google account. The piece is articles/what-a-download-shows.md; the record is studies/LH005/.
 - The xz backdoor sat in public release files for about five weeks before a slow login gave it away. Both signals anyone noticed came from running code: a memory checker's errors in Red Hat's distributions from 4 March, then one engineer's timing. None of the seventeen sources surveyed, and no instrument Lighthouse has proposed, watches the distribution pipelines the compromise travelled through. The piece is articles/the-xz-backdoor.md; the record is studies/LH004/.
 - The public observatories of AI activity are partial views. Seventeen sources each cover one population, such as one forge, one broker, one vendor's tier or one network; their counts cannot be added, because no source says how much they overlap and Lighthouse has not measured it. The piece is articles/what-we-can-see.md; the record is studies/LH003/.
 - In one small neighbourhood of Python projects, the public record followed a new release into four of nine dependents within four weeks, and one step further where a project pinned it exactly, but could not say why any of them moved or whether anyone ran it. This is the first thing beyond its own machine that Lighthouse read with its own hands. The piece is articles/where-a-software-update-went.md; the record is studies/LH002/.
@@ -11,7 +12,7 @@ Lighthouse watches the internet for what AI systems do there and what their acti
 
 ## What is next
 
-LH005. Ask whether any public record connects a software release to its installation, starting from the Python Package Index's download records by version and installer, read for the LH002 library across the LH002 window and set beside the dependents' moves the record holds. The design is in programme.md, which also names the questions after it.
+LH006. Ask whether public container images, packaged environments published to be run, record what was installed past the download: which version of mcp the images of LH002's projects and the release's dependents held across the LH002 window and after, with an access and cost decision on each registry first. The design is in programme.md, which also names the questions after it.
 
 ## How a session goes
 
