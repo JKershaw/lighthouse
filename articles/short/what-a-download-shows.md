@@ -1,3 +1,8 @@
+published: 2026-09-26
+summary: A new release reached half of a widely used library's downloads within two days, carried, we think, by installers taking the newest version that fits. The log that shows it cannot say what was installed or run.
+status: released
+investigation: software-updates
+
 # Downloads show a new release taken up within two days, but not where it was installed or whether anyone ran it
 
 On 3 April 2026, the day after it was published, a new version of a Python library called mcp was 48 of every hundred downloads of the library, more than three million of them.

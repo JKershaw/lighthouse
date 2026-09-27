@@ -1,3 +1,8 @@
+published: 2026-09-27
+summary: Across 102 pins on four widely used Python libraries, software moved to security fixes over weeks, a little faster just after each release and each advisory, and neither moment drew most of the moves. The burst after one library's advisory did not recur.
+status: released
+investigation: software-updates
+
 # Pinned software moved to security fixes over weeks, a little faster after the release and again after the advisory, and neither drew most of the moves
 
 Between 19:28 and 20:16 UTC on Monday 15 June 2026, security advisories rated high were published against three of the most downloaded libraries in Python: first pyjwt, which handles the signed tokens many websites use to keep people logged in, then cryptography, then starlette, a toolkit for building web services. None of them brought a new fix. Each named a version that was already out: cryptography's had been published almost six days before, starlette's 23 days before and pyjwt's 25. They were not alone that evening: GitHub published ten advisories against the three libraries between 17:28 and 20:40, most rated lower, one more against starlette rated high and fixed in a later release, and every one of the ten named a fix that was already out. We followed the three. Of the projects we were following that pinned one of the three libraries, five moved to its fix in the two days after that evening. Most of the rest had moved already, took weeks, or had not moved by late September.

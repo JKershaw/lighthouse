@@ -1,3 +1,8 @@
+published: 2026-09-26
+summary: One project's published images held a new release sixteen days before its lockfile did, because the image was built from a range. Few projects publish images, and an image is an installation, not a run.
+status: released
+investigation: software-updates
+
 # Published images show what software installed, and it was not always what its project had chosen
 
 On 8 April 2026, a published copy of a program called agentcrew held a new version of mcp, a library that AI agents use, sixteen days before the project's own lockfile named it.

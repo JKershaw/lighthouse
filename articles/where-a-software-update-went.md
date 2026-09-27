@@ -1,3 +1,8 @@
+published: 2026-09-26
+summary: We followed one new release of a Python library into nine projects that depend on it: four took it up within four weeks, and one passed it a step further, but the public record could not say why any of them moved or whether anyone ran it.
+status: released
+investigation: software-updates
+
 # Public records show where a software update went, but not why, or whether anyone ran it
 
 At 18:26 UTC on 8 April 2026, a maintainer of a public Python project changed a single requirement. The project had asked for exactly version 1.26.0 of a library called mcp; now it asked for exactly 1.27.0, published six days before. At 18:49 the project put out a release of its own, and anyone who installed that release would have got the new version of the library along with it.

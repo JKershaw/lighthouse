@@ -1,3 +1,7 @@
+published: 2026-09-26
+summary: Could anyone count how much AI activity happens on the internet? Seventeen public sources each see one piece of it, and none says how its piece overlaps the others, so their counts cannot be added up.
+status: released
+
 # We can see pieces of the internet's AI activity, but not how they fit together
 
 Could anyone count how much AI activity happens on the internet? Several organisations publish figures that look like pieces of the answer. Put them side by side, and one small job done by an AI agent can turn up in four of them, with nothing to say the four entries belong together.

@@ -1,3 +1,8 @@
+published: 2026-09-26
+summary: The day after a new version of mcp, a Python library AI agents use, was released, it was already about half of all the library's downloads, and had been for five days before the first project we watched pinned it. The public download log shows how fast a release arrives, and stops at the download: never the installation, never a run.
+status: released
+investigation: software-updates
+
 # Downloads show a new release taken up within two days, but not where it was installed or whether anyone ran it
 
 On 3 April 2026, the day after it was published, version 1.27.0 of a Python library called mcp was downloaded 3,201,463 times. That was 48 of every hundred downloads of the library that day, and on the day after, more than half. Of the nine projects we had been watching around the library, none had yet been seen to take the new version up. The first to write a requirement for exactly that version did so on 8 April.

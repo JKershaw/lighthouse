@@ -1,3 +1,8 @@
+published: 2026-09-26
+summary: Published container images record what an installer actually put in place, and one project's images held a new release sixteen days before its own lockfile named it. What a project asks for and what its software installs can differ, and how the software is built decides which.
+status: released
+investigation: software-updates
+
 # Published images show what software installed, and it was not always what its project had chosen
 
 At 03:33 UTC on 8 April 2026, a new copy of a program called agentcrew was built and published for anyone to download and run. Inside it, where the installer leaves a note of everything it puts in place, was version 1.27.0 of mcp, a Python library that AI agents use, released five and a half days before. agentcrew's own repository said something else. Its lockfile, the file where a project writes down the exact versions it has settled on, named 1.26.0, and went on naming it until 24 April, sixteen days later. When we followed this release through the public histories of the projects around the library, agentcrew was one of those that had not taken it up in the four weeks we watched.

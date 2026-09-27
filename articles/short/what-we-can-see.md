@@ -1,3 +1,7 @@
+published: 2026-09-26
+summary: One AI agent's small job can show up in four public counts with nothing to say they belong together. Every public view of AI activity is partial, and nobody has measured how the views overlap.
+status: released
+
 # We can see pieces of the internet's AI activity, but not how they fit together
 
 Could anyone count how much AI activity happens on the internet? Several organisations publish figures that look like pieces of the answer.

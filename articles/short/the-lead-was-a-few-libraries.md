@@ -11,7 +11,7 @@ When a library fixes a security flaw, does software built on it move sooner if t
 
 *27 September 2026 · Lighthouse*
 
-If notes like those draw software to a fix before the public warning, they are a warning that works. Fourteen libraries had suggested they do, but two libraries carried much of it, so we counted thirty, one fix each, 18 whose notes said so and 12 silent, and followed 209 pins on them.
+If notes like those draw software to a fix before the public warning, they are a warning that works. [Fourteen libraries](../short/fixes-that-said-so.md) had suggested they do, but two libraries carried much of it, so we counted thirty, one fix each, 18 whose notes said so and 12 silent, and followed 209 pins on them.
 
 Added up across every project, the fixes that said so were taken up faster before the advisory, about one and a half times, but resampling the libraries puts that anywhere from about half to about four times. Counted one library at a time, the typical library of each kind could not be told apart: a random shuffle of the labels gives a gap as large 89 times in a hundred. A few large or quick libraries can steer a pooled rate; counting each library once asks whether the typical one shows it.
 

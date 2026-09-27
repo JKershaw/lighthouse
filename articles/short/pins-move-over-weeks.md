@@ -1,3 +1,8 @@
+published: 2026-09-27
+summary: Pinned software took security fixes over weeks, the typical move about nineteen days after the release, a little faster after the release and the advisory but with no burst. Every high or critical advisory we checked came after its fix was already out.
+status: released
+investigation: software-updates
+
 # Pinned software moved to security fixes over weeks, a little faster after the release and again after the advisory, and neither drew most of the moves
 
 On the evening of 15 June 2026, security advisories rated high were published within 48 minutes against three widely used Python libraries, among ten against them that evening, each naming a fix that had been out for days or weeks; in the two days after, five of the projects we were following that pinned one of the three moved to its fix.

@@ -1,3 +1,7 @@
+published: 2026-09-26
+summary: In 2024 a backdoor sat in public releases of a compression library for about five weeks before one engineer followed a half-second delay in his logins to it. The evidence was there from the first day; the signs anyone noticed came from running code.
+status: released
+
 # The xz backdoor sat in public for nearly five weeks until a slow login gave it away
 
 On 29 March 2024, Andres Freund told a public security mailing list about half a second that should not have been there. Logins to his machines over ssh, the usual way to reach a computer remotely, had started using a lot of processor time, and they were slow: a connection took about 0.8 seconds where he expected about 0.3. He had followed that half second into a compression library and found a backdoor, a hidden way in. It had been sitting in public, in releases anyone could download and read, for nearly five weeks.

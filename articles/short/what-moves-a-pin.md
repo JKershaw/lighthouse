@@ -1,10 +1,15 @@
+published: 2026-09-26
+summary: Images built from open ranges took a new release within days; pinned ones waited for the pin, and in one library six of the thirteen projects whose first move we found made it within 28 hours of security advisories published a month later. A later reading of four libraries found no such burst.
+status: released
+investigation: software-updates
+
 # Software built from open ranges took a new release within days; pinned software waited a month, and moved most often when a security advisory came
 
 On 16 July 2026, a month after a new version of mcp, a library that AI agents use, was released, a security advisory was published for it, and within 28 hours six of the thirteen projects built on it whose first move to the new version we found had made it, four of them in changes a bot had written.
 
 *26 September 2026 · Lighthouse*
 
-> **Later evidence, 27 September 2026.** Across four libraries, pinned software moved to security fixes over weeks, after both the release and the advisory, with no burst like the one here ([the later reading](../pins-move-over-weeks.md)); whether a fix's own notes draw pins sooner is still unsettled ([the current account](../the-lead-was-a-few-libraries.md)).
+> **Later evidence, 27 September 2026.** Across four libraries, pinned software moved to security fixes over weeks, after both the release and the advisory, with no burst like the one here ([the later reading](../pins-move-over-weeks.md)); whether a fix's own notes draw pins sooner is still unsettled ([the latest reading](../the-lead-was-a-few-libraries.md)).
 
 Software can ask for a library by a range, such as "1.26 or later", and let the installer take the newest that fits on the day, or it can pin one exact version, or keep a lockfile, a file where a project writes down the versions it has settled on. We took a sample of the software built on mcp 1.28.0, released on 16 June, fixed by a rule before we looked, and read which version was installed inside 49 of its published container images, packaged environments that anyone can download and run.
 

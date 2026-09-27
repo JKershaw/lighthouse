@@ -1,3 +1,8 @@
+published: 2026-09-26
+summary: In a sample of published images, software built from open ranges took a new release within days, while pinned software waited, and in this one library the largest group of pins moved within about a day of security advisories published a month later. Across four other libraries that burst did not recur.
+status: released
+investigation: software-updates
+
 # Software built from open ranges took a new release within days; pinned software waited a month, and moved most often when a security advisory came
 
 At 09:05 UTC on 16 July 2026, a new copy of a program called serena was built and published for anyone to download and run. Inside it was version 1.27.0 of mcp, a Python library that AI agents use, although a newer version, 1.28.0, had been out for 29 days. Eleven hours later, at 20:14 UTC, a security advisory rated high was published against the library: its server for WebSocket connections, a part the advisory itself calls deprecated, had no way to check the host and origin that a request declared. The fix was in 1.28.1, a small follow-up release from 26 June. It was the third advisory against the library that evening; the two before it, eighteen and sixteen minutes earlier, concerned flaws already fixed in an earlier release. Four minutes after the third, a bot wrote a change moving serena's pin to 1.28.1, and a person merged it at 11:31 the next morning. Fifty-four minutes after the advisory, another project's record of its versions moved to 1.28.1, in a change the same kind of bot had written. By the end of 17 July, six of the projects we were following had made the same move, a month after the release itself.
@@ -6,7 +11,7 @@ We have been following releases of this library outward. [The projects' historie
 
 *26 September 2026 · Lighthouse*
 
-> **Later evidence, 27 September 2026.** Across four libraries, pinned software moved to security fixes over weeks, after both the release and the advisory, with no burst like the one here ([the later reading](pins-move-over-weeks.md)); whether a fix's own notes draw pins sooner is still unsettled ([the current account](the-lead-was-a-few-libraries.md)).
+> **Later evidence, 27 September 2026.** Across four libraries, pinned software moved to security fixes over weeks, after both the release and the advisory, with no burst like the one here ([the later reading](pins-move-over-weeks.md)); whether a fix's own notes draw pins sooner is still unsettled ([the latest reading](the-lead-was-a-few-libraries.md)).
 
 ## Two ways to ask for a version
 

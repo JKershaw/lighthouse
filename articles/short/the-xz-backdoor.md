@@ -1,3 +1,7 @@
+published: 2026-09-26
+summary: A backdoor in the xz compression package was public for nearly five weeks and was found because one engineer noticed a slow login. No public source we surveyed watches the distribution pipelines it travelled through.
+status: released
+
 # The xz backdoor sat in public for nearly five weeks until a slow login gave it away
 
 In March 2024, Andres Freund revealed that he had followed a half-second delay in his logins to a backdoor, a hidden way in.

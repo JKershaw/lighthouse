@@ -1,3 +1,8 @@
+published: 2026-09-27
+summary: Many security fixes say so in their own notes before any advisory is published. Across fourteen libraries, pinned software moved to those fixes before the advisory at about 1.7 times the pace of silent ones, but two libraries carried much of it, and a later count of thirty could not settle it.
+status: released
+investigation: software-updates
+
 # Pinned software moved faster to security fixes that said so in their notes, mostly by people in the days after the release, but no larger share moved before the advisory
 
 On Thursday 21 May 2026, the developers of pyjwt, a Python library that many websites use to check the signed tokens that keep people logged in, published version 2.13.0. Its changelog, the running list of changes a project keeps beside its code, began the new version with a section headed Security. Beside the first fix, it said the flaw had been reported in GHSA-xgmm-8j9v-c9wx, the kind of name GitHub gives a security advisory. GitHub published that advisory 25 days later, on the evening of 15 June.
@@ -6,7 +11,7 @@ In [our last piece](pins-move-over-weeks.md) we followed software that pins pyjw
 
 *27 September 2026 · Lighthouse*
 
-> **Later evidence, 27 September 2026.** Counting thirty libraries once each, a later reading could not tell how fast pinned software moved before the advisory to fixes whose notes said so from how fast it moved to silent ones, and the pooled lead it found was too uncertain to call. This is a wider follow-up, not a correction; the figures here stand. [The current account](the-lead-was-a-few-libraries.md).
+> **Later evidence, 27 September 2026.** Counting thirty libraries once each, a later reading could not tell how fast pinned software moved before the advisory to fixes whose notes said so from how fast it moved to silent ones, and the pooled lead it found was too uncertain to call. This is a wider follow-up, not a correction; the figures here stand. [The latest reading](the-lead-was-a-few-libraries.md).
 
 ## What a release says about itself
 
