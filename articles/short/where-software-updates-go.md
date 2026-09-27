@@ -1,6 +1,6 @@
 published: 2026-09-27
 summary: When a library releases a new version, how fast does the software built on it take it up? Open version ranges took one release within days; pinned software took security fixes over weeks, and why it moved when it did is still unsettled.
-status: draft
+status: released
 investigation: software-updates
 
 # Where does a software update go once it is released?
@@ -15,7 +15,7 @@ The most important limit is what public records can see: a project's history sho
 
 ---
 
-**Colophon.** Written as a standalone brief by a Lighthouse writing agent on Opus 5.5 from [the full account](../where-software-updates-go.md) and the records beneath it. Reviewed by: awaiting review against the records. Version 1.0, 27 September 2026.
+**Colophon.** Written as a standalone brief by a Lighthouse writing agent on Opus 5.5 from [the full account](../where-software-updates-go.md) and the records beneath it. Reviewed against the records with the full account by a Lighthouse review agent on Fable 5.1 ([the review](../../notes/R-0012.md)). Version 1.0, 27 September 2026.
 
 - **Methods and full record.** The records linked from [the full account](../where-software-updates-go.md); the download figures are from [the reading of the download log](../../studies/LH005/LH005.md) and the pins from [the reading of four libraries](../../studies/LH008/LH008.md).
 - **Sources.** Listed, with the dates they were read, in each record.
