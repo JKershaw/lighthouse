@@ -10,7 +10,7 @@ text { font-family: system-ui, -apple-system, "Segoe UI", Roboto, Helvetica, Ari
 .ann { font-size: 12px; fill: var(--ink2); } .ax { font-size: 12px; fill: var(--muted); } .nm { font-size: 11px; fill: var(--ink2); }
 </style>
 <rect width="720" height="540" fill="var(--bg)"/>
-<text x="16" y="30" class="head">Counted one library at a time, the two kinds of fix look alike</text>
+<text x="16" y="30" class="head">Counted one library at a time, the two kinds could not be told apart</text>
 <text x="16" y="51" class="sub">Each dot is one library: its pinned projects' first moves to the fix per 100 still waiting, per day,</text>
 <text x="16" y="68" class="sub">from the fix's release to its advisory. Larger dots are libraries with more days of waiting.</text>
 <line x1="18" y1="92" x2="18" y2="108" stroke="var(--ink)" stroke-width="2"/><text x="26" y="104" class="ann">median library</text>

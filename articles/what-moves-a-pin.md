@@ -6,6 +6,8 @@ We have been following releases of this library outward. [The projects' historie
 
 *26 September 2026 · Lighthouse*
 
+> **Later evidence, 27 September 2026.** Across four libraries, pinned software moved to security fixes over weeks, after both the release and the advisory, with no burst like the one here ([the later reading](pins-move-over-weeks.md)); whether a fix's own notes draw pins sooner is still unsettled ([the current account](the-lead-was-a-few-libraries.md)).
+
 ## Two ways to ask for a version
 
 Software that uses a library says which versions of it will do. It can give a range, such as "1.26 or later", and leave the installer, the tool that fetches libraries and puts them in place, to take the newest that fits on the day. Or it can hold still: name one version exactly, which is called pinning it, or keep a lockfile, a file where a project writes down the exact versions it has settled on, and install from that. A range takes each release as it comes. A pin or a lockfile stays where it is until something moves it.

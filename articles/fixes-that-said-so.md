@@ -6,6 +6,8 @@ In [our last piece](pins-move-over-weeks.md) we followed software that pins pyjw
 
 *27 September 2026 · Lighthouse*
 
+> **Later evidence, 27 September 2026.** Counting thirty libraries once each, a later reading could not tell how fast pinned software moved before the advisory to fixes whose notes said so from how fast it moved to silent ones, and the pooled lead this piece reports was too uncertain there to call. [The current account](the-lead-was-a-few-libraries.md).
+
 ## What a release says about itself
 
 Software that uses a library says which versions of it will do. It can pin one exact version, or keep a lockfile, a file where a project writes down the exact versions it has settled on; either way it holds still until someone, or something, moves it. A security advisory is a public notice that some versions of a library have a flaw, with the version that fixes it. Last time we found that in every one of 68 advisories rated high or critical against the 200 most downloaded Python projects, published between late March and late August, the fix was out on an earlier day. Those 68 advisories named 37 fixed releases, across 16 libraries.
