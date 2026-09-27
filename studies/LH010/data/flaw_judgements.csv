@@ -1,0 +1,95 @@
+library,version,flaw_named,flaw_words,near_miss_note
+idna,3.15,not judged (security word),,
+setuptools,83.0.0,not judged (security word),,
+cryptography,46.0.6,not judged (security word),,
+cryptography,48.0.1,no,,"names an update of the bundled OpenSSL (to 4.0.1), not a flaw (as LH009 read it)"
+cryptography,49.0.0,no,,"no line about certificate path building, duplicate intermediates or wildcard names (as LH009 read it)"
+cryptography,50.0.0,not judged (security word),,
+python-dotenv,1.2.2,no,,"'set_key and unset_key used to follow symlinks in some cases' names the mechanism, not a harm; the advisory is arbitrary file overwrite through symlinks"
+pip,26.1,no,,no line about the advisory's subject
+pip,26.1.2,yes,Reject console_scripts and gui_scripts entry points whose name would install a script outside the scripts directory,"borderline: names the effect (a write outside the target directory), not the word traversal"
+starlette,1.0.1,no,,"'Ignore malformed Host header when constructing request.url' names the change, not a flaw; the advisory is a path-based check bypass"
+starlette,1.1.0,no,,"'Reject absolute paths in StaticFiles.lookup_path' names the change, not a flaw (as LH009 read it)"
+starlette,1.3.0,no,,"'Build request.url from structured components' names the change, not a flaw"
+starlette,1.3.1,no,,"'Enforce max_fields and max_part_size in FormParser' names the change, not a flaw (as LH009 read it)"
+litellm,1.82.0,no,,"no notes in the changelog at the tag, the PyPI description or the tag annotation"
+litellm,1.83.7,no,,"no notes in the changelog at the tag, the PyPI description or the tag annotation"
+litellm,1.83.10,no,,"no notes in the changelog at the tag, the PyPI description or the tag annotation"
+litellm,1.83.14,no,,"no notes in the changelog at the tag, the PyPI description or the tag annotation"
+litellm,1.84.0,no,,"no notes in the changelog at the tag, the PyPI description or the tag annotation"
+aiohttp,3.13.4,not judged (security word),,
+aiohttp,3.14.0,not judged (security word),,
+aiohttp,3.14.1,yes,a redirect to a different origin no longer triggers a digest response computed from the configured credentials,borderline: names the exposure of credential-derived responses to another origin; the cookie line names only the mechanism
+aiohttp,3.14.2,not judged (security word),,
+aiohttp,3.14.3,no,,"'Fixed error message construction in the C HTTP parser' names the component, not a flaw (as LH009 read it)"
+pillow,12.3.0,not judged (security word),,
+python-multipart,0.0.26,no,,"'Skip preamble ... more efficiently' and 'Silently discard epilogue data' name the change, not a flaw; the advisory is denial of service"
+python-multipart,0.0.27,no,,'Add multipart header limits' names the change (as LH009 read it)
+python-multipart,0.0.30,no,,"names a parsing change (only '&' as a separator), not a flaw (as LH009 read it)"
+python-multipart,0.0.31,no,,"'Validate Content-Length is non-negative in parse_form' names the change, not a flaw"
+mcp,1.28.1,no,,"no notes in the changelog at the tag, the PyPI description or the tag annotation"
+gitpython,3.1.48,no,,'Safe reference creation in the face of untrusted input' names no flaw (as LH009 read it)
+gitpython,3.1.49,yes,"Save setting of configuration values, which cuold be used to inject other more configuration",as LH009 read it
+gitpython,3.1.50,no,,refers to 3.1.49's fix but names no flaw itself (as LH009 read it)
+gitpython,3.1.51,not judged (security word),,
+gitpython,3.1.52,not judged (security word),,
+gitpython,3.1.53,not judged (security word),,
+gitpython,3.1.54,not judged (security word),,
+gitpython,3.1.55,not judged (security word),,
+gitpython,3.1.56,not judged (security word),,
+gitpython,3.1.57,not judged (security word),,
+gitpython,3.1.58,not judged (security word),,
+langchain,1.3.9,no,,"no notes in the changelog at the tag, the PyPI description or the tag annotation"
+mako,1.3.12,yes,"could bypass the directory traversal check on Windows, allowing reads of arbitrary files",as LH009 read it
+h2,4.4.1,no,,"'Reject duplicate Host headers in request headers' names the change, not a flaw; the advisory is request smuggling"
+anthropic,0.87.0,no,,"'memory: use restrictive file mode for memory files' and 'return resolved path from async _validate_path' name changes, not flaws"
+uv,0.11.6,yes,Do not remove files outside the venv on uninstall,"borderline: names the effect (deleting files outside the environment), not an attack"
+uv,0.11.15,not judged (security word),,
+transformers,5.0.0rc3,no,,"no notes in the changelog at the tag, the PyPI description or the tag annotation"
+transformers,5.3.0,no,,"no notes in the changelog at the tag, the PyPI description or the tag annotation"
+transformers,5.5.0,no,,"no notes in the changelog at the tag, the PyPI description or the tag annotation"
+transformers,5.10.0,no,,"no notes in the changelog at the tag, the PyPI description or the tag annotation"
+langchain-core,1.2.22,no,,"no notes in the changelog at the tag, the PyPI description or the tag annotation"
+langchain-core,1.3.3,no,,"no notes in the changelog at the tag, the PyPI description or the tag annotation"
+snowflake-connector-python,4.7.1,no,,"'Improved verification of TLS connections' names the change, not a flaw"
+httplib2,0.32.0,no,,"'decompression limited by size and ratio' names the change, not a bomb"
+awscli,1.44.78,no,,"'Tighten file permissions for CodeDeploy configuration file' names the change, not a flaw"
+awscli,1.45.28,not judged (security word),,
+pypdf,6.10.1,not judged (security word),,
+pypdf,6.10.2,not judged (security word),,
+pypdf,6.12.0,not judged (security word),,
+pypdf,6.12.1,not judged (security word),,
+pypdf,6.12.2,not judged (security word),,
+pypdf,6.13.0,not judged (security word),,
+pypdf,6.13.1,not judged (security word),,
+pypdf,6.13.3,not judged (security word),,
+pypdf,6.14.0,not judged (security word),,
+pypdf,6.14.1,not judged (security word),,
+pypdf,6.14.2,not judged (security word),,
+pypdf,6.15.0,not judged (security word),,
+sqlparse,0.6.0,not judged (security word),,
+authlib,1.7.1,yes,Fix redirecting to unvalidated redirect_uri,names the open redirect itself (redirects to an unvalidated address)
+joserfc,1.6.7,no,,'Update for type hints' only
+joserfc,1.6.8,no,,"'Reject empty OctKey' names the change, not a flaw"
+tornado,6.5.3,not judged (security word),,
+tornado,6.5.5,not judged (security word),,
+tornado,6.5.6,not judged (security word),,
+tornado,6.5.7,not judged (security word),,
+pydantic-ai-slim,1.99.0,no,,"no notes in the changelog at the tag, the PyPI description or the tag annotation"
+pydantic-ai-slim,2.0.0b3,no,,points to another release's notes; names no flaw
+pydantic-ai-slim,2.0.0b6,no,,points to another release's notes; names no flaw
+langsmith,0.7.31,no,,"no notes in the changelog at the tag, the PyPI description or the tag annotation"
+langsmith,0.8.0,no,,"no notes in the changelog at the tag, the PyPI description or the tag annotation"
+fastmcp,3.2.0,no,,"no entry at the tag; the head's entry has security words, first written 3 June 2026 (date_head_entries.py)"
+dulwich,1.2.5,not judged (security word),,
+mistune,3.2.1,yes,Fix LINK_TITLE_RE to prevent DoS,names denial of service
+mistune,3.3.0,yes,"Fix quadratic scans in inline links, reference links, and formatting markers",names excessive CPU (quadratic time)
+bleach,6.4.0,not judged (security word),,
+poetry,2.3.3,not judged (security word),,
+poetry,2.3.4,not judged (security word),,
+nltk,3.9.3,not judged (security word),,
+nltk,3.10.0,not judged (security word),,
+nltk,3.10.1,yes,Fix ReDoS in TweetTokenizer URL and email regexes,names denial of service by regular expression
+nltk,3.10.3,not judged (security word),,
+nbconvert,7.17.1,no,,"no notes in the changelog at the tag, the PyPI description or the tag annotation"
+snowflake-sqlalchemy,1.11.0,no,,"'Sensitive connection parameters ... can no longer be supplied through the URL query string' names the change, not injection or disclosure"

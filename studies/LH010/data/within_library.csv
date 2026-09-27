@@ -1,0 +1,13 @@
+library,frame,fixed_release,cls,strict_class,release_to_advisory_days,kept,moved,moves[release to the advisory (all of it)],repo_days[release to the advisory (all of it)],per100[release to the advisory (all of it)],"moves[release +2 to +7 days, stopping at the advisory]","repo_days[release +2 to +7 days, stopping at the advisory]","per100[release +2 to +7 days, stopping at the advisory]"
+cryptography,cryptography:event,46.0.6,announced,announced,1.85,13,11,2,21.5,9.31,0,0.0,
+cryptography,cryptography:second,48.0.1,silent,silent,5.9,14,8,2,73.9,2.71,1,46.9,2.13
+pip,pip:event,26.1,silent,silent,0.77,5,3,2,3.0,67.42,0,0.0,
+pip,pip:second,26.1.2,announced,silent,1.04,4,3,1,3.9,25.91,0,0.0,
+aiohttp,aiohttp:event,3.13.4,announced,announced,4.1,13,9,3,49.6,6.05,3,23.6,12.74
+aiohttp,aiohttp:second,3.14.3,silent,silent,11.79,3,3,1,24.1,4.15,0,10.0,0.0
+gitpython,gitpython:event,3.1.47,announced,announced,3.87,11,7,4,32.1,12.47,1,13.4,7.47
+gitpython,gitpython:second,3.1.50,silent,silent,2.8,2,2,0,5.6,0.0,0,1.6,0.0
+awscli,awscli:event,1.44.78,silent,silent,104.84,1,1,1,3.6,27.98,1,1.6,63.54
+awscli,awscli:second,1.45.28,announced,announced,56.03,0,0,0,0.0,,0,0.0,
+sum over the libraries with kept pairs in either frame,,,announced,,,41,30,10,107.0,9.35,4,36.9,10.83
+sum over the libraries with kept pairs in either frame,,,silent,,,25,17,6,110.1,5.45,2,60.1,3.33

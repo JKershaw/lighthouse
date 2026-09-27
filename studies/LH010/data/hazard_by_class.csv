@@ -1,0 +1,61 @@
+grouping,cls,window,pairs,libraries,moves,repo_days_at_risk,moves_per_100_repo_days,moves_by_library
+class,announced,"release +0 to +2 days, or to the advisory where it came first",135,18,15,249.9,6.0,bleach 1 cryptography 2 poetry 2 pypdf 1 setuptools 1 tornado 2 urllib3 1 pyjwt 1 pillow 1 gitpython 3
+class,announced,release +2 days to the advisory,135,18,20,1272.5,1.57,aiohttp 3 bleach 1 nltk 4 setuptools 1 tornado 3 pyjwt 3 pyasn1 1 pillow 2 lxml 1 gitpython 1
+class,announced,release to the advisory (all of it),135,18,35,1522.4,2.3,aiohttp 3 bleach 2 cryptography 2 nltk 4 poetry 2 pypdf 1 setuptools 2 tornado 5 urllib3 1 pyjwt 4 pyasn1 1 pillow 3 lxml 1 gitpython 4
+class,announced,"release +2 to +7 days, stopping at the advisory",135,18,11,329.5,3.34,aiohttp 3 bleach 1 tornado 2 pyasn1 1 pillow 2 lxml 1 gitpython 1
+class,announced,"release +7 to +30 days, stopping at the advisory",135,18,7,463.1,1.51,nltk 2 setuptools 1 tornado 1 pyjwt 3
+class,announced,advisory +0 to +2 days,135,18,10,186.8,5.35,aiohttp 1 cryptography 1 mistune 1 pypdf 2 urllib3 1 pyjwt 1 pyasn1 1 lxml 1 mako 1
+class,announced,advisory +2 to +7 days,135,18,10,422.7,2.37,aiohttp 2 authlib 1 bleach 1 cryptography 1 sqlparse 1 urllib3 1 pyasn1 2 pillow 1
+class,announced,advisory +7 to +30 days,135,18,26,1445.3,1.8,aiohttp 2 authlib 1 bleach 2 cryptography 4 mistune 1 nltk 1 poetry 1 sqlparse 3 urllib3 2 pyjwt 4 pyasn1 1 pillow 1 lxml 1 mako 2
+class,announced,advisory +30 to +90 days,135,18,7,2612.2,0.27,bleach 1 cryptography 1 urllib3 1 pyasn1 1 gitpython 3
+class,announced,"release to the first public record (GHSA or NVD, whichever first)",135,18,31,1266.7,2.45,aiohttp 3 bleach 2 cryptography 2 nltk 4 poetry 2 pypdf 1 setuptools 1 tornado 5 urllib3 1 pyjwt 1 pyasn1 1 pillow 3 lxml 1 gitpython 4
+class,silent,"release +0 to +2 days, or to the advisory where it came first",74,12,6,122.6,4.89,fastmcp 2 pip 2 pydantic-ai-slim 1 mcp 1
+class,silent,release +2 days to the advisory,74,12,14,1150.8,1.22,awscli 1 httplib2 3 joserfc 1 python-dotenv 2 starlette 1 soupsieve 2 mcp 4
+class,silent,release to the advisory (all of it),74,12,20,1273.4,1.57,awscli 1 fastmcp 2 httplib2 3 joserfc 1 pip 2 pydantic-ai-slim 1 python-dotenv 2 starlette 1 soupsieve 2 mcp 5
+class,silent,"release +2 to +7 days, stopping at the advisory",74,12,5,218.5,2.29,awscli 1 joserfc 1 soupsieve 1 mcp 2
+class,silent,"release +7 to +30 days, stopping at the advisory",74,12,9,599.9,1.5,httplib2 3 python-dotenv 2 starlette 1 soupsieve 1 mcp 2
+class,silent,advisory +0 to +2 days,74,12,2,102.1,1.96,fastmcp 2
+class,silent,advisory +2 to +7 days,74,12,3,241.5,1.24,anthropic 1 httplib2 1 mcp 1
+class,silent,advisory +7 to +30 days,74,12,11,949.8,1.16,fastmcp 2 pip 1 python-dotenv 2 starlette 3 soupsieve 1 mcp 2
+class,silent,advisory +30 to +90 days,74,12,7,1780.7,0.39,fastmcp 1 starlette 3 litellm 2 soupsieve 1
+class,silent,"release to the first public record (GHSA or NVD, whichever first)",74,12,16,1148.1,1.39,awscli 1 fastmcp 2 joserfc 1 pip 2 pydantic-ai-slim 1 python-dotenv 2 soupsieve 2 mcp 5
+strict class,announced,"release +0 to +2 days, or to the advisory where it came first",124,15,15,227.9,6.58,bleach 1 cryptography 2 poetry 2 pypdf 1 setuptools 1 tornado 2 urllib3 1 pyjwt 1 pillow 1 gitpython 3
+strict class,announced,release +2 days to the advisory,124,15,20,1256.5,1.59,aiohttp 3 bleach 1 nltk 4 setuptools 1 tornado 3 pyjwt 3 pyasn1 1 pillow 2 lxml 1 gitpython 1
+strict class,announced,release to the advisory (all of it),124,15,35,1484.5,2.36,aiohttp 3 bleach 2 cryptography 2 nltk 4 poetry 2 pypdf 1 setuptools 2 tornado 5 urllib3 1 pyjwt 4 pyasn1 1 pillow 3 lxml 1 gitpython 4
+strict class,announced,"release +2 to +7 days, stopping at the advisory",124,15,11,317.0,3.47,aiohttp 3 bleach 1 tornado 2 pyasn1 1 pillow 2 lxml 1 gitpython 1
+strict class,announced,"release +7 to +30 days, stopping at the advisory",124,15,7,459.6,1.52,nltk 2 setuptools 1 tornado 1 pyjwt 3
+strict class,announced,advisory +0 to +2 days,124,15,8,166.3,4.81,aiohttp 1 cryptography 1 pypdf 2 urllib3 1 pyjwt 1 pyasn1 1 lxml 1
+strict class,announced,advisory +2 to +7 days,124,15,9,380.1,2.37,aiohttp 2 bleach 1 cryptography 1 sqlparse 1 urllib3 1 pyasn1 2 pillow 1
+strict class,announced,advisory +7 to +30 days,124,15,22,1299.4,1.69,aiohttp 2 bleach 2 cryptography 4 nltk 1 poetry 1 sqlparse 3 urllib3 2 pyjwt 4 pyasn1 1 pillow 1 lxml 1
+strict class,announced,advisory +30 to +90 days,124,15,7,2372.2,0.3,bleach 1 cryptography 1 urllib3 1 pyasn1 1 gitpython 3
+strict class,announced,"release to the first public record (GHSA or NVD, whichever first)",124,15,31,1228.8,2.52,aiohttp 3 bleach 2 cryptography 2 nltk 4 poetry 2 pypdf 1 setuptools 1 tornado 5 urllib3 1 pyjwt 1 pyasn1 1 pillow 3 lxml 1 gitpython 4
+strict class,silent,"release +0 to +2 days, or to the advisory where it came first",85,15,6,144.6,4.15,fastmcp 2 pip 2 pydantic-ai-slim 1 mcp 1
+strict class,silent,release +2 days to the advisory,85,15,14,1166.7,1.2,awscli 1 httplib2 3 joserfc 1 python-dotenv 2 starlette 1 soupsieve 2 mcp 4
+strict class,silent,release to the advisory (all of it),85,15,20,1311.3,1.53,awscli 1 fastmcp 2 httplib2 3 joserfc 1 pip 2 pydantic-ai-slim 1 python-dotenv 2 starlette 1 soupsieve 2 mcp 5
+strict class,silent,"release +2 to +7 days, stopping at the advisory",85,15,5,231.0,2.16,awscli 1 joserfc 1 soupsieve 1 mcp 2
+strict class,silent,"release +7 to +30 days, stopping at the advisory",85,15,9,603.3,1.49,httplib2 3 python-dotenv 2 starlette 1 soupsieve 1 mcp 2
+strict class,silent,advisory +0 to +2 days,85,15,4,122.5,3.26,fastmcp 2 mistune 1 mako 1
+strict class,silent,advisory +2 to +7 days,85,15,4,284.1,1.41,anthropic 1 authlib 1 httplib2 1 mcp 1
+strict class,silent,advisory +7 to +30 days,85,15,15,1095.7,1.37,authlib 1 fastmcp 2 mistune 1 pip 1 python-dotenv 2 starlette 3 soupsieve 1 mcp 2 mako 2
+strict class,silent,advisory +30 to +90 days,85,15,7,2020.7,0.35,fastmcp 1 starlette 3 litellm 2 soupsieve 1
+strict class,silent,"release to the first public record (GHSA or NVD, whichever first)",85,15,16,1186.0,1.35,awscli 1 fastmcp 2 joserfc 1 pip 2 pydantic-ai-slim 1 python-dotenv 2 soupsieve 2 mcp 5
+incidental security words dropped,announced,"release +0 to +2 days, or to the advisory where it came first",122,17,15,223.9,6.7,bleach 1 cryptography 2 poetry 2 pypdf 1 setuptools 1 tornado 2 urllib3 1 pyjwt 1 pillow 1 gitpython 3
+incidental security words dropped,announced,release +2 days to the advisory,122,17,17,1248.9,1.36,bleach 1 nltk 4 setuptools 1 tornado 3 pyjwt 3 pyasn1 1 pillow 2 lxml 1 gitpython 1
+incidental security words dropped,announced,release to the advisory (all of it),122,17,32,1472.9,2.17,bleach 2 cryptography 2 nltk 4 poetry 2 pypdf 1 setuptools 2 tornado 5 urllib3 1 pyjwt 4 pyasn1 1 pillow 3 lxml 1 gitpython 4
+incidental security words dropped,announced,"release +2 to +7 days, stopping at the advisory",122,17,8,305.9,2.61,bleach 1 tornado 2 pyasn1 1 pillow 2 lxml 1 gitpython 1
+incidental security words dropped,announced,"release +7 to +30 days, stopping at the advisory",122,17,7,463.1,1.51,nltk 2 setuptools 1 tornado 1 pyjwt 3
+incidental security words dropped,announced,advisory +0 to +2 days,122,17,9,167.7,5.37,cryptography 1 mistune 1 pypdf 2 urllib3 1 pyjwt 1 pyasn1 1 lxml 1 mako 1
+incidental security words dropped,announced,advisory +2 to +7 days,122,17,8,383.7,2.08,authlib 1 bleach 1 cryptography 1 sqlparse 1 urllib3 1 pyasn1 2 pillow 1
+incidental security words dropped,announced,advisory +7 to +30 days,122,17,24,1309.7,1.83,authlib 1 bleach 2 cryptography 4 mistune 1 nltk 1 poetry 1 sqlparse 3 urllib3 2 pyjwt 4 pyasn1 1 pillow 1 lxml 1 mako 2
+incidental security words dropped,announced,advisory +30 to +90 days,122,17,7,2312.2,0.3,bleach 1 cryptography 1 urllib3 1 pyasn1 1 gitpython 3
+incidental security words dropped,announced,"release to the first public record (GHSA or NVD, whichever first)",122,17,28,1217.1,2.3,bleach 2 cryptography 2 nltk 4 poetry 2 pypdf 1 setuptools 1 tornado 5 urllib3 1 pyjwt 1 pyasn1 1 pillow 3 lxml 1 gitpython 4
+incidental security words dropped,silent,"release +0 to +2 days, or to the advisory where it came first",87,13,6,148.6,4.04,fastmcp 2 pip 2 pydantic-ai-slim 1 mcp 1
+incidental security words dropped,silent,release +2 days to the advisory,87,13,17,1174.3,1.45,aiohttp 3 awscli 1 httplib2 3 joserfc 1 python-dotenv 2 starlette 1 soupsieve 2 mcp 4
+incidental security words dropped,silent,release to the advisory (all of it),87,13,23,1322.9,1.74,aiohttp 3 awscli 1 fastmcp 2 httplib2 3 joserfc 1 pip 2 pydantic-ai-slim 1 python-dotenv 2 starlette 1 soupsieve 2 mcp 5
+incidental security words dropped,silent,"release +2 to +7 days, stopping at the advisory",87,13,8,242.1,3.3,aiohttp 3 awscli 1 joserfc 1 soupsieve 1 mcp 2
+incidental security words dropped,silent,"release +7 to +30 days, stopping at the advisory",87,13,9,599.9,1.5,httplib2 3 python-dotenv 2 starlette 1 soupsieve 1 mcp 2
+incidental security words dropped,silent,advisory +0 to +2 days,87,13,3,121.2,2.47,aiohttp 1 fastmcp 2
+incidental security words dropped,silent,advisory +2 to +7 days,87,13,5,280.5,1.78,aiohttp 2 anthropic 1 httplib2 1 mcp 1
+incidental security words dropped,silent,advisory +7 to +30 days,87,13,13,1085.4,1.2,aiohttp 2 fastmcp 2 pip 1 python-dotenv 2 starlette 3 soupsieve 1 mcp 2
+incidental security words dropped,silent,advisory +30 to +90 days,87,13,7,2080.7,0.34,fastmcp 1 starlette 3 litellm 2 soupsieve 1
+incidental security words dropped,silent,"release to the first public record (GHSA or NVD, whichever first)",87,13,19,1197.7,1.59,aiohttp 3 awscli 1 fastmcp 2 joserfc 1 pip 2 pydantic-ai-slim 1 python-dotenv 2 soupsieve 2 mcp 5

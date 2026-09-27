@@ -1,0 +1,49 @@
+group,library,rank,kind,fixed_release,cls,strict_class,release_to_advisory_days,reused,kept,moved,censored,removed,backport_pairs,moved_before_advisory,share_of_moves_before_advisory,share_of_kept_moving_before_advisory,moved_before_first_public,moved_within_2d_of_release,moved_within_2d_after_advisory,moved_within_30d_of_release,lag_release_q1,lag_release_median,lag_release_q3,lag_advisory_median_after,"moves[release +0 to +2 days, or to the advisory where it came first]","repo_days[release +0 to +2 days, or to the advisory where it came first]","per100[release +0 to +2 days, or to the advisory where it came first]",moves[release to the advisory (all of it)],repo_days[release to the advisory (all of it)],per100[release to the advisory (all of it)],"moves[release +2 to +7 days, stopping at the advisory]","repo_days[release +2 to +7 days, stopping at the advisory]","per100[release +2 to +7 days, stopping at the advisory]",moves[advisory +0 to +2 days],repo_days[advisory +0 to +2 days],per100[advisory +0 to +2 days]
+idna:event,idna,5,event,3.15,announced,announced,6.66,no,0,0,0,0,0,0,0/0,0/0,0,0,0,0,,,,,0,0.0,,0,0.0,,0,0.0,,0,0.0,
+urllib3:event,urllib3,6,event,2.7.0,announced,announced,3.94,LH008,14,7,7,0,0,1,1/7 (14%),1/14 (7%),1,1,1,5,7.46,12.32,44.18,11.99,1,26.8,3.73,1,52.1,1.92,0,25.3,0.0,1,24.9,4.01
+setuptools:event,setuptools,9,event,83.0.0,announced,announced,17.15,no,5,2,3,0,0,2,2/2 (100%),2/5 (40%),1,1,0,2,3.86,5.81,7.75,,1,9.9,10.08,2,63.1,3.17,0,20.0,0.0,0,6.0,0.0
+cryptography:event,cryptography,10,event,46.0.6,announced,announced,1.85,no,13,11,2,0,0,2,2/11 (18%),2/13 (15%),2,2,1,8,4.44,11.83,28.11,13.72,2,21.5,9.31,2,21.5,9.31,0,0.0,,1,20.2,4.94
+python-dotenv:event,python-dotenv,37,event,1.2.2,silent,silent,50.94,no,8,5,3,0,0,2,2/5 (40%),2/8 (25%),2,0,0,2,29.19,78.18,78.78,27.84,0,16.0,0.0,2,350.2,0.57,0,40.0,0.0,0,12.0,0.0
+pip:event,pip,44,event,26.1,silent,silent,0.77,no,5,3,2,0,0,2,2/3 (67%),2/5 (40%),2,2,0,3,0.33,0.62,5.42,9.45,2,3.0,67.42,2,3.0,67.42,0,0.0,,0,6.0,0.0
+pyjwt:event,pyjwt,45,event,2.13.0,announced,announced,24.9,LH008,11,9,2,0,0,4,4/9 (44%),4/11 (36%),1,1,1,5,13.13,26.32,35.2,10.3,1,21.2,4.71,4,216.5,1.85,0,50.0,0.0,1,13.4,7.45
+starlette:event,starlette,46,event,1.0.1,silent,silent,13.64,no,10,7,3,0,0,1,1/7 (14%),1/10 (10%),0,0,0,4,21.44,26.24,65.44,23.77,0,20.0,0.0,1,135.3,0.74,0,50.0,0.0,0,18.0,0.0
+litellm:event,litellm,48,event,1.83.0,silent,silent,3.7,LH009,7,3,4,0,0,0,0/3 (0%),0/7 (0%),0,0,0,0,51.56,58.42,76.8,54.72,0,14.0,0.0,0,25.9,0.0,0,11.9,0.0,0,14.0,0.0
+aiohttp:event,aiohttp,49,event,3.13.4,announced,announced,4.1,no,13,9,4,0,0,3,3/9 (33%),3/13 (23%),3,0,1,8,3.32,7.1,19.7,10.29,0,26.0,0.0,3,49.6,6.05,3,23.6,12.74,1,19.2,5.22
+pyasn1:event,pyasn1,65,event,0.6.4,announced,announced,12.75,LH009,10,6,4,0,0,1,1/6 (17%),1/10 (10%),1,0,1,5,14.9,19.49,22.78,6.81,0,20.0,0.0,1,120.0,0.83,1,48.3,2.07,1,16.6,6.01
+pillow:event,pillow,72,event,12.2.0,announced,announced,12.19,LH009,9,6,3,0,0,3,3/6 (50%),3/9 (33%),3,1,0,5,3.41,9.62,18.41,7.26,1,16.4,6.1,3,80.8,3.71,2,33.2,6.03,0,12.0,0.0
+python-multipart:event,python-multipart,96,event,0.0.26,silent,silent,5.23,no,0,0,0,0,0,0,0/0,0/0,0,0,0,0,,,,,0,0.0,,0,0.0,,0,0.0,,0,0.0,
+soupsieve:event,soupsieve,100,event,2.8.4,silent,silent,45.99,LH009,7,4,3,0,0,2,2/4 (50%),2/7 (29%),2,0,0,2,20.88,41.9,64.6,25.15,0,14.0,0.0,2,262.0,0.76,1,34.3,2.92,0,10.0,0.0
+lxml:event,lxml,109,event,6.1.0,announced,announced,3.67,LH009,5,4,1,0,0,1,1/4 (25%),1/5 (20%),1,0,1,3,4.22,10.76,49.95,12.89,0,10.0,0.0,1,16.7,5.97,1,6.7,14.84,1,7.3,13.75
+mcp:event,mcp,122,event,1.27.2,silent,silent,48.11,LH009,13,8,4,1,0,5,5/8 (62%),5/13 (38%),5,1,0,5,4.87,14.14,57.26,27.44,1,24.4,4.1,5,384.1,1.3,2,54.4,3.68,0,14.0,0.0
+msgpack:event,msgpack,147,event,1.2.1,announced,announced,1.23,LH009,0,0,0,0,0,0,0/0,0/0,0,0,0,0,,,,,0,0.0,,0,0.0,,0,0.0,,0,0.0,
+gitpython:event,gitpython,156,event,3.1.47,announced,announced,3.87,LH009,11,7,4,0,0,4,4/7 (57%),4/11 (36%),4,3,0,4,1.24,2.27,47.96,47.56,3,18.7,16.05,4,32.1,12.47,1,13.4,7.47,0,14.0,0.0
+langchain:event,langchain,158,event,0.3.30,silent,silent,5.99,LH009,0,0,0,0,0,0,0/0,0/0,0,0,0,0,,,,,0,0.0,,0,0.0,,0,0.0,,0,0.0,
+mako:event,mako,183,event,1.3.11,announced,silent,2.04,LH009,7,5,2,0,0,0,0/5 (0%),0/7 (0%),0,0,1,3,18.1,27.81,144.98,25.77,0,14.0,0.0,0,14.3,0.0,0,0.3,0.0,1,13.0,7.7
+h2:event,h2,187,event,4.4.1,silent,silent,3.42,no,0,0,0,0,0,0,0/0,0/0,0,0,0,0,,,,,0,0.0,,0,0.0,,0,0.0,,0,0.0,
+anthropic:event,anthropic,208,event,0.87.0,silent,silent,1.14,no,6,2,4,0,0,0,0/2 (0%),0/6 (0%),0,0,0,1,47.82,89.08,130.34,87.94,0,6.8,0.0,0,6.8,0.0,0,0.0,,0,12.0,0.0
+uv:event,uv,218,event,0.11.6,announced,silent,1.31,no,0,0,0,0,0,0,0/0,0/0,0,0,0,0,,,,,0,0.0,,0,0.0,,0,0.0,,0,0.0,
+transformers:event,transformers,225,event,5.0.0rc3,silent,silent,82.57,no,0,0,0,0,0,0,0/0,0/0,0,0,0,0,,,,,0,0.0,,0,0.0,,0,0.0,,0,0.0,
+langchain-core:event,langchain-core,236,event,1.2.22,silent,silent,3.04,no,0,0,0,0,0,0,0/0,0/0,0,0,0,0,,,,,0,0.0,,0,0.0,,0,0.0,,0,0.0,
+snowflake-connector-python:event,snowflake-connector-python,240,event,4.7.1,silent,silent,0.71,no,0,0,0,0,0,0,0/0,0/0,0,0,0,0,,,,,0,0.0,,0,0.0,,0,0.0,,0,0.0,
+httplib2:event,httplib2,246,event,0.32.0,silent,silent,28.21,no,4,4,0,0,0,3,3/4 (75%),3/4 (75%),0,0,0,3,14.43,14.56,19.07,4.04,0,8.0,0.0,3,71.7,4.18,0,20.0,0.0,0,2.0,0.0
+awscli:event,awscli,249,event,1.44.78,silent,silent,104.84,no,1,1,0,0,0,1,1/1 (100%),1/1 (100%),1,0,0,1,3.57,3.57,3.57,,0,2.0,0.0,1,3.6,27.98,1,1.6,63.54,0,0.0,
+pypdf:event,pypdf,258,event,6.10.1,announced,announced,1.28,no,3,3,0,0,0,1,1/3 (33%),1/3 (33%),1,3,2,3,0.82,1.39,1.61,0.33,1,2.8,35.58,1,2.8,35.58,0,0.0,,2,0.7,302.99
+sqlparse:event,sqlparse,266,event,0.6.0,announced,announced,3.92,no,6,4,2,0,0,0,0/4 (0%),0/6 (0%),0,0,0,4,12.07,15.55,20.23,11.63,0,12.0,0.0,0,23.5,0.0,0,11.5,0.0,0,12.0,0.0
+authlib:event,authlib,271,event,1.7.1,announced,silent,8.73,no,2,2,0,0,2,0,0/2 (0%),0/2 (0%),0,0,0,1,19.45,25.6,31.75,16.88,0,4.0,0.0,0,17.5,0.0,0,10.0,0.0,0,4.0,0.0
+joserfc:event,joserfc,279,event,1.6.7,silent,silent,34.8,no,2,1,0,1,0,1,1/1 (100%),1/2 (50%),1,0,0,1,3.36,3.36,3.36,,0,4.0,0.0,1,20.3,4.92,1,6.4,15.73,0,0.0,
+tornado:event,tornado,289,event,6.5.5,announced,announced,23.38,no,6,5,1,0,0,5,5/5 (100%),5/6 (83%),5,2,0,5,1.85,3.62,5.59,,2,10.8,18.57,5,49.1,10.19,2,15.2,13.15,0,2.0,0.0
+pydantic-ai-slim:event,pydantic-ai-slim,293,event,1.99.0,silent,silent,1.84,no,1,1,0,0,0,1,1/1 (100%),1/1 (100%),1,1,0,1,0.53,0.53,0.53,,1,0.5,190.21,1,0.5,190.21,0,0.0,,0,0.0,
+langsmith:event,langsmith,301,event,0.7.31,silent,silent,1.31,no,0,0,0,0,0,0,0/0,0/0,0,0,0,0,,,,,0,0.0,,0,0.0,,0,0.0,,0,0.0,
+fastmcp:event,fastmcp,359,event,3.2.0,silent,silent,1.08,no,10,7,3,0,0,2,2/7 (29%),2/10 (20%),2,3,2,6,1.11,3.04,19.94,18.6,2,9.9,20.21,2,9.9,20.21,0,0.0,,2,14.1,14.22
+dulwich:event,dulwich,379,event,1.2.5,announced,announced,11.03,no,0,0,0,0,0,0,0/0,0/0,0,0,0,0,,,,,0,0.0,,0,0.0,,0,0.0,,0,0.0,
+mistune:event,mistune,420,event,3.2.1,announced,silent,3.1,no,2,2,0,0,0,0,0/2 (0%),0/2 (0%),0,0,1,2,6.95,9.32,11.68,6.22,0,4.0,0.0,0,6.2,0.0,0,2.2,0.0,1,3.5,28.64
+bleach:event,bleach,422,event,6.4.0,announced,announced,11.05,no,7,6,1,0,0,2,2/6 (33%),2/7 (29%),2,1,0,4,7.8,16.88,30.16,15.36,1,12.7,7.87,2,61.4,3.26,1,28.5,3.51,0,10.0,0.0
+poetry:event,poetry,433,event,2.3.3,announced,announced,3.41,no,3,3,0,0,0,2,2/3 (67%),2/3 (67%),2,2,0,3,0.55,1.08,12.11,19.72,2,3.1,64.61,2,4.5,44.37,0,1.4,0.0,0,2.0,0.0
+nltk:event,nltk,444,event,3.9.3,announced,announced,150.52,no,8,5,2,1,0,4,4/5 (80%),4/8 (50%),4,0,0,2,19.36,72.34,104.94,7.88,0,16.0,0.0,4,690.9,0.58,0,40.0,0.0,0,6.0,0.0
+nbconvert:event,nbconvert,473,event,7.17.1,silent,silent,13.69,no,0,0,0,0,0,0,0/0,0/0,0,0,0,0,,,,,0,0.0,,0,0.0,,0,0.0,,0,0.0,
+snowflake-sqlalchemy:event,snowflake-sqlalchemy,481,event,1.11.0,silent,silent,6.28,no,0,0,0,0,0,0,0/0,0/0,0,0,0,0,,,,,0,0.0,,0,0.0,,0,0.0,,0,0.0,
+cryptography:second,cryptography,10,within-library second fix,48.0.1,silent,silent,5.9,no,14,8,6,0,0,2,2/8 (25%),2/14 (14%),2,1,1,5,6.02,9.08,35.33,15.77,1,26.9,3.72,2,73.9,2.71,1,46.9,2.13,1,23.4,4.27
+pip:second,pip,44,within-library second fix,26.1.2,announced,silent,1.04,no,4,3,0,1,0,1,1/3 (33%),1/4 (25%),1,1,0,2,4.29,7.84,23.75,22.7,1,3.9,25.91,1,3.9,25.91,0,0.0,,0,6.0,0.0
+aiohttp:second,aiohttp,49,within-library second fix,3.14.3,silent,silent,11.79,no,3,3,0,0,0,1,1/3 (33%),1/3 (33%),1,1,0,3,13.55,26.59,26.62,14.83,1,4.5,22.13,1,24.1,4.15,0,10.0,0.0,0,4.0,0.0
+gitpython:second,gitpython,156,within-library second fix,3.1.50,silent,silent,2.8,no,2,2,0,0,0,0,0/2 (0%),0/2 (0%),0,0,1,2,4.25,4.54,4.83,1.74,0,4.0,0.0,0,5.6,0.0,0,1.6,0.0,1,3.2,31.67
+awscli:second,awscli,249,within-library second fix,1.45.28,announced,announced,56.03,no,0,0,0,0,0,0,0/0,0/0,0,0,0,0,,,,,0,0.0,,0,0.0,,0,0.0,,0,0.0,

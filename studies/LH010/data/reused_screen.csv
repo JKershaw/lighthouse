@@ -1,0 +1,202 @@
+frame,source,hash_rank,package,repo,reason,pin_class,kept_earlier,kept_LH010,affected_versions
+urllib3:event,LH008,1,beyondtrust-bips-library,github.com/beyondtrust/ps-integration-library,repository not cloned: failed: git clone -q --filter=blob:none --no-checkout https://github.com/beyondtrust/ps-integration-library.git /tmp/lh008/repos/github.com__beyondtrust__ps-integration,,no,no,
+urllib3:event,LH008,2,eth-brownie,github.com/eth-brownie/brownie,holds 2.6.3 below 2.7.0,lockfile,yes,yes,"2.6.3,2.6.3,2.6.3,2.6.3"
+urllib3:event,LH008,3,awx-zipline-ai,github.com/zipline-ai/chronon,repository not cloned: failed: git clone -q --filter=blob:none --no-checkout https://github.com/zipline-ai/chronon.git /tmp/lh008/repos/github.com__zipline-ai__chronon: fatal: could not read ,,no,no,
+urllib3:event,LH008,4,sinduk,github.com/imshakil/sinduk,holds 2.6.3 below 2.7.0,exact pin and lockfile,yes,yes,"2.6.3,2.6.3,2.6.3"
+urllib3:event,LH008,5,fluid-labels,,no repository named,,no,no,
+urllib3:event,LH008,6,common-osint-model,github.com/3c7/common-osint-model,"holds 2.5.0,2.6.3 below 2.7.0",exact pin and lockfile,yes,yes,"2.5.0,2.6.3,2.6.3"
+urllib3:event,LH008,7,unitycatalog-client,github.com/unitycatalog/unitycatalog,holds 2.6.3 below 2.7.0,lockfile,yes,yes,"2.6.3,2.6.3,2.6.3,2.6.3,2.6.3,2.6.3,2.6.3,2.6.3,2.6.3,2.6.3,2.6.3"
+urllib3:event,LH008,8,gen-epix,github.com/rivm-bioinformatics/gen-epix-api,holds 2.6.3 below 2.7.0,exact pin,yes,yes,"2.6.3,2.6.3"
+urllib3:event,LH008,9,lemur,github.com/netflix/lemur,holds 2.6.3 below 2.7.0,lockfile,yes,yes,"2.6.3,2.6.3,2.6.3,2.6.3"
+urllib3:event,LH008,10,cfl-common,github.com/ocadotechnology/codeforlife-portal,holds 2.6.3 below 2.7.0,lockfile,yes,yes,"2.6.3,2.6.3,2.6.3"
+urllib3:event,LH008,11,an-website,github.com/asozialesnetzwerk/an-website,holds 2.6.3 below 2.7.0,exact pin and lockfile,yes,yes,"2.6.3,2.6.3,2.6.3,2.6.3"
+urllib3:event,LH008,12,amzn-nova-customization-sdk,,no repository named,,no,no,
+urllib3:event,LH008,13,aider-chat,github.com/aider-ai/aider,holds 2.6.3 below 2.7.0,lockfile,yes,yes,"2.6.3,2.6.3,2.6.3,2.6.3,2.6.3"
+urllib3:event,LH008,14,c7n,github.com/cloud-custodian/cloud-custodian,holds 2.6.3 below 2.7.0,lockfile,yes,yes,2.6.3
+urllib3:event,LH008,15,fwquant,github.com/fwquant/fwquant,repository not cloned: failed: git clone -q --filter=blob:none --no-checkout https://github.com/fwquant/fwquant.git /tmp/lh008/repos/github.com__fwquant__fwquant: fatal: could not read Userna,,no,no,
+urllib3:event,LH008,16,fw-pip-test,github.com/fwquant/fw-pip-test,holds 2.6.3 below 2.7.0,exact pin,yes,yes,2.6.3
+urllib3:event,LH008,17,fwai,,no repository named,,no,no,
+urllib3:event,LH008,18,qi-compute-api-client,github.com/qutech-delft/compute-api-client,holds 2.6.3 below 2.7.0,exact pin and lockfile,yes,yes,"2.6.3,2.6.3"
+urllib3:event,LH008,19,jinjamator,github.com/jinjamator/jinjamator,holds 2.6.3 below 2.7.0,exact pin,yes,yes,2.6.3
+urllib3:event,LH008,20,devsecops-engine-tools,github.com/bancolombia/devsecops-engine-tools,holds 2.6.3 below 2.7.0,exact pin,yes,yes,2.6.3
+pyjwt:event,LH008,1,wiliot-api,,no repository named,,no,no,
+pyjwt:event,LH008,2,docassemble-webapp,github.com/jhpyle/docassemble,holds 2.12.1 below 2.13.0,exact pin,yes,yes,"2.12.1,2.12.1"
+pyjwt:event,LH008,3,awx-zipline-ai,github.com/zipline-ai/chronon,repository not cloned: failed: git clone -q --filter=blob:none --no-checkout https://github.com/zipline-ai/chronon.git /tmp/lh008/repos/github.com__zipline-ai__chronon: fatal: could not read ,,no,no,
+pyjwt:event,LH008,4,spiffe,github.com/hewlettpackard/py-spiffe,holds 2.12.1 below 2.13.0,lockfile,yes,yes,2.12.1
+pyjwt:event,LH008,5,cognirepo,github.com/ashlesh-t/cognirepo,holds 2.12.1 below 2.13.0,exact pin,yes,yes,"2.12.1,2.12.1"
+pyjwt:event,LH008,6,gen-epix,github.com/rivm-bioinformatics/gen-epix-api,holds 2.12.1 below 2.13.0,exact pin,yes,yes,"2.12.1,2.12.1"
+pyjwt:event,LH008,7,lemur,github.com/netflix/lemur,holds 2.12.1 below 2.13.0,lockfile,yes,yes,"2.12.1,2.12.1,2.12.1,2.12.1"
+pyjwt:event,LH008,8,cfl-common,github.com/ocadotechnology/codeforlife-portal,holds 2.12.1 below 2.13.0,lockfile,yes,yes,"2.12.1,2.12.1"
+pyjwt:event,LH008,9,an-website,github.com/asozialesnetzwerk/an-website,holds 2.12.1 below 2.13.0,exact pin and lockfile,yes,yes,"2.12.1,2.12.1,2.12.1"
+pyjwt:event,LH008,10,osdental-library,,no repository named,,no,no,
+pyjwt:event,LH008,11,hermes-agent,github.com/nousresearch/hermes-agent,holds 2.12.1 below 2.13.0,exact pin and lockfile,yes,yes,"2.12.1,2.12.1"
+pyjwt:event,LH008,12,fastapi-framework,github.com/tert0/fastapi-framework,holds 2.12.1 below 2.13.0,exact pin,yes,yes,2.12.1
+pyjwt:event,LH008,13,sitellm,,no repository named,,no,no,
+pyjwt:event,LH008,14,redis-entraid,,no repository named,,no,no,
+pyjwt:event,LH008,15,vantage6-algorithm-tools,,no repository named,,no,no,
+pyjwt:event,LH008,16,c7n-azure,github.com/cloud-custodian/cloud-custodian,holds 2.12.1 below 2.13.0,lockfile,yes,yes,2.12.1
+pyjwt:event,LH008,17,bridgeagent,github.com/bridge-mind/bridgeagent,repository not cloned: failed: git clone -q --filter=blob:none --no-checkout https://github.com/bridge-mind/bridgeagent.git /tmp/lh008/repos/github.com__bridge-mind__bridgeagent: fatal: could,,no,no,
+pyjwt:event,LH008,18,fittrackee,github.com/samr1/fittrackee,holds 2.12.1 below 2.13.0,exact pin and lockfile,yes,yes,"2.12.1,2.12.1"
+pyjwt:event,LH008,19,encryptors,,no repository named,,no,no,
+pyjwt:event,LH008,20,arcen-agent,github.com/adityakumar41/arcen-agent,no commit on the default branch at or before the release time,,no,no,
+litellm:event,LH009,1,modelswitch,github.com/ddmonster/modelswitch,no exact pin or lockfile holding the library at the snapshot,not pinned,no,no,
+litellm:event,LH009,2,mmrouter,github.com/alexe-ev/multi-model-router,no commit on the default branch at or before the release time,,no,no,
+litellm:event,LH009,3,0xpwn,github.com/vahagn-madatyan/0xpwn,"holds 1.82.6, affected (below 1.83.0)",exact pin,yes,yes,1.82.6
+litellm:event,LH009,4,litresearch,github.com/spignotti/litresearch,"holds 1.82.0, affected (below 1.83.0)",lockfile,yes,yes,1.82.0
+litellm:event,LH009,5,otto-agent,github.com/1broseidon/otto,repository not cloned: failed: git clone -q --filter=blob:none --no-checkout https://github.com/1broseidon/otto.git /tmp/claude-0/lh009-work/repos/github.com__1broseidon__otto: fatal: could n,,no,no,
+litellm:event,LH009,6,nvidia-nat-agno,github.com/nvidia/nemo-agent-toolkit,"holds 1.74.1,1.74.9,1.80.0,1.81.13, affected (below 1.83.0)",lockfile,yes,yes,"1.81.13,1.80.0,1.74.9,1.81.13,1.81.13,1.74.1,1.81.13,1.81.13,1.74.1,1.74.9"
+litellm:event,LH009,7,specmap,github.com/jdraines/specmap,"holds 1.82.4, affected (below 1.83.0)",lockfile,yes,yes,1.82.4
+litellm:event,LH009,8,guardrails-ai-responsiveness-check,github.com/guardrails-ai/guardrails-hub,repository not cloned: failed: git clone -q --filter=blob:none --no-checkout https://github.com/guardrails-ai/guardrails-hub.git /tmp/claude-0/lh009-work/repos/github.com__guardrails-ai__guar,,no,no,
+litellm:event,LH009,9,cognition-system-adk-adapter,,no repository named,,no,no,
+litellm:event,LH009,10,byllm,github.com/jaseci-labs/jaseci,no exact pin or lockfile holding the library at the snapshot,not pinned,no,no,
+litellm:event,LH009,11,graphrag-llm,github.com/microsoft/graphrag,"holds 1.82.6, affected (below 1.83.0)",exact pin and lockfile,yes,yes,"1.82.6,1.82.6"
+litellm:event,LH009,12,ragbits-core,github.com/deepsense-ai/ragbits,"holds 1.74.8, affected (below 1.83.0)",lockfile,yes,yes,1.74.8
+litellm:event,LH009,13,trendradar,,no repository named,,no,no,
+litellm:event,LH009,14,exoclaw-provider-litellm,,no repository named,,no,no,
+litellm:event,LH009,15,kodeagent,github.com/barun-saha/kodeagent,no exact pin or lockfile holding the library at the snapshot,not pinned,no,no,
+litellm:event,LH009,16,guardrails-ai-provenance-llm,github.com/guardrails-ai/guardrails-hub-monorepo,no commit on the default branch at or before the release time,,no,no,
+litellm:event,LH009,17,markitai,github.com/ynewtime/markitai,"holds 1.82.6, affected (below 1.83.0)",lockfile,yes,yes,1.82.6
+litellm:event,LH009,18,patchpal,github.com/amaiya/patchpal,no exact pin or lockfile holding the library at the snapshot,not pinned,no,no,
+litellm:event,LH009,19,jupyter-ai-litellm,github.com/jupyter-ai-contrib/jupyter-ai-litellm,no exact pin or lockfile holding the library at the snapshot,not pinned,no,no,
+litellm:event,LH009,20,tsugite-cli,github.com/justyns/tsugite,no exact pin or lockfile holding the library at the snapshot,not pinned,no,no,
+pyasn1:event,LH009,1,docassemble-webapp,github.com/jhpyle/docassemble,"holds 0.6.3, affected (below 0.6.4)",exact pin,yes,yes,"0.6.3,0.6.3"
+pyasn1:event,LH009,2,awx-zipline-ai,github.com/zipline-ai/chronon,repository not cloned: failed: git clone -q --filter=blob:none --no-checkout https://github.com/zipline-ai/chronon.git /tmp/claude-0/lh009-work/repos/github.com__zipline-ai__chronon: fatal: c,,no,no,
+pyasn1:event,LH009,3,lemur,github.com/netflix/lemur,"holds 0.6.3, affected (below 0.6.4)",lockfile,yes,yes,"0.6.3,0.6.3,0.6.3,0.6.3"
+pyasn1:event,LH009,4,cfl-common,github.com/ocadotechnology/codeforlife-portal,"holds 0.6.3, affected (below 0.6.4)",lockfile,yes,yes,"0.6.3,0.6.3"
+pyasn1:event,LH009,5,jinjamator,github.com/jinjamator/jinjamator,"holds 0.6.3, affected (below 0.6.4)",exact pin,yes,yes,0.6.3
+pyasn1:event,LH009,6,grimoirelab,github.com/chaoss/grimoirelab,"holds 0.6.3, affected (below 0.6.4)",lockfile,yes,yes,0.6.3
+pyasn1:event,LH009,7,ocaya,github.com/mistralai/mistral-vibe,"holds 0.6.3, affected (below 0.6.4)",exact pin and lockfile,yes,yes,"0.6.3,0.6.3"
+pyasn1:event,LH009,8,c2cciutils,github.com/camptocamp/c2cciutils,no exact pin or lockfile holding the library at the snapshot,not pinned,no,no,
+pyasn1:event,LH009,9,docassemble-base,github.com/jhpyle/docassemble,"holds 0.6.3, affected (below 0.6.4)",exact pin,yes,yes,"0.6.3,0.6.3"
+pyasn1:event,LH009,10,opencanary,github.com/thinkst/opencanary,"holds 0.6.3, affected (below 0.6.4)",exact pin and lockfile,yes,yes,"0.6.3,0.6.3"
+pyasn1:event,LH009,11,suffolklitlab-docassemble-webapp,github.com/jhpyle/docassemble,"holds 0.6.3, affected (below 0.6.4)",exact pin,yes,yes,"0.6.3,0.6.3"
+pyasn1:event,LH009,12,senbai,,no repository named,,no,no,
+pyasn1:event,LH009,13,kagenti-cli,github.com/kagenti/adk,"holds 0.6.3, affected (below 0.6.4)",lockfile,yes,yes,"0.6.3,0.6.3,0.6.3,0.6.3"
+pyasn1:event,LH009,14,pycurity,,no repository named,,no,no,
+pyasn1:event,LH009,15,zipline-ai,github.com/zipline-ai/chronon,repository not cloned: failed: git clone -q --filter=blob:none --no-checkout https://github.com/zipline-ai/chronon.git /tmp/claude-0/lh009-work/repos/github.com__zipline-ai__chronon: fatal: c,,no,no,
+pyasn1:event,LH009,16,netweb-sdk,,no repository named,,no,no,
+pyasn1:event,LH009,17,mdid,,no repository named,,no,no,
+pyasn1:event,LH009,18,fly-common,,no repository named,,no,no,
+pyasn1:event,LH009,19,indico,github.com/indico/indico,"holds 0.6.3, affected (below 0.6.4)",lockfile,yes,yes,0.6.3
+pyasn1:event,LH009,20,suffolklitlab-docassemble-base,github.com/suffolklitlab/docassemble,"holds 0.6.3, affected (below 0.6.4)",exact pin,yes,yes,"0.6.3,0.6.3"
+pillow:event,LH009,1,nemo,github.com/usnistgov/nemo,"holds 12.1.1, affected (below 12.2.0)",exact pin,yes,yes,12.1.1
+pillow:event,LH009,2,browser-use,github.com/browser-use/browser-use,"holds 12.1.1, affected (below 12.2.0)",exact pin,yes,yes,12.1.1
+pillow:event,LH009,3,kaithem,,no repository named,,no,no,
+pillow:event,LH009,4,stash-ai-server,github.com/skier233/stash-aiserver,no exact pin or lockfile holding the library at the snapshot,not pinned,no,no,
+pillow:event,LH009,5,chameleoniq,github.com/edalita/chameleoniq,"holds 12.1.1, affected (below 12.2.0)",exact pin,yes,yes,"12.1.1,12.1.1"
+pillow:event,LH009,6,ruruka,,no repository named,,no,no,
+pillow:event,LH009,7,dcspy,github.com/emcek/dcspy,"holds 12.1.1, affected (below 12.2.0)",exact pin,yes,yes,12.1.1
+pillow:event,LH009,8,sampledb,github.com/sciapp/sampledb,"holds 12.1.1, affected (below 12.2.0)",exact pin,yes,yes,12.1.1
+pillow:event,LH009,9,supervisely,github.com/supervisely/supervisely,no exact pin or lockfile holding the library at the snapshot,not pinned,no,no,
+pillow:event,LH009,10,veros,,no repository named,,no,no,
+pillow:event,LH009,11,cn-pii-anonymization,github.com/neednlab/cn_pii_anonymization,"holds 12.1.1, affected (below 12.2.0)",exact pin and lockfile,yes,yes,"12.1.1,12.1.1"
+pillow:event,LH009,12,an-website,github.com/asozialesnetzwerk/an-website,"holds 12.1.1, affected (below 12.2.0)",exact pin and lockfile,yes,yes,"12.1.1,12.1.1,12.1.1"
+pillow:event,LH009,13,amzn-nova-customization-sdk,,no repository named,,no,no,
+pillow:event,LH009,14,esphome,github.com/esphome/esphome,"holds 12.1.1, affected (below 12.2.0)",exact pin,yes,yes,12.1.1
+pillow:event,LH009,15,paper-firehose,,no repository named,,no,no,
+pillow:event,LH009,16,aider-chat,github.com/aider-ai/aider,"holds 12.1.1, affected (below 12.2.0)",lockfile,yes,yes,"12.1.1,12.1.1,12.1.1,12.1.1,12.1.1"
+pillow:event,LH009,17,python-sph,,no repository named,,no,no,
+pillow:event,LH009,18,ruhken-utils,,no repository named,,no,no,
+pillow:event,LH009,19,gsixel,github.com/gpgstudio/gsixel,repository not cloned: failed: git clone -q --filter=blob:none --no-checkout https://github.com/gpgstudio/gsixel.git /tmp/claude-0/lh009-work/repos/github.com__gpgstudio__gsixel: fatal: could,,no,no,
+pillow:event,LH009,20,playlist2podcast,,no repository named,,no,no,
+soupsieve:event,LH009,1,sampledb,github.com/sciapp/sampledb,"holds 2.8.3, affected (below 2.8.4)",exact pin,yes,yes,2.8.3
+soupsieve:event,LH009,2,an-website,github.com/asozialesnetzwerk/an-website,"holds 2.8.3, affected (below 2.8.4)",exact pin and lockfile,yes,yes,"2.8.3,2.8.3,2.8.3,2.8.3"
+soupsieve:event,LH009,3,squirl,,no repository named,,no,no,
+soupsieve:event,LH009,4,aider-chat,github.com/aider-ai/aider,"holds 2.8.3, affected (below 2.8.4)",lockfile,yes,yes,"2.8.3,2.8.3"
+soupsieve:event,LH009,5,uniovi-simur-wearablepermed-pipeline-step-counting,github.com/simur-uo/uniovi-simur-wearablepermed-pipeline-step-counting,repository not cloned: failed: git clone -q --filter=blob:none --no-checkout https://github.com/simur-uo/uniovi-simur-wearablepermed-pipeline-step-counting.git /tmp/claude-0/lh009-work/repos/,,no,no,
+soupsieve:event,LH009,6,grimoirelab,github.com/chaoss/grimoirelab,"holds 2.8.3, affected (below 2.8.4)",lockfile,yes,yes,2.8.3
+soupsieve:event,LH009,7,klyro,github.com/ravindratirlangi/klyro,no commit on the default branch at or before the release time,,no,no,
+soupsieve:event,LH009,8,devflux-aider-code,,no repository named,,no,no,
+soupsieve:event,LH009,9,ocaya,github.com/mistralai/mistral-vibe,"holds 2.8.3, affected (below 2.8.4)",exact pin and lockfile,yes,yes,"2.8.3,2.8.3"
+soupsieve:event,LH009,10,composez-aider-fork,github.com/kmewhort/composez-aider-fork,repository not cloned: failed: git clone -q --filter=blob:none --no-checkout https://github.com/kmewhort/composez-aider-fork.git /tmp/claude-0/lh009-work/repos/github.com__kmewhort__composez-,,no,no,
+soupsieve:event,LH009,11,mein-et-projekt,,no repository named,,no,no,
+soupsieve:event,LH009,12,patch-code,github.com/pierrunoyt/patch,no commit on the default branch at or before the release time,,no,no,
+soupsieve:event,LH009,13,fudster,,no repository named,,no,no,
+soupsieve:event,LH009,14,patch-chat,github.com/pierrunoyt/patch,no commit on the default branch at or before the release time,,no,no,
+soupsieve:event,LH009,15,maalfrid-toolkit,github.com/nationallibraryofnorway/maalfrid_toolkit,"holds 2.8.3, affected (below 2.8.4)",exact pin and lockfile,yes,yes,"2.8.3,2.8.3"
+soupsieve:event,LH009,16,senbai,,no repository named,,no,no,
+soupsieve:event,LH009,17,b4molbi-dev-tools,,no repository named,,no,no,
+soupsieve:event,LH009,18,indexdoc-converter,github.com/indexdoc/indexdoc-converter,no exact pin or lockfile holding the library at the snapshot,not pinned,no,no,
+soupsieve:event,LH009,19,sivo-cli,github.com/venom001e/sivo,no commit on the default branch at or before the release time,,no,no,
+soupsieve:event,LH009,20,uuv-assistant-ai,github.com/e2e-test-quest/uuv,"holds 2.8.3, affected (below 2.8.4)",lockfile,yes,yes,2.8.3
+lxml:event,LH009,1,pypublib,github.com/infaktum/pypublib,"holds 6.0.4, affected (below 6.1.0)",exact pin,yes,yes,6.0.4
+lxml:event,LH009,2,plainhtml,,no repository named,,no,no,
+lxml:event,LH009,3,pyschematron,github.com/robbert-harms/pyschematron,no exact pin or lockfile holding the library at the snapshot,not pinned,no,no,
+lxml:event,LH009,4,inmanta-dev-dependencies,,no repository named,,no,no,
+lxml:event,LH009,5,nton,github.com/rlaphoenix/nton,"holds 6.0.2, affected (below 6.1.0)",lockfile,yes,yes,6.0.2
+lxml:event,LH009,6,rss2socials,github.com/ugns/rss2socials,no exact pin or lockfile holding the library at the snapshot,not pinned,no,no,
+lxml:event,LH009,7,aicippy,,no repository named,,no,no,
+lxml:event,LH009,8,html-modifier,,no repository named,,no,no,
+lxml:event,LH009,9,flare-builder,github.com/leonardo-toffalini/flare-builder,no commit on the default branch at or before the release time,,no,no,
+lxml:event,LH009,10,wurzel,github.com/telekom/wurzel,no exact pin or lockfile holding the library at the snapshot,not pinned,no,no,
+lxml:event,LH009,11,wikidot,github.com/ukwhatn/wikidot.py,"holds 6.0.4, affected (below 6.1.0)",lockfile,yes,yes,6.0.4
+lxml:event,LH009,12,uk-legal-mcp,github.com/paulieb89/uk-legal-mcp,no exact pin or lockfile holding the library at the snapshot,not pinned,no,no,
+lxml:event,LH009,13,inscriptis,github.com/weblyzard/inscriptis,no exact pin or lockfile holding the library at the snapshot,not pinned,no,no,
+lxml:event,LH009,14,python3-commons,github.com/kamikaze/python3-commons,"holds 6.0.4, affected (below 6.1.0)",lockfile,yes,yes,6.0.4
+lxml:event,LH009,15,pyslog,github.com/gregorgabrovsek/pyslog,repository not cloned: failed: git clone -q --filter=blob:none --no-checkout https://github.com/gregorgabrovsek/pyslog.git /tmp/claude-0/lh009-work/repos/github.com__gregorgabrovsek__pyslog: ,,no,no,
+lxml:event,LH009,16,dxpars,github.com/stmyst/dxpars,no exact pin or lockfile holding the library at the snapshot,not pinned,no,no,
+lxml:event,LH009,17,macsima2mc,github.com/schapirolabor/macsima2mc,no exact pin or lockfile holding the library at the snapshot,not pinned,no,no,
+lxml:event,LH009,18,fints,github.com/raphaelm/python-fints,no exact pin or lockfile holding the library at the snapshot,not pinned,no,no,
+lxml:event,LH009,19,bikeshed,github.com/speced/bikeshed,"holds 6.0.4, affected (below 6.1.0)",exact pin,yes,yes,6.0.4
+lxml:event,LH009,20,django-oai-pmh,github.com/jnphilipp/django_oai_pmh,no exact pin or lockfile holding the library at the snapshot,not pinned,no,no,
+mcp:event,LH009,1,stealth-chrome-devtools-mcp,github.com/devinosolutions/stealth-chrome-devtools-mcp,"holds 1.27.1, affected (below 1.27.2)",lockfile,yes,yes,1.27.1
+mcp:event,LH009,2,hypergolic,github.com/roberttownley/hypergolic,repository not cloned: failed: git clone -q --filter=blob:none --no-checkout https://github.com/roberttownley/hypergolic.git /tmp/claude-0/lh009-work/repos/github.com__roberttownley__hypergol,,no,no,
+mcp:event,LH009,3,agentcrew-ai,github.com/saigontechnology/agentcrew,"holds 1.27.1, affected (below 1.27.2)",exact pin and lockfile,yes,yes,"1.27.1,1.27.1"
+mcp:event,LH009,4,prosuite-mcp,github.com/prosuite/prosuite-mcp,"holds 1.27.1, affected (below 1.27.2)",exact pin,yes,yes,1.27.1
+mcp:event,LH009,5,legal-text-mcp-de,github.com/klein-business/legal-text-mcp-de,"holds 1.27.1, affected (below 1.27.2)",exact pin and lockfile,yes,yes,"1.27.1,1.27.1"
+mcp:event,LH009,6,async-media-agents,github.com/abka012/async-media-agents,"holds 1.27.1, affected (below 1.27.2)",exact pin,yes,yes,1.27.1
+mcp:event,LH009,7,superlocalmemory,github.com/qualixar/superlocalmemory,"holds 1.27.1, affected (below 1.27.2)",exact pin,yes,yes,1.27.1
+mcp:event,LH009,8,ocaya,github.com/mistralai/mistral-vibe,"holds 1.27.1, affected (below 1.27.2)",exact pin and lockfile,yes,yes,"1.27.1,1.27.1"
+mcp:event,LH009,9,relay-shell,github.com/rmednitzer/relay-shell,"holds 1.27.1, affected (below 1.27.2)",exact pin,yes,yes,"1.27.1,1.27.1"
+mcp:event,LH009,10,yaozh-mcp-stdio,,no repository named,,no,no,
+mcp:event,LH009,11,presto-mcp,github.com/kodamonkey/mcp-server-presto,"holds 1.27.1, affected (below 1.27.2)",exact pin and lockfile,yes,yes,"1.27.1,1.27.1"
+mcp:event,LH009,12,mslm-memory,github.com/kenyonxu/superlocalmemory,"holds 1.27.1, affected (below 1.27.2)",exact pin,yes,yes,1.27.1
+mcp:event,LH009,13,dtxwiki,github.com/dtxsuite/dtxwiki,no commit on the default branch at or before the release time,,no,no,
+mcp:event,LH009,14,fast-agent-mcp,,no repository named,,no,no,
+mcp:event,LH009,15,whatsapp-desktop-mcp,github.com/jqueguiner/whatsapp-desktop-mcp,"holds 1.27.1, affected (below 1.27.2)",exact pin and lockfile,yes,yes,"1.27.1,1.27.1"
+mcp:event,LH009,16,uvibe,github.com/teeay/usable-vibe,no commit on the default branch at or before the release time,,no,no,
+mcp:event,LH009,17,okforge,github.com/okforge/okforge,no commit on the default branch at or before the release time,,no,no,
+mcp:event,LH009,18,mistral-vibe,github.com/mistralai/mistral-vibe,"holds 1.27.1, affected (below 1.27.2)",exact pin and lockfile,yes,yes,"1.27.1,1.27.1"
+mcp:event,LH009,19,galaxy,github.com/galaxyproject/galaxy,"holds 1.27.1, affected (below 1.27.2)",lockfile,yes,yes,1.27.1
+mcp:event,LH009,20,mcp-snowflake-server-nsp,github.com/nsphung/mcp-snowflake-server,"holds 1.27.1, affected (below 1.27.2)",exact pin and lockfile,yes,yes,"1.27.1,1.27.1"
+msgpack:event,LH009,1,kafi,,no repository named,,no,no,
+gitpython:event,LH009,1,awx-zipline-ai,github.com/zipline-ai/chronon,repository not cloned: failed: git clone -q --filter=blob:none --no-checkout https://github.com/zipline-ai/chronon.git /tmp/claude-0/lh009-work/repos/github.com__zipline-ai__chronon: fatal: c,,no,no,
+gitpython:event,LH009,2,sutra-engine,github.com/ritikk112/sutra,"holds 3.1.46, affected (below 3.1.47)",exact pin,yes,yes,3.1.46
+gitpython:event,LH009,3,dcspy,github.com/emcek/dcspy,"holds 3.1.46, affected (below 3.1.47)",exact pin,yes,yes,3.1.46
+gitpython:event,LH009,4,devdox-sonar,github.com/hayatbourgi/devdox-ai-sonar,repository not cloned: failed: git clone -q --filter=blob:none --no-checkout https://github.com/hayatbourgi/devdox-ai-sonar.git /tmp/claude-0/lh009-work/repos/github.com__hayatbourgi__devdox-,,no,no,
+gitpython:event,LH009,5,amzn-nova-customization-sdk,,no repository named,,no,no,
+gitpython:event,LH009,6,aider-chat,github.com/aider-ai/aider,"holds 3.1.46, affected (below 3.1.47)",lockfile,yes,yes,"3.1.46,3.1.46,3.1.46"
+gitpython:event,LH009,7,codefox,github.com/urlbug/codefox-cli,"holds 3.1.46, affected (below 3.1.47)",exact pin and lockfile,yes,yes,"3.1.46,3.1.46,3.1.46,3.1.46"
+gitpython:event,LH009,8,sparc,github.com/ai-christianson/sparc,repository not cloned: failed: git clone -q --filter=blob:none --no-checkout https://github.com/ai-christianson/sparc.git /tmp/claude-0/lh009-work/repos/github.com__ai-christianson__sparc: fa,,no,no,
+gitpython:event,LH009,9,eden-soma-retargeter,github.com/lalit-jayanti/eden-soma-retargeter,"holds 3.1.46, affected (below 3.1.47)",exact pin and lockfile,yes,yes,"3.1.46,3.1.46"
+gitpython:event,LH009,10,klyro,github.com/ravindratirlangi/klyro,no commit on the default branch at or before the release time,,no,no,
+gitpython:event,LH009,11,conviso-cli,github.com/convisoappsec/convisocli,repository not cloned: failed: git clone -q --filter=blob:none --no-checkout https://github.com/convisoappsec/convisocli.git /tmp/claude-0/lh009-work/repos/github.com__convisoappsec__convisoc,,no,no,
+gitpython:event,LH009,12,amzn-nova-forge,,no repository named,,no,no,
+gitpython:event,LH009,13,devflux-aider-code,,no repository named,,no,no,
+gitpython:event,LH009,14,netbox-manager,github.com/osism/netbox-manager,"holds 3.1.46, affected (below 3.1.47)",exact pin and lockfile,yes,yes,"3.1.46,3.1.46,3.1.46"
+gitpython:event,LH009,15,scancodeio,github.com/aboutcode-org/scancode.io,"holds 3.1.46, affected (below 3.1.47)",exact pin and lockfile,yes,yes,"3.1.46,3.1.46"
+gitpython:event,LH009,16,osism,github.com/osism/python-osism,"holds 3.1.46, affected (below 3.1.47)",exact pin and lockfile,yes,yes,"3.1.46,3.1.46,3.1.46"
+gitpython:event,LH009,17,githubtakeout,github.com/cgoldberg/githubtakeout,"holds 3.1.46, affected (below 3.1.47)",exact pin,yes,yes,3.1.46
+gitpython:event,LH009,18,composez-aider-fork,github.com/kmewhort/composez-aider-fork,repository not cloned: failed: git clone -q --filter=blob:none --no-checkout https://github.com/kmewhort/composez-aider-fork.git /tmp/claude-0/lh009-work/repos/github.com__kmewhort__composez-,,no,no,
+gitpython:event,LH009,19,cookieplone,github.com/plone/cookieplone,"holds 3.1.46, affected (below 3.1.47)",exact pin and lockfile,yes,yes,"3.1.46,3.1.46"
+gitpython:event,LH009,20,repository-updater,github.com/hassio-addons/repository-updater,"holds 3.1.46, affected (below 3.1.47)",exact pin,yes,yes,"3.1.46,3.1.46"
+mako:event,LH009,1,docassemble-webapp,github.com/jhpyle/docassemble,"holds 1.3.10, affected (below 1.3.11)",exact pin,yes,yes,"1.3.10,1.3.10"
+mako:event,LH009,2,kaithem,,no repository named,,no,no,
+mako:event,LH009,3,eaasy,github.com/ciulene/eaasy,repository not cloned: failed: git clone -q --filter=blob:none --no-checkout https://github.com/ciulene/eaasy.git /tmp/claude-0/lh009-work/repos/github.com__ciulene__eaasy: fatal: could not r,,no,no,
+mako:event,LH009,4,adr,,no repository named,,no,no,
+mako:event,LH009,5,wapiti3,github.com/wapiti-scanner/wapiti,no exact pin or lockfile holding the library at the snapshot,not pinned,no,no,
+mako:event,LH009,6,amzn-nova-customization-sdk,,no repository named,,no,no,
+mako:event,LH009,7,kerbside,github.com/shakenfist/kerbside,"holds 1.3.10, affected (below 1.3.11)",exact pin,yes,yes,1.3.10
+mako:event,LH009,8,auditize,github.com/auditize/auditize,"holds 1.3.10, affected (below 1.3.11)",lockfile,yes,yes,1.3.10
+mako:event,LH009,9,amzn-nova-forge,,no repository named,,no,no,
+mako:event,LH009,10,dv-api-metrics,github.com/yourusername/dv-api-metrics,repository not cloned: failed: git clone -q --filter=blob:none --no-checkout https://github.com/yourusername/dv-api-metrics.git /tmp/claude-0/lh009-work/repos/github.com__yourusername__dv-api,,no,no,
+mako:event,LH009,11,gtech-ariel,github.com/google-marketing-solutions/ariel,no exact pin or lockfile holding the library at the snapshot,not pinned,no,no,
+mako:event,LH009,12,scarse,github.com/leoand00/scarse,no commit on the default branch at or before the release time,,no,no,
+mako:event,LH009,13,devopsdriver,github.com/marcpage/devops-driver,"holds 1.3.10, affected (below 1.3.11)",exact pin,yes,yes,1.3.10
+mako:event,LH009,14,unpage,,no repository named,,no,no,
+mako:event,LH009,15,docassemble-base,github.com/jhpyle/docassemble,"holds 1.3.10, affected (below 1.3.11)",exact pin,yes,yes,"1.3.10,1.3.10"
+mako:event,LH009,16,lback-framework,github.com/hemaabokila/lback_framework,"holds 1.3.10, affected (below 1.3.11)",exact pin,yes,yes,1.3.10
+mako:event,LH009,17,suffolklitlab-docassemble-webapp,github.com/jhpyle/docassemble,"holds 1.3.10, affected (below 1.3.11)",exact pin,yes,yes,"1.3.10,1.3.10"
+mako:event,LH009,18,biweeklybudget,github.com/jantman/biweeklybudget,"holds 1.3.10, affected (below 1.3.11)",exact pin,yes,yes,1.3.10
+mako:event,LH009,19,multimodal-parsers,github.com/thuuyen98/pier-qa,"holds 1.3.10, affected (below 1.3.11)",exact pin,yes,yes,"1.3.10,1.3.10"
+mako:event,LH009,20,python-spartan,,no repository named,,no,no,
