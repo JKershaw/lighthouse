@@ -1,0 +1,1321 @@
+library,version,source,where,dated,chars,security_words,text
+urllib3,2.7.0,tag annotation,2.7.0,2026-05-07T16:03:24Z,14,,Release: 2.7.0
+urllib3,2.7.0,changelog at tag,CHANGES.rst,2026-05-07T16:01:47Z,2936,2.7.0 (2026-05-07) =======================  Security --------  Addressed high-severity security issues. Impact was limited to specif | 2026-05-07) =======================  Security --------  Addressed high-severity security issues. Impact was limited to specific use cases detailed in the accompanying a | y issues. Impact was limited to specific use cases detailed in the accompanying advisories; overall user exposure was estimated to be marginal.  - Decompression-bomb safe | ing the official `Brotli <https://pypi.org/project/brotli/>`__ library.    See `GHSA-mf9v-mfxr-j63j <https://github.com/urllib3/urllib3/security/advisories/GHSA-mf9v | i/>`__ library.    See `GHSA-mf9v-mfxr-j63j <https://github.com/urllib3/urllib3/security/advisories/GHSA-mf9v-mfxr-j63j>`__   for details.  - HTTP pools created using ` | brary.    See `GHSA-mf9v-mfxr-j63j <https://github.com/urllib3/urllib3/security/advisories/GHSA-mf9v-mfxr-j63j>`__   for details.  - HTTP pools created using ``ProxyManag | ee `GHSA-mf9v-mfxr-j63j <https://github.com/urllib3/urllib3/security/advisories/GHSA-mf9v-mfxr-j63j>`__   for details.  - HTTP pools created using ``ProxyManager.con | `Retry.remove_headers_on_redirect`` when   redirecting to a different host.   (`GHSA-qccp-gfcp-xxvc <https://github.com/urllib3/urllib3/security/advisories/GHSA-qccp | o a different host.   (`GHSA-qccp-gfcp-xxvc <https://github.com/urllib3/urllib3/security/advisories/GHSA-qccp-gfcp-xxvc>`__)   Deprecations and Removals --------------- | re,"2.7.0 (2026-05-07)
+=======================
+
+Security
+--------
+
+Addressed high-severity security issues.
+Impact was limited to specific use cases detailed in the accompanying
+advisories; overall user exposure was estimated to be marginal.
+
+- Decompression-bomb safeguards of the streaming API were bypassed:
+
+  1. When ``HTTPResponse.drain_conn()`` was called after the response had been
+     read and decompressed partially.
+  2. During the second ``HTTPResponse.read(amt=N)`` or
+     ``HTTPResponse.stream(amt=N)`` call when the response was decompressed
+     using the official `Brotli <https://pypi.org/project/brotli/>`__ library.
+
+  See `GHSA-mf9v-mfxr-j63j <https://github.com/urllib3/urllib3/security/advisories/GHSA-mf9v-mfxr-j63j>`__
+  for details.
+
+- HTTP pools created using ``ProxyManager.connection_from_url`` did not strip
+  sensitive headers specified in ``Retry.remove_headers_on_redirect`` when
+  redirecting to a different host.
+  (`GHSA-qccp-gfcp-xxvc <https://github.com/urllib3/urllib3/security/advisories/GHSA-qccp-gfcp-xxvc>`__)
+
+
+Deprecations and Removals
+-------------------------
+
+- Used ``FutureWarning`` instead of ``DeprecationWarning`` for better
+  visibility of existing deprecation notices. Rescheduled the removal of
+  deprecated features to version 3.0.
+  (`#3764 <https://github.com/urllib3/urllib3/issues/3764>`__)
+- Removed support for end-of-life Python 3.9.
+  (`#3720 <https://github.com/urllib3/urllib3/issues/3720>`__)
+- Removed support for end-of-life PyPy3.10.
+  (`#4979 <https://github.com/urllib3/urllib3/issues/4979>`__)
+- Bumped the minimum supported pyOpenSSL version to 19.0.0.
+  (`#3777 <https://github.com/urllib3/urllib3/issues/3777>`__)
+
+
+Bugfixes
+--------
+
+- Fixed a bug where ``HTTPResponse.read(amt=None)`` was ignoring decompressed
+  data buffered from previous partial reads.
+  (`#3636 <https://github.com/urllib3/urllib3/issues/3636>`__)
+- Fixed a bug where ``HTTPResponse.read()`` could cache only part of the
+  response after a partial read when ``cache_content=True``.
+  (`#4967 <https://github.com/urllib3/urllib3/issues/4967>`__)
+- Fixed ``HTTPResponse.stream()`` and ``HTTPResponse.read_chunked()`` to handle
+  ``amt=0``.
+  (`#3793 <https://github.com/urllib3/urllib3/issues/3793>`__)
+- Updated ``_TYPE_BODY`` type alias to include missing ``Iterable[str]``,
+  matching the documented and runtime behavior of chunked request bodies.
+  (`#3798 <https://github.com/urllib3/urllib3/issues/3798>`__)
+- Fixed ``LocationParseError`` when paths resembling schemeless URIs were
+  passed to ``HTTPConnectionPool.urlopen()``.
+  (`#3352 <https://github.com/urllib3/urllib3/issues/3352>`__)
+- Fixed ``BaseHTTPResponse.readinto()`` type annotation to accept
+  ``memoryview`` in addition to ``bytearray``, matching the
+  ``io.RawIOBase.readinto`` contract and enabling use with
+  ``io.BufferedReader`` without type errors.
+  (`#3764 <https://github.com/urllib3/urllib3/issues/3764>`__)"
+urllib3,2.7.0,changelog at head,CHANGES.rst,2026-09-25T17:24:30Z,2936,2.7.0 (2026-05-07) =======================  Security --------  Addressed high-severity security issues. Impact was limited to specif | 2026-05-07) =======================  Security --------  Addressed high-severity security issues. Impact was limited to specific use cases detailed in the accompanying a | y issues. Impact was limited to specific use cases detailed in the accompanying advisories; overall user exposure was estimated to be marginal.  - Decompression-bomb safe | ing the official `Brotli <https://pypi.org/project/brotli/>`__ library.    See `GHSA-mf9v-mfxr-j63j <https://github.com/urllib3/urllib3/security/advisories/GHSA-mf9v | i/>`__ library.    See `GHSA-mf9v-mfxr-j63j <https://github.com/urllib3/urllib3/security/advisories/GHSA-mf9v-mfxr-j63j>`__   for details.  - HTTP pools created using ` | brary.    See `GHSA-mf9v-mfxr-j63j <https://github.com/urllib3/urllib3/security/advisories/GHSA-mf9v-mfxr-j63j>`__   for details.  - HTTP pools created using ``ProxyManag | ee `GHSA-mf9v-mfxr-j63j <https://github.com/urllib3/urllib3/security/advisories/GHSA-mf9v-mfxr-j63j>`__   for details.  - HTTP pools created using ``ProxyManager.con | `Retry.remove_headers_on_redirect`` when   redirecting to a different host.   (`GHSA-qccp-gfcp-xxvc <https://github.com/urllib3/urllib3/security/advisories/GHSA-qccp | o a different host.   (`GHSA-qccp-gfcp-xxvc <https://github.com/urllib3/urllib3/security/advisories/GHSA-qccp-gfcp-xxvc>`__)   Deprecations and Removals --------------- | re,"2.7.0 (2026-05-07)
+=======================
+
+Security
+--------
+
+Addressed high-severity security issues.
+Impact was limited to specific use cases detailed in the accompanying
+advisories; overall user exposure was estimated to be marginal.
+
+- Decompression-bomb safeguards of the streaming API were bypassed:
+
+  1. When ``HTTPResponse.drain_conn()`` was called after the response had been
+     read and decompressed partially.
+  2. During the second ``HTTPResponse.read(amt=N)`` or
+     ``HTTPResponse.stream(amt=N)`` call when the response was decompressed
+     using the official `Brotli <https://pypi.org/project/brotli/>`__ library.
+
+  See `GHSA-mf9v-mfxr-j63j <https://github.com/urllib3/urllib3/security/advisories/GHSA-mf9v-mfxr-j63j>`__
+  for details.
+
+- HTTP pools created using ``ProxyManager.connection_from_url`` did not strip
+  sensitive headers specified in ``Retry.remove_headers_on_redirect`` when
+  redirecting to a different host.
+  (`GHSA-qccp-gfcp-xxvc <https://github.com/urllib3/urllib3/security/advisories/GHSA-qccp-gfcp-xxvc>`__)
+
+
+Deprecations and Removals
+-------------------------
+
+- Used ``FutureWarning`` instead of ``DeprecationWarning`` for better
+  visibility of existing deprecation notices. Rescheduled the removal of
+  deprecated features to version 3.0.
+  (`#3763 <https://github.com/urllib3/urllib3/issues/3763>`__)
+- Removed support for end-of-life Python 3.9.
+  (`#3720 <https://github.com/urllib3/urllib3/issues/3720>`__)
+- Removed support for end-of-life PyPy3.10.
+  (`#4979 <https://github.com/urllib3/urllib3/issues/4979>`__)
+- Bumped the minimum supported pyOpenSSL version to 19.0.0.
+  (`#3777 <https://github.com/urllib3/urllib3/issues/3777>`__)
+
+
+Bugfixes
+--------
+
+- Fixed a bug where ``HTTPResponse.read(amt=None)`` was ignoring decompressed
+  data buffered from previous partial reads.
+  (`#3636 <https://github.com/urllib3/urllib3/issues/3636>`__)
+- Fixed a bug where ``HTTPResponse.read()`` could cache only part of the
+  response after a partial read when ``cache_content=True``.
+  (`#4967 <https://github.com/urllib3/urllib3/issues/4967>`__)
+- Fixed ``HTTPResponse.stream()`` and ``HTTPResponse.read_chunked()`` to handle
+  ``amt=0``.
+  (`#3793 <https://github.com/urllib3/urllib3/issues/3793>`__)
+- Updated ``_TYPE_BODY`` type alias to include missing ``Iterable[str]``,
+  matching the documented and runtime behavior of chunked request bodies.
+  (`#3798 <https://github.com/urllib3/urllib3/issues/3798>`__)
+- Fixed ``LocationParseError`` when paths resembling schemeless URIs were
+  passed to ``HTTPConnectionPool.urlopen()``.
+  (`#3352 <https://github.com/urllib3/urllib3/issues/3352>`__)
+- Fixed ``BaseHTTPResponse.readinto()`` type annotation to accept
+  ``memoryview`` in addition to ``bytearray``, matching the
+  ``io.RawIOBase.readinto`` contract and enabling use with
+  ``io.BufferedReader`` without type errors.
+  (`#3764 <https://github.com/urllib3/urllib3/issues/3764>`__)"
+urllib3,2.7.0,PyPI description,info.description (4748 chars),2026-05-07T16:13:17.151740Z,0,,(no part of the description names this version)
+urllib3,2.7.0,GitHub release page (sensitivity),403,,0,,
+cryptography,48.0.1,tag annotation,48.0.1,2026-06-09T22:20:44Z,14,,48.0.1 release
+cryptography,48.0.1,changelog at tag,CHANGELOG.rst,2026-06-09T22:20:07Z,132,,"48.0.1 - 2026-06-09
+~~~~~~~~~~~~~~~~~~~
+
+* Updated Windows, macOS, and Linux wheels to be compiled with OpenSSL 4.0.1.
+
+.. _v48-0-0:"
+cryptography,48.0.1,changelog at head,CHANGELOG.rst,2026-09-26T13:46:26Z,132,,"48.0.1 - 2026-06-09
+~~~~~~~~~~~~~~~~~~~
+
+* Updated Windows, macOS, and Linux wheels to be compiled with OpenSSL 4.0.1.
+
+.. _v48-0-0:"
+cryptography,48.0.1,PyPI description,info.description (2252 chars),2026-06-09T22:30:53.162113Z,0,,(no part of the description names this version)
+cryptography,48.0.1,GitHub release page (sensitivity),403,,0,,
+cryptography,49.0.0,tag annotation,49.0.0,2026-06-12T19:51:04Z,14,,49.0.0 release
+cryptography,49.0.0,changelog at tag,CHANGELOG.rst,2026-06-12T19:50:18Z,4220,,"49.0.0 - 2026-06-12
+~~~~~~~~~~~~~~~~~~~
+
+* **BACKWARDS INCOMPATIBLE:** Support for ``x86_64`` macOS has been removed.
+  We now only publish ``arm64`` wheels for macOS.
+* **BACKWARDS INCOMPATIBLE:** Support for 32-bit Windows has been removed.
+  Users should move to a 64-bit Python installation.
+* **BACKWARDS INCOMPATIBLE:** Removed the deprecated
+  ``PUBLIC_KEY_TYPES``, ``PRIVATE_KEY_TYPES``,
+  ``CERTIFICATE_PRIVATE_KEY_TYPES``, ``CERTIFICATE_ISSUER_PUBLIC_KEY_TYPES``,
+  and ``CERTIFICATE_PUBLIC_KEY_TYPES`` type aliases. Use
+  ``PublicKeyTypes``, ``PrivateKeyTypes``, ``CertificateIssuerPrivateKeyTypes``,
+  ``CertificateIssuerPublicKeyTypes``, and ``CertificatePublicKeyTypes``
+  instead. These were deprecated in version 40.0.
+* **BACKWARDS INCOMPATIBLE:** :class:`~cryptography.hazmat.primitives.ciphers.algorithms.ChaCha20`
+  now treats the first 4 bytes of the ``nonce`` as a 32-bit little-endian block
+  counter (as defined in :rfc:`7539`) and tracks the number of bytes processed.
+  Attempting to encrypt or decrypt more data than the counter allows before it
+  would overflow now raises a :class:`ValueError` rather than silently diverging
+  from RFC 7539. Setting the counter portion of the ``nonce`` to zero allows
+  encrypting up to 256 GiB with a given nonce.
+* **BACKWARDS INCOMPATIBLE:** Loading an X.509 certificate whose ECDSA or DSA
+  signature ``AlgorithmIdentifier`` contains encoded NULL parameters now raises
+  a :class:`ValueError`. Such certificates are invalid, but older versions of
+  Java emitted them; previously they loaded with a deprecation warning.
+* Fixed cross-compilation of the CFFI bindings when ``PYO3_CROSS_LIB_DIR``
+  is set. The build now derives the Python include directory from
+  ``PYO3_CROSS_LIB_DIR`` instead of querying the host interpreter, which
+  previously caused the build to fail during cross-compilations for embedded
+  systems, on hosts which have same-version Python development headers
+  installed as the target Python.
+* Added support for signing and verifying X.509 certificates, certificate
+  signing requests, and certificate revocation lists with
+  :doc:`/hazmat/primitives/asymmetric/mldsa` keys, as well as loading
+  certificates that contain ML-DSA public keys.
+* Added :meth:`~cryptography.hazmat.primitives.hpke.KEM.enc_length` to
+  :class:`~cryptography.hazmat.primitives.hpke.KEM` so callers can split the
+  encapsulated key from the ciphertext returned by
+  :meth:`~cryptography.hazmat.primitives.hpke.Suite.encrypt`.
+* :meth:`~cryptography.x509.verification.ExtensionPolicy.require_present`,
+  :meth:`~cryptography.x509.verification.ExtensionPolicy.may_be_present`, and
+  :meth:`~cryptography.x509.verification.ExtensionPolicy.require_not_present`
+  now accept any extension type. Previously only a fixed set of extension
+  types was supported, which made it impossible to account for otherwise
+  unrecognized critical extensions during path validation.
+* Added support for using :class:`~cryptography.x509.Certificate`,
+  :"
+cryptography,49.0.0,changelog at head,CHANGELOG.rst,2026-09-26T13:46:26Z,4220,,"49.0.0 - 2026-06-12
+~~~~~~~~~~~~~~~~~~~
+
+* **BACKWARDS INCOMPATIBLE:** Support for ``x86_64`` macOS has been removed.
+  We now only publish ``arm64`` wheels for macOS.
+* **BACKWARDS INCOMPATIBLE:** Support for 32-bit Windows has been removed.
+  Users should move to a 64-bit Python installation.
+* **BACKWARDS INCOMPATIBLE:** Removed the deprecated
+  ``PUBLIC_KEY_TYPES``, ``PRIVATE_KEY_TYPES``,
+  ``CERTIFICATE_PRIVATE_KEY_TYPES``, ``CERTIFICATE_ISSUER_PUBLIC_KEY_TYPES``,
+  and ``CERTIFICATE_PUBLIC_KEY_TYPES`` type aliases. Use
+  ``PublicKeyTypes``, ``PrivateKeyTypes``, ``CertificateIssuerPrivateKeyTypes``,
+  ``CertificateIssuerPublicKeyTypes``, and ``CertificatePublicKeyTypes``
+  instead. These were deprecated in version 40.0.
+* **BACKWARDS INCOMPATIBLE:** :class:`~cryptography.hazmat.primitives.ciphers.algorithms.ChaCha20`
+  now treats the first 4 bytes of the ``nonce`` as a 32-bit little-endian block
+  counter (as defined in :rfc:`7539`) and tracks the number of bytes processed.
+  Attempting to encrypt or decrypt more data than the counter allows before it
+  would overflow now raises a :class:`ValueError` rather than silently diverging
+  from RFC 7539. Setting the counter portion of the ``nonce`` to zero allows
+  encrypting up to 256 GiB with a given nonce.
+* **BACKWARDS INCOMPATIBLE:** Loading an X.509 certificate whose ECDSA or DSA
+  signature ``AlgorithmIdentifier`` contains encoded NULL parameters now raises
+  a :class:`ValueError`. Such certificates are invalid, but older versions of
+  Java emitted them; previously they loaded with a deprecation warning.
+* Fixed cross-compilation of the CFFI bindings when ``PYO3_CROSS_LIB_DIR``
+  is set. The build now derives the Python include directory from
+  ``PYO3_CROSS_LIB_DIR`` instead of querying the host interpreter, which
+  previously caused the build to fail during cross-compilations for embedded
+  systems, on hosts which have same-version Python development headers
+  installed as the target Python.
+* Added support for signing and verifying X.509 certificates, certificate
+  signing requests, and certificate revocation lists with
+  :doc:`/hazmat/primitives/asymmetric/mldsa` keys, as well as loading
+  certificates that contain ML-DSA public keys.
+* Added :meth:`~cryptography.hazmat.primitives.hpke.KEM.enc_length` to
+  :class:`~cryptography.hazmat.primitives.hpke.KEM` so callers can split the
+  encapsulated key from the ciphertext returned by
+  :meth:`~cryptography.hazmat.primitives.hpke.Suite.encrypt`.
+* :meth:`~cryptography.x509.verification.ExtensionPolicy.require_present`,
+  :meth:`~cryptography.x509.verification.ExtensionPolicy.may_be_present`, and
+  :meth:`~cryptography.x509.verification.ExtensionPolicy.require_not_present`
+  now accept any extension type. Previously only a fixed set of extension
+  types was supported, which made it impossible to account for otherwise
+  unrecognized critical extensions during path validation.
+* Added support for using :class:`~cryptography.x509.Certificate`,
+  :"
+cryptography,49.0.0,PyPI description,info.description (2252 chars),2026-06-12T20:01:21.305600Z,0,,(no part of the description names this version)
+cryptography,49.0.0,GitHub release page (sensitivity),403,,0,,
+cryptography,50.0.0,tag annotation,50.0.0,2026-07-31T14:07:22Z,1647,,"50.0.0 release
+-----BEGIN SIGNED MESSAGE-----
+MIIEhAYJKoZIhvcNAQcCoIIEdTCCBHECAQExDTALBglghkgBZQMEAgEwCwYJKoZI
+hvcNAQcBoIIDJjCCAyIwggKooAMCAQICFDlF9QBW2/RqP8tv5RZCUSMox3nBMAoG
+CCqGSM49BAMDMDcxFTATBgNVBAoTDHNpZ3N0b3JlLmRldjEeMBwGA1UEAxMVc2ln
+c3RvcmUtaW50ZXJtZWRpYXRlMB4XDTI2MDczMTE0MDczMFoXDTI2MDczMTE0MTcz
+MFowADBZMBMGByqGSM49AgEGCCqGSM49AwEHA0IABA1NUn3gnWB4a1+EPNmGZEkV
+zBco8wSHmmHQesl5+MU3HfgelBX7TiitSNjEQ67AV0nqikljgZ/hkQJDnvBh6gij
+ggHHMIIBwzAOBgNVHQ8BAf8EBAMCB4AwEwYDVR0lBAwwCgYIKwYBBQUHAwMwHQYD
+VR0OBBYEFF1z8xSRf41zD/Kz0bkeO8fBxtedMB8GA1UdIwQYMBaAFN/T6c9WJBGW
++ajY6ShVosYuGGQ/MCMGA1UdEQEB/wQZMBeBFWFsZXguZ2F5bm9yQGdtYWlsLmNv
+bTAsBgorBgEEAYO/MAEBBB5odHRwczovL2dpdGh1Yi5jb20vbG9naW4vb2F1dGgw
+LgYKKwYBBAGDvzABCAQgDB5odHRwczovL2dpdGh1Yi5jb20vbG9naW4vb2F1dGgw
+TAYKKwYBBAGDvzABGAQ+DDxDZ00zTnpJU0ptaDBkSEJ6T2lVeVJpVXlSbWRwZEdo
+MVlpNWpiMjBsTWtac2IyZHBiaVV5Um05aGRYUm8wgYoGCisGAQQB1nkCBAIEfAR6
+AHgAdgDdPTBqxscRMmMZHhyZZzcCokpeuN48rf+HinKALynujgAAAZ+4gGYQAAAE
+AwBHMEUCIHs7MmkpHnS0y467sEFxTwh3gjKzAsyKSAPkpYQsWZZ4AiEAp0T6woeG
+LEDkykZ2A5atxE40kSEM1oDNcgWYbugBZp4wCgYIKoZIzj0EAwMDaAAwZQIwB0CB
+ski4KVSPBt+11IzJOO1x/2m+s3t3tjhvm6wNzHxLU8KXNaG++oP1r3/CGDawAjEA
+u8ZIwhZAFlaEm+6BIpzYIimRlFRjSrQJcuXhX9xoY9D1yZ7gQlnnG7vOCDflcpMc
+MYIBJDCCASACAQEwTzA3MRUwEwYDVQQKEwxzaWdzdG9yZS5kZXYxHjAcBgNVBAMT
+FXNpZ3N0b3JlLWludGVybWVkaWF0ZQIUOUX1AFbb9Go/y2/lFkJRIyjHecEwCwYJ
+YIZIAWUDBAIBoGkwGAYJKoZIhvcNAQkDMQsGCSqGSIb3DQEHATAcBgkqhkiG9w0B
+CQUxDxcNMjYwNzMxMTQwNzMwWjAvBgkqhkiG9w0BCQQxIgQgrwmZN0bYYRdGESFw
+HITiBsvC9+TnkvKTlttTHX+3aDAwCgYIKoZIzj0EAwIERjBEAiB8l2d+CWt9TOec
+QSUvM5MFC1+D+28vVRreej3Elz4H/AIgbQE7ZzVwVOGSbjusemK4gCoCCt3VhdwW
+pbJ7KevzHjI=
+-----END SIGNED MESSAGE-----"
+cryptography,50.0.0,changelog at tag,CHANGELOG.rst,2026-07-31T14:05:37Z,4018,50.0.0 - 2026-07-31 ~~~~~~~~~~~~~~~~~~~  * **SECURITY ISSUE**:   :func:`~cryptography.hazmat.primitives.serialization.pkcs7.pkcs7_dec,"50.0.0 - 2026-07-31
+~~~~~~~~~~~~~~~~~~~
+
+* **SECURITY ISSUE**:
+  :func:`~cryptography.hazmat.primitives.serialization.pkcs7.pkcs7_decrypt_der`
+  and its PEM and S/MIME variants no longer expose distinguishable errors or
+  timing when unwrapping a ``RecipientInfo``'s ``encryptedKey``, which could
+  act as a Bleichenbacher oracle for callers that decrypt untrusted messages.
+  A random key is now substituted on failure, as described in :rfc:`3218`.
+  Credit to **@X1AOxiang** for reporting the issue
+* Deprecated Diffie-Hellman key exchange over finite fields (FFDH).
+  Everything FFDH is deprecated, including the types in
+  ``cryptography.hazmat.primitives.asymmetric.dh`` and loading FFDH keys or
+  parameters with the key loading APIs. Users should migrate to a more
+  modern key exchange algorithm.
+* Added ``xof()`` class methods to
+  :class:`~cryptography.hazmat.primitives.hashes.SHAKE128` and
+  :class:`~cryptography.hazmat.primitives.hashes.SHAKE256` for constructing
+  algorithm instances configured for use with
+  :class:`~cryptography.hazmat.primitives.hashes.XOFHash`.
+* The :mod:`X.509 verification <cryptography.x509.verification>` APIs are now
+  considered stable and are subject to our API stability policy.
+* Added the :doc:`/cobblestone` recipe, an implementation of the
+  Cobblestone-128 and Cobblestone-256 instantiations of the `C2SP
+  chunked-encryption specification
+  <https://c2sp.org/chunked-encryption>`_ for streaming authenticated
+  encryption of large messages.
+* Parsing a Signed Certificate Timestamp list now rejects encodings that
+  carry trailing bytes after the list or after an individual SCT, instead of
+  silently ignoring them.
+* Added support for using :class:`~cryptography.x509.Name` as a field type in
+  the :doc:`/hazmat/asn1/index` module.
+* Loading a public key or an EC private key now rejects DER where the
+  ``subjectPublicKey`` (or EC ``publicKey``) ``BIT STRING`` declares a non-zero
+  number of unused bits, instead of silently ignoring it.
+* Parsing a CRL entry's ``InvalidityDate`` extension now rejects a
+  ``GeneralizedTime`` that carries fractional seconds or another non-DER form,
+  matching the strict encoding already required for every other X.509 time
+  field.
+* :func:`~cryptography.x509.ocsp.load_der_ocsp_request` and
+  :func:`~cryptography.x509.ocsp.load_der_ocsp_response` now reject a request
+  or response whose ``version`` field is not ``v1``, the only version defined
+  by RFC 6960, matching the version validation already performed when loading
+  certificates, CSRs and CRLs.
+* :class:`~cryptography.hazmat.primitives.hashes.XOFHash` is now supported
+  when building against AWS-LC.
+* HMAC (and therefore PBKDF2-HMAC) with SHA-3 hashes is now supported when
+  building against AWS-LC.
+* Diffie-Hellman (:doc:`/hazmat/primitives/asymmetric/dh`) is now supported
+  when building against AWS-LC.
+* :func:`~cryptography.hazmat.primitives.serialization.load_der_public_key` and
+  :func:`~cryptography.hazmat.primitives.serializat"
+cryptography,50.0.0,changelog at head,CHANGELOG.rst,2026-09-26T13:46:26Z,4038,50.0.0 - 2026-07-31 ~~~~~~~~~~~~~~~~~~~  * **SECURITY ISSUE**:   :func:`~cryptography.hazmat.primitives.serialization.pkcs7.pkcs7_dec | described in :rfc:`3218`.   Credit to **@X1AOxiang** for reporting the issue. **CVE-2026-69247** * Deprecated Diffie-Hellman key exchange over finite fields (FFDH). ,"50.0.0 - 2026-07-31
+~~~~~~~~~~~~~~~~~~~
+
+* **SECURITY ISSUE**:
+  :func:`~cryptography.hazmat.primitives.serialization.pkcs7.pkcs7_decrypt_der`
+  and its PEM and S/MIME variants no longer expose distinguishable errors or
+  timing when unwrapping a ``RecipientInfo``'s ``encryptedKey``, which could
+  act as a Bleichenbacher oracle for callers that decrypt untrusted messages.
+  A random key is now substituted on failure, as described in :rfc:`3218`.
+  Credit to **@X1AOxiang** for reporting the issue. **CVE-2026-69247**
+* Deprecated Diffie-Hellman key exchange over finite fields (FFDH).
+  Everything FFDH is deprecated, including the types in
+  ``cryptography.hazmat.primitives.asymmetric.dh`` and loading FFDH keys or
+  parameters with the key loading APIs. Users should migrate to a more
+  modern key exchange algorithm.
+* Added ``xof()`` class methods to
+  :class:`~cryptography.hazmat.primitives.hashes.SHAKE128` and
+  :class:`~cryptography.hazmat.primitives.hashes.SHAKE256` for constructing
+  algorithm instances configured for use with
+  :class:`~cryptography.hazmat.primitives.hashes.XOFHash`.
+* The :mod:`X.509 verification <cryptography.x509.verification>` APIs are now
+  considered stable and are subject to our API stability policy.
+* Added the :doc:`/cobblestone` recipe, an implementation of the
+  Cobblestone-128 and Cobblestone-256 instantiations of the `C2SP
+  chunked-encryption specification
+  <https://c2sp.org/chunked-encryption>`_ for streaming authenticated
+  encryption of large messages.
+* Parsing a Signed Certificate Timestamp list now rejects encodings that
+  carry trailing bytes after the list or after an individual SCT, instead of
+  silently ignoring them.
+* Added support for using :class:`~cryptography.x509.Name` as a field type in
+  the :doc:`/hazmat/asn1/index` module.
+* Loading a public key or an EC private key now rejects DER where the
+  ``subjectPublicKey`` (or EC ``publicKey``) ``BIT STRING`` declares a non-zero
+  number of unused bits, instead of silently ignoring it.
+* Parsing a CRL entry's ``InvalidityDate`` extension now rejects a
+  ``GeneralizedTime`` that carries fractional seconds or another non-DER form,
+  matching the strict encoding already required for every other X.509 time
+  field.
+* :func:`~cryptography.x509.ocsp.load_der_ocsp_request` and
+  :func:`~cryptography.x509.ocsp.load_der_ocsp_response` now reject a request
+  or response whose ``version`` field is not ``v1``, the only version defined
+  by RFC 6960, matching the version validation already performed when loading
+  certificates, CSRs and CRLs.
+* :class:`~cryptography.hazmat.primitives.hashes.XOFHash` is now supported
+  when building against AWS-LC.
+* HMAC (and therefore PBKDF2-HMAC) with SHA-3 hashes is now supported when
+  building against AWS-LC.
+* Diffie-Hellman (:doc:`/hazmat/primitives/asymmetric/dh`) is now supported
+  when building against AWS-LC.
+* :func:`~cryptography.hazmat.primitives.serialization.load_der_public_key` and
+  :func:`~cryptography.hazmat.p"
+cryptography,50.0.0,PyPI description,info.description (2252 chars),2026-07-31T14:23:33.331759Z,0,,(no part of the description names this version)
+cryptography,50.0.0,GitHub release page (sensitivity),403,,0,,
+pyjwt,2.13.0,tag annotation,2.13.0 (lightweight tag: no annotation),,0,,
+pyjwt,2.13.0,changelog at tag,CHANGELOG.rst,2026-05-21T19:34:15Z,2832,.0>`__ -----------------------------------------------------------------------  Security ~~~~~~~~  - Reject JWK JSON documents passed as raw HMAC secrets in   ``HMACAlg | p that   the existing PEM/SSH guard did not cover. Reported by @aradona91 in   `GHSA-xgmm-8j9v-c9wx <https://github.com/jpadilla/pyjwt/security/advisories/GHSA-xgmm- | rted by @aradona91 in   `GHSA-xgmm-8j9v-c9wx <https://github.com/jpadilla/pyjwt/security/advisories/GHSA-xgmm-8j9v-c9wx>`__. - Bind the JWT header ``alg`` to ``PyJWK.al | aradona91 in   `GHSA-xgmm-8j9v-c9wx <https://github.com/jpadilla/pyjwt/security/advisories/GHSA-xgmm-8j9v-c9wx>`__. - Bind the JWT header ``alg`` to ``PyJWK.algorithm_nam | n   `GHSA-xgmm-8j9v-c9wx <https://github.com/jpadilla/pyjwt/security/advisories/GHSA-xgmm-8j9v-c9wx>`__. - Bind the JWT header ``alg`` to ``PyJWK.algorithm_name`` du | n decoding with a ``PyJWK`` / ``PyJWKClient`` key. Reported   by @sushi-gif in `GHSA-jq35-7prp-9v3f <https://github.com/jpadilla/pyjwt/security/advisories/GHSA-jq35- | rted   by @sushi-gif in `GHSA-jq35-7prp-9v3f <https://github.com/jpadilla/pyjwt/security/advisories/GHSA-jq35-7prp-9v3f>`__. - Reject non-``http(s)`` URI schemes in ``P |  @sushi-gif in `GHSA-jq35-7prp-9v3f <https://github.com/jpadilla/pyjwt/security/advisories/GHSA-jq35-7prp-9v3f>`__. - Reject non-``http(s)`` URI schemes in ``PyJWKClient` |  in `GHSA-jq35-7prp-9v3f <https://github.com/jpadilla/pyjwt/security/advisories/GHSA-jq35-7prp-9v3f>`__. - Reject non-``http(s)`` URI sch,"`v2.13.0 <https://github.com/jpadilla/pyjwt/compare/2.12.1...2.13.0>`__
+-----------------------------------------------------------------------
+
+Security
+~~~~~~~~
+
+- Reject JWK JSON documents passed as raw HMAC secrets in
+  ``HMACAlgorithm.prepare_key`` to close an algorithm-confusion gap that
+  the existing PEM/SSH guard did not cover. Reported by @aradona91 in
+  `GHSA-xgmm-8j9v-c9wx <https://github.com/jpadilla/pyjwt/security/advisories/GHSA-xgmm-8j9v-c9wx>`__.
+- Bind the JWT header ``alg`` to ``PyJWK.algorithm_name`` during
+  verification so the caller's ``algorithms=[...]`` allow-list cannot be
+  bypassed when decoding with a ``PyJWK`` / ``PyJWKClient`` key. Reported
+  by @sushi-gif in `GHSA-jq35-7prp-9v3f <https://github.com/jpadilla/pyjwt/security/advisories/GHSA-jq35-7prp-9v3f>`__.
+- Reject non-``http(s)`` URI schemes in ``PyJWKClient`` so attacker-
+  influenced URIs cannot read local files or reach unintended schemes via
+  urllib's default ``file://`` / ``ftp://`` / ``data:`` handlers. Reported
+  by @KEIJOT in `GHSA-993g-76c3-p5m4 <https://github.com/jpadilla/pyjwt/security/advisories/GHSA-993g-76c3-p5m4>`__.
+- Preserve the cached JWK Set on fetch errors in ``PyJWKClient.fetch_data``.
+  The previous ``finally``-block ``put(None)`` pattern cleared the cache
+  on any transient outage, turning one bad JWKS request into application-
+  wide auth failure. Reported by @eddieran in `GHSA-fhv5-28vv-h8m8 <https://github.com/jpadilla/pyjwt/security/advisories/GHSA-fhv5-28vv-h8m8>`__.
+- Skip the unconditional base64 decode of the compact-form payload segment
+  when ``b64=false`` is set in the protected header, and require that
+  segment to be empty (RFC 7515 Appendix F detached form). Closes an
+  unauthenticated DoS amplifier. Reported by @thesmartshadow in
+  `GHSA-w7vc-732c-9m39 <https://github.com/jpadilla/pyjwt/security/advisories/GHSA-w7vc-732c-9m39>`__.
+
+Fixed
+~~~~~
+
+- Reject empty HMAC keys outright in ``HMACAlgorithm.prepare_key`` with
+  ``InvalidKeyError`` instead of accepting them with only a warning.
+  Thanks to @SnailSploit and @spartan8806 for independently flagging the
+  footgun.
+- Forward per-call ``options`` (including ``enforce_minimum_key_length``)
+  from ``PyJWT.decode`` through to ``PyJWS._verify_signature`` so the
+  option actually takes effect when set at the call site rather than only
+  on the ``PyJWT`` instance. Thanks to @WLUB for the report.
+- RFC 7797 §3 compliance for ``b64=false``: the encoder now auto-adds
+  ``""b64""`` to the ``crit`` header parameter, and the decoder rejects
+  tokens that set ``b64=false`` without listing it in ``crit``. Thanks to
+  @MachineLearning-Nerd for the report.
+
+Changed
+~~~~~~~
+
+- Migrate the ``dev``, ``docs``, and ``tests`` package extras to dependency groups by @kurtmckee in `#1152 <https://github.com/jpadilla/pyjwt/pull/1152>`__"
+pyjwt,2.13.0,changelog at head,CHANGELOG.rst,2026-09-23T15:07:06Z,2832,.0>`__ -----------------------------------------------------------------------  Security ~~~~~~~~  - Reject JWK JSON documents passed as raw HMAC secrets in   ``HMACAlg | p that   the existing PEM/SSH guard did not cover. Reported by @aradona91 in   `GHSA-xgmm-8j9v-c9wx <https://github.com/jpadilla/pyjwt/security/advisories/GHSA-xgmm- | rted by @aradona91 in   `GHSA-xgmm-8j9v-c9wx <https://github.com/jpadilla/pyjwt/security/advisories/GHSA-xgmm-8j9v-c9wx>`__. - Bind the JWT header ``alg`` to ``PyJWK.al | aradona91 in   `GHSA-xgmm-8j9v-c9wx <https://github.com/jpadilla/pyjwt/security/advisories/GHSA-xgmm-8j9v-c9wx>`__. - Bind the JWT header ``alg`` to ``PyJWK.algorithm_nam | n   `GHSA-xgmm-8j9v-c9wx <https://github.com/jpadilla/pyjwt/security/advisories/GHSA-xgmm-8j9v-c9wx>`__. - Bind the JWT header ``alg`` to ``PyJWK.algorithm_name`` du | n decoding with a ``PyJWK`` / ``PyJWKClient`` key. Reported   by @sushi-gif in `GHSA-jq35-7prp-9v3f <https://github.com/jpadilla/pyjwt/security/advisories/GHSA-jq35- | rted   by @sushi-gif in `GHSA-jq35-7prp-9v3f <https://github.com/jpadilla/pyjwt/security/advisories/GHSA-jq35-7prp-9v3f>`__. - Reject non-``http(s)`` URI schemes in ``P |  @sushi-gif in `GHSA-jq35-7prp-9v3f <https://github.com/jpadilla/pyjwt/security/advisories/GHSA-jq35-7prp-9v3f>`__. - Reject non-``http(s)`` URI schemes in ``PyJWKClient` |  in `GHSA-jq35-7prp-9v3f <https://github.com/jpadilla/pyjwt/security/advisories/GHSA-jq35-7prp-9v3f>`__. - Reject non-``http(s)`` URI sch,"`v2.13.0 <https://github.com/jpadilla/pyjwt/compare/2.12.1...2.13.0>`__
+-----------------------------------------------------------------------
+
+Security
+~~~~~~~~
+
+- Reject JWK JSON documents passed as raw HMAC secrets in
+  ``HMACAlgorithm.prepare_key`` to close an algorithm-confusion gap that
+  the existing PEM/SSH guard did not cover. Reported by @aradona91 in
+  `GHSA-xgmm-8j9v-c9wx <https://github.com/jpadilla/pyjwt/security/advisories/GHSA-xgmm-8j9v-c9wx>`__.
+- Bind the JWT header ``alg`` to ``PyJWK.algorithm_name`` during
+  verification so the caller's ``algorithms=[...]`` allow-list cannot be
+  bypassed when decoding with a ``PyJWK`` / ``PyJWKClient`` key. Reported
+  by @sushi-gif in `GHSA-jq35-7prp-9v3f <https://github.com/jpadilla/pyjwt/security/advisories/GHSA-jq35-7prp-9v3f>`__.
+- Reject non-``http(s)`` URI schemes in ``PyJWKClient`` so attacker-
+  influenced URIs cannot read local files or reach unintended schemes via
+  urllib's default ``file://`` / ``ftp://`` / ``data:`` handlers. Reported
+  by @KEIJOT in `GHSA-993g-76c3-p5m4 <https://github.com/jpadilla/pyjwt/security/advisories/GHSA-993g-76c3-p5m4>`__.
+- Preserve the cached JWK Set on fetch errors in ``PyJWKClient.fetch_data``.
+  The previous ``finally``-block ``put(None)`` pattern cleared the cache
+  on any transient outage, turning one bad JWKS request into application-
+  wide auth failure. Reported by @eddieran in `GHSA-fhv5-28vv-h8m8 <https://github.com/jpadilla/pyjwt/security/advisories/GHSA-fhv5-28vv-h8m8>`__.
+- Skip the unconditional base64 decode of the compact-form payload segment
+  when ``b64=false`` is set in the protected header, and require that
+  segment to be empty (RFC 7515 Appendix F detached form). Closes an
+  unauthenticated DoS amplifier. Reported by @thesmartshadow in
+  `GHSA-w7vc-732c-9m39 <https://github.com/jpadilla/pyjwt/security/advisories/GHSA-w7vc-732c-9m39>`__.
+
+Fixed
+~~~~~
+
+- Reject empty HMAC keys outright in ``HMACAlgorithm.prepare_key`` with
+  ``InvalidKeyError`` instead of accepting them with only a warning.
+  Thanks to @SnailSploit and @spartan8806 for independently flagging the
+  footgun.
+- Forward per-call ``options`` (including ``enforce_minimum_key_length``)
+  from ``PyJWT.decode`` through to ``PyJWS._verify_signature`` so the
+  option actually takes effect when set at the call site rather than only
+  on the ``PyJWT`` instance. Thanks to @WLUB for the report.
+- RFC 7797 §3 compliance for ``b64=false``: the encoder now auto-adds
+  ``""b64""`` to the ``crit`` header parameter, and the decoder rejects
+  tokens that set ``b64=false`` without listing it in ``crit``. Thanks to
+  @MachineLearning-Nerd for the report.
+
+Changed
+~~~~~~~
+
+- Migrate the ``dev``, ``docs``, and ``tests`` package extras to dependency groups by @kurtmckee in `#1152 <https://github.com/jpadilla/pyjwt/pull/1152>`__"
+pyjwt,2.13.0,PyPI description,info.description (2281 chars),2026-05-21T19:54:35.362086Z,0,,(no part of the description names this version)
+pyjwt,2.13.0,GitHub release page (sensitivity),403,,0,,
+starlette,1.1.0,tag annotation,1.1.0 (lightweight tag: no annotation),,0,,
+starlette,1.1.0,changelog at tag,docs/release-notes.md,2026-05-23T16:52:42Z,401,,"## 1.1.0 (May 23, 2026)
+
+#### Added
+
+* Use `""application/octet-stream""` as the `FileResponse` media type fallback [#3283](https://github.com/encode/starlette/pull/3283).
+
+#### Fixed
+
+* Only dispatch standard HTTP verbs in `HTTPEndpoint` [#3286](https://github.com/encode/starlette/pull/3286).
+* Reject absolute paths in `StaticFiles.lookup_path` [#3287](https://github.com/encode/starlette/pull/3287)."
+starlette,1.1.0,changelog at head,docs/release-notes.md,2026-09-27T08:29:02Z,401,,"## 1.1.0 (May 23, 2026)
+
+#### Added
+
+* Use `""application/octet-stream""` as the `FileResponse` media type fallback [#3283](https://github.com/encode/starlette/pull/3283).
+
+#### Fixed
+
+* Only dispatch standard HTTP verbs in `HTTPEndpoint` [#3286](https://github.com/encode/starlette/pull/3286).
+* Reject absolute paths in `StaticFiles.lookup_path` [#3287](https://github.com/encode/starlette/pull/3287)."
+starlette,1.1.0,PyPI description,info.description (4773 chars),2026-05-23T16:55:39.201356Z,0,,(no part of the description names this version)
+starlette,1.1.0,GitHub release page (sensitivity),403,,0,,
+starlette,1.3.1,tag annotation,1.3.1 (lightweight tag: no annotation),,0,,
+starlette,1.3.1,changelog at tag,docs/release-notes.md,2026-06-12T09:18:43Z,258,,"## 1.3.1 (June 12, 2026)
+
+#### Fixed
+
+* Enforce `max_fields` and `max_part_size` in `FormParser` [#3329](https://github.com/encode/starlette/pull/3329).
+* Enforce `FormParser` limits in parser callbacks [#3331](https://github.com/encode/starlette/pull/3331)."
+starlette,1.3.1,changelog at head,docs/release-notes.md,2026-09-27T08:29:02Z,258,,"## 1.3.1 (June 12, 2026)
+
+#### Fixed
+
+* Enforce `max_fields` and `max_part_size` in `FormParser` [#3329](https://github.com/encode/starlette/pull/3329).
+* Enforce `FormParser` limits in parser callbacks [#3331](https://github.com/encode/starlette/pull/3331)."
+starlette,1.3.1,PyPI description,info.description (4791 chars),2026-06-12T09:23:10.017643Z,0,,(no part of the description names this version)
+starlette,1.3.1,GitHub release page (sensitivity),403,,0,,
+litellm,1.83.0,tag annotation,v1.83.0-nightly (lightweight tag: no annotation),,0,,
+litellm,1.83.0,PyPI description,info.description (25598 chars),2026-03-31T05:08:21.987889Z,0,,(no part of the description names this version)
+litellm,1.83.0,GitHub release page (sensitivity),403,,0,,
+litellm,1.83.7,tag annotation,v1.83.7.rc.1 (lightweight tag: no annotation),,0,,
+litellm,1.83.7,PyPI description,info.description (27102 chars),2026-04-13T17:34:58.360830Z,0,,(no part of the description names this version)
+litellm,1.83.7,GitHub release page (sensitivity),403,,0,,
+litellm,1.83.10,tag annotation,v1.83.10-stable (lightweight tag: no annotation),,0,,
+litellm,1.83.10,PyPI description,info.description (27799 chars),2026-04-19T02:36:25.274613Z,0,,(no part of the description names this version)
+litellm,1.83.10,GitHub release page (sensitivity),403,,0,,
+litellm,1.83.14,tag annotation,v1.83.14.rc.1 (lightweight tag: no annotation),,0,,
+litellm,1.83.14,PyPI description,info.description (28048 chars),2026-04-26T03:16:05.720970Z,0,,(no part of the description names this version)
+litellm,1.83.14,GitHub release page (sensitivity),403,,0,,
+litellm,1.84.0,tag annotation,v1.84.0 (lightweight tag: no annotation),,0,,
+litellm,1.84.0,PyPI description,info.description (28048 chars),2026-05-14T05:45:49.927689Z,0,,(no part of the description names this version)
+litellm,1.84.0,GitHub release page (sensitivity),403,,0,,
+aiohttp,3.14.3,tag annotation,v3.14.3,2026-07-22T22:15:52Z,14,,Release 3.14.3
+aiohttp,3.14.3,changelog at tag,CHANGES.rst,2026-07-22T22:15:16Z,457,,"3.14.3 (2026-07-22)
+===================
+
+Bug fixes
+---------
+
+- Fixed the client dropping only the first ``Authorization``, ``Cookie`` and
+  ``Proxy-Authorization`` header when a redirect crossed an origin -- by :user:`arshsmith1`.
+
+
+  *Related issues and pull requests on GitHub:*
+  :issue:`13180`.
+
+
+
+- Fixed error message construction in the C HTTP parser -- by :user:`bdraco`.
+
+
+  *Related issues and pull requests on GitHub:*
+  :issue:`13222`.
+
+
+
+
+----"
+aiohttp,3.14.3,changelog at head,CHANGES.rst,2026-09-26T15:19:03Z,457,,"3.14.3 (2026-07-22)
+===================
+
+Bug fixes
+---------
+
+- Fixed the client dropping only the first ``Authorization``, ``Cookie`` and
+  ``Proxy-Authorization`` header when a redirect crossed an origin -- by :user:`arshsmith1`.
+
+
+  *Related issues and pull requests on GitHub:*
+  :issue:`13180`.
+
+
+
+- Fixed error message construction in the C HTTP parser -- by :user:`bdraco`.
+
+
+  *Related issues and pull requests on GitHub:*
+  :issue:`13222`.
+
+
+
+
+----"
+aiohttp,3.14.3,PyPI description,info.description (5698 chars),2026-07-23T01:52:08.217234Z,0,,(no part of the description names this version)
+aiohttp,3.14.3,GitHub release page (sensitivity),403,,0,,
+pyasn1,0.6.4,tag annotation,v0.6.4,2026-07-09T01:04:41Z,13,,Release 0.6.4
+pyasn1,0.6.4,changelog at tag,CHANGES.rst,2026-07-09T01:03:05Z,1487,"Revision 0.6.4, released 08-07-2026 ---------------------------------------  - CVE-2026-59885 (GHSA-8ppf-4f7h-5ppj): Fixed quadratic time   complexity in the OBJECT |  released 08-07-2026 ---------------------------------------  - CVE-2026-59885 (GHSA-8ppf-4f7h-5ppj): Fixed quadratic time   complexity in the OBJECT IDENTIFIER and  | in linear time; decoded   values are unchanged (thanks for reporting, tynus2) - CVE-2026-59884 (GHSA-m4p7-r5rc-7g4j): Limited BER long-form tag   IDs to 20 octets (1 | decoded   values are unchanged (thanks for reporting, tynus2) - CVE-2026-59884 (GHSA-m4p7-r5rc-7g4j): Limited BER long-form tag   IDs to 20 octets (140 bits), matchi | ikeappsec)   IDs due to the integer-to-string conversion limit (Python 3.11+) - CVE-2026-59886 (GHSA-hm4w-wwcw-mr6r): Fixed excessive memory and   CPU consumption in |  due to the integer-to-string conversion limit (Python 3.11+) - CVE-2026-59886 (GHSA-hm4w-wwcw-mr6r): Fixed excessive memory and   CPU consumption in Real.__float__(","Revision 0.6.4, released 08-07-2026
+---------------------------------------
+
+- CVE-2026-59885 (GHSA-8ppf-4f7h-5ppj): Fixed quadratic time
+  complexity in the OBJECT IDENTIFIER and RELATIVE-OID decoders.
+  A small crafted substrate encoding many arcs could consume
+  excessive CPU. Arcs are now accumulated in linear time; decoded
+  values are unchanged (thanks for reporting, tynus2)
+- CVE-2026-59884 (GHSA-m4p7-r5rc-7g4j): Limited BER long-form tag
+  IDs to 20 octets (140 bits), matching the OID arc limit introduced
+  in 0.6.2. Unbounded tag IDs allowed a crafted substrate to consume
+  excessive CPU and memory; longer tag IDs are now rejected with
+  PyAsn1Error. Also fixed Tag and TagSet repr() failing on huge tag
+  (thanks for reporting, mikeappsec)
+  IDs due to the integer-to-string conversion limit (Python 3.11+)
+- CVE-2026-59886 (GHSA-hm4w-wwcw-mr6r): Fixed excessive memory and
+  CPU consumption in Real.__float__() for values with large base-10
+  exponents. Conversion no longer materializes huge intermediate
+  integers; values too large to represent as a Python float raise
+  OverflowError promptly, and prettyPrint() renders them as
+  '<overflow>' as before. Also fixed base-10 mantissa normalization
+  to use exact integer arithmetic; mantissas larger than 2**53
+  could previously lose precision through float division
+  (thanks for reporting, gvozdila)
+- Pinned PyPI publish GitHub Action to an immutable commit
+  [pr #113](https://github.com/pyasn1/pyasn1/pull/113)"
+pyasn1,0.6.4,changelog at head,CHANGES.rst,2026-08-10T20:31:33Z,1487,"Revision 0.6.4, released 08-07-2026 ---------------------------------------  - CVE-2026-59885 (GHSA-8ppf-4f7h-5ppj): Fixed quadratic time   complexity in the OBJECT |  released 08-07-2026 ---------------------------------------  - CVE-2026-59885 (GHSA-8ppf-4f7h-5ppj): Fixed quadratic time   complexity in the OBJECT IDENTIFIER and  | in linear time; decoded   values are unchanged (thanks for reporting, tynus2) - CVE-2026-59884 (GHSA-m4p7-r5rc-7g4j): Limited BER long-form tag   IDs to 20 octets (1 | decoded   values are unchanged (thanks for reporting, tynus2) - CVE-2026-59884 (GHSA-m4p7-r5rc-7g4j): Limited BER long-form tag   IDs to 20 octets (140 bits), matchi | ikeappsec)   IDs due to the integer-to-string conversion limit (Python 3.11+) - CVE-2026-59886 (GHSA-hm4w-wwcw-mr6r): Fixed excessive memory and   CPU consumption in |  due to the integer-to-string conversion limit (Python 3.11+) - CVE-2026-59886 (GHSA-hm4w-wwcw-mr6r): Fixed excessive memory and   CPU consumption in Real.__float__(","Revision 0.6.4, released 08-07-2026
+---------------------------------------
+
+- CVE-2026-59885 (GHSA-8ppf-4f7h-5ppj): Fixed quadratic time
+  complexity in the OBJECT IDENTIFIER and RELATIVE-OID decoders.
+  A small crafted substrate encoding many arcs could consume
+  excessive CPU. Arcs are now accumulated in linear time; decoded
+  values are unchanged (thanks for reporting, tynus2)
+- CVE-2026-59884 (GHSA-m4p7-r5rc-7g4j): Limited BER long-form tag
+  IDs to 20 octets (140 bits), matching the OID arc limit introduced
+  in 0.6.2. Unbounded tag IDs allowed a crafted substrate to consume
+  excessive CPU and memory; longer tag IDs are now rejected with
+  PyAsn1Error. Also fixed Tag and TagSet repr() failing on huge tag
+  (thanks for reporting, mikeappsec)
+  IDs due to the integer-to-string conversion limit (Python 3.11+)
+- CVE-2026-59886 (GHSA-hm4w-wwcw-mr6r): Fixed excessive memory and
+  CPU consumption in Real.__float__() for values with large base-10
+  exponents. Conversion no longer materializes huge intermediate
+  integers; values too large to represent as a Python float raise
+  OverflowError promptly, and prettyPrint() renders them as
+  '<overflow>' as before. Also fixed base-10 mantissa normalization
+  to use exact integer arithmetic; mantissas larger than 2**53
+  could previously lose precision through float division
+  (thanks for reporting, gvozdila)
+- Pinned PyPI publish GitHub Action to an immutable commit
+  [pr #113](https://github.com/pyasn1/pyasn1/pull/113)"
+pyasn1,0.6.4,PyPI description,info.description (6584 chars),2026-07-09T01:12:32.920042Z,0,,(no part of the description names this version)
+pyasn1,0.6.4,GitHub release page (sensitivity),403,,0,,
+pillow,12.2.0,tag annotation,12.2.0 (lightweight tag: no annotation),,0,,
+pillow,12.2.0,changelog at tag,docs/releasenotes/12.2.0.rst,2026-04-01T12:11:14Z,443,"12.2.0 ------  Security ========  Prevent FITS decompression bomb ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^  When |  image, Pillow did not limit the amount of data being read, meaning that it was vulnerable to GZIP decompression bombs. This was introduced in Pillow 10.3.0.  The data ","12.2.0
+------
+
+Security
+========
+
+Prevent FITS decompression bomb
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+When decompressing GZIP data from a FITS image, Pillow did not limit the amount of data
+being read, meaning that it was vulnerable to GZIP decompression bombs. This was
+introduced in Pillow 10.3.0.
+
+The data being read is now limited to only the necessary amount.
+
+Fix OOB write with invalid tile extents
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^"
+pillow,12.2.0,changelog at head,docs/releasenotes/12.2.0.rst,2026-09-26T21:45:58Z,519,"12.2.0 ------  Security ========  :cve:`2026-40192`: Prevent FITS decompression bomb ^^^^^^^^^^^^^^^^^^ |  image, Pillow did not limit the amount of data being read, meaning that it was vulnerable to GZIP decompression bombs. This was introduced in Pillow 10.3.0.  The data ","12.2.0
+------
+
+Security
+========
+
+:cve:`2026-40192`: Prevent FITS decompression bomb
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+When decompressing GZIP data from a FITS image, Pillow did not limit the amount of data
+being read, meaning that it was vulnerable to GZIP decompression bombs. This was
+introduced in Pillow 10.3.0.
+
+The data being read is now limited to only the necessary amount.
+
+:cve:`2026-42311`: Fix OOB write with invalid tile extents
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^"
+pillow,12.2.0,PyPI description,info.description (5854 chars),2026-04-01T14:42:15.402392Z,0,,(no part of the description names this version)
+pillow,12.2.0,GitHub release page (sensitivity),403,,0,,
+pillow,12.3.0,tag annotation,12.3.0 (lightweight tag: no annotation),,0,,
+pillow,12.3.0,changelog at tag,docs/releasenotes/12.3.0.rst,2026-07-01T09:09:01Z,5522,"12.3.0 ------  Security ========  Prevent decompression bomb when parsing PDF ^^^^^^^^^^^^^^^^^^^^^^^^^ | command injection ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^  If an attacker has control over the path passed to ``ImageShow.WindowsViewer.get_command()``,  | Show.WindowsViewer.get_command()``, and the result is executed by the user, the attacker may be able to execute arbitrary shell commands. Reported by Bin Luo, Universit | ally leading to excessive memory use. This was introduced as part of an earlier security fix in Pillow 8.2.0, but has now been fixed. Reported by Fr3v1.  McIdas out-of- | ay cause an OOB read. This has been fixed. Reported by Devansh Shah, RUDRA Cybersecurity Pvt. Ltd.  Out-of-bounds (OOB) read when saving 1 mode TGA images ^^^^^^^^^^^^^","12.3.0
+------
+
+Security
+========
+
+Prevent decompression bomb when parsing PDF
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+When parsing a PDF, ``PdfStream.decode()`` attempts to decompress data without any
+limit. A default maximum of ``ImageFile.SAFEBLOCK`` has been added. ``PdfParser`` was
+added in Pillow 5.1.0. Reported by `redyank <https://github.com/redyank>`__.
+
+:cve:`2026-55798`: WindowsViewer.get_command injection
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+If an attacker has control over the path passed to
+``ImageShow.WindowsViewer.get_command()``, and the result is executed by the user, the
+attacker may be able to execute arbitrary shell commands. Reported by Bin Luo,
+University of Electronic Science and Technology of China (<e-mail address removed>).
+
+EPS image infinite loop
+^^^^^^^^^^^^^^^^^^^^^^^
+
+If a negative byte count is specified for the BeginBinary byte count, an infinite loop
+is possible as Pillow seeks repeatedly backwards. This value will now be validated.
+BeginBinary parsing was only added in Pillow 12.0.0. Reported by
+`jiagongzheng-stack <https://github.com/jiagongzheng-stack>`__.
+
+JPEG2000 image memory usage
+^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+The total component width was incorrectly accumulated across tiles within a JPEG2000
+image, potentially leading to excessive memory use. This was introduced as part of an
+earlier security fix in Pillow 8.2.0, but has now been fixed. Reported by Fr3v1.
+
+McIdas out-of-bounds (OOB) read
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+McIdas images can specify the stride, and if incorrectly set, may cause an OOB read.
+This has been fixed. Reported by Devansh Shah, RUDRA Cybersecurity Pvt. Ltd.
+
+Out-of-bounds (OOB) read when saving 1 mode TGA images
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+Saving 1 mode images as TGA with run-length encoding can trigger an OOB read. This was
+added in Pillow 5.2.0, but the functionality is not possible under the TGA
+specification, so it has been removed. Reported by
+`Seratov <https://github.com/Seratov>`__.
+
+Out-of-bounds (OOB) write from large RankFilter sizes
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+:py:class:`~PIL.ImageFilter.RankFilter`, and its subclasses, can potentially write
+out-of-bounds if given a large size. This has been fixed. Reported by
+`Seratov <https://github.com/Seratov>`__.
+
+Out-of-bounds (OOB) write from ``Image.paste()``
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+Large paste box dimensions can cause an OOB write in ``Image.crop()``,
+``Image.paste()`` and ``Image.alpha_composite()``. This has been fixed. Reported by
+`Seratov <https://github.com/Seratov>`__.
+
+Out-of-bounds (OOB) write in ``ImageCmsTransform``
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+Apply a transform mode to a different image mode can trigger an OOB write in
+``ImageCmsTransform``. Errors are now raised if the mode does not match. Reported by
+`Seratov <https://github.com/Seratov>`__.
+
+:cve:`2026-54059`, :cve:`2026-54060`, :cve:`2026-55379`:"
+pillow,12.3.0,changelog at head,docs/releasenotes/12.3.0.rst,2026-09-26T21:45:58Z,5826,"12.3.0 ------  Security ========  :cve:`2026-59200`: Prevent decompression bomb when parsing PDF ^^^^^^ | command injection ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^  If an attacker has control over the path passed to ``ImageShow.WindowsViewer.get_command()``,  | Show.WindowsViewer.get_command()``, and the result is executed by the user, the attacker may be able to execute arbitrary shell commands. Reported by Bin Luo, Universit | ally leading to excessive memory use. This was introduced as part of an earlier security fix in Pillow 8.2.0, but has now been fixed. Reported by Fr3v1.  :cve:`2026-540 | ay cause an OOB read. This has been fixed. Reported by Devansh Shah, RUDRA Cybersecurity Pvt. Ltd.  :cve:`2026-59198`: Out-of-bounds (OOB) read when saving 1 mode TGA i","12.3.0
+------
+
+Security
+========
+
+:cve:`2026-59200`: Prevent decompression bomb when parsing PDF
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+When parsing a PDF, ``PdfStream.decode()`` attempts to decompress data without any
+limit. A default maximum of ``ImageFile.SAFEBLOCK`` has been added. ``PdfParser`` was
+added in Pillow 5.1.0. Reported by `redyank <https://github.com/redyank>`__.
+
+:cve:`2026-55798`: WindowsViewer.get_command injection
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+If an attacker has control over the path passed to
+``ImageShow.WindowsViewer.get_command()``, and the result is executed by the user, the
+attacker may be able to execute arbitrary shell commands. Reported by Bin Luo,
+University of Electronic Science and Technology of China (<e-mail address removed>).
+
+:cve:`2026-59203`: EPS image infinite loop
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+If a negative byte count is specified for the BeginBinary byte count, an infinite loop
+is possible as Pillow seeks repeatedly backwards. This value will now be validated.
+BeginBinary parsing was only added in Pillow 12.0.0. Reported by
+`jiagongzheng-stack <https://github.com/jiagongzheng-stack>`__.
+
+:cve:`2026-59204`: JPEG2000 image memory usage
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+The total component width was incorrectly accumulated across tiles within a JPEG2000
+image, potentially leading to excessive memory use. This was introduced as part of an
+earlier security fix in Pillow 8.2.0, but has now been fixed. Reported by Fr3v1.
+
+:cve:`2026-54058`: McIdas out-of-bounds (OOB) read
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+McIdas images can specify the stride, and if incorrectly set, may cause an OOB read.
+This has been fixed. Reported by Devansh Shah, RUDRA Cybersecurity Pvt. Ltd.
+
+:cve:`2026-59198`: Out-of-bounds (OOB) read when saving 1 mode TGA images
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+Saving 1 mode images as TGA with run-length encoding can trigger an OOB read. This was
+added in Pillow 5.2.0, but the functionality is not possible under the TGA
+specification, so it has been removed. Reported by
+`Seratov <https://github.com/Seratov>`__.
+
+:cve:`2026-59197`: Out-of-bounds (OOB) write from large RankFilter sizes
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+:py:class:`~PIL.ImageFilter.RankFilter`, and its subclasses, can potentially write
+out-of-bounds if given a large size. This has been fixed. Reported by
+`Seratov <https://github.com/Seratov>`__.
+
+:cve:`2026-59199`: Out-of-bounds (OOB) write from ``Image.paste()``
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+Large paste box dimensions can cause an OOB write in ``Image.crop()``,
+``Image.paste()`` and ``Image.alpha_composite()``. This has been fixed. Reported by
+`Seratov <https://github.com/Seratov>`__.
+
+:cve:`2026-59205`: Out-of-bounds (OOB) write in ``ImageCmsTransform``
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^"
+pillow,12.3.0,PyPI description,info.description (6180 chars),2026-07-01T11:53:27.808291Z,0,,(no part of the description names this version)
+pillow,12.3.0,GitHub release page (sensitivity),403,,0,,
+python-multipart,0.0.27,tag annotation,0.0.27 (lightweight tag: no annotation),,0,,
+python-multipart,0.0.27,changelog at tag,CHANGELOG.md,2026-04-27T10:50:24Z,213,,"## 0.0.27 (2026-04-27)
+
+* Add multipart header limits [#267](https://github.com/Kludex/python-multipart/pull/267).
+* Pass parse offsets via constructors [#268](https://github.com/Kludex/python-multipart/pull/268)."
+python-multipart,0.0.27,changelog at head,CHANGELOG.md,2026-09-25T07:41:47Z,213,,"## 0.0.27 (2026-04-27)
+
+* Add multipart header limits [#267](https://github.com/Kludex/python-multipart/pull/267).
+* Pass parse offsets via constructors [#268](https://github.com/Kludex/python-multipart/pull/268)."
+python-multipart,0.0.27,PyPI description,info.description (810 chars),2026-04-27T10:51:24.997196Z,0,,(no part of the description names this version)
+python-multipart,0.0.27,GitHub release page (sensitivity),403,,0,,
+python-multipart,0.0.30,tag annotation,0.0.30 (lightweight tag: no annotation),,0,,
+python-multipart,0.0.30,changelog at tag,CHANGELOG.md,2026-05-31T19:23:12Z,478,,"## 0.0.30 (2026-05-31)
+
+* Parse `application/x-www-form-urlencoded` bodies per the WHATWG URL standard, treating only `&` as a field separator [#290](https://github.com/Kludex/python-multipart/pull/290).
+* Ignore RFC 2231/5987 extended parameters (`name*`, `filename*`) in `parse_options_header`, keeping the plain parameter authoritative per [RFC 7578 §4.2](https://datatracker.ietf.org/doc/html/rfc7578#section-4.2) [#291](https://github.com/Kludex/python-multipart/pull/291)."
+python-multipart,0.0.30,changelog at head,CHANGELOG.md,2026-09-25T07:41:47Z,478,,"## 0.0.30 (2026-05-31)
+
+* Parse `application/x-www-form-urlencoded` bodies per the WHATWG URL standard, treating only `&` as a field separator [#290](https://github.com/Kludex/python-multipart/pull/290).
+* Ignore RFC 2231/5987 extended parameters (`name*`, `filename*`) in `parse_options_header`, keeping the plain parameter authoritative per [RFC 7578 §4.2](https://datatracker.ietf.org/doc/html/rfc7578#section-4.2) [#291](https://github.com/Kludex/python-multipart/pull/291)."
+python-multipart,0.0.30,PyPI description,info.description (810 chars),2026-05-31T19:24:53.814166Z,0,,(no part of the description names this version)
+python-multipart,0.0.30,GitHub release page (sensitivity),403,,0,,
+soupsieve,2.8.4,tag annotation,2.8.4 (lightweight tag: no annotation),,0,,
+soupsieve,2.8.4,changelog at tag,docs/src/markdown/about/changelog.md,2026-05-24T13:50:08Z,201,,"## 2.8.4
+
+-   **FIX**: Fix another inefficient attribute pattern (@mauriceng98).
+-   **FIX**: Limit total number of selectors processed in a pattern to prevent massive selector requests (@mauriceng98)."
+soupsieve,2.8.4,changelog at head,docs/src/markdown/about/changelog.md,2026-09-27T03:34:01Z,201,,"## 2.8.4
+
+-   **FIX**: Fix another inefficient attribute pattern (@mauriceng98).
+-   **FIX**: Limit total number of selectors processed in a pattern to prevent massive selector requests (@mauriceng98)."
+soupsieve,2.8.4,PyPI description,info.description (3492 chars),2026-05-24T13:55:55.406808Z,0,,(no part of the description names this version)
+soupsieve,2.8.4,GitHub release page (sensitivity),403,,0,,
+lxml,6.1.0,tag annotation,lxml-6.1.0,2026-04-17T18:48:22Z,931,================  This release fixes a possible external entity injection (XXE) vulnerability in ``iterparse()`` and the ``ETCompatXMLParser``.  Features added -------- | he normal XML and HTML parsers   since lxml 5.0).   Issue found by Sihao Qiu as CVE-2026-41066.,"6.1.0 (2026-04-17)
+==================
+
+This release fixes a possible external entity injection (XXE) vulnerability in
+``iterparse()`` and the ``ETCompatXMLParser``.
+
+Features added
+--------------
+
+* GH#486: The HTML ARIA accessibility attributes were added to the set of safe attributes
+  in ``lxml.html.defs``.  This allows ``lxml_html_clean`` to pass them through.
+  Patch by oomsveta.
+
+* The default chunk size for reading from file-likes in ``iterparse()`` is now configurable
+  with a new ``chunk_size`` argument.
+
+Bugs fixed
+----------
+
+* LP#2146291: The ``resolve_entities`` option was still set to ``True`` for
+  ``iterparse`` and ``ETCompatXMLParser``, allowing for external entity injection (XXE)
+  when using these parsers without setting this option explicitly.
+  The default was now changed to ``'internal'`` only (as for the normal XML and HTML parsers
+  since lxml 5.0).
+  Issue found by Sihao Qiu as CVE-2026-41066."
+lxml,6.1.0,changelog at tag,CHANGES.txt,2026-04-17T18:47:45Z,931,================  This release fixes a possible external entity injection (XXE) vulnerability in ``iterparse()`` and the ``ETCompatXMLParser``.  Features added -------- | he normal XML and HTML parsers   since lxml 5.0).   Issue found by Sihao Qiu as CVE-2026-41066.,"6.1.0 (2026-04-17)
+==================
+
+This release fixes a possible external entity injection (XXE) vulnerability in
+``iterparse()`` and the ``ETCompatXMLParser``.
+
+Features added
+--------------
+
+* GH#486: The HTML ARIA accessibility attributes were added to the set of safe attributes
+  in ``lxml.html.defs``.  This allows ``lxml_html_clean`` to pass them through.
+  Patch by oomsveta.
+
+* The default chunk size for reading from file-likes in ``iterparse()`` is now configurable
+  with a new ``chunk_size`` argument.
+
+Bugs fixed
+----------
+
+* LP#2146291: The ``resolve_entities`` option was still set to ``True`` for
+  ``iterparse`` and ``ETCompatXMLParser``, allowing for external entity injection (XXE)
+  when using these parsers without setting this option explicitly.
+  The default was now changed to ``'internal'`` only (as for the normal XML and HTML parsers
+  since lxml 5.0).
+  Issue found by Sihao Qiu as CVE-2026-41066."
+lxml,6.1.0,changelog at head,CHANGES.txt,2026-09-26T09:38:32Z,931,================  This release fixes a possible external entity injection (XXE) vulnerability in ``iterparse()`` and the ``ETCompatXMLParser``.  Features added -------- | he normal XML and HTML parsers   since lxml 5.0).   Issue found by Sihao Qiu as CVE-2026-41066.,"6.1.0 (2026-04-17)
+==================
+
+This release fixes a possible external entity injection (XXE) vulnerability in
+``iterparse()`` and the ``ETCompatXMLParser``.
+
+Features added
+--------------
+
+* GH#486: The HTML ARIA accessibility attributes were added to the set of safe attributes
+  in ``lxml.html.defs``.  This allows ``lxml_html_clean`` to pass them through.
+  Patch by oomsveta.
+
+* The default chunk size for reading from file-likes in ``iterparse()`` is now configurable
+  with a new ``chunk_size`` argument.
+
+Bugs fixed
+----------
+
+* LP#2146291: The ``resolve_entities`` option was still set to ``True`` for
+  ``iterparse`` and ``ETCompatXMLParser``, allowing for external entity injection (XXE)
+  when using these parsers without setting this option explicitly.
+  The default was now changed to ``'internal'`` only (as for the normal XML and HTML parsers
+  since lxml 5.0).
+  Issue found by Sihao Qiu as CVE-2026-41066."
+lxml,6.1.0,PyPI description,info.description (2046 chars),2026-04-18T04:27:24.288200Z,931,================  This release fixes a possible external entity injection (XXE) vulnerability in ``iterparse()`` and the ``ETCompatXMLParser``.  Features added -------- | he normal XML and HTML parsers   since lxml 5.0).   Issue found by Sihao Qiu as CVE-2026-41066.,"6.1.0 (2026-04-17)
+==================
+
+This release fixes a possible external entity injection (XXE) vulnerability in
+``iterparse()`` and the ``ETCompatXMLParser``.
+
+Features added
+--------------
+
+* GH#486: The HTML ARIA accessibility attributes were added to the set of safe attributes
+  in ``lxml.html.defs``.  This allows ``lxml_html_clean`` to pass them through.
+  Patch by oomsveta.
+
+* The default chunk size for reading from file-likes in ``iterparse()`` is now configurable
+  with a new ``chunk_size`` argument.
+
+Bugs fixed
+----------
+
+* LP#2146291: The ``resolve_entities`` option was still set to ``True`` for
+  ``iterparse`` and ``ETCompatXMLParser``, allowing for external entity injection (XXE)
+  when using these parsers without setting this option explicitly.
+  The default was now changed to ``'internal'`` only (as for the normal XML and HTML parsers
+  since lxml 5.0).
+  Issue found by Sihao Qiu as CVE-2026-41066."
+lxml,6.1.0,GitHub release page (sensitivity),403,,0,,
+mcp,1.27.2,tag annotation,v1.27.2 (lightweight tag: no annotation),,0,,
+mcp,1.27.2,PyPI description,info.description (6495 chars),2026-05-29T17:16:02.442669Z,0,,(no part of the description names this version)
+mcp,1.27.2,GitHub release page (sensitivity),403,,0,,
+mcp,1.28.1,tag annotation,v1.28.1 (lightweight tag: no annotation),,0,,
+mcp,1.28.1,PyPI description,info.description (7293 chars),2026-06-26T12:57:27.218095Z,0,,(no part of the description names this version)
+mcp,1.28.1,GitHub release page (sensitivity),403,,0,,
+msgpack,1.2.1,tag annotation,v1.2.1 (lightweight tag: no annotation),,0,,
+msgpack,1.2.1,changelog at tag,CHANGELOG.md,2026-06-18T15:33:29Z,296,king failure is not supported. Please create a new `Unpacker` instance instead. GHSA-6v7p-g79w-8964,"# 1.2.1
+
+Release Date: 2026-06-19
+
+Fix a segfault when calling `Unpacker.unpack()` or `Unpacker.skip()` after an unpacking failure.
+But note that reusing the same `Unpacker` instance after an unpacking failure is not supported.
+Please create a new `Unpacker` instance instead. GHSA-6v7p-g79w-8964"
+msgpack,1.2.1,changelog at head,CHANGELOG.md,2026-09-22T04:11:26Z,296,king failure is not supported. Please create a new `Unpacker` instance instead. GHSA-6v7p-g79w-8964,"# 1.2.1
+
+Release Date: 2026-06-19
+
+Fix a segfault when calling `Unpacker.unpack()` or `Unpacker.skip()` after an unpacking failure.
+But note that reusing the same `Unpacker` instance after an unpacking failure is not supported.
+Please create a new `Unpacker` instance instead. GHSA-6v7p-g79w-8964"
+msgpack,1.2.1,PyPI description,info.description (7276 chars),2026-06-18T16:12:31.531629Z,0,,(no part of the description names this version)
+msgpack,1.2.1,GitHub release page (sensitivity),403,,0,,
+gitpython,3.1.47,tag annotation,3.1.47,2026-04-22T02:35:27Z,3,,sig
+gitpython,3.1.47,changelog at tag,doc/source/changes.rst,2026-04-22T02:35:03Z,215,3.1.47 ======  Address various security issues related to bypassing injection-protection of unsafe Git flags.  See the ,"3.1.47
+======
+
+Address various security issues related to bypassing injection-protection
+of unsafe Git flags.
+
+See the following for all changes.
+https://github.com/gitpython-developers/GitPython/releases/tag/3.1.47"
+gitpython,3.1.47,changelog at head,doc/source/changes.rst,2026-09-27T06:13:49Z,215,3.1.47 ======  Address various security issues related to bypassing injection-protection of unsafe Git flags.  See the ,"3.1.47
+======
+
+Address various security issues related to bypassing injection-protection
+of unsafe Git flags.
+
+See the following for all changes.
+https://github.com/gitpython-developers/GitPython/releases/tag/3.1.47"
+gitpython,3.1.47,PyPI description,info.description (11887 chars),2026-04-22T02:44:41.271354Z,0,,(no part of the description names this version)
+gitpython,3.1.47,GitHub release page (sensitivity),403,,0,,
+gitpython,3.1.48,tag annotation,3.1.48,2026-04-28T05:34:39Z,3,,sig
+gitpython,3.1.48,changelog at tag,doc/source/changes.rst,2026-04-28T05:33:52Z,176,,"3.1.48
+======
+
+Safe reference creation in the face of untrusted input.
+
+See the following for all changes.
+https://github.com/gitpython-developers/GitPython/releases/tag/3.1.48"
+gitpython,3.1.48,changelog at head,doc/source/changes.rst,2026-09-27T06:13:49Z,176,,"3.1.48
+======
+
+Safe reference creation in the face of untrusted input.
+
+See the following for all changes.
+https://github.com/gitpython-developers/GitPython/releases/tag/3.1.48"
+gitpython,3.1.48,PyPI description,info.description (11887 chars),2026-04-28T05:35:42.543020Z,0,,(no part of the description names this version)
+gitpython,3.1.48,GitHub release page (sensitivity),403,,0,,
+gitpython,3.1.49,tag annotation,3.1.49,2026-04-29T00:30:37Z,3,,sig
+gitpython,3.1.49,changelog at tag,doc/source/changes.rst,2026-04-29T00:30:21Z,265,,"3.1.49
+======
+
+Save setting of configuration values, 
+which cuold be used to inject other more configuration.
+
+Also more conforming `rev-parse` implementation.
+
+See the following for all changes.
+https://github.com/gitpython-developers/GitPython/releases/tag/3.1.49"
+gitpython,3.1.49,changelog at head,doc/source/changes.rst,2026-09-27T06:13:49Z,265,,"3.1.49
+======
+
+Save setting of configuration values, 
+which could be used to inject other more configuration.
+
+Also more conforming `rev-parse` implementation.
+
+See the following for all changes.
+https://github.com/gitpython-developers/GitPython/releases/tag/3.1.49"
+gitpython,3.1.49,PyPI description,info.description (11887 chars),2026-04-29T00:31:18.412724Z,0,,(no part of the description names this version)
+gitpython,3.1.49,GitHub release page (sensitivity),403,,0,,
+gitpython,3.1.50,tag annotation,3.1.50,2026-05-06T04:00:41Z,3,,sig
+gitpython,3.1.50,changelog at tag,doc/source/changes.rst,2026-05-06T04:00:26Z,210,,"3.1.50
+======
+
+Save setting of configuration values, this time sections as well, as follow-up to 3.1.49.
+
+See the following for all changes.
+https://github.com/gitpython-developers/GitPython/releases/tag/3.1.50"
+gitpython,3.1.50,changelog at head,doc/source/changes.rst,2026-09-27T06:13:49Z,210,,"3.1.50
+======
+
+Save setting of configuration values, this time sections as well, as follow-up to 3.1.49.
+
+See the following for all changes.
+https://github.com/gitpython-developers/GitPython/releases/tag/3.1.50"
+gitpython,3.1.50,PyPI description,info.description (11887 chars),2026-05-06T04:01:23.799215Z,0,,(no part of the description names this version)
+gitpython,3.1.50,GitHub release page (sensitivity),403,,0,,
+gitpython,3.1.51,tag annotation,3.1.51,2026-07-12T13:38:56Z,3,,sig
+gitpython,3.1.51,changelog at tag,doc/source/changes.rst,2026-07-12T13:38:18Z,722,"3.1.51 ======  This is primarily a security release. It prevents additional argument-injection paths that could allow execu | of arbitrary commands or writing to arbitrary files through unsafe Git options (GHSA-956x-8gvw-wg5v), and closes bypasses of the existing protections using abbreviat | he existing protections using abbreviated long options or joined short options (GHSA-2f96-g7mh-g2hx).  The release also improves support for relative worktree paths ","3.1.51
+======
+
+This is primarily a security release. It prevents additional argument-injection
+paths that could allow execution of arbitrary commands or writing to arbitrary
+files through unsafe Git options (GHSA-956x-8gvw-wg5v), and closes bypasses of
+the existing protections using abbreviated long options or joined short options
+(GHSA-2f96-g7mh-g2hx).
+
+The release also improves support for relative worktree paths and diffs against
+the empty tree, preserves stderr from failed diff processes, supports relative
+configuration include paths, and includes assorted documentation, typing, test,
+and CI improvements.
+
+See the following for all changes.
+https://github.com/gitpython-developers/GitPython/releases/tag/3.1.51"
+gitpython,3.1.51,changelog at head,doc/source/changes.rst,2026-09-27T06:13:49Z,722,"3.1.51 ======  This is primarily a security release. It prevents additional argument-injection paths that could allow execu | of arbitrary commands or writing to arbitrary files through unsafe Git options (GHSA-956x-8gvw-wg5v), and closes bypasses of the existing protections using abbreviat | he existing protections using abbreviated long options or joined short options (GHSA-2f96-g7mh-g2hx).  The release also improves support for relative worktree paths ","3.1.51
+======
+
+This is primarily a security release. It prevents additional argument-injection
+paths that could allow execution of arbitrary commands or writing to arbitrary
+files through unsafe Git options (GHSA-956x-8gvw-wg5v), and closes bypasses of
+the existing protections using abbreviated long options or joined short options
+(GHSA-2f96-g7mh-g2hx).
+
+The release also improves support for relative worktree paths and diffs against
+the empty tree, preserves stderr from failed diff processes, supports relative
+configuration include paths, and includes assorted documentation, typing, test,
+and CI improvements.
+
+See the following for all changes.
+https://github.com/gitpython-developers/GitPython/releases/tag/3.1.51"
+gitpython,3.1.51,PyPI description,info.description (11887 chars),2026-07-12T13:40:06.430496Z,0,,(no part of the description names this version)
+gitpython,3.1.51,GitHub release page (sensitivity),403,,0,,
+gitpython,3.1.52,tag annotation,3.1.52,2026-07-16T03:15:03Z,3,,sig
+gitpython,3.1.52,changelog at tag,doc/source/changes.rst,2026-07-16T03:13:53Z,230,3.1.52 ======  A security fix for https://github.com/gitpython-developers/GitPython/security/advisories/G | 52 ======  A security fix for https://github.com/gitpython-developers/GitPython/security/advisories/GHSA-rwj8-pgh3-r573.  See the following for all changes. https://git |   A security fix for https://github.com/gitpython-developers/GitPython/security/advisories/GHSA-rwj8-pgh3-r573.  See the following for all changes. https://github.com/git | y fix for https://github.com/gitpython-developers/GitPython/security/advisories/GHSA-rwj8-pgh3-r573.  See the following for all changes. https://github.com/gitpython,"3.1.52
+======
+
+A security fix for
+https://github.com/gitpython-developers/GitPython/security/advisories/GHSA-rwj8-pgh3-r573.
+
+See the following for all changes.
+https://github.com/gitpython-developers/GitPython/releases/tag/3.1.52"
+gitpython,3.1.52,changelog at head,doc/source/changes.rst,2026-09-27T06:13:49Z,230,3.1.52 ======  A security fix for https://github.com/gitpython-developers/GitPython/security/advisories/G | 52 ======  A security fix for https://github.com/gitpython-developers/GitPython/security/advisories/GHSA-rwj8-pgh3-r573.  See the following for all changes. https://git |   A security fix for https://github.com/gitpython-developers/GitPython/security/advisories/GHSA-rwj8-pgh3-r573.  See the following for all changes. https://github.com/git | y fix for https://github.com/gitpython-developers/GitPython/security/advisories/GHSA-rwj8-pgh3-r573.  See the following for all changes. https://github.com/gitpython,"3.1.52
+======
+
+A security fix for
+https://github.com/gitpython-developers/GitPython/security/advisories/GHSA-rwj8-pgh3-r573.
+
+See the following for all changes.
+https://github.com/gitpython-developers/GitPython/releases/tag/3.1.52"
+gitpython,3.1.52,PyPI description,info.description (11887 chars),2026-07-16T03:15:58.239782Z,0,,(no part of the description names this version)
+gitpython,3.1.52,GitHub release page (sensitivity),403,,0,,
+gitpython,3.1.53,tag annotation,3.1.53,2026-07-20T13:41:19Z,3,,sig
+gitpython,3.1.53,changelog at tag,doc/source/changes.rst,2026-07-20T13:40:57Z,377,"3.1.53 ======  A security fix for https://github.com/gitpython-developers/GitPython/security/advisories/G | 53 ======  A security fix for https://github.com/gitpython-developers/GitPython/security/advisories/GHSA-3rp5-jjmw-4wv2  If you can, also try and provide feedback on th |   A security fix for https://github.com/gitpython-developers/GitPython/security/advisories/GHSA-3rp5-jjmw-4wv2  If you can, also try and provide feedback on the upcoming  | y fix for https://github.com/gitpython-developers/GitPython/security/advisories/GHSA-3rp5-jjmw-4wv2  If you can, also try and provide feedback on the upcoming v4 bra","3.1.53
+======
+
+A security fix for
+https://github.com/gitpython-developers/GitPython/security/advisories/GHSA-3rp5-jjmw-4wv2
+
+If you can, also try and provide feedback on the upcoming v4 branch
+https://github.com/gitpython-developers/GitPython/pull/2177 - patches welcome.
+
+See the following for all changes.
+https://github.com/gitpython-developers/GitPython/releases/tag/3.1.53"
+gitpython,3.1.53,changelog at head,doc/source/changes.rst,2026-09-27T06:13:49Z,377,"3.1.53 ======  A security fix for https://github.com/gitpython-developers/GitPython/security/advisories/G | 53 ======  A security fix for https://github.com/gitpython-developers/GitPython/security/advisories/GHSA-3rp5-jjmw-4wv2  If you can, also try and provide feedback on th |   A security fix for https://github.com/gitpython-developers/GitPython/security/advisories/GHSA-3rp5-jjmw-4wv2  If you can, also try and provide feedback on the upcoming  | y fix for https://github.com/gitpython-developers/GitPython/security/advisories/GHSA-3rp5-jjmw-4wv2  If you can, also try and provide feedback on the upcoming v4 bra","3.1.53
+======
+
+A security fix for
+https://github.com/gitpython-developers/GitPython/security/advisories/GHSA-3rp5-jjmw-4wv2
+
+If you can, also try and provide feedback on the upcoming v4 branch
+https://github.com/gitpython-developers/GitPython/pull/2177 - patches welcome.
+
+See the following for all changes.
+https://github.com/gitpython-developers/GitPython/releases/tag/3.1.53"
+gitpython,3.1.53,PyPI description,info.description (11887 chars),2026-07-20T13:41:51.473637Z,0,,(no part of the description names this version)
+gitpython,3.1.53,GitHub release page (sensitivity),403,,0,,
+gitpython,3.1.54,tag annotation,3.1.54,2026-07-22T04:07:28Z,3,,sig
+gitpython,3.1.54,changelog at tag,doc/source/changes.rst,2026-07-22T04:07:15Z,577,"3.1.54 ======  A security fix for  * https://github.com/gitpython-developers/GitPython/security/advisorie | ======  A security fix for  * https://github.com/gitpython-developers/GitPython/security/advisories/GHSA-r9mr-m37c-5fr3 * https://github.com/gitpython-developers/GitPyt |  security fix for  * https://github.com/gitpython-developers/GitPython/security/advisories/GHSA-r9mr-m37c-5fr3 * https://github.com/gitpython-developers/GitPython/securit | ix for  * https://github.com/gitpython-developers/GitPython/security/advisories/GHSA-r9mr-m37c-5fr3 * https://github.com/gitpython-developers/GitPython/security/advi | isories/GHSA-r9mr-m37c-5fr3 * https://github.com/gitpython-developers/GitPython/security/advisories/GHSA-6p8h-3wgx-97gf * https://github.com/gitpython-developers/GitPyt | HSA-r9mr-m37c-5fr3 * https://github.com/gitpython-developers/GitPython/security/advisories/GHSA-6p8h-3wgx-97gf * https://github.com/gitpython-developers/GitPython/securit | 7c-5fr3 * https://github.com/gitpython-developers/GitPython/security/advisories/GHSA-6p8h-3wgx-97gf * https://github.com/gitpython-developers/GitPython/security/advi | isories/GHSA-6p8h-3wgx-97gf * https://github.com/gitpython-developers/GitPython/security/advisories/GHSA-fjr4-x663-mwxc#event-857190  If you can, also try and provide f | HSA-6p8h-3wgx-97gf * https://github.com/gitpython-developers/GitPython/security/advisories/GHSA-fjr4-x663-mwxc#event-857190  If you can, also try and provide feedback on  | gx-97gf * https://github","3.1.54
+======
+
+A security fix for
+
+* https://github.com/gitpython-developers/GitPython/security/advisories/GHSA-r9mr-m37c-5fr3
+* https://github.com/gitpython-developers/GitPython/security/advisories/GHSA-6p8h-3wgx-97gf
+* https://github.com/gitpython-developers/GitPython/security/advisories/GHSA-fjr4-x663-mwxc#event-857190
+
+If you can, also try and provide feedback on the upcoming v4 branch
+https://github.com/gitpython-developers/GitPython/pull/2177 - patches welcome.
+
+See the following for all changes.
+https://github.com/gitpython-developers/GitPython/releases/tag/3.1.54"
+gitpython,3.1.54,changelog at head,doc/source/changes.rst,2026-09-27T06:13:49Z,564,"3.1.54 ======  A security fix for  * https://github.com/gitpython-developers/GitPython/security/advisorie | ======  A security fix for  * https://github.com/gitpython-developers/GitPython/security/advisories/GHSA-r9mr-m37c-5fr3 * https://github.com/gitpython-developers/GitPyt |  security fix for  * https://github.com/gitpython-developers/GitPython/security/advisories/GHSA-r9mr-m37c-5fr3 * https://github.com/gitpython-developers/GitPython/securit | ix for  * https://github.com/gitpython-developers/GitPython/security/advisories/GHSA-r9mr-m37c-5fr3 * https://github.com/gitpython-developers/GitPython/security/advi | isories/GHSA-r9mr-m37c-5fr3 * https://github.com/gitpython-developers/GitPython/security/advisories/GHSA-6p8h-3wgx-97gf * https://github.com/gitpython-developers/GitPyt | HSA-r9mr-m37c-5fr3 * https://github.com/gitpython-developers/GitPython/security/advisories/GHSA-6p8h-3wgx-97gf * https://github.com/gitpython-developers/GitPython/securit | 7c-5fr3 * https://github.com/gitpython-developers/GitPython/security/advisories/GHSA-6p8h-3wgx-97gf * https://github.com/gitpython-developers/GitPython/security/advi | isories/GHSA-6p8h-3wgx-97gf * https://github.com/gitpython-developers/GitPython/security/advisories/GHSA-fjr4-x663-mwxc  If you can, also try and provide feedback on th | HSA-6p8h-3wgx-97gf * https://github.com/gitpython-developers/GitPython/security/advisories/GHSA-fjr4-x663-mwxc  If you can, also try and provide feedback on the upcoming  | gx-97gf * https://github","3.1.54
+======
+
+A security fix for
+
+* https://github.com/gitpython-developers/GitPython/security/advisories/GHSA-r9mr-m37c-5fr3
+* https://github.com/gitpython-developers/GitPython/security/advisories/GHSA-6p8h-3wgx-97gf
+* https://github.com/gitpython-developers/GitPython/security/advisories/GHSA-fjr4-x663-mwxc
+
+If you can, also try and provide feedback on the upcoming v4 branch
+https://github.com/gitpython-developers/GitPython/pull/2177 - patches welcome.
+
+See the following for all changes.
+https://github.com/gitpython-developers/GitPython/releases/tag/3.1.54"
+gitpython,3.1.54,PyPI description,info.description (11887 chars),2026-07-22T04:08:50.050852Z,0,,(no part of the description names this version)
+gitpython,3.1.54,GitHub release page (sensitivity),403,,0,,
+gitpython,3.1.55,tag annotation,3.1.55,2026-07-23T02:52:18Z,3,,sig
+gitpython,3.1.55,changelog at tag,doc/source/changes.rst,2026-07-23T02:52:03Z,380,"3.1.55 ======  A security fix for  * https://github.com/gitpython-developers/GitPython/security/advisorie | ======  A security fix for  * https://github.com/gitpython-developers/GitPython/security/advisories/GHSA-94p4-4cq8-9g67  If you can, also try and provide feedback on th |  security fix for  * https://github.com/gitpython-developers/GitPython/security/advisories/GHSA-94p4-4cq8-9g67  If you can, also try and provide feedback on the upcoming  | ix for  * https://github.com/gitpython-developers/GitPython/security/advisories/GHSA-94p4-4cq8-9g67  If you can, also try and provide feedback on the upcoming v4 bra","3.1.55
+======
+
+A security fix for
+
+* https://github.com/gitpython-developers/GitPython/security/advisories/GHSA-94p4-4cq8-9g67
+
+If you can, also try and provide feedback on the upcoming v4 branch
+https://github.com/gitpython-developers/GitPython/pull/2177 - patches welcome.
+
+See the following for all changes.
+https://github.com/gitpython-developers/GitPython/releases/tag/3.1.55"
+gitpython,3.1.55,changelog at head,doc/source/changes.rst,2026-09-27T06:13:49Z,380,"3.1.55 ======  A security fix for  * https://github.com/gitpython-developers/GitPython/security/advisorie | ======  A security fix for  * https://github.com/gitpython-developers/GitPython/security/advisories/GHSA-94p4-4cq8-9g67  If you can, also try and provide feedback on th |  security fix for  * https://github.com/gitpython-developers/GitPython/security/advisories/GHSA-94p4-4cq8-9g67  If you can, also try and provide feedback on the upcoming  | ix for  * https://github.com/gitpython-developers/GitPython/security/advisories/GHSA-94p4-4cq8-9g67  If you can, also try and provide feedback on the upcoming v4 bra","3.1.55
+======
+
+A security fix for
+
+* https://github.com/gitpython-developers/GitPython/security/advisories/GHSA-94p4-4cq8-9g67
+
+If you can, also try and provide feedback on the upcoming v4 branch
+https://github.com/gitpython-developers/GitPython/pull/2177 - patches welcome.
+
+See the following for all changes.
+https://github.com/gitpython-developers/GitPython/releases/tag/3.1.55"
+gitpython,3.1.55,PyPI description,info.description (11887 chars),2026-07-23T02:52:41.932445Z,0,,(no part of the description names this version)
+gitpython,3.1.55,GitHub release page (sensitivity),403,,0,,
+gitpython,3.1.57,tag annotation,3.1.57,2026-07-26T07:32:12Z,3,,sig
+gitpython,3.1.57,changelog at tag,doc/source/changes.rst,2026-07-26T07:31:56Z,472,"3.1.57 ======  A security fix for  * https://github.com/gitpython-developers/GitPython/security/advisorie | ======  A security fix for  * https://github.com/gitpython-developers/GitPython/security/advisories/GHSA-3f7w-8rr8-f37f * https://github.com/gitpython-developers/GitPyt |  security fix for  * https://github.com/gitpython-developers/GitPython/security/advisories/GHSA-3f7w-8rr8-f37f * https://github.com/gitpython-developers/GitPython/securit | ix for  * https://github.com/gitpython-developers/GitPython/security/advisories/GHSA-3f7w-8rr8-f37f * https://github.com/gitpython-developers/GitPython/security/advi | isories/GHSA-3f7w-8rr8-f37f * https://github.com/gitpython-developers/GitPython/security/advisories/GHSA-539m-9xh6-q6rr  If you can, also try and provide feedback on th | HSA-3f7w-8rr8-f37f * https://github.com/gitpython-developers/GitPython/security/advisories/GHSA-539m-9xh6-q6rr  If you can, also try and provide feedback on the upcoming  | r8-f37f * https://github.com/gitpython-developers/GitPython/security/advisories/GHSA-539m-9xh6-q6rr  If you can, also try and provide feedback on the upcoming v4 bra","3.1.57
+======
+
+A security fix for
+
+* https://github.com/gitpython-developers/GitPython/security/advisories/GHSA-3f7w-8rr8-f37f
+* https://github.com/gitpython-developers/GitPython/security/advisories/GHSA-539m-9xh6-q6rr
+
+If you can, also try and provide feedback on the upcoming v4 branch
+https://github.com/gitpython-developers/GitPython/pull/2177 - patches welcome.
+
+See the following for all changes.
+https://github.com/gitpython-developers/GitPython/releases/tag/3.1.55"
+gitpython,3.1.57,changelog at head,doc/source/changes.rst,2026-09-27T06:13:49Z,472,"3.1.57 ======  A security fix for  * https://github.com/gitpython-developers/GitPython/security/advisorie | ======  A security fix for  * https://github.com/gitpython-developers/GitPython/security/advisories/GHSA-3f7w-8rr8-f37f * https://github.com/gitpython-developers/GitPyt |  security fix for  * https://github.com/gitpython-developers/GitPython/security/advisories/GHSA-3f7w-8rr8-f37f * https://github.com/gitpython-developers/GitPython/securit | ix for  * https://github.com/gitpython-developers/GitPython/security/advisories/GHSA-3f7w-8rr8-f37f * https://github.com/gitpython-developers/GitPython/security/advi | isories/GHSA-3f7w-8rr8-f37f * https://github.com/gitpython-developers/GitPython/security/advisories/GHSA-539m-9xh6-q6rr  If you can, also try and provide feedback on th | HSA-3f7w-8rr8-f37f * https://github.com/gitpython-developers/GitPython/security/advisories/GHSA-539m-9xh6-q6rr  If you can, also try and provide feedback on the upcoming  | r8-f37f * https://github.com/gitpython-developers/GitPython/security/advisories/GHSA-539m-9xh6-q6rr  If you can, also try and provide feedback on the upcoming v4 bra","3.1.57
+======
+
+A security fix for
+
+* https://github.com/gitpython-developers/GitPython/security/advisories/GHSA-3f7w-8rr8-f37f
+* https://github.com/gitpython-developers/GitPython/security/advisories/GHSA-539m-9xh6-q6rr
+
+If you can, also try and provide feedback on the upcoming v4 branch
+https://github.com/gitpython-developers/GitPython/pull/2177 - patches welcome.
+
+See the following for all changes.
+https://github.com/gitpython-developers/GitPython/releases/tag/3.1.57"
+gitpython,3.1.57,PyPI description,info.description (10993 chars),2026-07-26T07:33:24.838778Z,0,,(no part of the description names this version)
+gitpython,3.1.57,GitHub release page (sensitivity),403,,0,,
+gitpython,3.1.58,tag annotation,3.1.58,2026-08-04T15:05:10Z,3,,sig
+gitpython,3.1.58,changelog at tag,doc/source/changes.rst,2026-08-04T14:51:47Z,840,3.1.58 ======  Security fixes for  * https://github.com/gitpython-developers/GitPython/security/advisor | ======  Security fixes for  * https://github.com/gitpython-developers/GitPython/security/advisories/GHSA-hh9p-6wh2-4mfc * https://github.com/gitpython-developers/GitPyt | ecurity fixes for  * https://github.com/gitpython-developers/GitPython/security/advisories/GHSA-hh9p-6wh2-4mfc * https://github.com/gitpython-developers/GitPython/securit | es for  * https://github.com/gitpython-developers/GitPython/security/advisories/GHSA-hh9p-6wh2-4mfc * https://github.com/gitpython-developers/GitPython/security/advi | isories/GHSA-hh9p-6wh2-4mfc * https://github.com/gitpython-developers/GitPython/security/advisories/GHSA-9rj7-rf2p-w77r * https://github.com/gitpython-developers/GitPyt | HSA-hh9p-6wh2-4mfc * https://github.com/gitpython-developers/GitPython/security/advisories/GHSA-9rj7-rf2p-w77r * https://github.com/gitpython-developers/GitPython/securit | h2-4mfc * https://github.com/gitpython-developers/GitPython/security/advisories/GHSA-9rj7-rf2p-w77r * https://github.com/gitpython-developers/GitPython/security/advi | isories/GHSA-9rj7-rf2p-w77r * https://github.com/gitpython-developers/GitPython/security/advisories/GHSA-4gmw-gg2m-w46p * https://github.com/gitpython-developers/GitPyt | HSA-9rj7-rf2p-w77r * https://github.com/gitpython-developers/GitPython/security/advisories/GHSA-4gmw-gg2m-w46p * https://github.com/gitpython-developers/GitPython/securit | 2p-w77r * https://github.c,"3.1.58
+======
+
+Security fixes for
+
+* https://github.com/gitpython-developers/GitPython/security/advisories/GHSA-hh9p-6wh2-4mfc
+* https://github.com/gitpython-developers/GitPython/security/advisories/GHSA-9rj7-rf2p-w77r
+* https://github.com/gitpython-developers/GitPython/security/advisories/GHSA-4gmw-gg2m-w46p
+* https://github.com/gitpython-developers/GitPython/security/advisories/GHSA-wvpp-8hx9-p66j
+* https://github.com/gitpython-developers/GitPython/security/advisories/GHSA-jm78-9fvv-mhgr
+* https://github.com/gitpython-developers/GitPython/security/advisories/GHSA-hmq2-w58f-27jc
+
+If you can, also try and provide feedback on the upcoming v4 branch
+https://github.com/gitpython-developers/GitPython/pull/2177 - patches welcome.
+
+See the following for all changes.
+https://github.com/gitpython-developers/GitPython/releases/tag/3.1.58"
+gitpython,3.1.58,changelog at head,doc/source/changes.rst,2026-09-27T06:13:49Z,840,3.1.58 ======  Security fixes for  * https://github.com/gitpython-developers/GitPython/security/advisor | ======  Security fixes for  * https://github.com/gitpython-developers/GitPython/security/advisories/GHSA-hh9p-6wh2-4mfc * https://github.com/gitpython-developers/GitPyt | ecurity fixes for  * https://github.com/gitpython-developers/GitPython/security/advisories/GHSA-hh9p-6wh2-4mfc * https://github.com/gitpython-developers/GitPython/securit | es for  * https://github.com/gitpython-developers/GitPython/security/advisories/GHSA-hh9p-6wh2-4mfc * https://github.com/gitpython-developers/GitPython/security/advi | isories/GHSA-hh9p-6wh2-4mfc * https://github.com/gitpython-developers/GitPython/security/advisories/GHSA-9rj7-rf2p-w77r * https://github.com/gitpython-developers/GitPyt | HSA-hh9p-6wh2-4mfc * https://github.com/gitpython-developers/GitPython/security/advisories/GHSA-9rj7-rf2p-w77r * https://github.com/gitpython-developers/GitPython/securit | h2-4mfc * https://github.com/gitpython-developers/GitPython/security/advisories/GHSA-9rj7-rf2p-w77r * https://github.com/gitpython-developers/GitPython/security/advi | isories/GHSA-9rj7-rf2p-w77r * https://github.com/gitpython-developers/GitPython/security/advisories/GHSA-4gmw-gg2m-w46p * https://github.com/gitpython-developers/GitPyt | HSA-9rj7-rf2p-w77r * https://github.com/gitpython-developers/GitPython/security/advisories/GHSA-4gmw-gg2m-w46p * https://github.com/gitpython-developers/GitPython/securit | 2p-w77r * https://github.c,"3.1.58
+======
+
+Security fixes for
+
+* https://github.com/gitpython-developers/GitPython/security/advisories/GHSA-hh9p-6wh2-4mfc
+* https://github.com/gitpython-developers/GitPython/security/advisories/GHSA-9rj7-rf2p-w77r
+* https://github.com/gitpython-developers/GitPython/security/advisories/GHSA-4gmw-gg2m-w46p
+* https://github.com/gitpython-developers/GitPython/security/advisories/GHSA-wvpp-8hx9-p66j
+* https://github.com/gitpython-developers/GitPython/security/advisories/GHSA-jm78-9fvv-mhgr
+* https://github.com/gitpython-developers/GitPython/security/advisories/GHSA-hmq2-w58f-27jc
+
+If you can, also try and provide feedback on the upcoming v4 branch
+https://github.com/gitpython-developers/GitPython/pull/2177 - patches welcome.
+
+See the following for all changes.
+https://github.com/gitpython-developers/GitPython/releases/tag/3.1.58"
+gitpython,3.1.58,PyPI description,info.description (10993 chars),2026-08-04T15:05:48.025952Z,0,,(no part of the description names this version)
+gitpython,3.1.58,GitHub release page (sensitivity),403,,0,,
+langchain,0.3.30,tag annotation,langchain==0.3.30 (lightweight tag: no annotation),,0,,
+langchain,0.3.30,PyPI description,info.description (4184 chars),2026-05-07T15:48:10.607460Z,0,,(no part of the description names this version)
+langchain,0.3.30,GitHub release page (sensitivity),403,,0,,
+mako,1.3.11,tag annotation,rel_1_3_11 (lightweight tag: no annotation),,0,,
+mako,1.3.11,changelog at tag,doc/build/changelog.rst,2026-04-14T20:18:18Z,576,,":version: 1.3.11
+    :released: Tue Apr 14 2026
+
+    .. change::
+        :tags: bug, template
+        :tickets: 434
+
+        Fixed issue in :class:`.TemplateLookup` where a URI with a double-slash
+        prefix (e.g. ``//../../``) could bypass the directory traversal check in
+        :class:`.Template`, allowing reads of arbitrary files outside of the
+        template directory. The issue was caused by an inconsistency in how leading
+        slashes were stripped between :meth:`.TemplateLookup.get_template` and
+        :class:`.Template` initialization.
+
+.. changelog::"
+mako,1.3.11,changelog at head,doc/build/changelog.rst,2026-09-22T20:54:43Z,576,,":version: 1.3.11
+    :released: Tue Apr 14 2026
+
+    .. change::
+        :tags: bug, template
+        :tickets: 434
+
+        Fixed issue in :class:`.TemplateLookup` where a URI with a double-slash
+        prefix (e.g. ``//../../``) could bypass the directory traversal check in
+        :class:`.Template`, allowing reads of arbitrary files outside of the
+        template directory. The issue was caused by an inconsistency in how leading
+        slashes were stripped between :meth:`.TemplateLookup.get_template` and
+        :class:`.Template` initialization.
+
+.. changelog::"
+mako,1.3.11,PyPI description,info.description (1459 chars),2026-04-14T20:19:51.493910Z,0,,(no part of the description names this version)
+mako,1.3.11,GitHub release page (sensitivity),403,,0,,
+mako,1.3.12,tag annotation,rel_1_3_12 (lightweight tag: no annotation),,0,,
+mako,1.3.12,changelog at tag,doc/build/changelog.rst,2026-04-28T18:59:49Z,497,,":version: 1.3.12
+    :released: Tue Apr 28 2026
+
+    .. change::
+        :tags: bug, template
+        :tickets: 435
+
+        Fixed issue in :class:`.TemplateLookup` where a URI with backslash path
+        separators (e.g. ``\..\secret.txt``) could bypass the directory traversal
+        check on Windows, allowing reads of arbitrary files outside of the template
+        directory.  Backslash characters in URIs are now normalized to forward
+        slashes before path resolution.
+
+.. changelog::"
+mako,1.3.12,changelog at head,doc/build/changelog.rst,2026-09-22T20:54:43Z,497,,":version: 1.3.12
+    :released: Tue Apr 28 2026
+
+    .. change::
+        :tags: bug, template
+        :tickets: 435
+
+        Fixed issue in :class:`.TemplateLookup` where a URI with backslash path
+        separators (e.g. ``\..\secret.txt``) could bypass the directory traversal
+        check on Windows, allowing reads of arbitrary files outside of the template
+        directory.  Backslash characters in URIs are now normalized to forward
+        slashes before path resolution.
+
+.. changelog::"
+mako,1.3.12,PyPI description,info.description (1459 chars),2026-04-28T19:01:08.512582Z,0,,(no part of the description names this version)
+mako,1.3.12,GitHub release page (sensitivity),403,,0,,

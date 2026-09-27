@@ -1,0 +1,280 @@
+frame,package,repo,snapshot_commit,path,pin_class,versions
+litellm:fix,0xpwn,github.com/vahagn-madatyan/0xpwn,15c897712882,pyproject.toml,exact pin,1.82.6
+litellm:fix,litresearch,github.com/spignotti/litresearch,184709c18c6c,uv.lock,lockfile,1.82.0
+litellm:fix,nvidia-nat-agno,github.com/nvidia/nemo-agent-toolkit,5e893d8a923b,packages/nvidia_nat_adk/uv.lock,lockfile,1.81.13
+litellm:fix,nvidia-nat-agno,github.com/nvidia/nemo-agent-toolkit,5e893d8a923b,packages/nvidia_nat_agno/uv.lock,lockfile,1.80.0
+litellm:fix,nvidia-nat-agno,github.com/nvidia/nemo-agent-toolkit,5e893d8a923b,packages/nvidia_nat_crewai/uv.lock,lockfile,1.74.9
+litellm:fix,nvidia-nat-agno,github.com/nvidia/nemo-agent-toolkit,5e893d8a923b,packages/nvidia_nat_langchain/uv.lock,lockfile,1.81.13
+litellm:fix,nvidia-nat-agno,github.com/nvidia/nemo-agent-toolkit,5e893d8a923b,packages/nvidia_nat_llama_index/uv.lock,lockfile,1.81.13
+litellm:fix,nvidia-nat-agno,github.com/nvidia/nemo-agent-toolkit,5e893d8a923b,packages/nvidia_nat_openpipe_art/uv.lock,lockfile,1.74.1
+litellm:fix,nvidia-nat-agno,github.com/nvidia/nemo-agent-toolkit,5e893d8a923b,packages/nvidia_nat_ragaai/uv.lock,lockfile,1.81.13
+litellm:fix,nvidia-nat-agno,github.com/nvidia/nemo-agent-toolkit,5e893d8a923b,packages/nvidia_nat_vanna/uv.lock,lockfile,1.81.13
+litellm:fix,nvidia-nat-agno,github.com/nvidia/nemo-agent-toolkit,5e893d8a923b,uv.lock,lockfile,"1.74.1,1.74.9"
+litellm:fix,specmap,github.com/jdraines/specmap,80b2aaecf474,core/uv.lock,lockfile,1.82.4
+litellm:fix,graphrag-llm,github.com/microsoft/graphrag,b1f0e6c34583,packages/graphrag-llm/pyproject.toml,exact pin,1.82.6
+litellm:fix,graphrag-llm,github.com/microsoft/graphrag,b1f0e6c34583,uv.lock,lockfile,1.82.6
+litellm:fix,ragbits-core,github.com/deepsense-ai/ragbits,9432ffdc3bb0,uv.lock,lockfile,1.74.8
+litellm:fix,markitai,github.com/ynewtime/markitai,16aca0e23ebb,uv.lock,lockfile,1.82.6
+litellm:fix,dspy,github.com/stanfordnlp/dspy,940629124348,uv.lock,lockfile,"1.68.0,1.72.6"
+litellm:fix,kiln-ai,github.com/kiln-ai/kiln,92076e017b52,uv.lock,lockfile,1.81.16
+litellm:fix,sdg-hub,github.com/red-hat-ai-innovation-team/sdg_hub,b0b856ece666,uv.lock,lockfile,1.81.9
+litellm:fix,policy-foundry,github.com/vahagn-madatyan/policyfoundry,d597a6b68004,pyproject.toml,exact pin,1.82.6
+litellm:fix,policy-foundry,github.com/vahagn-madatyan/policyfoundry,d597a6b68004,uv.lock,lockfile,1.82.3
+litellm:fix,djangosdk,github.com/ziyacivan/django-ai-sdk,4cd5b4c88931,pyproject.toml,exact pin,1.82.6
+litellm:fix,djangosdk,github.com/ziyacivan/django-ai-sdk,4cd5b4c88931,uv.lock,lockfile,1.82.6
+litellm:fix,futuresearch-mcp,github.com/futuresearch/futuresearch-python,aabab0a6eddc,uv.lock,lockfile,1.82.0
+litellm:fix,praisonai,github.com/mervinpraison/praisonai,ffd78f0eb6d4,src/praisonai-agents/uv.lock,lockfile,1.81.1
+litellm:fix,praisonai,github.com/mervinpraison/praisonai,ffd78f0eb6d4,src/praisonai/poetry.lock,lockfile,1.48.0
+litellm:fix,praisonai,github.com/mervinpraison/praisonai,ffd78f0eb6d4,src/praisonai/uv.lock,lockfile,1.81.1
+litellm:fix,hindsight-api-slim,github.com/vectorize-io/hindsight,45ffc7fe9038,hindsight-integrations/litellm/uv.lock,lockfile,1.80.10
+litellm:fix,hindsight-api-slim,github.com/vectorize-io/hindsight,45ffc7fe9038,uv.lock,lockfile,1.81.10
+litellm:fix,bdi-kit,github.com/vida-nyu/bdi-kit,1cb42ff0aa22,requirements.txt,exact pin,1.82.6
+litellm:fix,nvidia-nat-adk,github.com/nvidia/nemo-agent-toolkit,5e893d8a923b,packages/nvidia_nat_adk/uv.lock,lockfile,1.81.13
+litellm:fix,nvidia-nat-adk,github.com/nvidia/nemo-agent-toolkit,5e893d8a923b,packages/nvidia_nat_agno/uv.lock,lockfile,1.80.0
+litellm:fix,nvidia-nat-adk,github.com/nvidia/nemo-agent-toolkit,5e893d8a923b,packages/nvidia_nat_crewai/uv.lock,lockfile,1.74.9
+litellm:fix,nvidia-nat-adk,github.com/nvidia/nemo-agent-toolkit,5e893d8a923b,packages/nvidia_nat_langchain/uv.lock,lockfile,1.81.13
+litellm:fix,nvidia-nat-adk,github.com/nvidia/nemo-agent-toolkit,5e893d8a923b,packages/nvidia_nat_llama_index/uv.lock,lockfile,1.81.13
+litellm:fix,nvidia-nat-adk,github.com/nvidia/nemo-agent-toolkit,5e893d8a923b,packages/nvidia_nat_openpipe_art/uv.lock,lockfile,1.74.1
+litellm:fix,nvidia-nat-adk,github.com/nvidia/nemo-agent-toolkit,5e893d8a923b,packages/nvidia_nat_ragaai/uv.lock,lockfile,1.81.13
+litellm:fix,nvidia-nat-adk,github.com/nvidia/nemo-agent-toolkit,5e893d8a923b,packages/nvidia_nat_vanna/uv.lock,lockfile,1.81.13
+litellm:fix,nvidia-nat-adk,github.com/nvidia/nemo-agent-toolkit,5e893d8a923b,uv.lock,lockfile,"1.74.1,1.74.9"
+litellm:fix,acorn,github.com/askmanu/acorn,6efcbb4e6b93,pyproject.toml,exact pin,1.82.6
+litellm:fix,forecasting-tools,github.com/metaculus/forecasting-tools,7f7dd2f39645,poetry.lock,lockfile,1.81.14
+litellm:fix,inspect-harbor,github.com/meridianlabs-ai/inspect_harbor,5f49ac99f33c,uv.lock,lockfile,1.81.6
+litellm:fix,swival,github.com/swival/swival,8ec03a676abb,pyproject.toml,exact pin,1.82.6
+litellm:fix,swival,github.com/swival/swival,8ec03a676abb,uv.lock,lockfile,1.82.6
+litellm:fix,garak,github.com/nvidia/garak,069acbd1f488,pyproject.toml,exact pin,1.82.6
+litellm:fix,garak,github.com/nvidia/garak,069acbd1f488,requirements.txt,exact pin,1.82.6
+litellm:fix,agent-memory-server,github.com/redis/agent-memory-server,85d2a83d53ea,uv.lock,lockfile,1.80.11
+litellm:fix,grizabella,github.com/pwilkin/grizabella,89f1e73e7d4f,poetry.lock,lockfile,1.78.7
+litellm:fix,infiagent,github.com/chenglinpoly/multi-level-agent,ac97e4661597,requirements.txt,exact pin,"1.82.6,1.82.6"
+litellm:fix,infiagent,github.com/chenglinpoly/multi-level-agent,ac97e4661597,tool_server_lite/requirements.txt,exact pin,1.82.6
+litellm:fix,trustgraph-jac,github.com/jemsbhai/trustgraph-jac,5f52b95cf323,poetry.lock,lockfile,1.82.0
+litellm:fix,strwythura,github.com/derwenai/strwythura,2b57f856aa37,poetry.lock,lockfile,1.82.6
+litellm:fix,toolguard,github.com/agenttoolkit/toolguard,a622b6cbf307,uv.lock,lockfile,1.80.11
+litellm:fix,cordon,github.com/calebevans/cordon,d9a8c02a45bd,uv.lock,lockfile,1.81.0
+litellm:fix,railtracks,github.com/railtownai/railtracks,bfae26e2f8f1,uv.lock,lockfile,1.77.0
+litellm:fix,envio-ai,github.com/gangadhar24377/envio,448be469eb14,uv.lock,lockfile,1.82.4
+aiohttp:fix,exchanges-wrapper,github.com/dogstailfarmer/exchanges-wrapper,57233a798d18,pyproject.toml,exact pin,3.14.1
+aiohttp:fix,exchanges-wrapper,github.com/dogstailfarmer/exchanges-wrapper,57233a798d18,requirements.txt,exact pin,3.14.1
+aiohttp:fix,martin-binance,github.com/dogstailfarmer/martin-binance,9156d2af3dc3,pyproject.toml,exact pin,3.14.1
+aiohttp:fix,martin-binance,github.com/dogstailfarmer/martin-binance,9156d2af3dc3,requirements.txt,exact pin,3.14.1
+aiohttp:fix,better-social-notifications,github.com/jnstockley/bsn,dbeb74c233d2,pyproject.toml,exact pin,3.14.2
+aiohttp:fix,better-social-notifications,github.com/jnstockley/bsn,dbeb74c233d2,uv.lock,lockfile,3.14.2
+pyasn1:fix,docassemble-webapp,github.com/jhpyle/docassemble,758d143b3dde,docassemble_base/pyproject.toml,exact pin,0.6.3
+pyasn1:fix,docassemble-webapp,github.com/jhpyle/docassemble,758d143b3dde,docassemble_webapp/pyproject.toml,exact pin,0.6.3
+pyasn1:fix,lemur,github.com/netflix/lemur,3a3c2c201d42,requirements-dev.txt,lockfile,0.6.3
+pyasn1:fix,lemur,github.com/netflix/lemur,3a3c2c201d42,requirements-docs.txt,lockfile,0.6.3
+pyasn1:fix,lemur,github.com/netflix/lemur,3a3c2c201d42,requirements-tests.txt,lockfile,0.6.3
+pyasn1:fix,lemur,github.com/netflix/lemur,3a3c2c201d42,requirements.txt,lockfile,0.6.3
+pyasn1:fix,cfl-common,github.com/ocadotechnology/codeforlife-portal,c1557c335aeb,Pipfile.lock,lockfile,"0.6.3,0.6.3"
+pyasn1:fix,jinjamator,github.com/jinjamator/jinjamator,fc93231fa2b5,requirements.txt,exact pin,0.6.3
+pyasn1:fix,grimoirelab,github.com/chaoss/grimoirelab,04ac551c8886,poetry.lock,lockfile,0.6.3
+pyasn1:fix,ocaya,github.com/mistralai/mistral-vibe,474a0e4055b2,pyproject.toml,exact pin,0.6.3
+pyasn1:fix,ocaya,github.com/mistralai/mistral-vibe,474a0e4055b2,uv.lock,lockfile,0.6.3
+pyasn1:fix,docassemble-base,github.com/jhpyle/docassemble,758d143b3dde,docassemble_base/pyproject.toml,exact pin,0.6.3
+pyasn1:fix,docassemble-base,github.com/jhpyle/docassemble,758d143b3dde,docassemble_webapp/pyproject.toml,exact pin,0.6.3
+pyasn1:fix,opencanary,github.com/thinkst/opencanary,3873d125741b,pyproject.toml,exact pin,0.6.3
+pyasn1:fix,opencanary,github.com/thinkst/opencanary,3873d125741b,uv.lock,lockfile,0.6.3
+pyasn1:fix,suffolklitlab-docassemble-webapp,github.com/jhpyle/docassemble,758d143b3dde,docassemble_base/pyproject.toml,exact pin,0.6.3
+pyasn1:fix,suffolklitlab-docassemble-webapp,github.com/jhpyle/docassemble,758d143b3dde,docassemble_webapp/pyproject.toml,exact pin,0.6.3
+pyasn1:fix,kagenti-cli,github.com/kagenti/adk,decc395550fc,agents/adk-support-agent/uv.lock,lockfile,0.6.3
+pyasn1:fix,kagenti-cli,github.com/kagenti/adk,decc395550fc,apps/adk-cli/uv.lock,lockfile,0.6.3
+pyasn1:fix,kagenti-cli,github.com/kagenti/adk,decc395550fc,apps/adk-py/uv.lock,lockfile,0.6.3
+pyasn1:fix,kagenti-cli,github.com/kagenti/adk,decc395550fc,apps/adk-server/uv.lock,lockfile,0.6.3
+pyasn1:fix,indico,github.com/indico/indico,d4c8c7127176,requirements.txt,lockfile,0.6.3
+pyasn1:fix,suffolklitlab-docassemble-base,github.com/suffolklitlab/docassemble,d620319de6e9,docassemble_base/pyproject.toml,exact pin,0.6.3
+pyasn1:fix,suffolklitlab-docassemble-base,github.com/suffolklitlab/docassemble,d620319de6e9,docassemble_webapp/pyproject.toml,exact pin,0.6.3
+pyasn1:fix,weblate,github.com/weblateorg/weblate,4f2c2f527a57,pyproject.toml,exact pin,0.6.3
+pyasn1:fix,weblate,github.com/weblateorg/weblate,4f2c2f527a57,uv.lock,lockfile,0.6.3
+pyasn1:fix,uvibe,github.com/teeay/usable-vibe,278a61ec7fba,pyproject.toml,exact pin,0.6.3
+pyasn1:fix,uvibe,github.com/teeay/usable-vibe,278a61ec7fba,uv.lock,lockfile,0.6.3
+pyasn1:fix,mistral-vibe,github.com/mistralai/mistral-vibe,474a0e4055b2,pyproject.toml,exact pin,0.6.3
+pyasn1:fix,mistral-vibe,github.com/mistralai/mistral-vibe,474a0e4055b2,uv.lock,lockfile,0.6.3
+pyasn1:fix,galaxy,github.com/galaxyproject/galaxy,bbac30d66bac,lib/galaxy/dependencies/dev-requirements.txt,lockfile,0.6.3
+pyasn1:fix,galaxy,github.com/galaxyproject/galaxy,bbac30d66bac,lib/galaxy/dependencies/pinned-requirements.txt,lockfile,0.6.3
+pyasn1:fix,galaxy,github.com/galaxyproject/galaxy,bbac30d66bac,lib/galaxy/dependencies/pinned-test-requirements.txt,lockfile,0.6.3
+pyasn1:fix,rapid-router,github.com/ocadotechnology/rapid-router,49256b6b92c9,Pipfile.lock,lockfile,"0.6.3,0.6.3"
+pyasn1:fix,cassandra-medusa,github.com/thelastpickle/cassandra-medusa,27688aa9d94e,poetry.lock,lockfile,0.6.3
+pyasn1:fix,cassandra-medusa,github.com/thelastpickle/cassandra-medusa,27688aa9d94e,pyproject.toml,exact pin,0.6.3
+pyasn1:fix,codeforlife-portal,github.com/ocadotechnology/codeforlife-portal,c1557c335aeb,Pipfile.lock,lockfile,"0.6.3,0.6.3"
+pyasn1:fix,codeforlife,github.com/ocadotechnology/codeforlife-package-python,ad46e0f56c5b,Pipfile.lock,lockfile,0.6.3
+pillow:fix,nemo,github.com/usnistgov/nemo,347034daa762,pyproject.toml,exact pin,12.1.1
+pillow:fix,browser-use,github.com/browser-use/browser-use,e026a51fd34d,pyproject.toml,exact pin,12.1.1
+pillow:fix,chameleoniq,github.com/edalita/chameleoniq,690407dec159,pyproject.toml,exact pin,12.1.1
+pillow:fix,chameleoniq,github.com/edalita/chameleoniq,690407dec159,requirements_dev.txt,exact pin,12.1.1
+pillow:fix,dcspy,github.com/emcek/dcspy,b3f1a0d9e602,pyproject.toml,exact pin,12.1.1
+pillow:fix,sampledb,github.com/sciapp/sampledb,fc95ee51f462,requirements.txt,exact pin,12.1.1
+pillow:fix,cn-pii-anonymization,github.com/neednlab/cn_pii_anonymization,f4ffb49f1c7c,pyproject.toml,exact pin,12.1.1
+pillow:fix,cn-pii-anonymization,github.com/neednlab/cn_pii_anonymization,f4ffb49f1c7c,uv.lock,lockfile,12.1.1
+pillow:fix,an-website,github.com/asozialesnetzwerk/an-website,7a5038611dad,Pipfile.lock,lockfile,12.1.1
+pillow:fix,an-website,github.com/asozialesnetzwerk/an-website,7a5038611dad,pip-dev-requirements.txt,exact pin,12.1.1
+pillow:fix,an-website,github.com/asozialesnetzwerk/an-website,7a5038611dad,pip-requirements.txt,exact pin,12.1.1
+pillow:fix,esphome,github.com/esphome/esphome,fbfb5d401f99,requirements.txt,exact pin,12.1.1
+pillow:fix,aider-chat,github.com/aider-ai/aider,bdb4d9ff8ef8,requirements.txt,lockfile,12.1.1
+pillow:fix,aider-chat,github.com/aider-ai/aider,bdb4d9ff8ef8,requirements/common-constraints.txt,lockfile,12.1.1
+pillow:fix,aider-chat,github.com/aider-ai/aider,bdb4d9ff8ef8,requirements/requirements-browser.txt,lockfile,12.1.1
+pillow:fix,aider-chat,github.com/aider-ai/aider,bdb4d9ff8ef8,requirements/requirements-dev.txt,lockfile,12.1.1
+pillow:fix,aider-chat,github.com/aider-ai/aider,bdb4d9ff8ef8,requirements/requirements-help.txt,lockfile,12.1.1
+pillow:fix,exodus-core,github.com/exodus-privacy/exodus-core,6da2cce6bf3a,requirements.txt,exact pin,10.4.0
+pillow:fix,exodus-core,github.com/exodus-privacy/exodus-core,6da2cce6bf3a,setup.py,exact pin,10.4.0
+pillow:fix,tabsdata,github.com/tabsdata/tabsdata,2fe64376c135,requirements/requirements-third-party.txt,exact pin,12.1.1
+pillow:fix,mmrelay,github.com/jeremiah-k/meshtastic-matrix-relay,048f6503722b,requirements.txt,exact pin,12.1.1
+pillow:fix,mmrelay,github.com/jeremiah-k/meshtastic-matrix-relay,048f6503722b,setup.py,exact pin,12.1.1
+pillow:fix,geonode,github.com/geonode/geonode,2e61721e39c5,pyproject.toml,exact pin,12.1.1
+pillow:fix,openssl-encrypt,github.com/jahlives/openssl_encrypt,f2bac787c683,requirements-dev.txt,lockfile,12.1.1
+pillow:fix,openssl-encrypt,github.com/jahlives/openssl_encrypt,f2bac787c683,requirements-prod.txt,lockfile,12.1.1
+pillow:fix,sgithidownloader,github.com/acecjm/sgithidownloader,b069eb76064f,pyproject.toml,exact pin,12.1.1
+pillow:fix,solace-agent-mesh,github.com/solacelabs/solace-agent-mesh,fdce9e48633f,pyproject.toml,exact pin,12.1.1
+pillow:fix,solace-agent-mesh,github.com/solacelabs/solace-agent-mesh,fdce9e48633f,uv.lock,lockfile,12.1.1
+pillow:fix,coldfearlngbundler,github.com/meltnoexit/coldfearlngbundler,100d76b1f005,pyproject.toml,exact pin,12.1.1
+pillow:fix,coldfearlngbundler,github.com/meltnoexit/coldfearlngbundler,100d76b1f005,uv.lock,lockfile,12.1.1
+pillow:fix,nemo-ce,gitlab.com/nemo-community/nemo-ce,5d9e751bf19c,pyproject.toml,exact pin,12.1.1
+pillow:fix,pimage,github.com/rahmatnazali/pimage,929f329e276f,pyproject.toml,exact pin,12.1.1
+pillow:fix,pimage,github.com/rahmatnazali/pimage,929f329e276f,requirements.txt,exact pin,12.1.1
+pillow:fix,hoop-diagram,github.com/yths/hoop-diagram,aad87cd825b6,pyproject.toml,exact pin,12.1.1
+pillow:fix,hoop-diagram,github.com/yths/hoop-diagram,aad87cd825b6,requirements-minimal.txt,exact pin,12.1.1
+pillow:fix,hoop-diagram,github.com/yths/hoop-diagram,aad87cd825b6,requirements.txt,exact pin,12.1.1
+pillow:fix,jptrainer,github.com/2coderok/jp-trainer,349655ecae22,pyproject.toml,exact pin,12.1.1
+pillow:fix,root-painter-trainer,github.com/abe404/root_painter,b3f376ebae80,trainer/pyproject.toml,exact pin,12.1.1
+pillow:fix,root-painter-trainer,github.com/abe404/root_painter,b3f376ebae80,trainer/requirements.txt,exact pin,12.1.1
+pillow:fix,root-painter-trainer,github.com/abe404/root_painter,b3f376ebae80,trainer/requirements_base_no_torch.txt,exact pin,12.1.1
+python-multipart:fix,supervisely,github.com/supervisely/supervisely,4690d8548ae6,setup.py,exact pin,0.0.26
+python-multipart:fix,opensampl,github.com/ornl/opensampl,8e3d5a9f7b57,uv.lock,lockfile,0.0.20
+python-multipart:fix,docreview360,github.com/eputnam77/docreview360,c5147e2e1445,poetry.lock,lockfile,0.0.22
+python-multipart:fix,docreview360,github.com/eputnam77/docreview360,c5147e2e1445,pyproject.toml,exact pin,0.0.26
+python-multipart:fix,docreview360,github.com/eputnam77/docreview360,c5147e2e1445,requirements.txt,exact pin,0.0.26
+python-multipart:fix,solace-agent-mesh,github.com/solacelabs/solace-agent-mesh,1fa10a68d067,pyproject.toml,exact pin,0.0.26
+python-multipart:fix,solace-agent-mesh,github.com/solacelabs/solace-agent-mesh,1fa10a68d067,uv.lock,lockfile,0.0.26
+python-multipart:fix,serena-agent,github.com/oraios/serena,fd3e29ac50e2,pyproject.toml,exact pin,0.0.26
+python-multipart:fix,serena-agent,github.com/oraios/serena,fd3e29ac50e2,uv.lock,lockfile,0.0.26
+python-multipart:fix,nanobot-webui,github.com/good0007/nanobot-webui,f3cdbae6e372,pyproject.toml,exact pin,0.0.26
+python-multipart:fix,mindsdb,github.com/mindsdb/mindsdb,86be14b66b16,requirements/requirements.txt,exact pin,0.0.26
+python-multipart:fix,uuv-assistant-ai,github.com/e2e-test-quest/uuv,ededde954f4e,packages/assistant-ai/uv.lock,lockfile,0.0.26
+python-multipart:fix,infrahub-server,github.com/opsmill/infrahub,7a97d8e609da,pyproject.toml,exact pin,0.0.26
+python-multipart:fix,infrahub-server,github.com/opsmill/infrahub,7a97d8e609da,uv.lock,lockfile,0.0.26
+soupsieve:fix,sampledb,github.com/sciapp/sampledb,a94624049cec,requirements.txt,exact pin,2.8.3
+soupsieve:fix,an-website,github.com/asozialesnetzwerk/an-website,5bb5e75ec951,Pipfile.lock,lockfile,"2.8.3,2.8.3"
+soupsieve:fix,an-website,github.com/asozialesnetzwerk/an-website,5bb5e75ec951,pip-dev-requirements.txt,exact pin,2.8.3
+soupsieve:fix,an-website,github.com/asozialesnetzwerk/an-website,5bb5e75ec951,pip-requirements.txt,exact pin,2.8.3
+soupsieve:fix,aider-chat,github.com/aider-ai/aider,5dc9490bb35f,requirements.txt,lockfile,2.8.3
+soupsieve:fix,aider-chat,github.com/aider-ai/aider,5dc9490bb35f,requirements/common-constraints.txt,lockfile,2.8.3
+soupsieve:fix,grimoirelab,github.com/chaoss/grimoirelab,7b52eba56a76,poetry.lock,lockfile,2.8.3
+soupsieve:fix,ocaya,github.com/mistralai/mistral-vibe,f71bfd3b8cdd,pyproject.toml,exact pin,2.8.3
+soupsieve:fix,ocaya,github.com/mistralai/mistral-vibe,f71bfd3b8cdd,uv.lock,lockfile,2.8.3
+soupsieve:fix,maalfrid-toolkit,github.com/nationallibraryofnorway/maalfrid_toolkit,cff3de8472fa,pdm.lock,lockfile,2.8.3
+soupsieve:fix,maalfrid-toolkit,github.com/nationallibraryofnorway/maalfrid_toolkit,cff3de8472fa,pyproject.toml,exact pin,2.8.3
+soupsieve:fix,uuv-assistant-ai,github.com/e2e-test-quest/uuv,ff614049a23c,packages/assistant-ai/uv.lock,lockfile,2.8.3
+soupsieve:fix,forgepair,github.com/tvick64889/forgepair,5dc9490bb35f,requirements.txt,lockfile,2.8.3
+soupsieve:fix,forgepair,github.com/tvick64889/forgepair,5dc9490bb35f,requirements/common-constraints.txt,lockfile,2.8.3
+soupsieve:fix,mistral-vibe,github.com/mistralai/mistral-vibe,f71bfd3b8cdd,pyproject.toml,exact pin,2.8.3
+soupsieve:fix,mistral-vibe,github.com/mistralai/mistral-vibe,f71bfd3b8cdd,uv.lock,lockfile,2.8.3
+soupsieve:fix,zetaalpha-rag-agents,github.com/zetaalphavector/platform,96bb95d86fa7,agents-sdk/pyproject.toml,exact pin,"2.8.3,2.8.3"
+lxml:fix,pypublib,github.com/infaktum/pypublib,fcefdd01810b,requirements/runtime.txt,exact pin,6.0.4
+lxml:fix,nton,github.com/rlaphoenix/nton,f14dee485bbe,uv.lock,lockfile,6.0.2
+lxml:fix,wikidot,github.com/ukwhatn/wikidot.py,c9dc67ae4fd2,uv.lock,lockfile,6.0.4
+lxml:fix,python3-commons,github.com/kamikaze/python3-commons,ae6686e02800,uv.lock,lockfile,6.0.4
+lxml:fix,bikeshed,github.com/speced/bikeshed,9b97aaefea09,requirements.txt,exact pin,6.0.4
+lxml:fix,weblate,github.com/weblateorg/weblate,4e37dd461beb,uv.lock,lockfile,6.0.4
+lxml:fix,celus-pycounter,github.com/big-dig-data/celus-pycounter,c3a854b107a8,poetry.lock,lockfile,6.0.2
+lxml:fix,pypxml,github.com/jahtz/pypxml,0ceef15c8711,uv.lock,lockfile,6.0.2
+lxml:fix,isatools,github.com/isa-tools/isa-api,ee5ba747d38a,uv.lock,lockfile,6.0.2
+mcp:fix,stealth-chrome-devtools-mcp,github.com/devinosolutions/stealth-chrome-devtools-mcp,dd04fd0d104d,uv.lock,lockfile,1.27.1
+mcp:fix,agentcrew-ai,github.com/saigontechnology/agentcrew,aba034c13d61,pyproject.toml,exact pin,1.27.1
+mcp:fix,agentcrew-ai,github.com/saigontechnology/agentcrew,aba034c13d61,uv.lock,lockfile,1.27.1
+mcp:fix,prosuite-mcp,github.com/prosuite/prosuite-mcp,da6072d12dc3,pyproject.toml,exact pin,1.27.1
+mcp:fix,legal-text-mcp-de,github.com/klein-business/legal-text-mcp-de,db7cc68b7308,pyproject.toml,exact pin,1.27.1
+mcp:fix,legal-text-mcp-de,github.com/klein-business/legal-text-mcp-de,db7cc68b7308,uv.lock,lockfile,1.27.1
+mcp:fix,async-media-agents,github.com/abka012/async-media-agents,54b59c776277,requirements.txt,exact pin,1.27.1
+mcp:fix,superlocalmemory,github.com/qualixar/superlocalmemory,58f58768a8ff,pyproject.toml,exact pin,1.27.1
+mcp:fix,ocaya,github.com/mistralai/mistral-vibe,ad0d5c952078,pyproject.toml,exact pin,1.27.1
+mcp:fix,ocaya,github.com/mistralai/mistral-vibe,ad0d5c952078,uv.lock,lockfile,1.27.1
+mcp:fix,relay-shell,github.com/rmednitzer/relay-shell,c07672aa663d,pyproject.toml,exact pin,1.27.1
+mcp:fix,relay-shell,github.com/rmednitzer/relay-shell,c07672aa663d,requirements.txt,exact pin,1.27.1
+mcp:fix,presto-mcp,github.com/kodamonkey/mcp-server-presto,db7b70b8db14,pyproject.toml,exact pin,1.27.1
+mcp:fix,presto-mcp,github.com/kodamonkey/mcp-server-presto,db7b70b8db14,uv.lock,lockfile,1.27.1
+mcp:fix,mslm-memory,github.com/kenyonxu/superlocalmemory,58f58768a8ff,pyproject.toml,exact pin,1.27.1
+mcp:fix,whatsapp-desktop-mcp,github.com/jqueguiner/whatsapp-desktop-mcp,a103b72a3f34,pyproject.toml,exact pin,1.27.1
+mcp:fix,whatsapp-desktop-mcp,github.com/jqueguiner/whatsapp-desktop-mcp,a103b72a3f34,uv.lock,lockfile,1.27.1
+mcp:fix,mistral-vibe,github.com/mistralai/mistral-vibe,ad0d5c952078,pyproject.toml,exact pin,1.27.1
+mcp:fix,mistral-vibe,github.com/mistralai/mistral-vibe,ad0d5c952078,uv.lock,lockfile,1.27.1
+mcp:fix,galaxy,github.com/galaxyproject/galaxy,59b15b531423,lib/galaxy/dependencies/pinned-requirements.txt,lockfile,1.27.1
+mcp:fix,mcp-snowflake-server-nsp,github.com/nsphung/mcp-snowflake-server,7a693c28b04f,pyproject.toml,exact pin,1.27.1
+mcp:fix,mcp-snowflake-server-nsp,github.com/nsphung/mcp-snowflake-server,7a693c28b04f,uv.lock,lockfile,1.27.1
+gitpython:fix,sutra-engine,github.com/ritikk112/sutra,86914ff6ae07,requirements.txt,exact pin,3.1.46
+gitpython:fix,dcspy,github.com/emcek/dcspy,746f63d8821a,pyproject.toml,exact pin,3.1.46
+gitpython:fix,aider-chat,github.com/aider-ai/aider,928bb49c4b5f,requirements.txt,lockfile,3.1.46
+gitpython:fix,aider-chat,github.com/aider-ai/aider,928bb49c4b5f,requirements/common-constraints.txt,lockfile,3.1.46
+gitpython:fix,aider-chat,github.com/aider-ai/aider,928bb49c4b5f,requirements/requirements-browser.txt,lockfile,3.1.46
+gitpython:fix,codefox,github.com/urlbug/codefox-cli,7b5f855fb6b5,pyproject.toml,exact pin,3.1.46
+gitpython:fix,codefox,github.com/urlbug/codefox-cli,7b5f855fb6b5,requirements.txt,exact pin,3.1.46
+gitpython:fix,codefox,github.com/urlbug/codefox-cli,7b5f855fb6b5,setup.py,exact pin,3.1.46
+gitpython:fix,codefox,github.com/urlbug/codefox-cli,7b5f855fb6b5,uv.lock,lockfile,3.1.46
+gitpython:fix,eden-soma-retargeter,github.com/lalit-jayanti/eden-soma-retargeter,b3ef2708d84b,pyproject.toml,exact pin,3.1.46
+gitpython:fix,eden-soma-retargeter,github.com/lalit-jayanti/eden-soma-retargeter,b3ef2708d84b,uv.lock,lockfile,3.1.46
+gitpython:fix,netbox-manager,github.com/osism/netbox-manager,662aaf2aa87d,Pipfile,exact pin,3.1.46
+gitpython:fix,netbox-manager,github.com/osism/netbox-manager,662aaf2aa87d,Pipfile.lock,lockfile,3.1.46
+gitpython:fix,netbox-manager,github.com/osism/netbox-manager,662aaf2aa87d,requirements.txt,exact pin,3.1.46
+gitpython:fix,scancodeio,github.com/aboutcode-org/scancode.io,904373abf472,pyproject.toml,exact pin,3.1.46
+gitpython:fix,scancodeio,github.com/aboutcode-org/scancode.io,904373abf472,uv.lock,lockfile,3.1.46
+gitpython:fix,osism,github.com/osism/python-osism,40921cc40196,Pipfile,exact pin,3.1.46
+gitpython:fix,osism,github.com/osism/python-osism,40921cc40196,Pipfile.lock,lockfile,3.1.46
+gitpython:fix,osism,github.com/osism/python-osism,40921cc40196,requirements.txt,exact pin,3.1.46
+gitpython:fix,githubtakeout,github.com/cgoldberg/githubtakeout,e6aa6b802336,pyproject.toml,exact pin,3.1.46
+gitpython:fix,cookieplone,github.com/plone/cookieplone,ab7d65ac76a8,pyproject.toml,exact pin,3.1.46
+gitpython:fix,cookieplone,github.com/plone/cookieplone,ab7d65ac76a8,uv.lock,lockfile,3.1.46
+gitpython:fix,repository-updater,github.com/hassio-addons/repository-updater,425b205d131d,requirements.txt,exact pin,3.1.46
+gitpython:fix,repository-updater,github.com/hassio-addons/repository-updater,425b205d131d,setup.py,exact pin,3.1.46
+gitpython:fix,syn-commodore,github.com/projectsyn/commodore,53a7ed44c259,poetry.lock,lockfile,3.1.46
+gitpython:fix,syn-commodore,github.com/projectsyn/commodore,53a7ed44c259,pyproject.toml,exact pin,3.1.46
+gitpython:fix,avakas,github.com/otakup0pe/avakas,f7ee0945dacd,pyproject.toml,exact pin,3.1.46
+gitpython:fix,git-batch,github.com/thegeeklab/git-batch,ea883e4302a7,poetry.lock,lockfile,3.1.46
+gitpython:fix,git-batch,github.com/thegeeklab/git-batch,ea883e4302a7,pyproject.toml,exact pin,3.1.46
+gitpython:fix,pgrubic,github.com/bolajiwahab/pgrubic,e54a83490888,pyproject.toml,exact pin,3.1.46
+gitpython:fix,atomic-red-team-mcp,github.com/cyberbuff/atomic-red-team-mcp,8411aba60b26,pyproject.toml,exact pin,3.1.46
+gitpython:fix,atomic-red-team-mcp,github.com/cyberbuff/atomic-red-team-mcp,8411aba60b26,uv.lock,lockfile,3.1.46
+gitpython:fix,bsl-appcli,github.com/brightsparklabs/appcli,21661d3af73d,pyproject.toml,exact pin,3.1.46
+gitpython:fix,bsl-appcli,github.com/brightsparklabs/appcli,21661d3af73d,uv.lock,lockfile,3.1.46
+gitpython:fix,qbit-manage,github.com/stuffanthings/qbit_manage,b326ba6e4484,pyproject.toml,exact pin,3.1.46
+gitpython:fix,qbit-manage,github.com/stuffanthings/qbit_manage,b326ba6e4484,uv.lock,lockfile,3.1.46
+gitpython:fix,ansible-doctor,github.com/thegeeklab/ansible-doctor,1127dfd09409,poetry.lock,lockfile,3.1.46
+gitpython:fix,ansible-doctor,github.com/thegeeklab/ansible-doctor,1127dfd09409,pyproject.toml,exact pin,3.1.46
+gitpython:fix,forgepair,github.com/tvick64889/forgepair,928bb49c4b5f,requirements.txt,lockfile,3.1.46
+gitpython:fix,forgepair,github.com/tvick64889/forgepair,928bb49c4b5f,requirements/common-constraints.txt,lockfile,3.1.46
+gitpython:fix,forgepair,github.com/tvick64889/forgepair,928bb49c4b5f,requirements/requirements-browser.txt,lockfile,3.1.46
+gitpython:fix,slidedeckai,github.com/barun-saha/slide-deck-ai,4d3249f6e0ca,requirements.txt,exact pin,3.1.46
+gitpython:fix,suitable-loop,github.com/suitable-adventures/suitable-loop,e6c142d0fbe6,pyproject.toml,exact pin,3.1.46
+gitpython:fix,clauditor,github.com/gabrielsoltz/clauditor,c4af83227860,pyproject.toml,exact pin,3.1.46
+gitpython:fix,zetaalpha-rag-agents,github.com/zetaalphavector/platform,7676a14f68fa,agents-sdk/pyproject.toml,exact pin,"3.1.46,3.1.46,3.1.46,3.1.46,3.1.46,3.1.46,3.1.46,3.1.46,3.1.46,3.1.46,3.1.46,3.1.46"
+gitpython:fix,mkdocs-zettelkasten,github.com/buvis/mkdocs-zettelkasten,b96272d381ad,uv.lock,lockfile,3.1.46
+gitpython:fix,el-paso,github.com/gfz/el_paso,aa2121a174a1,pyproject.toml,exact pin,3.1.46
+gitpython:fix,ansys-pre-commit-hooks,github.com/ansys/pre-commit-hooks,ee95b36305ae,pyproject.toml,exact pin,"3.1.46,3.1.46"
+gitpython:fix,ansys-pre-commit-hooks,github.com/ansys/pre-commit-hooks,ee95b36305ae,setup.py,exact pin,3.1.46
+mako:fix,docassemble-webapp,github.com/jhpyle/docassemble,e71c93989a87,docassemble_base/pyproject.toml,exact pin,1.3.10
+mako:fix,docassemble-webapp,github.com/jhpyle/docassemble,e71c93989a87,docassemble_webapp/pyproject.toml,exact pin,1.3.10
+mako:fix,kerbside,github.com/shakenfist/kerbside,78ebd3f99837,pyproject.toml,exact pin,1.3.10
+mako:fix,auditize,github.com/auditize/auditize,77712f1306ab,backend/uv.lock,lockfile,1.3.10
+mako:fix,devopsdriver,github.com/marcpage/devops-driver,4cbb32135a0b,pyproject.toml,exact pin,1.3.10
+mako:fix,docassemble-base,github.com/jhpyle/docassemble,e71c93989a87,docassemble_base/pyproject.toml,exact pin,1.3.10
+mako:fix,docassemble-base,github.com/jhpyle/docassemble,e71c93989a87,docassemble_webapp/pyproject.toml,exact pin,1.3.10
+mako:fix,lback-framework,github.com/hemaabokila/lback_framework,0410676f5074,requirements.txt,exact pin,1.3.10
+mako:fix,suffolklitlab-docassemble-webapp,github.com/jhpyle/docassemble,e71c93989a87,docassemble_base/pyproject.toml,exact pin,1.3.10
+mako:fix,suffolklitlab-docassemble-webapp,github.com/jhpyle/docassemble,e71c93989a87,docassemble_webapp/pyproject.toml,exact pin,1.3.10
+mako:fix,biweeklybudget,github.com/jantman/biweeklybudget,a7f2292c26c3,requirements.txt,exact pin,1.3.10
+mako:fix,multimodal-parsers,github.com/thuuyen98/pier-qa,4924cc01deed,requirements.txt,exact pin,1.3.10
+mako:fix,multimodal-parsers,github.com/thuuyen98/pier-qa,4924cc01deed,setup.py,exact pin,1.3.10
+mako:fix,push-service,github.com/aesuli/push_service,91f5fa6ff26b,requirements.txt,exact pin,1.3.10
+mako:fix,stexus,github.com/jundi77/stexus,ff2bfe4126e4,requirements-dev.txt,exact pin,1.3.10
+mako:fix,stexus,github.com/jundi77/stexus,ff2bfe4126e4,requirements.txt,exact pin,1.3.10
+mako:fix,uuv-assistant-ai,github.com/e2e-test-quest/uuv,870783abbca8,packages/assistant-ai/uv.lock,lockfile,1.3.10
+mako:fix,indico,github.com/indico/indico,4422f1d4a99e,requirements.txt,lockfile,1.3.10
+mako:fix,suffolklitlab-docassemble-base,github.com/suffolklitlab/docassemble,adc86ef63b25,docassemble_base/pyproject.toml,exact pin,1.3.10
+mako:fix,suffolklitlab-docassemble-base,github.com/suffolklitlab/docassemble,adc86ef63b25,docassemble_webapp/pyproject.toml,exact pin,1.3.10
+mako:fix,galaxy,github.com/galaxyproject/galaxy,2b06d179d95c,lib/galaxy/dependencies/pinned-requirements.txt,lockfile,1.3.10
+mako:fix,nucypher,github.com/nucypher/nucypher,547a9646d929,dev-requirements.txt,exact pin,1.3.10
+mako:fix,nucypher,github.com/nucypher/nucypher,547a9646d929,poetry.lock,lockfile,1.3.10
+mako:fix,nucypher,github.com/nucypher/nucypher,547a9646d929,requirements.txt,exact pin,1.3.10
+mako:fix,whisperx-nemo-pipeline,github.com/paulborie/whisperx-nemo-parallel,d951f945151a,pyproject.toml,exact pin,1.3.10
+mako:fix,edumfa,github.com/edumfa/edumfa,2d58e085c6c6,requirements.txt,lockfile,1.3.10
+mako:fix,edumfa,github.com/edumfa/edumfa,2d58e085c6c6,uv.lock,lockfile,1.3.10
+mako:fix,ooresults,github.com/rgarus/ooresults,c863108d5f29,pyproject.toml,exact pin,1.3.10

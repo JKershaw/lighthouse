@@ -1,0 +1,38 @@
+library,version,flaw_named,flaw_words,near_miss_note
+urllib3,2.7.0,yes,"Decompression-bomb safeguards of the streaming API were bypassed; ProxyManager ... did not strip sensitive headers",
+cryptography,48.0.1,no,,"names an update of the bundled OpenSSL (to 4.0.1), not a flaw; the advisory is 'Vulnerable OpenSSL included in cryptography wheels'"
+cryptography,49.0.0,no,,"no line about certificate path building or duplicate intermediates"
+cryptography,50.0.0,yes,"no longer expose distinguishable errors or timing ... which could act as a Bleichenbacher oracle",
+pyjwt,2.13.0,yes,"close an algorithm-confusion gap",
+starlette,1.1.0,no,,"names the change in the affected function ('Reject absolute paths in StaticFiles.lookup_path'), not a flaw; the advisory is SSRF and NTLM credential theft via UNC paths in StaticFiles"
+starlette,1.3.1,no,,"names the change ('Enforce max_fields and max_part_size in FormParser'), not a flaw; the advisory is form limits silently ignored enabling denial of service"
+litellm,1.83.0,no,,"no entry at the tag or the head; a release-notes page for v1.83.0 was added to the repository 16.5 hours after the upload and removed on 24 April; its security words are about the 24 March supply-chain incident, not these advisories"
+litellm,1.83.7,no,,"no entry at the tag or the head; a page for v1.83.7.rc.1 was added 29 hours after the upload; its security words ('Docker Image Security Guide', 'Infrastructure / Security Notes') are about other matters"
+litellm,1.83.10,no,,no entry in any source read
+litellm,1.83.14,no,,no entry in any source read
+litellm,1.84.0,no,,no entry in any source read
+aiohttp,3.14.3,no,,"'Fixed error message construction in the C HTTP parser' names the component, not a flaw; the advisory is an out-of-bounds heap read in that parser's error path"
+pyasn1,0.6.4,yes,"Fixed quadratic time complexity in the OBJECT IDENTIFIER and RELATIVE-OID decoders. A small crafted substrate ... could consume excessive CPU",
+pillow,12.2.0,yes,"it was vulnerable to GZIP decompression bombs; Fix OOB write with invalid tile extents",
+pillow,12.3.0,yes,"Prevent decompression bomb when parsing PDF",
+python-multipart,0.0.27,no,,"'Add multipart header limits' names the change, not a flaw; the advisory is denial of service via unbounded part headers"
+python-multipart,0.0.30,no,,"names a parsing change (only '&' as a separator), not a flaw; the advisory is quadratic-time parsing with ';' separators"
+soupsieve,2.8.4,no,,"'Limit total number of selectors processed in a pattern to prevent massive selector requests' and 'Fix another inefficient attribute pattern' come nearest; neither names memory exhaustion, denial of service or a regular-expression flaw"
+lxml,6.1.0,yes,"fixes a possible external entity injection (XXE) vulnerability in iterparse() and the ETCompatXMLParser",
+mcp,1.27.2,no,,no entry in any source read (no changelog file in the repository; no notes in the PyPI description)
+mcp,1.28.1,no,,no entry in any source read
+msgpack,1.2.1,yes,"Fix a segfault when calling Unpacker.unpack() or Unpacker.skip() after an unpacking failure",
+gitpython,3.1.47,yes,"bypassing injection-protection of unsafe Git flags",
+gitpython,3.1.48,no,,"'Safe reference creation in the face of untrusted input' comes nearest; it names no flaw (the advisory is path traversal in the reference APIs)"
+gitpython,3.1.49,yes,"Save setting of configuration values, which cuold be used to inject other more configuration",
+gitpython,3.1.50,no,,"'Save setting of configuration values, this time sections as well, as follow-up to 3.1.49' refers to 3.1.49's fix but names no flaw itself"
+gitpython,3.1.51,yes,"prevents additional argument-injection paths that could allow execution of arbitrary commands",
+gitpython,3.1.52,yes,(GHSA id named),
+gitpython,3.1.53,yes,(GHSA id named),
+gitpython,3.1.54,yes,(GHSA ids named),
+gitpython,3.1.55,yes,(GHSA id named),
+gitpython,3.1.57,yes,(GHSA ids named),
+gitpython,3.1.58,yes,(GHSA ids named),
+langchain,0.3.30,no,,no entry in any source read (no changelog file in the repository at the tag or head; no notes in the PyPI description)
+mako,1.3.11,yes,"a URI with a double-slash prefix (e.g. //../../) could bypass the directory traversal check ... allowing reads of arbitrary files",
+mako,1.3.12,yes,"a URI with backslash path separators ... could bypass the directory traversal check on Windows, allowing reads of arbitrary files",

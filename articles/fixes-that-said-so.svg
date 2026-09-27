@@ -1,0 +1,120 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 720 664" width="720" height="664" role="img" aria-labelledby="t d">
+<title id="t">How fast pinned software moved to security fixes whose notes said so and to silent ones, before and after the advisory, fourteen Python libraries, April to September 2026</title>
+<desc id="d">Horizontal bars in two sections. The first counts days from the fixed release and stops at the advisory where it came first; the second counts days from the advisory. In each of three windows, days 0 to 2, 2 to 7 and 7 to 30, one bar is for fixes whose own release notes said they fixed a security flaw and one for fixes whose notes, where we could read them, did not. Each bar is the number of first moves to the fix per 100 repositories still waiting, per day, split by who made the move: a bot, a person merging a bot's branch, or a person. after the release, days 0 to 2, said so: 3.8 on 11 moves (7 by bots, 2 merged from a bot, 2 by people); after the release, days 0 to 2, silent: 4.0 on 8 moves (4 by bots, 0 merged from a bot, 4 by people); after the release, days 2 to 7, said so: 3.2 on 13 moves (3 by bots, 1 merged from a bot, 9 by people); after the release, days 2 to 7, silent: 1.5 on 5 moves (2 by bots, 1 merged from a bot, 2 by people); after the release, days 7 to 30, said so: 0.9 on 5 moves (0 by bots, 0 merged from a bot, 5 by people); after the release, days 7 to 30, silent: 0.9 on 4 moves (2 by bots, 0 merged from a bot, 2 by people); after the advisory, days 0 to 2, said so: 5.6 on 13 moves (5 by bots, 4 merged from a bot, 4 by people); after the advisory, days 0 to 2, silent: 3.6 on 6 moves (2 by bots, 1 merged from a bot, 3 by people); after the advisory, days 2 to 7, said so: 2.7 on 14 moves (2 by bots, 4 merged from a bot, 8 by people); after the advisory, days 2 to 7, silent: 2.8 on 10 moves (3 by bots, 3 merged from a bot, 4 by people); after the advisory, days 7 to 30, said so: 1.4 on 26 moves (8 by bots, 4 merged from a bot, 14 by people); after the advisory, days 7 to 30, silent: 1.1 on 15 moves (3 by bots, 1 merged from a bot, 11 by people). Before the advisory, the two classes ran at about the same pace in the first two days and from day 7 to day 30; in days 2 to 7 fixes that said so drew moves at about twice the pace, mostly made by people. 257 repository and library pairs, 152 on seven libraries and 105 on seven, one fixed release per library, released 31 March to 23 July 2026, histories read to 27 September 2026.</desc>
+<style>
+svg { --bg:#fcfcfb; --ink:#0b0b0b; --ink2:#52514e; --muted:#6f6e69; --grid:#e4e3df; --band:#efeee9; --bot:#2a78d6; --mrg:#9cc3ef; --per:#8a8984; }
+@media (prefers-color-scheme: dark) { svg { --bg:#1a1a19; --ink:#ffffff; --ink2:#c3c2b7; --muted:#9a9890; --grid:#383835; --band:#2a2a27; --bot:#4b93ea; --mrg:#2c5a8f; --per:#9f9d95; } }
+text { font-family: system-ui, -apple-system, "Segoe UI", Roboto, Helvetica, Arial, sans-serif; fill: var(--ink); }
+.head { font-size: 17px; font-weight: 600; } .sub { font-size: 13px; fill: var(--ink2); }
+.lab { font-size: 14px; font-weight: 600; } .note { font-size: 11.5px; fill: var(--muted); }
+.ann { font-size: 12px; fill: var(--ink2); } .ax { font-size: 12px; fill: var(--muted); } .cls { font-size: 12px; fill: var(--ink2); }
+.val { font-size: 12px; fill: var(--ink); }
+</style>
+<rect width="720" height="664" fill="var(--bg)"/>
+<line x1="196.0" y1="186" x2="196.0" y2="328" stroke="var(--grid)" stroke-width="1"/>
+<line x1="256.7" y1="186" x2="256.7" y2="328" stroke="var(--grid)" stroke-width="1"/>
+<line x1="317.3" y1="186" x2="317.3" y2="328" stroke="var(--grid)" stroke-width="1"/>
+<line x1="378.0" y1="186" x2="378.0" y2="328" stroke="var(--grid)" stroke-width="1"/>
+<line x1="438.7" y1="186" x2="438.7" y2="328" stroke="var(--grid)" stroke-width="1"/>
+<line x1="499.3" y1="186" x2="499.3" y2="328" stroke="var(--grid)" stroke-width="1"/>
+<line x1="560.0" y1="186" x2="560.0" y2="328" stroke="var(--grid)" stroke-width="1"/>
+<line x1="196.0" y1="384" x2="196.0" y2="526" stroke="var(--grid)" stroke-width="1"/>
+<line x1="256.7" y1="384" x2="256.7" y2="526" stroke="var(--grid)" stroke-width="1"/>
+<line x1="317.3" y1="384" x2="317.3" y2="526" stroke="var(--grid)" stroke-width="1"/>
+<line x1="378.0" y1="384" x2="378.0" y2="526" stroke="var(--grid)" stroke-width="1"/>
+<line x1="438.7" y1="384" x2="438.7" y2="526" stroke="var(--grid)" stroke-width="1"/>
+<line x1="499.3" y1="384" x2="499.3" y2="526" stroke="var(--grid)" stroke-width="1"/>
+<line x1="560.0" y1="384" x2="560.0" y2="526" stroke="var(--grid)" stroke-width="1"/>
+<text x="16" y="30" class="head">Before the advisory, fixes that said so drew pins faster, in days 2 to 7</text>
+<text x="16" y="51" class="sub">First moves to the fix per 100 repositories still waiting, per day, by whether the release's own</text>
+<text x="16" y="68" class="sub">notes said it fixed a security flaw, and by who made the move.</text>
+<rect x="16" y="88" width="12" height="12" rx="2" fill="var(--bot)"/><text x="34" y="98" class="ann">a bot wrote it</text>
+<rect x="140" y="88" width="12" height="12" rx="2" fill="var(--mrg)" stroke="var(--bot)" stroke-width="1.2"/><text x="158" y="98" class="ann">a person merged a bot's branch</text>
+<rect x="366" y="88" width="12" height="12" rx="2" fill="var(--per)"/><text x="384" y="98" class="ann">a person</text>
+<text x="16" y="120" class="ann"><tspan font-weight="600">said so</tspan>: the changelog, tag message or package description said, at the release, that it fixed a security flaw.</text>
+<text x="16" y="138" class="ann"><tspan font-weight="600">silent</tspan>: none of them did, in what we could read.</text>
+<text x="16" y="176" class="lab">Before the advisory, counting days from the release</text>
+<text x="16" y="211" class="ann">days 0 to 2</text>
+<text x="186" y="201.5" class="cls" text-anchor="end">said so</text>
+<rect x="196.0" y="190" width="143.7" height="15" rx="2" fill="var(--bot)"><title>said so, days 0 to 2 after the release: 7 of 11 moves by bots</title></rect>
+<rect x="341.7" y="190" width="39.6" height="15" rx="2" fill="var(--mrg)" stroke="var(--bot)" stroke-width="1.2"><title>said so, days 0 to 2 after the release: 2 of 11 moves merged from a bot</title></rect>
+<rect x="383.3" y="190" width="39.6" height="15" rx="2" fill="var(--per)"><title>said so, days 0 to 2 after the release: 2 of 11 moves by people</title></rect>
+<text x="431.0" y="201.5" class="val">3.8<tspan class="note"> · 11 moves</tspan></text>
+<text x="186" y="220.5" class="cls" text-anchor="end">silent</text>
+<rect x="196.0" y="209" width="119.1" height="15" rx="2" fill="var(--bot)"><title>silent, days 0 to 2 after the release: 4 of 8 moves by bots</title></rect>
+<rect x="317.1" y="209" width="119.1" height="15" rx="2" fill="var(--per)"><title>silent, days 0 to 2 after the release: 4 of 8 moves by people</title></rect>
+<text x="444.2" y="220.5" class="val">4.0<tspan class="note"> · 8 moves</tspan></text>
+<text x="16" y="261" class="ann">days 2 to 7</text>
+<text x="186" y="251.5" class="cls" text-anchor="end">said so</text>
+<rect x="196.0" y="240" width="43.1" height="15" rx="2" fill="var(--bot)"><title>said so, days 2 to 7 after the release: 3 of 13 moves by bots</title></rect>
+<rect x="241.1" y="240" width="13.0" height="15" rx="2" fill="var(--mrg)" stroke="var(--bot)" stroke-width="1.2"><title>said so, days 2 to 7 after the release: 1 of 13 moves merged from a bot</title></rect>
+<rect x="256.1" y="240" width="133.3" height="15" rx="2" fill="var(--per)"><title>said so, days 2 to 7 after the release: 9 of 13 moves by people</title></rect>
+<text x="397.4" y="251.5" class="val">3.2<tspan class="note"> · 13 moves</tspan></text>
+<text x="186" y="270.5" class="cls" text-anchor="end">silent</text>
+<rect x="196.0" y="259" width="33.2" height="15" rx="2" fill="var(--bot)"><title>silent, days 2 to 7 after the release: 2 of 5 moves by bots</title></rect>
+<rect x="231.2" y="259" width="15.6" height="15" rx="2" fill="var(--mrg)" stroke="var(--bot)" stroke-width="1.2"><title>silent, days 2 to 7 after the release: 1 of 5 moves merged from a bot</title></rect>
+<rect x="248.8" y="259" width="33.2" height="15" rx="2" fill="var(--per)"><title>silent, days 2 to 7 after the release: 2 of 5 moves by people</title></rect>
+<text x="290.0" y="270.5" class="val">1.5<tspan class="note"> · 5 moves</tspan></text>
+<text x="16" y="311" class="ann">days 7 to 30</text>
+<text x="186" y="301.5" class="cls" text-anchor="end">said so</text>
+<rect x="196.0" y="290" width="54.8" height="15" rx="2" fill="var(--per)"><title>said so, days 7 to 30 after the release: 5 of 5 moves by people</title></rect>
+<text x="258.8" y="301.5" class="val">0.9<tspan class="note"> · 5 moves</tspan></text>
+<text x="186" y="320.5" class="cls" text-anchor="end">silent</text>
+<rect x="196.0" y="309" width="24.2" height="15" rx="2" fill="var(--bot)"><title>silent, days 7 to 30 after the release: 2 of 4 moves by bots</title></rect>
+<rect x="222.2" y="309" width="24.2" height="15" rx="2" fill="var(--per)"><title>silent, days 7 to 30 after the release: 2 of 4 moves by people</title></rect>
+<text x="254.5" y="320.5" class="val">0.9<tspan class="note"> · 4 moves</tspan></text>
+<text x="196.0" y="342" class="ax" text-anchor="middle">0</text>
+<text x="256.7" y="342" class="ax" text-anchor="middle">1</text>
+<text x="317.3" y="342" class="ax" text-anchor="middle">2</text>
+<text x="378.0" y="342" class="ax" text-anchor="middle">3</text>
+<text x="438.7" y="342" class="ax" text-anchor="middle">4</text>
+<text x="499.3" y="342" class="ax" text-anchor="middle">5</text>
+<text x="560.0" y="342" class="ax" text-anchor="middle">6</text>
+<text x="16" y="374" class="lab">After the advisory, counting days from it</text>
+<text x="16" y="409" class="ann">days 0 to 2</text>
+<text x="186" y="399.5" class="cls" text-anchor="end">said so</text>
+<rect x="196.0" y="388" width="127.8" height="15" rx="2" fill="var(--bot)"><title>said so, days 0 to 2 after the advisory: 5 of 13 moves by bots</title></rect>
+<rect x="325.8" y="388" width="101.8" height="15" rx="2" fill="var(--mrg)" stroke="var(--bot)" stroke-width="1.2"><title>said so, days 0 to 2 after the advisory: 4 of 13 moves merged from a bot</title></rect>
+<rect x="429.7" y="388" width="101.8" height="15" rx="2" fill="var(--per)"><title>said so, days 0 to 2 after the advisory: 4 of 13 moves by people</title></rect>
+<text x="539.5" y="399.5" class="val">5.6<tspan class="note"> · 13 moves</tspan></text>
+<text x="186" y="418.5" class="cls" text-anchor="end">silent</text>
+<rect x="196.0" y="407" width="71.3" height="15" rx="2" fill="var(--bot)"><title>silent, days 0 to 2 after the advisory: 2 of 6 moves by bots</title></rect>
+<rect x="269.3" y="407" width="34.7" height="15" rx="2" fill="var(--mrg)" stroke="var(--bot)" stroke-width="1.2"><title>silent, days 0 to 2 after the advisory: 1 of 6 moves merged from a bot</title></rect>
+<rect x="306.0" y="407" width="108.0" height="15" rx="2" fill="var(--per)"><title>silent, days 0 to 2 after the advisory: 3 of 6 moves by people</title></rect>
+<text x="422.0" y="418.5" class="val">3.6<tspan class="note"> · 6 moves</tspan></text>
+<text x="16" y="459" class="ann">days 2 to 7</text>
+<text x="186" y="449.5" class="cls" text-anchor="end">said so</text>
+<rect x="196.0" y="438" width="21.5" height="15" rx="2" fill="var(--bot)"><title>said so, days 2 to 7 after the advisory: 2 of 14 moves by bots</title></rect>
+<rect x="219.5" y="438" width="44.9" height="15" rx="2" fill="var(--mrg)" stroke="var(--bot)" stroke-width="1.2"><title>said so, days 2 to 7 after the advisory: 4 of 14 moves merged from a bot</title></rect>
+<rect x="266.4" y="438" width="91.9" height="15" rx="2" fill="var(--per)"><title>said so, days 2 to 7 after the advisory: 8 of 14 moves by people</title></rect>
+<text x="366.3" y="449.5" class="val">2.7<tspan class="note"> · 14 moves</tspan></text>
+<text x="186" y="468.5" class="cls" text-anchor="end">silent</text>
+<rect x="196.0" y="457" width="48.1" height="15" rx="2" fill="var(--bot)"><title>silent, days 2 to 7 after the advisory: 3 of 10 moves by bots</title></rect>
+<rect x="246.1" y="457" width="48.1" height="15" rx="2" fill="var(--mrg)" stroke="var(--bot)" stroke-width="1.2"><title>silent, days 2 to 7 after the advisory: 3 of 10 moves merged from a bot</title></rect>
+<rect x="296.2" y="457" width="64.8" height="15" rx="2" fill="var(--per)"><title>silent, days 2 to 7 after the advisory: 4 of 10 moves by people</title></rect>
+<text x="369.0" y="468.5" class="val">2.8<tspan class="note"> · 10 moves</tspan></text>
+<text x="16" y="509" class="ann">days 7 to 30</text>
+<text x="186" y="499.5" class="cls" text-anchor="end">said so</text>
+<rect x="196.0" y="488" width="24.2" height="15" rx="2" fill="var(--bot)"><title>said so, days 7 to 30 after the advisory: 8 of 26 moves by bots</title></rect>
+<rect x="222.2" y="488" width="11.1" height="15" rx="2" fill="var(--mrg)" stroke="var(--bot)" stroke-width="1.2"><title>said so, days 7 to 30 after the advisory: 4 of 26 moves merged from a bot</title></rect>
+<rect x="235.3" y="488" width="43.8" height="15" rx="2" fill="var(--per)"><title>said so, days 7 to 30 after the advisory: 14 of 26 moves by people</title></rect>
+<text x="287.1" y="499.5" class="val">1.4<tspan class="note"> · 26 moves</tspan></text>
+<text x="186" y="518.5" class="cls" text-anchor="end">silent</text>
+<rect x="196.0" y="507" width="11.2" height="15" rx="2" fill="var(--bot)"><title>silent, days 7 to 30 after the advisory: 3 of 15 moves by bots</title></rect>
+<rect x="209.2" y="507" width="2.4" height="15" rx="2" fill="var(--mrg)" stroke="var(--bot)" stroke-width="1.2"><title>silent, days 7 to 30 after the advisory: 1 of 15 moves merged from a bot</title></rect>
+<rect x="213.5" y="507" width="46.2" height="15" rx="2" fill="var(--per)"><title>silent, days 7 to 30 after the advisory: 11 of 15 moves by people</title></rect>
+<text x="267.8" y="518.5" class="val">1.1<tspan class="note"> · 15 moves</tspan></text>
+<text x="196.0" y="540" class="ax" text-anchor="middle">0</text>
+<text x="256.7" y="540" class="ax" text-anchor="middle">1</text>
+<text x="317.3" y="540" class="ax" text-anchor="middle">2</text>
+<text x="378.0" y="540" class="ax" text-anchor="middle">3</text>
+<text x="438.7" y="540" class="ax" text-anchor="middle">4</text>
+<text x="499.3" y="540" class="ax" text-anchor="middle">5</text>
+<text x="560.0" y="540" class="ax" text-anchor="middle">6</text>
+<text x="16" y="566" class="note">257 pairs of a repository and a library it pinned or locked at an affected version when the fix came out:</text>
+<text x="16" y="582" class="note">152 on seven libraries whose fix said so and 105 on seven whose fix did not (two more libraries had no</text>
+<text x="16" y="598" class="note">pinned dependents to follow), from the dependents Open Source Insights lists, sampled by a rule fixed in</text>
+<text x="16" y="614" class="note">advance. One fixed release per library, released 31 March to 23 July 2026. Windows from the release stop at</text>
+<text x="16" y="630" class="note">the advisory where it came first. A move is a commit changing what a project asks for, not an installation.</text>
+<text x="16" y="646" class="note">Git histories, the Python Package Index, OSV and Open Source Insights read on 27 September 2026.</text>
+</svg>
