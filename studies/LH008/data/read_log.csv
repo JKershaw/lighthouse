@@ -1,0 +1,1142 @@
+read_utc,source,label,method,endpoint,http_status,bytes,note
+2026-09-27T07:17:14Z,ClickPy (ClickHouse public demo),list tables,POST,https://sql-clickhouse.clickhouse.com/?user=demo,200,1355,SHOW TABLES FROM pypi
+2026-09-27T07:19:49Z,ClickPy (ClickHouse public demo),top 200 projects August 2026,POST,https://sql-clickhouse.clickhouse.com/?user=demo,200,4665,"SELECT project, sum(count) AS downloads FROM pypi.pypi_downloads_per_month WHERE month = '2026-08-01' GROUP BY project ORDER BY downloads DESC LIMIT 200 FORMAT CSVWithNames"
+2026-09-27T07:19:49Z,OSV API,OSV query typing-extensions,POST,https://api.osv.dev/v1/query,200,2,
+2026-09-27T07:19:49Z,OSV API,OSV query packaging,POST,https://api.osv.dev/v1/query,200,2,
+2026-09-27T07:19:49Z,OSV API,OSV query idna,POST,https://api.osv.dev/v1/query,200,10227,
+2026-09-27T07:19:49Z,OSV API,OSV query charset-normalizer,POST,https://api.osv.dev/v1/query,200,2,
+2026-09-27T07:19:49Z,OSV API,OSV query boto3,POST,https://api.osv.dev/v1/query,200,2,
+2026-09-27T07:19:49Z,OSV API,OSV query requests,POST,https://api.osv.dev/v1/query,200,48938,
+2026-09-27T07:19:49Z,OSV API,OSV query certifi,POST,https://api.osv.dev/v1/query,200,13144,
+2026-09-27T07:19:49Z,OSV API,OSV query urllib3,POST,https://api.osv.dev/v1/query,200,111061,
+2026-09-27T07:19:50Z,OSV API,OSV query cffi,POST,https://api.osv.dev/v1/query,200,2,
+2026-09-27T07:19:50Z,OSV API,OSV query pluggy,POST,https://api.osv.dev/v1/query,200,2,
+2026-09-27T07:19:50Z,OSV API,OSV query botocore,POST,https://api.osv.dev/v1/query,200,2,
+2026-09-27T07:19:50Z,OSV API,OSV query pygments,POST,https://api.osv.dev/v1/query,200,21670,
+2026-09-27T07:19:50Z,OSV API,OSV query pyyaml,POST,https://api.osv.dev/v1/query,200,17412,
+2026-09-27T07:19:50Z,OSV API,OSV query setuptools,POST,https://api.osv.dev/v1/query,200,63165,
+2026-09-27T07:19:50Z,OSV API,OSV query python-dateutil,POST,https://api.osv.dev/v1/query,200,2,
+2026-09-27T07:19:50Z,OSV API,OSV query cryptography,POST,https://api.osv.dev/v1/query,200,134267,
+2026-09-27T07:19:50Z,OSV API,OSV query six,POST,https://api.osv.dev/v1/query,200,2,
+2026-09-27T07:19:50Z,OSV API,OSV query pydantic,POST,https://api.osv.dev/v1/query,200,13721,
+2026-09-27T07:19:50Z,OSV API,OSV query pycparser,POST,https://api.osv.dev/v1/query,200,2,
+2026-09-27T07:19:50Z,OSV API,OSV query anyio,POST,https://api.osv.dev/v1/query,200,7358,
+2026-09-27T07:19:50Z,OSV API,OSV query click,POST,https://api.osv.dev/v1/query,200,1842,
+2026-09-27T07:19:50Z,OSV API,OSV query numpy,POST,https://api.osv.dev/v1/query,200,32648,
+2026-09-27T07:19:50Z,OSV API,OSV query pydantic-core,POST,https://api.osv.dev/v1/query,200,2,
+2026-09-27T07:19:50Z,OSV API,OSV query iniconfig,POST,https://api.osv.dev/v1/query,200,2,
+2026-09-27T07:19:50Z,OSV API,OSV query pytest,POST,https://api.osv.dev/v1/query,200,6182,
+2026-09-27T07:19:50Z,OSV API,OSV query aiobotocore,POST,https://api.osv.dev/v1/query,200,2,
+2026-09-27T07:19:50Z,OSV API,OSV query h11,POST,https://api.osv.dev/v1/query,200,8717,
+2026-09-27T07:19:50Z,OSV API,OSV query attrs,POST,https://api.osv.dev/v1/query,200,2,
+2026-09-27T07:19:50Z,OSV API,OSV query annotated-types,POST,https://api.osv.dev/v1/query,200,2,
+2026-09-27T07:19:50Z,OSV API,OSV query typing-inspection,POST,https://api.osv.dev/v1/query,200,2,
+2026-09-27T07:19:50Z,OSV API,OSV query protobuf,POST,https://api.osv.dev/v1/query,200,43562,
+2026-09-27T07:19:50Z,OSV API,OSV query httpx,POST,https://api.osv.dev/v1/query,200,4065,
+2026-09-27T07:19:50Z,OSV API,OSV query markupsafe,POST,https://api.osv.dev/v1/query,200,2,
+2026-09-27T07:19:50Z,OSV API,OSV query fsspec,POST,https://api.osv.dev/v1/query,200,2,
+2026-09-27T07:19:50Z,OSV API,OSV query httpcore,POST,https://api.osv.dev/v1/query,200,2,
+2026-09-27T07:19:50Z,OSV API,OSV query platformdirs,POST,https://api.osv.dev/v1/query,200,2,
+2026-09-27T07:19:50Z,OSV API,OSV query python-dotenv,POST,https://api.osv.dev/v1/query,200,10321,
+2026-09-27T07:19:50Z,OSV API,OSV query s3transfer,POST,https://api.osv.dev/v1/query,200,2,
+2026-09-27T07:19:50Z,OSV API,OSV query pandas,POST,https://api.osv.dev/v1/query,200,1724,
+2026-09-27T07:19:50Z,OSV API,OSV query pathspec,POST,https://api.osv.dev/v1/query,200,2,
+2026-09-27T07:19:50Z,OSV API,OSV query grpcio-status,POST,https://api.osv.dev/v1/query,200,2,
+2026-09-27T07:19:50Z,OSV API,OSV query jinja2,POST,https://api.osv.dev/v1/query,200,51473,
+2026-09-27T07:19:50Z,OSV API,OSV query filelock,POST,https://api.osv.dev/v1/query,200,35119,
+2026-09-27T07:19:50Z,OSV API,OSV query pyjwt,POST,https://api.osv.dev/v1/query,200,76639,
+2026-09-27T07:19:50Z,OSV API,OSV query uvicorn,POST,https://api.osv.dev/v1/query,200,10582,
+2026-09-27T07:19:50Z,OSV API,OSV query pip,POST,https://api.osv.dev/v1/query,200,69004,
+2026-09-27T07:19:50Z,OSV API,OSV query starlette,POST,https://api.osv.dev/v1/query,200,86085,
+2026-09-27T07:19:50Z,OSV API,OSV query tqdm,POST,https://api.osv.dev/v1/query,200,9981,
+2026-09-27T07:19:51Z,OSV API,OSV query jmespath,POST,https://api.osv.dev/v1/query,200,2,
+2026-09-27T07:19:51Z,OSV API,OSV query yarl,POST,https://api.osv.dev/v1/query,200,2,
+2026-09-27T07:19:51Z,OSV API,OSV query jsonschema,POST,https://api.osv.dev/v1/query,200,2,
+2026-09-27T07:19:51Z,OSV API,OSV query rich,POST,https://api.osv.dev/v1/query,200,2,
+2026-09-27T07:19:51Z,OSV API,OSV query rpds-py,POST,https://api.osv.dev/v1/query,200,2,
+2026-09-27T07:19:51Z,OSV API,OSV query multidict,POST,https://api.osv.dev/v1/query,200,2,
+2026-09-27T07:19:51Z,OSV API,OSV query markdown-it-py,POST,https://api.osv.dev/v1/query,200,7661,
+2026-09-27T07:19:51Z,OSV API,OSV query propcache,POST,https://api.osv.dev/v1/query,200,2,
+2026-09-27T07:19:51Z,OSV API,OSV query referencing,POST,https://api.osv.dev/v1/query,200,2,
+2026-09-27T07:19:51Z,OSV API,OSV query fastapi,POST,https://api.osv.dev/v1/query,200,11421,
+2026-09-27T07:19:51Z,OSV API,OSV query s3fs,POST,https://api.osv.dev/v1/query,200,2,
+2026-09-27T07:19:51Z,OSV API,OSV query frozenlist,POST,https://api.osv.dev/v1/query,200,2,
+2026-09-27T07:19:51Z,OSV API,OSV query tomlkit,POST,https://api.osv.dev/v1/query,200,2,
+2026-09-27T07:19:50Z,OSV API,OSV query aiohttp,POST,https://api.osv.dev/v1/query,200,403930,
+2026-09-27T07:19:50Z,OSV API,OSV query litellm,POST,https://api.osv.dev/v1/query,200,557076,
+2026-09-27T07:19:51Z,OSV API,OSV query jsonschema-specifications,POST,https://api.osv.dev/v1/query,200,2,
+2026-09-27T07:19:51Z,OSV API,OSV query pyasn1,POST,https://api.osv.dev/v1/query,200,41784,
+2026-09-27T07:19:51Z,OSV API,OSV query wheel,POST,https://api.osv.dev/v1/query,200,22006,
+2026-09-27T07:19:51Z,OSV API,OSV query aiohappyeyeballs,POST,https://api.osv.dev/v1/query,200,2,
+2026-09-27T07:19:51Z,OSV API,OSV query websockets,POST,https://api.osv.dev/v1/query,200,6180,
+2026-09-27T07:19:51Z,OSV API,OSV query mdurl,POST,https://api.osv.dev/v1/query,200,2,
+2026-09-27T07:19:51Z,OSV API,OSV query googleapis-common-protos,POST,https://api.osv.dev/v1/query,200,2,
+2026-09-27T07:19:51Z,OSV API,OSV query google-auth,POST,https://api.osv.dev/v1/query,200,2,
+2026-09-27T07:19:51Z,OSV API,OSV query pytz,POST,https://api.osv.dev/v1/query,200,2,
+2026-09-27T07:19:51Z,OSV API,OSV query sniffio,POST,https://api.osv.dev/v1/query,200,2,
+2026-09-27T07:19:51Z,OSV API,OSV query aiosignal,POST,https://api.osv.dev/v1/query,200,2,
+2026-09-27T07:19:51Z,OSV API,OSV query trove-classifiers,POST,https://api.osv.dev/v1/query,200,2,
+2026-09-27T07:19:51Z,OSV API,OSV query importlib-metadata,POST,https://api.osv.dev/v1/query,200,2,
+2026-09-27T07:19:51Z,OSV API,OSV query opentelemetry-semantic-conventions,POST,https://api.osv.dev/v1/query,200,2,
+2026-09-27T07:19:51Z,OSV API,OSV query annotated-doc,POST,https://api.osv.dev/v1/query,200,2,
+2026-09-27T07:19:51Z,OSV API,OSV query zipp,POST,https://api.osv.dev/v1/query,200,4890,
+2026-09-27T07:19:51Z,OSV API,OSV query hatchling,POST,https://api.osv.dev/v1/query,200,2,
+2026-09-27T07:19:51Z,OSV API,OSV query pydantic-settings,POST,https://api.osv.dev/v1/query,200,6079,
+2026-09-27T07:19:51Z,OSV API,OSV query virtualenv,POST,https://api.osv.dev/v1/query,200,21627,
+2026-09-27T07:19:51Z,OSV API,OSV query tzdata,POST,https://api.osv.dev/v1/query,200,2,
+2026-09-27T07:19:51Z,OSV API,OSV query wrapt,POST,https://api.osv.dev/v1/query,200,2,
+2026-09-27T07:19:51Z,OSV API,OSV query ghapi,POST,https://api.osv.dev/v1/query,200,2,
+2026-09-27T07:19:51Z,OSV API,OSV query opentelemetry-api,POST,https://api.osv.dev/v1/query,200,2,
+2026-09-27T07:19:51Z,OSV API,OSV query greenlet,POST,https://api.osv.dev/v1/query,200,2,
+2026-09-27T07:19:51Z,OSV API,OSV query huggingface-hub,POST,https://api.osv.dev/v1/query,200,2,
+2026-09-27T07:19:51Z,OSV API,OSV query pyasn1-modules,POST,https://api.osv.dev/v1/query,200,2,
+2026-09-27T07:19:51Z,OSV API,OSV query pillow,POST,https://api.osv.dev/v1/query,200,450860,
+2026-09-27T07:19:51Z,OSV API,OSV query tenacity,POST,https://api.osv.dev/v1/query,200,2,
+2026-09-27T07:19:51Z,OSV API,OSV query opentelemetry-sdk,POST,https://api.osv.dev/v1/query,200,2,
+2026-09-27T07:19:52Z,OSV API,OSV query google-api-core,POST,https://api.osv.dev/v1/query,200,2,
+2026-09-27T07:19:52Z,OSV API,OSV query regex,POST,https://api.osv.dev/v1/query,200,2,
+2026-09-27T07:19:52Z,OSV API,OSV query textual,POST,https://api.osv.dev/v1/query,200,2,
+2026-09-27T07:19:52Z,OSV API,OSV query python-multipart,POST,https://api.osv.dev/v1/query,200,72439,
+2026-09-27T07:19:52Z,OSV API,OSV query openai,POST,https://api.osv.dev/v1/query,200,2,
+2026-09-27T07:19:52Z,OSV API,OSV query grpcio,POST,https://api.osv.dev/v1/query,200,36796,
+2026-09-27T07:19:52Z,OSV API,OSV query pyparsing,POST,https://api.osv.dev/v1/query,200,2,
+2026-09-27T07:19:52Z,OSV API,OSV query sqlalchemy,POST,https://api.osv.dev/v1/query,200,19217,
+2026-09-27T07:19:52Z,OSV API,OSV query colorama,POST,https://api.osv.dev/v1/query,200,2,
+2026-09-27T07:19:52Z,OSV API,OSV query scipy,POST,https://api.osv.dev/v1/query,200,7437,
+2026-09-27T07:19:52Z,OSV API,OSV query tomli,POST,https://api.osv.dev/v1/query,200,2,
+2026-09-27T07:19:52Z,OSV API,OSV query lxml,POST,https://api.osv.dev/v1/query,200,43361,
+2026-09-27T07:19:52Z,OSV API,OSV query watchfiles,POST,https://api.osv.dev/v1/query,200,2,
+2026-09-27T07:19:52Z,OSV API,OSV query pyarrow,POST,https://api.osv.dev/v1/query,200,20756,
+2026-09-27T07:19:52Z,OSV API,OSV query opentelemetry-proto,POST,https://api.osv.dev/v1/query,200,2,
+2026-09-27T07:19:52Z,OSV API,OSV query psutil,POST,https://api.osv.dev/v1/query,200,4705,
+2026-09-27T07:19:52Z,OSV API,OSV query shellingham,POST,https://api.osv.dev/v1/query,200,2,
+2026-09-27T07:19:52Z,OSV API,OSV query editables,POST,https://api.osv.dev/v1/query,200,2,
+2026-09-27T07:19:52Z,OSV API,OSV query opentelemetry-instrumentation,POST,https://api.osv.dev/v1/query,200,6274,
+2026-09-27T07:19:52Z,OSV API,OSV query requests-oauthlib,POST,https://api.osv.dev/v1/query,200,2,
+2026-09-27T07:19:52Z,OSV API,OSV query typer,POST,https://api.osv.dev/v1/query,200,2,
+2026-09-27T07:19:52Z,OSV API,OSV query opentelemetry-exporter-otlp-proto-http,POST,https://api.osv.dev/v1/query,200,2,
+2026-09-27T07:19:52Z,OSV API,OSV query proto-plus,POST,https://api.osv.dev/v1/query,200,2,
+2026-09-27T07:19:53Z,OSV API,OSV query et-xmlfile,POST,https://api.osv.dev/v1/query,200,2,
+2026-09-27T07:19:53Z,OSV API,OSV query openpyxl,POST,https://api.osv.dev/v1/query,200,3816,
+2026-09-27T07:19:53Z,OSV API,OSV query mcp,POST,https://api.osv.dev/v1/query,200,42631,
+2026-09-27T07:19:53Z,OSV API,OSV query opentelemetry-exporter-otlp-proto-common,POST,https://api.osv.dev/v1/query,200,2,
+2026-09-27T07:19:53Z,OSV API,OSV query coverage,POST,https://api.osv.dev/v1/query,200,2,
+2026-09-27T07:19:53Z,OSV API,OSV query ruff,POST,https://api.osv.dev/v1/query,200,2,
+2026-09-27T07:19:53Z,OSV API,OSV query exceptiongroup,POST,https://api.osv.dev/v1/query,200,2,
+2026-09-27T07:19:53Z,OSV API,OSV query oauthlib,POST,https://api.osv.dev/v1/query,200,5548,
+2026-09-27T07:19:53Z,OSV API,OSV query mypy-extensions,POST,https://api.osv.dev/v1/query,200,2,
+2026-09-27T07:19:53Z,OSV API,OSV query sglang,POST,https://api.osv.dev/v1/query,200,58679,
+2026-09-27T07:19:53Z,OSV API,OSV query dnspython,POST,https://api.osv.dev/v1/query,200,7031,
+2026-09-27T07:19:53Z,OSV API,OSV query more-itertools,POST,https://api.osv.dev/v1/query,200,2,
+2026-09-27T07:19:53Z,OSV API,OSV query wcwidth,POST,https://api.osv.dev/v1/query,200,2,
+2026-09-27T07:19:53Z,OSV API,OSV query cachetools,POST,https://api.osv.dev/v1/query,200,2,
+2026-09-27T07:19:53Z,OSV API,OSV query distlib,POST,https://api.osv.dev/v1/query,200,2,
+2026-09-27T07:19:53Z,OSV API,OSV query sse-starlette,POST,https://api.osv.dev/v1/query,200,2,
+2026-09-27T07:19:53Z,OSV API,OSV query hf-xet,POST,https://api.osv.dev/v1/query,200,2,
+2026-09-27T07:19:53Z,OSV API,OSV query multiprocess,POST,https://api.osv.dev/v1/query,200,2,
+2026-09-27T07:19:53Z,OSV API,OSV query pytest-asyncio,POST,https://api.osv.dev/v1/query,200,2,
+2026-09-27T07:19:53Z,OSV API,OSV query python-discovery,POST,https://api.osv.dev/v1/query,200,2,
+2026-09-27T07:19:53Z,OSV API,OSV query docstring-parser,POST,https://api.osv.dev/v1/query,200,2,
+2026-09-27T07:19:53Z,OSV API,OSV query sortedcontainers,POST,https://api.osv.dev/v1/query,200,2,
+2026-09-27T07:19:53Z,OSV API,OSV query requests-toolbelt,POST,https://api.osv.dev/v1/query,200,2,
+2026-09-27T07:19:52Z,OSV API,OSV query jiter,POST,https://api.osv.dev/v1/query,200,2,
+2026-09-27T07:19:52Z,OSV API,OSV query soupsieve,POST,https://api.osv.dev/v1/query,200,45359,
+2026-09-27T07:19:53Z,OSV API,OSV query psycopg2-binary,POST,https://api.osv.dev/v1/query,200,2,
+2026-09-27T07:19:53Z,OSV API,OSV query pyopenssl,POST,https://api.osv.dev/v1/query,200,19630,
+2026-09-27T07:19:52Z,OSV API,OSV query beautifulsoup4,POST,https://api.osv.dev/v1/query,200,2,
+2026-09-27T07:19:52Z,OSV API,OSV query distro,POST,https://api.osv.dev/v1/query,200,2,
+2026-09-27T07:19:54Z,OSV API,OSV query uvloop,POST,https://api.osv.dev/v1/query,200,2,
+2026-09-27T07:19:54Z,OSV API,OSV query msgpack,POST,https://api.osv.dev/v1/query,200,3833,
+2026-09-27T07:19:54Z,OSV API,OSV query opentelemetry-exporter-otlp-proto-grpc,POST,https://api.osv.dev/v1/query,200,2,
+2026-09-27T07:19:54Z,OSV API,OSV query rsa,POST,https://api.osv.dev/v1/query,200,12005,
+2026-09-27T07:19:54Z,OSV API,OSV query tiktoken,POST,https://api.osv.dev/v1/query,200,2,
+2026-09-27T07:19:54Z,OSV API,OSV query httptools,POST,https://api.osv.dev/v1/query,200,2,
+2026-09-27T07:19:54Z,OSV API,OSV query networkx,POST,https://api.osv.dev/v1/query,200,2,
+2026-09-27T07:19:54Z,OSV API,OSV query tokenizers,POST,https://api.osv.dev/v1/query,200,2,
+2026-09-27T07:19:54Z,OSV API,OSV query redis,POST,https://api.osv.dev/v1/query,200,8827,
+2026-09-27T07:19:54Z,OSV API,OSV query google-genai,POST,https://api.osv.dev/v1/query,200,2,
+2026-09-27T07:19:54Z,OSV API,OSV query werkzeug,POST,https://api.osv.dev/v1/query,200,66269,
+2026-09-27T07:19:54Z,OSV API,OSV query fonttools,POST,https://api.osv.dev/v1/query,200,29810,
+2026-09-27T07:19:54Z,OSV API,OSV query prompt-toolkit,POST,https://api.osv.dev/v1/query,200,2,
+2026-09-27T07:19:54Z,OSV API,OSV query grpcio-tools,POST,https://api.osv.dev/v1/query,200,2,
+2026-09-27T07:19:54Z,OSV API,OSV query defusedxml,POST,https://api.osv.dev/v1/query,200,2,
+2026-09-27T07:19:54Z,OSV API,OSV query scikit-learn,POST,https://api.osv.dev/v1/query,200,12840,
+2026-09-27T07:19:54Z,OSV API,OSV query smmap,POST,https://api.osv.dev/v1/query,200,2,
+2026-09-27T07:19:54Z,OSV API,OSV query pytest-cov,POST,https://api.osv.dev/v1/query,200,2,
+2026-09-27T07:19:54Z,OSV API,OSV query google-cloud-storage,POST,https://api.osv.dev/v1/query,200,2,
+2026-09-27T07:19:54Z,OSV API,OSV query langchain,POST,https://api.osv.dev/v1/query,200,231339,
+2026-09-27T07:19:54Z,OSV API,OSV query matplotlib,POST,https://api.osv.dev/v1/query,200,2,
+2026-09-27T07:19:54Z,OSV API,OSV query email-validator,POST,https://api.osv.dev/v1/query,200,2,
+2026-09-27T07:19:54Z,OSV API,OSV query gitpython,POST,https://api.osv.dev/v1/query,200,374067,
+2026-09-27T07:19:54Z,OSV API,OSV query orjson,POST,https://api.osv.dev/v1/query,200,9523,
+2026-09-27T07:19:54Z,OSV API,OSV query isodate,POST,https://api.osv.dev/v1/query,200,2,
+2026-09-27T07:19:54Z,OSV API,OSV query httpx-sse,POST,https://api.osv.dev/v1/query,200,2,
+2026-09-27T07:19:54Z,OSV API,OSV query pynacl,POST,https://api.osv.dev/v1/query,200,7695,
+2026-09-27T07:19:54Z,OSV API,OSV query tzlocal,POST,https://api.osv.dev/v1/query,200,2,
+2026-09-27T07:19:54Z,OSV API,OSV query azure-core,POST,https://api.osv.dev/v1/query,200,4156,
+2026-09-27T07:19:54Z,OSV API,OSV query chardet,POST,https://api.osv.dev/v1/query,200,2,
+2026-09-27T07:19:54Z,OSV API,OSV query alembic,POST,https://api.osv.dev/v1/query,200,2,
+2026-09-27T07:19:54Z,OSV API,OSV query gitdb,POST,https://api.osv.dev/v1/query,200,2,
+2026-09-27T07:19:54Z,OSV API,OSV query itsdangerous,POST,https://api.osv.dev/v1/query,200,2,
+2026-09-27T07:19:54Z,OSV API,OSV query dill,POST,https://api.osv.dev/v1/query,200,2,
+2026-09-27T07:19:54Z,OSV API,OSV query websocket-client,POST,https://api.osv.dev/v1/query,200,2,
+2026-09-27T07:19:54Z,OSV API,OSV query tabulate,POST,https://api.osv.dev/v1/query,200,2,
+2026-09-27T07:19:54Z,OSV API,OSV query joblib,POST,https://api.osv.dev/v1/query,200,6092,
+2026-09-27T07:19:54Z,OSV API,OSV query nodeenv,POST,https://api.osv.dev/v1/query,200,2,
+2026-09-27T07:19:54Z,OSV API,OSV query opentelemetry-instrumentation-requests,POST,https://api.osv.dev/v1/query,200,2,
+2026-09-27T07:19:54Z,OSV API,OSV query mako,POST,https://api.osv.dev/v1/query,200,21828,
+2026-09-27T07:19:54Z,OSV API,OSV query threadpoolctl,POST,https://api.osv.dev/v1/query,200,2,
+2026-09-27T07:19:54Z,OSV API,OSV query ruamel-yaml,POST,https://api.osv.dev/v1/query,200,2,
+2026-09-27T07:19:54Z,OSV API,OSV query azure-identity,POST,https://api.osv.dev/v1/query,200,9642,
+2026-09-27T07:19:54Z,OSV API,OSV query mypy,POST,https://api.osv.dev/v1/query,200,2,
+2026-09-27T07:19:54Z,OSV API,OSV query keyring,POST,https://api.osv.dev/v1/query,200,10053,
+2026-09-27T07:19:54Z,OSV API,OSV query google-cloud-core,POST,https://api.osv.dev/v1/query,200,2,
+2026-09-27T07:19:54Z,OSV API,OSV query h2,POST,https://api.osv.dev/v1/query,200,8592,
+2026-09-27T07:19:55Z,OSV API,OSV query kiwisolver,POST,https://api.osv.dev/v1/query,200,2,
+2026-09-27T07:19:55Z,OSV API,OSV query hpack,POST,https://api.osv.dev/v1/query,200,6007,
+2026-09-27T07:19:55Z,OSV API,OSV query pytest-json-ctrf,POST,https://api.osv.dev/v1/query,200,2,
+2026-09-27T07:19:55Z,OSV API,OSV query contourpy,POST,https://api.osv.dev/v1/query,200,2,
+2026-09-27T07:19:55Z,OSV API,OSV query bcrypt,POST,https://api.osv.dev/v1/query,200,2,
+2026-09-27T07:19:55Z,OSV API,OSV query msal,POST,https://api.osv.dev/v1/query,200,2,
+2026-09-27T07:19:55Z,OSV API,OSV query opentelemetry-util-http,POST,https://api.osv.dev/v1/query,200,2,
+2026-09-27T07:19:55Z,OSV API,OSV query flask,POST,https://api.osv.dev/v1/query,200,22319,
+2026-09-27T07:19:55Z,OSV API,OSV query jaraco-classes,POST,https://api.osv.dev/v1/query,200,2,
+2026-09-27T07:19:55Z,PyPI JSON API,PyPI aiohttp,GET,https://pypi.org/pypi/aiohttp/json,200,9152585,
+2026-09-27T07:19:55Z,PyPI JSON API,PyPI cryptography,GET,https://pypi.org/pypi/cryptography/json,200,3219356,
+2026-09-27T07:19:55Z,PyPI JSON API,PyPI gitpython,GET,https://pypi.org/pypi/gitpython/json,200,175878,
+2026-09-27T07:19:55Z,PyPI JSON API,PyPI langchain,GET,https://pypi.org/pypi/langchain/json,200,818715,
+2026-09-27T07:19:55Z,PyPI JSON API,PyPI litellm,GET,https://pypi.org/pypi/litellm/json,200,2088526,
+2026-09-27T07:19:55Z,PyPI JSON API,PyPI lxml,GET,https://pypi.org/pypi/lxml/json,200,4609066,
+2026-09-27T07:19:55Z,PyPI JSON API,PyPI mako,GET,https://pypi.org/pypi/mako/json,200,86767,
+2026-09-27T07:19:55Z,PyPI JSON API,PyPI mcp,GET,https://pypi.org/pypi/mcp/json,200,119749,
+2026-09-27T07:19:56Z,PyPI JSON API,PyPI msgpack,GET,https://pypi.org/pypi/msgpack/json,200,1297177,
+2026-09-27T07:19:56Z,PyPI JSON API,PyPI pillow,GET,https://pypi.org/pypi/pillow/json,200,3260194,
+2026-09-27T07:19:56Z,PyPI JSON API,PyPI pyasn1,GET,https://pypi.org/pypi/pyasn1/json,200,262677,
+2026-09-27T07:19:56Z,PyPI JSON API,PyPI pyjwt,GET,https://pypi.org/pypi/pyjwt/json,200,110711,
+2026-09-27T07:19:56Z,PyPI JSON API,PyPI python-multipart,GET,https://pypi.org/pypi/python-multipart/json,200,53097,
+2026-09-27T07:19:56Z,PyPI JSON API,PyPI soupsieve,GET,https://pypi.org/pypi/soupsieve/json,200,92920,
+2026-09-27T07:19:56Z,PyPI JSON API,PyPI starlette,GET,https://pypi.org/pypi/starlette/json,200,240787,
+2026-09-27T07:19:56Z,PyPI JSON API,PyPI urllib3,GET,https://pypi.org/pypi/urllib3/json,200,160832,
+2026-09-27T07:20:53Z,OSV API,OSV vuln GHSA-qccp-gfcp-xxvc,GET,https://api.osv.dev/v1/vulns/GHSA-qccp-gfcp-xxvc,200,2932,
+2026-09-27T07:20:53Z,OSV API,OSV vuln GHSA-mf9v-mfxr-j63j,GET,https://api.osv.dev/v1/vulns/GHSA-mf9v-mfxr-j63j,200,4056,
+2026-09-27T07:20:53Z,OSV API,OSV vuln GHSA-537c-gmf6-5ccf,GET,https://api.osv.dev/v1/vulns/GHSA-537c-gmf6-5ccf,200,2825,
+2026-09-27T07:20:53Z,OSV API,OSV vuln GHSA-xgmm-8j9v-c9wx,GET,https://api.osv.dev/v1/vulns/GHSA-xgmm-8j9v-c9wx,200,5166,
+2026-09-27T07:20:54Z,OSV API,OSV vuln GHSA-wqp7-x3pw-xc5r,GET,https://api.osv.dev/v1/vulns/GHSA-wqp7-x3pw-xc5r,200,5136,
+2026-09-27T07:21:38Z,OSV API,OSV vuln GHSA-qccp-gfcp-xxvc,GET,https://api.osv.dev/v1/vulns/GHSA-qccp-gfcp-xxvc,200,2932,
+2026-09-27T07:21:38Z,OSV API,OSV vuln GHSA-mf9v-mfxr-j63j,GET,https://api.osv.dev/v1/vulns/GHSA-mf9v-mfxr-j63j,200,4056,
+2026-09-27T07:21:38Z,OSV API,OSV vuln GHSA-537c-gmf6-5ccf,GET,https://api.osv.dev/v1/vulns/GHSA-537c-gmf6-5ccf,200,2825,
+2026-09-27T07:21:38Z,OSV API,OSV vuln GHSA-xgmm-8j9v-c9wx,GET,https://api.osv.dev/v1/vulns/GHSA-xgmm-8j9v-c9wx,200,5166,
+2026-09-27T07:21:38Z,OSV API,OSV vuln GHSA-wqp7-x3pw-xc5r,GET,https://api.osv.dev/v1/vulns/GHSA-wqp7-x3pw-xc5r,200,5136,
+2026-09-27T07:24:16Z,Open Source Insights,deps.dev dependents urllib3 2.6.3,GET,https://deps.dev/_/s/pypi/p/urllib3/v/2.6.3/dependents,200,15084,
+2026-09-27T07:24:16Z,Open Source Insights,deps.dev dependents urllib3 2.3.0,GET,https://deps.dev/_/s/pypi/p/urllib3/v/2.3.0/dependents,200,10807,
+2026-09-27T07:24:17Z,Open Source Insights,deps.dev dependents cryptography 48.0.0,GET,https://deps.dev/_/s/pypi/p/cryptography/v/48.0.0/dependents,200,5180,
+2026-09-27T07:24:17Z,Open Source Insights,deps.dev dependents cryptography 46.0.3,GET,https://deps.dev/_/s/pypi/p/cryptography/v/46.0.3/dependents,200,7017,
+2026-09-27T07:24:17Z,Open Source Insights,deps.dev dependents pyjwt 2.12.1,GET,https://deps.dev/_/s/pypi/p/pyjwt/v/2.12.1/dependents,200,10532,
+2026-09-27T07:24:17Z,Open Source Insights,deps.dev dependents pyjwt 2.10.1,GET,https://deps.dev/_/s/pypi/p/pyjwt/v/2.10.1/dependents,200,15086,
+2026-09-27T07:24:17Z,Open Source Insights,deps.dev dependents starlette 1.0.1,GET,https://deps.dev/_/s/pypi/p/starlette/v/1.0.1/dependents,200,2094,
+2026-09-27T07:24:17Z,Open Source Insights,deps.dev dependents starlette 0.52.1,GET,https://deps.dev/_/s/pypi/p/starlette/v/0.52.1/dependents,200,14751,
+2026-09-27T07:24:24Z,Open Source Insights,deps.dev version awx-zipline-ai 0.4.6,GET,https://api.deps.dev/v3/systems/pypi/packages/awx-zipline-ai/versions/0.4.6,200,698,
+2026-09-27T07:24:24Z,Open Source Insights,deps.dev version eth-brownie 1.22.0,GET,https://api.deps.dev/v3/systems/pypi/packages/eth-brownie/versions/1.22.0,200,581,
+2026-09-27T07:24:24Z,Open Source Insights,deps.dev version unitycatalog-client 0.6.0,GET,https://api.deps.dev/v3/systems/pypi/packages/unitycatalog-client/versions/0.6.0,200,892,
+2026-09-27T07:24:24Z,Open Source Insights,deps.dev version gen-epix 8.0.0,GET,https://api.deps.dev/v3/systems/pypi/packages/gen-epix/versions/8.0.0,200,1341,
+2026-09-27T07:24:24Z,Open Source Insights,deps.dev version common-osint-model 0.6.2,GET,https://api.deps.dev/v3/systems/pypi/packages/common-osint-model/versions/0.6.2,200,666,
+2026-09-27T07:24:24Z,Open Source Insights,deps.dev version fluid-labels 3.0.1,GET,https://api.deps.dev/v3/systems/pypi/packages/fluid-labels/versions/3.0.1,200,377,
+2026-09-27T07:24:24Z,Open Source Insights,deps.dev version beyondtrust-bips-library 2.1.0,GET,https://api.deps.dev/v3/systems/pypi/packages/beyondtrust-bips-library/versions/2.1.0,200,1028,
+2026-09-27T07:24:24Z,Open Source Insights,deps.dev version sinduk 2.1.0,GET,https://api.deps.dev/v3/systems/pypi/packages/sinduk/versions/2.1.0,200,1357,
+2026-09-27T07:24:24Z,PyPI JSON API,PyPI fluid-labels 3.0.1,GET,https://pypi.org/pypi/fluid-labels/3.0.1/json,200,3382,
+2026-09-27T07:24:24Z,PyPI JSON API,PyPI fluid-labels,GET,https://pypi.org/pypi/fluid-labels/json,200,274561,
+2026-09-27T07:24:24Z,git over HTTPS,clone awx-zipline-ai,git clone --filter=blob:none --no-checkout,https://github.com/zipline-ai/chronon.git,,,failed: git clone -q --filter=blob:none --no-checkout https://github.com/zipline-ai/chronon.git /tmp/lh008/repos/github.com__zipline-ai__chronon: fatal: could not read 
+2026-09-27T07:24:25Z,Open Source Insights,deps.dev version lemur 1.9.3,GET,https://api.deps.dev/v3/systems/pypi/packages/lemur/versions/1.9.3,200,1143,
+2026-09-27T07:24:25Z,Open Source Insights,deps.dev version cfl-common 8.9.19,GET,https://api.deps.dev/v3/systems/pypi/packages/cfl-common/versions/8.9.19,200,949,
+2026-09-27T07:24:24Z,git over HTTPS,clone beyondtrust-bips-library,git clone --filter=blob:none --no-checkout,https://github.com/beyondtrust/ps-integration-library.git,,,failed: git clone -q --filter=blob:none --no-checkout https://github.com/beyondtrust/ps-integration-library.git /tmp/lh008/repos/github.com__beyondtrust__ps-integration
+2026-09-27T07:24:25Z,Open Source Insights,deps.dev version an-website 26.2.0,GET,https://api.deps.dev/v3/systems/pypi/packages/an-website/versions/26.2.0,200,612,
+2026-09-27T07:24:24Z,git over HTTPS,clone common-osint-model,git clone --filter=blob:none --no-checkout,https://github.com/3c7/common-osint-model.git,,208739,cloned
+2026-09-27T07:24:24Z,git over HTTPS,clone sinduk,git clone --filter=blob:none --no-checkout,https://github.com/imshakil/sinduk.git,,248328,cloned
+2026-09-27T07:24:24Z,git over HTTPS,clone eth-brownie,git clone --filter=blob:none --no-checkout,https://github.com/eth-brownie/brownie.git,,3480771,cloned
+2026-09-27T07:24:24Z,git over HTTPS,clone unitycatalog-client,git clone --filter=blob:none --no-checkout,https://github.com/unitycatalog/unitycatalog.git,,2720368,cloned
+2026-09-27T07:24:25Z,git over HTTPS,clone an-website,git clone --filter=blob:none --no-checkout,https://github.com/asozialesnetzwerk/an-website.git,,2841382,cloned
+2026-09-27T07:24:25Z,git over HTTPS,clone cfl-common,git clone --filter=blob:none --no-checkout,https://github.com/ocadotechnology/codeforlife-portal.git,,3452813,cloned
+2026-09-27T07:24:25Z,git over HTTPS,clone lemur,git clone --filter=blob:none --no-checkout,https://github.com/netflix/lemur.git,,7564570,cloned
+2026-09-27T07:24:24Z,git over HTTPS,clone gen-epix,git clone --filter=blob:none --no-checkout,https://github.com/rivm-bioinformatics/gen-epix-api.git,,2708145,cloned
+2026-09-27T07:24:27Z,Open Source Insights,deps.dev version amzn-nova-customization-sdk 1.3.14,GET,https://api.deps.dev/v3/systems/pypi/packages/amzn-nova-customization-sdk/versions/1.3.14,200,405,
+2026-09-27T07:24:27Z,PyPI JSON API,PyPI amzn-nova-customization-sdk 1.3.14,GET,https://pypi.org/pypi/amzn-nova-customization-sdk/1.3.14/json,200,36036,
+2026-09-27T07:24:27Z,PyPI JSON API,PyPI amzn-nova-customization-sdk,GET,https://pypi.org/pypi/amzn-nova-customization-sdk/json,200,15908,
+2026-09-27T07:24:27Z,Open Source Insights,deps.dev version aider-chat 0.86.2,GET,https://api.deps.dev/v3/systems/pypi/packages/aider-chat/versions/0.86.2,200,753,
+2026-09-27T07:24:27Z,Open Source Insights,deps.dev version c7n 0.9.49,GET,https://api.deps.dev/v3/systems/pypi/packages/c7n/versions/0.9.49,200,966,
+2026-09-27T07:24:27Z,Open Source Insights,deps.dev version fwquant 1.0.2,GET,https://api.deps.dev/v3/systems/pypi/packages/fwquant/versions/1.0.2,200,377,
+2026-09-27T07:24:27Z,PyPI JSON API,PyPI fwquant 1.0.2,GET,https://pypi.org/pypi/fwquant/1.0.2/json,200,7917,
+2026-09-27T07:24:28Z,PyPI JSON API,PyPI fwquant,GET,https://pypi.org/pypi/fwquant/json,200,225641,
+2026-09-27T07:24:28Z,git over HTTPS,clone fwquant,git clone --filter=blob:none --no-checkout,https://github.com/fwquant/fwquant.git,,,failed: git clone -q --filter=blob:none --no-checkout https://github.com/fwquant/fwquant.git /tmp/lh008/repos/github.com__fwquant__fwquant: fatal: could not read Userna
+2026-09-27T07:24:28Z,Open Source Insights,deps.dev version fw-pip-test 1.0.18,GET,https://api.deps.dev/v3/systems/pypi/packages/fw-pip-test/versions/1.0.18,200,580,
+2026-09-27T07:24:27Z,git over HTTPS,clone aider-chat,git clone --filter=blob:none --no-checkout,https://github.com/aider-ai/aider.git,,6860771,cloned
+2026-09-27T07:24:27Z,git over HTTPS,clone c7n,git clone --filter=blob:none --no-checkout,https://github.com/cloud-custodian/cloud-custodian.git,,13509648,cloned
+2026-09-27T07:24:28Z,Open Source Insights,deps.dev version fwai 1.0.1,GET,https://api.deps.dev/v3/systems/pypi/packages/fwai/versions/1.0.1,200,373,
+2026-09-27T07:24:28Z,git over HTTPS,clone fw-pip-test,git clone --filter=blob:none --no-checkout,https://github.com/fwquant/fw-pip-test.git,,38534,cloned
+2026-09-27T07:24:29Z,PyPI JSON API,PyPI fwai 1.0.1,GET,https://pypi.org/pypi/fwai/1.0.1/json,200,7835,
+2026-09-27T07:24:29Z,PyPI JSON API,PyPI fwai,GET,https://pypi.org/pypi/fwai/json,200,9369,
+2026-09-27T07:24:29Z,Open Source Insights,deps.dev version qi-compute-api-client 0.56.0,GET,https://api.deps.dev/v3/systems/pypi/packages/qi-compute-api-client/versions/0.56.0,200,622,
+2026-09-27T07:24:29Z,Open Source Insights,deps.dev version jinjamator 0.140.1,GET,https://api.deps.dev/v3/systems/pypi/packages/jinjamator/versions/0.140.1,200,593,
+2026-09-27T07:24:29Z,Open Source Insights,deps.dev version devsecops-engine-tools 1.129.0,GET,https://api.deps.dev/v3/systems/pypi/packages/devsecops-engine-tools/versions/1.129.0,200,1266,
+2026-09-27T07:24:29Z,git over HTTPS,clone qi-compute-api-client,git clone --filter=blob:none --no-checkout,https://github.com/qutech-delft/compute-api-client.git,,274284,cloned
+2026-09-27T07:24:29Z,Open Source Insights,deps.dev version bst-plotting 1.0.0.dev0,GET,https://api.deps.dev/v3/systems/pypi/packages/bst-plotting/versions/1.0.0.dev0,200,488,
+2026-09-27T07:24:29Z,git over HTTPS,clone jinjamator,git clone --filter=blob:none --no-checkout,https://github.com/jinjamator/jinjamator.git,,964648,cloned
+2026-09-27T07:24:30Z,PyPI JSON API,PyPI bst-plotting 1.0.0.dev0,GET,https://pypi.org/pypi/bst-plotting/1.0.0.dev0/json,200,3340,
+2026-09-27T07:24:30Z,PyPI JSON API,PyPI bst-plotting,GET,https://pypi.org/pypi/bst-plotting/json,200,4931,
+2026-09-27T07:24:30Z,Open Source Insights,deps.dev version filter-event-sink 1.1.1,GET,https://api.deps.dev/v3/systems/pypi/packages/filter-event-sink/versions/1.1.1,200,394,
+2026-09-27T07:24:30Z,PyPI JSON API,PyPI filter-event-sink 1.1.1,GET,https://pypi.org/pypi/filter-event-sink/1.1.1/json,200,10120,
+2026-09-27T07:24:30Z,PyPI JSON API,PyPI filter-event-sink,GET,https://pypi.org/pypi/filter-event-sink/json,200,21203,
+2026-09-27T07:24:29Z,git over HTTPS,clone devsecops-engine-tools,git clone --filter=blob:none --no-checkout,https://github.com/bancolombia/devsecops-engine-tools.git,,4725036,cloned
+2026-09-27T07:24:30Z,Open Source Insights,deps.dev version pycentral 1.4.3,GET,https://api.deps.dev/v3/systems/pypi/packages/pycentral/versions/1.4.3,200,569,
+2026-09-27T07:24:30Z,Open Source Insights,deps.dev version anki-release 26.5.0,GET,https://api.deps.dev/v3/systems/pypi/packages/anki-release/versions/26.5.0,200,910,
+2026-09-27T07:24:30Z,Open Source Insights,deps.dev version grimoirelab 1.19.0,GET,https://api.deps.dev/v3/systems/pypi/packages/grimoirelab/versions/1.19.0,200,796,
+2026-09-27T07:24:30Z,git over HTTPS,clone pycentral,git clone --filter=blob:none --no-checkout,https://github.com/aruba/pycentral.git,,289393,cloned
+2026-09-27T07:24:31Z,Open Source Insights,deps.dev version conviso-cli 2.7.10,GET,https://api.deps.dev/v3/systems/pypi/packages/conviso-cli/versions/2.7.10,200,586,
+2026-09-27T07:24:30Z,git over HTTPS,clone grimoirelab,git clone --filter=blob:none --no-checkout,https://github.com/chaoss/grimoirelab.git,,884405,cloned
+2026-09-27T07:24:31Z,git over HTTPS,clone conviso-cli,git clone --filter=blob:none --no-checkout,https://github.com/convisoappsec/convisocli.git,,,failed: git clone -q --filter=blob:none --no-checkout https://github.com/convisoappsec/convisocli.git /tmp/lh008/repos/github.com__convisoappsec__convisocli: fatal: cou
+2026-09-27T07:24:31Z,Open Source Insights,deps.dev version crc-pulp-rpm-client 20251208.2.0,GET,https://api.deps.dev/v3/systems/pypi/packages/crc-pulp-rpm-client/versions/20251208.2.0,200,405,
+2026-09-27T07:24:31Z,Open Source Insights,deps.dev version seclab-taskflow-agent 0.3.1,GET,https://api.deps.dev/v3/systems/pypi/packages/seclab-taskflow-agent/versions/0.3.1,200,1511,
+2026-09-27T07:24:31Z,PyPI JSON API,PyPI crc-pulp-rpm-client 20251208.2.0,GET,https://pypi.org/pypi/crc-pulp-rpm-client/20251208.2.0/json,200,778776,
+2026-09-27T07:24:31Z,PyPI JSON API,PyPI crc-pulp-rpm-client,GET,https://pypi.org/pypi/crc-pulp-rpm-client/json,200,1483419,
+2026-09-27T07:24:30Z,git over HTTPS,clone anki-release,git clone --filter=blob:none --no-checkout,https://github.com/ankitects/anki.git,,14837439,cloned
+2026-09-27T07:24:31Z,Open Source Insights,deps.dev version devflux-aider-code 0.86.2.post30,GET,https://api.deps.dev/v3/systems/pypi/packages/devflux-aider-code/versions/0.86.2.post30,200,461,
+2026-09-27T07:24:31Z,Open Source Insights,deps.dev version amzn-nova-forge 1.3.14,GET,https://api.deps.dev/v3/systems/pypi/packages/amzn-nova-forge/versions/1.3.14,200,393,
+2026-09-27T07:24:31Z,Open Source Insights,deps.dev version cuhkit 1.0.0,GET,https://api.deps.dev/v3/systems/pypi/packages/cuhkit/versions/1.0.0,200,570,
+2026-09-27T07:24:32Z,PyPI JSON API,PyPI devflux-aider-code 0.86.2.post30,GET,https://pypi.org/pypi/devflux-aider-code/0.86.2.post30/json,200,25262,
+2026-09-27T07:24:32Z,PyPI JSON API,PyPI devflux-aider-code,GET,https://pypi.org/pypi/devflux-aider-code/json,200,83823,
+2026-09-27T07:24:32Z,Open Source Insights,deps.dev version flask-app-class 0.1.0,GET,https://api.deps.dev/v3/systems/pypi/packages/flask-app-class/versions/0.1.0,200,913,
+2026-09-27T07:24:32Z,PyPI JSON API,PyPI amzn-nova-forge 1.3.14,GET,https://pypi.org/pypi/amzn-nova-forge/1.3.14/json,200,35940,
+2026-09-27T07:24:32Z,PyPI JSON API,PyPI amzn-nova-forge,GET,https://pypi.org/pypi/amzn-nova-forge/json,200,42247,
+2026-09-27T07:24:32Z,Open Source Insights,deps.dev version blfs-pm 1.0.7,GET,https://api.deps.dev/v3/systems/pypi/packages/blfs-pm/versions/1.0.7,200,603,
+2026-09-27T07:24:31Z,git over HTTPS,clone seclab-taskflow-agent,git clone --filter=blob:none --no-checkout,https://github.com/githubsecuritylab/seclab-taskflow-agent.git,,1057342,cloned
+2026-09-27T07:24:32Z,git over HTTPS,clone cuhkit,git clone --filter=blob:none --no-checkout,https://github.com/cuhhub/cuhkit.git,,95466,cloned
+2026-09-27T07:24:32Z,git over HTTPS,clone flask-app-class,git clone --filter=blob:none --no-checkout,https://github.com/learningtopi/flask_app_class.git,,47119,cloned
+2026-09-27T07:24:32Z,Open Source Insights,deps.dev version ai-parrot 0.20.3,GET,https://api.deps.dev/v3/systems/pypi/packages/ai-parrot/versions/0.20.3,200,741,
+2026-09-27T07:24:32Z,git over HTTPS,clone blfs-pm,git clone --filter=blob:none --no-checkout,https://github.com/ahron-maslin/blfs-automation.git,,112665,cloned
+2026-09-27T07:24:33Z,Open Source Insights,deps.dev version daktari 0.0.302,GET,https://api.deps.dev/v3/systems/pypi/packages/daktari/versions/0.0.302,200,648,
+2026-09-27T07:24:33Z,Open Source Insights,deps.dev version geonode 5.0.2,GET,https://api.deps.dev/v3/systems/pypi/packages/geonode/versions/5.0.2,200,409,
+2026-09-27T07:24:33Z,PyPI JSON API,PyPI geonode 5.0.2,GET,https://pypi.org/pypi/geonode/5.0.2/json,200,12690,
+2026-09-27T07:24:33Z,git over HTTPS,clone daktari,git clone --filter=blob:none --no-checkout,https://github.com/sonocent/daktari.git,,1520254,cloned
+2026-09-27T07:24:33Z,Open Source Insights,deps.dev version cloud-governance 1.1.421,GET,https://api.deps.dev/v3/systems/pypi/packages/cloud-governance/versions/1.1.421,200,626,
+2026-09-27T07:24:33Z,Open Source Insights,deps.dev version bibforgery 1.10.0,GET,https://api.deps.dev/v3/systems/pypi/packages/bibforgery/versions/1.10.0,200,376,
+2026-09-27T07:24:34Z,PyPI JSON API,PyPI bibforgery 1.10.0,GET,https://pypi.org/pypi/bibforgery/1.10.0/json,200,5991,
+2026-09-27T07:24:34Z,PyPI JSON API,PyPI bibforgery,GET,https://pypi.org/pypi/bibforgery/json,200,16684,
+2026-09-27T07:24:34Z,Open Source Insights,deps.dev version crate-anon 0.20.8,GET,https://api.deps.dev/v3/systems/pypi/packages/crate-anon/versions/0.20.8,200,394,
+2026-09-27T07:24:34Z,PyPI JSON API,PyPI crate-anon 0.20.8,GET,https://pypi.org/pypi/crate-anon/0.20.8/json,200,7838,
+2026-09-27T07:24:34Z,PyPI JSON API,PyPI crate-anon,GET,https://pypi.org/pypi/crate-anon/json,200,87980,
+2026-09-27T07:24:34Z,Open Source Insights,deps.dev version crc-pulp-file-client 20251208.2.0,GET,https://api.deps.dev/v3/systems/pypi/packages/crc-pulp-file-client/versions/20251208.2.0,200,406,
+2026-09-27T07:24:34Z,PyPI JSON API,PyPI crc-pulp-file-client 20251208.2.0,GET,https://pypi.org/pypi/crc-pulp-file-client/20251208.2.0/json,200,396049,
+2026-09-27T07:24:34Z,PyPI JSON API,PyPI crc-pulp-file-client,GET,https://pypi.org/pypi/crc-pulp-file-client/json,200,1172268,
+2026-09-27T07:24:34Z,Open Source Insights,deps.dev version composez-aider-fork 0.86.2,GET,https://api.deps.dev/v3/systems/pypi/packages/composez-aider-fork/versions/0.86.2,200,694,
+2026-09-27T07:24:34Z,git over HTTPS,clone cloud-governance,git clone --filter=blob:none --no-checkout,https://github.com/redhat-performance/cloud-governance.git,,2321627,cloned
+2026-09-27T07:24:34Z,git over HTTPS,clone composez-aider-fork,git clone --filter=blob:none --no-checkout,https://github.com/kmewhort/composez-aider-fork.git,,,failed: git clone -q --filter=blob:none --no-checkout https://github.com/kmewhort/composez-aider-fork.git /tmp/lh008/repos/github.com__kmewhort__composez-aider-fork: fa
+2026-09-27T07:24:35Z,Open Source Insights,deps.dev version nvidia-nat-core 1.5.0a20260219,GET,https://api.deps.dev/v3/systems/pypi/packages/nvidia-nat-core/versions/1.5.0a20260219,200,699,
+2026-09-27T07:24:35Z,Open Source Insights,deps.dev version crc-pulp-gem-client 20251208.2.0,GET,https://api.deps.dev/v3/systems/pypi/packages/crc-pulp-gem-client/versions/20251208.2.0,200,405,
+2026-09-27T07:24:36Z,PyPI JSON API,PyPI crc-pulp-gem-client 20251208.2.0,GET,https://pypi.org/pypi/crc-pulp-gem-client/20251208.2.0/json,200,324049,
+2026-09-27T07:24:36Z,PyPI JSON API,PyPI crc-pulp-gem-client,GET,https://pypi.org/pypi/crc-pulp-gem-client/json,200,828419,
+2026-09-27T07:24:33Z,git over HTTPS,clone ai-parrot,git clone --filter=blob:none --no-checkout,https://github.com/phenobarbital/ai-parrot.git,,20282461,cloned
+2026-09-27T07:24:36Z,Open Source Insights,deps.dev version agentstack-cli 0.6.1,GET,https://api.deps.dev/v3/systems/pypi/packages/agentstack-cli/versions/0.6.1,200,934,
+2026-09-27T07:24:36Z,Open Source Insights,deps.dev version ibm-code-engine-sdk 4.21.2,GET,https://api.deps.dev/v3/systems/pypi/packages/ibm-code-engine-sdk/versions/4.21.2,200,687,
+2026-09-27T07:24:33Z,git over HTTPS,clone geonode,git clone --filter=blob:none --no-checkout,https://github.com/geonode/geonode.git,,21912144,cloned
+2026-09-27T07:24:36Z,git over HTTPS,clone ibm-code-engine-sdk,git clone --filter=blob:none --no-checkout,https://github.com/ibm/code-engine-python-sdk.git,,119736,cloned
+2026-09-27T07:24:35Z,git over HTTPS,clone nvidia-nat-core,git clone --filter=blob:none --no-checkout,https://github.com/nvidia/nemo-agent-toolkit.git,,5798717,cloned
+2026-09-27T07:24:36Z,git over HTTPS,clone agentstack-cli,git clone --filter=blob:none --no-checkout,https://github.com/i-am-bee/agentstack.git,,5384187,cloned
+2026-09-27T07:24:37Z,Open Source Insights,deps.dev version euvd-python-cli 1.0.0,GET,https://api.deps.dev/v3/systems/pypi/packages/euvd-python-cli/versions/1.0.0,200,870,
+2026-09-27T07:24:37Z,git over HTTPS,clone euvd-python-cli,git clone --filter=blob:none --no-checkout,https://github.com/seifreed/euvd-cli.git,,79602,cloned
+2026-09-27T07:24:38Z,Open Source Insights,deps.dev version bzt 1.16.47,GET,https://api.deps.dev/v3/systems/pypi/packages/bzt/versions/1.16.47,200,382,
+2026-09-27T07:24:38Z,PyPI JSON API,PyPI bzt 1.16.47,GET,https://pypi.org/pypi/bzt/1.16.47/json,200,5078,
+2026-09-27T07:24:38Z,PyPI JSON API,PyPI bzt,GET,https://pypi.org/pypi/bzt/json,200,199407,
+2026-09-27T07:24:38Z,Open Source Insights,deps.dev version crc-pulpcore-client 20251208.2.0,GET,https://api.deps.dev/v3/systems/pypi/packages/crc-pulpcore-client/versions/20251208.2.0,200,405,
+2026-09-27T07:24:38Z,Open Source Insights,deps.dev version cytomine-python-client 4.0.0,GET,https://api.deps.dev/v3/systems/pypi/packages/cytomine-python-client/versions/4.0.0,200,723,
+2026-09-27T07:24:38Z,PyPI JSON API,PyPI crc-pulpcore-client 20251208.2.0,GET,https://pypi.org/pypi/crc-pulpcore-client/20251208.2.0/json,200,1426870,
+2026-09-27T07:24:38Z,PyPI JSON API,PyPI crc-pulpcore-client,GET,https://pypi.org/pypi/crc-pulpcore-client/json,200,2173118,
+2026-09-27T07:24:38Z,Open Source Insights,deps.dev version c2c-gpx 0.0.2,GET,https://api.deps.dev/v3/systems/pypi/packages/c2c-gpx/versions/0.0.2,200,840,
+2026-09-27T07:24:38Z,Open Source Insights,deps.dev version c2cciutils 1.1.0.dev20260322010408,GET,https://api.deps.dev/v3/systems/pypi/packages/c2cciutils/versions/1.1.0.dev20260322010408,200,668,
+2026-09-27T07:24:38Z,git over HTTPS,clone c2c-gpx,git clone --filter=blob:none --no-checkout,https://github.com/ulyssev/c2c_gpx.git,,59158,cloned
+2026-09-27T07:24:39Z,Open Source Insights,deps.dev version bldr 0.0.21,GET,https://api.deps.dev/v3/systems/pypi/packages/bldr/versions/0.0.21,200,571,
+2026-09-27T07:24:38Z,git over HTTPS,clone c2cciutils,git clone --filter=blob:none --no-checkout,https://github.com/camptocamp/c2cciutils.git,,4325513,cloned
+2026-09-27T07:24:38Z,git over HTTPS,clone cytomine-python-client,git clone --filter=blob:none --no-checkout,https://github.com/cytomine/cytomine.git,,8030828,cloned
+2026-09-27T07:24:39Z,git over HTTPS,clone bldr,git clone --filter=blob:none --no-checkout,https://github.com/oneidentity/bldr.git,,97800,cloned
+2026-09-27T07:24:40Z,Open Source Insights,deps.dev version ethyca-fides 2.79.1a0,GET,https://api.deps.dev/v3/systems/pypi/packages/ethyca-fides/versions/2.79.1a0,200,750,
+2026-09-27T07:24:40Z,Open Source Insights,deps.dev version guardx 0.2.2,GET,https://api.deps.dev/v3/systems/pypi/packages/guardx/versions/0.2.2,200,875,
+2026-09-27T07:24:40Z,git over HTTPS,clone guardx,git clone --filter=blob:none --no-checkout,https://github.com/ibm/guardx.git,,56035,cloned
+2026-09-27T07:24:41Z,Open Source Insights,deps.dev version geoengine 0.9.1,GET,https://api.deps.dev/v3/systems/pypi/packages/geoengine/versions/0.9.1,200,631,
+2026-09-27T07:24:42Z,Open Source Insights,deps.dev version fudster 0.1.0,GET,https://api.deps.dev/v3/systems/pypi/packages/fudster/versions/0.1.0,200,386,
+2026-09-27T07:24:42Z,PyPI JSON API,PyPI fudster 0.1.0,GET,https://pypi.org/pypi/fudster/0.1.0/json,200,8868,
+2026-09-27T07:24:42Z,PyPI JSON API,PyPI fudster,GET,https://pypi.org/pypi/fudster/json,200,15565,
+2026-09-27T07:24:42Z,Open Source Insights,deps.dev version crc-pulp-python-client 20251208.2.0,GET,https://api.deps.dev/v3/systems/pypi/packages/crc-pulp-python-client/versions/20251208.2.0,200,408,
+2026-09-27T07:24:42Z,PyPI JSON API,PyPI crc-pulp-python-client 20251208.2.0,GET,https://pypi.org/pypi/crc-pulp-python-client/20251208.2.0/json,200,410728,
+2026-09-27T07:24:42Z,PyPI JSON API,PyPI crc-pulp-python-client,GET,https://pypi.org/pypi/crc-pulp-python-client/json,200,1243850,
+2026-09-27T07:24:42Z,Open Source Insights,deps.dev version crc-pulp-maven-client 20251208.2.0,GET,https://api.deps.dev/v3/systems/pypi/packages/crc-pulp-maven-client/versions/20251208.2.0,200,407,
+2026-09-27T07:24:43Z,Open Source Insights,deps.dev version docassemble-base 1.10.0,GET,https://api.deps.dev/v3/systems/pypi/packages/docassemble-base/versions/1.10.0,200,925,
+2026-09-27T07:24:43Z,PyPI JSON API,PyPI crc-pulp-maven-client 20251208.2.0,GET,https://pypi.org/pypi/crc-pulp-maven-client/20251208.2.0/json,200,232877,
+2026-09-27T07:24:43Z,PyPI JSON API,PyPI crc-pulp-maven-client,GET,https://pypi.org/pypi/crc-pulp-maven-client/json,200,1130264,
+2026-09-27T07:24:40Z,git over HTTPS,clone ethyca-fides,git clone --filter=blob:none --no-checkout,https://github.com/ethyca/fides.git,,27817626,cloned
+2026-09-27T07:24:43Z,Open Source Insights,deps.dev version crc-pulp-npm-client 20251208.2.0,GET,https://api.deps.dev/v3/systems/pypi/packages/crc-pulp-npm-client/versions/20251208.2.0,200,405,
+2026-09-27T07:24:43Z,PyPI JSON API,PyPI crc-pulp-npm-client 20251208.2.0,GET,https://pypi.org/pypi/crc-pulp-npm-client/20251208.2.0/json,200,232329,
+2026-09-27T07:24:43Z,PyPI JSON API,PyPI crc-pulp-npm-client,GET,https://pypi.org/pypi/crc-pulp-npm-client/json,200,1009443,
+2026-09-27T07:24:43Z,Open Source Insights,deps.dev version hmd-graphql-client 0.1.171,GET,https://api.deps.dev/v3/systems/pypi/packages/hmd-graphql-client/versions/0.1.171,200,396,
+2026-09-27T07:24:43Z,PyPI JSON API,PyPI hmd-graphql-client 0.1.171,GET,https://pypi.org/pypi/hmd-graphql-client/0.1.171/json,200,3292,
+2026-09-27T07:24:43Z,PyPI JSON API,PyPI hmd-graphql-client,GET,https://pypi.org/pypi/hmd-graphql-client/json,200,12587,
+2026-09-27T07:24:43Z,Open Source Insights,deps.dev version demonstrable-whisperx-service 3.0.0,GET,https://api.deps.dev/v3/systems/pypi/packages/demonstrable-whisperx-service/versions/3.0.0,200,642,
+2026-09-27T07:24:43Z,Open Source Insights,deps.dev version geocoder-kr 0.21.0,GET,https://api.deps.dev/v3/systems/pypi/packages/geocoder-kr/versions/0.21.0,200,591,
+2026-09-27T07:24:43Z,git over HTTPS,clone demonstrable-whisperx-service,git clone --filter=blob:none --no-checkout,https://bitbucket.org/sixty-north/demonstrable-whisperx-service.git,,,failed: git clone -q --filter=blob:none --no-checkout https://bitbucket.org/sixty-north/demonstrable-whisperx-service.git /tmp/lh008/repos/bitbucket.org__sixty-north__d
+2026-09-27T07:24:44Z,Open Source Insights,deps.dev version cites-dds 1.0.0,GET,https://api.deps.dev/v3/systems/pypi/packages/cites-dds/versions/1.0.0,200,665,
+2026-09-27T07:24:44Z,git over HTTPS,clone cites-dds,git clone --filter=blob:none --no-checkout,https://github.com/sysnet-cz/cites.git,,,failed: git clone -q --filter=blob:none --no-checkout https://github.com/sysnet-cz/cites.git /tmp/lh008/repos/github.com__sysnet-cz__cites: fatal: could not read Userna
+2026-09-27T07:24:44Z,Open Source Insights,deps.dev version dev-install 0.0.1,GET,https://api.deps.dev/v3/systems/pypi/packages/dev-install/versions/0.0.1,200,630,
+2026-09-27T07:24:41Z,git over HTTPS,clone geoengine,git clone --filter=blob:none --no-checkout,https://github.com/geo-engine/geoengine.git,,14798452,cloned
+2026-09-27T07:24:43Z,git over HTTPS,clone docassemble-base,git clone --filter=blob:none --no-checkout,https://github.com/jhpyle/docassemble.git,,9711937,cloned
+2026-09-27T07:24:44Z,git over HTTPS,clone dev-install,git clone --filter=blob:none --no-checkout,https://github.com/dev-ai/dev.git,,,failed: git clone -q --filter=blob:none --no-checkout https://github.com/dev-ai/dev.git /tmp/lh008/repos/github.com__dev-ai__dev: fatal: could not read Username for 'ht
+2026-09-27T07:24:43Z,git over HTTPS,clone geocoder-kr,git clone --filter=blob:none --no-checkout,https://github.com/gisman/geocoder-kr.git,,47568,cloned
+2026-09-27T07:24:44Z,Open Source Insights,deps.dev version fastdevcommon 0.1.7,GET,https://api.deps.dev/v3/systems/pypi/packages/fastdevcommon/versions/0.1.7,200,596,
+2026-09-27T07:24:44Z,git over HTTPS,clone fastdevcommon,git clone --filter=blob:none --no-checkout,https://github.com/hwzlikewyh/fastdevcommon.git,,,failed: git clone -q --filter=blob:none --no-checkout https://github.com/hwzlikewyh/fastdevcommon.git /tmp/lh008/repos/github.com__hwzlikewyh__fastdevcommon: fatal: cou
+2026-09-27T07:24:45Z,Open Source Insights,deps.dev version flexengine 0.2.0,GET,https://api.deps.dev/v3/systems/pypi/packages/flexengine/versions/0.2.0,200,934,
+2026-09-27T07:24:45Z,Open Source Insights,deps.dev version deep-sort-reid 0.1.0,GET,https://api.deps.dev/v3/systems/pypi/packages/deep-sort-reid/versions/0.1.0,200,595,
+2026-09-27T07:24:45Z,Open Source Insights,deps.dev version midas-client 1.0.17,GET,https://api.deps.dev/v3/systems/pypi/packages/midas-client/versions/1.0.17,200,390,
+2026-09-27T07:24:45Z,git over HTTPS,clone deep-sort-reid,git clone --filter=blob:none --no-checkout,https://github.com/yourusername/my_project.git,,,failed: git clone -q --filter=blob:none --no-checkout https://github.com/yourusername/my_project.git /tmp/lh008/repos/github.com__yourusername__my_project: fatal: could
+2026-09-27T07:24:45Z,PyPI JSON API,PyPI midas-client 1.0.17,GET,https://pypi.org/pypi/midas-client/1.0.17/json,200,4478,
+2026-09-27T07:24:45Z,PyPI JSON API,PyPI midas-client,GET,https://pypi.org/pypi/midas-client/json,200,40468,
+2026-09-27T07:24:45Z,Open Source Insights,deps.dev version dana-python 1.0.0,GET,https://api.deps.dev/v3/systems/pypi/packages/dana-python/versions/1.0.0,200,653,
+2026-09-27T07:24:45Z,Open Source Insights,deps.dev version vision-common 0.1.0,GET,https://api.deps.dev/v3/systems/pypi/packages/vision-common/versions/0.1.0,200,1186,
+2026-09-27T07:24:45Z,git over HTTPS,clone flexengine,git clone --filter=blob:none --no-checkout,https://github.com/bertvanacker/flexengine.git,,110930,cloned
+2026-09-27T07:24:45Z,Open Source Insights,deps.dev version bangla-ipa 0.8.0,GET,https://api.deps.dev/v3/systems/pypi/packages/bangla-ipa/versions/0.8.0,200,575,
+2026-09-27T07:24:45Z,git over HTTPS,clone dana-python,git clone --filter=blob:none --no-checkout,https://github.com/dana-id/dana-python.git,,171170,cloned
+2026-09-27T07:24:45Z,git over HTTPS,clone vision-common,git clone --filter=blob:none --no-checkout,https://github.com/vision-web3-foundation/common.git,,151611,cloned
+2026-09-27T07:24:46Z,Open Source Insights,deps.dev version cfl-common 8.6.3,GET,https://api.deps.dev/v3/systems/pypi/packages/cfl-common/versions/8.6.3,200,944,
+2026-09-27T07:24:46Z,Open Source Insights,deps.dev version fritzbox-tray 1.0.74,GET,https://api.deps.dev/v3/systems/pypi/packages/fritzbox-tray/versions/1.0.74,200,594,
+2026-09-27T07:24:45Z,git over HTTPS,clone bangla-ipa,git clone --filter=blob:none --no-checkout,https://github.com/bipsec/bangla-ipa.git,,33530,cloned
+2026-09-27T07:24:47Z,Open Source Insights,deps.dev version bsimage2pdf 0.0.8,GET,https://api.deps.dev/v3/systems/pypi/packages/bsimage2pdf/versions/0.0.8,200,376,
+2026-09-27T07:24:47Z,PyPI JSON API,PyPI bsimage2pdf 0.0.8,GET,https://pypi.org/pypi/bsimage2pdf/0.0.8/json,200,3865,
+2026-09-27T07:24:47Z,PyPI JSON API,PyPI bsimage2pdf,GET,https://pypi.org/pypi/bsimage2pdf/json,200,24148,
+2026-09-27T07:24:47Z,Open Source Insights,deps.dev version agentiacap 0.1.31,GET,https://api.deps.dev/v3/systems/pypi/packages/agentiacap/versions/0.1.31,200,376,
+2026-09-27T07:24:47Z,PyPI JSON API,PyPI agentiacap 0.1.31,GET,https://pypi.org/pypi/agentiacap/0.1.31/json,200,5048,
+2026-09-27T07:24:47Z,Open Source Insights,deps.dev version cs-mini-2024z-automl 0.1.0,GET,https://api.deps.dev/v3/systems/pypi/packages/cs-mini-2024z-automl/versions/0.1.0,200,634,
+2026-09-27T07:24:47Z,PyPI JSON API,PyPI agentiacap,GET,https://pypi.org/pypi/agentiacap/json,200,55122,
+2026-09-27T07:24:47Z,Open Source Insights,deps.dev version aider-chat 0.75.1,GET,https://api.deps.dev/v3/systems/pypi/packages/aider-chat/versions/0.75.1,200,752,
+2026-09-27T07:24:47Z,Open Source Insights,deps.dev version anysection 1.0.0,GET,https://api.deps.dev/v3/systems/pypi/packages/anysection/versions/1.0.0,200,642,
+2026-09-27T07:24:46Z,git over HTTPS,clone fritzbox-tray,git clone --filter=blob:none --no-checkout,https://github.com/aviolaris/fritzbox-tray.git,,193228,cloned
+2026-09-27T07:24:48Z,Open Source Insights,deps.dev version flarestack 2.4.10,GET,https://api.deps.dev/v3/systems/pypi/packages/flarestack/versions/2.4.10,200,671,
+2026-09-27T07:24:48Z,Open Source Insights,deps.dev version neosphere 0.2.33,GET,https://api.deps.dev/v3/systems/pypi/packages/neosphere/versions/0.2.33,200,632,
+2026-09-27T07:24:47Z,git over HTTPS,clone cs-mini-2024z-automl,git clone --filter=blob:none --no-checkout,https://github.com/saintangels/cs-mini-2024z-automl_project_2.git,,87287,cloned
+2026-09-27T07:24:48Z,git over HTTPS,clone neosphere,git clone --filter=blob:none --no-checkout,https://github.com/niopub/neosphere.git,,,failed: git clone -q --filter=blob:none --no-checkout https://github.com/niopub/neosphere.git /tmp/lh008/repos/github.com__niopub__neosphere: fatal: could not read User
+2026-09-27T07:24:48Z,Open Source Insights,deps.dev version aipackagewrapper 0.1.0,GET,https://api.deps.dev/v3/systems/pypi/packages/aipackagewrapper/versions/0.1.0,200,1159,
+2026-09-27T07:24:47Z,git over HTTPS,clone anysection,git clone --filter=blob:none --no-checkout,https://github.com/iammix/anysection.git,,51232,cloned
+2026-09-27T07:24:48Z,git over HTTPS,clone flarestack,git clone --filter=blob:none --no-checkout,https://github.com/icecube/flarestack.git,,1594329,cloned
+2026-09-27T07:24:49Z,Open Source Insights,deps.dev version autiobooks 0.1.0,GET,https://api.deps.dev/v3/systems/pypi/packages/autiobooks/versions/0.1.0,200,950,
+2026-09-27T07:24:48Z,git over HTTPS,clone aipackagewrapper,git clone --filter=blob:none --no-checkout,https://github.com/abhay-cerberus/package.git,,101226,cloned
+2026-09-27T07:24:49Z,Open Source Insights,deps.dev version fmcore 0.1.5.2,GET,https://api.deps.dev/v3/systems/pypi/packages/fmcore/versions/0.1.5.2,200,373,
+2026-09-27T07:24:49Z,Open Source Insights,deps.dev version hmd-lib-containers 0.1.93,GET,https://api.deps.dev/v3/systems/pypi/packages/hmd-lib-containers/versions/0.1.93,200,395,
+2026-09-27T07:24:49Z,PyPI JSON API,PyPI fmcore 0.1.5.2,GET,https://pypi.org/pypi/fmcore/0.1.5.2/json,200,5136,
+2026-09-27T07:24:49Z,PyPI JSON API,PyPI fmcore,GET,https://pypi.org/pypi/fmcore/json,200,67533,
+2026-09-27T07:24:49Z,PyPI JSON API,PyPI hmd-lib-containers 0.1.93,GET,https://pypi.org/pypi/hmd-lib-containers/0.1.93/json,200,2648,
+2026-09-27T07:24:49Z,PyPI JSON API,PyPI hmd-lib-containers,GET,https://pypi.org/pypi/hmd-lib-containers/json,200,11061,
+2026-09-27T07:24:49Z,Open Source Insights,deps.dev version councilcount 0.10.1,GET,https://api.deps.dev/v3/systems/pypi/packages/councilcount/versions/0.10.1,200,856,
+2026-09-27T07:24:49Z,git over HTTPS,clone autiobooks,git clone --filter=blob:none --no-checkout,https://github.com/plusuncold/autiobooks.git,,48146,cloned
+2026-09-27T07:24:49Z,Open Source Insights,deps.dev version ghostpeek 1.0.1,GET,https://api.deps.dev/v3/systems/pypi/packages/ghostpeek/versions/1.0.1,200,943,
+2026-09-27T07:24:49Z,Open Source Insights,deps.dev version hmd-lib-librarian-client 0.1.111,GET,https://api.deps.dev/v3/systems/pypi/packages/hmd-lib-librarian-client/versions/0.1.111,200,402,
+2026-09-27T07:24:50Z,PyPI JSON API,PyPI hmd-lib-librarian-client 0.1.111,GET,https://pypi.org/pypi/hmd-lib-librarian-client/0.1.111/json,200,3443,
+2026-09-27T07:24:50Z,PyPI JSON API,PyPI hmd-lib-librarian-client,GET,https://pypi.org/pypi/hmd-lib-librarian-client/json,200,16245,
+2026-09-27T07:24:50Z,Open Source Insights,deps.dev version bqs 0.0.6,GET,https://api.deps.dev/v3/systems/pypi/packages/bqs/versions/0.0.6,200,575,
+2026-09-27T07:24:50Z,Open Source Insights,deps.dev version awesomenations 2.0.0,GET,https://api.deps.dev/v3/systems/pypi/packages/awesomenations/versions/2.0.0,200,804,
+2026-09-27T07:24:50Z,Open Source Insights,deps.dev version hmd-lib-auth 0.1.120,GET,https://api.deps.dev/v3/systems/pypi/packages/hmd-lib-auth/versions/0.1.120,200,390,
+2026-09-27T07:24:50Z,git over HTTPS,clone bqs,git clone --filter=blob:none --no-checkout,https://github.com/michicatte/bqs.git,,,failed: git clone -q --filter=blob:none --no-checkout https://github.com/michicatte/bqs.git /tmp/lh008/repos/github.com__michicatte__bqs: fatal: could not read Username
+2026-09-27T07:24:50Z,git over HTTPS,clone ghostpeek,git clone --filter=blob:none --no-checkout,https://github.com/kaizoku73/ghostpeek.git,,33364,cloned
+2026-09-27T07:24:50Z,Open Source Insights,deps.dev version telliot-feeds 0.4.20,GET,https://api.deps.dev/v3/systems/pypi/packages/telliot-feeds/versions/0.4.20,200,590,
+2026-09-27T07:24:50Z,PyPI JSON API,PyPI hmd-lib-auth 0.1.120,GET,https://pypi.org/pypi/hmd-lib-auth/0.1.120/json,200,2789,
+2026-09-27T07:24:49Z,git over HTTPS,clone councilcount,git clone --filter=blob:none --no-checkout,https://github.com/newyorkcitycouncil/councilcount-py.git,,87161,cloned
+2026-09-27T07:24:50Z,PyPI JSON API,PyPI hmd-lib-auth,GET,https://pypi.org/pypi/hmd-lib-auth/json,200,11918,
+2026-09-27T07:24:50Z,Open Source Insights,deps.dev version pantos-common 4.1.1,GET,https://api.deps.dev/v3/systems/pypi/packages/pantos-common/versions/4.1.1,200,1134,
+2026-09-27T07:24:50Z,Open Source Insights,deps.dev version bscommon 0.0.100,GET,https://api.deps.dev/v3/systems/pypi/packages/bscommon/versions/0.0.100,200,375,
+2026-09-27T07:24:50Z,PyPI JSON API,PyPI bscommon 0.0.100,GET,https://pypi.org/pypi/bscommon/0.0.100/json,200,3851,
+2026-09-27T07:24:50Z,PyPI JSON API,PyPI bscommon,GET,https://pypi.org/pypi/bscommon/json,200,140847,
+2026-09-27T07:24:51Z,Open Source Insights,deps.dev version grimoirelab 1.10.0,GET,https://api.deps.dev/v3/systems/pypi/packages/grimoirelab/versions/1.10.0,200,796,
+2026-09-27T07:24:50Z,git over HTTPS,clone awesomenations,git clone --filter=blob:none --no-checkout,https://github.com/stalot/awesomenations.git,,87192,cloned
+2026-09-27T07:24:51Z,Open Source Insights,deps.dev version gitbugactions 3.1.0,GET,https://api.deps.dev/v3/systems/pypi/packages/gitbugactions/versions/3.1.0,200,383,
+2026-09-27T07:24:51Z,Open Source Insights,deps.dev version conviso-cli 2.3.0,GET,https://api.deps.dev/v3/systems/pypi/packages/conviso-cli/versions/2.3.0,200,585,
+2026-09-27T07:24:51Z,PyPI JSON API,PyPI gitbugactions 3.1.0,GET,https://pypi.org/pypi/gitbugactions/3.1.0/json,200,9006,
+2026-09-27T07:24:51Z,PyPI JSON API,PyPI gitbugactions,GET,https://pypi.org/pypi/gitbugactions/json,200,40347,
+2026-09-27T07:24:51Z,Open Source Insights,deps.dev version fastapi-basic 0.0.10,GET,https://api.deps.dev/v3/systems/pypi/packages/fastapi-basic/versions/0.0.10,200,587,
+2026-09-27T07:24:51Z,Open Source Insights,deps.dev version gifanimus 0.3.0,GET,https://api.deps.dev/v3/systems/pypi/packages/gifanimus/versions/0.3.0,200,569,
+2026-09-27T07:24:50Z,git over HTTPS,clone pantos-common,git clone --filter=blob:none --no-checkout,https://github.com/pantos-io/common.git,,122850,cloned
+2026-09-27T07:24:50Z,git over HTTPS,clone telliot-feeds,git clone --filter=blob:none --no-checkout,https://github.com/tellor-io/telliot-feeds.git,,2396049,cloned
+2026-09-27T07:24:51Z,git over HTTPS,clone conviso-cli,git clone --filter=blob:none --no-checkout,https://github.com/convisoappsec/convisocli.git,,,failed: git clone -q --filter=blob:none --no-checkout https://github.com/convisoappsec/convisocli.git /tmp/lh008/repos/github.com__convisoappsec__convisocli: fatal: cou
+2026-09-27T07:24:51Z,Open Source Insights,deps.dev version brand-peeker 0.1.0,GET,https://api.deps.dev/v3/systems/pypi/packages/brand-peeker/versions/0.1.0,200,587,
+2026-09-27T07:24:51Z,Open Source Insights,deps.dev version hmd-cli-configure 1.0.46,GET,https://api.deps.dev/v3/systems/pypi/packages/hmd-cli-configure/versions/1.0.46,200,394,
+2026-09-27T07:24:51Z,PyPI JSON API,PyPI hmd-cli-configure 1.0.46,GET,https://pypi.org/pypi/hmd-cli-configure/1.0.46/json,200,2546,
+2026-09-27T07:24:51Z,PyPI JSON API,PyPI hmd-cli-configure,GET,https://pypi.org/pypi/hmd-cli-configure/json,200,15958,
+2026-09-27T07:24:51Z,Open Source Insights,deps.dev version data-platfrom-deployer 0.1.0,GET,https://api.deps.dev/v3/systems/pypi/packages/data-platfrom-deployer/versions/0.1.0,200,610,
+2026-09-27T07:24:51Z,git over HTTPS,clone gifanimus,git clone --filter=blob:none --no-checkout,https://github.com/inviti8/gifanimus.git,,48783,cloned
+2026-09-27T07:24:51Z,git over HTTPS,clone fastapi-basic,git clone --filter=blob:none --no-checkout,https://github.com/szx21023/fastapi-base.git,,74474,cloned
+2026-09-27T07:24:51Z,git over HTTPS,clone brand-peeker,git clone --filter=blob:none --no-checkout,https://github.com/gazbutane/brand_peeker.git,,35989,cloned
+2026-09-27T07:24:52Z,Open Source Insights,deps.dev version daktari 0.0.254,GET,https://api.deps.dev/v3/systems/pypi/packages/daktari/versions/0.0.254,200,648,
+2026-09-27T07:24:51Z,git over HTTPS,clone data-platfrom-deployer,git clone --filter=blob:none --no-checkout,https://github.com/vladimir-skvortsov/ontol.git,,214461,cloned
+2026-09-27T07:24:52Z,Open Source Insights,deps.dev version apache-airflow-providers-cncf-kubernetes 10.11.1,GET,https://api.deps.dev/v3/systems/pypi/packages/apache-airflow-providers-cncf-kubernetes/versions/10.11.1,200,983,
+2026-09-27T07:24:53Z,Open Source Insights,deps.dev version azuracast-sse-client 0.1.0,GET,https://api.deps.dev/v3/systems/pypi/packages/azuracast-sse-client/versions/0.1.0,200,612,
+2026-09-27T07:24:53Z,Open Source Insights,deps.dev version hmd-cli-neuronsphere 0.4.180,GET,https://api.deps.dev/v3/systems/pypi/packages/hmd-cli-neuronsphere/versions/0.4.180,200,398,
+2026-09-27T07:24:53Z,Open Source Insights,deps.dev version hmd-lib-transform 0.1.72,GET,https://api.deps.dev/v3/systems/pypi/packages/hmd-lib-transform/versions/0.1.72,200,394,
+2026-09-27T07:24:53Z,PyPI JSON API,PyPI hmd-cli-neuronsphere 0.4.180,GET,https://pypi.org/pypi/hmd-cli-neuronsphere/0.4.180/json,200,5102,
+2026-09-27T07:24:53Z,PyPI JSON API,PyPI hmd-cli-neuronsphere,GET,https://pypi.org/pypi/hmd-cli-neuronsphere/json,200,34772,
+2026-09-27T07:24:53Z,PyPI JSON API,PyPI hmd-lib-transform 0.1.72,GET,https://pypi.org/pypi/hmd-lib-transform/0.1.72/json,200,3360,
+2026-09-27T07:24:53Z,PyPI JSON API,PyPI hmd-lib-transform,GET,https://pypi.org/pypi/hmd-lib-transform/json,200,11759,
+2026-09-27T07:24:53Z,Open Source Insights,deps.dev version snowflake-cli 3.4.1,GET,https://api.deps.dev/v3/systems/pypi/packages/snowflake-cli/versions/3.4.1,200,829,
+2026-09-27T07:24:53Z,git over HTTPS,clone azuracast-sse-client,git clone --filter=blob:none --no-checkout,https://github.com/joemcmahon/azuracast-sse-client.git,,,failed: git clone -q --filter=blob:none --no-checkout https://github.com/joemcmahon/azuracast-sse-client.git /tmp/lh008/repos/github.com__joemcmahon__azuracast-sse-clie
+2026-09-27T07:24:53Z,Open Source Insights,deps.dev version entree 2.4.0,GET,https://api.deps.dev/v3/systems/pypi/packages/entree/versions/2.4.0,200,376,
+2026-09-27T07:24:53Z,Open Source Insights,deps.dev version crate-anon 0.20.7,GET,https://api.deps.dev/v3/systems/pypi/packages/crate-anon/versions/0.20.7,200,394,
+2026-09-27T07:24:53Z,PyPI JSON API,PyPI crate-anon 0.20.7,GET,https://pypi.org/pypi/crate-anon/0.20.7/json,200,7820,
+2026-09-27T07:24:53Z,PyPI JSON API,PyPI entree 2.4.0,GET,https://pypi.org/pypi/entree/2.4.0/json,200,3471,
+2026-09-27T07:24:53Z,PyPI JSON API,PyPI crate-anon,GET,https://pypi.org/pypi/crate-anon/json,200,87980,
+2026-09-27T07:24:53Z,Open Source Insights,deps.dev version deploya-aider-chat 0.0.1,GET,https://api.deps.dev/v3/systems/pypi/packages/deploya-aider-chat/versions/0.0.1,200,649,
+2026-09-27T07:24:53Z,Open Source Insights,deps.dev version cpacqc 0.1.0,GET,https://api.deps.dev/v3/systems/pypi/packages/cpacqc/versions/0.1.0,200,571,
+2026-09-27T07:24:53Z,Open Source Insights,deps.dev version b2b-api-sdk 0.1.0,GET,https://api.deps.dev/v3/systems/pypi/packages/b2b-api-sdk/versions/0.1.0,200,585,
+2026-09-27T07:24:53Z,Open Source Insights,deps.dev version orion-browser 0.2.2,GET,https://api.deps.dev/v3/systems/pypi/packages/orion-browser/versions/0.2.2,200,574,
+2026-09-27T07:24:53Z,Open Source Insights,deps.dev version controlhub 0.1.0,GET,https://api.deps.dev/v3/systems/pypi/packages/controlhub/versions/0.1.0,200,898,
+2026-09-27T07:24:53Z,git over HTTPS,clone b2b-api-sdk,git clone --filter=blob:none --no-checkout,https://github.com/yourusername/b2b-api-sdk.git,,,failed: git clone -q --filter=blob:none --no-checkout https://github.com/yourusername/b2b-api-sdk.git /tmp/lh008/repos/github.com__yourusername__b2b-api-sdk: fatal: cou
+2026-09-27T07:24:53Z,git over HTTPS,clone orion-browser,git clone --filter=blob:none --no-checkout,https://github.com/bantouyan/orion.git,,,failed: git clone -q --filter=blob:none --no-checkout https://github.com/bantouyan/orion.git /tmp/lh008/repos/github.com__bantouyan__orion: fatal: could not read Userna
+2026-09-27T07:24:54Z,Open Source Insights,deps.dev version ansys-pyensight-core 0.10.0.post1,GET,https://api.deps.dev/v3/systems/pypi/packages/ansys-pyensight-core/versions/0.10.0.post1,200,724,
+2026-09-27T07:24:54Z,Open Source Insights,deps.dev version allora-sdk 0.2.3,GET,https://api.deps.dev/v3/systems/pypi/packages/allora-sdk/versions/0.2.3,200,917,
+2026-09-27T07:24:53Z,git over HTTPS,clone snowflake-cli,git clone --filter=blob:none --no-checkout,https://github.com/snowflakedb/snowflake-cli.git,,7164441,cloned
+2026-09-27T07:24:53Z,git over HTTPS,clone cpacqc,git clone --filter=blob:none --no-checkout,https://github.com/birajstha/bids_qc.git,,99212,cloned
+2026-09-27T07:24:53Z,git over HTTPS,clone controlhub,git clone --filter=blob:none --no-checkout,https://github.com/control-hub/python-package.git,,49650,cloned
+2026-09-27T07:24:53Z,git over HTTPS,clone entree,git clone --filter=blob:none --no-checkout,https://github.com/frenetic-be/entree.git,,105577,cloned
+2026-09-27T07:24:54Z,git over HTTPS,clone allora-sdk,git clone --filter=blob:none --no-checkout,https://github.com/allora-network/allora-sdk-py.git,,507586,cloned
+2026-09-27T07:24:54Z,git over HTTPS,clone ansys-pyensight-core,git clone --filter=blob:none --no-checkout,https://github.com/ansys/pyensight.git,,5749040,cloned
+2026-09-27T07:24:55Z,Open Source Insights,deps.dev version graphtomation 0.0.3,GET,https://api.deps.dev/v3/systems/pypi/packages/graphtomation/versions/0.0.3,200,592,
+2026-09-27T07:24:55Z,Open Source Insights,deps.dev version apknife 1.0.10,GET,https://api.deps.dev/v3/systems/pypi/packages/apknife/versions/1.0.10,200,735,
+2026-09-27T07:24:55Z,git over HTTPS,clone graphtomation,git clone --filter=blob:none --no-checkout,https://github.com/dev-adimis/graphtomation.git,,,failed: git clone -q --filter=blob:none --no-checkout https://github.com/dev-adimis/graphtomation.git /tmp/lh008/repos/github.com__dev-adimis__graphtomation: fatal: cou
+2026-09-27T07:24:55Z,Open Source Insights,deps.dev version cybercore 2025.1.0rc2,GET,https://api.deps.dev/v3/systems/pypi/packages/cybercore/versions/2025.1.0rc2,200,394,
+2026-09-27T07:24:55Z,PyPI JSON API,PyPI cybercore 2025.1.0rc2,GET,https://pypi.org/pypi/cybercore/2025.1.0rc2/json,200,4809,
+2026-09-27T07:24:55Z,Open Source Insights,deps.dev version nemo 8.0.2,GET,https://api.deps.dev/v3/systems/pypi/packages/nemo/versions/8.0.2,200,840,
+2026-09-27T07:24:55Z,PyPI JSON API,PyPI cybercore,GET,https://pypi.org/pypi/cybercore/json,200,16681,
+2026-09-27T07:24:55Z,Open Source Insights,deps.dev version kaithem 0.96.0,GET,https://api.deps.dev/v3/systems/pypi/packages/kaithem/versions/0.96.0,200,391,
+2026-09-27T07:24:55Z,Open Source Insights,deps.dev version ttlock-ble 0.1.3,GET,https://api.deps.dev/v3/systems/pypi/packages/ttlock-ble/versions/0.1.3,200,1434,
+2026-09-27T07:24:55Z,PyPI JSON API,PyPI kaithem 0.96.0,GET,https://pypi.org/pypi/kaithem/0.96.0/json,200,22889,
+2026-09-27T07:24:56Z,PyPI JSON API,PyPI kaithem,GET,https://pypi.org/pypi/kaithem/json,200,39149,
+2026-09-27T07:24:56Z,Open Source Insights,deps.dev version common-osint-model 0.6.4b1,GET,https://api.deps.dev/v3/systems/pypi/packages/common-osint-model/versions/0.6.4b1,200,668,
+2026-09-27T07:24:56Z,Open Source Insights,deps.dev version midea-dishwasher-api 1.3.2,GET,https://api.deps.dev/v3/systems/pypi/packages/midea-dishwasher-api/versions/1.3.2,200,952,
+2026-09-27T07:24:55Z,git over HTTPS,clone apknife,git clone --filter=blob:none --no-checkout,https://github.com/elrashedy1992/apknife.git,,139761,cloned
+2026-09-27T07:24:55Z,git over HTTPS,clone nemo,git clone --filter=blob:none --no-checkout,https://github.com/usnistgov/nemo.git,,2350460,cloned
+2026-09-27T07:24:56Z,Open Source Insights,deps.dev version esphome 2026.5.0,GET,https://api.deps.dev/v3/systems/pypi/packages/esphome/versions/2026.5.0,200,1367,
+2026-09-27T07:24:56Z,git over HTTPS,clone ttlock-ble,git clone --filter=blob:none --no-checkout,https://github.com/roquerodrigo/ttlock-ble.git,,154601,cloned
+2026-09-27T07:24:56Z,Open Source Insights,deps.dev version nomyo 0.2.9,GET,https://api.deps.dev/v3/systems/pypi/packages/nomyo/versions/0.2.9,200,635,
+2026-09-27T07:24:57Z,PyPI JSON API,PyPI nomyo 0.2.9,GET,https://pypi.org/pypi/nomyo/0.2.9/json,200,16321,
+2026-09-27T07:24:57Z,PyPI JSON API,PyPI nomyo,GET,https://pypi.org/pypi/nomyo/json,200,40870,
+2026-09-27T07:24:56Z,git over HTTPS,clone midea-dishwasher-api,git clone --filter=blob:none --no-checkout,https://github.com/roquerodrigo/midea-dishwasher-api.git,,113973,cloned
+2026-09-27T07:24:57Z,Open Source Insights,deps.dev version tx-engine 0.8.0,GET,https://api.deps.dev/v3/systems/pypi/packages/tx-engine/versions/0.8.0,200,374,
+2026-09-27T07:24:57Z,PyPI JSON API,PyPI tx-engine 0.8.0,GET,https://pypi.org/pypi/tx-engine/0.8.0/json,200,19816,
+2026-09-27T07:24:57Z,Open Source Insights,deps.dev version atsdk 0.2.63,GET,https://api.deps.dev/v3/systems/pypi/packages/atsdk/versions/0.2.63,200,1221,
+2026-09-27T07:24:57Z,PyPI JSON API,PyPI tx-engine,GET,https://pypi.org/pypi/tx-engine/json,200,376366,
+2026-09-27T07:24:57Z,Open Source Insights,deps.dev version cryptncompress 2.0.0,GET,https://api.deps.dev/v3/systems/pypi/packages/cryptncompress/versions/2.0.0,200,378,
+2026-09-27T07:24:57Z,Open Source Insights,deps.dev version async-media-agents 0.1.0,GET,https://api.deps.dev/v3/systems/pypi/packages/async-media-agents/versions/0.1.0,200,973,
+2026-09-27T07:24:57Z,PyPI JSON API,PyPI cryptncompress 2.0.0,GET,https://pypi.org/pypi/cryptncompress/2.0.0/json,200,2709,
+2026-09-27T07:24:58Z,PyPI JSON API,PyPI cryptncompress,GET,https://pypi.org/pypi/cryptncompress/json,200,4285,
+2026-09-27T07:24:58Z,Open Source Insights,deps.dev version aurapro-ui 3.8.0,GET,https://api.deps.dev/v3/systems/pypi/packages/aurapro-ui/versions/3.8.0,200,1206,
+2026-09-27T07:24:58Z,Open Source Insights,deps.dev version faucetconfrpc-ng 1.0.1,GET,https://api.deps.dev/v3/systems/pypi/packages/faucetconfrpc-ng/versions/1.0.1,200,668,
+2026-09-27T07:24:57Z,git over HTTPS,clone tx-engine,git clone --filter=blob:none --no-checkout,https://github.com/nchain-innovation/chain-gang.git,,596862,cloned
+2026-09-27T07:24:58Z,git over HTTPS,clone aurapro-ui,git clone --filter=blob:none --no-checkout,https://github.com/sakurame1/aurapro-ui.git,,,failed: git clone -q --filter=blob:none --no-checkout https://github.com/sakurame1/aurapro-ui.git /tmp/lh008/repos/github.com__sakurame1__aurapro-ui: fatal: could not r
+2026-09-27T07:24:58Z,Open Source Insights,deps.dev version certgrinder 0.21.1,GET,https://api.deps.dev/v3/systems/pypi/packages/certgrinder/versions/0.21.1,200,1283,
+2026-09-27T07:24:57Z,git over HTTPS,clone atsdk,git clone --filter=blob:none --no-checkout,https://github.com/atsign-foundation/at_python.git,,1482714,cloned
+2026-09-27T07:24:58Z,git over HTTPS,clone faucetconfrpc-ng,git clone --filter=blob:none --no-checkout,https://github.com/iqtlabs/faucetconfrpc.git,,1620038,cloned
+2026-09-27T07:24:58Z,git over HTTPS,clone certgrinder,git clone --filter=blob:none --no-checkout,https://github.com/tykling/certgrinder.git,,823759,cloned
+2026-09-27T07:24:58Z,git over HTTPS,clone async-media-agents,git clone --filter=blob:none --no-checkout,https://github.com/abka012/async-media-agents.git,,49149,cloned
+2026-09-27T07:24:59Z,Open Source Insights,deps.dev version grimoirelab 1.20.3,GET,https://api.deps.dev/v3/systems/pypi/packages/grimoirelab/versions/1.20.3,200,796,
+2026-09-27T07:24:59Z,Open Source Insights,deps.dev version certgrinderd 0.21.1,GET,https://api.deps.dev/v3/systems/pypi/packages/certgrinderd/versions/0.21.1,200,1288,
+2026-09-27T07:25:00Z,Open Source Insights,deps.dev version coati-payroll 1.10.1,GET,https://api.deps.dev/v3/systems/pypi/packages/coati-payroll/versions/1.10.1,200,962,
+2026-09-27T07:25:00Z,Open Source Insights,deps.dev version ws-mark-flow 0.0.10,GET,https://api.deps.dev/v3/systems/pypi/packages/ws-mark-flow/versions/0.0.10,200,594,
+2026-09-27T07:25:00Z,Open Source Insights,deps.dev version frida-down 0.1.0,GET,https://api.deps.dev/v3/systems/pypi/packages/frida-down/versions/0.1.0,200,967,
+2026-09-27T07:25:01Z,Open Source Insights,deps.dev version flask-ligand 0.10.0,GET,https://api.deps.dev/v3/systems/pypi/packages/flask-ligand/versions/0.10.0,200,1154,
+2026-09-27T07:25:00Z,git over HTTPS,clone coati-payroll,git clone --filter=blob:none --no-checkout,https://github.com/bmosoluciones/coati-payroll.git,,764982,cloned
+2026-09-27T07:25:01Z,Open Source Insights,deps.dev version c2cciutils 1.1.0.dev20260505011637,GET,https://api.deps.dev/v3/systems/pypi/packages/c2cciutils/versions/1.1.0.dev20260505011637,200,668,
+2026-09-27T07:24:53Z,git over HTTPS,clone apache-airflow-providers-cncf-kubernetes,git clone --filter=blob:none --no-checkout,https://github.com/apache/airflow.git,,124156505,cloned
+2026-09-27T07:24:56Z,git over HTTPS,clone esphome,git clone --filter=blob:none --no-checkout,https://github.com/esphome/esphome.git,,49560556,cloned
+2026-09-27T07:25:00Z,git over HTTPS,clone ws-mark-flow,git clone --filter=blob:none --no-checkout,https://github.com/websolutespa/ws-mark-flow.git,,40273,cloned
+2026-09-27T07:25:00Z,git over HTTPS,clone frida-down,git clone --filter=blob:none --no-checkout,https://github.com/its-me-abi/frida_down.git,,94975,cloned
+2026-09-27T07:25:01Z,git over HTTPS,clone flask-ligand,git clone --filter=blob:none --no-checkout,https://github.com/cowofevil/flask-ligand.git,,161780,cloned
+2026-09-27T07:25:02Z,Open Source Insights,deps.dev version nemo-ce 7.4.11,GET,https://api.deps.dev/v3/systems/pypi/packages/nemo-ce/versions/7.4.11,200,889,
+2026-09-27T07:25:02Z,Open Source Insights,deps.dev version zetaalpha-agents 0.1.0,GET,https://api.deps.dev/v3/systems/pypi/packages/zetaalpha-agents/versions/0.1.0,200,1466,
+2026-09-27T07:25:02Z,Open Source Insights,deps.dev version jolt 0.10.19,GET,https://api.deps.dev/v3/systems/pypi/packages/jolt/versions/0.10.19,200,561,
+2026-09-27T07:25:03Z,Open Source Insights,deps.dev version genesis-mesh 0.10.0,GET,https://api.deps.dev/v3/systems/pypi/packages/genesis-mesh/versions/0.10.0,200,1510,
+2026-09-27T07:25:02Z,git over HTTPS,clone zetaalpha-agents,git clone --filter=blob:none --no-checkout,https://github.com/zetaalphavector/platform.git,,162477,cloned
+2026-09-27T07:25:02Z,git over HTTPS,clone nemo-ce,git clone --filter=blob:none --no-checkout,https://gitlab.com/nemo-community/nemo-ce.git,,2777740,cloned
+2026-09-27T07:25:02Z,git over HTTPS,clone jolt,git clone --filter=blob:none --no-checkout,https://github.com/srand/jolt.git,,1467641,cloned
+2026-09-27T07:25:03Z,Open Source Insights,deps.dev version gam7 7.43.10,GET,https://api.deps.dev/v3/systems/pypi/packages/gam7/versions/7.43.10,200,1344,
+2026-09-27T07:25:03Z,git over HTTPS,clone genesis-mesh,git clone --filter=blob:none --no-checkout,https://github.com/thaersaidi/genesismesh.git,,295876,cloned
+2026-09-27T07:25:03Z,Open Source Insights,deps.dev version sillikalm 0.1.0,GET,https://api.deps.dev/v3/systems/pypi/packages/sillikalm/versions/0.1.0,200,522,
+2026-09-27T07:25:04Z,Open Source Insights,deps.dev version youku-upload 0.1.2,GET,https://api.deps.dev/v3/systems/pypi/packages/youku-upload/versions/0.1.2,200,381,
+2026-09-27T07:25:04Z,PyPI JSON API,PyPI sillikalm 0.1.0,GET,https://pypi.org/pypi/sillikalm/0.1.0/json,200,8266,
+2026-09-27T07:25:04Z,PyPI JSON API,PyPI sillikalm,GET,https://pypi.org/pypi/sillikalm/json,200,18108,
+2026-09-27T07:25:04Z,PyPI JSON API,PyPI youku-upload 0.1.2,GET,https://pypi.org/pypi/youku-upload/0.1.2/json,200,6173,
+2026-09-27T07:25:04Z,Open Source Insights,deps.dev version 360solutions-bc-mcp 0.5.3,GET,https://api.deps.dev/v3/systems/pypi/packages/360solutions-bc-mcp/versions/0.5.3,200,1507,
+2026-09-27T07:25:04Z,PyPI JSON API,PyPI youku-upload,GET,https://pypi.org/pypi/youku-upload/json,200,10833,
+2026-09-27T07:25:03Z,git over HTTPS,clone gam7,git clone --filter=blob:none --no-checkout,https://github.com/gam-team/gam.git,,5325877,cloned
+2026-09-27T07:25:04Z,Open Source Insights,deps.dev version modulitiz-micro 2.77.0,GET,https://api.deps.dev/v3/systems/pypi/packages/modulitiz-micro/versions/2.77.0,200,381,
+2026-09-27T07:25:04Z,Open Source Insights,deps.dev version remarkable-update-image 1.4.1,GET,https://api.deps.dev/v3/systems/pypi/packages/remarkable-update-image/versions/1.4.1,200,1541,
+2026-09-27T07:25:04Z,PyPI JSON API,PyPI modulitiz-micro 2.77.0,GET,https://pypi.org/pypi/modulitiz-micro/2.77.0/json,200,3000,
+2026-09-27T07:25:04Z,PyPI JSON API,PyPI modulitiz-micro,GET,https://pypi.org/pypi/modulitiz-micro/json,200,32695,
+2026-09-27T07:25:04Z,Open Source Insights,deps.dev version pypepper 0.4.6,GET,https://api.deps.dev/v3/systems/pypi/packages/pypepper/versions/0.4.6,200,851,
+2026-09-27T07:25:04Z,Open Source Insights,deps.dev version netweb-sdk 0.1.0,GET,https://api.deps.dev/v3/systems/pypi/packages/netweb-sdk/versions/0.1.0,200,375,
+2026-09-27T07:25:04Z,PyPI JSON API,PyPI netweb-sdk 0.1.0,GET,https://pypi.org/pypi/netweb-sdk/0.1.0/json,200,5598,
+2026-09-27T07:25:04Z,PyPI JSON API,PyPI netweb-sdk,GET,https://pypi.org/pypi/netweb-sdk/json,200,13903,
+2026-09-27T07:25:04Z,Open Source Insights,deps.dev version appyqt 1.0.0,GET,https://api.deps.dev/v3/systems/pypi/packages/appyqt/versions/1.0.0,200,371,
+2026-09-27T07:25:04Z,Open Source Insights,deps.dev version sagewai 1.0.0,GET,https://api.deps.dev/v3/systems/pypi/packages/sagewai/versions/1.0.0,200,902,
+2026-09-27T07:25:04Z,git over HTTPS,clone 360solutions-bc-mcp,git clone --filter=blob:none --no-checkout,https://github.com/360solutionsbe/bc-mcp-proxy.git,,204669,cloned
+2026-09-27T07:25:04Z,PyPI JSON API,PyPI appyqt 1.0.0,GET,https://pypi.org/pypi/appyqt/1.0.0/json,200,2532,
+2026-09-27T07:25:04Z,PyPI JSON API,PyPI appyqt,GET,https://pypi.org/pypi/appyqt/json,200,5573,
+2026-09-27T07:25:05Z,Open Source Insights,deps.dev version weblate 2026.5.0,GET,https://api.deps.dev/v3/systems/pypi/packages/weblate/versions/2026.5.0,200,1082,
+2026-09-27T07:25:04Z,git over HTTPS,clone remarkable-update-image,git clone --filter=blob:none --no-checkout,https://github.com/eeems/remarkable-update-image.git,,148897,cloned
+2026-09-27T07:25:04Z,git over HTTPS,clone pypepper,git clone --filter=blob:none --no-checkout,https://github.com/jovijovi/pypepper.git,,347322,cloned
+2026-09-27T07:25:05Z,Open Source Insights,deps.dev version dds-cli 2.14.3,GET,https://api.deps.dev/v3/systems/pypi/packages/dds-cli/versions/2.14.3,200,595,
+2026-09-27T07:25:05Z,Open Source Insights,deps.dev version cowrie 3.0.0,GET,https://api.deps.dev/v3/systems/pypi/packages/cowrie/versions/3.0.0,200,1203,
+2026-09-27T07:25:05Z,Open Source Insights,deps.dev version open-webui 0.11.4,GET,https://api.deps.dev/v3/systems/pypi/packages/open-webui/versions/0.11.4,200,936,
+2026-09-27T07:25:04Z,git over HTTPS,clone sagewai,git clone --filter=blob:none --no-checkout,https://github.com/sagewai/platform.git,,1397272,cloned
+2026-09-27T07:25:05Z,git over HTTPS,clone dds-cli,git clone --filter=blob:none --no-checkout,https://github.com/scilifelabdatacentre/dds_cli.git,,3822274,cloned
+2026-09-27T07:25:05Z,git over HTTPS,clone cowrie,git clone --filter=blob:none --no-checkout,https://github.com/cowrie/cowrie.git,,3844110,cloned
+2026-09-27T07:25:07Z,Open Source Insights,deps.dev version now-lms 1.2.4,GET,https://api.deps.dev/v3/systems/pypi/packages/now-lms/versions/1.2.4,200,1416,
+2026-09-27T07:25:05Z,git over HTTPS,clone open-webui,git clone --filter=blob:none --no-checkout,https://github.com/open-webui/open-webui.git,,22492464,cloned
+2026-09-27T07:25:07Z,git over HTTPS,clone now-lms,git clone --filter=blob:none --no-checkout,https://github.com/bmosoluciones/now-lms.git,,792875,cloned
+2026-09-27T07:25:08Z,Open Source Insights,deps.dev version catweazle 1.2.0,GET,https://api.deps.dev/v3/systems/pypi/packages/catweazle/versions/1.2.0,200,387,
+2026-09-27T07:25:08Z,PyPI JSON API,PyPI catweazle 1.2.0,GET,https://pypi.org/pypi/catweazle/1.2.0/json,200,16784,
+2026-09-27T07:25:08Z,PyPI JSON API,PyPI catweazle,GET,https://pypi.org/pypi/catweazle/json,200,38699,
+2026-09-27T07:25:08Z,Open Source Insights,deps.dev version dragonlog 26.6.0,GET,https://api.deps.dev/v3/systems/pypi/packages/dragonlog/versions/26.6.0,200,538,
+2026-09-27T07:25:08Z,Open Source Insights,deps.dev version hubzoid 0.7.15,GET,https://api.deps.dev/v3/systems/pypi/packages/hubzoid/versions/0.7.15,200,1368,
+2026-09-27T07:25:08Z,PyPI JSON API,PyPI dragonlog 26.6.0,GET,https://pypi.org/pypi/dragonlog/26.6.0/json,200,6877,
+2026-09-27T07:25:08Z,PyPI JSON API,PyPI dragonlog,GET,https://pypi.org/pypi/dragonlog/json,200,98024,
+2026-09-27T07:25:08Z,Open Source Insights,deps.dev version grooveshop-django-api 1.126.0,GET,https://api.deps.dev/v3/systems/pypi/packages/grooveshop-django-api/versions/1.126.0,200,626,
+2026-09-27T07:25:09Z,Open Source Insights,deps.dev version ha-mcp-dev 7.4.1.dev476,GET,https://api.deps.dev/v3/systems/pypi/packages/ha-mcp-dev/versions/7.4.1.dev476,200,1469,
+2026-09-27T07:25:08Z,git over HTTPS,clone hubzoid,git clone --filter=blob:none --no-checkout,https://github.com/hubzoid/hubzoid.git,,444606,cloned
+2026-09-27T07:25:08Z,git over HTTPS,clone grooveshop-django-api,git clone --filter=blob:none --no-checkout,https://github.com/vasilistotskas/grooveshop-django-api.git,,3831553,cloned
+2026-09-27T07:25:09Z,git over HTTPS,clone ha-mcp-dev,git clone --filter=blob:none --no-checkout,https://github.com/homeassistant-ai/ha-mcp.git,,5829471,cloned
+2026-09-27T07:25:10Z,Open Source Insights,deps.dev version ha-mcp 7.5.0,GET,https://api.deps.dev/v3/systems/pypi/packages/ha-mcp/versions/7.5.0,200,1442,
+2026-09-27T07:25:10Z,Open Source Insights,deps.dev version galaxy 26.1.0,GET,https://api.deps.dev/v3/systems/pypi/packages/galaxy/versions/26.1.0,200,1111,
+2026-09-27T07:25:10Z,Open Source Insights,deps.dev version centurion-erp 1.30.0,GET,https://api.deps.dev/v3/systems/pypi/packages/centurion-erp/versions/1.30.0,200,1595,
+2026-09-27T07:25:11Z,Open Source Insights,deps.dev version qolsys-controller 1.3.11,GET,https://api.deps.dev/v3/systems/pypi/packages/qolsys-controller/versions/1.3.11,200,1488,
+2026-09-27T07:25:11Z,Open Source Insights,deps.dev version superagentx 1.0.9b0,GET,https://api.deps.dev/v3/systems/pypi/packages/superagentx/versions/1.0.9b0,200,718,
+2026-09-27T07:25:11Z,Open Source Insights,deps.dev version homeassistant 2026.6.0,GET,https://api.deps.dev/v3/systems/pypi/packages/homeassistant/versions/2026.6.0,200,1463,
+2026-09-27T07:25:10Z,git over HTTPS,clone centurion-erp,git clone --filter=blob:none --no-checkout,https://github.com/nofusscomputing/centurion_erp.git,,5359664,cloned
+2026-09-27T07:25:05Z,git over HTTPS,clone weblate,git clone --filter=blob:none --no-checkout,https://github.com/weblateorg/weblate.git,,95116980,cloned
+2026-09-27T07:25:11Z,git over HTTPS,clone qolsys-controller,git clone --filter=blob:none --no-checkout,https://github.com/ehylands/qolsyscontroller.git,,514578,cloned
+2026-09-27T07:25:11Z,git over HTTPS,clone superagentx,git clone --filter=blob:none --no-checkout,https://github.com/superagentxai/superagentx.git,,1008205,cloned
+2026-09-27T07:25:13Z,Open Source Insights,deps.dev version mcp-env-mux 0.3.7,GET,https://api.deps.dev/v3/systems/pypi/packages/mcp-env-mux/versions/0.3.7,200,863,
+2026-09-27T07:25:13Z,Open Source Insights,deps.dev version mentat-gulp 1.7.605,GET,https://api.deps.dev/v3/systems/pypi/packages/mentat-gulp/versions/1.7.605,200,391,
+2026-09-27T07:25:13Z,PyPI JSON API,PyPI mentat-gulp 1.7.605,GET,https://pypi.org/pypi/mentat-gulp/1.7.605/json,200,15707,
+2026-09-27T07:25:13Z,PyPI JSON API,PyPI mentat-gulp,GET,https://pypi.org/pypi/mentat-gulp/json,200,45518,
+2026-09-27T07:25:13Z,Open Source Insights,deps.dev version nemo 7.3.0,GET,https://api.deps.dev/v3/systems/pypi/packages/nemo/versions/7.3.0,200,841,
+2026-09-27T07:25:13Z,Open Source Insights,deps.dev version docassemble-webapp 1.9.0,GET,https://api.deps.dev/v3/systems/pypi/packages/docassemble-webapp/versions/1.9.0,200,926,
+2026-09-27T07:25:13Z,git over HTTPS,clone mcp-env-mux,git clone --filter=blob:none --no-checkout,https://github.com/anuragrao04/mcp-mux.git,,56981,cloned
+2026-09-27T07:25:13Z,Open Source Insights,deps.dev version notepasser 0.0.10,GET,https://api.deps.dev/v3/systems/pypi/packages/notepasser/versions/0.0.10,200,654,
+2026-09-27T07:25:14Z,Open Source Insights,deps.dev version drydock-cli 2.11.0,GET,https://api.deps.dev/v3/systems/pypi/packages/drydock-cli/versions/2.11.0,200,936,
+2026-09-27T07:25:14Z,git over HTTPS,clone awx-zipline-ai,git clone --filter=blob:none --no-checkout,https://github.com/zipline-ai/chronon.git,,,failed: git clone -q --filter=blob:none --no-checkout https://github.com/zipline-ai/chronon.git /tmp/lh008/repos/github.com__zipline-ai__chronon: fatal: could not read 
+2026-09-27T07:25:14Z,Open Source Insights,deps.dev version eaasy 0.2.22,GET,https://api.deps.dev/v3/systems/pypi/packages/eaasy/versions/0.2.22,200,563,
+2026-09-27T07:25:14Z,git over HTTPS,clone eaasy,git clone --filter=blob:none --no-checkout,https://github.com/ciulene/eaasy.git,,,failed: git clone -q --filter=blob:none --no-checkout https://github.com/ciulene/eaasy.git /tmp/lh008/repos/github.com__ciulene__eaasy: fatal: could not read Username f
+2026-09-27T07:25:14Z,git over HTTPS,clone notepasser,git clone --filter=blob:none --no-checkout,https://github.com/amnotagoose/notepasser.git,,58823,cloned
+2026-09-27T07:25:14Z,git over HTTPS,clone drydock-cli,git clone --filter=blob:none --no-checkout,https://github.com/fbobe321/drydock.git,,774998,cloned
+2026-09-27T07:25:15Z,Open Source Insights,deps.dev version sourcedefender 16.0.62,GET,https://api.deps.dev/v3/systems/pypi/packages/sourcedefender/versions/16.0.62,200,395,
+2026-09-27T07:25:15Z,Open Source Insights,deps.dev version opswork 0.10.2,GET,https://api.deps.dev/v3/systems/pypi/packages/opswork/versions/0.10.2,200,640,
+2026-09-27T07:25:15Z,PyPI JSON API,PyPI sourcedefender 16.0.62,GET,https://pypi.org/pypi/sourcedefender/16.0.62/json,200,16442,
+2026-09-27T07:25:15Z,PyPI JSON API,PyPI sourcedefender,GET,https://pypi.org/pypi/sourcedefender/json,200,23960,
+2026-09-27T07:25:15Z,Open Source Insights,deps.dev version fwquant 1.0.10,GET,https://api.deps.dev/v3/systems/pypi/packages/fwquant/versions/1.0.10,200,378,
+2026-09-27T07:25:15Z,PyPI JSON API,PyPI fwquant 1.0.10,GET,https://pypi.org/pypi/fwquant/1.0.10/json,200,7441,
+2026-09-27T07:25:15Z,PyPI JSON API,PyPI fwquant,GET,https://pypi.org/pypi/fwquant/json,200,225641,
+2026-09-27T07:25:15Z,Open Source Insights,deps.dev version rsyncdirector-deploy 0.0.1,GET,https://api.deps.dev/v3/systems/pypi/packages/rsyncdirector-deploy/versions/0.0.1,200,681,
+2026-09-27T07:25:15Z,git over HTTPS,clone fwquant,git clone --filter=blob:none --no-checkout,https://github.com/fwquant/fwquant.git,,,failed: git clone -q --filter=blob:none --no-checkout https://github.com/fwquant/fwquant.git /tmp/lh008/repos/github.com__fwquant__fwquant: fatal: could not read Userna
+2026-09-27T07:25:15Z,Open Source Insights,deps.dev version tx-engine 0.7.5,GET,https://api.deps.dev/v3/systems/pypi/packages/tx-engine/versions/0.7.5,200,374,
+2026-09-27T07:25:15Z,PyPI JSON API,PyPI tx-engine 0.7.5,GET,https://pypi.org/pypi/tx-engine/0.7.5/json,200,35277,
+2026-09-27T07:25:15Z,PyPI JSON API,PyPI tx-engine,GET,https://pypi.org/pypi/tx-engine/json,200,376366,
+2026-09-27T07:25:15Z,git over HTTPS,clone opswork,git clone --filter=blob:none --no-checkout,https://github.com/clivern/opswork.git,,159840,cloned
+2026-09-27T07:25:16Z,Open Source Insights,deps.dev version polyhattrick 0.1.0,GET,https://api.deps.dev/v3/systems/pypi/packages/polyhattrick/versions/0.1.0,200,381,
+2026-09-27T07:25:15Z,git over HTTPS,clone rsyncdirector-deploy,git clone --filter=blob:none --no-checkout,https://github.com/rchapin/rsyncdirector.git,,58165,cloned
+2026-09-27T07:25:16Z,PyPI JSON API,PyPI polyhattrick 0.1.0,GET,https://pypi.org/pypi/polyhattrick/0.1.0/json,200,5479,
+2026-09-27T07:25:16Z,PyPI JSON API,PyPI polyhattrick,GET,https://pypi.org/pypi/polyhattrick/json,200,7057,
+2026-09-27T07:25:16Z,Open Source Insights,deps.dev version rade-vibe 2.7.0,GET,https://api.deps.dev/v3/systems/pypi/packages/rade-vibe/versions/2.7.0,200,938,
+2026-09-27T07:25:16Z,Open Source Insights,deps.dev version atsdk 0.2.52,GET,https://api.deps.dev/v3/systems/pypi/packages/atsdk/versions/0.2.52,200,1221,
+2026-09-27T07:25:16Z,git over HTTPS,clone rade-vibe,git clone --filter=blob:none --no-checkout,https://github.com/rade-ai/rade-vibe.git,,,failed: git clone -q --filter=blob:none --no-checkout https://github.com/rade-ai/rade-vibe.git /tmp/lh008/repos/github.com__rade-ai__rade-vibe: fatal: could not read Us
+2026-09-27T07:25:16Z,Open Source Insights,deps.dev version gomyck-tools 1.6.1,GET,https://api.deps.dev/v3/systems/pypi/packages/gomyck-tools/versions/1.6.1,200,388,
+2026-09-27T07:25:17Z,PyPI JSON API,PyPI gomyck-tools 1.6.1,GET,https://pypi.org/pypi/gomyck-tools/1.6.1/json,200,2971,
+2026-09-27T07:25:17Z,PyPI JSON API,PyPI gomyck-tools,GET,https://pypi.org/pypi/gomyck-tools/json,200,71313,
+2026-09-27T07:25:17Z,Open Source Insights,deps.dev version e2ee 0.0.4,GET,https://api.deps.dev/v3/systems/pypi/packages/e2ee/versions/0.0.4,200,382,
+2026-09-27T07:25:17Z,Open Source Insights,deps.dev version yente 5.1.0,GET,https://api.deps.dev/v3/systems/pypi/packages/yente/versions/5.1.0,200,1402,
+2026-09-27T07:25:17Z,PyPI JSON API,PyPI e2ee 0.0.4,GET,https://pypi.org/pypi/e2ee/0.0.4/json,200,48499,
+2026-09-27T07:25:17Z,PyPI JSON API,PyPI e2ee,GET,https://pypi.org/pypi/e2ee/json,200,50041,
+2026-09-27T07:25:17Z,Open Source Insights,deps.dev version grimoirelab 1.17.1,GET,https://api.deps.dev/v3/systems/pypi/packages/grimoirelab/versions/1.17.1,200,796,
+2026-09-27T07:25:17Z,git over HTTPS,clone yente,git clone --filter=blob:none --no-checkout,https://github.com/opensanctions/yente.git,,1640062,cloned
+2026-09-27T07:25:18Z,Open Source Insights,deps.dev version compliance-trestle 3.11.0,GET,https://api.deps.dev/v3/systems/pypi/packages/compliance-trestle/versions/3.11.0,200,1845,
+2026-09-27T07:25:18Z,Open Source Insights,deps.dev version auditize 0.10.0,GET,https://api.deps.dev/v3/systems/pypi/packages/auditize/versions/0.10.0,200,908,
+2026-09-27T07:25:18Z,Open Source Insights,deps.dev version opea-comps 1.5.0,GET,https://api.deps.dev/v3/systems/pypi/packages/opea-comps/versions/1.5.0,200,593,
+2026-09-27T07:25:10Z,git over HTTPS,clone galaxy,git clone --filter=blob:none --no-checkout,https://github.com/galaxyproject/galaxy.git,,110528693,cloned
+2026-09-27T07:25:18Z,Open Source Insights,deps.dev version yarik-django-auth 2.0.20,GET,https://api.deps.dev/v3/systems/pypi/packages/yarik-django-auth/versions/2.0.20,200,397,
+2026-09-27T07:25:18Z,PyPI JSON API,PyPI yarik-django-auth 2.0.20,GET,https://pypi.org/pypi/yarik-django-auth/2.0.20/json,200,3693,
+2026-09-27T07:25:19Z,PyPI JSON API,PyPI yarik-django-auth,GET,https://pypi.org/pypi/yarik-django-auth/json,200,9392,
+2026-09-27T07:25:19Z,Open Source Insights,deps.dev version geonode 5.0.0,GET,https://api.deps.dev/v3/systems/pypi/packages/geonode/versions/5.0.0,200,489,
+2026-09-27T07:25:19Z,PyPI JSON API,PyPI geonode 5.0.0,GET,https://pypi.org/pypi/geonode/5.0.0/json,200,15053,
+2026-09-27T07:25:18Z,git over HTTPS,clone compliance-trestle,git clone --filter=blob:none --no-checkout,https://github.com/oscal-compass/compliance-trestle.git,,4225509,cloned
+2026-09-27T07:25:18Z,git over HTTPS,clone auditize,git clone --filter=blob:none --no-checkout,https://github.com/auditize/auditize.git,,1499768,cloned
+2026-09-27T07:25:19Z,Open Source Insights,deps.dev version coati-payroll 1.0.1,GET,https://api.deps.dev/v3/systems/pypi/packages/coati-payroll/versions/1.0.1,200,957,
+2026-09-27T07:25:18Z,git over HTTPS,clone opea-comps,git clone --filter=blob:none --no-checkout,https://github.com/opea-project/genaicomps.git,,4142952,cloned
+2026-09-27T07:25:19Z,Open Source Insights,deps.dev version cbpi4 4.7.0,GET,https://api.deps.dev/v3/systems/pypi/packages/cbpi4/versions/4.7.0,200,673,
+2026-09-27T07:25:20Z,Open Source Insights,deps.dev version agentstack-cli 0.5.0,GET,https://api.deps.dev/v3/systems/pypi/packages/agentstack-cli/versions/0.5.0,200,934,
+2026-09-27T07:25:19Z,git over HTTPS,clone cbpi4,git clone --filter=blob:none --no-checkout,https://github.com/pibrewing/craftbeerpi4.git,,1020956,cloned
+2026-09-27T07:25:20Z,Open Source Insights,deps.dev version recollectium 1.1.1,GET,https://api.deps.dev/v3/systems/pypi/packages/recollectium/versions/1.1.1,200,910,
+2026-09-27T07:25:21Z,Open Source Insights,deps.dev version c2cciutils 1.1.56,GET,https://api.deps.dev/v3/systems/pypi/packages/c2cciutils/versions/1.1.56,200,651,
+2026-09-27T07:25:22Z,Open Source Insights,deps.dev version olmoearth-runner 0.1.12,GET,https://api.deps.dev/v3/systems/pypi/packages/olmoearth-runner/versions/0.1.12,200,953,
+2026-09-27T07:25:20Z,git over HTTPS,clone recollectium,git clone --filter=blob:none --no-checkout,https://github.com/alfonsodehesa/recollectium.git,,508136,cloned
+2026-09-27T07:25:22Z,Open Source Insights,deps.dev version nlds-client 1.0.15,GET,https://api.deps.dev/v3/systems/pypi/packages/nlds-client/versions/1.0.15,200,839,
+2026-09-27T07:25:22Z,git over HTTPS,clone olmoearth-runner,git clone --filter=blob:none --no-checkout,https://github.com/allenai/olmoearth_run.git,,,failed: git clone -q --filter=blob:none --no-checkout https://github.com/allenai/olmoearth_run.git /tmp/lh008/repos/github.com__allenai__olmoearth_run: fatal: could not
+2026-09-27T07:25:22Z,Open Source Insights,deps.dev version nemo-ce 7.3.0,GET,https://api.deps.dev/v3/systems/pypi/packages/nemo-ce/versions/7.3.0,200,888,
+2026-09-27T07:25:23Z,Open Source Insights,deps.dev version sleepscienceviewer 0.5.0,GET,https://api.deps.dev/v3/systems/pypi/packages/sleepscienceviewer/versions/0.5.0,200,402,
+2026-09-27T07:25:22Z,git over HTTPS,clone nlds-client,git clone --filter=blob:none --no-checkout,https://github.com/cedadev/nlds.git,,1054632,cloned
+2026-09-27T07:25:23Z,PyPI JSON API,PyPI sleepscienceviewer 0.5.0,GET,https://pypi.org/pypi/sleepscienceviewer/0.5.0/json,200,19776,
+2026-09-27T07:25:23Z,PyPI JSON API,PyPI sleepscienceviewer,GET,https://pypi.org/pypi/sleepscienceviewer/json,200,27765,
+2026-09-27T07:25:23Z,Open Source Insights,deps.dev version sdk-seshat-python 0.6.1,GET,https://api.deps.dev/v3/systems/pypi/packages/sdk-seshat-python/versions/0.6.1,200,396,
+2026-09-27T07:25:23Z,PyPI JSON API,PyPI sdk-seshat-python 0.6.1,GET,https://pypi.org/pypi/sdk-seshat-python/0.6.1/json,200,3544,
+2026-09-27T07:25:23Z,PyPI JSON API,PyPI sdk-seshat-python,GET,https://pypi.org/pypi/sdk-seshat-python/json,200,36966,
+2026-09-27T07:25:23Z,Open Source Insights,deps.dev version faucetconfrpc 0.55.78,GET,https://api.deps.dev/v3/systems/pypi/packages/faucetconfrpc/versions/0.55.78,200,667,
+2026-09-27T07:25:24Z,Open Source Insights,deps.dev version docassemble-base 1.9.0,GET,https://api.deps.dev/v3/systems/pypi/packages/docassemble-base/versions/1.9.0,200,924,
+2026-09-27T07:25:24Z,Open Source Insights,deps.dev version codemaster-cli 2.5.0,GET,https://api.deps.dev/v3/systems/pypi/packages/codemaster-cli/versions/2.5.0,200,973,
+2026-09-27T07:25:25Z,Open Source Insights,deps.dev version kubernp 1.0.0,GET,https://api.deps.dev/v3/systems/pypi/packages/kubernp/versions/1.0.0,200,376,
+2026-09-27T07:25:24Z,git over HTTPS,clone codemaster-cli,git clone --filter=blob:none --no-checkout,https://github.com/marshal0004/codemaster.git,,,failed: git clone -q --filter=blob:none --no-checkout https://github.com/marshal0004/codemaster.git /tmp/lh008/repos/github.com__marshal0004__codemaster: fatal: could n
+2026-09-27T07:25:25Z,PyPI JSON API,PyPI kubernp 1.0.0,GET,https://pypi.org/pypi/kubernp/1.0.0/json,200,33389,
+2026-09-27T07:25:25Z,Open Source Insights,deps.dev version ckanext-fair3r 3.1.10,GET,https://api.deps.dev/v3/systems/pypi/packages/ckanext-fair3r/versions/3.1.10,200,587,
+2026-09-27T07:25:25Z,PyPI JSON API,PyPI kubernp,GET,https://pypi.org/pypi/kubernp/json,200,34939,
+2026-09-27T07:25:25Z,Open Source Insights,deps.dev version laelaps 0.0.6,GET,https://api.deps.dev/v3/systems/pypi/packages/laelaps/versions/0.0.6,200,670,
+2026-09-27T07:25:25Z,git over HTTPS,clone ckanext-fair3r,git clone --filter=blob:none --no-checkout,https://github.com/ics/ckanext-fair3r.git,,,failed: git clone -q --filter=blob:none --no-checkout https://github.com/ics/ckanext-fair3r.git /tmp/lh008/repos/github.com__ics__ckanext-fair3r: fatal: could not read 
+2026-09-27T07:25:25Z,Open Source Insights,deps.dev version gam7 7.32.5,GET,https://api.deps.dev/v3/systems/pypi/packages/gam7/versions/7.32.5,200,1339,
+2026-09-27T07:25:25Z,Open Source Insights,deps.dev version secure-string-cipher 1.0.32,GET,https://api.deps.dev/v3/systems/pypi/packages/secure-string-cipher/versions/1.0.32,200,1654,
+2026-09-27T07:25:25Z,git over HTTPS,clone laelaps,git clone --filter=blob:none --no-checkout,https://github.com/janmaartenvandoorn/laelaps.git,,60882,cloned
+2026-09-27T07:25:26Z,Open Source Insights,deps.dev version data-safe-haven 5.7.0,GET,https://api.deps.dev/v3/systems/pypi/packages/data-safe-haven/versions/5.7.0,200,1553,
+2026-09-27T07:25:25Z,git over HTTPS,clone secure-string-cipher,git clone --filter=blob:none --no-checkout,https://github.com/theredtower/secure-string-cipher.git,,415300,cloned
+2026-09-27T07:25:27Z,Open Source Insights,deps.dev version omnata-plugin-runtime 0.12.2,GET,https://api.deps.dev/v3/systems/pypi/packages/omnata-plugin-runtime/versions/0.12.2,200,387,
+2026-09-27T07:25:27Z,PyPI JSON API,PyPI omnata-plugin-runtime 0.12.2,GET,https://pypi.org/pypi/omnata-plugin-runtime/0.12.2/json,200,4051,
+2026-09-27T07:25:27Z,PyPI JSON API,PyPI omnata-plugin-runtime,GET,https://pypi.org/pypi/omnata-plugin-runtime/json,200,1098884,
+2026-09-27T07:25:27Z,Open Source Insights,deps.dev version zarch 0.2.0,GET,https://api.deps.dev/v3/systems/pypi/packages/zarch/versions/0.2.0,200,384,
+2026-09-27T07:25:27Z,Open Source Insights,deps.dev version indexdoc-converter 0.2.0,GET,https://api.deps.dev/v3/systems/pypi/packages/indexdoc-converter/versions/0.2.0,200,602,
+2026-09-27T07:25:27Z,PyPI JSON API,PyPI zarch 0.2.0,GET,https://pypi.org/pypi/zarch/0.2.0/json,200,56983,
+2026-09-27T07:25:27Z,PyPI JSON API,PyPI zarch,GET,https://pypi.org/pypi/zarch/json,200,74919,
+2026-09-27T07:25:27Z,Open Source Insights,deps.dev version sequins-inventory-tool 1.1.1,GET,https://api.deps.dev/v3/systems/pypi/packages/sequins-inventory-tool/versions/1.1.1,200,399,
+2026-09-27T07:25:27Z,Open Source Insights,deps.dev version keri 2.0.0.dev6,GET,https://api.deps.dev/v3/systems/pypi/packages/keri/versions/2.0.0.dev6,200,856,
+2026-09-27T07:25:27Z,PyPI JSON API,PyPI sequins-inventory-tool 1.1.1,GET,https://pypi.org/pypi/sequins-inventory-tool/1.1.1/json,200,4211,
+2026-09-27T07:25:27Z,PyPI JSON API,PyPI sequins-inventory-tool,GET,https://pypi.org/pypi/sequins-inventory-tool/json,200,65072,
+2026-09-27T07:25:27Z,Open Source Insights,deps.dev version cloudvision 1.26.2,GET,https://api.deps.dev/v3/systems/pypi/packages/cloudvision/versions/1.26.2,200,705,
+2026-09-27T07:25:26Z,git over HTTPS,clone data-safe-haven,git clone --filter=blob:none --no-checkout,https://github.com/alan-turing-institute/data-safe-haven.git,,10160687,cloned
+2026-09-27T07:25:27Z,git over HTTPS,clone indexdoc-converter,git clone --filter=blob:none --no-checkout,https://github.com/indexdoc/indexdoc-converter.git,,36529,cloned
+2026-09-27T07:25:28Z,Open Source Insights,deps.dev version courierdb 0.2.0,GET,https://api.deps.dev/v3/systems/pypi/packages/courierdb/versions/0.2.0,200,877,
+2026-09-27T07:25:27Z,git over HTTPS,clone keri,git clone --filter=blob:none --no-checkout,https://github.com/weboftrust/keripy.git,,5108496,cloned
+2026-09-27T07:25:28Z,git over HTTPS,clone courierdb,git clone --filter=blob:none --no-checkout,https://github.com/yourusername/courierdb.git,,,failed: git clone -q --filter=blob:none --no-checkout https://github.com/yourusername/courierdb.git /tmp/lh008/repos/github.com__yourusername__courierdb: fatal: could n
+2026-09-27T07:25:29Z,Open Source Insights,deps.dev version multimodal-parsers 0.1.6,GET,https://api.deps.dev/v3/systems/pypi/packages/multimodal-parsers/versions/0.1.6,200,582,
+2026-09-27T07:25:27Z,git over HTTPS,clone cloudvision,git clone --filter=blob:none --no-checkout,https://github.com/aristanetworks/cloudvision-python.git,,918027,cloned
+2026-09-27T07:25:29Z,Open Source Insights,deps.dev version manul 0.0.2,GET,https://api.deps.dev/v3/systems/pypi/packages/manul/versions/0.0.2,200,369,
+2026-09-27T07:25:29Z,git over HTTPS,clone multimodal-parsers,git clone --filter=blob:none --no-checkout,https://github.com/thuuyen98/pier-qa.git,,85059,cloned
+2026-09-27T07:25:30Z,PyPI JSON API,PyPI manul 0.0.2,GET,https://pypi.org/pypi/manul/0.0.2/json,200,4667,
+2026-09-27T07:25:30Z,PyPI JSON API,PyPI manul,GET,https://pypi.org/pypi/manul/json,200,6209,
+2026-09-27T07:25:30Z,Open Source Insights,deps.dev version qwen-sci 0.2.0,GET,https://api.deps.dev/v3/systems/pypi/packages/qwen-sci/versions/0.2.0,200,908,
+2026-09-27T07:25:30Z,git over HTTPS,clone qwen-sci,git clone --filter=blob:none --no-checkout,https://github.com/sodium-oxide/qwen_sci.git,,620163,cloned
+2026-09-27T07:25:31Z,Open Source Insights,deps.dev version zipline-ai 1.0.10,GET,https://api.deps.dev/v3/systems/pypi/packages/zipline-ai/versions/1.0.10,200,1240,
+2026-09-27T07:25:31Z,Open Source Insights,deps.dev version jl95terceira-pytools 1.3.2,GET,https://api.deps.dev/v3/systems/pypi/packages/jl95terceira-pytools/versions/1.3.2,200,917,
+2026-09-27T07:25:31Z,git over HTTPS,clone zipline-ai,git clone --filter=blob:none --no-checkout,https://github.com/zipline-ai/chronon.git,,,failed: git clone -q --filter=blob:none --no-checkout https://github.com/zipline-ai/chronon.git /tmp/lh008/repos/github.com__zipline-ai__chronon: fatal: could not read 
+2026-09-27T07:25:31Z,Open Source Insights,deps.dev version atomicshop 3.13.10,GET,https://api.deps.dev/v3/systems/pypi/packages/atomicshop/versions/3.13.10,200,672,
+2026-09-27T07:25:31Z,git over HTTPS,clone jl95terceira-pytools,git clone --filter=blob:none --no-checkout,https://github.com/jl95terceira/project-pytools.git,,60033,cloned
+2026-09-27T07:25:32Z,Open Source Insights,deps.dev version opentera 1.3.1,GET,https://api.deps.dev/v3/systems/pypi/packages/opentera/versions/1.3.1,200,581,
+2026-09-27T07:25:32Z,git over HTTPS,clone atomicshop,git clone --filter=blob:none --no-checkout,https://github.com/bugsec-official/atomicshop.git,,833240,cloned
+2026-09-27T07:25:33Z,Open Source Insights,deps.dev version remarkable-update-image 1.3.0,GET,https://api.deps.dev/v3/systems/pypi/packages/remarkable-update-image/versions/1.3.0,200,1575,
+2026-09-27T07:25:32Z,git over HTTPS,clone opentera,git clone --filter=blob:none --no-checkout,https://github.com/introlab/opentera.git,,2943059,cloned
+2026-09-27T07:25:34Z,Open Source Insights,deps.dev version pypepper 0.4.0,GET,https://api.deps.dev/v3/systems/pypi/packages/pypepper/versions/0.4.0,200,851,
+2026-09-27T07:25:34Z,Open Source Insights,deps.dev version wiliot-api 4.10.20b0,GET,https://api.deps.dev/v3/systems/pypi/packages/wiliot-api/versions/4.10.20b0,200,445,
+2026-09-27T07:25:34Z,PyPI JSON API,PyPI wiliot-api 4.10.20b0,GET,https://pypi.org/pypi/wiliot-api/4.10.20b0/json,200,20127,
+2026-09-27T07:25:34Z,PyPI JSON API,PyPI wiliot-api,GET,https://pypi.org/pypi/wiliot-api/json,200,115875,
+2026-09-27T07:25:34Z,Open Source Insights,deps.dev version docassemble-webapp 1.9.10,GET,https://api.deps.dev/v3/systems/pypi/packages/docassemble-webapp/versions/1.9.10,200,927,
+2026-09-27T07:25:34Z,Open Source Insights,deps.dev version awx-zipline-ai 0.4.9,GET,https://api.deps.dev/v3/systems/pypi/packages/awx-zipline-ai/versions/0.4.9,200,698,
+2026-09-27T07:25:35Z,git over HTTPS,clone awx-zipline-ai,git clone --filter=blob:none --no-checkout,https://github.com/zipline-ai/chronon.git,,,failed: git clone -q --filter=blob:none --no-checkout https://github.com/zipline-ai/chronon.git /tmp/lh008/repos/github.com__zipline-ai__chronon: fatal: could not read 
+2026-09-27T07:25:35Z,Open Source Insights,deps.dev version spiffe 0.2.7,GET,https://api.deps.dev/v3/systems/pypi/packages/spiffe/versions/0.2.7,200,592,
+2026-09-27T07:25:11Z,git over HTTPS,clone homeassistant,git clone --filter=blob:none --no-checkout,https://github.com/home-assistant/core.git,,332949355,cloned
+2026-09-27T07:25:35Z,git over HTTPS,clone spiffe,git clone --filter=blob:none --no-checkout,https://github.com/hewlettpackard/py-spiffe.git,,600819,cloned
+2026-09-27T07:25:36Z,Open Source Insights,deps.dev version cognirepo 0.1.0,GET,https://api.deps.dev/v3/systems/pypi/packages/cognirepo/versions/0.1.0,200,393,
+2026-09-27T07:25:36Z,PyPI JSON API,PyPI cognirepo 0.1.0,GET,https://pypi.org/pypi/cognirepo/0.1.0/json,200,11853,
+2026-09-27T07:25:36Z,PyPI JSON API,PyPI cognirepo,GET,https://pypi.org/pypi/cognirepo/json,200,59401,
+2026-09-27T07:25:37Z,Open Source Insights,deps.dev version cfl-common 8.10.0,GET,https://api.deps.dev/v3/systems/pypi/packages/cfl-common/versions/8.10.0,200,949,
+2026-09-27T07:25:36Z,git over HTTPS,clone cognirepo,git clone --filter=blob:none --no-checkout,https://github.com/ashlesh-t/cognirepo.git,,552240,cloned
+2026-09-27T07:25:37Z,Open Source Insights,deps.dev version an-website 26.3.14,GET,https://api.deps.dev/v3/systems/pypi/packages/an-website/versions/26.3.14,200,613,
+2026-09-27T07:25:38Z,Open Source Insights,deps.dev version osdental-library 3.14.9b10,GET,https://api.deps.dev/v3/systems/pypi/packages/osdental-library/versions/3.14.9b10,200,390,
+2026-09-27T07:25:38Z,Open Source Insights,deps.dev version hermes-agent 0.14.0,GET,https://api.deps.dev/v3/systems/pypi/packages/hermes-agent/versions/0.14.0,200,1448,
+2026-09-27T07:25:38Z,Open Source Insights,deps.dev version fastapi-framework 1.5.4,GET,https://api.deps.dev/v3/systems/pypi/packages/fastapi-framework/versions/1.5.4,200,674,
+2026-09-27T07:25:38Z,PyPI JSON API,PyPI osdental-library 3.14.9b10,GET,https://pypi.org/pypi/osdental-library/3.14.9b10/json,200,6438,
+2026-09-27T07:25:38Z,PyPI JSON API,PyPI osdental-library,GET,https://pypi.org/pypi/osdental-library/json,200,123863,
+2026-09-27T07:25:38Z,Open Source Insights,deps.dev version sitellm 0.0.4,GET,https://api.deps.dev/v3/systems/pypi/packages/sitellm/versions/0.0.4,200,502,
+2026-09-27T07:25:38Z,PyPI JSON API,PyPI sitellm 0.0.4,GET,https://pypi.org/pypi/sitellm/0.0.4/json,200,32155,
+2026-09-27T07:25:38Z,PyPI JSON API,PyPI sitellm,GET,https://pypi.org/pypi/sitellm/json,200,65892,
+2026-09-27T07:25:38Z,Open Source Insights,deps.dev version redis-entraid 1.1.2,GET,https://api.deps.dev/v3/systems/pypi/packages/redis-entraid/versions/1.1.2,200,378,
+2026-09-27T07:25:38Z,Open Source Insights,deps.dev version vantage6-algorithm-tools 5.0.0,GET,https://api.deps.dev/v3/systems/pypi/packages/vantage6-algorithm-tools/versions/5.0.0,200,394,
+2026-09-27T07:25:39Z,PyPI JSON API,PyPI redis-entraid 1.1.2,GET,https://pypi.org/pypi/redis-entraid/1.1.2/json,200,8042,
+2026-09-27T07:25:38Z,Open Source Insights,deps.dev version c7n-azure 0.7.50,GET,https://api.deps.dev/v3/systems/pypi/packages/c7n-azure/versions/0.7.50,200,735,
+2026-09-27T07:25:39Z,PyPI JSON API,PyPI redis-entraid,GET,https://pypi.org/pypi/redis-entraid/json,200,22125,
+2026-09-27T07:25:39Z,Open Source Insights,deps.dev version bridgeagent 0.16.0,GET,https://api.deps.dev/v3/systems/pypi/packages/bridgeagent/versions/0.16.0,200,937,
+2026-09-27T07:25:39Z,PyPI JSON API,PyPI vantage6-algorithm-tools 5.0.0,GET,https://pypi.org/pypi/vantage6-algorithm-tools/5.0.0/json,200,3837,
+2026-09-27T07:25:39Z,PyPI JSON API,PyPI vantage6-algorithm-tools,GET,https://pypi.org/pypi/vantage6-algorithm-tools/json,200,263468,
+2026-09-27T07:25:39Z,Open Source Insights,deps.dev version fittrackee 1.2.0,GET,https://api.deps.dev/v3/systems/pypi/packages/fittrackee/versions/1.2.0,200,1459,
+2026-09-27T07:25:39Z,git over HTTPS,clone bridgeagent,git clone --filter=blob:none --no-checkout,https://github.com/bridge-mind/bridgeagent.git,,,failed: git clone -q --filter=blob:none --no-checkout https://github.com/bridge-mind/bridgeagent.git /tmp/lh008/repos/github.com__bridge-mind__bridgeagent: fatal: could
+2026-09-27T07:25:38Z,git over HTTPS,clone fastapi-framework,git clone --filter=blob:none --no-checkout,https://github.com/tert0/fastapi-framework.git,,1249588,cloned
+2026-09-27T07:25:39Z,Open Source Insights,deps.dev version encryptors 2.49.0,GET,https://api.deps.dev/v3/systems/pypi/packages/encryptors/versions/2.49.0,200,381,
+2026-09-27T07:25:39Z,PyPI JSON API,PyPI encryptors 2.49.0,GET,https://pypi.org/pypi/encryptors/2.49.0/json,200,3667,
+2026-09-27T07:25:39Z,PyPI JSON API,PyPI encryptors,GET,https://pypi.org/pypi/encryptors/json,200,288498,
+2026-09-27T07:25:39Z,Open Source Insights,deps.dev version arcen-agent 0.15.1,GET,https://api.deps.dev/v3/systems/pypi/packages/arcen-agent/versions/0.15.1,200,954,
+2026-09-27T07:25:39Z,Open Source Insights,deps.dev version askbot 0.12.9,GET,https://api.deps.dev/v3/systems/pypi/packages/askbot/versions/0.12.9,200,638,
+2026-09-27T07:25:40Z,Open Source Insights,deps.dev version learninghouse 1.11.0,GET,https://api.deps.dev/v3/systems/pypi/packages/learninghouse/versions/1.11.0,200,1463,
+2026-09-27T07:25:39Z,git over HTTPS,clone fittrackee,git clone --filter=blob:none --no-checkout,https://github.com/samr1/fittrackee.git,,8302674,cloned
+2026-09-27T07:25:39Z,git over HTTPS,clone arcen-agent,git clone --filter=blob:none --no-checkout,https://github.com/adityakumar41/arcen-agent.git,,349475,cloned
+2026-09-27T07:25:40Z,Open Source Insights,deps.dev version carconnectivity-connector-seatcupra 0.6.2,GET,https://api.deps.dev/v3/systems/pypi/packages/carconnectivity-connector-seatcupra/versions/0.6.2,200,1104,
+2026-09-27T07:25:40Z,Open Source Insights,deps.dev version meltanolabs-tap-github 1.26.1,GET,https://api.deps.dev/v3/systems/pypi/packages/meltanolabs-tap-github/versions/1.26.1,200,1499,
+2026-09-27T07:25:40Z,git over HTTPS,clone learninghouse,git clone --filter=blob:none --no-checkout,https://github.com/learninghouseservice/learninghouse-monorepo.git,,867900,cloned
+2026-09-27T07:25:41Z,Open Source Insights,deps.dev version mcp-hydrolix 0.2.2,GET,https://api.deps.dev/v3/systems/pypi/packages/mcp-hydrolix/versions/0.2.2,200,1147,
+2026-09-27T07:25:40Z,git over HTTPS,clone carconnectivity-connector-seatcupra,git clone --filter=blob:none --no-checkout,https://github.com/tillsteinbach/carconnectivity-connector-seatcupra.git,,146325,cloned
+2026-09-27T07:25:40Z,git over HTTPS,clone meltanolabs-tap-github,git clone --filter=blob:none --no-checkout,https://github.com/meltanolabs/tap-github.git,,817081,cloned
+2026-09-27T07:25:39Z,git over HTTPS,clone askbot,git clone --filter=blob:none --no-checkout,https://github.com/askbot/askbot-devel.git,,9247470,cloned
+2026-09-27T07:25:41Z,Open Source Insights,deps.dev version eximia-agent 0.13.1,GET,https://api.deps.dev/v3/systems/pypi/packages/eximia-agent/versions/0.13.1,200,950,
+2026-09-27T07:25:41Z,git over HTTPS,clone eximia-agent,git clone --filter=blob:none --no-checkout,https://github.com/eximia-ai-agency/eximia-cli.git,,,failed: git clone -q --filter=blob:none --no-checkout https://github.com/eximia-ai-agency/eximia-cli.git /tmp/lh008/repos/github.com__eximia-ai-agency__eximia-cli: fata
+2026-09-27T07:25:42Z,Open Source Insights,deps.dev version ocaya 2.14.0,GET,https://api.deps.dev/v3/systems/pypi/packages/ocaya/versions/2.14.0,200,966,
+2026-09-27T07:25:41Z,git over HTTPS,clone mcp-hydrolix,git clone --filter=blob:none --no-checkout,https://github.com/hydrolix/mcp-hydrolix.git,,482466,cloned
+2026-09-27T07:25:42Z,Open Source Insights,deps.dev version ws-mark-flow 0.0.1,GET,https://api.deps.dev/v3/systems/pypi/packages/ws-mark-flow/versions/0.0.1,200,377,
+2026-09-27T07:25:42Z,PyPI JSON API,PyPI ws-mark-flow 0.0.1,GET,https://pypi.org/pypi/ws-mark-flow/0.0.1/json,200,7363,
+2026-09-27T07:25:42Z,Open Source Insights,deps.dev version apheris-auth 0.23.0,GET,https://api.deps.dev/v3/systems/pypi/packages/apheris-auth/versions/0.23.0,200,915,
+2026-09-27T07:25:42Z,PyPI JSON API,PyPI ws-mark-flow,GET,https://pypi.org/pypi/ws-mark-flow/json,200,31729,
+2026-09-27T07:25:42Z,Open Source Insights,deps.dev version pyixapi 0.2.8,GET,https://api.deps.dev/v3/systems/pypi/packages/pyixapi/versions/0.2.8,200,384,
+2026-09-27T07:25:42Z,PyPI JSON API,PyPI pyixapi 0.2.8,GET,https://pypi.org/pypi/pyixapi/0.2.8/json,200,4280,
+2026-09-27T07:25:42Z,PyPI JSON API,PyPI pyixapi,GET,https://pypi.org/pypi/pyixapi/json,200,24184,
+2026-09-27T07:25:42Z,git over HTTPS,clone apheris-auth,git clone --filter=blob:none --no-checkout,https://github.com/apheris/auth.git,,,failed: git clone -q --filter=blob:none --no-checkout https://github.com/apheris/auth.git /tmp/lh008/repos/github.com__apheris__auth: fatal: could not read Username for
+2026-09-27T07:25:42Z,Open Source Insights,deps.dev version bbot 2.8.5,GET,https://api.deps.dev/v3/systems/pypi/packages/bbot/versions/2.8.5,200,850,
+2026-09-27T07:25:42Z,Open Source Insights,deps.dev version vantage6-server 4.14.0,GET,https://api.deps.dev/v3/systems/pypi/packages/vantage6-server/versions/4.14.0,200,576,
+2026-09-27T07:25:42Z,Open Source Insights,deps.dev version talklib 3.5.10,GET,https://api.deps.dev/v3/systems/pypi/packages/talklib/versions/3.5.10,200,1375,
+2026-09-27T07:25:42Z,git over HTTPS,clone ocaya,git clone --filter=blob:none --no-checkout,https://github.com/mistralai/mistral-vibe.git,,1238516,cloned
+2026-09-27T07:25:43Z,Open Source Insights,deps.dev version stoa-agent 0.14.1,GET,https://api.deps.dev/v3/systems/pypi/packages/stoa-agent/versions/0.14.1,200,1449,
+2026-09-27T07:25:43Z,Open Source Insights,deps.dev version pretix 2026.3.0,GET,https://api.deps.dev/v3/systems/pypi/packages/pretix/versions/2026.3.0,200,796,
+2026-09-27T07:25:42Z,git over HTTPS,clone talklib,git clone --filter=blob:none --no-checkout,https://github.com/talkinglibrary/talklib.git,,364884,cloned
+2026-09-27T07:25:43Z,git over HTTPS,clone stoa-agent,git clone --filter=blob:none --no-checkout,https://github.com/stoagent/stoa-agent.git,,726270,cloned
+2026-09-27T07:25:44Z,Open Source Insights,deps.dev version agilicus 1.409.10,GET,https://api.deps.dev/v3/systems/pypi/packages/agilicus/versions/1.409.10,200,436,
+2026-09-27T07:25:44Z,Open Source Insights,deps.dev version syn-commodore 1.32.2,GET,https://api.deps.dev/v3/systems/pypi/packages/syn-commodore/versions/1.32.2,200,740,
+2026-09-27T07:25:44Z,PyPI JSON API,PyPI agilicus 1.409.10,GET,https://pypi.org/pypi/agilicus/1.409.10/json,200,5739,
+2026-09-27T07:25:44Z,PyPI JSON API,PyPI agilicus,GET,https://pypi.org/pypi/agilicus/json,200,2204751,
+2026-09-27T07:25:42Z,git over HTTPS,clone bbot,git clone --filter=blob:none --no-checkout,https://github.com/blacklanternsecurity/bbot.git,,12096860,cloned
+2026-09-27T07:25:44Z,Open Source Insights,deps.dev version ethyca-fides 2.81.2a1,GET,https://api.deps.dev/v3/systems/pypi/packages/ethyca-fides/versions/2.81.2a1,200,750,
+2026-09-27T07:25:42Z,git over HTTPS,clone vantage6-server,git clone --filter=blob:none --no-checkout,https://github.com/vantage6/vantage6.git,,10715812,cloned
+2026-09-27T07:25:45Z,Open Source Insights,deps.dev version dbox 2026.5.27.1,GET,https://api.deps.dev/v3/systems/pypi/packages/dbox/versions/2026.5.27.1,200,631,
+2026-09-27T07:25:44Z,git over HTTPS,clone syn-commodore,git clone --filter=blob:none --no-checkout,https://github.com/projectsyn/commodore.git,,3142320,cloned
+2026-09-27T07:25:45Z,Open Source Insights,deps.dev version django-daiquiri 1.3.6,GET,https://api.deps.dev/v3/systems/pypi/packages/django-daiquiri/versions/1.3.6,200,960,
+2026-09-27T07:25:45Z,git over HTTPS,clone dbox,git clone --filter=blob:none --no-checkout,https://github.com/deng2016/dbox.git,,47118,cloned
+2026-09-27T07:25:46Z,Open Source Insights,deps.dev version stee-nino 0.1.0,GET,https://api.deps.dev/v3/systems/pypi/packages/stee-nino/versions/0.1.0,200,379,
+2026-09-27T07:25:46Z,PyPI JSON API,PyPI stee-nino 0.1.0,GET,https://pypi.org/pypi/stee-nino/0.1.0/json,200,23030,
+2026-09-27T07:25:46Z,PyPI JSON API,PyPI stee-nino,GET,https://pypi.org/pypi/stee-nino/json,200,33886,
+2026-09-27T07:25:46Z,Open Source Insights,deps.dev version docassemble-base 1.9.10,GET,https://api.deps.dev/v3/systems/pypi/packages/docassemble-base/versions/1.9.10,200,925,
+2026-09-27T07:25:46Z,Open Source Insights,deps.dev version acapy-agent 1.6.0,GET,https://api.deps.dev/v3/systems/pypi/packages/acapy-agent/versions/1.6.0,200,1166,
+2026-09-27T07:25:46Z,Open Source Insights,deps.dev version suffolklitlab-docassemble-webapp 1.9.7.post1,GET,https://api.deps.dev/v3/systems/pypi/packages/suffolklitlab-docassemble-webapp/versions/1.9.7.post1,200,1613,
+2026-09-27T07:25:45Z,git over HTTPS,clone django-daiquiri,git clone --filter=blob:none --no-checkout,https://github.com/django-daiquiri/daiquiri.git,,2266756,cloned
+2026-09-27T07:25:46Z,Open Source Insights,deps.dev version senbai 0.0.1,GET,https://api.deps.dev/v3/systems/pypi/packages/senbai/versions/0.0.1,200,375,
+2026-09-27T07:25:46Z,PyPI JSON API,PyPI senbai 0.0.1,GET,https://pypi.org/pypi/senbai/0.0.1/json,200,17841,
+2026-09-27T07:25:46Z,PyPI JSON API,PyPI senbai,GET,https://pypi.org/pypi/senbai/json,200,20247,
+2026-09-27T07:25:46Z,Open Source Insights,deps.dev version omnata-plugin-runtime 0.12.10a374,GET,https://api.deps.dev/v3/systems/pypi/packages/omnata-plugin-runtime/versions/0.12.10a374,200,392,
+2026-09-27T07:25:46Z,PyPI JSON API,PyPI omnata-plugin-runtime 0.12.10a374,GET,https://pypi.org/pypi/omnata-plugin-runtime/0.12.10a374/json,200,4081,
+2026-09-27T07:25:46Z,PyPI JSON API,PyPI omnata-plugin-runtime,GET,https://pypi.org/pypi/omnata-plugin-runtime/json,200,1098884,
+2026-09-27T07:25:46Z,Open Source Insights,deps.dev version django-saml2-auth-community 3.21.0,GET,https://api.deps.dev/v3/systems/pypi/packages/django-saml2-auth-community/versions/3.21.0,200,918,
+2026-09-27T07:25:38Z,git over HTTPS,clone hermes-agent,git clone --filter=blob:none --no-checkout,https://github.com/nousresearch/hermes-agent.git,,118456649,cloned
+2026-09-27T07:25:47Z,Open Source Insights,deps.dev version kagenti-cli 0.8.0,GET,https://api.deps.dev/v3/systems/pypi/packages/kagenti-cli/versions/0.8.0,200,903,
+2026-09-27T07:25:47Z,Open Source Insights,deps.dev version cdsetool 0.3.1,GET,https://api.deps.dev/v3/systems/pypi/packages/cdsetool/versions/0.3.1,200,846,
+2026-09-27T07:25:43Z,git over HTTPS,clone pretix,git clone --filter=blob:none --no-checkout,https://github.com/pretix/pretix.git,,19298165,cloned
+2026-09-27T07:25:47Z,git over HTTPS,clone django-saml2-auth-community,git clone --filter=blob:none --no-checkout,https://github.com/mostafa/django-saml2-auth.git,,335687,cloned
+2026-09-27T07:25:46Z,git over HTTPS,clone acapy-agent,git clone --filter=blob:none --no-checkout,https://github.com/openwallet-foundation/acapy.git,,13477448,cloned
+2026-09-27T07:25:47Z,git over HTTPS,clone cdsetool,git clone --filter=blob:none --no-checkout,https://github.com/cdsetool/cdsetool.git,,472558,cloned
+2026-09-27T07:25:48Z,Open Source Insights,deps.dev version agentdid 0.1.0,GET,https://api.deps.dev/v3/systems/pypi/packages/agentdid/versions/0.1.0,200,384,
+2026-09-27T07:25:47Z,git over HTTPS,clone kagenti-cli,git clone --filter=blob:none --no-checkout,https://github.com/kagenti/adk.git,,4820461,cloned
+2026-09-27T07:25:48Z,PyPI JSON API,PyPI agentdid 0.1.0,GET,https://pypi.org/pypi/agentdid/0.1.0/json,200,6918,
+2026-09-27T07:25:48Z,PyPI JSON API,PyPI agentdid,GET,https://pypi.org/pypi/agentdid/json,200,8472,
+2026-09-27T07:25:48Z,Open Source Insights,deps.dev version vantage6-client 4.14.0,GET,https://api.deps.dev/v3/systems/pypi/packages/vantage6-client/versions/4.14.0,200,576,
+2026-09-27T07:25:48Z,Open Source Insights,deps.dev version pycti 7.260309.0.2,GET,https://api.deps.dev/v3/systems/pypi/packages/pycti/versions/7.260309.0.2,200,650,
+2026-09-27T07:25:49Z,Open Source Insights,deps.dev version ibm-watsonx-gov 1.5.0,GET,https://api.deps.dev/v3/systems/pypi/packages/ibm-watsonx-gov/versions/1.5.0,200,937,
+2026-09-27T07:25:49Z,git over HTTPS,clone ibm-watsonx-gov,git clone --filter=blob:none --no-checkout,https://github.com/ibm/ibm-watsonx-gov.git,,140017,cloned
+2026-09-27T07:25:50Z,Open Source Insights,deps.dev version andspace-jwt-auth 1.2.1,GET,https://api.deps.dev/v3/systems/pypi/packages/andspace-jwt-auth/versions/1.2.1,200,940,
+2026-09-27T07:25:50Z,Open Source Insights,deps.dev version zipline-ai 1.25.0,GET,https://api.deps.dev/v3/systems/pypi/packages/zipline-ai/versions/1.25.0,200,1239,
+2026-09-27T07:25:50Z,Open Source Insights,deps.dev version dbt-mcp 1.11.0,GET,https://api.deps.dev/v3/systems/pypi/packages/dbt-mcp/versions/1.11.0,200,1621,
+2026-09-27T07:25:50Z,git over HTTPS,clone andspace-jwt-auth,git clone --filter=blob:none --no-checkout,https://github.com/andspace/jwt-auth.git,,,failed: git clone -q --filter=blob:none --no-checkout https://github.com/andspace/jwt-auth.git /tmp/lh008/repos/github.com__andspace__jwt-auth: fatal: could not read Us
+2026-09-27T07:25:50Z,git over HTTPS,clone zipline-ai,git clone --filter=blob:none --no-checkout,https://github.com/zipline-ai/chronon.git,,,failed: git clone -q --filter=blob:none --no-checkout https://github.com/zipline-ai/chronon.git /tmp/lh008/repos/github.com__zipline-ai__chronon: fatal: could not read 
+2026-09-27T07:25:50Z,Open Source Insights,deps.dev version zou 1.0.39,GET,https://api.deps.dev/v3/systems/pypi/packages/zou/versions/1.0.39,200,876,
+2026-09-27T07:25:50Z,Open Source Insights,deps.dev version hmd-graphql-client 0.1.169,GET,https://api.deps.dev/v3/systems/pypi/packages/hmd-graphql-client/versions/0.1.169,200,397,
+2026-09-27T07:25:50Z,PyPI JSON API,PyPI hmd-graphql-client 0.1.169,GET,https://pypi.org/pypi/hmd-graphql-client/0.1.169/json,200,3246,
+2026-09-27T07:25:50Z,PyPI JSON API,PyPI hmd-graphql-client,GET,https://pypi.org/pypi/hmd-graphql-client/json,200,12587,
+2026-09-27T07:25:50Z,Open Source Insights,deps.dev version docassemble-webapp 1.6.0,GET,https://api.deps.dev/v3/systems/pypi/packages/docassemble-webapp/versions/1.6.0,200,388,
+2026-09-27T07:25:50Z,PyPI JSON API,PyPI docassemble-webapp 1.6.0,GET,https://pypi.org/pypi/docassemble-webapp/1.6.0/json,200,8259,
+2026-09-27T07:25:51Z,PyPI JSON API,PyPI docassemble-webapp,GET,https://pypi.org/pypi/docassemble-webapp/json,200,407656,
+2026-09-27T07:25:50Z,git over HTTPS,clone dbt-mcp,git clone --filter=blob:none --no-checkout,https://github.com/dbt-labs/dbt-mcp.git,,1592447,cloned
+2026-09-27T07:25:51Z,Open Source Insights,deps.dev version meshagent-openai 0.0.10,GET,https://api.deps.dev/v3/systems/pypi/packages/meshagent-openai/versions/0.0.10,200,1031,
+2026-09-27T07:25:51Z,git over HTTPS,clone meshagent-openai,git clone --filter=blob:none --no-checkout,https://github.com/timu-com/meshagent-server.git,,,failed: git clone -q --filter=blob:none --no-checkout https://github.com/timu-com/meshagent-server.git /tmp/lh008/repos/github.com__timu-com__meshagent-server: fatal: c
+2026-09-27T07:25:51Z,Open Source Insights,deps.dev version django-auth-boilerplate 0.1.0,GET,https://api.deps.dev/v3/systems/pypi/packages/django-auth-boilerplate/versions/0.1.0,200,929,
+2026-09-27T07:25:49Z,git over HTTPS,clone pycti,git clone --filter=blob:none --no-checkout,https://github.com/opencti-platform/opencti.git,,33783616,cloned
+2026-09-27T07:25:50Z,git over HTTPS,clone zou,git clone --filter=blob:none --no-checkout,https://github.com/cgwire/zou.git,,5534547,cloned
+2026-09-27T07:25:51Z,git over HTTPS,clone django-auth-boilerplate,git clone --filter=blob:none --no-checkout,https://github.com/meekemma/auth-boilerplate.git,,30512,cloned
+2026-09-27T07:25:52Z,Open Source Insights,deps.dev version bacpipe 1.1.0,GET,https://api.deps.dev/v3/systems/pypi/packages/bacpipe/versions/1.1.0,200,372,
+2026-09-27T07:25:52Z,Open Source Insights,deps.dev version gen-epix 7.0.4,GET,https://api.deps.dev/v3/systems/pypi/packages/gen-epix/versions/7.0.4,200,1341,
+2026-09-27T07:25:52Z,PyPI JSON API,PyPI bacpipe 1.1.0,GET,https://pypi.org/pypi/bacpipe/1.1.0/json,200,46959,
+2026-09-27T07:25:52Z,PyPI JSON API,PyPI bacpipe,GET,https://pypi.org/pypi/bacpipe/json,200,114658,
+2026-09-27T07:25:52Z,git over HTTPS,clone awx-zipline-ai,git clone --filter=blob:none --no-checkout,https://github.com/zipline-ai/chronon.git,,,failed: git clone -q --filter=blob:none --no-checkout https://github.com/zipline-ai/chronon.git /tmp/lh008/repos/github.com__zipline-ai__chronon: fatal: could not read 
+2026-09-27T07:25:52Z,Open Source Insights,deps.dev version backend-ai-wsproxy 25.10.0,GET,https://api.deps.dev/v3/systems/pypi/packages/backend-ai-wsproxy/versions/25.10.0,200,651,
+2026-09-27T07:25:52Z,Open Source Insights,deps.dev version pyboot-commons-jwt 1.3.3.1,GET,https://api.deps.dev/v3/systems/pypi/packages/pyboot-commons-jwt/versions/1.3.3.1,200,892,
+2026-09-27T07:25:53Z,Open Source Insights,deps.dev version openjiuwen-studio 0.1.7,GET,https://api.deps.dev/v3/systems/pypi/packages/openjiuwen-studio/versions/0.1.7,200,382,
+2026-09-27T07:25:53Z,PyPI JSON API,PyPI openjiuwen-studio 0.1.7,GET,https://pypi.org/pypi/openjiuwen-studio/0.1.7/json,200,3052,
+2026-09-27T07:25:52Z,git over HTTPS,clone pyboot-commons-jwt,git clone --filter=blob:none --no-checkout,https://github.com/python-boot/commons-jwt.git,,29423,cloned
+2026-09-27T07:25:53Z,PyPI JSON API,PyPI openjiuwen-studio,GET,https://pypi.org/pypi/openjiuwen-studio/json,200,32239,
+2026-09-27T07:25:53Z,Open Source Insights,deps.dev version aps-fastapi-toolkit 1.0.0,GET,https://api.deps.dev/v3/systems/pypi/packages/aps-fastapi-toolkit/versions/1.0.0,200,384,
+2026-09-27T07:25:53Z,PyPI JSON API,PyPI aps-fastapi-toolkit 1.0.0,GET,https://pypi.org/pypi/aps-fastapi-toolkit/1.0.0/json,200,11250,
+2026-09-27T07:25:53Z,PyPI JSON API,PyPI aps-fastapi-toolkit,GET,https://pypi.org/pypi/aps-fastapi-toolkit/json,200,22541,
+2026-09-27T07:25:53Z,Open Source Insights,deps.dev version edc 1.2.1,GET,https://api.deps.dev/v3/systems/pypi/packages/edc/versions/1.2.1,200,707,
+2026-09-27T07:25:53Z,Open Source Insights,deps.dev version dlt-providers 202502.26.0rc0,GET,https://api.deps.dev/v3/systems/pypi/packages/dlt-providers/versions/202502.26.0rc0,200,387,
+2026-09-27T07:25:53Z,git over HTTPS,clone fwquant,git clone --filter=blob:none --no-checkout,https://github.com/fwquant/fwquant.git,,,failed: git clone -q --filter=blob:none --no-checkout https://github.com/fwquant/fwquant.git /tmp/lh008/repos/github.com__fwquant__fwquant: fatal: could not read Userna
+2026-09-27T07:25:53Z,Open Source Insights,deps.dev version zepben-ewb 1.1.0b14,GET,https://api.deps.dev/v3/systems/pypi/packages/zepben-ewb/versions/1.1.0b14,200,646,
+2026-09-27T07:25:53Z,PyPI JSON API,PyPI dlt-providers 202502.26.0rc0,GET,https://pypi.org/pypi/dlt-providers/202502.26.0rc0/json,200,2616,
+2026-09-27T07:25:53Z,Open Source Insights,deps.dev version aomaker 3.0.0,GET,https://api.deps.dev/v3/systems/pypi/packages/aomaker/versions/3.0.0,200,618,
+2026-09-27T07:25:53Z,PyPI JSON API,PyPI dlt-providers,GET,https://pypi.org/pypi/dlt-providers/json,200,77964,
+2026-09-27T07:25:53Z,Open Source Insights,deps.dev version gamr-backend-api-service 1.0.0,GET,https://api.deps.dev/v3/systems/pypi/packages/gamr-backend-api-service/versions/1.0.0,200,389,
+2026-09-27T07:25:53Z,Open Source Insights,deps.dev version hmd-lib-librarian-client 0.1.108,GET,https://api.deps.dev/v3/systems/pypi/packages/hmd-lib-librarian-client/versions/0.1.108,200,403,
+2026-09-27T07:25:53Z,PyPI JSON API,PyPI gamr-backend-api-service 1.0.0,GET,https://pypi.org/pypi/gamr-backend-api-service/1.0.0/json,200,4883,
+2026-09-27T07:25:53Z,PyPI JSON API,PyPI hmd-lib-librarian-client 0.1.108,GET,https://pypi.org/pypi/hmd-lib-librarian-client/0.1.108/json,200,3397,
+2026-09-27T07:25:53Z,PyPI JSON API,PyPI gamr-backend-api-service,GET,https://pypi.org/pypi/gamr-backend-api-service/json,200,17411,
+2026-09-27T07:25:53Z,PyPI JSON API,PyPI hmd-lib-librarian-client,GET,https://pypi.org/pypi/hmd-lib-librarian-client/json,200,16245,
+2026-09-27T07:25:54Z,Open Source Insights,deps.dev version gomyck-tools 1.3.3,GET,https://api.deps.dev/v3/systems/pypi/packages/gomyck-tools/versions/1.3.3,200,389,
+2026-09-27T07:25:54Z,Open Source Insights,deps.dev version devsecops-engine-tools 1.115.1,GET,https://api.deps.dev/v3/systems/pypi/packages/devsecops-engine-tools/versions/1.115.1,200,1266,
+2026-09-27T07:25:54Z,Open Source Insights,deps.dev version hmd-cli-librarian-sync-watcher 1.0.153,GET,https://api.deps.dev/v3/systems/pypi/packages/hmd-cli-librarian-sync-watcher/versions/1.0.153,200,411,
+2026-09-27T07:25:54Z,PyPI JSON API,PyPI gomyck-tools 1.3.3,GET,https://pypi.org/pypi/gomyck-tools/1.3.3/json,200,2806,
+2026-09-27T07:25:54Z,PyPI JSON API,PyPI gomyck-tools,GET,https://pypi.org/pypi/gomyck-tools/json,200,71313,
+2026-09-27T07:25:54Z,Open Source Insights,deps.dev version hmd-cli-librarian-sync-manager 1.0.136,GET,https://api.deps.dev/v3/systems/pypi/packages/hmd-cli-librarian-sync-manager/versions/1.0.136,200,411,
+2026-09-27T07:25:54Z,PyPI JSON API,PyPI hmd-cli-librarian-sync-watcher 1.0.153,GET,https://pypi.org/pypi/hmd-cli-librarian-sync-watcher/1.0.153/json,200,3556,
+2026-09-27T07:25:54Z,PyPI JSON API,PyPI hmd-cli-librarian-sync-watcher,GET,https://pypi.org/pypi/hmd-cli-librarian-sync-watcher/json,200,16365,
+2026-09-27T07:25:54Z,PyPI JSON API,PyPI hmd-cli-librarian-sync-manager 1.0.136,GET,https://pypi.org/pypi/hmd-cli-librarian-sync-manager/1.0.136/json,200,3515,
+2026-09-27T07:25:54Z,Open Source Insights,deps.dev version ddeutil-observe 0.0.6,GET,https://api.deps.dev/v3/systems/pypi/packages/ddeutil-observe/versions/0.0.6,200,670,
+2026-09-27T07:25:53Z,git over HTTPS,clone edc,git clone --filter=blob:none --no-checkout,https://github.com/clinicedc/edc.git,,707426,cloned
+2026-09-27T07:25:54Z,PyPI JSON API,PyPI hmd-cli-librarian-sync-manager,GET,https://pypi.org/pypi/hmd-cli-librarian-sync-manager/json,200,19760,
+2026-09-27T07:25:54Z,Open Source Insights,deps.dev version backend-ai-appproxy-worker 25.13.0,GET,https://api.deps.dev/v3/systems/pypi/packages/backend-ai-appproxy-worker/versions/25.13.0,200,659,
+2026-09-27T07:25:54Z,Open Source Insights,deps.dev version datadiensten-apikeyclient 0.7.1,GET,https://api.deps.dev/v3/systems/pypi/packages/datadiensten-apikeyclient/versions/0.7.1,200,1267,
+2026-09-27T07:25:52Z,git over HTTPS,clone backend-ai-wsproxy,git clone --filter=blob:none --no-checkout,https://github.com/lablup/backend.ai.git,,28526386,cloned
+2026-09-27T07:25:53Z,git over HTTPS,clone aomaker,git clone --filter=blob:none --no-checkout,https://github.com/ae86sen/aomaker.git,,195036,cloned
+2026-09-27T07:25:54Z,Open Source Insights,deps.dev version liberty-framework 6.0.84,GET,https://api.deps.dev/v3/systems/pypi/packages/liberty-framework/versions/6.0.84,200,382,
+2026-09-27T07:25:55Z,PyPI JSON API,PyPI liberty-framework 6.0.84,GET,https://pypi.org/pypi/liberty-framework/6.0.84/json,200,11174,
+2026-09-27T07:25:55Z,PyPI JSON API,PyPI liberty-framework,GET,https://pypi.org/pypi/liberty-framework/json,200,65111,
+2026-09-27T07:25:55Z,Open Source Insights,deps.dev version apppy-auth 0.24.1,GET,https://api.deps.dev/v3/systems/pypi/packages/apppy-auth/versions/0.24.1,200,625,
+2026-09-27T07:25:54Z,git over HTTPS,clone datadiensten-apikeyclient,git clone --filter=blob:none --no-checkout,https://github.com/amsterdam/apikeyserv.git,,206111,cloned
+2026-09-27T07:25:54Z,git over HTTPS,clone ddeutil-observe,git clone --filter=blob:none --no-checkout,https://github.com/ddeutils/ddeutil-observe.git,,269680,cloned
+2026-09-27T07:25:55Z,git over HTTPS,clone apppy-auth,git clone --filter=blob:none --no-checkout,https://github.com/spals/apppy.git,,,failed: git clone -q --filter=blob:none --no-checkout https://github.com/spals/apppy.git /tmp/lh008/repos/github.com__spals__apppy: fatal: could not read Username for '
+2026-09-27T07:25:55Z,Open Source Insights,deps.dev version coloco 0.1.1,GET,https://api.deps.dev/v3/systems/pypi/packages/coloco/versions/0.1.1,200,376,
+2026-09-27T07:25:55Z,Open Source Insights,deps.dev version hmd-lib-transform 0.1.69,GET,https://api.deps.dev/v3/systems/pypi/packages/hmd-lib-transform/versions/0.1.69,200,395,
+2026-09-27T07:25:55Z,Open Source Insights,deps.dev version generate-gizmosql-token 0.0.12,GET,https://api.deps.dev/v3/systems/pypi/packages/generate-gizmosql-token/versions/0.0.12,200,1341,
+2026-09-27T07:25:55Z,PyPI JSON API,PyPI coloco 0.1.1,GET,https://pypi.org/pypi/coloco/0.1.1/json,200,3718,
+2026-09-27T07:25:55Z,PyPI JSON API,PyPI coloco,GET,https://pypi.org/pypi/coloco/json,200,39332,
+2026-09-27T07:25:55Z,PyPI JSON API,PyPI hmd-lib-transform 0.1.69,GET,https://pypi.org/pypi/hmd-lib-transform/0.1.69/json,200,3314,
+2026-09-27T07:25:55Z,PyPI JSON API,PyPI hmd-lib-transform,GET,https://pypi.org/pypi/hmd-lib-transform/json,200,11759,
+2026-09-27T07:25:55Z,Open Source Insights,deps.dev version snowflake-cli 3.10.0,GET,https://api.deps.dev/v3/systems/pypi/packages/snowflake-cli/versions/3.10.0,200,830,
+2026-09-27T07:25:55Z,Open Source Insights,deps.dev version apheris-auth 0.16.0,GET,https://api.deps.dev/v3/systems/pypi/packages/apheris-auth/versions/0.16.0,200,915,
+2026-09-27T07:25:53Z,git over HTTPS,clone zepben-ewb,git clone --filter=blob:none --no-checkout,https://github.com/zepben/evolve-sdk-python.git,,1461317,cloned
+2026-09-27T07:25:56Z,git over HTTPS,clone apheris-auth,git clone --filter=blob:none --no-checkout,https://github.com/apheris/auth.git,,,failed: git clone -q --filter=blob:none --no-checkout https://github.com/apheris/auth.git /tmp/lh008/repos/github.com__apheris__auth: fatal: could not read Username for
+2026-09-27T07:25:56Z,Open Source Insights,deps.dev version giosgapps-bindings 2.0.0,GET,https://api.deps.dev/v3/systems/pypi/packages/giosgapps-bindings/versions/2.0.0,200,596,
+2026-09-27T07:25:56Z,Open Source Insights,deps.dev version analytic-workspace-client 1.29.7,GET,https://api.deps.dev/v3/systems/pypi/packages/analytic-workspace-client/versions/1.29.7,200,396,
+2026-09-27T07:25:56Z,PyPI JSON API,PyPI analytic-workspace-client 1.29.7,GET,https://pypi.org/pypi/analytic-workspace-client/1.29.7/json,200,3368,
+2026-09-27T07:25:56Z,PyPI JSON API,PyPI analytic-workspace-client,GET,https://pypi.org/pypi/analytic-workspace-client/json,200,21144,
+2026-09-27T07:25:56Z,Open Source Insights,deps.dev version backend-ai-manager 25.10.0,GET,https://api.deps.dev/v3/systems/pypi/packages/backend-ai-manager/versions/25.10.0,200,651,
+2026-09-27T07:25:55Z,git over HTTPS,clone generate-gizmosql-token,git clone --filter=blob:none --no-checkout,https://github.com/gizmodata/generate-gizmosql-token.git,,61129,cloned
+2026-09-27T07:25:56Z,git over HTTPS,clone giosgapps-bindings,git clone --filter=blob:none --no-checkout,https://github.com/giosg/giosgapps_bindings.git,,89301,cloned
+2026-09-27T07:25:57Z,Open Source Insights,deps.dev version bilibili-api-python 17.0.0,GET,https://api.deps.dev/v3/systems/pypi/packages/bilibili-api-python/versions/17.0.0,200,403,
+2026-09-27T07:25:57Z,PyPI JSON API,PyPI bilibili-api-python 17.0.0,GET,https://pypi.org/pypi/bilibili-api-python/17.0.0/json,200,12933,
+2026-09-27T07:25:57Z,PyPI JSON API,PyPI bilibili-api-python,GET,https://pypi.org/pypi/bilibili-api-python/json,200,178009,
+2026-09-27T07:25:57Z,Open Source Insights,deps.dev version dbapi2 0.1.1,GET,https://api.deps.dev/v3/systems/pypi/packages/dbapi2/versions/0.1.1,200,370,
+2026-09-27T07:25:57Z,PyPI JSON API,PyPI dbapi2 0.1.1,GET,https://pypi.org/pypi/dbapi2/0.1.1/json,200,9180,
+2026-09-27T07:25:57Z,PyPI JSON API,PyPI dbapi2,GET,https://pypi.org/pypi/dbapi2/json,200,10723,
+2026-09-27T07:25:57Z,Open Source Insights,deps.dev version backend-ai-common 26.8.3,GET,https://api.deps.dev/v3/systems/pypi/packages/backend-ai-common/versions/26.8.3,200,648,
+2026-09-27T07:25:57Z,git over HTTPS,clone bilibili-api-python,git clone --filter=blob:none --no-checkout,https://github.com/nemo2011/bilibili-api.git,,28914,cloned
+2026-09-27T07:25:58Z,Open Source Insights,deps.dev version earnix-elevate 0.62.0,GET,https://api.deps.dev/v3/systems/pypi/packages/earnix-elevate/versions/0.62.0,200,513,
+2026-09-27T07:25:58Z,PyPI JSON API,PyPI earnix-elevate 0.62.0,GET,https://pypi.org/pypi/earnix-elevate/0.62.0/json,200,16852,
+2026-09-27T07:25:58Z,PyPI JSON API,PyPI earnix-elevate,GET,https://pypi.org/pypi/earnix-elevate/json,200,145728,
+2026-09-27T07:25:58Z,Open Source Insights,deps.dev version meshagent-agents 0.0.10,GET,https://api.deps.dev/v3/systems/pypi/packages/meshagent-agents/versions/0.0.10,200,1031,
+2026-09-27T07:25:58Z,git over HTTPS,clone graphtomation,git clone --filter=blob:none --no-checkout,https://github.com/dev-adimis/graphtomation.git,,,failed: git clone -q --filter=blob:none --no-checkout https://github.com/dev-adimis/graphtomation.git /tmp/lh008/repos/github.com__dev-adimis__graphtomation: fatal: cou
+2026-09-27T07:25:58Z,Open Source Insights,deps.dev version dbox 2025.10.23.1,GET,https://api.deps.dev/v3/systems/pypi/packages/dbox/versions/2025.10.23.1,200,563,
+2026-09-27T07:25:58Z,Open Source Insights,deps.dev version django-daiquiri 1.3.0,GET,https://api.deps.dev/v3/systems/pypi/packages/django-daiquiri/versions/1.3.0,200,960,
+2026-09-27T07:25:58Z,Open Source Insights,deps.dev version guidelight 0.2.0,GET,https://api.deps.dev/v3/systems/pypi/packages/guidelight/versions/0.2.0,200,1226,
+2026-09-27T07:25:58Z,git over HTTPS,clone meshagent-agents,git clone --filter=blob:none --no-checkout,https://github.com/timu-com/meshagent-server.git,,,failed: git clone -q --filter=blob:none --no-checkout https://github.com/timu-com/meshagent-server.git /tmp/lh008/repos/github.com__timu-com__meshagent-server: fatal: c
+2026-09-27T07:25:58Z,Open Source Insights,deps.dev version docassemble-base 1.6.0,GET,https://api.deps.dev/v3/systems/pypi/packages/docassemble-base/versions/1.6.0,200,386,
+2026-09-27T07:25:58Z,Open Source Insights,deps.dev version naavre-communicator-jupyterlab 0.3.3,GET,https://api.deps.dev/v3/systems/pypi/packages/naavre-communicator-jupyterlab/versions/0.3.3,200,981,
+2026-09-27T07:25:58Z,Open Source Insights,deps.dev version backend-ai-appproxy-coordinator 26.2.0,GET,https://api.deps.dev/v3/systems/pypi/packages/backend-ai-appproxy-coordinator/versions/26.2.0,200,663,
+2026-09-27T07:25:58Z,PyPI JSON API,PyPI docassemble-base 1.6.0,GET,https://pypi.org/pypi/docassemble-base/1.6.0/json,200,6019,
+2026-09-27T07:25:58Z,PyPI JSON API,PyPI docassemble-base,GET,https://pypi.org/pypi/docassemble-base/json,200,723909,
+2026-09-27T07:25:58Z,Open Source Insights,deps.dev version syftbox 0.3.5,GET,https://api.deps.dev/v3/systems/pypi/packages/syftbox/versions/0.3.5,200,372,
+2026-09-27T07:25:58Z,Open Source Insights,deps.dev version pyfreeflow 0.3.0,GET,https://api.deps.dev/v3/systems/pypi/packages/pyfreeflow/versions/0.3.0,200,594,
+2026-09-27T07:25:58Z,Open Source Insights,deps.dev version reboot 0.39.2,GET,https://api.deps.dev/v3/systems/pypi/packages/reboot/versions/0.39.2,200,384,
+2026-09-27T07:25:58Z,PyPI JSON API,PyPI syftbox 0.3.5,GET,https://pypi.org/pypi/syftbox/0.3.5/json,200,5201,
+2026-09-27T07:25:59Z,PyPI JSON API,PyPI syftbox,GET,https://pypi.org/pypi/syftbox/json,200,72869,
+2026-09-27T07:25:59Z,Open Source Insights,deps.dev version data-safe-haven 5.2.0,GET,https://api.deps.dev/v3/systems/pypi/packages/data-safe-haven/versions/5.2.0,200,954,
+2026-09-27T07:25:59Z,Open Source Insights,deps.dev version core-api-tools 0.0.1,GET,https://api.deps.dev/v3/systems/pypi/packages/core-api-tools/versions/0.0.1,200,585,
+2026-09-27T07:25:59Z,PyPI JSON API,PyPI reboot 0.39.2,GET,https://pypi.org/pypi/reboot/0.39.2/json,200,5058,
+2026-09-27T07:25:59Z,PyPI JSON API,PyPI reboot,GET,https://pypi.org/pypi/reboot/json,200,228956,
+2026-09-27T07:25:59Z,Open Source Insights,deps.dev version pyboot-dataflow 1.2.3,GET,https://api.deps.dev/v3/systems/pypi/packages/pyboot-dataflow/versions/1.2.3,200,849,
+2026-09-27T07:25:59Z,Open Source Insights,deps.dev version codeca-lambda-utils 1.0.0,GET,https://api.deps.dev/v3/systems/pypi/packages/codeca-lambda-utils/versions/1.0.0,200,598,
+2026-09-27T07:25:58Z,git over HTTPS,clone guidelight,git clone --filter=blob:none --no-checkout,https://github.com/rotationalio/guidelight.git,,46212,cloned
+2026-09-27T07:25:59Z,git over HTTPS,clone core-api-tools,git clone --filter=blob:none --no-checkout,https://github.com/zahardimidov/apicore.git,,,failed: git clone -q --filter=blob:none --no-checkout https://github.com/zahardimidov/apicore.git /tmp/lh008/repos/github.com__zahardimidov__apicore: fatal: could not r
+2026-09-27T07:25:59Z,git over HTTPS,clone pyboot-dataflow,git clone --filter=blob:none --no-checkout,https://github.com/gohutool/pyboot.git,,,failed: git clone -q --filter=blob:none --no-checkout https://github.com/gohutool/pyboot.git /tmp/lh008/repos/github.com__gohutool__pyboot: fatal: could not read Userna
+2026-09-27T07:25:59Z,Open Source Insights,deps.dev version cloudimized 2.0.0,GET,https://api.deps.dev/v3/systems/pypi/packages/cloudimized/versions/2.0.0,200,578,
+2026-09-27T07:25:59Z,Open Source Insights,deps.dev version jac-cloud 0.2.11,GET,https://api.deps.dev/v3/systems/pypi/packages/jac-cloud/versions/0.2.11,200,374,
+2026-09-27T07:25:59Z,git over HTTPS,clone codeca-lambda-utils,git clone --filter=blob:none --no-checkout,https://github.com/codeca-plus/lambda-utils.git,,,failed: git clone -q --filter=blob:none --no-checkout https://github.com/codeca-plus/lambda-utils.git /tmp/lh008/repos/github.com__codeca-plus__lambda-utils: fatal: cou
+2026-09-27T07:25:59Z,Open Source Insights,deps.dev version dreadnode 2.0.26,GET,https://api.deps.dev/v3/systems/pypi/packages/dreadnode/versions/2.0.26,200,1040,
+2026-09-27T07:25:58Z,git over HTTPS,clone naavre-communicator-jupyterlab,git clone --filter=blob:none --no-checkout,https://github.com/naavre/naavre-communicator-jupyterlab.git,,175844,cloned
+2026-09-27T07:25:59Z,PyPI JSON API,PyPI jac-cloud 0.2.11,GET,https://pypi.org/pypi/jac-cloud/0.2.11/json,200,4211,
+2026-09-27T07:25:59Z,PyPI JSON API,PyPI jac-cloud,GET,https://pypi.org/pypi/jac-cloud/json,200,59872,
+2026-09-27T07:25:59Z,Open Source Insights,deps.dev version pantra 1.5.2,GET,https://api.deps.dev/v3/systems/pypi/packages/pantra/versions/1.5.2,200,913,
+2026-09-27T07:25:59Z,git over HTTPS,clone pyfreeflow,git clone --filter=blob:none --no-checkout,https://github.com/senatoreg/pyfreeflow.git,,107574,cloned
+2026-09-27T07:25:59Z,Open Source Insights,deps.dev version supervisely 6.73.577,GET,https://api.deps.dev/v3/systems/pypi/packages/supervisely/versions/6.73.577,200,586,
+2026-09-27T07:25:59Z,git over HTTPS,clone dreadnode,git clone --filter=blob:none --no-checkout,https://github.com/dreadnode/dreadnode-tiger.git,,,failed: git clone -q --filter=blob:none --no-checkout https://github.com/dreadnode/dreadnode-tiger.git /tmp/lh008/repos/github.com__dreadnode__dreadnode-tiger: fatal: c
+2026-09-27T07:25:59Z,git over HTTPS,clone cloudimized,git clone --filter=blob:none --no-checkout,https://github.com/egnyte/cloudimized.git,,192196,cloned
+2026-09-27T07:26:00Z,Open Source Insights,deps.dev version tok-protocol 0.2.1,GET,https://api.deps.dev/v3/systems/pypi/packages/tok-protocol/versions/0.2.1,200,1464,
+2026-09-27T07:26:00Z,Open Source Insights,deps.dev version recotem 2.0.0a0,GET,https://api.deps.dev/v3/systems/pypi/packages/recotem/versions/2.0.0a0,200,917,
+2026-09-27T07:25:59Z,git over HTTPS,clone supervisely,git clone --filter=blob:none --no-checkout,https://github.com/supervisely/supervisely.git,,4073884,cloned
+2026-09-27T07:25:59Z,git over HTTPS,clone pantra,git clone --filter=blob:none --no-checkout,https://github.com/zergos/pantra.git,,287531,cloned
+2026-09-27T07:26:00Z,git over HTTPS,clone tok-protocol,git clone --filter=blob:none --no-checkout,https://github.com/tokmacher/tok.git,,528610,cloned
+2026-09-27T07:26:01Z,Open Source Insights,deps.dev version eopf 2.8.1,GET,https://api.deps.dev/v3/systems/pypi/packages/eopf/versions/2.8.1,200,630,
+2026-09-27T07:26:01Z,PyPI JSON API,PyPI eopf 2.8.1,GET,https://pypi.org/pypi/eopf/2.8.1/json,200,8942,
+2026-09-27T07:26:01Z,Open Source Insights,deps.dev version akgentic-infra 1.10.0,GET,https://api.deps.dev/v3/systems/pypi/packages/akgentic-infra/versions/1.10.0,200,972,
+2026-09-27T07:26:01Z,PyPI JSON API,PyPI eopf,GET,https://pypi.org/pypi/eopf/json,200,34962,
+2026-09-27T07:26:00Z,git over HTTPS,clone recotem,git clone --filter=blob:none --no-checkout,https://github.com/codelibs/recotem.git,,2075022,cloned
+2026-09-27T07:26:01Z,Open Source Insights,deps.dev version docreview360 0.1.3a0,GET,https://api.deps.dev/v3/systems/pypi/packages/docreview360/versions/0.1.3a0,200,882,
+2026-09-27T07:26:01Z,Open Source Insights,deps.dev version qrdrop 0.1.1,GET,https://api.deps.dev/v3/systems/pypi/packages/qrdrop/versions/0.1.1,200,1444,
+2026-09-27T07:26:02Z,Open Source Insights,deps.dev version forgetful-ai 0.4.2,GET,https://api.deps.dev/v3/systems/pypi/packages/forgetful-ai/versions/0.4.2,200,1409,
+2026-09-27T07:26:02Z,Open Source Insights,deps.dev version sycommon-python-lib 0.2.5a10,GET,https://api.deps.dev/v3/systems/pypi/packages/sycommon-python-lib/versions/0.2.5a10,200,387,
+2026-09-27T07:26:02Z,PyPI JSON API,PyPI sycommon-python-lib 0.2.5a10,GET,https://pypi.org/pypi/sycommon-python-lib/0.2.5a10/json,200,9883,
+2026-09-27T07:26:02Z,PyPI JSON API,PyPI sycommon-python-lib,GET,https://pypi.org/pypi/sycommon-python-lib/json,200,619498,
+2026-09-27T07:26:02Z,Open Source Insights,deps.dev version telepact-cli 1.0.0a224,GET,https://api.deps.dev/v3/systems/pypi/packages/telepact-cli/versions/1.0.0a224,200,393,
+2026-09-27T07:26:01Z,git over HTTPS,clone akgentic-infra,git clone --filter=blob:none --no-checkout,https://github.com/b12consulting/akgentic-infra.git,,819454,cloned
+2026-09-27T07:26:02Z,Open Source Insights,deps.dev version aindy-runtime 1.1.0,GET,https://api.deps.dev/v3/systems/pypi/packages/aindy-runtime/versions/1.1.0,200,1024,
+2026-09-27T07:26:01Z,git over HTTPS,clone qrdrop,git clone --filter=blob:none --no-checkout,https://github.com/itsloopyo/qrdrop.git,,43324,cloned
+2026-09-27T07:26:02Z,Open Source Insights,deps.dev version fast-agent-mcp 0.7.13,GET,https://api.deps.dev/v3/systems/pypi/packages/fast-agent-mcp/versions/0.7.13,200,394,
+2026-09-27T07:26:02Z,PyPI JSON API,PyPI telepact-cli 1.0.0a224,GET,https://pypi.org/pypi/telepact-cli/1.0.0a224/json,200,6615,
+2026-09-27T07:26:02Z,PyPI JSON API,PyPI telepact-cli,GET,https://pypi.org/pypi/telepact-cli/json,200,123283,
+2026-09-27T07:26:02Z,PyPI JSON API,PyPI fast-agent-mcp 0.7.13,GET,https://pypi.org/pypi/fast-agent-mcp/0.7.13/json,200,44050,
+2026-09-27T07:26:02Z,Open Source Insights,deps.dev version stac-fastapi-core 6.16.0,GET,https://api.deps.dev/v3/systems/pypi/packages/stac-fastapi-core/versions/6.16.0,200,744,
+2026-09-27T07:26:02Z,PyPI JSON API,PyPI fast-agent-mcp,GET,https://pypi.org/pypi/fast-agent-mcp/json,200,520645,
+2026-09-27T07:26:02Z,Open Source Insights,deps.dev version tensorgrid-platform 1.19.0,GET,https://api.deps.dev/v3/systems/pypi/packages/tensorgrid-platform/versions/1.19.0,200,600,
+2026-09-27T07:26:01Z,git over HTTPS,clone docreview360,git clone --filter=blob:none --no-checkout,https://github.com/eputnam77/docreview360.git,,2747813,cloned
+2026-09-27T07:26:02Z,Open Source Insights,deps.dev version fiftyone 1.18.0,GET,https://api.deps.dev/v3/systems/pypi/packages/fiftyone/versions/1.18.0,200,1114,
+2026-09-27T07:26:02Z,git over HTTPS,clone forgetful-ai,git clone --filter=blob:none --no-checkout,https://github.com/scottrbk/forgetful.git,,362534,cloned
+2026-09-27T07:26:02Z,Open Source Insights,deps.dev version starlette-authlib 0.3.16,GET,https://api.deps.dev/v3/systems/pypi/packages/starlette-authlib/versions/0.3.16,200,592,
+2026-09-27T07:26:03Z,Open Source Insights,deps.dev version chronicle-mcp 1.5.0,GET,https://api.deps.dev/v3/systems/pypi/packages/chronicle-mcp/versions/1.5.0,200,886,
+2026-09-27T07:26:02Z,git over HTTPS,clone aindy-runtime,git clone --filter=blob:none --no-checkout,https://github.com/masterplanner25/aindy-runtime.git,,2114019,cloned
+2026-09-27T07:26:02Z,git over HTTPS,clone stac-fastapi-core,git clone --filter=blob:none --no-checkout,https://github.com/stac-utils/stac-fastapi-elasticsearch-opensearch.git,,1707911,cloned
+2026-09-27T07:26:03Z,git over HTTPS,clone starlette-authlib,git clone --filter=blob:none --no-checkout,https://github.com/aogier/starlette-authlib.git,,215919,cloned
+2026-09-27T07:26:02Z,git over HTTPS,clone tensorgrid-platform,git clone --filter=blob:none --no-checkout,https://github.com/rksaklani/tensorgrid.git,,367787,cloned
+2026-09-27T07:26:03Z,Open Source Insights,deps.dev version foxops 2.8.1,GET,https://api.deps.dev/v3/systems/pypi/packages/foxops/versions/2.8.1,200,383,
+2026-09-27T07:26:03Z,Open Source Insights,deps.dev version jdaviz 4.5.2,GET,https://api.deps.dev/v3/systems/pypi/packages/jdaviz/versions/4.5.2,200,441,
+2026-09-27T07:26:03Z,PyPI JSON API,PyPI foxops 2.8.1,GET,https://pypi.org/pypi/foxops/2.8.1/json,200,4663,
+2026-09-27T07:26:03Z,PyPI JSON API,PyPI foxops,GET,https://pypi.org/pypi/foxops/json,200,58531,
+2026-09-27T07:26:03Z,git over HTTPS,clone chronicle-mcp,git clone --filter=blob:none --no-checkout,https://github.com/nikolasil/chronicle-mcp.git,,315605,cloned
+2026-09-27T07:26:03Z,PyPI JSON API,PyPI jdaviz 4.5.2,GET,https://pypi.org/pypi/jdaviz/4.5.2/json,200,11929,
+2026-09-27T07:26:03Z,Open Source Insights,deps.dev version lightning 2.0.4,GET,https://api.deps.dev/v3/systems/pypi/packages/lightning/versions/2.0.4,200,1125,
+2026-09-27T07:26:04Z,PyPI JSON API,PyPI jdaviz,GET,https://pypi.org/pypi/jdaviz/json,200,110810,
+2026-09-27T07:26:04Z,Open Source Insights,deps.dev version agentadmit 1.0.0,GET,https://api.deps.dev/v3/systems/pypi/packages/agentadmit/versions/1.0.0,200,389,
+2026-09-27T07:26:04Z,PyPI JSON API,PyPI agentadmit 1.0.0,GET,https://pypi.org/pypi/agentadmit/1.0.0/json,200,12545,
+2026-09-27T07:26:04Z,PyPI JSON API,PyPI agentadmit,GET,https://pypi.org/pypi/agentadmit/json,200,63158,
+2026-09-27T07:26:04Z,Open Source Insights,deps.dev version starception 0.4.1,GET,https://api.deps.dev/v3/systems/pypi/packages/starception/versions/0.4.1,200,682,
+2026-09-27T07:26:04Z,Open Source Insights,deps.dev version dbs-vector 1.6.1,GET,https://api.deps.dev/v3/systems/pypi/packages/dbs-vector/versions/1.6.1,200,914,
+2026-09-27T07:26:04Z,Open Source Insights,deps.dev version ausecon-mcp-server 1.1.0,GET,https://api.deps.dev/v3/systems/pypi/packages/ausecon-mcp-server/versions/1.1.0,200,1626,
+2026-09-27T07:26:04Z,Open Source Insights,deps.dev version iflow-mcp-traceloop-opentelemetry-mcp-server 0.2.0,GET,https://api.deps.dev/v3/systems/pypi/packages/iflow-mcp-traceloop-opentelemetry-mcp-server/versions/0.2.0,200,1075,
+2026-09-27T07:26:05Z,Open Source Insights,deps.dev version msgpack-asgi 1.1.0,GET,https://api.deps.dev/v3/systems/pypi/packages/msgpack-asgi/versions/1.1.0,200,596,
+2026-09-27T07:26:04Z,git over HTTPS,clone starception,git clone --filter=blob:none --no-checkout,https://github.com/alex-oleshkevich/starception.git,,133894,cloned
+2026-09-27T07:26:05Z,Open Source Insights,deps.dev version copilotkit-intelligence-runtime 0.1.0,GET,https://api.deps.dev/v3/systems/pypi/packages/copilotkit-intelligence-runtime/versions/0.1.0,200,400,
+2026-09-27T07:26:05Z,PyPI JSON API,PyPI copilotkit-intelligence-runtime 0.1.0,GET,https://pypi.org/pypi/copilotkit-intelligence-runtime/0.1.0/json,200,21444,
+2026-09-27T07:26:04Z,git over HTTPS,clone dbs-vector,git clone --filter=blob:none --no-checkout,https://github.com/dbsmedya/dbs-vector.git,,353152,cloned
+2026-09-27T07:26:05Z,PyPI JSON API,PyPI copilotkit-intelligence-runtime,GET,https://pypi.org/pypi/copilotkit-intelligence-runtime/json,200,23091,
+2026-09-27T07:26:04Z,git over HTTPS,clone ausecon-mcp-server,git clone --filter=blob:none --no-checkout,https://github.com/anthonypuggs/ausecon-mcp-server.git,,380551,cloned
+2026-09-27T07:26:05Z,Open Source Insights,deps.dev version claude-writ 1.10.0,GET,https://api.deps.dev/v3/systems/pypi/packages/claude-writ/versions/1.10.0,200,915,
+2026-09-27T07:26:05Z,Open Source Insights,deps.dev version bowser-insar 0.4.0,GET,https://api.deps.dev/v3/systems/pypi/packages/bowser-insar/versions/0.4.0,200,918,
+2026-09-27T07:26:04Z,git over HTTPS,clone iflow-mcp-traceloop-opentelemetry-mcp-server,git clone --filter=blob:none --no-checkout,https://github.com/traceloop/opentelemetry-mcp-server.git,,66650,cloned
+2026-09-27T07:26:05Z,git over HTTPS,clone msgpack-asgi,git clone --filter=blob:none --no-checkout,https://github.com/florimondmanca/msgpack-asgi.git,,92126,cloned
+2026-09-27T07:26:06Z,Open Source Insights,deps.dev version ahadiff 1.1.0,GET,https://api.deps.dev/v3/systems/pypi/packages/ahadiff/versions/1.1.0,200,1001,
+2026-09-27T07:26:05Z,git over HTTPS,clone bowser-insar,git clone --filter=blob:none --no-checkout,https://github.com/opera-adt/bowser.git,,274131,cloned
+2026-09-27T07:26:06Z,Open Source Insights,deps.dev version getflex 0.20.0,GET,https://api.deps.dev/v3/systems/pypi/packages/getflex/versions/0.20.0,200,1155,
+2026-09-27T07:26:05Z,git over HTTPS,clone claude-writ,git clone --filter=blob:none --no-checkout,https://github.com/infinri/writ.git,,1232446,cloned
+2026-09-27T07:26:02Z,git over HTTPS,clone fiftyone,git clone --filter=blob:none --no-checkout,https://github.com/voxel51/fiftyone.git,,39936752,cloned
+2026-09-27T07:26:06Z,Open Source Insights,deps.dev version irrd 4.5.0,GET,https://api.deps.dev/v3/systems/pypi/packages/irrd/versions/4.5.0,200,687,
+2026-09-27T07:26:04Z,git over HTTPS,clone lightning,git clone --filter=blob:none --no-checkout,https://github.com/lightning-ai/lightning.git,,19848829,cloned
+2026-09-27T07:26:06Z,Open Source Insights,deps.dev version gradio-natt 5.23.1,GET,https://api.deps.dev/v3/systems/pypi/packages/gradio-natt/versions/5.23.1,200,652,
+2026-09-27T07:26:06Z,Open Source Insights,deps.dev version mlflow-skinny 3.12.0,GET,https://api.deps.dev/v3/systems/pypi/packages/mlflow-skinny/versions/3.12.0,200,1450,
+2026-09-27T07:26:06Z,git over HTTPS,clone getflex,git clone --filter=blob:none --no-checkout,https://github.com/damiandelmas/flex.git,,395658,cloned
+2026-09-27T07:26:06Z,git over HTTPS,clone ahadiff,git clone --filter=blob:none --no-checkout,https://github.com/agi-is-going-to-arrive/ahadiff.git,,617453,cloned
+2026-09-27T07:26:07Z,Open Source Insights,deps.dev version facets-cp-mcp-server 0.0.4,GET,https://api.deps.dev/v3/systems/pypi/packages/facets-cp-mcp-server/versions/0.0.4,200,1063,
+2026-09-27T07:26:06Z,git over HTTPS,clone irrd,git clone --filter=blob:none --no-checkout,https://github.com/irrdnet/irrd.git,,1175008,cloned
+2026-09-27T07:26:07Z,Open Source Insights,deps.dev version holowizard 3.0.5,GET,https://api.deps.dev/v3/systems/pypi/packages/holowizard/versions/3.0.5,200,1142,
+2026-09-27T07:26:07Z,Open Source Insights,deps.dev version starsessions 1.3.0,GET,https://api.deps.dev/v3/systems/pypi/packages/starsessions/versions/1.3.0,200,686,
+2026-09-27T07:26:07Z,git over HTTPS,clone holowizard,git clone --filter=blob:none --no-checkout,https://github.com/desy-fs-petra/holowizard.git,,241284,cloned
+2026-09-27T07:26:07Z,git over HTTPS,clone starsessions,git clone --filter=blob:none --no-checkout,https://github.com/alex-oleshkevich/starsessions.git,,192332,cloned
+2026-09-27T07:26:07Z,git over HTTPS,clone facets-cp-mcp-server,git clone --filter=blob:none --no-checkout,https://github.com/facets-cloud/control-plane-mcp-server.git,,84145,cloned
+2026-09-27T07:26:08Z,Open Source Insights,deps.dev version imas-mcp 3.0.0,GET,https://api.deps.dev/v3/systems/pypi/packages/imas-mcp/versions/3.0.0,200,988,
+2026-09-27T07:26:06Z,git over HTTPS,clone gradio-natt,git clone --filter=blob:none --no-checkout,https://github.com/gradio-app/gradio.git,,19302369,cloned
+2026-09-27T07:26:09Z,Open Source Insights,deps.dev version z8ter 0.2.6,GET,https://api.deps.dev/v3/systems/pypi/packages/z8ter/versions/0.2.6,200,847,
+2026-09-27T07:26:09Z,Open Source Insights,deps.dev version fastapi-glogger 0.3.0,GET,https://api.deps.dev/v3/systems/pypi/packages/fastapi-glogger/versions/0.3.0,200,384,
+2026-09-27T07:26:08Z,git over HTTPS,clone imas-mcp,git clone --filter=blob:none --no-checkout,https://github.com/iterorganization/imas-mcp.git,,3837768,cloned
+2026-09-27T07:26:09Z,PyPI JSON API,PyPI fastapi-glogger 0.3.0,GET,https://pypi.org/pypi/fastapi-glogger/0.3.0/json,200,6740,
+2026-09-27T07:26:09Z,PyPI JSON API,PyPI fastapi-glogger,GET,https://pypi.org/pypi/fastapi-glogger/json,200,13045,
+2026-09-27T07:26:09Z,Open Source Insights,deps.dev version google-adk 2.0.0,GET,https://api.deps.dev/v3/systems/pypi/packages/google-adk/versions/2.0.0,200,721,
+2026-09-27T07:26:06Z,git over HTTPS,clone mlflow-skinny,git clone --filter=blob:none --no-checkout,https://github.com/mlflow/mlflow.git,,31332460,cloned
+2026-09-27T07:26:09Z,git over HTTPS,clone z8ter,git clone --filter=blob:none --no-checkout,https://github.com/ashesh808/z8ter.git,,139524,cloned
+2026-09-27T07:26:10Z,Open Source Insights,deps.dev version doc-redaction 2.3.0,GET,https://api.deps.dev/v3/systems/pypi/packages/doc-redaction/versions/2.3.0,200,695,
+2026-09-27T07:26:10Z,Open Source Insights,deps.dev version epub-browser 1.10.0,GET,https://api.deps.dev/v3/systems/pypi/packages/epub-browser/versions/1.10.0,200,582,
+2026-09-27T07:26:09Z,git over HTTPS,clone google-adk,git clone --filter=blob:none --no-checkout,https://github.com/google/adk-python.git,,7163528,cloned
+2026-09-27T07:26:10Z,git over HTTPS,clone epub-browser,git clone --filter=blob:none --no-checkout,https://github.com/dfface/epub-browser.git,,763451,cloned
+2026-09-27T07:26:11Z,Open Source Insights,deps.dev version dais-sdk 0.6.4,GET,https://api.deps.dev/v3/systems/pypi/packages/dais-sdk/versions/0.6.4,200,1120,
+2026-09-27T07:26:10Z,git over HTTPS,clone doc-redaction,git clone --filter=blob:none --no-checkout,https://github.com/seanpedrick-case/doc_redaction.git,,874364,cloned
+2026-09-27T07:26:12Z,Open Source Insights,deps.dev version cmp-gateway 0.1.0,GET,https://api.deps.dev/v3/systems/pypi/packages/cmp-gateway/versions/0.1.0,200,381,
+2026-09-27T07:26:12Z,PyPI JSON API,PyPI cmp-gateway 0.1.0,GET,https://pypi.org/pypi/cmp-gateway/0.1.0/json,200,11476,
+2026-09-27T07:26:12Z,PyPI JSON API,PyPI cmp-gateway,GET,https://pypi.org/pypi/cmp-gateway/json,200,57573,
+2026-09-27T07:26:12Z,Open Source Insights,deps.dev version devpablocristo-httpserver 0.2.0,GET,https://api.deps.dev/v3/systems/pypi/packages/devpablocristo-httpserver/versions/0.2.0,200,389,
+2026-09-27T07:26:12Z,PyPI JSON API,PyPI devpablocristo-httpserver 0.2.0,GET,https://pypi.org/pypi/devpablocristo-httpserver/0.2.0/json,200,2999,
+2026-09-27T07:26:12Z,PyPI JSON API,PyPI devpablocristo-httpserver,GET,https://pypi.org/pypi/devpablocristo-httpserver/json,200,4619,
+2026-09-27T07:26:12Z,Open Source Insights,deps.dev version functions-framework 3.10.1,GET,https://api.deps.dev/v3/systems/pypi/packages/functions-framework/versions/3.10.1,200,1117,
+2026-09-27T07:26:12Z,Open Source Insights,deps.dev version auf-deutsch 0.1.1,GET,https://api.deps.dev/v3/systems/pypi/packages/auf-deutsch/versions/0.1.1,200,1403,
+2026-09-27T07:26:11Z,git over HTTPS,clone dais-sdk,git clone --filter=blob:none --no-checkout,https://github.com/dais-project/dais-sdk.git,,230360,cloned
+2026-09-27T07:26:12Z,Open Source Insights,deps.dev version platformio 6.1.19,GET,https://api.deps.dev/v3/systems/pypi/packages/platformio/versions/6.1.19,200,390,
+2026-09-27T07:26:13Z,PyPI JSON API,PyPI platformio 6.1.19,GET,https://pypi.org/pypi/platformio/6.1.19/json,200,9179,
+2026-09-27T07:26:13Z,PyPI JSON API,PyPI platformio,GET,https://pypi.org/pypi/platformio/json,200,140541,
+2026-09-27T07:26:12Z,git over HTTPS,clone auf-deutsch,git clone --filter=blob:none --no-checkout,https://github.com/jrootn/auf-deutsch.git,,37538,cloned
+2026-09-27T07:26:12Z,git over HTTPS,clone functions-framework,git clone --filter=blob:none --no-checkout,https://github.com/googlecloudplatform/functions-framework-python.git,,371142,cloned
+2026-09-27T07:26:13Z,Open Source Insights,deps.dev version gino-starlette 0.1.6,GET,https://api.deps.dev/v3/systems/pypi/packages/gino-starlette/versions/0.1.6,200,671,
+2026-09-27T07:26:13Z,Open Source Insights,deps.dev version agentiva 0.1.0,GET,https://api.deps.dev/v3/systems/pypi/packages/agentiva/versions/0.1.0,200,385,
+2026-09-27T07:26:13Z,Open Source Insights,deps.dev version asgi-caches 0.1.0,GET,https://api.deps.dev/v3/systems/pypi/packages/asgi-caches/versions/0.1.0,200,593,
+2026-09-27T07:26:13Z,PyPI JSON API,PyPI agentiva 0.1.0,GET,https://pypi.org/pypi/agentiva/0.1.0/json,200,12802,
+2026-09-27T07:26:13Z,PyPI JSON API,PyPI agentiva,GET,https://pypi.org/pypi/agentiva/json,200,14819,
+2026-09-27T07:26:13Z,Open Source Insights,deps.dev version dreamer-server 0.1.0,GET,https://api.deps.dev/v3/systems/pypi/packages/dreamer-server/versions/0.1.0,200,931,
+2026-09-27T07:26:13Z,git over HTTPS,clone asgi-caches,git clone --filter=blob:none --no-checkout,https://github.com/florimondmanca/asgi-caches.git,,96140,cloned
+2026-09-27T07:26:13Z,git over HTTPS,clone dreamer-server,git clone --filter=blob:none --no-checkout,https://github.com/luml-ai/dreamer.git,,44591,cloned
+2026-09-27T07:26:14Z,Open Source Insights,deps.dev version brixta-core 0.1.3,GET,https://api.deps.dev/v3/systems/pypi/packages/brixta-core/versions/0.1.3,200,1473,
+2026-09-27T07:26:13Z,git over HTTPS,clone gino-starlette,git clone --filter=blob:none --no-checkout,https://github.com/python-gino/gino-starlette.git,,70667,cloned
+2026-09-27T07:26:14Z,Open Source Insights,deps.dev version esheria 1.1.0,GET,https://api.deps.dev/v3/systems/pypi/packages/esheria/versions/1.1.0,200,1073,
+2026-09-27T07:26:14Z,git over HTTPS,clone brixta-core,git clone --filter=blob:none --no-checkout,https://github.com/habibieebhy/brixtafoundation.git,,50875,cloned
+2026-09-27T07:26:14Z,git over HTTPS,clone esheria,git clone --filter=blob:none --no-checkout,https://github.com/esherialabs/esheria-regulatory-intelligence.git,,,failed: git clone -q --filter=blob:none --no-checkout https://github.com/esherialabs/esheria-regulatory-intelligence.git /tmp/lh008/repos/github.com__esherialabs__esher
+2026-09-27T07:26:14Z,Open Source Insights,deps.dev version fastapi 0.128.8,GET,https://api.deps.dev/v3/systems/pypi/packages/fastapi/versions/0.128.8,200,908,
+2026-09-27T07:26:14Z,git over HTTPS,clone composez-aider-fork,git clone --filter=blob:none --no-checkout,https://github.com/kmewhort/composez-aider-fork.git,,,failed: git clone -q --filter=blob:none --no-checkout https://github.com/kmewhort/composez-aider-fork.git /tmp/lh008/repos/github.com__kmewhort__composez-aider-fork: fa
+2026-09-27T07:26:15Z,Open Source Insights,deps.dev version safir 14.3.0,GET,https://api.deps.dev/v3/systems/pypi/packages/safir/versions/14.3.0,200,826,
+2026-09-27T07:26:15Z,Open Source Insights,deps.dev version dove-video-editor 1.0.0rc1,GET,https://api.deps.dev/v3/systems/pypi/packages/dove-video-editor/versions/1.0.0rc1,200,1216,
+2026-09-27T07:26:15Z,Open Source Insights,deps.dev version nvidia-nat-core 1.6.0a20260401,GET,https://api.deps.dev/v3/systems/pypi/packages/nvidia-nat-core/versions/1.6.0a20260401,200,699,
+2026-09-27T07:26:15Z,Open Source Insights,deps.dev version agentstack-cli 0.7.0rc11,GET,https://api.deps.dev/v3/systems/pypi/packages/agentstack-cli/versions/0.7.0rc11,200,954,
+2026-09-27T07:26:15Z,git over HTTPS,clone dove-video-editor,git clone --filter=blob:none --no-checkout,https://github.com/dorftv/dove.git,,344807,cloned
+2026-09-27T07:26:15Z,git over HTTPS,clone safir,git clone --filter=blob:none --no-checkout,https://github.com/lsst-sqre/safir.git,,1382652,cloned
+2026-09-27T07:26:15Z,git over HTTPS,clone fastapi,git clone --filter=blob:none --no-checkout,https://github.com/fastapi/fastapi.git,,8712181,cloned
+2026-09-27T07:26:16Z,Open Source Insights,deps.dev version cartesia-line 0.2.18,GET,https://api.deps.dev/v3/systems/pypi/packages/cartesia-line/versions/0.2.18,200,1261,
+2026-09-27T07:26:17Z,Open Source Insights,deps.dev version fastapi-hypermodel 2.2.0,GET,https://api.deps.dev/v3/systems/pypi/packages/fastapi-hypermodel/versions/2.2.0,200,596,
+2026-09-27T07:26:17Z,Open Source Insights,deps.dev version gen8i-mcp-server 0.1.0,GET,https://api.deps.dev/v3/systems/pypi/packages/gen8i-mcp-server/versions/0.1.0,200,437,
+2026-09-27T07:26:17Z,Open Source Insights,deps.dev version cliffracer-http 1.0.0,GET,https://api.deps.dev/v3/systems/pypi/packages/cliffracer-http/versions/1.0.0,200,384,
+2026-09-27T07:26:17Z,PyPI JSON API,PyPI cliffracer-http 1.0.0,GET,https://pypi.org/pypi/cliffracer-http/1.0.0/json,200,7096,
+2026-09-27T07:26:17Z,PyPI JSON API,PyPI gen8i-mcp-server 0.1.0,GET,https://pypi.org/pypi/gen8i-mcp-server/0.1.0/json,200,4453,
+2026-09-27T07:26:17Z,PyPI JSON API,PyPI cliffracer-http,GET,https://pypi.org/pypi/cliffracer-http/json,200,8678,
+2026-09-27T07:26:17Z,PyPI JSON API,PyPI gen8i-mcp-server,GET,https://pypi.org/pypi/gen8i-mcp-server/json,200,7612,
+2026-09-27T07:26:17Z,Open Source Insights,deps.dev version ddtrace-asgi 0.2.2,GET,https://api.deps.dev/v3/systems/pypi/packages/ddtrace-asgi/versions/0.2.2,200,605,
+2026-09-27T07:26:17Z,Open Source Insights,deps.dev version ai-boutique-assit-mcp 1.0.0,GET,https://api.deps.dev/v3/systems/pypi/packages/ai-boutique-assit-mcp/versions/1.0.0,200,1071,
+2026-09-27T07:26:17Z,git over HTTPS,clone cartesia-line,git clone --filter=blob:none --no-checkout,https://github.com/cartesia-ai/line.git,,676752,cloned
+2026-09-27T07:26:17Z,Open Source Insights,deps.dev version modelly 1.0.0,GET,https://api.deps.dev/v3/systems/pypi/packages/modelly/versions/1.0.0,200,649,
+2026-09-27T07:26:18Z,git over HTTPS,clone modelly,git clone --filter=blob:none --no-checkout,https://github.com/khulnasoft/modelly.git,,,failed: git clone -q --filter=blob:none --no-checkout https://github.com/khulnasoft/modelly.git /tmp/lh008/repos/github.com__khulnasoft__modelly: fatal: could not read 
+2026-09-27T07:26:17Z,git over HTTPS,clone ddtrace-asgi,git clone --filter=blob:none --no-checkout,https://github.com/florimondmanca/ddtrace-asgi.git,,92828,cloned
+2026-09-27T07:26:18Z,Open Source Insights,deps.dev version groupme-bot 0.2.10,GET,https://api.deps.dev/v3/systems/pypi/packages/groupme-bot/versions/0.2.10,200,587,
+2026-09-27T07:26:17Z,git over HTTPS,clone ai-boutique-assit-mcp,git clone --filter=blob:none --no-checkout,https://github.com/arjunprabhulal/ai-boutique-assit-mcp.git,,30783,cloned
+2026-09-27T07:26:17Z,git over HTTPS,clone fastapi-hypermodel,git clone --filter=blob:none --no-checkout,https://github.com/jtc42/fastapi-hypermodel.git,,319584,cloned
+2026-09-27T07:26:18Z,Open Source Insights,deps.dev version reachy-mini 1.11.0,GET,https://api.deps.dev/v3/systems/pypi/packages/reachy-mini/versions/1.11.0,200,939,
+2026-09-27T07:26:18Z,git over HTTPS,clone groupme-bot,git clone --filter=blob:none --no-checkout,https://github.com/brandenc40/groupme-bot.git,,76980,cloned
+2026-09-27T07:26:19Z,Open Source Insights,deps.dev version gradio 5.50.0,GET,https://api.deps.dev/v3/systems/pypi/packages/gradio/versions/5.50.0,200,998,
+2026-09-27T07:26:19Z,Open Source Insights,deps.dev version devpablocristo-core-ai 0.2.0,GET,https://api.deps.dev/v3/systems/pypi/packages/devpablocristo-core-ai/versions/0.2.0,200,387,
+2026-09-27T07:26:19Z,Open Source Insights,deps.dev version b4molbi-dev-tools 0.1.0,GET,https://api.deps.dev/v3/systems/pypi/packages/b4molbi-dev-tools/versions/0.1.0,200,391,
+2026-09-27T07:26:19Z,PyPI JSON API,PyPI devpablocristo-core-ai 0.2.0,GET,https://pypi.org/pypi/devpablocristo-core-ai/0.2.0/json,200,3755,
+2026-09-27T07:26:19Z,PyPI JSON API,PyPI b4molbi-dev-tools 0.1.0,GET,https://pypi.org/pypi/b4molbi-dev-tools/0.1.0/json,200,9353,
+2026-09-27T07:26:19Z,PyPI JSON API,PyPI devpablocristo-core-ai,GET,https://pypi.org/pypi/devpablocristo-core-ai/json,200,18298,
+2026-09-27T07:26:19Z,PyPI JSON API,PyPI b4molbi-dev-tools,GET,https://pypi.org/pypi/b4molbi-dev-tools/json,200,10939,
+2026-09-27T07:26:19Z,git over HTTPS,clone reachy-mini,git clone --filter=blob:none --no-checkout,https://github.com/pollen-robotics/reachy_mini.git,,8480077,cloned

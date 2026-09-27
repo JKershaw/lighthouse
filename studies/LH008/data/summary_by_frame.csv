@@ -1,0 +1,16 @@
+group,kind,kept,moved,censored,removed,lag_release_q1,lag_release_median,lag_release_q3,moved_within_1d_of_release,moved_within_2d_of_release,moved_within_7d_of_release,moved_within_30d_of_release,negative_release_lag,moved_after_next_advisory,moved_within_30d_of_release_and_after_next_advisory,moved_before_advisory,lag_advisory_q1,lag_advisory_median,lag_advisory_q3,moved_within_1d_after_advisory,moved_within_2d_after_advisory,moved_within_7d_after_advisory,moved_within_30d_after_advisory,moved_2d_before_advisory
+cryptography:comparison,comparison,28,20,8,0,6.48,33.51,44.98,2,4,6,8,0,14,2,,,,,,,,,
+pyjwt:comparison,comparison,19,8,11,0,12.2,16.31,33.92,0,0,1,5,0,2,0,,,,,,,,,
+starlette:comparison,comparison,18,6,11,1,35.37,54.9,79.5,0,0,0,2,0,2,0,,,,,,,,,
+urllib3:comparison,comparison,26,11,13,2,9.21,28.81,95.49,1,1,3,6,0,3,0,,,,,,,,,
+cryptography:fix,fix,34,25,9,0,7.33,12.32,30.45,2,3,5,18,0,,,5,3.83,12.93,29.43,0,2,8,15,1
+pyjwt:fix,fix,29,25,4,0,11.43,27.49,45.72,1,2,5,15,0,,,10,3.05,10.21,25.81,0,2,5,13,0
+starlette:fix,fix,7,5,1,1,1.72,21.42,23.47,1,2,2,4,0,,,3,13.88,27.43,40.98,1,1,1,1,1
+urllib3:fix,fix,32,18,14,0,6.16,11.46,37.32,1,1,6,13,0,,,1,2.25,8.37,37.7,3,3,8,12,0
+all fix frames,fix,102,73,28,1,7.29,18.68,35.2,5,8,18,50,0,,,19,2.86,10.51,29.47,4,8,22,41,2
+"all fix frames, held exactly the release before",fix,88,65,22,1,7.29,18.06,34.8,4,6,16,45,0,,,16,2.63,10.21,28.85,3,7,20,38,1
+all comparison frames,comparison,91,45,43,3,10.49,31.61,53.54,3,5,10,21,0,21,2,,,,,,,,,
+"all comparison frames, held exactly the release before",comparison,78,41,35,2,9.23,29.76,45.81,3,5,10,21,0,19,2,,,,,,,,,
+"all fix frames, repositories with a commit more than 30 days after the release or a move",fix,85,73,12,0,7.29,18.68,35.2,5,8,18,50,0,,,19,2.86,10.51,29.47,4,8,22,41,2
+"all comparison frames, repositories with a commit more than 30 days after the release or a move",comparison,63,45,15,3,10.49,31.61,53.54,3,5,10,21,0,21,2,,,,,,,,,
+"pyjwt:fix, against the NVD/PYSEC time (2026-05-28T16:16:29Z)",fix,29,25,,,,,,,,,,,,,5,,,,0,0,3,,

@@ -1,0 +1,6 @@
+id,published,modified,package,ranges,aliases,summary
+GHSA-qccp-gfcp-xxvc,2026-05-11T14:51:20Z,2026-09-10T03:50:47.272765640Z,urllib3,"[[{""introduced"": ""1.23""}, {""fixed"": ""2.7.0""}]]",CVE-2026-44431 PYSEC-2026-141,urllib3: Sensitive headers forwarded across origins in proxied low-level redirects
+GHSA-mf9v-mfxr-j63j,2026-05-11T14:51:45Z,2026-09-10T03:51:06.409994465Z,urllib3,"[[{""introduced"": ""2.6.0""}, {""fixed"": ""2.7.0""}]]",CVE-2026-44432 PYSEC-2026-142,urllib3: Decompression-bomb safeguards bypassed in parts of the streaming API
+GHSA-537c-gmf6-5ccf,2026-06-15T20:12:27Z,2026-09-10T03:50:48.298936410Z,cryptography,"[[{""introduced"": ""0.5.0""}, {""fixed"": ""48.0.1""}]]",,Vulnerable OpenSSL included in cryptography wheels
+GHSA-xgmm-8j9v-c9wx,2026-06-15T19:28:06Z,2026-09-10T03:51:09.678127621Z,pyjwt,"[[{""introduced"": ""0""}, {""fixed"": ""2.13.0""}]]",CVE-2026-48526 PYSEC-2026-179,PyJWT: Public-key JWK accepted as HMAC secret enables forged HS256 tokens when mixed families are allowed
+GHSA-wqp7-x3pw-xc5r,2026-06-15T20:16:30Z,2026-09-10T03:50:51.079936646Z,starlette,"[[{""introduced"": ""0""}, {""fixed"": ""1.1.0""}]]",CVE-2026-48818 PYSEC-2026-2281,Starlette: SSRF and NTLM credential theft via UNC paths in StaticFiles on Windows

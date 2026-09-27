@@ -1,0 +1,145 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 720 682" width="720" height="682" role="img" aria-labelledby="t d">
+<title id="t">When pinned software moved to a security fix, four Python libraries, May to September 2026</title>
+<desc id="d">Four rows, one for each library: urllib3, pyjwt, starlette and cryptography, on a time axis from 1 May to 27 September 2026. In each row a dashed line marks the day the fixed release was published and a solid line the day its security advisory was published; the advisories for pyjwt, starlette and cryptography fall on the evening of 15 June, within 48 minutes of each other, among ten GitHub published against the three libraries that evening. Each dot is one pinned or locked repository moving to the fix or later: 18 of 32 for urllib3, 25 of 29 for pyjwt, 5 of 7 for starlette and 25 of 34 for cryptography. Dots are filled blue where a bot wrote the change, blue rings where a person merged a bot's branch, and grey where a person made it. They gather a little in the days after each release and in the week after each advisory, but most are spread over the weeks that follow, into August. Git histories, the Python Package Index and OSV read on 27 September 2026.</desc>
+<style>
+svg { --bg:#fcfcfb; --ink:#0b0b0b; --ink2:#52514e; --muted:#6f6e69; --grid:#e4e3df; --band:#efeee9; --bot:#2a78d6; --per:#8a8984; }
+@media (prefers-color-scheme: dark) { svg { --bg:#1a1a19; --ink:#ffffff; --ink2:#c3c2b7; --muted:#9a9890; --grid:#383835; --band:#2a2a27; --bot:#4b93ea; --per:#9f9d95; } }
+text { font-family: system-ui, -apple-system, "Segoe UI", Roboto, Helvetica, Arial, sans-serif; fill: var(--ink); }
+.head { font-size: 17px; font-weight: 600; } .sub { font-size: 13px; fill: var(--ink2); }
+.lab { font-size: 14px; font-weight: 600; } .note { font-size: 11.5px; fill: var(--muted); }
+.ann { font-size: 12px; fill: var(--ink2); } .ax { font-size: 12px; fill: var(--muted); }
+</style>
+<rect width="720" height="682" fill="var(--bg)"/>
+<text x="16" y="30" class="head">Pinned software moved to a security fix over weeks, not in a burst</text>
+<text x="16" y="51" class="sub">Each dot is one pinned repository's first commit taking the library to its fixed release or later.</text>
+<circle cx="22" cy="76" r="3.6" fill="var(--bot)"/><text x="31" y="80" class="ann">a bot wrote it</text>
+<circle cx="146" cy="76" r="3.0" fill="var(--bg)" stroke="var(--bot)" stroke-width="1.8"/><text x="159" y="80" class="ann">a person merged a bot's branch</text>
+<circle cx="382" cy="76" r="3.6" fill="var(--per)"/><text x="391" y="80" class="ann">a person</text>
+<line x1="20" y1="92" x2="20" y2="106" stroke="var(--ink)" stroke-width="1.5" stroke-dasharray="3 2.5"/><text x="31" y="104" class="ann">fix released</text>
+<line x1="134" y1="92" x2="134" y2="106" stroke="var(--ink)" stroke-width="1.5"/><text x="143" y="104" class="ann">advisory published</text>
+<rect x="290" y="93" width="12" height="12" fill="var(--band)"/><text x="309" y="104" class="ann">two days after a release; seven after an advisory</text>
+<line x1="150.0" y1="162" x2="150.0" y2="560" stroke="var(--grid)" stroke-width="1"/>
+<text x="154.0" y="577" class="ax">May</text>
+<line x1="264.4" y1="162" x2="264.4" y2="560" stroke="var(--grid)" stroke-width="1"/>
+<text x="268.4" y="577" class="ax">June</text>
+<line x1="375.2" y1="162" x2="375.2" y2="560" stroke="var(--grid)" stroke-width="1"/>
+<text x="379.2" y="577" class="ax">July</text>
+<line x1="489.6" y1="162" x2="489.6" y2="560" stroke="var(--grid)" stroke-width="1"/>
+<text x="493.6" y="577" class="ax">Aug</text>
+<line x1="604.0" y1="162" x2="604.0" y2="560" stroke="var(--grid)" stroke-width="1"/>
+<text x="608.0" y="577" class="ax">Sept</text>
+<line x1="700" y1="162" x2="700" y2="560" stroke="var(--muted)" stroke-width="1" stroke-dasharray="1 3"/>
+<text x="700" y="577" class="ax" text-anchor="end">27 Sept</text>
+<text x="325.1" y="158" class="ann">15 June, 19:28 to 20:16 UTC:</text>
+<text x="325.1" y="172" class="ann">the three advisories we followed, within 48 minutes</text>
+<rect x="174.6" y="184" width="7.4" height="76" fill="var(--band)"/>
+<rect x="189.2" y="184" width="25.8" height="76" fill="var(--band)"/>
+<line x1="150" y1="260" x2="700" y2="260" stroke="var(--grid)" stroke-width="1"/>
+<line x1="174.6" y1="184" x2="174.6" y2="260" stroke="var(--ink)" stroke-width="1.5" stroke-dasharray="3 2.5"/>
+<line x1="189.2" y1="184" x2="189.2" y2="260" stroke="var(--ink)" stroke-width="1.5"/>
+<text x="16" y="210" class="lab">urllib3</text>
+<text x="16" y="228" class="note">18 of 32 moved</text>
+<text x="16" y="243" class="note">14 had not by 27 Sept</text>
+<circle cx="177.7" cy="254.0" r="3.6" fill="var(--per)"><title>2026-05-08: 2.6.3 to 2.7.0, 0.8 days after the release, person</title></circle>
+<circle cx="191.7" cy="254.0" r="3.6" fill="var(--bot)"><title>2026-05-12: 2.6.3 to 2.7.0, 4.6 days after the release, bot</title></circle>
+<circle cx="192.0" cy="246.2" r="3.6" fill="var(--bot)"><title>2026-05-12: 2.6.3 to 2.7.0, 4.7 days after the release, bot</title></circle>
+<circle cx="192.6" cy="238.4" r="3.0" fill="var(--bg)" stroke="var(--bot)" stroke-width="1.8"><title>2026-05-12: 2.6.3 to 2.7.0, 4.9 days after the release, person merging a bot's branch</title></circle>
+<circle cx="197.4" cy="230.6" r="3.6" fill="var(--per)"><title>2026-05-13: 2.6.3 to 2.7.0, 6.2 days after the release, person</title></circle>
+<circle cx="197.5" cy="222.8" r="3.0" fill="var(--bg)" stroke="var(--bot)" stroke-width="1.8"><title>2026-05-13: 2.6.3 to 2.7.0, 6.2 days after the release, person merging a bot's branch</title></circle>
+<circle cx="211.7" cy="254.0" r="3.6" fill="var(--per)"><title>2026-05-17: 2.6.3 to 2.7.0, 10.0 days after the release, person</title></circle>
+<circle cx="212.4" cy="246.2" r="3.0" fill="var(--bg)" stroke="var(--bot)" stroke-width="1.8"><title>2026-05-17: 2.6.3 to 2.7.0, 10.2 days after the release, person merging a bot's branch</title></circle>
+<circle cx="213.8" cy="238.4" r="3.0" fill="var(--bg)" stroke="var(--bot)" stroke-width="1.8"><title>2026-05-18: 2.6.3 to 2.7.0, 10.6 days after the release, person merging a bot's branch</title></circle>
+<circle cx="220.1" cy="254.0" r="3.6" fill="var(--bot)"><title>2026-05-19: 2.6.3 to 2.7.0, 12.3 days after the release, bot</title></circle>
+<circle cx="229.1" cy="254.0" r="3.0" fill="var(--bg)" stroke="var(--bot)" stroke-width="1.8"><title>2026-05-22: 2.6.3 to 2.7.0, 14.8 days after the release, person merging a bot's branch</title></circle>
+<circle cx="246.8" cy="254.0" r="3.6" fill="var(--bot)"><title>2026-05-27: 2.6.3 to 2.7.0, 19.6 days after the release, bot</title></circle>
+<circle cx="264.6" cy="254.0" r="3.6" fill="var(--bot)"><title>2026-06-01: 2.6.3 to 2.7.0, 24.4 days after the release, bot</title></circle>
+<circle cx="328.4" cy="254.0" r="3.0" fill="var(--bg)" stroke="var(--bot)" stroke-width="1.8"><title>2026-06-18: 2.6.3 to 2.7.0, 41.6 days after the release, person merging a bot's branch</title></circle>
+<circle cx="428.6" cy="254.0" r="3.6" fill="var(--per)"><title>2026-07-15: 2.6.3 to 2.7.0, 68.8 days after the release, person</title></circle>
+<circle cx="492.9" cy="254.0" r="3.6" fill="var(--per)"><title>2026-08-01: 2.6.3 to 2.7.0, 86.2 days after the release, person</title></circle>
+<circle cx="584.3" cy="254.0" r="3.6" fill="var(--bot)"><title>2026-08-26: 2.6.3 to 2.7.0, 111.0 days after the release, bot</title></circle>
+<circle cx="602.5" cy="254.0" r="3.6" fill="var(--per)"><title>2026-08-31: 2.6.3 to 2.7.0, 115.9 days after the release, person</title></circle>
+<rect x="226.9" y="280" width="7.4" height="76" fill="var(--band)"/>
+<rect x="319.1" y="280" width="25.8" height="76" fill="var(--band)"/>
+<line x1="150" y1="356" x2="700" y2="356" stroke="var(--grid)" stroke-width="1"/>
+<line x1="226.9" y1="280" x2="226.9" y2="356" stroke="var(--ink)" stroke-width="1.5" stroke-dasharray="3 2.5"/>
+<line x1="319.1" y1="280" x2="319.1" y2="356" stroke="var(--ink)" stroke-width="1.5"/>
+<text x="16" y="306" class="lab">pyjwt</text>
+<text x="16" y="324" class="note">25 of 29 moved</text>
+<text x="16" y="339" class="note">4 had not by 27 Sept</text>
+<circle cx="228.9" cy="350.0" r="3.0" fill="var(--bg)" stroke="var(--bot)" stroke-width="1.8"><title>2026-05-22: 2.12.1 to 2.13.0, 0.5 days after the release, person merging a bot's branch</title></circle>
+<circle cx="231.4" cy="342.2" r="3.6" fill="var(--bot)"><title>2026-05-23: 2.12.1 to 2.13.0, 1.2 days after the release, bot</title></circle>
+<circle cx="241.5" cy="350.0" r="3.0" fill="var(--bg)" stroke="var(--bot)" stroke-width="1.8"><title>2026-05-25: 2.12.1 to 2.13.0, 4.0 days after the release, person merging a bot's branch</title></circle>
+<circle cx="243.8" cy="342.2" r="3.6" fill="var(--bot)"><title>2026-05-26: 2.12.1 to 2.13.0, 4.6 days after the release, bot</title></circle>
+<circle cx="247.4" cy="334.4" r="3.6" fill="var(--per)"><title>2026-05-27: 2.12.1 to 2.13.0, 5.6 days after the release, person</title></circle>
+<circle cx="260.3" cy="350.0" r="3.6" fill="var(--per)"><title>2026-05-30: 2.12.1 to 2.13.0, 9.0 days after the release, person</title></circle>
+<circle cx="269.1" cy="350.0" r="3.6" fill="var(--per)"><title>2026-06-02: 2.12.1 to 2.13.0, 11.4 days after the release, person</title></circle>
+<circle cx="275.3" cy="342.2" r="3.6" fill="var(--per)"><title>2026-06-03: 2.12.1 to 2.13.0, 13.1 days after the release, person</title></circle>
+<circle cx="293.5" cy="350.0" r="3.6" fill="var(--per)"><title>2026-06-08: 2.12.1 to 2.13.0, 18.1 days after the release, person</title></circle>
+<circle cx="296.3" cy="342.2" r="3.6" fill="var(--per)"><title>2026-06-09: 2.12.1 to 2.13.0, 18.8 days after the release, person</title></circle>
+<circle cx="324.1" cy="350.0" r="3.6" fill="var(--per)"><title>2026-06-17: 2.12.1 to 2.13.0, 26.3 days after the release, person</title></circle>
+<circle cx="326.3" cy="342.2" r="3.6" fill="var(--per)"><title>2026-06-17: 2.12.1 to 2.13.0, 26.9 days after the release, person</title></circle>
+<circle cx="328.4" cy="334.4" r="3.0" fill="var(--bg)" stroke="var(--bot)" stroke-width="1.8"><title>2026-06-18: 2.12.1 to 2.13.0, 27.5 days after the release, person merging a bot's branch</title></circle>
+<circle cx="328.5" cy="326.6" r="3.6" fill="var(--bot)"><title>2026-06-18: 2.12.1 to 2.13.0, 27.5 days after the release, bot</title></circle>
+<circle cx="332.3" cy="350.0" r="3.6" fill="var(--per)"><title>2026-06-19: 2.12.1 to 2.13.0, 28.5 days after the release, person</title></circle>
+<circle cx="347.0" cy="350.0" r="3.0" fill="var(--bg)" stroke="var(--bot)" stroke-width="1.8"><title>2026-06-23: 2.12.1 to 2.13.0, 32.5 days after the release, person merging a bot's branch</title></circle>
+<circle cx="355.3" cy="350.0" r="3.6" fill="var(--bot)"><title>2026-06-25: 2.12.1 to 2.13.0, 34.8 days after the release, bot</title></circle>
+<circle cx="356.8" cy="342.2" r="3.6" fill="var(--per)"><title>2026-06-26: 2.12.1 to 2.13.0, 35.2 days after the release, person</title></circle>
+<circle cx="395.7" cy="350.0" r="3.6" fill="var(--per)"><title>2026-07-06: 2.12.1 to 2.13.0, 45.7 days after the release, person</title></circle>
+<circle cx="402.9" cy="342.2" r="3.6" fill="var(--per)"><title>2026-07-08: 2.12.1 to 2.13.0, 47.7 days after the release, person</title></circle>
+<circle cx="403.2" cy="334.4" r="3.6" fill="var(--per)"><title>2026-07-08: 2.11.0 to 2.13.0, 47.8 days after the release, person</title></circle>
+<circle cx="425.6" cy="350.0" r="3.6" fill="var(--per)"><title>2026-07-14: 2.12.1 to 2.13.0, 53.8 days after the release, person</title></circle>
+<circle cx="428.6" cy="342.2" r="3.6" fill="var(--per)"><title>2026-07-15: 2.12.1 to 2.13.0, 54.7 days after the release, person</title></circle>
+<circle cx="531.1" cy="350.0" r="3.6" fill="var(--per)"><title>2026-08-12: 2.12.1 to 2.13.0, 82.4 days after the release, person</title></circle>
+<circle cx="544.0" cy="350.0" r="3.6" fill="var(--per)"><title>2026-08-15: 2.12.1 to 2.13.0, 85.9 days after the release, person</title></circle>
+<rect x="233.8" y="376" width="7.4" height="76" fill="var(--band)"/>
+<rect x="319.2" y="376" width="25.8" height="76" fill="var(--band)"/>
+<line x1="150" y1="452" x2="700" y2="452" stroke="var(--grid)" stroke-width="1"/>
+<line x1="233.8" y1="376" x2="233.8" y2="452" stroke="var(--ink)" stroke-width="1.5" stroke-dasharray="3 2.5"/>
+<line x1="319.2" y1="376" x2="319.2" y2="452" stroke="var(--ink)" stroke-width="1.5"/>
+<text x="16" y="402" class="lab">starlette</text>
+<text x="16" y="420" class="note">5 of 7 moved</text>
+<text x="16" y="435" class="note">1 had not by 27 Sept</text>
+<text x="16" y="450" class="note">1 stopped pinning it</text>
+<circle cx="234.0" cy="446.0" r="3.6" fill="var(--bot)"><title>2026-05-23: 1.0.0 to 1.1.0, 0.0 days after the release, bot</title></circle>
+<circle cx="240.2" cy="438.2" r="3.6" fill="var(--per)"><title>2026-05-25: 0.52.1 to 1.1.0, 1.7 days after the release, person</title></circle>
+<circle cx="312.9" cy="446.0" r="3.6" fill="var(--bot)"><title>2026-06-14: 1.0.0 to 1.3.1, 21.4 days after the release, bot</title></circle>
+<circle cx="320.4" cy="438.2" r="3.6" fill="var(--per)"><title>2026-06-16: 0.48.0 to 1.3.1, 23.5 days after the release, person</title></circle>
+<circle cx="520.5" cy="446.0" r="3.6" fill="var(--per)"><title>2026-08-09: 0.52.1 to 1.3.1, 77.7 days after the release, person</title></circle>
+<rect x="297.4" y="472" width="7.4" height="76" fill="var(--band)"/>
+<rect x="319.2" y="472" width="25.8" height="76" fill="var(--band)"/>
+<line x1="150" y1="548" x2="700" y2="548" stroke="var(--grid)" stroke-width="1"/>
+<line x1="297.4" y1="472" x2="297.4" y2="548" stroke="var(--ink)" stroke-width="1.5" stroke-dasharray="3 2.5"/>
+<line x1="319.2" y1="472" x2="319.2" y2="548" stroke="var(--ink)" stroke-width="1.5"/>
+<text x="16" y="498" class="lab">cryptography</text>
+<text x="16" y="516" class="note">25 of 34 moved</text>
+<text x="16" y="531" class="note">9 had not by 27 Sept</text>
+<circle cx="297.7" cy="542.0" r="3.6" fill="var(--bot)"><title>2026-06-10: 48.0.0 to 48.0.1, 0.1 days after the release, bot</title></circle>
+<circle cx="300.8" cy="534.2" r="3.6" fill="var(--bot)"><title>2026-06-10: 48.0.0 to 48.0.1, 0.9 days after the release, bot</title></circle>
+<circle cx="301.3" cy="526.4" r="3.6" fill="var(--per)"><title>2026-06-10: 48.0.0 to 48.0.1, 1.1 days after the release, person</title></circle>
+<circle cx="305.1" cy="518.6" r="3.0" fill="var(--bg)" stroke="var(--bot)" stroke-width="1.8"><title>2026-06-12: 48.0.0 to 48.0.1, 2.1 days after the release, person merging a bot's branch</title></circle>
+<circle cx="317.6" cy="542.0" r="3.6" fill="var(--bot)"><title>2026-06-15: 48.0.0 to 49.0.0, 5.5 days after the release, bot</title></circle>
+<circle cx="324.3" cy="534.2" r="3.6" fill="var(--bot)"><title>2026-06-17: 48.0.0 to 48.0.1, 7.3 days after the release, bot</title></circle>
+<circle cx="324.5" cy="526.4" r="3.0" fill="var(--bg)" stroke="var(--bot)" stroke-width="1.8"><title>2026-06-17: 48.0.0 to 48.0.1, 7.3 days after the release, person merging a bot's branch</title></circle>
+<circle cx="328.4" cy="542.0" r="3.0" fill="var(--bg)" stroke="var(--bot)" stroke-width="1.8"><title>2026-06-18: 48.0.0 to 48.0.1, 8.4 days after the release, person merging a bot's branch</title></circle>
+<circle cx="328.9" cy="518.6" r="3.0" fill="var(--bg)" stroke="var(--bot)" stroke-width="1.8"><title>2026-06-18: 48.0.0 to 48.0.1, 8.5 days after the release, person merging a bot's branch</title></circle>
+<circle cx="332.9" cy="534.2" r="3.6" fill="var(--bot)"><title>2026-06-19: 48.0.0 to 48.0.1, 9.6 days after the release, bot</title></circle>
+<circle cx="333.5" cy="526.4" r="3.6" fill="var(--per)"><title>2026-06-19: 48.0.0 to 49.0.0, 9.8 days after the release, person</title></circle>
+<circle cx="337.2" cy="542.0" r="3.6" fill="var(--bot)"><title>2026-06-20: 48 to 48.0.1, 10.8 days after the release, bot</title></circle>
+<circle cx="342.9" cy="534.2" r="3.6" fill="var(--per)"><title>2026-06-22: 46.0.6 to 48.0.1, 12.3 days after the release, person</title></circle>
+<circle cx="347.0" cy="542.0" r="3.6" fill="var(--bot)"><title>2026-06-23: 48.0.0 to 48.0.1, 13.4 days after the release, bot</title></circle>
+<circle cx="366.4" cy="542.0" r="3.6" fill="var(--per)"><title>2026-06-28: 48.0.0 to 49.0.0, 18.7 days after the release, person</title></circle>
+<circle cx="367.5" cy="534.2" r="3.6" fill="var(--per)"><title>2026-06-28: 48.0.0 to 48.0.1, 19.0 days after the release, person</title></circle>
+<circle cx="380.1" cy="542.0" r="3.6" fill="var(--bot)"><title>2026-07-02: 48.0.0 to 48.0.1, 22.4 days after the release, bot</title></circle>
+<circle cx="400.8" cy="542.0" r="3.6" fill="var(--bot)"><title>2026-07-07: 48.0.0 to 49.0.0, 28.0 days after the release, bot</title></circle>
+<circle cx="409.8" cy="542.0" r="3.6" fill="var(--per)"><title>2026-07-10: 48.0.0 to 49.0.0, 30.4 days after the release, person</title></circle>
+<circle cx="421.4" cy="542.0" r="3.0" fill="var(--bg)" stroke="var(--bot)" stroke-width="1.8"><title>2026-07-13: 48.0.0 to 49.0.0, 33.6 days after the release, person merging a bot's branch</title></circle>
+<circle cx="447.3" cy="542.0" r="3.6" fill="var(--bot)"><title>2026-07-20: 48.0.0 to 49.0.0, 40.6 days after the release, bot</title></circle>
+<circle cx="449.3" cy="534.2" r="3.6" fill="var(--per)"><title>2026-07-21: 46.0.3 to 49.0.0, 41.1 days after the release, person</title></circle>
+<circle cx="463.2" cy="542.0" r="3.0" fill="var(--bg)" stroke="var(--bot)" stroke-width="1.8"><title>2026-07-24: 48.0.0 to 49.0.0, 44.9 days after the release, person merging a bot's branch</title></circle>
+<circle cx="531.1" cy="542.0" r="3.6" fill="var(--per)"><title>2026-08-12: 48.0.0 to 50.0.0, 63.3 days after the release, person</title></circle>
+<circle cx="544.0" cy="542.0" r="3.6" fill="var(--per)"><title>2026-08-15: 48.0.0 to 50.0.0, 66.8 days after the release, person</title></circle>
+<text x="16" y="606" class="note">102 pairs of a repository and a library it pinned or locked below the fix, from the dependents</text>
+<text x="16" y="622" class="note">of each library that Open Source Insights lists, sampled by a rule fixed in advance. A dot is a</text>
+<text x="16" y="638" class="note">commit on the default branch, at its commit time: a change to what the project asks for, not an</text>
+<text x="16" y="654" class="note">installation. Git histories, the Python Package Index and OSV read on 27 September 2026.</text>
+</svg>
