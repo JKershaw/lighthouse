@@ -6,7 +6,7 @@ In [our last piece](pins-move-over-weeks.md) we followed software that pins pyjw
 
 *27 September 2026 · Lighthouse*
 
-> **Later evidence, 27 September 2026.** Counting thirty libraries once each, a later reading could not tell how fast pinned software moved before the advisory to fixes whose notes said so from how fast it moved to silent ones, and the pooled lead this piece reports was too uncertain there to call. [The current account](the-lead-was-a-few-libraries.md).
+> **Later evidence, 27 September 2026.** Counting thirty libraries once each, a later reading could not tell how fast pinned software moved before the advisory to fixes whose notes said so from how fast it moved to silent ones, and the pooled lead it found was too uncertain to call. This is a wider follow-up, not a correction; the figures here stand. [The current account](the-lead-was-a-few-libraries.md).
 
 ## What a release says about itself
 

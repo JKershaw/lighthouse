@@ -32,6 +32,10 @@ for p in "$TMP"/reanalysis/*.csv; do
   elif [ "${1:-}" = "--write" ]; then echo "   new or changed, rewritten: data/reanalysis/$f"
   else echo "   DIFF  data/reanalysis/$f"; fail=1; fi
 done
+for p in "$HERE"/data/reanalysis/*.csv; do  # a committed table the script no longer writes is a difference too
+  f=$(basename "$p")
+  [ -e "$TMP/reanalysis/$f" ] || { echo "   MISSING  data/reanalysis/$f was not regenerated"; fail=1; }
+done
 if [ "${1:-}" = "--write" ]; then
   mkdir -p "$HERE/data/reanalysis" && cp "$TMP"/reanalysis/*.csv "$HERE/data/reanalysis/" && echo "   written to data/reanalysis/"
 fi

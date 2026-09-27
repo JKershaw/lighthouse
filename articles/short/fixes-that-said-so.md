@@ -4,7 +4,7 @@ On 21 May 2026, pyjwt's changelog for its new release began with a section heade
 
 *27 September 2026 · Lighthouse*
 
-> **Later evidence, 27 September 2026.** Counting thirty libraries once each, a later reading could not tell how fast pinned software moved before the advisory to fixes whose notes said so from how fast it moved to silent ones, and the pooled lead this piece reports was too uncertain there to call. [The current account](../the-lead-was-a-few-libraries.md).
+> **Later evidence, 27 September 2026.** Counting thirty libraries once each, a later reading could not tell how fast pinned software moved before the advisory to fixes whose notes said so from how fast it moved to silent ones, and the pooled lead it found was too uncertain to call. This is a wider follow-up, not a correction; the figures here stand. [The current account](../the-lead-was-a-few-libraries.md).
 
 Software can pin one exact version of a library, or keep a lockfile of the exact versions it has settled on, and hold still until something moves it. A security advisory is a public notice of a flaw and the version that fixes it, and in every advisory rated high or critical that we found against the 200 most downloaded Python projects between late March and late August, the fix was out on an earlier day. We read the changelog, tag message and package description of each of the 37 fixes behind those advisories, by a rule fixed before we read any: 19 said at the release that they fixed a security flaw, and 18 did not, in what we could read. Eleven of the 19 named advisories GitHub had not yet published. Then we followed 257 pins on fourteen libraries, one fix each, seven of each kind, from the day each fix came out to 27 September.
 
