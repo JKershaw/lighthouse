@@ -6,6 +6,6 @@ layout: base.njk
   <h1>Short forms</h1>
   <p class="lede">The pieces, cut to a few paragraphs each.</p>
   <ol class="entries">
-    {% for p in repo.shorts %}{% include "entry-piece.njk" %}{% endfor %}
+    {% for p in repo.shorts %}{% set twin = p.context.twin %}{% include "entry-piece.njk" %}{% endfor %}
   </ol>
 </article>

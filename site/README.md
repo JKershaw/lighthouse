@@ -11,7 +11,12 @@ cd site
 npm ci
 npm run build    # writes site/_site
 npm run serve    # rebuilds on change, at http://localhost:8080
+npm test         # the scan and HTML rewrites, against test/fixtures/repo
 ```
+
+## What the site reads
+
+A piece (articles/*.md, articles/short/*.md) may open with a header before its `# Title`: `published` (YYYY-MM-DD; else the byline's date, else git), `summary` (for listings; else the opening paragraph), `status` (`draft` or `released`), `investigation` (an id in investigations/) and `revised` (items `YYYY-MM-DD: sentence`, shown as a notice). A blockquote beginning `**Correction, <date>.**` or `**Later evidence, <date>.**` is shown as a notice. An investigation is investigations/<id>.md with `title`, `id`, `attention`, `question`, `current`, `started`, `studies` and `pieces` (in reading order). The site's description is in site.json.
 
 ## Publish with GitHub Pages
 

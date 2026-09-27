@@ -1,0 +1,10 @@
+{# Placed before the colophon's rule by the lighthouse-html transform. #}
+{%- set ctx = doc.context %}<!--lh:end-->
+{%- if ctx and ctx.investigation and (ctx.prev or ctx.next) %}<nav class="piece-pager" aria-label="In this investigation">
+  <p class="pager-label">In <a href="{{ ctx.investigation.url }}">{{ ctx.investigation.title }}</a></p>
+  <ul>
+    {%- if ctx.prev %}<li class="pager-prev"><span class="pager-dir">Previous</span> <a href="{{ ctx.prev.url }}" rel="prev">{{ ctx.prev.title }}</a></li>{%- endif %}
+    {%- if ctx.next %}<li class="pager-next"><span class="pager-dir">Next</span> <a href="{{ ctx.next.url }}" rel="next">{{ ctx.next.title }}</a></li>{%- endif %}
+  </ul>
+</nav>{%- endif %}
+<!--/lh:end-->

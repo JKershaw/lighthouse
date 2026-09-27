@@ -1,0 +1,24 @@
+{% set inv = doc.investigation %}
+{% if inv.question %}<p class="question">{{ inv.question | mdInline(page) | safe }}</p>{% endif %}
+<dl class="meta investigation">
+  {% if inv.attention %}<div>
+    <dt>Attention</dt>
+    <dd>{{ inv.attention | capitalize }}. <span class="aside">Attention says where Lighthouse is looking, not whether any claim is proven or the question resolved.</span></dd>
+  </div>{% endif %}
+  {% if inv.current %}<div>
+    <dt>Current account</dt>
+    <dd><a href="{{ inv.current.url }}">{{ inv.current.title }}</a></dd>
+  </div>{% endif %}
+  {% if inv.started %}<div>
+    <dt>Started</dt>
+    <dd>{{ inv.started }}</dd>
+  </div>{% endif %}
+  {% if inv.pieces.length %}<div>
+    <dt>Pieces, in order</dt>
+    <dd><ol>{% for p in inv.pieces %}<li><a href="{{ p.url }}">{{ p.title }}</a>{% if p.draft %} <span class="tag">Draft</span>{% endif %}{% if p.twin %} <span class="twin">(<a href="{{ p.twin.url }}">short form</a>)</span>{% endif %}</li>{% endfor %}</ol></dd>
+  </div>{% endif %}
+  {% if inv.studies.length %}<div>
+    <dt>Studies</dt>
+    <dd><ol>{% for s in inv.studies %}<li>{% if s.study %}{{ s.study }}: {% endif %}<a href="{{ s.url }}">{{ s.title }}</a></li>{% endfor %}</ol></dd>
+  </div>{% endif %}
+</dl>

@@ -21,10 +21,12 @@
   <nav class="sections" aria-label="Sections">
     <ul>
       <li><a href="/articles/"{% if navSection == "articles" %} aria-current="page"{% endif %}>Pieces</a></li>
+      {% if repo.hasInvestigations %}<li><a href="/investigations/"{% if navSection == "investigations" %} aria-current="page"{% endif %}>Investigations</a></li>{% endif %}
       <li><a href="/studies/"{% if navSection == "studies" %} aria-current="page"{% endif %}>Studies</a></li>
       {% if repo.byPath["programme.md"] %}<li><a href="/programme/"{% if navSection == "programme" %} aria-current="page"{% endif %}>Programme</a></li>{% endif %}
       <li><a href="/notes/"{% if navSection == "notes" %} aria-current="page"{% endif %}>Notes</a></li>
-      {% if repo.byPath["AGENTS.md"] %}<li><a href="{{ repo.byPath['AGENTS.md'].url }}"{% if navSection == "about" %} aria-current="page"{% endif %}>About</a></li>{% endif %}
+      {%- set about = repo.byPath["about.md"] or repo.byPath["AGENTS.md"] %}
+      {% if about %}<li><a href="{{ about.url }}"{% if navSection == "about" %} aria-current="page"{% endif %}>About</a></li>{% endif %}
     </ul>
   </nav>
 </header>
@@ -32,9 +34,9 @@
 {{ content | safe }}
 </main>
 <footer class="footer">
-  <nav aria-label="Founding documents">
+  <nav aria-label="Documents">
     <ul>
-      {% for file in ["charter.md", "design.md", "sources.md", "programme.md", "releases.md"] %}{% set d = repo.byPath[file] %}{% if d %}<li><a href="{{ d.url }}">{{ d.label }}</a></li>{% endif %}{% endfor %}
+      {% for file in ["charter.md", "design.md", "sources.md", "programme.md", "releases.md", "observations.md", ("AGENTS.md" if repo.hasAbout else "")] %}{% set d = repo.byPath[file] %}{% if d %}<li><a href="{{ d.url }}">{{ d.label }}</a></li>{% endif %}{% endfor %}
     </ul>
   </nav>
   <p>Built from <a href="{{ repo.repoUrl }}">the repository</a> on <time datetime="{{ repo.buildIso }}">{{ repo.buildDate }}</time>{% if repo.commit %}, at commit <a href="{{ repo.commitUrl }}">{{ repo.commit }}</a>{% endif %}.</p>

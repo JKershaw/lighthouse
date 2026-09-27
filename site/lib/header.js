@@ -5,6 +5,10 @@
 
 export const KEY_LINE = /^([A-Za-z][A-Za-z0-9_ ()-]{0,48}?):(?:[ \t]+(.*))?$/;
 
+// A piece's header may be a single line, such as `published: 2026-09-27`,
+// when its key is one the site reads on pieces.
+export const PIECE_KEYS = ["published", "summary", "status", "investigation", "revised"];
+
 function isHeading(line) {
   return /^#{1,6}(\s|$)/.test(line);
 }
@@ -39,7 +43,8 @@ export function parseHeader(source) {
   }
 
   const hasTitle = fields.some((f) => f.key.toLowerCase() === "title");
-  if (!hasTitle && fields.length < 2) return null;
+  const known = fields.length === 1 && PIECE_KEYS.includes(fields[0].key.toLowerCase());
+  if (!hasTitle && fields.length < 2 && !known) return null;
 
   const get = (name) => {
     const f = fields.find((x) => x.key.toLowerCase() === name);
@@ -55,6 +60,11 @@ export function parseHeader(source) {
     lineCount: i,
     body: lines.slice(i).join("\n").replace(/^\n+/, ""),
   };
+}
+
+// The field named `name` (case-insensitive) in a parsed header's fields.
+export function headerField(fields, name) {
+  return (fields || []).find((f) => f.key.toLowerCase() === name) || null;
 }
 
 // The content with any header block removed, for rendering.

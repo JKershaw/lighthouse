@@ -5,7 +5,8 @@
   "type": "module",
   "scripts": {
     "build": "cd .. && eleventy --config=site/eleventy.config.js",
-    "serve": "cd .. && eleventy --config=site/eleventy.config.js --serve"
+    "serve": "cd .. && eleventy --config=site/eleventy.config.js --serve",
+    "test": "node --test test/*.test.js"
   },
   "engines": {
     "node": ">=18"

@@ -7,7 +7,7 @@
   <section class="latest">
     <h2 id="latest">Latest</h2>
     <ol class="entries">
-      {% for p in repo.latest %}<li><a href="{{ p.url }}">{{ p.listTitle }}</a> <span class="when">{% if p.showLabel %}{{ p.label }} · {% endif %}<time>{{ p.changed }}</time></span></li>
+      {% for g in repo.latest %}{% set p = g.lead %}<li><a href="{{ p.url }}">{{ p.title }}</a> <span class="when">{% if p.short %}Short form · {% endif %}{% include "piece-dates.njk" %}{% if g.twin %} · <a href="{{ g.twin.url }}">Short form</a>{% endif %}</span></li>
       {% endfor %}
     </ol>
   </section>

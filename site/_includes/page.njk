@@ -3,14 +3,16 @@ layout: base.njk
 ---
 {% if page.inputPath == "./README.md" %}{% include "home.njk" %}{% else %}
 <article class="doc{% if doc.header %} is-record{% endif %}{% if doc.section == 'articles' %} is-piece{% endif %}">
-  {% if doc.short %}<p class="kicker"><a href="/articles/short/">Short form</a></p>
-  {% elif doc.section == "articles" %}<p class="kicker"><a href="/articles/">Pieces</a></p>
+  {% if doc.short %}<p class="kicker"><a href="/articles/short/">Short form</a>{% if doc.draft %} <span class="tag">Draft</span>{% endif %}</p>
+  {% elif doc.section == "articles" %}<p class="kicker"><a href="/articles/">Pieces</a>{% if doc.draft %} <span class="tag">Draft</span>{% endif %}</p>
+  {% elif doc.section == "investigations" %}<p class="kicker">{% if repo.hasInvestigations %}<a href="/investigations/">Investigations</a>{% else %}Investigations{% endif %}</p>
   {% elif doc.study %}<p class="kicker"><a href="/studies/">Studies</a> <span aria-hidden="true">/</span> <a href="/studies/{{ doc.study }}/">{{ doc.study }}</a></p>
   {% elif doc.section == "notes" %}<p class="kicker"><a href="/notes/">Notes</a></p>
-  {% elif doc.section == "about" %}<p class="kicker">About</p>
+  {% elif doc.section == "about" %}<p class="kicker">{% if doc.path == "AGENTS.md" and repo.hasAbout %}<a href="{{ repo.byPath['about.md'].url }}">About</a> <span aria-hidden="true">/</span> {% endif %}{{ doc.label }}</p>
   {% endif %}
   {% if doc.header or not doc.ownH1 %}<h1>{{ doc.title }}</h1>{% endif %}
-  {% if doc.header and doc.header.length %}
+  {% if doc.investigation %}{% include "investigation-header.njk" %}
+  {% elif doc.header and doc.header.length %}
   <dl class="meta">
     {% for f in doc.header %}<div>
       <dt>{{ f.key | replace("_", " ") }}</dt>
@@ -18,9 +20,14 @@ layout: base.njk
     </div>{% endfor %}
   </dl>
   {% endif %}
+  {% if doc.section == "articles" %}{% include "piece-top.njk" %}{% endif %}
   <div class="prose">
 {{ content | safe }}
   </div>
+  {% if doc.section == "articles" %}{% include "piece-end.njk" -%}
+  <p class="provenance">From <a href="{{ doc.source }}">{{ doc.path }}</a> in the repository. Published {{ doc.published }}{% if doc.revised %}; revised {{ doc.revised }}{% endif %}.</p>
+  {% else %}
   <p class="provenance">From <a href="{{ doc.source }}">{{ doc.path }}</a> in the repository, last changed {{ doc.changed }}.</p>
+  {% endif %}
 </article>
 {% endif %}

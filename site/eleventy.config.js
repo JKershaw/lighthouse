@@ -10,6 +10,7 @@ import { HtmlBasePlugin } from "@11ty/eleventy";
 import { scanRepo, pageUrl, IGNORED_DIRS, IGNORED_FILES } from "./lib/repo.js";
 import { stripHeader } from "./lib/header.js";
 import lighthousePlugin, { unresolved } from "./lib/markdown.js";
+import { arrangePiece, markNotices } from "./lib/html.js";
 
 const siteDir = path.dirname(fileURLToPath(import.meta.url));
 const root = path.resolve(siteDir, "..");
@@ -37,6 +38,7 @@ export default function (eleventyConfig) {
       seen.add(key);
       console.warn(`[lighthouse] link does not resolve, shown as text: ${key}`);
     }
+    for (const warning of getRepo().warnings) console.warn(`[lighthouse] ${warning}`);
   });
 
   // Images and illustrations beside the Markdown, and the site's own assets.
@@ -91,14 +93,10 @@ export default function (eleventyConfig) {
   };
   eleventyConfig.addTransform("lighthouse-html", function (content) {
     if (!(this.page.outputPath || "").endsWith(".html")) return content;
-    // In a piece, the paragraphs before the italic date line are its opening.
-    if (/^\.?\/?articles\//.test(this.page.inputPath || "")) {
-      content = content.replace(
-        /(<\/h1>\s*)((?:<p>(?!<em>)[\s\S]*?<\/p>\s*){1,3})<p><em>([^<]*)<\/em><\/p>/,
-        (all, h1, opening, byline) =>
-          `${h1}${opening.replace(/<p>/g, '<p class="opening">')}<p class="byline"><em>${byline}</em></p>`,
-      );
-    }
+    // In a piece, the paragraphs before the italic date line are its opening;
+    // notices and the layout's context block are placed around it.
+    if (/^\.?\/?articles\//.test(this.page.inputPath || "")) content = arrangePiece(content);
+    else content = markNotices(content);
     return content
       .replace(/<p>(<img [^>]*>)<\/p>(\s*<p><em>((?:(?!<\/p>)[\s\S])*?)<\/em><\/p>)?/g, (all, img, capBlock, caption) => {
         if (caption !== undefined && !caption.includes("</em>")) {
@@ -120,6 +118,16 @@ export default function (eleventyConfig) {
     ["short", { permalink: "/articles/short/", title: "Short forms", section: "articles" }],
     ["studies", { permalink: "/studies/", title: "Studies", section: "studies" }],
     ["notes", { permalink: "/notes/", title: "Notes", section: "notes" }],
+    // Only when investigations/ exists and has no index.md of its own.
+    [
+      "investigations",
+      {
+        title: "Investigations",
+        section: "investigations",
+        permalink: (data) =>
+          data.repo.hasInvestigations && !data.repo.byPath["investigations/index.md"] ? "/investigations/" : false,
+      },
+    ],
     ["notfound", { permalink: "/404.html", title: "Not found", section: "" }],
   ];
   for (const [name, data] of indexes) {

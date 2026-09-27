@@ -1,0 +1,14 @@
+{# Placed after the byline by the lighthouse-html transform. #}
+{%- set ctx = doc.context %}<!--lh:top-->
+{%- if ctx and (ctx.investigation or ctx.twin) %}<aside class="piece-context" aria-label="About this piece">
+  <ul>
+    {%- if ctx.investigation %}<li>Part of <a href="{{ ctx.investigation.url }}">{{ ctx.investigation.title }}</a></li>{%- endif %}
+    {%- if ctx.current %}<li>Current account: <a href="{{ ctx.current.url }}">{{ ctx.current.title }}</a></li>{%- endif %}
+    {%- if ctx.twin %}<li><a href="{{ ctx.twin.url }}">{%- if ctx.twin.short %}Short form{% else %}Full piece{%- endif %}</a></li>{%- endif %}
+  </ul>
+</aside>{%- endif %}
+{%- if doc.revisions and doc.revisions.length %}<aside class="notice notice-revised" aria-label="Revised">
+  {%- for r in doc.revisions %}<p><strong>Revised{%- if r.date %}, <time datetime="{{ r.iso }}">{{ r.date }}</time>{%- endif %}.</strong> {{ r.text | mdInline(page) | safe }}</p>
+  {%- endfor %}
+</aside>{%- endif %}
+<!--/lh:top-->
