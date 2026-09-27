@@ -47,7 +47,8 @@ export function formatDate(value) {
 // "2026-09-26; corrected the same day" gives 26 September 2026.
 export function headerDate(value) {
   const m = String(value || "").match(/\b(\d{4}-\d{2}-\d{2})\b/);
-  return m ? new Date(m[1] + "T00:00:00Z") : null;
+  const d = m ? new Date(m[1] + "T00:00:00Z") : null;
+  return d && !Number.isNaN(d.getTime()) ? d : null;
 }
 
 export function isIgnored(rel) {
@@ -216,16 +217,34 @@ export function parseRevision(item) {
   return { date: formatDate(date), iso: m ? m[1] : "", time: date ? date.getTime() : 0, text: m ? m[2].trim() : String(item || "").trim() };
 }
 
+// Dated notices in a piece's text, `> **Later evidence, 27 September 2026.**`
+// or `> **Correction, ...**`: substantive updates, shown in listings as such.
+const NOTICE_LINE = /^>\s*\*\*(Correction|Later evidence)\b([^*\n]*)\*\*/gm;
+
+export function noticeDates(body) {
+  const out = [];
+  for (const m of String(body || "").matchAll(NOTICE_LINE)) {
+    const date = longDate(m[2]);
+    if (date) out.push({ kind: m[1] === "Correction" ? "correction" : "later-evidence", time: date.getTime() });
+  }
+  return out;
+}
+
+const UPDATE_LABELS = { revised: "Revised", correction: "Corrected", "later-evidence": "Later evidence" };
+
 // What the site reads from a piece: its header if it has one, else its byline
-// and first paragraph, else git.
-export function pieceInfo(header, body, time) {
+// and first paragraph, else git (the day the file was added, so that a later
+// edit does not move it).
+export function pieceInfo(header, body, time, added = time) {
   const field = (name) => headerField(header && header.fields, name);
   const value = (name) => (field(name) ? field(name).value.trim() : "");
   const fromHeader = headerDate(value("published"));
   const fromByline = fromHeader ? null : bylineDate(body);
-  const published = fromHeader || fromByline || new Date(time);
+  const published = fromHeader || fromByline || new Date(added);
   const revisions = (field("revised") ? field("revised").items : []).map(parseRevision);
-  const latestRevision = revisions.filter((r) => r.time).sort((a, b) => b.time - a.time)[0] || null;
+  // The latest substantive update: a `revised` item or a dated notice.
+  const updates = [...revisions.filter((r) => r.time).map((r) => ({ kind: "revised", time: r.time })), ...noticeDates(body)];
+  const latestRevision = updates.sort((a, b) => b.time - a.time)[0] || null;
   const status = value("status").toLowerCase() || "released";
   return {
     pubTime: published.getTime(),
@@ -237,8 +256,9 @@ export function pieceInfo(header, body, time) {
     draft: status === "draft",
     investigationId: value("investigation"),
     revisions,
-    revised: latestRevision ? latestRevision.date : "",
+    revised: latestRevision ? formatDate(latestRevision.time) : "",
     revisedTime: latestRevision ? latestRevision.time : 0,
+    revisedLabel: latestRevision ? UPDATE_LABELS[latestRevision.kind] : "",
   };
 }
 
@@ -315,7 +335,7 @@ export function scanRepo(root, { siteFile = path.join(root, "site", "site.json")
       added: added.get(rel) || time,
       changed: formatDate(time),
       ...info,
-      ...(isPiece ? pieceInfo(header, body, time) : {}),
+      ...(isPiece ? pieceInfo(header, body, time, added.get(rel) || time) : {}),
     };
     // In lists, AGENTS.md (titled "Lighthouse") reads as its label.
     page.listTitle = title === "Lighthouse" && page.label ? page.label : title;

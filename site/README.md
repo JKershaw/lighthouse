@@ -16,7 +16,7 @@ npm test         # the scan and HTML rewrites, against test/fixtures/repo
 
 ## What the site reads
 
-A piece (articles/*.md, articles/short/*.md) may open with a header before its `# Title`: `published` (YYYY-MM-DD; else the byline's date, else git), `summary` (for listings; else the opening paragraph), `status` (`draft` or `released`), `investigation` (an id in investigations/) and `revised` (items `YYYY-MM-DD: sentence`, shown as a notice). A blockquote beginning `**Correction, <date>.**` or `**Later evidence, <date>.**` is shown as a notice. An investigation is investigations/<id>.md with `title`, `id`, `attention`, `question`, `current`, `started`, `studies` and `pieces` (in reading order). The site's description is in site.json.
+A piece (articles/*.md, articles/short/*.md) may open with a header before its `# Title`: `published` (YYYY-MM-DD; else the byline's date, else git), `summary` (for listings; else the opening paragraph), `status` (`draft` or `released`), `investigation` (an id in investigations/) and `revised` (items `YYYY-MM-DD: sentence`, shown as a notice). A blockquote beginning `**Correction, <date>.**` or `**Later evidence, <date>.**` is shown as a notice, and its date counts as the piece's latest update in listings. A piece with neither `published` nor a byline is dated by the commit that added it, so a later edit does not move it. An investigation is investigations/<id>.md with `title`, `id`, `attention`, `question`, `current`, `started`, `studies` and `pieces` (in reading order). The site's description is in site.json.
 
 ## Publish with GitHub Pages
 

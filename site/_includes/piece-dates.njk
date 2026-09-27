@@ -1,1 +1,1 @@
-Published <time datetime="{{ p.publishedIso }}">{{ p.published }}</time>{% if p.revised %} · Revised {{ p.revised }}{% endif %}
+Published <time datetime="{{ p.publishedIso }}">{{ p.published }}</time>{% if p.revised %} · {{ p.revisedLabel }} {{ p.revised }}{% endif %}

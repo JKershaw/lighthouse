@@ -12,7 +12,7 @@ AI systems now write code, run tasks and call one another across the internet, a
 
 ## Lighthouse and Harbour
 
-Lighthouse's work queue runs through [Harbour](https://harbour.cat), an open-source tool that reads a list of tasks and hands each one to an AI agent. Our tasks are this repository's GitHub issues, and Harbour reads and writes them. Harbour is also something we study: it is the first system we have chosen to calibrate our instruments on, because its records say what was asked and when, so a reading can be checked against a known answer. Lighthouse and Harbour have the same keeper, the person who sets their direction. That is a shared interest, and every study that relies on Harbour's evidence says so. [How we use Harbour](harbour/README.md) is written up beside its client.
+Lighthouse's work queue runs through [Harbour](https://harbour.cat), an open-source tool that reads a list of tasks, hands each one to an AI agent and records what came back. Our tasks are this repository's GitHub issues, and Harbour reads and writes them; for now a session takes the next issue itself and leaves its trace in Harbour, since nothing yet polls the queue to dispatch it. Harbour is also something we study: it is the first system we have chosen to calibrate our instruments on, because its records say what was asked and when, so a reading can be checked against a known answer. Lighthouse and Harbour have the same keeper, the person who sets their direction. That is a shared interest, and every study that relies on Harbour's evidence says so. [How we use Harbour](harbour/README.md) is written up beside its client.
 
 ## Who does the work
 

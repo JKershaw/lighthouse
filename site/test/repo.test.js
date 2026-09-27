@@ -7,7 +7,8 @@ import fs from "node:fs";
 import os from "node:os";
 import path from "node:path";
 import { fileURLToPath } from "node:url";
-import { scanRepo, bylineDate, longDate, parseRevision } from "../lib/repo.js";
+import { execFileSync } from "node:child_process";
+import { scanRepo, bylineDate, longDate, parseRevision, noticeDates, pieceInfo } from "../lib/repo.js";
 import { parseHeader } from "../lib/header.js";
 import { markNotices, arrangeOpening, arrangePiece, noticeKind } from "../lib/html.js";
 
@@ -115,6 +116,46 @@ test("a revision is shown; an incidental edit changes neither publication nor re
   const updated = repo.byPath["articles/updated.md"];
   assert.equal(updated.revised, "27 September 2026");
   assert.equal(updated.revisions.length, 1);
+});
+
+test("a dated notice in the text counts as a substantive update in listings", () => {
+  const repo = scanCopy();
+  // The short form has a Correction notice and no header.
+  const short = repo.byPath["articles/short/updated.md"];
+  assert.equal(short.revised, "26 September 2026");
+  assert.equal(short.revisedLabel, "Corrected");
+  assert.equal(short.revisions.length, 0);
+  // The full piece's header item and its Later evidence notice fall on the same day.
+  assert.equal(repo.byPath["articles/updated.md"].revisedLabel, "Revised");
+  assert.deepEqual(noticeDates("> **Later evidence, 1 May 2026.** X\n\n> A plain quotation.\n\n> **Note, 2 May 2026.** Y").map((n) => n.kind), ["later-evidence"]);
+  // An unreadable header date is ignored rather than breaking the build.
+  const bad = pieceInfo({ fields: [{ key: "published", value: "2026-13-45", items: [] }] }, "# T\n\nOpening.\n\n*3 March 2025 · Lighthouse*\n", 0);
+  assert.equal(bad.publishedIso, "2025-03-03");
+  assert.equal(bad.publishedFrom, "byline");
+});
+
+test("without a header or byline, the publication date is the day the file was added to git, not its last change", () => {
+  const dir = fs.mkdtempSync(path.join(os.tmpdir(), "lighthouse-git-"));
+  const git = (args, env = {}) =>
+    execFileSync("git", args, { cwd: dir, encoding: "utf8", stdio: ["ignore", "pipe", "ignore"], env: { ...process.env, ...env } });
+  const at = (iso) => ({ GIT_AUTHOR_DATE: iso, GIT_COMMITTER_DATE: iso, GIT_AUTHOR_NAME: "t", GIT_AUTHOR_EMAIL: "t@t", GIT_COMMITTER_NAME: "t", GIT_COMMITTER_EMAIL: "t@t" });
+  try {
+    git(["init", "-q"]);
+    fs.mkdirSync(path.join(dir, "articles"));
+    fs.writeFileSync(path.join(dir, "articles/undated.md"), "# A piece\n\nOnly an opening.\n");
+    git(["add", "."]);
+    git(["commit", "-q", "-m", "add"], at("2026-09-20T12:00:00Z"));
+    fs.appendFileSync(path.join(dir, "articles/undated.md"), "\nA later edit.\n");
+    git(["commit", "-q", "-am", "edit"], at("2026-09-27T12:00:00Z"));
+    const repo = scanRepo(dir, { siteFile: path.join(dir, "missing.json") });
+    const p = repo.byPath["articles/undated.md"];
+    assert.equal(p.publishedIso, "2026-09-20");
+    assert.equal(p.publishedFrom, "git");
+    assert.equal(p.changed, "27 September 2026");
+    assert.equal(p.revised, "");
+  } finally {
+    fs.rmSync(dir, { recursive: true, force: true });
+  }
 });
 
 test("investigations: order, current account, neighbours and warnings", () => {

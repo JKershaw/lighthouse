@@ -3,7 +3,7 @@ layout: base.njk
 ---
 <article class="index">
   <h1>Pieces</h1>
-  <p class="lede">Written for a curious reader; each rests on a study in the record. A short form is the same piece, cut, and is linked beside it.</p>
+  <p class="lede">Written for a curious reader; each rests on a study in the record. Most have a short form, a few paragraphs written to stand alone, linked beside them.</p>
   <ol class="entries">
     {% for g in repo.pieceGroups %}{% set p = g.lead %}{% set twin = g.twin %}{% include "entry-piece.njk" %}{% endfor %}
   </ol>

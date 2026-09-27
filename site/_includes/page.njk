@@ -25,7 +25,7 @@ layout: base.njk
 {{ content | safe }}
   </div>
   {% if doc.section == "articles" %}{% include "piece-end.njk" -%}
-  <p class="provenance">From <a href="{{ doc.source }}">{{ doc.path }}</a> in the repository. Published {{ doc.published }}{% if doc.revised %}; revised {{ doc.revised }}{% endif %}.</p>
+  <p class="provenance">From <a href="{{ doc.source }}">{{ doc.path }}</a> in the repository. Published {{ doc.published }}{% if doc.revised %}; {{ doc.revisedLabel | lower }} {{ doc.revised }}{% endif %}.</p>
   {% else %}
   <p class="provenance">From <a href="{{ doc.source }}">{{ doc.path }}</a> in the repository, last changed {{ doc.changed }}.</p>
   {% endif %}

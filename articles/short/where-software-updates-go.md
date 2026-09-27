@@ -1,5 +1,5 @@
 published: 2026-09-27
-summary: When a library releases a new version, how fast does the software built on it take it up? Open version ranges took one release within days; pinned software took security fixes over weeks, and why it moved when it did is still unsettled.
+summary: When a library releases a new version, how fast does the software built on it take it up? Open version ranges took one release within days; pinned software took security fixes over weeks, and whether a fix that says it mends a security flaw is taken up sooner is still unsettled.
 status: released
 investigation: software-updates
 
