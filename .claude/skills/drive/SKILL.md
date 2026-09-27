@@ -10,4 +10,4 @@ Do the next thing in programme.md, the way AGENTS.md says a session goes. The ar
 
 The repository's issues are the backlog. `harbour/hb status` lists them, `hb close` closes one when its record is committed, and `hb add` files a question the work raised; harbour/README.md has the rest. Without a Harbour token, read and close them with the GitHub tools.
 
-Commit once at the end, push the working branch, and fast-forward main from it; the site rebuilds from main. Report in a paragraph: what was learned about the internet, each point labelled observation or interpretation, and the next question. Say nothing about process unless it failed. Never create a scheduled routine.
+Commit once at the end, push the working branch, and fast-forward main from it; the site rebuilds from main. Report the close-out AGENTS.md describes, in a paragraph: what was learned about the internet, each point labelled observation or interpretation, what changed in the current account, what remains uncertain, the next question, and the spend. Say nothing about process unless it failed. Never create a scheduled routine.
