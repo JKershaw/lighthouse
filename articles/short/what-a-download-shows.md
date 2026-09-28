@@ -9,6 +9,8 @@ On 3 April 2026, the day after it was published, a new version of a Python libra
 
 *26 September 2026 · Lighthouse*
 
+> **Later evidence, 28 September 2026.** Across 424 releases of 37 of the most downloaded Python libraries, most new releases were half of the library's downloads within two days for 26 of them, and none were for eleven, among them boto3, numpy and pandas; downloads flagged as builds were a smaller share of the new version's first days than of the old version's, by about seven points in the typical library, over three days and two installers, where this library's gap was 38 points over three weeks and every installer. This is a wider follow-up, not a correction; the figures here stand for this library. [The later reading](../two-days-for-most.md).
+
 The library is tooling that AI agents use, and it is downloaded millions of times a day. We read the public log of downloads from the Python Package Index, the registry where Python libraries are published, through public copies of it. The day after, the new version passed half of all downloads, and on every day to 22 April it stayed between 45 and 71 per cent. Of the nine projects we watched around the library, the first to require that exact version did so only on 8 April.
 
 What carried it, we think, was installers: the programs that fetch a library settle a request such as "1.0 or later" on the newest release at the moment they run. About four in five of the new version's downloads came through one installer, uv. Tools that usually install from a lockfile, which holds versions still, took it far less.

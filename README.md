@@ -10,7 +10,7 @@ When a widely used library puts out a new version, some software has it within d
 
 ## Current focus
 
-The question we pressed last, whether software moves sooner to a security fix whose own notes say what it is, is resting unsettled: added up across thirty libraries it leans that way, counted one library at a time we could not tell, and the answer moved most with which public notice counted as the warning. Five months of advisories against the 500 most downloaded Python projects do not hold enough libraries to press it further. So we are going back to the fast half of the road: whether a new release of a widely used library reaches half of its downloads within two days as a rule, as one did in our reading of the download log, and how much of that is automated builds rather than people. [The programme](programme.md) holds the questions and the order we take them in.
+We have just measured how fast a new release of a widely used library reaches its downloads, across 37 of the most downloaded Python libraries: for most, a new version was half of all downloads within two days, but not as a rule, and for eleven, among them boto3, numpy and pandas, no release was, while older versions kept most of the downloads for a month ([the latest reading](articles/two-days-for-most.md)). So the next question is what holds those eleven back: other libraries' version limits, or machines running Pythons the new release no longer supports. The question of whether a security fix that says so is taken up sooner rests, unsettled. [The programme](programme.md) holds the questions and the order we take them in.
 
 ## What Lighthouse is
 

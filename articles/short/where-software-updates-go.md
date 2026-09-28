@@ -9,6 +9,8 @@ When a widely used library puts out a new version, how quickly does the software
 
 *27 September 2026 · Lighthouse*
 
+> **Later evidence, 28 September 2026.** Across 37 of the most downloaded Python libraries, a new release was half of the downloads within two days for 26, and for none of eleven, among them boto3, numpy and pandas: the pace above is usual, not a rule. [The later reading](../two-days-for-most.md).
+
 That speed came, we think, from software that asks for a range of versions and lets the installer take the newest. Software that pins one exact version waits. Across four widely used libraries, pinned projects took security fixes over weeks, the typical one about nineteen days after the release, and neither the release nor the public advisory drew most of the moves. Whether a fix whose own notes say it mends a flaw draws pinned software sooner is not settled: added up it leans that way, but counted one library at a time we could not tell.
 
 The most important limit is what public records can see: a project's history shows what it asked for, the download log shows downloads, a published image shows one installation, and none shows what ran. This is ordinary software moving, followed because anything that spreads through software would travel the same roads; nothing here shows AI systems spreading themselves. [The full account](../where-software-updates-go.md) follows the whole investigation.

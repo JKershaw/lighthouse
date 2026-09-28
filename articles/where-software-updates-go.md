@@ -11,6 +11,8 @@ Most programs are built on libraries, code that other people wrote and that is f
 
 *27 September 2026 · Lighthouse*
 
+> **Later evidence, 28 September 2026.** Across 424 releases of 37 of the most downloaded Python libraries, a new release was half of the library's downloads within two days for most libraries, 26 of the 37, but not as a rule: for eleven, among them boto3, numpy and pandas, no release was, and older versions kept most of the downloads for a month. The two-day pace this account draws from one release of mcp is the usual pace for these libraries, not the only one. This is a wider follow-up, not a correction; the figures here stand. [The later reading](two-days-for-most.md).
+
 ## One release, followed outwards
 
 We began with a plain question: can a change to a library be followed from outside, using only public records? We chose mcp, the Python kit for building with the Model Context Protocol, tooling that AI agents use, and its release 1.27.0, because no other release of the library came within four weeks of it on either side. We fixed nine projects that depend on it before reading anything they did.
@@ -79,7 +81,7 @@ We follow it because of the question this watch is kept for. AI systems now writ
 
 ## What comes next
 
-The question of whether a fix's own notes matter rests, unsettled, until there are more libraries to count than five months of advisories hold, with the choice of which notice counts as the warning fixed before anyone looks. The next reading goes back to the fast half of the road: whether a new release of a widely used library reaches half of its downloads within two days as a rule, as mcp's did, and how much of that is automated builds rather than people.
+The question of whether a fix's own notes matter rests, unsettled, until there are more libraries to count than five months of advisories hold, with the choice of which notice counts as the warning fixed before anyone looks. The fast half of the road has since been measured more widely: for most of the most downloaded Python libraries a new release was half of the downloads within two days, and for eleven it never was ([the later reading](two-days-for-most.md)). What holds those eleven back is the next question.
 
 ---
 

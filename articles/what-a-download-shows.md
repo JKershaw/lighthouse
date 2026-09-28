@@ -11,6 +11,8 @@ We had followed this release before, [through the public histories of those nine
 
 *26 September 2026 · Lighthouse*
 
+> **Later evidence, 28 September 2026.** Across 424 releases of 37 of the most downloaded Python libraries, most new releases were half of the library's downloads within two days for 26 of them, and none were for eleven, among them boto3, numpy and pandas; downloads flagged as builds were a smaller share of the new version's first days than of the old version's, by about seven points in the typical library, over three days and two installers, where this library's gap was 38 points over three weeks and every installer. This is a wider follow-up, not a correction; the figures here stand for this library. [The later reading](two-days-for-most.md).
+
 ## A log of every download
 
 The Python Package Index is the registry where Python libraries are published, and it keeps a public log of the files people fetch from it. Each entry names the library, the version, the time (the copy we read keeps only the day), the installer that asked for the file, and whether the installer said it was running on a build server. The log is the one public record we know of that sits on the far side of a release, among the people and machines taking it.

@@ -13,6 +13,7 @@ studies:
 - studies/LH008/LH008.md
 - studies/LH009/LH009.md
 - studies/LH010/LH010.md
+- studies/LH011/LH011.md
 pieces:
 - articles/where-software-updates-go.md
 - articles/where-a-software-update-went.md
@@ -22,10 +23,11 @@ pieces:
 - articles/pins-move-over-weeks.md
 - articles/fixes-that-said-so.md
 - articles/the-lead-was-a-few-libraries.md
+- articles/two-days-for-most.md
 
 ## How the inquiry developed
 
-We started by following one release of mcp, a Python library AI agents use, into nine projects built on it ([where a software update went](../articles/where-a-software-update-went.md)); the histories showed where it went but not why, or whether anyone ran it. The download log **extended** the trail past the projects and showed the new version at half of all downloads within two days, stopping at the download ([what a download shows](../articles/what-a-download-shows.md)). Published images **extended** it again, to the installation, and showed a project's software holding a version its own lockfile did not name ([what an image holds](../articles/what-an-image-holds.md)). A sample of images around a later release confirmed two paces, ranges within days and pins waiting, and **branched** into what moves a pin, where a security advisory seemed to ([what moves a pin](../articles/what-moves-a-pin.md)). Four libraries **revised** that: pins moved over weeks, after both release and advisory, with no burst ([pins move over weeks](../articles/pins-move-over-weeks.md)). Fixes' own notes then **narrowed** the question to whether a fix that says so draws pins sooner, which fourteen libraries suggested ([fixes that said so](../articles/fixes-that-said-so.md)). Thirty libraries **revised** that to unsettled: pooled it leans that way, library by library we could not tell ([the latest reading](../articles/the-lead-was-a-few-libraries.md)). [Where does a software update go once it is released?](../articles/where-software-updates-go.md) draws the whole together, and is the place to start.
+We started by following one release of mcp, a Python library AI agents use, into nine projects built on it ([where a software update went](../articles/where-a-software-update-went.md)); the histories showed where it went but not why, or whether anyone ran it. The download log **extended** the trail past the projects and showed the new version at half of all downloads within two days, stopping at the download ([what a download shows](../articles/what-a-download-shows.md)). Published images **extended** it again, to the installation, and showed a project's software holding a version its own lockfile did not name ([what an image holds](../articles/what-an-image-holds.md)). A sample of images around a later release confirmed two paces, ranges within days and pins waiting, and **branched** into what moves a pin, where a security advisory seemed to ([what moves a pin](../articles/what-moves-a-pin.md)). Four libraries **revised** that: pins moved over weeks, after both release and advisory, with no burst ([pins move over weeks](../articles/pins-move-over-weeks.md)). Fixes' own notes then **narrowed** the question to whether a fix that says so draws pins sooner, which fourteen libraries suggested ([fixes that said so](../articles/fixes-that-said-so.md)). Thirty libraries **revised** that to unsettled: pooled it leans that way, library by library we could not tell ([the lead was a few libraries](../articles/the-lead-was-a-few-libraries.md)). Back on the fast half of the road, 37 of the most downloaded Python libraries **tested** the two-day pace: for 26 a new release was half of the downloads within two days, and for eleven no release was ([the latest reading](../articles/two-days-for-most.md)). [Where does a software update go once it is released?](../articles/where-software-updates-go.md) draws the whole together, and is the place to start.
 
 The reading order above puts that account first and then the pieces in the order they were written, so that a reader who starts with the whole is led on through the steps that built it, and the last piece is the latest reading.
 
@@ -36,11 +38,12 @@ The reading order above puts that account first and then the pieces in the order
 - From installation to what moves a pin: images showed that pinned software waits, so the question became what ends the wait.
 - From advisories to the fix's own notes: fixes came out before their advisories, so a move "before the advisory" was not a move before anyone knew.
 - From fourteen libraries to thirty: two libraries carried the lead, so each library had to count once.
-- From the notes back to downloads: five months of advisories held too few libraries, so the next reading returns to how fast releases reach downloads.
+- From the notes back to downloads: five months of advisories held too few libraries, so the next reading returned to how fast releases reach downloads.
+- From the pace to what holds it: the two-day pace held for most libraries but not for eleven, whose older versions kept most of the downloads, so the question became what holds them back.
 
 ## Where the evidence stands
 
-Attention says where we are looking; this says how firm the findings are. That a new release can reach half of a library's downloads within two days rests on one release of one library. That software built from open ranges took a release within days while pinned software waited showed in the published images of one library's dependents, and that pins move to security fixes over weeks held across four libraries. Whether a fix whose own notes say so draws pins sooner is not settled. No reading checked whether any project was exposed, and none can see software run.
+Attention says where we are looking; this says how firm the findings are. That a new release reaches half of a library's downloads within two days holds for most of the most downloaded Python libraries, 26 of the 37 that released between April and August 2026, but not as a rule: for eleven no release did within two days, and why was not measured. In those releases' first three days, downloads flagged as builds were a smaller share of the new version's than of the replaced version's, in every library's typical release; the flag is a floor on builds. That software built from open ranges took a release within days while pinned software waited showed in the published images of one library's dependents, and that pins move to security fixes over weeks held across four libraries. Whether a fix whose own notes say so draws pins sooner is not settled. No reading checked whether any project was exposed, and none can see software run.
 
 ## Beside it
 
@@ -49,4 +52,4 @@ Attention says where we are looking; this says how firm the findings are. That a
 
 ## What is next
 
-The question of fixes that say so rests unsettled: five months of advisories against the 500 most downloaded Python projects did not hold enough libraries to press it further, and a longer window may one day. The next reading goes back to the fast half of the road: whether a new release of a widely used library reaches half of its downloads within two days as a rule, as one did, and how much of that is automated builds rather than people. Its [brief](../studies/LH011/brief.md) was written before any download was read and no reading has begun; [the programme](../programme.md) says why it comes next and names the questions after it.
+The question of fixes that say so rests unsettled: five months of advisories against the 500 most downloaded Python projects did not hold enough libraries to press it further, and a longer window may one day. The two-day pace has been read across 37 of the most downloaded libraries ([the latest reading](../articles/two-days-for-most.md)), and the next question is why eleven of them lag: whether their older versions' downloads sit on a few versions, as other libraries' version bounds would make them, or spread with the Python versions a newer release no longer supports. [The programme](../programme.md) says why it comes next and what else was weighed.
