@@ -1,0 +1,6 @@
+group yes: 26 projects; day-0 medians from 7.6 to 68.2 (highest: [('pathspec', 68.2), ('typing-extensions', 52.9), ('pygments', 51.1)])
+   over days 1 to 30, lowest project median 48.9 (pydantic, day 14), highest 84.9 (certifi, day 11)
+group no: 11 projects; day-0 medians from 1.2 to 10.4 (highest: [('pytest', 10.4), ('grpcio-status', 6.6), ('numpy', 6.1)])
+   over days 1 to 30, lowest project median 1.9 (aiobotocore, day 3), highest 37.4 (s3transfer, day 19)
+CI installer downloads total 5765627058 flag known share 0.982613
+projects whose day-0 median is not below their day-1 median: none (all 37 rise from day 0 to day 1)

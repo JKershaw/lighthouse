@@ -55,9 +55,9 @@ low = sorted(no, key=lambda p: dict(series[p])[1])
 o.append('<desc id="d">A line chart with one line for each of 37 Python libraries. The horizontal axis is days since a '
          'release, from 0 to 30; the vertical axis is the share of that day\'s downloads of the library that were the new '
          'release or a later one, the median over the library\'s releases, from 0 to 100 per cent, with a dashed line at half. '
-         f'Every line is low on the day of release, rises on the next day, and then runs nearly flat for the rest of the month. '
+         f'Every line starts lower on the day of release than the day after, rises on that next day, and then runs nearly flat for the rest of the month. '
          f'{len(yes)} lines, in blue, are libraries where most releases reached half within two days; they sit between about '
-         '50 and 83 per cent from day 1 onwards. '
+         '49 and 85 per cent from day 1 onwards. '
          f'{len(no)} lines, in orange, are libraries where none did; they sit between about 2 and 37 per cent all month: '
          + ', '.join(f'{p} {dict(series[p])[1] * 100:.0f}' for p in low)
          + ' per cent on day 1. ClickPy\'s copy of the Python Package Index download log, read 28 September 2026.</desc>')

@@ -1,0 +1,52 @@
+[Q1 2026-09-28T20:28:38Z] numpy 2.4.5 day 1 (2026-05-16) by version: HTTP 200, 138 rows
+    SELECT version, sum(count) AS downloads FROM pypi.pypi_downloads_per_day_by_version WHERE project = 'numpy' AND date = '2026-05-16' GROUP BY version
+    retained: total 24,694,276, named versions 1 summing 9,916,266, ~other 14,778,010
+    live:     total 24,694,276, same named versions summing 9,916,266, rest 14,778,010
+    named versions differing: none; own 2.4.5: retained 9916266, live 9916266
+    at-or-newer share day 1: retained 0.4016, live 0.4016
+[Q2 2026-09-28T20:28:39Z] boto3 1.42.81 day 1 (2026-04-02) by version: HTTP 200, 2007 rows
+    SELECT version, sum(count) AS downloads FROM pypi.pypi_downloads_per_day_by_version WHERE project = 'boto3' AND date = '2026-04-02' GROUP BY version
+    retained: total 69,013,547, named versions 2 summing 9,472,165, ~other 59,541,382
+    live:     total 69,013,547, same named versions summing 9,472,165, rest 59,541,382
+    named versions differing: none; own 1.42.81: retained 7815068, live 7815068
+    at-or-newer share day 1: retained 0.1373, live 0.1373
+[Q3 2026-09-28T20:28:39Z] requests 2.34.0 day 1 (2026-05-12) by version: HTTP 200, 158 rows
+    SELECT version, sum(count) AS downloads FROM pypi.pypi_downloads_per_day_by_version WHERE project = 'requests' AND date = '2026-05-12' GROUP BY version
+    retained: total 64,346,148, named versions 1 summing 35,233,968, ~other 29,112,180
+    live:     total 64,346,148, same named versions summing 35,233,968, rest 29,112,180
+    named versions differing: none; own 2.34.0: retained 35233968, live 35233968
+    at-or-newer share day 1: retained 0.5476, live 0.5476
+[Q4 2026-09-28T20:28:39Z] pandas 3.0.3 day 1 (2026-05-12) by version: HTTP 200, 121 rows
+    SELECT version, sum(count) AS downloads FROM pypi.pypi_downloads_per_day_by_version WHERE project = 'pandas' AND date = '2026-05-12' GROUP BY version
+    retained: total 25,742,566, named versions 1 summing 7,134,370, ~other 18,608,196
+    live:     total 25,742,566, same named versions summing 7,134,370, rest 18,608,196
+    named versions differing: none; own 3.0.3: retained 7134370, live 7134370
+    at-or-newer share day 1: retained 0.2771, live 0.2771
+[Q5 2026-09-28T20:28:39Z] certifi 2026.4.22 day 1 (2026-04-23) by version: HTTP 200, 72 rows
+    SELECT version, sum(count) AS downloads FROM pypi.pypi_downloads_per_day_by_version WHERE project = 'certifi' AND date = '2026-04-23' GROUP BY version
+    retained: total 60,914,158, named versions 1 summing 46,507,932, ~other 14,406,226
+    live:     total 60,914,158, same named versions summing 46,507,932, rest 14,406,226
+    named versions differing: none; own 2026.4.22: retained 46507932, live 46507932
+    at-or-newer share day 1: retained 0.7635, live 0.7635
+[Q6 2026-09-28T20:28:40Z] per-day totals for the same project-days: HTTP 200, 4 rows
+    SELECT project, date, sum(count) AS downloads FROM pypi.pypi_downloads_per_day WHERE (project, date) IN (('numpy','2026-05-16'),('boto3','2026-04-02'),('requests','2026-05-12'),('pandas','2026-05-12')) GROUP BY project, date
+    ('boto3', '2026-04-02'): live 69,013,547, retained 69,013,547
+    ('numpy', '2026-05-16'): live 24,694,276, retained 24,694,276
+    ('requests', '2026-05-12'): live 64,346,148, retained 64,346,148
+    ('pandas', '2026-05-12'): live 25,742,566, retained 25,742,566
+[Q7 2026-09-28T20:28:40Z] CI read pathspec 1.1.0 against 1.0.4, days 0 to 2: HTTP 200, 97 rows
+    SELECT date, version, installer, ci, count() AS downloads FROM pypi.pypi WHERE project = 'pathspec' AND date BETWEEN '2026-04-23' AND '2026-04-25' AND version IN ('1.1.0', '1.0.4') GROUP BY date, version, installer, ci
+    rows: retained 35, live 35; cells differing: 0
+    pip+uv CI share new: retained 0.3947, live 0.3947; old: retained 0.6926, live 0.6926
+    total downloads: retained 51,051,997, live 51,051,997
+[Q8 2026-09-28T20:28:40Z] CI read aiobotocore 3.4.0 against 3.3.0, days 0 to 2: HTTP 200, 68 rows
+    SELECT date, version, installer, ci, count() AS downloads FROM pypi.pypi WHERE project = 'aiobotocore' AND date BETWEEN '2026-04-07' AND '2026-04-09' AND version IN ('3.4.0', '3.3.0') GROUP BY date, version, installer, ci
+    rows: retained 25, live 25; cells differing: 0
+    pip+uv CI share new: retained 0.1502, live 0.1502; old: retained 0.2670, live 0.2670
+    total downloads: retained 3,285,950, live 3,285,950
+PyPI JSON API, earliest file upload_time_iso_8601 against data/releases.csv first_upload_utc:
+    [2026-09-28T20:28:41Z] requests 2.34.0: HTTP 200, earliest file 2026-05-11T19:29:49.923155Z, retained 2026-05-11T19:29:49.923155Z, match True, yanked False
+    [2026-09-28T20:28:41Z] pandas 3.0.3: HTTP 200, earliest file 2026-05-11T18:52:11.558737Z, retained 2026-05-11T18:52:11.558737Z, match True, yanked False
+    [2026-09-28T20:28:41Z] numpy 2.4.5: HTTP 200, earliest file 2026-05-15T20:22:23.036152Z, retained 2026-05-15T20:22:23.036152Z, match True, yanked False
+    [2026-09-28T20:28:41Z] boto3 1.42.81: HTTP 200, earliest file 2026-04-01T19:35:32.710186Z, retained 2026-04-01T19:35:32.710186Z, match True, yanked False
+ClickPy queries used: 8

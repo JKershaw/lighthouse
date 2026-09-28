@@ -1,0 +1,32 @@
+== the opening example: pandas 3.0.3 and requests 2.34.0
+requests 2.34.0 uploaded 2026-05-11T19:29:49.923155Z next newest 2.34.1 hours to next 47.84
+pandas 3.0.3 uploaded 2026-05-11T18:52:11.558737Z next newest 3.0.4 hours to next 1148.63
+requests 2.34.0 day 1 2026-05-12 total 64346148 at_or_newer 35233968 own 35233968 share 0.547569
+requests 2.34.0 day 30 2026-06-10 total 63223688 at_or_newer 38359971 own 303650 share 0.606734
+pandas 3.0.3 day 1 2026-05-12 total 25742566 at_or_newer 7134370 own 7134370 share 0.277143
+pandas 3.0.3 day 30 2026-06-10 total 29057673 at_or_newer 9392238 own 9392238 share 0.323227
+requests releases in window: ['2.34.0', '2.34.1', '2.34.2']
+pandas releases in window: ['3.0.3', '3.0.4', '3.0.5']
+== hours left in day 0: median 4.5
+== kinds: {'major': 5, 'minor': 95, 'patch': 324} released again within 7d: 310 yanked: [('charset-normalizer', '3.4.8'), ('pandas', '3.0.4'), ('grpcio-status', '1.82.0')] ci subsample: 104
+== single-release projects: ['annotated-types', 'pygments', 'pyjwt', 'python-dotenv', 'typing-extensions', 'urllib3'] all reached: True
+== reached half by day 30: 139 on day 0: 23 median day: 1
+   litellm reaching: 6 of 46 median day 25.0
+== the eleven: median day-1, day-2, day-30 shares (per cent, two decimals)
+   aiobotocore: 1.98 1.96 2.52
+   boto3: 7.46 7.62 12.23
+   litellm: 9.50 8.48 21.02
+   grpcio-status: 10.21 9.70 14.51
+   fsspec: 21.32 21.03 22.33
+   botocore: 23.40 23.55 26.86
+   protobuf: 24.64 25.69 32.49
+   pandas: 27.71 27.43 32.32
+   pytest: 29.33 28.40 35.25
+   numpy: 29.51 28.38 27.63
+   s3transfer: 33.97 33.81 37.05
+== the 26: day-1 median range 0.507444 0.767477 day-30 range 0.528893 0.822101
+== projects whose day-30 median is more than 10 points from day-1 median: [('aiohttp', 55.2, 65.6), ('pyjwt', 57.6, 72.3), ('litellm', 9.5, 21.0)]
+== mixed projects: [('starlette', '9', '11'), ('pydantic', '5', '6'), ('uvicorn', '14', '16'), ('pydantic-core', '5', '7'), ('cryptography', '6', '7')]
+== CI largest gaps: [('pathspec', -29.8, '1'), ('pydantic-core', -29.7, '3'), ('pydantic', -16.9, '3'), ('platformdirs', -16.8, '4'), ('rpds-py', -16.7, '2'), ('aiohttp', -16.6, '2')] smallest: [('litellm', -0.8), ('boto3', -0.4), ('botocore', -0.3)]
+== cross-check days 15 identical 9 largest 0.016301 pygments rows [('2026-08-18', '-0.014574'), ('2026-08-19', '-0.016301'), ('2026-08-20', '-0.015020')]
+== read log: rows read for C reads 5808627712 first G/V/C read 2026-09-28T19:59:25Z last read 2026-09-28T20:02:56Z reads by source {'ClickPy (ClickHouse public demo)': 152, 'pypistats.org': 5, 'PyPI JSON API': 54, 'files.pythonhosted.org': 4}

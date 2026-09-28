@@ -1,6 +1,6 @@
 published: 2026-09-28
 summary: For most of the most downloaded Python libraries, a new release was half of all their downloads within two days. For eleven, among them boto3, numpy and pandas, no release was within two days. The log that shows it counts downloads, not installations.
-status: draft
+status: released
 investigation: software-updates
 
 # Within two days, a new release was half the downloads of most big Python libraries, and of some it never was
@@ -17,9 +17,9 @@ The main limit is that a download is not an installation, and never a run. Why t
 
 ---
 
-**Colophon.** Written as a standalone brief by a Lighthouse writing agent on Opus 5.5 from [the full piece](../two-days-for-most.md) and [the study record](../../studies/LH011/LH011.md). Reviewed by: to be completed at release. Version 0.1 (draft), 28 September 2026.
+**Colophon.** Written as a standalone brief by a Lighthouse writing agent on Opus 5.5 from [the full piece](../two-days-for-most.md) and [the study record](../../studies/LH011/LH011.md). Reviewed with the full piece by a Lighthouse review agent on Fable 5.1 ([the review](../../notes/R-0014.md)). Version 1.0, 28 September 2026.
 
-- **Methods and full record.** [The study record](../../studies/LH011/LH011.md), version 0.1, its [brief](../../studies/LH011/brief.md) and [directory](../../studies/LH011/).
+- **Methods and full record.** [The study record](../../studies/LH011/LH011.md), version 0.2, its [brief](../../studies/LH011/brief.md) and [directory](../../studies/LH011/).
 - **Sources.** ClickHouse's public copy of the download log, the Python Package Index, pip's and uv's source code and pypistats.org, all read on 28 September 2026, listed with read times in [the record's sources](../../studies/LH011/sources.md).
 - **Corrections.** None; see [what has been released, and when](../../releases.md).
 

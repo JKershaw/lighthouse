@@ -1,0 +1,35 @@
+releases 424 projects 37
+pooled reached half within two days 127 of 424 0.2995
+projects where most releases reached half 26 of 37 0.7027
+all reached: 21 none reached: 11
+median of project median day-1 shares 0.5760 quartiles (inclusive) ['0.2951', '0.5760', '0.6902']
+  quartiles (exclusive method) ['0.2942', '0.5760', '0.6925']
+  plateau aiobotocore: median day-1 1.98, n=6
+  plateau boto3: median day-1 7.46, n=103
+  plateau litellm: median day-1 9.50, n=46
+  plateau grpcio-status: median day-1 10.21, n=6
+  plateau fsspec: median day-1 21.32, n=3
+  plateau botocore: median day-1 23.40, n=103
+  plateau protobuf: median day-1 24.64, n=4
+  plateau pandas: median day-1 27.71, n=3
+  plateau pytest: median day-1 29.33, n=3
+  plateau numpy: median day-1 29.51, n=5
+  plateau s3transfer: median day-1 33.97, n=7
+share of projects 95% interval (percentile, my resampler): 0.5405 0.8378
+releases reaching half by day 30 (or last day held) 139 median day 1
+projects with no release reaching half by day 30: 10 ['aiobotocore', 'boto3', 'botocore', 'fsspec', 'grpcio-status', 'numpy', 'pandas', 'protobuf', 'pytest', 's3transfer']
+projects with day-30 median within 10 points of day-1 median 34 of 37
+CI subsample releases 104 new below old 96
+CI projects 37 projects with median diff below zero 37
+median of project median diffs, pp -6.6049
+median of project median new CI share 0.3222 old 0.4071
+pooled new 0.3393 pooled old 0.3999
+projects whose median new share exceeds median old share (difference of medians): ['boto3', 'botocore', 'litellm']
+CI median of project medians 95% interval (my resampler): -11.4284 -4.9639
+  boto3: median diff -0.36, median new 33.5, median old 32.6, diffs [-0.72, -1.78, 0.93, -0.36, 0.51]
+  botocore: median diff -0.33, median new 29.0, median old 27.6, diffs [-0.61, -2.91, 1.44, -0.33, 0.75]
+  litellm: median diff -0.76, median new 9.1, median old 6.7, diffs [-0.76, -26.58, -9.91, 2.31, 4.18]
+  pathspec: median diff -29.79, median new 39.5, median old 69.3, diffs [-29.79]
+  pydantic-core: median diff -29.66, median new 23.9, median old 53.6, diffs [-29.66, -8.89, -34.32]
+day-30 medians of the eleven (4 decimals): {'boto3': 12.2303, 'botocore': 26.8575, 'numpy': 27.6346, 'pytest': 35.2508, 'aiobotocore': 2.5184, 'protobuf': 32.4861, 'fsspec': 22.3277, 's3transfer': 37.0493, 'pandas': 32.3227, 'grpcio-status': 14.5105, 'litellm': 21.0197}
+difference of medians (new minus old, pp) for the daily releasers: {'boto3': 0.934, 'botocore': 1.435, 'litellm': 2.309}
