@@ -82,7 +82,7 @@ for gap, a, b in gaps:
 
 print()
 print('5. The same releases read two ways: LH008\'s four fixes, which are LH011 releases')
-print('library, fixed release, LH011 at-or-newer share day 1, day 30, LH008 pinned pairs, moved within 30 days of release, moved by the head as cloned')
+print('library, fixed release, LH011 at-or-newer share day 1, day 30, rise (points), LH008 pinned pairs, moved within 30 days of release, moved by the head as cloned')
 ev = [r for r in csv.DictReader(open(os.path.join(LH008, 'events.csv'))) if r['chosen'] == 'yes']
 lags = [r for r in csv.DictReader(open(os.path.join(LH008, 'lags.csv'))) if r['kind'] == 'fix']
 tp = tm = 0
@@ -93,6 +93,7 @@ for e in ev:
     moved = sum(1 for r in pairs if r['outcome'] == 'moved')
     tp += len(pairs); tm += moved30
     d1, d30 = rel_day.get((lib, v, 1)), rel_day.get((lib, v, 30))
+    rise = f'{(d30 - d1) * 100:+.1f}' if d1 is not None and d30 is not None else ''
     print(f'{lib}, {v}, {pct(d1) if d1 is not None else "not an LH011 release"}, '
-          f'{pct(d30) if d30 is not None else "not held"}, {len(pairs)}, {moved30}, {moved}')
+          f'{pct(d30) if d30 is not None else "not held"}, {rise}, {len(pairs)}, {moved30}, {moved}')
 print(f'all four: {tm} of {tp} pinned pairs moved within 30 days of the release')

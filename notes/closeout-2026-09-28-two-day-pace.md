@@ -36,3 +36,19 @@ Three subagents cost $9.35:
 - release review: $3.57 (Fable 5.1)
 
 The driving session cost about $2.2 to the time of this line, which leaves out the commit and merge. The total is about $11.5, within the bound of about twenty dollars.
+
+## Addendum: the revision of the same evening
+
+After the keeper read the released piece, it went to version 1.1 and its record to version 0.3, reviewed in notes/R-0015.md.
+
+- **The current account.**
+  - A low share of downloads is no longer read as slow uptake, because the log counts fetches.
+  - The first-day observation is labelled as a reading made after the counts, to be measured on releases not yet read. For 34 of 37 libraries, the day-30 median was within ten points of day 1.
+  - Part of every library's downloads stayed on older versions for the month (derived measurement, post hoc): 18 to 47 per cent in the 26 libraries where new releases took over, and 63 to 97 per cent in the eleven.
+- **The next outward question, revised.** What keeps older versions downloaded after a new release, across all 37 libraries, and which explanations the public record can rule out: dependents' version bounds, Python compatibility, or environments rebuilt from frozen lists (issue #14; programme.md, the 28 September checkpoint as revised).
+- **Known before that brief, to be disclosed in it.** The same four releases read two ways: 50 of LH008's 102 pinned repository pairs moved to the fix within 30 days, while the releases' download shares rose by 3.4 to 14.7 points.
+- **Instructions.** AGENTS.md gained rules on absolutes in titles, pre-set labels, search results as leads, primary sources before a brief, what a count counts, selecting on the outcome, and rendered figures. CLAUDE.md gained a fast-forward command, a render command and a note on which hosts answered.
+- **Spend of the revision.**
+  - The review: $3.49 (Fable 5.1).
+  - The driving session: $7.22 in all since 19:50 UTC, the drive's $2.1 included, to the time of this line.
+  - The session as a whole: about $20.1 at list rates, at the bound of about twenty dollars.

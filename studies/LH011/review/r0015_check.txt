@@ -1,0 +1,69 @@
+release_days.csv statuses: {'known': 13126, 'censored (after last day held)': 18}
+
+1. day-1 and day-30 medians over each project's releases, and the ten-point band
+project, group, n day 1, n day 30, day 1, day 30, difference, day1/day30
+certifi, yes, 4, 4, 76.7, 80.1, 3.4, 96 per cent
+packaging, yes, 3, 3, 76.3, 80.8, 4.5, 94 per cent
+charset-normalizer, yes, 5, 5, 75.8, 77.6, 1.7, 98 per cent
+typing-extensions, yes, 1, 1, 75.6, 82.2, 6.7, 92 per cent
+idna, yes, 8, 8, 73.4, 80.0, 6.6, 92 per cent
+pathspec, yes, 2, 2, 73.1, 77.3, 4.1, 95 per cent
+tqdm, yes, 8, 8, 70.4, 72.2, 1.9, 97 per cent
+pygments, yes, 1, 1, 70.1, 65.8, -4.3, 107 per cent
+annotated-types, yes, 1, 1, 69.5, 73.5, 4.0, 94 per cent
+cffi, yes, 2, 2, 69.0, 66.6, -2.4, 104 per cent
+anyio, yes, 3, 3, 68.8, 70.4, 1.6, 98 per cent
+typing-inspection, yes, 2, 2, 67.0, 61.4, -5.6, 109 per cent
+click, yes, 6, 6, 63.8, 65.8, 2.0, 97 per cent
+filelock, yes, 21, 20, 60.9, 67.1, 6.2, 91 per cent
+urllib3, yes, 1, 1, 60.8, 66.3, 5.6, 92 per cent
+platformdirs, yes, 9, 9, 60.3, 62.7, 2.3, 96 per cent
+rpds-py, yes, 2, 2, 58.3, 63.3, 5.0, 92 per cent
+python-dotenv, yes, 1, 1, 57.9, 52.9, -5.0, 110 per cent
+pyjwt, yes, 1, 1, 57.6, 72.3, 14.7, 80 per cent
+uvicorn, yes, 16, 16, 56.8, 57.4, 0.6, 99 per cent
+pydantic-core, yes, 7, 7, 56.5, 61.6, 5.0, 92 per cent
+aiohttp, yes, 4, 4, 55.2, 65.6, 10.4, 84 per cent
+requests, yes, 3, 3, 54.8, 60.7, 5.9, 90 per cent
+cryptography, yes, 7, 7, 54.7, 58.2, 3.5, 94 per cent
+starlette, yes, 11, 11, 53.3, 57.3, 4.0, 93 per cent
+pydantic, yes, 6, 6, 50.7, 54.3, 3.5, 93 per cent
+s3transfer, no, 7, 7, 34.0, 37.0, 3.1, 92 per cent
+numpy, no, 5, 5, 29.5, 27.6, -1.9, 107 per cent
+pytest, no, 3, 3, 29.3, 35.3, 5.9, 83 per cent
+pandas, no, 3, 3, 27.7, 32.3, 4.6, 86 per cent
+protobuf, no, 4, 3, 24.6, 32.5, 7.8, 76 per cent
+botocore, no, 103, 101, 23.4, 26.9, 3.5, 87 per cent
+fsspec, no, 3, 3, 21.3, 22.3, 1.0, 95 per cent
+grpcio-status, no, 6, 6, 10.2, 14.5, 4.3, 70 per cent
+litellm, no, 46, 46, 9.5, 21.0, 11.5, 45 per cent
+boto3, no, 103, 101, 7.5, 12.2, 4.8, 61 per cent
+aiobotocore, no, 6, 6, 2.0, 2.5, 0.5, 78 per cent
+within ten points: 34 of 37 projects with day 30 held
+outside: ['pyjwt', 'aiohttp', 'litellm']
+
+2. one minus the day-30 median, by group
+yes: 26 projects; from 17.8 (typing-extensions) to 47.1 (python-dotenv); median 33.9; whole numbers 18 to 47
+no: 11 projects; from 63.0 (s3transfer) to 97.5 (aiobotocore); median 73.1; whole numbers 63 to 97
+
+3. day-1 median as a share of the day-30 median
+no: litellm 45; boto3 61; grpcio-status 70; protobuf 76; aiobotocore 78; pytest 83; pandas 86; botocore 87; s3transfer 92; fsspec 95; numpy 107
+   range 45 to 107 per cent; between 70 and 107 inclusive: 9 of 11
+yes: pyjwt 80; aiohttp 84; requests 90; filelock 91; urllib3 92; idna 92; pydantic-core 92; typing-extensions 92; rpds-py 92; starlette 93; pydantic 93; cryptography 94; packaging 94; annotated-types 94; pathspec 95; certifi 96; platformdirs 96; click 97; tqdm 97; anyio 98; charset-normalizer 98; uvicorn 99; cffi 104; pygments 107; typing-inspection 109; python-dotenv 110
+   range 80 to 110 per cent; between 70 and 107 inclusive: 24 of 26
+
+4. widest gaps between neighbouring median day-1 shares in project_outcomes.csv
+16.8 points: s3transfer 34.0 to pydantic 50.7
+11.1 points: grpcio-status 10.2 to fsspec 21.3
+5.5 points: aiobotocore 2.0 to boto3 7.5
+the gap containing 0.5: [('s3transfer', Decimal('34.0'), 'pydantic', Decimal('50.7'))]
+
+5. LH008's chosen fixes that are LH011 releases, and their pinned pairs
+chosen events: [('urllib3', '2.7.0'), ('cryptography', '48.0.1'), ('pyjwt', '2.13.0'), ('starlette', '1.1.0')]
+lags.csv kinds: {'comparison': 91, 'fix': 102}
+lags.csv outcomes (fix rows): {'censored at the head as cloned': 28, 'moved': 73, 'removed': 1}
+urllib3 2.7.0: frames ['urllib3:fix']; pairs 32; moved 18; moved within 30 days by committer time 13 (by author time 13); LH011 share day 1 60.8, day 30 66.3, rise 5.6 points
+cryptography 48.0.1: frames ['cryptography:fix']; pairs 34; moved 25; moved within 30 days by committer time 18 (by author time 18); LH011 share day 1 54.7, day 30 60.1, rise 5.4 points
+pyjwt 2.13.0: frames ['pyjwt:fix']; pairs 29; moved 25; moved within 30 days by committer time 15 (by author time 15); LH011 share day 1 57.6, day 30 72.3, rise 14.7 points
+starlette 1.1.0: frames ['starlette:fix']; pairs 7; moved 5; moved within 30 days by committer time 4 (by author time 4); LH011 share day 1 53.8, day 30 57.3, rise 3.4 points
+all: 50 of 102 pinned pairs moved within 30 days of the release

@@ -62,9 +62,9 @@ numpy: 107 per cent
 5.5 points, from aiobotocore 2.0 to boto3 7.5
 
 5. The same releases read two ways: LH008's four fixes, which are LH011 releases
-library, fixed release, LH011 at-or-newer share day 1, day 30, LH008 pinned pairs, moved within 30 days of release, moved by the head as cloned
-urllib3, 2.7.0, 60.8, 66.3, 32, 13, 18
-cryptography, 48.0.1, 54.7, 60.1, 34, 18, 25
-pyjwt, 2.13.0, 57.6, 72.3, 29, 15, 25
-starlette, 1.1.0, 53.8, 57.3, 7, 4, 5
+library, fixed release, LH011 at-or-newer share day 1, day 30, rise (points), LH008 pinned pairs, moved within 30 days of release, moved by the head as cloned
+urllib3, 2.7.0, 60.8, 66.3, +5.6, 32, 13, 18
+cryptography, 48.0.1, 54.7, 60.1, +5.4, 34, 18, 25
+pyjwt, 2.13.0, 57.6, 72.3, +14.7, 29, 15, 25
+starlette, 1.1.0, 53.8, 57.3, +3.4, 7, 4, 5
 all four: 50 of 102 pinned pairs moved within 30 days of the release
