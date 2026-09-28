@@ -1,0 +1,65 @@
+read_utc,source,label,endpoint,query,http_status,rows_returned,read_rows,read_bytes,output
+2026-09-28 (a few minutes before the next row; run by hand before the logger existed),ClickPy (ClickHouse public demo),F00 probe by hand,https://sql-clickhouse.clickhouse.com/?user=demo,"SELECT version(), timezone(), getSetting('max_result_rows'), getSetting('max_rows_to_read'), getSetting('max_execution_time') FORMAT CSV",200,1,1,1,(not kept; headers only inspected)
+2026-09-28T19:53:35Z,ClickPy (ClickHouse public demo),F00 server and limits,https://sql-clickhouse.clickhouse.com/?user=demo,"SELECT version() AS server_version, timezone() AS tz, getSetting('max_result_rows') AS max_result_rows, getSetting('max_rows_to_read') AS max_rows_to_read, getSetting('max_bytes_to_read') AS max_bytes_to_read, getSetting('max_execution_time') AS max_execution_time FORMAT CSVWithNames",200,1,1,1,clickpy_server.csv
+2026-09-28T19:53:36Z,ClickPy (ClickHouse public demo),F01 schema,https://sql-clickhouse.clickhouse.com/?user=demo,"SELECT name, engine, total_rows, sorting_key, primary_key, create_table_query FROM system.tables WHERE database = 'pypi' ORDER BY name FORMAT CSVWithNames",200,40,40,19561,clickpy_schema.csv
+2026-09-28T19:53:37Z,ClickPy (ClickHouse public demo),F02 month column,https://sql-clickhouse.clickhouse.com/?user=demo,"SELECT name, type FROM system.columns WHERE database='pypi' AND table IN ('pypi_downloads_per_month','pypi_downloads_per_day_by_version','pypi','pypi_downloads_per_day') ORDER BY table, position FORMAT CSVWithNames",200,21,21,1662,clickpy_columns.csv
+2026-09-28T19:53:52Z,ClickPy (ClickHouse public demo),F03 top projects August 2026,https://sql-clickhouse.clickhouse.com/?user=demo,"SELECT project, sum(count) AS downloads FROM pypi.pypi_downloads_per_month WHERE month = '2026-08-01' GROUP BY project ORDER BY downloads DESC, project LIMIT 80 FORMAT CSVWithNames",200,80,1686802,44424916,clickpy_top_projects_2026_08.csv
+2026-09-28T19:54:22Z,PyPI JSON API,P01 boto3,https://pypi.org/pypi/boto3/json,,200,,,3289936,pypi_versions.csv
+2026-09-28T19:54:22Z,PyPI JSON API,P02 packaging,https://pypi.org/pypi/packaging/json,,200,,,90241,pypi_versions.csv
+2026-09-28T19:54:23Z,PyPI JSON API,P03 typing-extensions,https://pypi.org/pypi/typing-extensions/json,,200,,,97609,pypi_versions.csv
+2026-09-28T19:54:24Z,PyPI JSON API,P04 certifi,https://pypi.org/pypi/certifi/json,,200,,,113109,pypi_versions.csv
+2026-09-28T19:54:24Z,PyPI JSON API,P05 idna,https://pypi.org/pypi/idna/json,,200,,,65641,pypi_versions.csv
+2026-09-28T19:54:25Z,PyPI JSON API,P06 urllib3,https://pypi.org/pypi/urllib3/json,,200,,,160826,pypi_versions.csv
+2026-09-28T19:54:25Z,PyPI JSON API,P07 requests,https://pypi.org/pypi/requests/json,,200,,,192961,pypi_versions.csv
+2026-09-28T19:54:26Z,PyPI JSON API,P08 charset-normalizer,https://pypi.org/pypi/charset-normalizer/json,,200,,,2234972,pypi_versions.csv
+2026-09-28T19:54:27Z,PyPI JSON API,P09 cryptography,https://pypi.org/pypi/cryptography/json,,200,,,3219356,pypi_versions.csv
+2026-09-28T19:54:27Z,PyPI JSON API,P10 cffi,https://pypi.org/pypi/cffi/json,,200,,,1870503,pypi_versions.csv
+2026-09-28T19:54:28Z,PyPI JSON API,P11 pluggy,https://pypi.org/pypi/pluggy/json,,200,,,44872,pypi_versions.csv
+2026-09-28T19:54:29Z,PyPI JSON API,P12 pygments,https://pypi.org/pypi/pygments/json,,200,,,144964,pypi_versions.csv
+2026-09-28T19:54:29Z,PyPI JSON API,P13 pyyaml,https://pypi.org/pypi/pyyaml/json,,200,,,558621,pypi_versions.csv
+2026-09-28T19:54:30Z,PyPI JSON API,P14 botocore,https://pypi.org/pypi/botocore/json,,200,,,3837949,pypi_versions.csv
+2026-09-28T19:54:31Z,PyPI JSON API,P15 python-dateutil,https://pypi.org/pypi/python-dateutil/json,,200,,,53264,pypi_versions.csv
+2026-09-28T19:54:31Z,PyPI JSON API,P16 six,https://pypi.org/pypi/six/json,,200,,,40256,pypi_versions.csv
+2026-09-28T19:54:32Z,PyPI JSON API,P17 pydantic,https://pypi.org/pypi/pydantic/json,,200,,,1826224,pypi_versions.csv
+2026-09-28T19:54:32Z,PyPI JSON API,P18 numpy,https://pypi.org/pypi/numpy/json,,200,,,3672914,pypi_versions.csv
+2026-09-28T19:54:33Z,PyPI JSON API,P19 click,https://pypi.org/pypi/click/json,,200,,,102510,pypi_versions.csv
+2026-09-28T19:54:34Z,PyPI JSON API,P20 pycparser,https://pypi.org/pypi/pycparser/json,,200,,,32044,pypi_versions.csv
+2026-09-28T19:54:34Z,PyPI JSON API,P21 anyio,https://pypi.org/pypi/anyio/json,,200,,,117223,pypi_versions.csv
+2026-09-28T19:54:35Z,PyPI JSON API,P22 pytest,https://pypi.org/pypi/pytest/json,,200,,,282699,pypi_versions.csv
+2026-09-28T19:54:35Z,PyPI JSON API,P23 pydantic-core,https://pypi.org/pypi/pydantic-core/json,,200,,,12674952,pypi_versions.csv
+2026-09-28T19:54:36Z,PyPI JSON API,P24 iniconfig,https://pypi.org/pypi/iniconfig/json,,200,,,16844,pypi_versions.csv
+2026-09-28T19:54:37Z,PyPI JSON API,P25 aiobotocore,https://pypi.org/pypi/aiobotocore/json,,200,,,225289,pypi_versions.csv
+2026-09-28T19:54:37Z,PyPI JSON API,P26 annotated-types,https://pypi.org/pypi/annotated-types/json,,200,,,31556,pypi_versions.csv
+2026-09-28T19:54:38Z,PyPI JSON API,P27 h11,https://pypi.org/pypi/h11/json,,200,,,30401,pypi_versions.csv
+2026-09-28T19:54:39Z,PyPI JSON API,P28 attrs,https://pypi.org/pypi/attrs/json,,200,,,67159,pypi_versions.csv
+2026-09-28T19:54:39Z,PyPI JSON API,P29 typing-inspection,https://pypi.org/pypi/typing-inspection/json,,200,,,20393,pypi_versions.csv
+2026-09-28T19:54:40Z,PyPI JSON API,P30 protobuf,https://pypi.org/pypi/protobuf/json,,200,,,2464869,pypi_versions.csv
+2026-09-28T19:54:40Z,PyPI JSON API,P31 fsspec,https://pypi.org/pypi/fsspec/json,,200,,,149919,pypi_versions.csv
+2026-09-28T19:54:41Z,PyPI JSON API,P32 httpx,https://pypi.org/pypi/httpx/json,,200,,,119908,pypi_versions.csv
+2026-09-28T19:54:41Z,PyPI JSON API,P33 markupsafe,https://pypi.org/pypi/markupsafe/json,,200,,,832114,pypi_versions.csv
+2026-09-28T19:54:42Z,PyPI JSON API,P34 httpcore,https://pypi.org/pypi/httpcore/json,,200,,,115197,pypi_versions.csv
+2026-09-28T19:54:43Z,PyPI JSON API,P35 s3transfer,https://pypi.org/pypi/s3transfer/json,,200,,,101435,pypi_versions.csv
+2026-09-28T19:54:43Z,PyPI JSON API,P36 python-dotenv,https://pypi.org/pypi/python-dotenv/json,,200,,,109888,pypi_versions.csv
+2026-09-28T19:54:44Z,PyPI JSON API,P37 platformdirs,https://pypi.org/pypi/platformdirs/json,,200,,,135787,pypi_versions.csv
+2026-09-28T19:54:44Z,PyPI JSON API,P38 pandas,https://pypi.org/pypi/pandas/json,,200,,,2194030,pypi_versions.csv
+2026-09-28T19:54:45Z,PyPI JSON API,P39 jinja2,https://pypi.org/pypi/jinja2/json,,200,,,78076,pypi_versions.csv
+2026-09-28T19:54:46Z,PyPI JSON API,P40 pathspec,https://pypi.org/pypi/pathspec/json,,200,,,61254,pypi_versions.csv
+2026-09-28T19:54:46Z,PyPI JSON API,P41 grpcio-status,https://pypi.org/pypi/grpcio-status/json,,200,,,282213,pypi_versions.csv
+2026-09-28T19:54:47Z,PyPI JSON API,P42 filelock,https://pypi.org/pypi/filelock/json,,200,,,175120,pypi_versions.csv
+2026-09-28T19:54:47Z,PyPI JSON API,P43 pyjwt,https://pypi.org/pypi/pyjwt/json,,200,,,112244,pypi_versions.csv
+2026-09-28T19:54:48Z,PyPI JSON API,P44 starlette,https://pypi.org/pypi/starlette/json,,200,,,240779,pypi_versions.csv
+2026-09-28T19:54:48Z,PyPI JSON API,P45 uvicorn,https://pypi.org/pypi/uvicorn/json,,200,,,233464,pypi_versions.csv
+2026-09-28T19:54:49Z,PyPI JSON API,P46 litellm,https://pypi.org/pypi/litellm/json,,200,,,2101796,pypi_versions.csv
+2026-09-28T19:54:50Z,PyPI JSON API,P47 aiohttp,https://pypi.org/pypi/aiohttp/json,,200,,,9152581,pypi_versions.csv
+2026-09-28T19:54:50Z,PyPI JSON API,P48 tqdm,https://pypi.org/pypi/tqdm/json,,200,,,323617,pypi_versions.csv
+2026-09-28T19:54:51Z,PyPI JSON API,P49 jmespath,https://pypi.org/pypi/jmespath/json,,200,,,39435,pypi_versions.csv
+2026-09-28T19:54:52Z,PyPI JSON API,P50 rpds-py,https://pypi.org/pypi/rpds-py/json,,200,,,4894062,pypi_versions.csv
+2026-09-28T19:55:35Z,PyPI JSON API,I pip,https://pypi.org/pypi/pip/json,,200,,,228494,installer_versions.csv
+2026-09-28T19:55:36Z,files.pythonhosted.org,S pip 26.0.1,https://files.pythonhosted.org/packages/48/83/0d7d4e9efe3344b8e2fe25d93be44f64b65364d3c8d7bc6dc90198d5422e/pip-26.0.1.tar.gz,,200,,,1812747,/tmp/claude-0/-home-user-lighthouse/1d316742-ad44-59e1-a3b5-6a3527addf23/scratchpad/LH011/pip-26.0.1.tar.gz
+2026-09-28T19:55:36Z,files.pythonhosted.org,S pip 26.2.1,https://files.pythonhosted.org/packages/ae/15/4500e320e6b101ec3b719ae85b697d9940b6cda672bc555bd6016fc60c6f/pip-26.2.1.tar.gz,,200,,,1848877,/tmp/claude-0/-home-user-lighthouse/1d316742-ad44-59e1-a3b5-6a3527addf23/scratchpad/LH011/pip-26.2.1.tar.gz
+2026-09-28T19:55:36Z,PyPI JSON API,I uv,https://pypi.org/pypi/uv/json,,200,,,4886666,installer_versions.csv
+2026-09-28T19:55:37Z,files.pythonhosted.org,S uv 0.11.2,https://files.pythonhosted.org/packages/ba/9e/65dfeeafe5644a2e0bdd9dfdd4bdc37c87b06067fdff4596eeba0bc0f2f5/uv-0.11.2.tar.gz,,200,,,4010086,/tmp/claude-0/-home-user-lighthouse/1d316742-ad44-59e1-a3b5-6a3527addf23/scratchpad/LH011/uv-0.11.2.tar.gz
+2026-09-28T19:55:37Z,files.pythonhosted.org,S uv 0.12.8,https://files.pythonhosted.org/packages/b1/38/53754ae5033d0dbfe01976249e4b1b48539fe5080aeec162bc920f6244d6/uv-0.12.8.tar.gz,,200,,,7124914,/tmp/claude-0/-home-user-lighthouse/1d316742-ad44-59e1-a3b5-6a3527addf23/scratchpad/LH011/uv-0.12.8.tar.gz
+2026-09-28T19:56:08Z,PyPI JSON API,I pip,https://pypi.org/pypi/pip/json,,200,,,228494,installer_versions.csv
+2026-09-28T19:56:09Z,PyPI JSON API,I uv,https://pypi.org/pypi/uv/json,,200,,,4886666,installer_versions.csv
+2026-09-28T19:57:04Z,ClickPy (ClickHouse public demo),F04 coverage,https://sql-clickhouse.clickhouse.com/?user=demo,"SELECT project, min(min_date) AS first_day, max(max_date) AS last_day FROM pypi.pypi_downloads_max_min WHERE project IN ('boto3','packaging','typing-extensions','certifi','idna','urllib3','requests','charset-normalizer','cryptography','cffi','pluggy','pygments','pyyaml','botocore','python-dateutil','six','pydantic','numpy','click','pycparser','anyio','pytest','pydantic-core','iniconfig','aiobotocore','annotated-types','h11','attrs','typing-inspection','protobuf','fsspec','httpx','markupsafe','httpcore','s3transfer','python-dotenv','platformdirs','pandas','jinja2','pathspec','grpcio-status','filelock','pyjwt','starlette','uvicorn','litellm','aiohttp','tqdm','jmespath','rpds-py') GROUP BY project ORDER BY project FORMAT CSVWithNames",200,50,761856,15496164,clickpy_coverage.csv

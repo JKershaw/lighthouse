@@ -1,0 +1,293 @@
+==== pip 26.0.1 (pip-26.0.1.tar.gz, sha256 c4037d8a277c89b320abe636d59f91e6d0922d08a05b60e85e53b296613346d8) :: pip-26.0.1/src/pip/_internal/network/session.py
+   83  # This list is used to provide some indication of and lower bound for
+   84  # CI traffic to PyPI.  Thus, it is okay if the list is not comprehensive.
+   85  # For more background, see: https://github.com/pypa/pip/issues/5499
+   86  CI_ENVIRONMENT_VARIABLES = (
+   87      # Azure Pipelines
+   88      "BUILD_BUILDID",
+   89      # Jenkins
+   90      "BUILD_ID",
+   91      # AppVeyor, CircleCI, Codeship, Gitlab CI, Shippable, Travis CI
+   92      "CI",
+   93      # Explicit environment variable.
+   94      "PIP_IS_CI",
+   95  )
+   96  
+   97  
+   98  def looks_like_ci() -> bool:
+   99      """
+  100      Return whether it looks like pip is running under CI.
+  101      """
+  102      # We don't use the method of checking for a tty (e.g. using isatty())
+  103      # because some CI systems mimic a tty (e.g. Travis CI).  Thus that
+  104      # method doesn't provide definitive information in either direction.
+  105      return any(name in os.environ for name in CI_ENVIRONMENT_VARIABLES)
+  106  
+  107  
+  108  @functools.lru_cache(maxsize=1)
+  109  def user_agent() -> str:
+  110      """
+  111      Return a string representing the user agent.
+  112      """
+  195      # pip knows it is not being run under CI.  Rather, it is a null or
+  196      # inconclusive result.  Also, we include some value rather than no
+  197      # value to make it easier to know that the check has been run.
+  198      data["ci"] = True if looks_like_ci() else None
+  199  
+  200      user_data = os.environ.get("PIP_USER_AGENT_USER_DATA")
+  201      if user_data is not None:
+  349          self.pip_proxy = None
+  350  
+  351          # Attach our User Agent to the request
+  352          self.headers["User-Agent"] = user_agent()
+  353  
+  354          # Attach our Authentication handler to the session
+  355          self.auth: MultiDomainBasicAuth = MultiDomainBasicAuth(index_urls=index_urls)
+==== pip 26.0.1 (pip-26.0.1.tar.gz, sha256 c4037d8a277c89b320abe636d59f91e6d0922d08a05b60e85e53b296613346d8) :: pip-26.0.1/src/pip/_internal/utils/misc.py
+==== pip 26.2.1 (pip-26.2.1.tar.gz, sha256 f6ad667e89a1fe78046c8f13232b247200f5258d7828f3f7883d660878e0813f) :: pip-26.2.1/src/pip/_internal/network/session.py
+   46  from pip._internal.utils.glibc import libc_ver
+   47  from pip._internal.utils.misc import (
+   48      build_url_from_netloc,
+   49      looks_like_ci,
+   50      parse_netloc,
+   51      redact_auth_from_url,
+   52  )
+   81  
+   82  
+   83  @functools.lru_cache(maxsize=1)
+   84  def user_agent() -> str:
+   85      """
+   86      Return a string representing the user agent.
+   87      """
+  170      # pip knows it is not being run under CI.  Rather, it is a null or
+  171      # inconclusive result.  Also, we include some value rather than no
+  172      # value to make it easier to know that the check has been run.
+  173      data["ci"] = True if looks_like_ci() else None
+  174  
+  175      user_data = os.environ.get("PIP_USER_AGENT_USER_DATA")
+  176      if user_data is not None:
+  333          self.refresh_package: set[str] = refresh_package or set()
+  334  
+  335          # Attach our User Agent to the request
+  336          self.headers["User-Agent"] = user_agent()
+  337  
+  338          # Pin Accept-Encoding so it doesn't vary with zstd availability (Python
+  339          # 3.14+ or backports.zstd); a varying value misses the cache for "Vary:
+==== pip 26.2.1 (pip-26.2.1.tar.gz, sha256 f6ad667e89a1fe78046c8f13232b247200f5258d7828f3f7883d660878e0813f) :: pip-26.2.1/src/pip/_internal/utils/misc.py
+   52      "ensure_dir",
+   53      "remove_auth_from_url",
+   54      "check_externally_managed",
+   55      "looks_like_ci",
+   56      "ConfiguredBuildBackendHookCaller",
+   57  ]
+   58  
+   73  # This list is used to provide some indication of and lower bound for
+   74  # CI traffic to PyPI.  Thus, it is okay if the list is not comprehensive.
+   75  # For more background, see: https://github.com/pypa/pip/issues/5499
+   76  CI_ENVIRONMENT_VARIABLES = (
+   77      # Azure Pipelines
+   78      "BUILD_BUILDID",
+   79      # Jenkins
+   80      "BUILD_ID",
+   81      # AppVeyor, CircleCI, Codeship, Gitlab CI, Shippable, Travis CI
+   82      "CI",
+   83      # Explicit environment variable.
+   84      "PIP_IS_CI",
+   85  )
+   86  
+   87  
+  805      )
+  806  
+  807  
+  808  def looks_like_ci() -> bool:
+  809      """
+  810      Return whether it looks like pip is running under CI.
+  811      """
+  812      # We don't use the method of checking for a tty (e.g. using isatty())
+  813      # because some CI systems mimic a tty (e.g. Travis CI).  Thus that
+  814      # method doesn't provide definitive information in either direction.
+  815      return any(name in os.environ for name in CI_ENVIRONMENT_VARIABLES)
+==== uv 0.11.2 (uv-0.11.2.tar.gz, sha256 ef226af1d814466df45dc8a746c5220a951643d0832296a00c30ac3db95a3a4c) :: uv-0.11.2/crates/uv-client/src/base_client.rs
+   45  use uv_version::version;
+   46  use uv_warnings::warn_user_once;
+   47  
+   48  use crate::linehaul::LineHaul;
+   49  use crate::middleware::OfflineMiddleware;
+   50  use crate::tls::{Certificates, read_identity};
+   51  use crate::{Connectivity, WrappedReqwestError};
+  466          connect_timeout: Duration,
+  467      ) -> (Client, Client) {
+  468          // Create user agent.
+  469          let mut user_agent_string = format!("uv/{}", version());
+  470  
+  471          // Add linehaul metadata.
+  472          let linehaul = LineHaul::new(self.markers, self.platform, self.subcommand.clone());
+  473          if let Ok(output) = serde_json::to_string(&linehaul) {
+  474              let _ = write!(user_agent_string, " {output}");
+  475          }
+  476  
+  477          // Load custom CA certificates from `SSL_CERT_FILE` and `SSL_CERT_DIR`.
+  479  
+  480          // Create a secure client that validates certificates.
+  481          let raw_client = self.create_client(
+  482              &user_agent_string,
+  483              read_timeout,
+  484              connect_timeout,
+  485              custom_certs.clone(),
+  489  
+  490          // Create an insecure client that accepts invalid certificates.
+  491          let raw_dangerous_client = self.create_client(
+  492              &user_agent_string,
+  493              read_timeout,
+  494              connect_timeout,
+  495              custom_certs,
+  502  
+  503      fn create_client(
+  504          &self,
+  505          user_agent: &str,
+  506          read_timeout: Duration,
+  507          connect_timeout: Duration,
+  508          custom_certs: Option<Vec<Certificate>>,
+  512          // Configure the builder.
+  513          let client_builder = ClientBuilder::new()
+  514              .http1_title_case_headers()
+  515              .user_agent(user_agent)
+  516              .pool_max_idle_per_host(20)
+  517              .read_timeout(read_timeout)
+  518              .connect_timeout(connect_timeout)
+==== uv 0.11.2 (uv-0.11.2.tar.gz, sha256 ef226af1d814466df45dc8a746c5220a951643d0832296a00c30ac3db95a3a4c) :: uv-0.11.2/crates/uv-client/src/linehaul.rs
+   42  }
+   43  
+   44  /// Linehaul structs were derived from
+   45  /// <https://github.com/pypi/linehaul-cloud-function/blob/1.0.1/linehaul/ua/datastructures.py>.
+   46  /// For the sake of parity, the nullability of all the values was kept intact.
+   47  #[derive(Debug, Clone, PartialEq, Deserialize, Serialize)]
+   48  pub struct LineHaul {
+   49      pub installer: Option<Installer>,
+   50      pub python: Option<String>,
+   51      pub implementation: Option<Implementation>,
+   55      pub openssl_version: Option<String>,
+   56      pub setuptools_version: Option<String>,
+   57      pub rustc_version: Option<String>,
+   58      pub ci: Option<bool>,
+   59  }
+   60  
+   61  /// Implements Linehaul information format as defined by
+   62  /// <https://github.com/pypa/pip/blob/24.0/src/pip/_internal/network/session.py#L109>.
+   63  /// This metadata is added to the user agent to enrich PyPI statistics.
+   64  impl LineHaul {
+   65      /// Initializes Linehaul information based on PEP 508 markers.
+   66      #[instrument(name = "linehaul", skip_all)]
+   67      pub fn new(
+   68          markers: Option<&MarkerEnvironment>,
+   69          platform: Option<&Platform>,
+   70          subcommand: Option<Vec<String>>,
+   71      ) -> Self {
+   72          // https://github.com/pypa/pip/blob/24.0/src/pip/_internal/network/session.py#L87
+   73          let looks_like_ci = [
+   74              EnvVars::BUILD_BUILDID,
+   75              EnvVars::BUILD_ID,
+   76              EnvVars::CI,
+   77              EnvVars::PIP_IS_CI,
+   78          ]
+   79          .iter()
+   80          .find_map(|&var_name| env::var(var_name).ok().map(|_| true));
+  147              setuptools_version: None,
+  148              // Calling rustc --version is likely too slow.
+  149              rustc_version: None,
+  150              ci: looks_like_ci,
+  151          }
+  152      }
+  153  }
+==== uv 0.12.8 (uv-0.12.8.tar.gz, sha256 dc6a191265fed5102d9678958b3a157c81e61246316f07e7d980c3616032f49d) :: uv-0.12.8/crates/uv-client/src/base_client.rs
+   35  use uv_version::version;
+   36  use uv_warnings::warn_user_once;
+   37  
+   38  use crate::linehaul::LineHaul;
+   39  use crate::middleware::{AzureStorageMiddleware, OfflineMiddleware};
+   40  use crate::tls::{Certificates, read_identity};
+   41  use crate::{Connectivity, MetadataRangeRequest, RetriableError, RetryState, UvRetryableStrategy};
+  537          connect_timeout: Duration,
+  538      ) -> Result<(Client, Client, CertificateSource), ClientBuildError> {
+  539          // Create user agent.
+  540          let mut user_agent_string = format!("uv/{}", version());
+  541  
+  542          // Add linehaul metadata.
+  543          let linehaul = LineHaul::new(self.markers, self.platform, self.subcommand.clone());
+  544          if let Ok(output) = serde_json::to_string(&linehaul) {
+  545              let _ = write!(user_agent_string, " {output}");
+  546          }
+  547  
+  548          let custom_certs = self
+  559  
+  560          // Create a secure client that validates certificates.
+  561          let raw_client = self.create_client(
+  562              &user_agent_string,
+  563              read_timeout,
+  564              connect_timeout,
+  565              custom_certs.clone(),
+  569  
+  570          // Create an insecure client that accepts invalid certificates.
+  571          let raw_dangerous_client = self.create_client(
+  572              &user_agent_string,
+  573              read_timeout,
+  574              connect_timeout,
+  575              custom_certs,
+  582  
+  583      fn create_client(
+  584          &self,
+  585          user_agent: &str,
+  586          read_timeout: Duration,
+  587          connect_timeout: Duration,
+  588          custom_certs: Option<Vec<Certificate>>,
+  592          // Configure the builder.
+  593          let client_builder = ClientBuilder::new()
+  594              .http1_title_case_headers()
+  595              .user_agent(user_agent)
+  596              .pool_max_idle_per_host(20)
+  597              .read_timeout(read_timeout)
+  598              .connect_timeout(connect_timeout)
+==== uv 0.12.8 (uv-0.12.8.tar.gz, sha256 dc6a191265fed5102d9678958b3a157c81e61246316f07e7d980c3616032f49d) :: uv-0.12.8/crates/uv-client/src/linehaul.rs
+   42  }
+   43  
+   44  /// Linehaul structs were derived from
+   45  /// <https://github.com/pypi/linehaul-cloud-function/blob/1.0.1/linehaul/ua/datastructures.py>.
+   46  /// For the sake of parity, the nullability of all the values was kept intact.
+   47  #[derive(Serialize)]
+   48  pub(crate) struct LineHaul {
+   49      installer: Option<Installer>,
+   50      python: Option<String>,
+   51      implementation: Option<Implementation>,
+   55      openssl_version: Option<String>,
+   56      setuptools_version: Option<String>,
+   57      rustc_version: Option<String>,
+   58      ci: Option<bool>,
+   59  }
+   60  
+   61  /// Implements Linehaul information format as defined by
+   62  /// <https://github.com/pypa/pip/blob/24.0/src/pip/_internal/network/session.py#L109>.
+   63  /// This metadata is added to the user agent to enrich PyPI statistics.
+   64  impl LineHaul {
+   65      /// Initializes Linehaul information based on PEP 508 markers.
+   66      #[instrument(name = "linehaul", skip_all)]
+   67      pub(crate) fn new(
+   68          markers: Option<&MarkerEnvironment>,
+   69          platform: Option<&Platform>,
+   70          subcommand: Option<Vec<String>>,
+   71      ) -> Self {
+   72          // https://github.com/pypa/pip/blob/24.0/src/pip/_internal/network/session.py#L87
+   73          let looks_like_ci = [
+   74              EnvVars::BUILD_BUILDID,
+   75              EnvVars::BUILD_ID,
+   76              EnvVars::CI,
+   77              EnvVars::PIP_IS_CI,
+   78          ]
+   79          .iter()
+   80          .find_map(|&var_name| env::var(var_name).ok().map(|_| true));
+  147              setuptools_version: None,
+  148              // Calling rustc --version is likely too slow.
+  149              rustc_version: None,
+  150              ci: looks_like_ci,
+  151          }
+  152      }
+  153  }
