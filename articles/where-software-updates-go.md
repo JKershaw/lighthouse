@@ -11,7 +11,7 @@ Most programs are built on libraries, code that other people wrote and that is f
 
 *27 September 2026 · Lighthouse*
 
-> **Later evidence, 28 September 2026.** Across 424 releases of 37 of the most downloaded Python libraries, a new release was half of the library's downloads within two days for most libraries, 26 of the 37, but not as a rule: for eleven, among them boto3, numpy and pandas, no release was, and older versions kept most of the downloads for a month. The two-day pace this account draws from one release of mcp is the usual pace for these libraries, not the only one. This is a wider follow-up, not a correction; the figures here stand. [The later reading](two-days-for-most.md).
+> **Later evidence, 28 September 2026.** Across 424 releases of 37 of the most downloaded Python libraries, a new release was half of the library's downloads within two days for 26 of the 37, and for eleven, among them boto3, numpy and pandas, no release was. In almost all of them, a new version took its share on its first full day and older versions kept the rest for the month, which we noticed after the counts were in. The two-day pace this account draws from one release of mcp is the usual pace for these libraries, not the only one, and a download counts fetches, so a low share is not by itself a slow spread. This is a wider follow-up, not a correction; the figures here stand. [The later reading](two-days-for-most.md).
 
 ## One release, followed outwards
 
@@ -81,7 +81,7 @@ We follow it because of the question this watch is kept for. AI systems now writ
 
 ## What comes next
 
-The question of whether a fix's own notes matter rests, unsettled, until there are more libraries to count than five months of advisories hold, with the choice of which notice counts as the warning fixed before anyone looks. The fast half of the road has since been measured more widely: for most of the most downloaded Python libraries a new release was half of the downloads within two days, and for eleven it never was ([the later reading](two-days-for-most.md)). What holds those eleven back is the next question.
+The question of whether a fix's own notes matter rests, unsettled, until there are more libraries to count than five months of advisories hold, with the choice of which notice counts as the warning fixed before anyone looks. The fast half of the road has since been measured more widely: for most of the most downloaded Python libraries a new release was half of the downloads within two days, and for eleven none was within the month we read, while in almost all of them older versions kept part of the downloads for the month ([the later reading](two-days-for-most.md)). What keeps older versions downloaded is the next question.
 
 ---
 

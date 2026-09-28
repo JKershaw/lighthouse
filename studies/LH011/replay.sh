@@ -3,7 +3,9 @@
 # library (PEP 440 comparison; 24.0 was used).
 #   sh studies/LH011/replay.sh           regenerate into a temporary directory and compare with data/
 #   sh studies/LH011/replay.sh --write   also rewrite data/analysis/ and uptake.svg in place
-# Exits non-zero if any table differs.
+# Step 5 (added with record version 0.3) also reruns the readings made after the counts were read:
+# the piece's chart and its printed reading, and scripts/post_hoc.py, which reads LH008's retained
+# events and lags as well. Exits non-zero if any table differs.
 set -u
 HERE=$(cd "$(dirname "$0")" && pwd)
 PY=${PYTHON:-python3}
@@ -44,6 +46,17 @@ print(f"   ClickPy queries {len(ck)}, rows read {n:,}; PyPI JSON {sum(r['source'
 sys.exit(0 if len(ck) <= 600 and n <= 60_000_000_000 else 1)
 PYEOF
 [ $? -eq 0 ] || fail=1
+
+echo "5. readings made after the counts (post hoc): draw_piece_figure.py and post_hoc.py"
+ROOT=$(cd "$HERE/../.." && pwd)
+LH011_OUT="$TMP/analysis" "$PY" "$HERE/scripts/draw_piece_figure.py" "$TMP/two-days-for-most.svg" > "$TMP/piece_figure_reading.txt" 2>/dev/null || { echo "draw_piece_figure.py failed"; exit 1; }
+LH011_OUT="$TMP/analysis" "$PY" "$HERE/scripts/post_hoc.py" > "$TMP/post_hoc_reading.txt" || { echo "post_hoc.py failed"; exit 1; }
+for pair in "piece_figure_reading.txt:$HERE/data/piece_figure_reading.txt" "post_hoc_reading.txt:$HERE/data/post_hoc_reading.txt" "two-days-for-most.svg:$ROOT/articles/two-days-for-most.svg"; do
+  f=${pair%%:*}; target=${pair#*:}
+  if cmp -s "$TMP/$f" "$target"; then echo "   same  $f"
+  elif [ "${1:-}" = "--write" ]; then cp "$TMP/$f" "$target"; echo "   changed, rewritten: $f"
+  else echo "   DIFF  $f"; fail=1; fi
+done
 
 if [ "${1:-}" = "--write" ]; then cp "$TMP"/analysis/*.csv "$HERE/data/analysis/" && cp "$TMP/uptake.svg" "$HERE/uptake.svg"; fi
 if [ $fail -ne 0 ]; then echo "REPLAY FAILED"; exit 1; fi
