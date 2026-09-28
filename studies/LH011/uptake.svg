@@ -1,0 +1,130 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 760 745" width="760" height="745" role="img" aria-label="Median share of each project's downloads at a new release or newer on the day after release">
+<style>svg{--bg:#fcfcfb;--ink:#0b0b0b;--ink2:#52514e;--grid:#e4e3de;--a:#2a78d6;--b:#eb6834}@media (prefers-color-scheme: dark){svg{--bg:#1a1a19;--ink:#ffffff;--ink2:#c3c2b7;--grid:#3a3936;--a:#3987e5;--b:#d95926}}text{font:12px system-ui,-apple-system,Segoe UI,sans-serif;fill:var(--ink2)}.t{fill:var(--ink);font-weight:600}</style>
+<rect width="760" height="745" fill="var(--bg)"/>
+<text class="t" x="190" y="22">Day-1 share of downloads at the new release or newer, by project</text>
+<circle cx="196" cy="40" r="5" fill="var(--a)"/><text x="206" y="44">most releases reached half within two days</text>
+<rect x="490" y="35" width="10" height="10" rx="2" fill="var(--b)"/><text x="506" y="44">most did not</text>
+<line x1="190.0" y1="52" x2="190.0" y2="687" stroke="var(--grid)" stroke-width="1"/>
+<text x="190.0" y="703" text-anchor="middle">0%</text>
+<line x1="325.0" y1="52" x2="325.0" y2="687" stroke="var(--grid)" stroke-width="1"/>
+<text x="325.0" y="703" text-anchor="middle">25%</text>
+<line x1="460.0" y1="52" x2="460.0" y2="687" stroke="var(--ink2)" stroke-width="1" stroke-dasharray="4 3"/>
+<text x="460.0" y="703" text-anchor="middle">50%</text>
+<line x1="595.0" y1="52" x2="595.0" y2="687" stroke="var(--grid)" stroke-width="1"/>
+<text x="595.0" y="703" text-anchor="middle">75%</text>
+<line x1="730.0" y1="52" x2="730.0" y2="687" stroke="var(--grid)" stroke-width="1"/>
+<text x="730.0" y="703" text-anchor="middle">100%</text>
+<text x="180" y="70.5" text-anchor="end">aiobotocore (6)</text>
+<line x1="198.6" y1="66.5" x2="203.1" y2="66.5" stroke="var(--b)" stroke-width="2" stroke-linecap="round" opacity="0.55"/>
+<rect x="195.7" y="61.5" width="10" height="10" rx="2" fill="var(--b)" stroke="var(--bg)" stroke-width="2"><title>aiobotocore: 6 releases, 0 reached half within two days; median day-1 share 2.0% (range 1.6 to 2.4)</title></rect>
+<text x="180" y="87.5" text-anchor="end">boto3 (103)</text>
+<line x1="218.8" y1="83.5" x2="275.0" y2="83.5" stroke="var(--b)" stroke-width="2" stroke-linecap="round" opacity="0.55"/>
+<rect x="225.3" y="78.5" width="10" height="10" rx="2" fill="var(--b)" stroke="var(--bg)" stroke-width="2"><title>boto3: 103 releases, 0 reached half within two days; median day-1 share 7.5% (range 5.3 to 15.7)</title></rect>
+<text x="180" y="104.5" text-anchor="end">litellm (46)</text>
+<line x1="215.0" y1="100.5" x2="328.2" y2="100.5" stroke="var(--b)" stroke-width="2" stroke-linecap="round" opacity="0.55"/>
+<rect x="236.3" y="95.5" width="10" height="10" rx="2" fill="var(--b)" stroke="var(--bg)" stroke-width="2"><title>litellm: 46 releases, 0 reached half within two days; median day-1 share 9.5% (range 4.6 to 25.6)</title></rect>
+<text x="180" y="121.5" text-anchor="end">grpcio-status (6)</text>
+<line x1="232.2" y1="117.5" x2="276.5" y2="117.5" stroke="var(--b)" stroke-width="2" stroke-linecap="round" opacity="0.55"/>
+<rect x="240.1" y="112.5" width="10" height="10" rx="2" fill="var(--b)" stroke="var(--bg)" stroke-width="2"><title>grpcio-status: 6 releases, 0 reached half within two days; median day-1 share 10.2% (range 7.8 to 16.0)</title></rect>
+<text x="180" y="138.5" text-anchor="end">fsspec (3)</text>
+<line x1="303.2" y1="134.5" x2="319.0" y2="134.5" stroke="var(--b)" stroke-width="2" stroke-linecap="round" opacity="0.55"/>
+<rect x="300.1" y="129.5" width="10" height="10" rx="2" fill="var(--b)" stroke="var(--bg)" stroke-width="2"><title>fsspec: 3 releases, 0 reached half within two days; median day-1 share 21.3% (range 21.0 to 23.9)</title></rect>
+<text x="180" y="155.5" text-anchor="end">botocore (103)</text>
+<line x1="292.9" y1="151.5" x2="351.1" y2="151.5" stroke="var(--b)" stroke-width="2" stroke-linecap="round" opacity="0.55"/>
+<rect x="311.4" y="146.5" width="10" height="10" rx="2" fill="var(--b)" stroke="var(--bg)" stroke-width="2"><title>botocore: 103 releases, 0 reached half within two days; median day-1 share 23.4% (range 19.1 to 29.8)</title></rect>
+<text x="180" y="172.5" text-anchor="end">protobuf (4)</text>
+<line x1="308.5" y1="168.5" x2="353.0" y2="168.5" stroke="var(--b)" stroke-width="2" stroke-linecap="round" opacity="0.55"/>
+<rect x="318.1" y="163.5" width="10" height="10" rx="2" fill="var(--b)" stroke="var(--bg)" stroke-width="2"><title>protobuf: 4 releases, 0 reached half within two days; median day-1 share 24.6% (range 21.9 to 30.2)</title></rect>
+<text x="180" y="189.5" text-anchor="end">pandas (3)</text>
+<line x1="312.8" y1="185.5" x2="354.8" y2="185.5" stroke="var(--b)" stroke-width="2" stroke-linecap="round" opacity="0.55"/>
+<rect x="334.7" y="180.5" width="10" height="10" rx="2" fill="var(--b)" stroke="var(--bg)" stroke-width="2"><title>pandas: 3 releases, 0 reached half within two days; median day-1 share 27.7% (range 22.7 to 30.5)</title></rect>
+<text x="180" y="206.5" text-anchor="end">pytest (3)</text>
+<line x1="346.1" y1="202.5" x2="361.9" y2="202.5" stroke="var(--b)" stroke-width="2" stroke-linecap="round" opacity="0.55"/>
+<rect x="343.4" y="197.5" width="10" height="10" rx="2" fill="var(--b)" stroke="var(--bg)" stroke-width="2"><title>pytest: 3 releases, 0 reached half within two days; median day-1 share 29.3% (range 28.9 to 31.8)</title></rect>
+<text x="180" y="223.5" text-anchor="end">numpy (5)</text>
+<line x1="322.4" y1="219.5" x2="406.8" y2="219.5" stroke="var(--b)" stroke-width="2" stroke-linecap="round" opacity="0.55"/>
+<rect x="344.3" y="214.5" width="10" height="10" rx="2" fill="var(--b)" stroke="var(--bg)" stroke-width="2"><title>numpy: 5 releases, 0 reached half within two days; median day-1 share 29.5% (range 24.5 to 40.2)</title></rect>
+<text x="180" y="240.5" text-anchor="end">s3transfer (7)</text>
+<line x1="365.1" y1="236.5" x2="426.5" y2="236.5" stroke="var(--b)" stroke-width="2" stroke-linecap="round" opacity="0.55"/>
+<rect x="368.4" y="231.5" width="10" height="10" rx="2" fill="var(--b)" stroke="var(--bg)" stroke-width="2"><title>s3transfer: 7 releases, 0 reached half within two days; median day-1 share 34.0% (range 32.4 to 43.8)</title></rect>
+<text x="180" y="257.5" text-anchor="end">pydantic (6)</text>
+<line x1="454.2" y1="253.5" x2="505.1" y2="253.5" stroke="var(--a)" stroke-width="2" stroke-linecap="round" opacity="0.55"/>
+<circle cx="464.0" cy="253.5" r="5" fill="var(--a)" stroke="var(--bg)" stroke-width="2"><title>pydantic: 6 releases, 5 reached half within two days; median day-1 share 50.7% (range 48.9 to 58.3)</title></circle>
+<text x="180" y="274.5" text-anchor="end">starlette (11)</text>
+<line x1="458.1" y1="270.5" x2="489.1" y2="270.5" stroke="var(--a)" stroke-width="2" stroke-linecap="round" opacity="0.55"/>
+<circle cx="477.6" cy="270.5" r="5" fill="var(--a)" stroke="var(--bg)" stroke-width="2"><title>starlette: 11 releases, 9 reached half within two days; median day-1 share 53.3% (range 49.6 to 55.4)</title></circle>
+<text x="180" y="291.5" text-anchor="end">cryptography (7)</text>
+<line x1="449.0" y1="287.5" x2="535.0" y2="287.5" stroke="var(--a)" stroke-width="2" stroke-linecap="round" opacity="0.55"/>
+<circle cx="485.4" cy="287.5" r="5" fill="var(--a)" stroke="var(--bg)" stroke-width="2"><title>cryptography: 7 releases, 6 reached half within two days; median day-1 share 54.7% (range 48.0 to 63.9)</title></circle>
+<text x="180" y="308.5" text-anchor="end">requests (3)</text>
+<line x1="483.8" y1="304.5" x2="490.3" y2="304.5" stroke="var(--a)" stroke-width="2" stroke-linecap="round" opacity="0.55"/>
+<circle cx="485.7" cy="304.5" r="5" fill="var(--a)" stroke="var(--bg)" stroke-width="2"><title>requests: 3 releases, 3 reached half within two days; median day-1 share 54.8% (range 54.4 to 55.6)</title></circle>
+<text x="180" y="325.5" text-anchor="end">aiohttp (4)</text>
+<line x1="468.8" y1="321.5" x2="498.1" y2="321.5" stroke="var(--a)" stroke-width="2" stroke-linecap="round" opacity="0.55"/>
+<circle cx="487.8" cy="321.5" r="5" fill="var(--a)" stroke="var(--bg)" stroke-width="2"><title>aiohttp: 4 releases, 4 reached half within two days; median day-1 share 55.2% (range 51.6 to 57.1)</title></circle>
+<text x="180" y="342.5" text-anchor="end">pydantic-core (7)</text>
+<line x1="196.8" y1="338.5" x2="548.9" y2="338.5" stroke="var(--a)" stroke-width="2" stroke-linecap="round" opacity="0.55"/>
+<circle cx="495.3" cy="338.5" r="5" fill="var(--a)" stroke="var(--bg)" stroke-width="2"><title>pydantic-core: 7 releases, 5 reached half within two days; median day-1 share 56.5% (range 1.3 to 66.5)</title></circle>
+<text x="180" y="359.5" text-anchor="end">uvicorn (16)</text>
+<line x1="448.2" y1="355.5" x2="557.2" y2="355.5" stroke="var(--a)" stroke-width="2" stroke-linecap="round" opacity="0.55"/>
+<circle cx="496.9" cy="355.5" r="5" fill="var(--a)" stroke="var(--bg)" stroke-width="2"><title>uvicorn: 16 releases, 14 reached half within two days; median day-1 share 56.8% (range 47.8 to 68.0)</title></circle>
+<text x="180" y="376.5" text-anchor="end">pyjwt (1)</text>
+<line x1="501.1" y1="372.5" x2="501.1" y2="372.5" stroke="var(--a)" stroke-width="2" stroke-linecap="round" opacity="0.55"/>
+<circle cx="501.1" cy="372.5" r="5" fill="var(--a)" stroke="var(--bg)" stroke-width="2"><title>pyjwt: 1 releases, 1 reached half within two days; median day-1 share 57.6% (range 57.6 to 57.6)</title></circle>
+<text x="180" y="393.5" text-anchor="end">python-dotenv (1)</text>
+<line x1="502.8" y1="389.5" x2="502.8" y2="389.5" stroke="var(--a)" stroke-width="2" stroke-linecap="round" opacity="0.55"/>
+<circle cx="502.8" cy="389.5" r="5" fill="var(--a)" stroke="var(--bg)" stroke-width="2"><title>python-dotenv: 1 releases, 1 reached half within two days; median day-1 share 57.9% (range 57.9 to 57.9)</title></circle>
+<text x="180" y="410.5" text-anchor="end">rpds-py (2)</text>
+<line x1="502.1" y1="406.5" x2="507.5" y2="406.5" stroke="var(--a)" stroke-width="2" stroke-linecap="round" opacity="0.55"/>
+<circle cx="504.8" cy="406.5" r="5" fill="var(--a)" stroke="var(--bg)" stroke-width="2"><title>rpds-py: 2 releases, 2 reached half within two days; median day-1 share 58.3% (range 57.8 to 58.8)</title></circle>
+<text x="180" y="427.5" text-anchor="end">platformdirs (9)</text>
+<line x1="471.9" y1="423.5" x2="543.1" y2="423.5" stroke="var(--a)" stroke-width="2" stroke-linecap="round" opacity="0.55"/>
+<circle cx="515.8" cy="423.5" r="5" fill="var(--a)" stroke="var(--bg)" stroke-width="2"><title>platformdirs: 9 releases, 9 reached half within two days; median day-1 share 60.3% (range 52.2 to 65.4)</title></circle>
+<text x="180" y="444.5" text-anchor="end">urllib3 (1)</text>
+<line x1="518.1" y1="440.5" x2="518.1" y2="440.5" stroke="var(--a)" stroke-width="2" stroke-linecap="round" opacity="0.55"/>
+<circle cx="518.1" cy="440.5" r="5" fill="var(--a)" stroke="var(--bg)" stroke-width="2"><title>urllib3: 1 releases, 1 reached half within two days; median day-1 share 60.8% (range 60.8 to 60.8)</title></circle>
+<text x="180" y="461.5" text-anchor="end">filelock (21)</text>
+<line x1="472.6" y1="457.5" x2="558.8" y2="457.5" stroke="var(--a)" stroke-width="2" stroke-linecap="round" opacity="0.55"/>
+<circle cx="518.7" cy="457.5" r="5" fill="var(--a)" stroke="var(--bg)" stroke-width="2"><title>filelock: 21 releases, 21 reached half within two days; median day-1 share 60.9% (range 52.3 to 68.3)</title></circle>
+<text x="180" y="478.5" text-anchor="end">click (6)</text>
+<line x1="465.0" y1="474.5" x2="572.2" y2="474.5" stroke="var(--a)" stroke-width="2" stroke-linecap="round" opacity="0.55"/>
+<circle cx="534.7" cy="474.5" r="5" fill="var(--a)" stroke="var(--bg)" stroke-width="2"><title>click: 6 releases, 6 reached half within two days; median day-1 share 63.8% (range 50.9 to 70.8)</title></circle>
+<text x="180" y="495.5" text-anchor="end">typing-inspection (2)</text>
+<line x1="550.6" y1="491.5" x2="553.2" y2="491.5" stroke="var(--a)" stroke-width="2" stroke-linecap="round" opacity="0.55"/>
+<circle cx="551.9" cy="491.5" r="5" fill="var(--a)" stroke="var(--bg)" stroke-width="2"><title>typing-inspection: 2 releases, 2 reached half within two days; median day-1 share 67.0% (range 66.8 to 67.3)</title></circle>
+<text x="180" y="512.5" text-anchor="end">anyio (3)</text>
+<line x1="557.7" y1="508.5" x2="561.8" y2="508.5" stroke="var(--a)" stroke-width="2" stroke-linecap="round" opacity="0.55"/>
+<circle cx="561.7" cy="508.5" r="5" fill="var(--a)" stroke="var(--bg)" stroke-width="2"><title>anyio: 3 releases, 3 reached half within two days; median day-1 share 68.8% (range 68.1 to 68.9)</title></circle>
+<text x="180" y="529.5" text-anchor="end">cffi (2)</text>
+<line x1="556.2" y1="525.5" x2="569.2" y2="525.5" stroke="var(--a)" stroke-width="2" stroke-linecap="round" opacity="0.55"/>
+<circle cx="562.7" cy="525.5" r="5" fill="var(--a)" stroke="var(--bg)" stroke-width="2"><title>cffi: 2 releases, 2 reached half within two days; median day-1 share 69.0% (range 67.8 to 70.2)</title></circle>
+<text x="180" y="546.5" text-anchor="end">annotated-types (1)</text>
+<line x1="565.2" y1="542.5" x2="565.2" y2="542.5" stroke="var(--a)" stroke-width="2" stroke-linecap="round" opacity="0.55"/>
+<circle cx="565.2" cy="542.5" r="5" fill="var(--a)" stroke="var(--bg)" stroke-width="2"><title>annotated-types: 1 releases, 1 reached half within two days; median day-1 share 69.5% (range 69.5 to 69.5)</title></circle>
+<text x="180" y="563.5" text-anchor="end">pygments (1)</text>
+<line x1="568.3" y1="559.5" x2="568.3" y2="559.5" stroke="var(--a)" stroke-width="2" stroke-linecap="round" opacity="0.55"/>
+<circle cx="568.3" cy="559.5" r="5" fill="var(--a)" stroke="var(--bg)" stroke-width="2"><title>pygments: 1 releases, 1 reached half within two days; median day-1 share 70.1% (range 70.1 to 70.1)</title></circle>
+<text x="180" y="580.5" text-anchor="end">tqdm (8)</text>
+<line x1="546.6" y1="576.5" x2="605.2" y2="576.5" stroke="var(--a)" stroke-width="2" stroke-linecap="round" opacity="0.55"/>
+<circle cx="570.1" cy="576.5" r="5" fill="var(--a)" stroke="var(--bg)" stroke-width="2"><title>tqdm: 8 releases, 8 reached half within two days; median day-1 share 70.4% (range 66.0 to 76.9)</title></circle>
+<text x="180" y="597.5" text-anchor="end">pathspec (2)</text>
+<line x1="584.7" y1="593.5" x2="585.4" y2="593.5" stroke="var(--a)" stroke-width="2" stroke-linecap="round" opacity="0.55"/>
+<circle cx="585.0" cy="593.5" r="5" fill="var(--a)" stroke="var(--bg)" stroke-width="2"><title>pathspec: 2 releases, 2 reached half within two days; median day-1 share 73.1% (range 73.1 to 73.2)</title></circle>
+<text x="180" y="614.5" text-anchor="end">idna (8)</text>
+<line x1="570.6" y1="610.5" x2="614.9" y2="610.5" stroke="var(--a)" stroke-width="2" stroke-linecap="round" opacity="0.55"/>
+<circle cx="586.4" cy="610.5" r="5" fill="var(--a)" stroke="var(--bg)" stroke-width="2"><title>idna: 8 releases, 8 reached half within two days; median day-1 share 73.4% (range 70.5 to 78.7)</title></circle>
+<text x="180" y="631.5" text-anchor="end">typing-extensions (1)</text>
+<line x1="598.0" y1="627.5" x2="598.0" y2="627.5" stroke="var(--a)" stroke-width="2" stroke-linecap="round" opacity="0.55"/>
+<circle cx="598.0" cy="627.5" r="5" fill="var(--a)" stroke="var(--bg)" stroke-width="2"><title>typing-extensions: 1 releases, 1 reached half within two days; median day-1 share 75.6% (range 75.6 to 75.6)</title></circle>
+<text x="180" y="648.5" text-anchor="end">charset-normalizer (5)</text>
+<line x1="565.1" y1="644.5" x2="626.6" y2="644.5" stroke="var(--a)" stroke-width="2" stroke-linecap="round" opacity="0.55"/>
+<circle cx="599.5" cy="644.5" r="5" fill="var(--a)" stroke="var(--bg)" stroke-width="2"><title>charset-normalizer: 5 releases, 5 reached half within two days; median day-1 share 75.8% (range 69.5 to 80.9)</title></circle>
+<text x="180" y="665.5" text-anchor="end">packaging (3)</text>
+<line x1="601.0" y1="661.5" x2="640.0" y2="661.5" stroke="var(--a)" stroke-width="2" stroke-linecap="round" opacity="0.55"/>
+<circle cx="602.2" cy="661.5" r="5" fill="var(--a)" stroke="var(--bg)" stroke-width="2"><title>packaging: 3 releases, 3 reached half within two days; median day-1 share 76.3% (range 76.1 to 83.3)</title></circle>
+<text x="180" y="682.5" text-anchor="end">certifi (4)</text>
+<line x1="600.6" y1="678.5" x2="609.2" y2="678.5" stroke="var(--a)" stroke-width="2" stroke-linecap="round" opacity="0.55"/>
+<circle cx="604.4" cy="678.5" r="5" fill="var(--a)" stroke="var(--bg)" stroke-width="2"><title>certifi: 4 releases, 4 reached half within two days; median day-1 share 76.7% (range 76.0 to 77.6)</title></circle>
+<text x="190" y="719">Mark: median over the project's releases; line: their range; releases in brackets.</text>
+<text x="190" y="735">ClickPy by-version table, April to August 2026 releases, read 28 September 2026.</text>
+</svg>

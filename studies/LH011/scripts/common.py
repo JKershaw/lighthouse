@@ -117,8 +117,11 @@ def download(source, label, url, path):
 
 
 def write_csv(name, rows, fields=None):
+    """Writes under data/, or under $LH011_OUT when set (the replay's temporary directory)."""
     fields = fields or list(rows[0].keys())
-    with open(os.path.join(DATA, name), 'w', newline='') as f:
+    base = os.environ.get('LH011_OUT', DATA)
+    os.makedirs(os.path.dirname(os.path.join(base, name)), exist_ok=True)
+    with open(os.path.join(base, name), 'w', newline='') as f:
         w = csv.DictWriter(f, fieldnames=fields, lineterminator='\n')
         w.writeheader()
         for r in rows:
