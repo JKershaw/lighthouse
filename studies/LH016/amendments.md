@@ -1,8 +1,8 @@
 # LH016 amendments
 
-Dated changes to the brief (studies/LH016/brief.md, fixed at cb97e4e). Each says when it was made and what had been read by then.
+Dated changes to the brief (studies/LH016/brief.md, fixed at cb97e4e, 19:03 UTC). Each says when it was made and what had been read by then. The headings first gave times estimated by the driving session (about 19:40, 20:05 and 20:40 UTC), which were wrong; at 19:48 UTC they were corrected to the times of the commits that carry each amendment.
 
-## Amendment 1, 29 September 2026, about 19:40 UTC
+## Amendment 1, 29 September 2026, committed at 19:27 UTC (7fb7714)
 
 Made after the secondary frame's reader had written its tables and reported, and before the driving session read any of its rows or any row of the primary frame.
 
@@ -12,7 +12,7 @@ Made after the secondary frame's reader had written its tables and reported, and
 - **Steps the brief did not code.** The adversarial review of the improvement round (notes/R-0013.md) is coded E. Colophon "Update" lines that carried later evidence for LH007, LH008 and LH009 on 27 September are coded as public surfaces, although the brief excludes colophons, because on that day the evidence was carried nowhere else on those pieces.
 - **The history is shallow.** This clone's history begins at db300e2 (26 September 2026, 09:24 UTC). The first drafts of 26 September and the commits the first-articles review and notes/R-0001.md were grounded at (e0b7ca4, 5a0adf3) cannot be read, so what the secondary reader says of them rests on the notes, the record headers and notes/retro-first-drive.md. No primary window is affected.
 
-## Amendment 2, 29 September 2026, about 20:05 UTC: a known-answer replay of the reader review
+## Amendment 2, 29 September 2026, committed at 19:35 UTC (2b2f0c7): a known-answer replay of the reader review
 
 Made after the keeper raised this drive's bound to about fifty dollars, before the driving session read any row of either frame and before any replay ran.
 
@@ -35,7 +35,7 @@ The texts are kept as review/replay_stage1_text.txt, review/replay_stage2_text_p
 
 **Scoring.** A known problem is **found** if the run's note, in either stage, names the passage or claim and the fault in substance; **partly** if it names the passage with another fault, or the fault in general terms without tying it to the passage; **missed** otherwise. Problems the run raises that are not on the list are listed and judged against the record, not scored. The driving session scores against the lists above, quoting the note, in review/replay_scores.csv; the evidence reviewer of this record checks the scores. Three runs of one model on two texts are cases, each one draw of a stochastic reviewer: they say what the instrument can catch, not how often it would.
 
-## Amendment 3, 29 September 2026, about 20:40 UTC: the first coder's conventions
+## Amendment 3, 29 September 2026, committed at 19:41 UTC (1322a43): the first coder's conventions
 
 Reported by the first coder with its table, and recorded before the second coder's sample was drawn and before the driving session read any row or tally. They are the coder's readings of the brief where it was silent or loose, and the tally takes them as coded.
 

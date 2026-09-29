@@ -1,0 +1,141 @@
+Primary frame: 125 changes in 6 rounds
+Secondary frame: 30 rows, 9 of them inside a primary window and counted there only (amendment 1)
+Tier over all steps: A 66, B 21, C 18, N 20, blank or other 0
+
+M1. Changes by step (first raised) and tier; A-tier surface edits
+step    A    B    C    N  A-edits  rounds with the step
+K       8    1    5    1       64  P2, P4
+E      23    8    5    2       31  P1, P2, P3, P4, P5, P6
+B       3    5    0    0       24  P6
+R2     17    2    5    1       71  P4, P5, P6
+RC     10    2    0    6       16  P4, P5, P6
+D       5    3    3   10       13  P1, P2, P4, P6
+
+M1. A and B changes by step, type and direction
+K: types {'unit': 2, 'new reading': 2, 'cause': 2, 'scope': 1, 'certainty': 1, 'post hoc': 1}; directions {'correction': 6, 'addition': 2, 'qualification': 1}; improved {'yes': 7, 'pending': 2}
+E: types {'figure': 9, 'certainty': 8, 'unit': 5, 'scope': 4, 'limit': 2, 'consistency': 2, 'post hoc': 1}; directions {'correction': 25, 'qualification': 6}; improved {'yes': 31}
+B: types {'limit': 3, 'figure': 2, 'unit': 2, 'certainty': 1}; directions {'qualification': 5, 'correction': 3}; improved {'yes': 8}
+R2: types {'new reading': 5, 'limit': 4, 'unit': 4, 'scope': 2, 'certainty': 2, 'cause': 1, '': 1}; directions {'correction': 8, 'qualification': 6, 'addition': 5}; improved {'yes': 14, 'pending': 5}
+RC: types {'scope': 3, 'unit': 3, 'certainty': 2, 'post hoc': 2, 'consistency': 1, 'figure': 1}; directions {'correction': 9, 'qualification': 3}; improved {'yes': 12}
+D: types {'figure': 2, 'new reading': 1, 'certainty': 1, 'cause': 1, 'limit': 1, 'unit': 1, 'scope': 1}; directions {'correction': 6, 'addition': 1, 'qualification': 1}; improved {'yes': 7, 'pending': 1}
+
+M1. A-tier changes by step and type
+K: {'unit': 2, 'cause': 2, 'scope': 1, 'certainty': 1, 'post hoc': 1, 'new reading': 1}
+E: {'certainty': 8, 'figure': 5, 'unit': 4, 'scope': 3, 'consistency': 2, 'post hoc': 1}
+B: {'figure': 2, 'certainty': 1}
+R2: {'limit': 4, 'unit': 4, 'new reading': 3, 'scope': 2, 'certainty': 2, 'cause': 1, '(none)': 1}
+RC: {'scope': 3, 'unit': 3, 'certainty': 2, 'consistency': 1, 'post hoc': 1}
+D: {'certainty': 1, 'cause': 1, 'figure': 1, 'unit': 1, 'scope': 1}
+
+M1. A-tier changes by step and whether they improved the text (yes, or pending a test for an addition)
+K: {'yes': 7, 'pending': 1}
+E: {'yes': 23}
+B: {'yes': 3}
+R2: {'yes': 14, 'pending': 3}
+RC: {'yes': 10}
+D: {'yes': 5}
+
+M1. Before release in the rounds with a reader review (P5, P6): A-tier changes by step
+35 A-tier changes: {'R2': 13, 'RC': 9, 'E': 7, 'B': 3, 'D': 3}
+
+A and B changes by round and step
+P1: E A 3; E B 4; E C 1
+P2: D B 2; E A 7; E B 1; K A 5; K B 1; K C 4
+P3: E A 4; E B 2
+P4: D A 2; D C 1; E A 2; E B 1; E C 4; K A 3; K C 1; R2 A 4; R2 C 2; RC A 1
+P5: E A 4; R2 A 5; R2 B 2; R2 C 2; RC A 6; RC B 1
+P6: B A 3; B B 5; D A 3; D B 1; D C 2; E A 3; R2 A 8; R2 C 1; RC A 3; RC B 1
+
+M2. A-tier changes altering text an earlier step in the round had read and passed
+K: 8 of 8; passed by {'E': 5, 'E(R-0016)': 3}
+E: 2 of 23; passed by {'K': 2, 'E(R-0016)': 1}
+B: 0 of 3; passed by {}
+R2: 15 of 17; passed by {'R1': 13, 'E': 11, 'E(R-0016)': 4, 'E(R-0017)': 4, 'K': 2, 'D': 1}
+RC: 4 of 10; passed by {'E': 4, 'R1': 3, 'R2': 3}
+D: 2 of 5; passed by {'E(R-0016)': 1, 'E(R-0017)': 1}
+'also raised' by a later step, A and B changes: {'E': 2, 'R1': 2, 'RC': 2}
+
+M3. Recorded cost and A-tier changes by step, primary frame (list rates, estimates)
+K: no separable model cost recorded; A 8, A/B/C 14
+E: $30.41 over P1, P2, P3, P4, P5, P6; A 23, A/B/C 36; 1.32 per A change
+B: $7.24 over P6; A 3, A/B/C 8; 2.41 per A change
+R2: $11.16 over P4, P5, P6; A 17, A/B/C 24; 0.66 per A change
+RC: $9.04 over P4, P5, P6; A 10, A/B/C 12; 0.90 per A change
+D: no separable model cost recorded; A 5, A/B/C 11
+reader review (R1, R2 and RC together): $22.47 over P4, P5, P6; A 27, A/B/C 36; 0.83 per A change
+E in the reader review's rounds only (P4, P5, P6): $17.44; A 9
+
+A-tier changes by round and step, with each round's recorded review cost
+P1: A by step {'E': 3}; review cost by step {'E': 3.57}
+P2: A by step {'K': 5, 'E': 7}; review cost by step {'E': 3.49}
+P3: A by step {'E': 4}; review cost by step {'E': 5.91}
+P4: A by step {'K': 3, 'D': 2, 'E': 2, 'R2': 4, 'RC': 1}; review cost by step {'E': 5.36, 'R1': 1.24, 'R2': 6.46, 'RC': 5.64}
+P5: A by step {'E': 4, 'R2': 5, 'RC': 6}; review cost by step {'E': 3.28, 'R1': 0.55, 'R2': 2.78, 'RC': 1.85}
+P6: A by step {'B': 3, 'D': 3, 'E': 3, 'R2': 8, 'RC': 3}; review cost by step {'B': 7.24, 'E': 8.8, 'R1': 0.48, 'R2': 1.92, 'RC': 1.55}
+
+M4. Escapes: A-tier changes after a piece's release
+A-tier post-release changes: 45 (primary 24, secondary 21)
+  of which 'later evidence' notices 10, other changes 35
+  other changes by step: {'K': 18, 'E': 10, 'R2': 4, 'D': 2, 'RC': 1}
+  other changes by type: {'certainty': 11, 'scope': 4, 'cause': 4, 'unit': 3, 'post hoc': 3, 'consistency': 3, 'limit': 3, 'new reading': 2, 'figure': 1, '': 1}
+  passed before release by: {'E(R-0016)': 9, 'R-0010': 8, 'E': 5, 'E(R-0017)': 5, 'R-0011': 5, 'K': 4, 'R1': 4, 'D': 1, 'R-0012': 1}
+  later evidence by step: {'L': 8, 'K': 2}
+  the other changes, one line each:
+   P2-01 P2 K scope/correction: # New releases arrive quickly. Older versions keep getting downloaded. / For ten of the eleven, no release rea
+   P2-02 P2 K certainty/correction: For 26 of the 37 libraries, most releases reached half of the downloads within two days: 70 per cent of the li
+   P2-03 P2 K unit/correction: It changes what a low share means. A new version that holds a fifth of the downloads for a month has not sprea
+   P2-04 P2 K post hoc/qualification: ## The first day set the month / ... for 34 of the 37 libraries, the typical release's share a month later was
+   P2-05 P2 K new reading/addition: And there is a rest in every library. Even where new versions took over, between 18 and 47 per cent of the dow
+   P2-16 P2 E figure/correction: Even where new versions took over, between 18 and 47 per cent of the downloads a month later were still of old
+   P2-17 P2 E certainty/correction: A new version that holds a fifth of the downloads for a month need not have spread slowly. / So a low share is
+   P2-18 P2 E certainty/correction: For nine of the eleven, the jump likewise came on the first day, which brought at least seven tenths of the sh
+   P2-19 P2 E post hoc/qualification: ...while older versions go on being downloaded beside it: a pattern we saw in almost all of the 37 libraries w
+   P2-21 P2 E certainty/correction: *The day after a release set its share for the month: for most libraries more than half of the downloads, for 
+   P2-22 P2 E certainty/correction: A newer release may no longer install on the older versions of Python that some machines still run, and the in
+   P2-23 P2 E consistency/qualification: ...and why older versions keep their downloads was not measured: the record's interpretation, from general kno
+   P4-01 P4 K cause/correction: Other libraries' declared limits could account for most of them in four, if each download of a library that se
+   P4-02 P4 K cause/correction: In 32 of the libraries, fewer than half of those older downloads came from Pythons too old for a newer version
+   P4-03 P4 K unit/correction: The log cannot say whether they come from one population of machines fetching again and again or from many tha
+   P4-04 P4 D certainty/correction: For the rest the log cannot say.
+   P4-08 P4 E consistency/correction: ...LH012 ruled out Python exclusion as the main reason for 32 of the 37 projects over one week of September 20
+   P4-10 P4 E certainty/correction: Most of the older downloads of those two were of versions that boto3's limits allow, but the log cannot say ho
+   P4-15 P4 D cause/correction: The old Python ruled out the new version; it does not say why they fetched the ones they did. / So even where 
+   P4-17 P4 R2 new reading/addition: Those downloads were of versions older still, and for boto3 and aiobotocore their counts suggest that most wer
+   P4-18 P4 R2 cause/qualification: Only pydantic's current versions hold by themselves: a fresh install of pydantic takes the pinned pydantic-cor
+   P4-19 P4 R2 limit/qualification: ...So did 257 of the 355 releases. Ten points is a fixed band, though, and lenient where shares are small: for
+   P4-20 P4 R2 /correction: - aiobotocore, a separately maintained adaptation of Amazon's library for programs that do many things at once
+   P4-24 P4 RC scope/correction: Read after the release (post hoc, record version 0.3), those two projects' older downloads by version are flat
+   S-06 S K certainty/correction: Pinned software leaned towards security fixes that said so before the advisory, but across thirty libraries th
+   S-07 S K scope/correction: Take instead the earliest advisory naming the fix that GitHub had reviewed, among the records we kept, and nlt
+   S-08 S K certainty/qualification: ..., by about one and a half times, though resampling the libraries puts that anywhere from about half to abou
+   S-09 S K limit/qualification: ... For 17 of the 43 fixes, the United States' national vulnerability database had published the flaw first, b
+   S-10 S K unit/qualification: Eight silent fixes had no notes ..., and a ninth's were written two months after it; ... Keep only the fixes w
+   S-11 S K certainty/correction: found that added up over every project the fixes that said so still drew moves sooner before the advisory, but
+   S-12 S K limit/qualification: And twelve of the 43 fixes were ones our earlier readings had already followed, so this count widens them rath
+   S-13 S K post hoc/qualification: ... seven of the resampled ranges for the pooled lead stay clear of no difference, all of them under readings 
+   S-14 S K scope/correction: Leave out the three quickest announced libraries with three or more moves, tornado, gitpython and aiohttp, and
+   S-15 S K certainty/qualification: ...4 to about 7 times, that no longer reaches no difference; the typical libraries still do not part by more t
+   S-16 S E consistency/correction: ... while software that pins its versions took weeks to move, and whether a fix that says it mends a security 
+
+M5. Readings made after the counts
+23 readings; introduced by {"the reader review's stage 2": 8, "the research writer: the improvement round's reanalysis subagent": 4, "the driving session after the keeper's reading": 4, 'the research writer': 4, 'the driving session while writing the piece': 2, "the writing agent of LH011's piece": 1}
+tested later: {'no': 12, 'planned': 10, 'yes': 1}; results: {'pending': 22, 'held': 1}
+primary-frame changes flagged post hoc: 20, by step {'R2': 12, 'K': 4, 'RC': 2, 'D': 1, 'E': 1}
+
+M6. Reversals and changes that moved away from the evidence
+2 rows
+   S-03 L improved=no: later evidence whose wording read a failure to find a difference as the absence of one (LH010 0.3 Corrections; the LH010 piece's 1.1 Corrections line)
+   S-11 K improved=yes: correction of S-03, a reversal, made in the improvement round's draft before R-0012; from ec88e4a to 22d36b0 the old line stood in the colophon below 
+
+M7. Research steps
+10 rows; by kind {'P': 4, 'Lit': 6}; touched an outcome {'yes': 4, 'unknown': 3, 'no': 3}
+P: {'yes': 4}
+Lit: {'unknown': 3, 'no': 3}
+
+M8. Second coder (data/blind_compare.txt)
+   coded by both: 30
+   material or not: agreement 1.000, Cohen's kappa 1.000
+   tier (A, B, C, N): agreement 0.933, Cohen's kappa 0.883
+   first coder's tiers: {'C': 4, 'A': 17, 'B': 8, 'N': 1}
+   second coder's tiers: {'C': 4, 'A': 19, 'B': 6, 'N': 1}
+   type, where both call it material: agreement 21 of 29

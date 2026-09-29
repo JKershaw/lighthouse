@@ -81,6 +81,23 @@ for s in seen_steps:
       f"directions {dict(Counter(r['direction'] for r in rs).most_common())}; "
       f"improved {dict(Counter(r['improved'] for r in rs).most_common())}")
 p("")
+# Added after the first run (29 September 2026): the same counts for tier A alone.
+p("M1. A-tier changes by step and type")
+for s in seen_steps:
+    rs = [r for r in prim if r["step"] == s and r["tier"] == "A"]
+    if rs:
+        p(f"{s}: {dict(Counter(r['type'] or '(none)' for r in rs).most_common())}")
+p("")
+p("M1. A-tier changes by step and whether they improved the text (yes, or pending a test for an addition)")
+for s in seen_steps:
+    rs = [r for r in prim if r["step"] == s and r["tier"] == "A"]
+    if rs:
+        p(f"{s}: {dict(Counter(r['improved'] or '(blank)' for r in rs).most_common())}")
+p("")
+p("M1. Before release in the rounds with a reader review (P5, P6): A-tier changes by step")
+pre = [r for r in prim if r["round"] in ("P5", "P6") and r["tier"] == "A"]
+p(f"{len(pre)} A-tier changes: {dict(Counter(r['step'] for r in pre).most_common())}")
+p("")
 p("A and B changes by round and step")
 for rd in sorted({r["round"] for r in prim}):
     rs = [r for r in prim if r["round"] == rd]
