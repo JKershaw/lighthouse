@@ -1,0 +1,107 @@
+self-check, top fifty: 424 releases recomputed from counts/; disagreements with release_outcomes.csv: 0
+self-check, band A: 295 releases recomputed from counts/; disagreements with release_outcomes.csv: 0
+self-check, band B: 196 releases recomputed from counts/; disagreements with release_outcomes.csv: 0
+
+1. HORIZON: projects whose releases mostly reached half within two days, and by day 30
+  top fifty: two days 26/37 = 70.3%; by day 30 26/37 = 70.3% (0 projects "no" at two days become "yes" by day 30; 0 lose a known outcome at day 30)
+    pooled releases: within two days 127/424; by day 30 139/419
+  band A: two days 25/52 = 48.1%; by day 30 32/52 = 61.5% (7 projects "no" at two days become "yes" by day 30; 0 lose a known outcome at day 30)
+    pooled releases: within two days 114/295; by day 30 149/295
+  band B: two days 9/35 = 25.7%; by day 30 17/35 = 48.6% (8 projects "no" at two days become "yes" by day 30; 0 lose a known outcome at day 30)
+    pooled releases: within two days 38/196; by day 30 81/195
+
+   project medians of the at-or-newer share, per group (lower quartile | median | upper quartile, %)
+  top fifty, day 1: 29.5 | 57.6 | 69.0  (projects 37)
+  top fifty, day 2: 28.4 | 57.2 | 67.4  (projects 37)
+  top fifty, day 30: 35.3 | 61.6 | 70.4  (projects 37)
+  top fifty, day-2 share as a fraction of day-30 share: 88.1 | 93.3 | 97.4
+  band A, day 1: 27.0 | 48.1 | 69.0  (projects 52)
+  band A, day 2: 28.2 | 51.2 | 67.2  (projects 52)
+  band A, day 30: 31.2 | 56.1 | 72.0  (projects 50)
+  band A, day-2 share as a fraction of day-30 share: 80.8 | 87.9 | 96.1
+  band B, day 1: 11.5 | 22.7 | 45.4  (projects 35)
+  band B, day 2: 11.8 | 26.7 | 43.8  (projects 35)
+  band B, day 30: 25.2 | 34.3 | 55.6  (projects 35)
+  band B, day-2 share as a fraction of day-30 share: 60.4 | 81.2 | 94.8
+
+2. CEILING: releases whose replaced version was at least 14 days old and in the numerator set.
+   E = share of "the replaced version or newer" on the day before day 0; S2, S30 = the new release's
+   at-or-newer shares on days 2 and 30. Project medians (lower quartile | median | upper quartile, %).
+  top fifty: 56 of 424 releases qualify, in 26 projects
+    E:   34.3 | 61.8 | 69.1
+    S2:  26.0 | 52.5 | 65.6
+    S30: 32.5 | 59.1 | 66.5  (releases with day 30 read: 56)
+    S2 - E, points:  -7.9 | -3.7 | -1.0
+    S30 - E, points: -5.7 | -0.2 | 2.0
+    releases with S30 within 10 points of E: 46/56 = 82%
+    releases with E below one half: 21/56; of them, reached half within two days: 0, by day 30: 1
+    releases with E at or above one half: 35; of them, reached half within two days: 31, by day 30: 34
+    projects whose median E is on the same side of one half as their two-day outcome: 26/26
+  band A: 71 of 295 releases qualify, in 33 projects
+    E:   31.0 | 50.5 | 72.1
+    S2:  22.9 | 43.6 | 70.3
+    S30: 26.8 | 45.0 | 72.0  (releases with day 30 read: 68)
+    S2 - E, points:  -14.1 | -5.2 | -0.8
+    S30 - E, points: -7.5 | -2.1 | 3.8
+    releases with S30 within 10 points of E: 49/68 = 72%
+    releases with E below one half: 38/71; of them, reached half within two days: 1, by day 30: 5
+    releases with E at or above one half: 33; of them, reached half within two days: 29, by day 30: 33
+    projects whose median E is on the same side of one half as their two-day outcome: 28/33
+  band B: 45 of 196 releases qualify, in 21 projects
+    E:   12.0 | 31.2 | 62.0
+    S2:  6.1 | 21.3 | 45.0
+    S30: 17.2 | 35.4 | 59.8  (releases with day 30 read: 44)
+    S2 - E, points:  -12.9 | -3.0 | 0.1
+    S30 - E, points: -2.6 | -0.0 | 1.4
+    releases with S30 within 10 points of E: 33/44 = 75%
+    releases with E below one half: 32/45; of them, reached half within two days: 1, by day 30: 2
+    releases with E at or above one half: 13; of them, reached half within two days: 8, by day 30: 12
+    projects whose median E is on the same side of one half as their two-day outcome: 18/21
+
+3. DIFFERENCE IN THE TWO-DAY PROJECT SHARE, resampling both groups (10,000 draws, seed 20260929; post hoc)
+  top fifty minus band A: 22.2 points, interval 2.1 to 41.8; resamples at or below zero: 1.6%
+  top fifty minus band B: 44.6 points, interval 22.6 to 64.1; resamples at or below zero: 0.0%
+  band A minus band B: 22.4 points, interval 2.2 to 41.6; resamples at or below zero: 1.6%
+
+4. RANK AGAINST THE PROJECT MEDIAN DAY-1 SHARE (Spearman rho; permutation p, 10,000 draws; post hoc)
+  within top fifty: rho = -0.27 (n = 37, positions 1 to 50), p = 0.108
+  within band A: rho = -0.21 (n = 52, positions 60 to 500), p = 0.126
+  within band B: rho = +0.02 (n = 35, positions 547 to 4974), p = 0.900
+  across all three groups: rho = -0.33 (n = 124), p = 0.000
+
+5. SINGLE-RELEASE PROJECTS inside the "every release reached half" and "no release" groups
+  top fifty: every 21 (single-release 6); none 11 (single-release 0); projects with one release 6 of 37; with three or more, all-or-nothing 22/27
+  band A: every 21 (single-release 10); none 22 (single-release 6); projects with one release 16 of 52; with three or more, all-or-nothing 19/25
+  band B: every 7 (single-release 4); none 24 (single-release 7); projects with one release 11 of 35; with three or more, all-or-nothing 15/18
+
+6. MIRRORS: project-median share of a release's own downloads on days 0 and 1 made by the three named tools
+  band A: largest ast-serialize 10.35%; over 1%: 1; over 2%: 1; of 52 projects
+  band B: largest djlint 9.93%; over 1%: 10; over 2%: 6; of 35 projects
+
+7. POINT-IN-TIME: projects whose releases mostly had an at-or-newer share of at least one half ON day d
+   (the two-day measure is a maximum over days 1 and 2; "by day 30" a maximum over days 0 to 30; these are single days)
+  top fifty: day 2: 25/37 = 68%; day 7: 25/37 = 68%; day 14: 25/37 = 68%; day 30: 26/37 = 70%
+  band A: day 2: 24/52 = 46%; day 7: 22/52 = 42%; day 14: 21/52 = 40%; day 30: 25/50 = 50%
+  band B: day 2: 8/35 = 23%; day 7: 8/35 = 23%; day 14: 9/35 = 26%; day 30: 11/35 = 31%
+   differences at day 30 (single day), resampling both groups:
+    top fifty minus band A: 20.3 points, interval -0.4 to 40.5; resamples at or below zero: 2.5%
+    top fifty minus band B: 38.8 points, interval 16.8 to 58.5; resamples at or below zero: 0.0%
+    band A minus band B: 18.6 points, interval -2.3 to 38.6; resamples at or below zero: 4.2%
+
+   the projects "no" within two days and "yes" by day 30 (median over their releases of the day-1, day-2 and
+   day-30 shares, %; median days to half among releases reaching it; releases):
+    band A, cfn-lint: day 1 34, day 2 33, day 30 44; days to half 3; releases 23
+    band A, fonttools: day 1 54, day 2 55, day 30 73; days to half 3; releases 2
+    band A, joblib: day 1 39, day 2 39, day 30 nan; days to half 20; releases 1
+    band A, libcst: day 1 34, day 2 33, day 30 32; days to half 3; releases 1
+    band A, psycopg2-binary: day 1 39, day 2 39, day 30 46; days to half 27; releases 1
+    band A, tiktoken: day 1 51, day 2 52, day 30 54; days to half 13.5; releases 2
+    band A, zipp: day 1 53, day 2 51, day 30 56; days to half 3; releases 2
+    band B, functions-framework: day 1 36, day 2 39, day 30 65; days to half 16; releases 1
+    band B, junitparser: day 1 51, day 2 44, day 30 29; days to half 0; releases 2
+    band B, pydantic-ai-shields: day 1 11, day 2 11, day 30 58; days to half 13; releases 3
+    band B, service-identity: day 1 44, day 2 34, day 30 34; days to half 7; releases 1
+    band B, standardwebhooks: day 1 42, day 2 41, day 30 50; days to half 11; releases 1
+    band B, torch-geometric: day 1 38, day 2 35, day 30 54; days to half 8.5; releases 2
+    band B, zarr: day 1 30, day 2 33, day 30 40; days to half 25; releases 3
+    band B, zensical: day 1 39, day 2 44, day 30 71; days to half 4; releases 26
