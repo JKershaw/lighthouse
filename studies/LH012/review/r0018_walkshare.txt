@@ -1,0 +1,15 @@
+N. Walk-shaped mass per project: plateau mass (without the start version) on profiles with flatness under 0.05 (clear)
+   and under 0.2 (probable), as a share of the project's older downloads (python.csv older_W2); minors with at least
+   a million older downloads and twelve versions below the start; both excluded and admitted Pythons.
+
+   project            older downloads  clear walk  probable   minors with a clear walk (flatness)
+   aiobotocore            139,423,426       84.2%     89.3%   3.9 (0.002), 3.7 (0.003), 3.8 (0.009), 3.10 (0.016)
+   boto3                  518,286,057       78.9%     83.7%   3.9 (0.001), 3.7 (0.005), 3.10 (0.018), 3.8 (0.038)
+   litellm                 14,979,338       19.3%     19.3%   3.10 (0.025)
+   botocore               140,285,210       11.6%     17.2%   3.9 (0.001)
+   grpcio-status           59,714,065       10.9%     62.6%   3.9 (0.025), 3.8 (0.039)
+   anyio                   49,400,653        7.6%      7.6%   3.10 (0.021)
+   fsspec                  97,230,126        0.0%     45.6%   
+   pooled over the 37: older downloads 3,253,390,922; clear walk 555,849,540 (17.1 per cent); probable 670,790,389 (20.6 per cent)
+   the pooled older share O with the clear walk set aside: 41.0 per cent (record: 45.6)
+   median over projects of the clear-walk share: 0.0 per cent; projects with a clear walk over a tenth of older downloads: 5

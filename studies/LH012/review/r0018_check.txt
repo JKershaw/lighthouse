@@ -1,0 +1,174 @@
+A. boto3, Python 3.9, 21 to 27 September 2026: downloads by version (data/week/python/boto3.csv)
+   total 372,822,043 over 2126 versions
+   the ten largest versions (share of the 3.9 downloads; first upload):
+        1.42.97    4.6 %  uploaded 2026-04-27
+        1.34.79    0.3 %  uploaded 2024-04-05
+         1.36.3    0.3 %  uploaded 2025-01-21
+         1.41.5    0.3 %  uploaded 2025-11-26
+        1.42.22    0.3 %  uploaded 2026-01-05
+        1.42.23    0.2 %  uploaded 2026-01-06
+        1.42.83    0.2 %  uploaded 2026-04-03
+        1.42.80    0.2 %  uploaded 2026-03-31
+        1.42.54    0.2 %  uploaded 2026-02-20
+        1.42.85    0.2 %  uploaded 2026-04-07
+   versions needed for half: 250; for 80 per cent: 463; for 95 per cent: 796
+   largest single version: 4.6 per cent; ten largest together: 7.0 per cent
+   by the quarter the version was first uploaded (share of the 3.9 downloads):
+     2022 Q2: 0.7 %
+     2022 Q3: 1.8 %
+     2022 Q4: 1.8 %
+     2023 Q1: 2.0 %
+     2023 Q2: 1.8 %
+     2023 Q3: 1.7 %
+     2023 Q4: 1.9 %
+     2024 Q1: 2.6 %
+     2024 Q2: 8.9 %
+     2024 Q3: 8.0 %
+     2024 Q4: 8.7 %
+     2025 Q1: 8.9 %
+     2025 Q2: 8.9 %
+     2025 Q3: 8.6 %
+     2025 Q4: 10.5 %
+     2026 Q1: 14.5 %
+     2026 Q2: 8.3 %
+   share of the 3.9 downloads at versions uploaded before 2026: 77.2 per cent
+   Reading: a spread over hundreds of versions is what many lists frozen at many dates would leave; one pinned fleet
+   would leave one or a few versions. The log still cannot say how many machines make it.
+
+B. The first-day test read with the brief's secondary descriptor, the day-2 to day-30 ratio (firstday_releases.csv)
+   355 releases with a known delta; 257 settled
+   among settled releases: median day-2 share 27.5 per cent, median day-30 share 33.4 per cent, median ratio s2/s30 0.85
+   settled releases whose day-30 share is at most 20 per cent: 30 of 257 (14 of them boto3 or botocore)
+   settled releases whose day-2 share is below three quarters of the day-30 share (grew by more than a third after day 2): 64 of 257
+   per project, among releases with a known delta: median s2, median s30, median ratio, and the record's verdict
+     pydantic-core      n=5   s2   1.3  s30  56.7  ratio 0.02  delta +55.4  settles=False
+     starlette          n=7   s2  16.4  s30  57.2  ratio 0.29  delta +37.0  settles=False
+     aiobotocore        n=10  s2   2.4  s30   4.0  ratio 0.58  delta  +1.3  settles=True  <- share grew by more than a third after day 2
+     boto3              n=99  s2  14.1  s30  23.7  ratio 0.60  delta  +9.6  settles=True  <- share grew by more than a third after day 2
+     litellm            n=40  s2  21.6  s30  38.0  ratio 0.61  delta +15.3  settles=False
+     botocore           n=99  s2  27.2  s30  33.7  ratio 0.81  delta  +6.2  settles=True
+     aiohttp            n=3   s2  57.3  s30  67.7  ratio 0.84  delta +10.9  settles=False
+     grpcio-status      n=3   s2   7.9  s30   9.2  ratio 0.86  delta  +1.3  settles=True
+     pyjwt              n=3   s2  64.3  s30  74.3  ratio 0.87  delta  +9.5  settles=True
+     protobuf           n=7   s2  39.5  s30  45.2  ratio 0.87  delta  +5.3  settles=True
+     pydantic           n=2   s2  42.6  s30  48.1  ratio 0.89  delta  +5.5  settles=True
+     pandas             n=3   s2  19.1  s30  21.5  ratio 0.89  delta  +2.4  settles=True
+     pygments           n=1   s2  73.3  s30  82.4  ratio 0.89  delta  +9.1  settles=True
+     pathspec           n=5   s2  70.9  s30  78.1  ratio 0.91  delta  +7.3  settles=True
+     cryptography       n=3   s2  59.2  s30  64.8  ratio 0.91  delta  +5.6  settles=True
+     rpds-py            n=2   s2  65.2  s30  71.2  ratio 0.92  delta  +6.0  settles=True
+     requests           n=2   s2  57.9  s30  62.8  ratio 0.92  delta  +4.9  settles=True
+     tqdm               n=2   s2  69.2  s30  74.7  ratio 0.93  delta  +5.5  settles=True
+     numpy              n=6   s2  32.1  s30  33.0  ratio 0.94  delta  +2.2  settles=True
+     pytest             n=3   s2  32.3  s30  34.4  ratio 0.94  delta  +2.1  settles=True
+     uvicorn            n=4   s2  55.1  s30  61.5  ratio 0.95  delta  +3.4  settles=True
+     filelock           n=16  s2  67.1  s30  70.0  ratio 0.96  delta  +3.0  settles=True
+     python-dotenv      n=1   s2  57.9  s30  60.5  ratio 0.96  delta  +2.6  settles=True
+     platformdirs       n=9   s2  64.8  s30  67.5  ratio 0.96  delta  +2.4  settles=True
+     anyio              n=3   s2  74.6  s30  76.4  ratio 0.97  delta  +2.3  settles=True
+     fsspec             n=4   s2  20.5  s30  21.9  ratio 0.97  delta  +0.7  settles=True
+     certifi            n=3   s2  78.4  s30  80.6  ratio 0.97  delta  +2.4  settles=True
+     charset-normalizer n=2   s2  80.2  s30  82.6  ratio 0.97  delta  +2.4  settles=True
+     urllib3            n=4   s2  53.8  s30  55.3  ratio 0.98  delta  +1.3  settles=True
+     packaging          n=1   s2  77.8  s30  79.1  ratio 0.98  delta  +1.3  settles=True
+     s3transfer         n=2   s2  39.8  s30  40.2  ratio 0.99  delta  +0.4  settles=True
+     click              n=1   s2  57.1  s30  56.1  ratio 1.02  delta  -1.0  settles=True
+   projects counted as settling whose median ratio is below 0.75: 2 of 28: aiobotocore, boto3
+   Reading: the ten-point band is absolute, so a share that is small on both days settles however much it grows in
+   proportion; the record reports delta only, though the brief fixed the ratio as a secondary descriptor.
+
+C. pandas: the secondary wheel measure by Python exclusion and by the older wheel's platform tag (replicating analyse.py)
+   pandas: R 3.0.5, manylinux floors of wheels at or above R: [(2, 24), (2, 28)]
+     older downloads 90,872,544; wheel-excluded 67.8 per cent (record: files.csv), of which
+       from a python excluded Python: 47.3 per cent of older downloads
+       from a python admitted Python: 20.6 per cent of older downloads
+     the wheel-excluded downloads from admitted Pythons, by the older wheel's tag (share of older downloads):
+       manylinux_2_17_x86_64                     18.4 %
+       manylinux_2_17_aarch64                     2.1 %
+       musllinux_1_1_x86_64                       0.0 %
+       win_win32                                  0.0 %
+       macosx_10_9_x86_64                         0.0 %
+       macosx_10_13_x86_64                        0.0 %
+       manylinux_2_5_x86_64                       0.0 %
+       musllinux_1_1_aarch64                      0.0 %
+   numpy: R 2.5.2, manylinux floors of wheels at or above R: [(2, 27), (2, 28)]
+     older downloads 139,636,995; wheel-excluded 72.0 per cent (record: files.csv), of which
+       from a python excluded Python: 62.1 per cent of older downloads
+       from a python admitted Python: 10.0 per cent of older downloads
+     the wheel-excluded downloads from admitted Pythons, by the older wheel's tag (share of older downloads):
+       manylinux_2_17_x86_64                      8.9 %
+       manylinux_2_17_aarch64                     1.0 %
+       musllinux_1_1_x86_64                       0.0 %
+       macosx_10_9_x86_64                         0.0 %
+       musllinux_1_1_aarch64                      0.0 %
+       manylinux_2_12_x86_64                      0.0 %
+       manylinux_2_5_x86_64                       0.0 %
+       macosx_10_13_x86_64                        0.0 %
+   Reading: an older manylinux_2_17 wheel fetched by an admitted Python is "wheel-excluded" only because R's wheels carry a
+   higher floor; the older wheel's floor is a lower bound on the machine's glibc, not its value, so this part does not show
+   machines that could not take the newer wheel. The wheel measure therefore adds nothing firm to P for pandas.
+
+D. The title, "Most downloads of old versions come from Pythons a newer version supports" (python.csv)
+   projects where downloads from admitted Pythons alone are more than half of older downloads: 32 of 37
+   the other five: aiobotocore (36.5 %), boto3 (23.0 %), numpy (33.3 %), pandas (48.7 %), urllib3 (49.1 %)
+   pooled over all 37 projects' older downloads: from admitted Pythons 64.7 per cent, from excluded 30.9, not reported 4.4
+   boto3's share of the pooled older downloads: 15.9 per cent
+
+E. Identified bounds, the four "accounts for most": held by the dependent's current versions against its older versions (bounds.csv)
+   botocore       lower from boto3     fetch ratio 2.94  held by current versions   2.1 %  by older versions  221.9 % of older fetches (uncapped)
+   fsspec         lower from s3fs      fetch ratio 0.53  held by current versions   5.3 %  by older versions   70.7 % of older fetches (uncapped)
+   pydantic-core  lower from pydantic  fetch ratio 1.05  held by current versions  53.2 %  by older versions   42.7 % of older fetches (uncapped)
+   s3transfer     lower from boto3     fetch ratio 3.88  held by current versions   0.0 %  by older versions  225.2 % of older fetches (uncapped)
+   Reading: only pydantic-core is held by its dependent's current versions; for fsspec, botocore and s3transfer the hold is by
+   older versions of s3fs and boto3, whose own older fetches are what the study could not explain.
+
+F. The CI-flag difference, older minus at-or-newer, in points (frozen.csv)
+   positive (20): pygments +27.1, tqdm +24.4, typing-inspection +22.5, annotated-types +18.6, uvicorn +18.3, certifi +17.8, python-dotenv +17.0, starlette +16.6, packaging +16.3, charset-normalizer +15.9, rpds-py +13.6, typing-extensions +12.5, click +10.3, idna +10.3, cffi +9.8, filelock +7.1, litellm +3.8, pydantic-core +2.7, pyjwt +1.6, anyio +1.0
+   negative (17): aiobotocore -29.8, boto3 -26.7, pytest -25.0, urllib3 -20.8, fsspec -16.6, grpcio-status -14.1, botocore -13.1, cryptography -12.2, requests -10.1, pathspec -9.8, s3transfer -9.5, pandas -9.2, numpy -8.1, pydantic -6.7, aiohttp -2.6, protobuf -2.5, platformdirs -1.2
+   median of the absolute differences: 12.5 points; differences within 3 points either way: 6 of 37
+   the 18 that show the trace, smallest CI difference: +1.0 points
+   Reading: the split is two-sided and mostly large, not noise about zero; the record's median of +1.6 sits between the two groups.
+
+G. Weekday against weekend, 21 to 27 September 2026 (week/versions/*.csv): the ratio of a weekend day's mean to a weekday's mean,
+   for older and for at-or-newer downloads, and the older share on weekdays and at the weekend (description only)
+   project            older we/wd newer we/wd  O weekday  O weekend
+   aiobotocore               0.81        0.64      97.1 %      97.7 %
+   aiohttp                   0.62        0.67      34.2 %      32.5 %
+   annotated-types           0.51        0.72      35.1 %      27.7 %
+   anyio                     0.55        0.70      27.1 %      22.6 %
+   boto3                     0.85        0.68      89.6 %      91.4 %
+   botocore                  0.72        0.67      71.4 %      72.9 %
+   certifi                   0.50        0.72      26.0 %      19.6 %
+   cffi                      0.54        0.70      35.0 %      29.6 %
+   charset-normalizer        0.49        0.72      30.3 %      22.9 %
+   click                     0.51        0.72      33.7 %      26.4 %
+   cryptography              0.66        0.68      38.5 %      37.9 %
+   filelock                  0.55        0.67      38.2 %      33.6 %
+   fsspec                    0.74        0.76      74.6 %      74.1 %
+   grpcio-status             0.76        0.68      75.9 %      78.1 %
+   idna                      0.52        0.72      27.3 %      21.2 %
+   litellm                   0.54        0.79      67.7 %      58.9 %
+   numpy                     0.71        0.73      73.4 %      72.9 %
+   packaging                 0.52        0.70      26.1 %      20.7 %
+   pandas                    0.71        0.70      69.4 %      70.0 %
+   pathspec                  0.57        0.61      23.1 %      21.9 %
+   platformdirs              0.55        0.64      41.7 %      38.4 %
+   protobuf                  0.61        0.71      71.4 %      68.0 %
+   pydantic                  0.61        0.69      35.0 %      32.2 %
+   pydantic-core             0.65        0.74      99.4 %      99.3 %
+   pygments                  0.50        0.77      31.1 %      22.8 %
+   pyjwt                     0.54        0.67      20.7 %      17.4 %
+   pytest                    0.69        0.69      57.6 %      57.7 %
+   python-dotenv             0.55        0.74      47.0 %      40.0 %
+   requests                  0.64        0.68      37.3 %      36.1 %
+   rpds-py                   0.54        0.69      37.9 %      32.3 %
+   s3transfer                0.66        0.67      64.8 %      64.2 %
+   starlette                 0.56        0.74      43.8 %      37.2 %
+   tqdm                      0.51        0.77      40.0 %      30.9 %
+   typing-extensions         0.54        0.73      23.0 %      18.0 %
+   typing-inspection         0.51        0.73      36.9 %      28.8 %
+   urllib3                   0.65        0.66      27.2 %      26.9 %
+   uvicorn                   0.57        0.77      48.3 %      40.8 %
+   median weekend-to-weekday ratio: older 0.56, at-or-newer 0.70; projects where older downloads fall less at the weekend than newer ones do: 6 of 37
+   Reading: builds and people rest at weekends; a fetch that goes on regardless is a daemon, a schedule or a scanner. The log
+   cannot name it, but the weekend ratio is a cheap descriptor of it that LH013 could carry, since it reads the same table.

@@ -1,0 +1,10 @@
+1. boto3, Python 3.9, 21 to 27 September 2026: 1.42.97 (the edge) 17,132,664; of the 50 versions below it, 49 between 882,000 and 906,000 (range 882,481 to 905,092); outside: 1.42.87 486,869; median of the first 100 below the edge 882,864
+2. aiobotocore, Python 3.9: 3.5.0 (the edge) 486,492; the nine versions below it, 3.4.0 to 3.0.0: 473,704 to 474,043; the tenth, 2.26.0: 3,396,040
+3. grpcio-status, Python 3.9, from its edge 1.80.0 down: 1.80.0 965,407, 1.78.1 5 (yanked), 1.78.0 157,572, 1.76.0 156,182, 1.75.1 155,849, 1.75.0 155,594; yanked versions of the project: 1.45.0, 1.48.0, 1.49.0, 1.51.0, 1.52.0, 1.55.0, 1.65.0, 1.72.0, 1.78.1, 1.82.0
+4. boto3: 99 releases; median day-2 share 14.1, median day-30 share 23.7, median ratio 0.60
+4. aiobotocore: 10 releases; median day-2 share 2.4, median day-30 share 4.0, median ratio 0.58
+   median over projects of the median ratio: 0.92; projects under 0.75: pydantic-core 0.02, starlette 0.29, aiobotocore 0.58, boto3 0.60, litellm 0.61
+5. botocore: held by current versions of the largest dependent 2.1 per cent; by all dependents' current versions 2.1; by their older versions 221.9
+5. fsspec: held by current versions of the largest dependent 5.3 per cent; by all dependents' current versions 5.3; by their older versions 70.7
+5. pydantic-core: held by current versions of the largest dependent 53.2 per cent; by all dependents' current versions 53.2; by their older versions 42.7
+5. s3transfer: held by current versions of the largest dependent 0.0 per cent; by all dependents' current versions 0.0; by their older versions 225.2

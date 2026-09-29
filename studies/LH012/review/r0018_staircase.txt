@@ -1,0 +1,97 @@
+H. Count-by-version profiles of older downloads, newest first (data/week/python/*.csv)
+   A backtracking resolve leaves a staircase that never rises with depth; frozen lists leave a jagged profile.
+
+   boto3 on 3.9 (excluded; start 1.42.97): 2022 versions, 372,772,171 downloads; non-rising pairs 1078/2021 = 53 per cent; rises above 5 per cent: 232
+      from the top: 1.42.97:17,132,664, 1.42.96:888,044, 1.42.95:887,750, 1.42.94:887,235, 1.42.93:891,453, 1.42.92:887,027, 1.42.91:887,856, 1.42.90:886,561, 1.42.89:886,780, 1.42.88:886,695, 1.42.87:486,869, 1.42.86:886,498
+      median count per block of 20 versions, from the top: 886,903, 883,897, 882,767, 879,884, 870,780, 527,574, 527,326, 527,109, 526,806, 527,075, 526,403, 526,770, 525,960, 525,867, 526,390, 526,273, 525,961, 525,767, 525,703, 525,753, 526,456, 526,239, 526,128, 521,437, 513,021
+
+   boto3 on 3.8 (excluded; start 1.37.38): 1776 versions, 3,750,231 downloads; non-rising pairs 955/1775 = 54 per cent; rises above 5 per cent: 664
+      from the top: 1.37.38:2,687,867, 1.37.37:2,760, 1.37.36:2,279, 1.37.35:2,321, 1.37.34:2,374, 1.37.33:2,246, 1.37.32:2,242, 1.37.31:2,256, 1.37.30:2,243, 1.37.29:2,238, 1.37.28:2,236, 1.37.27:2,235
+      median count per block of 20 versions, from the top: 2,251, 2,227, 669, 647, 600, 599, 591, 585, 593, 593, 593, 586, 592, 587, 604, 587, 588, 584, 539, 535, 540, 557, 562, 559, 518
+
+   boto3 on 3.7 (excluded; start 1.33.13): 1426 versions, 18,249,056 downloads; non-rising pairs 725/1425 = 51 per cent; rises above 5 per cent: 283
+      from the top: 1.33.13:6,242,714, 1.33.12:24,605, 1.33.11:18,623, 1.33.10:18,547, 1.33.9:18,755, 1.33.8:18,598, 1.33.7:18,629, 1.33.6:18,680, 1.33.5:18,629, 1.33.4:18,554, 1.33.3:18,613, 1.33.2:18,879
+      median count per block of 20 versions, from the top: 18,629, 18,601, 18,691, 18,599, 18,494, 15,403, 15,297, 15,086, 14,841, 14,726, 14,609, 14,498, 14,504, 14,439, 14,221, 14,204, 13,842, 13,791, 13,705, 13,706, 13,661, 13,548, 11,581, 11,565, 11,270
+
+   boto3 on 3.10 (admitted; start 1.43.77): 2073 versions, 51,153,493 downloads; non-rising pairs 1158/2072 = 56 per cent; rises above 5 per cent: 575
+      from the top: 1.43.77:174,347, 1.43.76:178,142, 1.43.75:366,339, 1.43.74:161,201, 1.43.73:161,734, 1.43.72:165,063, 1.43.71:171,861, 1.43.70:160,624, 1.43.69:161,334, 1.43.68:163,753, 1.43.67:192,523, 1.43.66:161,523
+      median count per block of 20 versions, from the top: 164,408, 161,098, 161,320, 161,371, 159,062, 159,263, 156,955, 154,555, 40,860, 34,681, 34,257, 34,409, 33,306, 34,363, 32,982, 28,253, 27,612, 27,106, 26,987, 28,526, 26,460, 26,070, 26,766, 26,217, 26,108
+
+   boto3 on 3.12 (admitted; start 1.43.77): 1677 versions, 22,927,253 downloads; non-rising pairs 858/1676 = 51 per cent; rises above 5 per cent: 806
+      from the top: 1.43.77:36,938, 1.43.76:26,079, 1.43.75:553,346, 1.43.74:65,812, 1.43.73:49,243, 1.43.72:234,052, 1.43.71:66,535, 1.43.70:60,001, 1.43.69:39,957, 1.43.68:35,525, 1.43.67:162,557, 1.43.66:52,084
+      median count per block of 20 versions, from the top: 55,813, 54,246, 43,222, 56,068, 40,856, 39,525, 29,403, 16,502, 12,152, 8,071, 8,952, 9,840, 8,177, 6,330, 4,252, 3,075, 2,505, 4,759, 4,493, 4,953, 7,815, 2,908, 2,607, 2,611, 1,749
+
+   botocore on 3.9 (excluded; start 1.42.97): 2222 versions, 49,657,343 downloads; non-rising pairs 1233/2221 = 56 per cent; rises above 5 per cent: 503
+      from the top: 1.42.97:21,958,654, 1.42.96:135,675, 1.42.95:134,726, 1.42.94:134,596, 1.42.93:134,376, 1.42.92:134,367, 1.42.91:148,312, 1.42.90:134,423, 1.42.89:134,382, 1.42.88:134,539, 1.42.87:134,808, 1.42.86:134,367
+      median count per block of 20 versions, from the top: 134,556, 134,292, 134,418, 133,209, 133,007, 3,059, 1,855, 1,820, 1,768, 1,864, 1,863, 1,865, 1,735, 1,755, 1,890, 1,862, 1,860, 1,799, 1,727, 1,750, 1,723, 1,892, 1,706, 1,720, 1,723
+
+   botocore on 3.12 (admitted; start 1.43.77): 1651 versions, 25,161,247 downloads; non-rising pairs 893/1650 = 54 per cent; rises above 5 per cent: 743
+      from the top: 1.43.77:30,352, 1.43.76:21,550, 1.43.75:860,285, 1.43.74:60,893, 1.43.73:37,676, 1.43.72:235,994, 1.43.71:57,861, 1.43.70:57,185, 1.43.69:31,330, 1.43.68:32,324, 1.43.67:160,990, 1.43.66:48,782
+      median count per block of 20 versions, from the top: 47,239, 48,121, 43,795, 40,573, 39,089, 27,639, 26,216, 12,495, 8,915, 6,614, 5,837, 6,934, 3,892, 4,064, 1,644, 1,039, 1,051, 1,443, 1,278, 1,957, 1,301, 1,256, 856, 558, 1,029
+
+   s3transfer on 3.9 (excluded; start 0.16.1): 54 versions, 28,496,428 downloads; non-rising pairs 26/53 = 49 per cent; rises above 5 per cent: 27
+      from the top: 0.16.1:18,458,811, 0.16.0:16,349, 0.15.0:839,946, 0.14.0:591,986, 0.13.1:771,927, 0.13.0:268,323, 0.12.0:454,447, 0.11.5:594,965, 0.11.4:84,641, 0.11.3:672,620, 0.11.2:4,551, 0.11.1:301
+      median count per block of 20 versions, from the top: 172,531, 4,293, 4
+
+   aiobotocore on 3.9 (excluded; start 3.5.0): 129 versions, 71,664,763 downloads; non-rising pairs 76/128 = 59 per cent; rises above 5 per cent: 11
+      from the top: 3.5.0:486,492, 3.4.0:473,717, 3.3.0:473,734, 3.2.1:473,729, 3.2.0:473,704, 3.1.3:473,756, 3.1.2:473,715, 3.1.1:473,781, 3.1.0:473,720, 3.0.0:474,043, 2.26.0:3,396,040, 2.25.2:1,185,157
+      median count per block of 20 versions, from the top: 777,865, 1,034,762, 933,429, 573,022, 471,514, 244, 244
+
+   aiobotocore on 3.12 (admitted; start 3.8.0): 109 versions, 5,588,825 downloads; non-rising pairs 53/108 = 49 per cent; rises above 5 per cent: 48
+      from the top: 3.8.0:98,424, 3.7.0:448,399, 3.6.0:59,636, 3.5.0:26,277, 3.4.0:40,526, 3.3.0:54,965, 3.2.1:49,502, 3.2.0:36,123, 3.1.3:21,609, 3.1.2:9,922, 3.1.1:18,940, 3.1.0:19,322
+      median count per block of 20 versions, from the top: 35,686, 29,076, 724, 49,407, 4, 4,460
+
+   fsspec on 3.9 (excluded; start 2025.10.0): 74 versions, 37,777,441 downloads; non-rising pairs 40/73 = 55 per cent; rises above 5 per cent: 20
+      from the top: 2025.10.0:9,943,054, 2025.9.0:584,163, 2025.7.0:595,730, 2025.5.1:592,442, 2025.5.0:606,587, 2025.3.2:644,227, 2025.3.1:537,962, 2025.3.0:597,400, 2025.2.0:577,256, 2024.12.0:644,145, 2024.10.0:629,901, 2024.9.0:607,131
+      median count per block of 20 versions, from the top: 601,993, 447,671, 428,376, 3
+
+   fsspec on 3.12 (admitted; start 2026.6.0): 78 versions, 15,258,007 downloads; non-rising pairs 46/77 = 60 per cent; rises above 5 per cent: 31
+      from the top: 2026.6.0:3,814,172, 2026.4.0:1,335,412, 2026.3.0:3,503,612, 2026.2.0:1,788,007, 2026.1.0:639,603, 2025.12.0:448,927, 2025.10.0:650,021, 2025.9.0:526,570, 2025.7.0:140,484, 2025.5.1:111,739, 2025.5.0:2,810, 2025.3.2:125,215
+      median count per block of 20 versions, from the top: 371,730, 4,896, 193, 9
+
+   numpy on 3.9 (excluded; start 2.0.2): 105 versions, 22,244,169 downloads; non-rising pairs 55/104 = 53 per cent; rises above 5 per cent: 47
+      from the top: 2.0.2:12,337,949, 2.0.1:26,449, 2.0.0:22,969, 1.26.4:5,583,441, 1.26.3:147,450, 1.26.2:5,877, 1.26.1:69,095, 1.26.0:36,441, 1.25.2:29,155, 1.25.1:6,524, 1.25.0:43,489, 1.24.4:239,155
+      median count per block of 20 versions, from the top: 39,965, 26,888, 1,107, 30, 10, 8
+
+   numpy on 3.11 (excluded; start 2.4.6): 129 versions, 36,548,583 downloads; non-rising pairs 68/128 = 53 per cent; rises above 5 per cent: 59
+      from the top: 2.4.6:21,036,977, 2.4.5:57,511, 2.4.4:626,596, 2.4.3:322,216, 2.4.2:282,611, 2.4.1:190,715, 2.4.0:184,370, 2.3.5:432,678, 2.3.4:144,985, 2.3.3:105,772, 2.3.2:122,715, 2.3.1:50,438
+      median count per block of 20 versions, from the top: 118,769, 80,061, 2,744, 924, 424, 181, 8
+
+   pandas on 3.9 (excluded; start 2.3.3): 108 versions, 22,090,076 downloads; non-rising pairs 65/107 = 61 per cent; rises above 5 per cent: 42
+      from the top: 2.3.3:7,133,640, 2.3.2:207,115, 2.3.1:121,750, 2.3.0:46,358, 2.2.3:1,532,385, 2.2.2:493,782, 2.2.1:96,887, 2.2.0:86,677, 2.1.4:1,098,128, 2.1.3:45,600, 2.1.2:55,242, 2.1.1:40,214
+      median count per block of 20 versions, from the top: 91,782, 19,408, 62, 12, 12, 6
+
+   pandas on 3.10 (excluded; start 2.3.3): 85 versions, 10,368,894 downloads; non-rising pairs 45/84 = 54 per cent; rises above 5 per cent: 38
+      from the top: 2.3.3:5,646,857, 2.3.2:111,654, 2.3.1:89,808, 2.3.0:74,606, 2.2.3:968,163, 2.2.2:768,454, 2.2.1:93,157, 2.2.0:109,526, 2.1.4:224,558, 2.1.3:25,694, 2.1.2:91,290, 2.1.1:33,762
+      median count per block of 20 versions, from the top: 100,797, 5,227, 94, 13, 7
+
+   urllib3 on 3.9 (excluded; start 2.6.3): 99 versions, 21,875,972 downloads; non-rising pairs 56/98 = 57 per cent; rises above 5 per cent: 39
+      from the top: 2.6.3:7,350,494, 2.6.2:62,181, 2.6.1:54,181, 2.6.0:73,861, 2.5.0:129,717, 2.4.0:67,904, 2.3.0:183,334, 2.2.3:67,208, 2.2.2:99,018, 2.2.1:79,729, 2.2.0:54,866, 2.1.0:58,961
+      median count per block of 20 versions, from the top: 59,191, 23,555, 1,634, 17, 10
+
+   requests on 3.9 (excluded; start 2.32.5): 154 versions, 15,204,648 downloads; non-rising pairs 99/153 = 65 per cent; rises above 5 per cent: 52
+      from the top: 2.32.5:11,529,116, 2.32.4:216,244, 2.32.3:669,259, 2.32.2:35,945, 2.32.1:790, 2.32.0:19,220, 2.31.0:1,211,670, 2.30.0:75,431, 2.29.0:85,203, 2.28.2:324,819, 2.28.1:193,121, 2.28.0:12,479
+      median count per block of 20 versions, from the top: 85,995, 248, 142, 139, 12, 8, 8, 7
+
+   certifi on 3.12 (admitted; start 2026.6.17): 68 versions, 28,141,202 downloads; non-rising pairs 43/67 = 64 per cent; rises above 5 per cent: 23
+      from the top: 2026.6.17:4,539,789, 2026.5.20:2,576,477, 2026.4.22:3,169,784, 2026.2.25:7,510,594, 2026.1.4:2,321,016, 2025.11.12:1,956,007, 2025.10.5:805,111, 2025.8.3:1,062,710, 2025.7.14:182,051, 2025.7.9:29,761, 2025.6.15:198,416, 2025.4.26:419,384
+      median count per block of 20 versions, from the top: 516,896, 1,912, 27, 3
+
+   requests on 3.12 (admitted; start 2.34.1): 103 versions, 27,393,439 downloads; non-rising pairs 54/102 = 53 per cent; rises above 5 per cent: 47
+      from the top: 2.34.1:223,293, 2.34.0:304,063, 2.33.1:7,587,847, 2.33.0:2,857,798, 2.32.5:5,414,974, 2.32.4:1,847,278, 2.32.3:3,871,397, 2.32.2:112,363, 2.32.1:1,618, 2.32.0:86,298, 2.31.0:2,696,027, 2.30.0:41,372
+      median count per block of 20 versions, from the top: 267,717, 217, 73, 64, 2, 1
+
+   typing-extensions on 3.12 (admitted; start 4.15.0): 39 versions, 23,476,700 downloads; non-rising pairs 22/38 = 58 per cent; rises above 5 per cent: 16
+      from the top: 4.15.0:19,933,046, 4.14.1:720,697, 4.14.0:418,108, 4.13.2:357,419, 4.13.1:18,245, 4.13.0:27,982, 4.12.2:1,011,918, 4.12.1:10,960, 4.12.0:8,108, 4.11.0:61,698, 4.10.0:637,640, 4.9.0:43,183
+      median count per block of 20 versions, from the top: 35,582, 229
+
+   pytest on 3.12 (admitted; start 9.1.0): 184 versions, 35,596,214 downloads; non-rising pairs 98/183 = 54 per cent; rises above 5 per cent: 85
+      from the top: 9.1.0:401,223, 9.0.3:11,373,934, 9.0.2:3,626,189, 9.0.1:457,311, 9.0.0:49,392, 8.4.2:4,839,520, 8.4.1:7,825,874, 8.4.0:253,623, 8.3.5:1,610,978, 8.3.4:1,349,822, 8.3.3:665,218, 8.3.2:377,014
+      median count per block of 20 versions, from the top: 325,030, 37,033, 312, 60, 58, 28, 45, 39, 6, 5
+
+   cryptography on 3.12 (admitted; start 49.0.0): 138 versions, 18,938,715 downloads; non-rising pairs 77/137 = 56 per cent; rises above 5 per cent: 60
+      from the top: 49.0.0:3,108,945, 48.0.1:1,916,110, 48.0.0:1,413,725, 47.0.0:788,628, 46.0.7:2,243,518, 46.0.6:449,865, 46.0.5:1,679,692, 46.0.4:223,556, 46.0.3:763,232, 46.0.2:70,493, 46.0.1:92,767, 46.0.0:614,840
+      median count per block of 20 versions, from the top: 471,895, 93,451, 4,065, 369, 57, 17, 4
+
+   Note: on an excluded Python the walk is taken from the edge, the highest version below R that admits it; on an admitted
+   Python a fresh resolve lands at or above R, so older versions there are reached only by a constraint or a list.
