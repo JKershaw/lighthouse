@@ -1,0 +1,99 @@
+Replay X3: post hoc calculations over LH012's retained files (read week 21 to 27 September 2026)
+
+A. Version spread of older downloads by Python class (W sums from data/week/python/)
+   A cell of the log's fields (Python 3.9, pip, Linux, glibc, no CI flag) is not a population; the number of
+   versions its fetches sit on says whether it could be one. Ages are days from first upload to 24 September.
+   boto3 older from 3.9 Pythons: 372,808,835 fetches on 2100 versions; versions for half 250, for 80 per cent 463; largest version 4.6 per cent; median age 535 days; over a year old 66.0 per cent
+      ten largest: 1.42.97 (2026-04-27) 4.6; 1.34.79 (2024-04-05) 0.3; 1.36.3 (2025-01-21) 0.3; 1.41.5 (2025-11-26) 0.3; 1.42.22 (2026-01-05) 0.3; 1.42.23 (2026-01-06) 0.2; 1.42.83 (2026-04-03) 0.2; 1.42.80 (2026-03-31) 0.2; 1.42.54 (2026-02-20) 0.2; 1.42.85 (2026-04-07) 0.2
+      by year of the version's upload: 2014 0.0, 2015 0.0, 2016 0.0, 2017 0.0, 2018 0.0, 2019 0.1, 2020 0.1, 2021 0.2, 2022 4.4, 2023 7.4, 2024 28.2, 2025 36.8, 2026 22.8
+   boto3 older from excluded Pythons: 395,594,052 fetches on 2100 versions; versions for half 255, for 80 per cent 480; largest version 4.3 per cent; median age 559 days; over a year old 68.0 per cent
+   boto3 older from admitted Pythons: 119,103,161 fetches on 2085 versions; versions for half 117, for 80 per cent 356; largest version 3.8 per cent; median age 286 days; over a year old 41.0 per cent
+   botocore older from 3.9 Pythons: 49,663,601 fetches on 2307 versions; versions for half 3, for 80 per cent 79; largest version 44.2 per cent; median age 184 days; over a year old 22.0 per cent
+   botocore older from excluded Pythons: 66,071,529 fetches on 2448 versions; versions for half 4, for 80 per cent 73; largest version 33.2 per cent; median age 276 days; over a year old 41.3 per cent
+   botocore older from admitted Pythons: 70,701,046 fetches on 2433 versions; versions for half 21, for 80 per cent 140; largest version 6.3 per cent; median age 331 days; over a year old 44.2 per cent
+   aiobotocore older from 3.9 Pythons: 71,664,790 fetches on 132 versions; versions for half 32, for 80 per cent 62; largest version 4.7 per cent; median age 861 days; over a year old 82.5 per cent
+   aiobotocore older from excluded Pythons: 87,794,278 fetches on 133 versions; versions for half 34, for 80 per cent 60; largest version 3.9 per cent; median age 972 days; over a year old 85.7 per cent
+   aiobotocore older from admitted Pythons: 50,900,260 fetches on 133 versions; versions for half 32, for 80 per cent 65; largest version 8.7 per cent; median age 757 days; over a year old 70.1 per cent
+   numpy older from 3.9 Pythons: 22,247,261 fetches on 131 versions; versions for half 1, for 80 per cent 2; largest version 55.5 per cent; median age 759 days; over a year old 100.0 per cent
+   numpy older from excluded Pythons: 87,330,440 fetches on 132 versions; versions for half 3, for 80 per cent 6; largest version 24.1 per cent; median age 759 days; over a year old 73.3 per cent
+   numpy older from admitted Pythons: 46,462,379 fetches on 133 versions; versions for half 4, for 80 per cent 11; largest version 16.0 per cent; median age 278 days; over a year old 40.2 per cent
+   pandas older from 3.9 Pythons: 22,090,205 fetches on 113 versions; versions for half 3, for 80 per cent 6; largest version 32.3 per cent; median age 1184 days; over a year old 67.7 per cent
+   pandas older from excluded Pythons: 43,205,078 fetches on 115 versions; versions for half 3, for 80 per cent 8; largest version 29.6 per cent; median age 1184 days; over a year old 70.4 per cent
+   pandas older from admitted Pythons: 44,263,315 fetches on 116 versions; versions for half 2, for 80 per cent 6; largest version 39.3 per cent; median age 360 days; over a year old 44.3 per cent
+
+B. botocore and s3transfer: the boto3 hold and the excluded-Python fetches are largely the same fetches
+   boto3: older 518,286,057; from excluded Pythons 76.3 per cent, admitted 23.0, none 0.7; of the admitted-Python older fetches, at or below the last version for Python 3.9 (1.42.97) 73.3 per cent, above it (released May to August 2026) 26.7
+   botocore: older 140,285,210; from excluded Pythons 47.1 per cent, admitted 50.4, none 2.5; of the admitted-Python older fetches, at or below the last version for Python 3.9 (1.42.97) 75.9 per cent, above it (released May to August 2026) 24.1
+   s3transfer: older 95,895,870; from excluded Pythons 44.8 per cent, admitted 52.1, none 3.0; of the admitted-Python older fetches, at or below the last version for Python 3.9 (0.16.1) 82.4 per cent, above it (released May to August 2026) 17.6
+   Reading: boto3 versions below 1.43 (the ones the record says hold botocore and s3transfer) are the versions the Python 3.9
+   population fetches; the share of botocore's and s3transfer's older fetches that come from excluded Pythons is what P already counts.
+
+C. The first-day test: sign and size of delta (day 30 minus day 2, points), 355 releases
+   releases 355; delta > 0 for 339 (95.5 per cent); median 7.2; quartiles 3.6 and 10.2; within 5 points 124; within 10 257; above +10 97; below -10 1
+   projects 32; median delta > 0 in 31; between 0 and +10 in 27; median of project medians 3.2
+   boto3: 99 releases, median delta 9.6; above +10 44, within 10 55, delta > 0 98; botocore median 6.2, above +10 9
+   day-2 share over day-30 share: median 0.79 (a release whose share still grows has a ratio below 1)
+   Reading: the ten-point band passes releases whose share keeps climbing through the month; "settles" is true within the
+   band the brief fixed, and the climb is what LH008 saw as pins moving over weeks.
+
+D. The pooled older share and what boto3 does to it
+   all 37: 45.6 per cent of 7,136,826,047; boto3 is 8.1 per cent of all fetches and 15.9 per cent of all older fetches
+   without boto3: 41.7 per cent; without the boto3 family (boto3, botocore, s3transfer, aiobotocore): 38.8
+   pooled P lower: 30.9 per cent; without boto3 22.3
+
+E. Older and at-or-newer downloads by day of the week (data/week/versions/): does the older part dip at the weekend?
+   boto3: older per weekday 77.4M, per weekend day 65.6M (ratio 0.85); at-or-newer 9.0M and 6.2M (ratio 0.68)
+   botocore: older per weekday 21.8M, per weekend day 15.7M (ratio 0.72); at-or-newer 8.7M and 5.8M (ratio 0.67)
+   requests: older per weekday 16.7M, per weekend day 10.7M (ratio 0.64); at-or-newer 28.1M and 19.0M (ratio 0.68)
+   certifi: older per weekday 12.5M, per weekend day 6.3M (ratio 0.50); at-or-newer 35.5M and 25.7M (ratio 0.72)
+   pydantic-core: older per weekday 30.3M, per weekend day 19.6M (ratio 0.65); at-or-newer 0.2M and 0.1M (ratio 0.74)
+
+F. Older downloads from Pythons a newer version admits: how old are the versions they sit on? (fetch-weighted median age, days;
+   share of those fetches on versions over a year old; share on versions uploaded within 90 days before R, the ordinary lag)
+   annotated-types: median age 857; over a year 100 per cent; within 90 days before R 0 per cent
+   aiobotocore: median age 757; over a year 70 per cent; within 90 days before R 4 per cent
+   pyjwt: median age 665; over a year 55 per cent; within 90 days before R 37 per cent
+   urllib3: median age 532; over a year 60 per cent; within 90 days before R 0 per cent
+   grpcio-status: median age 479; over a year 69 per cent; within 90 days before R 11 per cent
+   pytest: median age 463; over a year 66 per cent; within 90 days before R 24 per cent
+   requests: median age 402; over a year 61 per cent; within 90 days before R 39 per cent
+   typing-extensions: median age 395; over a year 100 per cent; within 90 days before R 0 per cent
+   fsspec: median age 387; over a year 54 per cent; within 90 days before R 20 per cent
+   cffi: median age 381; over a year 88 per cent; within 90 days before R 12 per cent
+   s3transfer: median age 380; over a year 60 per cent; within 90 days before R 18 per cent
+   pandas: median age 360; over a year 44 per cent; within 90 days before R 8 per cent
+   typing-inspection: median age 358; over a year 4 per cent; within 90 days before R 1 per cent
+   pydantic: median age 342; over a year 44 per cent; within 90 days before R 8 per cent
+   botocore: median age 331; over a year 44 per cent; within 90 days before R 19 per cent
+   click: median age 313; over a year 38 per cent; within 90 days before R 43 per cent
+   rpds-py: median age 298; over a year 15 per cent; within 90 days before R 16 per cent
+   boto3: median age 286; over a year 41 per cent; within 90 days before R 21 per cent
+   numpy: median age 278; over a year 40 per cent; within 90 days before R 23 per cent
+   aiohttp: median age 264; over a year 29 per cent; within 90 days before R 22 per cent
+   anyio: median age 261; over a year 31 per cent; within 90 days before R 10 per cent
+   packaging: median age 246; over a year 45 per cent; within 90 days before R 0 per cent
+   pathspec: median age 240; over a year 40 per cent; within 90 days before R 54 per cent
+   tqdm: median age 233; over a year 39 per cent; within 90 days before R 17 per cent
+   cryptography: median age 226; over a year 32 per cent; within 90 days before R 26 per cent
+   certifi: median age 211; over a year 25 per cent; within 90 days before R 25 per cent
+   python-dotenv: median age 207; over a year 21 per cent; within 90 days before R 0 per cent
+   platformdirs: median age 203; over a year 22 per cent; within 90 days before R 26 per cent
+   filelock: median age 197; over a year 11 per cent; within 90 days before R 27 per cent
+   charset-normalizer: median age 193; over a year 26 per cent; within 90 days before R 13 per cent
+   uvicorn: median age 192; over a year 30 per cent; within 90 days before R 28 per cent
+   protobuf: median age 190; over a year 11 per cent; within 90 days before R 5 per cent
+   starlette: median age 186; over a year 22 per cent; within 90 days before R 46 per cent
+   pygments: median age 179; over a year 30 per cent; within 90 days before R 0 per cent
+   idna: median age 135; over a year 22 per cent; within 90 days before R 42 per cent
+   litellm: median age 133; over a year 28 per cent; within 90 days before R 47 per cent
+   pydantic-core: median age 27; over a year 11 per cent; within 90 days before R 56 per cent
+   median over projects: age 278 days; over a year 39 per cent; within 90 days before R 19 per cent
+
+G. awscli pins botocore exactly, its older versions were read (as a dependent of urllib3), but it is not among botocore's
+   or s3transfer's identified dependents: the dependents rule screens on the latest version and the versions newest during W,
+   and awscli 1.46.1 (latest at read) names only urllib3 among the 37 (data/top500_screen.csv, data/pairs.csv).
+   awscli W fetches 19,008,203 (1.46.1 alone 9,249,960); versions read with a botocore pin 18: 1.24.10 ==1.26.10, 1.27.20 ==1.29.20, 1.27.108 ==1.29.108, 1.29.4 ==1.31.4, 1.31.1 ==1.33.1, 1.31.13 ==1.33.13, 1.32.15 ==1.34.15, 1.32.102 ==1.34.102, 1.32.117 ==1.34.117, 1.33.26 ==1.34.144, 1.38.7 ==1.37.7, 1.38.38 ==1.37.38, 1.41.4 ==1.39.4, 1.42.61 ==1.40.61, 1.43.5 ==1.41.5, 1.44.38 ==1.42.48, 1.44.87 ==1.42.97, 1.45.56 ==1.43.56
+   fetches at read versions pinning botocore below R 5,065,978: 26.7 per cent of awscli's fetches, 3.6 per cent of botocore's older fetches, at a fetch ratio of 0.10 (an exact pin brings exactly that botocore version, so this is the unstrained kind of hold); unread awscli versions 4,692,265 fetches
+   the same versions' ranges on s3transfer would hold about the same fetches against s3transfer's 95,895,870 older fetches (5.3 per cent)
+
+done
