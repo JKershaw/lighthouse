@@ -1,0 +1,137 @@
+band,figure,value
+A,primary: projects with a known outcome,52
+A,primary: projects whose releases mostly reached half within two days,25
+A,primary: share,0.480769
+A,primary: 95% interval low,0.346154
+A,primary: 95% interval high,0.615385
+A,primary: convention,not as a rule
+B,primary: projects with a known outcome,35
+B,primary: projects whose releases mostly reached half within two days,9
+B,primary: share,0.257143
+B,primary: 95% interval low,0.114286
+B,primary: 95% interval high,0.400000
+B,primary: convention,not as a rule
+A,settling: projects with a known delta,50
+A,settling: projects that settle,39
+A,settling: share,0.780000
+A,settling: 95% interval low,0.660000
+A,settling: 95% interval high,0.880000
+A,settling: convention,holds as a rule
+B,settling: projects with a known delta,35
+B,settling: projects that settle,23
+B,settling: share,0.657143
+B,settling: 95% interval low,0.514286
+B,settling: 95% interval high,0.800000
+B,settling: convention,holds for some projects
+A,CI: projects with a known difference,52
+A,"CI: median of project median differences, pp",-14.200492
+A,CI: 95% interval low,-18.290046
+A,CI: 95% interval high,-12.327153
+A,CI: projects whose median difference is below zero,50
+B,CI: projects with a known difference,35
+B,"CI: median of project median differences, pp",-7.122550
+B,CI: 95% interval low,-13.250282
+B,CI: 95% interval high,0.000000
+B,CI: projects whose median difference is below zero,23
+A,primary: projects with a known outcome (without the overlap projects),47
+A,primary: projects whose releases mostly reached half within two days (without the overlap projects),22
+A,primary: share (without the overlap projects),0.468085
+A,primary: 95% interval low (without the overlap projects),0.319149
+A,primary: 95% interval high (without the overlap projects),0.617021
+A,primary: convention (without the overlap projects),not as a rule
+B,primary: projects with a known outcome (without the overlap projects),35
+B,primary: projects whose releases mostly reached half within two days (without the overlap projects),9
+B,primary: share (without the overlap projects),0.257143
+B,primary: 95% interval low (without the overlap projects),0.114286
+B,primary: 95% interval high (without the overlap projects),0.400000
+B,primary: convention (without the overlap projects),not as a rule
+A,settling: projects with a known delta (without the overlap projects),45
+A,settling: projects that settle (without the overlap projects),34
+A,settling: share (without the overlap projects),0.755556
+A,settling: 95% interval low (without the overlap projects),0.622222
+A,settling: 95% interval high (without the overlap projects),0.866667
+A,settling: convention (without the overlap projects),holds as a rule
+B,settling: projects with a known delta (without the overlap projects),35
+B,settling: projects that settle (without the overlap projects),23
+B,settling: share (without the overlap projects),0.657143
+B,settling: 95% interval low (without the overlap projects),0.485714
+B,settling: 95% interval high (without the overlap projects),0.800000
+B,settling: convention (without the overlap projects),holds for some projects
+A,CI: projects with a known difference (without the overlap projects),47
+A,"CI: median of project median differences, pp (without the overlap projects)",-14.255249
+A,CI: 95% interval low (without the overlap projects),-20.533305
+A,CI: 95% interval high (without the overlap projects),-11.675273
+A,CI: projects whose median difference is below zero (without the overlap projects),45
+B,CI: projects with a known difference (without the overlap projects),35
+B,"CI: median of project median differences, pp (without the overlap projects)",-7.122550
+B,CI: 95% interval low (without the overlap projects),-13.250282
+B,CI: 95% interval high (without the overlap projects),0.000000
+B,CI: projects whose median difference is below zero (without the overlap projects),23
+A,drawn projects,80
+A,projects with a qualifying release,52
+A,releases,295
+A,project median day-1 share: lower quartile,0.270055
+A,project median day-1 share: median,0.480560
+A,project median day-1 share: upper quartile,0.690017
+A,projects where every release reached half,21
+A,projects where no release reached half,22
+A,pooled: releases with a known outcome,295
+A,pooled: releases that reached half within two days,114
+A,pooled: releases reaching half by day 30,149
+A,pooled: median days to half among them,1
+A,projects with no release at half by day 30,13
+A,pooled: releases with a known delta,290
+A,pooled: releases that settle,219
+A,"settling: median of project median delta, pp",4.422130
+A,settling: median of project median day-2 to day-30 ratio,0.879368
+A,"settling: median of project median delta from day 1, pp",3.943692
+A,CI: subsample releases,125
+A,CI: releases with a known difference,124
+A,CI: releases with a CI gap day,0
+A,CI: share of subsample downloads whose flag is not known,0.030025
+A,CI: median of project median new-release shares,0.266564
+A,CI: median of project median replaced-release shares,0.435726
+A,"M1: day 0 difference with and without mirrors, pp: lower quartile, median, upper quartile of project medians",0.000 | 0.001 | 0.001
+A,"M1: day 1 difference with and without mirrors, pp: lower quartile, median, upper quartile of project medians",-0.000 | 0.000 | 0.001
+A,"M1: day 2 difference with and without mirrors, pp: lower quartile, median, upper quartile of project medians",-0.002 | -0.000 | 0.000
+A,"M1: projects whose ""most releases reached half"" changes without mirrors",0
+A,M1: those projects,
+A,"M2: mirrors' share of a release's own downloads, days 0 and 1: lower quartile, median, upper quartile of project medians",0.0000 | 0.0001 | 0.0002
+A,"M2: mirrors' downloads of a release on days 0 and 1: lower quartile, median, upper quartile of project medians",88.25 | 147.5 | 270
+A,"M2: pooled mirror share of releases' own downloads, days 0 and 1",0.000107
+A,LH012 dependents: releases with day 0 from 22 to 31 August,19
+B,drawn projects,80
+B,projects with a qualifying release,35
+B,releases,196
+B,project median day-1 share: lower quartile,0.114884
+B,project median day-1 share: median,0.226597
+B,project median day-1 share: upper quartile,0.453827
+B,projects where every release reached half,7
+B,projects where no release reached half,24
+B,pooled: releases with a known outcome,196
+B,pooled: releases that reached half within two days,38
+B,pooled: releases reaching half by day 30,81
+B,pooled: median days to half among them,4
+B,projects with no release at half by day 30,16
+B,pooled: releases with a known delta,195
+B,pooled: releases that settle,87
+B,"settling: median of project median delta, pp",6.147211
+B,settling: median of project median day-2 to day-30 ratio,0.811937
+B,"settling: median of project median delta from day 1, pp",8.181662
+B,CI: subsample releases,84
+B,CI: releases with a known difference,84
+B,CI: releases with a CI gap day,0
+B,CI: share of subsample downloads whose flag is not known,0.042948
+B,CI: median of project median new-release shares,0.400000
+B,CI: median of project median replaced-release shares,0.513074
+B,"M1: day 0 difference with and without mirrors, pp: lower quartile, median, upper quartile of project medians",0.003 | 0.010 | 0.029
+B,"M1: day 1 difference with and without mirrors, pp: lower quartile, median, upper quartile of project medians",0.002 | 0.008 | 0.053
+B,"M1: day 2 difference with and without mirrors, pp: lower quartile, median, upper quartile of project medians",0.000 | 0.003 | 0.013
+B,"M1: projects whose ""most releases reached half"" changes without mirrors",0
+B,M1: those projects,
+B,"M2: mirrors' share of a release's own downloads, days 0 and 1: lower quartile, median, upper quartile of project medians",0.0006 | 0.0023 | 0.0119
+B,"M2: mirrors' downloads of a release on days 0 and 1: lower quartile, median, upper quartile of project medians",45.5 | 62 | 83.75
+B,"M2: pooled mirror share of releases' own downloads, days 0 and 1",0.003987
+B,LH012 dependents: releases with day 0 from 22 to 31 August,0
+,gap days (all drawn projects),0
+,"gap days (project, no row)",0

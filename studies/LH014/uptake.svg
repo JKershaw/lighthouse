@@ -1,0 +1,170 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 720 482" width="720" height="482" role="img" aria-label="Share of projects whose new releases mostly reached half of downloads within two days, for the top fifty Python projects and two bands below them, and each project's median day-1 share">
+<style>svg{--bg:#fcfcfb;--ink:#0b0b0b;--ink2:#52514e;--grid:#e4e3de;--a:#2a78d6;--b:#eb6834}@media (prefers-color-scheme: dark){svg{--bg:#1a1a19;--ink:#ffffff;--ink2:#c3c2b7;--grid:#3a3936;--a:#3987e5;--b:#d95926}}text{font:12px system-ui,-apple-system,Segoe UI,sans-serif;fill:var(--ink2)}.t{fill:var(--ink);font-weight:600}.s{font-size:11px}</style>
+<rect width="720" height="482" fill="var(--bg)"/>
+<text class="t" x="16" y="24">Below the top fifty, fewer projects&#8217; new releases reach half of downloads within two days</text>
+<text x="16" y="48">Share of projects whose releases mostly reached half of downloads on day 1 or 2, with 95% interval</text>
+<line x1="422.5" y1="62" x2="422.5" y2="164" stroke="var(--ink2)" stroke-width="1" stroke-dasharray="4 3"/>
+<text class="s" x="422.5" y="178" text-anchor="middle">one half</text>
+<line x1="531.2" y1="62" x2="531.2" y2="164" stroke="var(--ink2)" stroke-width="1" stroke-dasharray="4 3"/>
+<text class="s" x="531.2" y="178" text-anchor="middle">three quarters</text>
+<line x1="205.0" y1="62" x2="205.0" y2="164" stroke="var(--grid)" stroke-width="1"/>
+<line x1="313.8" y1="62" x2="313.8" y2="164" stroke="var(--grid)" stroke-width="1"/>
+<line x1="640.0" y1="62" x2="640.0" y2="164" stroke="var(--grid)" stroke-width="1"/>
+<text class="t" x="193" y="78" text-anchor="end">Top fifty</text>
+<text class="s" x="193" y="92" text-anchor="end">37 released (every project)</text>
+<line x1="440.1" y1="80" x2="569.5" y2="80" stroke="var(--ink)" stroke-width="2" stroke-linecap="round"/>
+<circle cx="510.7" cy="80" r="5.5" fill="var(--ink)" stroke="var(--bg)" stroke-width="2"><title>Top fifty: 26 of 37 projects (70.3%; interval 54.1 to 83.8)</title></circle>
+<text x="650.0" y="84">26 of 37</text>
+<text class="t" x="193" y="112" text-anchor="end">Positions 51 to 500</text>
+<text class="s" x="193" y="126" text-anchor="end">80 drawn, 52 released</text>
+<line x1="355.6" y1="114" x2="472.7" y2="114" stroke="var(--ink)" stroke-width="2" stroke-linecap="round"/>
+<circle cx="414.1" cy="114" r="5.5" fill="var(--ink)" stroke="var(--bg)" stroke-width="2"><title>Positions 51 to 500: 25 of 52 projects (48.1%; interval 34.6 to 61.5)</title></circle>
+<text x="650.0" y="118">25 of 52</text>
+<text class="t" x="193" y="146" text-anchor="end">Positions 501 to 5,000</text>
+<text class="s" x="193" y="160" text-anchor="end">80 drawn, 35 released</text>
+<line x1="254.7" y1="148" x2="379.0" y2="148" stroke="var(--ink)" stroke-width="2" stroke-linecap="round"/>
+<circle cx="316.9" cy="148" r="5.5" fill="var(--ink)" stroke="var(--bg)" stroke-width="2"><title>Positions 501 to 5,000: 9 of 35 projects (25.7%; interval 11.4 to 40.0)</title></circle>
+<text x="650.0" y="152">9 of 35</text>
+<text x="16" y="210">Each project's median day-1 share of downloads at the new release or newer</text>
+<circle cx="22" cy="228" r="5" fill="var(--a)"/><text class="s" x="32" y="232">most releases reached half within two days</text>
+<rect x="292" y="223" width="10" height="10" rx="2" fill="var(--b)"/><text class="s" x="308" y="232">most did not</text>
+<line x1="205.0" y1="242" x2="205.0" y2="418" stroke="var(--grid)" stroke-width="1"/>
+<text x="205.0" y="434" text-anchor="middle">0%</text>
+<line x1="313.8" y1="242" x2="313.8" y2="418" stroke="var(--grid)" stroke-width="1"/>
+<text x="313.8" y="434" text-anchor="middle">25%</text>
+<line x1="422.5" y1="242" x2="422.5" y2="418" stroke="var(--ink2)" stroke-width="1" stroke-dasharray="4 3"/>
+<text x="422.5" y="434" text-anchor="middle">50%</text>
+<line x1="531.2" y1="242" x2="531.2" y2="418" stroke="var(--grid)" stroke-width="1"/>
+<text x="531.2" y="434" text-anchor="middle">75%</text>
+<line x1="640.0" y1="242" x2="640.0" y2="418" stroke="var(--grid)" stroke-width="1"/>
+<text x="640.0" y="434" text-anchor="middle">100%</text>
+<text class="t" x="193" y="279.0" text-anchor="end">Top fifty</text>
+<rect x="209.1" y="270.5" width="9" height="9" rx="2" fill="var(--b)" stroke="var(--bg)" stroke-width="1.5"><title>aiobotocore: median day-1 share 2.0%</title></rect>
+<rect x="232.9" y="270.5" width="9" height="9" rx="2" fill="var(--b)" stroke="var(--bg)" stroke-width="1.5"><title>boto3: median day-1 share 7.5%</title></rect>
+<rect x="241.8" y="270.5" width="9" height="9" rx="2" fill="var(--b)" stroke="var(--bg)" stroke-width="1.5"><title>litellm: median day-1 share 9.5%</title></rect>
+<rect x="244.9" y="270.5" width="9" height="9" rx="2" fill="var(--b)" stroke="var(--bg)" stroke-width="1.5"><title>grpcio-status: median day-1 share 10.2%</title></rect>
+<rect x="293.2" y="270.5" width="9" height="9" rx="2" fill="var(--b)" stroke="var(--bg)" stroke-width="1.5"><title>fsspec: median day-1 share 21.3%</title></rect>
+<rect x="302.3" y="270.5" width="9" height="9" rx="2" fill="var(--b)" stroke="var(--bg)" stroke-width="1.5"><title>botocore: median day-1 share 23.4%</title></rect>
+<rect x="307.7" y="281.5" width="9" height="9" rx="2" fill="var(--b)" stroke="var(--bg)" stroke-width="1.5"><title>protobuf: median day-1 share 24.6%</title></rect>
+<rect x="321.1" y="270.5" width="9" height="9" rx="2" fill="var(--b)" stroke="var(--bg)" stroke-width="1.5"><title>pandas: median day-1 share 27.7%</title></rect>
+<rect x="328.1" y="281.5" width="9" height="9" rx="2" fill="var(--b)" stroke="var(--bg)" stroke-width="1.5"><title>pytest: median day-1 share 29.3%</title></rect>
+<rect x="328.9" y="259.5" width="9" height="9" rx="2" fill="var(--b)" stroke="var(--bg)" stroke-width="1.5"><title>numpy: median day-1 share 29.5%</title></rect>
+<rect x="348.3" y="270.5" width="9" height="9" rx="2" fill="var(--b)" stroke="var(--bg)" stroke-width="1.5"><title>s3transfer: median day-1 share 34.0%</title></rect>
+<circle cx="425.7" cy="275.0" r="4.5" fill="var(--a)" stroke="var(--bg)" stroke-width="1.5"><title>pydantic: median day-1 share 50.7%</title></circle>
+<circle cx="436.7" cy="275.0" r="4.5" fill="var(--a)" stroke="var(--bg)" stroke-width="1.5"><title>starlette: median day-1 share 53.3%</title></circle>
+<circle cx="442.9" cy="286.0" r="4.5" fill="var(--a)" stroke="var(--bg)" stroke-width="1.5"><title>cryptography: median day-1 share 54.7%</title></circle>
+<circle cx="443.2" cy="264.0" r="4.5" fill="var(--a)" stroke="var(--bg)" stroke-width="1.5"><title>requests: median day-1 share 54.8%</title></circle>
+<circle cx="444.9" cy="275.0" r="4.5" fill="var(--a)" stroke="var(--bg)" stroke-width="1.5"><title>aiohttp: median day-1 share 55.2%</title></circle>
+<circle cx="450.9" cy="286.0" r="4.5" fill="var(--a)" stroke="var(--bg)" stroke-width="1.5"><title>pydantic-core: median day-1 share 56.5%</title></circle>
+<circle cx="452.3" cy="264.0" r="4.5" fill="var(--a)" stroke="var(--bg)" stroke-width="1.5"><title>uvicorn: median day-1 share 56.8%</title></circle>
+<circle cx="455.6" cy="275.0" r="4.5" fill="var(--a)" stroke="var(--bg)" stroke-width="1.5"><title>pyjwt: median day-1 share 57.6%</title></circle>
+<circle cx="457.0" cy="286.0" r="4.5" fill="var(--a)" stroke="var(--bg)" stroke-width="1.5"><title>python-dotenv: median day-1 share 57.9%</title></circle>
+<circle cx="458.6" cy="264.0" r="4.5" fill="var(--a)" stroke="var(--bg)" stroke-width="1.5"><title>rpds-py: median day-1 share 58.3%</title></circle>
+<circle cx="467.5" cy="275.0" r="4.5" fill="var(--a)" stroke="var(--bg)" stroke-width="1.5"><title>platformdirs: median day-1 share 60.3%</title></circle>
+<circle cx="469.3" cy="286.0" r="4.5" fill="var(--a)" stroke="var(--bg)" stroke-width="1.5"><title>urllib3: median day-1 share 60.8%</title></circle>
+<circle cx="469.8" cy="264.0" r="4.5" fill="var(--a)" stroke="var(--bg)" stroke-width="1.5"><title>filelock: median day-1 share 60.9%</title></circle>
+<circle cx="482.7" cy="275.0" r="4.5" fill="var(--a)" stroke="var(--bg)" stroke-width="1.5"><title>click: median day-1 share 63.8%</title></circle>
+<circle cx="496.5" cy="275.0" r="4.5" fill="var(--a)" stroke="var(--bg)" stroke-width="1.5"><title>typing-inspection: median day-1 share 67.0%</title></circle>
+<circle cx="504.5" cy="275.0" r="4.5" fill="var(--a)" stroke="var(--bg)" stroke-width="1.5"><title>anyio: median day-1 share 68.8%</title></circle>
+<circle cx="505.2" cy="286.0" r="4.5" fill="var(--a)" stroke="var(--bg)" stroke-width="1.5"><title>cffi: median day-1 share 69.0%</title></circle>
+<circle cx="507.2" cy="264.0" r="4.5" fill="var(--a)" stroke="var(--bg)" stroke-width="1.5"><title>annotated-types: median day-1 share 69.5%</title></circle>
+<circle cx="509.7" cy="275.0" r="4.5" fill="var(--a)" stroke="var(--bg)" stroke-width="1.5"><title>pygments: median day-1 share 70.1%</title></circle>
+<circle cx="511.2" cy="286.0" r="4.5" fill="var(--a)" stroke="var(--bg)" stroke-width="1.5"><title>tqdm: median day-1 share 70.4%</title></circle>
+<circle cx="523.2" cy="275.0" r="4.5" fill="var(--a)" stroke="var(--bg)" stroke-width="1.5"><title>pathspec: median day-1 share 73.1%</title></circle>
+<circle cx="524.3" cy="286.0" r="4.5" fill="var(--a)" stroke="var(--bg)" stroke-width="1.5"><title>idna: median day-1 share 73.4%</title></circle>
+<circle cx="533.7" cy="275.0" r="4.5" fill="var(--a)" stroke="var(--bg)" stroke-width="1.5"><title>typing-extensions: median day-1 share 75.6%</title></circle>
+<circle cx="534.8" cy="286.0" r="4.5" fill="var(--a)" stroke="var(--bg)" stroke-width="1.5"><title>charset-normalizer: median day-1 share 75.8%</title></circle>
+<circle cx="537.1" cy="264.0" r="4.5" fill="var(--a)" stroke="var(--bg)" stroke-width="1.5"><title>packaging: median day-1 share 76.3%</title></circle>
+<circle cx="538.9" cy="297.0" r="4.5" fill="var(--a)" stroke="var(--bg)" stroke-width="1.5"><title>certifi: median day-1 share 76.7%</title></circle>
+<text class="t" x="193" y="345.0" text-anchor="end">Positions 51 to 500</text>
+<rect x="205.9" y="336.5" width="9" height="9" rx="2" fill="var(--b)" stroke="var(--bg)" stroke-width="1.5"><title>google-cloud-dataform: median day-1 share 1.2%</title></rect>
+<rect x="222.0" y="336.5" width="9" height="9" rx="2" fill="var(--b)" stroke="var(--bg)" stroke-width="1.5"><title>google-cloud-speech: median day-1 share 4.9%</title></rect>
+<rect x="222.7" y="336.5" width="9" height="9" rx="2" fill="var(--b)" stroke="var(--bg)" stroke-width="1.5"><title>langchain: median day-1 share 5.1%</title></rect>
+<rect x="223.3" y="347.5" width="9" height="9" rx="2" fill="var(--b)" stroke="var(--bg)" stroke-width="1.5"><title>google-cloud-bigtable: median day-1 share 5.2%</title></rect>
+<rect x="254.6" y="336.5" width="9" height="9" rx="2" fill="var(--b)" stroke="var(--bg)" stroke-width="1.5"><title>ghapi: median day-1 share 12.4%</title></rect>
+<rect x="260.4" y="336.5" width="9" height="9" rx="2" fill="var(--b)" stroke="var(--bg)" stroke-width="1.5"><title>deepdiff: median day-1 share 13.8%</title></rect>
+<rect x="274.1" y="336.5" width="9" height="9" rx="2" fill="var(--b)" stroke="var(--bg)" stroke-width="1.5"><title>psycopg2: median day-1 share 16.9%</title></rect>
+<rect x="280.7" y="336.5" width="9" height="9" rx="2" fill="var(--b)" stroke="var(--bg)" stroke-width="1.5"><title>types-protobuf: median day-1 share 18.4%</title></rect>
+<rect x="282.8" y="347.5" width="9" height="9" rx="2" fill="var(--b)" stroke="var(--bg)" stroke-width="1.5"><title>gunicorn: median day-1 share 18.9%</title></rect>
+<rect x="287.0" y="325.5" width="9" height="9" rx="2" fill="var(--b)" stroke="var(--bg)" stroke-width="1.5"><title>datasets: median day-1 share 19.9%</title></rect>
+<rect x="287.6" y="336.5" width="9" height="9" rx="2" fill="var(--b)" stroke="var(--bg)" stroke-width="1.5"><title>pytest-json-ctrf: median day-1 share 20.0%</title></rect>
+<rect x="288.9" y="347.5" width="9" height="9" rx="2" fill="var(--b)" stroke="var(--bg)" stroke-width="1.5"><title>transformers: median day-1 share 20.3%</title></rect>
+<rect x="307.2" y="336.5" width="9" height="9" rx="2" fill="var(--b)" stroke="var(--bg)" stroke-width="1.5"><title>fastapi-cli: median day-1 share 24.5%</title></rect>
+<rect x="321.6" y="336.5" width="9" height="9" rx="2" fill="var(--b)" stroke="var(--bg)" stroke-width="1.5"><title>fastapi-cloud-cli: median day-1 share 27.8%</title></rect>
+<rect x="328.1" y="347.5" width="9" height="9" rx="2" fill="var(--b)" stroke="var(--bg)" stroke-width="1.5"><title>sentry-sdk: median day-1 share 29.3%</title></rect>
+<rect x="329.3" y="325.5" width="9" height="9" rx="2" fill="var(--b)" stroke="var(--bg)" stroke-width="1.5"><title>croniter: median day-1 share 29.6%</title></rect>
+<rect x="335.1" y="336.5" width="9" height="9" rx="2" fill="var(--b)" stroke="var(--bg)" stroke-width="1.5"><title>azure-storage-blob: median day-1 share 30.9%</title></rect>
+<rect x="345.3" y="336.5" width="9" height="9" rx="2" fill="var(--b)" stroke="var(--bg)" stroke-width="1.5"><title>typeguard: median day-1 share 33.3%</title></rect>
+<rect x="348.1" y="347.5" width="9" height="9" rx="2" fill="var(--b)" stroke="var(--bg)" stroke-width="1.5"><title>cfn-lint: median day-1 share 33.9%</title></rect>
+<rect x="348.6" y="325.5" width="9" height="9" rx="2" fill="var(--b)" stroke="var(--bg)" stroke-width="1.5"><title>paramiko: median day-1 share 34.0%</title></rect>
+<rect x="349.1" y="358.5" width="9" height="9" rx="2" fill="var(--b)" stroke="var(--bg)" stroke-width="1.5"><title>google-api-core: median day-1 share 34.2%</title></rect>
+<rect x="350.4" y="314.5" width="9" height="9" rx="2" fill="var(--b)" stroke="var(--bg)" stroke-width="1.5"><title>libcst: median day-1 share 34.5%</title></rect>
+<rect x="369.7" y="336.5" width="9" height="9" rx="2" fill="var(--b)" stroke="var(--bg)" stroke-width="1.5"><title>joblib: median day-1 share 38.9%</title></rect>
+<rect x="372.2" y="347.5" width="9" height="9" rx="2" fill="var(--b)" stroke="var(--bg)" stroke-width="1.5"><title>psycopg2-binary: median day-1 share 39.5%</title></rect>
+<circle cx="406.7" cy="341.0" r="4.5" fill="var(--a)" stroke="var(--bg)" stroke-width="1.5"><title>prometheus-client: median day-1 share 46.4%</title></circle>
+<circle cx="410.7" cy="352.0" r="4.5" fill="var(--a)" stroke="var(--bg)" stroke-width="1.5"><title>langgraph-prebuilt: median day-1 share 47.3%</title></circle>
+<circle cx="417.4" cy="341.0" r="4.5" fill="var(--a)" stroke="var(--bg)" stroke-width="1.5"><title>google-resumable-media: median day-1 share 48.8%</title></circle>
+<rect x="420.9" y="336.5" width="9" height="9" rx="2" fill="var(--b)" stroke="var(--bg)" stroke-width="1.5"><title>tiktoken: median day-1 share 50.7%</title></rect>
+<circle cx="429.6" cy="352.0" r="4.5" fill="var(--a)" stroke="var(--bg)" stroke-width="1.5"><title>pillow: median day-1 share 51.6%</title></circle>
+<rect x="432.2" y="336.5" width="9" height="9" rx="2" fill="var(--b)" stroke="var(--bg)" stroke-width="1.5"><title>zipp: median day-1 share 53.3%</title></rect>
+<rect x="433.9" y="347.5" width="9" height="9" rx="2" fill="var(--b)" stroke="var(--bg)" stroke-width="1.5"><title>fonttools: median day-1 share 53.7%</title></rect>
+<circle cx="448.0" cy="341.0" r="4.5" fill="var(--a)" stroke="var(--bg)" stroke-width="1.5"><title>argon2-cffi-bindings: median day-1 share 55.9%</title></circle>
+<circle cx="451.0" cy="352.0" r="4.5" fill="var(--a)" stroke="var(--bg)" stroke-width="1.5"><title>pathable: median day-1 share 56.6%</title></circle>
+<circle cx="457.4" cy="341.0" r="4.5" fill="var(--a)" stroke="var(--bg)" stroke-width="1.5"><title>authlib: median day-1 share 58.0%</title></circle>
+<circle cx="472.0" cy="341.0" r="4.5" fill="var(--a)" stroke="var(--bg)" stroke-width="1.5"><title>invoke: median day-1 share 61.4%</title></circle>
+<circle cx="474.2" cy="352.0" r="4.5" fill="var(--a)" stroke="var(--bg)" stroke-width="1.5"><title>matplotlib-inline: median day-1 share 61.9%</title></circle>
+<circle cx="486.0" cy="341.0" r="4.5" fill="var(--a)" stroke="var(--bg)" stroke-width="1.5"><title>identify: median day-1 share 64.6%</title></circle>
+<circle cx="499.4" cy="341.0" r="4.5" fill="var(--a)" stroke="var(--bg)" stroke-width="1.5"><title>httplib2: median day-1 share 67.7%</title></circle>
+<circle cx="505.0" cy="352.0" r="4.5" fill="var(--a)" stroke="var(--bg)" stroke-width="1.5"><title>jedi: median day-1 share 69.0%</title></circle>
+<circle cx="505.6" cy="330.0" r="4.5" fill="var(--a)" stroke="var(--bg)" stroke-width="1.5"><title>aiohappyeyeballs: median day-1 share 69.1%</title></circle>
+<circle cx="505.8" cy="363.0" r="4.5" fill="var(--a)" stroke="var(--bg)" stroke-width="1.5"><title>cyclopts: median day-1 share 69.2%</title></circle>
+<circle cx="513.8" cy="341.0" r="4.5" fill="var(--a)" stroke="var(--bg)" stroke-width="1.5"><title>httpcore2: median day-1 share 71.0%</title></circle>
+<circle cx="514.5" cy="352.0" r="4.5" fill="var(--a)" stroke="var(--bg)" stroke-width="1.5"><title>modal: median day-1 share 71.1%</title></circle>
+<circle cx="519.6" cy="330.0" r="4.5" fill="var(--a)" stroke="var(--bg)" stroke-width="1.5"><title>tomlkit: median day-1 share 72.3%</title></circle>
+<circle cx="531.5" cy="341.0" r="4.5" fill="var(--a)" stroke="var(--bg)" stroke-width="1.5"><title>parso: median day-1 share 75.1%</title></circle>
+<circle cx="535.0" cy="352.0" r="4.5" fill="var(--a)" stroke="var(--bg)" stroke-width="1.5"><title>markdownify: median day-1 share 75.9%</title></circle>
+<circle cx="535.6" cy="330.0" r="4.5" fill="var(--a)" stroke="var(--bg)" stroke-width="1.5"><title>jaraco-functools: median day-1 share 76.0%</title></circle>
+<circle cx="545.6" cy="341.0" r="4.5" fill="var(--a)" stroke="var(--bg)" stroke-width="1.5"><title>tzdata: median day-1 share 78.3%</title></circle>
+<circle cx="556.9" cy="341.0" r="4.5" fill="var(--a)" stroke="var(--bg)" stroke-width="1.5"><title>synchronicity: median day-1 share 80.9%</title></circle>
+<circle cx="559.2" cy="352.0" r="4.5" fill="var(--a)" stroke="var(--bg)" stroke-width="1.5"><title>ast-serialize: median day-1 share 81.4%</title></circle>
+<circle cx="589.5" cy="341.0" r="4.5" fill="var(--a)" stroke="var(--bg)" stroke-width="1.5"><title>pkginfo: median day-1 share 88.4%</title></circle>
+<circle cx="615.7" cy="341.0" r="4.5" fill="var(--a)" stroke="var(--bg)" stroke-width="1.5"><title>editables: median day-1 share 94.4%</title></circle>
+<text class="t" x="193" y="400.0" text-anchor="end">Positions 501 to 5,000</text>
+<rect x="200.7" y="391.5" width="9" height="9" rx="2" fill="var(--b)" stroke="var(--bg)" stroke-width="1.5"><title>nvidia-nvtx: median day-1 share 0.0%</title></rect>
+<rect x="203.3" y="402.5" width="9" height="9" rx="2" fill="var(--b)" stroke="var(--bg)" stroke-width="1.5"><title>snitun: median day-1 share 0.6%</title></rect>
+<rect x="206.3" y="380.5" width="9" height="9" rx="2" fill="var(--b)" stroke="var(--bg)" stroke-width="1.5"><title>apache-airflow-providers-snowflake: median day-1 share 1.3%</title></rect>
+<rect x="211.4" y="391.5" width="9" height="9" rx="2" fill="var(--b)" stroke="var(--bg)" stroke-width="1.5"><title>dropbox-sign: median day-1 share 2.5%</title></rect>
+<rect x="228.2" y="391.5" width="9" height="9" rx="2" fill="var(--b)" stroke="var(--bg)" stroke-width="1.5"><title>plaid-python: median day-1 share 6.4%</title></rect>
+<rect x="232.9" y="402.5" width="9" height="9" rx="2" fill="var(--b)" stroke="var(--bg)" stroke-width="1.5"><title>social-auth-core: median day-1 share 7.4%</title></rect>
+<rect x="242.4" y="391.5" width="9" height="9" rx="2" fill="var(--b)" stroke="var(--bg)" stroke-width="1.5"><title>aioresponses: median day-1 share 9.6%</title></rect>
+<rect x="243.8" y="402.5" width="9" height="9" rx="2" fill="var(--b)" stroke="var(--bg)" stroke-width="1.5"><title>reportportal-client: median day-1 share 9.9%</title></rect>
+<rect x="247.6" y="391.5" width="9" height="9" rx="2" fill="var(--b)" stroke="var(--bg)" stroke-width="1.5"><title>pydantic-ai-shields: median day-1 share 10.8%</title></rect>
+<rect x="253.4" y="402.5" width="9" height="9" rx="2" fill="var(--b)" stroke="var(--bg)" stroke-width="1.5"><title>djlint: median day-1 share 12.2%</title></rect>
+<rect x="259.9" y="391.5" width="9" height="9" rx="2" fill="var(--b)" stroke="var(--bg)" stroke-width="1.5"><title>dagster-shared: median day-1 share 13.7%</title></rect>
+<rect x="267.5" y="391.5" width="9" height="9" rx="2" fill="var(--b)" stroke="var(--bg)" stroke-width="1.5"><title>opencv-contrib-python-headless: median day-1 share 15.4%</title></rect>
+<rect x="283.3" y="391.5" width="9" height="9" rx="2" fill="var(--b)" stroke="var(--bg)" stroke-width="1.5"><title>orbax-checkpoint: median day-1 share 19.0%</title></rect>
+<rect x="285.9" y="402.5" width="9" height="9" rx="2" fill="var(--b)" stroke="var(--bg)" stroke-width="1.5"><title>gremlinpython: median day-1 share 19.6%</title></rect>
+<rect x="288.7" y="391.5" width="9" height="9" rx="2" fill="var(--b)" stroke="var(--bg)" stroke-width="1.5"><title>tensorboard: median day-1 share 20.3%</title></rect>
+<rect x="289.3" y="402.5" width="9" height="9" rx="2" fill="var(--b)" stroke="var(--bg)" stroke-width="1.5"><title>azureml-dataprep: median day-1 share 20.4%</title></rect>
+<rect x="292.9" y="380.5" width="9" height="9" rx="2" fill="var(--b)" stroke="var(--bg)" stroke-width="1.5"><title>types-python-dateutil: median day-1 share 21.2%</title></rect>
+<rect x="299.1" y="391.5" width="9" height="9" rx="2" fill="var(--b)" stroke="var(--bg)" stroke-width="1.5"><title>statsforecast: median day-1 share 22.7%</title></rect>
+<rect x="330.8" y="391.5" width="9" height="9" rx="2" fill="var(--b)" stroke="var(--bg)" stroke-width="1.5"><title>zarr: median day-1 share 30.0%</title></rect>
+<circle cx="350.0" cy="396.0" r="4.5" fill="var(--a)" stroke="var(--bg)" stroke-width="1.5"><title>recurring-ical-events: median day-1 share 33.3%</title></circle>
+<rect x="350.9" y="402.5" width="9" height="9" rx="2" fill="var(--b)" stroke="var(--bg)" stroke-width="1.5"><title>check-jsonschema: median day-1 share 34.6%</title></rect>
+<rect x="357.4" y="391.5" width="9" height="9" rx="2" fill="var(--b)" stroke="var(--bg)" stroke-width="1.5"><title>functions-framework: median day-1 share 36.1%</title></rect>
+<rect x="365.9" y="391.5" width="9" height="9" rx="2" fill="var(--b)" stroke="var(--bg)" stroke-width="1.5"><title>torch-geometric: median day-1 share 38.0%</title></rect>
+<rect x="371.7" y="402.5" width="9" height="9" rx="2" fill="var(--b)" stroke="var(--bg)" stroke-width="1.5"><title>zensical: median day-1 share 39.4%</title></rect>
+<rect x="382.7" y="391.5" width="9" height="9" rx="2" fill="var(--b)" stroke="var(--bg)" stroke-width="1.5"><title>standardwebhooks: median day-1 share 41.9%</title></rect>
+<rect x="390.5" y="391.5" width="9" height="9" rx="2" fill="var(--b)" stroke="var(--bg)" stroke-width="1.5"><title>service-identity: median day-1 share 43.7%</title></rect>
+<circle cx="409.8" cy="396.0" r="4.5" fill="var(--a)" stroke="var(--bg)" stroke-width="1.5"><title>pyomo: median day-1 share 47.1%</title></circle>
+<circle cx="424.1" cy="396.0" r="4.5" fill="var(--a)" stroke="var(--bg)" stroke-width="1.5"><title>django-timezone-field: median day-1 share 50.4%</title></circle>
+<rect x="422.2" y="402.5" width="9" height="9" rx="2" fill="var(--b)" stroke="var(--bg)" stroke-width="1.5"><title>junitparser: median day-1 share 51.0%</title></rect>
+<circle cx="436.3" cy="396.0" r="4.5" fill="var(--a)" stroke="var(--bg)" stroke-width="1.5"><title>astropy: median day-1 share 53.2%</title></circle>
+<circle cx="475.9" cy="396.0" r="4.5" fill="var(--a)" stroke="var(--bg)" stroke-width="1.5"><title>pytelegrambotapi: median day-1 share 62.3%</title></circle>
+<circle cx="512.5" cy="396.0" r="4.5" fill="var(--a)" stroke="var(--bg)" stroke-width="1.5"><title>hatch: median day-1 share 70.7%</title></circle>
+<circle cx="539.4" cy="396.0" r="4.5" fill="var(--a)" stroke="var(--bg)" stroke-width="1.5"><title>swig: median day-1 share 76.9%</title></circle>
+<circle cx="566.5" cy="396.0" r="4.5" fill="var(--a)" stroke="var(--bg)" stroke-width="1.5"><title>nab-index: median day-1 share 83.1%</title></circle>
+<circle cx="579.7" cy="396.0" r="4.5" fill="var(--a)" stroke="var(--bg)" stroke-width="1.5"><title>sudachidict-core: median day-1 share 86.1%</title></circle>
+<text class="s" x="16" y="452">Releases that became the newest version, April to August 2026; ClickPy downloads by version to 27 September 2026.</text>
+<text class="s" x="16" y="468">Top fifty read on 28 September 2026; the bands, 80 projects drawn at random from each, on 29 September.</text>
+</svg>

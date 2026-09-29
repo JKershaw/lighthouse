@@ -1,0 +1,22 @@
+# LH014 sources
+
+What was read for LH014, when, and what each source is. All reads were anonymous: no account, key or credential was used or sent. Times are UTC on 29 September 2026; data/read_log.csv holds every read's time, endpoint, query text, HTTP status, rows returned and, for ClickPy, the rows and bytes read as ClickHouse reported them. Repository sources are cited by their number in the repository's sources.md.
+
+| id | source | publisher; publication date or window | read (UTC) | retained as |
+| --- | --- | --- | --- | --- |
+| K1 | ClickPy public SQL, https://sql-clickhouse.clickhouse.com/?user=demo (repository S21) | ClickHouse; a copy of PyPI's download log (S20); server 26.10.1.39301, time zone UTC; 27 September 2026 held for all 160 drawn projects, and no later day read | phase 1, 12:28:22 to 12:30:47 (the `system` database only); phase 2, 12:52:12 to 12:53:56 (the August ranking, installer names, days held); phase 3, 13:01:35 to 13:06:08 (counts) | data/clickpy_*.csv, daily_totals.csv, counts/, mirror/, ci/, installer_names.csv, coverage.csv |
+| K2 | PyPI JSON API, https://pypi.org/pypi/{project}/json | Python Package Index; release files with upload times, observed at the read | 12:52:24 to 12:53:11 (160 projects) | data/pypi_versions.csv, pypi_walk.csv |
+| K3 | ClickHouse documentation, "Restrictions on query complexity", https://clickhouse.com/docs/operations/settings/query-complexity | ClickHouse; no date on the page | 12:30:29 | the passage quoted in brief.md; the page was kept in scratch space only |
+| K4 | pypistats.org, "FAQs", https://pypistats.org/faqs | pypistats.org; no date on the page | 12:30:56 (read by the driving session at 12:18) | the passage used in brief.md and here; scratch space only |
+| K5 | LH011's reading of the source of pip 26.0.1 and 26.2.1 and uv 0.11.2 and 0.12.8 for the CI flag (studies/LH011/sources.md, K3; data/installer_source_excerpts.txt) | read by LH011 on 28 September 2026; not re-read | not re-read | |
+| K6 | The August 2026 rankings kept by LH008 (data/top200.csv), LH010 (data/top500.csv) and LH011 (data/clickpy_top_projects_2026_08.csv) | read from ClickPy on 27 September 2026 at 07:19:49 and 09:53:19, and on 28 September 2026 | compared offline on 29 September | data/ranking_comparison.csv |
+| K7 | LH011's retained analysis (studies/LH011/data/analysis/project_outcomes.csv, summary.csv) for the top fifty beside the bands | LH011 record version 0.3 | read offline | the figure and the Answer |
+
+## What each source is, and its limits, as far as this study relied on it
+
+- **K1, ClickPy.** A copy, not the original: every count here is ClickPy's. Its catalogue (data/clickpy_schema.csv) shows every table read except `pypi.pypi` filled by a materialised view that counts `pypi.pypi` rows, with no TTL on any of them. Its `demo` user returns a partial result without error when a query passes 1,000,000,000 rows or 50 GB read (K3); every query here set `read_overflow_mode = 'throw'`, and none read more than 101,818,368 rows. The per-day and by-version tables agreed on 8,389 of 8,704 project-days and within 1.0 per cent on the rest; the installer and by-version tables on 1,180 of 1,244 release days and within 1.0 per cent on the rest (data/analysis/checks.csv). ClickPy keeps the day of each download, not its time, and drops the installer's version.
+- **K2, PyPI JSON.** The versions a project lists now, with each file's upload time; a version deleted before the read is absent, so its downloads count only in denominators. `yanked` is the state at the read. The JSON's download fields were not kept.
+- **K3, ClickHouse documentation.** Quoted for what the `break` overflow mode does: "stop executing the query and return the partial result, as if the source data ran out".
+- **K4, pypistats.org.** Names the mirror tools it filters by installer (bandersnatch, z3c.pypimirror, Artifactory, devpi) and says a release day carries many more mirror downloads. It does not name other proxies, such as Nexus, which this study does not separate.
+- **K5, the installers' source.** pip and uv send the CI flag as true when one of four build variables is set, and otherwise nothing, which ClickPy stores as false. Older pip and uv versions are assumed to follow the same rule; that was not checked.
+- **Not read.** BigQuery (S20); pypistats's counts; `pypi.pypi`'s own coverage (amendment 1, case 1); any installer other than pip and uv for the CI flag's meaning; the hour of any download; any day after 27 September 2026.

@@ -1,0 +1,161 @@
+band,draw_order,project,in_overlap_set,releases,known,reached,most_reached,median_day1_share,median_days_to_half,releases_not_at_half_by_day_30,delta_known,settle,settles,median_delta_pp,median_ratio_day2_to_day30,median_delta_from_day1_pp,ci_releases,median_ci_diff_pp,most_reached_installer_table,most_reached_without_mirrors,median_mirror_diff_pp_day0,median_mirror_diff_pp_day1,median_mirror_diff_pp_day2,median_mirror_share_of_own_days01,median_mirror_own_days01
+A,1,joblib,False,1,1,0,no,0.388964,20,0,0,0,no outcome,,,,1,-11.675273,no,no,0.000709,-0.001516,0.000395,0.000074,303
+A,2,matplotlib-inline,False,1,1,1,yes,0.618958,1,0,1,0,no,14.531797,0.802885,11.826524,1,-20.533305,yes,yes,0.001728,0.000678,-0.000240,0.000074,185
+A,3,synchronicity,False,4,4,4,yes,0.808927,1.000000,0,4,4,yes,0.008591,0.996830,3.700888,3,-20.278462,yes,yes,0.000496,-0.001270,-0.000073,0.000025,50.000000
+A,4,markdownify,False,1,1,1,yes,0.758626,1,0,1,0,no,-10.016099,1.162070,-14.061680,1,-28.174116,yes,yes,0.000697,0.000257,-0.003030,0.000023,85
+A,5,google-cloud-dataform,False,4,4,0,no,0.012464,,4,4,4,yes,1.929906,0.419185,1.751349,3,-22.450882,no,no,0.000339,0.001769,0.000589,0.001310,48.000000
+A,6,cyclopts,False,28,28,27,yes,0.691564,1.000000,0,28,24,yes,1.166781,0.984343,0.871845,5,-8.121911,yes,yes,0.000281,-0.000311,-0.001273,0.000039,116.500000
+A,7,parso,False,1,1,1,yes,0.750599,1,0,1,1,yes,6.611768,0.910749,-0.979218,1,-8.693072,yes,yes,0.000401,0.000673,0.000458,0.000049,145
+A,8,zstandard,False,0,0,0,no outcome,,,0,0,0,no outcome,,,,0,,no outcome,no outcome,,,,,
+A,9,google-cloud-speech,False,2,2,0,no,0.049414,,2,2,2,yes,3.000785,0.585439,2.209107,2,-46.382704,no,no,0.000593,0.000949,0.000252,0.000245,64.500000
+A,10,uc-micro-py,False,0,0,0,no outcome,,,0,0,0,no outcome,,,,0,,no outcome,no outcome,,,,,
+A,11,fastapi-cloud-cli,False,13,13,0,no,0.278307,4.000000,9,13,12,yes,4.491545,0.860278,3.293731,5,-14.255249,no,no,0.001728,0.001404,-0.000668,0.000194,110
+A,12,transformers,True,26,26,0,no,0.203163,,26,26,23,yes,3.026203,0.859795,3.176756,5,-4.437188,no,no,0.000693,0.000667,0.000224,0.000114,143.500000
+A,13,xmltodict,False,0,0,0,no outcome,,,0,0,0,no outcome,,,,0,,no outcome,no outcome,,,,,
+A,14,google-cloud-bigtable,False,8,8,0,no,0.052325,,8,8,6,yes,3.259299,0.543369,2.487080,5,-23.499358,no,no,0.000325,0.001279,0.000518,0.000327,50.000000
+A,15,jaraco-functools,False,2,2,2,yes,0.759972,0.500000,0,2,2,yes,1.918982,0.977002,3.026671,2,-11.667036,yes,yes,0.000252,-0.001327,-0.003012,0.000033,259.000000
+A,16,sentry-sdk,False,15,15,0,no,0.293372,26.500000,11,15,13,yes,6.896714,0.822162,8.637790,5,-13.373184,no,no,0.001212,0.000781,0.000326,0.000076,198
+A,17,psycopg2-binary,False,1,1,0,no,0.394696,27,0,1,1,yes,6.354659,0.861245,6.327918,1,-13.894549,no,no,0.001398,0.023082,0.000255,0.001046,3738
+A,18,argon2-cffi-bindings,False,1,1,1,yes,0.558619,1,0,1,1,yes,-3.206241,1.055448,1.962323,1,-23.164119,yes,yes,0.017965,0.015098,0.005384,0.000769,2212
+A,19,itsdangerous,False,0,0,0,no outcome,,,0,0,0,no outcome,,,,0,,no outcome,no outcome,,,,,
+A,20,sortedcontainers,False,0,0,0,no outcome,,,0,0,0,no outcome,,,,0,,no outcome,no outcome,,,,,
+A,21,pytest-json-ctrf,False,4,4,0,no,0.200299,,4,4,4,yes,-7.868110,1.401474,-6.877220,3,-0.029010,no,no,0.000209,0.000408,0.000178,0.000053,44.500000
+A,22,modal,False,8,8,8,yes,0.711450,1.000000,0,8,4,no,-2.854841,1.035956,8.751535,5,-10.055841,yes,yes,-0.000354,-0.051635,-0.023351,0.000044,61.500000
+A,23,editables,False,1,1,1,yes,0.944086,0,0,1,1,yes,3.870486,0.961031,4.912592,1,-22.647249,yes,yes,0.000489,-0.000136,-0.000163,0.000015,222
+A,24,pytokens,False,0,0,0,no outcome,,,0,0,0,no outcome,,,,0,,no outcome,no outcome,,,,,
+A,25,httpcore2,False,14,14,14,yes,0.709943,1.000000,0,14,4,no,15.404304,0.828127,20.275690,3,-2.775986,yes,yes,0.000881,0.000293,-0.000098,0.000082,64.000000
+A,26,ghapi,False,15,15,1,no,0.124398,20.000000,11,15,5,no,20.260404,0.486146,25.906783,3,-0.154182,no,no,0.000465,0.000315,0.000109,0.000051,65
+A,27,httplib2,True,1,1,1,yes,0.676801,1,0,1,1,yes,-1.840514,1.028176,-2.357660,1,-4.451185,yes,yes,0.000621,-0.000916,0.000107,0.000023,126
+A,28,cfgv,False,0,0,0,no outcome,,,0,0,0,no outcome,,,,0,,no outcome,no outcome,,,,,
+A,29,google-api-core,False,7,7,0,no,0.341671,23,6,7,4,yes,7.551354,0.820822,7.977182,4,-1.125549,no,no,0.000160,0.000087,0.000153,0.000025,164
+A,30,lz4,False,0,0,0,no outcome,,,0,0,0,no outcome,,,,0,,no outcome,no outcome,,,,,
+A,31,flatbuffers,False,0,0,0,no outcome,,,0,0,0,no outcome,,,,0,,no outcome,no outcome,,,,,
+A,32,identify,False,1,1,1,yes,0.645974,1,0,1,1,yes,2.671393,0.961322,4.469634,1,-25.474358,yes,yes,0.000114,0.000724,-0.008101,0.000057,150
+A,33,pyasn1-modules,False,0,0,0,no outcome,,,0,0,0,no outcome,,,,0,,no outcome,no outcome,,,,,
+A,34,deepdiff,False,1,1,0,no,0.137734,,1,1,1,yes,4.161337,0.761298,3.659788,1,-9.859194,no,no,0.000861,0.001319,0.000846,0.000295,89
+A,35,cachecontrol,False,0,0,0,no outcome,,,0,0,0,no outcome,,,,0,,no outcome,no outcome,,,,,
+A,36,invoke,False,4,4,4,yes,0.613816,1.000000,0,4,4,yes,2.942223,0.953539,1.943945,1,-10.377469,yes,yes,0.000808,-0.003655,-0.004140,0.000138,176.500000
+A,37,setproctitle,False,0,0,0,no outcome,,,0,0,0,no outcome,,,,0,,no outcome,no outcome,,,,,
+A,38,paramiko,False,1,1,0,no,0.340410,,1,1,1,yes,1.203300,0.963072,-1.455958,1,-5.522429,no,no,0.001293,0.001731,0.000781,0.000123,176
+A,39,tomli,False,0,0,0,no outcome,,,0,0,0,no outcome,,,,0,,no outcome,no outcome,,,,,
+A,40,types-protobuf,False,14,14,0,no,0.184334,,14,14,13,yes,7.937751,0.723330,6.408871,3,-36.304185,no,no,0.001623,0.001040,0.000751,0.000166,84.500000
+A,41,langchain,True,23,23,0,no,0.051119,,23,23,23,yes,3.810340,0.567407,3.898257,5,-13.506293,no,no,0.000160,0.000504,0.000219,0.000177,95
+A,42,jsonref,False,0,0,0,no outcome,,,0,0,0,no outcome,,,,0,,no outcome,no outcome,,,,,
+A,43,colorama,False,0,0,0,no outcome,,,0,0,0,no outcome,,,,0,,no outcome,no outcome,,,,,
+A,44,nest-asyncio,False,0,0,0,no outcome,,,0,0,0,no outcome,,,,0,,no outcome,no outcome,,,,,
+A,45,tiktoken,False,2,2,1,no,0.506582,13.500000,0,2,1,no,2.766574,0.989144,3.785052,2,-20.596279,no,no,0.006017,0.003693,-0.014224,0.000359,1778.500000
+A,46,jedi,False,1,1,1,yes,0.689666,1,0,1,1,yes,5.040345,0.921328,-4.898791,1,-10.215160,yes,yes,0.000150,0.001119,0.000566,0.000059,156
+A,47,gunicorn,False,3,3,0,no,0.189278,,3,3,2,yes,6.898988,0.734535,7.060466,2,-12.979033,no,no,0.001578,0.001301,0.000435,0.000135,215
+A,48,toml,False,0,0,0,no outcome,,,0,0,0,no outcome,,,,0,,no outcome,no outcome,,,,,
+A,49,tomlkit,False,2,2,2,yes,0.723233,0.000000,0,2,1,no,7.952137,0.913776,8.517480,2,-14.209358,yes,yes,-0.000080,0.000180,0.000017,0.000027,329.500000
+A,50,ast-serialize,False,11,11,11,yes,0.814278,1,0,11,4,no,14.942849,0.838242,9.492179,4,3.332051,yes,yes,-0.913256,-0.057549,-0.024577,0.103479,814
+A,51,datasets,False,3,3,0,no,0.198761,,3,3,2,yes,5.618455,0.804080,8.389674,3,-14.536173,no,no,0.000436,0.000859,-0.000529,0.000061,101
+A,52,pillow,True,2,2,2,yes,0.516297,1.000000,0,2,2,yes,9.368688,0.852259,11.792036,2,-13.359895,yes,yes,0.009204,-0.000031,-0.022471,0.000478,6134.000000
+A,53,tzdata,False,3,3,3,yes,0.782897,1,0,3,3,yes,4.485862,0.943004,3.170697,2,-13.735955,yes,yes,0.000739,-0.000011,0.000078,0.000027,394
+A,54,authlib,True,6,6,5,yes,0.580328,1.000000,0,5,4,yes,8.006493,0.877142,7.838091,3,-31.785642,yes,yes,-0.000409,-0.001777,-0.000392,0.000037,158.500000
+A,55,pathable,False,1,1,1,yes,0.565610,1,0,1,1,yes,7.271265,0.890436,9.804595,1,-32.348908,yes,yes,0.000612,-0.000318,0.000325,0.000036,86
+A,56,aiohappyeyeballs,False,2,2,2,yes,0.691071,1.000000,0,2,2,yes,3.043627,0.958844,4.334395,2,-14.703241,yes,yes,0.000379,-0.000641,-0.000573,0.000020,386.500000
+A,57,zipp,False,2,2,1,no,0.532657,3.000000,0,2,2,yes,5.582859,0.897720,3.051260,2,-3.038665,no,no,0.000323,0.000416,-0.000046,0.000035,436.000000
+A,58,dnspython,False,0,0,0,no outcome,,,0,0,0,no outcome,,,,0,,no outcome,no outcome,,,,,
+A,59,exceptiongroup,False,0,0,0,no outcome,,,0,0,0,no outcome,,,,0,,no outcome,no outcome,,,,,
+A,60,langgraph-prebuilt,False,6,6,4,yes,0.472930,1.500000,0,6,1,no,12.283315,0.792956,13.612053,2,-9.579604,yes,yes,0.001595,0.001520,-0.000462,0.000110,85.000000
+A,61,cfn-lint,False,23,23,7,no,0.339278,3.000000,9,22,13,yes,5.530075,0.844160,2.248496,5,-22.287210,no,no,0.000318,0.000332,-0.000706,0.000054,71
+A,62,fonttools,False,2,2,1,no,0.536568,3.000000,0,1,1,yes,9.059307,0.875758,13.213490,2,-16.301631,no,no,0.002555,-0.002963,-0.027813,0.000545,3076.500000
+A,63,pkginfo,False,1,1,1,yes,0.883913,0,0,0,0,no outcome,,,,1,3.887486,yes,yes,-0.000201,-0.003142,-0.011430,0.000111,251
+A,64,psycopg2,False,1,1,0,no,0.169115,,1,1,1,yes,4.091366,0.803264,3.884720,1,-22.310229,no,no,0.000618,-0.001284,-0.004573,0.001511,375
+A,65,azure-storage-blob,False,3,3,0,no,0.309474,,3,3,3,yes,3.874110,0.887918,4.164771,3,-14.191626,no,no,0.000394,0.000359,-0.002078,0.000066,94
+A,66,libcst,False,1,1,0,no,0.344623,3,0,1,1,yes,-0.588800,1.018166,-2.049278,1,-28.352573,no,no,0.005012,0.010337,0.011484,0.001633,1288
+A,67,tenacity,False,0,0,0,no outcome,,,0,0,0,no outcome,,,,0,,no outcome,no outcome,,,,,
+A,68,backports-tarfile,False,0,0,0,no outcome,,,0,0,0,no outcome,,,,0,,no outcome,no outcome,,,,,
+A,69,distro,False,0,0,0,no outcome,,,0,0,0,no outcome,,,,0,,no outcome,no outcome,,,,,
+A,70,nodeenv,False,0,0,0,no outcome,,,0,0,0,no outcome,,,,0,,no outcome,no outcome,,,,,
+A,71,networkx,False,0,0,0,no outcome,,,0,0,0,no outcome,,,,0,,no outcome,no outcome,,,,,
+A,72,prometheus-client,False,2,2,2,yes,0.463675,1.500000,0,2,2,yes,6.683652,0.881594,9.830408,2,-16.193931,yes,yes,0.000759,-0.000109,-0.001367,0.000082,217.000000
+A,73,fastapi-cli,False,8,8,0,no,0.245298,10,5,8,8,yes,4.358397,0.866245,1.104904,2,-25.637994,no,no,0.001647,0.002360,0.000819,0.000244,116.500000
+A,74,google-resumable-media,False,4,4,3,yes,0.488190,1.500000,0,4,4,yes,5.424560,0.894550,6.939259,3,-15.455847,yes,yes,0.000346,0.000284,-0.000534,0.000025,130.500000
+A,75,typeguard,False,2,2,0,no,0.332856,5,1,2,1,no,-2.013531,1.135816,3.989127,2,-34.320038,no,no,0.001542,0.000316,-0.000165,0.000090,119.000000
+A,76,croniter,False,2,2,0,no,0.296022,29,1,2,0,no,18.222326,0.639223,20.566651,1,-30.397516,no,no,0.001893,0.001232,-0.003190,0.000135,142.000000
+A,77,msal-extensions,False,0,0,0,no outcome,,,0,0,0,no outcome,,,,0,,no outcome,no outcome,,,,,
+A,78,toolz,False,0,0,0,no outcome,,,0,0,0,no outcome,,,,0,,no outcome,no outcome,,,,,
+A,79,opentelemetry-instrumentation-fastapi,False,0,0,0,no outcome,,,0,0,0,no outcome,,,,0,,no outcome,no outcome,,,,,
+A,80,tinycss2,False,0,0,0,no outcome,,,0,0,0,no outcome,,,,0,,no outcome,no outcome,,,,,
+B,1,ib-insync,False,0,0,0,no outcome,,,0,0,0,no outcome,,,,0,,no outcome,no outcome,,,,,
+B,2,opentelemetry-instrumentation-logging,False,0,0,0,no outcome,,,0,0,0,no outcome,,,,0,,no outcome,no outcome,,,,,
+B,3,gnupg,False,0,0,0,no outcome,,,0,0,0,no outcome,,,,0,,no outcome,no outcome,,,,,
+B,4,pypandoc,False,0,0,0,no outcome,,,0,0,0,no outcome,,,,0,,no outcome,no outcome,,,,,
+B,5,jwskate,False,0,0,0,no outcome,,,0,0,0,no outcome,,,,0,,no outcome,no outcome,,,,,
+B,6,django-timezone-field,False,1,1,1,yes,0.503670,1,0,1,1,yes,4.118002,0.887521,-13.755710,1,-13.624453,yes,yes,0.014143,-0.023161,-0.000865,0.000673,78
+B,7,check-jsonschema,False,4,4,0,no,0.345852,11,3,4,3,yes,5.576268,0.859830,5.228006,3,1.173111,no,no,0.024095,0.013619,0.003952,0.001163,63.000000
+B,8,socketswap,False,0,0,0,no outcome,,,0,0,0,no outcome,,,,0,,no outcome,no outcome,,,,,
+B,9,djlint,False,33,33,0,no,0.121559,17,18,33,8,no,17.279525,0.343780,17.630320,3,-13.250282,no,no,0.298188,0.802127,0.510810,0.099350,1269
+B,10,thop,False,0,0,0,no outcome,,,0,0,0,no outcome,,,,0,,no outcome,no outcome,,,,,
+B,11,webdataset,False,0,0,0,no outcome,,,0,0,0,no outcome,,,,0,,no outcome,no outcome,,,,,
+B,12,businesstimedelta,False,0,0,0,no outcome,,,0,0,0,no outcome,,,,0,,no outcome,no outcome,,,,,
+B,13,social-auth-core,False,8,8,0,no,0.074451,,8,8,6,yes,4.578340,0.605520,6.689253,3,-16.283446,no,no,0.016357,0.016152,0.014133,0.003848,78.500000
+B,14,sudachidict-core,False,2,2,2,yes,0.861447,0.000000,0,2,2,yes,-0.039378,1.004116,-3.856890,2,-16.866792,yes,yes,0.011790,-0.132276,-0.033647,0.000595,65.500000
+B,15,log-symbols,False,0,0,0,no outcome,,,0,0,0,no outcome,,,,0,,no outcome,no outcome,,,,,
+B,16,torch-geometric,False,2,2,0,no,0.380282,8.500000,0,2,1,no,18.655427,0.696943,15.477050,2,-1.780238,no,no,0.000488,0.031161,0.002757,0.001137,40.000000
+B,17,py-cpuinfo,False,0,0,0,no outcome,,,0,0,0,no outcome,,,,0,,no outcome,no outcome,,,,,
+B,18,swig,False,1,1,1,yes,0.768804,1,0,1,1,yes,4.555499,0.936274,-5.394775,1,-7.122550,yes,yes,0.154630,0.141074,-0.493477,0.009901,401
+B,19,mkdocs-click,False,0,0,0,no outcome,,,0,0,0,no outcome,,,,0,,no outcome,no outcome,,,,,
+B,20,azure-mgmt-containerinstance,False,0,0,0,no outcome,,,0,0,0,no outcome,,,,0,,no outcome,no outcome,,,,,
+B,21,hatch,False,3,3,3,yes,0.706998,0,0,3,2,yes,7.323153,0.912543,9.368830,3,12.156818,yes,yes,0.000057,-0.010865,-0.000535,0.000085,89
+B,22,webtest,False,0,0,0,no outcome,,,0,0,0,no outcome,,,,0,,no outcome,no outcome,,,,,
+B,23,snitun,False,3,3,0,no,0.006476,,3,3,3,yes,-0.140064,3.925438,-0.599711,1,0.000000,no,no,0.168282,0.191649,0.085726,0.092643,36
+B,24,hubspot-api-client,False,0,0,0,no outcome,,,0,0,0,no outcome,,,,0,,no outcome,no outcome,,,,,
+B,25,service-identity,False,1,1,0,no,0.436786,7,0,1,1,yes,-0.015152,1.000442,-9.419639,1,-19.726828,no,no,0.006555,0.007582,0.003930,0.000319,63
+B,26,python-whois,False,0,0,0,no outcome,,,0,0,0,no outcome,,,,0,,no outcome,no outcome,,,,,
+B,27,nvidia-nvtx,False,2,2,0,no,0.000425,,2,2,2,yes,-0.001677,1.070391,-0.018108,2,-28.186061,no,no,0.003847,0.003123,0.001686,0.077157,68.500000
+B,28,mini-racer,False,0,0,0,no outcome,,,0,0,0,no outcome,,,,0,,no outcome,no outcome,,,,,
+B,29,cligj,False,0,0,0,no outcome,,,0,0,0,no outcome,,,,0,,no outcome,no outcome,,,,,
+B,30,recurring-ical-events,False,1,1,1,yes,0.333279,2,0,1,1,yes,-4.169391,1.090628,12.677475,1,-10.883242,yes,yes,0.029323,0.047844,0.023489,0.002628,51
+B,31,recommonmark,False,0,0,0,no outcome,,,0,0,0,no outcome,,,,0,,no outcome,no outcome,,,,,
+B,32,pytelegrambotapi,False,5,5,5,yes,0.622793,1,0,5,5,yes,2.687553,0.958796,3.831399,4,5.207093,yes,yes,0.024628,0.022288,0.008655,0.001531,52
+B,33,statsforecast,False,2,2,0,no,0.226597,,2,2,2,yes,5.434679,0.835734,9.496197,1,-4.552665,no,no,0.097468,0.360806,0.210129,0.021990,446.500000
+B,34,astropy,False,3,3,2,yes,0.531818,1,0,3,3,yes,1.767352,0.965454,2.626775,2,-14.044673,yes,yes,0.028682,-0.000008,-0.012751,0.002855,200
+B,35,zensical,False,26,26,8,no,0.393539,4,3,26,1,no,23.720512,0.620084,26.765056,5,-4.657660,no,no,0.127352,0.055632,0.071189,0.013746,283.500000
+B,36,functions-framework,False,1,1,0,no,0.360713,16,0,1,0,no,25.696880,0.602064,28.504127,1,-15.023143,no,no,-0.000570,0.007486,0.003499,0.000354,46
+B,37,w3lib,False,0,0,0,no outcome,,,0,0,0,no outcome,,,,0,,no outcome,no outcome,,,,,
+B,38,skia-python,False,0,0,0,no outcome,,,0,0,0,no outcome,,,,0,,no outcome,no outcome,,,,,
+B,39,libsass,False,0,0,0,no outcome,,,0,0,0,no outcome,,,,0,,no outcome,no outcome,,,,,
+B,40,wasabi,False,0,0,0,no outcome,,,0,0,0,no outcome,,,,0,,no outcome,no outcome,,,,,
+B,41,xattr,False,0,0,0,no outcome,,,0,0,0,no outcome,,,,0,,no outcome,no outcome,,,,,
+B,42,simple-gcp-object-downloader,False,0,0,0,no outcome,,,0,0,0,no outcome,,,,0,,no outcome,no outcome,,,,,
+B,43,python-decouple,False,0,0,0,no outcome,,,0,0,0,no outcome,,,,0,,no outcome,no outcome,,,,,
+B,44,nab-index,False,14,14,13,yes,0.831096,0.000000,0,14,7,no,8.122428,0.917791,14.294820,4,5.662157,yes,yes,-0.031100,-1.994027,-0.024696,0.069976,42.000000
+B,45,dlib-bin,False,0,0,0,no outcome,,,0,0,0,no outcome,,,,0,,no outcome,no outcome,,,,,
+B,46,aioresponses,False,1,1,0,no,0.096356,,1,1,1,yes,9.177235,0.480171,8.018773,1,2.677641,no,no,0.003101,0.006914,0.002433,0.001116,60
+B,47,pysimdjson,False,0,0,0,no outcome,,,0,0,0,no outcome,,,,0,,no outcome,no outcome,,,,,
+B,48,gremlinpython,False,1,1,0,no,0.196410,,1,1,1,yes,6.751231,0.743331,6.662263,1,-57.612869,no,no,-0.000026,0.001369,-0.009395,0.000284,74
+B,49,cli-exit-tools,False,0,0,0,no outcome,,,0,0,0,no outcome,,,,0,,no outcome,no outcome,,,,,
+B,50,pyrect,False,0,0,0,no outcome,,,0,0,0,no outcome,,,,0,,no outcome,no outcome,,,,,
+B,51,pydyf,False,0,0,0,no outcome,,,0,0,0,no outcome,,,,0,,no outcome,no outcome,,,,,
+B,52,manhole,False,0,0,0,no outcome,,,0,0,0,no outcome,,,,0,,no outcome,no outcome,,,,,
+B,53,junitparser,False,2,2,1,no,0.509669,0,1,1,0,no,-34.734412,2.179466,-53.111026,2,-7.464209,no,no,0.001644,0.006560,0.002428,0.001216,60.000000
+B,54,red-black-tree-mod,False,0,0,0,no outcome,,,0,0,0,no outcome,,,,0,,no outcome,no outcome,,,,,
+B,55,dropbox-sign,False,2,2,0,no,0.025077,,2,2,1,no,10.698133,0.214849,10.041407,2,-33.673722,no,no,0.022757,0.087324,0.029313,0.018343,41.000000
+B,56,dagster-shared,False,22,22,0,no,0.136618,,22,22,3,no,14.407967,0.533971,19.087480,5,-11.618157,no,no,0.003159,0.007777,0.005103,0.001153,45.000000
+B,57,dydantic,False,0,0,0,no outcome,,,0,0,0,no outcome,,,,0,,no outcome,no outcome,,,,,
+B,58,standardwebhooks,False,1,1,0,no,0.418924,11,0,1,1,yes,9.428810,0.811937,8.244079,1,-1.708826,no,no,0.010222,0.007857,0.006214,0.000405,30
+B,59,glob2,False,0,0,0,no outcome,,,0,0,0,no outcome,,,,0,,no outcome,no outcome,,,,,
+B,60,pydantic-ai-shields,False,3,3,0,no,0.108208,13,0,3,0,no,42.100672,0.212587,44.139852,2,35.577565,no,no,0.244877,0.483642,0.212245,0.034428,43
+B,61,plaid-python,False,8,8,0,no,0.063657,,8,8,6,yes,3.821259,0.556328,5.261593,4,13.600390,no,no,0.002719,0.015303,0.009380,0.003449,19.000000
+B,62,pyomo,False,1,1,1,yes,0.470868,2,0,1,1,yes,-3.536353,1.057164,14.776612,1,-33.946805,yes,yes,0.007426,0.477564,0.382324,0.018885,508
+B,63,pyserial,False,0,0,0,no outcome,,,0,0,0,no outcome,,,,0,,no outcome,no outcome,,,,,
+B,64,pynose,False,0,0,0,no outcome,,,0,0,0,no outcome,,,,0,,no outcome,no outcome,,,,,
+B,65,itypes,False,0,0,0,no outcome,,,0,0,0,no outcome,,,,0,,no outcome,no outcome,,,,,
+B,66,apache-airflow-providers-snowflake,False,7,7,0,no,0.013284,,7,7,7,yes,0.561820,0.656269,0.531531,5,4.773371,no,no,0.003518,0.004007,0.001663,0.005439,62
+B,67,simple-websocket,False,0,0,0,no outcome,,,0,0,0,no outcome,,,,0,,no outcome,no outcome,,,,,
+B,68,mapbox-earcut,False,0,0,0,no outcome,,,0,0,0,no outcome,,,,0,,no outcome,no outcome,,,,,
+B,69,warcio,False,0,0,0,no outcome,,,0,0,0,no outcome,,,,0,,no outcome,no outcome,,,,,
+B,70,pytest-bdd,False,0,0,0,no outcome,,,0,0,0,no outcome,,,,0,,no outcome,no outcome,,,,,
+B,71,azureml-dataprep,False,3,3,0,no,0.204122,,3,3,2,yes,6.147211,0.785016,8.181662,2,-11.060942,no,no,0.017497,0.027552,-0.201599,0.002303,21
+B,72,zarr,False,3,3,0,no,0.299517,25.000000,1,3,2,yes,7.192260,0.821390,9.907557,3,0.141515,no,no,0.002906,-0.019232,0.004680,0.000619,52
+B,73,opencv-contrib-python-headless,False,1,1,0,no,0.154076,,1,1,0,no,20.946900,0.446153,22.413077,1,6.359928,no,no,0.118643,0.136375,-0.253895,0.010097,203
+B,74,fnvhash,False,0,0,0,no outcome,,,0,0,0,no outcome,,,,0,,no outcome,no outcome,,,,,
+B,75,reportportal-client,False,10,10,0,no,0.099473,,10,10,3,no,16.773898,0.318052,16.191676,5,-1.036611,no,no,0.043195,0.050719,0.011730,0.008084,47.000000
+B,76,types-python-dateutil,False,6,6,0,no,0.212326,,6,6,4,yes,7.581409,0.699443,6.546851,4,-37.289634,no,no,0.002713,0.000902,0.000823,0.000142,136.000000
+B,77,pylsqpack,False,0,0,0,no outcome,,,0,0,0,no outcome,,,,0,,no outcome,no outcome,,,,,
+B,78,tensorboard,False,1,1,0,no,0.202836,,1,1,1,yes,3.638697,0.842742,2.854759,1,-12.515258,no,no,0.001158,0.001726,0.001780,0.000304,62
+B,79,pylint-pydantic,False,0,0,0,no outcome,,,0,0,0,no outcome,,,,0,,no outcome,no outcome,,,,,
+B,80,orbax-checkpoint,False,12,12,0,no,0.190416,,12,12,5,no,10.771862,0.635262,10.333777,4,3.797091,no,no,0.003558,0.006796,0.002870,0.000988,50.500000
