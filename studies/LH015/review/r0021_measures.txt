@@ -1,0 +1,32 @@
+pairs read 469 of 469; repositories 332
+P1: 247 of 469 keep a recipe = 52.7%
+P1 repository view: 45.3% over 332 repositories; any snapshot 151, every snapshot 150
+pair classes:
+  all        n=469  from the pin=129  not from the=38  undetermined=68  nothing of t=12  no recipe=222
+  lockfile   n=153  from the pin=21  not from the=16  undetermined=41  nothing of t=6  no recipe=69
+  exact pin  n=199  from the pin=63  not from the=14  undetermined=10  nothing of t=5  no recipe=107
+  both       n=117  from the pin=45  not from the=8  undetermined=17  nothing of t=1  no recipe=46
+  mixed (a class 1 build beside a class 2 to 4 build): 5
+P2:
+  P2 all        129 of 167 = 77.2%; undetermined 68; bounds all-from 83.8%, all-not 54.9%
+  P2 lockfile   21 of 37 = 56.8%; undetermined 41; bounds all-from 79.5%, all-not 26.9%
+  P2 exact pin  63 of 77 = 81.8%; undetermined 10; bounds all-from 83.9%, all-not 72.4%
+  P2 both       45 of 53 = 84.9%; undetermined 17; bounds all-from 88.6%, all-not 64.3%
+  undetermined among pairs with a recipe: 68 of 247 = 27.5% (one fifth = 49.4)
+  P2 repository view: 70.2% over 112 repositories
+  P2 main recipe alone: 146 of 173 = 84.4%
+behind not from the pinned file (38 pairs): class 2 24; class 2 lock absent 1; class 2 lock unused 7; class 2 other file 15; class 2 upgrade 1; class 3 14; class 4 5
+  by pin class: {'both': 8, 'lockfile': 16, 'exact pin': 14}
+R3: 12 of 38 not-from pairs rest only on builds that never name L; P2 without them 129 of 155 = 83.2%
+scale: not from 38 of 469 = 8.1%; with every undetermined pair 106 of 469 = 22.6%
+decided pairs with a timed lockfile: 90; a build reads the timed lock itself in 45
+  the 45 without a lock-reading build, by pair class and pin class: {('from the', 'both'): 26, ('not from', 'lockfile'): 14, ('not from', 'both'): 5}
+  of those, lock unused (class 2 with the timed lock in the context): 7 pairs: P071 P084 P132 P261 P271 P307 P364
+S1 (reviewer reading of the stored specifiers):
+  reviewer: {'not determined': 23, 'excludes or ?': 3, 'excludes': 11, 'admits': 1}
+  writer  : {'not determined': 24, 'excludes': 12, 'admits': 2}
+    differs P084: reviewer excludes or ?, writer not determined
+    differs P141: reviewer excludes or ?, writer not determined
+    differs P383: reviewer not determined, writer admits
+bootstrap check (4,000 resamples, seed 20260930): P1 45.6 to 59.1; P2 68.4 to 84.5
+snapshot builds: 731; decided by {'script': 614, 'writer': 117}

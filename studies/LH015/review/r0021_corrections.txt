@@ -1,0 +1,73 @@
+builds: 0.1 1533, 0.2 1533, same ids: True
+builds whose class changed: 18, at snapshots 9
+  P132-h1-0   head     5 other named packages only  -> 2 lock unused            decided_by script -> writer | the final stage installs the wheel the builder stage builds from pyproject.toml (not in T,
+  P132-s1-0   snapshot 5 other named packages only  -> 2 lock unused            decided_by script -> writer | the final stage installs the wheel the builder stage builds from pyproject.toml (not in T,
+  P158-h1-0   head     5 other named packages only  -> 6 script not read        decided_by script -> script | install delegated to ansible-playbook (amendment 7)
+  P158-s1-0   snapshot 5 other named packages only  -> 6 script not read        decided_by script -> script | install delegated to ansible-playbook (amendment 7)
+  P159-h1-0   head     5 other named packages only  -> 6 script not read        decided_by script -> script | install delegated to ansible-playbook (amendment 7)
+  P159-s1-0   snapshot 5 other named packages only  -> 6 script not read        decided_by script -> script | install delegated to ansible-playbook (amendment 7)
+  P160-h1-0   head     5 other named packages only  -> 6 script not read        decided_by script -> script | install delegated to ansible-playbook (amendment 7)
+  P160-s1-0   snapshot 5 other named packages only  -> 6 script not read        decided_by script -> script | install delegated to ansible-playbook (amendment 7)
+  P161-h1-0   head     5 other named packages only  -> 6 script not read        decided_by script -> script | install delegated to ansible-playbook (amendment 7)
+  P161-s1-0   snapshot 5 other named packages only  -> 6 script not read        decided_by script -> script | install delegated to ansible-playbook (amendment 7)
+  P162-h1-0   head     5 other named packages only  -> 6 script not read        decided_by script -> script | install delegated to ansible-playbook (amendment 7)
+  P162-s1-0   snapshot 5 other named packages only  -> 6 script not read        decided_by script -> script | install delegated to ansible-playbook (amendment 7)
+  P163-h1-0   head     5 other named packages only  -> 6 script not read        decided_by script -> script | install delegated to ansible-playbook (amendment 7)
+  P163-s1-0   snapshot 5 other named packages only  -> 6 script not read        decided_by script -> script | install delegated to ansible-playbook (amendment 7)
+  P365-h1-0   head     2 lock unused                -> 4                        decided_by script -> script | project .[redis]: docker/pyproject.docker.toml pins L 2.1.1 (amendment 2)
+  P365-s1-0   snapshot 2 lock unused                -> 4                        decided_by script -> script | project .[cpu,redis]: docker/pyproject.docker.toml pins L 1.27.1 (amendment 2)
+  P418-s1-0   snapshot 2 lock unused                -> 1                        decided_by script -> script | project /build with manifest in T
+  P442-h1-0   head     2 other file                 -> 4                        decided_by script -> script | project /vantage6-algorithm-tools: vantage6-algorithm-tools/pyproject.toml pins L 2.13.0
+builds whose sub-label or flags changed with the same class: 0
+builds that moved between script and writer pools: ['P132-s1-0', 'P132-h1-0', 'P418-h1-0']
+0.2 decided_by at snapshots: Counter({'script': 614, 'writer': 117})
+0.2 decided_by all: Counter({'script': 1295, 'writer': 238})
+pairs whose pair_class changed: 8
+   P132 github.com/edumfa/edumfa: nothing of the project's requirements -> not from the pinned file
+   P158 github.com/galaxyproject/galaxy: nothing of the project's requirements -> undetermined
+   P159 github.com/galaxyproject/galaxy: nothing of the project's requirements -> undetermined
+   P160 github.com/galaxyproject/galaxy: nothing of the project's requirements -> undetermined
+   P161 github.com/galaxyproject/galaxy: nothing of the project's requirements -> undetermined
+   P162 github.com/galaxyproject/galaxy: nothing of the project's requirements -> undetermined
+   P163 github.com/galaxyproject/galaxy: nothing of the project's requirements -> undetermined
+   P418 github.com/theredtower/secure-string-cipher: not from the pinned file -> from the pinned file
+pairs whose head_class changed: 7
+   P132 github.com/edumfa/edumfa: nothing of the project's requirements -> not from the pinned file
+   P158 github.com/galaxyproject/galaxy: nothing of the project's requirements -> undetermined
+   P159 github.com/galaxyproject/galaxy: nothing of the project's requirements -> undetermined
+   P160 github.com/galaxyproject/galaxy: nothing of the project's requirements -> undetermined
+   P161 github.com/galaxyproject/galaxy: nothing of the project's requirements -> undetermined
+   P162 github.com/galaxyproject/galaxy: nothing of the project's requirements -> undetermined
+   P163 github.com/galaxyproject/galaxy: nothing of the project's requirements -> undetermined
+pairs whose mixed changed: 0
+pairs whose main_class changed: 8
+   P132 github.com/edumfa/edumfa: nothing of the project's requirements -> not from the pinned file
+   P158 github.com/galaxyproject/galaxy: nothing of the project's requirements -> undetermined
+   P159 github.com/galaxyproject/galaxy: nothing of the project's requirements -> undetermined
+   P160 github.com/galaxyproject/galaxy: nothing of the project's requirements -> undetermined
+   P161 github.com/galaxyproject/galaxy: nothing of the project's requirements -> undetermined
+   P162 github.com/galaxyproject/galaxy: nothing of the project's requirements -> undetermined
+   P163 github.com/galaxyproject/galaxy: nothing of the project's requirements -> undetermined
+   P418 github.com/theredtower/secure-string-cipher: not from the pinned file -> from the pinned file
+pairs whose r3_only changed: 0
+pairs whose reads_T_lock changed: 0
+pairs whose relock_class changed: 8
+   P132 github.com/edumfa/edumfa: nothing of the project's requirements -> not from the pinned file
+   P158 github.com/galaxyproject/galaxy: nothing of the project's requirements -> undetermined
+   P159 github.com/galaxyproject/galaxy: nothing of the project's requirements -> undetermined
+   P160 github.com/galaxyproject/galaxy: nothing of the project's requirements -> undetermined
+   P161 github.com/galaxyproject/galaxy: nothing of the project's requirements -> undetermined
+   P162 github.com/galaxyproject/galaxy: nothing of the project's requirements -> undetermined
+   P163 github.com/galaxyproject/galaxy: nothing of the project's requirements -> undetermined
+   P418 github.com/theredtower/secure-string-cipher: not from the pinned file -> from the pinned file
+
+frame: 469 pairs, 332 repositories, 31 libraries, 40 events
+libraries: aiohttp anthropic authlib awscli bleach cryptography fastmcp gitpython httplib2 joserfc litellm lxml mako mcp mistune nltk pillow pip poetry pyasn1 pydantic-ai-slim pyjwt pypdf python-dotenv python-multipart setuptools soupsieve sqlparse starlette tornado urllib3
+release_time range: 2025-04-10T15:23:37.377011Z .. 2026-08-13T19:16:04.062771Z
+snapshot_time range: 2023-01-15T10:54:28+08:00 .. 2026-08-12T23:58:06+01:00
+bbot row: {'pair_id': 'P071', 'repo': 'github.com/blacklanternsecurity/bbot', 'library': 'pyjwt', 'threshold': '2.13.0', 'pair_fix': '2.13.0', 'event_kind': 'fix', 'release_time': '2026-05-21T19:54:35.362086Z', 'advisory_time': '2026-06-15T19:28:06Z', 'source_study': 'LH008', 'snapshot_commit': 'd57a125e5286', 'snapshot_time': '2026-04-01T14:24:53-06:00', 'pin_class': 'lockfile', 'timed_files': 'poetry.lock [lockfile] 2.11.0', 'outcome': 'moved', 'lag_release_days': '47.754'}
+   pair class: not from the pinned file | classes: 2 2
+   build P071-s1-0 snapshot Dockerfile 2 lock unused | project . (pyproject.toml not in T)
+   build P071-s2-0 snapshot Dockerfile.full 2 lock unused | project . (pyproject.toml not in T)
+   build P071-h1-0 head Dockerfile 2 other file | project . (pyproject.toml not in T)
+   build P071-h2-0 head Dockerfile.full 2 other file | project . (pyproject.toml not in T)

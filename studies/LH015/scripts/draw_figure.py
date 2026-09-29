@@ -76,7 +76,7 @@ for i, (name, c, n) in enumerate(counts):
             e.append(f'<text x="{x + w / 2 + gap / 2:.1f}" y="{y + BH / 2 + 4}" text-anchor="middle" class="{cl}">{k}</text>')
         x += w
 e.append(f'<text x="16" y="{H - 30}" class="s">A recipe is not a build: no image was read. Whether a build installs the library at all was not resolved.</text>')
-e.append(f'<text x="16" y="{H - 14}" class="s">Pin class: the kind of file that held the older version. Source: studies/LH015, data/pair_classes.csv.</text>')
+e.append(f'<text x="16" y="{H - 14}" class="s">Rows by the kind of file that held the older version. Read from the projects\' public repositories on 29 September 2026.</text>')
 e.append('</svg>')
 open(out, 'w').write('\n'.join(e) + '\n')
 print(out, [(n, dict(c), t) for n, c, t in counts])

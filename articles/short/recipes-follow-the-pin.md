@@ -3,7 +3,7 @@ summary: If a Python project keeps a pin or a lockfile, does the recipe that bui
 status: draft
 investigation: software-updates
 
-# When a Python project pins a library, its own container recipe mostly installs what the pin names
+# When a Python project pins a library, the container recipe it keeps mostly installs what the pin names
 
 If a project keeps a lockfile, a file of the exact library versions it has settled on, does the recipe that builds its software read it? On 21 May 2026 pyjwt, a library that checks login tokens, released a security fix. bbot, a program built on it, kept a lockfile naming the older version for 48 more days. Its Dockerfile, the recipe for a packaged, ready-to-run copy of the program, copies that lockfile in and then installs with a command that never reads it.
 
