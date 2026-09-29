@@ -43,3 +43,13 @@ This section was added after the brief's snapshot on issue #14 (06:35 UTC); the 
 | K2 (phase 2) | PyPI JSON API, https://pypi.org/pypi/{project}/{version}/json | 3,844 single-version reads: 87 versions at or above R of the 37 projects, and 3,757 dependent versions by the coverage rule | 06:49:51 to 07:09:28 | data/dependent_reads.csv, data/requirements_phase2.csv |
 
 ClickHouse answered 15 or so of these queries with HTTP 200 and then streamed an error into the body (a result over 10,000 rows); they are in the log with the rows they read, and the collector discarded and split them (amendment 2). No documentation page was read in phase 2.
+
+## Added for version 0.4 (29 September 2026, late evening)
+
+Anonymous reads, none of them a download count, made to check when pip stops fetching each version it tries from PyPI (the record's walk paragraph; notes/R-0025.md, problem 2).
+
+| id | source | what was read | read (UTC) | retained as |
+| --- | --- | --- | --- | --- |
+| L06 | PEP 714, https://peps.python.org/pep-0714/ (created 6 June 2023, accepted 27 June 2023) | that PyPI supported PEP 658 only from mid-2023, that pips from at least 22.3 fail on the old key in the JSON index, and that the JSON index must use core-metadata | 21:43 (the reader review) and 21:49:16 (the driving session), 29 September 2026 | review/r0025_pip_metadata_sources.txt; review/v04_pip_metadata_read.txt |
+| L07 | pip's NEWS.rst, https://raw.githubusercontent.com/pypa/pip/main/NEWS.rst (main at the read) | the 22.3 entry (use of data-dist-info-metadata) and the 23.2 entries (parsing it from JSON; no second download) | 21:43 and 21:49:27 | as L06 |
+| L08 | the pip 23.1.2 and 23.2 wheels from files.pythonhosted.org, by the URLs PyPI's JSON API gave | pip/_internal/models/link.py (which metadata keys each reads) and 23.1.2's pip/_internal/index/collector.py (which index format it asks for first) | 21:50:05 | review/v04_pip_metadata_read.txt |

@@ -1,0 +1,37 @@
+r0025: when pip stopped downloading each candidate wheel from PyPI while resolving
+
+Two anonymous reads made by the reader-and-inference review of version 1.2 (notes/R-0025.md) on
+29 September 2026 at 21:43 UTC, to check the piece's sentence "since October 2022 it reads instead a
+small file of the version's requirements where the index offers one" (articles/old-versions-new-pythons.md,
+"What an old Python rules out"; LH012 record, "Read after version 0.2 was released"). Neither is a
+download count. Quoted lines are as served; the pip NEWS line numbers are of the file as fetched.
+
+1. PEP 714, "Rename dist-info-metadata in the Simple API", https://peps.python.org/pep-0714/
+   (Created 06-Jun-2023; Resolution 27-Jun-2023; Status Accepted; page last modified 2025-02-01).
+   - "Unfortunately, PyPI did not support PEP 658 until just recently, which released with a bug where the
+     dist-info-metadata key from PEP 658 was incorrectly named in the JSON representation, to be
+     data-dist-info-metadata."
+   - "However, when attempting to fix that bug, it was discovered that pip also had a bug, where any use of
+     dist-info-metadata in the JSON representation would cause pip to hard fail with an exception."
+   - "The bug in pip has existed since at least v22.3, which means that it has been released for approximately
+     8 months, long enough to have been pulled into Python releases, downstream Linux releases, baked into
+     containers, virtual environments, etc."
+   - Specification, Servers: "The PEP 658 metadata, when used in the PEP 691 JSON representation of the Simple
+     API, MUST be emitted using the key core-metadata"; Recommendations, Servers: "Servers should not emit
+     the old keys in JSON unless they know that no broken versions of pip will be used to access their server."
+
+2. pip's NEWS.rst, https://raw.githubusercontent.com/pypa/pip/main/NEWS.rst (main branch at the read).
+   - line 1370, under 22.2 (2022-07-21): "Support PEP 691. (#11158)"  [the JSON index]
+   - line 1282, under 22.3 (2022-10-15): "Use the data-dist-info-metadata attribute from PEP 658 to resolve
+     distribution metadata without downloading the dist yet. (#11111)"
+   - line 1032, under 23.2 (2023-07-15): "Correctly parse dist-info-metadata values from JSON-format index
+     data. (#12042)"
+   - line 1027, under 23.2: "Prevent downloading files twice when PEP 658 metadata is present (#11847)"
+
+What follows for the piece: pip has been able to read a version's metadata file since 22.3 (October 2022),
+but PyPI served none until mid-2023, and then under a renamed key, because pips from 22.3 on failed on the
+old key in the JSON index they request; pip's parse fix is in 23.2 (15 July 2023). So the pips that fetch
+every candidate wheel in full from PyPI while resolving are those older than 23.2, not only those older than
+22.3, and PyPI's own serving of the metadata dates from 2023. Whether the download log counts requests for
+the metadata files is still not known here. Not checked: which pip versions read the renamed key
+(core-metadata) from JSON, beyond what the 23.2 entry says; whether PyPI also emits the legacy key in HTML.

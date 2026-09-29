@@ -1,0 +1,38 @@
+v04_pip_metadata_read: which pip versions read PyPI's metadata files for a version they try (record version 0.4)
+Read by the driving session on 29 September 2026, checking notes/R-0025.md's material problem 2. Anonymous reads;
+no download count. PEP 714 at https://peps.python.org/pep-0714/ (21:49:16 UTC); pip's NEWS.rst at
+https://raw.githubusercontent.com/pypa/pip/main/NEWS.rst (21:49:27 UTC); the pip 23.1.2 and 23.2 wheels from
+files.pythonhosted.org, by the URLs PyPI's JSON API gives (21:50:05 UTC). Lines are quoted as served.
+
+PEP 714 (Created 06-Jun-2023; Resolution 27-Jun-2023; Accepted):
+  "Unfortunately, PyPI did not support PEP 658 until just recently, which released with a bug where the
+   dist-info-metadata key from PEP 658 was incorrectly named in the JSON representation"
+  "any use of dist-info-metadata in the JSON representation would cause pip to hard fail with an exception.
+   The bug in pip has existed since at least v22.3"
+  "The PEP 658 metadata, when used in the PEP 691 JSON representation of the Simple API, MUST be emitted using
+   the key core-metadata"
+
+pip's NEWS.rst:
+  line 999: 23.2 (2023-07-15)
+  line 1032: - Correctly parse ``dist-info-metadata`` values from JSON-format index data. (`#12042 <https://github.com/pypa/pip/issues/12042>`_)
+  line 1262: 22.3 (2022-10-15)
+  line 1282: - Use the ``data-dist-info-metadata`` attribute from :pep:`658` to resolve distribution metadata without downloading the dist yet. (`#11111 <https://github.com/
+
+pip 23.1.2 wheel (sha256 3ef6ac33239e4027...), pip/_internal/models/link.py, lines naming a metadata key:
+  265: dist_info_metadata = file_data.get("dist-info-metadata")
+  301: dist_info_metadata = anchor_attribs.get("data-dist-info-metadata")
+pip 23.2 wheel (sha256 78e5353a9dda374b...), pip/_internal/models/link.py, lines naming a metadata key:
+  280: # PEP 714: Indexes must use the name core-metadata, but
+  282: metadata_info = file_data.get("core-metadata")
+  284: metadata_info = file_data.get("dist-info-metadata")
+  331: # PEP 714: Indexes must use the name data-core-metadata, but
+  333: metadata_info = anchor_attribs.get("data-core-metadata")
+  335: metadata_info = anchor_attribs.get("data-dist-info-metadata")
+
+What follows: pip could use PEP 658 metadata from 22.3 (15 October 2022), but PyPI offered none until 2023, and
+then in its JSON index only under core-metadata, which pip reads from 23.2 (15 July 2023); 23.1.2 looks only for
+dist-info-metadata. So from PyPI's JSON index, pips older than 23.2 fetch each candidate in full while resolving.
+pip 23.1.2 asks an index for JSON first (pip/_internal/index/collector.py, lines 138 to 141: "application/vnd.pypi.simple.v1+json",
+then "application/vnd.pypi.simple.v1+html; q=0.1"), so from PyPI it reads the JSON form. Not checked: the pips between 22.3 and
+23.1.2, which were not read; what PyPI's HTML index emits; mirrors and proxies; whether the download log counts requests for
+the metadata files.

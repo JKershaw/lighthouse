@@ -1,0 +1,38 @@
+r0025_walk_dip: post hoc checks on the walk reading (LH012 record, 'the shape of the older downloads')
+
+1. boto3, Python 3.9, 21 to 27 September 2026
+   edge 1.42.97: 17,132,664
+   of the 50 below it, within 882,000 to 906,000: 49; outside: 1.42.87 486,869
+   metadata of 1.42.86, 1.42.87, 1.42.88 (versions.csv):
+     1.42.86: first upload 2026-04-09T01:00:44.202559Z, requires_python '>=3.9', files 2, any_yanked False, all_yanked False, wheel py3-none-any, sdist True
+     1.42.87: first upload 2026-04-09T19:39:47.669283Z, requires_python '>=3.9', files 2, any_yanked False, all_yanked False, wheel py3-none-any, sdist True
+     1.42.88: first upload 2026-04-10T19:41:05.309584Z, requires_python '>=3.9', files 2, any_yanked False, all_yanked False, wheel py3-none-any, sdist True
+   1.42.87 as a fraction of the median of the other 49: 0.550
+   1.42.87 was boto3's newest version from its upload on 2026-04-09T19:39 UTC until 1.42.88's on 2026-04-10T19:41 UTC.
+
+2. 1.42.86, 1.42.87 and 1.42.88 on each Python minor with at least 100,000 boto3 downloads on those three versions together
+   Python 3.10: 1.42.86 158,654; 1.42.87 158,941; 1.42.88 162,967; 1.42.87 over the mean of its neighbours 0.99
+   Python 3.11: 1.42.86 72,503; 1.42.87 64,279; 1.42.88 69,459; 1.42.87 over the mean of its neighbours 0.91
+   Python 3.9: 1.42.86 886,498; 1.42.87 486,869; 1.42.88 886,695; 1.42.87 over the mean of its neighbours 0.55
+
+3. What the walk reading implies, if every fetch below the edge on Python 3.9 belongs to a walk
+   fetches below the edge: 355,639,507; at the edge: 17,132,664
+   walks a week, read as the plateau just below the edge: about 885,316
+   so of the edge's fetches, walk starts: 5.2%; fresh installs that stop at the edge: about 16,247,348
+   mean depth of a walk, fetches below the edge over walks: about 402 versions
+   at 1.42.87, walks that did not fetch it: about 398,447 of 885,316 (45%)
+
+4. Single-version dips (under 0.7 of both neighbours) in the first hundred below each edge, Python 3.9
+   boto3 (edge 1.42.97, 17,132,664 at the edge; first below: 1.42.96 888,044, 1.42.95 887,750, 1.42.94 887,235)
+     1.42.87: 486,869 between 886,695 and 886,498; any_yanked False, requires_python '>=3.9', first upload 2026-04-09
+   botocore (edge 1.42.97, 21,958,654 at the edge; first below: 1.42.96 135,675, 1.42.95 134,726, 1.42.94 134,596)
+     1.41.4: 1,856 between 2,579,044 and 5,077; any_yanked False, requires_python '>=3.9', first upload 2025-11-25
+   aiobotocore (edge 3.5.0, 486,492 at the edge; first below: 3.4.0 473,717, 3.3.0 473,734, 3.2.1 473,729)
+     1.0.0: 96 between 471,659 and 293; any_yanked False, requires_python '>=3.6', first upload 2020-03-31
+
+5. Two shares with the walk-shaped fetches set aside (walk shares from review/r0018_walkshare.txt, N; totals from data/analysis/week.csv)
+   pooled older share over the 37: 45.6%; without boto3: 41.7%; without boto3, botocore, s3transfer and aiobotocore: 38.8%
+   boto3: at-or-newer share in the week 10.0%; with 79% of older fetches set aside as walk-shaped, 34.5% (the reference is the newest version of 21 August, so this is a month-old release's share, not LH011's day-1 share)
+   aiobotocore: at-or-newer share in the week 2.8%; with 84% of older fetches set aside as walk-shaped, 15.2% (the reference is the newest version of 21 August, so this is a month-old release's share, not LH011's day-1 share)
+
+Reading (post hoc, untested): pip's resolver uses an already-installed distribution as the candidate for its version without fetching it, so a walk from environments that hold 1.42.87 installed would fetch every version it tries except that one. That fits the dip and nothing else in the metadata does. It would mean that about half of the walks come from environments built while 1.42.87 was the newest boto3 (9 to 10 April 2026) or that install it by name. If so, the dip stays at 1.42.87 on later weeks until those environments are rebuilt; LH013's weeks can check it.
