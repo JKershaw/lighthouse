@@ -1,0 +1,68 @@
+§1 release_days.csv: 13144 rows, 13126 known with a share; days run 0 to 30; 424 releases of 37 projects
+
+§2 litellm: every release whose at-or-newer share was at least 0.5 on any known day 1 to 30
+  1.83.1 released 2026-04-03: first at half day 28 (2026-05-01), share 0.570; at half on 0 of 2 later days to day 30
+  1.83.2 released 2026-04-04: first at half day 27 (2026-05-01), share 0.563; at half on 0 of 3 later days to day 30
+  1.83.3 released 2026-04-05: first at half day 26 (2026-05-01), share 0.556; at half on 0 of 4 later days to day 30
+  1.83.4 released 2026-04-07: first at half day 24 (2026-05-01), share 0.550; at half on 0 of 6 later days to day 30
+  1.83.5 released 2026-04-13: first at half day 18 (2026-05-01), share 0.543; at half on 0 of 12 later days to day 30
+  1.83.6 released 2026-04-13: first at half day 18 (2026-05-01), share 0.536; at half on 0 of 12 later days to day 30
+  6 of 46 litellm releases; dates on which any first reached half: ['2026-05-01']; median first day 25.0; days at half after the first, summed: 0
+  litellm releases at half on day 0: 0
+  litellm 1.83.1, days 26 to 30: date, total, at 1.83.1 or newer, share, older
+    day 26 2026-04-29: 14,400,585 6,474,824 0.450 7,925,761
+    day 27 2026-04-30: 15,586,648 7,597,086 0.487 7,989,562
+    day 28 2026-05-01: 18,480,550 10,524,980 0.570 7,955,570
+    day 29 2026-05-02: 14,602,637 7,114,946 0.487 7,487,691
+    day 30 2026-05-03: 9,759,828 2,296,894 0.235 7,462,934
+  the share on 2026-05-01 for each of the six, and the day before and after:
+    1.83.1: 2026-04-30 day 27 0.487, 2026-05-01 day 28 0.570, 2026-05-02 day 29 0.487
+    1.83.2: 2026-04-30 day 26 0.481, 2026-05-01 day 27 0.563, 2026-05-02 day 28 0.483
+    1.83.3: 2026-04-30 day 25 0.476, 2026-05-01 day 26 0.556, 2026-05-02 day 27 0.478
+    1.83.4: 2026-04-30 day 23 0.469, 2026-05-01 day 24 0.550, 2026-05-02 day 25 0.473
+    1.83.5: 2026-04-30 day 17 0.463, 2026-05-01 day 18 0.543, 2026-05-02 day 19 0.468
+    1.83.6: 2026-04-30 day 17 0.455, 2026-05-01 day 18 0.536, 2026-05-02 day 19 0.462
+
+§3 day 30 against day 1 and day 2, at-or-newer share, all 37 projects (points = share difference x 100)
+  day 30 minus day 1: 418 releases; higher on day 30 378, equal 0, lower 40; median 4.13; quartiles exclusive 2.05 and 6.93, inclusive 2.06 and 6.91; above +10 43, below -10 1
+    by project (median over its releases): 37 projects, above zero 33, median of project medians 3.70; not above zero: cffi -2.40, pygments -4.28, python-dotenv -5.04, typing-inspection -5.57
+    without boto3, botocore and litellm: 170 releases, higher 140, median 3.43
+    day-1 share over day-30 share: 418 releases, median 0.864
+  day 30 minus day 2: 418 releases; higher on day 30 379, equal 0, lower 39; median 4.05; quartiles exclusive 1.87 and 6.34, inclusive 1.88 and 6.32; above +10 43, below -10 1
+    by project (median over its releases): 37 projects, above zero 32, median of project medians 3.52; not above zero: annotated-types -0.91, cffi -0.25, pygments -4.36, python-dotenv -4.30, typing-inspection -5.94
+    without boto3, botocore and litellm: 170 releases, higher 146, median 3.35
+    day-2 share over day-30 share: 418 releases, median 0.867
+  the chart's lines, median on day 30 minus median on day 1: 37 projects, above zero 32, median 4.02; below zero: typing-inspection -5.6, python-dotenv -5.0, pygments -4.3, cffi -2.4, numpy -1.9
+  ratio of median day-1 to median day-30 line, median over projects: 0.930
+
+§4 the chart's description: where the lines sit
+  most releases reached half by day 2: 26 projects; none did: 11; some but not most: 0
+  blue lines (yes), days 1 to 30: 48.9 to 84.9 per cent; orange lines, days 0 to 30: 1.2 to 37.4; orange days 1 to 30: 1.9 to 37.4
+  the eleven, median day-1 share, median day-30 share, difference (points), ordered by day 1:
+    aiobotocore: 2.0 -> 2.5 (+0.5)
+    boto3: 7.5 -> 12.2 (+4.8)
+    litellm: 9.5 -> 21.0 (+11.5)
+    grpcio-status: 10.2 -> 14.5 (+4.3)
+    fsspec: 21.3 -> 22.3 (+1.0)
+    botocore: 23.4 -> 26.9 (+3.5)
+    protobuf: 24.6 -> 32.5 (+7.8)
+    pandas: 27.7 -> 32.3 (+4.6)
+    pytest: 29.3 -> 35.3 (+5.9)
+    numpy: 29.5 -> 27.6 (-1.9)
+    s3transfer: 34.0 -> 37.0 (+3.1)
+  every line lower on day 0 than day 1: True
+  releases whose day-1 share was less than half of their day-30 share: 45 of 418; projects whose median line on day 1 is less than half of its day-30 median: litellm 0.45
+  the piece's opening: requests 2.34.0 and pandas 3.0.3, share on day 1 and day 30:
+    requests 2.34.0 (day 0 2026-05-11): day 1 0.548, day 30 0.607
+    pandas 3.0.3 (day 0 2026-05-11): day 1 0.277, day 30 0.323
+
+§5 firstday_releases.csv: 355 releases of 32 projects; day0 from 2025-11-01 to 2026-03-31
+  delta recomputed from the six-decimal s2 and s30 columns differs from delta_points by at most 0.00009 points (rounding of the columns); every count below is the same either way
+  higher on day 30 than day 2: 339; lower: 16; equal: 0
+  median 7.15; quartiles exclusive 3.56 and 10.25, inclusive 3.56 and 10.21; above +10: 97; below -10: 1; within ten points (|delta| <= 10): 257
+  settled column True: 257; of those within the band, higher on day 30: 242, median 5.12
+  s2 / s30, recomputed: 355 releases, median 0.790
+  by project: 32 projects, median above zero for 31; median of project medians 3.20; not above zero: click -1.02 (1 releases)
+  the three daily releasers: boto3 99 releases, median 9.65; botocore 99 releases, median 6.23; litellm 40 releases, median 15.30; together 238
+  without them: 117 releases, higher on day 30 105, median 3.02; quartiles exclusive 1.54 and 5.99, inclusive 1.56 and 5.94
+  the test as the brief defined it: releases within ten points 257 of 355; projects where most releases settle 28 of 32; not: aiohttp, litellm, pydantic-core, starlette
