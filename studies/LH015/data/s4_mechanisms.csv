@@ -1,0 +1,61 @@
+item,value,count
+snapshot builds whose steps include (from the effects column),"pip -r, -c or sync of a file",74
+snapshot builds whose steps include (from the effects column),pip install of a project directory,83
+snapshot builds whose steps include (from the effects column),"uv sync, run, export or lock",150
+snapshot builds whose steps include (from the effects column),Poetry,27
+snapshot builds whose steps include (from the effects column),Pipenv,0
+snapshot builds whose steps include (from the effects column),PDM,0
+snapshot builds whose steps include (from the effects column),own package from the index,39
+snapshot builds whose steps include (from the effects column),conda family,5
+snapshot builds whose steps include (from the effects column),other named packages,331
+recipes per pair keeping one,1,144
+recipes per pair keeping one,2,44
+recipes per pair keeping one,3,31
+recipes per pair keeping one,4,7
+recipes per pair keeping one,5,5
+recipes per pair keeping one,6,2
+recipes per pair keeping one,8,1
+recipes per pair keeping one,9,2
+recipes per pair keeping one,11,5
+recipes per pair keeping one,12,1
+recipes per pair keeping one,20,1
+recipes per pair keeping one,22,1
+recipes per pair keeping one,23,1
+recipes per pair keeping one,51,1
+recipes per pair keeping one,81,1
+distinct snapshot recipes by depth,0,180
+distinct snapshot recipes by depth,1,141
+distinct snapshot recipes by depth,2,181
+distinct snapshot recipes by depth,3,77
+distinct snapshot recipes by depth,4,70
+distinct snapshot recipes by depth,5,9
+distinct snapshot recipes by depth,7,3
+distinct snapshot recipes by depth,8,1
+distinct snapshot recipes by name form,default,521
+distinct snapshot recipes by name form,inline,1
+distinct snapshot recipes by name form,prefix,114
+distinct snapshot recipes by name form,suffix,26
+distinct snapshot recipes that are templates,,2
+snapshot builds with an install at start,at start (also),19
+snapshot builds with an install at start,at start only,0
+snapshot builds flagged may re-lock,,36
+pairs read with another build definition,,5
+pairs read whose only recipes lie in excluded directories,,13
+snapshot builds by class and sub-label,1,280
+snapshot builds by class and sub-label,2 lock absent,1
+snapshot builds by class and sub-label,2 lock unused,59
+snapshot builds by class and sub-label,2 other file,64
+snapshot builds by class and sub-label,2 upgrade,1
+snapshot builds by class and sub-label,3,38
+snapshot builds by class and sub-label,4,12
+snapshot builds by class and sub-label,5 no Python install,144
+snapshot builds by class and sub-label,5 other named packages only,46
+snapshot builds by class and sub-label,6 build argument,2
+snapshot builds by class and sub-label,6 context,10
+snapshot builds by class and sub-label,6 external,21
+snapshot builds by class and sub-label,6 other,7
+snapshot builds by class and sub-label,6 script not read,9
+snapshot builds by class and sub-label,6 unreadable,2
+snapshot builds by class and sub-label,6 would not build,35
+snapshot builds decided by,script,615
+snapshot builds decided by,writer,116

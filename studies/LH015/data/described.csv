@@ -1,0 +1,16 @@
+measure,view,num,den,n_repos,share,lo,hi,skipped
+P2 exact pin minus lockfile,pairs,,77 and 36,,0.2348,0.0111,0.4486,0
+P2 exact pin minus lockfile and both,pairs,,77 and 89,,0.0878,-0.0798,0.2375,0
+share of pairs with a recipe: nothing of the project's requirements,pairs,19,247,151,0.0769,0.0284,0.1411,0
+share of pairs with a recipe: undetermined,pairs,62,247,151,0.251,0.1556,0.3514,0
+share of pairs with a recipe: mixed,pairs,5,247,151,0.0202,0.0041,0.0398,0
+"pairs with a lockfile (lockfile or both), decided: some build reads the timed lockfile",pairs,45,89,67,0.5056,0.3673,0.6506,0
+pairs read whose recipe would not take the pinned file,pairs,38,469,332,0.081,0.0546,0.1111,0
+"pairs ""not from the pinned file"" with a class 2 build",pairs,25,38,,,,,
+"pairs ""not from the pinned file"" with a class 3 build",pairs,14,38,,,,,
+"pairs ""not from the pinned file"" with a class 4 build",pairs,4,38,,,,,
+"class 2 builds at snapshots, sub-label lock unused",builds,59,125,,,,,
+"class 2 builds at snapshots, sub-label lock absent",builds,1,125,,,,,
+"class 2 builds at snapshots, sub-label other file",builds,64,125,,,,,
+"class 2 builds at snapshots, sub-label upgrade",builds,1,125,,,,,
+"class 2 builds at snapshots, sub-label inline",builds,0,125,,,,,

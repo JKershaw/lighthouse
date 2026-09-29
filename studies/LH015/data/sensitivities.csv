@@ -1,0 +1,38 @@
+measure,view,num,den,n_repos,share,lo,hi,label,skipped
+"R1 P1, recipes in excluded directories counted",pairs,260,469,332,0.5544,0.4887,0.6186,for some pairs,0
+"R1 P1, recipes in excluded directories counted",repositories,162.5,332,332,0.4895,0.4367,0.5422,not as a rule,0
+"R2 P1, only files named Dockerfile or Containerfile",pairs,237,469,332,0.5053,0.4363,0.5711,for some pairs,0
+"R2 P1, only files named Dockerfile or Containerfile",repositories,140.5,332,332,0.4232,0.3705,0.4759,not as a rule,0
+"R2 P2, only files named Dockerfile or Containerfile",pairs,126,158,106,0.7975,0.7134,0.8645,as a rule,0
+"R2 P2, only files named Dockerfile or Containerfile",repositories,76.667,106,106,0.7233,0.6345,0.8053,for some pairs,0
+"P2, main recipe alone",pairs,145,172,112,0.843,0.7709,0.8995,as a rule,0
+"P2, main recipe alone",repositories,87.667,112,112,0.7827,0.7018,0.8545,as a rule,0
+P1 without the nine repositories LH006 or LH007 read,pairs,237,452,323,0.5243,0.4564,0.5918,for some pairs,0
+P1 without the nine repositories LH006 or LH007 read,repositories,144.5,323,323,0.4474,0.3935,0.5016,not as a rule,0
+P2 without the nine repositories LH006 or LH007 read,pairs,125,161,107,0.7764,0.6901,0.8497,as a rule,0
+P2 without the nine repositories LH006 or LH007 read,repositories,75.667,107,107,0.7072,0.6168,0.79,for some pairs,0
+"P2, ""may re-lock"" builds counted as class 2",pairs,119,174,114,0.6839,0.5828,0.7717,for some pairs,0
+"P2, ""may re-lock"" builds counted as class 2",repositories,68.667,114,114,0.6023,0.513,0.6917,for some pairs,0
+"P2, recipes whose only install is at start dropped",pairs,128,166,111,0.7711,0.6838,0.8438,as a rule,0
+"P2, recipes whose only install is at start dropped",repositories,77.667,111,111,0.6997,0.6116,0.7818,for some pairs,0
+"P2, undetermined counted as from the pinned file",pairs,190,228,141,0.8333,0.7672,0.8875,as a rule,0
+"P2, undetermined counted as from the pinned file",repositories,108.167,141,141,0.7671,0.6942,0.8333,as a rule,0
+"P2, undetermined counted as not from the pinned file",pairs,128,228,141,0.5614,0.455,0.664,for some pairs,0
+"P2, undetermined counted as not from the pinned file",repositories,77.667,141,141,0.5508,0.4671,0.6333,for some pairs,0
+"R3 P2, builds that do not show L set aside",pairs,128,154,102,0.8312,0.755,0.8919,as a rule,0
+"R3 P2, builds that do not show L set aside",repositories,77.667,102,102,0.7614,0.675,0.8407,as a rule,0
+"R3 P2, lockfile",pairs,21,30,27,0.7,0.5,0.8621,for some pairs,0
+"P2, lockfile, undetermined counted as from the pinned file",pairs,56,71,43,0.7887,0.629,0.9,as a rule,0
+"P2, lockfile, undetermined counted as from the pinned file",repositories,30.0,43,43,0.6977,0.551,0.8298,for some pairs,0
+"P2, lockfile, undetermined counted as not from the pinned file",pairs,21,71,43,0.2958,0.1609,0.4762,not as a rule,0
+"P2, lockfile, undetermined counted as not from the pinned file",repositories,18.0,43,43,0.4186,0.2727,0.5667,not as a rule,0
+"R3 P2, exact pin",pairs,63,73,41,0.863,0.7447,0.9452,as a rule,0
+"P2, exact pin, undetermined counted as from the pinned file",pairs,73,87,52,0.8391,0.7288,0.9196,as a rule,0
+"P2, exact pin, undetermined counted as from the pinned file",repositories,39.5,52,52,0.7596,0.6393,0.8696,as a rule,0
+"P2, exact pin, undetermined counted as not from the pinned file",pairs,63,87,52,0.7241,0.5729,0.8407,for some pairs,0
+"P2, exact pin, undetermined counted as not from the pinned file",repositories,32.0,52,52,0.6154,0.4808,0.75,for some pairs,0
+"R3 P2, both",pairs,44,51,35,0.8627,0.7429,0.9531,as a rule,0
+"P2, both, undetermined counted as from the pinned file",pairs,61,70,49,0.8714,0.7727,0.9483,as a rule,0
+"P2, both, undetermined counted as from the pinned file",repositories,40.0,49,49,0.8163,0.7,0.9216,as a rule,0
+"P2, both, undetermined counted as not from the pinned file",pairs,44,70,49,0.6286,0.4675,0.7727,for some pairs,0
+"P2, both, undetermined counted as not from the pinned file",repositories,28.0,49,49,0.5714,0.4318,0.7083,for some pairs,0
