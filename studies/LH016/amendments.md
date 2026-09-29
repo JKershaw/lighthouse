@@ -48,3 +48,7 @@ Reported by the first coder with its table, and recorded before the second coder
 - **Rule corrections made after the counts** (P3-01, P6-01 to P6-03) and one sensitivity of a pre-set rule (P3-06) are coded `post_hoc` no, each with a comment; the record reports them beside M5.
 - **Release bookkeeping is not coded**: status lines, versions, colophons (a piece's list of corrections included), releases.md, record header lines, and AGENTS.md outside "Where things stand".
 - **The `evidence` column**, which the second coder sees, cites records and retained data and names no review, except in three rows about a review itself (P5-24, P6-04, P6-35), none of which was drawn.
+
+## Amendment 4, 29 September 2026, at about 20:30 UTC: what replay X2 read
+
+Recorded after the evidence review (notes/R-0023.md) pointed it out; it changes no figure. The brief says the study reads no download count. Replay X2, in its stage 2, read ClickPy's by-version table four times, anonymously, at 19:52 UTC on 29 September 2026: boto3's and botocore's downloads by version on 12 August 2026 and litellm's on 4 June and 15 September 2026 (review/replay-X2/x2_requery.txt and x2_requery_data/). A reader review may make its own reads, as notes/reader-review.md allows, and the driving session did not forbid them in the replay's task text, which was the review's own. None of the four days lies in LH013's weeks (28 September to 11 October 2026), so nothing of them was read. The record's header, Method, Finding 12 and Limits now say so.

@@ -1,0 +1,101 @@
+1. Primary frame
+rows 125; by round {'P1': 10, 'P2': 23, 'P3': 6, 'P4': 27, 'P5': 24, 'P6': 35}
+tiers {'B': 21, 'A': 66, 'C': 18, 'N': 20}
+A-tier 66; surface edits over A rows 219
+  K: A 8, B 1, C 5, N 1
+  E: A 23, B 8, C 5, N 2
+  B: A 3, B 5, C 0, N 0
+  R2: A 17, B 2, C 5, N 1
+  RC: A 10, B 2, C 0, N 6
+  D: A 5, B 3, C 3, N 10
+A-tier types by step, and the group unit/cause/new reading (a grouping the record says was made after the counts):
+  K: {'unit': 2, 'cause': 2, 'scope': 1, 'certainty': 1, 'post hoc': 1, 'new reading': 1}; group 5 of 8; certainty+figure 1
+  E: {'certainty': 8, 'figure': 5, 'unit': 4, 'scope': 3, 'consistency': 2, 'post hoc': 1}; group 4 of 23; certainty+figure 13
+  B: {'figure': 2, 'certainty': 1}; group 0 of 3; certainty+figure 3
+  R2: {'limit': 4, 'unit': 4, 'new reading': 3, 'scope': 2, 'certainty': 2, 'cause': 1, '(none)': 1}; group 8 of 17; certainty+figure 2
+  RC: {'scope': 3, 'unit': 3, 'certainty': 2, 'consistency': 1, 'post hoc': 1}; group 3 of 10; certainty+figure 2
+  D: {'certainty': 1, 'cause': 1, 'figure': 1, 'unit': 1, 'scope': 1}; group 2 of 5; certainty+figure 2
+  M2 K: 8 of 8 altered text an earlier step passed; passed by an evidence review (E, E(R-0016) or E(R-0017)) 8; by R1 0
+  M2 R2: 15 of 17 altered text an earlier step passed; passed by an evidence review (E, E(R-0016) or E(R-0017)) 15; by R1 13
+  M2 RC: 4 of 10 altered text an earlier step passed; passed by an evidence review (E, E(R-0016) or E(R-0017)) 4; by R1 3
+  M2 E: 2 of 23 altered text an earlier step passed; passed by an evidence review (E, E(R-0016) or E(R-0017)) 1; by R1 0
+  M2 D: 2 of 5 altered text an earlier step passed; passed by an evidence review (E, E(R-0016) or E(R-0017)) 2; by R1 0
+  M2 B: 0 of 3 altered text an earlier step passed; passed by an evidence review (E, E(R-0016) or E(R-0017)) 0; by R1 0
+before release in P5 and P6: 35 A-tier changes {'R2': 13, 'RC': 9, 'E': 7, 'B': 3, 'D': 3}
+improved over A rows by step: K {'yes': 7, 'pending': 1}; E {'yes': 23}; B {'yes': 3}; R2 {'pending': 3, 'yes': 14}; RC {'yes': 10}; D {'yes': 5}
+tier C by step and direction: {('E', 'correction'): 3, ('K', 'decision'): 5, ('D', 'correction'): 1, ('E', 'decision'): 2, ('R2', 'decision'): 5, ('D', 'decision'): 2}
+
+2. Costs (list rates, from data/costs.csv)
+  E: $30.41; A 23; per A change 1.32
+  B: $7.24; A 3; per A change 2.41
+  R1: $2.27; A 0; per A change nan
+  R2: $11.16; A 17; per A change 0.66
+  RC: $9.04; A 10; per A change 0.90
+  reader review together: $22.47; A 27; per A change 0.83
+  E in P4 to P6: $17.44; A 9; per A change 1.94
+  P1 LH011: research and writing $5.78; checks before first release $3.57
+  P3 LH012: research and writing $9.59; checks before first release $5.91
+  P5 LH014: research and writing $8.93; checks before first release $8.46
+  P6 LH015: research and writing $16.76; checks before first release $19.99
+  replay runs X1 to X3: no row in costs.csv; the record's $3.59, $4.98, $4.82 have no retained source
+
+3. After release
+A-tier changes after release 45 (primary 24, secondary 21); later evidence 10; corrections 35
+corrections by step {'K': 18, 'E': 10, 'R2': 4, 'D': 2, 'RC': 1}
+the keeper's corrections in the secondary frame (10), by main surface: {'articles/the-lead-was-a-few-libraries.md': 9, 'articles/fixes-that-said-so.md': 1}
+
+4. Origin of the text the recheck and the evidence review corrected (data/origin_check.txt)
+  RC: {'written': 8, 'starting': 2}; written: ['P4-24', 'P5-15', 'P5-16', 'P5-18', 'P5-20', 'P6-29', 'P6-30', 'P6-31']
+  E: {'starting': 16, 'written': 7}; written: ['P2-16', 'P2-17', 'P2-18', 'P2-19', 'P2-21', 'P2-22', 'P4-10']
+  R2: {'written': 3, 'starting': 12, 'added': 2}; written: ['P4-17', 'P6-22', 'P6-25']
+  K: {'starting': 7, 'written': 1}; written: ['P2-03']
+  D: {'starting': 4, 'written': 1}; written: ['P4-15']
+  B: {'starting': 3}; written: []
+  E in P2 (LH011's revision): 7 A rows, written during the round 6
+
+5. Second coder
+  sample 30; first coder's tiers {'C': 4, 'A': 17, 'B': 8, 'N': 1}
+  material: agreement 1.000, kappa 1.000; tier: agreement 0.933, kappa 0.883
+  type agreement 21 of 29; direction 26 of 29
+
+6. Post hoc readings and research steps
+  readings 23; tested_later {'planned': 10, 'yes': 1, 'no': 12}
+  no test: 12, from stage 2: 6, from the driving session after the keeper's reading: 4
+  introduced by stage 2 8; by research writers 9; by the driving session 6
+  literature checks 6; recorded a design change 4; recorded none 2 (['Q-06', 'Q-07'])
+  brief conventions (P) 4
+
+7. litellm's releases that reached half within 30 days (studies/LH011/data/analysis/release_days.csv)
+  litellm rows 1426; versions 46; statuses {'known': 1426}
+  1.83.1: first at half on day 28 (2026-05-01), share 0.570; at half on 0 of 2 later days read (to day 30)
+  1.83.2: first at half on day 27 (2026-05-01), share 0.563; at half on 0 of 3 later days read (to day 30)
+  1.83.3: first at half on day 26 (2026-05-01), share 0.556; at half on 0 of 4 later days read (to day 30)
+  1.83.4: first at half on day 24 (2026-05-01), share 0.550; at half on 0 of 6 later days read (to day 30)
+  1.83.5: first at half on day 18 (2026-05-01), share 0.543; at half on 0 of 12 later days read (to day 30)
+  1.83.6: first at half on day 18 (2026-05-01), share 0.536; at half on 0 of 12 later days read (to day 30)
+  releases reaching half within 30 days: 6; median first day 25.0; distinct dates ['2026-05-01']
+  releases at half on day 1 or 2: 0
+
+8. The rise after day 2 (studies/LH012/data/analysis/firstday_releases.csv)
+  releases 355; delta_points equals (s30 - s2) x 100 within 0.01 for all rows: True
+  day-30 share above day-2 share: 339; median rise 7.15 points; quartiles [3.56, 7.15, 10.25]
+  above +10: 97; below -10: 1; settled (|delta| <= 10) 257
+  projects 32; median of project medians 3.20; projects with median above zero 31; the one at or below: ['click']
+  median day-2 share as a fraction of day-30: 0.790
+  note: s2 and s30 are the at-or-newer shares (LH012's definition), so the rise is the share of downloads moving to the release or a later one, not a later release displacing this one
+
+9. Reviewer's sensitivities
+  the record's group (unit, cause, new reading) widened by scope and limit, A-tier changes by step:
+    K: 6 of 8
+    E: 7 of 23
+    B: 0 of 3
+    R2: 14 of 17
+    RC: 6 of 10
+    D: 3 of 5
+  the recheck's 8 changes to text written during the round, by type: {'scope': 2, 'certainty': 2, 'post hoc': 1, 'unit': 3}
+  P6-29's short-form sentence ('more than a quarter of the recipes could not be decided'): commits that introduced its words
+    f17523c 2026-09-29 17:54:44 +0000 Release LH015 and its piece: where the rules could decide, a pinned project's own container recipe mostly installs what the pin names
+    c488d2a 2026-09-29 17:18:08 +0000 LH015 record 0.2 after the blind check, with the piece and surfaces at its figures
+    (c488d2a is the window after the blind check, 3ca1804..c488d2a, credited to B or D; the resolution's window is 92d2013..ab2b12c)
+  P5-20: the draft's sentence at 9523003 (the round's first commit): '...after the second day. Further down the rankings it held for 39 of 50 libraries ranked 51 to 500 and 23 of 35 ranked 501 to 5,000. In one wee...'
+    so the ambiguity the recheck fixed was in the draft; stage 2 reworded the sentence without removing it
