@@ -1,0 +1,53 @@
+projects with a release: A 52, B 35; releases: A 295, B 196
+per-day table: 187 days 2026-03-25 to 2026-09-27; days below half the local median: 0
+
+== the four tests
+   primary A: 25 of 52 = 48.1 per cent, interval 34.6 to 61.5: not as a rule
+   primary B: 9 of 35 = 25.7 per cent, interval 11.4 to 40.0: not as a rule
+   settling A: 39 of 50 = 78.0 per cent, interval 66.0 to 88.0: holds as a rule
+   settling B: 23 of 35 = 65.7 per cent, interval 51.4 to 80.0: holds for some projects
+
+== descriptors, per band
+   A: every release reached half 21, most but not every 4, none 22, mixed with most not 5
+   A: median of project median day-1 shares 48.1 (quartiles 27.0, 69.0), over 52 projects
+   A: releases at half by day 30 149 of 295, median day 1; projects with no release at half by day 30: 13
+   A: pooled 114 of 295 releases = 38.6 per cent
+   A: delta known for 290 releases, 219 settled; project medians: delta 4.4, ratio day 2 to day 30 0.88, delta from day 1 3.9
+   A: did not settle: matplotlib-inline, markdownify, modal, httpcore2, ghapi, tiktoken, tomlkit, ast-serialize, langgraph-prebuilt, typeguard, croniter
+   B: every release reached half 7, most but not every 2, none 24, mixed with most not 2
+   B: median of project median day-1 shares 22.7 (quartiles 11.5, 45.4), over 35 projects
+   B: releases at half by day 30 81 of 196, median day 4; projects with no release at half by day 30: 16
+   B: pooled 38 of 196 releases = 19.4 per cent
+   B: delta known for 195 releases, 87 settled; project medians: delta 6.1, ratio day 2 to day 30 0.81, delta from day 1 8.2
+   B: did not settle: djlint, torch-geometric, zensical, functions-framework, nab-index, junitparser, dropbox-sign, dagster-shared, pydantic-ai-shields, opencv-contrib-python-headless, reportportal-client, orbax-checkpoint
+
+== the opening figures
+   pillow 12.3.0: day 0 2026-07-01; day 1 2026-07-02 total 20,043,783, own 52.7 per cent, at or newer 52.7; day 30 2026-07-31 at or newer 63.6 (later versions listed: [])
+   sentry-sdk 2.64.0: day 0 2026-06-30; day 1 2026-07-01 total 5,849,496, own 30.8 per cent, at or newer 30.8; day 30 2026-07-30 at or newer 31.2 (later versions listed: ['2.65.0', '2.66.0', '2.66.1', '2.67.0'])
+
+== mirrors (M2 counts and shares; M1 outcomes without the mirror class)
+   A: mirror downloads of the release on days 0 and 1, median of project medians 148 (quartiles 88, 270); share of own downloads 0.01 per cent (quartiles 0.00, 0.02), pooled 0.011; releases whose "reached half" changes without mirrors 0; projects whose outcome changes 0
+   B: mirror downloads of the release on days 0 and 1, median of project medians 62 (quartiles 46, 84); share of own downloads 0.23 per cent (quartiles 0.06, 1.19), pooled 0.399; releases whose "reached half" changes without mirrors 0; projects whose outcome changes 0
+   installer table against by-version table on days 0 to 2: 1473 release days, 1394 identical, largest relative difference 1.02 per cent
+
+== the build-server flag (one release a project a month, days 0 to 2, pip and uv)
+   A: 124 releases, 52 projects; median of project medians -14.2 points (interval -18.3 to -12.3); below zero 50; median project median CI share new 26.7 against replaced 43.6; flag not known 2.3 per cent
+   B: 84 releases, 35 projects; median of project medians -7.1 points (interval -13.3 to 0.0); below zero 23; median project median CI share new 40.0 against replaced 51.3; flag not known 2.8 per cent
+
+== the four tests without the overlap projects
+   primary A: 22 of 47 = 46.8 per cent, interval 31.9 to 61.7: not as a rule
+   primary B: 9 of 35 = 25.7 per cent, interval 11.4 to 40.0: not as a rule
+   settling A: 34 of 45 = 75.6 per cent, interval 62.2 to 86.7: holds as a rule
+   settling B: 23 of 35 = 65.7 per cent, interval 48.6 to 80.0: holds for some projects
+   CI A without overlap: median -14.3 (interval -20.5 to -11.7)
+
+== post hoc: without the tools and young projects
+   A: named projects with a release ['editables', 'httpcore2', 'identify'] (most reached: [True, True, True]); without them 22 of 49 = 44.9 per cent
+   B: named projects with a release ['hatch', 'nab-index', 'pydantic-ai-shields'] (most reached: [True, True, False]); without them 7 of 32 = 21.9 per cent
+
+== per-day table against by-version table: 8704 project-days, 8389 identical, largest relative difference 1.01 per cent
+
+== the figure description: median day-1 shares by outcome
+   A: 25 dots from 46.4 to 94.4; 27 squares from 1.2 to 53.7, above 45: ['50.7', '53.3', '53.7']
+   B: 9 dots from 33.3 to 86.1; 26 squares from 0.0 to 51.0, above 45: ['51.0']
+   top fifty (most_reached, median_day1_share): 26 dots from 50.7 to 76.7; 11 squares from 2.0 to 34.0; median of project medians 57.6

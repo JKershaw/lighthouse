@@ -1,5 +1,5 @@
 published: 2026-09-29
-summary: For most of the fifty most downloaded Python libraries, most new versions were half of the library's downloads within two days. Further down the rankings it was so for fewer libraries: about half of 52 drawn from ranks 51 to 500, and about a quarter of 35 from ranks 501 to 5,000, for new versions released April to August 2026. A download counts fetches, not people or machines.
+summary: Of the fifty most downloaded Python libraries, 37 put out new versions between April and August 2026, and for 26 of them most of those versions were half of the library's downloads within two days. Further down the rankings it was so for fewer libraries: about half of 52 drawn from ranks 51 to 500, and about a quarter of 35 from ranks 501 to 5,000, for new versions released April to August 2026. A download counts fetches, not people or machines.
 status: draft
 investigation: software-updates
 
