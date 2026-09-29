@@ -1,0 +1,58 @@
+# figure counts by pin class (from, not from, undetermined, nothing, no recipe)
+all 469 [129, 38, 68, 12, 222]
+lockfile 153 [21, 16, 41, 6, 69]
+exact pin 199 [63, 14, 10, 5, 107]
+both 117 [45, 8, 17, 1, 46]
+# snapshot builds by class [('1', 281), ('2', 124), ('3', 38), ('4', 13), ('5', 183), ('6', 92)]
+build-level: class 1 among classes 1-4 = 281 of 456
+   lockfile 123 of 203
+   exact pin 81 of 108
+   both 77 of 145
+decided builds per pair, top 6: [('P307', 71, 'genaicomps'), ('P062', 51, 'mcp'), ('P401', 12, 'supervisely'), ('P261', 10, 'praisonai'), ('P364', 7, 'platform'), ('P186', 6, 'agentstack')]
+recipes with a decided build: 411 ; every build class 1: 236
+# pairs with a class 3 snapshot build 14 ; pairs in pypi.csv 12 ; not in pypi.csv ['P063', 'P064']
+    P064-s1-0 not read  same class in every candidate context
+    P063-s1-0 not read  same class in every candidate context
+# bbot
+P071 pyjwt 2.13.0 lockfile not from the pinned file classes 2 2 release 2026-05-21 advisory 2026-06-15 moved 47.754
+# decided pairs with a timed lock 90 ; reads_T_lock yes 45
+not-from pairs with a timed lock 24 by their class 2-4 builds:
+    9 (('2', 'other file'),)
+    4 (('2', 'lock unused'),)
+    4 (('3', ''),)
+    2 (('2', 'lock unused'), ('4', ''))
+    1 (('2', 'other file'), ('4', ''))
+    1 (('2', 'lock unused'), ('3', ''))
+    1 (('4', ''),)
+    1 (('2', 'upgrade'),)
+    1 (('2', 'lock absent'),)
+# how class 1 builds take L from T (first T:: effect, file names replaced by F)
+86 T::uv sync with lock F
+73 T::-r F
+41 reason: the manifest takes its dependencies from F (T), which is in the build; installing the project takes L from it
+19 T::project . with manifest in T
+15 T::poetry install with lock F
+14 T::project /nemo/ with manifest in T
+7 reason: project /tmp/docassemble/docassemble_webapp with manifest in T
+6 T::project /tmp/docassemble/docassemble_base with manifest in T
+4 T::project .[dev] with manifest in T
+3 reason: uv sync --frozen from F (T), checked out in the build from the repository's own .git copied from the context
+2 T::project .[ml] with manifest in T
+2 T::project /tmp/avakas with manifest in T
+2 T::project .[test] with manifest in T
+1 reason: tox builds pgrubic's own wheel from F (T, exact pin) in the build stage; pip installs that wheel and must satisfy its pin
+# the 129 from-the-pinned-file pairs: by pin class, whether any build reads the timed lock
+[(('exact pin', 'no'), 63), (('both', 'no'), 26), (('lockfile', 'yes'), 21), (('both', 'yes'), 19)]
+# undetermined pairs by pin class and reason of their class 6 builds
+    20 ('lockfile', ('external',))
+    12 ('lockfile', ('would not build',))
+    8 ('lockfile', ('script not read',))
+    6 ('both', ('context',))
+    5 ('exact pin', ('would not build',))
+    3 ('exact pin', ('context', 'would not build'))
+    3 ('both', ('would not build',))
+    3 ('both', ('other',))
+    2 ('both', ('script not read',))
+    1 ('both', ('build argument',))
+    1 ('both', ('unreadable',))
+    1 ('exact pin', ('context',))

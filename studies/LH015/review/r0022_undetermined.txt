@@ -1,0 +1,33 @@
+undetermined pairs 68 in 32 repositories
+ 8 aider-ai/aider                         lockfile  {'would not build': 8} | rule (2) fixes the context at benchmark/, since COPY . /aider needs nothing else; /aider then holds no manifes
+ 8 chaoss/grimoirelab                     lockfile  {'external': 8} | /home/grimoire/conf/requirements.txt comes from grimoirelab/requirements.txt (from outside the repository)
+ 6 galaxyproject/galaxy                   lockfile  {'script not read': 6} | install delegated to ansible-playbook (amendment 7)
+ 4 i-am-bee/agentstack                    lockfile  {'external': 4} | the install reads dist/, an artefact built outside the recipe (not in the tree at this commit)
+ 4 jovijovi/pypepper                      both      {'context': 4} | classes differ across candidate contexts
+ 3 browser-use/browser-use                exact pin {'would not build': 6, 'context': 3} | uv sync requires uv.lock, not available
+ 3 kagenti/adk                            lockfile  {'external': 3} | the install reads dist/, an artefact built outside the recipe (not in the tree at this commit)
+ 3 netflix/lemur                          lockfile  {'external': 3} | the project's own source is downloaded from GitHub at $VERSION; its files, not the snapshot's, decide L
+ 3 weblateorg/weblate                     lockfile  {'would not build': 2, 'other': 3} | uv sync requires uv.lock, not available
+ 2 auditize/auditize                      lockfile  {'would not build': 2} | rule (2) fixes the context at docker/ (COPY . needs nothing else); the project directories the install steps n
+ 2 oraios/serena                          both      {'other': 2} | target production not found
+ 2 tvick64889/forgepair                   lockfile  {'would not build': 2} | rule (2) fixes the context at benchmark/, since COPY . /aider needs nothing else; /aider then holds no manifes
+ 1 cytomine/cytomine                      both      {'script not read': 2} | $PRE_START_PATH called at depth 2
+ 1 ddeutils/ddeutil-observe               exact pin {'would not build': 1} | no FROM instruction
+ 1 ibm/guardx                             both      {'would not build': 1} | same class in every candidate context
+ 1 igrafx/mining-python-sdk               both      {'would not build': 1} | setup.py opens ./pyproject.toml, which the build does not place beside it in /tmp; the project install would f
+ 1 learninghouseservice/learninghouse-mon exact pin {'would not build': 1} | docker/requirements.txt missing
+ 1 nofusscomputing/centurion_erp          lockfile  {'external': 1} | the install reads dist/, an artefact built outside the recipe (not in the tree at this commit)
+ 1 nucypher/nucypher                      both      {'build argument': 1} | /Python-⟨ARG:VERSION⟩/Makefile
+ 1 osism/python-osism                     both      {'unreadable': 2} | ignore file unreadable
+ 1 redhat-performance/cloud-governance    exact pin {'would not build': 1} | /tmp/constraints.txt not in the image
+ 1 redis/agent-memory-server              lockfile  {'script not read': 1} | pre-start.sh called at depth 2
+ 1 speced/bikeshed                        exact pin {'context': 1} | classes differ across candidate contexts
+ 1 taylorleese/mcp-toolz                  both      {'would not build': 1} | requirements.txt not in the image
+ 1 thegeeklab/ansible-doctor              both      {'context': 1} | classes differ across candidate contexts
+ 1 thegeeklab/git-batch                   both      {'context': 1} | classes differ across candidate contexts
+ 1 thelastpickle/cassandra-medusa         both      {'script not read': 1} | pre-build.sh called at depth 2
+ 1 toluaina/pgsync                        lockfile  {'external': 1} | pip installs the project's own source from git+https at build time; that fetch, not the snapshot's files, deci
+ 1 unitycatalog/unitycatalog              lockfile  {'script not read': 1} | start-uc-server from stage
+ 1 vantage6/vantage6                      exact pin {'would not build': 2} | rule (2) fixes the context at docker/ (COPY . needs nothing else); the project directories the install steps n
+ 1 websolutespa/ws-mark-flow              exact pin {'would not build': 1} | /tmp/torch-cpu-constraints.txt not in the image
+ 1 wwood/singlem                          exact pin {'other': 1} | a pixi environment from pixi.toml and pixi.lock, a lock the rules do not table, supplies L (pip) with Python
