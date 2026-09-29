@@ -1,6 +1,6 @@
 published: 2026-09-29
 summary: Why do old versions of a library keep getting downloaded after a new one is out? For boto3, the most downloaded Python library, old Pythons are most of the answer. For 32 of 37 heavily used libraries, in one week of September 2026, they were not: most old downloads came from Pythons a newer version supports. And a new version's share settles within two days, now tested on releases we had not read.
-status: draft
+status: released
 investigation: software-updates
 
 # Most downloads of old versions come from Pythons a newer version supports
@@ -19,7 +19,7 @@ The main limit is that a download is a fetch, not a machine, so a few machines f
 
 **Colophon.** Written as a standalone brief by the driving session on Opus 5.5 from [the full piece](../old-versions-new-pythons.md) and [the study record](../../studies/LH012/LH012.md). Reviewed with the full piece by a Lighthouse review agent on Fable 5.1 ([the review](../../notes/R-0016.md)). **Version 1.0, 29 September 2026.**
 
-- **Methods and full record.** [The study record](../../studies/LH012/LH012.md), version 0.1, its [brief](../../studies/LH012/brief.md) and [directory](../../studies/LH012/).
+- **Methods and full record.** [The study record](../../studies/LH012/LH012.md), version 0.2, its [brief](../../studies/LH012/brief.md) and [directory](../../studies/LH012/).
 - **Sources.** ClickHouse's public copy of the Python Package Index's download log and the Index itself, read on 29 September 2026, listed with read times in [the record's sources](../../studies/LH012/sources.md).
 - **Corrections.** None. This is the first version. See [what has been released, and when](../../releases.md).
 

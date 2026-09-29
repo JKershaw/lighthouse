@@ -848,11 +848,16 @@ for p in sorted(os.listdir(fdir)) if os.path.isdir(fdir) else []:
                     break
             if okw:
                 break
-        c['wheel available at or above R' if okw else 'wheel-excluded'] += n
+        if not okw and r['plat'] == 'any':
+            # R-0016 (post hoc, amendment 4): a wheel tagged `any` says nothing about the platform it was
+            # fetched for, so it cannot be tested against platform-tagged wheels; unknown, not excluded
+            c['wheel tagged any, platform not known'] += n
+        else:
+            c['wheel available at or above R' if okw else 'wheel-excluded'] += n
     t = sum(c.values())
     file_rows.append(dict(project=p, older_downloads=t, **{k: share(v, t) for k, v in sorted(c.items())}))
-wr('files.csv', file_rows, ['project', 'older_downloads', 'wheel-excluded', 'wheel available at or above R', '(not a wheel)',
-                            '(no file name)', 'python not reported'])
+wr('files.csv', file_rows, ['project', 'older_downloads', 'wheel-excluded', 'wheel available at or above R', 'wheel tagged any, platform not known',
+                            '(not a wheel)', '(no file name)', 'python not reported'])
 
 # ---------------------------------------------------------------- across projects
 def summary_block(name, rows, lo_k, hi_k, cls_k):
