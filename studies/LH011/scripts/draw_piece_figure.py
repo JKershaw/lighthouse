@@ -8,7 +8,8 @@ end, greedily, so that names do not collide.
 
 It also prints, for the caller and the review, each project's median day-1 and day-30 shares and
 how many projects' day-30 median lies within ten points of their day-1 median: a reading of the
-record's own table, not a figure the record states.
+record's own table, not a figure the record states. On 29 September 2026, late evening (record version 0.4),
+the title became "set most of its share" and the description says the lines creep up a few points after day 1.
 Usage: python3 draw_piece_figure.py [out.svg]   (default: articles/two-days-for-most.svg)
 The printed reading is kept as data/piece_figure_reading.txt:
   python3 studies/LH011/scripts/draw_piece_figure.py > studies/LH011/data/piece_figure_reading.txt"""
@@ -55,7 +56,7 @@ low = sorted(no, key=lambda p: dict(series[p])[1])
 o.append('<desc id="d">A line chart with one line for each of 37 Python libraries. The horizontal axis is days since a '
          'release, from 0 to 30; the vertical axis is the share of that day\'s downloads of the library that were the new '
          'release or a later one, the median over the library\'s releases, from 0 to 100 per cent, with a dashed line at half. '
-         f'Every line starts lower on the day of release than the day after, rises on that next day, and then runs nearly flat for the rest of the month. '
+         f'Every line starts lower on the day of release than the day after, rises on that next day, and then runs nearly flat, most lines creeping up a few points, for the rest of the month. '
          f'{len(yes)} lines, in blue, are libraries where most releases reached half within two days; they sit between about '
          '49 and 85 per cent from day 1 onwards. '
          f'{len(no)} lines, in orange, are libraries where none did; they sit between about 2 and 37 per cent all month: '
@@ -70,7 +71,7 @@ text { font-family: system-ui, -apple-system, "Segoe UI", Roboto, Helvetica, Ari
 .note { font-size: 11.5px; fill: var(--muted); }
 </style>''')
 o.append(f'<rect width="{W}" height="{H}" fill="var(--bg)"/>')
-o.append('<text x="16" y="30" class="head">The day after a release set its share for the month</text>')
+o.append('<text x="16" y="30" class="head">The day after a release set most of its share for the month</text>')
 o.append('<text x="16" y="51" class="sub">Share of each library\'s daily downloads that were the new release or a later one,</text>')
 o.append('<text x="16" y="68" class="sub">median over the library\'s releases, by days since release. One line per library.</text>')
 # legend

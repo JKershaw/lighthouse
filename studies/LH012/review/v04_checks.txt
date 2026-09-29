@@ -1,0 +1,7 @@
+releases 355; higher on day 30 than on day 2: 339; lower: 16
+day 30 minus day 2, points: median 7.15, quartiles 3.56 and 10.25; more than +10: 97; below -10: 1
+among the releases that settled (|delta| at most ten points): 257, higher on day 30 242, median 5.12, quartiles 2.59 and 7.62
+the day-2 share as a fraction of the day-30 share, by release: median 0.790
+by project, the median over its releases: 32 projects, above zero 31, median of project medians 3.20; not above zero: click -1.02
+the three projects that release on most working days: boto3 99 releases, median 9.65; botocore 99 releases, median 6.23; litellm 40 releases, median 15.30
+without them: 117 releases, higher on day 30 105, median 3.02, quartiles 1.54 and 5.99

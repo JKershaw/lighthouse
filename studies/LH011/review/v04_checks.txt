@@ -1,0 +1,27 @@
+1. litellm: releases at half of its downloads, at that version or newer, on some day 1 to 30
+released, version, first day at half, its date, share that day, later days at half of later days read
+2026-04-03 1.83.1 day 28 2026-05-01 57.0 0 of 2
+2026-04-04 1.83.2 day 27 2026-05-01 56.3 0 of 3
+2026-04-05 1.83.3 day 26 2026-05-01 55.6 0 of 4
+2026-04-07 1.83.4 day 24 2026-05-01 55.0 0 of 6
+2026-04-13 1.83.5 day 18 2026-05-01 54.3 0 of 12
+2026-04-13 1.83.6 day 18 2026-05-01 53.6 0 of 12
+6 of 46 releases; first dates at half: ['2026-05-01']; median first day 25.0
+litellm around that day: date, total downloads, at 1.83.1 or newer, share, older than 1.83.1
+2026-04-28 13,975,458 6,207,629 44.4 7,767,829
+2026-04-29 14,400,585 6,474,824 45.0 7,925,761
+2026-04-30 15,586,648 7,597,086 48.7 7,989,562
+2026-05-01 18,480,550 10,524,980 57.0 7,955,570
+2026-05-02 14,602,637 7,114,946 48.7 7,487,691
+2026-05-03 9,759,828 2,296,894 23.5 7,462,934
+
+2. What a month adds after the first days (at-or-newer share, points)
+day 30 minus day 1: 418 releases with both days held; higher on day 30 378, lower 40; median 4.13, quartiles 2.05 and 6.93; more than +10 43, below -10 1
+   by project, the median over its releases: 37 projects, above zero 33, median of project medians 3.70
+   without boto3, botocore and litellm: 170 releases, higher 140, median 3.43
+   the day-1 share as a fraction of the day-30 share: median 0.864
+day 30 minus day 2: 418 releases with both days held; higher on day 30 379, lower 39; median 4.05, quartiles 1.87 and 6.34; more than +10 43, below -10 1
+   by project, the median over its releases: 37 projects, above zero 32, median of project medians 3.52
+   without boto3, botocore and litellm: 170 releases, higher 146, median 3.35
+   the day-2 share as a fraction of the day-30 share: median 0.867
+the chart's reading, each project's median share on day 30 minus its median on day 1: 37 projects, above zero 32, median 4.02; below zero: typing-inspection -5.6, python-dotenv -5.0, pygments -4.3, cffi -2.4, numpy -1.9

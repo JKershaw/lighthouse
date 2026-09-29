@@ -70,5 +70,9 @@ if cmp -s "$TMP/piece.svg" "$HERE/../../articles/old-versions-new-pythons.svg"; 
 "$PY" "$HERE/scripts/driver_checks.py" > "$TMP/driver_checks.txt" || { echo "driver_checks.py failed"; exit 1; }
 if cmp -s "$TMP/driver_checks.txt" "$HERE/data/driver/driver_checks.txt"; then echo "   same  data/driver/driver_checks.txt"; else echo "   DIFF  data/driver/driver_checks.txt"; fail=1; fi
 
+echo "8. the check behind version 0.4 (post hoc): review/v04_checks.py"
+"$PY" "$HERE/review/v04_checks.py" > "$TMP/v04_checks.txt" || { echo "v04_checks.py failed"; exit 1; }
+if cmp -s "$TMP/v04_checks.txt" "$HERE/review/v04_checks.txt"; then echo "   same  review/v04_checks.txt"; else echo "   DIFF  review/v04_checks.txt"; fail=1; fi
+
 [ $fail -eq 0 ] && echo "replay passed" || echo "replay FAILED"
 exit $fail

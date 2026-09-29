@@ -5,7 +5,8 @@
 #   sh studies/LH011/replay.sh --write   also rewrite data/analysis/ and uptake.svg in place
 # Step 5 (added with record version 0.3) also reruns the readings made after the counts were read:
 # the piece's chart and its printed reading, and scripts/post_hoc.py, which reads LH008's retained
-# events and lags as well. Exits non-zero if any table differs.
+# events and lags as well. Step 6 (record version 0.4) reruns the checks behind that correction.
+# Exits non-zero if any table differs.
 set -u
 HERE=$(cd "$(dirname "$0")" && pwd)
 PY=${PYTHON:-python3}
@@ -57,6 +58,10 @@ for pair in "piece_figure_reading.txt:$HERE/data/piece_figure_reading.txt" "post
   elif [ "${1:-}" = "--write" ]; then cp "$TMP/$f" "$target"; echo "   changed, rewritten: $f"
   else echo "   DIFF  $f"; fail=1; fi
 done
+
+echo "6. the checks behind version 0.4 (post hoc): review/v04_checks.py"
+LH011_OUT="$TMP/analysis" "$PY" "$HERE/review/v04_checks.py" > "$TMP/v04_checks.txt" || { echo "v04_checks.py failed"; exit 1; }
+if cmp -s "$TMP/v04_checks.txt" "$HERE/review/v04_checks.txt"; then echo "   same  review/v04_checks.txt"; else echo "   DIFF  review/v04_checks.txt"; fail=1; fi
 
 if [ "${1:-}" = "--write" ]; then cp "$TMP"/analysis/*.csv "$HERE/data/analysis/" && cp "$TMP/uptake.svg" "$HERE/uptake.svg"; fi
 if [ $fail -ne 0 ]; then echo "REPLAY FAILED"; exit 1; fi
