@@ -43,7 +43,10 @@ def norm(r):
 
 
 prim = [norm(r) for r in rows("data/changes.csv") if (r.get("round") or "").startswith("P")]
-sec = [norm(r) for r in rows("data/changes_secondary.csv")]
+sec_all = [norm(r) for r in rows("data/changes_secondary.csv")]
+# Amendment 1: a secondary row whose change lies inside a primary window is
+# counted in the primary frame only, so that M4 does not count it twice.
+sec = [r for r in sec_all if "also in the primary frame" not in (r.get("comment") or "").lower()]
 costs = rows("data/costs.csv")
 hoc = rows("data/post_hoc_readings.csv")
 steps_r = rows("data/research_steps.csv")
@@ -52,6 +55,7 @@ out = []
 p = out.append
 
 p(f"Primary frame: {len(prim)} changes in {len(set(r['round'] for r in prim))} rounds")
+p(f"Secondary frame: {len(sec_all)} rows, {len(sec_all) - len(sec)} of them inside a primary window and counted there only (amendment 1)")
 p("Tier over all steps: " + ", ".join(f"{t} {sum(r['tier'] == t for r in prim)}" for t in TIERS)
   + f", blank or other {sum(r['tier'] not in TIERS for r in prim)}")
 p("")
