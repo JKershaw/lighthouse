@@ -91,6 +91,16 @@ CASES = [
      ['requirements.txt'], {}, (1, '')),
     ('template placeholder', 'FROM python:3.12\nCOPY . .\nRUN pip install -r {{ reqfile }}', REQ, ['requirements.txt'],
      {'template': True}, (6, 'build argument')),
+    # corrections after the blind check (R-0021, version 0.2)
+    ('wheel built in another stage', 'FROM python:3.12 AS b\nWORKDIR /tmp\nCOPY . .\nRUN pip install build && python -m build\n'
+     'FROM python:3.12-slim\nCOPY --from=b /tmp/dist/*.whl /dist/\nRUN pip install /dist/*.whl', REQ, ['uv.lock'], {},
+     (2, 'lock unused')),
+    ('install delegated to a playbook (amendment 7)', 'FROM python:3.12\nRUN pip install ansible==11.11.0 && '
+     'git clone https://example.org/deploy.git /deploy && ansible-playbook /deploy/site.yml', REQ, ['requirements.txt'], {},
+     (6, 'script not read')),
+    ('manifest not in T pinning L (amendment 2)', 'FROM python:3.12\nWORKDIR /app\nCOPY pyproject.docker.toml pyproject.toml\n'
+     'COPY src ./src\nRUN pip install .[cpu]', {'pyproject.docker.toml': '[project]\nname = "myapp"\ndependencies = ["requests==2.30.0"]',
+                                                 'uv.lock': '', 'src/x.py': ''}, ['uv.lock'], {}, (4, '')),
 ]
 
 

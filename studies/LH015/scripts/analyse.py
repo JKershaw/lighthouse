@@ -65,14 +65,16 @@ def main():
     def key(b):
         return hashlib.sha256((SALT + b['pair_id'] + ':' + b['commit'] + ':' + b['path']).encode()).hexdigest()
     order = sorted(builds, key=lambda b: (key(b), b['build_id']))
-    samp = [b for b in order if b['decided_by'] == 'script'][:30] + [b for b in order if b['decided_by'] == 'writer'][:30]
+    # the pools as they stood when the sample was drawn (version 0.1): judged = a judgement made before the blind check
+    before = {r['build_id'] for r in read_csv('judgements.csv') if r.get('made', '') != 'after the blind check (R-0021)'}
+    samp = [b for b in order if b['build_id'] not in before][:30] + [b for b in order if b['build_id'] in before][:30]
     rows = []
     for b in samp:
         f, r = fmap[b['pair_id']], rec[b['build_id']]
         keep = set(r['final_path'].split()) | {'-1'}
         txt = ' ⏎ '.join(f"{x['op']} {x['text']}" if x['part'] == '0' else x['text']
                                for x in lines[(f['repo'], b['commit'], b['path'])] if x['stage'] in keep)
-        rows.append({'order_hash': key(b)[:16], 'group': 'script-decided' if b['decided_by'] == 'script' else 'judged',
+        rows.append({'order_hash': key(b)[:16], 'group': 'script-decided' if b['build_id'] not in before else 'judged',
                      'build_id': b['build_id'], 'pair_id': b['pair_id'], 'repo': f['repo'], 'role': b['role'],
                      'commit': b['commit'], 'path': b['path'], 'target': b['target'], 'context': b['context'],
                      'context_how': r['context_how'], 'ignore_file': r['ignore_file'], 'build_args': r['build_args'],

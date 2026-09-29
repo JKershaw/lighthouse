@@ -72,7 +72,9 @@ def clone(repo, attempt):
 
 def do_clone():
     os.makedirs(REPOS, exist_ok=True)
-    repos = repos_in_order()
+    only = set(sys.argv[2].split(',')) if len(sys.argv) > 2 else None
+    repos = [r for r in repos_in_order() if not only or r in only]
+    TALLY['attempts'] = sum(1 for r in read_csv('read_log.csv') if r['method'].startswith('git clone')) if only else 0
     TALLY['disk'] = du(REPOS)
     t0 = time.time()
     with cf.ThreadPoolExecutor(WORKERS) as ex:
@@ -290,6 +292,11 @@ def compose_builds(tree, repo, commit, composes):
                     continue
                 ent['dockerfile'] = C.J(ctxp, df)
             out.append(ent)
+        keep = [t[:400] for t in txt.split('\n') if re.search(r'build|context|dockerfile|target|args', t)]
+        facts = ['LH015-build ' + json.dumps({k: v for k, v in e.items() if k != 'inline'}, sort_keys=True)[:390]
+                 for e in out if e.get('compose') == cpath]
+        if facts:
+            tree.aux[cpath] = ('read', keep[:300] + facts)
     return out, notes
 
 
@@ -379,6 +386,11 @@ def workflow_builds(tree, repo, commit, wfs):
                 ctxp = C.J(wd, ctx)
                 out.append({'workflow': w, 'context': ctxp, 'dockerfile': C.J(wd, f) if f else C.J(ctxp, 'Dockerfile'),
                             'target': tgt, 'args': args})
+        facts = ['LH015-build ' + json.dumps(e, sort_keys=True)[:390] for e in out if e.get('workflow') == w]
+        if facts:
+            keep = [t[:400] for t in txt.split('\n') if re.search(
+                r'docker|buildx|build-push-action|context:|file:|target|build-args|working-directory|kaniko|podman|buildah', t)]
+            tree.aux[w] = ('read', keep[:300] + facts)
     return out, notes
 
 
@@ -561,14 +573,15 @@ def verify(d, pair):
     return full, 'read'
 
 
-def read_repo(repo, pairs, fr_files):
+def read_repo(repo, pairs, fr_files, head_at=None):
     d = repo_dir(repo)
     out = {'recipes': [], 'lines': [], 'aux': [], 'q': [], 'pairs': []}
     if not (os.path.exists(os.path.join(d, 'HEAD')) or os.path.exists(os.path.join(d, '.git', 'HEAD'))):
         for p in pairs:
             out['pairs'].append({'pair_id': p['pair_id'], 'status': 'not read: clone refused'})
         return out
-    head = git(['rev-parse', 'HEAD'], cwd=d).strip()
+    head = git(['rev-parse', 'HEAD'], cwd=d).strip() if not head_at else \
+        git(['rev-parse', '--verify', head_at + '^{commit}'], cwd=d).strip()
     branch = subprocess.run(['git', 'symbolic-ref', '--short', 'HEAD'], cwd=d, capture_output=True, text=True).stdout.strip()
     todo = {}
     for p in pairs:
@@ -629,13 +642,19 @@ def do_read():
         by_repo.setdefault(r['repo'], []).append(r)
     only = set(sys.argv[2].split(',')) if len(sys.argv) > 2 else None
     repos = [r for r in by_repo if not only or r in only]
+    merge = bool(only) and os.environ.get('LH015_MERGE') == '1'
+    heads = {}
+    if merge:
+        pid_repo = {r['pair_id']: r['repo'] for r in fr}
+        for r in read_csv('pairs_read.csv'):
+            heads.setdefault(pid_repo[r['pair_id']], r.get('head_commit', ''))
     t0 = time.time()
     allout = {'recipes': [], 'lines': [], 'aux': [], 'q': [], 'pairs': []}
     done = [0]
 
     def one(repo):
         try:
-            o = read_repo(repo, by_repo[repo], fr_files)
+            o = read_repo(repo, by_repo[repo], fr_files, heads.get(repo))
         except Exception as ex:
             o = {'recipes': [], 'lines': [], 'aux': [], 'q': [],
                  'pairs': [{'pair_id': p['pair_id'], 'status': 'not read: error ' + str(ex)[:120]} for p in by_repo[repo]]}
@@ -651,7 +670,18 @@ def do_read():
     order = {r['pair_id']: i for i, r in enumerate(fr)}
     allout['pairs'].sort(key=lambda r: order[r['pair_id']])
     pf = sorted({k for r in allout['pairs'] for k in r}, key=lambda k: (k != 'pair_id', k != 'status', k))
-    suffix = '' if not only else '_partial'
+    suffix = '' if not only or merge else '_partial'
+    if merge:
+        pid_repo = {r['pair_id']: r['repo'] for r in fr}
+        rorder = {r: i for i, r in enumerate(by_repo)}
+        for name, key in (('pairs', lambda r: pid_repo[r['pair_id']]), ('recipes', lambda r: pid_repo[r['pair_id']]),
+                          ('lines', lambda r: r['repo']), ('aux', lambda r: r['repo']), ('q', lambda r: r['repo'])):
+            fname = {'pairs': 'pairs_read.csv', 'recipes': 'recipes.csv', 'lines': 'recipe_lines.csv', 'aux': 'aux_lines.csv',
+                     'q': 'tree_paths.csv'}[name]
+            old = [r for r in read_csv(fname) if key(r) not in only]
+            allout[name] = sorted(old + allout[name], key=lambda r: rorder[key(r)])
+        allout['pairs'].sort(key=lambda r: order[r['pair_id']])
+        pf = sorted({k for r in allout['pairs'] for k in r}, key=lambda k: (k != 'pair_id', k != 'status', k))
     write_csv(f'pairs_read{suffix}.csv', allout['pairs'], pf)
     write_csv(f'recipes{suffix}.csv', allout['recipes'],
               ['build_id', 'pair_id', 'role', 'commit', 'path', 'name_form', 'depth', 'primary', 'template', 'readable', 'stages',

@@ -11,8 +11,10 @@ python3 scripts/test_classify.py | tail -1
 mkdir -p $T/data
 for f in frame.csv frame_files.csv pairs_read.csv recipes.csv recipe_lines.csv aux_lines.csv tree_paths.csv judgements.csv pypi.csv; do
   cp data/$f $T/data/; done
-LH015_DATA=$T/data python3 scripts/classify.py > /dev/null
+LH015_DATA=$T/data python3 scripts/classify.py | grep 'rule (1)'
 LH015_DATA=$T/data python3 scripts/analyse.py > /dev/null
+LH015_DATA=$T/data python3 scripts/draw_figure.py $T/recipes.svg > /dev/null
+cmp -s recipes.svg $T/recipes.svg || { echo "DIFFERS: recipes.svg"; exit 1; }
 for f in recipe_classes.csv review_sample.csv pair_classes.csv not_read.csv measures.csv described.csv sensitivities.csv \
          s1_fresh_build.csv s2_head.csv s3_moves.csv s4_mechanisms.csv; do cmp -s data/$f $T/data/$f || { echo "DIFFERS: $f"; exit 1; }; done
 python3 - <<'PY'
@@ -21,14 +23,18 @@ rows = list(csv.DictReader(open('data/read_log.csv')))
 clones = sum(r['method'].startswith('git clone') for r in rows)
 shows = sum(r['method'] == 'git show' for r in rows)
 pypi = sum(r['source'] == 'PyPI JSON API' for r in rows)
-last = {}
+# each clone's size after its reads: the last size logged for a repository before it is cloned again
+size, cur, n = {}, {}, 0
 for r in rows:
-    if r['status'] == 'size after reads':
-        last[r['repo']] = int(r['bytes'])
-total = sum(last.values())
+    if r['method'].startswith('git clone') and r['status'] == 'cloned':
+        n += 1
+        cur[r['repo']] = n
+    elif r['status'] == 'size after reads':
+        size[cur[r['repo']]] = int(r['bytes'])
+total = sum(size.values())
 print(f'clone attempts {clones} (ceiling 664); git show reads {shows} (15,000); PyPI requests {pypi} (150); '
-      f'clones after reads {total / 1e9:.2f} GB (6 GB at once, 8 GB in all)')
-assert clones <= 664 and shows <= 15000 and pypi <= 150 and total <= 6e9
+      f'clones after reads {total / 1e9:.2f} GB in all over {len(size)} clones (8 GB in all; clones were deleted between rounds)')
+assert clones <= 664 and shows <= 15000 and pypi <= 150 and total <= 8e9
 PY
 rm -rf $T
 echo "replay: all outputs identical"

@@ -1,6 +1,6 @@
 item,value,count
 snapshot builds whose steps include (from the effects column),"pip -r, -c or sync of a file",74
-snapshot builds whose steps include (from the effects column),pip install of a project directory,83
+snapshot builds whose steps include (from the effects column),pip install of a project directory,84
 snapshot builds whose steps include (from the effects column),"uv sync, run, export or lock",150
 snapshot builds whose steps include (from the effects column),Poetry,27
 snapshot builds whose steps include (from the effects column),Pipenv,0
@@ -41,21 +41,21 @@ snapshot builds with an install at start,at start only,0
 snapshot builds flagged may re-lock,,36
 pairs read with another build definition,,5
 pairs read whose only recipes lie in excluded directories,,13
-snapshot builds by class and sub-label,1,280
+snapshot builds by class and sub-label,1,281
 snapshot builds by class and sub-label,2 lock absent,1
-snapshot builds by class and sub-label,2 lock unused,59
+snapshot builds by class and sub-label,2 lock unused,58
 snapshot builds by class and sub-label,2 other file,64
 snapshot builds by class and sub-label,2 upgrade,1
 snapshot builds by class and sub-label,3,38
-snapshot builds by class and sub-label,4,12
+snapshot builds by class and sub-label,4,13
 snapshot builds by class and sub-label,5 no Python install,144
-snapshot builds by class and sub-label,5 other named packages only,46
+snapshot builds by class and sub-label,5 other named packages only,39
 snapshot builds by class and sub-label,6 build argument,2
 snapshot builds by class and sub-label,6 context,10
 snapshot builds by class and sub-label,6 external,21
 snapshot builds by class and sub-label,6 other,7
-snapshot builds by class and sub-label,6 script not read,9
+snapshot builds by class and sub-label,6 script not read,15
 snapshot builds by class and sub-label,6 unreadable,2
 snapshot builds by class and sub-label,6 would not build,35
-snapshot builds decided by,script,615
-snapshot builds decided by,writer,116
+snapshot builds decided by,script,614
+snapshot builds decided by,writer,117

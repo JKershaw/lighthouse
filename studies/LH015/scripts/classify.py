@@ -7,6 +7,7 @@ with the reason otherwise; data/judgements.csv (the writer's, an input) then sup
 
 python3 classify.py        writes data/recipe_classes.csv
 """
+import collections
 import copy
 import json
 import os
@@ -288,6 +289,7 @@ def redirect_out(c):
     return res, out
 
 
+DELEGATED = ('ansible-playbook', 'ansible-pull', 'salt-call', 'chef-solo', 'chef-client', 'puppet')
 PYTHON = re.compile(r'^(python|pypy)(\d(\.\d+)?)?$')
 TOOLS = ('uv', 'poetry', 'pipenv', 'pdm', 'pipx', 'conda', 'mamba', 'micromamba', 'pip-sync', 'pip-compile', 'easy_install',
          'make', 'gmake', 'just', 'task', 'invoke', 'inv', 'nox', 'tox', 'hatch', 'rye', 'pixi')
@@ -323,6 +325,8 @@ def parse_cmd(c):
             r['fam'] = 'stdin-python'
         else:
             return None
+    elif b in DELEGATED:
+        r['fam'] = 'delegated'
     elif b in TOOLS:
         r['fam'] = b
     elif b in ('sh', 'bash', 'dash', 'zsh', 'ash', 'source', '.'):
@@ -843,6 +847,9 @@ def installer(B, st, p, cwd, mounts, n, at_start, depth):
     fam, a, env = p['fam'], p['args'], dict(p['env'])
     if p.get('out'):
         env['__out'] = p['out']
+    if fam == 'delegated':
+        B.effects.append(eff('und', why='script not read', detail=f'install delegated to {posixpath.basename(p["argv0"])} (amendment 7)'))
+        return
     if fam in ('call', 'source'):
         if fam == 'source' and re.search(r'activate$', p['script']):
             return
@@ -867,7 +874,10 @@ def installer(B, st, p, cwd, mounts, n, at_start, depth):
             B.effects.append(eff('judge', why=f'python script {posixpath.basename(p["script"])}'))
         return
     if fam == 'build':
-        st['wheels'][cjoin(cwd, 'dist')] = cwd
+        out = next((a[i + 1] for i, t in enumerate(a[:-1]) if t in ('--outdir', '-o')), None) or \
+            next((t.split('=', 1)[1] for t in a if t.startswith('--outdir=')), None)
+        src = next((t for t in a if not t.startswith('-') and t != out), '.')
+        st['wheels'][cjoin(cwd, out or J(src, 'dist') or 'dist')] = cjoin(cwd, src)
         return
     if fam == 'setup.py':
         if a[:1] and a[0] in ('install', 'develop'):
@@ -1043,6 +1053,20 @@ def project(B, st, x, cwd, mounts, r):
         for g, pdir in st['wheels'].items():
             if d == g or d.startswith(g + '/'):
                 return project(B, st, pdir, '/', mounts, r)
+        for e in (list(st['map']) + list(mounts))[::-1]:
+            dest = e['dest']
+            if 'stage' not in e or not (d == dest or d.startswith(dest.rstrip('/') + '/') or
+                                        (not e.get('dir_dest') and posixpath.dirname(dest) == d)):
+                continue
+            sst = getattr(B, 'end', {}).get(e['stage'])
+            for src in (e.get('srcs') or []) if sst else []:
+                sd = cjoin('/', src)
+                if re.search(r'[*?\[]|\.(whl|tar\.gz|zip|tgz)$', posixpath.basename(sd)):
+                    sd = posixpath.dirname(sd)
+                for g, pdir in sst['wheels'].items():
+                    if sd == g or sd.startswith(g + '/') or g.startswith(sd + '/'):
+                        return project(B, sst, pdir, '/', (), r)
+            break
         rr = resolve(B, st, d, mounts)
         if rr and rr[0] in ('stage', 'gen'):
             B.effects.append(eff('neutral', why='wheel from a stage or step in the build'))
@@ -1092,6 +1116,13 @@ def project(B, st, x, cwd, mounts, r):
         B.effects.append(eff('judge', why=f'manifest names T file {posixpath.basename(t)} (read pattern {"yes" if how else "no"}; '
                                           f'T file available {"yes" if rr and rr[0] == "repo" and rr[1] == t else "no"})', files=mans))
         return
+    if not r.get('no_deps'):
+        for m in mans:
+            hold, vers = versions_in(m, '\n'.join(B.tree.lines(m, 'manifest', B.L) or []), B.L, 'manifest')
+            if hold:
+                B.effects.append(eff('other_pin', files=[m], version=vers, overrides=not set(vers) & set(B.pinned),
+                                     why=f'project {x}: {m} pins L {",".join(vers)}' + (' (amendment 2)' if kind_of(m) is None else '')))
+                return
     named = names_lib(text, B.L)
     B.effects.append(eff('fresh', sub='other file', names_L=named and not r.get('no_deps'), spec_list=spec_of(lines, B.L),
                          files=mans, why=f'project {x} ({",".join(posixpath.basename(m) for m in mans)} not in T)'))
@@ -1142,13 +1173,18 @@ def lock_step(B, st, proj, lockname, cwd, mounts, frozen, up, reader, relock=Fal
     if ls is None:
         B.effects.append(eff('und', why='unreadable', detail=mn[1]))
         return
+    hold, vers = versions_in(mn[1], '\n'.join(ls), B.L, 'manifest')
+    if hold:
+        B.effects.append(eff('other_pin', files=[mn[1]], version=vers, overrides=not set(vers) & set(B.pinned),
+                             why=f'{reader} without the lock: {mn[1]} pins L {",".join(vers)}'))
+        return
     has_T_lock = any(B.T_kind.get(t) == 'lockfile' for t in B.T)
     B.effects.append(eff('fresh', sub='lock absent' if has_T_lock else 'other file', names_L=names_lib('\n'.join(ls), B.L),
                          spec_list=spec_of(ls, B.L), files=[mn[1]], overrides=True,
                          why=f'{reader} without the lock resolves {mn[1]}'))
 
 
-UV_VALUED = PIP_VALUED | {'--cache-dir', '--config-file', '--color', '--allow-insecure-host', '--native-tls', '--env-file',
+UV_VALUED = PIP_VALUED | {'--out-dir', '--cache-dir', '--config-file', '--color', '--allow-insecure-host', '--native-tls', '--env-file',
                           '--only-group', '--no-group', '--extra', '--group', '--package', '--python', '-p', '--with',
                           '--with-requirements', '--with-editable', '--script', '--no-install-package', '--prune', '--format'}
 
@@ -1184,7 +1220,7 @@ def uv(B, st, a, cwd, env, mounts):
     if s in ('add', 'remove'):
         B.effects.append(eff('judge', why=f'uv {s}'))
     if s == 'build':
-        st['wheels'][cjoin(cwd, 'dist')] = cwd
+        st['wheels'][cjoin(cwd, (vals.get('-o') or vals.get('--out-dir') or ['dist'])[0])] = cwd
 
 
 def compile_or_sync(B, st, fam, a, cwd, env, mounts):
@@ -1494,6 +1530,20 @@ def main():
               'decided_by', 'judge_reason', 'names_L', 'spec', 'own_pkgs', 'own_spec', 'other_pin', 'T_files', 'T_lock', 'pypi',
               'pypi_spec', 'installers', 'effects', 'notes']
     write_csv('recipe_classes.csv', out, fields)
+    # every context fixed by rule (1) must be supported by a retained compose stanza or workflow line (version 0.2)
+    facts = collections.defaultdict(set)
+    for (repo, commit), d in aux.items():
+        for path, (st, ls) in d.items():
+            for t in ls:
+                if t.startswith('LH015-build '):
+                    try:
+                        f = json.loads(t[len('LH015-build '):])
+                    except ValueError:
+                        continue
+                    facts[(repo, commit)].add((f.get('dockerfile', ''), f.get('context', '')))
+    r1 = [b for b in builds if b['primary'] == 'yes' and b['context_how'] in ('compose', 'workflow')]
+    ok = sum(1 for b in r1 if (b['path'], b['context']) in facts[(frame[b['pair_id']]['repo'], b['commit'])])
+    print(f'rule (1) contexts supported by retained lines: {ok} of {len(r1)}')
     from collections import Counter
     c = Counter((r['role'], str(r['class'])) for r in out)
     print('builds classed:', len(out), dict(sorted(c.items())))
