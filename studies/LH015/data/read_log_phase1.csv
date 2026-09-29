@@ -1,0 +1,27 @@
+read_utc,source,url,http_status,bytes,note
+2026-09-29T15:27:17Z,literature (curl),https://arxiv.org/abs/2601.12811,200,40764,"Malka, Zacchiroli, Zimmermann, Docker Does Not Guarantee Reproducibility, abstract page"
+2026-09-29T15:27:18Z,literature (curl),https://arxiv.org/abs/2505.04834,200,43594,"Gamage, Tiwari, Monperrus, Baudry, The Design Space of Lockfiles Across Package Managers, abstract page"
+2026-09-29T15:27:19Z,literature (curl),https://arxiv.org/abs/2208.09097,200,43100,"Rosa, Scalabrino, Oliveto, Fixing Dockerfile Smells: An Empirical Study, abstract page (registered report)"
+2026-09-29T15:27:19Z,literature (curl),https://arxiv.org/abs/2103.12298,200,41035,"Eng, Hindle, Revisiting Dockerfiles in Open Source Software Over Time, abstract page"
+2026-09-29T15:27:30Z,literature (curl),https://arxiv.org/html/2601.12811,200,366607,full text (HTML) of Malka and others
+2026-09-29T15:28:06Z,literature (curl),https://arxiv.org/html/2505.04834,200,445971,full text (HTML) of Gamage and others
+2026-09-29T15:28:36Z,tool source (curl),https://raw.githubusercontent.com/hadolint/hadolint/master/src/Hadolint/Rule/DL3013.hs,200,3619,hadolint rule DL3013 as served from the master branch; commit not recorded
+2026-09-29T15:29:25Z,documentation page (curl),https://pip.pypa.io/en/stable/cli/pip_install/,200,113089,pip_install
+2026-09-29T15:29:46Z,documentation page (curl),https://pip.pypa.io/en/stable/reference/requirements-file-format/,200,42133,pip_reqfile
+2026-09-29T15:29:47Z,documentation page (curl),https://pip.pypa.io/en/stable/user_guide/,200,151148,pip_userguide
+2026-09-29T15:30:08Z,documentation page (curl),https://docs.astral.sh/uv/concepts/projects/sync/,200,81839,uv_sync
+2026-09-29T15:30:20Z,documentation page (curl),https://docs.astral.sh/uv/guides/integration/docker/,200,130351,uv_docker
+2026-09-29T15:30:32Z,documentation page (curl),https://docs.astral.sh/uv/pip/packages/,200,74267,uv_pip_packages
+2026-09-29T15:30:33Z,documentation page (curl),https://docs.astral.sh/uv/pip/compile/,200,80716,uv_pip_compile
+2026-09-29T15:30:33Z,documentation page (curl),https://docs.astral.sh/uv/reference/environment/,200,207103,uv_env
+2026-09-29T15:30:48Z,documentation page (curl),https://python-poetry.org/docs/cli/,200,148471,poetry_cli
+2026-09-29T15:31:01Z,documentation page (curl),https://pypi.org/pypi/poetry-plugin-export/json,200,42599,pypi_poetry_plugin_export
+2026-09-29T15:31:09Z,documentation page (curl),https://pipenv.pypa.io/en/latest/commands.html,200,55016,pipenv_commands
+2026-09-29T15:31:38Z,documentation page (curl),https://pdm-project.org/latest/usage/lockfile/,200,85128,pdm_lockfile
+2026-09-29T15:31:48Z,documentation page (curl),https://pypi.org/pypi/pip-tools/json,200,216648,pypi_pip_tools
+2026-09-29T15:32:04Z,documentation page (curl),https://docs.docker.com/build/concepts/context/,200,668399,docker_context
+2026-09-29T15:32:16Z,documentation page (curl),https://docs.docker.com/build/concepts/dockerfile/,200,564294,docker_dockerfile_concept
+2026-09-29T15:32:17Z,documentation page (curl),https://docs.docker.com/build/building/multi-stage/,200,554980,docker_multistage
+2026-09-29T15:32:28Z,documentation page (curl),https://docs.docker.com/reference/dockerfile/,200,1061559,docker_reference
+2026-09-29T15:32:51Z,documentation page (curl),https://docs.docker.com/reference/compose-file/build/,200,579175,compose_build
+2026-09-29T15:33:03Z,documentation page (curl),https://docs.podman.io/en/latest/markdown/podman-build.1.html,200,146190,podman_build

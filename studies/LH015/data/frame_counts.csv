@@ -1,0 +1,15 @@
+measure,value
+"lags rows, LH008 / LH009 / LH010",193 / 257 / 232
+"moves rows, LH008 / LH009 / LH010",193 / 155 / 138
+distinct pairs,469
+pairs read by two studies (same snapshot),17
+distinct repositories,332
+"distinct events (library, threshold)",40
+repositories by number of pairs,1:265 2:34 3:20 4:5 5:1 6:3 7:1 8:2 10:1
+pin class: lockfile / exact pin / both,153 / 199 / 117
+pairs whose every timed file holds a version below the fix,469
+timed files,887
+timed files by depth 0 / 1 / 2 / 3,595 / 111 / 146 / 35
+pairs with every timed file at the root,369
+repository hosts,bitbucket.org:1 github.com:330 gitlab.com:1
+sha256 of frame.csv,83eb0f6b751af7a26c4939cd0d49349214390eab9a9a06a8fe85f1e37f523384
