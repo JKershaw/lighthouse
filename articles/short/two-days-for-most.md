@@ -13,6 +13,8 @@ When a widely used library puts out a new version, how soon is it most of what g
 
 > **Later evidence, 29 September 2026.** The first-day pattern below was then tested on releases we had not read, and held for 28 of 32 libraries. In one week of September 2026, downloads from Pythons too old for a newer version were most of the older versions' downloads in three of the 37 libraries and fewer than half in 32. [The later reading](../old-versions-new-pythons.md).
 
+> **Later evidence, 29 September 2026, afternoon.** Further down the rankings, fewer libraries' new versions reached half of the downloads within two days: 25 of 52 drawn at random from ranks 51 to 500, and 9 of 35 from ranks 501 to 5,000. [The later reading](../rarer-further-down.md).
+
 We read the Python Package Index's download log for 424 releases of 37 of the most downloaded Python libraries, April to August 2026. For 26 of them, most new versions were half of the downloads within two days, counting later versions too; for eleven, among them boto3, numpy and pandas, none was, in the month we read.
 
 Almost everywhere, a new version took its share on its first full day and kept about that share for the month, something we noticed only after the counts were in. Even where it took over, 18 to 47 per cent of downloads a month on were still of older versions.
