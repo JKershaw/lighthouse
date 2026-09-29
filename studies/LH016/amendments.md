@@ -34,3 +34,17 @@ The texts are kept as review/replay_stage1_text.txt, review/replay_stage2_text_p
 - For X3 (LH012's piece 1.0): K12-1, what other libraries' limits could account for is a model's estimate resting on an assumption the log cannot check, presented as what they did; K12-2, an old Python rules out the new version without saying which older versions were fetched (boto3's downloads from Python 3.9 sit mostly below the last version 3.9 can take); K12-3, downloads sharing reported fields called one kind of machine; K12-4, boto3's and aiobotocore's older downloads have the flat count-by-version profile of an installer's resolution walk; K12-5, three of the four holds by identified bounds come through older dependent versions; K12-6, the ten-point settling band is lenient for small shares.
 
 **Scoring.** A known problem is **found** if the run's note, in either stage, names the passage or claim and the fault in substance; **partly** if it names the passage with another fault, or the fault in general terms without tying it to the passage; **missed** otherwise. Problems the run raises that are not on the list are listed and judged against the record, not scored. The driving session scores against the lists above, quoting the note, in review/replay_scores.csv; the evidence reviewer of this record checks the scores. Three runs of one model on two texts are cases, each one draw of a stochastic reviewer: they say what the instrument can catch, not how often it would.
+
+## Amendment 3, 29 September 2026, about 20:40 UTC: the first coder's conventions
+
+Reported by the first coder with its table, and recorded before the second coder's sample was drawn and before the driving session read any row or tally. They are the coder's readings of the brief where it was silent or loose, and the tally takes them as coded.
+
+- **Corrections on decision surfaces.** Four factual corrections on surfaces that carry decisions, which change no decision, are tier C with direction correction (P1-08, P4-07, P4-12, P4-13); a factual error in a record's Next is tier B (P2-11).
+- **A plain factual description** has no type in the codebook's list; P4-20 (who maintains a library) has its type blank.
+- **Step D** takes a change that only a commit message names as the driving session's own follow-up (P4-15), since outside the K windows the attribution rule credits a note.
+- **The window after the blind check** (3ca1804 to c488d2a) is credited to B where notes/R-0021.md's stage A names the problem, and to D otherwise.
+- **`post_release`** is yes for changes to the round's own released piece, so every P2 and P4 row, and no elsewhere; read literally, the brief's wording would have covered every row after 28 September.
+- **The reader review's stage 1** changes no text, so it appears only in `passed_by`, and in `also_raised` where its note named a problem stage 2 then fixed (P4-21, P5-06, P6-19).
+- **Rule corrections made after the counts** (P3-01, P6-01 to P6-03) and one sensitivity of a pre-set rule (P3-06) are coded `post_hoc` no, each with a comment; the record reports them beside M5.
+- **Release bookkeeping is not coded**: status lines, versions, colophons (a piece's list of corrections included), releases.md, record header lines, and AGENTS.md outside "Where things stand".
+- **The `evidence` column**, which the second coder sees, cites records and retained data and names no review, except in three rows about a review itself (P5-24, P6-04, P6-35), none of which was drawn.
