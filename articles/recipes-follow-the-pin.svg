@@ -1,0 +1,66 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 720 374" width="720" height="374" role="img" aria-label="For 469 moments when a Python project pinned or locked a widely used library, what the container recipe the project kept at that moment would install: from the pinned file, not from it, undecided, none of the project's requirements, or no recipe, for all pairs and by kind of pin">
+<style>svg{--bg:#fcfcfb;--ink:#0b0b0b;--ink2:#52514e;--grid:#e4e3de;--a:#2a78d6;--b:#eb6834;--u:#a9a8a2;--n:#d6d5cf;--o:#ffffff;--ol:#b3b2ac;--on:#ffffff}@media (prefers-color-scheme: dark){svg{--bg:#1a1a19;--ink:#ffffff;--ink2:#c3c2b7;--grid:#3a3936;--a:#3987e5;--b:#d95926;--u:#6f6e69;--n:#4a4945;--o:#1a1a19;--ol:#6f6e69;--on:#ffffff}}text{font:12px system-ui,-apple-system,Segoe UI,sans-serif;fill:var(--ink2)}.t{fill:var(--ink);font-weight:600}.s{font-size:11px}.v{fill:var(--on);font-size:11px;font-weight:600}.d{fill:var(--ink);font-size:11px;font-weight:600}.fa{fill:var(--a)}.fb{fill:var(--b)}.fu{fill:url(#hatch)}.fn{fill:var(--n)}.fo{fill:var(--o);stroke:var(--ol);stroke-width:1}</style>
+<defs><pattern id="hatch" width="6" height="6" patternUnits="userSpaceOnUse" patternTransform="rotate(45)"><rect width="6" height="6" fill="var(--n)"/><rect width="2.2" height="6" fill="var(--u)"/></pattern></defs>
+<rect width="720" height="374" fill="var(--bg)"/>
+<text x="16" y="24" class="t">What a pinned project's own container recipe would install</text>
+<text x="16" y="42" class="s">469 moments, from 2025 to 2026, when one of 332 Python projects held an older version of a library in a pin or lockfile</text>
+<text x="16" y="58" class="s">as a new release came out; the recipe read at the project's last commit before the release</text>
+<rect x="16" y="75" width="11" height="11" rx="2" class="fa"/>
+<text x="32" y="84" class="s">From the pinned file</text>
+<rect x="212" y="75" width="11" height="11" rx="2" class="fb"/>
+<text x="228" y="84" class="s">Not from the pinned file</text>
+<rect x="408" y="75" width="11" height="11" rx="2" class="fu"/>
+<text x="424" y="84" class="s">Could not be decided</text>
+<rect x="16" y="95" width="11" height="11" rx="2" class="fn"/>
+<text x="32" y="104" class="s">Installs none of the project&#39;s requirements</text>
+<rect x="330" y="95" width="11" height="11" rx="2" class="fo"/>
+<text x="346" y="104" class="s">No container recipe</text>
+<text x="16" y="149.0" class="t">All pairs</text>
+<text x="16" y="163.0" class="s">469 pairs</text>
+<rect x="150.0" y="132" width="149.0" height="26" rx="3" class="fa"><title>All pairs: from the pinned file, 128 of 469 pairs (27.3 per cent)</title></rect>
+<text x="224.5" y="149.0" text-anchor="middle" class="v">128</text>
+<rect x="301.0" y="132" width="42.2" height="26" rx="3" class="fb"><title>All pairs: not from the pinned file, 38 of 469 pairs (8.1 per cent)</title></rect>
+<text x="322.1" y="149.0" text-anchor="middle" class="v">38</text>
+<rect x="345.3" y="132" width="70.2" height="26" rx="3" class="fu"><title>All pairs: could not be decided, 62 of 469 pairs (13.2 per cent)</title></rect>
+<text x="380.3" y="149.0" text-anchor="middle" class="d">62</text>
+<rect x="417.4" y="132" width="20.1" height="26" rx="3" class="fn"><title>All pairs: installs none of the project&#39;s requirements, 19 of 469 pairs (4.1 per cent)</title></rect>
+<text x="427.5" y="149.0" text-anchor="middle" class="d">19</text>
+<rect x="439.6" y="132" width="256.4" height="26" rx="3" class="fo"><title>All pairs: no container recipe, 222 of 469 pairs (47.3 per cent)</title></rect>
+<text x="567.8" y="149.0" text-anchor="middle" class="d">222</text>
+<text x="16" y="195.0" class="t">Lockfile only</text>
+<text x="16" y="209.0" class="s">153 pairs</text>
+<rect x="150.0" y="178" width="74.9" height="26" rx="3" class="fa"><title>Lockfile only: from the pinned file, 21 of 153 pairs (13.7 per cent)</title></rect>
+<text x="187.5" y="195.0" text-anchor="middle" class="v">21</text>
+<rect x="226.9" y="178" width="51.5" height="26" rx="3" class="fb"><title>Lockfile only: not from the pinned file, 15 of 153 pairs (9.8 per cent)</title></rect>
+<text x="252.7" y="195.0" text-anchor="middle" class="v">15</text>
+<rect x="280.5" y="178" width="122.9" height="26" rx="3" class="fu"><title>Lockfile only: could not be decided, 35 of 153 pairs (22.9 per cent)</title></rect>
+<text x="341.9" y="195.0" text-anchor="middle" class="d">35</text>
+<rect x="405.4" y="178" width="44.4" height="26" rx="3" class="fn"><title>Lockfile only: installs none of the project&#39;s requirements, 13 of 153 pairs (8.5 per cent)</title></rect>
+<text x="427.6" y="195.0" text-anchor="middle" class="d">13</text>
+<rect x="451.8" y="178" width="244.2" height="26" rx="3" class="fo"><title>Lockfile only: no container recipe, 69 of 153 pairs (45.1 per cent)</title></rect>
+<text x="573.9" y="195.0" text-anchor="middle" class="d">69</text>
+<text x="16" y="241.0" class="t">Exact pin only</text>
+<text x="16" y="255.0" class="s">199 pairs</text>
+<rect x="150.0" y="224" width="172.9" height="26" rx="3" class="fa"><title>Exact pin only: from the pinned file, 63 of 199 pairs (31.7 per cent)</title></rect>
+<text x="236.4" y="241.0" text-anchor="middle" class="v">63</text>
+<rect x="324.9" y="224" width="36.4" height="26" rx="3" class="fb"><title>Exact pin only: not from the pinned file, 14 of 199 pairs (7.0 per cent)</title></rect>
+<text x="343.1" y="241.0" text-anchor="middle" class="v">14</text>
+<rect x="363.3" y="224" width="25.4" height="26" rx="3" class="fu"><title>Exact pin only: could not be decided, 10 of 199 pairs (5.0 per cent)</title></rect>
+<text x="376.0" y="241.0" text-anchor="middle" class="d">10</text>
+<rect x="390.7" y="224" width="11.7" height="26" rx="3" class="fn"><title>Exact pin only: installs none of the project&#39;s requirements, 5 of 199 pairs (2.5 per cent)</title></rect>
+<rect x="404.4" y="224" width="291.6" height="26" rx="3" class="fo"><title>Exact pin only: no container recipe, 107 of 199 pairs (53.8 per cent)</title></rect>
+<text x="550.2" y="241.0" text-anchor="middle" class="d">107</text>
+<text x="16" y="287.0" class="t">Lockfile and pin</text>
+<text x="16" y="301.0" class="s">117 pairs</text>
+<rect x="150.0" y="270" width="205.3" height="26" rx="3" class="fa"><title>Lockfile and pin: from the pinned file, 44 of 117 pairs (37.6 per cent)</title></rect>
+<text x="252.7" y="287.0" text-anchor="middle" class="v">44</text>
+<rect x="357.3" y="270" width="40.0" height="26" rx="3" class="fb"><title>Lockfile and pin: not from the pinned file, 9 of 117 pairs (7.7 per cent)</title></rect>
+<text x="377.3" y="287.0" text-anchor="middle" class="v">9</text>
+<rect x="399.3" y="270" width="77.3" height="26" rx="3" class="fu"><title>Lockfile and pin: could not be decided, 17 of 117 pairs (14.5 per cent)</title></rect>
+<text x="438.0" y="287.0" text-anchor="middle" class="d">17</text>
+<rect x="478.7" y="270" width="2.7" height="26" rx="3" class="fn"><title>Lockfile and pin: installs none of the project&#39;s requirements, 1 of 117 pairs (0.9 per cent)</title></rect>
+<rect x="483.3" y="270" width="212.7" height="26" rx="3" class="fo"><title>Lockfile and pin: no container recipe, 46 of 117 pairs (39.3 per cent)</title></rect>
+<text x="589.7" y="287.0" text-anchor="middle" class="d">46</text>
+<text x="16" y="344" class="s">A recipe is not a build: no image was read. Whether a build installs the library at all was not resolved.</text>
+<text x="16" y="360" class="s">Pin class: the kind of file that held the older version. Source: studies/LH015, data/pair_classes.csv.</text>
+</svg>
