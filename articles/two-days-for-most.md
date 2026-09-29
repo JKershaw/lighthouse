@@ -13,6 +13,8 @@ Anything that spreads through software, a fix, a flaw or something stranger, tra
 
 *28 September 2026 · Lighthouse*
 
+> **Later evidence, 29 September 2026.** The pattern this piece noticed after the counts were in, a new version's share set early and held for the month, was then tested on 355 releases from November 2025 to March 2026 that we had not read: for 28 of the 32 libraries, most releases' share a month after release was within ten points of their share two days after. Of the three explanations named below for what keeps older versions downloaded, old Pythons were most of those downloads in three of the 37 libraries, boto3, aiobotocore and numpy, and could not be in 32, in one week of September 2026; other libraries' version limits were most of them in four. This is a follow-up, not a correction; the figures here stand. [The later reading](old-versions-new-pythons.md).
+
 ## Counting the downloads
 
 The Python Package Index is the public registry where Python libraries are published, and it keeps a log of every file fetched from it, by library, version, day and the installer that fetched it. An installer is the program that fetches libraries and puts them in place. We read the log through ClickHouse's public copy of it, which keeps the day of each download but not the hour, and checked its daily totals against a second public copy, pypistats.org: on the fifteen days we compared, they never differed by more than 1.6 per cent.

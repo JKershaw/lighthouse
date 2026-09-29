@@ -32,3 +32,14 @@ Two web searches were made between 06:26 and 06:27 through the harness's search 
 - **L01, L02.** SPEC 0 recommends dropping support for Python versions three years after their initial release and for core package dependencies two years after theirs; NEP 29 recommended supporting the Python minors released in the prior 42 months. Policies, context only.
 - **L03, L04, L05.** Measure declared constraints (L03, L04) or the Python field of pip downloads across all packages (L05); none measures which versions of a library are fetched.
 - **Not read.** BigQuery itself (S20); linehaul's BigQuery schema (D04 returned 404); ClickPy's live ingestion; github.com's pages for aiobotocore's issues on its botocore bound (programme.md, Next), which returned HTTP 403 to the previous check and were not tried again.
+
+## Added after the snapshot: phase 2 reads (29 September 2026)
+
+This section was added after the brief's snapshot on issue #14 (06:35 UTC); the text above it is as snapshotted. Phase 2's reads are logged in data/read_log_phase2.csv (amendment 1), all anonymous, all HTTP 200 at the transport level.
+
+| id | source | what was read | read (UTC) | retained as |
+| --- | --- | --- | --- | --- |
+| K1 (phase 2) | ClickPy public SQL, as above | 425 queries, 9,955,627,613 rows read by ClickHouse's statistics: per project, downloads by day and version over W (`pypi_downloads_per_day_by_version`), W sums by version and Python minor (`..._by_python`), one grouped pass of `pypi.pypi` (class, installer, `ci`, system, libc library, type) and, for ten projects, older downloads by Python minor and file tags; the dependents' downloads by day and version over W; W sums by version and Python minor for 60 dependents with a Python marker; the 37 projects' daily totals for 1 October 2025 to 31 May 2026 and 14 to 28 September 2026; per-version downloads on days 1, 2 and 30 of each November to March release; and checks C1 to C3 | 06:40:36 to 07:13:23 | data/week/, data/deps/, data/firstday/, data/checks/ |
+| K2 (phase 2) | PyPI JSON API, https://pypi.org/pypi/{project}/{version}/json | 3,844 single-version reads: 87 versions at or above R of the 37 projects, and 3,757 dependent versions by the coverage rule | 06:49:51 to 07:09:28 | data/dependent_reads.csv, data/requirements_phase2.csv |
+
+ClickHouse answered 15 or so of these queries with HTTP 200 and then streamed an error into the body (a result over 10,000 rows); they are in the log with the rows they read, and the collector discarded and split them (amendment 2). No documentation page was read in phase 2.

@@ -1,0 +1,18 @@
+explanation,class,projects,of_known,share,ci_low,ci_high,list
+Python exclusion (P),accounts for most,3,37,0.081081,0.000000,0.189189,aiobotocore boto3 numpy
+Python exclusion (P),undetermined,2,37,0.054054,0.000000,0.135135,pandas urllib3
+Python exclusion (P),cannot be the main reason (including accounts for little),32,37,0.864865,0.756757,0.972973,aiohttp annotated-types anyio botocore certifi cffi charset-normalizer click cryptography filelock fsspec grpcio-status idna litellm packaging pathspec platformdirs protobuf pydantic pydantic-core pygments pyjwt pytest python-dotenv requests rpds-py s3transfer starlette tqdm typing-extensions typing-inspection uvicorn
+Python exclusion (P),accounts for little,8,37,0.216216,0.081081,0.351351,litellm pydantic pydantic-core pygments python-dotenv starlette tqdm uvicorn
+Python exclusion (P),median of project P_lower,,37,0.121698,0.070635,0.208658,
+Python exclusion (P),median of project P_upper,,37,0.179944,0.120267,0.275730,
+identified bounds (B),accounts for most,4,37,0.108108,0.027027,0.216216,botocore fsspec pydantic-core s3transfer
+identified bounds (B),undetermined,26,37,0.702703,0.540541,0.837838,aiobotocore aiohttp anyio certifi cffi click cryptography filelock idna litellm numpy packaging pandas pathspec protobuf pydantic pygments pyjwt pytest requests starlette tqdm typing-extensions typing-inspection urllib3 uvicorn
+identified bounds (B),cannot be the main reason (including accounts for little),7,37,0.189189,0.081081,0.324324,annotated-types boto3 charset-normalizer grpcio-status platformdirs python-dotenv rpds-py
+identified bounds (B),accounts for little,1,37,0.027027,0.000000,0.081081,boto3
+identified bounds (B),median of project B_lower,,37,0.012582,0.000000,0.136866,
+identified bounds (B),median of project B_upper,,37,1.000000,0.814956,1.000000,
+frozen-list trace (described),shows the trace,18,37,0.486486,,,annotated-types anyio certifi cffi charset-normalizer click filelock idna litellm packaging pygments pyjwt rpds-py starlette tqdm typing-extensions typing-inspection uvicorn
+older share O,median of projects,,37,0.373088,0.338281,0.466804,
+pooled,"P lower, all 37 projects' older downloads",,,0.308905,,,
+pooled,P upper,,,0.352796,,,
+pooled,older share O of all 37 projects' downloads,,,0.455860,,,
