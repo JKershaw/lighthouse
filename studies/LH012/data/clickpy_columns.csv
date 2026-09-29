@@ -1,0 +1,68 @@
+"table","position","name","type","default_kind","default_expression","comment","is_in_sorting_key","is_in_primary_key"
+"pypi",1,"date","Date","","","",1,1
+"pypi",2,"country_code","LowCardinality(String)","","","",1,1
+"pypi",3,"project","String","","","",1,1
+"pypi",4,"type","LowCardinality(String)","","","",0,0
+"pypi",5,"installer","LowCardinality(String)","","","",0,0
+"pypi",6,"python_minor","LowCardinality(String)","","","",1,1
+"pypi",7,"system","LowCardinality(String)","","","",1,1
+"pypi",8,"version","String","","","",1,1
+"pypi",9,"libc","Tuple(lib LowCardinality(String), version LowCardinality(String))","DEFAULT","('', '')","",0,0
+"pypi",10,"ci","Enum8('false' = 0, 'true' = 1, 'unknown' = 2)","DEFAULT","'unknown'","",0,0
+"pypi",11,"filename","String","DEFAULT","''","",0,0
+"pypi_downloads_max_min",1,"project","String","","","",1,1
+"pypi_downloads_max_min",2,"max_date","SimpleAggregateFunction(max, Date)","","","",0,0
+"pypi_downloads_max_min",3,"min_date","SimpleAggregateFunction(min, Date)","","","",0,0
+"pypi_downloads_per_day",1,"date","Date","","","",1,1
+"pypi_downloads_per_day",2,"project","String","","","",1,1
+"pypi_downloads_per_day",3,"count","Int64","","","",0,0
+"pypi_downloads_per_day_by_installer",1,"date","Date","","","",1,1
+"pypi_downloads_per_day_by_installer",2,"installer","String","","","",1,1
+"pypi_downloads_per_day_by_installer",3,"count","Int64","","","",0,0
+"pypi_downloads_per_day_by_version",1,"date","Date","","","",1,1
+"pypi_downloads_per_day_by_version",2,"project","String","","","",1,1
+"pypi_downloads_per_day_by_version",3,"version","String","","","",1,1
+"pypi_downloads_per_day_by_version",4,"count","Int64","","","",0,0
+"pypi_downloads_per_day_by_version_by_country",1,"date","Date","","","",1,1
+"pypi_downloads_per_day_by_version_by_country",2,"project","String","","","",1,1
+"pypi_downloads_per_day_by_version_by_country",3,"version","String","","","",1,1
+"pypi_downloads_per_day_by_version_by_country",4,"country_code","String","","","",1,1
+"pypi_downloads_per_day_by_version_by_country",5,"count","Int64","","","",0,0
+"pypi_downloads_per_day_by_version_by_file_type",1,"date","Date","","","",1,1
+"pypi_downloads_per_day_by_version_by_file_type",2,"project","String","","","",1,1
+"pypi_downloads_per_day_by_version_by_file_type",3,"version","String","","","",1,1
+"pypi_downloads_per_day_by_version_by_file_type",4,"type","LowCardinality(String)","","","",1,1
+"pypi_downloads_per_day_by_version_by_file_type",5,"count","Int64","","","",0,0
+"pypi_downloads_per_day_by_version_by_installer_by_type",1,"project","String","","","",1,1
+"pypi_downloads_per_day_by_version_by_installer_by_type",2,"version","String","","","",1,1
+"pypi_downloads_per_day_by_version_by_installer_by_type",3,"date","Date","","","",1,1
+"pypi_downloads_per_day_by_version_by_installer_by_type",4,"installer","String","","","",1,1
+"pypi_downloads_per_day_by_version_by_installer_by_type",5,"type","LowCardinality(String)","","","",0,0
+"pypi_downloads_per_day_by_version_by_installer_by_type",6,"count","Int64","","","",0,0
+"pypi_downloads_per_day_by_version_by_python",1,"date","Date","","","",1,1
+"pypi_downloads_per_day_by_version_by_python",2,"project","String","","","",1,1
+"pypi_downloads_per_day_by_version_by_python",3,"version","String","","","",1,1
+"pypi_downloads_per_day_by_version_by_python",4,"python_minor","String","","","",1,1
+"pypi_downloads_per_day_by_version_by_python",5,"count","Int64","","","",0,0
+"pypi_downloads_per_day_by_version_by_system",1,"date","Date","","","",1,1
+"pypi_downloads_per_day_by_version_by_system",2,"project","String","","","",1,1
+"pypi_downloads_per_day_by_version_by_system",3,"version","String","","","",1,1
+"pypi_downloads_per_day_by_version_by_system",4,"system","String","","","",1,1
+"pypi_downloads_per_day_by_version_by_system",5,"count","Int64","","","",0,0
+"pypi_raw",1,"timestamp","Nullable(DateTime64(6))","","","",0,0
+"pypi_raw",2,"country_code","Nullable(String)","","","",0,0
+"pypi_raw",3,"url","Nullable(String)","","","",0,0
+"pypi_raw",4,"project","Nullable(String)","","","",0,0
+"pypi_raw",5,"file","Tuple(filename Nullable(String), project Nullable(String), version Nullable(String), type Nullable(String))","","","",0,0
+"pypi_raw",6,"installer","Tuple(name Nullable(String), version Nullable(String))","","","",0,0
+"pypi_raw",7,"python","Nullable(String)","","","",0,0
+"pypi_raw",8,"implementation","Tuple(name Nullable(String), version Nullable(String))","","","",0,0
+"pypi_raw",9,"distro","Tuple(name Nullable(String), version Nullable(String), id Nullable(String), libc Tuple(lib Nullable(String), version Nullable(String)))","","","",0,0
+"pypi_raw",10,"system","Tuple(name Nullable(String), release Nullable(String))","","","",0,0
+"pypi_raw",11,"cpu","Nullable(String)","","","",0,0
+"pypi_raw",12,"openssl_version","Nullable(String)","","","",0,0
+"pypi_raw",13,"setuptools_version","Nullable(String)","","","",0,0
+"pypi_raw",14,"rustc_version","Nullable(String)","","","",0,0
+"pypi_raw",15,"tls_protocol","Nullable(String)","","","",0,0
+"pypi_raw",16,"tls_cipher","Nullable(String)","","","",0,0
+"pypi_raw",17,"ci","Nullable(Bool)","","","",0,0

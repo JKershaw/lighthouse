@@ -1,0 +1,651 @@
+read_utc,source,label,endpoint,query,http_status,rows_returned,read_rows,read_bytes,output
+2026-09-29T06:19:15Z,ClickPy (ClickHouse public demo),M00 server and limits,https://sql-clickhouse.clickhouse.com/?user=demo,"SELECT version() AS server_version, timezone() AS tz, getSetting('max_result_rows') AS max_result_rows, getSetting('max_rows_to_read') AS max_rows_to_read, getSetting('max_bytes_to_read') AS max_bytes_to_read, getSetting('max_execution_time') AS max_execution_time, getSetting('result_overflow_mode') AS result_overflow_mode, getSetting('read_overflow_mode') AS read_overflow_mode FORMAT CSVWithNames",200,1,1,1,clickpy_server.csv
+2026-09-29T06:19:16Z,ClickPy (ClickHouse public demo),M01 schema,https://sql-clickhouse.clickhouse.com/?user=demo,"SELECT name, engine, sorting_key, primary_key, partition_key, create_table_query FROM system.tables WHERE database = 'pypi' ORDER BY name FORMAT CSVWithNames",200,40,40,19521,clickpy_schema.csv
+2026-09-29T06:19:17Z,ClickPy (ClickHouse public demo),M02 columns,https://sql-clickhouse.clickhouse.com/?user=demo,"SELECT table, position, name, type, default_kind, default_expression, comment, is_in_sorting_key, is_in_primary_key FROM system.columns WHERE database = 'pypi' AND table IN ('pypi','pypi_downloads_per_day','pypi_downloads_per_day_by_version','pypi_downloads_per_day_by_version_by_python','pypi_downloads_per_day_by_version_by_system','pypi_downloads_per_day_by_version_by_installer_by_type','pypi_downloads_per_day_by_version_by_file_type','pypi_downloads_per_day_by_version_by_country','pypi_downloads_per_day_by_installer','pypi_downloads_max_min','pypi_raw') ORDER BY table, position FORMAT CSVWithNames",200,67,67,8090,clickpy_columns.csv
+2026-09-29T06:19:17Z,ClickPy (ClickHouse public demo),"M03 coverage (first and last day held, top 500)",https://sql-clickhouse.clickhouse.com/?user=demo,"SELECT project, min(min_date) AS first_day, max(max_date) AS last_day FROM pypi.pypi_downloads_max_min WHERE project IN ('absl-py','aiobotocore','aiofile','aiofiles','aiohappyeyeballs','aiohttp','aioitertools','aiosignal','aiosqlite','alembic','annotated-doc','annotated-types','anthropic','anyio','argcomplete','argon2-cffi','argon2-cffi-bindings','arrow','asgiref','asn1crypto','ast-serialize','asttokens','async-timeout','asyncpg','attrs','authlib','awscli','awswrangler','azure-core','azure-identity','azure-storage-blob','babel','backoff','backports-tarfile','backports-zstd','bcrypt','beartype','beautifulsoup4','black','bleach','blinker','boto3','botocore','brotli','build','cachecontrol','cachetools','caio','cattrs','cbor2','certifi','cffi','cfgv','cfn-lint','chardet','charset-normalizer','cleo','click','cloudpickle','colorama','colorlog','comm','confluent-kafka','contourpy','coverage','crashtest','croniter','cryptography','cycler','cyclopts','cython','databricks-sdk','databricks-sql-connector','dataclasses-json','datadog','datasets','dbt-adapters','dbt-common','dbt-core','debugpy','decorator','deepdiff','defusedxml','deprecated','deprecation','dill','distlib','distro','dnspython','docker','docstring-parser','docutils','duckdb','dulwich','durationpy','editables','email-validator','et-xmlfile','exceptiongroup','execnet','executing','faker','fastapi','fastapi-cli','fastapi-cloud-cli','fastcore','fastjsonschema','fastmcp','fastmcp-slim','fastuuid','filelock','flask','flatbuffers','fonttools','frozenlist','fsspec','future','gcsfs','ghapi','gitdb','gitpython','google-analytics-admin','google-api-core','google-api-python-client','google-auth','google-auth-httplib2','google-auth-oauthlib','google-cloud-aiplatform','google-cloud-batch','google-cloud-bigquery','google-cloud-bigquery-datatransfer','google-cloud-bigtable','google-cloud-compute','google-cloud-core','google-cloud-dataform','google-cloud-dlp','google-cloud-kms','google-cloud-language','google-cloud-logging','google-cloud-monitoring','google-cloud-os-login','google-cloud-pubsub','google-cloud-redis','google-cloud-resource-manager','google-cloud-run','google-cloud-secret-manager','google-cloud-speech','google-cloud-storage','google-cloud-tasks','google-cloud-texttospeech','google-cloud-videointelligence','google-cloud-vision','google-cloud-workflows','google-crc32c','google-genai','google-resumable-media','googleapis-common-protos','graphql-core','greenlet','griffelib','grpc-google-iam-v1','grpcio','grpcio-health-checking','grpcio-status','grpcio-tools','grpclib','gunicorn','h11','h2','hatchling','hf-xet','hpack','httpcore','httpcore2','httplib2','httptools','httpx','httpx-sse','httpx2','huggingface-hub','humanize','hyperframe','identify','idna','importlib-metadata','importlib-resources','iniconfig','installer','invoke','ipykernel','ipython','ipython-pygments-lexers','isodate','isort','itsdangerous','jaraco-classes','jaraco-context','jaraco-functools','jedi','jeepney','jinja2','jiter','jmespath','joblib','joserfc','jsonpatch','jsonpath-ng','jsonpointer','jsonref','jsonschema','jsonschema-path','jsonschema-specifications','jupyter-client','jupyter-core','keyring','kiwisolver','kubernetes','langchain','langchain-core','langchain-openai','langchain-protocol','langgraph','langsmith','lark','libcst','librt','linkify-it-py','litellm','llama-cloud-services','llama-parse','llvmlite','loguru','lxml','lz4','mako','markdown','markdown-it-py','markdownify','markupsafe','marshmallow','matplotlib','matplotlib-inline','mccabe','mcp','mcp-types','mdit-py-plugins','mdurl','mistune','mmh3','modal','more-itertools','mpmath','msal','msal-extensions','msgpack','msrest','multidict','multiprocess','mypy','mypy-extensions','narwhals','nbclient','nbconvert','nbformat','nest-asyncio','networkx','nltk','nodeenv','numba','numpy','oauthlib','onnxruntime','openai','openapi-pydantic','openpyxl','opentelemetry-api','opentelemetry-exporter-otlp','opentelemetry-exporter-otlp-proto-common','opentelemetry-exporter-otlp-proto-grpc','opentelemetry-exporter-otlp-proto-http','opentelemetry-exporter-prometheus','opentelemetry-instrumentation','opentelemetry-instrumentation-asgi','opentelemetry-instrumentation-fastapi','opentelemetry-instrumentation-requests','opentelemetry-instrumentation-threading','opentelemetry-proto','opentelemetry-sdk','opentelemetry-semantic-conventions','opentelemetry-util-http','orjson','packaging','pandas','paramiko','parso','pathable','pathspec','pbs-installer','pdfminer-six','pendulum','pexpect','pillow','pip','pkginfo','platformdirs','playwright','plotly','pluggy','poetry','poetry-core','poetry-plugin-export','polars','polars-runtime-32','portalocker','pre-commit','prometheus-client','prompt-toolkit','propcache','proto-plus','protobuf','psutil','psycopg','psycopg-binary','psycopg2','psycopg2-binary','ptyprocess','pure-eval','py','py-key-value-aio','py4j','pyarrow','pyarrow-hotfix','pyasn1','pyasn1-modules','pycodestyle','pycparser','pycryptodome','pycryptodomex','pydantic','pydantic-ai-slim','pydantic-core','pydantic-extra-types','pydantic-graph','pydantic-settings','pyee','pyflakes','pygithub','pygments','pyjwt','pymongo','pymupdf','pymysql','pynacl','pyopenssl','pyparsing','pypdf','pypdfium2','pyperclip','pyproject-hooks','pysocks','pytest','pytest-asyncio','pytest-cov','pytest-json-ctrf','pytest-mock','pytest-timeout','pytest-xdist','python-dateutil','python-discovery','python-docx','python-dotenv','python-json-logger','python-multipart','python-pptx','python-slugify','pytokens','pytz','pyyaml','pyzmq','rapidfuzz','redis','referencing','regex','reportlab','requests','requests-file','requests-oauthlib','requests-toolbelt','responses','rfc3339-validator','rich','rich-rst','rich-toolkit','rpds-py','rsa','ruamel-yaml','ruamel-yaml-clib','ruff','s3fs','s3transfer','safetensors','scikit-learn','scipy','scramp','secretstorage','semver','sentry-sdk','setuptools','setuptools-scm','sglang','shapely','shellingham','six','slack-sdk','smart-open','smmap','sniffio','snowflake-connector-python','snowflake-snowpark-python','snowflake-sqlalchemy','sortedcontainers','soupsieve','sphinx','sqlalchemy','sqlalchemy-bigquery','sqlglot','sqlparse','sse-starlette','stack-data','starlette','structlog','sympy','synchronicity','tabulate','tenacity','termcolor','text-unidecode','textual','threadpoolctl','tiktoken','tinycss2','tokenizers','toml','tomli','tomli-w','tomlkit','toolz','torch','tornado','tqdm','traitlets','transformers','tree-sitter','triton','trove-classifiers','truststore','typedload','typeguard','typer','types-certifi','types-protobuf','types-pyyaml','types-requests','types-toml','typing-extensions','typing-inspect','typing-inspection','tzdata','tzlocal','uc-micro-py','uncalled-for','unidiff','uritemplate','urllib3','uuid-utils','uv','uvicorn','uvloop','vcs-versioning','virtualenv','watchdog','watchfiles','wcwidth','weaviate-client','webencodings','websocket-client','websockets','werkzeug','wheel','wrapt','wsproto','xlrd','xlsxwriter','xmltodict','xxhash','yarl','ydb','zipp','zope-interface','zstandard') GROUP BY project ORDER BY project FORMAT CSVWithNames",200,500,1740210,35482275,clickpy_coverage.csv
+2026-09-29T06:19:18Z,ClickPy (ClickHouse public demo),M04.1 last day held in pypi_downloads_per_day,https://sql-clickhouse.clickhouse.com/?user=demo,"SELECT project, min(date) AS first_day, max(date) AS last_day FROM pypi.pypi_downloads_per_day WHERE project IN ('aiobotocore','aiohttp','annotated-types','anyio','boto3','botocore','certifi','cffi','charset-normalizer','click','cryptography','filelock','fsspec','grpcio-status','idna','litellm','numpy','packaging','pandas','pathspec','platformdirs','protobuf','pydantic','pydantic-core','pygments','pyjwt','pytest','python-dotenv','requests','rpds-py','s3transfer','starlette','tqdm','typing-extensions','typing-inspection','urllib3','uvicorn') AND date >= '2025-09-01' GROUP BY project ORDER BY project FORMAT CSVWithNames",200,37,2367488,42698329,
+2026-09-29T06:19:19Z,ClickPy (ClickHouse public demo),M04.2 last day held in pypi_downloads_per_day_by_version,https://sql-clickhouse.clickhouse.com/?user=demo,"SELECT project, min(date) AS first_day, max(date) AS last_day FROM pypi.pypi_downloads_per_day_by_version WHERE project IN ('aiobotocore','aiohttp','annotated-types','anyio','boto3','botocore','certifi','cffi','charset-normalizer','click','cryptography','filelock','fsspec','grpcio-status','idna','litellm','numpy','packaging','pandas','pathspec','platformdirs','protobuf','pydantic','pydantic-core','pygments','pyjwt','pytest','python-dotenv','requests','rpds-py','s3transfer','starlette','tqdm','typing-extensions','typing-inspection','urllib3','uvicorn') AND date >= '2025-09-01' GROUP BY project ORDER BY project FORMAT CSVWithNames",200,37,18898944,242223579,
+2026-09-29T06:19:20Z,ClickPy (ClickHouse public demo),M04.3 last day held in pypi_downloads_per_day_by_version_by_python,https://sql-clickhouse.clickhouse.com/?user=demo,"SELECT project, min(date) AS first_day, max(date) AS last_day FROM pypi.pypi_downloads_per_day_by_version_by_python WHERE project IN ('aiobotocore','aiohttp','annotated-types','anyio','boto3','botocore','certifi','cffi','charset-normalizer','click','cryptography','filelock','fsspec','grpcio-status','idna','litellm','numpy','packaging','pandas','pathspec','platformdirs','protobuf','pydantic','pydantic-core','pygments','pyjwt','pytest','python-dotenv','requests','rpds-py','s3transfer','starlette','tqdm','typing-extensions','typing-inspection','urllib3','uvicorn') AND date >= '2025-09-01' GROUP BY project ORDER BY project FORMAT CSVWithNames",200,37,106701317,939531198,
+2026-09-29T06:19:21Z,ClickPy (ClickHouse public demo),M04.4 last day held in pypi_downloads_per_day_by_version_by_system,https://sql-clickhouse.clickhouse.com/?user=demo,"SELECT project, min(date) AS first_day, max(date) AS last_day FROM pypi.pypi_downloads_per_day_by_version_by_system WHERE project IN ('aiobotocore','aiohttp','annotated-types','anyio','boto3','botocore','certifi','cffi','charset-normalizer','click','cryptography','filelock','fsspec','grpcio-status','idna','litellm','numpy','packaging','pandas','pathspec','platformdirs','protobuf','pydantic','pydantic-core','pygments','pyjwt','pytest','python-dotenv','requests','rpds-py','s3transfer','starlette','tqdm','typing-extensions','typing-inspection','urllib3','uvicorn') AND date >= '2025-09-01' GROUP BY project ORDER BY project FORMAT CSVWithNames",200,37,60383232,652805706,
+2026-09-29T06:19:22Z,ClickPy (ClickHouse public demo),M04.5 last day held in pypi_downloads_per_day_by_version_by_installer_by_type,https://sql-clickhouse.clickhouse.com/?user=demo,"SELECT project, min(date) AS first_day, max(date) AS last_day FROM pypi.pypi_downloads_per_day_by_version_by_installer_by_type WHERE project IN ('aiobotocore','aiohttp','annotated-types','anyio','boto3','botocore','certifi','cffi','charset-normalizer','click','cryptography','filelock','fsspec','grpcio-status','idna','litellm','numpy','packaging','pandas','pathspec','platformdirs','protobuf','pydantic','pydantic-core','pygments','pyjwt','pytest','python-dotenv','requests','rpds-py','s3transfer','starlette','tqdm','typing-extensions','typing-inspection','urllib3','uvicorn') AND date >= '2025-09-01' GROUP BY project ORDER BY project FORMAT CSVWithNames",200,37,81989688,824206514,
+2026-09-29T06:19:49Z,PyPI JSON API,P001 boto3,https://pypi.org/pypi/boto3/json,,200,,,3289936,versions.csv
+2026-09-29T06:19:49Z,PyPI JSON API,P002 packaging,https://pypi.org/pypi/packaging/json,,200,,,90241,versions.csv
+2026-09-29T06:19:49Z,PyPI JSON API,P003 typing-extensions,https://pypi.org/pypi/typing-extensions/json,,200,,,97609,versions.csv
+2026-09-29T06:19:50Z,PyPI JSON API,P004 certifi,https://pypi.org/pypi/certifi/json,,200,,,113109,versions.csv
+2026-09-29T06:19:50Z,PyPI JSON API,P005 idna,https://pypi.org/pypi/idna/json,,200,,,65641,versions.csv
+2026-09-29T06:19:50Z,PyPI JSON API,P006 urllib3,https://pypi.org/pypi/urllib3/json,,200,,,160826,versions.csv
+2026-09-29T06:19:51Z,PyPI JSON API,P007 requests,https://pypi.org/pypi/requests/json,,200,,,192961,versions.csv
+2026-09-29T06:19:51Z,PyPI JSON API,P008 charset-normalizer,https://pypi.org/pypi/charset-normalizer/json,,200,,,2234972,versions.csv
+2026-09-29T06:19:51Z,PyPI JSON API,P009 setuptools,https://pypi.org/pypi/setuptools/json,,200,,,1179626,top500_screen.csv
+2026-09-29T06:19:52Z,PyPI JSON API,P010 cryptography,https://pypi.org/pypi/cryptography/json,,200,,,3219356,versions.csv
+2026-09-29T06:19:52Z,PyPI JSON API,P011 cffi,https://pypi.org/pypi/cffi/json,,200,,,1870503,versions.csv
+2026-09-29T06:19:52Z,PyPI JSON API,P012 pluggy,https://pypi.org/pypi/pluggy/json,,200,,,44872,top500_screen.csv
+2026-09-29T06:19:53Z,PyPI JSON API,P013 pygments,https://pypi.org/pypi/pygments/json,,200,,,144964,versions.csv
+2026-09-29T06:19:53Z,PyPI JSON API,P014 pyyaml,https://pypi.org/pypi/pyyaml/json,,200,,,558621,top500_screen.csv
+2026-09-29T06:19:53Z,PyPI JSON API,P015 botocore,https://pypi.org/pypi/botocore/json,,200,,,3837949,versions.csv
+2026-09-29T06:19:54Z,PyPI JSON API,P016 python-dateutil,https://pypi.org/pypi/python-dateutil/json,,200,,,53264,top500_screen.csv
+2026-09-29T06:19:54Z,PyPI JSON API,P017 six,https://pypi.org/pypi/six/json,,200,,,40256,top500_screen.csv
+2026-09-29T06:19:54Z,PyPI JSON API,P018 pydantic,https://pypi.org/pypi/pydantic/json,,200,,,1826224,versions.csv
+2026-09-29T06:19:55Z,PyPI JSON API,P019 numpy,https://pypi.org/pypi/numpy/json,,200,,,3672914,versions.csv
+2026-09-29T06:19:55Z,PyPI JSON API,P020 click,https://pypi.org/pypi/click/json,,200,,,102510,versions.csv
+2026-09-29T06:19:56Z,PyPI JSON API,P021 pycparser,https://pypi.org/pypi/pycparser/json,,200,,,32044,top500_screen.csv
+2026-09-29T06:19:56Z,PyPI JSON API,P022 anyio,https://pypi.org/pypi/anyio/json,,200,,,117223,versions.csv
+2026-09-29T06:19:56Z,PyPI JSON API,P023 pytest,https://pypi.org/pypi/pytest/json,,200,,,282699,versions.csv
+2026-09-29T06:19:57Z,PyPI JSON API,P024 pydantic-core,https://pypi.org/pypi/pydantic-core/json,,200,,,12674952,versions.csv
+2026-09-29T06:19:58Z,PyPI JSON API,P025 iniconfig,https://pypi.org/pypi/iniconfig/json,,200,,,16844,top500_screen.csv
+2026-09-29T06:19:58Z,PyPI JSON API,P026 aiobotocore,https://pypi.org/pypi/aiobotocore/json,,200,,,225289,versions.csv
+2026-09-29T06:19:58Z,PyPI JSON API,P027 annotated-types,https://pypi.org/pypi/annotated-types/json,,200,,,31556,versions.csv
+2026-09-29T06:19:59Z,PyPI JSON API,P028 h11,https://pypi.org/pypi/h11/json,,200,,,30401,top500_screen.csv
+2026-09-29T06:19:59Z,PyPI JSON API,P029 attrs,https://pypi.org/pypi/attrs/json,,200,,,67159,top500_screen.csv
+2026-09-29T06:19:59Z,PyPI JSON API,P030 typing-inspection,https://pypi.org/pypi/typing-inspection/json,,200,,,20393,versions.csv
+2026-09-29T06:19:59Z,PyPI JSON API,P031 protobuf,https://pypi.org/pypi/protobuf/json,,200,,,2464869,versions.csv
+2026-09-29T06:20:00Z,PyPI JSON API,P032 fsspec,https://pypi.org/pypi/fsspec/json,,200,,,149919,versions.csv
+2026-09-29T06:20:00Z,PyPI JSON API,P033 httpx,https://pypi.org/pypi/httpx/json,,200,,,119908,top500_screen.csv
+2026-09-29T06:20:00Z,PyPI JSON API,P034 markupsafe,https://pypi.org/pypi/markupsafe/json,,200,,,832114,top500_screen.csv
+2026-09-29T06:20:01Z,PyPI JSON API,P035 httpcore,https://pypi.org/pypi/httpcore/json,,200,,,115197,top500_screen.csv
+2026-09-29T06:20:01Z,PyPI JSON API,P036 s3transfer,https://pypi.org/pypi/s3transfer/json,,200,,,101435,versions.csv
+2026-09-29T06:20:01Z,PyPI JSON API,P037 python-dotenv,https://pypi.org/pypi/python-dotenv/json,,200,,,109888,versions.csv
+2026-09-29T06:20:02Z,PyPI JSON API,P038 platformdirs,https://pypi.org/pypi/platformdirs/json,,200,,,135787,versions.csv
+2026-09-29T06:20:02Z,PyPI JSON API,P039 pandas,https://pypi.org/pypi/pandas/json,,200,,,2194030,versions.csv
+2026-09-29T06:20:02Z,PyPI JSON API,P040 jinja2,https://pypi.org/pypi/jinja2/json,,200,,,78076,top500_screen.csv
+2026-09-29T06:20:03Z,PyPI JSON API,P041 pathspec,https://pypi.org/pypi/pathspec/json,,200,,,61254,versions.csv
+2026-09-29T06:20:03Z,PyPI JSON API,P042 grpcio-status,https://pypi.org/pypi/grpcio-status/json,,200,,,282213,versions.csv
+2026-09-29T06:20:03Z,PyPI JSON API,P043 filelock,https://pypi.org/pypi/filelock/json,,200,,,176663,versions.csv
+2026-09-29T06:20:03Z,PyPI JSON API,P044 pip,https://pypi.org/pypi/pip/json,,200,,,228494,top500_screen.csv
+2026-09-29T06:20:04Z,PyPI JSON API,P045 pyjwt,https://pypi.org/pypi/pyjwt/json,,200,,,112244,versions.csv
+2026-09-29T06:20:04Z,PyPI JSON API,P046 starlette,https://pypi.org/pypi/starlette/json,,200,,,240779,versions.csv
+2026-09-29T06:20:04Z,PyPI JSON API,P047 uvicorn,https://pypi.org/pypi/uvicorn/json,,200,,,233464,versions.csv
+2026-09-29T06:20:05Z,PyPI JSON API,P048 litellm,https://pypi.org/pypi/litellm/json,,200,,,2101796,versions.csv
+2026-09-29T06:20:05Z,PyPI JSON API,P049 aiohttp,https://pypi.org/pypi/aiohttp/json,,200,,,9152581,versions.csv
+2026-09-29T06:20:06Z,PyPI JSON API,P050 tqdm,https://pypi.org/pypi/tqdm/json,,200,,,323617,versions.csv
+2026-09-29T06:20:06Z,PyPI JSON API,P051 jmespath,https://pypi.org/pypi/jmespath/json,,200,,,39435,top500_screen.csv
+2026-09-29T06:20:07Z,PyPI JSON API,P052 rpds-py,https://pypi.org/pypi/rpds-py/json,,200,,,4894062,versions.csv
+2026-09-29T06:20:07Z,PyPI JSON API,P053 yarl,https://pypi.org/pypi/yarl/json,,200,,,4866598,top500_screen.csv
+2026-09-29T06:20:08Z,PyPI JSON API,P054 jsonschema,https://pypi.org/pypi/jsonschema/json,,200,,,178088,top500_screen.csv
+2026-09-29T06:20:08Z,PyPI JSON API,P055 rich,https://pypi.org/pypi/rich/json,,200,,,338643,top500_screen.csv
+2026-09-29T06:20:08Z,PyPI JSON API,P056 markdown-it-py,https://pypi.org/pypi/markdown-it-py/json,,200,,,79518,top500_screen.csv
+2026-09-29T06:20:08Z,PyPI JSON API,P057 multidict,https://pypi.org/pypi/multidict/json,,200,,,4731661,top500_screen.csv
+2026-09-29T06:20:09Z,PyPI JSON API,P058 propcache,https://pypi.org/pypi/propcache/json,,200,,,1291264,top500_screen.csv
+2026-09-29T06:20:09Z,PyPI JSON API,P059 s3fs,https://pypi.org/pypi/s3fs/json,,200,,,133995,top500_screen.csv
+2026-09-29T06:20:09Z,PyPI JSON API,P060 fastapi,https://pypi.org/pypi/fastapi/json,,200,,,518132,top500_screen.csv
+2026-09-29T06:20:10Z,PyPI JSON API,P061 referencing,https://pypi.org/pypi/referencing/json,,200,,,172466,top500_screen.csv
+2026-09-29T06:20:10Z,PyPI JSON API,P062 tomlkit,https://pypi.org/pypi/tomlkit/json,,200,,,93881,top500_screen.csv
+2026-09-29T06:20:10Z,PyPI JSON API,P063 frozenlist,https://pypi.org/pypi/frozenlist/json,,200,,,1169296,top500_screen.csv
+2026-09-29T06:20:11Z,PyPI JSON API,P064 jsonschema-specifications,https://pypi.org/pypi/jsonschema-specifications/json,,200,,,45472,top500_screen.csv
+2026-09-29T06:20:11Z,PyPI JSON API,P065 pyasn1,https://pypi.org/pypi/pyasn1/json,,200,,,262677,top500_screen.csv
+2026-09-29T06:20:11Z,PyPI JSON API,P066 wheel,https://pypi.org/pypi/wheel/json,,200,,,125189,top500_screen.csv
+2026-09-29T06:20:12Z,PyPI JSON API,P067 websockets,https://pypi.org/pypi/websockets/json,,200,,,2015471,top500_screen.csv
+2026-09-29T06:20:12Z,PyPI JSON API,P068 aiohappyeyeballs,https://pypi.org/pypi/aiohappyeyeballs/json,,200,,,80776,top500_screen.csv
+2026-09-29T06:20:12Z,PyPI JSON API,P069 mdurl,https://pypi.org/pypi/mdurl/json,,200,,,9804,top500_screen.csv
+2026-09-29T06:20:12Z,PyPI JSON API,P070 aiosignal,https://pypi.org/pypi/aiosignal/json,,200,,,21340,top500_screen.csv
+2026-09-29T06:20:13Z,PyPI JSON API,P071 google-auth,https://pypi.org/pypi/google-auth/json,,200,,,333034,top500_screen.csv
+2026-09-29T06:20:13Z,PyPI JSON API,P072 pillow,https://pypi.org/pypi/pillow/json,,200,,,3260194,top500_screen.csv
+2026-09-29T06:20:13Z,PyPI JSON API,P073 googleapis-common-protos,https://pypi.org/pypi/googleapis-common-protos/json,,200,,,117598,top500_screen.csv
+2026-09-29T06:20:14Z,PyPI JSON API,P074 pytz,https://pypi.org/pypi/pytz/json,,200,,,563267,top500_screen.csv
+2026-09-29T06:20:14Z,PyPI JSON API,P075 sniffio,https://pypi.org/pypi/sniffio/json,,200,,,14337,top500_screen.csv
+2026-09-29T06:20:14Z,PyPI JSON API,P076 importlib-metadata,https://pypi.org/pypi/importlib-metadata/json,,200,,,213739,top500_screen.csv
+2026-09-29T06:20:15Z,PyPI JSON API,P077 trove-classifiers,https://pypi.org/pypi/trove-classifiers/json,,200,,,208051,top500_screen.csv
+2026-09-29T06:20:15Z,PyPI JSON API,P078 zipp,https://pypi.org/pypi/zipp/json,,200,,,103051,top500_screen.csv
+2026-09-29T06:20:15Z,PyPI JSON API,P079 opentelemetry-semantic-conventions,https://pypi.org/pypi/opentelemetry-semantic-conventions/json,,200,,,106041,top500_screen.csv
+2026-09-29T06:20:15Z,PyPI JSON API,P080 annotated-doc,https://pypi.org/pypi/annotated-doc/json,,200,,,16438,top500_screen.csv
+2026-09-29T06:20:16Z,PyPI JSON API,P081 virtualenv,https://pypi.org/pypi/virtualenv/json,,200,,,454945,top500_screen.csv
+2026-09-29T06:20:16Z,PyPI JSON API,P082 hatchling,https://pypi.org/pypi/hatchling/json,,200,,,137885,top500_screen.csv
+2026-09-29T06:20:16Z,PyPI JSON API,P083 pydantic-settings,https://pypi.org/pypi/pydantic-settings/json,,200,,,76677,top500_screen.csv
+2026-09-29T06:20:17Z,PyPI JSON API,P084 tzdata,https://pypi.org/pypi/tzdata/json,,200,,,57942,top500_screen.csv
+2026-09-29T06:20:17Z,PyPI JSON API,P085 wrapt,https://pypi.org/pypi/wrapt/json,,200,,,5906064,top500_screen.csv
+2026-09-29T06:20:17Z,PyPI JSON API,P086 ghapi,https://pypi.org/pypi/ghapi/json,,200,,,103928,top500_screen.csv
+2026-09-29T06:20:18Z,PyPI JSON API,P087 greenlet,https://pypi.org/pypi/greenlet/json,,200,,,2741168,top500_screen.csv
+2026-09-29T06:20:18Z,PyPI JSON API,P088 opentelemetry-api,https://pypi.org/pypi/opentelemetry-api/json,,200,,,133867,top500_screen.csv
+2026-09-29T06:20:18Z,PyPI JSON API,P089 huggingface-hub,https://pypi.org/pypi/huggingface-hub/json,,200,,,535685,top500_screen.csv
+2026-09-29T06:20:19Z,PyPI JSON API,P090 opentelemetry-sdk,https://pypi.org/pypi/opentelemetry-sdk/json,,200,,,133275,top500_screen.csv
+2026-09-29T06:20:19Z,PyPI JSON API,P091 pyasn1-modules,https://pypi.org/pypi/pyasn1-modules/json,,200,,,201719,top500_screen.csv
+2026-09-29T06:20:19Z,PyPI JSON API,P092 tenacity,https://pypi.org/pypi/tenacity/json,,200,,,80953,top500_screen.csv
+2026-09-29T06:20:19Z,PyPI JSON API,P093 google-api-core,https://pypi.org/pypi/google-api-core/json,,200,,,275611,top500_screen.csv
+2026-09-29T06:20:20Z,PyPI JSON API,P094 regex,https://pypi.org/pypi/regex/json,,200,,,7360054,top500_screen.csv
+2026-09-29T06:20:20Z,PyPI JSON API,P095 pyarrow,https://pypi.org/pypi/pyarrow/json,,200,,,1434635,top500_screen.csv
+2026-09-29T06:20:21Z,PyPI JSON API,P096 python-multipart,https://pypi.org/pypi/python-multipart/json,,200,,,53097,top500_screen.csv
+2026-09-29T06:20:21Z,PyPI JSON API,P097 textual,https://pypi.org/pypi/textual/json,,200,,,403904,top500_screen.csv
+2026-09-29T06:20:21Z,PyPI JSON API,P098 openai,https://pypi.org/pypi/openai/json,,200,,,669763,top500_screen.csv
+2026-09-29T06:20:22Z,PyPI JSON API,P099 grpcio,https://pypi.org/pypi/grpcio/json,,200,,,9082440,top500_screen.csv
+2026-09-29T06:20:22Z,PyPI JSON API,P100 soupsieve,https://pypi.org/pypi/soupsieve/json,,200,,,92920,top500_screen.csv
+2026-09-29T06:20:23Z,PyPI JSON API,P101 beautifulsoup4,https://pypi.org/pypi/beautifulsoup4/json,,200,,,95080,top500_screen.csv
+2026-09-29T06:20:23Z,PyPI JSON API,P102 jiter,https://pypi.org/pypi/jiter/json,,200,,,1665771,top500_screen.csv
+2026-09-29T06:20:23Z,PyPI JSON API,P103 pyparsing,https://pypi.org/pypi/pyparsing/json,,200,,,247344,top500_screen.csv
+2026-09-29T06:20:24Z,PyPI JSON API,P104 sqlalchemy,https://pypi.org/pypi/sqlalchemy/json,,200,,,5356906,top500_screen.csv
+2026-09-29T06:20:24Z,PyPI JSON API,P105 distro,https://pypi.org/pypi/distro/json,,200,,,31136,top500_screen.csv
+2026-09-29T06:20:24Z,PyPI JSON API,P106 scipy,https://pypi.org/pypi/scipy/json,,200,,,2293962,top500_screen.csv
+2026-09-29T06:20:25Z,PyPI JSON API,P107 colorama,https://pypi.org/pypi/colorama/json,,200,,,87740,top500_screen.csv
+2026-09-29T06:20:25Z,PyPI JSON API,P108 tomli,https://pypi.org/pypi/tomli/json,,200,,,273982,top500_screen.csv
+2026-09-29T06:20:25Z,PyPI JSON API,P109 lxml,https://pypi.org/pypi/lxml/json,,200,,,4609063,top500_screen.csv
+2026-09-29T06:20:26Z,PyPI JSON API,P110 watchfiles,https://pypi.org/pypi/watchfiles/json,,200,,,1283795,top500_screen.csv
+2026-09-29T06:20:26Z,PyPI JSON API,P111 opentelemetry-proto,https://pypi.org/pypi/opentelemetry-proto/json,,200,,,121123,top500_screen.csv
+2026-09-29T06:20:26Z,PyPI JSON API,P112 psutil,https://pypi.org/pypi/psutil/json,,200,,,1211023,top500_screen.csv
+2026-09-29T06:20:27Z,PyPI JSON API,P113 shellingham,https://pypi.org/pypi/shellingham/json,,200,,,42486,top500_screen.csv
+2026-09-29T06:20:27Z,PyPI JSON API,P114 opentelemetry-instrumentation,https://pypi.org/pypi/opentelemetry-instrumentation/json,,200,,,129875,top500_screen.csv
+2026-09-29T06:20:27Z,PyPI JSON API,P115 editables,https://pypi.org/pypi/editables/json,,200,,,14445,top500_screen.csv
+2026-09-29T06:20:28Z,PyPI JSON API,P116 typer,https://pypi.org/pypi/typer/json,,200,,,154128,top500_screen.csv
+2026-09-29T06:20:28Z,PyPI JSON API,P117 requests-oauthlib,https://pypi.org/pypi/requests-oauthlib/json,,200,,,48470,top500_screen.csv
+2026-09-29T06:20:28Z,PyPI JSON API,P118 opentelemetry-exporter-otlp-proto-http,https://pypi.org/pypi/opentelemetry-exporter-otlp-proto-http/json,,200,,,99241,top500_screen.csv
+2026-09-29T06:20:28Z,PyPI JSON API,P119 proto-plus,https://pypi.org/pypi/proto-plus/json,,200,,,110675,top500_screen.csv
+2026-09-29T06:20:29Z,PyPI JSON API,P120 openpyxl,https://pypi.org/pypi/openpyxl/json,,200,,,93639,top500_screen.csv
+2026-09-29T06:20:29Z,PyPI JSON API,P121 et-xmlfile,https://pypi.org/pypi/et-xmlfile/json,,200,,,9362,top500_screen.csv
+2026-09-29T06:20:29Z,PyPI JSON API,P122 mcp,https://pypi.org/pypi/mcp/json,,200,,,119749,top500_screen.csv
+2026-09-29T06:20:29Z,PyPI JSON API,P123 ruff,https://pypi.org/pypi/ruff/json,,200,,,6125456,top500_screen.csv
+2026-09-29T06:20:30Z,PyPI JSON API,P124 opentelemetry-exporter-otlp-proto-common,https://pypi.org/pypi/opentelemetry-exporter-otlp-proto-common/json,,200,,,65958,top500_screen.csv
+2026-09-29T06:20:30Z,PyPI JSON API,P125 coverage,https://pypi.org/pypi/coverage/json,,200,,,7736373,top500_screen.csv
+2026-09-29T06:20:31Z,PyPI JSON API,P126 exceptiongroup,https://pypi.org/pypi/exceptiongroup/json,,200,,,46552,top500_screen.csv
+2026-09-29T06:20:31Z,PyPI JSON API,P127 sglang,https://pypi.org/pypi/sglang/json,,200,,,350414,top500_screen.csv
+2026-09-29T06:20:31Z,PyPI JSON API,P128 oauthlib,https://pypi.org/pypi/oauthlib/json,,200,,,59811,top500_screen.csv
+2026-09-29T06:20:32Z,PyPI JSON API,P129 mypy-extensions,https://pypi.org/pypi/mypy-extensions/json,,200,,,14903,top500_screen.csv
+2026-09-29T06:20:32Z,PyPI JSON API,P130 dnspython,https://pypi.org/pypi/dnspython/json,,200,,,50169,top500_screen.csv
+2026-09-29T06:20:32Z,PyPI JSON API,P131 more-itertools,https://pypi.org/pypi/more-itertools/json,,200,,,132153,top500_screen.csv
+2026-09-29T06:20:33Z,PyPI JSON API,P132 wcwidth,https://pypi.org/pypi/wcwidth/json,,200,,,142005,top500_screen.csv
+2026-09-29T06:20:33Z,PyPI JSON API,P133 cachetools,https://pypi.org/pypi/cachetools/json,,200,,,118469,top500_screen.csv
+2026-09-29T06:20:33Z,PyPI JSON API,P134 distlib,https://pypi.org/pypi/distlib/json,,200,,,43234,top500_screen.csv
+2026-09-29T06:20:33Z,PyPI JSON API,P135 sse-starlette,https://pypi.org/pypi/sse-starlette/json,,200,,,131014,top500_screen.csv
+2026-09-29T06:20:34Z,PyPI JSON API,P136 hf-xet,https://pypi.org/pypi/hf-xet/json,,200,,,567640,top500_screen.csv
+2026-09-29T06:20:34Z,PyPI JSON API,P137 multiprocess,https://pypi.org/pypi/multiprocess/json,,200,,,184765,top500_screen.csv
+2026-09-29T06:20:34Z,PyPI JSON API,P138 pytest-asyncio,https://pypi.org/pypi/pytest-asyncio/json,,200,,,122853,top500_screen.csv
+2026-09-29T06:20:35Z,PyPI JSON API,P139 python-discovery,https://pypi.org/pypi/python-discovery/json,,200,,,41764,top500_screen.csv
+2026-09-29T06:20:35Z,PyPI JSON API,P140 docstring-parser,https://pypi.org/pypi/docstring-parser/json,,200,,,30708,top500_screen.csv
+2026-09-29T06:20:35Z,PyPI JSON API,P141 sortedcontainers,https://pypi.org/pypi/sortedcontainers/json,,200,,,60183,top500_screen.csv
+2026-09-29T06:20:35Z,PyPI JSON API,P142 requests-toolbelt,https://pypi.org/pypi/requests-toolbelt/json,,200,,,49113,top500_screen.csv
+2026-09-29T06:20:36Z,PyPI JSON API,P143 pyopenssl,https://pypi.org/pypi/pyopenssl/json,,200,,,117606,top500_screen.csv
+2026-09-29T06:20:36Z,PyPI JSON API,P144 psycopg2-binary,https://pypi.org/pypi/psycopg2-binary/json,,200,,,1118630,top500_screen.csv
+2026-09-29T06:20:36Z,PyPI JSON API,P145 rsa,https://pypi.org/pypi/rsa/json,,200,,,67210,top500_screen.csv
+2026-09-29T06:20:37Z,PyPI JSON API,P146 uvloop,https://pypi.org/pypi/uvloop/json,,200,,,545502,top500_screen.csv
+2026-09-29T06:20:37Z,PyPI JSON API,P147 msgpack,https://pypi.org/pypi/msgpack/json,,200,,,1378647,top500_screen.csv
+2026-09-29T06:20:37Z,PyPI JSON API,P148 opentelemetry-exporter-otlp-proto-grpc,https://pypi.org/pypi/opentelemetry-exporter-otlp-proto-grpc/json,,200,,,110349,top500_screen.csv
+2026-09-29T06:20:37Z,PyPI JSON API,P149 tiktoken,https://pypi.org/pypi/tiktoken/json,,200,,,628758,top500_screen.csv
+2026-09-29T06:20:38Z,PyPI JSON API,P150 httptools,https://pypi.org/pypi/httptools/json,,200,,,443112,top500_screen.csv
+2026-09-29T06:20:38Z,PyPI JSON API,P151 google-genai,https://pypi.org/pypi/google-genai/json,,200,,,253475,top500_screen.csv
+2026-09-29T06:20:38Z,PyPI JSON API,P152 networkx,https://pypi.org/pypi/networkx/json,,200,,,197683,top500_screen.csv
+2026-09-29T06:20:39Z,PyPI JSON API,P153 werkzeug,https://pypi.org/pypi/werkzeug/json,,200,,,155517,top500_screen.csv
+2026-09-29T06:20:39Z,PyPI JSON API,P154 tokenizers,https://pypi.org/pypi/tokenizers/json,,200,,,2521967,top500_screen.csv
+2026-09-29T06:20:39Z,PyPI JSON API,P155 redis,https://pypi.org/pypi/redis/json,,200,,,245455,top500_screen.csv
+2026-09-29T06:20:40Z,PyPI JSON API,P156 gitpython,https://pypi.org/pypi/gitpython/json,,200,,,175870,top500_screen.csv
+2026-09-29T06:20:40Z,PyPI JSON API,P157 fonttools,https://pypi.org/pypi/fonttools/json,,200,,,2734405,top500_screen.csv
+2026-09-29T06:20:40Z,PyPI JSON API,P158 langchain,https://pypi.org/pypi/langchain/json,,200,,,820256,top500_screen.csv
+2026-09-29T06:20:41Z,PyPI JSON API,P159 prompt-toolkit,https://pypi.org/pypi/prompt-toolkit/json,,200,,,246012,top500_screen.csv
+2026-09-29T06:20:41Z,PyPI JSON API,P160 defusedxml,https://pypi.org/pypi/defusedxml/json,,200,,,56321,top500_screen.csv
+2026-09-29T06:20:41Z,PyPI JSON API,P161 grpcio-tools,https://pypi.org/pypi/grpcio-tools/json,,200,,,9533227,top500_screen.csv
+2026-09-29T06:20:42Z,PyPI JSON API,P162 scikit-learn,https://pypi.org/pypi/scikit-learn/json,,200,,,1422150,top500_screen.csv
+2026-09-29T06:20:42Z,PyPI JSON API,P163 smmap,https://pypi.org/pypi/smmap/json,,200,,,28967,top500_screen.csv
+2026-09-29T06:20:42Z,PyPI JSON API,P164 pytest-cov,https://pypi.org/pypi/pytest-cov/json,,200,,,103486,top500_screen.csv
+2026-09-29T06:20:43Z,PyPI JSON API,P165 google-cloud-storage,https://pypi.org/pypi/google-cloud-storage/json,,200,,,220907,top500_screen.csv
+2026-09-29T06:20:43Z,PyPI JSON API,P166 matplotlib,https://pypi.org/pypi/matplotlib/json,,200,,,2499616,top500_screen.csv
+2026-09-29T06:20:43Z,PyPI JSON API,P167 orjson,https://pypi.org/pypi/orjson/json,,200,,,4518374,top500_screen.csv
+2026-09-29T06:20:44Z,PyPI JSON API,P168 email-validator,https://pypi.org/pypi/email-validator/json,,200,,,71580,top500_screen.csv
+2026-09-29T06:20:44Z,PyPI JSON API,P169 pynacl,https://pypi.org/pypi/pynacl/json,,200,,,252576,top500_screen.csv
+2026-09-29T06:20:44Z,PyPI JSON API,P170 httpx-sse,https://pypi.org/pypi/httpx-sse/json,,200,,,24513,top500_screen.csv
+2026-09-29T06:20:45Z,PyPI JSON API,P171 isodate,https://pypi.org/pypi/isodate/json,,200,,,30216,top500_screen.csv
+2026-09-29T06:20:45Z,PyPI JSON API,P172 chardet,https://pypi.org/pypi/chardet/json,,200,,,466375,top500_screen.csv
+2026-09-29T06:20:45Z,PyPI JSON API,P173 azure-core,https://pypi.org/pypi/azure-core/json,,200,,,178931,top500_screen.csv
+2026-09-29T06:20:45Z,PyPI JSON API,P174 gitdb,https://pypi.org/pypi/gitdb/json,,200,,,28173,top500_screen.csv
+2026-09-29T06:20:46Z,PyPI JSON API,P175 tzlocal,https://pypi.org/pypi/tzlocal/json,,200,,,77171,top500_screen.csv
+2026-09-29T06:20:46Z,PyPI JSON API,P176 alembic,https://pypi.org/pypi/alembic/json,,200,,,173820,top500_screen.csv
+2026-09-29T06:20:46Z,PyPI JSON API,P177 itsdangerous,https://pypi.org/pypi/itsdangerous/json,,200,,,32101,top500_screen.csv
+2026-09-29T06:20:46Z,PyPI JSON API,P178 dill,https://pypi.org/pypi/dill/json,,200,,,49162,top500_screen.csv
+2026-09-29T06:20:47Z,PyPI JSON API,P179 websocket-client,https://pypi.org/pypi/websocket-client/json,,200,,,117199,top500_screen.csv
+2026-09-29T06:20:47Z,PyPI JSON API,P180 nodeenv,https://pypi.org/pypi/nodeenv/json,,200,,,109533,top500_screen.csv
+2026-09-29T06:20:47Z,PyPI JSON API,P181 joblib,https://pypi.org/pypi/joblib/json,,200,,,168478,top500_screen.csv
+2026-09-29T06:20:48Z,PyPI JSON API,P182 tabulate,https://pypi.org/pypi/tabulate/json,,200,,,71912,top500_screen.csv
+2026-09-29T06:20:48Z,PyPI JSON API,P183 mako,https://pypi.org/pypi/mako/json,,200,,,86767,top500_screen.csv
+2026-09-29T06:20:48Z,PyPI JSON API,P184 opentelemetry-instrumentation-requests,https://pypi.org/pypi/opentelemetry-instrumentation-requests/json,,200,,,122912,top500_screen.csv
+2026-09-29T06:20:48Z,PyPI JSON API,P185 threadpoolctl,https://pypi.org/pypi/threadpoolctl/json,,200,,,47229,top500_screen.csv
+2026-09-29T06:20:49Z,PyPI JSON API,P186 ruamel-yaml,https://pypi.org/pypi/ruamel-yaml/json,,200,,,2062493,top500_screen.csv
+2026-09-29T06:20:49Z,PyPI JSON API,P187 h2,https://pypi.org/pypi/h2/json,,200,,,77213,top500_screen.csv
+2026-09-29T06:20:49Z,PyPI JSON API,P188 azure-identity,https://pypi.org/pypi/azure-identity/json,,200,,,226322,top500_screen.csv
+2026-09-29T06:20:50Z,PyPI JSON API,P189 keyring,https://pypi.org/pypi/keyring/json,,200,,,282085,top500_screen.csv
+2026-09-29T06:20:50Z,PyPI JSON API,P190 google-cloud-core,https://pypi.org/pypi/google-cloud-core/json,,200,,,98394,top500_screen.csv
+2026-09-29T06:20:50Z,PyPI JSON API,P191 mypy,https://pypi.org/pypi/mypy/json,,200,,,1865769,top500_screen.csv
+2026-09-29T06:20:51Z,PyPI JSON API,P192 kiwisolver,https://pypi.org/pypi/kiwisolver/json,,200,,,1241909,top500_screen.csv
+2026-09-29T06:20:51Z,PyPI JSON API,P193 bcrypt,https://pypi.org/pypi/bcrypt/json,,200,,,579026,top500_screen.csv
+2026-09-29T06:20:51Z,PyPI JSON API,P194 hpack,https://pypi.org/pypi/hpack/json,,200,,,25301,top500_screen.csv
+2026-09-29T06:20:51Z,PyPI JSON API,P195 pytest-json-ctrf,https://pypi.org/pypi/pytest-json-ctrf/json,,200,,,34939,top500_screen.csv
+2026-09-29T06:20:52Z,PyPI JSON API,P196 flask,https://pypi.org/pypi/flask/json,,200,,,88766,top500_screen.csv
+2026-09-29T06:20:52Z,PyPI JSON API,P197 opentelemetry-util-http,https://pypi.org/pypi/opentelemetry-util-http/json,,200,,,107285,top500_screen.csv
+2026-09-29T06:20:52Z,PyPI JSON API,P198 contourpy,https://pypi.org/pypi/contourpy/json,,200,,,1096241,top500_screen.csv
+2026-09-29T06:20:53Z,PyPI JSON API,P199 jaraco-classes,https://pypi.org/pypi/jaraco-classes/json,,200,,,33412,top500_screen.csv
+2026-09-29T06:20:53Z,PyPI JSON API,P200 msal,https://pypi.org/pypi/msal/json,,200,,,129263,top500_screen.csv
+2026-09-29T06:20:53Z,PyPI JSON API,P201 docutils,https://pypi.org/pypi/docutils/json,,200,,,94410,top500_screen.csv
+2026-09-29T06:20:54Z,PyPI JSON API,P202 truststore,https://pypi.org/pypi/truststore/json,,200,,,31518,top500_screen.csv
+2026-09-29T06:20:54Z,PyPI JSON API,P203 hyperframe,https://pypi.org/pypi/hyperframe/json,,200,,,38855,top500_screen.csv
+2026-09-29T06:20:54Z,PyPI JSON API,P204 jeepney,https://pypi.org/pypi/jeepney/json,,200,,,23995,top500_screen.csv
+2026-09-29T06:20:55Z,PyPI JSON API,P205 jaraco-functools,https://pypi.org/pypi/jaraco-functools/json,,200,,,80565,top500_screen.csv
+2026-09-29T06:20:55Z,PyPI JSON API,P206 decorator,https://pypi.org/pypi/decorator/json,,200,,,60750,top500_screen.csv
+2026-09-29T06:20:55Z,PyPI JSON API,P207 zstandard,https://pypi.org/pypi/zstandard/json,,200,,,1171292,top500_screen.csv
+2026-09-29T06:20:55Z,PyPI JSON API,P208 anthropic,https://pypi.org/pypi/anthropic/json,,200,,,346663,top500_screen.csv
+2026-09-29T06:20:56Z,PyPI JSON API,P209 pre-commit,https://pypi.org/pypi/pre-commit/json,,200,,,286767,top500_screen.csv
+2026-09-29T06:20:56Z,PyPI JSON API,P210 secretstorage,https://pypi.org/pypi/secretstorage/json,,200,,,33586,top500_screen.csv
+2026-09-29T06:20:56Z,PyPI JSON API,P211 identify,https://pypi.org/pypi/identify/json,,200,,,296487,top500_screen.csv
+2026-09-29T06:20:57Z,PyPI JSON API,P212 cfgv,https://pypi.org/pypi/cfgv/json,,200,,,42211,top500_screen.csv
+2026-09-29T06:20:57Z,PyPI JSON API,P213 toml,https://pypi.org/pypi/toml/json,,200,,,25035,top500_screen.csv
+2026-09-29T06:20:57Z,PyPI JSON API,P214 docker,https://pypi.org/pypi/docker/json,,200,,,107022,top500_screen.csv
+2026-09-29T06:20:57Z,PyPI JSON API,P215 xxhash,https://pypi.org/pypi/xxhash/json,,200,,,2588794,top500_screen.csv
+2026-09-29T06:20:58Z,PyPI JSON API,P216 jaraco-context,https://pypi.org/pypi/jaraco-context/json,,200,,,48045,top500_screen.csv
+2026-09-29T06:20:58Z,PyPI JSON API,P217 blinker,https://pypi.org/pypi/blinker/json,,200,,,24207,top500_screen.csv
+2026-09-29T06:20:58Z,PyPI JSON API,P218 uv,https://pypi.org/pypi/uv/json,,200,,,4902871,top500_screen.csv
+2026-09-29T06:20:59Z,PyPI JSON API,P219 cycler,https://pypi.org/pypi/cycler/json,,200,,,14815,top500_screen.csv
+2026-09-29T06:20:59Z,PyPI JSON API,P220 google-resumable-media,https://pypi.org/pypi/google-resumable-media/json,,200,,,93920,top500_screen.csv
+2026-09-29T06:21:00Z,PyPI JSON API,P221 httpx2,https://pypi.org/pypi/httpx2/json,,200,,,39382,top500_screen.csv
+2026-09-29T06:21:00Z,PyPI JSON API,P222 ptyprocess,https://pypi.org/pypi/ptyprocess/json,,200,,,14096,top500_screen.csv
+2026-09-29T06:21:00Z,PyPI JSON API,P223 google-crc32c,https://pypi.org/pypi/google-crc32c/json,,200,,,764460,top500_screen.csv
+2026-09-29T06:21:00Z,PyPI JSON API,P224 sympy,https://pypi.org/pypi/sympy/json,,200,,,106649,top500_screen.csv
+2026-09-29T06:21:01Z,PyPI JSON API,P225 transformers,https://pypi.org/pypi/transformers/json,,200,,,411751,top500_screen.csv
+2026-09-29T06:21:01Z,PyPI JSON API,P226 httpcore2,https://pypi.org/pypi/httpcore2/json,,200,,,57019,top500_screen.csv
+2026-09-29T06:21:01Z,PyPI JSON API,P227 pexpect,https://pypi.org/pypi/pexpect/json,,200,,,26526,top500_screen.csv
+2026-09-29T06:21:02Z,PyPI JSON API,P228 google-cloud-bigquery,https://pypi.org/pypi/google-cloud-bigquery/json,,200,,,325038,top500_screen.csv
+2026-09-29T06:21:02Z,PyPI JSON API,P229 google-api-python-client,https://pypi.org/pypi/google-api-python-client/json,,200,,,475254,top500_screen.csv
+2026-09-29T06:21:02Z,PyPI JSON API,P230 uritemplate,https://pypi.org/pypi/uritemplate/json,,200,,,22924,top500_screen.csv
+2026-09-29T06:21:02Z,PyPI JSON API,P231 black,https://pypi.org/pypi/black/json,,200,,,861734,top500_screen.csv
+2026-09-29T06:21:03Z,PyPI JSON API,P232 prometheus-client,https://pypi.org/pypi/prometheus-client/json,,200,,,71594,top500_screen.csv
+2026-09-29T06:21:03Z,PyPI JSON API,P233 jsonpointer,https://pypi.org/pypi/jsonpointer/json,,200,,,41395,top500_screen.csv
+2026-09-29T06:21:03Z,PyPI JSON API,P234 google-auth-httplib2,https://pypi.org/pypi/google-auth-httplib2/json,,200,,,25842,top500_screen.csv
+2026-09-29T06:21:04Z,PyPI JSON API,P235 sentry-sdk,https://pypi.org/pypi/sentry-sdk/json,,200,,,558147,top500_screen.csv
+2026-09-29T06:21:04Z,PyPI JSON API,P236 langchain-core,https://pypi.org/pypi/langchain-core/json,,200,,,491318,top500_screen.csv
+2026-09-29T06:21:04Z,PyPI JSON API,P237 opentelemetry-instrumentation-threading,https://pypi.org/pypi/opentelemetry-instrumentation-threading/json,,200,,,54340,top500_screen.csv
+2026-09-29T06:21:04Z,PyPI JSON API,P238 deprecated,https://pypi.org/pypi/deprecated/json,,200,,,53068,top500_screen.csv
+2026-09-29T06:21:05Z,PyPI JSON API,P239 backoff,https://pypi.org/pypi/backoff/json,,200,,,58539,top500_screen.csv
+2026-09-29T06:21:05Z,PyPI JSON API,P240 snowflake-connector-python,https://pypi.org/pypi/snowflake-connector-python/json,,200,,,2572511,top500_screen.csv
+2026-09-29T06:21:05Z,PyPI JSON API,P241 async-timeout,https://pypi.org/pypi/async-timeout/json,,200,,,38565,top500_screen.csv
+2026-09-29T06:21:06Z,PyPI JSON API,P242 google-auth-oauthlib,https://pypi.org/pypi/google-auth-oauthlib/json,,200,,,54252,top500_screen.csv
+2026-09-29T06:21:06Z,PyPI JSON API,P243 rapidfuzz,https://pypi.org/pypi/rapidfuzz/json,,200,,,8980119,top500_screen.csv
+2026-09-29T06:21:07Z,PyPI JSON API,P244 mpmath,https://pypi.org/pypi/mpmath/json,,200,,,74208,top500_screen.csv
+2026-09-29T06:21:07Z,PyPI JSON API,P245 asn1crypto,https://pypi.org/pypi/asn1crypto/json,,200,,,60193,top500_screen.csv
+2026-09-29T06:21:07Z,PyPI JSON API,P246 httplib2,https://pypi.org/pypi/httplib2/json,,200,,,63698,top500_screen.csv
+2026-09-29T06:21:07Z,PyPI JSON API,P247 opentelemetry-exporter-otlp,https://pypi.org/pypi/opentelemetry-exporter-otlp/json,,200,,,120187,top500_screen.csv
+2026-09-29T06:21:08Z,PyPI JSON API,P248 ipython,https://pypi.org/pypi/ipython/json,,200,,,381263,top500_screen.csv
+2026-09-29T06:21:08Z,PyPI JSON API,P249 awscli,https://pypi.org/pypi/awscli/json,,200,,,3775220,top500_screen.csv
+2026-09-29T06:21:09Z,PyPI JSON API,P250 pytest-xdist,https://pypi.org/pypi/pytest-xdist/json,,200,,,97698,top500_screen.csv
+2026-09-29T06:21:09Z,PyPI JSON API,P251 narwhals,https://pypi.org/pypi/narwhals/json,,200,,,391488,top500_screen.csv
+2026-09-29T06:21:09Z,PyPI JSON API,P252 librt,https://pypi.org/pypi/librt/json,,200,,,2454372,top500_screen.csv
+2026-09-29T06:21:09Z,PyPI JSON API,P253 aiofiles,https://pypi.org/pypi/aiofiles/json,,200,,,30938,top500_screen.csv
+2026-09-29T06:21:10Z,PyPI JSON API,P254 types-requests,https://pypi.org/pypi/types-requests/json,,200,,,219745,top500_screen.csv
+2026-09-29T06:21:10Z,PyPI JSON API,P255 msal-extensions,https://pypi.org/pypi/msal-extensions/json,,200,,,33574,top500_screen.csv
+2026-09-29T06:21:10Z,PyPI JSON API,P256 poetry-core,https://pypi.org/pypi/poetry-core/json,,200,,,111549,top500_screen.csv
+2026-09-29T06:21:11Z,PyPI JSON API,P257 datasets,https://pypi.org/pypi/datasets/json,,200,,,207814,top500_screen.csv
+2026-09-29T06:21:11Z,PyPI JSON API,P258 pypdf,https://pypi.org/pypi/pypdf/json,,200,,,178771,top500_screen.csv
+2026-09-29T06:21:11Z,PyPI JSON API,P259 execnet,https://pypi.org/pypi/execnet/json,,200,,,44000,top500_screen.csv
+2026-09-29T06:21:11Z,PyPI JSON API,P260 traitlets,https://pypi.org/pypi/traitlets/json,,200,,,102748,top500_screen.csv
+2026-09-29T06:21:12Z,PyPI JSON API,P261 cloudpickle,https://pypi.org/pypi/cloudpickle/json,,200,,,73245,top500_screen.csv
+2026-09-29T06:21:12Z,PyPI JSON API,P262 asgiref,https://pypi.org/pypi/asgiref/json,,200,,,119010,top500_screen.csv
+2026-09-29T06:21:12Z,PyPI JSON API,P263 ydb,https://pypi.org/pypi/ydb/json,,200,,,283542,top500_screen.csv
+2026-09-29T06:21:13Z,PyPI JSON API,P264 paramiko,https://pypi.org/pypi/paramiko/json,,200,,,194626,top500_screen.csv
+2026-09-29T06:21:13Z,PyPI JSON API,P265 jsonpatch,https://pypi.org/pypi/jsonpatch/json,,200,,,56653,top500_screen.csv
+2026-09-29T06:21:13Z,PyPI JSON API,P266 sqlparse,https://pypi.org/pypi/sqlparse/json,,200,,,52008,top500_screen.csv
+2026-09-29T06:21:13Z,PyPI JSON API,P267 google-cloud-secret-manager,https://pypi.org/pypi/google-cloud-secret-manager/json,,200,,,116452,top500_screen.csv
+2026-09-29T06:21:14Z,PyPI JSON API,P268 pyproject-hooks,https://pypi.org/pypi/pyproject-hooks/json,,200,,,12944,top500_screen.csv
+2026-09-29T06:21:14Z,PyPI JSON API,P269 webencodings,https://pypi.org/pypi/webencodings/json,,200,,,13752,top500_screen.csv
+2026-09-29T06:21:14Z,PyPI JSON API,P270 fastjsonschema,https://pypi.org/pypi/fastjsonschema/json,,200,,,58318,top500_screen.csv
+2026-09-29T06:21:14Z,PyPI JSON API,P271 authlib,https://pypi.org/pypi/authlib/json,,200,,,109009,top500_screen.csv
+2026-09-29T06:21:15Z,PyPI JSON API,P272 psycopg,https://pypi.org/pypi/psycopg/json,,200,,,101187,top500_screen.csv
+2026-09-29T06:21:15Z,PyPI JSON API,P273 build,https://pypi.org/pypi/build/json,,200,,,67105,top500_screen.csv
+2026-09-29T06:21:15Z,PyPI JSON API,P274 grpc-google-iam-v1,https://pypi.org/pypi/grpc-google-iam-v1/json,,200,,,40936,top500_screen.csv
+2026-09-29T06:21:16Z,PyPI JSON API,P275 gunicorn,https://pypi.org/pypi/gunicorn/json,,200,,,115349,top500_screen.csv
+2026-09-29T06:21:16Z,PyPI JSON API,P276 executing,https://pypi.org/pypi/executing/json,,200,,,54235,top500_screen.csv
+2026-09-29T06:21:16Z,PyPI JSON API,P277 databricks-sdk,https://pypi.org/pypi/databricks-sdk/json,,200,,,306866,top500_screen.csv
+2026-09-29T06:21:16Z,PyPI JSON API,P278 isort,https://pypi.org/pypi/isort/json,,200,,,405482,top500_screen.csv
+2026-09-29T06:21:17Z,PyPI JSON API,P279 joserfc,https://pypi.org/pypi/joserfc/json,,200,,,77327,top500_screen.csv
+2026-09-29T06:21:17Z,PyPI JSON API,P280 azure-storage-blob,https://pypi.org/pypi/azure-storage-blob/json,,200,,,176424,top500_screen.csv
+2026-09-29T06:21:17Z,PyPI JSON API,P281 jedi,https://pypi.org/pypi/jedi/json,,200,,,75551,top500_screen.csv
+2026-09-29T06:21:18Z,PyPI JSON API,P282 parso,https://pypi.org/pypi/parso/json,,200,,,56713,top500_screen.csv
+2026-09-29T06:21:18Z,PyPI JSON API,P283 babel,https://pypi.org/pypi/babel/json,,200,,,63094,top500_screen.csv
+2026-09-29T06:21:18Z,PyPI JSON API,P284 asttokens,https://pypi.org/pypi/asttokens/json,,200,,,63592,top500_screen.csv
+2026-09-29T06:21:18Z,PyPI JSON API,P285 psycopg-binary,https://pypi.org/pypi/psycopg-binary/json,,200,,,2884001,top500_screen.csv
+2026-09-29T06:21:19Z,PyPI JSON API,P286 google-cloud-aiplatform,https://pypi.org/pypi/google-cloud-aiplatform/json,,200,,,411999,top500_screen.csv
+2026-09-29T06:21:19Z,PyPI JSON API,P287 matplotlib-inline,https://pypi.org/pypi/matplotlib-inline/json,,200,,,20337,top500_screen.csv
+2026-09-29T06:21:19Z,PyPI JSON API,P288 cython,https://pypi.org/pypi/cython/json,,200,,,3996205,top500_screen.csv
+2026-09-29T06:21:20Z,PyPI JSON API,P289 tornado,https://pypi.org/pypi/tornado/json,,200,,,508453,top500_screen.csv
+2026-09-29T06:21:20Z,PyPI JSON API,P290 markdown,https://pypi.org/pypi/markdown/json,,200,,,103484,top500_screen.csv
+2026-09-29T06:21:20Z,PyPI JSON API,P291 setuptools-scm,https://pypi.org/pypi/setuptools-scm/json,,200,,,334786,top500_screen.csv
+2026-09-29T06:21:21Z,PyPI JSON API,P292 xmltodict,https://pypi.org/pypi/xmltodict/json,,200,,,55654,top500_screen.csv
+2026-09-29T06:21:21Z,PyPI JSON API,P293 pydantic-ai-slim,https://pypi.org/pypi/pydantic-ai-slim/json,,200,,,533120,top500_screen.csv
+2026-09-29T06:21:21Z,PyPI JSON API,P294 stack-data,https://pypi.org/pypi/stack-data/json,,200,,,45518,top500_screen.csv
+2026-09-29T06:21:22Z,PyPI JSON API,P295 pure-eval,https://pypi.org/pypi/pure-eval/json,,200,,,19513,top500_screen.csv
+2026-09-29T06:21:22Z,PyPI JSON API,P296 asyncpg,https://pypi.org/pypi/asyncpg/json,,200,,,615464,top500_screen.csv
+2026-09-29T06:21:22Z,PyPI JSON API,P297 gcsfs,https://pypi.org/pypi/gcsfs/json,,200,,,132908,top500_screen.csv
+2026-09-29T06:21:22Z,PyPI JSON API,P298 google-cloud-batch,https://pypi.org/pypi/google-cloud-batch/json,,200,,,120005,top500_screen.csv
+2026-09-29T06:21:23Z,PyPI JSON API,P299 marshmallow,https://pypi.org/pypi/marshmallow/json,,200,,,321501,top500_screen.csv
+2026-09-29T06:21:23Z,PyPI JSON API,P300 cachecontrol,https://pypi.org/pypi/cachecontrol/json,,200,,,57345,top500_screen.csv
+2026-09-29T06:21:23Z,PyPI JSON API,P301 langsmith,https://pypi.org/pypi/langsmith/json,,200,,,855693,top500_screen.csv
+2026-09-29T06:21:24Z,PyPI JSON API,P302 python-json-logger,https://pypi.org/pypi/python-json-logger/json,,200,,,50100,top500_screen.csv
+2026-09-29T06:21:24Z,PyPI JSON API,P303 vcs-versioning,https://pypi.org/pypi/vcs-versioning/json,,200,,,34376,top500_screen.csv
+2026-09-29T06:21:24Z,PyPI JSON API,P304 fastuuid,https://pypi.org/pypi/fastuuid/json,,200,,,433601,top500_screen.csv
+2026-09-29T06:21:24Z,PyPI JSON API,P305 python-docx,https://pypi.org/pypi/python-docx/json,,200,,,36905,top500_screen.csv
+2026-09-29T06:21:25Z,PyPI JSON API,P306 structlog,https://pypi.org/pypi/structlog/json,,200,,,78482,top500_screen.csv
+2026-09-29T06:21:25Z,PyPI JSON API,P307 watchdog,https://pypi.org/pypi/watchdog/json,,200,,,675655,top500_screen.csv
+2026-09-29T06:21:25Z,PyPI JSON API,P308 playwright,https://pypi.org/pypi/playwright/json,,200,,,495294,top500_screen.csv
+2026-09-29T06:21:26Z,PyPI JSON API,P309 google-cloud-kms,https://pypi.org/pypi/google-cloud-kms/json,,200,,,142165,top500_screen.csv
+2026-09-29T06:21:26Z,PyPI JSON API,P310 safetensors,https://pypi.org/pypi/safetensors/json,,200,,,2021772,top500_screen.csv
+2026-09-29T06:21:26Z,PyPI JSON API,P311 tinycss2,https://pypi.org/pypi/tinycss2/json,,200,,,28556,top500_screen.csv
+2026-09-29T06:21:27Z,PyPI JSON API,P312 termcolor,https://pypi.org/pypi/termcolor/json,,200,,,33682,top500_screen.csv
+2026-09-29T06:21:27Z,PyPI JSON API,P313 google-analytics-admin,https://pypi.org/pypi/google-analytics-admin/json,,200,,,115076,top500_screen.csv
+2026-09-29T06:21:27Z,PyPI JSON API,P314 google-cloud-compute,https://pypi.org/pypi/google-cloud-compute/json,,200,,,140367,top500_screen.csv
+2026-09-29T06:21:27Z,PyPI JSON API,P315 pytokens,https://pypi.org/pypi/pytokens/json,,200,,,136617,top500_screen.csv
+2026-09-29T06:21:28Z,PyPI JSON API,P316 aioitertools,https://pypi.org/pypi/aioitertools/json,,200,,,30062,top500_screen.csv
+2026-09-29T06:21:28Z,PyPI JSON API,P317 kubernetes,https://pypi.org/pypi/kubernetes/json,,200,,,189952,top500_screen.csv
+2026-09-29T06:21:28Z,PyPI JSON API,P318 brotli,https://pypi.org/pypi/brotli/json,,200,,,500121,top500_screen.csv
+2026-09-29T06:21:29Z,PyPI JSON API,P319 pymupdf,https://pypi.org/pypi/pymupdf/json,,200,,,2545309,top500_screen.csv
+2026-09-29T06:21:29Z,PyPI JSON API,P320 pyzmq,https://pypi.org/pypi/pyzmq/json,,200,,,3966856,top500_screen.csv
+2026-09-29T06:21:29Z,PyPI JSON API,P321 pyee,https://pypi.org/pypi/pyee/json,,200,,,72270,top500_screen.csv
+2026-09-29T06:21:30Z,PyPI JSON API,P322 xlsxwriter,https://pypi.org/pypi/xlsxwriter/json,,200,,,230035,top500_screen.csv
+2026-09-29T06:21:30Z,PyPI JSON API,P323 pymongo,https://pypi.org/pypi/pymongo/json,,200,,,5712957,top500_screen.csv
+2026-09-29T06:21:30Z,PyPI JSON API,P324 lz4,https://pypi.org/pypi/lz4/json,,200,,,978209,top500_screen.csv
+2026-09-29T06:21:31Z,PyPI JSON API,P325 mdit-py-plugins,https://pypi.org/pypi/mdit-py-plugins/json,,200,,,39299,top500_screen.csv
+2026-09-29T06:21:31Z,PyPI JSON API,P326 google-cloud-pubsub,https://pypi.org/pypi/google-cloud-pubsub/json,,200,,,268266,top500_screen.csv
+2026-09-29T06:21:31Z,PyPI JSON API,P327 pydantic-graph,https://pypi.org/pypi/pydantic-graph/json,,200,,,502900,top500_screen.csv
+2026-09-29T06:21:32Z,PyPI JSON API,P328 cbor2,https://pypi.org/pypi/cbor2/json,,200,,,983631,top500_screen.csv
+2026-09-29T06:21:32Z,PyPI JSON API,P329 pytest-mock,https://pypi.org/pypi/pytest-mock/json,,200,,,106267,top500_screen.csv
+2026-09-29T06:21:32Z,PyPI JSON API,P330 pytest-timeout,https://pypi.org/pypi/pytest-timeout/json,,200,,,58287,top500_screen.csv
+2026-09-29T06:21:33Z,PyPI JSON API,P331 py4j,https://pypi.org/pypi/py4j/json,,200,,,65076,top500_screen.csv
+2026-09-29T06:21:33Z,PyPI JSON API,P332 pymysql,https://pypi.org/pypi/pymysql/json,,200,,,78471,top500_screen.csv
+2026-09-29T06:21:33Z,PyPI JSON API,P333 linkify-it-py,https://pypi.org/pypi/linkify-it-py/json,,200,,,29421,top500_screen.csv
+2026-09-29T06:21:33Z,PyPI JSON API,P334 flatbuffers,https://pypi.org/pypi/flatbuffers/json,,200,,,41680,top500_screen.csv
+2026-09-29T06:21:34Z,PyPI JSON API,P335 google-cloud-dlp,https://pypi.org/pypi/google-cloud-dlp/json,,200,,,155032,top500_screen.csv
+2026-09-29T06:21:34Z,PyPI JSON API,P336 pyperclip,https://pypi.org/pypi/pyperclip/json,,200,,,40069,top500_screen.csv
+2026-09-29T06:21:34Z,PyPI JSON API,P337 nest-asyncio,https://pypi.org/pypi/nest-asyncio/json,,200,,,60775,top500_screen.csv
+2026-09-29T06:21:35Z,PyPI JSON API,P338 google-cloud-speech,https://pypi.org/pypi/google-cloud-speech/json,,200,,,167185,top500_screen.csv
+2026-09-29T06:21:35Z,PyPI JSON API,P339 dbt-adapters,https://pypi.org/pypi/dbt-adapters/json,,200,,,140413,top500_screen.csv
+2026-09-29T06:21:35Z,PyPI JSON API,P340 wsproto,https://pypi.org/pypi/wsproto/json,,200,,,29063,top500_screen.csv
+2026-09-29T06:21:35Z,PyPI JSON API,P341 debugpy,https://pypi.org/pypi/debugpy/json,,200,,,1456660,top500_screen.csv
+2026-09-29T06:21:36Z,PyPI JSON API,P342 typedload,https://pypi.org/pypi/typedload/json,,200,,,68254,top500_screen.csv
+2026-09-29T06:21:36Z,PyPI JSON API,P343 google-cloud-texttospeech,https://pypi.org/pypi/google-cloud-texttospeech/json,,200,,,127281,top500_screen.csv
+2026-09-29T06:21:36Z,PyPI JSON API,P344 ruamel-yaml-clib,https://pypi.org/pypi/ruamel-yaml-clib/json,,200,,,538827,top500_screen.csv
+2026-09-29T06:21:37Z,PyPI JSON API,P345 croniter,https://pypi.org/pypi/croniter/json,,200,,,167102,top500_screen.csv
+2026-09-29T06:21:37Z,PyPI JSON API,P346 slack-sdk,https://pypi.org/pypi/slack-sdk/json,,200,,,228481,top500_screen.csv
+2026-09-29T06:21:37Z,PyPI JSON API,P347 uc-micro-py,https://pypi.org/pypi/uc-micro-py/json,,200,,,13581,top500_screen.csv
+2026-09-29T06:21:37Z,PyPI JSON API,P348 weaviate-client,https://pypi.org/pypi/weaviate-client/json,,200,,,440761,top500_screen.csv
+2026-09-29T06:21:38Z,PyPI JSON API,P349 griffelib,https://pypi.org/pypi/griffelib/json,,200,,,12624,top500_screen.csv
+2026-09-29T06:21:38Z,PyPI JSON API,P350 tomli-w,https://pypi.org/pypi/tomli-w/json,,200,,,21833,top500_screen.csv
+2026-09-29T06:21:38Z,PyPI JSON API,P351 types-toml,https://pypi.org/pypi/types-toml/json,,200,,,42152,top500_screen.csv
+2026-09-29T06:21:39Z,PyPI JSON API,P352 importlib-resources,https://pypi.org/pypi/importlib-resources/json,,200,,,134781,top500_screen.csv
+2026-09-29T06:21:39Z,PyPI JSON API,P353 pycryptodome,https://pypi.org/pypi/pycryptodome/json,,200,,,1299345,top500_screen.csv
+2026-09-29T06:21:39Z,PyPI JSON API,P354 google-cloud-logging,https://pypi.org/pypi/google-cloud-logging/json,,200,,,132823,top500_screen.csv
+2026-09-29T06:21:39Z,PyPI JSON API,P355 opentelemetry-instrumentation-fastapi,https://pypi.org/pypi/opentelemetry-instrumentation-fastapi/json,,200,,,122975,top500_screen.csv
+2026-09-29T06:21:40Z,PyPI JSON API,P356 reportlab,https://pypi.org/pypi/reportlab/json,,200,,,1828561,top500_screen.csv
+2026-09-29T06:21:40Z,PyPI JSON API,P357 awswrangler,https://pypi.org/pypi/awswrangler/json,,200,,,311031,top500_screen.csv
+2026-09-29T06:21:40Z,PyPI JSON API,P358 torch,https://pypi.org/pypi/torch/json,,200,,,850212,top500_screen.csv
+2026-09-29T06:21:41Z,PyPI JSON API,P359 fastmcp,https://pypi.org/pypi/fastmcp/json,,200,,,207065,top500_screen.csv
+2026-09-29T06:21:41Z,PyPI JSON API,P360 mccabe,https://pypi.org/pypi/mccabe/json,,200,,,24027,top500_screen.csv
+2026-09-29T06:21:41Z,PyPI JSON API,P361 tree-sitter,https://pypi.org/pypi/tree-sitter/json,,200,,,645737,top500_screen.csv
+2026-09-29T06:21:42Z,PyPI JSON API,P362 jupyter-core,https://pypi.org/pypi/jupyter-core/json,,200,,,107304,top500_screen.csv
+2026-09-29T06:21:42Z,PyPI JSON API,P363 deprecation,https://pypi.org/pypi/deprecation/json,,200,,,26829,top500_screen.csv
+2026-09-29T06:21:42Z,PyPI JSON API,P364 beartype,https://pypi.org/pypi/beartype/json,,200,,,142896,top500_screen.csv
+2026-09-29T06:21:42Z,PyPI JSON API,P365 opentelemetry-instrumentation-asgi,https://pypi.org/pypi/opentelemetry-instrumentation-asgi/json,,200,,,120321,top500_screen.csv
+2026-09-29T06:21:43Z,PyPI JSON API,P366 cyclopts,https://pypi.org/pypi/cyclopts/json,,200,,,267185,top500_screen.csv
+2026-09-29T06:21:43Z,PyPI JSON API,P367 text-unidecode,https://pypi.org/pypi/text-unidecode/json,,200,,,11545,top500_screen.csv
+2026-09-29T06:21:43Z,PyPI JSON API,P368 semver,https://pypi.org/pypi/semver/json,,200,,,77808,top500_screen.csv
+2026-09-29T06:21:44Z,PyPI JSON API,P369 loguru,https://pypi.org/pypi/loguru/json,,200,,,57012,top500_screen.csv
+2026-09-29T06:21:44Z,PyPI JSON API,P370 ast-serialize,https://pypi.org/pypi/ast-serialize/json,,200,,,704824,top500_screen.csv
+2026-09-29T06:21:44Z,PyPI JSON API,P371 grpclib,https://pypi.org/pypi/grpclib/json,,200,,,53940,top500_screen.csv
+2026-09-29T06:21:45Z,PyPI JSON API,P372 nbformat,https://pypi.org/pypi/nbformat/json,,200,,,70831,top500_screen.csv
+2026-09-29T06:21:45Z,PyPI JSON API,P373 uuid-utils,https://pypi.org/pypi/uuid-utils/json,,200,,,2013166,top500_screen.csv
+2026-09-29T06:21:45Z,PyPI JSON API,P374 jsonschema-path,https://pypi.org/pypi/jsonschema-path/json,,200,,,45391,top500_screen.csv
+2026-09-29T06:21:45Z,PyPI JSON API,P375 sqlglot,https://pypi.org/pypi/sqlglot/json,,200,,,1228478,top500_screen.csv
+2026-09-29T06:21:46Z,PyPI JSON API,P376 typing-inspect,https://pypi.org/pypi/typing-inspect/json,,200,,,25491,top500_screen.csv
+2026-09-29T06:21:46Z,PyPI JSON API,P377 python-slugify,https://pypi.org/pypi/python-slugify/json,,200,,,67773,top500_screen.csv
+2026-09-29T06:21:46Z,PyPI JSON API,P378 onnxruntime,https://pypi.org/pypi/onnxruntime/json,,200,,,1061884,top500_screen.csv
+2026-09-29T06:21:47Z,PyPI JSON API,P379 dulwich,https://pypi.org/pypi/dulwich/json,,200,,,2711539,top500_screen.csv
+2026-09-29T06:21:47Z,PyPI JSON API,P380 xlrd,https://pypi.org/pypi/xlrd/json,,200,,,36791,top500_screen.csv
+2026-09-29T06:21:47Z,PyPI JSON API,P381 types-certifi,https://pypi.org/pypi/types-certifi/json,,200,,,16457,top500_screen.csv
+2026-09-29T06:21:48Z,PyPI JSON API,P382 aiosqlite,https://pypi.org/pypi/aiosqlite/json,,200,,,37385,top500_screen.csv
+2026-09-29T06:21:48Z,PyPI JSON API,P383 jsonref,https://pypi.org/pypi/jsonref/json,,200,,,19619,top500_screen.csv
+2026-09-29T06:21:48Z,PyPI JSON API,P384 dbt-core,https://pypi.org/pypi/dbt-core/json,,200,,,558448,top500_screen.csv
+2026-09-29T06:21:49Z,PyPI JSON API,P385 invoke,https://pypi.org/pypi/invoke/json,,200,,,129156,top500_screen.csv
+2026-09-29T06:21:49Z,PyPI JSON API,P386 opentelemetry-exporter-prometheus,https://pypi.org/pypi/opentelemetry-exporter-prometheus/json,,200,,,96380,top500_screen.csv
+2026-09-29T06:21:49Z,PyPI JSON API,P387 jupyter-client,https://pypi.org/pypi/jupyter-client/json,,200,,,170755,top500_screen.csv
+2026-09-29T06:21:49Z,PyPI JSON API,P388 google-cloud-monitoring,https://pypi.org/pypi/google-cloud-monitoring/json,,200,,,146422,top500_screen.csv
+2026-09-29T06:21:50Z,PyPI JSON API,P389 pathable,https://pypi.org/pypi/pathable/json,,200,,,42576,top500_screen.csv
+2026-09-29T06:21:50Z,PyPI JSON API,P390 fastmcp-slim,https://pypi.org/pypi/fastmcp-slim/json,,200,,,60663,top500_screen.csv
+2026-09-29T06:21:50Z,PyPI JSON API,P391 modal,https://pypi.org/pypi/modal/json,,200,,,2927010,top500_screen.csv
+2026-09-29T06:21:51Z,PyPI JSON API,P392 synchronicity,https://pypi.org/pypi/synchronicity/json,,200,,,125767,top500_screen.csv
+2026-09-29T06:21:51Z,PyPI JSON API,P393 graphql-core,https://pypi.org/pypi/graphql-core/json,,200,,,159056,top500_screen.csv
+2026-09-29T06:21:51Z,PyPI JSON API,P394 pycodestyle,https://pypi.org/pypi/pycodestyle/json,,200,,,43789,top500_screen.csv
+2026-09-29T06:21:52Z,PyPI JSON API,P395 types-pyyaml,https://pypi.org/pypi/types-pyyaml/json,,200,,,99722,top500_screen.csv
+2026-09-29T06:21:52Z,PyPI JSON API,P396 google-cloud-tasks,https://pypi.org/pypi/google-cloud-tasks/json,,200,,,120686,top500_screen.csv
+2026-09-29T06:21:52Z,PyPI JSON API,P397 argcomplete,https://pypi.org/pypi/argcomplete/json,,200,,,177747,top500_screen.csv
+2026-09-29T06:21:52Z,PyPI JSON API,P398 faker,https://pypi.org/pypi/faker/json,,200,,,791797,top500_screen.csv
+2026-09-29T06:21:53Z,PyPI JSON API,P399 fastapi-cli,https://pypi.org/pypi/fastapi-cli/json,,200,,,58414,top500_screen.csv
+2026-09-29T06:21:53Z,PyPI JSON API,P400 databricks-sql-connector,https://pypi.org/pypi/databricks-sql-connector/json,,200,,,178463,top500_screen.csv
+2026-09-29T06:21:53Z,PyPI JSON API,P401 pydantic-extra-types,https://pypi.org/pypi/pydantic-extra-types/json,,200,,,44166,top500_screen.csv
+2026-09-29T06:21:54Z,PyPI JSON API,P402 installer,https://pypi.org/pypi/installer/json,,200,,,27620,top500_screen.csv
+2026-09-29T06:21:54Z,PyPI JSON API,P403 rfc3339-validator,https://pypi.org/pypi/rfc3339-validator/json,,200,,,12199,top500_screen.csv
+2026-09-29T06:21:54Z,PyPI JSON API,P404 pkginfo,https://pypi.org/pypi/pkginfo/json,,200,,,79882,top500_screen.csv
+2026-09-29T06:21:54Z,PyPI JSON API,P405 lark,https://pypi.org/pypi/lark/json,,200,,,33512,top500_screen.csv
+2026-09-29T06:21:55Z,PyPI JSON API,P406 rich-rst,https://pypi.org/pypi/rich-rst/json,,200,,,58438,top500_screen.csv
+2026-09-29T06:21:55Z,PyPI JSON API,P407 shapely,https://pypi.org/pypi/shapely/json,,200,,,1391207,top500_screen.csv
+2026-09-29T06:21:55Z,PyPI JSON API,P408 py-key-value-aio,https://pypi.org/pypi/py-key-value-aio/json,,200,,,42036,top500_screen.csv
+2026-09-29T06:21:56Z,PyPI JSON API,P409 backports-zstd,https://pypi.org/pypi/backports-zstd/json,,200,,,1102806,top500_screen.csv
+2026-09-29T06:21:56Z,PyPI JSON API,P410 ipython-pygments-lexers,https://pypi.org/pypi/ipython-pygments-lexers/json,,200,,,8272,top500_screen.csv
+2026-09-29T06:21:56Z,PyPI JSON API,P411 numba,https://pypi.org/pypi/numba/json,,200,,,1678857,top500_screen.csv
+2026-09-29T06:21:57Z,PyPI JSON API,P412 arrow,https://pypi.org/pypi/arrow/json,,200,,,84745,top500_screen.csv
+2026-09-29T06:21:57Z,PyPI JSON API,P413 markdownify,https://pypi.org/pypi/markdownify/json,,200,,,77014,top500_screen.csv
+2026-09-29T06:21:57Z,PyPI JSON API,P414 deepdiff,https://pypi.org/pypi/deepdiff/json,,200,,,164091,top500_screen.csv
+2026-09-29T06:21:58Z,PyPI JSON API,P415 dbt-common,https://pypi.org/pypi/dbt-common/json,,200,,,104403,top500_screen.csv
+2026-09-29T06:21:58Z,PyPI JSON API,P416 smart-open,https://pypi.org/pypi/smart-open/json,,200,,,116189,top500_screen.csv
+2026-09-29T06:21:58Z,PyPI JSON API,P417 requests-file,https://pypi.org/pypi/requests-file/json,,200,,,20820,top500_screen.csv
+2026-09-29T06:21:58Z,PyPI JSON API,P418 rich-toolkit,https://pypi.org/pypi/rich-toolkit/json,,200,,,101848,top500_screen.csv
+2026-09-29T06:21:59Z,PyPI JSON API,P419 polars,https://pypi.org/pypi/polars/json,,200,,,1873482,top500_screen.csv
+2026-09-29T06:21:59Z,PyPI JSON API,P420 mistune,https://pypi.org/pypi/mistune/json,,200,,,108555,top500_screen.csv
+2026-09-29T06:21:59Z,PyPI JSON API,P421 argon2-cffi-bindings,https://pypi.org/pypi/argon2-cffi-bindings/json,,200,,,140772,top500_screen.csv
+2026-09-29T06:22:00Z,PyPI JSON API,P422 bleach,https://pypi.org/pypi/bleach/json,,200,,,109112,top500_screen.csv
+2026-09-29T06:22:00Z,PyPI JSON API,P423 durationpy,https://pypi.org/pypi/durationpy/json,,200,,,11801,top500_screen.csv
+2026-09-29T06:22:00Z,PyPI JSON API,P424 msrest,https://pypi.org/pypi/msrest/json,,200,,,144063,top500_screen.csv
+2026-09-29T06:22:01Z,PyPI JSON API,P425 mmh3,https://pypi.org/pypi/mmh3/json,,200,,,930978,top500_screen.csv
+2026-09-29T06:22:01Z,PyPI JSON API,P426 snowflake-snowpark-python,https://pypi.org/pypi/snowflake-snowpark-python/json,,200,,,141303,top500_screen.csv
+2026-09-29T06:22:01Z,PyPI JSON API,P427 pypdfium2,https://pypi.org/pypi/pypdfium2/json,,200,,,1483795,top500_screen.csv
+2026-09-29T06:22:02Z,PyPI JSON API,P428 llama-parse,https://pypi.org/pypi/llama-parse/json,,200,,,207879,top500_screen.csv
+2026-09-29T06:22:02Z,PyPI JSON API,P429 argon2-cffi,https://pypi.org/pypi/argon2-cffi/json,,200,,,186209,top500_screen.csv
+2026-09-29T06:22:02Z,PyPI JSON API,P430 llama-cloud-services,https://pypi.org/pypi/llama-cloud-services/json,,200,,,154861,top500_screen.csv
+2026-09-29T06:22:02Z,PyPI JSON API,P431 google-cloud-bigtable,https://pypi.org/pypi/google-cloud-bigtable/json,,200,,,179163,top500_screen.csv
+2026-09-29T06:22:03Z,PyPI JSON API,P432 langchain-openai,https://pypi.org/pypi/langchain-openai/json,,200,,,239235,top500_screen.csv
+2026-09-29T06:22:03Z,PyPI JSON API,P433 poetry,https://pypi.org/pypi/poetry/json,,200,,,313862,top500_screen.csv
+2026-09-29T06:22:03Z,PyPI JSON API,P434 pendulum,https://pypi.org/pypi/pendulum/json,,200,,,714408,top500_screen.csv
+2026-09-29T06:22:04Z,PyPI JSON API,P435 typeguard,https://pypi.org/pypi/typeguard/json,,200,,,124595,top500_screen.csv
+2026-09-29T06:22:04Z,PyPI JSON API,P436 pygithub,https://pypi.org/pypi/pygithub/json,,200,,,114366,top500_screen.csv
+2026-09-29T06:22:04Z,PyPI JSON API,P437 types-protobuf,https://pypi.org/pypi/types-protobuf/json,,200,,,196028,top500_screen.csv
+2026-09-29T06:22:05Z,PyPI JSON API,P438 jsonpath-ng,https://pypi.org/pypi/jsonpath-ng/json,,200,,,40038,top500_screen.csv
+2026-09-29T06:22:05Z,PyPI JSON API,P439 uncalled-for,https://pypi.org/pypi/uncalled-for/json,,200,,,19107,top500_screen.csv
+2026-09-29T06:22:05Z,PyPI JSON API,P440 scramp,https://pypi.org/pypi/scramp/json,,200,,,64595,top500_screen.csv
+2026-09-29T06:22:05Z,PyPI JSON API,P441 llvmlite,https://pypi.org/pypi/llvmlite/json,,200,,,837150,top500_screen.csv
+2026-09-29T06:22:06Z,PyPI JSON API,P442 sphinx,https://pypi.org/pypi/sphinx/json,,200,,,427668,top500_screen.csv
+2026-09-29T06:22:06Z,PyPI JSON API,P443 grpcio-health-checking,https://pypi.org/pypi/grpcio-health-checking/json,,200,,,341645,top500_screen.csv
+2026-09-29T06:22:06Z,PyPI JSON API,P444 nltk,https://pypi.org/pypi/nltk/json,,200,,,103290,top500_screen.csv
+2026-09-29T06:22:07Z,PyPI JSON API,P445 fastcore,https://pypi.org/pypi/fastcore/json,,200,,,576145,top500_screen.csv
+2026-09-29T06:22:07Z,PyPI JSON API,P446 comm,https://pypi.org/pypi/comm/json,,200,,,21135,top500_screen.csv
+2026-09-29T06:22:07Z,PyPI JSON API,P447 plotly,https://pypi.org/pypi/plotly/json,,200,,,347927,top500_screen.csv
+2026-09-29T06:22:07Z,PyPI JSON API,P448 crashtest,https://pypi.org/pypi/crashtest/json,,200,,,9417,top500_screen.csv
+2026-09-29T06:22:08Z,PyPI JSON API,P449 ipykernel,https://pypi.org/pypi/ipykernel/json,,200,,,244703,top500_screen.csv
+2026-09-29T06:22:08Z,PyPI JSON API,P450 langgraph,https://pypi.org/pypi/langgraph/json,,200,,,438440,top500_screen.csv
+2026-09-29T06:22:08Z,PyPI JSON API,P451 aiofile,https://pypi.org/pypi/aiofile/json,,200,,,152349,top500_screen.csv
+2026-09-29T06:22:09Z,PyPI JSON API,P452 duckdb,https://pypi.org/pypi/duckdb/json,,200,,,4185733,top500_screen.csv
+2026-09-29T06:22:09Z,PyPI JSON API,P453 cleo,https://pypi.org/pypi/cleo/json,,200,,,67294,top500_screen.csv
+2026-09-29T06:22:09Z,PyPI JSON API,P454 pdfminer-six,https://pypi.org/pypi/pdfminer-six/json,,200,,,60481,top500_screen.csv
+2026-09-29T06:22:10Z,PyPI JSON API,P455 pyarrow-hotfix,https://pypi.org/pypi/pyarrow-hotfix/json,,200,,,13572,top500_screen.csv
+2026-09-29T06:22:10Z,PyPI JSON API,P456 responses,https://pypi.org/pypi/responses/json,,200,,,148979,top500_screen.csv
+2026-09-29T06:22:10Z,PyPI JSON API,P457 caio,https://pypi.org/pypi/caio/json,,200,,,787584,top500_screen.csv
+2026-09-29T06:22:11Z,PyPI JSON API,P458 humanize,https://pypi.org/pypi/humanize/json,,200,,,94527,top500_screen.csv
+2026-09-29T06:22:11Z,PyPI JSON API,P459 psycopg2,https://pypi.org/pypi/psycopg2/json,,200,,,524907,top500_screen.csv
+2026-09-29T06:22:11Z,PyPI JSON API,P460 cfn-lint,https://pypi.org/pypi/cfn-lint/json,,200,,,727127,top500_screen.csv
+2026-09-29T06:22:11Z,PyPI JSON API,P461 google-cloud-vision,https://pypi.org/pypi/google-cloud-vision/json,,200,,,157618,top500_screen.csv
+2026-09-29T06:22:12Z,PyPI JSON API,P462 triton,https://pypi.org/pypi/triton/json,,200,,,171629,top500_screen.csv
+2026-09-29T06:22:12Z,PyPI JSON API,P463 cattrs,https://pypi.org/pypi/cattrs/json,,200,,,76828,top500_screen.csv
+2026-09-29T06:22:12Z,PyPI JSON API,P464 dataclasses-json,https://pypi.org/pypi/dataclasses-json/json,,200,,,148907,top500_screen.csv
+2026-09-29T06:22:13Z,PyPI JSON API,P465 portalocker,https://pypi.org/pypi/portalocker/json,,200,,,85993,top500_screen.csv
+2026-09-29T06:22:13Z,PyPI JSON API,P466 google-cloud-resource-manager,https://pypi.org/pypi/google-cloud-resource-manager/json,,200,,,123971,top500_screen.csv
+2026-09-29T06:22:13Z,PyPI JSON API,P467 fastapi-cloud-cli,https://pypi.org/pypi/fastapi-cloud-cli/json,,200,,,69770,top500_screen.csv
+2026-09-29T06:22:13Z,PyPI JSON API,P468 datadog,https://pypi.org/pypi/datadog/json,,200,,,94680,top500_screen.csv
+2026-09-29T06:22:14Z,PyPI JSON API,P469 toolz,https://pypi.org/pypi/toolz/json,,200,,,36994,top500_screen.csv
+2026-09-29T06:22:14Z,PyPI JSON API,P470 google-cloud-run,https://pypi.org/pypi/google-cloud-run/json,,200,,,80052,top500_screen.csv
+2026-09-29T06:22:14Z,PyPI JSON API,P471 mcp-types,https://pypi.org/pypi/mcp-types/json,,200,,,21092,top500_screen.csv
+2026-09-29T06:22:15Z,PyPI JSON API,P472 poetry-plugin-export,https://pypi.org/pypi/poetry-plugin-export/json,,200,,,42598,top500_screen.csv
+2026-09-29T06:22:15Z,PyPI JSON API,P473 nbconvert,https://pypi.org/pypi/nbconvert/json,,200,,,172410,top500_screen.csv
+2026-09-29T06:22:15Z,PyPI JSON API,P474 python-pptx,https://pypi.org/pypi/python-pptx/json,,200,,,45908,top500_screen.csv
+2026-09-29T06:22:16Z,PyPI JSON API,P475 py,https://pypi.org/pypi/py/json,,200,,,68436,top500_screen.csv
+2026-09-29T06:22:16Z,PyPI JSON API,P476 langchain-protocol,https://pypi.org/pypi/langchain-protocol/json,,200,,,23870,top500_screen.csv
+2026-09-29T06:22:16Z,PyPI JSON API,P477 pycryptodomex,https://pypi.org/pypi/pycryptodomex/json,,200,,,1263633,top500_screen.csv
+2026-09-29T06:22:17Z,PyPI JSON API,P478 polars-runtime-32,https://pypi.org/pypi/polars-runtime-32/json,,200,,,231426,top500_screen.csv
+2026-09-29T06:22:17Z,PyPI JSON API,P479 pyflakes,https://pypi.org/pypi/pyflakes/json,,200,,,61238,top500_screen.csv
+2026-09-29T06:22:17Z,PyPI JSON API,P480 backports-tarfile,https://pypi.org/pypi/backports-tarfile/json,,200,,,10391,top500_screen.csv
+2026-09-29T06:22:17Z,PyPI JSON API,P481 snowflake-sqlalchemy,https://pypi.org/pypi/snowflake-sqlalchemy/json,,200,,,175949,top500_screen.csv
+2026-09-29T06:22:18Z,PyPI JSON API,P482 future,https://pypi.org/pypi/future/json,,200,,,46471,top500_screen.csv
+2026-09-29T06:22:18Z,PyPI JSON API,P483 pysocks,https://pypi.org/pypi/pysocks/json,,200,,,34594,top500_screen.csv
+2026-09-29T06:22:18Z,PyPI JSON API,P484 nbclient,https://pypi.org/pypi/nbclient/json,,200,,,80338,top500_screen.csv
+2026-09-29T06:22:19Z,PyPI JSON API,P485 google-cloud-videointelligence,https://pypi.org/pypi/google-cloud-videointelligence/json,,200,,,132759,top500_screen.csv
+2026-09-29T06:22:19Z,PyPI JSON API,P486 google-cloud-language,https://pypi.org/pypi/google-cloud-language/json,,200,,,124373,top500_screen.csv
+2026-09-29T06:22:19Z,PyPI JSON API,P487 google-cloud-workflows,https://pypi.org/pypi/google-cloud-workflows/json,,200,,,98560,top500_screen.csv
+2026-09-29T06:22:19Z,PyPI JSON API,P488 colorlog,https://pypi.org/pypi/colorlog/json,,200,,,110359,top500_screen.csv
+2026-09-29T06:22:20Z,PyPI JSON API,P489 unidiff,https://pypi.org/pypi/unidiff/json,,200,,,31217,top500_screen.csv
+2026-09-29T06:22:20Z,PyPI JSON API,P490 sqlalchemy-bigquery,https://pypi.org/pypi/sqlalchemy-bigquery/json,,200,,,71934,top500_screen.csv
+2026-09-29T06:22:20Z,PyPI JSON API,P491 confluent-kafka,https://pypi.org/pypi/confluent-kafka/json,,200,,,1718914,top500_screen.csv
+2026-09-29T06:22:21Z,PyPI JSON API,P492 absl-py,https://pypi.org/pypi/absl-py/json,,200,,,57868,top500_screen.csv
+2026-09-29T06:22:21Z,PyPI JSON API,P493 google-cloud-dataform,https://pypi.org/pypi/google-cloud-dataform/json,,200,,,70952,top500_screen.csv
+2026-09-29T06:22:21Z,PyPI JSON API,P494 zope-interface,https://pypi.org/pypi/zope-interface/json,,200,,,2085891,top500_screen.csv
+2026-09-29T06:22:22Z,PyPI JSON API,P495 google-cloud-redis,https://pypi.org/pypi/google-cloud-redis/json,,200,,,99752,top500_screen.csv
+2026-09-29T06:22:22Z,PyPI JSON API,P496 openapi-pydantic,https://pypi.org/pypi/openapi-pydantic/json,,200,,,32571,top500_screen.csv
+2026-09-29T06:22:22Z,PyPI JSON API,P497 pbs-installer,https://pypi.org/pypi/pbs-installer/json,,200,,,134362,top500_screen.csv
+2026-09-29T06:22:23Z,PyPI JSON API,P498 libcst,https://pypi.org/pypi/libcst/json,,200,,,1065665,top500_screen.csv
+2026-09-29T06:22:23Z,PyPI JSON API,P499 google-cloud-os-login,https://pypi.org/pypi/google-cloud-os-login/json,,200,,,97128,top500_screen.csv
+2026-09-29T06:22:23Z,PyPI JSON API,P500 google-cloud-bigquery-datatransfer,https://pypi.org/pypi/google-cloud-bigquery-datatransfer/json,,200,,,123435,top500_screen.csv
+2026-09-29T06:22:38Z,PyPI JSON API,V001 anthropic 1.7.0,https://pypi.org/pypi/anthropic/1.7.0/json,,200,,,5165,requirements.csv
+2026-09-29T06:22:38Z,PyPI JSON API,V002 anthropic 1.8.0,https://pypi.org/pypi/anthropic/1.8.0/json,,200,,,5167,requirements.csv
+2026-09-29T06:22:39Z,PyPI JSON API,V003 azure-storage-blob 12.30.2,https://pypi.org/pypi/azure-storage-blob/12.30.2/json,,200,,,28609,requirements.csv
+2026-09-29T06:22:39Z,PyPI JSON API,V004 boto3 1.43.98,https://pypi.org/pypi/boto3/1.43.98/json,,200,,,8742,requirements.csv
+2026-09-29T06:22:39Z,PyPI JSON API,V005 boto3 1.43.99,https://pypi.org/pypi/boto3/1.43.99/json,,200,,,8742,requirements.csv
+2026-09-29T06:22:40Z,PyPI JSON API,V006 boto3 1.43.100,https://pypi.org/pypi/boto3/1.43.100/json,,200,,,8749,requirements.csv
+2026-09-29T06:22:40Z,PyPI JSON API,V007 boto3 1.43.101,https://pypi.org/pypi/boto3/1.43.101/json,,200,,,8749,requirements.csv
+2026-09-29T06:22:40Z,PyPI JSON API,V008 boto3 1.43.102,https://pypi.org/pypi/boto3/1.43.102/json,,200,,,8749,requirements.csv
+2026-09-29T06:22:40Z,PyPI JSON API,V009 boto3 1.43.103,https://pypi.org/pypi/boto3/1.43.103/json,,200,,,8749,requirements.csv
+2026-09-29T06:22:41Z,PyPI JSON API,V010 botocore 1.43.98,https://pypi.org/pypi/botocore/1.43.98/json,,200,,,7775,requirements.csv
+2026-09-29T06:22:41Z,PyPI JSON API,V011 botocore 1.43.99,https://pypi.org/pypi/botocore/1.43.99/json,,200,,,7775,requirements.csv
+2026-09-29T06:22:41Z,PyPI JSON API,V012 botocore 1.43.100,https://pypi.org/pypi/botocore/1.43.100/json,,200,,,7781,requirements.csv
+2026-09-29T06:22:42Z,PyPI JSON API,V013 botocore 1.43.101,https://pypi.org/pypi/botocore/1.43.101/json,,200,,,7781,requirements.csv
+2026-09-29T06:22:42Z,PyPI JSON API,V014 botocore 1.43.102,https://pypi.org/pypi/botocore/1.43.102/json,,200,,,7781,requirements.csv
+2026-09-29T06:22:42Z,PyPI JSON API,V015 botocore 1.43.103,https://pypi.org/pypi/botocore/1.43.103/json,,200,,,7781,requirements.csv
+2026-09-29T06:22:43Z,PyPI JSON API,V016 caio 0.12.4,https://pypi.org/pypi/caio/0.12.4/json,,200,,,32969,requirements.csv
+2026-09-29T06:22:43Z,PyPI JSON API,V017 caio 0.12.5,https://pypi.org/pypi/caio/0.12.5/json,,200,,,32969,requirements.csv
+2026-09-29T06:22:43Z,PyPI JSON API,V018 caio 0.12.6,https://pypi.org/pypi/caio/0.12.6/json,,200,,,32969,requirements.csv
+2026-09-29T06:22:44Z,PyPI JSON API,V019 caio 0.12.7,https://pypi.org/pypi/caio/0.12.7/json,,200,,,41522,requirements.csv
+2026-09-29T06:22:44Z,PyPI JSON API,V020 caio 0.12.8,https://pypi.org/pypi/caio/0.12.8/json,,200,,,41522,requirements.csv
+2026-09-29T06:22:44Z,PyPI JSON API,V021 cattrs 26.2.0,https://pypi.org/pypi/cattrs/26.2.0/json,,200,,,10431,requirements.csv
+2026-09-29T06:22:45Z,PyPI JSON API,V022 cfn-lint 1.57.0,https://pypi.org/pypi/cfn-lint/1.57.0/json,,200,,,26940,requirements.csv
+2026-09-29T06:22:45Z,PyPI JSON API,V023 cyclopts 4.25.3,https://pypi.org/pypi/cyclopts/4.25.3/json,,200,,,12771,requirements.csv
+2026-09-29T06:22:45Z,PyPI JSON API,V024 databricks-sdk 0.140.0,https://pypi.org/pypi/databricks-sdk/0.140.0/json,,200,,,46866,requirements.csv
+2026-09-29T06:22:45Z,PyPI JSON API,V025 databricks-sdk 0.141.0,https://pypi.org/pypi/databricks-sdk/0.141.0/json,,200,,,46760,requirements.csv
+2026-09-29T06:22:46Z,PyPI JSON API,V026 databricks-sdk 0.142.0,https://pypi.org/pypi/databricks-sdk/0.142.0/json,,200,,,46760,requirements.csv
+2026-09-29T06:22:46Z,PyPI JSON API,V027 databricks-sql-connector 4.5.0,https://pypi.org/pypi/databricks-sql-connector/4.5.0/json,,200,,,9317,requirements.csv
+2026-09-29T06:22:46Z,PyPI JSON API,V028 datadog 0.53.0,https://pypi.org/pypi/datadog/0.53.0/json,,200,,,13173,requirements.csv
+2026-09-29T06:22:47Z,PyPI JSON API,V029 duckdb 1.5.5,https://pypi.org/pypi/duckdb/1.5.5/json,,200,,,34887,requirements.csv
+2026-09-29T06:22:47Z,PyPI JSON API,V030 fastcore 2.2.29,https://pypi.org/pypi/fastcore/2.2.29/json,,200,,,11795,requirements.csv
+2026-09-29T06:22:47Z,PyPI JSON API,V031 fastcore 2.2.30,https://pypi.org/pypi/fastcore/2.2.30/json,,200,,,11795,requirements.csv
+2026-09-29T06:22:48Z,PyPI JSON API,V032 fastmcp-slim 4.0.5,https://pypi.org/pypi/fastmcp-slim/4.0.5/json,,200,,,12164,requirements.csv
+2026-09-29T06:22:48Z,PyPI JSON API,V033 fastmcp-slim 4.0.6,https://pypi.org/pypi/fastmcp-slim/4.0.6/json,,200,,,12210,requirements.csv
+2026-09-29T06:22:48Z,PyPI JSON API,V034 fastmcp-slim 4.0.7,https://pypi.org/pypi/fastmcp-slim/4.0.7/json,,200,,,12210,requirements.csv
+2026-09-29T06:22:48Z,PyPI JSON API,V035 fastmcp-slim 4.0.8,https://pypi.org/pypi/fastmcp-slim/4.0.8/json,,200,,,12210,requirements.csv
+2026-09-29T06:22:49Z,PyPI JSON API,V036 fastmcp-slim 4.0.9,https://pypi.org/pypi/fastmcp-slim/4.0.9/json,,200,,,12210,requirements.csv
+2026-09-29T06:22:49Z,PyPI JSON API,V037 filelock 4.0.1,https://pypi.org/pypi/filelock/4.0.1/json,,200,,,4095,requirements.csv
+2026-09-29T06:22:49Z,PyPI JSON API,V038 filelock 4.0.2,https://pypi.org/pypi/filelock/4.0.2/json,,200,,,4095,requirements.csv
+2026-09-29T06:22:50Z,PyPI JSON API,V039 filelock 4.0.3,https://pypi.org/pypi/filelock/4.0.3/json,,200,,,4095,requirements.csv
+2026-09-29T06:22:50Z,PyPI JSON API,V040 filelock 4.0.4,https://pypi.org/pypi/filelock/4.0.4/json,,200,,,4095,requirements.csv
+2026-09-29T06:22:50Z,PyPI JSON API,V041 google-api-core 2.38.0,https://pypi.org/pypi/google-api-core/2.38.0/json,,200,,,5153,requirements.csv
+2026-09-29T06:22:50Z,PyPI JSON API,V042 google-auth 2.58.0,https://pypi.org/pypi/google-auth/2.58.0/json,,200,,,7645,requirements.csv
+2026-09-29T06:22:51Z,PyPI JSON API,V043 google-auth 2.58.1,https://pypi.org/pypi/google-auth/2.58.1/json,,200,,,7645,requirements.csv
+2026-09-29T06:22:51Z,PyPI JSON API,V044 google-cloud-aiplatform 2.1.3,https://pypi.org/pypi/google-cloud-aiplatform/2.1.3/json,,200,,,52473,requirements.csv
+2026-09-29T06:22:51Z,PyPI JSON API,V045 google-cloud-bigtable 2.46.0,https://pypi.org/pypi/google-cloud-bigtable/2.46.0/json,,200,,,12973,requirements.csv
+2026-09-29T06:22:52Z,PyPI JSON API,V046 google-cloud-storage 3.14.1,https://pypi.org/pypi/google-cloud-storage/3.14.1/json,,200,,,16994,requirements.csv
+2026-09-29T06:22:52Z,PyPI JSON API,V047 google-cloud-tasks 2.24.0,https://pypi.org/pypi/google-cloud-tasks/2.24.0/json,,200,,,11680,requirements.csv
+2026-09-29T06:22:52Z,PyPI JSON API,V048 google-genai 2.24.0,https://pypi.org/pypi/google-genai/2.24.0/json,,200,,,60469,requirements.csv
+2026-09-29T06:22:52Z,PyPI JSON API,V049 googleapis-common-protos 1.75.3,https://pypi.org/pypi/googleapis-common-protos/1.75.3/json,,200,,,10864,requirements.csv
+2026-09-29T06:22:53Z,PyPI JSON API,V050 httpcore2 2.13.0,https://pypi.org/pypi/httpcore2/2.13.0/json,,200,,,28762,requirements.csv
+2026-09-29T06:22:53Z,PyPI JSON API,V051 httpx2 2.13.0,https://pypi.org/pypi/httpx2/2.13.0/json,,200,,,11966,requirements.csv
+2026-09-29T06:22:53Z,PyPI JSON API,V052 huggingface-hub 1.32.0,https://pypi.org/pypi/huggingface-hub/1.32.0/json,,200,,,17432,requirements.csv
+2026-09-29T06:22:54Z,PyPI JSON API,V053 huggingface-hub 1.33.0,https://pypi.org/pypi/huggingface-hub/1.33.0/json,,200,,,17390,requirements.csv
+2026-09-29T06:22:54Z,PyPI JSON API,V054 langchain 1.4.2,https://pypi.org/pypi/langchain/1.4.2/json,,200,,,7773,requirements.csv
+2026-09-29T06:22:54Z,PyPI JSON API,V055 langchain-core 1.6.3,https://pypi.org/pypi/langchain-core/1.6.3/json,,200,,,6796,requirements.csv
+2026-09-29T06:22:55Z,PyPI JSON API,V056 langchain-core 1.6.4,https://pypi.org/pypi/langchain-core/1.6.4/json,,200,,,6796,requirements.csv
+2026-09-29T06:22:55Z,PyPI JSON API,V057 langchain-openai 1.6.2,https://pypi.org/pypi/langchain-openai/1.6.2/json,,200,,,5541,requirements.csv
+2026-09-29T06:22:55Z,PyPI JSON API,V058 langchain-openai 1.6.3,https://pypi.org/pypi/langchain-openai/1.6.3/json,,200,,,5541,requirements.csv
+2026-09-29T06:22:55Z,PyPI JSON API,V059 langchain-openai 1.6.4,https://pypi.org/pypi/langchain-openai/1.6.4/json,,200,,,5541,requirements.csv
+2026-09-29T06:22:56Z,PyPI JSON API,V060 langchain-openai 1.6.5,https://pypi.org/pypi/langchain-openai/1.6.5/json,,200,,,5541,requirements.csv
+2026-09-29T06:22:56Z,PyPI JSON API,V061 langgraph 1.2.11,https://pypi.org/pypi/langgraph/1.2.11/json,,200,,,6889,requirements.csv
+2026-09-29T06:22:56Z,PyPI JSON API,V062 langsmith 0.13.0,https://pypi.org/pypi/langsmith/0.13.0/json,,200,,,25024,requirements.csv
+2026-09-29T06:22:57Z,PyPI JSON API,V063 langsmith 0.14.0,https://pypi.org/pypi/langsmith/0.14.0/json,,200,,,25024,requirements.csv
+2026-09-29T06:22:57Z,PyPI JSON API,V064 litellm 1.102.0,https://pypi.org/pypi/litellm/1.102.0/json,,200,,,48682,requirements.csv
+2026-09-29T06:22:57Z,PyPI JSON API,V065 litellm 1.102.1,https://pypi.org/pypi/litellm/1.102.1/json,,200,,,48682,requirements.csv
+2026-09-29T06:22:57Z,PyPI JSON API,V066 mako 1.4.1,https://pypi.org/pypi/mako/1.4.1/json,,200,,,4954,requirements.csv
+2026-09-29T06:22:58Z,PyPI JSON API,V067 mako 1.4.2,https://pypi.org/pypi/mako/1.4.2/json,,200,,,4954,requirements.csv
+2026-09-29T06:22:58Z,PyPI JSON API,V068 markdown 3.10.3,https://pypi.org/pypi/markdown/3.10.3/json,,200,,,6982,requirements.csv
+2026-09-29T06:22:58Z,PyPI JSON API,V069 modal 1.5.5,https://pypi.org/pypi/modal/1.5.5/json,,200,,,4581,requirements.csv
+2026-09-29T06:22:59Z,PyPI JSON API,V070 multidict 6.9.0,https://pypi.org/pypi/multidict/6.9.0/json,,200,,,156503,requirements.csv
+2026-09-29T06:22:59Z,PyPI JSON API,V071 multidict 6.9.1,https://pypi.org/pypi/multidict/6.9.1/json,,200,,,156503,requirements.csv
+2026-09-29T06:22:59Z,PyPI JSON API,V072 networkx 3.6.1,https://pypi.org/pypi/networkx/3.6.1/json,,200,,,8458,requirements.csv
+2026-09-29T06:22:59Z,PyPI JSON API,V073 nodeenv 1.10.0,https://pypi.org/pypi/nodeenv/1.10.0/json,,200,,,27449,requirements.csv
+2026-09-29T06:23:00Z,PyPI JSON API,V074 oauthlib 3.3.1,https://pypi.org/pypi/oauthlib/3.3.1/json,,200,,,9927,requirements.csv
+2026-09-29T06:23:00Z,PyPI JSON API,V075 openai 3.16.2,https://pypi.org/pypi/openai/3.16.2/json,,200,,,47574,requirements.csv
+2026-09-29T06:23:00Z,PyPI JSON API,V076 openai 3.17.0,https://pypi.org/pypi/openai/3.17.0/json,,200,,,47575,requirements.csv
+2026-09-29T06:23:01Z,PyPI JSON API,V077 openai 3.18.0,https://pypi.org/pypi/openai/3.18.0/json,,200,,,47575,requirements.csv
+2026-09-29T06:23:01Z,PyPI JSON API,V078 openai 3.19.0,https://pypi.org/pypi/openai/3.19.0/json,,200,,,47610,requirements.csv
+2026-09-29T06:23:01Z,PyPI JSON API,V079 openai 3.19.1,https://pypi.org/pypi/openai/3.19.1/json,,200,,,47990,requirements.csv
+2026-09-29T06:23:01Z,PyPI JSON API,V080 openai 3.19.2,https://pypi.org/pypi/openai/3.19.2/json,,200,,,47990,requirements.csv
+2026-09-29T06:23:02Z,PyPI JSON API,V081 opentelemetry-api 1.44.0,https://pypi.org/pypi/opentelemetry-api/1.44.0/json,,200,,,3580,requirements.csv
+2026-09-29T06:23:02Z,PyPI JSON API,V082 opentelemetry-exporter-otlp-proto-grpc 1.44.0,https://pypi.org/pypi/opentelemetry-exporter-otlp-proto-grpc/1.44.0/json,,200,,,4769,requirements.csv
+2026-09-29T06:23:02Z,PyPI JSON API,V083 opentelemetry-exporter-otlp-proto-http 1.44.0,https://pypi.org/pypi/opentelemetry-exporter-otlp-proto-http/1.44.0/json,,200,,,4630,requirements.csv
+2026-09-29T06:23:03Z,PyPI JSON API,V084 opentelemetry-proto 1.44.0,https://pypi.org/pypi/opentelemetry-proto/1.44.0/json,,200,,,4569,requirements.csv
+2026-09-29T06:23:03Z,PyPI JSON API,V085 opentelemetry-sdk 1.44.0,https://pypi.org/pypi/opentelemetry-sdk/1.44.0/json,,200,,,3744,requirements.csv
+2026-09-29T06:23:03Z,PyPI JSON API,V086 platformdirs 4.11.11,https://pypi.org/pypi/platformdirs/4.11.11/json,,200,,,7716,requirements.csv
+2026-09-29T06:23:03Z,PyPI JSON API,V087 platformdirs 4.11.12,https://pypi.org/pypi/platformdirs/4.11.12/json,,200,,,7716,requirements.csv
+2026-09-29T06:23:04Z,PyPI JSON API,V088 platformdirs 4.11.13,https://pypi.org/pypi/platformdirs/4.11.13/json,,200,,,7716,requirements.csv
+2026-09-29T06:23:04Z,PyPI JSON API,V089 platformdirs 4.11.14,https://pypi.org/pypi/platformdirs/4.11.14/json,,200,,,7716,requirements.csv
+2026-09-29T06:23:04Z,PyPI JSON API,V090 platformdirs 4.11.15,https://pypi.org/pypi/platformdirs/4.11.15/json,,200,,,7716,requirements.csv
+2026-09-29T06:23:04Z,PyPI JSON API,V091 platformdirs 4.12.0,https://pypi.org/pypi/platformdirs/4.12.0/json,,200,,,7715,requirements.csv
+2026-09-29T06:23:05Z,PyPI JSON API,V092 pydantic-ai-slim 2.46.0,https://pypi.org/pypi/pydantic-ai-slim/2.46.0/json,,200,,,8146,requirements.csv
+2026-09-29T06:23:05Z,PyPI JSON API,V093 pydantic-ai-slim 2.47.0,https://pypi.org/pypi/pydantic-ai-slim/2.47.0/json,,200,,,8149,requirements.csv
+2026-09-29T06:23:05Z,PyPI JSON API,V094 pydantic-ai-slim 2.48.0,https://pypi.org/pypi/pydantic-ai-slim/2.48.0/json,,200,,,8149,requirements.csv
+2026-09-29T06:23:06Z,PyPI JSON API,V095 pydantic-ai-slim 2.49.0,https://pypi.org/pypi/pydantic-ai-slim/2.49.0/json,,200,,,8149,requirements.csv
+2026-09-29T06:23:06Z,PyPI JSON API,V096 pydantic-ai-slim 2.50.0,https://pypi.org/pypi/pydantic-ai-slim/2.50.0/json,,200,,,8158,requirements.csv
+2026-09-29T06:23:06Z,PyPI JSON API,V097 pydantic-graph 2.46.0,https://pypi.org/pypi/pydantic-graph/2.46.0/json,,200,,,6304,requirements.csv
+2026-09-29T06:23:07Z,PyPI JSON API,V098 pydantic-graph 2.47.0,https://pypi.org/pypi/pydantic-graph/2.47.0/json,,200,,,6304,requirements.csv
+2026-09-29T06:23:07Z,PyPI JSON API,V099 pydantic-graph 2.48.0,https://pypi.org/pypi/pydantic-graph/2.48.0/json,,200,,,6304,requirements.csv
+2026-09-29T06:23:07Z,PyPI JSON API,V100 pydantic-graph 2.49.0,https://pypi.org/pypi/pydantic-graph/2.49.0/json,,200,,,6324,requirements.csv
+2026-09-29T06:23:07Z,PyPI JSON API,V101 pydantic-graph 2.50.0,https://pypi.org/pypi/pydantic-graph/2.50.0/json,,200,,,6324,requirements.csv
+2026-09-29T06:23:08Z,PyPI JSON API,V102 pyjwt 2.14.0,https://pypi.org/pypi/pyjwt/2.14.0/json,,200,,,5511,requirements.csv
+2026-09-29T06:23:08Z,PyPI JSON API,V103 pyjwt 2.15.0,https://pypi.org/pypi/pyjwt/2.15.0/json,,200,,,5552,requirements.csv
+2026-09-29T06:23:08Z,PyPI JSON API,V104 pymongo 4.18.1,https://pypi.org/pypi/pymongo/4.18.1/json,,200,,,73594,requirements.csv
+2026-09-29T06:23:09Z,PyPI JSON API,V105 pytest-mock 3.15.1,https://pypi.org/pypi/pytest-mock/3.15.1/json,,200,,,6119,requirements.csv
+2026-09-29T06:23:09Z,PyPI JSON API,V106 rich-rst 2.1.0,https://pypi.org/pypi/rich-rst/2.1.0/json,,200,,,6718,requirements.csv
+2026-09-29T06:23:09Z,PyPI JSON API,V107 sentry-sdk 2.69.2,https://pypi.org/pypi/sentry-sdk/2.69.2/json,,200,,,12066,requirements.csv
+2026-09-29T06:23:10Z,PyPI JSON API,V108 sentry-sdk 2.70.0,https://pypi.org/pypi/sentry-sdk/2.70.0/json,,200,,,12066,requirements.csv
+2026-09-29T06:23:10Z,PyPI JSON API,V109 setuptools-scm 10.2.3,https://pypi.org/pypi/setuptools-scm/10.2.3/json,,200,,,8908,requirements.csv
+2026-09-29T06:23:10Z,PyPI JSON API,V110 setuptools-scm 10.3.3,https://pypi.org/pypi/setuptools-scm/10.3.3/json,,200,,,8908,requirements.csv
+2026-09-29T06:23:11Z,PyPI JSON API,V111 snowflake-connector-python 4.7.4,https://pypi.org/pypi/snowflake-connector-python/4.7.4/json,,200,,,127330,requirements.csv
+2026-09-29T06:23:11Z,PyPI JSON API,V112 sqlalchemy 2.0.54,https://pypi.org/pypi/sqlalchemy/2.0.54/json,,200,,,60467,requirements.csv
+2026-09-29T06:23:11Z,PyPI JSON API,V113 sqlalchemy 2.1.0,https://pypi.org/pypi/sqlalchemy/2.1.0/json,,200,,,73530,requirements.csv
+2026-09-29T06:23:11Z,PyPI JSON API,V114 sqlglot 30.18.0,https://pypi.org/pypi/sqlglot/30.18.0/json,,200,,,28229,requirements.csv
+2026-09-29T06:23:12Z,PyPI JSON API,V115 sqlglot 30.19.0,https://pypi.org/pypi/sqlglot/30.19.0/json,,200,,,28229,requirements.csv
+2026-09-29T06:23:12Z,PyPI JSON API,V116 sse-starlette 3.4.11,https://pypi.org/pypi/sse-starlette/3.4.11/json,,200,,,17774,requirements.csv
+2026-09-29T06:23:12Z,PyPI JSON API,V117 starlette 1.6.0,https://pypi.org/pypi/starlette/1.6.0/json,,200,,,8504,requirements.csv
+2026-09-29T06:23:13Z,PyPI JSON API,V118 uvicorn 0.53.0,https://pypi.org/pypi/uvicorn/0.53.0/json,,200,,,8723,requirements.csv
+2026-09-29T06:23:13Z,PyPI JSON API,V119 vcs-versioning 2.4.1,https://pypi.org/pypi/vcs-versioning/2.4.1/json,,200,,,3789,requirements.csv
+2026-09-29T06:23:13Z,PyPI JSON API,V120 virtualenv 21.9.0,https://pypi.org/pypi/virtualenv/21.9.0/json,,200,,,5770,requirements.csv
+2026-09-29T06:23:13Z,PyPI JSON API,V121 virtualenv 21.9.1,https://pypi.org/pypi/virtualenv/21.9.1/json,,200,,,5770,requirements.csv
+2026-09-29T06:23:14Z,PyPI JSON API,V122 virtualenv 21.10.0,https://pypi.org/pypi/virtualenv/21.10.0/json,,200,,,5776,requirements.csv
+2026-09-29T06:23:14Z,PyPI JSON API,V123 virtualenv 21.11.0,https://pypi.org/pypi/virtualenv/21.11.0/json,,200,,,5777,requirements.csv
+2026-09-29T06:23:14Z,PyPI JSON API,V124 virtualenv 21.11.1,https://pypi.org/pypi/virtualenv/21.11.1/json,,200,,,5777,requirements.csv
+2026-09-29T06:23:15Z,PyPI JSON API,V125 virtualenv 21.12.0,https://pypi.org/pypi/virtualenv/21.12.0/json,,200,,,5777,requirements.csv
+2026-09-29T06:23:15Z,PyPI JSON API,V126 virtualenv 21.12.1,https://pypi.org/pypi/virtualenv/21.12.1/json,,200,,,5777,requirements.csv
+2026-09-29T06:23:15Z,PyPI JSON API,V127 watchfiles 1.2.0,https://pypi.org/pypi/watchfiles/1.2.0/json,,200,,,99179,requirements.csv
+2026-09-29T06:23:15Z,PyPI JSON API,V128 wrapt 2.4.1,https://pypi.org/pypi/wrapt/2.4.1/json,,200,,,94873,requirements.csv
+2026-09-29T06:26:13Z,Documentation and literature,D01 Python Packaging User Guide,https://packaging.python.org/en/latest/guides/analyzing-pypi-package-downloads/,,200,,,62984,/tmp/claude-0/-home-user-lighthouse/a4c176a2-2216-4535-ad2d-2da5b8411bad/scratchpad/LH012/docs/D01.txt
+2026-09-29T06:26:14Z,Documentation and literature,D02 linehaul-cloud-function README (raw),https://raw.githubusercontent.com/pypi/linehaul-cloud-function/main/README.md,,200,,,365,/tmp/claude-0/-home-user-lighthouse/a4c176a2-2216-4535-ad2d-2da5b8411bad/scratchpad/LH012/docs/D02.txt
+2026-09-29T06:26:14Z,Documentation and literature,D03 linehaul-cloud-function UA parser (raw),https://raw.githubusercontent.com/pypi/linehaul-cloud-function/main/linehaul/ua/parser.py,,200,,,11868,/tmp/claude-0/-home-user-lighthouse/a4c176a2-2216-4535-ad2d-2da5b8411bad/scratchpad/LH012/docs/D03.txt
+2026-09-29T06:26:14Z,Documentation and literature,D04 linehaul-cloud-function BigQuery schema (raw),https://raw.githubusercontent.com/pypi/linehaul-cloud-function/main/linehaul/schema.json,,404,,,14,/tmp/claude-0/-home-user-lighthouse/a4c176a2-2216-4535-ad2d-2da5b8411bad/scratchpad/LH012/docs/D04.txt
+2026-09-29T06:26:15Z,Documentation and literature,D05 ClickPy README (raw),https://raw.githubusercontent.com/ClickHouse/clickpy/main/README.md,,200,,,19393,/tmp/claude-0/-home-user-lighthouse/a4c176a2-2216-4535-ad2d-2da5b8411bad/scratchpad/LH012/docs/D05.txt
+2026-09-29T06:26:15Z,Documentation and literature,L01 SPEC 0,https://scientific-python.org/specs/spec-0000/,,200,,,85781,/tmp/claude-0/-home-user-lighthouse/a4c176a2-2216-4535-ad2d-2da5b8411bad/scratchpad/LH012/docs/L01.txt
+2026-09-29T06:26:15Z,Documentation and literature,L02 NEP 29,https://numpy.org/neps/nep-0029-deprecation_policy.html,,200,,,72395,/tmp/claude-0/-home-user-lighthouse/a4c176a2-2216-4535-ad2d-2da5b8411bad/scratchpad/LH012/docs/L02.txt
+2026-09-29T06:26:16Z,Documentation and literature,"L03 Decan, Mens and Constantinou 2018 (PDF)",https://decan.lexpage.net/files/ICSME-2018.pdf,,200,,,458300,/tmp/claude-0/-home-user-lighthouse/a4c176a2-2216-4535-ad2d-2da5b8411bad/scratchpad/LH012/docs/L03.pdf
+2026-09-29T06:26:17Z,Documentation and literature,"L04 Technical lag across package managers, APSEC 2020 (PDF)",https://kblincoe.github.io/publications/2020_APSEC_tech_lag.pdf,,200,,,528567,/tmp/claude-0/-home-user-lighthouse/a4c176a2-2216-4535-ad2d-2da5b8411bad/scratchpad/LH012/docs/L04.pdf
+2026-09-29T06:26:17Z,PyPI source distribution (files.pythonhosted.org),S01 pip 26.2.1 sdist,https://files.pythonhosted.org/packages/source/p/pip/pip-26.2.1.tar.gz,,200,,,1848877,/tmp/claude-0/-home-user-lighthouse/a4c176a2-2216-4535-ad2d-2da5b8411bad/scratchpad/LH012/docs/pip-26.2.1.tar.gz
+2026-09-29T06:26:17Z,PyPI source distribution (files.pythonhosted.org),S02 uv 0.12.8 sdist,https://files.pythonhosted.org/packages/source/u/uv/uv-0.12.8.tar.gz,,200,,,7124914,/tmp/claude-0/-home-user-lighthouse/a4c176a2-2216-4535-ad2d-2da5b8411bad/scratchpad/LH012/docs/uv-0.12.8.tar.gz
+2026-09-29T06:27:43Z,Documentation and literature,"L05 Hugo van Kemenade, Python version share over time, 6 (2020)",https://hugovk.dev/blog/2020/python-version-share-over-time-6/,,200,,,47401,/tmp/claude-0/-home-user-lighthouse/a4c176a2-2216-4535-ad2d-2da5b8411bad/scratchpad/LH012/docs/L05.txt
+2026-09-29T06:27:44Z,Documentation and literature,"D06 pip documentation, Repeatable Installs",https://pip.pypa.io/en/stable/topics/repeatable-installs/,,200,,,31364,/tmp/claude-0/-home-user-lighthouse/a4c176a2-2216-4535-ad2d-2da5b8411bad/scratchpad/LH012/docs/D06.txt

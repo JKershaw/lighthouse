@@ -1,0 +1,1534 @@
+dependent,dependent_version,which,project,specifier,marker,extra_only,marker_has_python,marker_has_platform,has_upper_bound,admits_a_version_ge_R,R
+boto3,1.43.104,latest at read,botocore,"<1.44.0,>=1.43.104",,False,False,False,True,False,1.43.78
+boto3,1.43.104,latest at read,s3transfer,"<0.20.0,>=0.19.0",,False,False,False,True,True,0.19.2
+boto3,1.43.104,latest at read,botocore,"<2.0a0,>=1.21.0","extra == ""crt""",True,False,False,True,True,1.43.78
+idna,3.20,latest at read,pytest,>=8.3.2,"extra == ""all""",True,False,False,False,True,9.1.1
+requests,2.34.2,latest at read,charset-normalizer,"<4,>=2",,False,False,False,True,True,3.5.1
+requests,2.34.2,latest at read,idna,"<4,>=2.5",,False,False,False,True,True,3.19
+requests,2.34.2,latest at read,urllib3,"<3,>=1.26",,False,False,False,True,True,2.7.0
+requests,2.34.2,latest at read,certifi,>=2023.5.7,,False,False,False,False,True,2026.7.22
+setuptools,84.0.0,latest at read,pytest,"!=8.1.*,>=6","extra == ""test""",True,False,False,False,True,9.1.1
+setuptools,84.0.0,latest at read,packaging,>=24.2,"extra == ""test""",True,False,False,False,True,26.3
+setuptools,84.0.0,latest at read,filelock,>=3.4.0,"extra == ""test""",True,False,False,False,True,3.32.3
+setuptools,84.0.0,latest at read,packaging,>=24.2,"extra == ""core""",True,False,False,False,True,26.3
+cryptography,50.0.1,latest at read,cffi,>=2.0.0,"platform_python_implementation != ""PyPy""",False,False,True,False,True,2.1.1
+cryptography,50.0.1,latest at read,typing-extensions,>=4.13.2,"python_full_version < ""3.11""",False,True,False,False,True,4.16.0
+pluggy,1.6.0,latest at read,pytest,,"extra == ""testing""",True,False,False,False,True,9.1.1
+botocore,1.43.104,latest at read,urllib3,"!=2.2.0,<3,>=1.25.4",,False,False,False,True,True,2.7.0
+pydantic,2.13.5,latest at read,annotated-types,>=0.6.0,,False,False,False,False,True,0.8.0
+pydantic,2.13.5,latest at read,pydantic-core,==2.46.5,,False,False,False,True,False,2.48.0
+pydantic,2.13.5,latest at read,typing-extensions,>=4.14.1,,False,False,False,False,True,4.16.0
+pydantic,2.13.5,latest at read,typing-inspection,>=0.4.2,,False,False,False,False,True,0.4.4
+anyio,4.15.1,latest at read,idna,>=2.8,,False,False,False,False,True,3.19
+anyio,4.15.1,latest at read,typing-extensions,>=4.16.0,"python_version < ""3.15""",False,True,False,False,True,4.16.0
+pytest,9.1.1,latest at read,packaging,>=22,,False,False,False,False,True,26.3
+pytest,9.1.1,latest at read,pygments,>=2.7.2,,False,False,False,False,True,2.21.0
+pytest,9.1.1,latest at read,requests,,"extra == ""dev""",True,False,False,False,True,2.34.2
+pydantic-core,2.49.0,latest at read,typing-extensions,>=4.16.0,,False,False,False,False,True,4.16.0
+aiobotocore,3.9.1,latest at read,aiohttp,"<4.0.0,>=3.14.0",,False,False,False,True,True,3.14.3
+aiobotocore,3.9.1,latest at read,botocore,"<1.43.76,>=1.43.66",,False,False,False,True,False,1.43.78
+aiobotocore,3.9.1,latest at read,typing-extensions,"<5.0.0,>=4.14.0","python_version < ""3.11""",False,True,False,True,True,4.16.0
+aiobotocore,3.9.1,latest at read,anyio,"<5,>=4.11.0","extra == ""httpx""",True,False,False,True,True,4.14.2
+aiobotocore,3.9.1,latest at read,anyio,"<5,>=4.11.0","extra == ""httpx2""",True,False,False,True,True,4.14.2
+typing-inspection,0.4.4,latest at read,typing-extensions,>=4.15.0,,False,False,False,False,True,4.16.0
+fsspec,2026.9.0,latest at read,requests,,"extra == ""dropbox""",True,False,False,False,True,2.34.2
+fsspec,2026.9.0,latest at read,aiohttp,"!=4.0.0a0,!=4.0.0a1","extra == ""full""",True,False,False,False,True,3.14.3
+fsspec,2026.9.0,latest at read,requests,,"extra == ""full""",True,False,False,False,True,2.34.2
+fsspec,2026.9.0,latest at read,tqdm,,"extra == ""full""",True,False,False,False,True,4.70.0
+fsspec,2026.9.0,latest at read,requests,,"extra == ""github""",True,False,False,False,True,2.34.2
+fsspec,2026.9.0,latest at read,aiohttp,"!=4.0.0a0,!=4.0.0a1","extra == ""http""",True,False,False,False,True,3.14.3
+fsspec,2026.9.0,latest at read,aiohttp,"!=4.0.0a0,!=4.0.0a1","extra == ""test""",True,False,False,False,True,3.14.3
+fsspec,2026.9.0,latest at read,numpy,,"extra == ""test""",True,False,False,False,True,2.5.2
+fsspec,2026.9.0,latest at read,pytest,,"extra == ""test""",True,False,False,False,True,9.1.1
+fsspec,2026.9.0,latest at read,requests,,"extra == ""test""",True,False,False,False,True,2.34.2
+fsspec,2026.9.0,latest at read,aiobotocore,"<3.0.0,>=2.5.4","extra == ""test-downstream""",True,False,False,True,False,3.9.0
+fsspec,2026.9.0,latest at read,aiohttp,"!=4.0.0a0,!=4.0.0a1","extra == ""test-full""",True,False,False,False,True,3.14.3
+fsspec,2026.9.0,latest at read,numpy,,"extra == ""test-full""",True,False,False,False,True,2.5.2
+fsspec,2026.9.0,latest at read,pandas,<3.0.0,"extra == ""test-full""",True,False,False,True,False,3.0.5
+fsspec,2026.9.0,latest at read,pytest,,"extra == ""test-full""",True,False,False,False,True,9.1.1
+fsspec,2026.9.0,latest at read,requests,,"extra == ""test-full""",True,False,False,False,True,2.34.2
+fsspec,2026.9.0,latest at read,tqdm,,"extra == ""test-full""",True,False,False,False,True,4.70.0
+fsspec,2026.9.0,latest at read,urllib3,,"extra == ""test-full""",True,False,False,False,True,2.7.0
+fsspec,2026.9.0,latest at read,tqdm,,"extra == ""tqdm""",True,False,False,False,True,4.70.0
+httpx,0.28.1,latest at read,anyio,,,False,False,False,False,True,4.14.2
+httpx,0.28.1,latest at read,certifi,,,False,False,False,False,True,2026.7.22
+httpx,0.28.1,latest at read,idna,,,False,False,False,False,True,3.19
+httpx,0.28.1,latest at read,click,==8.*,"extra == ""cli""",True,False,False,True,True,8.4.2
+httpx,0.28.1,latest at read,pygments,==2.*,"extra == ""cli""",True,False,False,True,True,2.21.0
+httpcore,1.0.9,latest at read,certifi,,,False,False,False,False,True,2026.7.22
+httpcore,1.0.9,latest at read,anyio,"<5.0,>=4.0","extra == ""asyncio""",True,False,False,True,True,4.14.2
+s3transfer,0.19.2,latest at read,botocore,"<2.0a.0,>=1.37.4",,False,False,False,True,True,1.43.78
+s3transfer,0.19.2,latest at read,botocore,"<2.0a.0,>=1.37.4","extra == ""crt""",True,False,False,True,True,1.43.78
+python-dotenv,1.2.3,latest at read,click,>=5.0,"extra == ""cli""",True,False,False,False,True,8.4.2
+pandas,3.0.6,latest at read,numpy,>=1.26.0,"python_version < ""3.14""",False,True,False,False,True,2.5.2
+pandas,3.0.6,latest at read,numpy,>=2.3.3,"python_version >= ""3.14""",False,True,False,False,True,2.5.2
+pandas,3.0.6,latest at read,pytest,"<9.1,>=8.3.4","extra == ""test""",True,False,False,True,False,9.1.1
+pandas,3.0.6,latest at read,fsspec,>=2024.10.0,"extra == ""fss""",True,False,False,False,True,2026.7.0
+pandas,3.0.6,latest at read,fsspec,>=2024.10.0,"extra == ""all""",True,False,False,False,True,2026.7.0
+pandas,3.0.6,latest at read,pytest,>=8.3.4,"extra == ""all""",True,False,False,False,True,9.1.1
+pathspec,1.1.1,latest at read,typing-extensions,>=4,"extra == ""optional""",True,False,False,False,True,4.16.0
+grpcio-status,1.84.0,latest at read,protobuf,"<8.0.0,>=6.33.5",,False,False,False,True,True,7.36.0
+pyjwt,2.15.1,latest at read,typing-extensions,>=4.0,"python_version < ""3.11""",False,True,False,False,True,4.16.0
+pyjwt,2.15.1,latest at read,cryptography,>=3.4.0,"extra == ""crypto""",True,False,False,False,True,50.0.0
+starlette,1.7.0,latest at read,anyio,"<5,>=4.0.0",,False,False,False,True,True,4.14.2
+starlette,1.7.0,latest at read,typing-extensions,>=4.10.0,"python_version < ""3.13""",False,True,False,False,True,4.16.0
+uvicorn,0.54.0,latest at read,click,>=7.0,,False,False,False,False,True,8.4.2
+uvicorn,0.54.0,latest at read,typing-extensions,>=4.0,"python_version < ""3.11""",False,True,False,False,True,4.16.0
+uvicorn,0.54.0,latest at read,python-dotenv,>=0.13,"extra == ""standard""",True,False,False,False,True,1.2.3
+litellm,1.103.0,latest at read,python-dotenv,"<2.0,>=1.0.0",,False,False,False,True,True,1.2.3
+litellm,1.103.0,latest at read,click,"<9.0,>=8.0.0",,False,False,False,True,True,8.4.2
+litellm,1.103.0,latest at read,aiohttp,"<4.0,>=3.14.2",,False,False,False,True,True,3.14.3
+litellm,1.103.0,latest at read,pydantic,"<3.0.0,>=2.11.0","python_full_version < ""3.14""",False,True,False,True,True,2.13.4
+litellm,1.103.0,latest at read,pydantic,"<3.0.0,>=2.12.0","python_full_version >= ""3.14""",False,True,False,True,True,2.13.4
+litellm,1.103.0,latest at read,boto3,"<2.0,>=1.43.1",,False,False,False,True,True,1.43.78
+litellm,1.103.0,latest at read,uvicorn,"<1.0,>=0.33.0","extra == ""proxy""",True,False,False,True,True,0.52.4
+litellm,1.103.0,latest at read,starlette,"<2.0,>=1.0.1","extra == ""proxy""",True,False,False,True,True,1.6.0
+litellm,1.103.0,latest at read,pyjwt,"<3.0,>=2.13.0","extra == ""proxy""",True,False,False,True,True,2.13.0
+litellm,1.103.0,latest at read,cryptography,"<51.0,>=49.0.0","extra == ""proxy""",True,False,False,True,True,50.0.0
+litellm,1.103.0,latest at read,boto3,"<2.0,>=1.43.1","extra == ""proxy""",True,False,False,True,True,1.43.78
+litellm,1.103.0,latest at read,pydantic,"<3,>=2.12.0","extra == ""proxy""",True,False,False,True,True,2.13.4
+litellm,1.103.0,latest at read,requests,"<3.0,>=2.32.0","extra == ""cli""",True,False,False,True,True,2.34.2
+litellm,1.103.0,latest at read,pydantic,"<3,>=2.12.0","extra == ""mcp""",True,False,False,True,True,2.13.4
+litellm,1.103.0,latest at read,numpy,>=1.26.0,"extra == ""stt-nvidia-riva""",True,False,False,False,True,2.5.2
+aiohttp,3.14.3,latest at read,typing-extensions,>=4.4,"python_version < ""3.13""",False,True,False,False,True,4.16.0
+tqdm,4.70.1,latest at read,requests,,"extra == ""discord""",True,False,False,False,True,2.34.2
+tqdm,4.70.1,latest at read,requests,,"extra == ""telegram""",True,False,False,False,True,2.34.2
+yarl,1.25.1,latest at read,idna,>=2.0,,False,False,False,False,True,3.19
+jsonschema,4.26.0,latest at read,rpds-py,>=0.25.0,,False,False,False,False,True,2026.6.3
+jsonschema,4.26.0,latest at read,idna,,"extra == ""format""",True,False,False,False,True,3.19
+jsonschema,4.26.0,latest at read,idna,,"extra == ""format-nongpl""",True,False,False,False,True,3.19
+rich,15.0.0,latest at read,pygments,"<3.0.0,>=2.13.0",,False,False,False,True,True,2.21.0
+markdown-it-py,4.2.0,latest at read,pytest,,"extra == ""benchmarking""",True,False,False,False,True,9.1.1
+markdown-it-py,4.2.0,latest at read,pytest,,"extra == ""testing""",True,False,False,False,True,9.1.1
+markdown-it-py,4.2.0,latest at read,requests,,"extra == ""testing""",True,False,False,False,True,2.34.2
+multidict,7.0.0,latest at read,typing-extensions,>=4.1.0,"python_version < ""3.11""",False,True,False,False,True,4.16.0
+s3fs,2026.9.0,latest at read,aiobotocore,"<4.0.0,>=2.19.0",,False,False,False,True,True,3.9.0
+s3fs,2026.9.0,latest at read,fsspec,"<2026.9.1,>=2026.9.0",,False,False,False,True,True,2026.7.0
+s3fs,2026.9.0,latest at read,aiohttp,"!=4.0.0a0,!=4.0.0a1,>=3.9.0",,False,False,False,False,True,3.14.3
+fastapi,0.141.1,latest at read,starlette,>=0.46.0,,False,False,False,False,True,1.6.0
+fastapi,0.141.1,latest at read,pydantic,>=2.9.0,,False,False,False,False,True,2.13.4
+fastapi,0.141.1,latest at read,typing-extensions,>=4.8.0,,False,False,False,False,True,4.16.0
+fastapi,0.141.1,latest at read,typing-inspection,>=0.4.2,,False,False,False,False,True,0.4.4
+fastapi,0.141.1,latest at read,uvicorn,>=0.12.0,"extra == ""standard""",True,False,False,False,True,0.52.4
+fastapi,0.141.1,latest at read,uvicorn,>=0.12.0,"extra == ""standard-no-fastapi-cloud-cli""",True,False,False,False,True,0.52.4
+fastapi,0.141.1,latest at read,uvicorn,>=0.12.0,"extra == ""all""",True,False,False,False,True,0.52.4
+referencing,0.37.0,latest at read,rpds-py,>=0.7.0,,False,False,False,False,True,2026.6.3
+referencing,0.37.0,latest at read,typing-extensions,>=4.4.0,"python_version < ""3.13""",False,True,False,False,True,4.16.0
+wheel,0.48.0,latest at read,packaging,>=24.0,,False,False,False,False,True,26.3
+aiosignal,1.4.0,latest at read,typing-extensions,>=4.2,"python_version < ""3.13""",False,True,False,False,True,4.16.0
+google-auth,2.59.0,latest at read,cryptography,>=38.0.3,"python_version < ""3.14""",False,True,False,False,True,50.0.0
+google-auth,2.59.0,latest at read,cryptography,>=41.0.5,"python_version >= ""3.14""",False,True,False,False,True,50.0.0
+google-auth,2.59.0,latest at read,cryptography,>=38.0.3,"python_version < ""3.14"" and extra == ""cryptography""",True,True,False,False,True,50.0.0
+google-auth,2.59.0,latest at read,cryptography,>=41.0.5,"python_version >= ""3.14"" and extra == ""cryptography""",True,True,False,False,True,50.0.0
+google-auth,2.59.0,latest at read,cryptography,>=38.0.3,"python_version < ""3.14"" and extra == ""pyopenssl""",True,True,False,False,True,50.0.0
+google-auth,2.59.0,latest at read,cryptography,>=41.0.5,"python_version >= ""3.14"" and extra == ""pyopenssl""",True,True,False,False,True,50.0.0
+google-auth,2.59.0,latest at read,aiohttp,"<4.0.0,>=3.8.0","python_version < ""3.14"" and extra == ""aiohttp""",True,True,False,True,True,3.14.3
+google-auth,2.59.0,latest at read,aiohttp,"<4.0.0,>=3.9.0","python_version >= ""3.14"" and extra == ""aiohttp""",True,True,False,True,True,3.14.3
+google-auth,2.59.0,latest at read,requests,"<3.0.0,>=2.30.0","extra == ""aiohttp""",True,False,False,True,True,2.34.2
+google-auth,2.59.0,latest at read,cryptography,>=38.0.3,"python_version < ""3.14"" and extra == ""enterprise-cert""",True,True,False,False,True,50.0.0
+google-auth,2.59.0,latest at read,cryptography,>=41.0.5,"python_version >= ""3.14"" and extra == ""enterprise-cert""",True,True,False,False,True,50.0.0
+google-auth,2.59.0,latest at read,pyjwt,>=2.0,"extra == ""pyjwt""",True,False,False,False,True,2.13.0
+google-auth,2.59.0,latest at read,requests,"<3.0.0,>=2.30.0","extra == ""requests""",True,False,False,True,True,2.34.2
+google-auth,2.59.0,latest at read,pyjwt,>=2.0,"extra == ""testing""",True,False,False,False,True,2.13.0
+google-auth,2.59.0,latest at read,pytest,,"extra == ""testing""",True,False,False,False,True,9.1.1
+google-auth,2.59.0,latest at read,urllib3,"<3.0.0,>=1.26.15","extra == ""testing""",True,False,False,True,True,2.7.0
+google-auth,2.59.0,latest at read,packaging,>=20.0,"extra == ""testing""",True,False,False,False,True,26.3
+google-auth,2.59.0,latest at read,aiohttp,"<4.0.0,>=3.8.0","python_version < ""3.14"" and extra == ""testing""",True,True,False,True,True,3.14.3
+google-auth,2.59.0,latest at read,aiohttp,"<4.0.0,>=3.9.0","python_version >= ""3.14"" and extra == ""testing""",True,True,False,True,True,3.14.3
+google-auth,2.59.0,latest at read,requests,"<3.0.0,>=2.30.0","extra == ""testing""",True,False,False,True,True,2.34.2
+google-auth,2.59.0,latest at read,urllib3,"<3.0.0,>=1.26.15","extra == ""urllib3""",True,False,False,True,True,2.7.0
+google-auth,2.59.0,latest at read,packaging,>=20.0,"extra == ""urllib3""",True,False,False,False,True,26.3
+pillow,12.3.0,latest at read,packaging,,"extra == ""tests""",True,False,False,False,True,26.3
+pillow,12.3.0,latest at read,pytest,,"extra == ""tests""",True,False,False,False,True,9.1.1
+googleapis-common-protos,1.75.4,latest at read,protobuf,"<8.0.0,>=6.33.5",,False,False,False,True,True,7.36.0
+importlib-metadata,9.0.1,latest at read,pytest,"!=8.1.*,>=6","extra == ""test""",True,False,False,False,True,9.1.1
+importlib-metadata,9.0.1,latest at read,packaging,,"extra == ""test""",True,False,False,False,True,26.3
+zipp,4.1.0,latest at read,pytest,"!=8.1.*,>=6","extra == ""test""",True,False,False,False,True,9.1.1
+opentelemetry-semantic-conventions,0.66b0,latest at read,typing-extensions,>=4.5.0,,False,False,False,False,True,4.16.0
+virtualenv,21.13.0,latest at read,filelock,"<5,>=3.24.2","python_version >= ""3.10""",False,True,False,True,True,3.32.3
+virtualenv,21.13.0,latest at read,filelock,"<=3.19.1,>=3.16.1","python_version < ""3.10""",False,True,False,True,False,3.32.3
+virtualenv,21.13.0,latest at read,platformdirs,"<5,>=3.9.1",,False,False,False,True,True,4.11.3
+virtualenv,21.13.0,latest at read,typing-extensions,>=4.13.2,"python_version < ""3.11""",False,True,False,False,True,4.16.0
+hatchling,1.32.4,latest at read,packaging,>=24.2,,False,False,False,False,True,26.3
+hatchling,1.32.4,latest at read,pathspec,>=0.10.1,,False,False,False,False,True,1.1.1
+pydantic-settings,2.15.0,latest at read,pydantic,>=2.7.0,,False,False,False,False,True,2.13.4
+pydantic-settings,2.15.0,latest at read,python-dotenv,>=0.21.0,,False,False,False,False,True,1.2.3
+pydantic-settings,2.15.0,latest at read,typing-inspection,>=0.4.0,,False,False,False,False,True,0.4.4
+pydantic-settings,2.15.0,latest at read,boto3,>=1.35.0,"extra == ""aws-secrets-manager""",True,False,False,False,True,1.43.78
+wrapt,2.5.0,latest at read,pytest,,"extra == ""dev""",True,False,False,False,True,9.1.1
+opentelemetry-api,1.45.0,latest at read,typing-extensions,>=4.5.0,,False,False,False,False,True,4.16.0
+huggingface-hub,2.0.0,latest at read,click,"<9.0.0,>=8.4.2",,False,False,False,True,True,8.4.2
+huggingface-hub,2.0.0,latest at read,filelock,>=3.10.0,,False,False,False,False,True,3.32.3
+huggingface-hub,2.0.0,latest at read,fsspec,>=2023.5.0,,False,False,False,False,True,2026.7.0
+huggingface-hub,2.0.0,latest at read,packaging,>=20.9,,False,False,False,False,True,26.3
+huggingface-hub,2.0.0,latest at read,tqdm,>=4.42.1,,False,False,False,False,True,4.70.0
+huggingface-hub,2.0.0,latest at read,typing-extensions,>=4.1.0,,False,False,False,False,True,4.16.0
+huggingface-hub,2.0.0,latest at read,pytest,>=8.4.2,"extra == ""testing""",True,False,False,False,True,9.1.1
+huggingface-hub,2.0.0,latest at read,urllib3,<2.0,"extra == ""testing""",True,False,False,True,False,2.7.0
+huggingface-hub,2.0.0,latest at read,numpy,,"extra == ""testing""",True,False,False,False,True,2.5.2
+huggingface-hub,2.0.0,latest at read,requests,,"extra == ""gradio""",True,False,False,False,True,2.34.2
+huggingface-hub,2.0.0,latest at read,typing-extensions,>=4.8.0,"extra == ""typing""",True,False,False,False,True,4.16.0
+huggingface-hub,2.0.0,latest at read,pytest,>=8.4.2,"extra == ""all""",True,False,False,False,True,9.1.1
+huggingface-hub,2.0.0,latest at read,urllib3,<2.0,"extra == ""all""",True,False,False,True,False,2.7.0
+huggingface-hub,2.0.0,latest at read,numpy,,"extra == ""all""",True,False,False,False,True,2.5.2
+huggingface-hub,2.0.0,latest at read,typing-extensions,>=4.8.0,"extra == ""all""",True,False,False,False,True,4.16.0
+huggingface-hub,2.0.0,latest at read,pytest,>=8.4.2,"extra == ""dev""",True,False,False,False,True,9.1.1
+huggingface-hub,2.0.0,latest at read,urllib3,<2.0,"extra == ""dev""",True,False,False,True,False,2.7.0
+huggingface-hub,2.0.0,latest at read,numpy,,"extra == ""dev""",True,False,False,False,True,2.5.2
+huggingface-hub,2.0.0,latest at read,typing-extensions,>=4.8.0,"extra == ""dev""",True,False,False,False,True,4.16.0
+opentelemetry-sdk,1.45.0,latest at read,typing-extensions,>=4.5.0,,False,False,False,False,True,4.16.0
+tenacity,9.1.4,latest at read,pytest,,"extra == ""test""",True,False,False,False,True,9.1.1
+google-api-core,2.39.0,latest at read,protobuf,"<8.0.0,>=6.33.5",,False,False,False,True,True,7.36.0
+google-api-core,2.39.0,latest at read,requests,"<3.0.0,>=2.33.0",,False,False,False,True,True,2.34.2
+google-api-core,2.39.0,latest at read,aiohttp,>=3.13.4,"extra == ""async-rest""",True,False,False,False,True,3.14.3
+google-api-core,2.39.0,latest at read,grpcio-status,"<2.0.0,>=1.59.0","extra == ""grpc""",True,False,False,True,True,1.83.0
+google-api-core,2.39.0,latest at read,grpcio-status,"<2.0.0,>=1.75.1","python_version >= ""3.14"" and extra == ""grpc""",True,True,False,True,True,1.83.0
+textual,8.2.8,latest at read,platformdirs,"<5,>=3.6.0",,False,False,False,True,True,4.11.3
+textual,8.2.8,latest at read,pygments,"<3.0.0,>=2.19.2",,False,False,False,True,True,2.21.0
+textual,8.2.8,latest at read,typing-extensions,"<5.0.0,>=4.4.0",,False,False,False,True,True,4.16.0
+openai,3.20.0,latest at read,anyio,"<5,>=4.10.0",,False,False,False,True,True,4.14.2
+openai,3.20.0,latest at read,pydantic,"!=2.0.*,!=2.1.*,!=2.2.*,!=2.3.*,<3,>=1.10.13",,False,False,False,True,True,2.13.4
+openai,3.20.0,latest at read,typing-extensions,"<5,>=4.14",,False,False,False,True,True,4.16.0
+openai,3.20.0,latest at read,aiohttp,>=3.14.3,"extra == ""aiohttp""",True,False,False,False,True,3.14.3
+openai,3.20.0,latest at read,botocore,"<2,>=1.40.0","extra == ""bedrock""",True,False,False,True,True,1.43.78
+openai,3.20.0,latest at read,urllib3,"<3,>=2.7.0","extra == ""bedrock""",True,False,False,True,True,2.7.0
+openai,3.20.0,latest at read,numpy,>=1,"extra == ""datalib""",True,False,False,False,True,2.5.2
+openai,3.20.0,latest at read,pandas,>=1.2.3,"extra == ""datalib""",True,False,False,False,True,3.0.5
+openai,3.20.0,latest at read,numpy,>=2.0.2,"extra == ""voice-helpers""",True,False,False,False,True,2.5.2
+grpcio,1.84.0,latest at read,typing-extensions,~=4.12,,False,False,False,True,True,4.16.0
+beautifulsoup4,4.15.0,latest at read,typing-extensions,>=4.0.0,,False,False,False,False,True,4.16.0
+beautifulsoup4,4.15.0,latest at read,charset-normalizer,,"extra == ""charset-normalizer""",True,False,False,False,True,3.5.1
+sqlalchemy,2.1.1,latest at read,typing-extensions,>=4.6.0,,False,False,False,False,True,4.16.0
+scipy,1.18.1,latest at read,numpy,"<2.8,>=2.0.0",,False,False,False,True,True,2.5.2
+scipy,1.18.1,latest at read,pytest,>=8.0.0,"extra == ""test""",True,False,False,False,True,9.1.1
+scipy,1.18.1,latest at read,click,<8.3.0,"extra == ""dev""",True,False,False,True,False,8.4.2
+scipy,1.18.1,latest at read,typing-extensions,,"extra == ""dev""",True,False,False,False,True,4.16.0
+watchfiles,1.3.0,latest at read,anyio,>=3.0.0,,False,False,False,False,True,4.14.2
+opentelemetry-proto,1.45.0,latest at read,protobuf,"<8.0,>=5.0",,False,False,False,True,True,7.36.0
+psutil,7.2.2,latest at read,pytest,,"extra == ""dev""",True,False,False,False,True,9.1.1
+psutil,7.2.2,latest at read,packaging,,"extra == ""dev""",True,False,False,False,True,26.3
+psutil,7.2.2,latest at read,requests,,"extra == ""dev""",True,False,False,False,True,2.34.2
+psutil,7.2.2,latest at read,pytest,,"extra == ""test""",True,False,False,False,True,9.1.1
+opentelemetry-instrumentation,0.66b0,latest at read,packaging,>=18.0,,False,False,False,False,True,26.3
+requests-oauthlib,2.0.0,latest at read,requests,>=2.0.0,,False,False,False,False,True,2.34.2
+opentelemetry-exporter-otlp-proto-http,1.45.0,latest at read,typing-extensions,>=4.5.0,,False,False,False,False,True,4.16.0
+opentelemetry-exporter-otlp-proto-http,1.45.0,latest at read,requests,~=2.7,"extra == ""requests""",True,False,False,True,True,2.34.2
+proto-plus,1.28.4,latest at read,protobuf,"<8.0.0,>=6.33.5",,False,False,False,True,True,7.36.0
+mcp,2.2.0,latest at read,anyio,>=4.10,"python_version >= ""3.14""",False,True,False,False,True,4.14.2
+mcp,2.2.0,latest at read,anyio,>=4.9,"python_version < ""3.14""",False,True,False,False,True,4.14.2
+mcp,2.2.0,latest at read,pydantic,>=2.12.0,,False,False,False,False,True,2.13.4
+mcp,2.2.0,latest at read,pyjwt,>=2.10.1,,False,False,False,False,True,2.13.0
+mcp,2.2.0,latest at read,starlette,>=0.27,"python_version < ""3.14""",False,True,False,False,True,1.6.0
+mcp,2.2.0,latest at read,starlette,>=0.48.0,"python_version >= ""3.14""",False,True,False,False,True,1.6.0
+mcp,2.2.0,latest at read,typing-extensions,>=4.13.0,,False,False,False,False,True,4.16.0
+mcp,2.2.0,latest at read,typing-inspection,>=0.4.1,,False,False,False,False,True,0.4.4
+mcp,2.2.0,latest at read,uvicorn,>=0.31.1,"sys_platform != ""emscripten""",False,False,True,False,True,0.52.4
+mcp,2.2.0,latest at read,python-dotenv,>=1.0.0,"extra == ""cli""",True,False,False,False,True,1.2.3
+exceptiongroup,1.3.1,latest at read,typing-extensions,>=4.6.0,"python_version < ""3.13""",False,True,False,False,True,4.16.0
+exceptiongroup,1.3.1,latest at read,pytest,>=6,"extra == ""test""",True,False,False,False,True,9.1.1
+sglang,0.5.20,latest at read,aiohttp,,,False,False,False,False,True,3.14.3
+sglang,0.5.20,latest at read,numpy,,,False,False,False,False,True,2.5.2
+sglang,0.5.20,latest at read,packaging,,,False,False,False,False,True,26.3
+sglang,0.5.20,latest at read,pydantic,,,False,False,False,False,True,2.13.4
+sglang,0.5.20,latest at read,requests,,,False,False,False,False,True,2.34.2
+sglang,0.5.20,latest at read,tqdm,,,False,False,False,False,True,4.70.0
+sglang,0.5.20,latest at read,uvicorn,,,False,False,False,False,True,0.52.4
+sglang,0.5.20,latest at read,pandas,,"extra == ""test""",True,False,False,False,True,3.0.5
+sglang,0.5.20,latest at read,pytest,,"extra == ""test""",True,False,False,False,True,9.1.1
+oauthlib,4.0.0,latest at read,cryptography,>=3.0.0,"extra == ""rsa""",True,False,False,False,True,50.0.0
+oauthlib,4.0.0,latest at read,cryptography,>=3.0.0,"extra == ""signedtoken""",True,False,False,False,True,50.0.0
+oauthlib,4.0.0,latest at read,pyjwt,"<3,>=2.0.0","extra == ""signedtoken""",True,False,False,True,True,2.13.0
+dnspython,2.8.0,latest at read,pytest,>=8.4,"extra == ""dev""",True,False,False,False,True,9.1.1
+dnspython,2.8.0,latest at read,cryptography,>=45,"extra == ""dnssec""",True,False,False,False,True,50.0.0
+dnspython,2.8.0,latest at read,idna,>=3.10,"extra == ""idna""",True,False,False,False,True,3.19
+sse-starlette,3.5.0,latest at read,starlette,>=0.49.1,,False,False,False,False,True,1.6.0
+sse-starlette,3.5.0,latest at read,anyio,>=4.7.0,,False,False,False,False,True,4.14.2
+sse-starlette,3.5.0,latest at read,uvicorn,>=0.34.0,"extra == ""examples""",True,False,False,False,True,0.52.4
+sse-starlette,3.5.0,latest at read,pydantic,>=2,"extra == ""examples""",True,False,False,False,True,2.13.4
+sse-starlette,3.5.0,latest at read,uvicorn,>=0.34.0,"extra == ""uvicorn""",True,False,False,False,True,0.52.4
+hf-xet,1.6.0,latest at read,pytest,,"extra == ""tests""",True,False,False,False,True,9.1.1
+pytest-asyncio,1.4.0,latest at read,pytest,"<10,>=8.4",,False,False,False,True,True,9.1.1
+pytest-asyncio,1.4.0,latest at read,typing-extensions,>=4.12,"python_version < ""3.13""",False,True,False,False,True,4.16.0
+python-discovery,1.6.1,latest at read,filelock,>=3.15.4,,False,False,False,False,True,3.32.3
+docstring-parser,0.18.0,latest at read,pytest,,"extra == ""dev""",True,False,False,False,True,9.1.1
+docstring-parser,0.18.0,latest at read,pytest,,"extra == ""test""",True,False,False,False,True,9.1.1
+requests-toolbelt,1.0.0,latest at read,requests,"<3.0.0,>=2.0.1",,False,False,False,True,True,2.34.2
+pyopenssl,26.4.0,latest at read,cryptography,"<51,>=49.0.0",,False,False,False,True,True,50.0.0
+pyopenssl,26.4.0,latest at read,typing-extensions,>=4.9,"python_version < ""3.13""",False,True,False,False,True,4.16.0
+pyopenssl,26.4.0,latest at read,pytest,>=3.0.1,"extra == ""test""",True,False,False,False,True,9.1.1
+uvloop,0.22.1,latest at read,aiohttp,>=3.10.5,"extra == ""test""",True,False,False,False,True,3.14.3
+opentelemetry-exporter-otlp-proto-grpc,1.45.0,latest at read,typing-extensions,>=4.6.0,,False,False,False,False,True,4.16.0
+tiktoken,0.14.0,latest at read,requests,,,False,False,False,False,True,2.34.2
+google-genai,2.25.0,latest at read,anyio,"<5.0.0,>=4.8.0",,False,False,False,True,True,4.14.2
+google-genai,2.25.0,latest at read,pydantic,"<3.0.0,>=2.12.5",,False,False,False,True,True,2.13.4
+google-genai,2.25.0,latest at read,requests,"<3.0.0,>=2.28.1",,False,False,False,True,True,2.34.2
+google-genai,2.25.0,latest at read,typing-extensions,"<5.0.0,>=4.14.0",,False,False,False,True,True,4.16.0
+google-genai,2.25.0,latest at read,aiohttp,"<4.0.0,>=3.10.11","extra == ""aiohttp""",True,False,False,True,True,3.14.3
+google-genai,2.25.0,latest at read,protobuf,,"extra == ""local-tokenizer""",True,False,False,False,True,7.36.0
+networkx,3.7,latest at read,numpy,>=2.2,"extra == ""default""",True,False,False,False,True,2.5.2
+networkx,3.7,latest at read,pandas,>=2.3,"extra == ""default""",True,False,False,False,True,3.0.5
+networkx,3.7,latest at read,pytest,>=7.2,"extra == ""test""",True,False,False,False,True,9.1.1
+tokenizers,0.23.2,latest at read,pytest,,"extra == ""testing""",True,False,False,False,True,9.1.1
+tokenizers,0.23.2,latest at read,requests,,"extra == ""testing""",True,False,False,False,True,2.34.2
+tokenizers,0.23.2,latest at read,numpy,,"extra == ""testing""",True,False,False,False,True,2.5.2
+redis,8.1.0,latest at read,pyjwt,>=2.13.0,"extra == ""jwt""",True,False,False,False,True,2.13.0
+redis,8.1.0,latest at read,cryptography,>=36.0.1,"extra == ""ocsp""",True,False,False,False,True,50.0.0
+redis,8.1.0,latest at read,requests,>=2.31.0,"extra == ""ocsp""",True,False,False,False,True,2.34.2
+gitpython,3.1.62,latest at read,typing-extensions,>=3.10.0.2,"python_version < ""3.10""",False,True,False,False,True,4.16.0
+gitpython,3.1.62,latest at read,pytest,>=7.3.1,"extra == ""test""",True,False,False,False,True,9.1.1
+gitpython,3.1.62,latest at read,typing-extensions,,"python_version < ""3.11"" and extra == ""test""",True,True,False,False,True,4.16.0
+langchain,1.4.3,latest at read,pydantic,"<3.0.0,>=2.7.4",,False,False,False,True,True,2.13.4
+grpcio-tools,1.84.0,latest at read,protobuf,"<8.0.0,>=7.35.1",,False,False,False,True,True,7.36.0
+scikit-learn,1.9.1,latest at read,numpy,>=1.24.1,,False,False,False,False,True,2.5.2
+pytest-cov,7.1.0,latest at read,pytest,>=7,,False,False,False,False,True,9.1.1
+google-cloud-storage,3.15.0,latest at read,requests,"<3.0.0,>=2.22.0",,False,False,False,True,True,2.34.2
+google-cloud-storage,3.15.0,latest at read,grpcio-status,"<2.0.0,>=1.59.0","extra == ""grpc""",True,False,False,True,True,1.83.0
+google-cloud-storage,3.15.0,latest at read,grpcio-status,"<2.0.0,>=1.75.1","python_version >= ""3.14"" and extra == ""grpc""",True,True,False,True,True,1.83.0
+google-cloud-storage,3.15.0,latest at read,protobuf,"<8.0.0,>=6.33.5","extra == ""grpc""",True,False,False,True,True,7.36.0
+google-cloud-storage,3.15.0,latest at read,protobuf,"<8.0.0,>=6.33.5","extra == ""protobuf""",True,False,False,True,True,7.36.0
+google-cloud-storage,3.15.0,latest at read,numpy,,"extra == ""testing""",True,False,False,False,True,2.5.2
+google-cloud-storage,3.15.0,latest at read,pytest,,"extra == ""testing""",True,False,False,False,True,9.1.1
+matplotlib,3.11.2,latest at read,numpy,>=1.25,,False,False,False,False,True,2.5.2
+matplotlib,3.11.2,latest at read,packaging,>=20.0,,False,False,False,False,True,26.3
+email-validator,2.3.0,latest at read,idna,>=2.0.0,,False,False,False,False,True,3.19
+pynacl,1.6.2,latest at read,cffi,>=1.4.1,"platform_python_implementation != ""PyPy"" and python_version < ""3.9""",False,True,True,False,True,2.1.1
+pynacl,1.6.2,latest at read,cffi,>=2.0.0,"platform_python_implementation != ""PyPy"" and python_version >= ""3.9""",False,True,True,False,True,2.1.1
+pynacl,1.6.2,latest at read,pytest,>=7.4.0,"extra == ""tests""",True,False,False,False,True,9.1.1
+azure-core,1.41.0,latest at read,requests,>=2.21.0,,False,False,False,False,True,2.34.2
+azure-core,1.41.0,latest at read,typing-extensions,>=4.6.0,,False,False,False,False,True,4.16.0
+azure-core,1.41.0,latest at read,aiohttp,>=3.0,"extra == ""aio""",True,False,False,False,True,3.14.3
+tzlocal,5.4.4,latest at read,pytest,>=4.3,"extra == ""testing""",True,False,False,False,True,9.1.1
+alembic,1.20.0,latest at read,typing-extensions,>=4.12,,False,False,False,False,True,4.16.0
+websocket-client,1.9.2,latest at read,pytest,,"extra == ""test""",True,False,False,False,True,9.1.1
+nodeenv,1.11.0,latest at read,certifi,,"extra == ""certifi""",True,False,False,False,True,2026.7.22
+joblib,1.6.0,latest at read,numpy,,"extra == ""test""",True,False,False,False,True,2.5.2
+joblib,1.6.0,latest at read,pytest,,"extra == ""test""",True,False,False,False,True,9.1.1
+joblib,1.6.0,latest at read,numpy,,"extra == ""docs""",True,False,False,False,True,2.5.2
+joblib,1.6.0,latest at read,pandas,,"extra == ""docs""",True,False,False,False,True,3.0.5
+joblib,1.6.0,latest at read,tqdm,,"extra == ""docs""",True,False,False,False,True,4.70.0
+mako,1.4.3,latest at read,pytest,,"extra == ""testing""",True,False,False,False,True,9.1.1
+opentelemetry-instrumentation-requests,0.66b0,latest at read,requests,~=2.0,"extra == ""instruments""",True,False,False,True,True,2.34.2
+azure-identity,1.25.3,latest at read,cryptography,>=2.5,,False,False,False,False,True,50.0.0
+azure-identity,1.25.3,latest at read,typing-extensions,>=4.0.0,,False,False,False,False,True,4.16.0
+keyring,25.7.0,latest at read,pytest,"!=8.1.*,>=6","extra == ""test""",True,False,False,False,True,9.1.1
+google-cloud-core,2.7.0,latest at read,grpcio-status,"<2.0.0,>=1.59.0","extra == ""grpc""",True,False,False,True,True,1.83.0
+google-cloud-core,2.7.0,latest at read,grpcio-status,"<2.0.0,>=1.75.1","python_version >= ""3.14"" and extra == ""grpc""",True,True,False,True,True,1.83.0
+mypy,2.3.1,latest at read,typing-extensions,>=4.6.0,"python_version < ""3.15""",False,True,False,False,True,4.16.0
+mypy,2.3.1,latest at read,typing-extensions,>=4.14.0,"python_version >= ""3.15""",False,True,False,False,True,4.16.0
+mypy,2.3.1,latest at read,pathspec,>=1.0.0,,False,False,False,False,True,1.1.1
+bcrypt,5.0.0,latest at read,pytest,"!=3.3.0,>=3.2.1","extra == ""tests""",True,False,False,False,True,9.1.1
+pytest-json-ctrf,0.5.3,latest at read,pytest,>6.0.0,,False,False,False,False,True,9.1.1
+flask,3.1.3,latest at read,click,>=8.1.3,,False,False,False,False,True,8.4.2
+flask,3.1.3,latest at read,python-dotenv,,"extra == ""dotenv""",True,False,False,False,True,1.2.3
+contourpy,1.4.0,latest at read,numpy,>=2.0,,False,False,False,False,True,2.5.2
+contourpy,1.4.0,latest at read,pytest,,"extra == ""test-no-images""",True,False,False,False,True,9.1.1
+jaraco-classes,3.4.0,latest at read,pytest,>=6,"extra == ""testing""",True,False,False,False,True,9.1.1
+msal,1.39.0,latest at read,requests,"<3,>=2.0.0",,False,False,False,True,True,2.34.2
+msal,1.39.0,latest at read,pyjwt,"<3,>=1.0.0",,False,False,False,True,True,2.13.0
+msal,1.39.0,latest at read,cryptography,"<51,>=2.5",,False,False,False,True,True,50.0.0
+jeepney,0.9.0,latest at read,pytest,,"extra == ""test""",True,False,False,False,True,9.1.1
+jaraco-functools,4.6.0,latest at read,pytest,"!=8.1.*,>=6","extra == ""test""",True,False,False,False,True,9.1.1
+zstandard,0.25.0,latest at read,cffi,~=1.17,"(platform_python_implementation != ""PyPy"" and python_version < ""3.14"") and extra == ""cffi""",True,True,True,True,False,2.1.1
+zstandard,0.25.0,latest at read,cffi,>=2.0.0b,"(platform_python_implementation != ""PyPy"" and python_version >= ""3.14"") and extra == ""cffi""",True,True,True,False,True,2.1.1
+anthropic,1.9.0,latest at read,anyio,"<5,>=4.1.0",,False,False,False,True,True,4.14.2
+anthropic,1.9.0,latest at read,pydantic,"<3,>=1.10.0",,False,False,False,True,True,2.13.4
+anthropic,1.9.0,latest at read,typing-extensions,"<5,>=4.14",,False,False,False,True,True,4.16.0
+anthropic,1.9.0,latest at read,aiohttp,"<4,>=3.10.0","extra == ""aiohttp""",True,False,False,True,True,3.14.3
+anthropic,1.9.0,latest at read,boto3,"<2,>=1.28.57","extra == ""aws""",True,False,False,True,True,1.43.78
+anthropic,1.9.0,latest at read,botocore,"<2,>=1.31.57","extra == ""aws""",True,False,False,True,True,1.43.78
+anthropic,1.9.0,latest at read,boto3,"<2,>=1.28.57","extra == ""bedrock""",True,False,False,True,True,1.43.78
+anthropic,1.9.0,latest at read,botocore,"<2,>=1.31.57","extra == ""bedrock""",True,False,False,True,True,1.43.78
+secretstorage,3.5.0,latest at read,cryptography,>=2.0,,False,False,False,False,True,50.0.0
+docker,7.2.0,latest at read,requests,>=2.26.0,,False,False,False,False,True,2.34.2
+docker,7.2.0,latest at read,urllib3,>=1.26.0,,False,False,False,False,True,2.7.0
+docker,7.2.0,latest at read,pytest,==7.4.2,"extra == ""dev""",True,False,False,True,False,9.1.1
+jaraco-context,6.1.2,latest at read,pytest,"!=8.1.*,>=6","extra == ""test""",True,False,False,False,True,9.1.1
+cycler,0.12.1,latest at read,pytest,,"extra == ""tests""",True,False,False,False,True,9.1.1
+google-resumable-media,2.10.2,latest at read,requests,"<3.0.0,>=2.18.0","extra == ""requests""",True,False,False,True,True,2.34.2
+google-resumable-media,2.10.2,latest at read,aiohttp,"<4.0.0,>=3.6.2","extra == ""aiohttp""",True,False,False,True,True,3.14.3
+httpx2,2.13.1,latest at read,anyio,>=4.10,"sys_platform != ""emscripten""",False,False,True,False,True,4.14.2
+httpx2,2.13.1,latest at read,idna,>=3.18,,False,False,False,False,True,3.19
+httpx2,2.13.1,latest at read,typing-extensions,>=4.5.0,"python_version < ""3.13""",False,True,False,False,True,4.16.0
+httpx2,2.13.1,latest at read,click,>=8.4.2,"extra == ""cli""",True,False,False,False,True,8.4.2
+httpx2,2.13.1,latest at read,pygments,==2.*,"extra == ""cli""",True,False,False,True,True,2.21.0
+sympy,1.14.0,latest at read,pytest,>=7.1.0,"extra == ""dev""",True,False,False,False,True,9.1.1
+transformers,5.17.0,latest at read,numpy,>=1.17,,False,False,False,False,True,2.5.2
+transformers,5.17.0,latest at read,packaging,>=20.0,,False,False,False,False,True,26.3
+transformers,5.17.0,latest at read,tqdm,>=4.60,,False,False,False,False,True,4.70.0
+transformers,5.17.0,latest at read,urllib3,<2.0.0,"extra == ""quality""",True,False,False,True,False,2.7.0
+transformers,5.17.0,latest at read,protobuf,,"extra == ""sentencepiece""",True,False,False,False,True,7.36.0
+transformers,5.17.0,latest at read,pydantic,>=2,"extra == ""serving""",True,False,False,False,True,2.13.4
+transformers,5.17.0,latest at read,uvicorn,,"extra == ""serving""",True,False,False,False,True,0.52.4
+transformers,5.17.0,latest at read,starlette,,"extra == ""serving""",True,False,False,False,True,1.6.0
+transformers,5.17.0,latest at read,pytest,"<9.0.0,>=7.2.0","extra == ""testing""",True,False,False,True,False,9.1.1
+transformers,5.17.0,latest at read,filelock,,"extra == ""testing""",True,False,False,False,True,3.32.3
+transformers,5.17.0,latest at read,urllib3,<2.0.0,"extra == ""testing""",True,False,False,True,False,2.7.0
+transformers,5.17.0,latest at read,protobuf,,"extra == ""testing""",True,False,False,False,True,7.36.0
+transformers,5.17.0,latest at read,pydantic,>=2,"extra == ""testing""",True,False,False,False,True,2.13.4
+transformers,5.17.0,latest at read,uvicorn,,"extra == ""testing""",True,False,False,False,True,0.52.4
+transformers,5.17.0,latest at read,starlette,,"extra == ""testing""",True,False,False,False,True,1.6.0
+transformers,5.17.0,latest at read,pytest,"<9.0.0,>=7.2.0","extra == ""deepspeed-testing""",True,False,False,True,False,9.1.1
+transformers,5.17.0,latest at read,filelock,,"extra == ""deepspeed-testing""",True,False,False,False,True,3.32.3
+transformers,5.17.0,latest at read,urllib3,<2.0.0,"extra == ""deepspeed-testing""",True,False,False,True,False,2.7.0
+transformers,5.17.0,latest at read,protobuf,,"extra == ""deepspeed-testing""",True,False,False,False,True,7.36.0
+transformers,5.17.0,latest at read,pydantic,>=2,"extra == ""deepspeed-testing""",True,False,False,False,True,2.13.4
+transformers,5.17.0,latest at read,uvicorn,,"extra == ""deepspeed-testing""",True,False,False,False,True,0.52.4
+transformers,5.17.0,latest at read,starlette,,"extra == ""deepspeed-testing""",True,False,False,False,True,1.6.0
+transformers,5.17.0,latest at read,protobuf,,"extra == ""deepspeed-testing""",True,False,False,False,True,7.36.0
+transformers,5.17.0,latest at read,protobuf,,"extra == ""all""",True,False,False,False,True,7.36.0
+transformers,5.17.0,latest at read,protobuf,,"extra == ""dev""",True,False,False,False,True,7.36.0
+transformers,5.17.0,latest at read,pytest,"<9.0.0,>=7.2.0","extra == ""dev""",True,False,False,True,False,9.1.1
+transformers,5.17.0,latest at read,filelock,,"extra == ""dev""",True,False,False,False,True,3.32.3
+transformers,5.17.0,latest at read,urllib3,<2.0.0,"extra == ""dev""",True,False,False,True,False,2.7.0
+transformers,5.17.0,latest at read,protobuf,,"extra == ""dev""",True,False,False,False,True,7.36.0
+transformers,5.17.0,latest at read,pydantic,>=2,"extra == ""dev""",True,False,False,False,True,2.13.4
+transformers,5.17.0,latest at read,uvicorn,,"extra == ""dev""",True,False,False,False,True,0.52.4
+transformers,5.17.0,latest at read,starlette,,"extra == ""dev""",True,False,False,False,True,1.6.0
+httpcore2,2.13.1,latest at read,anyio,"<5.0,>=4.5.0","extra == ""asyncio""",True,False,False,True,True,4.14.2
+google-cloud-bigquery,3.45.2,latest at read,packaging,>=24.2.0,,False,False,False,False,True,26.3
+google-cloud-bigquery,3.45.2,latest at read,requests,"<3.0.0,>=2.21.0",,False,False,False,True,True,2.34.2
+google-cloud-bigquery,3.45.2,latest at read,pandas,>=1.3.0,"extra == ""pandas""",True,False,False,False,True,3.0.5
+google-cloud-bigquery,3.45.2,latest at read,tqdm,"<5.0.0,>=4.23.4","extra == ""tqdm""",True,False,False,True,True,4.70.0
+google-cloud-bigquery,3.45.2,latest at read,protobuf,"<8.0.0,>=6.33.5","extra == ""bigquery-v2""",True,False,False,True,True,7.36.0
+black,26.5.1,latest at read,click,>=8.0.0,,False,False,False,False,True,8.4.2
+black,26.5.1,latest at read,packaging,>=22.0,,False,False,False,False,True,26.3
+black,26.5.1,latest at read,pathspec,>=1.0.0,,False,False,False,False,True,1.1.1
+black,26.5.1,latest at read,platformdirs,>=2,,False,False,False,False,True,4.11.3
+black,26.5.1,latest at read,typing-extensions,>=4.0.1,"python_version < ""3.11""",False,True,False,False,True,4.16.0
+black,26.5.1,latest at read,aiohttp,>=3.10,"extra == ""d""",True,False,False,False,True,3.14.3
+prometheus-client,0.26.0,latest at read,aiohttp,,"extra == ""aiohttp""",True,False,False,False,True,3.14.3
+sentry-sdk,2.71.0,latest at read,urllib3,>=1.26.11,,False,False,False,False,True,2.7.0
+sentry-sdk,2.71.0,latest at read,certifi,,,False,False,False,False,True,2026.7.22
+sentry-sdk,2.71.0,latest at read,aiohttp,>=3.5,"extra == ""aiohttp""",True,False,False,False,True,3.14.3
+sentry-sdk,2.71.0,latest at read,protobuf,>=3.8.0,"extra == ""grpcio""",True,False,False,False,True,7.36.0
+sentry-sdk,2.71.0,latest at read,litellm,"!=1.82.7,!=1.82.8,>=1.77.5","extra == ""litellm""",True,False,False,False,True,1.97.0
+sentry-sdk,2.71.0,latest at read,starlette,>=0.19.1,"extra == ""starlette""",True,False,False,False,True,1.6.0
+langchain-core,1.6.5,latest at read,packaging,>=23.2.0,,False,False,False,False,True,26.3
+langchain-core,1.6.5,latest at read,pydantic,"<3.0.0,>=2.7.4",,False,False,False,True,True,2.13.4
+langchain-core,1.6.5,latest at read,typing-extensions,"<5.0.0,>=4.7.0",,False,False,False,True,True,4.16.0
+snowflake-connector-python,4.7.5,latest at read,cryptography,>=46.0.5,,False,False,False,False,True,50.0.0
+snowflake-connector-python,4.7.5,latest at read,pyjwt,"<3.0.0,>=2.10.1",,False,False,False,True,True,2.13.0
+snowflake-connector-python,4.7.5,latest at read,requests,"<3.0.0,>=2.32.4",,False,False,False,True,True,2.34.2
+snowflake-connector-python,4.7.5,latest at read,packaging,,,False,False,False,False,True,26.3
+snowflake-connector-python,4.7.5,latest at read,charset-normalizer,"<4,>=2",,False,False,False,True,True,3.5.1
+snowflake-connector-python,4.7.5,latest at read,idna,"<4,>=3.7",,False,False,False,True,True,3.19
+snowflake-connector-python,4.7.5,latest at read,certifi,>=2024.7.4,,False,False,False,False,True,2026.7.22
+snowflake-connector-python,4.7.5,latest at read,typing-extensions,"<5,>=4.3",,False,False,False,True,True,4.16.0
+snowflake-connector-python,4.7.5,latest at read,filelock,"<4,>=3.5",,False,False,False,True,True,3.32.3
+snowflake-connector-python,4.7.5,latest at read,platformdirs,"<5.0.0,>=2.6.0",,False,False,False,True,True,4.11.3
+snowflake-connector-python,4.7.5,latest at read,boto3,>=1.24,,False,False,False,False,True,1.43.78
+snowflake-connector-python,4.7.5,latest at read,botocore,>=1.24,,False,False,False,False,True,1.43.78
+snowflake-connector-python,4.7.5,latest at read,boto3,>=1.24,"extra == ""boto""",True,False,False,False,True,1.43.78
+snowflake-connector-python,4.7.5,latest at read,botocore,>=1.24,"extra == ""boto""",True,False,False,False,True,1.43.78
+snowflake-connector-python,4.7.5,latest at read,numpy,<=2.4.3,"extra == ""development""",True,False,False,True,False,2.5.2
+snowflake-connector-python,4.7.5,latest at read,pytest,"<9,>=8.4","extra == ""development""",True,False,False,True,False,9.1.1
+snowflake-connector-python,4.7.5,latest at read,pandas,"<3.0.0,>=1.0.0","python_version < ""3.13"" and extra == ""pandas""",True,True,False,True,False,3.0.5
+snowflake-connector-python,4.7.5,latest at read,pandas,"<3.0.0,>=2.1.2","python_version >= ""3.13"" and extra == ""pandas""",True,True,False,True,False,3.0.5
+google-auth-oauthlib,1.4.1,latest at read,click,>=6.0.0,"extra == ""tool""",True,False,False,False,True,8.4.2
+rapidfuzz,3.14.6,latest at read,numpy,,"extra == ""all""",True,False,False,False,True,2.5.2
+mpmath,1.4.1,latest at read,pytest,>=6,"extra == ""tests""",True,False,False,False,True,9.1.1
+mpmath,1.4.1,latest at read,numpy,,"extra == ""tests""",True,False,False,False,True,2.5.2
+mpmath,1.4.1,latest at read,packaging,,"extra == ""tests""",True,False,False,False,True,26.3
+ipython,9.17.1,latest at read,pygments,>=2.14.0,,False,False,False,False,True,2.21.0
+ipython,9.17.1,latest at read,typing-extensions,>=4.6,"python_version < ""3.12""",False,True,False,False,True,4.16.0
+ipython,9.17.1,latest at read,typing-extensions,,"extra == ""doc""",True,False,False,False,True,4.16.0
+ipython,9.17.1,latest at read,pytest,>=7.0.0,"extra == ""test""",True,False,False,False,True,9.1.1
+ipython,9.17.1,latest at read,packaging,>=23.0.0,"extra == ""test""",True,False,False,False,True,26.3
+ipython,9.17.1,latest at read,numpy,>=2.0,"extra == ""test-extra""",True,False,False,False,True,2.5.2
+ipython,9.17.1,latest at read,pandas,>2.1,"extra == ""test-extra""",True,False,False,False,True,3.0.5
+awscli,1.46.1,latest at read,urllib3,"!=2.2.0,<3,>=1.25.4",,False,False,False,True,True,2.7.0
+pytest-xdist,3.8.0,latest at read,pytest,>=7.0.0,,False,False,False,False,True,9.1.1
+pytest-xdist,3.8.0,latest at read,filelock,,"extra == ""testing""",True,False,False,False,True,3.32.3
+narwhals,2.26.0,latest at read,packaging,>=21.3,"extra == ""ibis""",True,False,False,False,True,26.3
+narwhals,2.26.0,latest at read,pandas,>=1.3.4,"extra == ""pandas""",True,False,False,False,True,3.0.5
+types-requests,2.33.0.20260906,latest at read,urllib3,>=2,,False,False,False,False,True,2.7.0
+datasets,5.0.1,latest at read,filelock,,,False,False,False,False,True,3.32.3
+datasets,5.0.1,latest at read,numpy,>=1.17,,False,False,False,False,True,2.5.2
+datasets,5.0.1,latest at read,pandas,,,False,False,False,False,True,3.0.5
+datasets,5.0.1,latest at read,requests,>=2.32.2,,False,False,False,False,True,2.34.2
+datasets,5.0.1,latest at read,tqdm,>=4.66.3,,False,False,False,False,True,4.70.0
+datasets,5.0.1,latest at read,fsspec,"<=2026.6.0,>=2023.1.0",,False,False,False,True,False,2026.7.0
+datasets,5.0.1,latest at read,packaging,,,False,False,False,False,True,26.3
+datasets,5.0.1,latest at read,pytest,,"extra == ""dev""",True,False,False,False,True,9.1.1
+datasets,5.0.1,latest at read,aiohttp,,"extra == ""dev""",True,False,False,False,True,3.14.3
+datasets,5.0.1,latest at read,protobuf,<4.0.0,"extra == ""dev""",True,False,False,True,False,7.36.0
+datasets,5.0.1,latest at read,pytest,,"extra == ""tests""",True,False,False,False,True,9.1.1
+datasets,5.0.1,latest at read,aiohttp,,"extra == ""tests""",True,False,False,False,True,3.14.3
+datasets,5.0.1,latest at read,protobuf,<4.0.0,"extra == ""tests""",True,False,False,True,False,7.36.0
+datasets,5.0.1,latest at read,pytest,,"extra == ""tests-numpy2""",True,False,False,False,True,9.1.1
+datasets,5.0.1,latest at read,aiohttp,,"extra == ""tests-numpy2""",True,False,False,False,True,3.14.3
+datasets,5.0.1,latest at read,protobuf,<4.0.0,"extra == ""tests-numpy2""",True,False,False,True,False,7.36.0
+pypdf,6.19.0,latest at read,typing-extensions,>=4.0,"python_version < ""3.11""",False,True,False,False,True,4.16.0
+pypdf,6.19.0,latest at read,cryptography,>3.0,"extra == ""crypto""",True,False,False,False,True,50.0.0
+pypdf,6.19.0,latest at read,cryptography,>3.0,"extra == ""full""",True,False,False,False,True,50.0.0
+execnet,2.1.2,latest at read,pytest,,"extra == ""testing""",True,False,False,False,True,9.1.1
+traitlets,5.16.1,latest at read,pytest,"<10.0,>=7.0","extra == ""test""",True,False,False,True,True,9.1.1
+asgiref,3.12.1,latest at read,typing-extensions,>=4,"python_version < ""3.11""",False,True,False,False,True,4.16.0
+asgiref,3.12.1,latest at read,pytest,,"extra == ""tests""",True,False,False,False,True,9.1.1
+ydb,3.32.0,latest at read,packaging,,,False,False,False,False,True,26.3
+ydb,3.32.0,latest at read,protobuf,"<7.0.0,>=3.13.0",,False,False,False,True,False,7.36.0
+ydb,3.32.0,latest at read,aiohttp,<4,,False,False,False,True,True,3.14.3
+paramiko,5.0.0,latest at read,cryptography,>=3.3,,False,False,False,False,True,50.0.0
+google-cloud-secret-manager,2.30.0,latest at read,protobuf,"<8.0.0,>=6.33.5",,False,False,False,True,True,7.36.0
+webencodings,0.6.1,latest at read,pytest,,"extra == ""test""",True,False,False,False,True,9.1.1
+fastjsonschema,2.22.2,latest at read,pytest,,"extra == ""devel""",True,False,False,False,True,9.1.1
+authlib,1.8.0,latest at read,cryptography,>=45.0.1,,False,False,False,False,True,50.0.0
+psycopg,3.3.6,latest at read,typing-extensions,>=4.6,"python_version < ""3.13""",False,True,False,False,True,4.16.0
+psycopg,3.3.6,latest at read,anyio,>=4.0,"extra == ""test""",True,False,False,False,True,4.14.2
+psycopg,3.3.6,latest at read,pytest,>=6.2.5,"extra == ""test""",True,False,False,False,True,9.1.1
+build,1.6.1,latest at read,packaging,>=24.0,,False,False,False,False,True,26.3
+grpc-google-iam-v1,0.14.5,latest at read,protobuf,"<8.0.0,>=6.33.5",,False,False,False,True,True,7.36.0
+gunicorn,26.2.0,latest at read,packaging,,"extra == ""gevent""",True,False,False,False,True,26.3
+gunicorn,26.2.0,latest at read,packaging,,"extra == ""testing""",True,False,False,False,True,26.3
+gunicorn,26.2.0,latest at read,pytest,>=9.0.3,"extra == ""testing""",True,False,False,False,True,9.1.1
+executing,2.2.1,latest at read,pytest,,"extra == ""tests""",True,False,False,False,True,9.1.1
+databricks-sdk,0.143.0,latest at read,requests,"<3,>=2.28.1",,False,False,False,True,True,2.34.2
+databricks-sdk,0.143.0,latest at read,protobuf,"!=5.26.*,!=5.27.*,!=5.28.*,!=5.29.0,!=5.29.1,!=5.29.2,!=5.29.3,!=5.29.4,!=6.30.0,!=6.30.1,!=6.31.0,<7.0,>=4.25.8",,False,False,False,True,False,7.36.0
+databricks-sdk,0.143.0,latest at read,urllib3,"<3,>=1.26",,False,False,False,True,True,2.7.0
+databricks-sdk,0.143.0,latest at read,pytest,,"extra == ""dev""",True,False,False,False,True,9.1.1
+joserfc,1.7.5,latest at read,cryptography,>=45.0.1,,False,False,False,False,True,50.0.0
+azure-storage-blob,12.30.3,latest at read,cryptography,>=2.1.4,,False,False,False,False,True,50.0.0
+azure-storage-blob,12.30.3,latest at read,typing-extensions,>=4.6.0,,False,False,False,False,True,4.16.0
+jedi,0.20.0,latest at read,pytest,<9.0.0,"extra == ""dev""",True,False,False,True,False,9.1.1
+jedi,0.20.0,latest at read,typing-extensions,,"extra == ""dev""",True,False,False,False,True,4.16.0
+jedi,0.20.0,latest at read,pygments,==2.20.0,"extra == ""docs""",True,False,False,True,False,2.21.0
+jedi,0.20.0,latest at read,certifi,==2026.4.22,"extra == ""docs""",True,False,False,True,False,2026.7.22
+jedi,0.20.0,latest at read,charset-normalizer,==3.4.7,"extra == ""docs""",True,False,False,True,False,3.5.1
+jedi,0.20.0,latest at read,idna,==3.13,"extra == ""docs""",True,False,False,True,False,3.19
+jedi,0.20.0,latest at read,packaging,==26.2,"extra == ""docs""",True,False,False,True,False,26.3
+jedi,0.20.0,latest at read,pytest,==9.0.3,"extra == ""docs""",True,False,False,True,False,9.1.1
+jedi,0.20.0,latest at read,requests,==2.33.1,"extra == ""docs""",True,False,False,True,False,2.34.2
+jedi,0.20.0,latest at read,urllib3,==2.6.3,"extra == ""docs""",True,False,False,True,False,2.7.0
+parso,0.8.7,latest at read,pytest,,"extra == ""testing""",True,False,False,False,True,9.1.1
+babel,2.18.0,latest at read,pytest,>=6.0,"extra == ""dev""",True,False,False,False,True,9.1.1
+asttokens,3.0.2,latest at read,pytest,<9.0,"extra == ""test""",True,False,False,True,False,9.1.1
+google-cloud-aiplatform,2.2.0,latest at read,certifi,>=2023.7.22,,False,False,False,False,True,2026.7.22
+google-cloud-aiplatform,2.2.0,latest at read,protobuf,"!=4.21.0,!=4.21.1,!=4.21.2,!=4.21.3,!=4.21.4,!=4.21.5,<7.0.0,>=3.20.2",,False,False,False,True,False,7.36.0
+google-cloud-aiplatform,2.2.0,latest at read,packaging,>=14.3,,False,False,False,False,True,26.3
+google-cloud-aiplatform,2.2.0,latest at read,pydantic,<3,,False,False,False,True,True,2.13.4
+google-cloud-aiplatform,2.2.0,latest at read,typing-extensions,,,False,False,False,False,True,4.16.0
+google-cloud-aiplatform,2.2.0,latest at read,requests,>=2.28.1,"extra == ""endpoint""",True,False,False,False,True,2.34.2
+google-cloud-aiplatform,2.2.0,latest at read,starlette,>=0.17.1,"extra == ""full""",True,False,False,False,True,1.6.0
+google-cloud-aiplatform,2.2.0,latest at read,litellm,"<1.86.0,>=1.83.7","python_version < ""3.14"" and extra == ""full""",True,True,False,True,False,1.97.0
+google-cloud-aiplatform,2.2.0,latest at read,numpy,>=1.15.0,"extra == ""full""",True,False,False,False,True,2.5.2
+google-cloud-aiplatform,2.2.0,latest at read,uvicorn,>=0.16.0,"extra == ""full""",True,False,False,False,True,0.52.4
+google-cloud-aiplatform,2.2.0,latest at read,tqdm,>=4.23.0,"extra == ""full""",True,False,False,False,True,4.70.0
+google-cloud-aiplatform,2.2.0,latest at read,pandas,>=1.0.0,"extra == ""full""",True,False,False,False,True,3.0.5
+google-cloud-aiplatform,2.2.0,latest at read,requests,>=2.28.1,"extra == ""full""",True,False,False,False,True,2.34.2
+google-cloud-aiplatform,2.2.0,latest at read,litellm,"<1.97.0,>=1.93.0","python_version >= ""3.14"" and extra == ""full""",True,True,False,True,False,1.97.0
+google-cloud-aiplatform,2.2.0,latest at read,protobuf,>=5.29.4,"python_version >= ""3.14"" and extra == ""testing""",True,True,False,False,True,7.36.0
+google-cloud-aiplatform,2.2.0,latest at read,urllib3,"<1.27,>=1.21.1","extra == ""full""",True,False,False,True,False,2.7.0
+google-cloud-aiplatform,2.2.0,latest at read,pandas,>=1.0.0,"extra == ""metadata""",True,False,False,False,True,3.0.5
+google-cloud-aiplatform,2.2.0,latest at read,numpy,>=1.15.0,"extra == ""metadata""",True,False,False,False,True,2.5.2
+google-cloud-aiplatform,2.2.0,latest at read,starlette,>=0.17.1,"extra == ""testing""",True,False,False,False,True,1.6.0
+google-cloud-aiplatform,2.2.0,latest at read,litellm,"<1.86.0,>=1.83.7","python_version < ""3.14"" and extra == ""testing""",True,True,False,True,False,1.97.0
+google-cloud-aiplatform,2.2.0,latest at read,numpy,>=1.15.0,"extra == ""testing""",True,False,False,False,True,2.5.2
+google-cloud-aiplatform,2.2.0,latest at read,uvicorn,>=0.16.0,"extra == ""testing""",True,False,False,False,True,0.52.4
+google-cloud-aiplatform,2.2.0,latest at read,tqdm,>=4.23.0,"extra == ""testing""",True,False,False,False,True,4.70.0
+google-cloud-aiplatform,2.2.0,latest at read,pandas,>=1.0.0,"extra == ""testing""",True,False,False,False,True,3.0.5
+google-cloud-aiplatform,2.2.0,latest at read,requests,>=2.28.1,"extra == ""testing""",True,False,False,False,True,2.34.2
+google-cloud-aiplatform,2.2.0,latest at read,litellm,"<1.97.0,>=1.93.0","python_version >= ""3.14"" and extra == ""testing""",True,True,False,True,False,1.97.0
+google-cloud-aiplatform,2.2.0,latest at read,urllib3,"<1.27,>=1.21.1","extra == ""testing""",True,False,False,True,False,2.7.0
+google-cloud-aiplatform,2.2.0,latest at read,aiohttp,,"extra == ""testing""",True,False,False,False,True,3.14.3
+google-cloud-aiplatform,2.2.0,latest at read,protobuf,<=5.29.4,"python_version < ""3.14"" and extra == ""testing""",True,True,False,True,False,7.36.0
+google-cloud-aiplatform,2.2.0,latest at read,pandas,>=1.0.0,"extra == ""lit""",True,False,False,False,True,3.0.5
+google-cloud-aiplatform,2.2.0,latest at read,starlette,>=0.17.1,"extra == ""prediction""",True,False,False,False,True,1.6.0
+google-cloud-aiplatform,2.2.0,latest at read,uvicorn,>=0.16.0,"extra == ""prediction""",True,False,False,False,True,0.52.4
+google-cloud-aiplatform,2.2.0,latest at read,urllib3,"<1.27,>=1.21.1","extra == ""private-endpoints""",True,False,False,True,False,2.7.0
+google-cloud-aiplatform,2.2.0,latest at read,requests,>=2.28.1,"extra == ""private-endpoints""",True,False,False,False,True,2.34.2
+google-cloud-aiplatform,2.2.0,latest at read,pandas,>=1.0.0,"extra == ""ray""",True,False,False,False,True,3.0.5
+google-cloud-aiplatform,2.2.0,latest at read,pandas,>=1.0.0,"extra == ""ray-testing""",True,False,False,False,True,3.0.5
+google-cloud-aiplatform,2.2.0,latest at read,aiohttp,,"extra == ""adk""",True,False,False,False,True,3.14.3
+google-cloud-aiplatform,2.2.0,latest at read,typing-extensions,,"extra == ""adk-testing""",True,False,False,False,True,4.16.0
+google-cloud-aiplatform,2.2.0,latest at read,pydantic,"<3,>=2.11.1","extra == ""adk-testing""",True,False,False,True,True,2.13.4
+google-cloud-aiplatform,2.2.0,latest at read,aiohttp,,"extra == ""adk-testing""",True,False,False,False,True,3.14.3
+google-cloud-aiplatform,2.2.0,latest at read,pydantic,"<3,>=2.11.1","extra == ""reasoningengine""",True,False,False,True,True,2.13.4
+google-cloud-aiplatform,2.2.0,latest at read,typing-extensions,,"extra == ""reasoningengine""",True,False,False,False,True,4.16.0
+google-cloud-aiplatform,2.2.0,latest at read,aiohttp,,"extra == ""reasoningengine""",True,False,False,False,True,3.14.3
+google-cloud-aiplatform,2.2.0,latest at read,packaging,>=24.0,"extra == ""agent-engines""",True,False,False,False,True,26.3
+google-cloud-aiplatform,2.2.0,latest at read,pydantic,"<3,>=2.11.1","extra == ""agent-engines""",True,False,False,True,True,2.13.4
+google-cloud-aiplatform,2.2.0,latest at read,typing-extensions,,"extra == ""agent-engines""",True,False,False,False,True,4.16.0
+google-cloud-aiplatform,2.2.0,latest at read,aiohttp,,"extra == ""agent-engines""",True,False,False,False,True,3.14.3
+google-cloud-aiplatform,2.2.0,latest at read,pandas,>=1.0.0,"extra == ""evaluation""",True,False,False,False,True,3.0.5
+google-cloud-aiplatform,2.2.0,latest at read,tqdm,>=4.23.0,"extra == ""evaluation""",True,False,False,False,True,4.70.0
+google-cloud-aiplatform,2.2.0,latest at read,litellm,"<1.86.0,>=1.83.7","python_version < ""3.14"" and extra == ""evaluation""",True,True,False,True,False,1.97.0
+google-cloud-aiplatform,2.2.0,latest at read,litellm,"<1.97.0,>=1.93.0","python_version >= ""3.14"" and extra == ""evaluation""",True,True,False,True,False,1.97.0
+google-cloud-aiplatform,2.2.0,latest at read,pydantic,"<3,>=2.11.1","extra == ""langchain-testing""",True,False,False,True,True,2.13.4
+google-cloud-aiplatform,2.2.0,latest at read,typing-extensions,,"extra == ""langchain-testing""",True,False,False,False,True,4.16.0
+google-cloud-aiplatform,2.2.0,latest at read,aiohttp,,"extra == ""langchain-testing""",True,False,False,False,True,3.14.3
+google-cloud-aiplatform,2.2.0,latest at read,typing-extensions,,"extra == ""ag2-testing""",True,False,False,False,True,4.16.0
+google-cloud-aiplatform,2.2.0,latest at read,pydantic,"<3,>=2.11.1","extra == ""ag2-testing""",True,False,False,True,True,2.13.4
+google-cloud-aiplatform,2.2.0,latest at read,aiohttp,,"extra == ""ag2-testing""",True,False,False,False,True,3.14.3
+google-cloud-aiplatform,2.2.0,latest at read,pydantic,"<3,>=2.11.1","extra == ""llama-index-testing""",True,False,False,True,True,2.13.4
+google-cloud-aiplatform,2.2.0,latest at read,typing-extensions,,"extra == ""llama-index-testing""",True,False,False,False,True,4.16.0
+google-cloud-aiplatform,2.2.0,latest at read,aiohttp,,"extra == ""llama-index-testing""",True,False,False,False,True,3.14.3
+matplotlib-inline,0.2.2,latest at read,pytest,,"extra == ""test""",True,False,False,False,True,9.1.1
+markdown,3.11,latest at read,pygments,==2.21.0,"extra == ""docs""",True,False,False,True,True,2.21.0
+setuptools-scm,10.3.4,latest at read,packaging,>=20,,False,False,False,False,True,26.3
+setuptools-scm,10.3.4,latest at read,typing-extensions,>=4.1,"python_version < ""3.11""",False,True,False,False,True,4.16.0
+xmltodict,1.0.4,latest at read,pytest,,"extra == ""test""",True,False,False,False,True,9.1.1
+pydantic-ai-slim,2.51.0,latest at read,anyio,>=4.7.0,,False,False,False,False,True,4.14.2
+pydantic-ai-slim,2.51.0,latest at read,pydantic,>=2.12,,False,False,False,False,True,2.13.4
+pydantic-ai-slim,2.51.0,latest at read,typing-inspection,>=0.4.0,,False,False,False,False,True,0.4.4
+pydantic-ai-slim,2.51.0,latest at read,starlette,>=0.46.2,"extra == ""ag-ui""",True,False,False,False,True,1.6.0
+pydantic-ai-slim,2.51.0,latest at read,boto3,>=1.42.63,"extra == ""bedrock""",True,False,False,False,True,1.43.78
+pydantic-ai-slim,2.51.0,latest at read,botocore,>=1.42.63,"extra == ""bedrock-mantle""",True,False,False,False,True,1.43.78
+pydantic-ai-slim,2.51.0,latest at read,starlette,>=0.46.2,"extra == ""ui""",True,False,False,False,True,1.6.0
+pydantic-ai-slim,2.51.0,latest at read,starlette,>=1.3.1,"extra == ""web""",True,False,False,False,True,1.6.0
+pydantic-ai-slim,2.51.0,latest at read,uvicorn,>=0.38.0,"extra == ""web""",True,False,False,False,True,0.52.4
+stack-data,0.6.3,latest at read,pytest,,"extra == ""tests""",True,False,False,False,True,9.1.1
+stack-data,0.6.3,latest at read,pygments,,"extra == ""tests""",True,False,False,False,True,2.21.0
+pure-eval,0.2.4,latest at read,pytest,,"extra == ""tests""",True,False,False,False,True,9.1.1
+gcsfs,2026.8.1,latest at read,aiohttp,"!=4.0.0a0,!=4.0.0a1,>=3.9.0",,False,False,False,False,True,3.14.3
+gcsfs,2026.8.1,latest at read,fsspec,>=2026.7.0,,False,False,False,False,True,2026.7.0
+gcsfs,2026.8.1,latest at read,requests,,,False,False,False,False,True,2.34.2
+gcsfs,2026.8.1,latest at read,pytest,,"extra == ""dev""",True,False,False,False,True,9.1.1
+google-cloud-batch,0.22.3,latest at read,protobuf,"<8.0.0,>=6.33.5",,False,False,False,True,True,7.36.0
+marshmallow,4.3.1,latest at read,typing-extensions,,"python_version < ""3.11""",False,True,False,False,True,4.16.0
+cachecontrol,0.14.4,latest at read,requests,>=2.16.0,,False,False,False,False,True,2.34.2
+cachecontrol,0.14.4,latest at read,pytest,,"extra == ""dev""",True,False,False,False,True,9.1.1
+cachecontrol,0.14.4,latest at read,filelock,>=3.8.0,"extra == ""filecache""",True,False,False,False,True,3.32.3
+langsmith,0.14.1,latest at read,anyio,>=3.5.0,,False,False,False,False,True,4.14.2
+langsmith,0.14.1,latest at read,packaging,>=23.2,,False,False,False,False,True,26.3
+langsmith,0.14.1,latest at read,pydantic,"<3,>=2",,False,False,False,True,True,2.13.4
+langsmith,0.14.1,latest at read,requests,>=2.0.0,,False,False,False,False,True,2.34.2
+langsmith,0.14.1,latest at read,typing-extensions,>=4.0.0,,False,False,False,False,True,4.16.0
+langsmith,0.14.1,latest at read,pytest,>=7.0.0,"extra == ""pytest""",True,False,False,False,True,9.1.1
+langsmith,0.14.1,latest at read,pyjwt,>=2.8.0,"extra == ""sandbox-auth""",True,False,False,False,True,2.13.0
+vcs-versioning,2.5.0,latest at read,packaging,>=26.2,,False,False,False,False,True,26.3
+vcs-versioning,2.5.0,latest at read,typing-extensions,>=4.1,"python_version < ""3.11""",False,True,False,False,True,4.16.0
+python-docx,1.2.0,latest at read,typing-extensions,>=4.9.0,,False,False,False,False,True,4.16.0
+structlog,26.1.0,latest at read,typing-extensions,,"python_version < ""3.11""",False,True,False,False,True,4.16.0
+google-cloud-kms,3.17.0,latest at read,protobuf,"<8.0.0,>=6.33.5",,False,False,False,True,True,7.36.0
+safetensors,0.8.0,latest at read,numpy,>=1.24.6,"extra == ""numpy""",True,False,False,False,True,2.5.2
+safetensors,0.8.0,latest at read,pytest,>=9.0,"extra == ""testing""",True,False,False,False,True,9.1.1
+safetensors,0.8.0,latest at read,fsspec,>=2024.6.0,"extra == ""testing""",True,False,False,False,True,2026.7.0
+tinycss2,1.5.1,latest at read,pytest,,"extra == ""test""",True,False,False,False,True,9.1.1
+termcolor,3.3.0,latest at read,pytest,,"extra == ""tests""",True,False,False,False,True,9.1.1
+google-analytics-admin,0.30.1,latest at read,protobuf,"<8.0.0,>=6.33.5",,False,False,False,True,True,7.36.0
+google-cloud-compute,1.54.0,latest at read,protobuf,"<8.0.0,>=6.33.5",,False,False,False,True,True,7.36.0
+pytokens,0.4.1,latest at read,pytest,,"extra == ""dev""",True,False,False,False,True,9.1.1
+aioitertools,0.13.0,latest at read,typing-extensions,>=4.0,"python_version < ""3.10""",False,True,False,False,True,4.16.0
+kubernetes,36.0.3,latest at read,certifi,>=14.05.14,,False,False,False,False,True,2026.7.22
+kubernetes,36.0.3,latest at read,requests,,,False,False,False,False,True,2.34.2
+kubernetes,36.0.3,latest at read,urllib3,"!=2.6.0,>=1.24.2",,False,False,False,False,True,2.7.0
+kubernetes,36.0.3,latest at read,certifi,>=14.05.14,,False,False,False,False,True,2026.7.22
+kubernetes,36.0.3,latest at read,urllib3,"!=2.6.0,>=1.24.2",,False,False,False,False,True,2.7.0
+kubernetes,36.0.3,latest at read,aiohttp,"<4.0.0,>=3.13.5",,False,False,False,True,True,3.14.3
+pyzmq,27.2.0,latest at read,cffi,,"implementation_name == ""pypy""",False,False,True,False,True,2.1.1
+pyee,14.0.0,latest at read,typing-extensions,,,False,False,False,False,True,4.16.0
+pymongo,4.18.2,latest at read,certifi,>=2023.7.22,"(os_name == ""nt"" or sys_platform == ""darwin"") and extra == ""encryption""",True,False,True,False,True,2026.7.22
+pymongo,4.18.2,latest at read,certifi,>=2023.7.22,"(os_name == ""nt"" or sys_platform == ""darwin"") and extra == ""ocsp""",True,False,True,False,True,2026.7.22
+pymongo,4.18.2,latest at read,cryptography,>=47.0.0,"extra == ""ocsp""",True,False,False,False,True,50.0.0
+pymongo,4.18.2,latest at read,requests,"<3.0,>=2.23.0","extra == ""ocsp""",True,False,False,True,True,2.34.2
+pymongo,4.18.2,latest at read,pytest,>=8.2,"extra == ""test""",True,False,False,False,True,9.1.1
+lz4,4.4.5,latest at read,pytest,!=3.3.0,"extra == ""tests""",True,False,False,False,True,9.1.1
+mdit-py-plugins,0.6.1,latest at read,pytest,,"extra == ""testing""",True,False,False,False,True,9.1.1
+google-cloud-pubsub,2.41.0,latest at read,protobuf,"<8.0.0,>=6.33.5",,False,False,False,True,True,7.36.0
+google-cloud-pubsub,2.41.0,latest at read,grpcio-status,"<2.0.0,>=1.59.0",,False,False,False,True,True,1.83.0
+google-cloud-pubsub,2.41.0,latest at read,grpcio-status,"<2.0.0,>=1.75.1","python_version >= ""3.14""",False,True,False,True,True,1.83.0
+pydantic-graph,2.51.0,latest at read,anyio,>=4.7.0,,False,False,False,False,True,4.14.2
+pydantic-graph,2.51.0,latest at read,pydantic,>=2.12,,False,False,False,False,True,2.13.4
+pydantic-graph,2.51.0,latest at read,typing-inspection,>=0.4.0,,False,False,False,False,True,0.4.4
+pytest-mock,3.16.0,latest at read,pytest,>=6.2.5,,False,False,False,False,True,9.1.1
+pytest-timeout,2.4.0,latest at read,pytest,>=7.0.0,,False,False,False,False,True,9.1.1
+pymysql,1.2.3,latest at read,cryptography,>=46.0.7,"extra == ""rsa""",True,False,False,False,True,50.0.0
+linkify-it-py,2.2.0,latest at read,pytest,,"extra == ""test""",True,False,False,False,True,9.1.1
+linkify-it-py,2.2.0,latest at read,pytest,,"extra == ""benchmark""",True,False,False,False,True,9.1.1
+google-cloud-dlp,3.39.0,latest at read,protobuf,"<8.0.0,>=6.33.5",,False,False,False,True,True,7.36.0
+google-cloud-speech,2.40.0,latest at read,protobuf,"<8.0.0,>=4.25.8",,False,False,False,True,True,7.36.0
+dbt-adapters,1.24.5,latest at read,protobuf,"<7.0,>=6.0",,False,False,False,True,False,7.36.0
+dbt-adapters,1.24.5,latest at read,typing-extensions,"<5.0,>=4.0",,False,False,False,True,True,4.16.0
+google-cloud-texttospeech,2.37.0,latest at read,protobuf,"<8.0.0,>=4.25.8",,False,False,False,True,True,7.36.0
+slack-sdk,3.44.1,latest at read,aiohttp,"<3.9,>=3.7.3","python_version == ""3.7"" and extra == ""optional""",True,True,False,True,False,3.14.3
+slack-sdk,3.44.1,latest at read,aiohttp,"<3.11,>=3.7.3","python_version == ""3.8"" and extra == ""optional""",True,True,False,True,False,3.14.3
+slack-sdk,3.44.1,latest at read,aiohttp,"<3.14,>=3.13.5","python_version == ""3.9"" and extra == ""optional""",True,True,False,True,False,3.14.3
+slack-sdk,3.44.1,latest at read,aiohttp,"<4,>=3.14.3","python_version >= ""3.10"" and extra == ""optional""",True,True,False,True,True,3.14.3
+slack-sdk,3.44.1,latest at read,boto3,<=2,"extra == ""optional""",True,False,False,True,True,1.43.78
+uc-micro-py,2.0.0,latest at read,pytest,,"extra == ""test""",True,False,False,False,True,9.1.1
+weaviate-client,4.23.1,latest at read,pydantic,"<3.0.0,>=2.12.0",,False,False,False,True,True,2.13.4
+weaviate-client,4.23.1,latest at read,protobuf,"<7.0.0,>=4.21.6",,False,False,False,True,False,7.36.0
+weaviate-client,4.23.1,latest at read,packaging,>=21.0,,False,False,False,False,True,26.3
+griffelib,2.3.0,latest at read,platformdirs,>=4.2,"extra == ""pypi""",True,False,False,False,True,4.11.3
+importlib-resources,7.1.0,latest at read,pytest,"!=8.1.*,>=6","extra == ""test""",True,False,False,False,True,9.1.1
+google-cloud-logging,3.16.3,latest at read,protobuf,"<8.0.0,>=6.33.5",,False,False,False,True,True,7.36.0
+reportlab,5.0.1,latest at read,charset-normalizer,,,False,False,False,False,True,3.5.1
+awswrangler,3.17.1,latest at read,boto3,"<2,>=1.20.32",,False,False,False,True,True,1.43.78
+awswrangler,3.17.1,latest at read,botocore,"<2,>=1.23.32",,False,False,False,True,True,1.43.78
+awswrangler,3.17.1,latest at read,numpy,"<3.0,>=1.26",,False,False,False,True,True,2.5.2
+awswrangler,3.17.1,latest at read,packaging,"<27.0,>=21.1",,False,False,False,True,True,26.3
+awswrangler,3.17.1,latest at read,pandas,"<4.0.0,>=1.2.0",,False,False,False,True,True,3.0.5
+awswrangler,3.17.1,latest at read,typing-extensions,"<5,>=4.4.0",,False,False,False,True,True,4.16.0
+awswrangler,3.17.1,latest at read,aiohttp,"<4,>=3.12.14","extra == ""gremlin""",True,False,False,True,True,3.14.3
+awswrangler,3.17.1,latest at read,requests,"<3,>=2.33.0","extra == ""gremlin""",True,False,False,True,True,2.34.2
+awswrangler,3.17.1,latest at read,requests,"<3,>=2.33.0","extra == ""opencypher""",True,False,False,True,True,2.34.2
+awswrangler,3.17.1,latest at read,requests,"<3,>=2.33.0","extra == ""sparql""",True,False,False,True,True,2.34.2
+torch,2.14.0,latest at read,filelock,,,False,False,False,False,True,3.32.3
+torch,2.14.0,latest at read,typing-extensions,>=4.10.0,,False,False,False,False,True,4.16.0
+torch,2.14.0,latest at read,fsspec,>=0.8.5,,False,False,False,False,True,2026.7.0
+jupyter-core,5.9.1,latest at read,platformdirs,>=2.5,,False,False,False,False,True,4.11.3
+jupyter-core,5.9.1,latest at read,pytest,<9,"extra == ""test""",True,False,False,True,False,9.1.1
+deprecation,2.1.0,latest at read,packaging,,,False,False,False,False,True,26.3
+beartype,0.22.9,latest at read,click,,"extra == ""dev""",True,False,False,False,True,8.4.2
+beartype,0.22.9,latest at read,numpy,,"(python_version < ""3.15.0"" and sys_platform != ""darwin"" and platform_python_implementation != ""PyPy"") and extra == ""dev""",True,True,True,False,True,2.5.2
+beartype,0.22.9,latest at read,pygments,,"extra == ""dev""",True,False,False,False,True,2.21.0
+beartype,0.22.9,latest at read,pytest,>=6.2.0,"extra == ""dev""",True,False,False,False,True,9.1.1
+beartype,0.22.9,latest at read,typing-extensions,>=3.10.0.0,"extra == ""dev""",True,False,False,False,True,4.16.0
+beartype,0.22.9,latest at read,click,,"extra == ""test""",True,False,False,False,True,8.4.2
+beartype,0.22.9,latest at read,numpy,,"(python_version < ""3.15.0"" and sys_platform != ""darwin"" and platform_python_implementation != ""PyPy"") and extra == ""test""",True,True,True,False,True,2.5.2
+beartype,0.22.9,latest at read,pygments,,"extra == ""test""",True,False,False,False,True,2.21.0
+beartype,0.22.9,latest at read,pytest,>=6.2.0,"extra == ""test""",True,False,False,False,True,9.1.1
+beartype,0.22.9,latest at read,typing-extensions,>=3.10.0.0,"extra == ""test""",True,False,False,False,True,4.16.0
+beartype,0.22.9,latest at read,click,,"extra == ""test-tox""",True,False,False,False,True,8.4.2
+beartype,0.22.9,latest at read,numpy,,"(python_version < ""3.15.0"" and sys_platform != ""darwin"" and platform_python_implementation != ""PyPy"") and extra == ""test-tox""",True,True,True,False,True,2.5.2
+beartype,0.22.9,latest at read,pygments,,"extra == ""test-tox""",True,False,False,False,True,2.21.0
+beartype,0.22.9,latest at read,pytest,>=6.2.0,"extra == ""test-tox""",True,False,False,False,True,9.1.1
+beartype,0.22.9,latest at read,typing-extensions,>=3.10.0.0,"extra == ""test-tox""",True,False,False,False,True,4.16.0
+cyclopts,5.0.0,latest at read,pydantic,"<3.0.0,>=2.11.2","extra == ""dev""",True,False,False,True,True,2.13.4
+cyclopts,5.0.0,latest at read,pytest,>=8.2.0,"extra == ""dev""",True,False,False,False,True,9.1.1
+loguru,0.7.3,latest at read,pytest,==6.1.2,"extra == ""dev"" and python_version < ""3.8""",True,True,False,True,False,9.1.1
+loguru,0.7.3,latest at read,pytest,==8.3.2,"extra == ""dev"" and python_version >= ""3.8""",True,True,False,True,False,9.1.1
+grpclib,0.4.9,latest at read,protobuf,>=3.20.0,"extra == ""protobuf""",True,False,False,False,True,7.36.0
+nbformat,5.11.1,latest at read,packaging,,"extra == ""test""",True,False,False,False,True,26.3
+nbformat,5.11.1,latest at read,pytest,,"extra == ""test""",True,False,False,False,True,9.1.1
+jsonschema-path,0.5.0,latest at read,requests,"<3.0.0,>=2.31.0","extra == ""requests""",True,False,False,True,True,2.34.2
+sqlglot,30.20.0,latest at read,pandas,,"extra == ""dev""",True,False,False,False,True,3.0.5
+sqlglot,30.20.0,latest at read,typing-extensions,,"extra == ""dev""",True,False,False,False,True,4.16.0
+typing-inspect,0.9.0,latest at read,typing-extensions,>=3.7.4,,False,False,False,False,True,4.16.0
+onnxruntime,1.30.0,latest at read,numpy,>=1.21.6,,False,False,False,False,True,2.5.2
+onnxruntime,1.30.0,latest at read,packaging,,,False,False,False,False,True,26.3
+onnxruntime,1.30.0,latest at read,protobuf,>=4.25.8,,False,False,False,False,True,7.36.0
+dulwich,1.2.15,latest at read,urllib3,>=2.2.2,,False,False,False,False,True,2.7.0
+dulwich,1.2.15,latest at read,typing-extensions,>=4.6.0,"python_version < ""3.12""",False,True,False,False,True,4.16.0
+dulwich,1.2.15,latest at read,urllib3,>=2.2.2,"extra == ""https""",True,False,False,False,True,2.7.0
+dulwich,1.2.15,latest at read,aiohttp,,"extra == ""aiohttp""",True,False,False,False,True,3.14.3
+xlrd,2.0.2,latest at read,pytest,,"extra == ""test""",True,False,False,False,True,9.1.1
+dbt-core,1.12.5,latest at read,click,"<9.0,>=8.3.0",,False,False,False,True,True,8.4.2
+dbt-core,1.12.5,latest at read,packaging,>20.9,,False,False,False,False,True,26.3
+dbt-core,1.12.5,latest at read,pathspec,"<1.1,>=0.9",,False,False,False,True,False,1.1.1
+dbt-core,1.12.5,latest at read,protobuf,"<8.0,>=6.0",,False,False,False,True,True,7.36.0
+dbt-core,1.12.5,latest at read,pydantic,<3,,False,False,False,True,True,2.13.4
+dbt-core,1.12.5,latest at read,python-dotenv,>=1.2,,False,False,False,False,True,1.2.3
+dbt-core,1.12.5,latest at read,requests,<3.0.0,,False,False,False,True,True,2.34.2
+dbt-core,1.12.5,latest at read,typing-extensions,>=4.4,,False,False,False,False,True,4.16.0
+jupyter-client,8.10.0,latest at read,typing-extensions,>=4.13.0,,False,False,False,False,True,4.16.0
+jupyter-client,8.10.0,latest at read,anyio,,"extra == ""test""",True,False,False,False,True,4.14.2
+jupyter-client,8.10.0,latest at read,pytest,,"extra == ""test""",True,False,False,False,True,9.1.1
+google-cloud-monitoring,2.31.0,latest at read,protobuf,"<8.0.0,>=4.25.8",,False,False,False,True,True,7.36.0
+google-cloud-monitoring,2.31.0,latest at read,pandas,>=1.3.4,"extra == ""pandas""",True,False,False,False,True,3.0.5
+fastmcp-slim,4.0.10,latest at read,platformdirs,>=4.0.0,,False,False,False,False,True,4.11.3
+fastmcp-slim,4.0.10,latest at read,pydantic,>=2.12.0,,False,False,False,False,True,2.13.4
+fastmcp-slim,4.0.10,latest at read,python-dotenv,>=1.1.0,,False,False,False,False,True,1.2.3
+fastmcp-slim,4.0.10,latest at read,typing-extensions,>=4.0.0,,False,False,False,False,True,4.16.0
+fastmcp-slim,4.0.10,latest at read,pyjwt,>=2.12.0,"extra == ""azure""",True,False,False,False,True,2.13.0
+fastmcp-slim,4.0.10,latest at read,starlette,>=1.0.1,"extra == ""client""",True,False,False,False,True,1.6.0
+fastmcp-slim,4.0.10,latest at read,starlette,>=1.0.1,"extra == ""mcp""",True,False,False,False,True,1.6.0
+fastmcp-slim,4.0.10,latest at read,packaging,>=24.0,"extra == ""server""",True,False,False,False,True,26.3
+fastmcp-slim,4.0.10,latest at read,starlette,>=1.0.1,"extra == ""server""",True,False,False,False,True,1.6.0
+fastmcp-slim,4.0.10,latest at read,uvicorn,>=0.35,"extra == ""server""",True,False,False,False,True,0.52.4
+modal,1.6.0,latest at read,aiohttp,,,False,False,False,False,True,3.14.3
+modal,1.6.0,latest at read,certifi,,,False,False,False,False,True,2026.7.22
+modal,1.6.0,latest at read,click,~=8.1,,False,False,False,True,True,8.4.2
+modal,1.6.0,latest at read,protobuf,"!=4.24.0,<7.0,>=3.19",,False,False,False,True,False,7.36.0
+modal,1.6.0,latest at read,typing-extensions,~=4.6,,False,False,False,True,True,4.16.0
+synchronicity,0.12.5,latest at read,typing-extensions,>=4.12.2,,False,False,False,False,True,4.16.0
+google-cloud-tasks,2.25.0,latest at read,protobuf,"<8.0.0,>=6.33.5",,False,False,False,True,True,7.36.0
+fastapi-cli,0.0.32,latest at read,uvicorn,>=0.15.0,,False,False,False,False,True,0.52.4
+fastapi-cli,0.0.32,latest at read,uvicorn,>=0.15.0,"extra == ""standard""",True,False,False,False,True,0.52.4
+fastapi-cli,0.0.32,latest at read,uvicorn,>=0.15.0,"extra == ""standard-no-fastapi-cloud-cli""",True,False,False,False,True,0.52.4
+databricks-sql-connector,4.6.0,latest at read,pandas,"<4.0.0,>=1.2.5","python_version >= ""3.10"" and python_version < ""3.13""",False,True,False,True,True,3.0.5
+databricks-sql-connector,4.6.0,latest at read,pandas,"<4.0.0,>=2.2.3","python_version >= ""3.13""",False,True,False,True,True,3.0.5
+databricks-sql-connector,4.6.0,latest at read,pyjwt,"<3.0.0,>=2.0.0",,False,False,False,True,True,2.13.0
+databricks-sql-connector,4.6.0,latest at read,requests,"<3.0.0,>=2.18.1",,False,False,False,True,True,2.34.2
+databricks-sql-connector,4.6.0,latest at read,urllib3,>=1.26,,False,False,False,False,True,2.7.0
+pydantic-extra-types,2.11.1,latest at read,pydantic,>=2.5.2,,False,False,False,False,True,2.13.4
+pydantic-extra-types,2.11.1,latest at read,typing-extensions,,,False,False,False,False,True,4.16.0
+pkginfo,1.13,latest at read,pytest,,"extra == ""testing""",True,False,False,False,True,9.1.1
+rich-rst,2.2.0,latest at read,pygments,>=2.0.0,,False,False,False,False,True,2.21.0
+rich-rst,2.2.0,latest at read,pytest,,"extra == ""tests""",True,False,False,False,True,9.1.1
+shapely,2.1.2,latest at read,numpy,>=1.21,,False,False,False,False,True,2.5.2
+shapely,2.1.2,latest at read,pytest,,"extra == ""test""",True,False,False,False,True,9.1.1
+py-key-value-aio,0.4.6,latest at read,typing-extensions,>=4.15.0,,False,False,False,False,True,4.16.0
+py-key-value-aio,0.4.6,latest at read,aiohttp,>=3.12,"extra == ""elasticsearch""",True,False,False,False,True,3.14.3
+py-key-value-aio,0.4.6,latest at read,anyio,>=4.4.0,"extra == ""filetree""",True,False,False,False,True,4.14.2
+py-key-value-aio,0.4.6,latest at read,pydantic,>=2.11.9,"extra == ""pydantic""",True,False,False,False,True,2.13.4
+py-key-value-aio,0.4.6,latest at read,cryptography,>=45.0.0,"extra == ""wrappers-encryption""",True,False,False,False,True,50.0.0
+ipython-pygments-lexers,1.1.1,latest at read,pygments,,,False,False,False,False,True,2.21.0
+numba,0.67.0,latest at read,numpy,"<2.6,>=1.22",,False,False,False,True,True,2.5.2
+arrow,1.4.0,latest at read,pytest,,"extra == ""test""",True,False,False,False,True,9.1.1
+deepdiff,9.1.0,latest at read,click,~=8.3.1,"extra == ""cli""",True,False,False,True,False,8.4.2
+deepdiff,9.1.0,latest at read,numpy,~=2.4.3,"extra == ""dev"" and python_version >= ""3.14""",True,True,False,True,False,2.5.2
+deepdiff,9.1.0,latest at read,numpy,~=2.2.0,"extra == ""dev"" and python_version < ""3.14""",True,True,False,True,False,2.5.2
+deepdiff,9.1.0,latest at read,pandas,~=3.0.1,"extra == ""dev"" and python_version >= ""3.11""",True,True,False,True,True,3.0.5
+deepdiff,9.1.0,latest at read,pandas,~=2.2.0,"extra == ""dev"" and python_version < ""3.11""",True,True,False,True,False,3.0.5
+deepdiff,9.1.0,latest at read,pydantic,~=2.12.5,"extra == ""static""",True,False,False,True,False,2.13.4
+deepdiff,9.1.0,latest at read,pytest,~=9.0.3,"extra == ""test""",True,False,False,True,False,9.1.1
+deepdiff,9.1.0,latest at read,python-dotenv,~=1.2.2,"extra == ""test""",True,False,False,True,True,1.2.3
+dbt-common,1.39.0,latest at read,pathspec,"<1.1,>=0.9",,False,False,False,True,False,1.1.1
+dbt-common,1.39.0,latest at read,protobuf,"<7.0,>=6.0",,False,False,False,True,False,7.36.0
+dbt-common,1.39.0,latest at read,requests,<3.0.0,,False,False,False,True,True,2.34.2
+dbt-common,1.39.0,latest at read,typing-extensions,"<5.0,>=4.4",,False,False,False,True,True,4.16.0
+dbt-common,1.39.0,latest at read,pytest,"<8.0,>=7.3","extra == ""lint""",True,False,False,True,False,9.1.1
+dbt-common,1.39.0,latest at read,pytest,"<8.0,>=7.3","extra == ""test""",True,False,False,True,False,9.1.1
+smart-open,8.0.1,latest at read,requests,,"extra == ""http""",True,False,False,False,True,2.34.2
+smart-open,8.0.1,latest at read,boto3,>=1.9.17,"extra == ""s3""",True,False,False,False,True,1.43.78
+smart-open,8.0.1,latest at read,pytest,,"extra == ""dev""",True,False,False,False,True,9.1.1
+smart-open,8.0.1,latest at read,numpy,,"extra == ""dev""",True,False,False,False,True,2.5.2
+smart-open,8.0.1,latest at read,typing-extensions,,"extra == ""dev""",True,False,False,False,True,4.16.0
+smart-open,8.0.1,latest at read,requests,,"extra == ""webhdfs""",True,False,False,False,True,2.34.2
+requests-file,3.0.1,latest at read,requests,>=1.0.0,,False,False,False,False,True,2.34.2
+rich-toolkit,0.20.5,latest at read,click,>=8.1.7,,False,False,False,False,True,8.4.2
+rich-toolkit,0.20.5,latest at read,typing-extensions,>=4.12.2,,False,False,False,False,True,4.16.0
+polars,1.44.2,latest at read,numpy,>=1.16.0,"extra == ""numpy""",True,False,False,False,True,2.5.2
+polars,1.44.2,latest at read,pandas,,"extra == ""pandas""",True,False,False,False,True,3.0.5
+polars,1.44.2,latest at read,pydantic,,"extra == ""pydantic""",True,False,False,False,True,2.13.4
+polars,1.44.2,latest at read,fsspec,,"extra == ""fsspec""",True,False,False,False,True,2026.7.0
+mistune,3.3.4,latest at read,typing-extensions,,"python_version < ""3.11""",False,True,False,False,True,4.16.0
+argon2-cffi-bindings,26.1.0,latest at read,cffi,>=1.0.1,"python_version < ""3.14""",False,True,False,False,True,2.1.1
+argon2-cffi-bindings,26.1.0,latest at read,cffi,>=2,"python_version >= ""3.14""",False,True,False,False,True,2.1.1
+msrest,0.7.1,latest at read,certifi,>=2017.4.17,,False,False,False,False,True,2026.7.22
+msrest,0.7.1,latest at read,requests,~=2.16,,False,False,False,True,True,2.34.2
+msrest,0.7.1,latest at read,aiohttp,>=3.0,"python_version >= ""3.5"" and extra == ""async""",True,True,False,False,True,3.14.3
+mmh3,5.3.0,latest at read,pytest,==9.1.1,"extra == ""test""",True,False,False,True,True,9.1.1
+mmh3,5.3.0,latest at read,pandas,==3.0.1,"extra == ""plot""",True,False,False,True,False,3.0.5
+snowflake-snowpark-python,1.55.0,latest at read,typing-extensions,"<5.0.0,>=4.1.0",,False,False,False,True,True,4.16.0
+snowflake-snowpark-python,1.55.0,latest at read,protobuf,"<6.34,>=3.20","python_version < ""3.14""",False,True,False,True,False,7.36.0
+snowflake-snowpark-python,1.55.0,latest at read,protobuf,"<6.34,>=5.29.0","python_version >= ""3.14""",False,True,False,True,False,7.36.0
+snowflake-snowpark-python,1.55.0,latest at read,pandas,<3.0.0,"extra == ""pandas""",True,False,False,True,False,3.0.5
+snowflake-snowpark-python,1.55.0,latest at read,pandas,<3.0.0,"extra == ""modin""",True,False,False,True,False,3.0.5
+snowflake-snowpark-python,1.55.0,latest at read,pandas,<=2.4,"extra == ""modin""",True,False,False,True,False,3.0.5
+snowflake-snowpark-python,1.55.0,latest at read,tqdm,,"extra == ""modin""",True,False,False,False,True,4.70.0
+snowflake-snowpark-python,1.55.0,latest at read,pytest,<8.0.0,"extra == ""development""",True,False,False,True,False,9.1.1
+snowflake-snowpark-python,1.55.0,latest at read,pandas,<3.0.0,"extra == ""modin-development""",True,False,False,True,False,3.0.5
+snowflake-snowpark-python,1.55.0,latest at read,pandas,<=2.4,"extra == ""modin-development""",True,False,False,True,False,3.0.5
+snowflake-snowpark-python,1.55.0,latest at read,tqdm,,"extra == ""modin-development""",True,False,False,False,True,4.70.0
+snowflake-snowpark-python,1.55.0,latest at read,pytest,<8.0.0,"extra == ""modin-development""",True,False,False,True,False,9.1.1
+snowflake-snowpark-python,1.55.0,latest at read,pandas,,"extra == ""localtest""",True,False,False,False,True,3.0.5
+snowflake-snowpark-python,1.55.0,latest at read,requests,,"extra == ""localtest""",True,False,False,False,True,2.34.2
+llama-cloud-services,0.6.94,latest at read,click,"<9,>=8.1.7",,False,False,False,True,True,8.4.2
+llama-cloud-services,0.6.94,latest at read,packaging,>=23.0,,False,False,False,False,True,26.3
+llama-cloud-services,0.6.94,latest at read,platformdirs,"<5,>=4.3.7",,False,False,False,True,True,4.11.3
+llama-cloud-services,0.6.94,latest at read,pydantic,"!=2.10,>=2.8",,False,False,False,False,True,2.13.4
+llama-cloud-services,0.6.94,latest at read,python-dotenv,"<2,>=1.0.1",,False,False,False,True,True,1.2.3
+google-cloud-bigtable,2.47.0,latest at read,protobuf,"<8.0.0,>=6.33.5",,False,False,False,True,True,7.36.0
+langchain-openai,1.6.6,latest at read,certifi,>=2024.6.2,,False,False,False,False,True,2026.7.22
+poetry,2.5.1,latest at read,packaging,>=24.2,,False,False,False,False,True,26.3
+poetry,2.5.1,latest at read,platformdirs,"<5,>=3.0.0",,False,False,False,True,True,4.11.3
+poetry,2.5.1,latest at read,requests,"<3.0,>=2.26",,False,False,False,True,True,2.34.2
+typeguard,4.6.0,latest at read,typing-extensions,>=4.14.0,,False,False,False,False,True,4.16.0
+pygithub,2.10.0,latest at read,requests,>=2.14.0,,False,False,False,False,True,2.34.2
+pygithub,2.10.0,latest at read,pyjwt,>=2.4.0,,False,False,False,False,True,2.13.0
+pygithub,2.10.0,latest at read,typing-extensions,>=4.5.0,,False,False,False,False,True,4.16.0
+pygithub,2.10.0,latest at read,urllib3,>=1.26.0,,False,False,False,False,True,2.7.0
+sphinx,9.1.0,latest at read,pygments,>=2.17,,False,False,False,False,True,2.21.0
+sphinx,9.1.0,latest at read,requests,>=2.30.0,,False,False,False,False,True,2.34.2
+sphinx,9.1.0,latest at read,packaging,>=23.0,,False,False,False,False,True,26.3
+grpcio-health-checking,1.84.0,latest at read,protobuf,"<8.0.0,>=7.35.1",,False,False,False,True,True,7.36.0
+nltk,3.10.3,latest at read,click,,,False,False,False,False,True,8.4.2
+nltk,3.10.3,latest at read,tqdm,,,False,False,False,False,True,4.70.0
+nltk,3.10.3,latest at read,numpy,,"extra == ""machine-learning""",True,False,False,False,True,2.5.2
+nltk,3.10.3,latest at read,requests,,"extra == ""corenlp""",True,False,False,False,True,2.34.2
+nltk,3.10.3,latest at read,numpy,,"extra == ""all""",True,False,False,False,True,2.5.2
+nltk,3.10.3,latest at read,requests,,"extra == ""all""",True,False,False,False,True,2.34.2
+fastcore,2.2.31,latest at read,numpy,,"extra == ""dev""",True,False,False,False,True,2.5.2
+fastcore,2.2.31,latest at read,pandas,,"extra == ""dev""",True,False,False,False,True,3.0.5
+comm,0.2.3,latest at read,pytest,,"extra == ""test""",True,False,False,False,True,9.1.1
+plotly,7.1.0,latest at read,packaging,,,False,False,False,False,True,26.3
+plotly,7.1.0,latest at read,numpy,>=1.22,"extra == ""dev""",True,False,False,False,True,2.5.2
+plotly,7.1.0,latest at read,pandas,,"extra == ""dev""",True,False,False,False,True,3.0.5
+plotly,7.1.0,latest at read,pytest,,"extra == ""dev""",True,False,False,False,True,9.1.1
+plotly,7.1.0,latest at read,requests,,"extra == ""dev""",True,False,False,False,True,2.34.2
+plotly,7.1.0,latest at read,pytest,,"extra == ""dev-build""",True,False,False,False,True,9.1.1
+plotly,7.1.0,latest at read,requests,,"extra == ""dev-build""",True,False,False,False,True,2.34.2
+plotly,7.1.0,latest at read,pytest,,"extra == ""dev-codegen""",True,False,False,False,True,9.1.1
+plotly,7.1.0,latest at read,requests,,"extra == ""dev-codegen""",True,False,False,False,True,2.34.2
+plotly,7.1.0,latest at read,pytest,,"extra == ""dev-core""",True,False,False,False,True,9.1.1
+plotly,7.1.0,latest at read,requests,,"extra == ""dev-core""",True,False,False,False,True,2.34.2
+plotly,7.1.0,latest at read,numpy,>=1.22,"extra == ""dev-optional""",True,False,False,False,True,2.5.2
+plotly,7.1.0,latest at read,pandas,,"extra == ""dev-optional""",True,False,False,False,True,3.0.5
+plotly,7.1.0,latest at read,pytest,,"extra == ""dev-optional""",True,False,False,False,True,9.1.1
+plotly,7.1.0,latest at read,requests,,"extra == ""dev-optional""",True,False,False,False,True,2.34.2
+plotly,7.1.0,latest at read,numpy,"<2,>=1","extra == ""dev-pandas1""",True,False,False,True,False,2.5.2
+plotly,7.1.0,latest at read,pandas,"<2,>=1","extra == ""dev-pandas1""",True,False,False,True,False,3.0.5
+plotly,7.1.0,latest at read,pandas,"<3,>=2","extra == ""dev-pandas2""",True,False,False,True,False,3.0.5
+plotly,7.1.0,latest at read,pandas,>=3,"python_version >= ""3.11"" and extra == ""dev-pandas3""",True,True,False,False,True,3.0.5
+plotly,7.1.0,latest at read,numpy,>=1.22,"extra == ""express""",True,False,False,False,True,2.5.2
+ipykernel,7.3.0,latest at read,packaging,>=22,,False,False,False,False,True,26.3
+ipykernel,7.3.0,latest at read,pytest,"<10,>=7.0","extra == ""test""",True,False,False,True,True,9.1.1
+langgraph,1.2.12,latest at read,pydantic,>=2.7.4,,False,False,False,False,True,2.13.4
+duckdb,1.5.6,latest at read,fsspec,,"extra == ""all""",True,False,False,False,True,2026.7.0
+duckdb,1.5.6,latest at read,numpy,,"extra == ""all""",True,False,False,False,True,2.5.2
+duckdb,1.5.6,latest at read,pandas,,"extra == ""all""",True,False,False,False,True,3.0.5
+pdfminer-six,20260107,latest at read,charset-normalizer,>=2.0.0,,False,False,False,False,True,3.5.1
+pdfminer-six,20260107,latest at read,cryptography,>=36.0.0,,False,False,False,False,True,50.0.0
+responses,0.26.3,latest at read,requests,"<3.0,>=2.30.0",,False,False,False,True,True,2.34.2
+responses,0.26.3,latest at read,urllib3,"<3.0,>=1.25.10",,False,False,False,True,True,2.7.0
+responses,0.26.3,latest at read,pytest,>=7.0.0,"extra == ""tests""",True,False,False,False,True,9.1.1
+caio,0.12.9,latest at read,pytest,,"extra == ""develop""",True,False,False,False,True,9.1.1
+humanize,4.16.0,latest at read,pytest,>=9,"extra == ""tests""",True,False,False,False,True,9.1.1
+cfn-lint,1.57.1,latest at read,typing-extensions,,,False,False,False,False,True,4.16.0
+google-cloud-vision,3.15.0,latest at read,protobuf,"<8.0.0,>=4.25.8",,False,False,False,True,True,7.36.0
+cattrs,26.2.1,latest at read,typing-extensions,>=4.14.0,,False,False,False,False,True,4.16.0
+portalocker,4.4.0,latest at read,pytest,>=5.4.1,"extra == ""tests""",True,False,False,False,True,9.1.1
+portalocker,4.4.0,latest at read,typing-extensions,>=4.4,"extra == ""tests""",True,False,False,False,True,4.16.0
+google-cloud-resource-manager,1.18.0,latest at read,protobuf,"<8.0.0,>=4.25.8",,False,False,False,True,True,7.36.0
+fastapi-cloud-cli,0.26.0,latest at read,uvicorn,>=0.17.6,,False,False,False,False,True,0.52.4
+fastapi-cloud-cli,0.26.0,latest at read,pydantic,>=2.7.4,"python_version < ""3.13""",False,True,False,False,True,2.13.4
+fastapi-cloud-cli,0.26.0,latest at read,pydantic,>=2.8.0,"python_version == ""3.13""",False,True,False,False,True,2.13.4
+fastapi-cloud-cli,0.26.0,latest at read,pydantic,>=2.12.0,"python_version >= ""3.14""",False,True,False,False,True,2.13.4
+fastapi-cloud-cli,0.26.0,latest at read,uvicorn,>=0.15.0,"extra == ""standard""",True,False,False,False,True,0.52.4
+datadog,0.54.0,latest at read,requests,>=2.6.0,,False,False,False,False,True,2.34.2
+google-cloud-run,0.16.1,latest at read,protobuf,"<8.0.0,>=4.25.8",,False,False,False,True,True,7.36.0
+mcp-types,2.2.0,latest at read,pydantic,>=2.12.0,,False,False,False,False,True,2.13.4
+mcp-types,2.2.0,latest at read,typing-extensions,>=4.13.0,,False,False,False,False,True,4.16.0
+nbconvert,7.17.1,latest at read,packaging,,,False,False,False,False,True,26.3
+nbconvert,7.17.1,latest at read,pygments,>=2.4.1,,False,False,False,False,True,2.21.0
+nbconvert,7.17.1,latest at read,pytest,>=7,"extra == ""all""",True,False,False,False,True,9.1.1
+nbconvert,7.17.1,latest at read,pytest,>=7,"extra == ""test""",True,False,False,False,True,9.1.1
+python-pptx,1.0.2,latest at read,typing-extensions,>=4.9.0,,False,False,False,False,True,4.16.0
+langchain-protocol,0.0.19,latest at read,typing-extensions,"<5.0.0,>=4.13.0",,False,False,False,True,True,4.16.0
+backports-tarfile,1.2.0,latest at read,pytest,"!=8.1.*,>=6","extra == ""testing""",True,False,False,False,True,9.1.1
+backports-tarfile,1.2.0,latest at read,pytest,!=8.0.*,"extra == ""testing""",True,False,False,False,True,9.1.1
+snowflake-sqlalchemy,1.11.1,latest at read,numpy,,"extra == ""development""",True,False,False,False,True,2.5.2
+snowflake-sqlalchemy,1.11.1,latest at read,pytest,,"extra == ""development""",True,False,False,False,True,9.1.1
+nbclient,0.11.0,latest at read,pytest,"<10,>=9.0.1","extra == ""docs""",True,False,False,True,True,9.1.1
+nbclient,0.11.0,latest at read,pytest,"<10,>=9.0.1","extra == ""test""",True,False,False,True,True,9.1.1
+google-cloud-videointelligence,2.20.0,latest at read,protobuf,"<8.0.0,>=4.25.8",,False,False,False,True,True,7.36.0
+google-cloud-language,2.21.0,latest at read,protobuf,"<8.0.0,>=4.25.8",,False,False,False,True,True,7.36.0
+google-cloud-workflows,1.23.0,latest at read,protobuf,"<8.0.0,>=4.25.8",,False,False,False,True,True,7.36.0
+colorlog,6.12.0,latest at read,pytest,,"extra == ""development""",True,False,False,False,True,9.1.1
+sqlalchemy-bigquery,1.17.2,latest at read,packaging,,,False,False,False,False,True,26.3
+sqlalchemy-bigquery,1.17.2,latest at read,packaging,,"extra == ""tests""",True,False,False,False,True,26.3
+sqlalchemy-bigquery,1.17.2,latest at read,packaging,,"extra == ""all""",True,False,False,False,True,26.3
+confluent-kafka,2.15.1,latest at read,typing-extensions,,"python_version < ""3.11""",False,True,False,False,True,4.16.0
+confluent-kafka,2.15.1,latest at read,certifi,,"extra == ""schemaregistry""",True,False,False,False,True,2026.7.22
+confluent-kafka,2.15.1,latest at read,certifi,,"extra == ""schema-registry""",True,False,False,False,True,2026.7.22
+confluent-kafka,2.15.1,latest at read,boto3,>=1.35,"extra == ""rules""",True,False,False,False,True,1.43.78
+confluent-kafka,2.15.1,latest at read,certifi,,"extra == ""rules""",True,False,False,False,True,2026.7.22
+confluent-kafka,2.15.1,latest at read,requests,,"extra == ""avro""",True,False,False,False,True,2.34.2
+confluent-kafka,2.15.1,latest at read,certifi,,"extra == ""avro""",True,False,False,False,True,2026.7.22
+confluent-kafka,2.15.1,latest at read,certifi,,"extra == ""json""",True,False,False,False,True,2026.7.22
+confluent-kafka,2.15.1,latest at read,certifi,,"extra == ""json-fast""",True,False,False,False,True,2026.7.22
+confluent-kafka,2.15.1,latest at read,protobuf,,"extra == ""protobuf""",True,False,False,False,True,7.36.0
+confluent-kafka,2.15.1,latest at read,certifi,,"extra == ""protobuf""",True,False,False,False,True,2026.7.22
+confluent-kafka,2.15.1,latest at read,boto3,>=1.42.25,"extra == ""oauthbearer-aws""",True,False,False,False,True,1.43.78
+confluent-kafka,2.15.1,latest at read,pydantic,,"extra == ""dev""",True,False,False,False,True,2.13.4
+confluent-kafka,2.15.1,latest at read,uvicorn,,"extra == ""dev""",True,False,False,False,True,0.52.4
+confluent-kafka,2.15.1,latest at read,requests,,"extra == ""dev""",True,False,False,False,True,2.34.2
+confluent-kafka,2.15.1,latest at read,protobuf,,"extra == ""dev""",True,False,False,False,True,7.36.0
+confluent-kafka,2.15.1,latest at read,boto3,,"extra == ""dev""",True,False,False,False,True,1.43.78
+confluent-kafka,2.15.1,latest at read,urllib3,<3,"extra == ""dev""",True,False,False,True,True,2.7.0
+confluent-kafka,2.15.1,latest at read,pytest,,"extra == ""dev""",True,False,False,False,True,9.1.1
+confluent-kafka,2.15.1,latest at read,certifi,,"extra == ""dev""",True,False,False,False,True,2026.7.22
+confluent-kafka,2.15.1,latest at read,boto3,>=1.35,"extra == ""dev""",True,False,False,False,True,1.43.78
+confluent-kafka,2.15.1,latest at read,requests,,"extra == ""dev""",True,False,False,False,True,2.34.2
+confluent-kafka,2.15.1,latest at read,protobuf,,"extra == ""dev""",True,False,False,False,True,7.36.0
+confluent-kafka,2.15.1,latest at read,boto3,>=1.42.25,"extra == ""dev""",True,False,False,False,True,1.43.78
+confluent-kafka,2.15.1,latest at read,certifi,,"extra == ""docs""",True,False,False,False,True,2026.7.22
+confluent-kafka,2.15.1,latest at read,boto3,>=1.35,"extra == ""docs""",True,False,False,False,True,1.43.78
+confluent-kafka,2.15.1,latest at read,requests,,"extra == ""docs""",True,False,False,False,True,2.34.2
+confluent-kafka,2.15.1,latest at read,protobuf,,"extra == ""docs""",True,False,False,False,True,7.36.0
+confluent-kafka,2.15.1,latest at read,urllib3,<3,"extra == ""tests""",True,False,False,True,True,2.7.0
+confluent-kafka,2.15.1,latest at read,pytest,,"extra == ""tests""",True,False,False,False,True,9.1.1
+confluent-kafka,2.15.1,latest at read,certifi,,"extra == ""tests""",True,False,False,False,True,2026.7.22
+confluent-kafka,2.15.1,latest at read,boto3,>=1.35,"extra == ""tests""",True,False,False,False,True,1.43.78
+confluent-kafka,2.15.1,latest at read,requests,,"extra == ""tests""",True,False,False,False,True,2.34.2
+confluent-kafka,2.15.1,latest at read,protobuf,,"extra == ""tests""",True,False,False,False,True,7.36.0
+confluent-kafka,2.15.1,latest at read,boto3,>=1.42.25,"extra == ""tests""",True,False,False,False,True,1.43.78
+confluent-kafka,2.15.1,latest at read,pydantic,,"extra == ""examples""",True,False,False,False,True,2.13.4
+confluent-kafka,2.15.1,latest at read,uvicorn,,"extra == ""examples""",True,False,False,False,True,0.52.4
+confluent-kafka,2.15.1,latest at read,requests,,"extra == ""examples""",True,False,False,False,True,2.34.2
+confluent-kafka,2.15.1,latest at read,protobuf,,"extra == ""examples""",True,False,False,False,True,7.36.0
+confluent-kafka,2.15.1,latest at read,boto3,,"extra == ""examples""",True,False,False,False,True,1.43.78
+confluent-kafka,2.15.1,latest at read,pydantic,,"extra == ""all""",True,False,False,False,True,2.13.4
+confluent-kafka,2.15.1,latest at read,uvicorn,,"extra == ""all""",True,False,False,False,True,0.52.4
+confluent-kafka,2.15.1,latest at read,requests,,"extra == ""all""",True,False,False,False,True,2.34.2
+confluent-kafka,2.15.1,latest at read,protobuf,,"extra == ""all""",True,False,False,False,True,7.36.0
+confluent-kafka,2.15.1,latest at read,boto3,,"extra == ""all""",True,False,False,False,True,1.43.78
+confluent-kafka,2.15.1,latest at read,urllib3,<3,"extra == ""all""",True,False,False,True,True,2.7.0
+confluent-kafka,2.15.1,latest at read,pytest,,"extra == ""all""",True,False,False,False,True,9.1.1
+confluent-kafka,2.15.1,latest at read,certifi,,"extra == ""all""",True,False,False,False,True,2026.7.22
+confluent-kafka,2.15.1,latest at read,boto3,>=1.35,"extra == ""all""",True,False,False,False,True,1.43.78
+confluent-kafka,2.15.1,latest at read,requests,,"extra == ""all""",True,False,False,False,True,2.34.2
+confluent-kafka,2.15.1,latest at read,protobuf,,"extra == ""all""",True,False,False,False,True,7.36.0
+confluent-kafka,2.15.1,latest at read,boto3,>=1.42.25,"extra == ""all""",True,False,False,False,True,1.43.78
+google-cloud-dataform,0.11.3,latest at read,protobuf,"<8.0.0,>=6.33.5",,False,False,False,True,True,7.36.0
+google-cloud-redis,2.22.0,latest at read,protobuf,"<8.0.0,>=4.25.8",,False,False,False,True,True,7.36.0
+openapi-pydantic,0.5.1,latest at read,pydantic,>=1.8,,False,False,False,False,True,2.13.4
+libcst,1.9.0,latest at read,typing-extensions,,"python_version < ""3.10""",False,True,False,False,True,4.16.0
+google-cloud-os-login,2.22.0,latest at read,protobuf,"<8.0.0,>=4.25.8",,False,False,False,True,True,7.36.0
+google-cloud-bigquery-datatransfer,3.23.0,latest at read,protobuf,"<8.0.0,>=4.25.8",,False,False,False,True,True,7.36.0
+anthropic,1.7.0,newest during the read week,anyio,"<5,>=4.1.0",,False,False,False,True,True,4.14.2
+anthropic,1.7.0,newest during the read week,pydantic,"<3,>=1.10.0",,False,False,False,True,True,2.13.4
+anthropic,1.7.0,newest during the read week,typing-extensions,"<5,>=4.14",,False,False,False,True,True,4.16.0
+anthropic,1.7.0,newest during the read week,aiohttp,"<4,>=3.10.0","extra == ""aiohttp""",True,False,False,True,True,3.14.3
+anthropic,1.7.0,newest during the read week,boto3,"<2,>=1.28.57","extra == ""aws""",True,False,False,True,True,1.43.78
+anthropic,1.7.0,newest during the read week,botocore,"<2,>=1.31.57","extra == ""aws""",True,False,False,True,True,1.43.78
+anthropic,1.7.0,newest during the read week,boto3,"<2,>=1.28.57","extra == ""bedrock""",True,False,False,True,True,1.43.78
+anthropic,1.7.0,newest during the read week,botocore,"<2,>=1.31.57","extra == ""bedrock""",True,False,False,True,True,1.43.78
+anthropic,1.8.0,newest during the read week,anyio,"<5,>=4.1.0",,False,False,False,True,True,4.14.2
+anthropic,1.8.0,newest during the read week,pydantic,"<3,>=1.10.0",,False,False,False,True,True,2.13.4
+anthropic,1.8.0,newest during the read week,typing-extensions,"<5,>=4.14",,False,False,False,True,True,4.16.0
+anthropic,1.8.0,newest during the read week,aiohttp,"<4,>=3.10.0","extra == ""aiohttp""",True,False,False,True,True,3.14.3
+anthropic,1.8.0,newest during the read week,boto3,"<2,>=1.28.57","extra == ""aws""",True,False,False,True,True,1.43.78
+anthropic,1.8.0,newest during the read week,botocore,"<2,>=1.31.57","extra == ""aws""",True,False,False,True,True,1.43.78
+anthropic,1.8.0,newest during the read week,boto3,"<2,>=1.28.57","extra == ""bedrock""",True,False,False,True,True,1.43.78
+anthropic,1.8.0,newest during the read week,botocore,"<2,>=1.31.57","extra == ""bedrock""",True,False,False,True,True,1.43.78
+azure-storage-blob,12.30.2,newest during the read week,cryptography,>=2.1.4,,False,False,False,False,True,50.0.0
+azure-storage-blob,12.30.2,newest during the read week,typing-extensions,>=4.6.0,,False,False,False,False,True,4.16.0
+boto3,1.43.98,newest during the read week,botocore,"<1.44.0,>=1.43.98",,False,False,False,True,True,1.43.78
+boto3,1.43.98,newest during the read week,s3transfer,"<0.20.0,>=0.19.0",,False,False,False,True,True,0.19.2
+boto3,1.43.98,newest during the read week,botocore,"<2.0a0,>=1.21.0","extra == ""crt""",True,False,False,True,True,1.43.78
+boto3,1.43.99,newest during the read week,botocore,"<1.44.0,>=1.43.99",,False,False,False,True,True,1.43.78
+boto3,1.43.99,newest during the read week,s3transfer,"<0.20.0,>=0.19.0",,False,False,False,True,True,0.19.2
+boto3,1.43.99,newest during the read week,botocore,"<2.0a0,>=1.21.0","extra == ""crt""",True,False,False,True,True,1.43.78
+boto3,1.43.100,newest during the read week,botocore,"<1.44.0,>=1.43.100",,False,False,False,True,True,1.43.78
+boto3,1.43.100,newest during the read week,s3transfer,"<0.20.0,>=0.19.0",,False,False,False,True,True,0.19.2
+boto3,1.43.100,newest during the read week,botocore,"<2.0a0,>=1.21.0","extra == ""crt""",True,False,False,True,True,1.43.78
+boto3,1.43.101,newest during the read week,botocore,"<1.44.0,>=1.43.101",,False,False,False,True,True,1.43.78
+boto3,1.43.101,newest during the read week,s3transfer,"<0.20.0,>=0.19.0",,False,False,False,True,True,0.19.2
+boto3,1.43.101,newest during the read week,botocore,"<2.0a0,>=1.21.0","extra == ""crt""",True,False,False,True,True,1.43.78
+boto3,1.43.102,newest during the read week,botocore,"<1.44.0,>=1.43.102",,False,False,False,True,True,1.43.78
+boto3,1.43.102,newest during the read week,s3transfer,"<0.20.0,>=0.19.0",,False,False,False,True,True,0.19.2
+boto3,1.43.102,newest during the read week,botocore,"<2.0a0,>=1.21.0","extra == ""crt""",True,False,False,True,True,1.43.78
+boto3,1.43.103,newest during the read week,botocore,"<1.44.0,>=1.43.103",,False,False,False,True,True,1.43.78
+boto3,1.43.103,newest during the read week,s3transfer,"<0.20.0,>=0.19.0",,False,False,False,True,True,0.19.2
+boto3,1.43.103,newest during the read week,botocore,"<2.0a0,>=1.21.0","extra == ""crt""",True,False,False,True,True,1.43.78
+botocore,1.43.98,newest during the read week,urllib3,"!=2.2.0,<3,>=1.25.4",,False,False,False,True,True,2.7.0
+botocore,1.43.99,newest during the read week,urllib3,"!=2.2.0,<3,>=1.25.4",,False,False,False,True,True,2.7.0
+botocore,1.43.100,newest during the read week,urllib3,"!=2.2.0,<3,>=1.25.4",,False,False,False,True,True,2.7.0
+botocore,1.43.101,newest during the read week,urllib3,"!=2.2.0,<3,>=1.25.4",,False,False,False,True,True,2.7.0
+botocore,1.43.102,newest during the read week,urllib3,"!=2.2.0,<3,>=1.25.4",,False,False,False,True,True,2.7.0
+botocore,1.43.103,newest during the read week,urllib3,"!=2.2.0,<3,>=1.25.4",,False,False,False,True,True,2.7.0
+caio,0.12.4,newest during the read week,pytest,,"extra == ""develop""",True,False,False,False,True,9.1.1
+caio,0.12.5,newest during the read week,pytest,,"extra == ""develop""",True,False,False,False,True,9.1.1
+caio,0.12.6,newest during the read week,pytest,,"extra == ""develop""",True,False,False,False,True,9.1.1
+caio,0.12.7,newest during the read week,pytest,,"extra == ""develop""",True,False,False,False,True,9.1.1
+caio,0.12.8,newest during the read week,pytest,,"extra == ""develop""",True,False,False,False,True,9.1.1
+cattrs,26.2.0,newest during the read week,typing-extensions,>=4.14.0,,False,False,False,False,True,4.16.0
+cfn-lint,1.57.0,newest during the read week,typing-extensions,,,False,False,False,False,True,4.16.0
+cyclopts,4.25.3,newest during the read week,typing-extensions,>=4.8.0,"python_version < ""3.11""",False,True,False,False,True,4.16.0
+cyclopts,4.25.3,newest during the read week,pydantic,"<3.0.0,>=2.11.2","extra == ""dev""",True,False,False,True,True,2.13.4
+cyclopts,4.25.3,newest during the read week,pytest,>=8.2.0,"extra == ""dev""",True,False,False,False,True,9.1.1
+databricks-sdk,0.140.0,newest during the read week,requests,"<3,>=2.28.1",,False,False,False,True,True,2.34.2
+databricks-sdk,0.140.0,newest during the read week,protobuf,"!=5.26.*,!=5.27.*,!=5.28.*,!=5.29.0,!=5.29.1,!=5.29.2,!=5.29.3,!=5.29.4,!=6.30.0,!=6.30.1,!=6.31.0,<7.0,>=4.25.8",,False,False,False,True,False,7.36.0
+databricks-sdk,0.140.0,newest during the read week,urllib3,"<3,>=1.26",,False,False,False,True,True,2.7.0
+databricks-sdk,0.140.0,newest during the read week,pytest,,"extra == ""dev""",True,False,False,False,True,9.1.1
+databricks-sdk,0.141.0,newest during the read week,requests,"<3,>=2.28.1",,False,False,False,True,True,2.34.2
+databricks-sdk,0.141.0,newest during the read week,protobuf,"!=5.26.*,!=5.27.*,!=5.28.*,!=5.29.0,!=5.29.1,!=5.29.2,!=5.29.3,!=5.29.4,!=6.30.0,!=6.30.1,!=6.31.0,<7.0,>=4.25.8",,False,False,False,True,False,7.36.0
+databricks-sdk,0.141.0,newest during the read week,urllib3,"<3,>=1.26",,False,False,False,True,True,2.7.0
+databricks-sdk,0.141.0,newest during the read week,pytest,,"extra == ""dev""",True,False,False,False,True,9.1.1
+databricks-sdk,0.142.0,newest during the read week,requests,"<3,>=2.28.1",,False,False,False,True,True,2.34.2
+databricks-sdk,0.142.0,newest during the read week,protobuf,"!=5.26.*,!=5.27.*,!=5.28.*,!=5.29.0,!=5.29.1,!=5.29.2,!=5.29.3,!=5.29.4,!=6.30.0,!=6.30.1,!=6.31.0,<7.0,>=4.25.8",,False,False,False,True,False,7.36.0
+databricks-sdk,0.142.0,newest during the read week,urllib3,"<3,>=1.26",,False,False,False,True,True,2.7.0
+databricks-sdk,0.142.0,newest during the read week,pytest,,"extra == ""dev""",True,False,False,False,True,9.1.1
+databricks-sql-connector,4.5.0,newest during the read week,pandas,"<4.0.0,>=1.2.5","python_version >= ""3.10"" and python_version < ""3.13""",False,True,False,True,True,3.0.5
+databricks-sql-connector,4.5.0,newest during the read week,pandas,"<4.0.0,>=2.2.3","python_version >= ""3.13""",False,True,False,True,True,3.0.5
+databricks-sql-connector,4.5.0,newest during the read week,pyjwt,"<3.0.0,>=2.0.0",,False,False,False,True,True,2.13.0
+databricks-sql-connector,4.5.0,newest during the read week,requests,"<3.0.0,>=2.18.1",,False,False,False,True,True,2.34.2
+databricks-sql-connector,4.5.0,newest during the read week,urllib3,>=1.26,,False,False,False,False,True,2.7.0
+datadog,0.53.0,newest during the read week,requests,>=2.6.0,,False,False,False,False,True,2.34.2
+duckdb,1.5.5,newest during the read week,fsspec,,"extra == ""all""",True,False,False,False,True,2026.7.0
+duckdb,1.5.5,newest during the read week,numpy,,"extra == ""all""",True,False,False,False,True,2.5.2
+duckdb,1.5.5,newest during the read week,pandas,,"extra == ""all""",True,False,False,False,True,3.0.5
+fastcore,2.2.29,newest during the read week,numpy,,"extra == ""dev""",True,False,False,False,True,2.5.2
+fastcore,2.2.29,newest during the read week,pandas,,"extra == ""dev""",True,False,False,False,True,3.0.5
+fastcore,2.2.30,newest during the read week,numpy,,"extra == ""dev""",True,False,False,False,True,2.5.2
+fastcore,2.2.30,newest during the read week,pandas,,"extra == ""dev""",True,False,False,False,True,3.0.5
+fastmcp-slim,4.0.5,newest during the read week,platformdirs,>=4.0.0,,False,False,False,False,True,4.11.3
+fastmcp-slim,4.0.5,newest during the read week,pydantic,>=2.12.0,,False,False,False,False,True,2.13.4
+fastmcp-slim,4.0.5,newest during the read week,python-dotenv,>=1.1.0,,False,False,False,False,True,1.2.3
+fastmcp-slim,4.0.5,newest during the read week,typing-extensions,>=4.0.0,,False,False,False,False,True,4.16.0
+fastmcp-slim,4.0.5,newest during the read week,pyjwt,>=2.12.0,"extra == ""azure""",True,False,False,False,True,2.13.0
+fastmcp-slim,4.0.5,newest during the read week,starlette,>=1.0.1,"extra == ""client""",True,False,False,False,True,1.6.0
+fastmcp-slim,4.0.5,newest during the read week,starlette,>=1.0.1,"extra == ""mcp""",True,False,False,False,True,1.6.0
+fastmcp-slim,4.0.5,newest during the read week,packaging,>=24.0,"extra == ""server""",True,False,False,False,True,26.3
+fastmcp-slim,4.0.5,newest during the read week,starlette,>=1.0.1,"extra == ""server""",True,False,False,False,True,1.6.0
+fastmcp-slim,4.0.5,newest during the read week,uvicorn,>=0.35,"extra == ""server""",True,False,False,False,True,0.52.4
+fastmcp-slim,4.0.6,newest during the read week,platformdirs,>=4.0.0,,False,False,False,False,True,4.11.3
+fastmcp-slim,4.0.6,newest during the read week,pydantic,>=2.12.0,,False,False,False,False,True,2.13.4
+fastmcp-slim,4.0.6,newest during the read week,python-dotenv,>=1.1.0,,False,False,False,False,True,1.2.3
+fastmcp-slim,4.0.6,newest during the read week,typing-extensions,>=4.0.0,,False,False,False,False,True,4.16.0
+fastmcp-slim,4.0.6,newest during the read week,pyjwt,>=2.12.0,"extra == ""azure""",True,False,False,False,True,2.13.0
+fastmcp-slim,4.0.6,newest during the read week,starlette,>=1.0.1,"extra == ""client""",True,False,False,False,True,1.6.0
+fastmcp-slim,4.0.6,newest during the read week,starlette,>=1.0.1,"extra == ""mcp""",True,False,False,False,True,1.6.0
+fastmcp-slim,4.0.6,newest during the read week,packaging,>=24.0,"extra == ""server""",True,False,False,False,True,26.3
+fastmcp-slim,4.0.6,newest during the read week,starlette,>=1.0.1,"extra == ""server""",True,False,False,False,True,1.6.0
+fastmcp-slim,4.0.6,newest during the read week,uvicorn,>=0.35,"extra == ""server""",True,False,False,False,True,0.52.4
+fastmcp-slim,4.0.7,newest during the read week,platformdirs,>=4.0.0,,False,False,False,False,True,4.11.3
+fastmcp-slim,4.0.7,newest during the read week,pydantic,>=2.12.0,,False,False,False,False,True,2.13.4
+fastmcp-slim,4.0.7,newest during the read week,python-dotenv,>=1.1.0,,False,False,False,False,True,1.2.3
+fastmcp-slim,4.0.7,newest during the read week,typing-extensions,>=4.0.0,,False,False,False,False,True,4.16.0
+fastmcp-slim,4.0.7,newest during the read week,pyjwt,>=2.12.0,"extra == ""azure""",True,False,False,False,True,2.13.0
+fastmcp-slim,4.0.7,newest during the read week,starlette,>=1.0.1,"extra == ""client""",True,False,False,False,True,1.6.0
+fastmcp-slim,4.0.7,newest during the read week,starlette,>=1.0.1,"extra == ""mcp""",True,False,False,False,True,1.6.0
+fastmcp-slim,4.0.7,newest during the read week,packaging,>=24.0,"extra == ""server""",True,False,False,False,True,26.3
+fastmcp-slim,4.0.7,newest during the read week,starlette,>=1.0.1,"extra == ""server""",True,False,False,False,True,1.6.0
+fastmcp-slim,4.0.7,newest during the read week,uvicorn,>=0.35,"extra == ""server""",True,False,False,False,True,0.52.4
+fastmcp-slim,4.0.8,newest during the read week,platformdirs,>=4.0.0,,False,False,False,False,True,4.11.3
+fastmcp-slim,4.0.8,newest during the read week,pydantic,>=2.12.0,,False,False,False,False,True,2.13.4
+fastmcp-slim,4.0.8,newest during the read week,python-dotenv,>=1.1.0,,False,False,False,False,True,1.2.3
+fastmcp-slim,4.0.8,newest during the read week,typing-extensions,>=4.0.0,,False,False,False,False,True,4.16.0
+fastmcp-slim,4.0.8,newest during the read week,pyjwt,>=2.12.0,"extra == ""azure""",True,False,False,False,True,2.13.0
+fastmcp-slim,4.0.8,newest during the read week,starlette,>=1.0.1,"extra == ""client""",True,False,False,False,True,1.6.0
+fastmcp-slim,4.0.8,newest during the read week,starlette,>=1.0.1,"extra == ""mcp""",True,False,False,False,True,1.6.0
+fastmcp-slim,4.0.8,newest during the read week,packaging,>=24.0,"extra == ""server""",True,False,False,False,True,26.3
+fastmcp-slim,4.0.8,newest during the read week,starlette,>=1.0.1,"extra == ""server""",True,False,False,False,True,1.6.0
+fastmcp-slim,4.0.8,newest during the read week,uvicorn,>=0.35,"extra == ""server""",True,False,False,False,True,0.52.4
+fastmcp-slim,4.0.9,newest during the read week,platformdirs,>=4.0.0,,False,False,False,False,True,4.11.3
+fastmcp-slim,4.0.9,newest during the read week,pydantic,>=2.12.0,,False,False,False,False,True,2.13.4
+fastmcp-slim,4.0.9,newest during the read week,python-dotenv,>=1.1.0,,False,False,False,False,True,1.2.3
+fastmcp-slim,4.0.9,newest during the read week,typing-extensions,>=4.0.0,,False,False,False,False,True,4.16.0
+fastmcp-slim,4.0.9,newest during the read week,pyjwt,>=2.12.0,"extra == ""azure""",True,False,False,False,True,2.13.0
+fastmcp-slim,4.0.9,newest during the read week,starlette,>=1.0.1,"extra == ""client""",True,False,False,False,True,1.6.0
+fastmcp-slim,4.0.9,newest during the read week,starlette,>=1.0.1,"extra == ""mcp""",True,False,False,False,True,1.6.0
+fastmcp-slim,4.0.9,newest during the read week,packaging,>=24.0,"extra == ""server""",True,False,False,False,True,26.3
+fastmcp-slim,4.0.9,newest during the read week,starlette,>=1.0.1,"extra == ""server""",True,False,False,False,True,1.6.0
+fastmcp-slim,4.0.9,newest during the read week,uvicorn,>=0.35,"extra == ""server""",True,False,False,False,True,0.52.4
+google-api-core,2.38.0,newest during the read week,protobuf,"<8.0.0,>=6.33.5",,False,False,False,True,True,7.36.0
+google-api-core,2.38.0,newest during the read week,requests,"<3.0.0,>=2.33.0",,False,False,False,True,True,2.34.2
+google-api-core,2.38.0,newest during the read week,aiohttp,>=3.13.4,"extra == ""async-rest""",True,False,False,False,True,3.14.3
+google-api-core,2.38.0,newest during the read week,grpcio-status,"<2.0.0,>=1.59.0","extra == ""grpc""",True,False,False,True,True,1.83.0
+google-api-core,2.38.0,newest during the read week,grpcio-status,"<2.0.0,>=1.75.1","python_version >= ""3.14"" and extra == ""grpc""",True,True,False,True,True,1.83.0
+google-auth,2.58.0,newest during the read week,cryptography,>=38.0.3,"python_version < ""3.14""",False,True,False,False,True,50.0.0
+google-auth,2.58.0,newest during the read week,cryptography,>=41.0.5,"python_version >= ""3.14""",False,True,False,False,True,50.0.0
+google-auth,2.58.0,newest during the read week,cryptography,>=38.0.3,"python_version < ""3.14"" and extra == ""cryptography""",True,True,False,False,True,50.0.0
+google-auth,2.58.0,newest during the read week,cryptography,>=41.0.5,"python_version >= ""3.14"" and extra == ""cryptography""",True,True,False,False,True,50.0.0
+google-auth,2.58.0,newest during the read week,cryptography,>=38.0.3,"python_version < ""3.14"" and extra == ""pyopenssl""",True,True,False,False,True,50.0.0
+google-auth,2.58.0,newest during the read week,cryptography,>=41.0.5,"python_version >= ""3.14"" and extra == ""pyopenssl""",True,True,False,False,True,50.0.0
+google-auth,2.58.0,newest during the read week,aiohttp,"<4.0.0,>=3.8.0","python_version < ""3.14"" and extra == ""aiohttp""",True,True,False,True,True,3.14.3
+google-auth,2.58.0,newest during the read week,aiohttp,"<4.0.0,>=3.9.0","python_version >= ""3.14"" and extra == ""aiohttp""",True,True,False,True,True,3.14.3
+google-auth,2.58.0,newest during the read week,requests,"<3.0.0,>=2.30.0","extra == ""aiohttp""",True,False,False,True,True,2.34.2
+google-auth,2.58.0,newest during the read week,cryptography,>=38.0.3,"python_version < ""3.14"" and extra == ""enterprise-cert""",True,True,False,False,True,50.0.0
+google-auth,2.58.0,newest during the read week,cryptography,>=41.0.5,"python_version >= ""3.14"" and extra == ""enterprise-cert""",True,True,False,False,True,50.0.0
+google-auth,2.58.0,newest during the read week,pyjwt,>=2.0,"extra == ""pyjwt""",True,False,False,False,True,2.13.0
+google-auth,2.58.0,newest during the read week,requests,"<3.0.0,>=2.30.0","extra == ""requests""",True,False,False,True,True,2.34.2
+google-auth,2.58.0,newest during the read week,pyjwt,>=2.0,"extra == ""testing""",True,False,False,False,True,2.13.0
+google-auth,2.58.0,newest during the read week,pytest,,"extra == ""testing""",True,False,False,False,True,9.1.1
+google-auth,2.58.0,newest during the read week,urllib3,"<3.0.0,>=1.26.15","extra == ""testing""",True,False,False,True,True,2.7.0
+google-auth,2.58.0,newest during the read week,packaging,>=20.0,"extra == ""testing""",True,False,False,False,True,26.3
+google-auth,2.58.0,newest during the read week,aiohttp,"<4.0.0,>=3.8.0","python_version < ""3.14"" and extra == ""testing""",True,True,False,True,True,3.14.3
+google-auth,2.58.0,newest during the read week,aiohttp,"<4.0.0,>=3.9.0","python_version >= ""3.14"" and extra == ""testing""",True,True,False,True,True,3.14.3
+google-auth,2.58.0,newest during the read week,requests,"<3.0.0,>=2.30.0","extra == ""testing""",True,False,False,True,True,2.34.2
+google-auth,2.58.0,newest during the read week,urllib3,"<3.0.0,>=1.26.15","extra == ""urllib3""",True,False,False,True,True,2.7.0
+google-auth,2.58.0,newest during the read week,packaging,>=20.0,"extra == ""urllib3""",True,False,False,False,True,26.3
+google-auth,2.58.1,newest during the read week,cryptography,>=38.0.3,"python_version < ""3.14""",False,True,False,False,True,50.0.0
+google-auth,2.58.1,newest during the read week,cryptography,>=41.0.5,"python_version >= ""3.14""",False,True,False,False,True,50.0.0
+google-auth,2.58.1,newest during the read week,cryptography,>=38.0.3,"python_version < ""3.14"" and extra == ""cryptography""",True,True,False,False,True,50.0.0
+google-auth,2.58.1,newest during the read week,cryptography,>=41.0.5,"python_version >= ""3.14"" and extra == ""cryptography""",True,True,False,False,True,50.0.0
+google-auth,2.58.1,newest during the read week,cryptography,>=38.0.3,"python_version < ""3.14"" and extra == ""pyopenssl""",True,True,False,False,True,50.0.0
+google-auth,2.58.1,newest during the read week,cryptography,>=41.0.5,"python_version >= ""3.14"" and extra == ""pyopenssl""",True,True,False,False,True,50.0.0
+google-auth,2.58.1,newest during the read week,aiohttp,"<4.0.0,>=3.8.0","python_version < ""3.14"" and extra == ""aiohttp""",True,True,False,True,True,3.14.3
+google-auth,2.58.1,newest during the read week,aiohttp,"<4.0.0,>=3.9.0","python_version >= ""3.14"" and extra == ""aiohttp""",True,True,False,True,True,3.14.3
+google-auth,2.58.1,newest during the read week,requests,"<3.0.0,>=2.30.0","extra == ""aiohttp""",True,False,False,True,True,2.34.2
+google-auth,2.58.1,newest during the read week,cryptography,>=38.0.3,"python_version < ""3.14"" and extra == ""enterprise-cert""",True,True,False,False,True,50.0.0
+google-auth,2.58.1,newest during the read week,cryptography,>=41.0.5,"python_version >= ""3.14"" and extra == ""enterprise-cert""",True,True,False,False,True,50.0.0
+google-auth,2.58.1,newest during the read week,pyjwt,>=2.0,"extra == ""pyjwt""",True,False,False,False,True,2.13.0
+google-auth,2.58.1,newest during the read week,requests,"<3.0.0,>=2.30.0","extra == ""requests""",True,False,False,True,True,2.34.2
+google-auth,2.58.1,newest during the read week,pyjwt,>=2.0,"extra == ""testing""",True,False,False,False,True,2.13.0
+google-auth,2.58.1,newest during the read week,pytest,,"extra == ""testing""",True,False,False,False,True,9.1.1
+google-auth,2.58.1,newest during the read week,urllib3,"<3.0.0,>=1.26.15","extra == ""testing""",True,False,False,True,True,2.7.0
+google-auth,2.58.1,newest during the read week,packaging,>=20.0,"extra == ""testing""",True,False,False,False,True,26.3
+google-auth,2.58.1,newest during the read week,aiohttp,"<4.0.0,>=3.8.0","python_version < ""3.14"" and extra == ""testing""",True,True,False,True,True,3.14.3
+google-auth,2.58.1,newest during the read week,aiohttp,"<4.0.0,>=3.9.0","python_version >= ""3.14"" and extra == ""testing""",True,True,False,True,True,3.14.3
+google-auth,2.58.1,newest during the read week,requests,"<3.0.0,>=2.30.0","extra == ""testing""",True,False,False,True,True,2.34.2
+google-auth,2.58.1,newest during the read week,urllib3,"<3.0.0,>=1.26.15","extra == ""urllib3""",True,False,False,True,True,2.7.0
+google-auth,2.58.1,newest during the read week,packaging,>=20.0,"extra == ""urllib3""",True,False,False,False,True,26.3
+google-cloud-aiplatform,2.1.3,newest during the read week,certifi,>=2023.7.22,,False,False,False,False,True,2026.7.22
+google-cloud-aiplatform,2.1.3,newest during the read week,protobuf,"!=4.21.0,!=4.21.1,!=4.21.2,!=4.21.3,!=4.21.4,!=4.21.5,<7.0.0,>=3.20.2",,False,False,False,True,False,7.36.0
+google-cloud-aiplatform,2.1.3,newest during the read week,packaging,>=14.3,,False,False,False,False,True,26.3
+google-cloud-aiplatform,2.1.3,newest during the read week,pydantic,<3,,False,False,False,True,True,2.13.4
+google-cloud-aiplatform,2.1.3,newest during the read week,typing-extensions,,,False,False,False,False,True,4.16.0
+google-cloud-aiplatform,2.1.3,newest during the read week,requests,>=2.28.1,"extra == ""endpoint""",True,False,False,False,True,2.34.2
+google-cloud-aiplatform,2.1.3,newest during the read week,numpy,>=1.15.0,"extra == ""full""",True,False,False,False,True,2.5.2
+google-cloud-aiplatform,2.1.3,newest during the read week,uvicorn,>=0.16.0,"extra == ""full""",True,False,False,False,True,0.52.4
+google-cloud-aiplatform,2.1.3,newest during the read week,litellm,"<1.86.0,>=1.83.7","python_version < ""3.14"" and extra == ""full""",True,True,False,True,False,1.97.0
+google-cloud-aiplatform,2.1.3,newest during the read week,urllib3,"<1.27,>=1.21.1","extra == ""full""",True,False,False,True,False,2.7.0
+google-cloud-aiplatform,2.1.3,newest during the read week,tqdm,>=4.23.0,"extra == ""full""",True,False,False,False,True,4.70.0
+google-cloud-aiplatform,2.1.3,newest during the read week,requests,>=2.28.1,"extra == ""full""",True,False,False,False,True,2.34.2
+google-cloud-aiplatform,2.1.3,newest during the read week,starlette,>=0.17.1,"extra == ""full""",True,False,False,False,True,1.6.0
+google-cloud-aiplatform,2.1.3,newest during the read week,pandas,>=1.0.0,"extra == ""full""",True,False,False,False,True,3.0.5
+google-cloud-aiplatform,2.1.3,newest during the read week,litellm,"<1.97.0,>=1.93.0","python_version >= ""3.14"" and extra == ""full""",True,True,False,True,False,1.97.0
+google-cloud-aiplatform,2.1.3,newest during the read week,pandas,>=1.0.0,"extra == ""metadata""",True,False,False,False,True,3.0.5
+google-cloud-aiplatform,2.1.3,newest during the read week,numpy,>=1.15.0,"extra == ""metadata""",True,False,False,False,True,2.5.2
+google-cloud-aiplatform,2.1.3,newest during the read week,numpy,>=1.15.0,"extra == ""testing""",True,False,False,False,True,2.5.2
+google-cloud-aiplatform,2.1.3,newest during the read week,uvicorn,>=0.16.0,"extra == ""testing""",True,False,False,False,True,0.52.4
+google-cloud-aiplatform,2.1.3,newest during the read week,litellm,"<1.86.0,>=1.83.7","python_version < ""3.14"" and extra == ""testing""",True,True,False,True,False,1.97.0
+google-cloud-aiplatform,2.1.3,newest during the read week,urllib3,"<1.27,>=1.21.1","extra == ""testing""",True,False,False,True,False,2.7.0
+google-cloud-aiplatform,2.1.3,newest during the read week,tqdm,>=4.23.0,"extra == ""testing""",True,False,False,False,True,4.70.0
+google-cloud-aiplatform,2.1.3,newest during the read week,requests,>=2.28.1,"extra == ""testing""",True,False,False,False,True,2.34.2
+google-cloud-aiplatform,2.1.3,newest during the read week,starlette,>=0.17.1,"extra == ""testing""",True,False,False,False,True,1.6.0
+google-cloud-aiplatform,2.1.3,newest during the read week,pandas,>=1.0.0,"extra == ""testing""",True,False,False,False,True,3.0.5
+google-cloud-aiplatform,2.1.3,newest during the read week,litellm,"<1.97.0,>=1.93.0","python_version >= ""3.14"" and extra == ""testing""",True,True,False,True,False,1.97.0
+google-cloud-aiplatform,2.1.3,newest during the read week,aiohttp,,"extra == ""testing""",True,False,False,False,True,3.14.3
+google-cloud-aiplatform,2.1.3,newest during the read week,protobuf,>=5.29.4,"python_version >= ""3.14"" and extra == ""testing""",True,True,False,False,True,7.36.0
+google-cloud-aiplatform,2.1.3,newest during the read week,protobuf,<=5.29.4,"python_version < ""3.14"" and extra == ""testing""",True,True,False,True,False,7.36.0
+google-cloud-aiplatform,2.1.3,newest during the read week,pandas,>=1.0.0,"extra == ""lit""",True,False,False,False,True,3.0.5
+google-cloud-aiplatform,2.1.3,newest during the read week,starlette,>=0.17.1,"extra == ""prediction""",True,False,False,False,True,1.6.0
+google-cloud-aiplatform,2.1.3,newest during the read week,uvicorn,>=0.16.0,"extra == ""prediction""",True,False,False,False,True,0.52.4
+google-cloud-aiplatform,2.1.3,newest during the read week,urllib3,"<1.27,>=1.21.1","extra == ""private-endpoints""",True,False,False,True,False,2.7.0
+google-cloud-aiplatform,2.1.3,newest during the read week,requests,>=2.28.1,"extra == ""private-endpoints""",True,False,False,False,True,2.34.2
+google-cloud-aiplatform,2.1.3,newest during the read week,pandas,>=1.0.0,"extra == ""ray""",True,False,False,False,True,3.0.5
+google-cloud-aiplatform,2.1.3,newest during the read week,pandas,>=1.0.0,"extra == ""ray-testing""",True,False,False,False,True,3.0.5
+google-cloud-aiplatform,2.1.3,newest during the read week,aiohttp,,"extra == ""adk""",True,False,False,False,True,3.14.3
+google-cloud-aiplatform,2.1.3,newest during the read week,typing-extensions,,"extra == ""adk-testing""",True,False,False,False,True,4.16.0
+google-cloud-aiplatform,2.1.3,newest during the read week,aiohttp,,"extra == ""adk-testing""",True,False,False,False,True,3.14.3
+google-cloud-aiplatform,2.1.3,newest during the read week,pydantic,"<3,>=2.11.1","extra == ""adk-testing""",True,False,False,True,True,2.13.4
+google-cloud-aiplatform,2.1.3,newest during the read week,pydantic,"<3,>=2.11.1","extra == ""reasoningengine""",True,False,False,True,True,2.13.4
+google-cloud-aiplatform,2.1.3,newest during the read week,typing-extensions,,"extra == ""reasoningengine""",True,False,False,False,True,4.16.0
+google-cloud-aiplatform,2.1.3,newest during the read week,aiohttp,,"extra == ""reasoningengine""",True,False,False,False,True,3.14.3
+google-cloud-aiplatform,2.1.3,newest during the read week,packaging,>=24.0,"extra == ""agent-engines""",True,False,False,False,True,26.3
+google-cloud-aiplatform,2.1.3,newest during the read week,pydantic,"<3,>=2.11.1","extra == ""agent-engines""",True,False,False,True,True,2.13.4
+google-cloud-aiplatform,2.1.3,newest during the read week,typing-extensions,,"extra == ""agent-engines""",True,False,False,False,True,4.16.0
+google-cloud-aiplatform,2.1.3,newest during the read week,aiohttp,,"extra == ""agent-engines""",True,False,False,False,True,3.14.3
+google-cloud-aiplatform,2.1.3,newest during the read week,pandas,>=1.0.0,"extra == ""evaluation""",True,False,False,False,True,3.0.5
+google-cloud-aiplatform,2.1.3,newest during the read week,tqdm,>=4.23.0,"extra == ""evaluation""",True,False,False,False,True,4.70.0
+google-cloud-aiplatform,2.1.3,newest during the read week,litellm,"<1.86.0,>=1.83.7","python_version < ""3.14"" and extra == ""evaluation""",True,True,False,True,False,1.97.0
+google-cloud-aiplatform,2.1.3,newest during the read week,litellm,"<1.97.0,>=1.93.0","python_version >= ""3.14"" and extra == ""evaluation""",True,True,False,True,False,1.97.0
+google-cloud-aiplatform,2.1.3,newest during the read week,typing-extensions,,"extra == ""langchain-testing""",True,False,False,False,True,4.16.0
+google-cloud-aiplatform,2.1.3,newest during the read week,aiohttp,,"extra == ""langchain-testing""",True,False,False,False,True,3.14.3
+google-cloud-aiplatform,2.1.3,newest during the read week,pydantic,"<3,>=2.11.1","extra == ""langchain-testing""",True,False,False,True,True,2.13.4
+google-cloud-aiplatform,2.1.3,newest during the read week,typing-extensions,,"extra == ""ag2-testing""",True,False,False,False,True,4.16.0
+google-cloud-aiplatform,2.1.3,newest during the read week,aiohttp,,"extra == ""ag2-testing""",True,False,False,False,True,3.14.3
+google-cloud-aiplatform,2.1.3,newest during the read week,pydantic,"<3,>=2.11.1","extra == ""ag2-testing""",True,False,False,True,True,2.13.4
+google-cloud-aiplatform,2.1.3,newest during the read week,typing-extensions,,"extra == ""llama-index-testing""",True,False,False,False,True,4.16.0
+google-cloud-aiplatform,2.1.3,newest during the read week,aiohttp,,"extra == ""llama-index-testing""",True,False,False,False,True,3.14.3
+google-cloud-aiplatform,2.1.3,newest during the read week,pydantic,"<3,>=2.11.1","extra == ""llama-index-testing""",True,False,False,True,True,2.13.4
+google-cloud-bigtable,2.46.0,newest during the read week,protobuf,"<8.0.0,>=6.33.5",,False,False,False,True,True,7.36.0
+google-cloud-storage,3.14.1,newest during the read week,requests,"<3.0.0,>=2.22.0",,False,False,False,True,True,2.34.2
+google-cloud-storage,3.14.1,newest during the read week,grpcio-status,"<2.0.0,>=1.59.0","extra == ""grpc""",True,False,False,True,True,1.83.0
+google-cloud-storage,3.14.1,newest during the read week,grpcio-status,"<2.0.0,>=1.75.1","python_version >= ""3.14"" and extra == ""grpc""",True,True,False,True,True,1.83.0
+google-cloud-storage,3.14.1,newest during the read week,protobuf,"<8.0.0,>=6.33.5","extra == ""grpc""",True,False,False,True,True,7.36.0
+google-cloud-storage,3.14.1,newest during the read week,protobuf,"<8.0.0,>=6.33.5","extra == ""protobuf""",True,False,False,True,True,7.36.0
+google-cloud-storage,3.14.1,newest during the read week,numpy,,"extra == ""testing""",True,False,False,False,True,2.5.2
+google-cloud-storage,3.14.1,newest during the read week,pytest,,"extra == ""testing""",True,False,False,False,True,9.1.1
+google-cloud-tasks,2.24.0,newest during the read week,protobuf,"<8.0.0,>=6.33.5",,False,False,False,True,True,7.36.0
+google-genai,2.24.0,newest during the read week,anyio,"<5.0.0,>=4.8.0",,False,False,False,True,True,4.14.2
+google-genai,2.24.0,newest during the read week,pydantic,"<3.0.0,>=2.12.5",,False,False,False,True,True,2.13.4
+google-genai,2.24.0,newest during the read week,requests,"<3.0.0,>=2.28.1",,False,False,False,True,True,2.34.2
+google-genai,2.24.0,newest during the read week,typing-extensions,"<5.0.0,>=4.14.0",,False,False,False,True,True,4.16.0
+google-genai,2.24.0,newest during the read week,aiohttp,"<4.0.0,>=3.10.11","extra == ""aiohttp""",True,False,False,True,True,3.14.3
+google-genai,2.24.0,newest during the read week,protobuf,,"extra == ""local-tokenizer""",True,False,False,False,True,7.36.0
+googleapis-common-protos,1.75.3,newest during the read week,protobuf,"<8.0.0,>=6.33.5",,False,False,False,True,True,7.36.0
+httpcore2,2.13.0,newest during the read week,anyio,"<5.0,>=4.5.0","extra == ""asyncio""",True,False,False,True,True,4.14.2
+httpx2,2.13.0,newest during the read week,anyio,>=4.10,"sys_platform != ""emscripten""",False,False,True,False,True,4.14.2
+httpx2,2.13.0,newest during the read week,idna,>=3.18,,False,False,False,False,True,3.19
+httpx2,2.13.0,newest during the read week,typing-extensions,>=4.5.0,"python_version < ""3.13""",False,True,False,False,True,4.16.0
+httpx2,2.13.0,newest during the read week,click,>=8.4.2,"extra == ""cli""",True,False,False,False,True,8.4.2
+httpx2,2.13.0,newest during the read week,pygments,==2.*,"extra == ""cli""",True,False,False,True,True,2.21.0
+huggingface-hub,1.32.0,newest during the read week,click,"<9.0.0,>=8.4.2",,False,False,False,True,True,8.4.2
+huggingface-hub,1.32.0,newest during the read week,filelock,>=3.10.0,,False,False,False,False,True,3.32.3
+huggingface-hub,1.32.0,newest during the read week,fsspec,>=2023.5.0,,False,False,False,False,True,2026.7.0
+huggingface-hub,1.32.0,newest during the read week,packaging,>=20.9,,False,False,False,False,True,26.3
+huggingface-hub,1.32.0,newest during the read week,tqdm,>=4.42.1,,False,False,False,False,True,4.70.0
+huggingface-hub,1.32.0,newest during the read week,typing-extensions,>=4.1.0,,False,False,False,False,True,4.16.0
+huggingface-hub,1.32.0,newest during the read week,pytest,>=8.4.2,"extra == ""testing""",True,False,False,False,True,9.1.1
+huggingface-hub,1.32.0,newest during the read week,urllib3,<2.0,"extra == ""testing""",True,False,False,True,False,2.7.0
+huggingface-hub,1.32.0,newest during the read week,numpy,,"extra == ""testing""",True,False,False,False,True,2.5.2
+huggingface-hub,1.32.0,newest during the read week,requests,,"extra == ""gradio""",True,False,False,False,True,2.34.2
+huggingface-hub,1.32.0,newest during the read week,typing-extensions,>=4.8.0,"extra == ""typing""",True,False,False,False,True,4.16.0
+huggingface-hub,1.32.0,newest during the read week,pytest,>=8.4.2,"extra == ""all""",True,False,False,False,True,9.1.1
+huggingface-hub,1.32.0,newest during the read week,urllib3,<2.0,"extra == ""all""",True,False,False,True,False,2.7.0
+huggingface-hub,1.32.0,newest during the read week,numpy,,"extra == ""all""",True,False,False,False,True,2.5.2
+huggingface-hub,1.32.0,newest during the read week,typing-extensions,>=4.8.0,"extra == ""all""",True,False,False,False,True,4.16.0
+huggingface-hub,1.32.0,newest during the read week,pytest,>=8.4.2,"extra == ""dev""",True,False,False,False,True,9.1.1
+huggingface-hub,1.32.0,newest during the read week,urllib3,<2.0,"extra == ""dev""",True,False,False,True,False,2.7.0
+huggingface-hub,1.32.0,newest during the read week,numpy,,"extra == ""dev""",True,False,False,False,True,2.5.2
+huggingface-hub,1.32.0,newest during the read week,typing-extensions,>=4.8.0,"extra == ""dev""",True,False,False,False,True,4.16.0
+huggingface-hub,1.33.0,newest during the read week,click,"<9.0.0,>=8.4.2",,False,False,False,True,True,8.4.2
+huggingface-hub,1.33.0,newest during the read week,filelock,>=3.10.0,,False,False,False,False,True,3.32.3
+huggingface-hub,1.33.0,newest during the read week,fsspec,>=2023.5.0,,False,False,False,False,True,2026.7.0
+huggingface-hub,1.33.0,newest during the read week,packaging,>=20.9,,False,False,False,False,True,26.3
+huggingface-hub,1.33.0,newest during the read week,tqdm,>=4.42.1,,False,False,False,False,True,4.70.0
+huggingface-hub,1.33.0,newest during the read week,typing-extensions,>=4.1.0,,False,False,False,False,True,4.16.0
+huggingface-hub,1.33.0,newest during the read week,pytest,>=8.4.2,"extra == ""testing""",True,False,False,False,True,9.1.1
+huggingface-hub,1.33.0,newest during the read week,urllib3,<2.0,"extra == ""testing""",True,False,False,True,False,2.7.0
+huggingface-hub,1.33.0,newest during the read week,numpy,,"extra == ""testing""",True,False,False,False,True,2.5.2
+huggingface-hub,1.33.0,newest during the read week,requests,,"extra == ""gradio""",True,False,False,False,True,2.34.2
+huggingface-hub,1.33.0,newest during the read week,typing-extensions,>=4.8.0,"extra == ""typing""",True,False,False,False,True,4.16.0
+huggingface-hub,1.33.0,newest during the read week,pytest,>=8.4.2,"extra == ""all""",True,False,False,False,True,9.1.1
+huggingface-hub,1.33.0,newest during the read week,urllib3,<2.0,"extra == ""all""",True,False,False,True,False,2.7.0
+huggingface-hub,1.33.0,newest during the read week,numpy,,"extra == ""all""",True,False,False,False,True,2.5.2
+huggingface-hub,1.33.0,newest during the read week,typing-extensions,>=4.8.0,"extra == ""all""",True,False,False,False,True,4.16.0
+huggingface-hub,1.33.0,newest during the read week,pytest,>=8.4.2,"extra == ""dev""",True,False,False,False,True,9.1.1
+huggingface-hub,1.33.0,newest during the read week,urllib3,<2.0,"extra == ""dev""",True,False,False,True,False,2.7.0
+huggingface-hub,1.33.0,newest during the read week,numpy,,"extra == ""dev""",True,False,False,False,True,2.5.2
+huggingface-hub,1.33.0,newest during the read week,typing-extensions,>=4.8.0,"extra == ""dev""",True,False,False,False,True,4.16.0
+langchain,1.4.2,newest during the read week,pydantic,"<3.0.0,>=2.7.4",,False,False,False,True,True,2.13.4
+langchain-core,1.6.3,newest during the read week,packaging,>=23.2.0,,False,False,False,False,True,26.3
+langchain-core,1.6.3,newest during the read week,pydantic,"<3.0.0,>=2.7.4",,False,False,False,True,True,2.13.4
+langchain-core,1.6.3,newest during the read week,typing-extensions,"<5.0.0,>=4.7.0",,False,False,False,True,True,4.16.0
+langchain-core,1.6.4,newest during the read week,packaging,>=23.2.0,,False,False,False,False,True,26.3
+langchain-core,1.6.4,newest during the read week,pydantic,"<3.0.0,>=2.7.4",,False,False,False,True,True,2.13.4
+langchain-core,1.6.4,newest during the read week,typing-extensions,"<5.0.0,>=4.7.0",,False,False,False,True,True,4.16.0
+langchain-openai,1.6.2,newest during the read week,certifi,>=2024.6.2,,False,False,False,False,True,2026.7.22
+langchain-openai,1.6.3,newest during the read week,certifi,>=2024.6.2,,False,False,False,False,True,2026.7.22
+langchain-openai,1.6.4,newest during the read week,certifi,>=2024.6.2,,False,False,False,False,True,2026.7.22
+langchain-openai,1.6.5,newest during the read week,certifi,>=2024.6.2,,False,False,False,False,True,2026.7.22
+langgraph,1.2.11,newest during the read week,pydantic,>=2.7.4,,False,False,False,False,True,2.13.4
+langsmith,0.13.0,newest during the read week,anyio,>=3.5.0,,False,False,False,False,True,4.14.2
+langsmith,0.13.0,newest during the read week,packaging,>=23.2,,False,False,False,False,True,26.3
+langsmith,0.13.0,newest during the read week,pydantic,"<3,>=2",,False,False,False,True,True,2.13.4
+langsmith,0.13.0,newest during the read week,requests,>=2.0.0,,False,False,False,False,True,2.34.2
+langsmith,0.13.0,newest during the read week,typing-extensions,>=4.0.0,,False,False,False,False,True,4.16.0
+langsmith,0.13.0,newest during the read week,pytest,>=7.0.0,"extra == ""pytest""",True,False,False,False,True,9.1.1
+langsmith,0.14.0,newest during the read week,anyio,>=3.5.0,,False,False,False,False,True,4.14.2
+langsmith,0.14.0,newest during the read week,packaging,>=23.2,,False,False,False,False,True,26.3
+langsmith,0.14.0,newest during the read week,pydantic,"<3,>=2",,False,False,False,True,True,2.13.4
+langsmith,0.14.0,newest during the read week,requests,>=2.0.0,,False,False,False,False,True,2.34.2
+langsmith,0.14.0,newest during the read week,typing-extensions,>=4.0.0,,False,False,False,False,True,4.16.0
+langsmith,0.14.0,newest during the read week,pytest,>=7.0.0,"extra == ""pytest""",True,False,False,False,True,9.1.1
+litellm,1.102.0,newest during the read week,python-dotenv,"<2.0,>=1.0.0",,False,False,False,True,True,1.2.3
+litellm,1.102.0,newest during the read week,click,"<9.0,>=8.0.0",,False,False,False,True,True,8.4.2
+litellm,1.102.0,newest during the read week,aiohttp,"<4.0,>=3.14.2",,False,False,False,True,True,3.14.3
+litellm,1.102.0,newest during the read week,pydantic,"<3.0.0,>=2.10.0",,False,False,False,True,True,2.13.4
+litellm,1.102.0,newest during the read week,boto3,"<2.0,>=1.43.1",,False,False,False,True,True,1.43.78
+litellm,1.102.0,newest during the read week,uvicorn,"<1.0,>=0.33.0","extra == ""proxy""",True,False,False,True,True,0.52.4
+litellm,1.102.0,newest during the read week,starlette,"<2.0,>=1.0.1","extra == ""proxy""",True,False,False,True,True,1.6.0
+litellm,1.102.0,newest during the read week,pyjwt,"<3.0,>=2.13.0","extra == ""proxy""",True,False,False,True,True,2.13.0
+litellm,1.102.0,newest during the read week,cryptography,"<51.0,>=49.0.0","extra == ""proxy""",True,False,False,True,True,50.0.0
+litellm,1.102.0,newest during the read week,boto3,"<2.0,>=1.43.1","extra == ""proxy""",True,False,False,True,True,1.43.78
+litellm,1.102.0,newest during the read week,requests,"<3.0,>=2.32.0","extra == ""cli""",True,False,False,True,True,2.34.2
+litellm,1.102.0,newest during the read week,numpy,>=1.26.0,"extra == ""stt-nvidia-riva""",True,False,False,False,True,2.5.2
+litellm,1.102.1,newest during the read week,python-dotenv,"<2.0,>=1.0.0",,False,False,False,True,True,1.2.3
+litellm,1.102.1,newest during the read week,click,"<9.0,>=8.0.0",,False,False,False,True,True,8.4.2
+litellm,1.102.1,newest during the read week,aiohttp,"<4.0,>=3.14.2",,False,False,False,True,True,3.14.3
+litellm,1.102.1,newest during the read week,pydantic,"<3.0.0,>=2.10.0",,False,False,False,True,True,2.13.4
+litellm,1.102.1,newest during the read week,boto3,"<2.0,>=1.43.1",,False,False,False,True,True,1.43.78
+litellm,1.102.1,newest during the read week,uvicorn,"<1.0,>=0.33.0","extra == ""proxy""",True,False,False,True,True,0.52.4
+litellm,1.102.1,newest during the read week,starlette,"<2.0,>=1.0.1","extra == ""proxy""",True,False,False,True,True,1.6.0
+litellm,1.102.1,newest during the read week,pyjwt,"<3.0,>=2.13.0","extra == ""proxy""",True,False,False,True,True,2.13.0
+litellm,1.102.1,newest during the read week,cryptography,"<51.0,>=49.0.0","extra == ""proxy""",True,False,False,True,True,50.0.0
+litellm,1.102.1,newest during the read week,boto3,"<2.0,>=1.43.1","extra == ""proxy""",True,False,False,True,True,1.43.78
+litellm,1.102.1,newest during the read week,requests,"<3.0,>=2.32.0","extra == ""cli""",True,False,False,True,True,2.34.2
+litellm,1.102.1,newest during the read week,numpy,>=1.26.0,"extra == ""stt-nvidia-riva""",True,False,False,False,True,2.5.2
+mako,1.4.1,newest during the read week,pytest,,"extra == ""testing""",True,False,False,False,True,9.1.1
+mako,1.4.2,newest during the read week,pytest,,"extra == ""testing""",True,False,False,False,True,9.1.1
+modal,1.5.5,newest during the read week,aiohttp,,,False,False,False,False,True,3.14.3
+modal,1.5.5,newest during the read week,certifi,,,False,False,False,False,True,2026.7.22
+modal,1.5.5,newest during the read week,click,~=8.1,,False,False,False,True,True,8.4.2
+modal,1.5.5,newest during the read week,protobuf,"!=4.24.0,<7.0,>=3.19",,False,False,False,True,False,7.36.0
+modal,1.5.5,newest during the read week,typing-extensions,~=4.6,,False,False,False,True,True,4.16.0
+multidict,6.9.0,newest during the read week,typing-extensions,>=4.1.0,"python_version < ""3.11""",False,True,False,False,True,4.16.0
+multidict,6.9.1,newest during the read week,typing-extensions,>=4.1.0,"python_version < ""3.11""",False,True,False,False,True,4.16.0
+networkx,3.6.1,newest during the read week,numpy,>=1.25,"extra == ""default""",True,False,False,False,True,2.5.2
+networkx,3.6.1,newest during the read week,pandas,>=2.0,"extra == ""default""",True,False,False,False,True,3.0.5
+networkx,3.6.1,newest during the read week,pytest,>=7.2,"extra == ""test""",True,False,False,False,True,9.1.1
+oauthlib,3.3.1,newest during the read week,cryptography,>=3.0.0,"extra == ""rsa""",True,False,False,False,True,50.0.0
+oauthlib,3.3.1,newest during the read week,cryptography,>=3.0.0,"extra == ""signedtoken""",True,False,False,False,True,50.0.0
+oauthlib,3.3.1,newest during the read week,pyjwt,"<3,>=2.0.0","extra == ""signedtoken""",True,False,False,True,True,2.13.0
+openai,3.16.2,newest during the read week,anyio,"<5,>=4.10.0",,False,False,False,True,True,4.14.2
+openai,3.16.2,newest during the read week,pydantic,"!=2.0.*,!=2.1.*,!=2.2.*,!=2.3.*,<3,>=1.10.13",,False,False,False,True,True,2.13.4
+openai,3.16.2,newest during the read week,typing-extensions,"<5,>=4.14",,False,False,False,True,True,4.16.0
+openai,3.16.2,newest during the read week,aiohttp,>=3.14.3,"extra == ""aiohttp""",True,False,False,False,True,3.14.3
+openai,3.16.2,newest during the read week,botocore,"<2,>=1.40.0","extra == ""bedrock""",True,False,False,True,True,1.43.78
+openai,3.16.2,newest during the read week,urllib3,"<3,>=2.7.0","extra == ""bedrock""",True,False,False,True,True,2.7.0
+openai,3.16.2,newest during the read week,numpy,>=1,"extra == ""datalib""",True,False,False,False,True,2.5.2
+openai,3.16.2,newest during the read week,pandas,>=1.2.3,"extra == ""datalib""",True,False,False,False,True,3.0.5
+openai,3.16.2,newest during the read week,numpy,>=2.0.2,"extra == ""voice-helpers""",True,False,False,False,True,2.5.2
+openai,3.17.0,newest during the read week,anyio,"<5,>=4.10.0",,False,False,False,True,True,4.14.2
+openai,3.17.0,newest during the read week,pydantic,"!=2.0.*,!=2.1.*,!=2.2.*,!=2.3.*,<3,>=1.10.13",,False,False,False,True,True,2.13.4
+openai,3.17.0,newest during the read week,typing-extensions,"<5,>=4.14",,False,False,False,True,True,4.16.0
+openai,3.17.0,newest during the read week,aiohttp,>=3.14.3,"extra == ""aiohttp""",True,False,False,False,True,3.14.3
+openai,3.17.0,newest during the read week,botocore,"<2,>=1.40.0","extra == ""bedrock""",True,False,False,True,True,1.43.78
+openai,3.17.0,newest during the read week,urllib3,"<3,>=2.7.0","extra == ""bedrock""",True,False,False,True,True,2.7.0
+openai,3.17.0,newest during the read week,numpy,>=1,"extra == ""datalib""",True,False,False,False,True,2.5.2
+openai,3.17.0,newest during the read week,pandas,>=1.2.3,"extra == ""datalib""",True,False,False,False,True,3.0.5
+openai,3.17.0,newest during the read week,numpy,>=2.0.2,"extra == ""voice-helpers""",True,False,False,False,True,2.5.2
+openai,3.18.0,newest during the read week,anyio,"<5,>=4.10.0",,False,False,False,True,True,4.14.2
+openai,3.18.0,newest during the read week,pydantic,"!=2.0.*,!=2.1.*,!=2.2.*,!=2.3.*,<3,>=1.10.13",,False,False,False,True,True,2.13.4
+openai,3.18.0,newest during the read week,typing-extensions,"<5,>=4.14",,False,False,False,True,True,4.16.0
+openai,3.18.0,newest during the read week,aiohttp,>=3.14.3,"extra == ""aiohttp""",True,False,False,False,True,3.14.3
+openai,3.18.0,newest during the read week,botocore,"<2,>=1.40.0","extra == ""bedrock""",True,False,False,True,True,1.43.78
+openai,3.18.0,newest during the read week,urllib3,"<3,>=2.7.0","extra == ""bedrock""",True,False,False,True,True,2.7.0
+openai,3.18.0,newest during the read week,numpy,>=1,"extra == ""datalib""",True,False,False,False,True,2.5.2
+openai,3.18.0,newest during the read week,pandas,>=1.2.3,"extra == ""datalib""",True,False,False,False,True,3.0.5
+openai,3.18.0,newest during the read week,numpy,>=2.0.2,"extra == ""voice-helpers""",True,False,False,False,True,2.5.2
+openai,3.19.0,newest during the read week,anyio,"<5,>=4.10.0",,False,False,False,True,True,4.14.2
+openai,3.19.0,newest during the read week,pydantic,"!=2.0.*,!=2.1.*,!=2.2.*,!=2.3.*,<3,>=1.10.13",,False,False,False,True,True,2.13.4
+openai,3.19.0,newest during the read week,typing-extensions,"<5,>=4.14",,False,False,False,True,True,4.16.0
+openai,3.19.0,newest during the read week,aiohttp,>=3.14.3,"extra == ""aiohttp""",True,False,False,False,True,3.14.3
+openai,3.19.0,newest during the read week,botocore,"<2,>=1.40.0","extra == ""bedrock""",True,False,False,True,True,1.43.78
+openai,3.19.0,newest during the read week,urllib3,"<3,>=2.7.0","extra == ""bedrock""",True,False,False,True,True,2.7.0
+openai,3.19.0,newest during the read week,numpy,>=1,"extra == ""datalib""",True,False,False,False,True,2.5.2
+openai,3.19.0,newest during the read week,pandas,>=1.2.3,"extra == ""datalib""",True,False,False,False,True,3.0.5
+openai,3.19.0,newest during the read week,numpy,>=2.0.2,"extra == ""voice-helpers""",True,False,False,False,True,2.5.2
+openai,3.19.1,newest during the read week,anyio,"<5,>=4.10.0",,False,False,False,True,True,4.14.2
+openai,3.19.1,newest during the read week,pydantic,"!=2.0.*,!=2.1.*,!=2.2.*,!=2.3.*,<3,>=1.10.13",,False,False,False,True,True,2.13.4
+openai,3.19.1,newest during the read week,typing-extensions,"<5,>=4.14",,False,False,False,True,True,4.16.0
+openai,3.19.1,newest during the read week,aiohttp,>=3.14.3,"extra == ""aiohttp""",True,False,False,False,True,3.14.3
+openai,3.19.1,newest during the read week,botocore,"<2,>=1.40.0","extra == ""bedrock""",True,False,False,True,True,1.43.78
+openai,3.19.1,newest during the read week,urllib3,"<3,>=2.7.0","extra == ""bedrock""",True,False,False,True,True,2.7.0
+openai,3.19.1,newest during the read week,numpy,>=1,"extra == ""datalib""",True,False,False,False,True,2.5.2
+openai,3.19.1,newest during the read week,pandas,>=1.2.3,"extra == ""datalib""",True,False,False,False,True,3.0.5
+openai,3.19.1,newest during the read week,numpy,>=2.0.2,"extra == ""voice-helpers""",True,False,False,False,True,2.5.2
+openai,3.19.2,newest during the read week,anyio,"<5,>=4.10.0",,False,False,False,True,True,4.14.2
+openai,3.19.2,newest during the read week,pydantic,"!=2.0.*,!=2.1.*,!=2.2.*,!=2.3.*,<3,>=1.10.13",,False,False,False,True,True,2.13.4
+openai,3.19.2,newest during the read week,typing-extensions,"<5,>=4.14",,False,False,False,True,True,4.16.0
+openai,3.19.2,newest during the read week,aiohttp,>=3.14.3,"extra == ""aiohttp""",True,False,False,False,True,3.14.3
+openai,3.19.2,newest during the read week,botocore,"<2,>=1.40.0","extra == ""bedrock""",True,False,False,True,True,1.43.78
+openai,3.19.2,newest during the read week,urllib3,"<3,>=2.7.0","extra == ""bedrock""",True,False,False,True,True,2.7.0
+openai,3.19.2,newest during the read week,numpy,>=1,"extra == ""datalib""",True,False,False,False,True,2.5.2
+openai,3.19.2,newest during the read week,pandas,>=1.2.3,"extra == ""datalib""",True,False,False,False,True,3.0.5
+openai,3.19.2,newest during the read week,numpy,>=2.0.2,"extra == ""voice-helpers""",True,False,False,False,True,2.5.2
+opentelemetry-api,1.44.0,newest during the read week,typing-extensions,>=4.5.0,,False,False,False,False,True,4.16.0
+opentelemetry-exporter-otlp-proto-grpc,1.44.0,newest during the read week,typing-extensions,>=4.6.0,,False,False,False,False,True,4.16.0
+opentelemetry-exporter-otlp-proto-http,1.44.0,newest during the read week,requests,~=2.7,,False,False,False,True,True,2.34.2
+opentelemetry-exporter-otlp-proto-http,1.44.0,newest during the read week,typing-extensions,>=4.5.0,,False,False,False,False,True,4.16.0
+opentelemetry-proto,1.44.0,newest during the read week,protobuf,"<8.0,>=5.0",,False,False,False,True,True,7.36.0
+opentelemetry-sdk,1.44.0,newest during the read week,typing-extensions,>=4.5.0,,False,False,False,False,True,4.16.0
+pydantic-ai-slim,2.46.0,newest during the read week,anyio,>=4.7.0,,False,False,False,False,True,4.14.2
+pydantic-ai-slim,2.46.0,newest during the read week,pydantic,>=2.12,,False,False,False,False,True,2.13.4
+pydantic-ai-slim,2.46.0,newest during the read week,typing-inspection,>=0.4.0,,False,False,False,False,True,0.4.4
+pydantic-ai-slim,2.46.0,newest during the read week,starlette,>=0.46.2,"extra == ""ag-ui""",True,False,False,False,True,1.6.0
+pydantic-ai-slim,2.46.0,newest during the read week,boto3,>=1.42.63,"extra == ""bedrock""",True,False,False,False,True,1.43.78
+pydantic-ai-slim,2.46.0,newest during the read week,botocore,>=1.42.63,"extra == ""bedrock-mantle""",True,False,False,False,True,1.43.78
+pydantic-ai-slim,2.46.0,newest during the read week,starlette,>=0.46.2,"extra == ""ui""",True,False,False,False,True,1.6.0
+pydantic-ai-slim,2.46.0,newest during the read week,starlette,>=1.3.1,"extra == ""web""",True,False,False,False,True,1.6.0
+pydantic-ai-slim,2.46.0,newest during the read week,uvicorn,>=0.38.0,"extra == ""web""",True,False,False,False,True,0.52.4
+pydantic-ai-slim,2.47.0,newest during the read week,anyio,>=4.7.0,,False,False,False,False,True,4.14.2
+pydantic-ai-slim,2.47.0,newest during the read week,pydantic,>=2.12,,False,False,False,False,True,2.13.4
+pydantic-ai-slim,2.47.0,newest during the read week,typing-inspection,>=0.4.0,,False,False,False,False,True,0.4.4
+pydantic-ai-slim,2.47.0,newest during the read week,starlette,>=0.46.2,"extra == ""ag-ui""",True,False,False,False,True,1.6.0
+pydantic-ai-slim,2.47.0,newest during the read week,boto3,>=1.42.63,"extra == ""bedrock""",True,False,False,False,True,1.43.78
+pydantic-ai-slim,2.47.0,newest during the read week,botocore,>=1.42.63,"extra == ""bedrock-mantle""",True,False,False,False,True,1.43.78
+pydantic-ai-slim,2.47.0,newest during the read week,starlette,>=0.46.2,"extra == ""ui""",True,False,False,False,True,1.6.0
+pydantic-ai-slim,2.47.0,newest during the read week,starlette,>=1.3.1,"extra == ""web""",True,False,False,False,True,1.6.0
+pydantic-ai-slim,2.47.0,newest during the read week,uvicorn,>=0.38.0,"extra == ""web""",True,False,False,False,True,0.52.4
+pydantic-ai-slim,2.48.0,newest during the read week,anyio,>=4.7.0,,False,False,False,False,True,4.14.2
+pydantic-ai-slim,2.48.0,newest during the read week,pydantic,>=2.12,,False,False,False,False,True,2.13.4
+pydantic-ai-slim,2.48.0,newest during the read week,typing-inspection,>=0.4.0,,False,False,False,False,True,0.4.4
+pydantic-ai-slim,2.48.0,newest during the read week,starlette,>=0.46.2,"extra == ""ag-ui""",True,False,False,False,True,1.6.0
+pydantic-ai-slim,2.48.0,newest during the read week,boto3,>=1.42.63,"extra == ""bedrock""",True,False,False,False,True,1.43.78
+pydantic-ai-slim,2.48.0,newest during the read week,botocore,>=1.42.63,"extra == ""bedrock-mantle""",True,False,False,False,True,1.43.78
+pydantic-ai-slim,2.48.0,newest during the read week,starlette,>=0.46.2,"extra == ""ui""",True,False,False,False,True,1.6.0
+pydantic-ai-slim,2.48.0,newest during the read week,starlette,>=1.3.1,"extra == ""web""",True,False,False,False,True,1.6.0
+pydantic-ai-slim,2.48.0,newest during the read week,uvicorn,>=0.38.0,"extra == ""web""",True,False,False,False,True,0.52.4
+pydantic-ai-slim,2.49.0,newest during the read week,anyio,>=4.7.0,,False,False,False,False,True,4.14.2
+pydantic-ai-slim,2.49.0,newest during the read week,pydantic,>=2.12,,False,False,False,False,True,2.13.4
+pydantic-ai-slim,2.49.0,newest during the read week,typing-inspection,>=0.4.0,,False,False,False,False,True,0.4.4
+pydantic-ai-slim,2.49.0,newest during the read week,starlette,>=0.46.2,"extra == ""ag-ui""",True,False,False,False,True,1.6.0
+pydantic-ai-slim,2.49.0,newest during the read week,boto3,>=1.42.63,"extra == ""bedrock""",True,False,False,False,True,1.43.78
+pydantic-ai-slim,2.49.0,newest during the read week,botocore,>=1.42.63,"extra == ""bedrock-mantle""",True,False,False,False,True,1.43.78
+pydantic-ai-slim,2.49.0,newest during the read week,starlette,>=0.46.2,"extra == ""ui""",True,False,False,False,True,1.6.0
+pydantic-ai-slim,2.49.0,newest during the read week,starlette,>=1.3.1,"extra == ""web""",True,False,False,False,True,1.6.0
+pydantic-ai-slim,2.49.0,newest during the read week,uvicorn,>=0.38.0,"extra == ""web""",True,False,False,False,True,0.52.4
+pydantic-ai-slim,2.50.0,newest during the read week,anyio,>=4.7.0,,False,False,False,False,True,4.14.2
+pydantic-ai-slim,2.50.0,newest during the read week,pydantic,>=2.12,,False,False,False,False,True,2.13.4
+pydantic-ai-slim,2.50.0,newest during the read week,typing-inspection,>=0.4.0,,False,False,False,False,True,0.4.4
+pydantic-ai-slim,2.50.0,newest during the read week,starlette,>=0.46.2,"extra == ""ag-ui""",True,False,False,False,True,1.6.0
+pydantic-ai-slim,2.50.0,newest during the read week,boto3,>=1.42.63,"extra == ""bedrock""",True,False,False,False,True,1.43.78
+pydantic-ai-slim,2.50.0,newest during the read week,botocore,>=1.42.63,"extra == ""bedrock-mantle""",True,False,False,False,True,1.43.78
+pydantic-ai-slim,2.50.0,newest during the read week,starlette,>=0.46.2,"extra == ""ui""",True,False,False,False,True,1.6.0
+pydantic-ai-slim,2.50.0,newest during the read week,starlette,>=1.3.1,"extra == ""web""",True,False,False,False,True,1.6.0
+pydantic-ai-slim,2.50.0,newest during the read week,uvicorn,>=0.38.0,"extra == ""web""",True,False,False,False,True,0.52.4
+pydantic-graph,2.46.0,newest during the read week,anyio,>=4.7.0,,False,False,False,False,True,4.14.2
+pydantic-graph,2.46.0,newest during the read week,pydantic,>=2.12,,False,False,False,False,True,2.13.4
+pydantic-graph,2.46.0,newest during the read week,typing-inspection,>=0.4.0,,False,False,False,False,True,0.4.4
+pydantic-graph,2.47.0,newest during the read week,anyio,>=4.7.0,,False,False,False,False,True,4.14.2
+pydantic-graph,2.47.0,newest during the read week,pydantic,>=2.12,,False,False,False,False,True,2.13.4
+pydantic-graph,2.47.0,newest during the read week,typing-inspection,>=0.4.0,,False,False,False,False,True,0.4.4
+pydantic-graph,2.48.0,newest during the read week,anyio,>=4.7.0,,False,False,False,False,True,4.14.2
+pydantic-graph,2.48.0,newest during the read week,pydantic,>=2.12,,False,False,False,False,True,2.13.4
+pydantic-graph,2.48.0,newest during the read week,typing-inspection,>=0.4.0,,False,False,False,False,True,0.4.4
+pydantic-graph,2.49.0,newest during the read week,anyio,>=4.7.0,,False,False,False,False,True,4.14.2
+pydantic-graph,2.49.0,newest during the read week,pydantic,>=2.12,,False,False,False,False,True,2.13.4
+pydantic-graph,2.49.0,newest during the read week,typing-inspection,>=0.4.0,,False,False,False,False,True,0.4.4
+pydantic-graph,2.50.0,newest during the read week,anyio,>=4.7.0,,False,False,False,False,True,4.14.2
+pydantic-graph,2.50.0,newest during the read week,pydantic,>=2.12,,False,False,False,False,True,2.13.4
+pydantic-graph,2.50.0,newest during the read week,typing-inspection,>=0.4.0,,False,False,False,False,True,0.4.4
+pyjwt,2.14.0,newest during the read week,typing-extensions,>=4.0,"python_version < ""3.11""",False,True,False,False,True,4.16.0
+pyjwt,2.14.0,newest during the read week,cryptography,>=3.4.0,"extra == ""crypto""",True,False,False,False,True,50.0.0
+pyjwt,2.15.0,newest during the read week,typing-extensions,>=4.0,"python_version < ""3.11""",False,True,False,False,True,4.16.0
+pyjwt,2.15.0,newest during the read week,cryptography,>=3.4.0,"extra == ""crypto""",True,False,False,False,True,50.0.0
+pymongo,4.18.1,newest during the read week,certifi,>=2023.7.22,"(os_name == ""nt"" or sys_platform == ""darwin"") and extra == ""encryption""",True,False,True,False,True,2026.7.22
+pymongo,4.18.1,newest during the read week,certifi,>=2023.7.22,"(os_name == ""nt"" or sys_platform == ""darwin"") and extra == ""ocsp""",True,False,True,False,True,2026.7.22
+pymongo,4.18.1,newest during the read week,cryptography,>=47.0.0,"extra == ""ocsp""",True,False,False,False,True,50.0.0
+pymongo,4.18.1,newest during the read week,requests,"<3.0,>=2.23.0","extra == ""ocsp""",True,False,False,True,True,2.34.2
+pymongo,4.18.1,newest during the read week,pytest,>=8.2,"extra == ""test""",True,False,False,False,True,9.1.1
+pytest-mock,3.15.1,newest during the read week,pytest,>=6.2.5,,False,False,False,False,True,9.1.1
+rich-rst,2.1.0,newest during the read week,pygments,>=2.0.0,,False,False,False,False,True,2.21.0
+rich-rst,2.1.0,newest during the read week,pytest,,"extra == ""tests""",True,False,False,False,True,9.1.1
+sentry-sdk,2.69.2,newest during the read week,urllib3,>=1.26.11,,False,False,False,False,True,2.7.0
+sentry-sdk,2.69.2,newest during the read week,certifi,,,False,False,False,False,True,2026.7.22
+sentry-sdk,2.69.2,newest during the read week,aiohttp,>=3.5,"extra == ""aiohttp""",True,False,False,False,True,3.14.3
+sentry-sdk,2.69.2,newest during the read week,protobuf,>=3.8.0,"extra == ""grpcio""",True,False,False,False,True,7.36.0
+sentry-sdk,2.69.2,newest during the read week,litellm,"!=1.82.7,!=1.82.8,>=1.77.5","extra == ""litellm""",True,False,False,False,True,1.97.0
+sentry-sdk,2.69.2,newest during the read week,starlette,>=0.19.1,"extra == ""starlette""",True,False,False,False,True,1.6.0
+sentry-sdk,2.70.0,newest during the read week,urllib3,>=1.26.11,,False,False,False,False,True,2.7.0
+sentry-sdk,2.70.0,newest during the read week,certifi,,,False,False,False,False,True,2026.7.22
+sentry-sdk,2.70.0,newest during the read week,aiohttp,>=3.5,"extra == ""aiohttp""",True,False,False,False,True,3.14.3
+sentry-sdk,2.70.0,newest during the read week,protobuf,>=3.8.0,"extra == ""grpcio""",True,False,False,False,True,7.36.0
+sentry-sdk,2.70.0,newest during the read week,litellm,"!=1.82.7,!=1.82.8,>=1.77.5","extra == ""litellm""",True,False,False,False,True,1.97.0
+sentry-sdk,2.70.0,newest during the read week,starlette,>=0.19.1,"extra == ""starlette""",True,False,False,False,True,1.6.0
+setuptools-scm,10.2.3,newest during the read week,packaging,>=20,,False,False,False,False,True,26.3
+setuptools-scm,10.2.3,newest during the read week,typing-extensions,>=4.1,"python_version < ""3.11""",False,True,False,False,True,4.16.0
+setuptools-scm,10.3.3,newest during the read week,packaging,>=20,,False,False,False,False,True,26.3
+setuptools-scm,10.3.3,newest during the read week,typing-extensions,>=4.1,"python_version < ""3.11""",False,True,False,False,True,4.16.0
+snowflake-connector-python,4.7.4,newest during the read week,cryptography,>=46.0.5,,False,False,False,False,True,50.0.0
+snowflake-connector-python,4.7.4,newest during the read week,pyjwt,"<3.0.0,>=2.10.1",,False,False,False,True,True,2.13.0
+snowflake-connector-python,4.7.4,newest during the read week,requests,"<3.0.0,>=2.32.4",,False,False,False,True,True,2.34.2
+snowflake-connector-python,4.7.4,newest during the read week,packaging,,,False,False,False,False,True,26.3
+snowflake-connector-python,4.7.4,newest during the read week,charset-normalizer,"<4,>=2",,False,False,False,True,True,3.5.1
+snowflake-connector-python,4.7.4,newest during the read week,idna,"<4,>=3.7",,False,False,False,True,True,3.19
+snowflake-connector-python,4.7.4,newest during the read week,certifi,>=2024.7.4,,False,False,False,False,True,2026.7.22
+snowflake-connector-python,4.7.4,newest during the read week,typing-extensions,"<5,>=4.3",,False,False,False,True,True,4.16.0
+snowflake-connector-python,4.7.4,newest during the read week,filelock,"<4,>=3.5",,False,False,False,True,True,3.32.3
+snowflake-connector-python,4.7.4,newest during the read week,platformdirs,"<5.0.0,>=2.6.0",,False,False,False,True,True,4.11.3
+snowflake-connector-python,4.7.4,newest during the read week,boto3,>=1.24,,False,False,False,False,True,1.43.78
+snowflake-connector-python,4.7.4,newest during the read week,botocore,>=1.24,,False,False,False,False,True,1.43.78
+snowflake-connector-python,4.7.4,newest during the read week,boto3,>=1.24,"extra == ""boto""",True,False,False,False,True,1.43.78
+snowflake-connector-python,4.7.4,newest during the read week,botocore,>=1.24,"extra == ""boto""",True,False,False,False,True,1.43.78
+snowflake-connector-python,4.7.4,newest during the read week,numpy,<=2.4.3,"extra == ""development""",True,False,False,True,False,2.5.2
+snowflake-connector-python,4.7.4,newest during the read week,pytest,"<9,>=8.4","extra == ""development""",True,False,False,True,False,9.1.1
+snowflake-connector-python,4.7.4,newest during the read week,pandas,"<3.0.0,>=1.0.0","python_version < ""3.13"" and extra == ""pandas""",True,True,False,True,False,3.0.5
+snowflake-connector-python,4.7.4,newest during the read week,pandas,"<3.0.0,>=2.1.2","python_version >= ""3.13"" and extra == ""pandas""",True,True,False,True,False,3.0.5
+sqlalchemy,2.0.54,newest during the read week,typing-extensions,>=4.6.0,,False,False,False,False,True,4.16.0
+sqlalchemy,2.0.54,newest during the read week,typing-extensions,!=3.10.0.1,"extra == ""aiosqlite""",True,False,False,False,True,4.16.0
+sqlalchemy,2.1.0,newest during the read week,typing-extensions,>=4.6.0,,False,False,False,False,True,4.16.0
+sqlglot,30.18.0,newest during the read week,pandas,,"extra == ""dev""",True,False,False,False,True,3.0.5
+sqlglot,30.18.0,newest during the read week,typing-extensions,,"extra == ""dev""",True,False,False,False,True,4.16.0
+sqlglot,30.19.0,newest during the read week,pandas,,"extra == ""dev""",True,False,False,False,True,3.0.5
+sqlglot,30.19.0,newest during the read week,typing-extensions,,"extra == ""dev""",True,False,False,False,True,4.16.0
+sse-starlette,3.4.11,newest during the read week,starlette,>=0.49.1,,False,False,False,False,True,1.6.0
+sse-starlette,3.4.11,newest during the read week,anyio,>=4.7.0,,False,False,False,False,True,4.14.2
+sse-starlette,3.4.11,newest during the read week,uvicorn,>=0.34.0,"extra == ""examples""",True,False,False,False,True,0.52.4
+sse-starlette,3.4.11,newest during the read week,pydantic,>=2,"extra == ""examples""",True,False,False,False,True,2.13.4
+sse-starlette,3.4.11,newest during the read week,uvicorn,>=0.34.0,"extra == ""uvicorn""",True,False,False,False,True,0.52.4
+starlette,1.6.0,newest during the read week,anyio,"<5,>=3.6.2",,False,False,False,True,True,4.14.2
+starlette,1.6.0,newest during the read week,typing-extensions,>=4.10.0,"python_version < ""3.13""",False,True,False,False,True,4.16.0
+uvicorn,0.53.0,newest during the read week,click,>=7.0,,False,False,False,False,True,8.4.2
+uvicorn,0.53.0,newest during the read week,typing-extensions,>=4.0,"python_version < ""3.11""",False,True,False,False,True,4.16.0
+uvicorn,0.53.0,newest during the read week,python-dotenv,>=0.13,"extra == ""standard""",True,False,False,False,True,1.2.3
+vcs-versioning,2.4.1,newest during the read week,packaging,>=26.2,,False,False,False,False,True,26.3
+vcs-versioning,2.4.1,newest during the read week,typing-extensions,>=4.1,"python_version < ""3.11""",False,True,False,False,True,4.16.0
+virtualenv,21.9.0,newest during the read week,filelock,"<4,>=3.24.2","python_version >= ""3.10""",False,True,False,True,True,3.32.3
+virtualenv,21.9.0,newest during the read week,filelock,"<=3.19.1,>=3.16.1","python_version < ""3.10""",False,True,False,True,False,3.32.3
+virtualenv,21.9.0,newest during the read week,platformdirs,"<5,>=3.9.1",,False,False,False,True,True,4.11.3
+virtualenv,21.9.0,newest during the read week,typing-extensions,>=4.13.2,"python_version < ""3.11""",False,True,False,False,True,4.16.0
+virtualenv,21.9.1,newest during the read week,filelock,"<4,>=3.24.2","python_version >= ""3.10""",False,True,False,True,True,3.32.3
+virtualenv,21.9.1,newest during the read week,filelock,"<=3.19.1,>=3.16.1","python_version < ""3.10""",False,True,False,True,False,3.32.3
+virtualenv,21.9.1,newest during the read week,platformdirs,"<5,>=3.9.1",,False,False,False,True,True,4.11.3
+virtualenv,21.9.1,newest during the read week,typing-extensions,>=4.13.2,"python_version < ""3.11""",False,True,False,False,True,4.16.0
+virtualenv,21.10.0,newest during the read week,filelock,"<5,>=3.24.2","python_version >= ""3.10""",False,True,False,True,True,3.32.3
+virtualenv,21.10.0,newest during the read week,filelock,"<=3.19.1,>=3.16.1","python_version < ""3.10""",False,True,False,True,False,3.32.3
+virtualenv,21.10.0,newest during the read week,platformdirs,"<5,>=3.9.1",,False,False,False,True,True,4.11.3
+virtualenv,21.10.0,newest during the read week,typing-extensions,>=4.13.2,"python_version < ""3.11""",False,True,False,False,True,4.16.0
+virtualenv,21.11.0,newest during the read week,filelock,"<5,>=3.24.2","python_version >= ""3.10""",False,True,False,True,True,3.32.3
+virtualenv,21.11.0,newest during the read week,filelock,"<=3.19.1,>=3.16.1","python_version < ""3.10""",False,True,False,True,False,3.32.3
+virtualenv,21.11.0,newest during the read week,platformdirs,"<5,>=3.9.1",,False,False,False,True,True,4.11.3
+virtualenv,21.11.0,newest during the read week,typing-extensions,>=4.13.2,"python_version < ""3.11""",False,True,False,False,True,4.16.0
+virtualenv,21.11.1,newest during the read week,filelock,"<5,>=3.24.2","python_version >= ""3.10""",False,True,False,True,True,3.32.3
+virtualenv,21.11.1,newest during the read week,filelock,"<=3.19.1,>=3.16.1","python_version < ""3.10""",False,True,False,True,False,3.32.3
+virtualenv,21.11.1,newest during the read week,platformdirs,"<5,>=3.9.1",,False,False,False,True,True,4.11.3
+virtualenv,21.11.1,newest during the read week,typing-extensions,>=4.13.2,"python_version < ""3.11""",False,True,False,False,True,4.16.0
+virtualenv,21.12.0,newest during the read week,filelock,"<5,>=3.24.2","python_version >= ""3.10""",False,True,False,True,True,3.32.3
+virtualenv,21.12.0,newest during the read week,filelock,"<=3.19.1,>=3.16.1","python_version < ""3.10""",False,True,False,True,False,3.32.3
+virtualenv,21.12.0,newest during the read week,platformdirs,"<5,>=3.9.1",,False,False,False,True,True,4.11.3
+virtualenv,21.12.0,newest during the read week,typing-extensions,>=4.13.2,"python_version < ""3.11""",False,True,False,False,True,4.16.0
+virtualenv,21.12.1,newest during the read week,filelock,"<5,>=3.24.2","python_version >= ""3.10""",False,True,False,True,True,3.32.3
+virtualenv,21.12.1,newest during the read week,filelock,"<=3.19.1,>=3.16.1","python_version < ""3.10""",False,True,False,True,False,3.32.3
+virtualenv,21.12.1,newest during the read week,platformdirs,"<5,>=3.9.1",,False,False,False,True,True,4.11.3
+virtualenv,21.12.1,newest during the read week,typing-extensions,>=4.13.2,"python_version < ""3.11""",False,True,False,False,True,4.16.0
+watchfiles,1.2.0,newest during the read week,anyio,>=3.0.0,,False,False,False,False,True,4.14.2
+wrapt,2.4.1,newest during the read week,pytest,,"extra == ""dev""",True,False,False,False,True,9.1.1
