@@ -4,6 +4,8 @@ version: 0.1
 date: 2026-09-29
 authors: the driving session (Opus 5.5)
 
+*Later the same day, the latest piece was corrected to version 1.1 and its record to 0.3: what other libraries' limits could account for is an estimate on an assumption the log cannot check, an old Python does not say which older version is fetched, and downloads sharing reported fields are not one kind of machine. This close-out is kept as written; notes/closeout-2026-09-29-claims-and-review-pilot.md says what changed.*
+
 ## What was learned
 
 - In the week of 21 to 27 September 2026, a median 37.3 per cent of each of the 37 libraries' downloads were of versions numbered below its newest of 21 August (20.0 per cent for pyjwt to 99.3 for pydantic-core; 45.6 per cent pooled). This is a derived measurement (studies/LH012/LH012.md, version 0.2).

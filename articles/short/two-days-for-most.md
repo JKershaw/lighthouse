@@ -11,7 +11,7 @@ When a widely used library puts out a new version, how soon is it most of what g
 
 *28 September 2026 · Lighthouse*
 
-> **Later evidence, 29 September 2026.** The first-day pattern below was then tested on releases we had not read, and held for 28 of 32 libraries. In one week of September 2026, old Pythons were most of the older versions' downloads in three of the 37 libraries and could not be in 32. [The later reading](../old-versions-new-pythons.md).
+> **Later evidence, 29 September 2026.** The first-day pattern below was then tested on releases we had not read, and held for 28 of 32 libraries. In one week of September 2026, downloads from Pythons too old for a newer version were most of the older versions' downloads in three of the 37 libraries and fewer than half in 32. [The later reading](../old-versions-new-pythons.md).
 
 We read the Python Package Index's download log for 424 releases of 37 of the most downloaded Python libraries, April to August 2026. For 26 of them, most new versions were half of the downloads within two days, counting later versions too; for eleven, among them boto3, numpy and pandas, none was, in the month we read.
 
