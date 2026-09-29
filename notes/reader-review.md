@@ -12,7 +12,7 @@ It runs for the next two research rounds, the rounds that release a piece or cha
 
 ## Allowance
 
-Up to five dollars at list rates for the reviewer on Fable 5.1, both stages and the one recheck, inside the round's bound of about twenty dollars of subagent spend. The driving session prices it from the transcript (`harbour/hb tokens --latest`) and writes the figure in the log. If the round cannot fit it beside the evidence review, the driving session says in the log and the close-out what it cut to make room, or that the pilot was skipped and why.
+Up to seven dollars at list rates on Fable 5.1, inside the round's bound of about twenty dollars of subagent spend: about one for stage 1, about five for stage 2 and about one for the recheck. The driving session tells the reviewer its allowance, prices each stage from the transcript (`harbour/hb tokens --latest`) and writes the figures in the log. If the round cannot fit it beside the research and the evidence review, the driving session says in the log and the close-out what it cut to make room, or that the pilot was skipped and why. The allowance was first set at five dollars and raised to seven after the rehearsal of 29 September, which cost $13.34: $1.24 for stage 1, $6.46 for stage 2 (its own analysis of 37 libraries' version profiles, which found the problem that mattered) and $5.64 for a recheck sent to the same agent, whose whole context was re-read on every call.
 
 ## How to dispatch it
 
@@ -32,7 +32,7 @@ Up to five dollars at list rates for the reviewer on Fable 5.1, both stages and 
 
 ## After the review
 
-Resolve every material claim problem before release, or write in the note why the evidence supports disagreeing. Readability suggestions are optional. After revising, send the same reviewer only the changed passages, for one recheck of the claims they affect; do not restart the review and do not start a second round of it. Whatever stays disagreed is written in the note and in the close-out. The next-step recommendation is weighed at the checkpoint in programme.md's Next, with the reasons for following it or not.
+Resolve every material claim problem before release, or write in the note why the evidence supports disagreeing, in a section of the note headed "Resolution, by the driving session". Readability suggestions are optional. After revising, give a fresh agent on the same model the note, the diff of the changed passages and the retained files they cite, for one recheck of the claims they affect; do not continue the stage 2 agent, which re-reads its whole context on every call, do not restart the review and do not start a second round of it. Whatever stays disagreed is written in the note and in the close-out. The next-step recommendation is weighed at the checkpoint in programme.md's Next, with the reasons for following it or not.
 
 ## Log
 
@@ -40,6 +40,6 @@ One row per round. "Worth it" is the driving session's judgement in a line: did 
 
 | Round | Study and pieces | Reviewer and cost | Material problems raised | Changed before release | Disagreed, with reason | Also raised by the evidence review | Next-step recommendation, and what was done | Worth it |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| Rehearsal, 29 September 2026 (not one of the two) | LH012's pieces as corrected to version 1.1 | | | | | | | A rehearsal of the workflow on problems already known and fixed before it ran; not evidence that the reviewer finds them |
+| Rehearsal, 29 September 2026 (not one of the two) | LH012's pieces as corrected to version 1.1 (notes/R-0018.md) | Fable 5.1; $13.34 ($1.24, $6.46, recheck $5.64), over the $5 then set | 3: boto3's and aiobotocore's older downloads have the version profile of an installer's resolution walk, not of chosen versions; three of the four holds by identified bounds come through older dependent versions; the ten-point settling band is lenient for small shares | All 3, and the 3 readability suggestions; LH013's brief amended before its snapshot | None | None of the 3 (notes/R-0017.md passed the text) | Adjust, then continue: done (walk labelled post hoc in the record and pieces; version profile and a test of boto3's added to LH013; the installer's version named as a reader to seek; LH013 waits) | Yes, as a rehearsal: the walk changed what the piece's main case means and what LH013 measures. The known corrections were named in the pieces' own notices, so it says nothing of whether it finds problems like those; stage 1 read only what it was given, by its transcript |
 | First research round | | | | | | | | |
 | Second research round | | | | | | | | |
