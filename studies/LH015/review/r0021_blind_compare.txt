@@ -1,0 +1,98 @@
+pair rule reproduced for snapshots; mismatches: 0
+
+== per build (group | build | role | writer class/sub [flags] | reviewer class/sub | agree)
+script-decided P027-h3-0  head     | W 5 no Python install            | R 5 no Python install            | agree
+script-decided P027-s3-0  snapshot | W 5 no Python install            | R 5 no Python install            | agree
+script-decided P042-h26-0 head     | W 5 no Python install            | R 5 no Python install            | agree
+script-decided P042-h5-0  head     | W 5 no Python install            | R 5 no Python install            | agree
+script-decided P062-h19-0 head     | W 2 other file                   | R 2 other file (sub-project lock | agree
+script-decided P062-h31-0 head     | W 2 other file                   | R 2 other file (sub-project lock | agree
+script-decided P079-h4-0  head     | W 6 context                      | R 6 context                      | agree
+script-decided P107-s1-0  snapshot | W 1                              | R 1 lock in T                    | agree
+script-decided P132-s1-0  snapshot | W 5 other named packages only    | R 2 lock unused                  | DISAGREE
+script-decided P158-s2-0  snapshot | W 5 no Python install            | R 5 no Python install            | agree
+script-decided P159-h2-0  head     | W 5 no Python install            | R 5 no Python install            | agree
+script-decided P159-s1-0  snapshot | W 5 other named packages only    | R 6 script not read              | DISAGREE
+script-decided P162-h1-0  head     | W 5 other named packages only    | R 6 script not read              | DISAGREE
+script-decided P163-h3-0  head     | W 5 no Python install            | R 5 no Python install            | agree
+script-decided P182-s2-0  snapshot | W 1                              | R 1 lock in T                    | agree
+script-decided P184-h2-0  head     | W 1  [may re-lock]               | R 1 lock in T                    | agree
+script-decided P185-h3-0  head     | W 4                              | R 4 lock not in T locks L (new s | agree
+script-decided P200-s2-0  snapshot | W 5 no Python install            | R 5 no Python install            | agree
+script-decided P307-h31-0 head     | W 2 lock unused                  | R 2 other file                   | agree
+script-decided P307-h39-0 head     | W 2 lock unused                  | R 2 other file                   | agree
+script-decided P307-s31-0 snapshot | W 2 lock unused                  | R 2 other file                   | agree
+script-decided P307-s39-0 snapshot | W 2 lock unused                  | R 2 other file                   | agree
+script-decided P314-h13-0 head     | W 5 no Python install            | R 5 no Python install            | agree
+script-decided P314-s11-0 snapshot | W 5 no Python install            | R 5 no Python install            | agree
+script-decided P349-h7-0  head     | W 2 other file                   | R 2 other file                   | agree
+script-decided P395-h1-0  head     | W 1                              | R 1 manifest in T                | agree
+script-decided P395-h1-1  head     | W 1                              | R 1 manifest in T                | agree
+script-decided P401-s1-0  snapshot | W 5 other named packages only    | R 5 other named packages only    | agree
+script-decided P401-s8-0  snapshot | W 5 other named packages only    | R 5 other named packages only    | agree
+script-decided P468-s2-0  snapshot | W 1                              | R 1 manifest in T                | agree
+judged         P020-h1-0  head     | W 6 would not build              | R 6 would not build              | agree
+judged         P020-s2-0  snapshot | W 1                              | R 1 manifest reads T file (amend | agree
+judged         P020-s2-1  snapshot | W 1                              | R 1 manifest reads T file (amend | agree
+judged         P020-s2-2  snapshot | W 1                              | R 1 manifest reads T file (amend | agree
+judged         P024-s2-0  snapshot | W 1                              | R 1 manifest reads T file (amend | agree
+judged         P024-s2-1  snapshot | W 1                              | R 1 manifest reads T file (amend | agree
+judged         P024-s2-2  snapshot | W 1                              | R 1 manifest reads T file (amend | agree
+judged         P026-s2-0  snapshot | W 1                              | R 1 manifest reads T file (amend | agree
+judged         P026-s2-1  snapshot | W 1                              | R 1 manifest reads T file (amend | agree
+judged         P026-s2-2  snapshot | W 1                              | R 1 manifest reads T file (amend | agree
+judged         P146-h1-0  head     | W 1                              | R 1 -r T file                    | agree
+judged         P168-h2-0  head     | W 5 other named packages only    | R 5 other named packages only    | agree
+judged         P184-h7-0  head     | W 6 external                     | R 6 external                     | agree
+judged         P190-h1-0  head     | W 6 would not build              | R 6 would not build              | agree
+judged         P190-s1-0  snapshot | W 6 would not build              | R 6 would not build              | agree
+judged         P203-s1-0  snapshot | W 1  [at start]                  | R 1 lock in T checked out from . | agree
+judged         P203-s1-1  snapshot | W 1  [at start]                  | R 1 lock in T checked out from . | agree
+judged         P203-s1-2  snapshot | W 1  [at start]                  | R 1 lock in T checked out from . | agree
+judged         P248-h1-0  head     | W 6 external                     | R 6 would not build              | agree
+judged         P282-h2-0  head     | W 6 external                     | R 6 external (amendment 6)       | agree
+judged         P350-s1-0  snapshot | W 1  [at start]                  | R 1 manifest in T                | agree
+judged         P385-h1-0  head     | W 1                              | R 1 lock in T                    | agree
+judged         P423-h1-0  head     | W 1                              | R 1 -r T file                    | agree
+judged         P423-h2-0  head     | W 1                              | R 1 -r T file through wheels     | agree
+judged         P427-h2-0  head     | W 1                              | R 1 manifest reads T file (amend | agree
+judged         P427-h2-2  head     | W 1                              | R 1 manifest reads T file (amend | agree
+judged         P427-h2-3  head     | W 1                              | R 1 manifest reads T file (amend | agree
+judged         P448-h2-0  head     | W 6 other                        | R 6 other                        | agree
+judged         P450-h2-0  head     | W 6 other                        | R 6 other                        | agree
+judged         P467-s1-0  snapshot | W 1  [at start]                  | R 1 manifest in T                | agree
+
+== agreement per half
+  script-decided  27 of 30
+  judged          30 of 30
+  all             57 of 60
+
+== agreement per resulting pair class (the writer's pair class of the build's pair at its role)
+  from the pinned file                          9 of 9
+  head: from the pinned file                    7 of 7
+  head: not from the pinned file                11 of 11
+  head: nothing of the project's requirements   2 of 3
+  head: undetermined                            11 of 11
+  not from the pinned file                      5 of 5
+  nothing of the project's requirements         1 of 3
+  undetermined                                  11 of 11
+
+== disagreements: would the pair class change with the reviewer classes substituted?
+- P132-s1-0 (script-decided, snapshot, P132): writer 5 other named packages only [] -> reviewer 2 lock unused
+    writer reason : 
+    reviewer reason: builder COPY . . then python -m build makes a wheel from pyproject.toml (not in T; its static exact pins do not name mako, read at the commit), installed with pip install /dist/*.whl; requirements.txt and uv.lock (T) are in the context and no step reads them; setup.py only ships requirements.txt as 
+    other builds of this pair and role: 
+    pair class snapshot: nothing of the project's requirements -> not from the pinned file  (CHANGES)
+- P159-s1-0 (script-decided, snapshot, P159): writer 5 other named packages only [] -> reviewer 6 script not read
+    writer reason : 
+    reviewer reason: pip installs only virtualenv and ansible; the server's .venv (PATH points to $SERVER_DIR/.venv/bin) is built by ansible-playbook of galaxy-docker-k8s, a repository cloned at build time outside this one, so the install lies in a file outside the repository
+    other builds of this pair and role: P159-s2-0=5 P159-s3-0=5
+    pair class snapshot: nothing of the project's requirements -> undetermined  (CHANGES)
+- P162-h1-0 (script-decided, head, P162): writer 5 other named packages only [] -> reviewer 6 script not read
+    writer reason : 
+    reviewer reason: same recipe as P159-s1-0 at the head: the install runs in a playbook fetched from outside the repository
+    other builds of this pair and role: P162-h2-0=5 P162-h3-0=5 P162-h4-0=5
+    pair class head: nothing of the project's requirements -> undetermined  (CHANGES)
+
+== counts of disagreements by half and whether the pair class changes (before resolution)
+  script-decided  changes    3

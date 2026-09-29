@@ -1,0 +1,7 @@
+read_utc,method,repo,commit,path,purpose
+2026-09-29T16:54:55Z,git clone --filter=blob:none --no-checkout (anonymous HTTPS),github.com/edumfa/edumfa,,,"P132-s1-0: the stored inputs do not hold the manifest a wheel is built from"
+2026-09-29T16:54:55Z,git ls-tree --name-only,github.com/edumfa/edumfa,2d58e085c6c6,(root listing),"which manifest and requirement files existed at the snapshot"
+2026-09-29T16:54:55Z,git show,github.com/edumfa/edumfa,2d58e085c6c6,pyproject.toml,"whether dependencies are dynamic (amendment 1) and whether mako is named: static exact pins, mako not named"
+2026-09-29T16:55:09Z,git show,github.com/edumfa/edumfa,2d58e085c6c6,setup.py,"whether setup.py reads requirements.txt into install_requires: it does not (data_files only)"
+2026-09-29T16:55:09Z,git show,github.com/edumfa/edumfa,2d58e085c6c6,requirements.txt,"header (uv pip compile of pyproject.toml) and the mako==1.3.10 line"
+2026-09-29T16:55:28Z,git show,github.com/edumfa/edumfa,2d58e085c6c6,setup.py,"second look for install_requires or open(); none beyond the data_files entry"
