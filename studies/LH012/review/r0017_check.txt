@@ -1,0 +1,24 @@
+A. Python exclusion, P: classes from python.csv
+   {'accounts for most': 3, 'cannot be the main reason': 24, 'accounts for little': 8, 'undetermined': 2}
+   fewer than half (cannot, incl. little): 32
+   aiobotocore: P 63.0 to 63.5, edge share 0.6
+   boto3: P 76.3 to 77.0, edge share 6.7
+   numpy: P 62.5 to 66.7, edge share 56.7
+   median edge share over 37: 67.5
+B. Identified bounds, B: classes from bounds.csv
+   {'undetermined': 26, 'cannot be the main reason': 6, 'accounts for little': 1, 'accounts for most': 4}
+   cannot (incl. little): 7
+   botocore: B 100.0 to 100.0, from boto3 at 2.94 times, held by current versions 2.1, guard 75.8
+   fsspec: B 58.5 to 93.4, from s3fs at 0.53 times, held by current versions 5.3, guard 81.9
+   pydantic-core: B 95.8 to 100.0, from pydantic at 1.05 times, held by current versions 53.2, guard 97.6
+   s3transfer: B 100.0 to 100.0, from boto3 at 3.88 times, held by current versions 0.0, guard 89.5
+   undetermined with upper at one: 16 of 26 ; smallest upper among them: 0.526214
+C. 'most downloads of boto3 cannot have brought a download of either' (one-to-one bound)
+   botocore: 195,623,879 of boto3's 575,788,722 at most, 34.0 per cent; boto3 over botocore 2.94
+   s3transfer: 148,338,976 of boto3's 575,788,722 at most, 25.8 per cent; boto3 over s3transfer 3.88
+D. 'for most of the others' (the 30 outside P-most and B-most)
+   others 30; P fewer than half 28; B undetermined 24; both 22
+E. The short form's length (articles/short/old-versions-new-pythons.md)
+   words after the title, before the colophon: 307
+   the same without the Correction notice: 255
+   words after the byline: 190
