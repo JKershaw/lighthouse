@@ -1,0 +1,84 @@
+R-0026 stage A: blind classes against the writer's final classes
+
+script-decided: class agreement 17/20; class and sub-label 17/20; with T_lock 17/20
+judged: class agreement 19/20; class and sub-label 17/20; with T_lock 17/20
+
+Disagreements (class, or sub-label, or T_lock):
+- [script-decided] P163 github.com/galaxyproject/galaxy@bbac30d66bac:.github/workflows/tool_form_harness.yaml#test~1
+    reviewer: class 1 / - / T_lock yes
+    writer:   class 6 / script not read / T_lock no (decided by script)
+    writer's reason: ./scripts/common_startup_functions.sh called at depth 2
+    reviewer's reason: scripts/common_startup.sh (read one level) runs `uv pip install -r requirements.txt -r lib/galaxy/dependencies/dev-requirements.txt`: root requirements.txt includes pinned-requirements.txt (T) and --dev-wheels adds dev-requirements.txt (T, pyasn1==0.6.3); wd is the checkout path 'galaxy root'
+    resolution: writer stands (class 6), sub-label wrong. common_startup.sh, the level read, runs `${PIP_CMD} install -r requirements.txt -r dev-requirements.txt`; PIP_CMD is assigned once literally and once from a command substitution, so by the letter the deciding value is one the rules cannot substitute: class 6 stands, but its reason is "build argument", not the depth-2 source; by the question's own test every branch reads T (pinned-requirements.txt through the root requirements.txt include, and dev-requirements.txt). Not counted as wrong. No pair effect: P163 reads the pin and the timed lock through other jobs.
+- [script-decided] P327 github.com/phenobarbital/ai-parrot@dd4c70085cf5:.github/workflows/ci.yml#test-tools~2
+    reviewer: class 1 / - / T_lock no
+    writer:   class 2 / other file / T_lock no (decided by script)
+    writer's reason: uv run without the lock resolves pyproject.toml; uv sync without the lock resolves pyproject.toml
+    reviewer's reason: no uv.lock in the tree; `uv sync --package ai-parrot-tools` resolves the workspace afresh, and ai-parrot-tools depends on the workspace member ai-parrot, whose pyproject.toml (T) pins urllib3==2.6.3; the root's override-dependencies do not name urllib3
+    resolution: reviewer right (class 1), script wrong. `uv sync --package ai-parrot-tools` with no uv.lock resolves the workspace afresh; ai-parrot-tools depends on the workspace member ai-parrot, whose manifest packages/ai-parrot/pyproject.toml is in T and pins urllib3==2.6.3 in [project] dependencies; the script took the root pyproject.toml as the manifest and never followed --package to the member. The brief's rules do not name --package, so the case falls to the question's own test and to an amendment. Counted as wrong. Pair effect: P327 becomes "reads the pin" (its other jobs are `uv sync --package ai-parrot`, the T manifest's own project, and class 5 jobs).
+- [script-decided] P051 github.com/asozialesnetzwerk/an-website@7a5038611dad:.github/workflows/deploy.yml#test-zipapp~2
+    reviewer: class 4 / another pinned file / T_lock no
+    writer:   class 5 / no Python install / T_lock no (decided by script)
+    writer's reason: -
+    reviewer's reason: `pip install -c pip-constraints.txt html5lib pytest time-machine` plus grepped pytest- pins: pip-constraints.txt, not in T, holds pillow==12.1.1 at the snapshot; running the downloaded zipapp is not an install step
+    resolution: reviewer right (class 4), script wrong. the step runs `grep "^pytest-" pip-constraints.txt | xargs pip install -c pip-constraints.txt html5lib pytest time-machine`: pip runs, so it is an install step; pip-constraints.txt, not in T, pins pillow==12.1.1, so class 4 (another pinned file), as the writer judged the same construct in github-pages (`pip install -c pip-constraints.txt coverage`). The script's command splitter does not look past `xargs` and saw no installer ("no Python install"). Counted as wrong. No pair effect: P051 reads the pin through test-distribution.
+- [judged] P052 github.com/asozialesnetzwerk/an-website@1389088b9c4c:.github/workflows/deploy.yml#github-pages~1
+    reviewer: class 4 / another pinned file / T_lock no
+    writer:   class 4 / - / T_lock no (decided by judged)
+    writer's reason: reading B3: pip-constraints.txt pins L exactly; LH008 would not read it by name (writer)
+    reviewer's reason: `pip install -c pip-constraints.txt coverage`: pip-constraints.txt, not in T, holds urllib3==2.6.3 at the snapshot; the checkout ref `github.head_ref` is empty on push and names the PR branch on pull_request, so on push the snapshot's file is read; generate-badge.sh installs nothing
+    resolution: sub-label difference only; the brief ranks class 6 reasons in no order.
+- [judged] P261 github.com/mervinpraison/praisonai@ffd78f0eb6d4:.github/workflows/release.yml#test-ubuntu~1
+    reviewer: class 6 / build argument / T_lock -
+    writer:   class 6 / external / T_lock no (decided by judged)
+    writer's reason: reading B7: the job checks out another repository (a fork named by an input) at main (writer)
+    reviewer's reason: the second checkout takes `${{ github.event.inputs.fork_owner }}/PraisonAI` at main with clean: true, so the Poetry steps read another repository's files at an unknown state; at the snapshot the root holds no pyproject.toml or poetry.lock (T's locks are under src/), so `poetry lock; poetry install` at the root would not run against the snapshot's tree either
+    resolution: sub-label difference only; the brief ranks class 6 reasons in no order.
+- [judged] P050 github.com/asozialesnetzwerk/an-website@d0ff5122f7de:.github/workflows/deploy.yml#build-source-tarball~1
+    reviewer: class 2 / lock unused / T_lock no
+    writer:   class 1 / - / T_lock no (decided by judged)
+    writer's reason: reading A2: the manifest takes its dependencies from pip-requirements.txt (writer)
+    reviewer's reason: `pip install --no-deps .` installs the project without its dependencies, so no version of L is installed from any file; Pipfile.lock (T) is in the checkout and unread; not class 1 by the question's own test
+    resolution: reviewer right (class 2), writer wrong. `pip install --no-deps .` installs the project and no dependency, so no version of aiohttp is taken from any file; the judgement read the manifest (setup.py reads pip-requirements.txt) and did not weigh --no-deps, which the script itself treats as installing no requirement elsewhere (ci.py, project()). Class 2 (lock unused) by the letter of the sub-labels. Counted as wrong. No pair effect: P050 reads the pin through test-distribution.
+
+Wrong after resolution: script-decided 2 of 20 (threshold: more than 2 corrects the script); judged 1 of 20 (threshold: more than 2 that change a pair class triggers re-judging).
+
+Per resulting pair class (reviewer's classes substituted for the sampled jobs, writer's for the rest):
+  P021 github.com/aider-ai/aider python-dotenv (lockfile): writer reads the pin (mixed), lock reads the timed lock; reviewer reads the pin (mixed), lock reads the timed lock
+  P022 github.com/aider-ai/aider starlette (lockfile): writer reads the pin (mixed), lock reads the timed lock; reviewer reads the pin (mixed), lock reads the timed lock
+  P049 github.com/asozialesnetzwerk/an-website tornado (both): writer reads the pin (mixed), lock undetermined; reviewer reads the pin (mixed), lock undetermined
+  P050 github.com/asozialesnetzwerk/an-website aiohttp (both): writer reads the pin (mixed), lock undetermined; reviewer reads the pin (mixed), lock undetermined
+  P051 github.com/asozialesnetzwerk/an-website pillow (both): writer reads the pin (mixed), lock undetermined; reviewer reads the pin (mixed), lock undetermined
+  P052 github.com/asozialesnetzwerk/an-website urllib3 (both): writer reads the pin (mixed), lock undetermined; reviewer reads the pin (mixed), lock undetermined
+  P053 github.com/asozialesnetzwerk/an-website pyjwt (both): writer reads the pin (mixed), lock undetermined; reviewer reads the pin (mixed), lock undetermined
+  P062 github.com/awslabs/mcp awscli (both): writer reads the pin (mixed), lock reads the timed lock; reviewer reads the pin (mixed), lock reads the timed lock
+  P084 github.com/calebevans/cordon litellm (lockfile): writer does not read the pin, lock does not; reviewer does not read the pin, lock does not
+  P093 github.com/chaoss/grimoirelab urllib3 (lockfile): writer undetermined, lock undetermined; reviewer undetermined, lock undetermined
+  P094 github.com/chaoss/grimoirelab cryptography (lockfile): writer undetermined, lock undetermined; reviewer undetermined, lock undetermined
+  P095 github.com/chaoss/grimoirelab pyjwt (lockfile): writer undetermined, lock undetermined; reviewer undetermined, lock undetermined
+  P137 github.com/emcek/dcspy gitpython (exact pin): writer reads the pin; reviewer reads the pin
+  P147 github.com/eth-brownie/brownie urllib3 (lockfile): writer undetermined, lock undetermined; reviewer undetermined, lock undetermined
+  P148 github.com/ethyca/fides urllib3 (lockfile): writer reads the pin, lock reads the timed lock; reviewer reads the pin, lock reads the timed lock
+  P149 github.com/ethyca/fides pyjwt (lockfile): writer reads the pin, lock reads the timed lock; reviewer reads the pin, lock reads the timed lock
+  P162 github.com/galaxyproject/galaxy cryptography (lockfile): writer reads the pin, lock reads the timed lock; reviewer reads the pin, lock reads the timed lock
+  P163 github.com/galaxyproject/galaxy pyasn1 (lockfile): writer reads the pin, lock reads the timed lock; reviewer reads the pin, lock reads the timed lock
+  P209 github.com/janmaartenvandoorn/laelaps cryptography (both): writer reads the pin, lock does not; reviewer reads the pin, lock does not
+  P217 github.com/jhpyle/docassemble nltk (exact pin): writer nothing of the project's requirements; reviewer nothing of the project's requirements
+  P261 github.com/mervinpraison/praisonai litellm (lockfile): writer undetermined, lock undetermined; reviewer undetermined, lock undetermined
+  P265 github.com/mistralai/mistral-vibe pyjwt (both): writer reads the pin, lock reads the timed lock; reviewer reads the pin, lock reads the timed lock
+  P271 github.com/mlflow/mlflow starlette (lockfile): writer reads the pin (mixed), lock reads the timed lock; reviewer reads the pin (mixed), lock reads the timed lock
+  P290 github.com/nucypher/nucypher mako (both): writer reads the pin, lock does not; reviewer reads the pin, lock does not
+  P327 github.com/phenobarbital/ai-parrot urllib3 (exact pin): writer does not read the pin; reviewer reads the pin (mixed)  <<< pair class would change
+  P329 github.com/plone/cookieplone gitpython (both): writer reads the pin, lock reads the timed lock; reviewer reads the pin, lock reads the timed lock
+  P341 github.com/quantbelt/jupyter-quant pip (both): writer reads the pin (mixed), lock undetermined; reviewer reads the pin (mixed), lock undetermined
+  P348 github.com/red-hat-ai-innovation-team/sdg_hub litellm (lockfile): writer reads the pin, lock reads the timed lock; reviewer reads the pin, lock reads the timed lock
+  P382 github.com/snowflakedb/snowflake-cli pyjwt (lockfile): writer does not read the pin, lock does not; reviewer does not read the pin, lock does not
+  P406 github.com/talkinglibrary/talklib pyjwt (exact pin): writer reads the pin; reviewer reads the pin
+  P426 github.com/tvick64889/forgepair gitpython (lockfile): writer reads the pin, lock reads the timed lock; reviewer reads the pin, lock reads the timed lock
+  P427 github.com/tvick64889/forgepair soupsieve (lockfile): writer reads the pin, lock reads the timed lock; reviewer reads the pin, lock reads the timed lock
+  P446 github.com/vida-nyu/bdi-kit litellm (exact pin): writer reads the pin; reviewer reads the pin
+Pair-class agreement: 32/33 sampled pairs; changed: ['P327']
+
+Pair rule check over all pairs (recomputed from job_classes.csv against pair_classes.csv):
+  mismatches: 0 of 469 pairs
+  pair classes recorded: {'no CI': 74, 'reads the pin': 282, "nothing of the project's requirements": 54, 'undetermined': 48, 'does not read the pin': 11}

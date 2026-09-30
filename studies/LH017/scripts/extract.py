@@ -853,6 +853,51 @@ def nox_struct(text, sessions):
     return {'sessions': out}
 
 
+def uv_member(tree, root, name):
+    """Amendment 3: the directory of the uv workspace member named `name` under `root` (the pyproject.toml whose
+    [project] name matches, after PEP 503 normalisation), and of the workspace members it lists with
+    `{ workspace = true }` in [tool.uv.sources], one level."""
+    from common import norm
+    import fnmatch
+    if name == '*':
+        # every member of the workspace rooted at `root`, by its [tool.uv.workspace] members and exclude globs
+        rt = tree.read(J(root, 'pyproject.toml')) if tree.exists(J(root, 'pyproject.toml')) else None
+        try:
+            ws = (((tomllib.loads(rt).get('tool') or {}).get('uv') or {}).get('workspace') or {}) if rt else {}
+        except Exception:
+            ws = {}
+        mem, exc = ws.get('members') or [], ws.get('exclude') or []
+        dirs = sorted({posixpath.dirname(f) for f in tree.files if f.endswith('pyproject.toml')
+                       and posixpath.dirname(f) != root
+                       and any(fnmatch.fnmatch(posixpath.relpath(posixpath.dirname(f), root or '.'), g) for g in mem)
+                       and not any(fnmatch.fnmatch(posixpath.relpath(posixpath.dirname(f), root or '.'), g) for g in exc)})
+        return {'dirs': dirs}
+    found = {}
+    for f in sorted(tree.files):
+        if not f.endswith('pyproject.toml') or not (root == '' or f.startswith(root + '/')):
+            continue
+        txt = tree.read(f)
+        if not txt:
+            continue
+        try:
+            t = tomllib.loads(txt)
+        except Exception:
+            continue
+        nm = ((t.get('project') or {}).get('name') or '')
+        if nm:
+            found[norm(nm)] = (posixpath.dirname(f), t)
+    hit = found.get(norm(name))
+    if not hit:
+        return {'dirs': []}
+    d, t = hit
+    dirs = [d]
+    srcs = (((t.get('tool') or {}).get('uv') or {}).get('sources') or {})
+    for k, v in srcs.items():
+        if isinstance(v, dict) and v.get('workspace') and norm(k) in found:
+            dirs.append(found[norm(k)][0])
+    return {'dirs': dirs}
+
+
 def hatch_struct(tree, proj, env):
     """A hatch environment's install (H1, H2): the project in development mode unless skip-install or dev-mode false,
     its dependencies and features, and pre- and post-install commands; a locked environment is judged."""

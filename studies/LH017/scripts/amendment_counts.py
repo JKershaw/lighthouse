@@ -1,10 +1,11 @@
 """LH017: how many jobs and pairs each amendment changes (amendments.md).
 
-Run after `LH017_DATA=<dir> LH017_NO_A1=1 python3 collect.py read && ... classify.py` (and the same with LH017_NO_A2=1),
+Run after `LH017_DATA=<dir> LH017_NO_A1=1 python3 collect.py read && ... classify.py` (and the same with LH017_NO_A2=1 and LH017_NO_A3=1),
 each into its own directory holding copies of frame.csv and frame_files.csv; the reads need the clones, since the
 amendments change what the rules ask of the tree. Compares the script's classes there with data/job_classes.csv.
 
-python3 amendment_counts.py <dir with amendment 1 off> <dir with amendment 2 off>   writes data/amendment_counts.txt
+python3 amendment_counts.py <dir with amendment 1 off> <dir with amendment 2 off> <dir with amendment 3 off>
+                                                  writes data/amendment_counts.txt
 """
 import collections
 import csv
@@ -31,7 +32,7 @@ def pc(rows):
 def main():
     main_rows = {(r['pair_id'], r['job_key']): r for r in csv.DictReader(open(os.path.join(DATA, 'job_classes.csv')))}
     out = []
-    for name, d in (('amendment 1', sys.argv[1]), ('amendment 2', sys.argv[2])):
+    for name, d in (('amendment 1', sys.argv[1]), ('amendment 2', sys.argv[2]), ('amendment 3', sys.argv[3])):
         o = {(r['pair_id'], r['job_key']): r for r in csv.DictReader(open(os.path.join(d, 'job_classes.csv')))}
         ch = [(k, o[k]['script_class'], main_rows[k]['script_class']) for k in main_rows
               if k in o and o[k]['script_class'] != main_rows[k]['script_class']]

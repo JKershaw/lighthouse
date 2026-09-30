@@ -26,6 +26,8 @@ class FakeTree:
         return None if t is None else relevant(t, self.libs, p)
 
     def struct(self, kind, p, key):
+        if kind == 'uvmember':
+            return X.uv_member(self, p, key)
         if kind == 'tox':
             return X.tox_struct(self, p, key)
         if kind == 'hatch':
@@ -205,6 +207,24 @@ jobs:
         'pyproject.toml': PYR, 'poetry.lock': LOCK}, ['poetry.lock'], (2, 'upgrade', 'no')),
     ('a make target from an expression', {'.github/workflows/ci.yml': wf('- run: make ${{ env.FLAGS }}'), 'Makefile': 'all:\n\ttrue\n',
         'uv.lock': LOCK}, ['uv.lock'], (6, 'build argument', 'no')),
+    ('xargs runs the installer', {'.github/workflows/ci.yml': wf('- run: grep "^pytest-" c.txt | xargs pip install -c ci/requirements-constraints.txt pytest'),
+        'ci/requirements-constraints.txt': 'cryptography==46.0.4\n', 'uv.lock': LOCK}, ['uv.lock'], (4, '', 'no')),
+    ('xargs bash -c runs its text', {'.github/workflows/ci.yml': wf('- run: ls | xargs -I {} bash -c \'pip install -r requirements.txt\''),
+        'requirements.txt': 'cryptography==46.0.5\n'}, ['requirements.txt'], (1, '', 'no')),
+    ('--no-deps installs no version of L', {'.github/workflows/ci.yml': wf('- run: pip install --no-deps .'), 'pyproject.toml': PY},
+        ['pyproject.toml'], (2, 'other file', 'no')),
+    ('amendment 3: uv sync --package takes the member manifest', {'.github/workflows/ci.yml': wf('- run: uv sync --package mypkg-tools'),
+        'pyproject.toml': '[project]\nname = "root"\n[tool.uv.workspace]\nmembers = ["packages/*"]\n',
+        'packages/core/pyproject.toml': '[project]\nname = "mypkg"\ndependencies = ["cryptography==46.0.5"]\n',
+        'packages/tools/pyproject.toml': '[project]\nname = "mypkg-tools"\n[tool.uv.sources]\nmypkg = { workspace = true }\n'},
+        ['packages/core/pyproject.toml'], (1, '', 'no')),
+    ('amendment 3: uv run at a workspace root resolves the members too', {'.github/workflows/ci.yml': wf('- run: uv sync --package mypkg-tools\n- run: uv run pytest'),
+        'pyproject.toml': '[project]\nname = "root"\n[tool.uv.workspace]\nmembers = ["packages/*"]\n',
+        'packages/core/pyproject.toml': '[project]\nname = "mypkg"\ndependencies = ["cryptography==46.0.5"]\n',
+        'packages/tools/pyproject.toml': '[project]\nname = "mypkg-tools"\n[tool.uv.sources]\nmypkg = { workspace = true }\n'},
+        ['packages/core/pyproject.toml'], (1, '', 'no')),
+    ('own package beside wheels an external action built', {'.github/workflows/ci.yml': wf('- uses: PyO3/maturin-action@v1\n  with:\n    command: build\n- run: pip install --find-links=target/wheels mypkg'),
+        'pyproject.toml': PY}, ['pyproject.toml'], (6, 'external', 'no')),
     ('make in a directory outside the workspace', {'.github/workflows/ci.yml': wf('- run: |\n    pushd ~/go/src/x\n    make install\n    popd'),
                                                    'uv.lock': LOCK}, ['uv.lock'], (5, 'no Python install', 'no')),
 ]

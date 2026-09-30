@@ -163,7 +163,14 @@ def main():
                      'T': ' | '.join(f"{x['path']} ({x['pin_class']} {x['versions']})" for x in ff[r['pair_id']]),
                      'pin_class': f['pin_class'], 'own_package': f['package'], 'job_key': r['job_key'],
                      'stored_steps': ' ⏎ '.join(txt)[:30000]})
-    write_csv('review_sample.csv', rows, list(rows[0].keys()) if rows else ['pair_id'])
+    # drawn once, before any measure and before the blind check (07:37 UTC, 30 September 2026); kept as drawn thereafter,
+    # like judgements.csv, so corrections made after the check do not redraw it (the record says how a redraw would differ)
+    if not os.path.exists(os.path.join(DATA, 'review_sample.csv')):
+        write_csv('review_sample.csv', rows, list(rows[0].keys()) if rows else ['pair_id'])
+    drawn = {(r['pair_id'], r['job_key']) for r in read_csv('review_sample.csv')}
+    redraw = {(r['pair_id'], r['job_key']) for r in rows}
+    open(os.path.join(DATA, 'review_sample_redraw.txt'), 'w').write(
+        f'jobs a redraw by the same rule on the current pools would give that the drawn sample lacks: {len(redraw - drawn)} of {len(redraw)}\n')
 
     # ---------------------------------------------------------------- pairs
     l15 = {r['pair_id']: r for r in lh015('pair_classes.csv')}
@@ -478,7 +485,7 @@ def main():
     for r in jc:
         if r['pair_id'] not in readset or r['final_class'] not in ('1', '2') or r['decided_by'] != 'script':
             continue
-        for t in (r['T_tools'] if r['final_class'] == '1' else r['tools']).split():
+        for t in set((r['T_tools'] if r['final_class'] == '1' else r['tools']).split()):
             s1[(r['final_class'], t)] += 1
     s1rows = [{'class': a, 'tool': b, 'jobs': c} for (a, b), c in sorted(s1.items(), key=lambda x: (-x[1], x[0]))]
     fl = Counter()

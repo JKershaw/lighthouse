@@ -341,7 +341,6 @@ github.com/billkishore/ai-evals,e7dc6492462e,exists,setup.cfg,no
 github.com/blacklanternsecurity/bbot,d57a125e5286,exists,,yes
 github.com/blacklanternsecurity/bbot,d57a125e5286,exists,pyproject.toml,yes
 github.com/blacklanternsecurity/bbot,d57a125e5286,exists,poetry.lock,yes
-github.com/blacklanternsecurity/bbot,d57a125e5286,exists,"""",no
 github.com/bmosoluciones/coati-payroll,2014c4ed4f88,exists,test.txt,yes
 github.com/bmosoluciones/coati-payroll,2014c4ed4f88,exists,requirements.txt,yes
 github.com/bmosoluciones/coati-payroll,2014c4ed4f88,exists,,yes
@@ -837,7 +836,6 @@ github.com/ed-fi-exchange-oss/lms-toolkit,b1266b721cba,exists,src/schoology-extr
 github.com/ed-fi-exchange-oss/lms-toolkit,b1266b721cba,exists,src/sql-adapter,yes
 github.com/ed-fi-exchange-oss/lms-toolkit,b1266b721cba,exists,src/sql-adapter/pyproject.toml,yes
 github.com/ed-fi-exchange-oss/lms-toolkit,b1266b721cba,exists,src/sql-adapter/poetry.lock,yes
-github.com/ed-fi-exchange-oss/lms-toolkit,b1266b721cba,exists,"until sqlcmd -l 30 -S localhost -U sa -P abcdefgh1! -h-1 -V1 -Q ""SET NOCOUNT ON SELECT @@servername""; do sleep 5; done",no
 github.com/edalita/chameleoniq,690407dec159,exists,,yes
 github.com/edalita/chameleoniq,690407dec159,exists,tox.ini,yes
 github.com/edalita/chameleoniq,690407dec159,exists,requirements_dev.txt,yes
@@ -2150,7 +2148,6 @@ github.com/rmednitzer/relay-shell,c07672aa663d,exists,requirements.txt,yes
 github.com/rootly-ai-labs/rootly-mcp-server,64798572e05d,exists,,yes
 github.com/rootly-ai-labs/rootly-mcp-server,64798572e05d,exists,pyproject.toml,yes
 github.com/rootly-ai-labs/rootly-mcp-server,64798572e05d,exists,uv.lock,yes
-github.com/rootly-ai-labs/rootly-mcp-server,64798572e05d,exists,until curl -fsS http:/localhost:8000/health || curl -fsS http:/localhost:8000/; do sleep 2; done,no
 github.com/rootly-ai-labs/rootly-mcp-server,64798572e05d,exists,setup.py,no
 github.com/rootly-ai-labs/rootly-mcp-server,64798572e05d,exists,setup.cfg,no
 github.com/roquerodrigo/ttlock-ble,880f01e76d74,exists,,yes
@@ -2311,7 +2308,6 @@ github.com/stanfordnlp/dspy,940629124348,exists,setup.py,no
 github.com/stanfordnlp/dspy,940629124348,exists,setup.cfg,no
 github.com/stanfordnlp/dspy,940629124348,exists,docs/requirements.txt,yes
 github.com/stanfordnlp/dspy,940629124348,exists,uv.lock,yes
-github.com/stanfordnlp/dspy,940629124348,exists,until curl -f http:/localhost:11434/api/version; do sleep 2; done,no
 github.com/steveyegge/beads,dc398f5acc77,exists,scripts/check-versions.sh,yes
 github.com/steveyegge/beads,dc398f5acc77,exists,scripts/check-doc-flags.sh,yes
 github.com/steveyegge/beads,dc398f5acc77,exists,.github/scripts/embedded-test-shard.sh,yes
@@ -2732,17 +2728,11 @@ gitlab.com/nemo-community/nemo-ce,b0578312edb7,exists,,yes
 gitlab.com/nemo-community/nemo-ce,b0578312edb7,exists,pyproject.toml,yes
 gitlab.com/nemo-community/nemo-ce,b0578312edb7,exists,setup.py,no
 gitlab.com/nemo-community/nemo-ce,b0578312edb7,exists,setup.cfg,no
-gitlab.com/nemo-community/nemo-ce,b0578312edb7,exists,cd /opt/nemo/ && docker pull registry.gitlab.com/nemo-community/nemo-ce:dev,no
-gitlab.com/nemo-community/nemo-ce,b0578312edb7,exists,cd /opt/nemo/ && docker compose up -d nemodev,no
 gitlab.com/nemo-community/nemo-ce,5d9e751bf19c,exists,,yes
 gitlab.com/nemo-community/nemo-ce,5d9e751bf19c,exists,pyproject.toml,yes
 gitlab.com/nemo-community/nemo-ce,5d9e751bf19c,exists,setup.py,no
 gitlab.com/nemo-community/nemo-ce,5d9e751bf19c,exists,setup.cfg,no
-gitlab.com/nemo-community/nemo-ce,5d9e751bf19c,exists,cd /opt/nemo/ && docker pull registry.gitlab.com/nemo-community/nemo-ce:dev,no
-gitlab.com/nemo-community/nemo-ce,5d9e751bf19c,exists,cd /opt/nemo/ && docker compose up -d nemodev,no
 gitlab.com/nemo-community/nemo-ce,493ef54b7952,exists,,yes
 gitlab.com/nemo-community/nemo-ce,493ef54b7952,exists,pyproject.toml,yes
 gitlab.com/nemo-community/nemo-ce,493ef54b7952,exists,setup.py,no
 gitlab.com/nemo-community/nemo-ce,493ef54b7952,exists,setup.cfg,no
-gitlab.com/nemo-community/nemo-ce,493ef54b7952,exists,cd /opt/nemo/ && docker pull registry.gitlab.com/nemo-community/nemo-ce:dev,no
-gitlab.com/nemo-community/nemo-ce,493ef54b7952,exists,cd /opt/nemo/ && docker compose up -d nemodev,no

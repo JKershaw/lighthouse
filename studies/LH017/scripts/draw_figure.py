@@ -4,7 +4,8 @@
 the library's version from the pinned file, and, for pairs with a timed lockfile, from the lockfile itself. Each bar is
 the pairs where that kind of build installs the project's requirements or could not be decided: reads it (blue), reads
 the lockfile only through a command that may re-lock (blue, striped; lockfile group only), does not (orange), could not
-be decided (grey, hatched). Counts are labelled where a segment is wide enough; every segment carries a native tooltip.
+be decided (grey, hatched). Counts are labelled inside a segment wide enough and just above a narrower one; every segment
+carries a native tooltip.
 Colour tokens, marks and plain SVG follow studies/LH015/scripts/draw_figure.py, whose blue and orange pair was checked
 with the dataviz skill's validate_palette.js (light on #fcfcfb, dark on #1a1a19).
 Usage: python3 draw_figure.py [out.svg]   (default: studies/LH017/ci.svg)"""
@@ -107,6 +108,9 @@ for gname, rows in GROUPS:
                     lw = 8 + 7 * len(str(k))
                     e.append(f'<rect x="{x + w / 2 + gap / 2 - lw / 2:.1f}" y="{y + 5}" width="{lw}" height="{BH - 10}" rx="3" class="fa"/>')
                 e.append(f'<text x="{x + w / 2 + gap / 2:.1f}" y="{y + BH / 2 + 4}" text-anchor="middle" class="{lab_cls}">{k}</text>')
+            else:
+                # too narrow for a label inside: the count sits just above the segment
+                e.append(f'<text x="{x + w / 2 + gap / 2:.1f}" y="{y - 4}" text-anchor="middle" class="d">{k}</text>')
             x += w
         y += RH
     y += 6

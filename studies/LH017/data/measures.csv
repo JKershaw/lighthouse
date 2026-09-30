@@ -1,13 +1,13 @@
 measure,view,num,den,n_repos,share,lo,hi,label,label_as_computed,note,skipped
 P1 keeps CI,pairs,395,469,332,0.8422,0.7974,0.8828,as a rule,as a rule,,0
 P1 keeps CI,repositories,270.5,332,332,0.8148,0.7726,0.8554,as a rule,as a rule,,0
-"P2 reads the pin, all",pairs,282,293,212,0.9625,0.9341,0.9858,as a rule,as a rule,,0
-"P2 reads the pin, all",repositories,203.5,212,212,0.9599,0.9313,0.9836,as a rule,as a rule,,0
+"P2 reads the pin, all",pairs,282,291,211,0.9691,0.9444,0.9891,as a rule,as a rule,,0
+"P2 reads the pin, all",repositories,203.5,211,211,0.9645,0.9378,0.9863,as a rule,as a rule,,0
 "P2 reads the pin, lockfile",pairs,97,104,78,0.9327,0.875,0.9767,,as a rule,label withheld: undetermined pairs are 0.230 of the measure's frame and the bounds read as a rule / for some pairs,0
 "P2 reads the pin, lockfile",repositories,71.0,78,78,0.9103,0.8427,0.9684,,as a rule,label withheld: undetermined pairs are 0.230 of the measure's frame and the bounds read as a rule / for some pairs,0
-"P2 reads the pin, exact pin",pairs,93,97,76,0.9588,0.9012,1.0,as a rule,as a rule,,0
-"P2 reads the pin, exact pin",repositories,73.0,76,76,0.9605,0.9104,1.0,as a rule,as a rule,,0
-"P2 reads the pin, both",pairs,92,92,63,1.0,1.0,1.0,as a rule,as a rule,,0
-"P2 reads the pin, both",repositories,63.0,63,63,1.0,1.0,1.0,as a rule,as a rule,,0
+"P2 reads the pin, exact pin",pairs,94,95,75,0.9895,0.9639,1.0,as a rule,as a rule,,0
+"P2 reads the pin, exact pin",repositories,74.0,75,75,0.9867,0.9552,1.0,as a rule,as a rule,,0
+"P2 reads the pin, both",pairs,91,92,63,0.9891,0.9625,1.0,as a rule,as a rule,,0
+"P2 reads the pin, both",repositories,62.0,63,63,0.9841,0.9459,1.0,as a rule,as a rule,,0
 "P3 reads the timed lock, pairs with a timed lockfile",pairs,164,188,136,0.8723,0.8022,0.9326,as a rule,as a rule,,0
 "P3 reads the timed lock, pairs with a timed lockfile",repositories,119.0,136,136,0.875,0.8182,0.928,as a rule,as a rule,,0

@@ -1,0 +1,29 @@
+Primary shares recomputed from pairs.csv (pairs view), beside measures.csv:
+P1 keeps CI: 395 of 469 = 84.2 per cent, as a rule; interval (reviewer, 4,000 resamples, seed 26) 79.8 to 88.2 | record: 395 of 469 = 84.2 (79.7 to 88.3) as a rule
+P2 all: 282 of 293 = 96.2 per cent, as a rule; interval (reviewer, 4,000 resamples, seed 26) 93.5 to 98.6 | record: 282 of 293 = 96.2 (93.4 to 98.6) as a rule
+P2 lockfile: 97 of 104 = 93.3 per cent, as a rule | record: 97 of 104 = 93.3 (87.5 to 97.7) no label
+P2 exact pin: 93 of 97 = 95.9 per cent, as a rule | record: 93 of 97 = 95.9 (90.1 to 100.0) as a rule
+P2 both: 92 of 92 = 100.0 per cent, as a rule | record: 92 of 92 = 100.0 (100.0 to 100.0) as a rule
+P3: 164 of 188 = 87.2 per cent, as a rule; interval (reviewer, 4,000 resamples, seed 26) 80.1 to 93.4 | record: 164 of 188 = 87.2 (80.2 to 93.3) as a rule
+
+One-fifth rule (undetermined share of each measure frame):
+  P2 all: 48 of 341 = 14.1 per cent 
+  P2 lockfile: 31 of 135 = 23.0 per cent (label withheld unless both bounds agree)
+  P2 exact pin: 15 of 112 = 13.4 per cent 
+  P2 both: 2 of 94 = 2.1 per cent 
+  P3: 41 of 229 = 17.9 per cent 
+
+Keeps-CI check: keeps_ci yes 395 ; other CI only 5
+
+Effect of the review's corrections (point estimates; labels by the brief's convention):
+P2 all, corrected: 283 of 291 = 97.3 per cent, as a rule
+P2 exact pin, corrected: 94 of 95 = 98.9 per cent, as a rule
+  does not read the pin, corrected: 8 (was 11)
+  undetermined, corrected: 50 (was 48)
+  one-fifth rule, P2 all, corrected: 50 of 341 = 14.7 per cent
+  P3 is unchanged: neither pair has a timed lockfile.
+
+Job-level counts touched by the three classifier defects (from the review's reads of ci_lines.csv):
+  xargs <installer> unrecognised: 34 job rows (an-website at six snapshots, one homeassistant-ai/ha-mcp job), classed 5 "no Python install" where an install step runs; no pair class changes
+  uv sync --package <member> not followed to the member manifest: 14 job rows (ai-parrot 11 in P327, sagewai/platform 3 already class 1 by the lock); P327 changes
+  --find-links to a wheel built in the job read as an index install: 5 class 3 rows (chain-gang: P277 one job, P278 four variants); both pairs change

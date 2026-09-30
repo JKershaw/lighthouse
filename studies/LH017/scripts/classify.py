@@ -1,6 +1,6 @@
 """LH017: the class of each CI job for each pair, replayed offline from the records collect.py kept, and the pair classes.
 
-python3 classify.py     writes data/job_classes.csv, data/doc_classes.csv and data/pair_classes.csv
+python3 classify.py     writes data/job_classes.csv, data/doc_classes.csv, data/pair_classes.csv and data/file_facts.csv
 
 It reads data/jobs.csv and data/ci_lines.csv (each job's steps), data/tree_paths.csv and data/aux_lines.csv (every
 query and relevant line the rules read at collection), data/frame.csv and data/frame_files.csv (L, T and pin class),
@@ -161,7 +161,7 @@ def main():
     for r in fr:
         if r.get('package'):
             repo_pkgs[r['repo']].add(norm(r['package']))
-    jrows, drows, prows = [], [], []
+    jrows, drows, prows, frows = [], [], [], []
     for p in fr:
         pid = p['pair_id']
         st = pr.get(pid, {}).get('status', 'not read')
@@ -178,6 +178,7 @@ def main():
         pinned = sorted({v for f in ff[pid] for v in f['versions'].split(';') if v})
         own = set(repo_pkgs[p['repo']]) | set(json.loads(pr[pid].get('own_names') or '[]'))
         rows = []
+        C.FACTS = set()
         for k in by_commit.get((p['repo'], commit), []):
             j = jobs[k]
             B = C.Job(steps[k], tree, T, T_kind, p['library'], pinned, own, system=j['system'])
@@ -207,6 +208,9 @@ def main():
             drow.append({'pair_id': pid, 'path': r['path'], 'line': r['line'], 'text': r['text'][:200], 'class': cls, 'sub': sub,
                          'reason': why, 'T_lock': info['T_lock']})
         drows += drow
+        frows += [{'pair_id': pid, 'path': f, 'read_as': kind, 'holds_L': hold, 'versions': vers}
+                  for f, kind, hold, vers in sorted(C.FACTS)]
+        C.FACTS = None
         files = cif.get((p['repo'], commit), [])
         n_ci = sum(1 for f in files if f['system'] in ('github', 'gitlab'))
         n_other = sum(1 for f in files if f['system'] == 'other')
@@ -231,6 +235,7 @@ def main():
           'other_pin', 'container_build', 'T_tools', 'tools', 'triggers', 'caller_triggers', 'cache', 'checkout', 'effects']
     write_csv('job_classes.csv', jrows, jf)
     write_csv('doc_classes.csv', drows, ['pair_id', 'path', 'line', 'text', 'class', 'sub', 'reason', 'T_lock'])
+    write_csv('file_facts.csv', frows, ['pair_id', 'path', 'read_as', 'holds_L', 'versions'])
     pf = ['pair_id', 'repo', 'library', 'pin_class', 'source_study', 'status', 'snapshot', 'ci_files', 'other_ci_files', 'jobs',
           'pair_class', 'pair_sub', 'lock_class', 'classes', 'n_class1', 'n_to_judge', 'n_not_judged', 'docs_classes']
     write_csv('pair_classes.csv', prows, pf)

@@ -207,6 +207,8 @@ class LiveTree:
             return v if st == 'read' else None
         if kind == 'tox':
             v = X.tox_struct(self, p, key)
+        elif kind == 'uvmember':
+            v = X.uv_member(self, p, key)
         elif kind == 'hatch':
             v = X.hatch_struct(self, p, key)
         else:

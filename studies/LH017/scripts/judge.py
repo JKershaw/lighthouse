@@ -20,6 +20,9 @@ import ci as C  # noqa: E402
 import classify as K  # noqa: E402
 
 MADE = '2026-09-30, before the blind sample was drawn'
+AFTER = '2026-09-30, after the blind check (notes/R-0026.md), for jobs the corrections exposed or changed'
+# data/judgements_before_check.csv keeps the judgements as made before the blind sample was drawn (commit 3bafae4);
+# a judgement with the same job, class, sub-label and readings keeps MADE, any other is marked AFTER
 
 # (repository, pattern on the judge effect's reason) -> (reading id, function(B, effect, steps) -> list of effects)
 
@@ -59,7 +62,9 @@ def und(reason, why):
 
 def other_pin_by_name(B, e, steps):
     # LH015 amendment 2's reading: a file not in T that pins L exactly, whose name LH008's rule does not read
-    return [C.eff('other_pin', files=e.get('files') or [], version=e.get('version') or [], overrides=True,
+    # a constraints file limits versions without installing, so it never overrides a version taken from T (brief, override rule)
+    return [C.eff('other_pin', files=e.get('files') or [], version=e.get('version') or [],
+                  overrides=not e.get('constraint') and not set(e.get('version') or []) & set(B.pinned),
                   why=f'{(e.get("files") or ["?"])[0]} pins L exactly; LH008 would not read it by name (writer)')]
 
 
@@ -155,6 +160,8 @@ def main():
         if r.get('package'):
             repo_pkgs[r['repo']].add(norm(r['package']))
     out, missing = [], collections.Counter()
+    before = {(r['pair_id'], r['job_key'], r['class'], r['sub_label'], r['readings'])
+              for r in read_csv('judgements_before_check.csv')}
     for pid, rs in bp.items():
         has1 = any(x['script_class'] == '1' for x in rs)
         haslock = any(x['script_class'] == '1' and x['T_lock'] == 'yes' for x in rs)
@@ -193,7 +200,9 @@ def main():
                         'reason': ('reading ' + ', '.join(dict.fromkeys(used)) + ': ' + why)[:300],
                         'T_files': '|'.join(sorted({f for e in Ts for f in e.get('files', [])})) if cls == 1 else '',
                         'T_lock': 'yes' if cls == 1 and any(T_kind.get(f) == 'lockfile' for e in Ts for f in e.get('files', [])) else 'no',
-                        'flags': '; '.join(flags), 'readings': ' '.join(dict.fromkeys(used)), 'made': MADE})
+                        'flags': '; '.join(flags), 'readings': ' '.join(dict.fromkeys(used))})
+            r = out[-1]
+            r['made'] = MADE if (pid, x['job_key'], str(cls), sub, r['readings']) in before else AFTER
     write_csv('judgements.csv', out, ['pair_id', 'job_key', 'class', 'sub_label', 'reason', 'T_files', 'T_lock', 'flags', 'readings',
                                      'made'])
     print(f'{len(out)} judgements;', dict(collections.Counter(r['class'] for r in out)))

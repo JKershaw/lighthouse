@@ -24,6 +24,17 @@ WS = '/__ws__'          # the workspace root (GITHUB_WORKSPACE, ${{ github.works
 OUT = '/__out__'        # a working directory outside the workspace (a literal absolute path elsewhere)
 AMEND1 = os.environ.get('LH017_NO_A1') != '1'   # amendment 1 (studies/LH017/amendments.md)
 AMEND2 = os.environ.get('LH017_NO_A2') != '1'   # amendment 2
+AMEND3 = os.environ.get('LH017_NO_A3') != '1'   # amendment 3
+# data/file_facts.csv (brief, step 1): classify.py sets FACTS to a set before each pair; every file read here that
+# could pin or lock L is noted with what LH008's rule finds in it
+FACTS = None
+
+
+def facts_in(path, text, lib, kind):
+    hold, vers = versions_in(path, text, lib, kind)
+    if FACTS is not None:
+        FACTS.add((path, kind, hold or 'none', ';'.join(vers)))
+    return hold, vers
 
 
 def J(*parts):
@@ -101,6 +112,14 @@ def strip_prefix(c):
             pass
         elif b in ('timeout',):
             i += 1
+        elif b == 'xargs':
+            i += 1
+            while i < len(c) and c[i].startswith('-'):
+                if c[i] in ('-n', '-I', '-L', '-P', '-a', '-d', '-s', '-E', '-i', '--max-args', '--replace', '--delimiter',
+                            '--arg-file', '--max-procs', '--max-lines') and i + 1 < len(c):
+                    i += 1
+                i += 1
+            continue
         elif t == '--' or (i > 0 and t.startswith('-') and posixpath.basename(c[i - 1]) in ('env', 'sudo', 'xvfb-run')):
             pass
         else:
@@ -166,6 +185,9 @@ def parse_cmd(c):
             return None
     elif b in TOOLS:
         r['fam'] = b
+    elif b in ('sh', 'bash', 'dash', 'zsh', 'ash') and '-c' in c[1:3]:
+        k = c.index('-c')
+        r['fam'], r['text'] = 'shc', c[k + 1] if k + 1 < len(c) else ''
     elif b in ('sh', 'bash', 'dash', 'zsh', 'ash', 'source', '.'):
         a = [x for x in c[1:] if not x.startswith('-')]
         if not a:
@@ -216,7 +238,7 @@ PIP_VALUED = {'-r', '--requirement', '-c', '--constraint', '-e', '--editable', '
 def pip_args(args):
     """LH015's reading of pip's (and uv pip's) arguments."""
     r = {'req': [], 'con': [], 'paths': [], 'pkgs': [], 'remote': [], 'upgrade': False, 'eager': False, 'force': False,
-         'no_deps': False, 'upgrade_pkgs': [], 'wheel_dir': None, 'out': None, 'unk': []}
+         'no_deps': False, 'upgrade_pkgs': [], 'wheel_dir': None, 'out': None, 'unk': [], 'find_links': [], 'no_index': False}
     i = 0
     while i < len(args):
         a, v = args[i], None
@@ -244,6 +266,10 @@ def pip_args(args):
             r['upgrade_pkgs'].append(v)
         elif k == '--no-deps':
             r['no_deps'] = True
+        elif k in ('-f', '--find-links'):
+            r['find_links'].append(v)
+        elif k == '--no-index':
+            r['no_index'] = True
         elif k in ('-w', '--wheel-dir'):
             r['wheel_dir'] = v
         elif k in ('-o', '--output-file'):
@@ -469,6 +495,8 @@ def _installer(B, st, p, origin):
     fam, a, env = p['fam'], p['args'], {**st.env, **p['env']}
     if p.get('out'):
         env['__out'] = p['out']
+    if fam == 'shc':
+        return run_text(B, st, p['text'], origin)
     if fam in ('call', 'source'):
         if fam == 'source' and re.search(r'activate(\.sh)?$', p['script']):
             return
@@ -621,8 +649,35 @@ def pip_like(B, st, r, env, tool, sub):
             B.effects.append(eff('judge', why=f'remote install {x[:60]}'))
         else:
             B.effects.append(eff('others', pkg=norm(nm), why=f'named package {norm(nm)} from a URL'))
+    local = local_wheel_dirs(st, r)
     for x in r['pkgs']:
+        nm = norm(re.split(r'[=<>!~\[; ]', x)[0]) if x else ''
+        if local and nm in B.own:
+            src = local[0]
+            if src[0] == 'external':
+                B.effects.append(eff('und', why='external', detail=f'{nm} from wheels an external action built in the job'))
+            elif r['no_index']:
+                project(B, repo_state(B, st), WS + ('/' + src[1] if src[1] else ''), r)
+            else:
+                B.effects.append(eff('und', why='other', detail=f'{nm}: pip may take the local wheel or the index\'s release'))
+            continue
         package(B, x, up or norm(B.L) in [norm(y) for y in r['upgrade_pkgs']], r['force'], r['eager'])
+
+
+def local_wheel_dirs(st, r):
+    """Directories named by --find-links that hold wheels built in the job: [('job' or 'external', project dir)]."""
+    out = []
+    for f in r.get('find_links') or []:
+        w = ws_path(st, f)
+        if w in (None, UNK):
+            continue
+        for g, pdir in st.wheels.items():
+            if w == g or w.startswith(g + '/') or g.startswith(w + '/'):
+                out.append(('external' if pdir.startswith('external:') else 'job', pdir.split(':', 1)[-1]))
+        for a, projs in st.artefacts.items():
+            if (w == a or w.startswith(a + '/')) and len(set(projs)) == 1:
+                out.append(('job', projs[0]))
+    return out
 
 
 def package(B, spec, up, force, eager):
@@ -704,14 +759,14 @@ def req_file(B, st, f, up, force, constraint, level=0, base=None):
         if e['kind'] in ('und', 'judge'):
             return e
     text = '\n'.join(lines)
-    hold, vers = versions_in(rp, text, B.L, 'requirements')
+    hold, vers = facts_in(rp, text, B.L, 'requirements')
     named = names_lib(text, B.L) or any(e.get('names_L') for e in subs)
     spec = spec_of(lines, B.L) + [s for e in subs for s in (e.get('spec_list') or [])]
     if hold:
         if kind_of(rp) is None:
-            return eff('judge', why=f'pin of L in {rp}, a file LH008 would not read by name', files=[rp], version=vers)
+            return eff('judge', why=f'pin of L in {rp}, a file LH008 would not read by name', files=[rp], version=vers, constraint=constraint)
         return eff('other_pin', files=[rp], version=vers, why=f'{rp} {hold} {",".join(vers)}',
-                   overrides=not set(vers) & set(B.pinned))
+                   overrides=not constraint and not set(vers) & set(B.pinned))
     for e in subs:
         if e['kind'] == 'other_pin':
             return e
@@ -743,6 +798,9 @@ def project(B, st, x, r):
         d = posixpath.dirname(w)
         for g, pdir in st.wheels.items():
             if d == g or d.startswith(g + '/'):
+                if pdir.startswith('external:'):
+                    B.effects.append(eff('und', why='external', detail=f'wheel {x0} built by an external action in the job'))
+                    return
                 return project(B, repo_state(B, st), WS + '/' + J(pdir[len(st.prefix):].lstrip('/') if st.prefix and
                                                                  pdir.startswith(st.prefix) else pdir) if pdir else WS, r)
         for a, projs in st.artefacts.items():
@@ -775,6 +833,10 @@ def project(B, st, x, r):
     if not mans:
         B.effects.append(eff('judge', why=f'no manifest found for {x} at {base or "the root"}'))
         return
+    if r.get('no_deps'):
+        B.effects.append(eff('fresh', sub='other file', names_L=False, files=mans, overrides=False,
+                             why=f'project {x} installed without its dependencies (--no-deps)'))
+        return
     if any(m in B.T for m in mans):
         B.effects.append(eff('T', files=[m for m in mans if m in B.T], why=f'project {x} with manifest in T'))
         return
@@ -794,7 +856,7 @@ def project(B, st, x, r):
         return
     if not r.get('no_deps'):
         for m in mans:
-            hold, vers = versions_in(m, '\n'.join(B.tree.lines(m) or []), B.L, 'manifest')
+            hold, vers = facts_in(m, '\n'.join(B.tree.lines(m) or []), B.L, 'manifest')
             if hold:
                 B.effects.append(eff('other_pin', files=[m], version=vers, overrides=not set(vers) & set(B.pinned),
                                      why=f'project {x}: {m} pins L {",".join(vers)}'))
@@ -863,7 +925,7 @@ def lock_step(B, st, proj, lockname, frozen, up, reader, relock=False, out=None,
             if ls is None:
                 B.effects.append(eff('und', why='unreadable', detail=lock))
                 return
-            hold, vers = versions_in(lock, '\n'.join(ls), B.L, 'lockfile')
+            hold, vers = facts_in(lock, '\n'.join(ls), B.L, 'lockfile')
             if hold:
                 B.effects.append(eff('other_pin', files=[lock], version=vers, why=f'{reader} lock {lock} not in T locks L',
                                      overrides=not set(vers) & set(B.pinned)))
@@ -886,11 +948,18 @@ def lock_step(B, st, proj, lockname, frozen, up, reader, relock=False, out=None,
     if man_T:
         B.effects.append(eff('T', files=[man], why=f'{reader} without lock; manifest in T'))
         return
+    if AMEND3 and reader.startswith('uv') and any(re.match(r'^\s*\[tool\.uv\.workspace\]', t) for t in (B.tree.lines(man) or [])):
+        mem = B.tree.struct('uvmember', proj, '*')
+        inT = [J(d, 'pyproject.toml') for d in (mem or {}).get('dirs', []) if J(d, 'pyproject.toml') in B.T]
+        if inT:
+            B.effects.append(eff('T', files=inT[:1],
+                                 why=f'{reader} without the lock resolves the workspace, whose member manifest {inT[0]} is in T (amendment 3)'))
+            return
     ls = B.tree.lines(man)
     if ls is None:
         B.effects.append(eff('und', why='unreadable', detail=man))
         return
-    hold, vers = versions_in(man, '\n'.join(ls), B.L, 'manifest')
+    hold, vers = facts_in(man, '\n'.join(ls), B.L, 'manifest')
     if hold:
         B.effects.append(eff('other_pin', files=[man], version=vers, overrides=not set(vers) & set(B.pinned),
                              why=f'{reader} without the lock: {man} pins L {",".join(vers)}'))
@@ -950,6 +1019,16 @@ def uv(B, st, a, env, origin):
         out = (vals.get('-o') or vals.get('--output-file') or [None])[0] if s == 'export' else None
         if s == 'export' and not out and env.get('__out'):
             out = env['__out']
+        pkgs = vals.get('--package') or []
+        if AMEND3 and pkgs and proj is not None and s in ('sync', 'run') and not B.tree.exists(J(proj, 'uv.lock')):
+            mem = B.tree.struct('uvmember', proj, pkgs[0])
+            if mem and mem.get('dirs'):
+                mans = [J(d, 'pyproject.toml') for d in mem['dirs']]
+                inT = [m for m in mans if m in B.T]
+                if inT:
+                    B.effects.append(eff('T', files=inT[:1],
+                                         why=f'uv {s} --package {pkgs[0]}: workspace member manifest {inT[0]} in T (amendment 3)'))
+                    return
         lock_step(B, st, proj, 'uv.lock', frozen, up, f'uv {s}', relock=True, out=out)
         if s == 'run' and pos[:1] and pos[0] in ('tox', 'nox', 'hatch', 'pip', 'poetry', 'pre-commit'):
             installer(B, st, {'fam': pos[0], 'args': pos[1:], 'env': {}, 'argv0': pos[0]}, origin)
@@ -1465,6 +1544,14 @@ def action_step(B, st, uses, with_):
         w = ws_path(st, p) if p else st.cwd
         if w not in (None, UNK):
             st.artefacts[w] = list(with_.get('__projects__') or [])
+        return
+    if lname.startswith('pyo3/maturin-action'):
+        args = (with_.get('args') or '')
+        m = re.search(r'(?:--out|-o)[ =]([^\s]+)', args)
+        wd = (with_.get('working-directory') or '').strip()
+        base = ws_path(st, wd) if wd else st.cwd
+        if base not in (None, UNK):
+            st.wheels[J(base, m.group(1)) if m else J(base, 'target/wheels')] = 'external:' + base
         return
     if lname.startswith(('docker/build-push-action', 'docker/bake-action')):
         B.effects.append(eff('container', why='container build'))

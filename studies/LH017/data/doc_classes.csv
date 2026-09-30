@@ -984,20 +984,20 @@ P327,README.md,122,"uv pip install ""ai-parrot-loaders[all]""     # All loader d
 P327,README.md,131,uv pip install ai-parrot-pipelines,3,,own package ai-parrot-pipelines from the index,no
 P327,README.md,291,"uv pip install ""ai-parrot[deploy]""",3,,own package ai-parrot from the index,no
 P327,README.md,536,make venv,5,no Python install,,no
-P327,README.md,540,make develop,2,other file,uv sync without the lock resolves pyproject.toml,no
-P327,README.md,543,make test,2,other file,uv run without the lock resolves pyproject.toml,no
-P327,README.md,573,make format          # Format code with black,2,other file,uv run without the lock resolves pyproject.toml,no
-P327,README.md,574,make lint            # Lint with pylint + black --check,2,other file,uv run without the lock resolves pyproject.toml,no
-P327,README.md,575,make test            # Run pytest + mypy,2,other file,uv run without the lock resolves pyproject.toml,no
+P327,README.md,540,make develop,1,,"uv sync without the lock resolves the workspace, whose member manifest packages/ai-parrot/pyproject.toml is in T (amendment 3)",no
+P327,README.md,543,make test,1,,"uv run without the lock resolves the workspace, whose member manifest packages/ai-parrot/pyproject.toml is in T (amendment 3)",no
+P327,README.md,573,make format          # Format code with black,1,,"uv run without the lock resolves the workspace, whose member manifest packages/ai-parrot/pyproject.toml is in T (amendment 3)",no
+P327,README.md,574,make lint            # Lint with pylint + black --check,1,,"uv run without the lock resolves the workspace, whose member manifest packages/ai-parrot/pyproject.toml is in T (amendment 3)",no
+P327,README.md,575,make test            # Run pytest + mypy,1,,"uv run without the lock resolves the workspace, whose member manifest packages/ai-parrot/pyproject.toml is in T (amendment 3)",no
 P327,README.md,576,make build           # Build all packages (sdist + wheel),5,no Python install,,no
-P327,README.md,577,make release         # Build + publish to PyPI,2,other file,uv run without the lock resolves pyproject.toml,no
+P327,README.md,577,make release         # Build + publish to PyPI,1,,"uv run without the lock resolves the workspace, whose member manifest packages/ai-parrot/pyproject.toml is in T (amendment 3)",no
 P327,README.md,578,make lock            # Regenerate uv.lock,5,no Python install,,no
 P327,README.md,579,make clean           # Remove build artifacts,5,no Python install,,no
-P327,README.md,580,make generate-registry  # Regenerate TOOL_REGISTRY from source,2,other file,uv run without the lock resolves pyproject.toml,no
+P327,README.md,580,make generate-registry  # Regenerate TOOL_REGISTRY from source,1,,"uv run without the lock resolves the workspace, whose member manifest packages/ai-parrot/pyproject.toml is in T (amendment 3)",no
 P327,README.md,581,make bump-patch      # Bump patch version (syncs across all packages),5,no Python install,,no
 P327,README.md,589,uv venv --python 3.11 .venv,5,no Python install,,no
-P327,README.md,593,uv sync --all-packages --all-extras,2,other file,uv sync without the lock resolves pyproject.toml,no
-P327,README.md,596,uv sync --extra google --extra openai,2,other file,uv sync without the lock resolves pyproject.toml,no
+P327,README.md,593,uv sync --all-packages --all-extras,1,,"uv sync without the lock resolves the workspace, whose member manifest packages/ai-parrot/pyproject.toml is in T (amendment 3)",no
+P327,README.md,596,uv sync --extra google --extra openai,1,,"uv sync without the lock resolves the workspace, whose member manifest packages/ai-parrot/pyproject.toml is in T (amendment 3)",no
 P329,README.md,59,uvx cookieplone,5,other named packages only,,no
 P329,README.md,65,uvx cookieplone@1.0.0,5,other named packages only,,no
 P329,README.md,77,uvx cookieplone@2.0.0a1,5,other named packages only,,no

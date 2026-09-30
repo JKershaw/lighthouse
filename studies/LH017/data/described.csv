@@ -1,29 +1,29 @@
 measure,view,num,den,n_repos,share,lo,hi,skipped
-undetermined share of pairs whose CI installs the project's requirements or is undetermined (P2 frame),pairs,48,341,,0.1408,,,
+undetermined share of pairs whose CI installs the project's requirements or is undetermined (P2 frame),pairs,50,341,,0.1466,,,
 "undetermined share of the P2 frame, lockfile",pairs,31,135,,0.2296,,,
-"undetermined share of the P2 frame, exact pin",pairs,15,112,,0.1339,,,
+"undetermined share of the P2 frame, exact pin",pairs,17,112,,0.1518,,,
 "undetermined share of the P2 frame, both",pairs,2,94,,0.0213,,,
 undetermined share of pairs with a timed lockfile in P3's frame,pairs,41,229,,0.179,,,
 share of pairs with CI: nothing of the project's requirements,pairs,54,395,271,0.1367,0.0854,0.1995,0
-share of pairs with CI: undetermined,pairs,48,395,271,0.1215,0.0679,0.1841,0
-share of pairs with CI: reads the pin,pairs,282,395,271,0.7139,0.6378,0.7876,0
-share of pairs with CI: does not read the pin,pairs,11,395,271,0.0278,0.0104,0.0492,0
-share of pairs that read the pin: mixed (another job class 2 to 4),pairs,51,282,204,0.1809,0.1107,0.256,0
+share of pairs with CI: undetermined,pairs,50,395,271,0.1266,0.0728,0.1884,0
+share of pairs with CI: reads the pin,pairs,282,395,271,0.7139,0.6372,0.7876,0
+share of pairs with CI: does not read the pin,pairs,9,395,271,0.0228,0.0079,0.0409,0
+share of pairs that read the pin: mixed (another job class 2 to 4),pairs,51,282,204,0.1809,0.1107,0.2561,0
 share of pairs that read the pin: only through steps under a condition,pairs,6,282,204,0.0213,0.0033,0.0491,0
-share of pairs that read the pin: a class 1 job with a later step not read,pairs,50,282,204,0.1773,0.1083,0.2518,0
+share of pairs that read the pin: a class 1 job with a later step not read,pairs,50,282,204,0.1773,0.1083,0.2524,0
 "pairs with a timed lockfile and CI, by reading for the lock",pairs,"{""does not"": 24, ""outside"": 22, ""reads the timed lock"": 164, ""undetermined"": 41}",251,,,,,
-pairs read where a container build (LH015) or a CI job installs from the pinned file,pairs,321,469,332,0.6844,0.6216,0.7465,0
-"pairs read, decided in both: neither recipe nor CI reads the pin",pairs,94,415,304,0.2265,0.1775,0.2785,0
-"pairs read not decided for ""neither"" (a recipe or CI undetermined, neither reading the pin)",pairs,54,469,,,,,
-pairs that do not read the pin with a class 2 job,pairs,7,11,,,,,
-pairs that do not read the pin with a class 3 job,pairs,4,11,,,,,
-pairs that do not read the pin with a class 4 job,pairs,0,11,,,,,
-"pairs that do not read the pin with a class 2 job, sub-label upgrade",pairs,0,11,,,,,
-"pairs that do not read the pin with a class 2 job, sub-label lock absent",pairs,0,11,,,,,
-"pairs that do not read the pin with a class 2 job, sub-label lock unused",pairs,5,11,,,,,
-"pairs that do not read the pin with a class 2 job, sub-label other file",pairs,2,11,,,,,
-"pairs that do not read the pin with a class 2 job, sub-label inline",pairs,0,11,,,,,
-decided jobs (pair and job) that are class 1,jobs,1961,5336,,,,,
-decided jobs that install the project's requirements (class 1 to 4) and are class 1,jobs,1961,2244,,,,,
-"workflows (pair and file) with a class 1 job, among workflows decided",workflows,717,2005,,,,,
+pairs read where a container build (LH015) or a CI job installs from the pinned file,pairs,321,469,332,0.6844,0.6214,0.7463,0
+"pairs read, decided in both: neither recipe nor CI reads the pin",pairs,92,413,303,0.2228,0.1738,0.2742,0
+"pairs read not decided for ""neither"" (a recipe or CI undetermined, neither reading the pin)",pairs,56,469,,,,,
+pairs that do not read the pin with a class 2 job,pairs,7,9,,,,,
+pairs that do not read the pin with a class 3 job,pairs,2,9,,,,,
+pairs that do not read the pin with a class 4 job,pairs,0,9,,,,,
+"pairs that do not read the pin with a class 2 job, sub-label upgrade",pairs,0,9,,,,,
+"pairs that do not read the pin with a class 2 job, sub-label lock absent",pairs,0,9,,,,,
+"pairs that do not read the pin with a class 2 job, sub-label lock unused",pairs,6,9,,,,,
+"pairs that do not read the pin with a class 2 job, sub-label other file",pairs,1,9,,,,,
+"pairs that do not read the pin with a class 2 job, sub-label inline",pairs,0,9,,,,,
+decided jobs (pair and job) that are class 1,jobs,1967,5331,,,,,
+decided jobs that install the project's requirements (class 1 to 4) and are class 1,jobs,1967,2247,,,,,
+"workflows (pair and file) with a class 1 job, among workflows decided",workflows,718,2003,,,,,
 "jobs per pair with CI (median, max)",pairs,10,102,,,,,

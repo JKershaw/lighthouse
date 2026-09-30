@@ -570,6 +570,13 @@ github.com/apache/airflow,aaf1bee38a2a,pyproject.toml,lines,,4,"    { name = ""A
 github.com/apache/airflow,aaf1bee38a2a,pyproject.toml,lines,,5,"# Instead of that, we use a separate parameter and dynamically add it into `filterwarnings` marker."
 github.com/apache/airflow,aaf1bee38a2a,pyproject.toml,lines,,6,[tool.uv.workspace]
 github.com/apache/airflow,aaf1bee38a2a,pyproject.toml,lines,,7,members = [
+github.com/apache/airflow,aaf1bee38a2a,,uvmember,*,0,read
+github.com/apache/airflow,aaf1bee38a2a,,uvmember,*,1,"{""dirs"": [""airflow-core"", ""airflow-ctl"", ""dev"", ""devel-common"", ""docker-stack-docs"", ""docker-tests"", ""helm-tests"", ""kubernetes-tests"", ""providers-summary-docs"", ""providers/airbyte"", ""providers/alibaba"", ""providers/amazon"", ""providers/apache/beam"", ""providers/apache/cassandra"", ""providers/apache/drill"", ""providers/apache/druid"", ""providers/apache/flink"", ""providers/apache/hdfs"", ""providers/apache/h"
+github.com/apache/airflow,aaf1bee38a2a,,uvmember,*,2,"ive"", ""providers/apache/iceberg"", ""providers/apache/impala"", ""providers/apache/kafka"", ""providers/apache/kylin"", ""providers/apache/livy"", ""providers/apache/pig"", ""providers/apache/pinot"", ""providers/apache/spark"", ""providers/apprise"", ""providers/arangodb"", ""providers/asana"", ""providers/atlassian/jira"", ""providers/celery"", ""providers/cloudant"", ""providers/cncf/kubernetes"", ""providers/cohere"", ""prov"
+github.com/apache/airflow,aaf1bee38a2a,,uvmember,*,3,"iders/common/compat"", ""providers/common/io"", ""providers/common/messaging"", ""providers/common/sql"", ""providers/databricks"", ""providers/datadog"", ""providers/dbt/cloud"", ""providers/dingding"", ""providers/discord"", ""providers/docker"", ""providers/edge"", ""providers/elasticsearch"", ""providers/exasol"", ""providers/fab"", ""providers/facebook"", ""providers/ftp"", ""providers/git"", ""providers/github"", ""providers/g"
+github.com/apache/airflow,aaf1bee38a2a,,uvmember,*,4,"oogle"", ""providers/grpc"", ""providers/hashicorp"", ""providers/http"", ""providers/imap"", ""providers/influxdb"", ""providers/jdbc"", ""providers/jenkins"", ""providers/microsoft/azure"", ""providers/microsoft/mssql"", ""providers/microsoft/psrp"", ""providers/microsoft/winrm"", ""providers/mongo"", ""providers/mysql"", ""providers/neo4j"", ""providers/odbc"", ""providers/openai"", ""providers/openfaas"", ""providers/openlineage"
+github.com/apache/airflow,aaf1bee38a2a,,uvmember,*,5,""", ""providers/opensearch"", ""providers/opsgenie"", ""providers/oracle"", ""providers/pagerduty"", ""providers/papermill"", ""providers/pgvector"", ""providers/pinecone"", ""providers/postgres"", ""providers/presto"", ""providers/qdrant"", ""providers/redis"", ""providers/salesforce"", ""providers/samba"", ""providers/segment"", ""providers/sendgrid"", ""providers/sftp"", ""providers/singularity"", ""providers/slack"", ""providers/s"
+github.com/apache/airflow,aaf1bee38a2a,,uvmember,*,6,"mtp"", ""providers/snowflake"", ""providers/sqlite"", ""providers/ssh"", ""providers/standard"", ""providers/tableau"", ""providers/telegram"", ""providers/teradata"", ""providers/trino"", ""providers/vertica"", ""providers/weaviate"", ""providers/yandex"", ""providers/ydb"", ""providers/zendesk"", ""task-sdk""]}"
 github.com/apache/airflow,aaf1bee38a2a,scripts/ci/testing/run_breeze_command_with_retries.sh,script,,0,read
 github.com/apache/airflow,aaf1bee38a2a,scripts/ci/testing/run_breeze_command_with_retries.sh,script,,1,"{""lines"": [""#!/usr/bin/env bash"", ""export COLOR_RED=$'\\e[31m'"", ""export COLOR_YELLOW=$'\\e[33m'"", ""export COLOR_RESET=$'\\e[0m'"", ""NUMBER_OF_ATTEMPT=\""${NUMBER_OF_ATTEMPT:-3}\"""", ""        echo \""This could be due to a flaky test, re-running once to re-check it After restarting docker.\"""", ""    sudo service docker restart""]}"
 github.com/apache/airflow,aaf1bee38a2a,scripts/ci/constraints/ci_branch_constraints.sh,script,,0,read
@@ -1110,13 +1117,6 @@ github.com/cloud-custodian/cloud-custodian,cdd88529d6ec,tools/dev/staging-auth.s
 github.com/cloud-custodian/cloud-custodian,cdd88529d6ec,tools/dev/staging-auth.sh,script,,3,"NV"", ""# Note: `aws codeartifact login --tool pip` updates user-level pip settings. As a finer-grained alternative, we can"", ""# uv run python -m pip config --site set global.index-url \""$CODEARTIFACT_REPOSITORY_URL\""""]}"
 github.com/cloud-custodian/cloud-custodian,cdd88529d6ec,Makefile,make,pkg-publish-wheel,0,read
 github.com/cloud-custodian/cloud-custodian,cdd88529d6ec,Makefile,make,pkg-publish-wheel,1,"{""targets"": [{""lines"": [""uv run twine upload -r testpypi dist/*""], ""name"": ""pkg-publish-wheel""}]}"
-github.com/codelibs/recotem,b4d6b95a1c41,pyproject.toml,lines,,0,read
-github.com/codelibs/recotem,b4d6b95a1c41,pyproject.toml,lines,,1,"name = ""recotem"""
-github.com/codelibs/recotem,b4d6b95a1c41,pyproject.toml,lines,,2,"license = { file = ""LICENSE"" }"
-github.com/codelibs/recotem,b4d6b95a1c41,pyproject.toml,lines,,3,"authors = [{ name = ""CodeLibs, Inc."", email = ""info@codelibs.co"" }]"
-github.com/codelibs/recotem,b4d6b95a1c41,pyproject.toml,lines,,4,    # Pin starlette >=0.49.1 to fix CVE-2025-62727 (Range header DoS in
-github.com/codelibs/recotem,b4d6b95a1c41,pyproject.toml,lines,,5,"    # FileResponse).  FastAPI <0.120 caps starlette below 0.49, so we also"
-github.com/codelibs/recotem,b4d6b95a1c41,pyproject.toml,lines,,6,"    ""starlette>=1.0.0,<1.1"","
 github.com/codenerix/codenerix-lib,644c1114757f,Makefile,make,prepare,0,read
 github.com/codenerix/codenerix-lib,644c1114757f,Makefile,make,prepare,1,"{""targets"": [{""lines"": [""sudo apt-get -y install python3-pip python3-virtualenv""], ""name"": ""prepare""}]}"
 github.com/codenerix/codenerix-lib,644c1114757f,Makefile,make,venv,0,read
@@ -3151,6 +3151,14 @@ github.com/phenobarbital/ai-parrot,dd4c70085cf5,pyproject.toml,lines,,0,read
 github.com/phenobarbital/ai-parrot,dd4c70085cf5,pyproject.toml,lines,,1,"name = ""ai-parrot-workspace"""
 github.com/phenobarbital/ai-parrot,dd4c70085cf5,pyproject.toml,lines,,2,[tool.uv.workspace]
 github.com/phenobarbital/ai-parrot,dd4c70085cf5,pyproject.toml,lines,,3,"members = [""packages/*""]"
+github.com/phenobarbital/ai-parrot,dd4c70085cf5,,uvmember,*,0,read
+github.com/phenobarbital/ai-parrot,dd4c70085cf5,,uvmember,*,1,"{""dirs"": [""packages/ai-parrot"", ""packages/ai-parrot-loaders"", ""packages/ai-parrot-pipelines"", ""packages/ai-parrot-tools"", ""packages/ai-parrot/src/parrot/yaml-rs"", ""packages/parrot-formdesigner""]}"
+github.com/phenobarbital/ai-parrot,dd4c70085cf5,,uvmember,ai-parrot,0,read
+github.com/phenobarbital/ai-parrot,dd4c70085cf5,,uvmember,ai-parrot,1,"{""dirs"": [""packages/ai-parrot""]}"
+github.com/phenobarbital/ai-parrot,dd4c70085cf5,,uvmember,ai-parrot-tools,0,read
+github.com/phenobarbital/ai-parrot,dd4c70085cf5,,uvmember,ai-parrot-tools,1,"{""dirs"": [""packages/ai-parrot-tools"", ""packages/ai-parrot""]}"
+github.com/phenobarbital/ai-parrot,dd4c70085cf5,,uvmember,ai-parrot-loaders,0,read
+github.com/phenobarbital/ai-parrot,dd4c70085cf5,,uvmember,ai-parrot-loaders,1,"{""dirs"": [""packages/ai-parrot-loaders"", ""packages/ai-parrot""]}"
 github.com/phenobarbital/ai-parrot,dd4c70085cf5,Makefile,make,venv,0,read
 github.com/phenobarbital/ai-parrot,dd4c70085cf5,Makefile,make,venv,1,"{""targets"": [{""lines"": [""uv venv --python 3.11 .venv"", ""echo 'run `source .venv/bin/activate` to start develop with Parrot'""], ""name"": ""venv""}]}"
 github.com/phenobarbital/ai-parrot,dd4c70085cf5,Makefile,make,develop,0,read
