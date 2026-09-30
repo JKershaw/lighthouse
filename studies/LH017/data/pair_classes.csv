@@ -1,0 +1,470 @@
+pair_id,repo,library,pin_class,source_study,status,snapshot,ci_files,other_ci_files,jobs,pair_class,pair_sub,lock_class,classes,n_class1,n_to_judge,n_not_judged,docs_classes
+P001,bitbucket.org/atlassian/sovereign,cryptography,lockfile,LH010,read,d367d1dc0f27,0,1,0,no CI,other CI only,,,0,0,0,1 3 5 6
+P002,github.com/2coderok/jp-trainer,pillow,exact pin,LH009,read,349655ecae22,0,0,0,no CI,none,,,0,0,0,3
+P003,github.com/360solutionsbe/bc-mcp-proxy,pyjwt,both,LH008,read,7b5bd77471f3,3,0,10,reads the pin,,reads the timed lock,1 1 1 1 5 1 5 5 1 5,6,0,0,1 3 5
+P004,github.com/360solutionsbe/bc-mcp-proxy,starlette,both,LH010,read,7b5bd77471f3,3,0,10,reads the pin,,reads the timed lock,1 1 1 1 5 1 5 5 1 5,6,0,0,1 3 5
+P005,github.com/360solutionsbe/bc-mcp-proxy,cryptography,both,LH008,read,7b5bd77471f3,3,0,10,reads the pin,,reads the timed lock,1 1 1 1 5 1 5 5 1 5,6,0,0,1 3 5
+P006,github.com/3c7/common-osint-model,cryptography,lockfile,LH008,read,9462b6f59c5e,0,0,0,no CI,none,,,0,0,0,3
+P007,github.com/3c7/common-osint-model,urllib3,both,LH008,read,f2b046e0dceb,0,0,0,no CI,none,,,0,0,0,3
+P008,github.com/3c7/common-osint-model,cryptography,both,LH008,read,f2b046e0dceb,0,0,0,no CI,none,,,0,0,0,3
+P009,github.com/abe404/root_painter,pillow,exact pin,LH009,read,b3f376ebae80,7,0,7,reads the pin,mixed,,2 5 2 2 1 1 5,2,0,0,3
+P010,github.com/abka012/async-media-agents,joserfc,exact pin,LH010,read,54b59c776277,0,0,0,no CI,none,,,0,0,0,1 5
+P011,github.com/abka012/async-media-agents,starlette,exact pin,LH008,read,54b59c776277,0,0,0,no CI,none,,,0,0,0,1 5
+P012,github.com/abka012/async-media-agents,mcp,exact pin,LH009,read,54b59c776277,0,0,0,no CI,none,,,0,0,0,1 5
+P013,github.com/aboutcode-org/scancode.io,gitpython,both,LH009,read,904373abf472,16,0,30,reads the pin,,does not,5 5 5 5 5 5 5 5 1 1 1 1 1 1 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5,6,0,0,
+P014,github.com/aboutcode-org/scancode.io,bleach,both,LH010,read,7424073216db,16,0,30,reads the pin,,does not,5 5 5 5 5 5 5 5 1 1 1 1 1 1 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5,6,0,0,
+P015,github.com/acecjm/sgithidownloader,pillow,exact pin,LH009,read,b069eb76064f,0,0,0,no CI,none,,,0,0,0,1
+P016,github.com/ae86sen/aomaker,pyjwt,exact pin,LH008,read,768f73104733,0,0,0,no CI,none,,,0,0,0,3
+P017,github.com/aesuli/push_service,mako,exact pin,LH009,read,91f5fa6ff26b,2,0,2,nothing of the project's requirements,,,5 5,0,0,0,3
+P018,github.com/agenttoolkit/toolguard,litellm,lockfile,LH009,read,a622b6cbf307,1,0,2,nothing of the project's requirements,,outside,5 5,0,0,0,3
+P019,github.com/ahron-maslin/blfs-automation,urllib3,exact pin,LH008,read,2cdb8c7fad07,1,0,1,reads the pin,,,1,1,0,0,3
+P020,github.com/aider-ai/aider,urllib3,lockfile,LH008,read,2dd40fce4442,9,0,22,reads the pin,mixed,reads the timed lock,3 3 3 3 5 5 5 5 5 5 1 1 1 1 1 1 1 1 3 3 3 3,8,8,0,1 5 6 to judge
+P021,github.com/aider-ai/aider,python-dotenv,lockfile,LH010,read,edfe0c801b49,10,0,19,reads the pin,mixed,reads the timed lock,3 3 3 5 5 2 5 5 5 5 1 1 1 1 1 1 3 3 3,6,6,0,1 2 5 6 to judge
+P022,github.com/aider-ai/aider,starlette,lockfile,LH008,read,bdb4d9ff8ef8,10,0,27,reads the pin,mixed,reads the timed lock,3 3 3 3 3 5 5 5 5 5 5 5 1 1 1 1 1 1 1 1 1 1 3 3 3 3 3,10,10,0,1 2 5 6 to judge
+P023,github.com/aider-ai/aider,aiohttp,lockfile,LH010,read,bdb4d9ff8ef8,10,0,27,reads the pin,mixed,reads the timed lock,3 3 3 3 3 5 5 5 5 5 5 5 1 1 1 1 1 1 1 1 1 1 3 3 3 3 3,10,10,0,1 2 5 6 to judge
+P024,github.com/aider-ai/aider,pillow,lockfile,LH009,read,bdb4d9ff8ef8,10,0,27,reads the pin,mixed,reads the timed lock,3 3 3 3 3 5 5 5 5 5 5 5 1 1 1 1 1 1 1 1 1 1 3 3 3 3 3,10,10,0,1 5 6 to judge
+P025,github.com/aider-ai/aider,gitpython,lockfile,LH009,read,928bb49c4b5f,10,0,27,reads the pin,mixed,reads the timed lock,3 3 3 3 3 5 5 5 5 5 5 5 1 1 1 1 1 1 1 1 1 1 3 3 3 3 3,10,10,0,1 2 5 6 to judge
+P026,github.com/aider-ai/aider,urllib3,lockfile,LH008,read,3ec8ec5a7d69,10,0,27,reads the pin,mixed,reads the timed lock,3 3 3 3 3 5 5 5 5 5 5 5 1 1 1 1 1 1 1 1 1 1 3 3 3 3 3,10,10,0,1 5 6 to judge
+P027,github.com/aider-ai/aider,soupsieve,lockfile,LH009,read,5dc9490bb35f,10,0,27,reads the pin,mixed,reads the timed lock,3 3 3 3 3 5 5 5 5 5 5 5 1 1 1 1 1 1 1 1 1 1 3 3 3 3 3,10,10,0,1 2 5 6 to judge
+P028,github.com/alan-turing-institute/data-safe-haven,cryptography,exact pin,LH008,read,ff8dcae658e2,8,0,15,reads the pin,mixed,,1 1 5 2 5 5 5 1 5 5 5 1 5 5 2,4,5,0,to judge
+P029,github.com/alan-turing-institute/data-safe-haven,pyjwt,exact pin,LH008,read,6b8904c36120,8,0,15,reads the pin,mixed,,1 1 5 2 5 5 5 2 5 5 5 1 5 5 2,3,5,0,to judge
+P030,github.com/alex-oleshkevich/starception,starlette,lockfile,LH008,read,b091e0c82881,2,0,9,reads the pin,,reads the timed lock,5 5 1 1 1 1 1 1 1,7,0,0,2 3 5 to judge
+P031,github.com/alex-oleshkevich/starsessions,starlette,lockfile,LH008,read,f2942f9be1eb,2,0,8,reads the pin,,reads the timed lock,5 5 1 1 1 1 1 1,6,0,0,3
+P032,github.com/allora-network/allora-sdk-py,urllib3,exact pin,LH008,read,ffdb8cb142fd,0,0,0,no CI,none,,,0,0,0,1 3
+P033,github.com/alpha-unito/streamflow,aiohttp,both,LH010,read,e98b0b1c1d71,2,0,41,reads the pin,,reads the timed lock,5 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 5 1 1 1 1 1 1 1 1 1 1 1 1 5 1 1 1,38,0,0,1 3 to judge
+P034,github.com/amnotagoose/notepasser,cryptography,exact pin,LH008,read,30ef26d1f8ab,0,0,0,no CI,none,,,0,0,0,
+P035,github.com/amsterdam/apikeyserv,pyjwt,both,LH008,read,9e1bf5cb39b6,2,0,6,reads the pin,,reads the timed lock,1 1 1 1 1 5,5,0,0,3 5 6
+P036,github.com/anirbanbasu/frankfurtermcp,fastmcp,lockfile,LH010,read,a86b8ef21ec1,4,0,4,reads the pin,,reads the timed lock,5 1 5 1,2,0,0,1 3
+P037,github.com/ankitects/anki,urllib3,lockfile,LH008,read,5a9b54e9380c,3,0,16,undetermined,,undetermined,5 5 6 5 5 5 5 6 6 5 6 6 6 5 5 5,0,0,0,
+P038,github.com/ansys/pre-commit-hooks,gitpython,exact pin,LH009,read,ee95b36305ae,2,0,29,nothing of the project's requirements,,,5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5,0,0,0,1 3 5
+P039,github.com/ansys/pre-commit-hooks,gitpython,exact pin,LH010,read,a0aaaa6fcc38,2,0,29,nothing of the project's requirements,,,5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5,0,0,0,1 3 5
+P040,github.com/ansys/pyensight,urllib3,exact pin,LH008,read,3b181dbfefaa,3,0,25,nothing of the project's requirements,,,5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5,0,0,0,3
+P041,github.com/aogier/starlette-authlib,starlette,lockfile,LH008,read,35b1f2a5a6e2,3,0,7,nothing of the project's requirements,,outside,5 5 5 5 5 5 5,0,0,0,3
+P042,github.com/apache/airflow,urllib3,lockfile,LH008,read,aaf1bee38a2a,25,0,71,undetermined,,undetermined,6 6 6 6 6 5 5 5 6 5 6 6 5 6 6 6 6 6 6 6 6 6 6 5 5 5 5 5 5 6 6 6 6 6 6 6 6 6 6 6 6 2 6 6 6 6 6 5 6 6 6 6 6 6 6 6 6 6 6 6 6 6 6 6 6 6 6 5 6 6 6,0,0,0,to judge
+P043,github.com/ariffazil/arifosmcp,fastmcp,exact pin,LH010,read,7f83a3d9ba11,0,0,0,no CI,none,,,0,0,0,
+P044,github.com/aristanetworks/cloudvision-python,cryptography,exact pin,LH008,read,39db5a8cc8a3,2,0,4,reads the pin,,,1 1 5 6,2,1,1,3
+P045,github.com/ashesh808/z8ter,starlette,exact pin,LH008,read,f982a98c85ee,0,0,0,no CI,none,,,0,0,0,2 3 5 6 to judge
+P046,github.com/ashlesh-t/cognirepo,pyjwt,exact pin,LH008,read,f787323dd4f8,6,0,12,reads the pin,,,6 5 1 5 6 5 5 1 5 1 5 5,3,0,0,1 3
+P047,github.com/ashlesh-t/cognirepo,starlette,exact pin,LH010,read,f787323dd4f8,6,0,12,reads the pin,,,6 5 1 5 6 5 5 1 5 1 5 5,3,0,0,1 3
+P048,github.com/askmanu/acorn,litellm,exact pin,LH009,read,6efcbb4e6b93,3,0,5,nothing of the project's requirements,,,5 5 5 5 5,0,0,0,3
+P049,github.com/asozialesnetzwerk/an-website,tornado,both,LH010,read,e7c0708e149d,4,0,41,reads the pin,mixed,undetermined,1 1 5 1 4 5 5 5 5 5 5 5 5 5 1 1 1 1 1 1 1 1 1 1 5 6 6 6 1 1 1 5 5 5 5 4 6 5 5 5 5,16,16,0,
+P050,github.com/asozialesnetzwerk/an-website,aiohttp,both,LH010,read,d0ff5122f7de,4,0,39,reads the pin,mixed,undetermined,1 1 5 1 4 5 5 5 5 5 5 5 5 5 5 1 1 1 1 1 1 1 5 6 6 1 1 5 5 5 5 4 6 6 5 5 5 5 5,12,12,0,
+P051,github.com/asozialesnetzwerk/an-website,pillow,both,LH009,read,7a5038611dad,4,0,43,reads the pin,mixed,undetermined,1 1 5 1 4 5 5 5 5 5 5 5 5 5 5 1 1 1 1 1 1 1 1 1 5 6 6 1 1 5 5 5 5 5 5 4 6 6 5 5 5 5 5,14,12,0,
+P052,github.com/asozialesnetzwerk/an-website,urllib3,both,LH008,read,1389088b9c4c,4,0,49,reads the pin,mixed,undetermined,1 1 5 1 4 5 5 5 5 5 5 5 5 5 5 4 4 1 1 1 1 1 1 1 5 1 1 1 1 6 6 5 5 5 5 4 6 6 6 6 5 5 5 5 6 6 5 5 5,14,15,0,
+P053,github.com/asozialesnetzwerk/an-website,pyjwt,both,LH008,read,d58d85413d27,4,0,51,reads the pin,mixed,undetermined,1 1 5 1 4 5 5 5 5 5 5 5 5 5 5 6 6 6 5 1 1 1 1 1 1 5 1 1 1 1 6 6 5 5 5 5 4 6 6 6 6 5 5 5 5 6 6 5 5 6 5,13,14,0,
+P054,github.com/asozialesnetzwerk/an-website,soupsieve,both,LH009,read,5bb5e75ec951,4,0,51,reads the pin,mixed,undetermined,1 1 5 1 4 5 5 5 5 5 5 5 5 5 5 6 6 6 5 1 1 1 1 1 1 5 1 1 1 1 6 6 5 5 5 5 4 6 6 6 6 5 5 5 5 6 6 5 5 6 5,13,14,0,
+P055,github.com/atlassian-labs/mcp-compressor,fastmcp,both,LH010,read,93e91426e5d7,2,0,10,reads the pin,,reads the timed lock,1 1 1 1 1 1 1 5 1 1,9,0,0,1 3 5
+P056,github.com/atsign-foundation/at_python,cryptography,both,LH008,read,13510f3b7bfc,7,0,16,reads the pin,,reads the timed lock,5 5 5 5 5 6 5 5 5 1 1 1 1 1 1 5,6,0,0,1 3 6
+P057,github.com/atsign-foundation/at_python,cryptography,both,LH010,read,f63cddf495af,7,0,16,reads the pin,,reads the timed lock,5 5 5 5 5 6 5 5 5 1 1 1 1 1 1 5,6,0,0,1 3 6
+P058,github.com/atsign-foundation/at_python,cryptography,both,LH008,read,84cb43f589a3,7,0,15,reads the pin,,reads the timed lock,5 5 5 5 5 6 5 5 5 1 1 1 1 1 5,5,0,0,1 3 6
+P059,github.com/auditize/auditize,cryptography,lockfile,LH008,read,ac6ccbb3171d,3,0,6,reads the pin,,reads the timed lock,1 1 1 6 5 5,3,1,1,
+P060,github.com/auditize/auditize,mako,lockfile,LH009,read,77712f1306ab,3,0,6,reads the pin,,reads the timed lock,1 1 1 6 5 5,3,1,1,
+P061,github.com/aviolaris/fritzbox-tray,urllib3,exact pin,LH008,read,d5ea80331109,0,0,0,no CI,none,,,0,0,0,3
+P062,github.com/awslabs/mcp,awscli,both,LH010,read,19b1d8cf6029,23,0,41,reads the pin,mixed,reads the timed lock,1 5 5 5 5 5 5 5 5 5 5 5 5 5 5 2 5 5 5 6 5 5 5 5 5 5 5 5 5 5 5 5 5 2 5 2 5 5 5 5 5,1,1,1,
+P063,github.com/bancolombia/devsecops-engine-tools,pyjwt,exact pin,LH008,read,f45c95c1f527,13,0,18,reads the pin,mixed,,5 5 1 5 5 5 5 5 5 5 5 3 1 1 5 5 5 5,3,0,0,
+P064,github.com/bancolombia/devsecops-engine-tools,urllib3,exact pin,LH008,read,a4e683292016,13,0,18,reads the pin,mixed,,5 5 1 5 5 5 5 5 5 5 5 3 1 1 5 5 5 5,3,0,0,
+P065,github.com/barun-saha/slide-deck-ai,gitpython,exact pin,LH009,read,4d3249f6e0ca,3,0,6,reads the pin,,,5 1 1 1 1 5,4,0,0,1
+P066,github.com/bertvanacker/flexengine,urllib3,exact pin,LH008,read,4720a4d09625,0,0,0,no CI,none,,,0,0,0,
+P067,github.com/big-dig-data/celus-pycounter,lxml,lockfile,LH009,read,c3a854b107a8,0,0,0,no CI,none,,,0,0,0,3 5 to judge
+P068,github.com/billkishore/ai-evals,anthropic,lockfile,LH010,read,e7dc6492462e,1,0,2,does not read the pin,,does not,3 3,0,0,0,2 3 5
+P069,github.com/bipsec/bangla-ipa,urllib3,exact pin,LH008,read,d04aebc0159b,0,0,0,no CI,none,,,0,0,0,3
+P070,github.com/birajstha/bids_qc,urllib3,exact pin,LH008,read,423092ed7eba,1,0,1,nothing of the project's requirements,,,5,0,0,0,3
+P071,github.com/blacklanternsecurity/bbot,pyjwt,lockfile,LH008,read,d57a125e5286,7,0,20,reads the pin,,reads the timed lock,1 5 5 1 1 1 1 1 1 1 1 1 1 1 1 1 5 1 6 6,15,2,2,3
+P072,github.com/bmosoluciones/coati-payroll,cryptography,exact pin,LH008,read,2014c4ed4f88,2,0,5,reads the pin,,,5 1 1 1 1,4,0,0,1 2
+P073,github.com/bmosoluciones/now-lms,bleach,exact pin,LH010,read,6fadd46f5bbe,3,0,6,reads the pin,,,5 1 1 1 1 1,5,0,0,
+P074,github.com/bmosoluciones/now-lms,cryptography,exact pin,LH008,read,69701d131705,3,0,6,reads the pin,,,5 1 1 1 1 1,5,0,0,
+P075,github.com/bolajiwahab/pgrubic,gitpython,exact pin,LH009,read,e54a83490888,6,0,32,reads the pin,,,5 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 5 1 5 5 1 5 5 5 1 5 5 5,22,0,0,3
+P076,github.com/boneio-eu/app_bbb,aiohttp,both,LH010,read,65a1c13c5af4,3,0,5,reads the pin,,does not,5 5 5 1 5,1,0,0,3
+P077,github.com/brandenc40/groupme-bot,starlette,lockfile,LH008,read,54b797641d82,1,0,1,undetermined,,undetermined,6,0,0,0,3
+P078,github.com/brightsparklabs/appcli,gitpython,both,LH009,read,21661d3af73d,8,0,8,undetermined,,undetermined,5 5 5 5 5 6 5 5,0,0,0,
+P079,github.com/browser-use/browser-use,python-dotenv,exact pin,LH010,read,0bef817574bc,10,0,29,reads the pin,,,1 5 5 5 6 6 6 6 6 6 6 6 6 1 1 5 1 1 1 5 6 6 5 1 5 5 5 1 1,9,0,0,1 5
+P080,github.com/browser-use/browser-use,aiohttp,exact pin,LH010,read,eee98ff27257,10,0,23,reads the pin,,,1 5 5 5 6 6 6 1 1 5 1 1 1 5 6 6 5 1 5 5 5 1 1,9,0,0,1 5
+P081,github.com/browser-use/browser-use,pillow,exact pin,LH009,read,e026a51fd34d,10,0,23,reads the pin,,,1 5 5 5 6 6 6 1 1 5 1 1 1 5 6 6 5 1 5 5 5 1 1,9,0,0,1 5
+P082,github.com/bugsec-official/atomicshop,cryptography,exact pin,LH008,read,f65f679ea13d,0,0,0,no CI,none,,,0,0,0,1 3 5
+P083,github.com/buvis/mkdocs-zettelkasten,gitpython,lockfile,LH009,read,b96272d381ad,4,0,13,reads the pin,,reads the timed lock,1 5 1 1 1 1 1 1 1 1 5 5 5,9,0,0,1 3
+P084,github.com/calebevans/cordon,litellm,lockfile,LH009,read,d9a8c02a45bd,2,0,9,does not read the pin,,does not,2 2 2 2 2 5 5 5 5,0,0,0,2 3 5
+P085,github.com/camptocamp/c2cciutils,pip,exact pin,LH010,read,7cd85a0946fd,2,0,3,does not read the pin,,,2 2 5,0,0,0,5
+P086,github.com/camptocamp/c2cciutils,urllib3,lockfile,LH008,read,26024ddde533,2,0,3,does not read the pin,,does not,2 2 5,0,0,0,5
+P087,github.com/cboin1996/songbird,httplib2,lockfile,LH010,read,60ed6343815e,5,0,11,reads the pin,,reads the timed lock,5 5 1 1 5 5 5 5 5 1 1,4,0,0,1 3 5 to judge
+P088,github.com/cboin1996/songbirdcore,httplib2,lockfile,LH010,read,0e7c8d7ffced,5,0,13,reads the pin,,reads the timed lock,5 1 1 5 5 5 5 1 1 1 1 1 5,7,0,0,1 3 to judge
+P089,github.com/cedadev/nlds,cryptography,exact pin,LH008,read,53b1d6276c5e,1,0,4,reads the pin,,,1 1 5 5,2,0,0,5
+P090,github.com/cgoldberg/githubtakeout,gitpython,exact pin,LH009,read,e6aa6b802336,0,0,0,no CI,none,,,0,0,0,1 3
+P091,github.com/cgwire/zou,pyjwt,exact pin,LH008,read,e0cd18a35842,2,0,6,reads the pin,,,5 1 5 1 5 6,2,1,1,5
+P092,github.com/channyclaus/seaql,sqlparse,lockfile,LH010,read,d2a5a7b8550d,1,0,2,nothing of the project's requirements,,outside,5 5,0,0,0,3
+P093,github.com/chaoss/grimoirelab,urllib3,lockfile,LH008,read,d1f039bb596c,4,0,24,undetermined,,undetermined,5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 6 6 6 6 5 5,0,4,0,
+P094,github.com/chaoss/grimoirelab,cryptography,lockfile,LH008,read,ec8739916528,4,0,24,undetermined,,undetermined,3 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 6 6 6 6 5 5,0,4,0,
+P095,github.com/chaoss/grimoirelab,pyjwt,lockfile,LH008,read,ec8739916528,4,0,24,undetermined,,undetermined,3 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 6 6 6 6 5 5,0,4,0,
+P096,github.com/chaoss/grimoirelab,urllib3,lockfile,LH008,read,40876fffa809,4,0,24,undetermined,,undetermined,3 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 6 6 6 6 5 5,0,4,0,
+P097,github.com/chaoss/grimoirelab,pyjwt,lockfile,LH008,read,7b52eba56a76,4,0,24,undetermined,,undetermined,3 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 6 6 6 6 5 5,0,4,0,
+P098,github.com/chaoss/grimoirelab,soupsieve,lockfile,LH009,read,7b52eba56a76,4,0,24,undetermined,,undetermined,3 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 6 6 6 6 5 5,0,4,0,
+P099,github.com/chaoss/grimoirelab,cryptography,lockfile,LH008,read,bb5ddfbf0344,4,0,24,undetermined,,undetermined,3 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 6 6 6 6 5 5,0,4,0,
+P100,github.com/chaoss/grimoirelab,pyasn1,lockfile,LH009,read,04ac551c8886,4,0,24,undetermined,,undetermined,3 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 6 6 6 6 5 5,0,4,0,
+P101,github.com/charles-001/dolphie,sqlparse,lockfile,LH010,read,af4e21fae151,1,0,1,reads the pin,,reads the timed lock,1,1,0,0,1 3
+P102,github.com/chenglinpoly/multi-level-agent,litellm,exact pin,LH009,read,ac97e4661597,0,0,0,no CI,none,,,0,0,0,to judge
+P103,github.com/clinicedc/edc,pyjwt,both,LH008,read,6cf9de29682d,0,0,0,no CI,none,,,0,0,0,
+P104,github.com/cloud-custodian/cloud-custodian,cryptography,lockfile,LH010,read,4f993c341361,4,0,17,reads the pin,,reads the timed lock,1 5 1 1 1 1 1 1 1 1 1 1 1 1 1 6 1,15,0,0,
+P105,github.com/cloud-custodian/cloud-custodian,urllib3,lockfile,LH008,read,d3b885e57a0d,4,0,17,reads the pin,,reads the timed lock,1 5 1 1 1 1 1 1 1 1 1 1 1 1 1 6 1,15,0,0,
+P106,github.com/cloud-custodian/cloud-custodian,pyjwt,lockfile,LH008,read,cdd88529d6ec,4,0,17,reads the pin,,reads the timed lock,1 5 1 1 1 1 1 1 1 1 1 1 1 1 1 6 1,15,0,0,
+P107,github.com/codelibs/recotem,starlette,lockfile,LH008,read,b4d6b95a1c41,4,0,11,reads the pin,,reads the timed lock,5 5 5 5 5 1 1 1 1 1 5,5,0,0,1 3
+P108,github.com/codenerix/codenerix-lib,nltk,lockfile,LH010,read,644c1114757f,1,0,3,reads the pin,,reads the timed lock,1 1 1,3,0,0,
+P109,github.com/control-hub/python-package,urllib3,exact pin,LH008,read,7e55905886d7,1,0,1,reads the pin,,,1,1,0,0,3
+P110,github.com/cowofevil/flask-ligand,cryptography,exact pin,LH008,read,ad1b73f9655c,3,0,8,reads the pin,,,5 5 1 1 1 1 1 1,6,0,0,1 3
+P111,github.com/cowrie/cowrie,cryptography,exact pin,LH008,read,5e930f9181ea,6,0,19,reads the pin,mixed,,5 5 5 3 5 3 1 1 1 1 1 1 1 1 1 1 1 1 5,12,0,0,3 5
+P112,github.com/cubert-hyperspectral/cuvis-ai,setuptools,lockfile,LH010,read,02b63ac2a7f8,8,0,18,reads the pin,mixed,reads the timed lock,1 1 1 1 1 1 5 1 5 1 5 1 1 3 5 5 1 5,11,0,0,1 to judge
+P113,github.com/cyberbuff/atomic-red-team-mcp,gitpython,both,LH009,read,8411aba60b26,3,0,12,reads the pin,,reads the timed lock,1 1 1 1 1 1 1 1 1 5 6 5,9,1,1,5
+P114,github.com/cytomine/cytomine,urllib3,both,LH008,read,a7606a557c53,13,0,28,reads the pin,,reads the timed lock,5 5 1 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 1 5 5 1 5 5 5,3,0,0,5
+P115,github.com/dais-project/dais-sdk,starlette,lockfile,LH008,read,803c042200db,5,0,6,reads the pin,,reads the timed lock,5 5 5 5 5 1,1,0,0,1 3 5
+P116,github.com/dana-id/dana-python,urllib3,exact pin,LH008,read,00dd30a56e9e,2,0,12,reads the pin,,,1 1 1 1 1 1 1 1 1 1 5 5,10,0,0,5
+P117,github.com/databiosphere/terra-scientific-pipelines-service-cli,poetry,both,LH010,read,a62d7c14debd,4,0,19,reads the pin,mixed,reads the timed lock,5 5 2 5 5 5 5 5 5 5 5 6 6 5 5 6 5 1 5,1,0,0,1 3
+P118,github.com/dbsmedya/dbs-vector,starlette,lockfile,LH008,read,522fccecdd73,2,0,5,reads the pin,,reads the timed lock,1 5 5 5 5,1,0,0,1
+P119,github.com/dbt-labs/dbt-mcp,pyjwt,lockfile,LH008,read,df1e8ea1a115,6,0,12,reads the pin,,reads the timed lock,1 5 1 1 1 1 5 1 1 1 1 5,9,0,0,
+P120,github.com/ddeutils/ddeutil-observe,pyjwt,exact pin,LH008,read,ee7c2f68cfb1,2,0,8,reads the pin,,,5 5 5 1 1 1 1 1,5,0,0,3
+P121,github.com/deepsense-ai/ragbits,litellm,lockfile,LH009,read,9432ffdc3bb0,12,0,29,reads the pin,,reads the timed lock,5 1 1 1 1 1 5 1 1 5 5 1 5 5 5 6 1 5 5 1 5 5 1 1 1 1 1 1 1,17,0,0,1 3 5
+P122,github.com/derwenai/strwythura,litellm,lockfile,LH009,read,2b57f856aa37,0,0,0,no CI,none,,,0,0,0,2 5
+P123,github.com/devinosolutions/stealth-chrome-devtools-mcp,starlette,lockfile,LH010,read,64a822a54e22,1,0,4,reads the pin,,reads the timed lock,1 1 1 1,4,0,0,1
+P124,github.com/devinosolutions/stealth-chrome-devtools-mcp,mcp,lockfile,LH009,read,dd04fd0d104d,1,0,4,reads the pin,,reads the timed lock,1 1 1 1,4,0,0,1
+P125,github.com/dogstailfarmer/exchanges-wrapper,aiohttp,exact pin,LH009,read,57233a798d18,2,0,2,nothing of the project's requirements,,,5 5,0,0,0,3
+P126,github.com/dogstailfarmer/martin-binance,aiohttp,exact pin,LH009,read,9156d2af3dc3,3,0,3,nothing of the project's requirements,,,5 5 5,0,0,0,
+P127,github.com/e2e-test-quest/uuv,mako,lockfile,LH009,read,870783abbca8,2,0,31,undetermined,,undetermined,5 5 5 5 5 5 5 5 5 5 5 6 6 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5,0,0,0,
+P128,github.com/e2e-test-quest/uuv,python-multipart,lockfile,LH009,read,ededde954f4e,2,0,31,undetermined,,undetermined,5 5 5 5 5 5 5 5 5 5 5 6 6 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5,0,0,0,
+P129,github.com/e2e-test-quest/uuv,soupsieve,lockfile,LH009,read,ff614049a23c,2,0,31,undetermined,,undetermined,5 5 5 5 5 5 5 5 5 5 5 6 6 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5,0,0,0,
+P130,github.com/ed-fi-exchange-oss/lms-toolkit,sqlparse,lockfile,LH010,read,b1266b721cba,21,0,28,reads the pin,mixed,reads the timed lock,6 5 2 2 2 2 1 1 2 2 2 2 2 2 1 1 2 2 2 2 2 2 1 1 2 2 5 1,7,0,0,
+P131,github.com/edalita/chameleoniq,pillow,exact pin,LH009,read,690407dec159,1,0,2,reads the pin,,,1 1,2,0,0,
+P132,github.com/edumfa/edumfa,mako,lockfile,LH009,read,2d58e085c6c6,7,0,13,reads the pin,,reads the timed lock,1 1 5 5 5 5 5 1 1 1 1 5 5,6,0,0,1 5
+P133,github.com/eeems/remarkable-update-image,cryptography,exact pin,LH008,read,41c4479c93f1,1,0,43,undetermined,,,6 6 6 6 6 6 6 6 6 6 6 6 6 6 6 6 6 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5,0,0,0,1 5 6
+P134,github.com/eeems/remarkable-update-image,cryptography,exact pin,LH008,read,6589fc9d80aa,1,0,48,nothing of the project's requirements,,,5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5,0,0,0,5
+P135,github.com/egnyte/cloudimized,pyjwt,exact pin,LH008,read,4ab9e9e85187,4,0,5,reads the pin,,,1 1 5 5 5,2,2,0,3
+P136,github.com/emcek/dcspy,pillow,exact pin,LH009,read,b3f1a0d9e602,13,0,25,reads the pin,,,5 5 1 1 5 1 1 1 1 5 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1,21,0,0,
+P137,github.com/emcek/dcspy,gitpython,exact pin,LH009,read,746f63d8821a,13,0,25,reads the pin,,,5 5 1 1 5 1 1 1 1 5 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1,21,0,0,
+P138,github.com/emilien-mipt/spam_classifier,nltk,both,LH010,read,a409dcc50b7e,2,0,6,reads the pin,,reads the timed lock,1 1 1 5 5 5,3,0,0,1 3 5
+P139,github.com/entelecheia/intronlp-2024,nltk,lockfile,LH010,read,946f3b37e7ad,4,0,4,undetermined,,undetermined,5 6 5 5,0,0,0,
+P140,github.com/eputnam77/docreview360,python-multipart,both,LH009,read,c5147e2e1445,3,0,6,reads the pin,,reads the timed lock,1 5 1 1 1 5,4,0,0,1 3 5
+P141,github.com/eputnam77/docreview360,starlette,lockfile,LH008,read,b8fc1a7a7f39,5,0,9,reads the pin,,reads the timed lock,1 5 1 1 5 1 5 5 5,4,0,0,2 3 5
+P142,github.com/eputnam77/docreview360,bleach,both,LH010,read,4b42b90133fd,5,0,9,reads the pin,,reads the timed lock,1 5 1 1 5 1 5 5 5,4,0,0,1 3 5
+P143,github.com/esphome/esphome,tornado,exact pin,LH010,read,30c8c6870383,17,0,47,reads the pin,,,5 1 5 5 5 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 5 5 5 5 5 5 6 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 6,19,0,0,
+P144,github.com/esphome/esphome,cryptography,exact pin,LH010,read,a075f63b59c6,17,0,48,reads the pin,,,5 1 5 5 5 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 5 5 5 5 5 5 6 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 6,20,0,0,
+P145,github.com/esphome/esphome,pillow,exact pin,LH009,read,fbfb5d401f99,17,0,48,reads the pin,,,5 1 5 5 5 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 5 5 5 5 5 5 6 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 6,20,0,0,
+P146,github.com/esphome/esphome,cryptography,exact pin,LH008,read,7533835e044a,20,0,51,reads the pin,,,5 1 5 5 5 5 1 1 1 1 1 6 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 5 5 5 5 5 5 5 5 6 5 5 5 5 5 5 5 5 5 5 5 5 1,24,1,1,
+P147,github.com/eth-brownie/brownie,urllib3,lockfile,LH008,read,f566ce3bbd44,8,0,35,undetermined,,undetermined,6 6 6 6 6 6 6 6 6 6 6 6 6 6 6 6 6 6 6 6 6 6 6 6 6 6 6 6 6 6 6 5 2 5 5,0,4,0,1 3 5
+P148,github.com/ethyca/fides,urllib3,lockfile,LH008,read,c59d98bf48cc,22,0,70,reads the pin,,reads the timed lock,5 1 5 5 1 1 1 1 1 1 1 1 1 1 1 1 5 5 6 1 5 5 5 6 5 1 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 1 1 1 1 1 1 5 5 5 5 1 5 5 5 5 5 1 1 1 1 5 5 5,26,1,1,1 3
+P149,github.com/ethyca/fides,pyjwt,lockfile,LH008,read,2ad72af88fa5,22,0,70,reads the pin,,reads the timed lock,5 1 5 5 1 1 1 1 1 1 1 1 1 1 1 1 5 5 6 1 5 5 5 6 5 1 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 1 1 1 1 1 1 5 5 5 5 1 5 5 5 5 5 1 1 1 1 5 5 5,26,1,1,1 3
+P150,github.com/exodus-privacy/exodus-core,pillow,exact pin,LH009,read,6da2cce6bf3a,2,0,5,reads the pin,,,5 1 1 1 5,3,0,0,1 3
+P151,github.com/fastapi/fastapi,starlette,lockfile,LH008,read,64feaec80244,19,0,33,reads the pin,,reads the timed lock,5 5 1 1 5 1 1 5 5 1 5 5 5 1 1 1 5 5 1 1 6 5 5 1 1 1 1 1 1 5 1 1 1,19,0,0,3
+P152,github.com/florimondmanca/msgpack-asgi,starlette,exact pin,LH008,read,2875e1f0a0d9,0,0,0,no CI,none,,,0,0,0,1 3 5
+P153,github.com/frenetic-be/entree,urllib3,exact pin,LH008,read,8fd1771b0cdb,1,1,2,nothing of the project's requirements,,,5 5,0,0,0,3
+P154,github.com/future-house/ldp,aiohttp,lockfile,LH010,read,cb263a360009,3,0,9,reads the pin,,reads the timed lock,5 5 1 1 1 1 1 1 1,7,0,0,2 5
+P155,github.com/futuresearch/futuresearch-python,litellm,lockfile,LH009,read,aabab0a6eddc,7,0,14,reads the pin,,reads the timed lock,1 1 5 5 1 5 5 5 5 1 5 5 5 5,4,0,0,1 2 5
+P156,github.com/fwquant/fw-pip-test,urllib3,exact pin,LH008,read,77f537a81c6d,0,0,0,no CI,none,,,0,0,0,3 5
+P157,github.com/gabrielsoltz/clauditor,gitpython,exact pin,LH009,read,c4af83227860,5,0,12,reads the pin,,,5 5 1 1 1 5 1 5 1 1 1 1,8,0,0,1 3 5
+P158,github.com/galaxyproject/galaxy,tornado,lockfile,LH010,read,5f29fc5e3d38,38,1,65,reads the pin,mixed,reads the timed lock,6 6 5 5 5 5 5 5 5 2 5 5 5 5 6 6 6 1 6 6 6 1 1 6 6 6 6 6 6 6 6 5 5 1 1 6 6 6 5 1 1 1 6 6 6 6 5 5 5 5 6 6 6 5 1 1 1 5 6 6 6 6 6 1 1,13,0,0,
+P159,github.com/galaxyproject/galaxy,mako,lockfile,LH009,read,2b06d179d95c,40,1,68,reads the pin,mixed,reads the timed lock,6 6 5 5 5 5 5 5 5 2 5 5 5 5 5 6 6 6 1 6 6 6 1 1 6 6 6 6 6 6 6 6 5 5 1 1 6 6 6 5 1 1 1 6 6 6 6 5 5 5 5 5 6 6 6 5 1 1 1 5 6 6 6 6 6 6 1 1,13,0,0,
+P160,github.com/galaxyproject/galaxy,joserfc,lockfile,LH010,read,5a0579d2dee8,40,1,68,reads the pin,mixed,reads the timed lock,6 6 5 5 5 5 5 5 5 2 5 5 5 5 5 6 6 6 1 6 6 6 1 1 6 6 6 6 6 6 6 6 5 5 1 1 6 6 6 5 1 1 1 6 6 6 6 5 5 5 5 5 6 6 6 5 1 1 1 5 6 6 6 6 6 6 1 1,13,0,0,
+P161,github.com/galaxyproject/galaxy,mcp,lockfile,LH009,read,59b15b531423,40,1,68,reads the pin,mixed,reads the timed lock,6 6 5 5 5 5 5 5 5 2 5 5 5 5 5 6 6 6 1 6 6 6 1 1 6 6 6 6 6 6 6 6 5 5 1 1 6 6 6 5 1 1 1 6 6 6 6 5 5 5 5 5 6 6 6 5 1 1 1 5 6 6 6 6 6 6 1 1,13,0,0,
+P162,github.com/galaxyproject/galaxy,cryptography,lockfile,LH008,read,907cbe3ee352,41,1,69,reads the pin,,reads the timed lock,6 6 5 5 5 5 5 5 5 1 5 5 5 5 5 6 6 6 1 6 6 1 1 1 6 6 6 6 6 6 6 6 5 5 1 1 6 6 6 5 1 1 1 6 6 6 6 5 5 5 5 5 6 6 6 5 1 1 1 5 6 6 6 6 6 6 1 1 5,15,0,0,
+P163,github.com/galaxyproject/galaxy,pyasn1,lockfile,LH009,read,bbac30d66bac,41,1,70,reads the pin,,reads the timed lock,6 6 5 5 5 5 5 5 5 5 1 5 5 5 5 5 6 6 6 1 6 6 1 1 1 6 6 6 6 6 6 6 6 5 5 5 1 1 6 6 6 5 1 1 1 6 6 6 6 5 5 5 5 5 6 6 6 1 1 1 5 6 6 6 6 6 6 1 1 5,15,4,4,
+P164,github.com/gam-team/gam,cryptography,exact pin,LH008,read,9590916750f5,6,0,7,reads the pin,,,1 5 5 5 5 5 5,1,0,0,3
+P165,github.com/gam-team/gam,httplib2,exact pin,LH010,read,31b4b70f0fdb,6,0,7,reads the pin,,,1 5 5 5 5 5 5,1,0,0,3
+P166,github.com/gangadhar24377/envio,litellm,lockfile,LH009,read,448be469eb14,1,0,4,reads the pin,,reads the timed lock,1 1 1 1,4,0,0,2 3 5
+P167,github.com/gazbutane/brand_peeker,urllib3,exact pin,LH008,read,15a824b9804e,0,0,0,no CI,none,,,0,0,0,3
+P168,github.com/geonode/geonode,cryptography,exact pin,LH008,read,95f757be6e8f,5,0,13,undetermined,,,5 5 5 6 5 5 5 5 5 5 5 5 5,0,0,0,
+P169,github.com/geonode/geonode,pillow,exact pin,LH009,read,2e61721e39c5,5,0,13,undetermined,,,5 5 5 6 5 5 5 5 5 5 5 5 5,0,0,0,
+P170,github.com/geonode/geonode,urllib3,exact pin,LH008,read,5c0036db6886,5,0,13,undetermined,,,5 5 5 6 5 5 5 5 5 5 5 5 5,0,0,0,
+P171,github.com/gfz/el_paso,gitpython,exact pin,LH009,read,aa2121a174a1,4,0,10,reads the pin,,,1 1 1 1 5 5 1 1 1 1,8,0,0,1
+P172,github.com/giosg/giosgapps_bindings,pyjwt,exact pin,LH008,read,a29f65486f90,0,1,0,no CI,other CI only,,,0,0,0,
+P173,github.com/gisman/geocoder-kr,urllib3,exact pin,LH008,read,23b1b1e5a756,0,0,0,no CI,none,,,0,0,0,3
+P174,github.com/githubsecuritylab/seclab-taskflow-agent,urllib3,exact pin,LH008,read,e51455a3936c,6,0,7,reads the pin,,,1 1 5 5 5 5 1,3,0,0,1 5
+P175,github.com/good0007/nanobot-webui,python-multipart,exact pin,LH009,read,f3cdbae6e372,1,0,1,nothing of the project's requirements,,,5,0,0,0,3 5
+P176,github.com/gsi-fing-udelar/tectonic,cryptography,both,LH010,read,daf03feb09fb,2,0,4,reads the pin,,reads the timed lock,5 1 1 1,3,0,0,3
+P177,github.com/hassio-addons/repository-updater,gitpython,exact pin,LH009,read,425b205d131d,7,0,7,nothing of the project's requirements,,,5 5 5 5 5 5 5,0,0,0,3
+P178,github.com/hemaabokila/lback_framework,mako,exact pin,LH009,read,0410676f5074,0,0,0,no CI,none,,,0,0,0,3
+P179,github.com/hewlettpackard/py-spiffe,pyjwt,lockfile,LH008,read,c6cb9bb8ed10,2,0,6,reads the pin,,reads the timed lock,1 1 1 1 1 5,5,0,0,3 5
+P180,github.com/home-assistant/core,cryptography,exact pin,LH008,read,426213dd2982,12,0,64,reads the pin,mixed,,5 1 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 2 5 6 5 6 5 5 5 5 5 5 5 5 5 1 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 1 6 6 6 6,3,4,4,
+P181,github.com/homeassistant-ai/ha-mcp,fastmcp,both,LH010,read,a5013a7e677d,21,0,51,reads the pin,mixed,reads the timed lock,1 5 5 5 5 5 5 5 5 5 5 1 5 5 5 5 5 1 5 5 5 5 1 5 5 1 1 1 1 1 1 1 5 5 5 5 3 5 5 5 5 5 5 5 5 5 5 5 5 5 5,11,0,0,1
+P182,github.com/homeassistant-ai/ha-mcp,cryptography,both,LH008,read,2c0148ba512a,27,0,63,reads the pin,mixed,reads the timed lock,1 5 5 5 5 5 5 5 5 5 5 5 5 1 5 2 5 5 5 5 5 5 1 1 1 5 5 5 5 1 5 5 5 1 1 1 1 1 1 1 5 5 5 5 3 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5,13,0,0,1
+P183,github.com/hydrolix/mcp-hydrolix,pyjwt,lockfile,LH008,read,77e927caccf8,3,0,6,reads the pin,,reads the timed lock,5 5 5 5 1 1,2,0,0,3
+P184,github.com/i-am-bee/agentstack,cryptography,lockfile,LH008,read,c056473d6149,10,0,14,nothing of the project's requirements,,outside,5 5 5 5 5 5 5 5 5 5 5 5 5 5,0,0,0,to judge
+P185,github.com/i-am-bee/agentstack,pyjwt,lockfile,LH008,read,4df0fef605e2,10,0,14,nothing of the project's requirements,,outside,5 5 5 5 5 5 5 5 5 5 5 5 5 5,0,0,0,to judge
+P186,github.com/i-am-bee/agentstack,starlette,lockfile,LH008,read,89af8855d5b4,8,0,20,undetermined,,undetermined,5 5 6 6 6 6 6 6 6 6 5 5 5 5 5 5 6 6 6 6,0,0,0,to judge
+P187,github.com/i-am-bee/agentstack,urllib3,lockfile,LH008,read,79c786049d39,8,0,20,undetermined,,undetermined,5 5 6 6 6 6 6 6 6 6 5 5 5 5 5 5 6 6 6 6,0,0,0,to judge
+P188,github.com/ibm/guardx,urllib3,both,LH008,read,7edb8ec3e4f3,1,0,2,nothing of the project's requirements,,outside,5 5,0,0,0,3 5 to judge
+P189,github.com/icecube/flarestack,urllib3,both,LH008,read,b7320b2dd60b,6,0,10,reads the pin,,reads the timed lock,5 1 5 1 1 1 1 5 1 1,7,0,0,1 3 5 to judge
+P190,github.com/igrafx/mining-python-sdk,pip,both,LH010,read,99f55277a5c6,5,0,6,reads the pin,mixed,reads the timed lock,2 2 5 1 1 5,2,0,0,1 3
+P191,github.com/imshakil/sinduk,urllib3,both,LH008,read,0d295db0a4d1,5,0,5,reads the pin,,does not,5 5 1 1 1,3,0,0,1 5
+P192,github.com/imshakil/sinduk,cryptography,both,LH008,read,3ce1faf409db,5,0,5,reads the pin,,does not,5 5 1 1 1,3,0,0,1 5
+P193,github.com/indico/indico,mako,lockfile,LH009,read,4422f1d4a99e,6,0,12,reads the pin,,reads the timed lock,6 6 6 6 6 1 1 5 6 5 5 6,2,7,7,
+P194,github.com/indico/indico,bleach,lockfile,LH010,read,978930bed7c0,7,0,13,reads the pin,,reads the timed lock,6 6 6 6 6 1 1 5 6 5 5 6 5,2,7,7,
+P195,github.com/indico/indico,pyasn1,lockfile,LH009,read,d4c8c7127176,7,0,13,reads the pin,,reads the timed lock,6 6 6 6 6 1 1 5 6 5 5 6 5,2,7,7,
+P196,github.com/infaktum/pypublib,lxml,exact pin,LH009,read,fcefdd01810b,2,0,3,reads the pin,,,1 5 5,1,0,0,
+P197,github.com/introlab/opentera,cryptography,exact pin,LH008,read,b0fe8a249769,5,0,5,reads the pin,,,5 6 1 6 5,1,0,0,
+P198,github.com/inviti8/gifanimus,urllib3,exact pin,LH008,read,67869a7d7b14,1,0,1,nothing of the project's requirements,,,5,0,0,0,3
+P199,github.com/iqtlabs/faucetconfrpc,cryptography,both,LH008,read,74c1a9b30f32,4,0,5,reads the pin,,reads the timed lock,5 5 5 5 1,1,0,0,
+P200,github.com/iqtlabs/faucetconfrpc,cryptography,both,LH008,read,573f533e04fd,4,0,5,reads the pin,,reads the timed lock,5 5 5 5 1,1,0,0,
+P201,github.com/irrdnet/irrd,starlette,both,LH008,read,58f9b649fe52,1,1,1,nothing of the project's requirements,,outside,5,0,0,0,
+P202,github.com/isa-tools/isa-api,lxml,lockfile,LH009,read,ee5ba747d38a,2,0,7,reads the pin,,reads the timed lock,1 1 1 1 1 5 1,6,0,0,1 5
+P203,github.com/iterorganization/imas-mcp,starlette,lockfile,LH008,read,8e1edf9794a4,6,0,13,reads the pin,,reads the timed lock,5 5 1 5 5 5 1 1 1 1 1 1 1,8,0,0,1 5 to judge
+P204,github.com/its-me-abi/frida_down,cryptography,exact pin,LH008,read,97c2b9f3c3be,1,0,1,nothing of the project's requirements,,,5,0,0,0,2 3
+P205,github.com/ivanostanin/lucius-mcp,starlette,both,LH010,read,80b0fdd2a0d7,11,0,15,reads the pin,,reads the timed lock,1 1 5 1 5 5 1 5 1 5 5 5 1 1 5,7,0,0,1
+P206,github.com/jahlives/openssl_encrypt,pillow,lockfile,LH009,read,f2bac787c683,2,0,20,reads the pin,,reads the timed lock,5 5 5 5 1 1 5 5 5 6 6 5 5 5 5 5 5 5 5 5,2,2,2,3 to judge
+P207,github.com/jahtz/pypxml,lxml,lockfile,LH009,read,0ceef15c8711,0,0,0,no CI,none,,,0,0,0,3 to judge
+P208,github.com/jakerslam/pqts,aiohttp,exact pin,LH010,read,2fb1d0921646,9,0,24,reads the pin,mixed,,2 5 5 5 2 2 5 2 5 2 5 5 5 5 5 5 2 5 5 1 5 5 2 5,1,0,0,3 5 6
+P209,github.com/janmaartenvandoorn/laelaps,cryptography,both,LH008,read,ba37d2410c72,4,0,4,reads the pin,,does not,5 5 1 5,1,0,0,1 3 5
+P210,github.com/jantman/biweeklybudget,mako,exact pin,LH009,read,a7f2292c26c3,2,0,10,reads the pin,,,1 6 6 6 6 6 6 6 6 5,1,0,0,3
+P211,github.com/jdraines/specmap,litellm,lockfile,LH009,read,80b2aaecf474,0,0,0,no CI,none,,,0,0,0,
+P212,github.com/jemsbhai/trustgraph-jac,litellm,lockfile,LH009,read,5f52b95cf323,1,0,1,reads the pin,,reads the timed lock,1,1,0,0,3
+P213,github.com/jeremiah-k/meshtastic-matrix-relay,pillow,exact pin,LH009,read,048f6503722b,9,0,11,reads the pin,,,5 6 5 5 5 1 1 5 1 1 1,5,1,1,
+P214,github.com/jeremiah-k/meshtastic-matrix-relay,bleach,exact pin,LH010,read,28790bc80583,9,0,13,reads the pin,,,5 5 5 5 1 1 5 5 1 1 1 1 1,7,0,0,
+P215,github.com/jhpyle/docassemble,cryptography,exact pin,LH008,read,d0bb499de0b3,1,1,2,nothing of the project's requirements,,,5 5,0,0,0,
+P216,github.com/jhpyle/docassemble,pyjwt,exact pin,LH008,read,6c49df31b85d,1,1,2,nothing of the project's requirements,,,5 5,0,0,0,
+P217,github.com/jhpyle/docassemble,nltk,exact pin,LH010,read,c3966b707efa,1,1,2,nothing of the project's requirements,,,5 5,0,0,0,
+P218,github.com/jhpyle/docassemble,python-dotenv,exact pin,LH010,read,c3966b707efa,1,1,2,nothing of the project's requirements,,,5 5,0,0,0,
+P219,github.com/jhpyle/docassemble,cryptography,exact pin,LH010,read,b5d18f160e09,1,1,2,nothing of the project's requirements,,,5 5,0,0,0,
+P220,github.com/jhpyle/docassemble,aiohttp,exact pin,LH010,read,21596b0b6136,1,1,2,nothing of the project's requirements,,,5 5,0,0,0,
+P221,github.com/jhpyle/docassemble,mako,exact pin,LH009,read,e71c93989a87,1,1,2,nothing of the project's requirements,,,5 5,0,0,0,
+P222,github.com/jhpyle/docassemble,urllib3,exact pin,LH008,read,d6d6c5812117,1,1,2,nothing of the project's requirements,,,5 5,0,0,0,
+P223,github.com/jhpyle/docassemble,pyjwt,exact pin,LH008,read,186e8e7a8b2d,1,1,2,nothing of the project's requirements,,,5 5,0,0,0,
+P224,github.com/jhpyle/docassemble,pyasn1,exact pin,LH009,read,758d143b3dde,1,1,2,nothing of the project's requirements,,,5 5,0,0,0,
+P225,github.com/jinjamator/jinjamator,cryptography,exact pin,LH010,read,0758c5710de4,0,0,0,no CI,none,,,0,0,0,3
+P226,github.com/jinjamator/jinjamator,urllib3,exact pin,LH008,read,f4a9298c4504,0,0,0,no CI,none,,,0,0,0,3
+P227,github.com/jinjamator/jinjamator,pyasn1,exact pin,LH009,read,fc93231fa2b5,0,0,0,no CI,none,,,0,0,0,3
+P228,github.com/jl95terceira/project-pytools,cryptography,exact pin,LH008,read,d6fbc8f60f1a,0,0,0,no CI,none,,,0,0,0,
+P229,github.com/jnstockley/bsn,aiohttp,both,LH009,read,dbeb74c233d2,3,0,6,reads the pin,,reads the timed lock,1 1 1 5 5 6,3,1,1,
+P230,github.com/jnstockley/email-to-calendar,pydantic-ai-slim,both,LH010,read,252e3763b8b1,3,0,6,reads the pin,,reads the timed lock,1 1 1 5 5 6,3,1,1,
+P231,github.com/jovijovi/pypepper,cryptography,both,LH008,read,d030bd50b6fe,1,0,5,reads the pin,,does not,1 1 1 1 1,5,0,0,1 5
+P232,github.com/jovijovi/pypepper,pip,both,LH010,read,89e890eaca69,1,0,5,reads the pin,,does not,1 1 1 1 1,5,0,0,1 5
+P233,github.com/jovijovi/pypepper,pip,both,LH010,read,c35568bcc3da,1,0,5,reads the pin,,does not,1 1 1 1 1,5,0,0,1 5
+P234,github.com/jovijovi/pypepper,cryptography,both,LH008,read,c35568bcc3da,1,0,5,reads the pin,,does not,1 1 1 1 1,5,0,0,1 5
+P235,github.com/jqueguiner/whatsapp-desktop-mcp,mcp,both,LH009,read,a103b72a3f34,2,0,5,reads the pin,,reads the timed lock,1 5 5 6 5,1,0,0,1
+P236,github.com/jundi77/stexus,mako,exact pin,LH009,read,ff2bfe4126e4,3,0,6,reads the pin,,,5 5 5 5 1 1,2,0,0,3
+P237,github.com/kagenti/adk,pyjwt,lockfile,LH008,read,3e465e5ca37d,10,0,20,undetermined,,undetermined,5 6 6 6 6 6 6 6 6 5 5 6 5 6 6 6 5 5 5 6,0,0,0,
+P238,github.com/kagenti/adk,starlette,lockfile,LH010,read,3e465e5ca37d,10,0,20,undetermined,,undetermined,5 6 6 6 6 6 6 6 6 5 5 6 5 6 6 6 5 5 5 6,0,0,0,
+P239,github.com/kagenti/adk,pyasn1,lockfile,LH009,read,decc395550fc,10,0,20,undetermined,,undetermined,5 6 6 6 6 6 6 6 6 5 5 6 5 6 6 6 5 5 5 6,0,0,0,
+P240,github.com/kamikaze/python3-commons,lxml,lockfile,LH009,read,ae6686e02800,3,0,5,reads the pin,,reads the timed lock,1 1 5 5 5,2,0,0,
+P241,github.com/katanaml/sparrow,pypdf,exact pin,LH010,read,986e52f50087,0,0,0,no CI,none,,,0,0,0,5 6
+P242,github.com/kenyonxu/superlocalmemory,mcp,exact pin,LH009,read,58f58768a8ff,3,0,5,reads the pin,,,5 1 1 1 1,4,0,0,5
+P243,github.com/kiln-ai/kiln,litellm,lockfile,LH009,read,92076e017b52,11,0,15,reads the pin,,reads the timed lock,1 1 1 1 1 1 5 1 1 5 1 1 1 5 1,12,0,0,1 3
+P244,github.com/klein-business/legal-text-mcp-de,mcp,both,LH009,read,db7cc68b7308,15,0,29,reads the pin,,reads the timed lock,1 1 1 1 1 1 5 1 5 5 5 5 1 1 1 5 5 5 5 1 6 5 5 6 5 5 1 5 5,12,0,0,1 3 5
+P245,github.com/kodamonkey/mcp-server-presto,mcp,both,LH009,read,db7b70b8db14,3,0,5,reads the pin,,reads the timed lock,1 1 1 5 1,4,0,0,1
+P246,github.com/l6e-ai/l6e-mcp,fastmcp,exact pin,LH010,read,ae4260387166,5,0,5,reads the pin,,,5 1 1 1 1,4,0,0,3 5
+P247,github.com/lalit-jayanti/eden-soma-retargeter,gitpython,both,LH009,read,b3ef2708d84b,0,0,0,no CI,none,,,0,0,0,1 5
+P248,github.com/learninghouseservice/learninghouse-monorepo,pyjwt,exact pin,LH008,read,c991a3379893,1,0,4,nothing of the project's requirements,,,5 5 5 5,0,0,0,3
+P249,github.com/lsst-sqre/safir,starlette,lockfile,LH008,read,c92b4a4f8efe,2,0,11,reads the pin,,reads the timed lock,1 1 1 1 5 5 1 1 1 1 5,8,0,0,3
+P250,github.com/luisalejandro/agoras,authlib,exact pin,LH010,read,a18eb448be58,5,0,34,reads the pin,mixed,,5 5 2 1 1 1 1 1 1 1 5 5 5 2 1 1 1 1 1 1 1 5 5 5 5 5 5 5 5 5 5 5 5 5,14,0,0,1 2 3 5 6 to judge
+P251,github.com/marcpage/devops-driver,mako,exact pin,LH009,read,4cbb32135a0b,1,0,1,reads the pin,,,1,1,0,0,3
+P252,github.com/maschmann/mcp-context-memory,fastmcp,both,LH010,read,96522fbadb2c,2,0,2,reads the pin,,reads the timed lock,5 1,1,0,0,
+P253,github.com/masterplanner25/aindy-runtime,starlette,exact pin,LH008,read,cb1a5d896885,2,0,5,reads the pin,,,1 5 5 1 1,3,0,0,1
+P254,github.com/medium-tech/mspec,python-dotenv,exact pin,LH010,read,d7eb33550f5d,0,0,0,no CI,none,,,0,0,0,1 2
+P255,github.com/meekemma/auth-boilerplate,pyjwt,exact pin,LH008,read,95230415ad60,0,0,0,no CI,none,,,0,0,0,
+P256,github.com/melonattacker/threat-thinker,anthropic,both,LH010,read,74ad1b0f5568,3,0,4,reads the pin,,reads the timed lock,1 5 1 1,3,0,0,1 5 to judge
+P257,github.com/meltanolabs/tap-github,pyjwt,lockfile,LH008,read,8f35a7b0859d,2,0,7,does not read the pin,,does not,2 2 2 2 2 5 5,0,0,0,1 3 5
+P258,github.com/meltnoexit/coldfearlngbundler,pillow,both,LH009,read,100d76b1f005,1,0,2,nothing of the project's requirements,,outside,5 5,0,0,0,
+P259,github.com/mergifyio/sql-compare,sqlparse,lockfile,LH010,read,ebc6fb3f0886,2,0,6,reads the pin,,reads the timed lock,1 1 1 1 5 1,5,0,0,3
+P260,github.com/meridianlabs-ai/inspect_harbor,litellm,lockfile,LH009,read,5f49ac99f33c,4,0,12,reads the pin,mixed,reads the timed lock,1 1 1 1 1 1 2 2 5 5 5 1,7,0,0,1 3 5 to judge
+P261,github.com/mervinpraison/praisonai,litellm,lockfile,LH009,read,ffd78f0eb6d4,25,0,46,undetermined,,undetermined,5 5 5 5 2 5 5 6 5 5 5 5 5 5 2 2 2 5 6 6 6 6 5 2 5 2 2 2 2 2 5 2 2 2 2 2 2 2 2 5 2 5 2 5 5 5,0,5,0,3 5
+P262,github.com/metaculus/forecasting-tools,litellm,lockfile,LH009,read,7f7dd2f39645,7,0,69,reads the pin,,reads the timed lock,1 5 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1,68,0,0,
+P263,github.com/microsoft/graphrag,litellm,both,LH009,read,b1f0e6c34583,10,0,11,reads the pin,,reads the timed lock,1 5 1 1 1 1 1 1 1 5 5,8,0,0,
+P264,github.com/mindsdb/mindsdb,python-multipart,exact pin,LH009,read,86be14b66b16,10,0,29,reads the pin,mixed,,5 5 5 5 5 5 5 5 5 2 5 5 5 5 5 5 5 5 5 5 1 5 5 2 2 2 5 6 6,1,2,2,
+P265,github.com/mistralai/mistral-vibe,pyjwt,both,LH008,read,f71bfd3b8cdd,4,0,11,reads the pin,,reads the timed lock,5 1 5 5 5 1 1 1 5 1 5,5,0,0,1 5
+P266,github.com/mistralai/mistral-vibe,starlette,both,LH010,read,f71bfd3b8cdd,4,0,11,reads the pin,,reads the timed lock,5 1 5 5 5 1 1 1 5 1 5,5,0,0,1 5
+P267,github.com/mistralai/mistral-vibe,soupsieve,both,LH009,read,f71bfd3b8cdd,4,0,11,reads the pin,,reads the timed lock,5 1 5 5 5 1 1 1 5 1 5,5,0,0,1 5
+P268,github.com/mistralai/mistral-vibe,mcp,both,LH009,read,ad0d5c952078,4,0,10,reads the pin,,reads the timed lock,5 1 5 5 5 1 1 1 5 1,5,0,0,1 5
+P269,github.com/mistralai/mistral-vibe,pyasn1,both,LH009,read,474a0e4055b2,4,0,10,reads the pin,,reads the timed lock,5 1 5 1 5 1 1 1 5 1,6,0,0,1 5
+P270,github.com/mitchnegus/monopyly,nltk,exact pin,LH010,read,99cd1ea58ed7,0,0,0,no CI,none,,,0,0,0,
+P271,github.com/mlflow/mlflow,starlette,lockfile,LH008,read,5709d813e178,55,0,102,reads the pin,mixed,reads the timed lock,5 5 5 5 5 1 5 5 6 5 5 5 5 1 5 6 2 2 6 5 1 1 5 5 2 5 1 1 1 5 5 5 5 1 5 6 1 1 1 1 6 1 1 1 1 1 1 1 1 1 1 1 1 1 1 5 5 5 5 1 1 1 1 1 1 1 2 6 5 5 5 5 5 5 5 1 5 5 1 1 1 5 5 5 5 2 2 5 2 5 5 6 6 6 2 5 5 5 5 5 5 1,38,7,7,2 5
+P272,github.com/mostafa/django-saml2-auth,pyjwt,both,LH008,read,594fe3f8a4b7,4,0,14,reads the pin,,reads the timed lock,1 1 1 1 1 1 1 1 1 1 1 1 5 5,12,0,0,1 3
+P273,github.com/mshekow/package-version-check-mcp,fastmcp,both,LH010,read,f9adf2ab350e,2,0,3,reads the pin,,reads the timed lock,5 1 5,1,0,0,5
+P274,github.com/mts-ai/openautonlu,tornado,both,LH010,read,4143a46cc9a2,1,0,2,nothing of the project's requirements,,outside,5 5,0,0,0,1 3
+P275,github.com/naavre/naavre-communicator-jupyterlab,pyjwt,exact pin,LH008,read,264409fc3d44,7,0,10,reads the pin,,,6 1 1 1 5 5 5 5 5 1,4,0,0,1 3 5
+P276,github.com/nationallibraryofnorway/maalfrid_toolkit,soupsieve,both,LH009,read,cff3de8472fa,3,0,3,reads the pin,,reads the timed lock,1 1 1,3,0,0,1 3
+P277,github.com/nchain-innovation/chain-gang,cryptography,exact pin,LH008,read,0c8f6d4e1eba,2,0,10,does not read the pin,,,5 5 5 5 5 5 5 5 5 3,0,0,0,3
+P278,github.com/nchain-innovation/chain-gang,cryptography,exact pin,LH008,read,793e37d4da5c,2,0,13,does not read the pin,,,5 5 5 5 5 5 5 5 5 3 3 3 3,0,0,0,3
+P279,github.com/neednlab/cn_pii_anonymization,pillow,both,LH009,read,f4ffb49f1c7c,0,0,0,no CI,none,,,0,0,0,1 to judge
+P280,github.com/neednlab/cn_pii_anonymization,pip,both,LH010,read,039b67e77570,0,0,0,no CI,none,,,0,0,0,1 to judge
+P281,github.com/netflix/lemur,urllib3,lockfile,LH008,read,9b8166aad10c,4,0,10,nothing of the project's requirements,,outside,5 5 5 5 5 5 5 5 5 5,0,0,0,
+P282,github.com/netflix/lemur,pyjwt,lockfile,LH008,read,d6277f366ec6,4,0,10,nothing of the project's requirements,,outside,5 5 5 5 5 5 5 5 5 5,0,0,0,
+P283,github.com/netflix/lemur,pyasn1,lockfile,LH009,read,3a3c2c201d42,4,0,10,nothing of the project's requirements,,outside,5 5 5 5 5 5 5 5 5 5,0,0,0,
+P284,github.com/newyorkcitycouncil/councilcount-py,urllib3,exact pin,LH008,read,82dea8459899,0,0,0,no CI,none,,,0,0,0,3
+P285,github.com/nofusscomputing/centurion_erp,cryptography,lockfile,LH008,read,75eb25a2cc00,4,0,13,undetermined,,undetermined,6 6 6 6 6 6 6 6 6 5 5 6 6,0,0,0,1
+P286,github.com/norfablabs/norfab,tornado,both,LH010,read,66d6be044b3c,1,0,6,nothing of the project's requirements,,outside,5 5 5 5 5 5,0,0,0,
+P287,github.com/nousresearch/hermes-agent,python-dotenv,lockfile,LH010,read,11f5c1ecf016,0,0,0,no CI,none,,,0,0,0,2 5 to judge
+P288,github.com/nousresearch/hermes-agent,pyjwt,both,LH008,read,ba9964ff0d68,14,0,27,reads the pin,,reads the timed lock,5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 6 5 5 5 5 1 1 5 5 5 1,3,0,0,1 5 6
+P289,github.com/nsphung/mcp-snowflake-server,mcp,both,LH009,read,7a693c28b04f,7,0,16,reads the pin,,reads the timed lock,5 5 5 1 5 5 5 5 5 5 6 5 5 5 5 1,2,0,0,1 5
+P290,github.com/nucypher/nucypher,mako,both,LH009,read,547a9646d929,7,0,9,reads the pin,,does not,5 5 1 5 5 5 1 1 1,4,4,0,to judge
+P291,github.com/nvidia/garak,litellm,exact pin,LH009,read,069acbd1f488,11,0,18,reads the pin,,,5 5 1 1 5 5 5 5 1 1 1 1 1 1 5 5 1 1,10,0,0,1 3 5 to judge
+P292,github.com/nvidia/nemo-agent-toolkit,starlette,lockfile,LH008,read,76294609fd71,4,0,18,undetermined,,undetermined,6 6 6 6 6 6 6 6 6 6 5 5 6 6 6 6 6 6,0,0,0,5
+P293,github.com/nvidia/nemo-agent-toolkit,litellm,lockfile,LH009,read,5e893d8a923b,4,0,18,undetermined,,undetermined,6 6 6 6 6 6 6 6 6 6 5 5 6 6 6 6 6 6,0,0,0,5
+P294,github.com/nvidia/nemo-agent-toolkit,urllib3,lockfile,LH008,read,45f4f910b269,4,0,18,undetermined,,undetermined,6 6 6 6 6 6 6 6 6 6 5 5 6 6 6 6 6 6,0,0,0,5
+P295,github.com/ocadotechnology/codeforlife-package-python,pyasn1,lockfile,LH009,read,ad46e0f56c5b,1,0,6,undetermined,,undetermined,6 6 6 5 6 6,0,0,0,to judge
+P296,github.com/ocadotechnology/codeforlife-portal,urllib3,lockfile,LH008,read,f0c3312944fe,5,0,6,reads the pin,,reads the timed lock,1 6 1 5 5 5,2,0,0,
+P297,github.com/ocadotechnology/codeforlife-portal,cryptography,lockfile,LH010,read,16e98aaf080b,5,0,6,reads the pin,,reads the timed lock,1 6 1 5 5 5,2,0,0,
+P298,github.com/ocadotechnology/codeforlife-portal,urllib3,lockfile,LH008,read,5fd0dc821627,5,0,6,reads the pin,,reads the timed lock,1 6 1 5 5 5,2,0,0,
+P299,github.com/ocadotechnology/codeforlife-portal,pyjwt,lockfile,LH008,read,72e719656332,5,0,6,reads the pin,,reads the timed lock,1 6 1 5 5 5,2,0,0,
+P300,github.com/ocadotechnology/codeforlife-portal,setuptools,lockfile,LH010,read,c3610addade1,5,0,6,reads the pin,,reads the timed lock,1 6 1 5 5 5,2,0,0,
+P301,github.com/ocadotechnology/codeforlife-portal,pyasn1,lockfile,LH009,read,c1557c335aeb,5,0,6,reads the pin,,reads the timed lock,1 6 1 5 5 5,2,0,0,
+P302,github.com/ocadotechnology/codeforlife-portal,sqlparse,lockfile,LH010,read,65c4db95226f,5,0,6,reads the pin,,reads the timed lock,1 6 1 5 5 5,2,0,0,
+P303,github.com/ocadotechnology/rapid-router,pyasn1,lockfile,LH009,read,49256b6b92c9,5,0,6,reads the pin,,reads the timed lock,1 6 1 6 5 5,2,0,0,
+P304,github.com/oharatech/aksesa-cli,aiohttp,both,LH010,read,5d5cfa24e02f,13,0,34,reads the pin,,reads the timed lock,5 1 1 1 1 1 5 5 1 1 1 1 1 1 1 1 1 1 1 5 5 5 1 5 1 5 5 5 5 1 5 5 5 5,19,0,0,1 5
+P305,github.com/okkymabruri/news-watch,aiohttp,both,LH010,read,3c4548ec6360,3,0,8,reads the pin,,reads the timed lock,5 5 5 5 1 1 1 1,4,0,0,3
+P306,github.com/oneidentity/bldr,urllib3,lockfile,LH008,read,56818e2e714e,3,0,6,reads the pin,,reads the timed lock,5 6 6 6 6 1,1,4,4,
+P307,github.com/opea-project/genaicomps,cryptography,lockfile,LH008,read,8130a3fb9cd8,25,0,40,undetermined,,undetermined,5 5 5 5 6 5 5 5 5 5 5 5 5 5 5 2 5 5 5 5 6 5 5 5 5 5 5 5 5 5 5 5 5 6 5 5 5 5 5 5,0,0,0,3 to judge
+P308,github.com/open-mpic/open-mpic-core-python,cryptography,exact pin,LH010,read,5bf677ed79ba,1,0,1,reads the pin,,,1,1,0,0,3
+P309,github.com/open-mpic/open-mpic-core-python,aiohttp,exact pin,LH010,read,5bf677ed79ba,1,0,1,reads the pin,,,1,1,0,0,3
+P310,github.com/open-webui/open-webui,nltk,both,LH010,read,1ac3dd4a893e,6,0,19,nothing of the project's requirements,,outside,5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5,0,0,0,3
+P311,github.com/open-webui/open-webui,anthropic,both,LH010,read,9bd84258d09e,5,0,17,nothing of the project's requirements,,outside,5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5,0,0,0,3
+P312,github.com/open-webui/open-webui,cryptography,both,LH008,read,02dc3e689cea,5,0,22,nothing of the project's requirements,,outside,5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5,0,0,0,3
+P313,github.com/opensanctions/yente,cryptography,exact pin,LH008,read,22d6562c22e9,2,0,6,reads the pin,,,1 1 1 5 1 5,4,0,0,1
+P314,github.com/openwallet-foundation/acapy,pyjwt,lockfile,LH008,read,e52d3c08916c,16,0,31,reads the pin,mixed,reads the timed lock,6 5 5 5 1 5 2 1 1 2 5 5 5 5 5 5 5 5 5 5 5 5 5 2 5 5 1 5 5 5 5,4,0,0,
+P315,github.com/opsmill/infrahub,python-multipart,both,LH009,read,7a97d8e609da,28,0,75,reads the pin,mixed,reads the timed lock,5 1 1 5 1 1 5 5 5 5 5 5 5 1 5 5 5 1 1 5 5 1 2 2 2 2 2 1 1 1 1 1 1 1 1 5 1 1 1 1 1 5 5 5 1 1 1 5 5 5 5 5 5 5 5 5 5 5 1 1 5 5 1 5 6 5 5 6 5 5 1 6 5 6 1,29,3,3,
+P316,github.com/oraios/serena,python-multipart,both,LH009,read,fd3e29ac50e2,6,0,7,reads the pin,,reads the timed lock,5 5 5 1 5 5 1,2,0,0,1 3
+P317,github.com/oraios/serena,starlette,both,LH010,read,981f560fa334,7,0,8,reads the pin,,reads the timed lock,5 5 5 5 1 5 5 1,2,0,0,1 3
+P318,github.com/ornl/opensampl,python-multipart,lockfile,LH009,read,8e3d5a9f7b57,4,0,4,reads the pin,,reads the timed lock,1 1 1 1,4,0,0,1 3 5
+P319,github.com/oscal-compass/compliance-trestle,cryptography,exact pin,LH008,read,e2de2dde5840,8,0,29,reads the pin,mixed,,5 5 5 5 5 1 5 1 1 1 1 1 1 1 6 5 1 6 1 1 1 1 1 1 1 5 2 5 5,16,1,1,1 6
+P320,github.com/osism/netbox-manager,gitpython,both,LH009,read,662aaf2aa87d,0,0,0,no CI,none,,,0,0,0,3 5
+P321,github.com/osism/python-osism,gitpython,both,LH009,read,40921cc40196,1,0,1,nothing of the project's requirements,,outside,5,0,0,0,
+P322,github.com/otakup0pe/avakas,gitpython,exact pin,LH009,read,f7ee0945dacd,2,0,4,undetermined,,,6 6 6 5,0,0,0,
+P323,github.com/otakup0pe/avakas,gitpython,exact pin,LH010,read,f7ee0945dacd,2,0,4,undetermined,,,6 6 6 5,0,0,0,
+P324,github.com/palewire/datawrapper-mcp,fastmcp,both,LH010,read,508cd5338ef0,3,0,13,reads the pin,,reads the timed lock,5 1 1 1 1 1 1 5 5 5 5 5 5,6,0,0,1
+P325,github.com/pantos-io/common,urllib3,lockfile,LH008,read,b64e042a9860,3,0,6,undetermined,,undetermined,6 5 5 5 5 6,0,0,0,1 3 5
+P326,github.com/paulborie/whisperx-nemo-parallel,mako,exact pin,LH009,read,d951f945151a,0,0,0,no CI,none,,,0,0,0,3 6
+P327,github.com/phenobarbital/ai-parrot,urllib3,exact pin,LH008,read,dd4c70085cf5,3,0,20,does not read the pin,,,2 2 2 2 2 2 2 2 2 2 2 5 5 5 5 5 5 5 5 5,0,0,0,2 3 5
+P328,github.com/pibrewing/craftbeerpi4,cryptography,exact pin,LH008,read,0c834b698f74,1,0,2,reads the pin,,,1 5,1,0,0,
+P329,github.com/plone/cookieplone,gitpython,both,LH009,read,ab7d65ac76a8,3,0,10,reads the pin,,reads the timed lock,5 1 5 5 1 1 1 1 1 1,7,0,0,1 3 5 to judge
+P330,github.com/plusuncold/autiobooks,urllib3,lockfile,LH008,read,c76fd84f6229,1,0,3,does not read the pin,,does not,3 3 3,0,0,0,3
+P331,github.com/pollen-robotics/reachy_mini,starlette,lockfile,LH008,read,f7a58c9b7a78,8,0,18,reads the pin,mixed,reads the timed lock,6 6 5 1 1 1 3 3 3 3 3 3 3 3 3 6 5 5,3,0,0,
+P332,github.com/pretalx/pretalx,bleach,lockfile,LH010,read,0c271cfd6b09,6,0,15,reads the pin,,reads the timed lock,1 1 1 1 1 5 1 6 5 1 5 1 1 1 1,11,0,0,
+P333,github.com/prodest/mllibprodest,python-dotenv,exact pin,LH010,read,936d66949f3b,0,0,0,no CI,none,,,0,0,0,3 5
+P334,github.com/projectsyn/commodore,gitpython,both,LH009,read,53a7ed44c259,6,0,34,reads the pin,,reads the timed lock,6 6 6 6 6 1 1 1 1 1 1 1 5 5 5 5 5 5 1 1 6 6 6 6 6 5 1 1 1 1 1 1 1 5,16,10,10,1 3 5
+P335,github.com/projectsyn/commodore,pyjwt,both,LH008,read,c3ad72174321,6,0,42,reads the pin,,reads the timed lock,6 6 6 6 6 1 1 1 1 1 1 1 1 1 1 1 5 5 5 5 5 5 1 1 6 6 6 6 6 5 1 1 1 1 1 1 1 1 1 1 1 5,24,10,10,1 3 5
+P336,github.com/prosuite/prosuite-mcp,mcp,exact pin,LH009,read,da6072d12dc3,3,0,3,reads the pin,,,1 1 5,2,0,0,1 5 to judge
+P337,github.com/pwilkin/grizabella,litellm,lockfile,LH009,read,89f1e73e7d4f,1,0,1,reads the pin,,reads the timed lock,1,1,0,0,1 3
+P338,github.com/python-boot/commons-jwt,pyjwt,exact pin,LH008,read,fc6c811dc3bf,0,0,0,no CI,none,,,0,0,0,
+P339,github.com/python-gino/gino-starlette,starlette,lockfile,LH008,read,e83ddfbe70ed,1,0,5,reads the pin,,reads the timed lock,1 1 1 1 1,5,0,0,
+P340,github.com/qualixar/superlocalmemory,mcp,exact pin,LH009,read,58f58768a8ff,3,0,5,reads the pin,,,5 1 1 1 1,4,0,0,3 5
+P341,github.com/quantbelt/jupyter-quant,pip,both,LH010,read,70c4e90001b1,4,0,11,reads the pin,mixed,undetermined,5 5 1 1 1 5 5 2 5 5 6,3,0,0,3 5 to judge
+P342,github.com/quantbelt/jupyter-quant,pip,both,LH010,read,a82fddfc37f2,4,0,11,reads the pin,mixed,undetermined,5 5 1 1 1 5 5 2 5 5 6,3,0,0,3 5 to judge
+P343,github.com/qutech-delft/compute-api-client,urllib3,both,LH008,read,9bda51b93fc5,1,0,1,nothing of the project's requirements,,outside,5,0,0,0,
+P344,github.com/rahmatnazali/pimage,pillow,exact pin,LH009,read,929f329e276f,2,0,2,reads the pin,,,1 5,1,0,0,
+P345,github.com/railtownai/railtracks,litellm,lockfile,LH009,read,bfae26e2f8f1,5,0,13,does not read the pin,,does not,2 5 2 2 2 2 5 2 2 2 2 2 5,0,0,0,1 3 5
+P346,github.com/rakibhossain72/localscan,aiohttp,exact pin,LH010,read,94e009c96870,0,0,0,no CI,none,,,0,0,0,
+P347,github.com/rchapin/rsyncdirector,cryptography,lockfile,LH008,read,f4ee66441263,0,0,0,no CI,none,,,0,0,0,1 2 to judge
+P348,github.com/red-hat-ai-innovation-team/sdg_hub,litellm,lockfile,LH009,read,b0b856ece666,12,0,18,reads the pin,,reads the timed lock,5 5 5 5 5 5 5 1 5 1 5 5 5 5 5 1 1 5,4,0,0,1 2 3 5
+P349,github.com/redhat-performance/cloud-governance,urllib3,exact pin,LH008,read,bbac8d27dd71,3,0,37,reads the pin,mixed,,1 1 1 1 1 5 1 1 1 1 1 5 5 3 5 5 5 5 5 5 5 1 1 1 1 1 5 1 1 1 1 1 1 1 1 1 1,25,0,0,6
+P350,github.com/redimp/otterwiki,mistune,exact pin,LH010,read,7bd01013115a,0,0,0,no CI,none,,,0,0,0,
+P351,github.com/redis/agent-memory-server,litellm,lockfile,LH009,read,85d2a83d53ea,8,0,27,reads the pin,,reads the timed lock,5 5 5 1 1 1 5 5 5 5 5 5 5 5 6 5 5 5 5 1 1 1 1 1 6 5 1,9,1,1,1 3 5
+P352,github.com/reqstool/reqstool-python-poetry-plugin,poetry,exact pin,LH010,read,ff00e385c6fb,7,0,7,reads the pin,,,6 1 6 5 1 5 5,2,0,0,1 5 to judge
+P353,github.com/rgarus/ooresults,mako,exact pin,LH009,read,c863108d5f29,0,0,0,no CI,none,,,0,0,0,
+P354,github.com/ritikk112/sutra,gitpython,exact pin,LH009,read,86914ff6ae07,0,0,0,no CI,none,,,0,0,0,
+P355,github.com/rivm-bioinformatics/gen-epix-api,pyjwt,exact pin,LH008,read,724a2236702a,2,0,7,reads the pin,,,1 5 5 5 5 5 6,1,1,1,1 2 5
+P356,github.com/rivm-bioinformatics/gen-epix-api,urllib3,exact pin,LH008,read,963b288db091,2,0,7,reads the pin,,,1 5 5 5 5 5 6,1,1,1,1 2 5
+P357,github.com/rivm-bioinformatics/gen-epix-api,pyjwt,exact pin,LH008,read,b1d956f6f1db,2,0,7,reads the pin,,,1 5 5 5 5 5 6,1,1,1,1 2 5
+P358,github.com/rlaphoenix/nton,lxml,lockfile,LH009,read,f14dee485bbe,2,0,8,reads the pin,,reads the timed lock,1 1 1 1 1 1 1 1,8,0,0,3
+P359,github.com/rmednitzer/relay-shell,mcp,exact pin,LH009,read,c07672aa663d,7,0,11,reads the pin,,,1 1 1 5 5 1 1 5 1 5 1,7,0,0,1
+P360,github.com/rootly-ai-labs/rootly-mcp-server,fastmcp,both,LH010,read,64798572e05d,3,1,8,reads the pin,,reads the timed lock,1 1 1 1 5 5 5 5,4,0,0,1 5
+P361,github.com/roquerodrigo/midea-dishwasher-api,cryptography,both,LH008,read,b4ac90a93b50,1,0,4,undetermined,,undetermined,6 6 6 6,0,0,0,3
+P362,github.com/roquerodrigo/ttlock-ble,cryptography,lockfile,LH008,read,880f01e76d74,1,0,4,undetermined,,undetermined,6 6 6 6,0,0,0,1 3 to judge
+P363,github.com/rotationalio/guidelight,pyjwt,exact pin,LH008,read,648a9f9cc237,2,0,4,reads the pin,,,1 6 6 6,1,0,0,3
+P364,github.com/sagewai/platform,cryptography,both,LH008,read,f5e6c9aef9d5,15,0,49,reads the pin,mixed,reads the timed lock,5 1 5 1 1 5 5 5 5 5 5 5 5 5 1 1 5 1 2 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 1 6 5 5 5 5 5 5,7,0,0,1 3 to judge
+P365,github.com/saigontechnology/agentcrew,mcp,both,LH009,read,aba034c13d61,5,0,7,nothing of the project's requirements,,outside,5 5 5 5 5 5 5,0,0,0,1 3
+P366,github.com/saintangels/cs-mini-2024z-automl_project_2,urllib3,exact pin,LH008,read,91441d329bed,1,0,1,nothing of the project's requirements,,,5,0,0,0,5
+P367,github.com/samhammerag/sag_py_auth,cryptography,exact pin,LH010,read,0c3892e38321,2,0,2,reads the pin,,,1 5,1,0,0,
+P368,github.com/samr1/fittrackee,mistune,both,LH010,read,80c19816b7a4,7,0,12,reads the pin,,reads the timed lock,5 5 5 5 5 5 5 1 1 6 1 5,3,0,0,5
+P369,github.com/samr1/fittrackee,authlib,both,LH010,read,80c19816b7a4,7,0,12,reads the pin,,reads the timed lock,5 5 5 5 5 5 5 1 1 6 1 5,3,0,0,5
+P370,github.com/samr1/fittrackee,pyjwt,both,LH008,read,680e1e8f4ce4,6,3,10,reads the pin,,reads the timed lock,5 5 5 5 5 5 5 1 6 1,2,0,0,5
+P371,github.com/sciapp/sampledb,pillow,exact pin,LH009,read,fc95ee51f462,1,0,23,reads the pin,,,1 1 5 1 1 1 1 1 1 1 5 1 6 5 5 5 5 5 5 5 5 5 5,10,0,0,
+P372,github.com/sciapp/sampledb,soupsieve,exact pin,LH009,read,a94624049cec,1,0,23,reads the pin,,,1 1 5 1 1 1 1 1 1 1 5 1 6 5 5 5 5 5 5 5 5 5 5,10,0,0,
+P373,github.com/sciapp/sampledb,bleach,exact pin,LH010,read,0aecc69a2bc2,1,0,23,reads the pin,,,1 1 5 1 1 1 1 1 1 1 5 1 6 5 5 5 5 5 5 5 5 5 5,10,0,0,
+P374,github.com/sciapp/sampledb,setuptools,exact pin,LH010,read,61d603fed137,1,0,23,reads the pin,mixed,,1 1 5 1 1 1 1 1 1 1 5 1 6 5 5 5 5 5 5 5 2 5 5,10,0,0,
+P375,github.com/scilifelabdatacentre/dds_cli,cryptography,exact pin,LH008,read,a12b26cf3e7a,12,0,15,reads the pin,,,5 6 5 5 5 6 6 6 1 6 5 1 5 6 5,2,6,6,3 to judge
+P376,github.com/scottconverse/productteam,anthropic,exact pin,LH010,read,8bdac7d79085,3,0,5,reads the pin,,,1 1 1 1 1,5,0,0,1 3
+P377,github.com/scottrbk/forgetful,starlette,lockfile,LH008,read,5fc8650975b3,4,0,5,reads the pin,mixed,reads the timed lock,5 1 2 1 5,2,0,0,1 3 5
+P378,github.com/security-experts-community/py-ptsandbox,aiohttp,lockfile,LH010,read,471ba7c1d072,1,0,2,reads the pin,,reads the timed lock,5 1,1,0,0,1 3 to judge
+P379,github.com/seifreed/euvd-cli,urllib3,exact pin,LH008,read,e9b41c305926,0,0,0,no CI,none,,,0,0,0,1 to judge
+P380,github.com/senatoreg/pyfreeflow,pyjwt,exact pin,LH008,read,7c3101551900,0,0,0,no CI,none,,,0,0,0,
+P381,github.com/shakenfist/kerbside,mako,exact pin,LH009,read,78ebd3f99837,3,0,8,reads the pin,,,1 6 6 1 5 5 5 5,2,0,0,5
+P382,github.com/snowflakedb/snowflake-cli,pyjwt,lockfile,LH008,read,3029b4d29a43,21,0,27,does not read the pin,,does not,2 2 5 5 5 5 5 5 2 2 5 5 5 2 2 2 2 2 2 2 2 2 2 2 2 2 2,0,18,0,3 5 to judge
+P383,github.com/snowflakedb/snowflake-cli,pip,both,LH010,read,83b8ab3a26ea,23,0,24,reads the pin,,does not,1 5 5 1 5 5 5 5 5 5 1 5 5 5 1 1 1 1 1 1 1 1 1 1,13,0,0,1 3 5
+P384,github.com/softwareunderstanding/rsmetacheck-bot,setuptools,lockfile,LH010,read,73c514d6a8b1,4,0,16,reads the pin,,reads the timed lock,1 1 1 1 1 1 5 1 5 5 5 5 5 5 1 5,8,0,0,1 5 to judge
+P385,github.com/solacelabs/solace-agent-mesh,pillow,both,LH009,read,fdce9e48633f,11,0,34,reads the pin,,reads the timed lock,5 5 5 5 6 1 5 5 5 6 5 5 5 5 5 5 6 6 5 6 6 6 1 1 5 1 5 5 5 5 5 5 5 5,4,1,1,1 3 5
+P386,github.com/solacelabs/solace-agent-mesh,python-multipart,both,LH009,read,1fa10a68d067,14,0,53,reads the pin,,reads the timed lock,5 5 5 1 1 5 5 5 5 5 5 5 5 6 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 6 5 5 5 5 5 5 6 6 5 6 6 6 1 1 5 1 5 5 5 5 5 5 5,5,1,1,1 3 5
+P387,github.com/sonocent/daktari,urllib3,exact pin,LH008,read,d5293baf79bf,2,0,6,reads the pin,,,1 1 1 1 1 5,5,0,0,
+P388,github.com/sonocent/daktari,urllib3,both,LH008,read,9f5064aa2632,2,0,5,reads the pin,,does not,1 1 1 1 5,4,0,0,
+P389,github.com/speced/bikeshed,lxml,exact pin,LH009,read,9b97aaefea09,4,0,6,reads the pin,,,6 6 6 1 5 6,1,4,4,
+P390,github.com/spignotti/litresearch,litellm,lockfile,LH009,read,184709c18c6c,2,0,2,reads the pin,,reads the timed lock,1 1,2,0,0,1 3
+P391,github.com/sreejith-r-mohan/cryptknox,cryptography,exact pin,LH010,read,03316d59ca2c,0,0,0,no CI,none,,,0,0,0,3
+P392,github.com/stalot/awesomenations,urllib3,exact pin,LH008,read,bfc354b529c4,0,0,0,no CI,none,,,0,0,0,3
+P393,github.com/stanfordnlp/dspy,litellm,lockfile,LH009,read,940629124348,4,0,18,reads the pin,mixed,reads the timed lock,5 2 2 2 5 5 1 1 1 1 1 1 1 1 1 1 1 1,12,0,0,1 2 3 5 to judge
+P394,github.com/steveyegge/beads,fastmcp,both,LH010,read,dc398f5acc77,7,0,40,nothing of the project's requirements,,outside,5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5,0,1,0,5
+P395,github.com/stuffanthings/qbit_manage,gitpython,both,LH009,read,b326ba6e4484,8,0,14,reads the pin,,does not,5 1 5 5 5 5 5 5 5 1 1 5 5 5,3,0,0,
+P396,github.com/suffolklitlab/docassemble,nltk,exact pin,LH010,read,c3966b707efa,1,1,2,nothing of the project's requirements,,,5 5,0,0,0,
+P397,github.com/suffolklitlab/docassemble,mako,exact pin,LH009,read,adc86ef63b25,3,1,7,nothing of the project's requirements,,,5 5 5 5 5 5 5,0,0,0,
+P398,github.com/suffolklitlab/docassemble,pyasn1,exact pin,LH009,read,d620319de6e9,3,1,7,nothing of the project's requirements,,,5 5 5 5 5 5 5,0,0,0,
+P399,github.com/suitable-adventures/suitable-loop,gitpython,exact pin,LH009,read,e6c142d0fbe6,1,0,2,reads the pin,,,1 5,1,0,0,1
+P400,github.com/superagentxai/superagentx,cryptography,lockfile,LH008,read,2a8c7c74838b,0,0,0,no CI,none,,,0,0,0,3 5
+P401,github.com/supervisely/supervisely,python-multipart,exact pin,LH009,read,4690d8548ae6,11,0,33,reads the pin,,,5 5 5 5 5 5 5 1 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5,1,0,0,3
+P402,github.com/swival/swival,litellm,both,LH009,read,8ec03a676abb,1,0,1,reads the pin,,reads the timed lock,1,1,0,0,3 5
+P403,github.com/szx21023/fastapi-base,urllib3,exact pin,LH008,read,0c8dacf42126,0,0,0,no CI,none,,,0,0,0,5
+P404,github.com/tabsdata/tabsdata,pillow,exact pin,LH009,read,2fe64376c135,2,0,7,undetermined,,,5 5 5 6 5 5 6,0,0,0,3
+P405,github.com/tabsdata/tabsdata,starlette,exact pin,LH010,read,f28476bb1440,2,0,7,undetermined,,,5 5 5 6 5 5 6,0,0,0,3
+P406,github.com/talkinglibrary/talklib,pyjwt,exact pin,LH008,read,6107a228a8d8,2,0,5,reads the pin,,,1 1 1 5 1,4,4,0,3 to judge
+P407,github.com/taylorleese/mcp-toolz,anthropic,both,LH010,read,c12840942814,6,0,12,reads the pin,,reads the timed lock,1 1 1 5 5 5 1 5 5 5 5 5,4,0,0,1 3 5
+P408,github.com/teeay/usable-vibe,pyasn1,both,LH009,read,278a61ec7fba,0,0,0,no CI,none,,,0,0,0,1 3
+P409,github.com/tellor-io/telliot-feeds,urllib3,exact pin,LH008,read,1c8ef10ee1a6,5,0,5,reads the pin,,,1 1 5 5 1,3,0,0,
+P410,github.com/tendenci/tendenci,httplib2,exact pin,LH010,read,91fb8213dfbc,0,1,0,no CI,other CI only,,,0,0,0,
+P411,github.com/tert0/fastapi-framework,python-dotenv,exact pin,LH010,read,aeaa396910f9,4,0,4,nothing of the project's requirements,,,5 5 5 5,0,0,0,3
+P412,github.com/tert0/fastapi-framework,pyjwt,exact pin,LH008,read,9460e49c754c,4,0,4,nothing of the project's requirements,,,5 5 5 5,0,0,0,3
+P413,github.com/thaersaidi/genesismesh,cryptography,exact pin,LH008,read,9b703773ed86,5,0,8,reads the pin,,,1 5 6 1 5 5 5 5,2,0,0,1 3
+P414,github.com/thataverageguy/llm-gate,anthropic,lockfile,LH010,read,31c3a7c6590a,1,0,6,reads the pin,,reads the timed lock,1 1 1 1 5 5,4,0,0,1 3 5
+P415,github.com/thegeeklab/ansible-doctor,gitpython,both,LH009,read,1127dfd09409,0,5,0,no CI,other CI only,,,0,0,0,
+P416,github.com/thegeeklab/git-batch,gitpython,both,LH009,read,ea883e4302a7,0,5,0,no CI,other CI only,,,0,0,0,
+P417,github.com/thelastpickle/cassandra-medusa,pyasn1,both,LH009,read,27688aa9d94e,4,0,20,reads the pin,,reads the timed lock,5 5 1 1 1 5 5 1 1 1 1 1 1 1 1 5 5 1 1 6,13,0,0,1 5
+P418,github.com/theredtower/secure-string-cipher,cryptography,both,LH008,read,44126f19fada,3,0,7,reads the pin,,reads the timed lock,1 1 1 1 5 5 5,4,0,0,1 3
+P419,github.com/thinkst/opencanary,pyasn1,both,LH009,read,3873d125741b,4,0,8,reads the pin,,reads the timed lock,5 5 1 1 1 1 1 5,5,0,0,3 5
+P420,github.com/thuuyen98/pier-qa,cryptography,exact pin,LH008,read,4924cc01deed,0,0,0,no CI,none,,,0,0,0,1 3 5
+P421,github.com/thuuyen98/pier-qa,mako,exact pin,LH009,read,4924cc01deed,0,0,0,no CI,none,,,0,0,0,1 3 5
+P422,github.com/tokmacher/tok,starlette,lockfile,LH008,read,a959f07c1467,6,0,20,reads the pin,,reads the timed lock,1 1 1 1 1 1 1 1 1 1 5 1 5 1 1 5 5 1 5 5,14,0,0,1 2 3 5
+P423,github.com/toluaina/pgsync,sqlparse,lockfile,LH010,read,239c9e216275,3,0,12,reads the pin,,reads the timed lock,5 1 1 1 1 1 1 1 1 1 1 5,10,0,0,3 6
+P424,github.com/traceloop/opentelemetry-mcp-server,starlette,lockfile,LH008,read,28bdb9e55c82,3,0,8,reads the pin,,reads the timed lock,1 1 5 5 5 5 5 6,2,0,0,1 2 5
+P425,github.com/tsunarr/conarr-backend,setuptools,lockfile,LH010,read,ec83ffd20dc8,3,0,12,nothing of the project's requirements,,outside,5 5 5 5 5 5 5 5 5 5 5 5,0,0,0,
+P426,github.com/tvick64889/forgepair,gitpython,lockfile,LH009,read,928bb49c4b5f,10,0,27,reads the pin,,reads the timed lock,5 5 5 5 5 5 5 5 5 5 5 5 1 1 1 1 1 1 1 1 1 1 5 5 5 5 5,10,10,0,1 2 5 6 to judge
+P427,github.com/tvick64889/forgepair,soupsieve,lockfile,LH009,read,5dc9490bb35f,10,0,27,reads the pin,,reads the timed lock,5 5 5 5 5 5 5 5 5 5 5 5 1 1 1 1 1 1 1 1 1 1 5 5 5 5 5,10,10,0,1 2 5 6 to judge
+P428,github.com/tykling/certgrinder,cryptography,exact pin,LH008,read,b2e6cffb4394,2,0,5,reads the pin,,,1 1 1 5 5,3,0,0,
+P429,github.com/ukwhatn/wikidot.py,lxml,lockfile,LH009,read,c9dc67ae4fd2,3,0,13,reads the pin,,reads the timed lock,1 1 1 1 1 1 1 1 1 1 1 1 1,13,0,0,3 to judge
+P430,github.com/ulyssev/c2c_gpx,urllib3,lockfile,LH008,read,af86d91a96a4,1,0,1,reads the pin,,reads the timed lock,1,1,0,0,3
+P431,github.com/unibo-dtm-se-2425-orecchiettetris/orecchiettetris-artifact,poetry,both,LH010,read,9c0fc5386626,1,0,7,reads the pin,mixed,reads the timed lock,1 1 1 1 3 2 2,4,0,0,1 5
+P432,github.com/unitycatalog/unitycatalog,urllib3,lockfile,LH008,read,00a629b9c4cd,15,0,37,reads the pin,mixed,reads the timed lock,5 5 2 5 6 6 5 5 5 5 5 5 5 6 2 6 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 6 6 5,18,2,2,
+P433,github.com/urlbug/codefox-cli,python-dotenv,both,LH010,read,a0739285b664,1,0,2,reads the pin,,does not,1 1,2,0,0,1 3
+P434,github.com/urlbug/codefox-cli,gitpython,both,LH009,read,7b5f855fb6b5,2,0,3,reads the pin,,does not,1 1 5,2,0,0,1 3
+P435,github.com/usnistgov/nemo,cryptography,exact pin,LH008,read,e6ccdc3a7529,0,0,0,no CI,none,,,0,0,0,
+P436,github.com/usnistgov/nemo,cryptography,exact pin,LH010,read,a06186bd10d6,0,0,0,no CI,none,,,0,0,0,
+P437,github.com/usnistgov/nemo,pillow,exact pin,LH009,read,347034daa762,0,0,0,no CI,none,,,0,0,0,
+P438,github.com/usnistgov/nemo,cryptography,exact pin,LH008,read,fd77c5384381,0,0,0,no CI,none,,,0,0,0,
+P439,github.com/usnistgov/nemo-custom-forms,pypdf,exact pin,LH010,read,8469cc2ed37b,1,0,6,reads the pin,,,1 1 1 1 5 5,4,0,0,
+P440,github.com/vahagn-madatyan/0xpwn,litellm,exact pin,LH009,read,15c897712882,2,0,6,reads the pin,,,1 1 1 5 5 5,3,0,0,1 3
+P441,github.com/vahagn-madatyan/policyfoundry,litellm,both,LH009,read,d597a6b68004,3,0,5,nothing of the project's requirements,,outside,5 5 5 5 5,0,0,0,1 3
+P442,github.com/vantage6/vantage6,pyjwt,exact pin,LH008,read,ce838cd24d29,5,0,13,reads the pin,,,5 5 5 5 5 5 5 5 5 5 6 5 1,1,0,0,3
+P443,github.com/vasilistotskas/grooveshop-django-api,cryptography,both,LH008,read,60138e5b22e0,2,0,5,reads the pin,,reads the timed lock,5 1 1 1 5,3,0,0,1
+P444,github.com/vast-ai/vast-cli,cryptography,lockfile,LH010,read,a7aa16c004f4,1,0,1,reads the pin,,reads the timed lock,1,1,0,0,1 5
+P445,github.com/vectorize-io/hindsight,litellm,lockfile,LH009,read,45ffc7fe9038,4,0,52,reads the pin,,reads the timed lock,1 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 1 5 5 1 1 1 1 5 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1,26,0,0,1 3 5
+P446,github.com/vida-nyu/bdi-kit,litellm,exact pin,LH009,read,1cb42ff0aa22,4,0,10,reads the pin,,,1 1 1 1 6 5 5 5 5 5,4,4,0,3 to judge
+P447,github.com/vision-web3-foundation/common,urllib3,lockfile,LH008,read,3fa44a2451a0,3,0,6,undetermined,,undetermined,6 5 5 5 5 6,0,0,0,1 3 5
+P448,github.com/weblateorg/weblate,lxml,lockfile,LH009,read,4e37dd461beb,33,0,46,reads the pin,mixed,reads the timed lock,1 6 5 5 6 5 5 1 5 1 5 5 5 5 5 5 5 5 5 5 1 1 1 1 5 1 5 1 5 1 5 1 5 5 2 1 5 5 1 1 1 1 1 1 1 1,20,2,2,
+P449,github.com/weblateorg/weblate,cryptography,both,LH008,read,3b689ed1d7ce,34,0,47,reads the pin,,reads the timed lock,1 5 6 5 6 5 1 5 1 5 5 5 5 5 5 5 5 5 5 1 1 1 1 5 1 5 1 5 1 5 1 5 5 5 1 5 1 1 5 5 1 1 1 1 1 1 1,21,2,2,
+P450,github.com/weblateorg/weblate,pyasn1,both,LH009,read,4f2c2f527a57,35,0,50,reads the pin,,reads the timed lock,1 5 6 5 6 1 5 1 5 1 5 5 5 5 5 5 5 5 5 5 1 1 1 1 5 1 5 1 5 1 5 1 5 5 5 1 5 1 1 5 5 1 1 1 1 5 5 1 1 1,22,2,2,
+P451,github.com/websolutespa/ws-mark-flow,pyjwt,exact pin,LH008,read,1adb05919fd2,0,0,0,no CI,none,,,0,0,0,1 5 to judge
+P452,github.com/websolutespa/ws-mark-flow,cryptography,exact pin,LH008,read,865292e15d2f,0,0,0,no CI,none,,,0,0,0,1 5 to judge
+P453,github.com/wessexwater/chellow,pypdf,exact pin,LH010,read,b10d186ba4b5,1,0,4,reads the pin,,,1 5 5 5,1,0,0,
+P454,github.com/wimmics/t2s-metrics,nltk,exact pin,LH010,read,528fd8d3266c,0,0,0,no CI,none,,,0,0,0,1 5
+P455,github.com/wwood/singlem,pip,exact pin,LH010,read,79850071d8e6,3,0,4,nothing of the project's requirements,,,5 5 5 5,0,0,0,
+P456,github.com/ynewtime/markitai,litellm,lockfile,LH009,read,16aca0e23ebb,3,0,8,reads the pin,,reads the timed lock,1 1 1 1 5 5 1 5,5,0,0,
+P457,github.com/yths/hoop-diagram,pillow,exact pin,LH009,read,aad87cd825b6,0,0,0,no CI,none,,,0,0,0,3
+P458,github.com/zepben/evolve-sdk-python,pyjwt,exact pin,LH008,read,f50d9080df27,5,0,5,undetermined,,,6 6 6 6 6,0,0,0,1 3
+P459,github.com/zetaalphavector/platform,tornado,exact pin,LH010,read,df8fc3689e3d,1,0,4,undetermined,,,5 6 5 5,0,0,0,3
+P460,github.com/zetaalphavector/platform,gitpython,exact pin,LH009,read,7676a14f68fa,1,0,4,undetermined,,,5 6 5 5,0,0,0,3
+P461,github.com/zetaalphavector/platform,pyjwt,exact pin,LH008,read,96bb95d86fa7,1,0,4,undetermined,,,5 6 5 5,0,0,0,3
+P462,github.com/zetaalphavector/platform,starlette,exact pin,LH010,read,96bb95d86fa7,1,0,4,undetermined,,,5 6 5 5,0,0,0,3
+P463,github.com/zetaalphavector/platform,soupsieve,exact pin,LH009,read,96bb95d86fa7,1,0,4,undetermined,,,5 6 5 5,0,0,0,3
+P464,github.com/zetaalphavector/platform,cryptography,exact pin,LH008,read,96bb95d86fa7,1,0,4,undetermined,,,5 6 5 5,0,0,0,3
+P465,github.com/ziyacivan/django-ai-sdk,litellm,both,LH009,read,4cd5b4c88931,2,0,16,reads the pin,,does not,1 1 1 1 1 1 5 1 1 1 1 1 1 5 5 5,12,0,0,to judge
+P466,github.com/ztamdev/dars-framework,starlette,exact pin,LH010,read,5d3611e922a9,0,0,0,no CI,none,,,0,0,0,3
+P467,gitlab.com/nemo-community/nemo-ce,cryptography,exact pin,LH008,read,b0578312edb7,1,0,15,reads the pin,,,1 1 1 1 1 1 1 1 1 1 1 5 5 5 5,11,0,0,
+P468,gitlab.com/nemo-community/nemo-ce,pillow,exact pin,LH009,read,5d9e751bf19c,1,0,16,reads the pin,,,1 1 1 1 1 1 1 1 1 1 1 1 5 5 5 5,12,0,0,
+P469,gitlab.com/nemo-community/nemo-ce,cryptography,exact pin,LH008,read,493ef54b7952,1,0,15,reads the pin,,,1 1 1 1 1 1 1 1 1 1 1 5 5 5 5,11,0,0,

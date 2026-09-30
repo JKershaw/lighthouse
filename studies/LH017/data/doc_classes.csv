@@ -1,0 +1,1520 @@
+pair_id,path,line,text,class,sub,reason,T_lock
+P001,README.md,59,pip install sovereign,3,,own package sovereign from the index,no
+P001,README.md,83,uv sync,1,,uv sync with lock uv.lock,yes
+P001,README.md,84,uv venv activate,5,no Python install,,no
+P001,README.md,85,uv run <command>,1,,uv run with lock uv.lock,yes
+P001,README.md,92,make run,5,container build only,,no
+P001,README.md,97,make run-daemon,6,script not read,make called at depth 2,no
+P001,README.md,102,make lint,1,,uv run with lock uv.lock,yes
+P001,README.md,107,make unit,5,container build only,,no
+P001,README.md,112,make run-daemon acceptance,6,script not read,make called at depth 2,no
+P002,README.md,39,uv tool install jptrainer,3,,own package jptrainer from the index,no
+P002,README.md,46,pip install jptrainer,3,,own package jptrainer from the index,no
+P003,CONTRIBUTING.md,10,"python -m pip install -e "".[test]""",1,,project .[test] with manifest in T,no
+P003,CONTRIBUTING.md,19,python -m pip install --user pip-tools,5,other named packages only,,no
+P003,README.md,156,python -m pip install --upgrade 360solutions-bc-mcp,3,,own package 360solutions-bc-mcp from the index,no
+P003,README.md,164,python -m pip install -e .,1,,project . with manifest in T,no
+P003,README.md,421,"python -m pip install -e "".[test]""",1,,project .[test] with manifest in T,no
+P004,CONTRIBUTING.md,10,"python -m pip install -e "".[test]""",1,,project .[test] with manifest in T,no
+P004,CONTRIBUTING.md,19,python -m pip install --user pip-tools,5,other named packages only,,no
+P004,README.md,156,python -m pip install --upgrade 360solutions-bc-mcp,3,,own package 360solutions-bc-mcp from the index,no
+P004,README.md,164,python -m pip install -e .,1,,project . with manifest in T,no
+P004,README.md,421,"python -m pip install -e "".[test]""",1,,project .[test] with manifest in T,no
+P005,CONTRIBUTING.md,10,"python -m pip install -e "".[test]""",1,,project .[test] with manifest in T,no
+P005,CONTRIBUTING.md,19,python -m pip install --user pip-tools,5,other named packages only,,no
+P005,README.md,156,python -m pip install --upgrade 360solutions-bc-mcp,3,,own package 360solutions-bc-mcp from the index,no
+P005,README.md,164,python -m pip install -e .,1,,project . with manifest in T,no
+P005,README.md,421,"python -m pip install -e "".[test]""",1,,project .[test] with manifest in T,no
+P006,README.md,68,pip install common-osint-model,3,,own package common-osint-model from the index,no
+P007,README.md,72,pip install common-osint-model,3,,own package common-osint-model from the index,no
+P008,README.md,72,pip install common-osint-model,3,,own package common-osint-model from the index,no
+P009,README.md,49,pip install root-painter-trainer,3,,own package root-painter-trainer from the index,no
+P010,README.md,68,pip install -r requirements.txt,1,,-r requirements.txt,no
+P010,README.md,168,pip install basedpyright,5,other named packages only,,no
+P011,README.md,68,pip install -r requirements.txt,1,,-r requirements.txt,no
+P011,README.md,168,pip install basedpyright,5,other named packages only,,no
+P012,README.md,68,pip install -r requirements.txt,1,,-r requirements.txt,no
+P012,README.md,168,pip install basedpyright,5,other named packages only,,no
+P015,README.md,42,pip install .,1,,project . with manifest in T,no
+P015,README.md,47,pip install -e .,1,,project . with manifest in T,no
+P016,README.md,184,pip install aomaker,3,,own package aomaker from the index,no
+P017,README.md,15,pip install push_service,3,,own package push-service from the index,no
+P018,README.md,41,uv pip install toolguard,3,,own package toolguard from the index,no
+P019,README.md,24,pip install blfs-pm,3,,own package blfs-pm from the index,no
+P020,CONTRIBUTING.md,78,pip install -e .,to judge,,manifest names T file requirements.txt (read pattern yes),no
+P020,CONTRIBUTING.md,84,pip install -r requirements.txt,1,,-r requirements.txt,yes
+P020,CONTRIBUTING.md,90,pip install -r requirements/requirements-dev.txt,1,,-r requirements/requirements-dev.txt,yes
+P020,CONTRIBUTING.md,211,pip install -r requirements-dev.txt,6,would not run,requirements-dev.txt absent at the snapshot,no
+P020,CONTRIBUTING.md,219,pip install pip-tools,5,other named packages only,,no
+P020,README.md,106,python -m pip install aider-install,5,other named packages only,,no
+P021,CONTRIBUTING.md,78,pip install -e .,to judge,,manifest names T file requirements.txt (read pattern yes),no
+P021,CONTRIBUTING.md,84,pip install -r requirements.txt,1,,-r requirements.txt,yes
+P021,CONTRIBUTING.md,90,pip install -r requirements/requirements-dev.txt,2,lock unused,requirements/requirements-dev.txt,no
+P021,CONTRIBUTING.md,211,pip install -r requirements-dev.txt,6,would not run,requirements-dev.txt absent at the snapshot,no
+P021,CONTRIBUTING.md,219,pip install pip-tools,5,other named packages only,,no
+P021,README.md,106,python -m pip install aider-install,5,other named packages only,,no
+P022,CONTRIBUTING.md,78,pip install -e .,to judge,,manifest names T file requirements.txt (read pattern yes),no
+P022,CONTRIBUTING.md,84,pip install -r requirements.txt,1,,-r requirements.txt,yes
+P022,CONTRIBUTING.md,90,pip install -r requirements/requirements-dev.txt,2,lock unused,requirements/requirements-dev.txt,no
+P022,CONTRIBUTING.md,211,pip install -r requirements-dev.txt,6,would not run,requirements-dev.txt absent at the snapshot,no
+P022,CONTRIBUTING.md,219,pip install pip-tools,5,other named packages only,,no
+P022,README.md,106,python -m pip install aider-install,5,other named packages only,,no
+P023,CONTRIBUTING.md,78,pip install -e .,to judge,,manifest names T file requirements.txt (read pattern yes),no
+P023,CONTRIBUTING.md,84,pip install -r requirements.txt,1,,-r requirements.txt,yes
+P023,CONTRIBUTING.md,90,pip install -r requirements/requirements-dev.txt,2,lock unused,requirements/requirements-dev.txt,no
+P023,CONTRIBUTING.md,211,pip install -r requirements-dev.txt,6,would not run,requirements-dev.txt absent at the snapshot,no
+P023,CONTRIBUTING.md,219,pip install pip-tools,5,other named packages only,,no
+P023,README.md,106,python -m pip install aider-install,5,other named packages only,,no
+P024,CONTRIBUTING.md,78,pip install -e .,to judge,,manifest names T file requirements.txt (read pattern yes),no
+P024,CONTRIBUTING.md,84,pip install -r requirements.txt,1,,-r requirements.txt,yes
+P024,CONTRIBUTING.md,90,pip install -r requirements/requirements-dev.txt,1,,-r requirements/requirements-dev.txt,yes
+P024,CONTRIBUTING.md,211,pip install -r requirements-dev.txt,6,would not run,requirements-dev.txt absent at the snapshot,no
+P024,CONTRIBUTING.md,219,pip install pip-tools,5,other named packages only,,no
+P024,README.md,106,python -m pip install aider-install,5,other named packages only,,no
+P025,CONTRIBUTING.md,78,pip install -e .,to judge,,manifest names T file requirements.txt (read pattern yes),no
+P025,CONTRIBUTING.md,84,pip install -r requirements.txt,1,,-r requirements.txt,yes
+P025,CONTRIBUTING.md,90,pip install -r requirements/requirements-dev.txt,2,lock unused,requirements/requirements-dev.txt,no
+P025,CONTRIBUTING.md,211,pip install -r requirements-dev.txt,6,would not run,requirements-dev.txt absent at the snapshot,no
+P025,CONTRIBUTING.md,219,pip install pip-tools,5,other named packages only,,no
+P025,README.md,106,python -m pip install aider-install,5,other named packages only,,no
+P026,CONTRIBUTING.md,78,pip install -e .,to judge,,manifest names T file requirements.txt (read pattern yes),no
+P026,CONTRIBUTING.md,84,pip install -r requirements.txt,1,,-r requirements.txt,yes
+P026,CONTRIBUTING.md,90,pip install -r requirements/requirements-dev.txt,1,,-r requirements/requirements-dev.txt,yes
+P026,CONTRIBUTING.md,211,pip install -r requirements-dev.txt,6,would not run,requirements-dev.txt absent at the snapshot,no
+P026,CONTRIBUTING.md,219,pip install pip-tools,5,other named packages only,,no
+P026,README.md,106,python -m pip install aider-install,5,other named packages only,,no
+P027,CONTRIBUTING.md,78,pip install -e .,to judge,,manifest names T file requirements.txt (read pattern yes),no
+P027,CONTRIBUTING.md,84,pip install -r requirements.txt,1,,-r requirements.txt,yes
+P027,CONTRIBUTING.md,90,pip install -r requirements/requirements-dev.txt,2,lock unused,requirements/requirements-dev.txt,no
+P027,CONTRIBUTING.md,211,pip install -r requirements-dev.txt,6,would not run,requirements-dev.txt absent at the snapshot,no
+P027,CONTRIBUTING.md,219,pip install pip-tools,5,other named packages only,,no
+P027,README.md,106,python -m pip install aider-install,5,other named packages only,,no
+P028,CONTRIBUTING.md,136,hatch run docs:build,to judge,,hatch: hatch environment type pip-compile,no
+P028,CONTRIBUTING.md,158,hatch run build,to judge,,hatch: hatch environment type pip-compile,no
+P028,CONTRIBUTING.md,164,hatch run publish --user __token__,to judge,,hatch: hatch environment type pip-compile,no
+P029,CONTRIBUTING.md,136,hatch run docs:build,to judge,,hatch: hatch environment type pip-compile,no
+P029,CONTRIBUTING.md,158,hatch run build,to judge,,hatch: hatch environment type pip-compile,no
+P029,CONTRIBUTING.md,164,hatch run publish --user __token__,to judge,,hatch: hatch environment type pip-compile,no
+P030,CONTRIBUTING.rst,69,poetry install,2,lock absent,poetry install without the lock resolves pyproject.toml,no
+P030,CONTRIBUTING.rst,116,"poetry version patch # possible: patch, minor, major, prepatch, preminor, premajor, prerelease",5,no Python install,,no
+P030,README.md,41,pip install starception,3,,own package starception from the index,no
+P030,README.md,43,uv add starception,to judge,,uv add,no
+P030,README.md,51,pip install starception[highlight],3,,own package starception from the index,no
+P030,README.md,53,uv add starception[highlight],to judge,,uv add,no
+P031,README.md,17,pip install starsessions,3,,own package starsessions from the index,no
+P031,README.md,23,pip install starsessions[redis],3,,own package starsessions from the index,no
+P032,README.md,8,pip install allora_sdk,3,,own package allora-sdk from the index,no
+P032,README.md,14,tox,1,,project . with manifest in T,no
+P033,CONTRIBUTING.md,14,uv sync --all-extras,1,,uv sync with lock uv.lock,yes
+P033,CONTRIBUTING.md,36,uv run make test,1,,uv run with lock uv.lock,yes
+P033,CONTRIBUTING.md,41,uv run pytest tests/test_cwl_loop.py,1,,uv run with lock uv.lock,yes
+P033,CONTRIBUTING.md,53,"uv run pytest --deploys local,docker,singularity tests/test_remotepath.py",1,,uv run with lock uv.lock,yes
+P033,CONTRIBUTING.md,64,uv run make format-check flake8 codespell-check,1,,uv run with lock uv.lock,yes
+P033,CONTRIBUTING.md,69,uv run make format codespell,1,,uv run with lock uv.lock,yes
+P033,CONTRIBUTING.md,90,uv run make html,1,,uv run with lock uv.lock,yes
+P033,CONTRIBUTING.md,95,make help,to judge,,make: target help not found in Makefile,no
+P033,CONTRIBUTING.md,106,uv run make checksum,1,,uv run with lock uv.lock,yes
+P033,README.md,20,pip install streamflow,3,,own package streamflow from the index,no
+P035,README.md,28,make install,6,would not run,no Makefile at the root,no
+P035,README.md,71,make upgrade,6,would not run,no Makefile at the root,no
+P035,README.md,72,make install,6,would not run,no Makefile at the root,no
+P035,README.md,73,make test,6,would not run,no Makefile at the root,no
+P035,README.md,94,pip install datadiensten-apikeyclient,3,,own package datadiensten-apikeyclient from the index,no
+P035,README.md,98,pip install 'git+https://github.com/Amsterdam/apikeyserv.git#subdirectory=apikeyclient',5,other named packages only,,no
+P035,README.md,126,pip install -r requirements.txt,6,would not run,requirements.txt absent at the snapshot,no
+P036,README.md,70,uv run frankfurtermcp,1,,uv run with lock uv.lock,yes
+P036,README.md,80,pip install frankfurtermcp,3,,own package frankfurtermcp from the index,no
+P036,README.md,224,uv run --group test pytest tests/,1,,uv run with lock uv.lock,yes
+P038,README.rst,56,python -m pip install -U pip,5,other named packages only,,no
+P038,README.rst,62,python -m pip install ansys-pre-commit-hooks,3,,own package ansys-pre-commit-hooks from the index,no
+P038,README.rst,102,python -m pip install -U pip flit tox twine,5,other named packages only,,no
+P038,README.rst,110,python -m pip install -e .,1,,project . with manifest in T,no
+P038,README.rst,113,python -m pip install -e .[tests],1,,project .[tests] with manifest in T,no
+P038,README.rst,116,python -m pip install -e .[doc],1,,project .[doc] with manifest in T,no
+P038,README.rst,119,"python -m pip install -e .[tests,doc]",1,,"project .[tests,doc] with manifest in T",no
+P038,README.rst,125,tox,1,,project .[doc] with manifest in T,no
+P038,README.rst,168,python -m pip install pre-commit && pre-commit install,5,other named packages only,,no
+P038,README.rst,179,make -C doc/ html && your_browser_name doc/html/index.html,5,no Python install,,no
+P038,README.rst,186,tox -e doc && your_browser_name .tox/doc_out/index.html,1,,project .[doc] with manifest in T,no
+P038,README.rst,197,python -m pip install .,1,,project . with manifest in T,no
+P039,README.rst,56,python -m pip install -U pip,5,other named packages only,,no
+P039,README.rst,62,python -m pip install ansys-pre-commit-hooks,3,,own package ansys-pre-commit-hooks from the index,no
+P039,README.rst,102,python -m pip install -U pip flit tox twine,5,other named packages only,,no
+P039,README.rst,110,python -m pip install -e .,1,,project . with manifest in T,no
+P039,README.rst,113,python -m pip install -e .[tests],1,,project .[tests] with manifest in T,no
+P039,README.rst,116,python -m pip install -e .[doc],1,,project .[doc] with manifest in T,no
+P039,README.rst,119,"python -m pip install -e .[tests,doc]",1,,"project .[tests,doc] with manifest in T",no
+P039,README.rst,125,tox,1,,project .[doc] with manifest in T,no
+P039,README.rst,168,python -m pip install pre-commit && pre-commit install,5,other named packages only,,no
+P039,README.rst,179,make -C doc/ html && your_browser_name doc/html/index.html,5,no Python install,,no
+P039,README.rst,186,tox -e doc && your_browser_name .tox/doc_out/index.html,1,,project .[doc] with manifest in T,no
+P039,README.rst,197,python -m pip install .,1,,project . with manifest in T,no
+P040,README.rst,89,pip install ansys-pyensight-core,3,,own package ansys-pyensight-core from the index,no
+P041,README.md,27,pip install starlette-authlib,3,,own package starlette-authlib from the index,no
+P042,README.md,177,pip install 'apache-airflow==2.10.5' \,to judge,,unparsed package argument 'apache-airflow==2.10.5'; unparsed package argument \,no
+P042,README.md,184,"pip install 'apache-airflow[postgres,google]==2.10.5' \",to judge,,"unparsed package argument 'apache-airflow[postgres,google]==2.10.5'; unparsed package argument \",no
+P044,README.md,19,pip install --upgrade cloudvision,3,,own package cloudvision from the index,no
+P045,README.md,31,uvx --from z8ter z8 new myapp,5,other named packages only,,no
+P045,README.md,38,uv sync              # Install Python dependencies,2,other file,uv sync without the lock resolves pyproject.toml,no
+P045,README.md,42,uv run z8 run dev,2,other file,uv run without the lock resolves pyproject.toml,no
+P045,README.md,50,pip install z8ter,3,,own package z8ter from the index,no
+P045,README.md,55,pip install -r requirements.txt,6,would not run,requirements.txt absent at the snapshot,no
+P045,README.md,70,uvx --from z8ter z8 --help,5,other named packages only,,no
+P045,README.md,73,uv tool install z8ter,3,,own package z8ter from the index,no
+P045,README.md,76,uv add z8ter,to judge,,uv add,no
+P045,README.md,79,pip install z8ter,3,,own package z8ter from the index,no
+P045,README.md,82,pip install z8ter[dev],3,,own package z8ter from the index,no
+P046,CONTRIBUTING.md,13,"pip install -e "".[dev,languages]""",1,,"project .[dev,languages] with manifest in T",no
+P046,README.md,98,pip install cognirepo,3,,own package cognirepo from the index,no
+P046,README.md,101,pip install cognirepo[languages],3,,own package cognirepo from the index,no
+P046,README.md,104,pip install cognirepo[security],3,,own package cognirepo from the index,no
+P047,CONTRIBUTING.md,13,"pip install -e "".[dev,languages]""",1,,"project .[dev,languages] with manifest in T",no
+P047,README.md,98,pip install cognirepo,3,,own package cognirepo from the index,no
+P047,README.md,101,pip install cognirepo[languages],3,,own package cognirepo from the index,no
+P047,README.md,104,pip install cognirepo[security],3,,own package cognirepo from the index,no
+P048,README.md,57,pip install acorn,3,,own package acorn from the index,no
+P055,CONTRIBUTING.md,76,uv sync,1,,uv sync with lock uv.lock,yes
+P055,CONTRIBUTING.md,82,uv run pre-commit install,1,,uv run with lock uv.lock,yes
+P055,CONTRIBUTING.md,98,make check,1,,uv run with lock uv.lock,yes
+P055,CONTRIBUTING.md,104,make test,1,,uv run with lock uv.lock,yes
+P055,CONTRIBUTING.md,111,tox,1,,uv run with lock uv.lock,yes
+P055,README.md,67,pip install mcp-compressor,3,,own package mcp-compressor from the index,no
+P055,README.md,69,uv pip install mcp-compressor,3,,own package mcp-compressor from the index,no
+P055,README.md,80,uvx mcp-compressor uvx mcp-server-fetch,5,other named packages only,,no
+P055,README.md,83,uvx mcp-compressor https://example.com/server/mcp,5,other named packages only,,no
+P055,README.md,86,uvx mcp-compressor https://example.com/server/sse,5,other named packages only,,no
+P056,CONTRIBUTING.md,35,pip install -r requirements.txt,6,would not run,requirements.txt absent at the snapshot,no
+P056,README.md,41,pip install atsdk,3,,own package atsdk from the index,no
+P056,README.md,47,pip install -r requirements.txt,6,would not run,requirements.txt absent at the snapshot,no
+P056,README.md,48,pip install .,1,,project . with manifest in T,no
+P057,CONTRIBUTING.md,35,pip install -r requirements.txt,6,would not run,requirements.txt absent at the snapshot,no
+P057,README.md,41,pip install atsdk,3,,own package atsdk from the index,no
+P057,README.md,47,pip install -r requirements.txt,6,would not run,requirements.txt absent at the snapshot,no
+P057,README.md,48,pip install .,1,,project . with manifest in T,no
+P058,CONTRIBUTING.md,35,pip install -r requirements.txt,6,would not run,requirements.txt absent at the snapshot,no
+P058,README.md,21,pip install atsdk,3,,own package atsdk from the index,no
+P058,README.md,27,pip install -r requirements.txt,6,would not run,requirements.txt absent at the snapshot,no
+P058,README.md,28,pip install .,1,,project . with manifest in T,no
+P061,README.md,33,pip install fritzbox-tray,3,,own package fritzbox-tray from the index,no
+P065,README.md,163,pip install -r requirements.txt,1,,-r requirements.txt,no
+P067,README.rst,25,pip install celus-pycounter,3,,own package celus-pycounter from the index,no
+P067,README.rst,29,pip install [-e] .,to judge,,unparsed package argument [-e],no
+P067,README.rst,90,pip install pre-commit,5,other named packages only,,no
+P068,CONTRIBUTING.md,22,poetry run pytest tests/ -v,5,no Python install,,no
+P068,README.md,22,pip install ai-blackteam,3,,own package ai-blackteam from the index,no
+P068,README.md,29,pip install -e .,2,lock unused,project . (pyproject.toml not in T),no
+P069,README.md,9,pip install bangla-ipa,3,,own package bangla-ipa from the index,no
+P070,README.md,31,pip install CPACqc,3,,own package cpacqc from the index,no
+P071,README.md,15,pipx install bbot,3,,own package bbot from the index,no
+P071,README.md,18,pipx install --pip-args '\--pre' bbot,3,,own package bbot from the index,no
+P072,README.md,87,pip install -r requirements.txt,1,,-r requirements.txt,no
+P072,README.md,319,pip install -r docs.txt,2,other file,docs.txt,no
+P072,README.md,650,pip install -r development.txt,1,,development.txt includes requirements.txt,no
+P075,README.md,40,pip install pgrubic,3,,own package pgrubic from the index,no
+P076,README.md,11,pip3 install --upgrade boneio,3,,own package boneio from the index,no
+P077,README.md,7,pip install groupme-bot,3,,own package groupme-bot from the index,no
+P079,README.md,56,uv init && uv add browser-use && uv sync,1,,uv sync without lock; manifest in T,no
+P079,README.md,131,uvx browser-use init --template default,5,other named packages only,,no
+P079,README.md,141,uvx browser-use init --template default --output my_agent.py,5,other named packages only,,no
+P080,README.md,54,uv init && uv add browser-use && uv sync,1,,uv sync without lock; manifest in T,no
+P080,README.md,155,uvx browser-use init --template default,5,other named packages only,,no
+P080,README.md,165,uvx browser-use init --template default --output my_agent.py,5,other named packages only,,no
+P081,README.md,54,uv init && uv add browser-use && uv sync,1,,uv sync without lock; manifest in T,no
+P081,README.md,155,uvx browser-use init --template default,5,other named packages only,,no
+P081,README.md,165,uvx browser-use init --template default --output my_agent.py,5,other named packages only,,no
+P082,ReadMe.md,72,pip install atomicshop,3,,own package atomicshop from the index,no
+P082,ReadMe.md,81,pip install .,1,,project . with manifest in T,no
+P082,ReadMe.md,87,pip install https://github.com/fireeye/pywintrace/releases/download/v0.3.0/pywintrace-0.3.0-py3-none-any.whl,5,other named packages only,,no
+P082,ReadMe.md,102,pip install psycopg2-binary,5,other named packages only,,no
+P082,ReadMe.md,103,pip install psycopg2,5,other named packages only,,no
+P083,README.md,10,pip install mkdocs-zettelkasten,3,,own package mkdocs-zettelkasten from the index,no
+P083,README.md,16,uv sync                    # install deps,1,,uv sync with lock uv.lock,yes
+P083,README.md,17,uv run playwright install  # install browsers (first time only),1,,uv run with lock uv.lock,yes
+P083,README.md,27,"make test      # ~0.3s, ~430 tests",1,,uv run with lock uv.lock,yes
+P083,README.md,33,"make test-e2e  # ~35s, ~190 tests",1,,uv run with lock uv.lock,yes
+P083,README.md,39,"make run                # default (solarized, validation on)",1,,uv run with lock uv.lock,yes
+P083,README.md,40,make run-selenized      # selenized color scheme,1,,uv run with lock uv.lock,yes
+P083,README.md,41,make run-editor         # markdown editor enabled,1,,uv run with lock uv.lock,yes
+P083,README.md,42,make run-no-validation  # validation disabled,1,,uv run with lock uv.lock,yes
+P083,README.md,43,make run-graph          # knowledge graph enabled,1,,uv run with lock uv.lock,yes
+P083,README.md,44,make run-preview        # hover previews enabled,1,,uv run with lock uv.lock,yes
+P083,README.md,45,make run-math           # math rendering enabled,1,,uv run with lock uv.lock,yes
+P083,README.md,46,make run-no-validation  # validation disabled,1,,uv run with lock uv.lock,yes
+P084,CONTRIBUTING.md,38,"uv pip install -e "".[dev]""",2,lock unused,project .[dev] (pyproject.toml not in T),no
+P084,README.md,31,uv pip install cordon,3,,own package cordon from the index,no
+P084,README.md,34,pip install cordon,3,,own package cordon from the index,no
+P084,README.md,45,uv pip install -e .,2,lock unused,project . (pyproject.toml not in T),no
+P084,README.md,48,pip install -e .,2,lock unused,project . (pyproject.toml not in T),no
+P084,README.md,54,"uv pip install -e "".[dev]""",2,lock unused,project .[dev] (pyproject.toml not in T),no
+P084,README.md,61,"uv pip install -e "".[llama-cpp]""",2,lock unused,project .[llama-cpp] (pyproject.toml not in T),no
+P084,README.md,67,make container-build,5,container build only,,no
+P084,README.md,261,make container-build,5,container build only,,no
+P084,README.md,274,"make container-run DIR=/path/to/logs ARGS=""/logs/system.log""",5,no Python install,,no
+P085,README.md,217,pip install pre-commit,5,other named packages only,,no
+P086,README.md,217,pip install pre-commit,5,other named packages only,,no
+P087,README.md,15,pip install songbirdcli,3,,own package songbirdcli from the index,no
+P087,README.md,41,make volumesinit,5,no Python install,,no
+P087,README.md,163,pip install songbirdcli,3,,own package songbirdcli from the index,no
+P087,README.md,186,make setup,1,,uv run with lock uv.lock,yes
+P087,README.md,194,make requirements,to judge,,make: target requirements not found in Makefile,no
+P087,README.md,205,pip install songbirdcore,5,other named packages only,,no
+P087,README.md,240,make lint,1,,uv run with lock uv.lock,yes
+P088,README.md,24,pip install songbirdcore,3,,own package songbirdcore from the index,no
+P088,README.md,31,python3 -m pip install --index-url https://test.pypi.org/simple/ --extra-index-url https://pypi.org/simple/ songbirdcore,3,,own package songbirdcore from the index,no
+P088,README.md,40,make setup,1,,uv run with lock uv.lock,yes
+P088,README.md,42,make requirements,to judge,,make: target requirements not found in Makefile,no
+P088,README.md,54,make update-requirements,to judge,,make: target update-requirements not found in Makefile,no
+P088,README.md,55,make requirements,to judge,,make: target requirements not found in Makefile,no
+P089,README.md,49,pip install -e ~/Coding/nlds,5,other named packages only,,no
+P089,README.md,55,pip install git+https://github.com/cedadev/nlds.git,5,other named packages only,,no
+P090,README.md,76,pip install githubtakeout,3,,own package githubtakeout from the index,no
+P090,README.md,138,pipx install githubtakeout,3,,own package githubtakeout from the index,no
+P090,README.md,149,pip install .,1,,project . with manifest in T,no
+P091,README.rst,53,pip install pre-commit,5,other named packages only,,no
+P092,README.md,26,pip install seaql,3,,own package seaql from the index,no
+P092,README.md,32,uv tool install seaql,3,,own package seaql from the index,no
+P101,README.md,24,pip install dolphie,3,,own package dolphie from the index,no
+P101,README.md,32,poetry install,1,,poetry install with lock poetry.lock,yes
+P102,README.md,263,pip install -e .,to judge,,manifest names T file requirements.txt (read pattern yes),no
+P107,CONTRIBUTING.md,28,uv sync --all-extras,1,,uv sync with lock uv.lock,yes
+P107,CONTRIBUTING.md,31,uv run pytest tests,1,,uv run with lock uv.lock,yes
+P107,CONTRIBUTING.md,34,uv run ruff check src tests,1,,uv run with lock uv.lock,yes
+P107,CONTRIBUTING.md,35,uv run ruff format src tests,1,,uv run with lock uv.lock,yes
+P107,CONTRIBUTING.md,38,uv run recotem keygen --type signing,1,,uv run with lock uv.lock,yes
+P107,README.md,57,pip install recotem                 # core,3,,own package recotem from the index,no
+P107,README.md,58,"pip install ""recotem[bigquery]""     # BigQuery data source",3,,own package recotem from the index,no
+P107,README.md,59,"pip install ""recotem[metrics]""      # Prometheus metrics endpoint",3,,own package recotem from the index,no
+P107,README.md,60,pip install 'recotem[postgres]'     # PostgreSQL via psycopg,3,,own package recotem from the index,no
+P107,README.md,61,pip install 'recotem[mysql]'        # MySQL/MariaDB via PyMySQL,3,,own package recotem from the index,no
+P107,README.md,62,pip install 'recotem[sqlite]'       # SQLite (stdlib),3,,own package recotem from the index,no
+P107,README.md,63,pip install 'recotem[ga4]'          # Google Analytics 4 Data API,3,,own package recotem from the index,no
+P107,README.md,165,uv sync --all-extras,1,,uv sync with lock uv.lock,yes
+P107,README.md,166,uv run pytest tests,1,,uv run with lock uv.lock,yes
+P107,README.md,167,uv run ruff check src tests,1,,uv run with lock uv.lock,yes
+P109,README.md,12,pip install controlhub,3,,own package controlhub from the index,no
+P110,CONTRIBUTING.rst,30,hatch env create,1,,project . with manifest in T,no
+P110,CONTRIBUTING.rst,47,hatch run test-tox,1,,project . with manifest in T,no
+P110,README.rst,17,pip install flask-ligand,3,,own package flask-ligand from the index,no
+P111,README.rst,78,make docker-build,5,container build only,,no
+P111,README.rst,85,pip install cowrie,3,,own package cowrie from the index,no
+P112,README.md,41,uv add cuvis-ai,to judge,,uv add,no
+P112,README.md,49,uv sync,1,,uv sync with lock uv.lock,yes
+P113,README.md,35,uvx atomic-red-team-mcp,5,other named packages only,,no
+P114,CONTRIBUTING.md,68,make start-dev <key-service-1> <key-service-2> ...,5,no Python install,,no
+P114,CONTRIBUTING.md,88,make start-dev ui,5,no Python install,,no
+P114,CONTRIBUTING.md,94,make start-dev ae core ui,5,no Python install,,no
+P115,README.md,8,pip install dais_sdk,3,,own package dais-sdk from the index,no
+P115,README.md,15,uv venv,5,no Python install,,no
+P115,README.md,20,uv sync --all-groups,1,,uv sync with lock uv.lock,yes
+P115,README.md,25,uv run pytest,1,,uv run with lock uv.lock,yes
+P116,README.md,14,pip install git+https://github.com/GIT_USER_ID/GIT_REPO_ID.git,5,other named packages only,,no
+P117,CONTRIBUTING.md,8,poetry lock      # only needed if you updated dependencies in pyproject.toml,1,,poetry lock with lock poetry.lock,yes
+P117,CONTRIBUTING.md,9,poetry install,1,,poetry install with lock poetry.lock,yes
+P117,CONTRIBUTING.md,117,poetry install,1,,poetry install with lock poetry.lock,yes
+P117,README.md,22,pip install terralab-cli,3,,own package terralab-cli from the index,no
+P118,README.md,32,uv sync,1,,uv sync with lock uv.lock,yes
+P118,README.md,39,uv sync --extra sql  # DuckDB ingestion,1,,uv sync with lock uv.lock,yes
+P118,README.md,40,uv sync --extra api  # Remote HTTP API ingestion,1,,uv sync with lock uv.lock,yes
+P118,README.md,55,"uv run dbs-vector ingest ""docs/""",1,,uv run with lock uv.lock,yes
+P118,README.md,58,"uv run dbs-vector ingest ""slow_queries.json"" --type sql",1,,uv run with lock uv.lock,yes
+P118,README.md,61,"uv run dbs-vector ingest ""slow_queries.duckdb"" --type sql --rebuild",1,,uv run with lock uv.lock,yes
+P118,README.md,64,"uv run dbs-vector ingest ""https://slow-log-api.internal/api/v1"" --type sql-api",1,,uv run with lock uv.lock,yes
+P118,README.md,67,"uv run dbs-vector ingest ""https://slow-log-api.internal/api/v1"" --type sql-api \",1,,uv run with lock uv.lock,yes
+P118,README.md,76,"uv run dbs-vector search ""What is MLX?""",1,,uv run with lock uv.lock,yes
+P118,README.md,79,"uv run dbs-vector search ""SELECT * FROM users"" --type sql --min-time 1000",1,,uv run with lock uv.lock,yes
+P118,README.md,102,uv run dbs-vector serve,1,,uv run with lock uv.lock,yes
+P118,README.md,113,uv run dbs-vector mcp,1,,uv run with lock uv.lock,yes
+P118,README.md,116,uv run dbs-vector serve   # MCP endpoint: http://127.0.0.1:8000/mcp,1,,uv run with lock uv.lock,yes
+P118,README.md,144,uv run poe check,1,,uv run with lock uv.lock,yes
+P118,README.md,147,uv run poe test-cov,1,,uv run with lock uv.lock,yes
+P120,README.md,29,pip install -U ddeutil-observe,3,,own package ddeutil-observe from the index,no
+P121,CONTRIBUTING.md,15,uv run ruff format,1,,uv run with lock uv.lock,yes
+P121,CONTRIBUTING.md,20,uv run ruff check --fix,1,,uv run with lock uv.lock,yes
+P121,CONTRIBUTING.md,27,uv run mypy .,1,,uv run with lock uv.lock,yes
+P121,CONTRIBUTING.md,34,uv run pytest,1,,uv run with lock uv.lock,yes
+P121,CONTRIBUTING.md,55,uv run scripts/install_git_hooks.py,1,,uv run with lock uv.lock,yes
+P121,README.md,57,pip install ragbits,3,,own package ragbits from the index,no
+P121,README.md,65,pip install ragbits --pre,3,,own package ragbits from the index,no
+P121,README.md,289,uvx create-ragbits-app,5,other named packages only,,no
+P122,README.md,179,poetry update,2,upgrade,poetry update re-resolves,no
+P122,README.md,180,poetry run python3 -m spacy download en_core_web_md,5,no Python install,,no
+P122,README.md,251,poetry run python3 1_er.py,5,no Python install,,no
+P122,README.md,281,poetry run python3 2_sem.py,5,no Python install,,no
+P122,README.md,320,poetry run python3 3_parse.py,5,no Python install,,no
+P122,README.md,434,poetry run python3 5_embed.py,5,no Python install,,no
+P122,README.md,472,poetry run python3 6_vis.py,5,no Python install,,no
+P122,README.md,502,poetry run python3 7_errag.py,5,no Python install,,no
+P122,README.md,517,poetry run streamlit run app.py,5,no Python install,,no
+P123,README.md,143,"uv run pytest -m ""not integration""",1,,uv run with lock uv.lock,yes
+P123,README.md,146,uv run pytest,1,,uv run with lock uv.lock,yes
+P123,README.md,149,uv run pytest -v --tb=short,1,,uv run with lock uv.lock,yes
+P124,README.md,143,"uv run pytest -m ""not integration""",1,,uv run with lock uv.lock,yes
+P124,README.md,146,uv run pytest,1,,uv run with lock uv.lock,yes
+P124,README.md,149,uv run pytest -v --tb=short,1,,uv run with lock uv.lock,yes
+P125,README.md,78,pip install exchanges-wrapper,3,,own package exchanges-wrapper from the index,no
+P125,README.md,87,pip install -U exchanges-wrapper,3,,own package exchanges-wrapper from the index,no
+P132,CONTRIBUTING.md,34,uv sync,1,,uv sync with lock uv.lock,yes
+P132,CONTRIBUTING.md,128,make translate-frontend,5,no Python install,,no
+P132,CONTRIBUTING.md,129,make translate-backend,1,,uv run with lock uv.lock,yes
+P132,README.rst,68,uv sync,1,,uv sync with lock uv.lock,yes
+P133,README.md,43,make # Build wheel and sdist packages in dist/,5,no Python install,,no
+P133,README.md,44,make wheel # Build wheel package in dist/,5,no Python install,,no
+P133,README.md,45,make sdist # Build sdist package in dist/,5,no Python install,,no
+P133,README.md,46,make test # Run unit tests,1,,-r requirements.txt,no
+P133,README.md,47,make install # Build wheel and install it with pipx or pip install --user,6,build argument,dist/⟨EXPR:make⟩,no
+P134,README.md,39,make images,5,no Python install,,no
+P135,README.md,60,pipx install cloudimized,3,,own package cloudimized from the index,no
+P138,README.md,16,uv venv --seed --python 3.13,5,no Python install,,no
+P138,README.md,17,"uv pip install -e "".[dev]""",1,,project .[dev] with manifest in T,no
+P138,README.md,27,make download_data,5,no Python install,,no
+P138,README.md,28,make process_data,1,,uv run with lock uv.lock,yes
+P138,README.md,41,make train,1,,uv run with lock uv.lock,yes
+P138,README.md,63,uv pip install spam-classifier,3,,own package spam-classifier from the index,no
+P138,README.md,71,"uv run python -m spam_classifier.predict ""Free prize! Call now""",1,,uv run with lock uv.lock,yes
+P138,README.md,77,uv run python -m spam_classifier.predict data/processed/test.csv -o results/preds.csv,1,,uv run with lock uv.lock,yes
+P138,README.md,106,uv run pytest tests,1,,uv run with lock uv.lock,yes
+P138,README.md,112,uv run pytest -m quality,1,,uv run with lock uv.lock,yes
+P140,README.md,10,python -m pip install --pre docreview360,3,,own package docreview360 from the index,no
+P140,README.md,11,"python -m pip install --pre ""docreview360[fedstylevalidator]""",3,,own package docreview360 from the index,no
+P140,README.md,30,uv venv --python 3.12,5,no Python install,,no
+P140,README.md,32,"uv pip install -e "".[dev,test,security]""",1,,"project .[dev,test,security] with manifest in T",no
+P140,README.md,48,uv venv --python 3.12,5,no Python install,,no
+P140,README.md,50,"python -m pip install -e "".[dev,test,security]""",1,,"project .[dev,test,security] with manifest in T",no
+P140,README.md,64,"uv pip install -e "".[dev,test,security]""",1,,"project .[dev,test,security] with manifest in T",no
+P140,README.md,70,python -m pip install --pre docreview360,3,,own package docreview360 from the index,no
+P141,README.md,10,python -m pip install --pre docreview360,3,,own package docreview360 from the index,no
+P141,README.md,11,"python -m pip install --pre ""docreview360[fedstylevalidator]""",3,,own package docreview360 from the index,no
+P141,README.md,30,uv venv --python 3.12,5,no Python install,,no
+P141,README.md,32,"uv pip install -e "".[dev,test,security]""",2,lock unused,"project .[dev,test,security] (pyproject.toml,setup.py not in T)",no
+P141,README.md,48,uv venv --python 3.12,5,no Python install,,no
+P141,README.md,50,"python -m pip install -e "".[dev,test,security]""",2,lock unused,"project .[dev,test,security] (pyproject.toml,setup.py not in T)",no
+P141,README.md,64,"uv pip install -e "".[dev,test,security]""",2,lock unused,"project .[dev,test,security] (pyproject.toml,setup.py not in T)",no
+P141,README.md,70,python -m pip install --pre docreview360,3,,own package docreview360 from the index,no
+P142,README.md,15,python -m pip install --pre docreview360,3,,own package docreview360 from the index,no
+P142,README.md,25,"python -m pip install --pre ""docreview360[postgres]""",3,,own package docreview360 from the index,no
+P142,README.md,26,"python -m pip install --pre ""docreview360[ml-cpu]""",3,,own package docreview360 from the index,no
+P142,README.md,27,"python -m pip install --pre ""docreview360[full]""",3,,own package docreview360 from the index,no
+P142,README.md,44,uv venv --python 3.12,5,no Python install,,no
+P142,README.md,46,"uv pip install -e "".[dev,test,security]""",1,,"project .[dev,test,security] with manifest in T",no
+P142,README.md,62,uv venv --python 3.12,5,no Python install,,no
+P142,README.md,64,"python -m pip install -e "".[dev,test,security]""",1,,"project .[dev,test,security] with manifest in T",no
+P142,README.md,78,python -m pip install --pre docreview360,3,,own package docreview360 from the index,no
+P142,README.md,87,"python -m pip install --pre ""docreview360[postgres]""",3,,own package docreview360 from the index,no
+P142,README.md,88,"python -m pip install --pre ""docreview360[worker]""",3,,own package docreview360 from the index,no
+P142,README.md,89,"python -m pip install --pre ""docreview360[ml-cpu]""",3,,own package docreview360 from the index,no
+P142,README.md,90,"python -m pip install --pre ""docreview360[saml]""",3,,own package docreview360 from the index,no
+P142,README.md,96,"uv pip install -e "".[dev,test,security]""",1,,"project .[dev,test,security] with manifest in T",no
+P147,CONTRIBUTING.md,18,pip install -r requirements-dev.txt,1,,-r requirements-dev.txt,yes
+P147,CONTRIBUTING.md,28,pip install pre-commit,5,other named packages only,,no
+P147,README.md,33,python3 -m pip install --user pipx,5,other named packages only,,no
+P147,README.md,34,python3 -m pipx ensurepath,5,no Python install,,no
+P147,README.md,40,pipx install eth-brownie,3,,own package eth-brownie from the index,no
+P147,README.md,46,pipx upgrade eth-brownie,5,no Python install,,no
+P147,README.md,51,pipx install git+https://github.com/eth-brownie/brownie.git@master,5,other named packages only,,no
+P147,README.md,59,pip install eth-brownie,3,,own package eth-brownie from the index,no
+P147,README.md,78,pip install eth-brownie,3,,own package eth-brownie from the index,no
+P147,README.md,125,pip install -e . -r requirements-dev.txt,1,,-r requirements-dev.txt,yes
+P148,README.md,43,uv pip install ethyca-fides,3,,own package ethyca-fides from the index,no
+P148,README.md,51,uv run fides deploy up,1,,uv run with lock uv.lock,yes
+P148,README.md,146,"uv pip install ""ethyca-fides[all]""",3,,own package ethyca-fides from the index,no
+P149,README.md,43,uv pip install ethyca-fides,3,,own package ethyca-fides from the index,no
+P149,README.md,51,uv run fides deploy up,1,,uv run with lock uv.lock,yes
+P149,README.md,146,"uv pip install ""ethyca-fides[all]""",3,,own package ethyca-fides from the index,no
+P150,README.md,16,pip install exodus-core,3,,own package exodus-core from the index,no
+P150,README.md,69,pip install -r requirements.txt,1,,-r requirements.txt,no
+P151,README.md,151,"pip install ""fastapi[standard]""",3,,own package fastapi from the index,no
+P152,CONTRIBUTING.md,14,make install,1,,-r requirements.txt,no
+P152,CONTRIBUTING.md,20,make test,5,no Python install,,no
+P152,CONTRIBUTING.md,26,make format,5,no Python install,,no
+P152,CONTRIBUTING.md,32,make check,5,no Python install,,no
+P152,README.md,24,"pip install ""msgpack-asgi==3.*""",3,,own package msgpack-asgi from the index,no
+P153,README.md,16,pip install entree,3,,own package entree from the index,no
+P154,README.md,64,pip install -e .,2,lock unused,project . (pyproject.toml not in T),no
+P154,README.md,70,"pip install ""ldp[nn]"" ""fhaviary[gsm8k]""",5,other named packages only,,no
+P154,README.md,198,pip install ldp[scg],5,other named packages only,,no
+P155,README.md,195,pip install futuresearch,5,other named packages only,,no
+P155,README.md,203,uv pip install -e .,2,lock unused,project . (pyproject.toml not in T),no
+P155,README.md,204,uv sync,1,,uv sync with lock uv.lock,yes
+P155,README.md,205,uv sync --group case-studies  # for notebooks,1,,uv sync with lock uv.lock,yes
+P155,README.md,237,uv sync,1,,uv sync with lock uv.lock,yes
+P155,README.md,242,uv run pytest                                          # unit tests,1,,uv run with lock uv.lock,yes
+P155,README.md,243,uv run --env-file .env pytest -m integration           # integration tests (requires FUTURESEARCH_API_KEY),1,,uv run with lock uv.lock,yes
+P155,README.md,244,uv run ruff check .                                    # lint,1,,uv run with lock uv.lock,yes
+P155,README.md,245,uv run ruff format .                                   # format,1,,uv run with lock uv.lock,yes
+P155,README.md,246,uv run basedpyright                                    # type check,1,,uv run with lock uv.lock,yes
+P156,README.md,47,pip install --upgrade setuptools wheel twine requests packaging,5,other named packages only,,no
+P156,README.md,94,pip install fw-pip-test,3,,own package fw-pip-test from the index,no
+P156,README.md,97,pip install --upgrade fw-pip-test,3,,own package fw-pip-test from the index,no
+P157,CONTRIBUTING.md,33,"pip install -e "".[dev]""",1,,project .[dev] with manifest in T,no
+P157,README.md,93,pipx install clauditor,3,,own package clauditor from the index,no
+P157,README.md,103,python3 -m pip install --user pipx && pipx ensurepath,5,other named packages only,,no
+P157,README.md,113,"pip install -e "".[dev]""",1,,project .[dev] with manifest in T,no
+P164,README.md,24,pip install gam7,3,,own package gam7 from the index,no
+P165,README.md,24,pip install gam7,3,,own package gam7 from the index,no
+P166,CONTRIBUTING.md,30,uv venv .venv,5,no Python install,,no
+P166,CONTRIBUTING.md,41,"pip install -e "".[dev]""",2,lock unused,project .[dev] (pyproject.toml not in T),no
+P166,README.md,36,pip install envio-ai,3,,own package envio-ai from the index,no
+P167,README.md,18,pip install Brand-Peeker,3,,own package brand-peeker from the index,no
+P171,README.md,59,pip install .,1,,project . with manifest in T,no
+P173,README.md,23,pip install geocoder-kr,3,,own package geocoder-kr from the index,no
+P174,README.md,182,pip install hatch,5,other named packages only,,no
+P174,README.md,183,hatch build,5,no Python install,,no
+P174,README.md,191,hatch run main -p seclab_taskflow_agent.personalities.assistant 'explain modems to me please',1,,project . with manifest in T,no
+P174,README.md,197,hatch run main -t examples.taskflows.example,1,,project . with manifest in T,no
+P174,README.md,203,hatch run main -t examples.taskflows.example_globals -g fruit=apples,1,,project . with manifest in T,no
+P174,README.md,209,hatch run main -t examples.taskflows.example_globals -g fruit=apples -g color=red,1,,project . with manifest in T,no
+P174,README.md,341,hatch run main -p examples.personalities.echo 'echo this message',1,,project . with manifest in T,no
+P174,README.md,513,hatch run main -t examples.taskflows.CVE-2023-2283,1,,project . with manifest in T,no
+P175,README.md,74,pip install nanobot-webui,3,,own package nanobot-webui from the index,no
+P175,README.md,107,uv tool install nanobot-webui,3,,own package nanobot-webui from the index,no
+P175,README.md,215,make up           # docker compose up -d,5,no Python install,,no
+P175,README.md,216,make down         # docker compose down,5,no Python install,,no
+P175,README.md,217,make logs         # follow compose logs,5,no Python install,,no
+P175,README.md,218,make restart      # docker compose restart,5,no Python install,,no
+P175,README.md,219,make build        # build local single-arch image,5,container build only,,no
+P175,README.md,220,make release      # buildx push :<version-from-pyproject> and :latest,5,container build only,,no
+P175,README.md,221,make release VERSION=0.2.7.post4  # override version tag explicitly,5,container build only,,no
+P176,README.md,68,python3 -m pip install tectonic-cyberrange,3,,own package tectonic-cyberrange from the index,no
+P177,README.md,29,pip install repository-updater,3,,own package repository-updater from the index,no
+P178,README.md,127,pip install lback-framework,3,,own package lback-framework from the index,no
+P179,CONTRIBUTING.md,20,uv tool install pre-commit,5,other named packages only,,no
+P179,README.md,30,pip install spiffe,3,,own package spiffe from the index,no
+P179,README.md,31,pip install spiffe-tls,3,,own package spiffe-tls from the index,no
+P181,CONTRIBUTING.md,23,uv sync --group dev,1,,uv sync with lock uv.lock,yes
+P181,CONTRIBUTING.md,24,uv run lefthook install    # Install git hooks,1,,uv run with lock uv.lock,yes
+P181,CONTRIBUTING.md,29,uv run ruff format src/ tests/     # Format,1,,uv run with lock uv.lock,yes
+P181,CONTRIBUTING.md,30,uv run ruff check --fix src/ tests/ # Lint,1,,uv run with lock uv.lock,yes
+P181,CONTRIBUTING.md,31,uv run mypy src/                   # Type check,1,,uv run with lock uv.lock,yes
+P181,CONTRIBUTING.md,32,uv run ast-grep scan               # AST lint (error handling patterns),1,,uv run with lock uv.lock,yes
+P181,CONTRIBUTING.md,42,uv run pre-commit uninstall,1,,uv run with lock uv.lock,yes
+P181,CONTRIBUTING.md,43,uv sync --group dev,1,,uv sync with lock uv.lock,yes
+P181,CONTRIBUTING.md,44,uv run lefthook install --reset-hooks-path,1,,uv run with lock uv.lock,yes
+P182,CONTRIBUTING.md,23,uv sync --group dev,1,,uv sync with lock uv.lock,yes
+P182,CONTRIBUTING.md,24,uv run lefthook install    # Install git hooks,1,,uv run with lock uv.lock,yes
+P182,CONTRIBUTING.md,29,uv run ruff format src/ tests/     # Format,1,,uv run with lock uv.lock,yes
+P182,CONTRIBUTING.md,30,uv run ruff check --fix src/ tests/ # Lint,1,,uv run with lock uv.lock,yes
+P182,CONTRIBUTING.md,31,uv run mypy src/                   # Type check,1,,uv run with lock uv.lock,yes
+P182,CONTRIBUTING.md,32,uv run ast-grep scan               # AST lint (error handling patterns),1,,uv run with lock uv.lock,yes
+P182,CONTRIBUTING.md,42,uv run pre-commit uninstall,1,,uv run with lock uv.lock,yes
+P182,CONTRIBUTING.md,43,uv sync --group dev,1,,uv sync with lock uv.lock,yes
+P182,CONTRIBUTING.md,44,uv run lefthook install --reset-hooks-path,1,,uv run with lock uv.lock,yes
+P183,README.md,45,pip install mcp-hydrolix,3,,own package mcp-hydrolix from the index,no
+P184,README.md,77,uv run server               # Start your agent,to judge,,uv run without a project found,no
+P185,README.md,77,uv run server               # Start your agent,to judge,,uv run without a project found,no
+P186,README.md,91,uv run server               # Start your agent,to judge,,uv run without a project found,no
+P187,README.md,91,uv run server               # Start your agent,to judge,,uv run without a project found,no
+P188,README.md,36,pip install guardx,3,,own package guardx from the index,no
+P188,README.md,42,pip install git+https://github.com/ibm/guardx.git@{branch/tag},5,other named packages only,,no
+P188,README.md,48,pip install git+ssh://git@github.com/ibm/guardx.git@${branch/tag},5,other named packages only,,no
+P188,README.md,69,make init,5,other named packages only,,no
+P188,README.md,78,make install/dev,5,no Python install,,no
+P188,README.md,86,make containers/docker,5,container build only,,no
+P188,README.md,90,make containers/podman,5,container build only,,no
+P188,README.md,103,make test,5,no Python install,,no
+P188,README.md,113,make lint,5,no Python install,,no
+P188,README.md,124,make html,to judge,,make: target html not found in Makefile,no
+P189,README.md,35,poetry add flarestack,to judge,,poetry add,no
+P189,README.md,42,pip install flarestack,3,,own package flarestack from the index,no
+P189,README.md,57,poetry install,1,,poetry install with lock poetry.lock,yes
+P189,README.md,64,poetry install --with dev,1,,poetry install with lock poetry.lock,yes
+P189,README.md,70,"pip install -e "".[dev]""",1,,project .[dev] with manifest in T,no
+P189,README.md,91,conda env create -f conda_env.yml,5,other named packages only,,no
+P190,CONTRIBUTING.md,193,poetry lock,1,,poetry lock with lock poetry.lock,yes
+P190,CONTRIBUTING.md,194,poetry install,1,,poetry install with lock poetry.lock,yes
+P190,README.md,59,pip install igrafx_mining_sdk,3,,own package igrafx-mining-sdk from the index,no
+P191,README.md,48,pip install pipx,5,other named packages only,,no
+P191,README.md,49,pipx ensurepath,5,no Python install,,no
+P191,README.md,52,pipx install pacli-tool,5,other named packages only,,no
+P191,README.md,58,pip install pacli-tool,5,other named packages only,,no
+P191,README.md,82,pip install -e .,1,,project . with manifest in T,no
+P191,README.md,88,pip install git+https://github.com/imshakil/pacli.git,5,other named packages only,,no
+P192,README.md,48,pip install pipx,5,other named packages only,,no
+P192,README.md,49,pipx ensurepath,5,no Python install,,no
+P192,README.md,52,pipx install pacli-tool,5,other named packages only,,no
+P192,README.md,58,pip install pacli-tool,5,other named packages only,,no
+P192,README.md,82,pip install -e .,1,,project . with manifest in T,no
+P192,README.md,88,pip install git+https://github.com/imshakil/pacli.git,5,other named packages only,,no
+P198,README.md,7,pip install gifanimus,3,,own package gifanimus from the index,no
+P202,README.md,94,uv python install 3.13,5,no Python install,,no
+P202,README.md,101,uv python pin 3.13,5,no Python install,,no
+P202,README.md,104,uv sync,1,,uv sync with lock uv.lock,yes
+P202,README.md,107,uv run pre-commit,1,,uv run with lock uv.lock,yes
+P202,README.md,110,uv run lint-imports,1,,uv run with lock uv.lock,yes
+P202,README.md,113,uv run ruff linter,1,,uv run with lock uv.lock,yes
+P202,README.md,116,uv run ruff check,1,,uv run with lock uv.lock,yes
+P202,README.md,119,uv run ruff check --select I,1,,uv run with lock uv.lock,yes
+P202,README.md,122,uv run ruff check --select F841,1,,uv run with lock uv.lock,yes
+P202,README.md,125,uv run ruff check --select I --fix,1,,uv run with lock uv.lock,yes
+P202,README.md,128,uv run ruff format --check,1,,uv run with lock uv.lock,yes
+P202,README.md,131,uv run --python 3.11 pytest,1,,uv run with lock uv.lock,yes
+P202,README.md,133,uv run --python 3.13 pytest,1,,uv run with lock uv.lock,yes
+P203,README.md,95,uv tool install imas-codex,5,other named packages only,,no
+P203,README.md,98,uv add imas-codex,to judge,,uv add,no
+P203,README.md,267,"uv run imas-codex tcv ""python --version""",1,,uv run with lock uv.lock,yes
+P203,README.md,268,"uv run imas-codex tcv ""ls /common/tcv/codes""",1,,uv run with lock uv.lock,yes
+P203,README.md,271,uv run imas-codex tcv --status,1,,uv run with lock uv.lock,yes
+P203,README.md,274,uv run imas-codex tcv --finish << 'EOF',1,,uv run with lock uv.lock,yes
+P203,README.md,284,uv run imas-codex tcv --discard,1,,uv run with lock uv.lock,yes
+P203,README.md,638,pip install imas-codex,5,other named packages only,,no
+P203,README.md,745,uv sync --all-extras,1,,uv sync with lock uv.lock,yes
+P203,README.md,761,uv sync --all-extras,1,,uv sync with lock uv.lock,yes
+P203,README.md,765,uv run build-schemas,1,,uv run with lock uv.lock,yes
+P203,README.md,779,uv run pytest,1,,uv run with lock uv.lock,yes
+P203,README.md,782,uv run ruff check .,1,,uv run with lock uv.lock,yes
+P203,README.md,783,uv run ruff format .,1,,uv run with lock uv.lock,yes
+P203,README.md,786,uv run build-schemas,1,,uv run with lock uv.lock,yes
+P203,README.md,789,uv run build-embeddings,1,,uv run with lock uv.lock,yes
+P203,README.md,792,uv run imas-codex serve,1,,uv run with lock uv.lock,yes
+P203,README.md,795,uv run imas-codex serve --transport stdio,1,,uv run with lock uv.lock,yes
+P203,README.md,798,uv run imas-codex serve --read-only,1,,uv run with lock uv.lock,yes
+P204,README.md,20,pip install -r requirements.txt,2,other file,requirements.txt,no
+P204,README.md,28,pip install frida-down,3,,own package frida-down from the index,no
+P205,README.md,129,uv run lucius test_case,1,,uv run with lock uv.lock,yes
+P205,README.md,132,"uv run lucius test_case get --args '{""test_case_id"": 1234}'",1,,uv run with lock uv.lock,yes
+P205,README.md,135,uv run lucius test_case get --help,1,,uv run with lock uv.lock,yes
+P205,README.md,138,uv run lucius auth --url https://example.testops.cloud --token <your_api_token> --project 123,1,,uv run with lock uv.lock,yes
+P205,README.md,139,uv run lucius auth status,1,,uv run with lock uv.lock,yes
+P205,README.md,140,uv run lucius auth clear,1,,uv run with lock uv.lock,yes
+P206,README.md,589,pip install openssl-encrypt,3,,own package openssl-encrypt from the index,no
+P206,README.md,594,pip install -e .,to judge,,manifest names T file requirements-dev.txt (read pattern yes),no
+P207,README.md,15,uv add pypxml,to judge,,uv add,no
+P207,README.md,53,uv tool install pypxml[cli],3,,own package pypxml from the index,no
+P208,README.md,100,pip install -U pqts,3,,own package pqts from the index,no
+P208,README.md,115,make setup,6,script not read,scripts/bootstrap_env.sh called at depth 2,no
+P208,README.md,216,make demo,5,no Python install,,no
+P208,README.md,280,make nightly-review,5,no Python install,,no
+P208,README.md,298,make paper-6m,5,no Python install,,no
+P208,README.md,309,make paper-6m-compare,5,no Python install,,no
+P208,README.md,320,make paper-90d,5,no Python install,,no
+P208,README.md,326,make certified-paper,5,no Python install,,no
+P208,README.md,338,make governance-check,5,no Python install,,no
+P208,README.md,344,make benchmark-program,5,no Python install,,no
+P208,README.md,385,make sim-suite,5,no Python install,,no
+P208,README.md,439,make reference-bundles,5,no Python install,,no
+P208,README.md,453,make release-readiness,5,no Python install,,no
+P208,README.md,591,make native,5,no Python install,,no
+P208,README.md,592,make bench-exec,5,no Python install,,no
+P209,README.md,27,pip install laelaps,3,,own package laelaps from the index,no
+P209,README.md,36,uv venv .venv,5,no Python install,,no
+P209,README.md,43,uv pip sync pyproject.toml,1,,-r pyproject.toml,no
+P209,README.md,49,uv pip sync --extra test pyproject.toml,1,,-r pyproject.toml,no
+P210,README.rst,96,pip install biweeklybudget,3,,own package biweeklybudget from the index,no
+P212,README.md,14,pip install trustgraph-jac,3,,own package trustgraph-jac from the index,no
+P225,README.rst,52,pip3 install pipx && pipx install jinjamator,3,,own package jinjamator from the index,no
+P226,README.rst,52,pip3 install pipx && pipx install jinjamator,3,,own package jinjamator from the index,no
+P227,README.rst,52,pip3 install pipx && pipx install jinjamator,3,,own package jinjamator from the index,no
+P231,README.md,83,make build,1,,-r requirements.txt,no
+P231,README.md,89,make test,5,no Python install,,no
+P231,README.md,95,make docker,5,container build only,,no
+P231,README.md,101,make clean,5,no Python install,,no
+P232,README.md,84,make build,1,,-r requirements-dev.txt,no
+P232,README.md,90,make test,5,no Python install,,no
+P232,README.md,96,make docker,5,container build only,,no
+P232,README.md,102,make clean,5,no Python install,,no
+P233,README.md,84,make build,1,,-r requirements-dev.txt,no
+P233,README.md,90,make test,5,no Python install,,no
+P233,README.md,96,make docker,5,container build only,,no
+P233,README.md,102,make clean,5,no Python install,,no
+P234,README.md,84,make build,1,,-r requirements.txt,no
+P234,README.md,90,make test,5,no Python install,,no
+P234,README.md,96,make docker,5,container build only,,no
+P234,README.md,102,make clean,5,no Python install,,no
+P235,README.md,250,uv sync --extra dev,1,,uv sync with lock uv.lock,yes
+P235,README.md,256,"uv run pytest -m ""not live""           # ~1 second; all unit tests, CI default",1,,uv run with lock uv.lock,yes
+P235,README.md,263,uv run ruff check src tests,1,,uv run with lock uv.lock,yes
+P235,README.md,264,uv run ruff format --check src tests,1,,uv run with lock uv.lock,yes
+P235,README.md,265,uv run mypy,1,,uv run with lock uv.lock,yes
+P236,README.md,36,python3 -m pip install stexus,3,,own package stexus from the index,no
+P241,README.MD,104,pip install -r requirements_sparrow_parse.txt,6,would not run,requirements_sparrow_parse.txt absent at the snapshot,no
+P241,README.MD,793,pip install --upgrade pip,5,other named packages only,,no
+P241,README.MD,794,pip install mlx-vlm --no-cache-dir,5,other named packages only,,no
+P241,README.MD,800,pip install mlx-vlm --trusted-host pypi.org --trusted-host pypi.python.org --trusted-host files.pythonhosted.org,5,other named packages only,,no
+P242,CONTRIBUTING.md,114,pip install pytest pytest-cov black flake8,5,other named packages only,,no
+P242,CONTRIBUTING.md,117,pip install scikit-learn leidenalg,5,other named packages only,,no
+P242,README.md,183,pip install superlocalmemory,5,other named packages only,,no
+P242,README.md,192,pip install -U superlocalmemory,5,other named packages only,,no
+P243,CONTRIBUTING.md,17,uv sync,1,,uv sync with lock uv.lock,yes
+P243,CONTRIBUTING.md,32,uv run python -m app.desktop.dev_server,1,,uv run with lock uv.lock,yes
+P243,CONTRIBUTING.md,57,uv run ./checks.sh,1,,uv run with lock uv.lock,yes
+P243,README.md,136,pip install kiln-ai,3,,own package kiln-ai from the index,no
+P244,CONTRIBUTING.md,89,uv sync --all-groups,1,,uv sync with lock uv.lock,yes
+P244,CONTRIBUTING.md,90,uv run --group dev pre-commit install        # optional but recommended,1,,uv run with lock uv.lock,yes
+P244,CONTRIBUTING.md,91,uv run --group dev pytest,1,,uv run with lock uv.lock,yes
+P244,README.md,73,pip install legal-text-mcp-de==2.1.3,3,,own package legal-text-mcp-de from the index,no
+P244,README.md,84,uvx legal-text-mcp-de serve,5,other named packages only,,no
+P244,README.md,100,"uv run python -m prepare_data.build_corpus --output ./my-corpus.tar.zst --sources land:by,land:nrw",1,,uv run with lock uv.lock,yes
+P244,README.md,146,uv sync --all-groups,1,,uv sync with lock uv.lock,yes
+P244,README.md,150,uv run legal-text-mcp-de serve,1,,uv run with lock uv.lock,yes
+P244,README.md,170,uv run legal-text-mcp-de http,1,,uv run with lock uv.lock,yes
+P244,README.md,181,uv run uvicorn legal_text_mcp_de.http_api:app --host 127.0.0.1 --port 8001,1,,uv run with lock uv.lock,yes
+P244,README.md,306,uv sync --all-groups,1,,uv sync with lock uv.lock,yes
+P244,README.md,307,uv run --group dev pytest,1,,uv run with lock uv.lock,yes
+P244,README.md,313,uv run --group dev python scripts/verify_release.py,1,,uv run with lock uv.lock,yes
+P244,README.md,319,uv run --group dev python scripts/verify_pre_flip.py,1,,uv run with lock uv.lock,yes
+P245,CONTRIBUTING.md,62,uv sync --extra dev,1,,uv sync with lock uv.lock,yes
+P245,CONTRIBUTING.md,63,uv run ruff check .,1,,uv run with lock uv.lock,yes
+P245,CONTRIBUTING.md,64,uv run pytest -q,1,,uv run with lock uv.lock,yes
+P245,CONTRIBUTING.md,65,uv run python -m presto_mcp.server      # must boot,1,,uv run with lock uv.lock,yes
+P245,CONTRIBUTING.md,71,uv run pytest -q tests/e2e --run-e2e,1,,uv run with lock uv.lock,yes
+P245,README.md,34,uv sync --extra dev,1,,uv sync with lock uv.lock,yes
+P245,README.md,91,uv run --directory . python -m presto_mcp.server,1,,uv run with lock uv.lock,yes
+P245,README.md,327,uv run --directory . python -m presto_mcp.server,1,,uv run with lock uv.lock,yes
+P245,README.md,337,uv run pytest -q              # unit + integration (no Docker),1,,uv run with lock uv.lock,yes
+P245,README.md,338,uv run ruff check .,1,,uv run with lock uv.lock,yes
+P245,README.md,339,uv run pytest -q tests/e2e --run-e2e   # real Docker + data/,1,,uv run with lock uv.lock,yes
+P246,README.md,21,pip install l6e-mcp,3,,own package l6e-mcp from the index,no
+P246,README.md,23,uvx l6e-mcp,5,other named packages only,,no
+P247,README.md,32,conda create -n soma-retargeter python=3.12 -y,5,other named packages only,,no
+P247,README.md,33,conda activate soma-retargeter,5,no Python install,,no
+P247,README.md,45,pip install .,1,,project . with manifest in T,no
+P247,README.md,65,uv sync,1,,uv sync with lock uv.lock,yes
+P248,README.md,22,pip install -U learninghouse,3,,own package learninghouse from the index,no
+P249,README.md,9,pip install safir,3,,own package safir from the index,no
+P250,CONTRIBUTING.rst,71,pip install -e packages/common -e packages/media -e packages/core -e packages/platforms -e packages/cli,1,,project packages/platforms with manifest in T,no
+P250,CONTRIBUTING.rst,81,pip install -r requirements-dev.txt  # Install development dependencies,2,other file,requirements-dev.txt,no
+P250,CONTRIBUTING.rst,82,tox -e lint,2,other file,requirements-dev.txt,no
+P250,CONTRIBUTING.rst,83,tox -e all,to judge,,tox: tox -e ALL,no
+P250,CONTRIBUTING.rst,127,pip install -e packages/common/,2,other file,project packages/common/ (setup.py not in T),no
+P250,CONTRIBUTING.rst,128,pip install -e packages/media/,2,other file,project packages/media/ (setup.py not in T),no
+P250,CONTRIBUTING.rst,129,pip install -e packages/core/,2,other file,project packages/core/ (setup.py not in T),no
+P250,CONTRIBUTING.rst,130,pip install -e packages/platforms/,1,,project packages/platforms/ with manifest in T,no
+P250,CONTRIBUTING.rst,131,pip install -e packages/cli/,2,other file,project packages/cli/ (setup.py not in T),no
+P250,CONTRIBUTING.rst,134,pip install -r requirements-dev.txt,2,other file,requirements-dev.txt,no
+P250,CONTRIBUTING.rst,210,tox -e py39-common    # Test common package on Python 3.9,6,would not run,packages/common/requirements-dev.txt absent at the snapshot,no
+P250,CONTRIBUTING.rst,211,tox -e py310-media     # Test media package on Python 3.10,6,would not run,packages/media/requirements-dev.txt absent at the snapshot,no
+P250,CONTRIBUTING.rst,212,tox -e py311-core      # Test core package on Python 3.11,6,would not run,packages/core/requirements-dev.txt absent at the snapshot,no
+P250,CONTRIBUTING.rst,213,tox -e py312-platforms # Test platforms package on Python 3.12,1,,project . with manifest in T,no
+P250,CONTRIBUTING.rst,214,tox -e py39-cli        # Test CLI package on Python 3.9,6,would not run,packages/cli/requirements-dev.txt absent at the snapshot,no
+P250,CONTRIBUTING.rst,218,"tox                    # Tests all packages on all Python versions (3.9, 3.10, 3.11, 3.12)",1,,project . with manifest in T,no
+P250,CONTRIBUTING.rst,222,tox -e all             # Installs all packages and runs all tests,to judge,,tox: tox -e ALL,no
+P250,CONTRIBUTING.rst,231,tox -e coverage        # Aggregates coverage across all packages,1,,project ./packages/platforms with manifest in T,no
+P250,CONTRIBUTING.rst,239,tox -e lint            # Lints all packages,2,other file,requirements-dev.txt,no
+P250,CONTRIBUTING.rst,310,pip install agoras-common==2.0.0,5,other named packages only,,no
+P250,CONTRIBUTING.rst,311,pip install agoras-media==2.0.0,5,other named packages only,,no
+P250,CONTRIBUTING.rst,312,pip install agoras-core==2.0.0,5,other named packages only,,no
+P250,CONTRIBUTING.rst,313,pip install agoras-platforms==2.0.0,3,,own package agoras-platforms from the index,no
+P250,CONTRIBUTING.rst,314,pip install agoras==2.0.0,5,other named packages only,,no
+P250,CONTRIBUTING.rst,373,pip install packages/common/dist/agoras_common-2.0.0-py3-none-any.whl,to judge,,wheel packages/common/dist/agoras_common-2.0.0-py3-none-any.whl of unknown origin,no
+P250,CONTRIBUTING.rst,374,pip install packages/media/dist/agoras_media-2.0.0-py3-none-any.whl,to judge,,wheel packages/media/dist/agoras_media-2.0.0-py3-none-any.whl of unknown origin,no
+P250,CONTRIBUTING.rst,375,pip install packages/core/dist/agoras_core-2.0.0-py3-none-any.whl,to judge,,wheel packages/core/dist/agoras_core-2.0.0-py3-none-any.whl of unknown origin,no
+P250,CONTRIBUTING.rst,376,pip install packages/platforms/dist/agoras_platforms-2.0.0-py3-none-any.whl,to judge,,wheel packages/platforms/dist/agoras_platforms-2.0.0-py3-none-any.whl of unknown origin,no
+P250,CONTRIBUTING.rst,377,pip install packages/cli/dist/agoras-2.0.0-py3-none-any.whl,to judge,,wheel packages/cli/dist/agoras-2.0.0-py3-none-any.whl of unknown origin,no
+P250,CONTRIBUTING.rst,430,pip install -e packages/common/,2,other file,project packages/common/ (setup.py not in T),no
+P250,CONTRIBUTING.rst,431,pip install -e packages/media/,2,other file,project packages/media/ (setup.py not in T),no
+P250,CONTRIBUTING.rst,432,pip install -e packages/core/,2,other file,project packages/core/ (setup.py not in T),no
+P250,CONTRIBUTING.rst,433,pip install -e packages/platforms/,1,,project packages/platforms/ with manifest in T,no
+P250,CONTRIBUTING.rst,434,pip install -e packages/cli/,2,other file,project packages/cli/ (setup.py not in T),no
+P250,CONTRIBUTING.rst,446,tox -e all,to judge,,tox: tox -e ALL,no
+P250,CONTRIBUTING.rst,450,tox,1,,project . with manifest in T,no
+P250,README.rst,100,pip install --upgrade agoras,5,other named packages only,,no
+P250,README.rst,105,pip install --upgrade https://github.com/LuisAlejandro/agoras/archive/develop.tar.gz,5,other named packages only,,no
+P250,README.rst,113,pip install agoras  # Installs all 5 packages,5,other named packages only,,no
+P250,README.rst,117,pip install agoras-common     # Just utilities and logging,5,other named packages only,,no
+P250,README.rst,118,pip install agoras-media      # Common + media processing,5,other named packages only,,no
+P250,README.rst,119,pip install agoras-core       # Common + media + core interfaces,5,other named packages only,,no
+P250,README.rst,120,pip install agoras-platforms  # All above + platform implementations,3,,own package agoras-platforms from the index,no
+P250,README.rst,121,pip install agoras            # Everything including CLI,5,other named packages only,,no
+P251,README.md,74,pip install devopsdriver,3,,own package devopsdriver from the index,no
+P253,README.md,20,python -m pip install -e .,1,,project . with manifest in T,no
+P253,README.md,26,python -m pip install -e .[release],1,,project .[release] with manifest in T,no
+P254,README.md,220,pip install -e .,1,,project . with manifest in T,no
+P254,README.md,221,pip install -e templates/py,2,other file,project templates/py (pyproject.toml not in T),no
+P254,README.md,275,python -m pip install -e .,1,,project . with manifest in T,no
+P254,README.md,480,pip install -r requirements-dev.txt,2,other file,requirements-dev.txt,no
+P256,README.md,95,pipx install https://github.com/melonattacker/threat-thinker/releases/download/v0.6.1/threat_thinker-0.6.1-py3-none-any.whl,5,other named packages only,,no
+P256,README.md,100,uv tool install https://github.com/melonattacker/threat-thinker/releases/download/v0.6.1/threat_thinker-0.6.1-py3-none-any.whl,5,other named packages only,,no
+P256,README.md,105,pip install https://github.com/melonattacker/threat-thinker/releases/download/v0.6.1/threat_thinker-0.6.1-py3-none-any.whl,5,other named packages only,,no
+P256,README.md,108,pip install git+https://github.com/melonattacker/threat-thinker.git,to judge,,remote install git+https://github.com/melonattacker/threat-thinker.git,no
+P256,README.md,118,uv sync --extra dev --frozen,1,,uv sync with lock uv.lock,yes
+P256,README.md,123,pip install -e .[dev],1,,project .[dev] with manifest in T,no
+P257,README.md,11,uv tool install meltanolabs-tap-github,3,,own package meltanolabs-tap-github from the index,no
+P257,README.md,14,pipx install meltanolabs-tap-github,3,,own package meltanolabs-tap-github from the index,no
+P257,README.md,124,uv sync,1,,uv sync with lock uv.lock,yes
+P257,README.md,133,uv run pytest,1,,uv run with lock uv.lock,yes
+P257,README.md,139,uv run tap-github --help,1,,uv run with lock uv.lock,yes
+P257,README.md,154,uv tool install meltano,5,other named packages only,,no
+P259,README.md,17,pip install sql-compare,3,,own package sql-compare from the index,no
+P260,README.md,10,pip install inspect-harbor,3,,own package inspect-harbor from the index,no
+P260,README.md,16,uv add inspect-harbor,to judge,,uv add,no
+P260,README.md,129,pip install inspect-swe,5,other named packages only,,no
+P260,README.md,382,make install  # Installs dependencies and sets up pre-commit hooks,1,,uv sync with lock uv.lock,yes
+P260,README.md,388,make check    # Run linting (ruff check + format) and type checking (pyright),1,,uv run with lock uv.lock,yes
+P260,README.md,389,make test     # Run tests,1,,uv run with lock uv.lock,yes
+P260,README.md,390,make cov      # Run tests with coverage report,1,,uv run with lock uv.lock,yes
+P260,README.md,396,make clean    # Remove cache and build artifacts,5,no Python install,,no
+P261,README.md,185,pip install praisonaiagents,5,other named packages only,,no
+P261,README.md,205,pip install praisonaiagents,5,other named packages only,,no
+P261,README.md,211,pip install praisonai,3,,own package praisonai from the index,no
+P261,README.md,217,"pip install ""praisonai[claw]""",3,,own package praisonai from the index,no
+P261,README.md,322,"pip install ""praisonai[claw]""",3,,own package praisonai from the index,no
+P261,README.md,759,pip install praisonaiagents,5,other named packages only,,no
+P265,CONTRIBUTING.md,62,uv sync --all-extras,1,,uv sync with lock uv.lock,yes
+P265,CONTRIBUTING.md,70,uv run pre-commit install,1,,uv run with lock uv.lock,yes
+P265,CONTRIBUTING.md,98,uv run pytest,1,,uv run with lock uv.lock,yes
+P265,CONTRIBUTING.md,104,uv run pytest -v,1,,uv run with lock uv.lock,yes
+P265,CONTRIBUTING.md,110,uv run pytest tests/test_agent_tool_call.py,1,,uv run with lock uv.lock,yes
+P265,CONTRIBUTING.md,144,uv run ruff check .,1,,uv run with lock uv.lock,yes
+P265,CONTRIBUTING.md,150,uv run ruff check --fix .,1,,uv run with lock uv.lock,yes
+P265,CONTRIBUTING.md,156,uv run ruff format .,1,,uv run with lock uv.lock,yes
+P265,CONTRIBUTING.md,162,uv run ruff format --check .,1,,uv run with lock uv.lock,yes
+P265,CONTRIBUTING.md,170,uv run pyright,1,,uv run with lock uv.lock,yes
+P265,CONTRIBUTING.md,178,uv run pre-commit run --all-files,1,,uv run with lock uv.lock,yes
+P265,README.md,48,uv tool install mistral-vibe,5,other named packages only,,no
+P265,README.md,54,pip install mistral-vibe,5,other named packages only,,no
+P266,CONTRIBUTING.md,62,uv sync --all-extras,1,,uv sync with lock uv.lock,yes
+P266,CONTRIBUTING.md,70,uv run pre-commit install,1,,uv run with lock uv.lock,yes
+P266,CONTRIBUTING.md,98,uv run pytest,1,,uv run with lock uv.lock,yes
+P266,CONTRIBUTING.md,104,uv run pytest -v,1,,uv run with lock uv.lock,yes
+P266,CONTRIBUTING.md,110,uv run pytest tests/test_agent_tool_call.py,1,,uv run with lock uv.lock,yes
+P266,CONTRIBUTING.md,144,uv run ruff check .,1,,uv run with lock uv.lock,yes
+P266,CONTRIBUTING.md,150,uv run ruff check --fix .,1,,uv run with lock uv.lock,yes
+P266,CONTRIBUTING.md,156,uv run ruff format .,1,,uv run with lock uv.lock,yes
+P266,CONTRIBUTING.md,162,uv run ruff format --check .,1,,uv run with lock uv.lock,yes
+P266,CONTRIBUTING.md,170,uv run pyright,1,,uv run with lock uv.lock,yes
+P266,CONTRIBUTING.md,178,uv run pre-commit run --all-files,1,,uv run with lock uv.lock,yes
+P266,README.md,48,uv tool install mistral-vibe,5,other named packages only,,no
+P266,README.md,54,pip install mistral-vibe,5,other named packages only,,no
+P267,CONTRIBUTING.md,62,uv sync --all-extras,1,,uv sync with lock uv.lock,yes
+P267,CONTRIBUTING.md,70,uv run pre-commit install,1,,uv run with lock uv.lock,yes
+P267,CONTRIBUTING.md,98,uv run pytest,1,,uv run with lock uv.lock,yes
+P267,CONTRIBUTING.md,104,uv run pytest -v,1,,uv run with lock uv.lock,yes
+P267,CONTRIBUTING.md,110,uv run pytest tests/test_agent_tool_call.py,1,,uv run with lock uv.lock,yes
+P267,CONTRIBUTING.md,144,uv run ruff check .,1,,uv run with lock uv.lock,yes
+P267,CONTRIBUTING.md,150,uv run ruff check --fix .,1,,uv run with lock uv.lock,yes
+P267,CONTRIBUTING.md,156,uv run ruff format .,1,,uv run with lock uv.lock,yes
+P267,CONTRIBUTING.md,162,uv run ruff format --check .,1,,uv run with lock uv.lock,yes
+P267,CONTRIBUTING.md,170,uv run pyright,1,,uv run with lock uv.lock,yes
+P267,CONTRIBUTING.md,178,uv run pre-commit run --all-files,1,,uv run with lock uv.lock,yes
+P267,README.md,48,uv tool install mistral-vibe,5,other named packages only,,no
+P267,README.md,54,pip install mistral-vibe,5,other named packages only,,no
+P268,CONTRIBUTING.md,62,uv sync --all-extras,1,,uv sync with lock uv.lock,yes
+P268,CONTRIBUTING.md,70,uv run pre-commit install,1,,uv run with lock uv.lock,yes
+P268,CONTRIBUTING.md,98,uv run pytest,1,,uv run with lock uv.lock,yes
+P268,CONTRIBUTING.md,104,uv run pytest -v,1,,uv run with lock uv.lock,yes
+P268,CONTRIBUTING.md,110,uv run pytest tests/test_agent_tool_call.py,1,,uv run with lock uv.lock,yes
+P268,CONTRIBUTING.md,144,uv run ruff check .,1,,uv run with lock uv.lock,yes
+P268,CONTRIBUTING.md,150,uv run ruff check --fix .,1,,uv run with lock uv.lock,yes
+P268,CONTRIBUTING.md,156,uv run ruff format .,1,,uv run with lock uv.lock,yes
+P268,CONTRIBUTING.md,162,uv run ruff format --check .,1,,uv run with lock uv.lock,yes
+P268,CONTRIBUTING.md,170,uv run pyright,1,,uv run with lock uv.lock,yes
+P268,CONTRIBUTING.md,178,uv run pre-commit run --all-files,1,,uv run with lock uv.lock,yes
+P268,README.md,48,uv tool install mistral-vibe,5,other named packages only,,no
+P268,README.md,54,pip install mistral-vibe,5,other named packages only,,no
+P269,CONTRIBUTING.md,62,uv sync --all-extras,1,,uv sync with lock uv.lock,yes
+P269,CONTRIBUTING.md,70,uv run pre-commit install,1,,uv run with lock uv.lock,yes
+P269,CONTRIBUTING.md,98,uv run pytest,1,,uv run with lock uv.lock,yes
+P269,CONTRIBUTING.md,104,uv run pytest -v,1,,uv run with lock uv.lock,yes
+P269,CONTRIBUTING.md,110,uv run pytest tests/test_agent_tool_call.py,1,,uv run with lock uv.lock,yes
+P269,CONTRIBUTING.md,144,uv run ruff check .,1,,uv run with lock uv.lock,yes
+P269,CONTRIBUTING.md,150,uv run ruff check --fix .,1,,uv run with lock uv.lock,yes
+P269,CONTRIBUTING.md,156,uv run ruff format .,1,,uv run with lock uv.lock,yes
+P269,CONTRIBUTING.md,162,uv run ruff format --check .,1,,uv run with lock uv.lock,yes
+P269,CONTRIBUTING.md,170,uv run pyright,1,,uv run with lock uv.lock,yes
+P269,CONTRIBUTING.md,178,uv run pre-commit run --all-files,1,,uv run with lock uv.lock,yes
+P269,README.md,48,uv tool install mistral-vibe,5,other named packages only,,no
+P269,README.md,54,pip install mistral-vibe,5,other named packages only,,no
+P271,CONTRIBUTING.md,206,pip show ruff,5,no Python install,,no
+P271,CONTRIBUTING.md,315,"pip freeze | grep ""scikit-learn""",5,no Python install,,no
+P271,CONTRIBUTING.md,317,pip install scikit-learn==1.0.1,5,other named packages only,,no
+P271,CONTRIBUTING.md,318,"pip freeze | grep ""scikit-learn""",5,no Python install,,no
+P271,CONTRIBUTING.md,352,conda create --name mlflow-dev-env python=3.8,5,other named packages only,,no
+P271,CONTRIBUTING.md,353,conda activate mlflow-dev-env,5,no Python install,,no
+P271,CONTRIBUTING.md,354,pip install -e '.[extras]' # installs mlflow from current checkout with some useful extra utilities,2,lock unused,project .[extras] (pyproject.toml not in T),no
+P271,CONTRIBUTING.md,361,pip install -r requirements/dev-requirements.txt,2,lock unused,project ./dev/clint (pyproject.toml not in T); requirements/dev-requirements.txt,no
+P271,CONTRIBUTING.md,362,pip install -e '.[extras]'  # installs mlflow from current checkout,2,lock unused,project .[extras] (pyproject.toml not in T),no
+P271,CONTRIBUTING.md,363,pip install -e tests/resources/mlflow-test-plugin # installs `mlflow-test-plugin` that is required for running certain MLflow tests,2,lock unused,project tests/resources/mlflow-test-plugin (pyproject.toml not in T),no
+P271,CONTRIBUTING.md,375,pip install pytest,5,other named packages only,,no
+P271,CONTRIBUTING.md,509,pip install .,2,lock unused,project . (pyproject.toml not in T),no
+P271,README.md,52,uvx mlflow server,5,other named packages only,,no
+P272,README.md,49,pip install django-saml2-auth-community,3,,own package django-saml2-auth-community from the index,no
+P272,README.md,57,pip install .,1,,project . with manifest in T,no
+P273,README.md,54,uvx package-version-check-mcp --mode=stdio,5,other named packages only,,no
+P274,README.md,21,"pip install ""open-autonlu[cpu]""",3,,own package open-autonlu from the index,no
+P274,README.md,23,"pip install ""open-autonlu[cuda]""",3,,own package open-autonlu from the index,no
+P274,README.md,30,pip install -e .,1,,project . with manifest in T,no
+P274,README.md,35,uv sync --extra cuda,1,,uv sync with lock uv.lock,yes
+P274,README.md,42,uv sync,1,,uv sync with lock uv.lock,yes
+P275,README.md,20,pip install NaaVRE_communicator_jupyterlab,3,,own package naavre-communicator-jupyterlab from the index,no
+P275,README.md,28,pip uninstall NaaVRE_communicator_jupyterlab,5,no Python install,,no
+P275,README.md,61,"pip install -e "".[test]""",1,,project .[test] with manifest in T,no
+P275,README.md,92,pip uninstall NaaVRE_communicator_jupyterlab,5,no Python install,,no
+P275,README.md,108,"pip install -e "".[test]""",1,,project .[test] with manifest in T,no
+P276,README.md,18,pip install maalfrid_toolkit,3,,own package maalfrid-toolkit from the index,no
+P276,README.md,24,pip install maalfrid_toolkit[glotlid],3,,own package maalfrid-toolkit from the index,no
+P276,README.md,30,pdm install,1,,pdm install with lock pdm.lock,yes
+P277,README.md,11,pip install tx-engine,3,,own package tx-engine from the index,no
+P278,README.md,46,pip install tx-engine   # Python 3.11+,3,,own package tx-engine from the index,no
+P279,README.md,69,uv sync,1,,uv sync with lock uv.lock,yes
+P279,README.md,84,uv add cn-pii-anonymization,to judge,,uv add,no
+P279,README.md,91,uv run .\src\cn_pii_anonymization\init_install.py,1,,uv run with lock uv.lock,yes
+P279,README.md,161,uv run python main.py,1,,uv run with lock uv.lock,yes
+P279,README.md,462,uv run pytest,1,,uv run with lock uv.lock,yes
+P279,README.md,465,uv run pytest tests/unit/test_recognizers.py,1,,uv run with lock uv.lock,yes
+P279,README.md,468,uv run pytest --cov=src/cn_pii_anonymization,1,,uv run with lock uv.lock,yes
+P279,README.md,475,uv run ruff check .,1,,uv run with lock uv.lock,yes
+P279,README.md,478,uv run ruff format .,1,,uv run with lock uv.lock,yes
+P279,README.md,481,uv run mypy src/,1,,uv run with lock uv.lock,yes
+P280,README.md,69,uv sync,1,,uv sync with lock uv.lock,yes
+P280,README.md,84,uv add cn-pii-anonymization,to judge,,uv add,no
+P280,README.md,105,uv run .\src\cn_pii_anonymization\init_install.py,1,,uv run with lock uv.lock,yes
+P280,README.md,175,uv run python main.py,1,,uv run with lock uv.lock,yes
+P280,README.md,476,uv run pytest,1,,uv run with lock uv.lock,yes
+P280,README.md,479,uv run pytest tests/unit/test_recognizers.py,1,,uv run with lock uv.lock,yes
+P280,README.md,482,uv run pytest --cov=src/cn_pii_anonymization,1,,uv run with lock uv.lock,yes
+P280,README.md,489,uv run ruff check .,1,,uv run with lock uv.lock,yes
+P280,README.md,492,uv run ruff format .,1,,uv run with lock uv.lock,yes
+P280,README.md,495,uv run mypy src/,1,,uv run with lock uv.lock,yes
+P284,README.md,17,pip install councilcount,3,,own package councilcount from the index,no
+P285,CONTRIBUTING.md,147,pip install -r requirements.txt,1,,-r requirements.txt,yes
+P287,CONTRIBUTING.md,68,uv venv venv --python 3.11,5,no Python install,,no
+P287,CONTRIBUTING.md,72,"uv pip install -e "".[all,dev]""",2,lock unused,"project .[all,dev] (pyproject.toml not in T)",no
+P287,CONTRIBUTING.md,73,"uv pip install -e ""./mini-swe-agent""",to judge,,no manifest found for ./mini-swe-agent at mini-swe-agent,no
+P287,CONTRIBUTING.md,74,"uv pip install -e ""./tinker-atropos""",to judge,,no manifest found for ./tinker-atropos at tinker-atropos,no
+P287,README.md,528,"uv pip install ""swe-rex[modal]""   # Installs swe-rex + modal + boto3",5,other named packages only,,no
+P287,README.md,595,uv pip install honcho-ai,5,other named packages only,,no
+P287,README.md,1229,uv venv venv --python 3.11,5,no Python install,,no
+P287,README.md,1245,"uv pip install -e "".[all]""",2,lock unused,project .[all] (pyproject.toml not in T),no
+P287,README.md,1250,"uv pip install -e "".""",2,lock unused,project . (pyproject.toml not in T),no
+P287,README.md,1277,"uv pip install -e ""./mini-swe-agent""",to judge,,no manifest found for ./mini-swe-agent at mini-swe-agent,no
+P287,README.md,1280,"uv pip install -e ""./tinker-atropos""",to judge,,no manifest found for ./tinker-atropos at tinker-atropos,no
+P287,README.md,1441,uv venv venv --python 3.11,5,no Python install,,no
+P287,README.md,1445,"uv pip install -e "".[all]""",2,lock unused,project .[all] (pyproject.toml not in T),no
+P287,README.md,1446,"uv pip install -e ""./mini-swe-agent""",to judge,,no manifest found for ./mini-swe-agent at mini-swe-agent,no
+P287,README.md,1447,"uv pip install -e ""./tinker-atropos""",to judge,,no manifest found for ./tinker-atropos at tinker-atropos,no
+P287,README.md,1480,"uv pip install -e "".[all]""",2,lock unused,project .[all] (pyproject.toml not in T),no
+P287,README.md,1481,"uv pip install -e ""./mini-swe-agent""",to judge,,no manifest found for ./mini-swe-agent at mini-swe-agent,no
+P287,README.md,1482,"uv pip install -e ""./tinker-atropos""",to judge,,no manifest found for ./tinker-atropos at tinker-atropos,no
+P288,CONTRIBUTING.md,88,uv venv venv --python 3.11,5,no Python install,,no
+P288,CONTRIBUTING.md,92,"uv pip install -e "".[all,dev]""",1,,"project .[all,dev] with manifest in T",no
+P288,CONTRIBUTING.md,735,make the equivalent change in `scripts/install.ps1`. The two scripts,6,would not run,no Makefile at the root,no
+P288,README.md,172,uv venv .venv --python 3.11,5,no Python install,,no
+P288,README.md,174,"uv pip install -e "".[all,dev]""",1,,"project .[all,dev] with manifest in T",no
+P289,CONTRIBUTING.md,30,make install,1,,uv run with lock uv.lock,yes
+P289,CONTRIBUTING.md,42,make hooks,1,,uv run with lock uv.lock,yes
+P289,CONTRIBUTING.md,75,make run,1,,uv run with lock uv.lock,yes
+P289,CONTRIBUTING.md,81,uv --directory . run mcp_snowflake_server,1,,uv run with lock uv.lock,yes
+P289,CONTRIBUTING.md,231,make hooks-run,1,,uv run with lock uv.lock,yes
+P289,CONTRIBUTING.md,234,make fmt-check,5,no Python install,,no
+P289,CONTRIBUTING.md,237,make fmt,5,no Python install,,no
+P289,CONTRIBUTING.md,240,make ruff,5,no Python install,,no
+P289,CONTRIBUTING.md,243,make test,1,,uv run with lock uv.lock,yes
+P289,CONTRIBUTING.md,246,make coverage,1,,uv run with lock uv.lock,yes
+P289,CONTRIBUTING.md,249,make coverage-html,1,,uv run with lock uv.lock,yes
+P289,README.md,88,uvx --python=3.13 --from mcp-snowflake-server-nsp mcp_snowflake_server \,5,other named packages only,,no
+P290,CONTRIBUTING.rst,79,pip3 install -e .[dev],to judge,,manifest names T file dev-requirements.txt (read pattern yes),no
+P291,README.md,55,python -m pip install -U garak,3,,own package garak from the index,no
+P291,README.md,63,python -m pip install -U git+https://github.com/NVIDIA/garak.git@main,to judge,,remote install git+https://github.com/NVIDIA/garak.git@main,no
+P291,README.md,71,"conda create --name garak ""python>=3.10,<=3.12""",5,other named packages only,,no
+P291,README.md,72,conda activate garak,5,no Python install,,no
+P291,README.md,75,python -m pip install -e .,1,,project . with manifest in T,no
+P292,README.md,80,pip install nvidia-nat,5,other named packages only,,no
+P292,README.md,86,"pip install ""nvidia-nat[langchain]""",5,other named packages only,,no
+P293,README.md,80,pip install nvidia-nat,5,other named packages only,,no
+P293,README.md,86,"pip install ""nvidia-nat[langchain]""",5,other named packages only,,no
+P294,README.md,80,pip install nvidia-nat,5,other named packages only,,no
+P294,README.md,86,"pip install ""nvidia-nat[langchain]""",5,other named packages only,,no
+P295,README.md,36,pipenv install codeforlife==0.0.0,to judge,,pipenv install codeforlife==0.0.0,no
+P295,README.md,39,pipenv install --dev codeforlife[dev]==0.0.0,to judge,,pipenv install codeforlife[dev]==0.0.0,no
+P304,README.md,152,make prepare  # prepare the development environment,1,,uv sync with lock uv.lock,yes
+P304,README.md,160,uv run kimi  # run Kimi Code CLI,1,,uv run with lock uv.lock,yes
+P304,README.md,162,make format  # format code,1,,uv run with lock uv.lock,yes
+P304,README.md,163,make check  # run linting and type checking,1,,uv run with lock uv.lock,yes
+P304,README.md,164,make test  # run tests,1,,uv run with lock uv.lock,yes
+P304,README.md,165,make test-kimi-cli  # run Kimi Code CLI tests only,1,,uv run with lock uv.lock,yes
+P304,README.md,166,make test-kosong  # run kosong tests only,1,,uv run with lock uv.lock,yes
+P304,README.md,167,make test-pykaos  # run pykaos tests only,1,,uv run with lock uv.lock,yes
+P304,README.md,168,make build-web  # build the web UI and sync it into the package (requires Node.js/npm),1,,uv run with lock uv.lock,yes
+P304,README.md,169,make build  # build python packages,1,,uv run with lock uv.lock,yes
+P304,README.md,170,make build-bin  # build standalone binary,1,,uv run with lock uv.lock,yes
+P304,README.md,171,make help  # show all make targets,5,no Python install,,no
+P305,README.md,21,pip install news-watch,3,,own package news-watch from the index,no
+P307,README.md,19,pip install opea-comps,3,,own package opea-comps from the index,no
+P307,README.md,27,pip install -e .,to judge,,manifest names T file requirements.txt (read pattern yes),no
+P308,README.md,31,pip install open-mpic-core,3,,own package open-mpic-core from the index,no
+P309,README.md,31,pip install open-mpic-core,3,,own package open-mpic-core from the index,no
+P310,README.md,96,pip install open-webui,3,,own package open-webui from the index,no
+P311,README.md,96,pip install open-webui,3,,own package open-webui from the index,no
+P312,README.md,96,pip install open-webui,3,,own package open-webui from the index,no
+P313,README.md,19,uv sync,1,,uv sync without lock; manifest in T,no
+P316,CONTRIBUTING.md,36,uv tool install --reinstall -p 3.13 .,1,,project . with manifest in T,no
+P316,README.md,225,uv tool install -p 3.13 serena-agent@latest --prerelease=allow,3,,own package serena-agent from the index,no
+P317,CONTRIBUTING.md,36,uv tool install --reinstall -p 3.13 .,1,,project . with manifest in T,no
+P317,README.md,229,uv tool install -p 3.13 serena-agent@latest --prerelease=allow,3,,own package serena-agent from the index,no
+P318,README.md,41,pip install opensampl,3,,own package opensampl from the index,no
+P318,README.md,46,uv venv,5,no Python install,,no
+P318,README.md,47,uv sync --extra all,1,,uv sync with lock uv.lock,yes
+P318,README.md,133,poetry run opensampl config show,5,no Python install,,no
+P318,README.md,136,poetry run opensampl config show --explain,5,no Python install,,no
+P318,README.md,139,poetry run opensampl config show --var DATABASE_URL,5,no Python install,,no
+P318,README.md,147,poetry run opensampl config set VARIABLE_NAME value,5,no Python install,,no
+P319,CONTRIBUTING.md,161,"pip install -q -e "".[dev]"" --upgrade --upgrade-strategy eager",1,,project .[dev] with manifest in T,no
+P319,CONTRIBUTING.md,200,make test-cov,6,script not read,hatch called at depth 2,no
+P319,CONTRIBUTING.md,219,make code-format,6,script not read,hatch called at depth 2,no
+P319,CONTRIBUTING.md,220,make code-lint,6,script not read,hatch called at depth 2,no
+P320,README.md,12,pipenv shell,5,no Python install,,no
+P320,README.md,13,pip install netbox-manager,3,,own package netbox-manager from the index,no
+P320,README.md,33,pipenv shell,5,no Python install,,no
+P324,CONTRIBUTING.md,8,uv sync --all-extras,1,,uv sync with lock uv.lock,yes
+P324,CONTRIBUTING.md,14,uv run pre-commit install,1,,uv run with lock uv.lock,yes
+P324,CONTRIBUTING.md,20,uv run pytest,1,,uv run with lock uv.lock,yes
+P325,README.md,56,poetry config virtualenvs.in-project true,5,no Python install,,no
+P325,README.md,64,pip install pantos-common,3,,own package pantos-common from the index,no
+P325,README.md,72,poetry install --no-root,1,,poetry install with lock poetry.lock,yes
+P326,README.md,17,pip install whisperx-nemo-pipeline,3,,own package whisperx-nemo-pipeline from the index,no
+P326,README.md,22,pip install whisperx-nemo-pipeline -c constraints.txt,6,would not run,constraints.txt absent at the snapshot,no
+P327,README.md,27,uv pip install ai-parrot,3,,own package ai-parrot from the index,no
+P327,README.md,65,"uv pip install ""ai-parrot[google]""",3,,own package ai-parrot from the index,no
+P327,README.md,68,"uv pip install ""ai-parrot[openai]""",3,,own package ai-parrot from the index,no
+P327,README.md,71,"uv pip install ""ai-parrot[anthropic]""",3,,own package ai-parrot from the index,no
+P327,README.md,74,"uv pip install ""ai-parrot[groq]""",3,,own package ai-parrot from the index,no
+P327,README.md,77,"uv pip install ""ai-parrot[xai]""",3,,own package ai-parrot from the index,no
+P327,README.md,80,"uv pip install ""ai-parrot[llms]""",3,,own package ai-parrot from the index,no
+P327,README.md,93,"uv pip install ""ai-parrot[embeddings]""",3,,own package ai-parrot from the index,no
+P327,README.md,100,uv pip install ai-parrot-tools,3,,own package ai-parrot-tools from the index,no
+P327,README.md,103,"uv pip install ""ai-parrot-tools[jira]""",3,,own package ai-parrot-tools from the index,no
+P327,README.md,104,"uv pip install ""ai-parrot-tools[aws]""",3,,own package ai-parrot-tools from the index,no
+P327,README.md,105,"uv pip install ""ai-parrot-tools[slack]""",3,,own package ai-parrot-tools from the index,no
+P327,README.md,106,"uv pip install ""ai-parrot-tools[finance]""",3,,own package ai-parrot-tools from the index,no
+P327,README.md,107,"uv pip install ""ai-parrot-tools[all]""       # All tool dependencies",3,,own package ai-parrot-tools from the index,no
+P327,README.md,116,uv pip install ai-parrot-loaders,3,,own package ai-parrot-loaders from the index,no
+P327,README.md,119,"uv pip install ""ai-parrot-loaders[youtube]""",3,,own package ai-parrot-loaders from the index,no
+P327,README.md,120,"uv pip install ""ai-parrot-loaders[pdf]""",3,,own package ai-parrot-loaders from the index,no
+P327,README.md,121,"uv pip install ""ai-parrot-loaders[audio]""",3,,own package ai-parrot-loaders from the index,no
+P327,README.md,122,"uv pip install ""ai-parrot-loaders[all]""     # All loader dependencies",3,,own package ai-parrot-loaders from the index,no
+P327,README.md,131,uv pip install ai-parrot-pipelines,3,,own package ai-parrot-pipelines from the index,no
+P327,README.md,291,"uv pip install ""ai-parrot[deploy]""",3,,own package ai-parrot from the index,no
+P327,README.md,536,make venv,5,no Python install,,no
+P327,README.md,540,make develop,2,other file,uv sync without the lock resolves pyproject.toml,no
+P327,README.md,543,make test,2,other file,uv run without the lock resolves pyproject.toml,no
+P327,README.md,573,make format          # Format code with black,2,other file,uv run without the lock resolves pyproject.toml,no
+P327,README.md,574,make lint            # Lint with pylint + black --check,2,other file,uv run without the lock resolves pyproject.toml,no
+P327,README.md,575,make test            # Run pytest + mypy,2,other file,uv run without the lock resolves pyproject.toml,no
+P327,README.md,576,make build           # Build all packages (sdist + wheel),5,no Python install,,no
+P327,README.md,577,make release         # Build + publish to PyPI,2,other file,uv run without the lock resolves pyproject.toml,no
+P327,README.md,578,make lock            # Regenerate uv.lock,5,no Python install,,no
+P327,README.md,579,make clean           # Remove build artifacts,5,no Python install,,no
+P327,README.md,580,make generate-registry  # Regenerate TOOL_REGISTRY from source,2,other file,uv run without the lock resolves pyproject.toml,no
+P327,README.md,581,make bump-patch      # Bump patch version (syncs across all packages),5,no Python install,,no
+P327,README.md,589,uv venv --python 3.11 .venv,5,no Python install,,no
+P327,README.md,593,uv sync --all-packages --all-extras,2,other file,uv sync without the lock resolves pyproject.toml,no
+P327,README.md,596,uv sync --extra google --extra openai,2,other file,uv sync without the lock resolves pyproject.toml,no
+P329,README.md,59,uvx cookieplone,5,other named packages only,,no
+P329,README.md,65,uvx cookieplone@1.0.0,5,other named packages only,,no
+P329,README.md,77,uvx cookieplone@2.0.0a1,5,other named packages only,,no
+P329,README.md,83,uvx --prerelease=allow cookieplone,5,other named packages only,,no
+P329,README.md,89,uv tool install --reinstall --prerelease=allow cookieplone,3,,own package cookieplone from the index,no
+P329,README.md,95,uvx cookieplone --version,5,other named packages only,,no
+P329,README.md,164,make install,1,,uv sync with lock uv.lock,yes
+P329,README.md,170,uv run cookieplone,1,,uv run with lock uv.lock,yes
+P329,README.md,176,make check,to judge,,make: target check not found in Makefile,no
+P329,README.md,186,make test,1,,uv run with lock uv.lock,yes
+P329,README.md,192,uv run pytest -x --pdb,1,,uv run with lock uv.lock,yes
+P329,README.md,198,uv run pytest -k test_run_sanity_checks_fail,1,,uv run with lock uv.lock,yes
+P329,README.md,204,uv run pytest -k test_run_sanity_checks_fail -x --pdb,1,,uv run with lock uv.lock,yes
+P330,README.md,60,pip install autiobooks,3,,own package autiobooks from the index,no
+P333,README.md,123,pip install --upgrade pip setuptools,5,other named packages only,,no
+P333,README.md,127,pip install mlflow==3.6.0 scikit-learn==1.7.2 matplotlib==3.10.7 numpy==2.3.5,5,other named packages only,,no
+P333,README.md,298,pip install --upgrade pip setuptools,5,other named packages only,,no
+P333,README.md,299,pip install mllibprodest,3,,own package mllibprodest from the index,no
+P333,README.md,313,pip install --upgrade pip setuptools,5,other named packages only,,no
+P333,README.md,314,pip install mllibprodest,3,,own package mllibprodest from the index,no
+P334,README.md,46,pip install syn-commodore,3,,own package syn-commodore from the index,no
+P334,README.md,89,poetry install,1,,poetry install with lock poetry.lock,yes
+P334,README.md,100,poetry run commodore,5,no Python install,,no
+P334,README.md,106,poetry shell,5,no Python install,,no
+P334,README.md,119,poetry run black .,5,no Python install,,no
+P334,README.md,124,poetry run tox -lv,1,,project . with manifest in T,no
+P334,README.md,129,poetry run tox,1,,project . with manifest in T,no
+P334,README.md,134,poetry run tox -e py312,1,,project . with manifest in T,no
+P335,README.md,46,pip install syn-commodore,3,,own package syn-commodore from the index,no
+P335,README.md,89,poetry install,1,,poetry install with lock poetry.lock,yes
+P335,README.md,100,poetry run commodore,5,no Python install,,no
+P335,README.md,106,poetry shell,5,no Python install,,no
+P335,README.md,119,poetry run black .,5,no Python install,,no
+P335,README.md,124,poetry run tox -lv,1,,project . with manifest in T,no
+P335,README.md,129,poetry run tox,1,,project . with manifest in T,no
+P335,README.md,134,poetry run tox -e py312,1,,project . with manifest in T,no
+P336,README.md,26,uv init --python 3.12,5,no Python install,,no
+P336,README.md,27,uv add prosuite-mcp,to judge,,uv add,no
+P336,README.md,92,uv sync --dev,1,,uv sync without lock; manifest in T,no
+P336,README.md,93,uv run pytest,1,,uv run without lock; manifest in T,no
+P336,README.md,94,uv run ruff check src,1,,uv run without lock; manifest in T,no
+P336,README.md,95,uv run pyright src,1,,uv run without lock; manifest in T,no
+P337,README.md,34,pip install grizabella,3,,own package grizabella from the index,no
+P337,README.md,42,poetry install,1,,poetry install with lock poetry.lock,yes
+P340,CONTRIBUTING.md,114,pip install pytest pytest-cov black flake8,5,other named packages only,,no
+P340,CONTRIBUTING.md,117,pip install scikit-learn leidenalg,5,other named packages only,,no
+P340,README.md,183,pip install superlocalmemory,3,,own package superlocalmemory from the index,no
+P340,README.md,192,pip install -U superlocalmemory,3,,own package superlocalmemory from the index,no
+P341,README.md,165,pip wheel --no-cache-dir --wheel-dir /wheels numpy,5,no Python install,,no
+P341,README.md,219,pip install -U jupyter-quant,3,,own package jupyter-quant from the index,no
+P341,README.md,225,pip install -U jupyter-quant[bayes] # to install pymc & arviz/graphviz,3,,own package jupyter-quant from the index,no
+P341,README.md,227,pip install -U jupyter-quant[sk-util] # to install skfolio & sktime,3,,own package jupyter-quant from the index,no
+P341,README.md,237,pip install -U git+https://github.com/quantbelt/jupyter-quant.git,to judge,,remote install git+https://github.com/quantbelt/jupyter-quant.git,no
+P342,README.md,165,pip wheel --no-cache-dir --wheel-dir /wheels numpy,5,no Python install,,no
+P342,README.md,219,pip install -U jupyter-quant,3,,own package jupyter-quant from the index,no
+P342,README.md,225,pip install -U jupyter-quant[bayes] # to install pymc & arviz/graphviz,3,,own package jupyter-quant from the index,no
+P342,README.md,227,pip install -U jupyter-quant[sk-util] # to install skfolio & sktime,3,,own package jupyter-quant from the index,no
+P342,README.md,237,pip install -U git+https://github.com/quantbelt/jupyter-quant.git,to judge,,remote install git+https://github.com/quantbelt/jupyter-quant.git,no
+P345,CONTRIBUTING.md,45,uv sync --group dev,1,,uv sync with lock uv.lock,yes
+P345,CONTRIBUTING.md,80,pip install railtracks,3,,own package railtracks from the index,no
+P345,CONTRIBUTING.md,81,"pip install ""railtracks[integrations]""  # With integrations",3,,own package railtracks from the index,no
+P345,CONTRIBUTING.md,82,"pip install ""railtracks[all]""           # With all extras",3,,own package railtracks from the index,no
+P345,CONTRIBUTING.md,85,pip install railtracks-cli,5,other named packages only,,no
+P345,README.md,128,pip install railtracks 'railtracks[cli]',3,,own package railtracks from the index,no
+P347,README.md,162,pip install .[dev],to judge,,manifest names T file requirements.txt (read pattern yes),no
+P347,README.md,163,pip install .[test],to judge,,manifest names T file requirements.txt (read pattern yes),no
+P347,README.md,168,pip-compile -v --no-emit-trusted-host --no-emit-index-url requirements.in,1,,pip-compile keeps the pins of requirements.txt,yes
+P347,README.md,169,pip-compile -v --no-emit-trusted-host --no-emit-index-url requirements_test.in,2,lock unused,pip-compile resolves afresh,no
+P348,CONTRIBUTING.md,32,uv sync --extra dev,1,,uv sync with lock uv.lock,yes
+P348,CONTRIBUTING.md,35,uv run pre-commit install                      # Runs ruff on commit,1,,uv run with lock uv.lock,yes
+P348,CONTRIBUTING.md,36,uv run pre-commit install --hook-type commit-msg  # Validates commit messages,1,,uv run with lock uv.lock,yes
+P348,CONTRIBUTING.md,47,uv run ruff check --fix src/ tests/,1,,uv run with lock uv.lock,yes
+P348,CONTRIBUTING.md,50,uv run ruff format src/ tests/,1,,uv run with lock uv.lock,yes
+P348,CONTRIBUTING.md,53,uv run ruff check src/ tests/,1,,uv run with lock uv.lock,yes
+P348,CONTRIBUTING.md,54,uv run ruff format --check src/ tests/,1,,uv run with lock uv.lock,yes
+P348,CONTRIBUTING.md,60,"make actionlint    # Lint GitHub Actions (requires: actionlint, shellcheck)",5,no Python install,,no
+P348,CONTRIBUTING.md,61,make md-lint       # Lint markdown files (requires: podman/docker),5,no Python install,,no
+P348,CONTRIBUTING.md,70,"uv run pytest tests/blocks tests/connectors tests/flow tests/utils -m ""not (examples or slow)""",1,,uv run with lock uv.lock,yes
+P348,CONTRIBUTING.md,73,uv run pytest --cov=sdg_hub --cov-report=term tests/blocks tests/connectors tests/flow tests/utils,1,,uv run with lock uv.lock,yes
+P348,CONTRIBUTING.md,76,uv run pytest tests/test_specific_file.py,1,,uv run with lock uv.lock,yes
+P348,CONTRIBUTING.md,77,"uv run pytest -k ""test_pattern""",1,,uv run with lock uv.lock,yes
+P348,CONTRIBUTING.md,80,uv run pytest tests/integration -v -s,1,,uv run with lock uv.lock,yes
+P348,CONTRIBUTING.md,193,uv run pre-commit install                      # Ruff linting on commit,1,,uv run with lock uv.lock,yes
+P348,CONTRIBUTING.md,194,uv run pre-commit install --hook-type commit-msg  # Commit message validation,1,,uv run with lock uv.lock,yes
+P348,README.md,41,uv pip install sdg-hub,3,,own package sdg-hub from the index,no
+P348,README.md,46,uv pip install .[dev],2,lock unused,project .[dev] (pyproject.toml not in T),no
+P348,README.md,53,uv pip install sdg-hub[vllm],3,,own package sdg-hub from the index,no
+P348,README.md,56,uv pip install sdg-hub[examples],3,,own package sdg-hub from the index,no
+P349,CONTRIBUTING.md,23,pip install -r requirmenets.txt,6,would not run,requirmenets.txt absent at the snapshot,no
+P351,README.md,93,pip install uv,5,other named packages only,,no
+P351,README.md,94,uv sync --all-extras,1,,uv sync with lock uv.lock,yes
+P351,README.md,100,uv run agent-memory api --task-backend=asyncio,1,,uv run with lock uv.lock,yes
+P351,README.md,119,pip install agent-memory-client,3,,own package agent-memory-client from the index,no
+P351,README.md,122,pip install agent-memory-client langchain-core,3,,own package agent-memory-client from the index,no
+P351,README.md,184,uv run agent-memory mcp,1,,uv run with lock uv.lock,yes
+P351,README.md,187,uv run agent-memory mcp --mode sse --port 9000,1,,uv run with lock uv.lock,yes
+P351,README.md,289,make setup,1,,uv run with lock uv.lock,yes
+P351,README.md,292,make verify,1,,uv run with lock uv.lock,yes
+P351,README.md,295,make pre-commit,1,,uv run with lock uv.lock,yes
+P351,README.md,296,make test,1,,uv run with lock uv.lock,yes
+P351,README.md,297,make test-api,1,,uv run with lock uv.lock,yes
+P352,CONTRIBUTING.md,17,poetry install,1,,poetry install without lock; manifest in T,no
+P352,CONTRIBUTING.md,23,poetry build,5,no Python install,,no
+P352,CONTRIBUTING.md,24,poetry run pytest,5,no Python install,,no
+P352,README.md,17,poetry add reqstool-python-poetry-plugin,to judge,,poetry add,no
+P355,README.md,43,conda create --name gen-epix python=3.14,5,other named packages only,,no
+P355,README.md,44,conda activate gen-epix,5,no Python install,,no
+P355,README.md,49,pip install -r requirements.txt,1,,-r requirements.txt,no
+P355,README.md,50,pip install --no-binary :all: pyodbc==5.2.*,5,other named packages only,,no
+P355,README.md,57,pip install -r dev-requirements.txt,2,other file,dev-requirements.txt,no
+P355,README.md,93,conda activate gen-epix,5,no Python install,,no
+P355,README.md,109,conda activate gen-epix,5,no Python install,,no
+P356,README.md,97,conda create --name gen-epix python=3.14,5,other named packages only,,no
+P356,README.md,98,conda activate gen-epix,5,no Python install,,no
+P356,README.md,104,pip install -r requirements.txt,1,,-r requirements.txt,no
+P356,README.md,105,pip install --no-binary :all: pyodbc==5.2.*,5,other named packages only,,no
+P356,README.md,113,pip install -r dev-requirements.txt,2,other file,dev-requirements.txt,no
+P356,README.md,152,conda activate gen-epix,5,no Python install,,no
+P356,README.md,177,conda activate gen-epix,5,no Python install,,no
+P357,README.md,97,conda create --name gen-epix python=3.14,5,other named packages only,,no
+P357,README.md,98,conda activate gen-epix,5,no Python install,,no
+P357,README.md,104,pip install -r requirements.txt,1,,-r requirements.txt,no
+P357,README.md,105,pip install --no-binary :all: pyodbc==5.2.*,5,other named packages only,,no
+P357,README.md,113,pip install -r dev-requirements.txt,2,other file,dev-requirements.txt,no
+P357,README.md,152,conda activate gen-epix,5,no Python install,,no
+P357,README.md,177,conda activate gen-epix,5,no Python install,,no
+P358,README.md,59,pip install nton[gui],3,,own package nton from the index,no
+P359,CONTRIBUTING.md,55,"pip install -e "".[dev]""",1,,project .[dev] with manifest in T,no
+P359,README.md,107,"pip install -e "".[dev]""",1,,project .[dev] with manifest in T,no
+P360,CONTRIBUTING.md,23,uv venv .venv,5,no Python install,,no
+P360,CONTRIBUTING.md,32,uv pip install .,1,,project . with manifest in T,no
+P360,CONTRIBUTING.md,37,uv pip install <package>,5,no Python install,,no
+P361,README.md,14,pip install midea-dishwasher-api,3,,own package midea-dishwasher-api from the index,no
+P362,README.md,33,pip install ttlock-ble,3,,own package ttlock-ble from the index,no
+P362,README.md,39,uv add ttlock-ble,to judge,,uv add,no
+P362,README.md,161,uv sync,1,,uv sync with lock uv.lock,yes
+P362,README.md,162,uv run pytest        # tests,1,,uv run with lock uv.lock,yes
+P362,README.md,163,uv run ruff check .  # lint,1,,uv run with lock uv.lock,yes
+P362,README.md,164,uv run mypy src      # types,1,,uv run with lock uv.lock,yes
+P363,README.md,10,pip install guidelight,3,,own package guidelight from the index,no
+P364,README.md,55,uv venv && uv pip install sagewai,3,,own package sagewai from the index,no
+P364,README.md,56,uv run sagewai --version,1,,uv run with lock uv.lock,yes
+P364,README.md,63,pip install sagewai,3,,own package sagewai from the index,no
+P364,README.md,95,uv pip install --index-strategy unsafe-best-match \,to judge,,unparsed package argument \,no
+P365,CONTRIBUTING.md,41,uv sync,1,,uv sync with lock uv.lock,yes
+P365,CONTRIBUTING.md,42,uv run AgentCrew/main.py chat,1,,uv run with lock uv.lock,yes
+P365,README.md,57,pip install agentcrew-ai,3,,own package agentcrew-ai from the index,no
+P366,README.md,44,pip install FeatureFlex,5,other named packages only,,no
+P366,README.md,52,pip install skrebate,5,other named packages only,,no
+P366,README.md,58,pip install boruta,5,other named packages only,,no
+P368,CONTRIBUTING.md,79,make migrate-db,5,no Python install,,no
+P368,CONTRIBUTING.md,83,"make revision MIGRATION_MESSAGE=""<MIGRATION_MESSAGE>""",5,no Python install,,no
+P368,CONTRIBUTING.md,88,make upgrade-db,5,no Python install,,no
+P368,CONTRIBUTING.md,94,make check-all,5,no Python install,,no
+P368,CONTRIBUTING.md,98,make test-e2e,5,no Python install,,no
+P368,CONTRIBUTING.md,105,make babel-extract,5,no Python install,,no
+P368,CONTRIBUTING.md,109,make babel-update,5,no Python install,,no
+P368,CONTRIBUTING.md,113,make babel-compile,5,no Python install,,no
+P368,CONTRIBUTING.md,122,make build-client,5,no Python install,,no
+P369,CONTRIBUTING.md,79,make migrate-db,5,no Python install,,no
+P369,CONTRIBUTING.md,83,"make revision MIGRATION_MESSAGE=""<MIGRATION_MESSAGE>""",5,no Python install,,no
+P369,CONTRIBUTING.md,88,make upgrade-db,5,no Python install,,no
+P369,CONTRIBUTING.md,94,make check-all,5,no Python install,,no
+P369,CONTRIBUTING.md,98,make test-e2e,5,no Python install,,no
+P369,CONTRIBUTING.md,105,make babel-extract,5,no Python install,,no
+P369,CONTRIBUTING.md,109,make babel-update,5,no Python install,,no
+P369,CONTRIBUTING.md,113,make babel-compile,5,no Python install,,no
+P369,CONTRIBUTING.md,122,make build-client,5,no Python install,,no
+P370,CONTRIBUTING.md,80,make migrate-db,5,no Python install,,no
+P370,CONTRIBUTING.md,84,"make revision MIGRATION_MESSAGE=""<MIGRATION_MESSAGE>""",5,no Python install,,no
+P370,CONTRIBUTING.md,89,make upgrade-db,5,no Python install,,no
+P370,CONTRIBUTING.md,95,make check-all,5,no Python install,,no
+P370,CONTRIBUTING.md,99,make test-e2e,5,no Python install,,no
+P370,CONTRIBUTING.md,106,make babel-extract,5,no Python install,,no
+P370,CONTRIBUTING.md,110,make babel-update,5,no Python install,,no
+P370,CONTRIBUTING.md,114,make babel-compile,5,no Python install,,no
+P370,CONTRIBUTING.md,123,make build-client,5,no Python install,,no
+P375,README.md,75,pip install --upgrade dds-cli,3,,own package dds-cli from the index,no
+P375,README.md,91,pip install --upgrade --force-reinstall git+https://github.com/ScilifelabDataCentre/dds_cli.git@dev,to judge,,remote install git+https://github.com/ScilifelabDataCentre/dds_cli.git@dev,no
+P375,README.md,98,pip install --upgrade -r requirements-dev.txt -e .,to judge,,manifest names T file requirements.txt (read pattern yes),no
+P376,CONTRIBUTING.md,18,"pip install -e "".[dev]""",1,,project .[dev] with manifest in T,no
+P376,CONTRIBUTING.md,27,pip install -r requirements-dev.txt,1,,-r requirements-dev.txt,no
+P376,README.md,10,pip install productteam,3,,own package productteam from the index,no
+P376,README.md,133,pip install productteam,3,,own package productteam from the index,no
+P377,README.md,75,uvx forgetful-ai,5,other named packages only,,no
+P377,README.md,78,uv tool install forgetful-ai,3,,own package forgetful-ai from the index,no
+P377,README.md,85,uvx forgetful-ai --transport http --port 8020,5,other named packages only,,no
+P377,README.md,95,uv sync,1,,uv sync with lock uv.lock,yes
+P377,README.md,98,uv run main.py,1,,uv run with lock uv.lock,yes
+P378,CONTRIBUTING.md,54,uv sync --all-groups,1,,uv sync with lock uv.lock,yes
+P378,CONTRIBUTING.md,57,uv run pre-commit install,1,,uv run with lock uv.lock,yes
+P378,CONTRIBUTING.md,66,uv run ruff format ptsandbox/,1,,uv run with lock uv.lock,yes
+P378,CONTRIBUTING.md,69,uv run ruff check ptsandbox/,1,,uv run with lock uv.lock,yes
+P378,CONTRIBUTING.md,72,uv run mypy ptsandbox/,1,,uv run with lock uv.lock,yes
+P378,CONTRIBUTING.md,112,uv sync --group docs,1,,uv sync with lock uv.lock,yes
+P378,CONTRIBUTING.md,113,uv run mkdocs serve,1,,uv run with lock uv.lock,yes
+P378,README.md,42,python3 -m pip install ptsandbox,3,,own package ptsandbox from the index,no
+P378,README.md,48,uv add ptsandbox,to judge,,uv add,no
+P379,README.md,12,pip install -r requirements.txt,1,,-r requirements.txt,no
+P379,README.md,13,pip install -e .,to judge,,manifest names T file requirements.txt (read pattern yes),no
+P381,README.md,164,tox -e bindep,5,other named packages only,,no
+P382,CONTRIBUTING.md,27,pip install -U hatch,5,other named packages only,,no
+P382,CONTRIBUTING.md,28,hatch run pre-commit,to judge,,manifest names T file requirements.txt (read pattern yes),no
+P382,CONTRIBUTING.md,35,hatch shell,to judge,,manifest names T file requirements.txt (read pattern yes),no
+P382,CONTRIBUTING.md,46,hatch env create local.py3.10```,to judge,,manifest names T file requirements.txt (read pattern yes),no
+P382,README.md,45,uv tool install snowflake-cli,3,,own package snowflake-cli from the index,no
+P382,README.md,51,uvx --from snowflake-cli snow --help,5,other named packages only,,no
+P382,README.md,74,hatch build && pip install .,to judge,,manifest names T file requirements.txt (read pattern yes),no
+P383,CONTRIBUTING.md,37,pip install -U hatch==1.15.1 virtualenv==20.39.1,5,other named packages only,,no
+P383,CONTRIBUTING.md,38,hatch shell,1,,project .[development] with manifest in T,no
+P383,CONTRIBUTING.md,39,hatch run test,1,,project .[development] with manifest in T,no
+P383,CONTRIBUTING.md,48,hatch run pre-commit install,1,,project .[development] with manifest in T,no
+P383,CONTRIBUTING.md,84,pip install -U hatch==1.15.1 virtualenv==20.39.1,5,other named packages only,,no
+P383,CONTRIBUTING.md,85,hatch run pre-commit install,1,,project .[development] with manifest in T,no
+P383,CONTRIBUTING.md,91,hatch env create local.py3.10,1,,project .[development] with manifest in T,no
+P383,CONTRIBUTING.md,97,hatch env show,5,no Python install,,no
+P383,CONTRIBUTING.md,103,hatch run test                 # unit tests,1,,project .[development] with manifest in T,no
+P383,CONTRIBUTING.md,104,hatch run integration:test     # integration tests (requires Snowflake connection),1,,project .[development] with manifest in T,no
+P383,README.md,45,uv tool install snowflake-cli,3,,own package snowflake-cli from the index,no
+P383,README.md,51,uvx --from snowflake-cli snow --help,5,other named packages only,,no
+P383,README.md,74,hatch build && pip install .,1,,project . with manifest in T,no
+P384,CONTRIBUTING.md,28,uv sync,1,,uv sync with lock uv.lock,yes
+P384,CONTRIBUTING.md,38,uv add sw-metadata-bot,to judge,,uv add,no
+P384,CONTRIBUTING.md,45,pip install sw-metadata-bot,5,other named packages only,,no
+P384,CONTRIBUTING.md,51,"pip install ""sw-metadata-bot[docs]""",5,other named packages only,,no
+P384,CONTRIBUTING.md,52,"pip install ""sw-metadata-bot[test]""",5,other named packages only,,no
+P384,CONTRIBUTING.md,53,"pip install ""sw-metadata-bot[dev]""",5,other named packages only,,no
+P384,CONTRIBUTING.md,119,uv run sw-metadata-bot run-analysis \,1,,uv run with lock uv.lock,yes
+P384,CONTRIBUTING.md,126,uv run sw-metadata-bot run-analysis \,1,,uv run with lock uv.lock,yes
+P384,CONTRIBUTING.md,172,uv run sw-metadata-bot publish \,1,,uv run with lock uv.lock,yes
+P384,CONTRIBUTING.md,189,uv run sw-metadata-bot publish \,1,,uv run with lock uv.lock,yes
+P384,CONTRIBUTING.md,211,"uv run pytest -m ""not integration_gitlab""",1,,uv run with lock uv.lock,yes
+P384,CONTRIBUTING.md,218,"uv run pytest --run-integration-gitlab -m ""integration_gitlab""",1,,uv run with lock uv.lock,yes
+P384,CONTRIBUTING.md,236,"uv run pytest -m ""not integration_gitlab""",1,,uv run with lock uv.lock,yes
+P384,CONTRIBUTING.md,243,"uv run pytest --run-integration-gitlab -m ""integration_gitlab""",1,,uv run with lock uv.lock,yes
+P385,README.md,103,pip3 uninstall solace-agent-mesh,5,no Python install,,no
+P385,README.md,109,pip3 install solace-agent-mesh,3,,own package solace-agent-mesh from the index,no
+P385,README.md,202,hatch test,1,,project . with manifest in T,no
+P385,README.md,205,"hatch test -m ""<tag>""",1,,project . with manifest in T,no
+P385,README.md,214,pip install -e .[test],1,,project .[test] with manifest in T,no
+P386,README.md,103,pip3 uninstall solace-agent-mesh,5,no Python install,,no
+P386,README.md,109,pip3 install solace-agent-mesh,3,,own package solace-agent-mesh from the index,no
+P386,README.md,202,hatch test,1,,project . with manifest in T,no
+P386,README.md,205,"hatch test -m ""<tag>""",1,,project . with manifest in T,no
+P386,README.md,214,pip install -e .[test],1,,project .[test] with manifest in T,no
+P390,README.md,16,uv pip install litresearch,3,,own package litresearch from the index,no
+P390,README.md,22,uv sync,1,,uv sync with lock uv.lock,yes
+P390,README.md,23,uv run nox,1,,uv run with lock uv.lock,yes
+P390,README.md,154,uv run nox,1,,uv run with lock uv.lock,yes
+P390,README.md,155,uv run litresearch --help,1,,uv run with lock uv.lock,yes
+P391,README.md,27,pip install cryptknox,3,,own package cryptknox from the index,no
+P392,README.md,15,pip install awesomeNations,3,,own package awesomenations from the index,no
+P393,CONTRIBUTING.md,115,uv venv --python 3.10,5,no Python install,,no
+P393,CONTRIBUTING.md,120,uv sync --extra dev,1,,uv sync with lock uv.lock,yes
+P393,CONTRIBUTING.md,128,uv run pytest tests/predict,1,,uv run with lock uv.lock,yes
+P393,CONTRIBUTING.md,144,conda create -n dspy-dev python=3.10,5,other named packages only,,no
+P393,CONTRIBUTING.md,145,conda activate dspy-dev,5,no Python install,,no
+P393,CONTRIBUTING.md,146,"pip install -e "".[dev]""",2,lock unused,project .[dev] (pyproject.toml not in T),no
+P393,README.md,31,pip install dspy,3,,own package dspy from the index,no
+P393,README.md,37,pip install git+https://github.com/stanfordnlp/dspy.git,to judge,,remote install git+https://github.com/stanfordnlp/dspy.git,no
+P394,README.md,85,make install,5,no Python install,,no
+P399,README.md,149,"uv venv && uv pip install -e "".[dev]""",1,,project .[dev] with manifest in T,no
+P399,README.md,150,uv run pytest,1,,uv run without lock; manifest in T,no
+P400,README.md,35,pip install superagentx,3,,own package superagentx from the index,no
+P400,README.md,98,pip install playwright,5,other named packages only,,no
+P400,README.md,333,pip install superagentx,3,,own package superagentx from the index,no
+P401,README.md,286,pip install supervisely,3,,own package supervisely from the index,no
+P402,README.md,52,uv tool install swival,3,,own package swival from the index,no
+P402,README.md,69,uv tool install swival,3,,own package swival from the index,no
+P402,README.md,80,uv tool install swival,3,,own package swival from the index,no
+P402,README.md,89,uv tool install swival,3,,own package swival from the index,no
+P402,README.md,100,uv tool install swival,3,,own package swival from the index,no
+P402,README.md,147,uv tool upgrade swival    # update (uv),5,no Python install,,no
+P402,README.md,148,uv tool uninstall swival  # remove (uv),5,no Python install,,no
+P403,README.md,5,pip install setuptools wheel twine,5,other named packages only,,no
+P404,README.md,37,"pip install ""tabsdata[all]""",3,,own package tabsdata from the index,no
+P405,README.md,37,"pip install ""tabsdata[all]""",3,,own package tabsdata from the index,no
+P406,README.md,73,pip install talklib,3,,own package talklib from the index,no
+P406,README.md,507,pip install -e .,to judge,,manifest names T file requirements.txt (read pattern yes),no
+P407,CONTRIBUTING.md,36,pip install -r requirements-dev.txt,1,,-r requirements-dev.txt,yes
+P407,CONTRIBUTING.md,70,make test,5,no Python install,,no
+P407,CONTRIBUTING.md,73,make test-cov,5,no Python install,,no
+P407,CONTRIBUTING.md,92,make lint,5,other named packages only,,no
+P407,CONTRIBUTING.md,100,pip-audit                  # Dependency vulnerability scanning,5,no Python install,,no
+P407,README.md,34,pip install mcp-toolz,3,,own package mcp-toolz from the index,no
+P407,README.md,50,"pip install -e "".[dev]""",1,,project .[dev] with manifest in T,no
+P407,README.md,222,pip install -r requirements-dev.txt,1,,-r requirements-dev.txt,yes
+P408,CONTRIBUTING.md,62,uv sync --all-extras,1,,uv sync with lock uv.lock,yes
+P408,CONTRIBUTING.md,70,uv run pre-commit install,1,,uv run with lock uv.lock,yes
+P408,CONTRIBUTING.md,98,uv run pytest,1,,uv run with lock uv.lock,yes
+P408,CONTRIBUTING.md,104,uv run pytest -v,1,,uv run with lock uv.lock,yes
+P408,CONTRIBUTING.md,110,uv run pytest tests/test_agent_tool_call.py,1,,uv run with lock uv.lock,yes
+P408,CONTRIBUTING.md,144,uv run ruff check .,1,,uv run with lock uv.lock,yes
+P408,CONTRIBUTING.md,150,uv run ruff check --fix .,1,,uv run with lock uv.lock,yes
+P408,CONTRIBUTING.md,156,uv run ruff format .,1,,uv run with lock uv.lock,yes
+P408,CONTRIBUTING.md,162,uv run ruff format --check .,1,,uv run with lock uv.lock,yes
+P408,CONTRIBUTING.md,170,uv run pyright,1,,uv run with lock uv.lock,yes
+P408,CONTRIBUTING.md,178,uv run pre-commit run --all-files,1,,uv run with lock uv.lock,yes
+P408,README.md,24,uv tool install uvibe,3,,own package uvibe from the index,no
+P408,README.md,30,pip install uvibe,3,,own package uvibe from the index,no
+P411,README.md,17,pip install fastapi-framework,3,,own package fastapi-framework from the index,no
+P412,README.md,17,pip install fastapi-framework,3,,own package fastapi-framework from the index,no
+P413,README.md,187,pip install genesis-mesh,3,,own package genesis-mesh from the index,no
+P413,README.md,197,"pip install -e "".[dev,docs]""",1,,"project .[dev,docs] with manifest in T",no
+P414,CONTRIBUTING.md,68,uv sync   # installs all deps including dev deps,1,,uv sync with lock uv.lock,yes
+P414,CONTRIBUTING.md,74,uv run pytest        # should show 29 passed,1,,uv run with lock uv.lock,yes
+P414,CONTRIBUTING.md,75,"uv run python -c ""import llmgate; print(llmgate.__version__)""",1,,uv run with lock uv.lock,yes
+P414,CONTRIBUTING.md,130,uv run pytest                  # all tests must pass,1,,uv run with lock uv.lock,yes
+P414,CONTRIBUTING.md,266,uv run pytest tests/ -v          # all tests,1,,uv run with lock uv.lock,yes
+P414,CONTRIBUTING.md,267,"uv run pytest tests/test_providers.py -v -k ""MyProvider""   # specific",1,,uv run with lock uv.lock,yes
+P414,README.md,35,pip install llmgate,3,,own package llmgate from the index,no
+P414,README.md,41,pip install llmgate[mistral]          # Mistral,3,,own package llmgate from the index,no
+P414,README.md,42,pip install llmgate[cohere]           # Cohere,3,,own package llmgate from the index,no
+P414,README.md,43,pip install llmgate[bedrock]          # AWS Bedrock (boto3),3,,own package llmgate from the index,no
+P414,README.md,44,pip install llmgate[ollama]           # Ollama (local models),3,,own package llmgate from the index,no
+P414,README.md,45,pip install llmgate[all]              # everything,3,,own package llmgate from the index,no
+P414,README.md,362,uv sync             # install deps + dev deps,1,,uv sync with lock uv.lock,yes
+P414,README.md,363,uv run pytest       # run full test suite (all mocked — no API keys needed),1,,uv run with lock uv.lock,yes
+P414,README.md,364,uv build            # build wheel + sdist,5,no Python install,,no
+P417,CONTRIBUTING.md,32,tox,1,,poetry install with lock poetry.lock,yes
+P417,CONTRIBUTING.md,51,pip install ccm,5,other named packages only,,no
+P418,CONTRIBUTING.md,47,uv sync --extra dev --locked,1,,uv sync with lock uv.lock,yes
+P418,CONTRIBUTING.md,50,uv run --locked ruff check src tests,1,,uv run with lock uv.lock,yes
+P418,CONTRIBUTING.md,51,uv run --locked mypy src tests,1,,uv run with lock uv.lock,yes
+P418,CONTRIBUTING.md,52,uv run --locked pytest tests/ --maxfail=3 -n auto,1,,uv run with lock uv.lock,yes
+P418,CONTRIBUTING.md,55,make format  # Auto-fix formatting,1,,uv run with lock uv.lock,yes
+P418,CONTRIBUTING.md,56,make ci      # Run full CI pipeline,1,,uv run with lock uv.lock,yes
+P418,CONTRIBUTING.md,82,uv run --locked ruff check src tests,1,,uv run with lock uv.lock,yes
+P418,CONTRIBUTING.md,83,uv run --locked mypy src tests,1,,uv run with lock uv.lock,yes
+P418,CONTRIBUTING.md,84,uv run --locked pytest tests/ --maxfail=3 -n auto,1,,uv run with lock uv.lock,yes
+P418,CONTRIBUTING.md,87,make test-quick   # Fast tests (~10s) - for development iteration,1,,uv run with lock uv.lock,yes
+P418,CONTRIBUTING.md,88,"make test         # Full suite (615 tests, ~80s)",1,,uv run with lock uv.lock,yes
+P418,CONTRIBUTING.md,89,make test-cov     # Full suite with coverage report,1,,uv run with lock uv.lock,yes
+P418,README.md,27,pip install secure-string-cipher,3,,own package secure-string-cipher from the index,no
+P418,README.md,40,pipx install secure-string-cipher,3,,own package secure-string-cipher from the index,no
+P418,README.md,43,pip install secure-string-cipher,3,,own package secure-string-cipher from the index,no
+P418,README.md,48,uv sync --extra dev --locked,1,,uv sync with lock uv.lock,yes
+P418,README.md,51,uv run --locked ssc --help,1,,uv run with lock uv.lock,yes
+P418,README.md,315,uv sync --extra dev --locked,1,,uv sync with lock uv.lock,yes
+P418,README.md,318,uv run --locked ruff check src tests,1,,uv run with lock uv.lock,yes
+P418,README.md,319,uv run --locked ruff format --check src tests,1,,uv run with lock uv.lock,yes
+P418,README.md,320,uv run --locked mypy src tests,1,,uv run with lock uv.lock,yes
+P418,README.md,321,uv run --locked pytest tests/ --cov=secure_string_cipher --cov-report=xml --cov-fail-under=69,1,,uv run with lock uv.lock,yes
+P419,README.md,72,pip install opencanary,3,,own package opencanary from the index,no
+P419,README.md,77,uv venv env,5,no Python install,,no
+P419,README.md,79,uv pip install opencanary,3,,own package opencanary from the index,no
+P419,README.md,85,pip install scapy pcapy-ng # if you plan to use the SNMP module,5,other named packages only,,no
+P419,README.md,98,uv venv env,5,no Python install,,no
+P419,README.md,124,pip install opencanary,3,,own package opencanary from the index,no
+P419,README.md,125,pip install scapy pcapy-ng # optional,5,other named packages only,,no
+P419,README.md,130,uv pip install opencanary,3,,own package opencanary from the index,no
+P419,README.md,131,uv pip install scapy pcapy-ng # optional,5,other named packages only,,no
+P419,README.md,145,pip install opencanary-<version>.tar.gz,5,other named packages only,,no
+P419,README.md,150,uv pip install opencanary-<version>.tar.gz,5,other named packages only,,no
+P419,README.md,272,pip install pre-commit,5,other named packages only,,no
+P420,README.md,8,pip install multimodal-parsers,3,,own package multimodal-parsers from the index,no
+P420,README.md,23,"pip install ""unstructured[pdf]""",5,other named packages only,,no
+P420,README.md,52,"pip install -e "".[dev]""",1,,project .[dev] with manifest in T,no
+P421,README.md,8,pip install multimodal-parsers,3,,own package multimodal-parsers from the index,no
+P421,README.md,23,"pip install ""unstructured[pdf]""",5,other named packages only,,no
+P421,README.md,52,"pip install -e "".[dev]""",1,,project .[dev] with manifest in T,no
+P422,CONTRIBUTING.md,24,uv run pytest tests/unit/test_cli.py tests/unit/test_gateway.py tests/unit/test_compression.py tests/unit/test_universal_runtime.py tests/unit/test_bridge_memory.py,1,,uv run with lock uv.lock,yes
+P422,README.md,63,pip install tok-protocol,3,,own package tok-protocol from the index,no
+P422,README.md,79,pipx install tok-protocol,3,,own package tok-protocol from the index,no
+P422,README.md,216,pip install tok-protocol,3,,own package tok-protocol from the index,no
+P422,README.md,230,pip install .,2,lock unused,project . (pyproject.toml not in T),no
+P422,README.md,279,uv sync --frozen --extra dev,1,,uv sync with lock uv.lock,yes
+P422,README.md,280,uv run python scripts/run_agent_smoke.py,1,,uv run with lock uv.lock,yes
+P422,README.md,281,uv run pre-commit run --all-files,1,,uv run with lock uv.lock,yes
+P422,README.md,282,uv run ruff check src/tok tests,1,,uv run with lock uv.lock,yes
+P422,README.md,283,uv run mypy src/tok,1,,uv run with lock uv.lock,yes
+P422,README.md,284,uv run pytest tests/unit tests/integration -v --cov=src/tok --cov-fail-under=80,1,,uv run with lock uv.lock,yes
+P422,README.md,285,uv build,5,no Python install,,no
+P423,CONTRIBUTING.rst,84,tox,6,would not run,no tox configuration at the root,no
+P423,README.md,79,pip install pgsync,3,,own package pgsync from the index,no
+P424,README.md,79,pipx run opentelemetry-mcp --backend jaeger --url http://localhost:16686,5,other named packages only,,no
+P424,README.md,82,uvx opentelemetry-mcp --backend jaeger --url http://localhost:16686,5,other named packages only,,no
+P424,README.md,422,pipx install opentelemetry-mcp,5,other named packages only,,no
+P424,README.md,428,pipx upgrade opentelemetry-mcp,5,no Python install,,no
+P424,README.md,434,pip install opentelemetry-mcp,5,other named packages only,,no
+P424,README.md,487,uv sync,1,,uv sync with lock uv.lock,yes
+P424,README.md,490,"uv pip install -e "".[dev]""",2,lock unused,project .[dev] (pyproject.toml not in T),no
+P424,README.md,613,uv run opentelemetry-mcp,1,,uv run with lock uv.lock,yes
+P424,README.md,619,uv run opentelemetry-mcp --backend jaeger --url http://localhost:16686,1,,uv run with lock uv.lock,yes
+P424,README.md,631,uv run opentelemetry-mcp --transport http,1,,uv run with lock uv.lock,yes
+P424,README.md,637,uv run opentelemetry-mcp --transport http --host 127.0.0.1 --port 9000,1,,uv run with lock uv.lock,yes
+P424,README.md,964,uv run pytest,1,,uv run with lock uv.lock,yes
+P424,README.md,967,uv run pytest --cov=openllmetry_mcp --cov-report=html,1,,uv run with lock uv.lock,yes
+P424,README.md,977,uv run ruff format .,1,,uv run with lock uv.lock,yes
+P424,README.md,980,uv run ruff check .,1,,uv run with lock uv.lock,yes
+P424,README.md,983,uv run mypy src/,1,,uv run with lock uv.lock,yes
+P426,CONTRIBUTING.md,78,pip install -e .,to judge,,manifest names T file requirements.txt (read pattern yes),no
+P426,CONTRIBUTING.md,84,pip install -r requirements.txt,1,,-r requirements.txt,yes
+P426,CONTRIBUTING.md,90,pip install -r requirements/requirements-dev.txt,2,lock unused,requirements/requirements-dev.txt,no
+P426,CONTRIBUTING.md,211,pip install -r requirements-dev.txt,6,would not run,requirements-dev.txt absent at the snapshot,no
+P426,CONTRIBUTING.md,219,pip install pip-tools,5,other named packages only,,no
+P426,README.md,106,python -m pip install aider-install,5,other named packages only,,no
+P427,CONTRIBUTING.md,78,pip install -e .,to judge,,manifest names T file requirements.txt (read pattern yes),no
+P427,CONTRIBUTING.md,84,pip install -r requirements.txt,1,,-r requirements.txt,yes
+P427,CONTRIBUTING.md,90,pip install -r requirements/requirements-dev.txt,2,lock unused,requirements/requirements-dev.txt,no
+P427,CONTRIBUTING.md,211,pip install -r requirements-dev.txt,6,would not run,requirements-dev.txt absent at the snapshot,no
+P427,CONTRIBUTING.md,219,pip install pip-tools,5,other named packages only,,no
+P427,README.md,106,python -m pip install aider-install,5,other named packages only,,no
+P429,README.md,19,pip install wikidot,3,,own package wikidot from the index,no
+P429,README.md,56,make docs-install,to judge,,make: target docs-install not found in Makefile,no
+P429,README.md,59,make docs-build,to judge,,make: target docs-build not found in Makefile,no
+P429,README.md,62,make docs-serve,to judge,,make: target docs-serve not found in Makefile,no
+P430,README.md,8,python -m pip install c2c_gpx,3,,own package c2c-gpx from the index,no
+P431,README.md,34,pip install -r requirements.txt,1,,-r requirements.txt,no
+P431,README.md,39,poetry install,1,,poetry install with lock poetry.lock,yes
+P431,README.md,45,poetry run poe hooks,5,no Python install,,no
+P431,README.md,52,poetry run OrecchietTetris,5,no Python install,,no
+P431,README.md,64,poetry run poe test,5,no Python install,,no
+P431,README.md,69,poetry run pytest -v tests/model/test_tetromino.py,5,no Python install,,no
+P431,README.md,70,poetry run pytest -v tests/model/test_tetromino.py::test_rotations,5,no Python install,,no
+P431,README.md,75,poetry run poe coverage,5,no Python install,,no
+P431,README.md,80,poetry run poe flake8,5,no Python install,,no
+P431,README.md,81,poetry run poe mypy,5,no Python install,,no
+P433,CONTRIBUTING.md,30,"pip install -e "".[dev]""",1,,project .[dev] with manifest in T,no
+P433,CONTRIBUTING.md,35,"uv pip install -e "".[dev]""",1,,project .[dev] with manifest in T,no
+P433,README.md,42,pip install -r requirements.txt,1,,-r requirements.txt,no
+P433,README.md,49,python3 -m pip install -e .,1,,project . with manifest in T,no
+P433,README.md,57,python3 -m pip install codefox,3,,own package codefox from the index,no
+P433,README.md,63,uv tool install codefox,3,,own package codefox from the index,no
+P433,README.md,178,"pip install -e "".[dev]""",1,,project .[dev] with manifest in T,no
+P433,README.md,184,"uv pip install -e "".[dev]""",1,,project .[dev] with manifest in T,no
+P434,CONTRIBUTING.md,30,"pip install -e "".[dev]""",1,,project .[dev] with manifest in T,no
+P434,CONTRIBUTING.md,35,"uv pip install -e "".[dev]""",1,,project .[dev] with manifest in T,no
+P434,README.md,95,uv tool install codefox,3,,own package codefox from the index,no
+P434,README.md,100,python3 -m pip install codefox,3,,own package codefox from the index,no
+P434,README.md,223,"pip install -e "".[dev]""",1,,project .[dev] with manifest in T,no
+P434,README.md,229,"uv pip install -e "".[dev]""",1,,project .[dev] with manifest in T,no
+P440,README.md,22,pip install 0xpwn,3,,own package 0xpwn from the index,no
+P440,README.md,28,pipx install 0xpwn,3,,own package 0xpwn from the index,no
+P440,README.md,219,"pip install -e "".[dev]""",1,,project .[dev] with manifest in T,no
+P441,CONTRIBUTING.md,18,uv sync --group dev,1,,uv sync with lock uv.lock,yes
+P441,CONTRIBUTING.md,24,uv run pytest,1,,uv run with lock uv.lock,yes
+P441,CONTRIBUTING.md,25,uv run policyfoundry --help,1,,uv run with lock uv.lock,yes
+P441,CONTRIBUTING.md,35,uv run pytest,1,,uv run with lock uv.lock,yes
+P441,README.md,22,pip install policy-foundry,3,,own package policy-foundry from the index,no
+P441,README.md,28,pipx install policy-foundry,3,,own package policy-foundry from the index,no
+P441,README.md,34,uv tool install policy-foundry,3,,own package policy-foundry from the index,no
+P441,README.md,257,uv sync --group dev,1,,uv sync with lock uv.lock,yes
+P441,README.md,260,uv run policyfoundry --help,1,,uv run with lock uv.lock,yes
+P441,README.md,266,uv run pytest,1,,uv run with lock uv.lock,yes
+P441,README.md,267,uv run pytest --cov=policyfoundry,1,,uv run with lock uv.lock,yes
+P441,README.md,268,"uv run pytest -k ""test_analyze""",1,,uv run with lock uv.lock,yes
+P442,README.md,64,pip install vantage6,3,,own package vantage6 from the index,no
+P443,README.md,180,uv run python manage.py spectacular --color --file schema.yml,1,,uv run with lock uv.lock,yes
+P443,README.md,190,uv sync --locked --all-extras --dev,1,,uv sync with lock uv.lock,yes
+P443,README.md,193,uv run pytest,1,,uv run with lock uv.lock,yes
+P443,README.md,196,uv run pytest tests/unit/path/to/test_file.py,1,,uv run with lock uv.lock,yes
+P443,README.md,199,uv run pytest --cov=. --cov-report=term --cov-report=html --cov-config=pyproject.toml -n0,1,,uv run with lock uv.lock,yes
+P443,README.md,202,uv run ruff check --fix,1,,uv run with lock uv.lock,yes
+P443,README.md,203,uv run ruff format,1,,uv run with lock uv.lock,yes
+P443,README.md,206,uv run pre-commit run --all-files,1,,uv run with lock uv.lock,yes
+P443,README.md,209,uv run python manage.py makemigrations,1,,uv run with lock uv.lock,yes
+P443,README.md,210,uv run python manage.py migrate,1,,uv run with lock uv.lock,yes
+P443,README.md,211,uv run python manage.py runserver,1,,uv run with lock uv.lock,yes
+P443,README.md,212,uv run python manage.py createsuperuser,1,,uv run with lock uv.lock,yes
+P443,README.md,213,uv run python manage.py seed_all,1,,uv run with lock uv.lock,yes
+P443,README.md,216,uv run python manage.py spectacular --color --file schema.yml,1,,uv run with lock uv.lock,yes
+P443,README.md,219,uv run python manage.py meilisearch_sync_all_indexes,1,,uv run with lock uv.lock,yes
+P443,README.md,220,uv run python manage.py meilisearch_sync_index --model ProductTranslation,1,,uv run with lock uv.lock,yes
+P443,README.md,235,uv run python manage.py meilisearch_sync_all_indexes,1,,uv run with lock uv.lock,yes
+P443,README.md,236,uv run python manage.py meilisearch_sync_index --model ProductTranslation,1,,uv run with lock uv.lock,yes
+P443,README.md,237,uv run python manage.py meilisearch_clear_index --index ProductTranslation,1,,uv run with lock uv.lock,yes
+P443,README.md,238,uv run python manage.py meilisearch_drop --index ProductTranslation,1,,uv run with lock uv.lock,yes
+P443,README.md,239,uv run python manage.py meilisearch_inspect_index --index ProductTranslation,1,,uv run with lock uv.lock,yes
+P443,README.md,244,uv run python manage.py meilisearch_enable_experimental --feature containsFilter,1,,uv run with lock uv.lock,yes
+P443,README.md,245,uv run python manage.py meilisearch_update_index_settings --index ProductTranslation --max-total-hits 50000 --search-cutoff-ms 1500,1,,uv run with lock uv.lock,yes
+P443,README.md,246,"uv run python manage.py meilisearch_update_ranking --index ProductTranslation --rules ""words,typo,proximity,attribute,sort,stock:desc,discount_percent:desc,exactness""",1,,uv run with lock uv.lock,yes
+P443,README.md,251,"uv run python manage.py meilisearch_test_federated --query ""laptop"" --language-code en --limit 20",1,,uv run with lock uv.lock,yes
+P443,README.md,252,uv run python manage.py meilisearch_export_analytics --start-date 2024-01-01 --end-date 2024-12-31 --output analytics.json,1,,uv run with lock uv.lock,yes
+P444,README.md,55,poetry install,1,,poetry install with lock poetry.lock,yes
+P444,README.md,84,pip3 install borb,5,other named packages only,,no
+P444,README.md,169,pip3 install argcomplete,5,other named packages only,,no
+P445,CONTRIBUTING.md,21,uv sync --directory hindsight-api/,1,,uv sync with lock uv.lock,yes
+P445,CONTRIBUTING.md,51,uv run pytest tests/,1,,uv run with lock uv.lock,yes
+P445,CONTRIBUTING.md,78,uv run ruff check --fix .   # Lint and auto-fix,1,,uv run with lock uv.lock,yes
+P445,CONTRIBUTING.md,79,uv run ruff format .        # Format code,1,,uv run with lock uv.lock,yes
+P445,CONTRIBUTING.md,80,uv run ty check hindsight_api  # Type check,1,,uv run with lock uv.lock,yes
+P445,README.md,94,pip install hindsight-client -U,5,other named packages only,,no
+P445,README.md,141,pip install hindsight-all -U,3,,own package hindsight-all from the index,no
+P446,README.md,28,pip install bdi-kit,3,,own package bdi-kit from the index,no
+P446,README.md,34,pip install git+https://github.com/VIDA-NYU/bdi-kit@devel,to judge,,remote install git+https://github.com/VIDA-NYU/bdi-kit@devel,no
+P447,README.md,56,poetry config virtualenvs.in-project true,5,no Python install,,no
+P447,README.md,64,pip install vision-common,3,,own package vision-common from the index,no
+P447,README.md,72,poetry install --no-root,1,,poetry install with lock poetry.lock,yes
+P451,README.md,33,uv pip install -r requirements.txt,1,,-r requirements.txt,no
+P451,README.md,90,uv venv,5,no Python install,,no
+P451,README.md,99,uv pip install --upgrade -r requirements.txt,1,,-r requirements.txt,no
+P451,README.md,105,uv pip install --upgrade setuptools build twine,5,other named packages only,,no
+P451,README.md,129,uv pip install -U -e .,to judge,,manifest names T file requirements.txt (read pattern yes),no
+P451,README.md,130,uv pip show ws-mark-flow,5,no Python install,,no
+P451,README.md,137,uv pip install -U scanreq prospector[with_everything],5,other named packages only,,no
+P452,README.md,33,uv pip install -r requirements.txt,1,,-r requirements.txt,no
+P452,README.md,90,uv venv,5,no Python install,,no
+P452,README.md,99,uv pip install --upgrade -r requirements.txt --prerelease,1,,-r requirements.txt,no
+P452,README.md,105,uv pip install --upgrade setuptools build twine,5,other named packages only,,no
+P452,README.md,129,uv pip install -U -e .,to judge,,manifest names T file requirements.txt (read pattern yes),no
+P452,README.md,130,uv pip show ws-mark-flow,5,no Python install,,no
+P452,README.md,137,uv pip install -U scanreq prospector[with_everything],5,other named packages only,,no
+P454,README.md,18,uv venv,5,no Python install,,no
+P454,README.md,20,uv pip install -r requirements.txt,1,,-r requirements.txt,no
+P454,README.md,21,uv pip install -e .,1,,project . with manifest in T,no
+P457,README.md,12,pip install hoop-diagram,3,,own package hoop-diagram from the index,no
+P458,CONTRIBUTING.md,13,pip install -e .,1,,project . with manifest in T,no
+P458,CONTRIBUTING.md,20,pip install -e .[test],1,,project .[test] with manifest in T,no
+P458,CONTRIBUTING.md,23,python -m pip install --editable '.[test]',1,,project .[test] with manifest in T,no
+P458,README.md,14,pip install zepben.ewb,3,,own package zepben-ewb from the index,no
+P459,README.md,23,pip install zetaalpha.rag-agents,3,,own package zetaalpha-rag-agents from the index,no
+P460,README.md,23,pip install zetaalpha.rag-agents,3,,own package zetaalpha-rag-agents from the index,no
+P461,README.md,23,pip install zetaalpha.agents,3,,own package zetaalpha-agents from the index,no
+P462,README.md,23,pip install zetaalpha.agents,3,,own package zetaalpha-agents from the index,no
+P463,README.md,23,pip install zetaalpha.agents,3,,own package zetaalpha-agents from the index,no
+P464,README.md,23,pip install zetaalpha.agents,3,,own package zetaalpha-agents from the index,no
+P465,CONTRIBUTING.md,13,"uv add --editable "".[dev]""",to judge,,uv add,no
+P465,README.md,38,uv add djangosdk,to judge,,uv add,no
+P466,README.md,28,pip install dars-framework,3,,own package dars-framework from the index,no

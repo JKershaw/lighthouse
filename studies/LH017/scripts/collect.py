@@ -1,0 +1,552 @@
+"""LH017 phase 2: clone, find each snapshot, and read the CI files and the files their install steps call or name.
+
+python3 collect.py clone   one blobless anonymous clone per repository, in frame order, a few at a time; a failed clone
+                           is tried once more at least 60 seconds later; each attempt is logged in data/read_log.csv
+python3 collect.py read    verify each pair's snapshot (commit resolves, unambiguous, committer time equal to snapshot_time
+                           as an instant); list the snapshot tree; read the CI files, the files their install steps call or
+                           name, and README and CONTRIBUTING files at the root; run the classifier against the live tree,
+                           recording every query and every relevant line it reads, and write data/pairs_read.csv,
+                           ci_files.csv, jobs.csv, ci_lines.csv, aux_lines.csv, tree_paths.csv and docs_lines.csv
+python3 collect.py pypi    PyPI's JSON for jobs that install the project's own package by name (data/pypi.csv)
+python3 collect.py clean   delete the clones
+
+Ceilings (brief): 664 clone attempts; 6 GB of clones on disk at any time (checked before each clone, stopping at 5.5 GB
+to leave room for clones in flight) and 8 GB in all; 20,000 git show reads; 60 PyPI requests; two hours.
+The clone stage is LH015's (studies/LH015/scripts/collect.py), unchanged but for this study's paths.
+"""
+import concurrent.futures as cf
+import os
+import shutil
+import sys
+import threading
+import time
+
+sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
+from common import *  # noqa: E402,F401
+
+WORKERS = 8
+CLONE_TIMEOUT = 900
+DISK_STOP = 5.5e9
+TOTAL_STOP = 7.5e9
+_T = threading.Lock()
+TALLY = {'disk': 0, 'attempts': 0}
+
+
+def frame():
+    return read_csv('frame.csv')
+
+
+def repos_in_order():
+    seen, out = set(), []
+    for r in frame():
+        if r['repo'] not in seen:
+            seen.add(r['repo'])
+            out.append(r['repo'])
+    return out
+
+
+def clone(repo, attempt):
+    d = repo_dir(repo)
+    if os.path.exists(os.path.join(d, 'HEAD')) or os.path.exists(os.path.join(d, '.git', 'HEAD')):
+        return 'already cloned'
+    with _T:
+        if TALLY['disk'] > DISK_STOP or TALLY['disk'] > TOTAL_STOP or TALLY['attempts'] >= 664:
+            st = 'not cloned: ceiling'
+            log(read_utc=now(), source='git over HTTPS', repo=repo, method='git clone --filter=blob:none --no-checkout',
+                endpoint='https://' + repo + '.git', status=st, note=f'attempt {attempt}')
+            return st
+        TALLY['attempts'] += 1
+    t0, t = time.time(), now()
+    try:
+        git(['clone', '-q', '--filter=blob:none', '--no-checkout', 'https://' + repo + '.git', d], timeout=CLONE_TIMEOUT)
+        st = 'cloned'
+    except Exception as ex:
+        st = 'failed: ' + str(ex)[:200].replace('\n', ' ')
+        shutil.rmtree(d, ignore_errors=True)
+    b = du(d) if st == 'cloned' else 0
+    with _T:
+        TALLY['disk'] += b
+    log(read_utc=t, source='git over HTTPS', repo=repo, method='git clone --filter=blob:none --no-checkout',
+        endpoint='https://' + repo + '.git', status=st, bytes=b or '', seconds=round(time.time() - t0, 1),
+        note=f'attempt {attempt}')
+    return st
+
+
+def do_clone():
+    os.makedirs(REPOS, exist_ok=True)
+    only = set(sys.argv[2].split(',')) if len(sys.argv) > 2 else None
+    repos = [r for r in repos_in_order() if not only or r in only]
+    TALLY['attempts'] = sum(1 for r in read_csv('read_log.csv') if r['method'].startswith('git clone')) \
+        if only and os.path.exists(os.path.join(DATA, 'read_log.csv')) else 0
+    TALLY['disk'] = du(REPOS)
+    t0 = time.time()
+    with cf.ThreadPoolExecutor(WORKERS) as ex:
+        res = dict(zip(repos, ex.map(lambda r: clone(r, 1), repos)))
+    failed = [r for r, s in res.items() if s.startswith('failed')]
+    print(f'first pass: {sum(s == "cloned" for s in res.values())} cloned, {len(failed)} failed, '
+          f'{round(time.time() - t0)} s, {TALLY["disk"] / 1e9:.2f} GB', flush=True)
+    if failed:
+        time.sleep(65)
+        with cf.ThreadPoolExecutor(3) as ex:
+            res2 = dict(zip(failed, ex.map(lambda r: clone(r, 2), failed)))
+        print(f'retries: {sum(s == "cloned" for s in res2.values())} cloned of {len(failed)}', flush=True)
+    print(f'attempts {TALLY["attempts"]}, on disk {TALLY["disk"] / 1e9:.2f} GB, {round(time.time() - t0)} s', flush=True)
+
+
+
+# ================================================================ reading
+
+import hashlib  # noqa: E402
+import json  # noqa: E402
+import re  # noqa: E402
+import subprocess  # noqa: E402
+import ci as C  # noqa: E402
+import extract as X  # noqa: E402
+
+CACHE = os.path.join(SCRATCH, 'cache')
+READS = {'show': 0}
+KEEP = re.compile(r'(?i)(^\s*-[rce]\b|^\s*--(requirement|constraint|editable)|^\s*\.|^\s*-e\s|name\s*=|dynamic|file\s*[=:]|'
+                  r'requirements|open\(|autogenerated|generated by|^\s*\[tool\.uv\.workspace\]|^\s*members\s*=|'
+                  r'^\s*-\s*pip\s*:|^\s{4,}-\s|^\s*-\s)')
+OTHER_CI = re.compile(r'^(\.travis\.yml|\.circleci/config\.ya?ml|azure-pipelines\.ya?ml|\.azure-pipelines/.+|Jenkinsfile|'
+                      r'bitbucket-pipelines\.yml|\.?appveyor\.yml|\.buildkite/.+|\.drone\.yml|\.woodpecker\.ya?ml|'
+                      r'\.woodpecker/.+|cloudbuild\.ya?ml|\.cirrus\.yml|\.semaphore/semaphore\.yml|\.gitea/workflows/.+|'
+                      r'\.forgejo/workflows/.+)$')
+DOC_FILE = re.compile(r'(?i)^(readme|contributing)(\.(md|rst|txt|markdown|adoc))?$')
+
+
+def show(repo, commit, path):
+    """git show <commit>:<path>, cached in the scratchpad; each first read is logged."""
+    d = repo_dir(repo)
+    cp = os.path.join(CACHE, repo.replace('/', '__'), commit, hashlib.sha1(path.encode()).hexdigest())
+    if os.path.exists(cp):
+        with open(cp, encoding='utf-8', errors='replace') as f:
+            t = f.read()
+        return None if t == '\x00UNREADABLE' else t
+    t0, when = time.time(), now()
+    try:
+        txt = git(['show', f'{commit}:{path}'], cwd=d, timeout=300)
+        st = 'ok'
+    except Exception as ex:
+        txt, st = None, 'failed: ' + str(ex)[:120].replace('\n', ' ')
+    with _T:
+        READS['show'] += 1
+    log(read_utc=when, source='git over HTTPS (blob fetched on demand)', repo=repo, commit=commit, path=path, method='git show',
+        status=st, bytes=len(txt.encode()) if txt is not None else '', seconds=round(time.time() - t0, 2))
+    os.makedirs(os.path.dirname(cp), exist_ok=True)
+    with open(cp, 'w', encoding='utf-8') as f:
+        f.write(txt if txt is not None else '\x00UNREADABLE')
+    return txt
+
+
+def relevant(text, libs, path=''):
+    """The lines of a requirements file, manifest, lockfile or environment file that the rules read (LH015's, with the
+    uv workspace table and environment-file entries kept)."""
+    b = path.rsplit('/', 1)[-1]
+    if b == 'Pipfile.lock':
+        try:
+            j = json.loads(text)
+            keep = {sec: {k: {'version': v.get('version', '')} for k, v in (j.get(sec) or {}).items()
+                          if isinstance(v, dict) and any(norm(k) == norm(L) for L in libs)} for sec in ('default', 'develop')}
+            return [json.dumps(keep, sort_keys=True)[:400]]
+        except Exception:
+            return []
+    if b in ('uv.lock', 'poetry.lock', 'pdm.lock') or re.fullmatch(r'pylock(\.[^/]+)?\.toml', b):
+        out = []
+        for blk in re.split(r'\n\[\[packages?\]\]', '\n' + text):
+            m = re.search(r'^name\s*=\s*"([^"]+)"', blk, re.M)
+            mv = re.search(r'^version\s*=\s*"([^"]+)"', blk, re.M)
+            if m and mv and any(norm(m.group(1)) == norm(L) for L in libs):
+                out += ['[[package]]', m.group(0), mv.group(0)]
+        return out
+    out = []
+    for t in text.replace('\r\n', '\n').split('\n'):
+        if KEEP.search(t) or any(names_lib(t, L) for L in libs):
+            out.append(t[:400])
+    return out[:1500]
+
+
+class LiveTree:
+    """The tree at one commit, recording every query and read for classify.py's offline replay."""
+
+    def __init__(self, repo, commit, files, libs):
+        self.repo, self.commit, self.files, self.libs = repo, commit, set(files), libs
+        self.repo_slug = repo.split('/', 1)[1] if '/' in repo else repo
+        self.dirs = set()
+        for f in files:
+            parts = f.split('/')[:-1]
+            for k in range(1, len(parts) + 1):
+                self.dirs.add('/'.join(parts[:k]))
+        self.q, self.aux = {}, {}
+
+    def exists(self, p):
+        r = p == '' or p in self.files or p in self.dirs
+        self.q[('exists', p)] = 'yes' if r else 'no'
+        return r
+
+    def read(self, p):
+        return show(self.repo, self.commit, p) if p in self.files else None
+
+    def lines(self, p):
+        k = ('lines', p, '')
+        if k in self.aux:
+            st, v = self.aux[k]
+            return v if st == 'read' else None
+        txt = self.read(p)
+        if txt is None:
+            self.aux[k] = ('unreadable', [])
+            return None
+        ls = relevant(txt, self.libs, p)
+        self.aux[k] = ('read', ls)
+        return ls
+
+    def struct(self, kind, p, key):
+        k = (kind, p, key)
+        if k in self.aux:
+            st, v = self.aux[k]
+            return v if st == 'read' else None
+        if kind == 'tox':
+            v = X.tox_struct(self, p, key)
+        elif kind == 'hatch':
+            v = X.hatch_struct(self, p, key)
+        else:
+            txt = self.read(p)
+            if txt is None:
+                self.aux[k] = ('none', None)
+                return None
+            v = {'script': lambda: X.script_struct(txt), 'make': lambda: X.make_struct(txt, key),
+                 'just': lambda: X.just_struct(txt, key), 'nox': lambda: X.nox_struct(txt, key)}[kind]()
+        self.aux[k] = ('read' if v is not None else 'none', v)
+        return v
+
+
+def own_names(files):
+    s = set()
+    for f in files:
+        b = f.rsplit('/', 1)[-1]
+        if b in ('pyproject.toml', 'setup.py', 'setup.cfg') and '/' in f:
+            s.add(norm(f.rsplit('/', 1)[0].rsplit('/', 1)[-1]))
+    return s
+
+
+def verify(d, pair):
+    p = subprocess.run(['git', 'rev-parse', '--verify', '--quiet', pair['snapshot_commit'] + '^{commit}'], cwd=d,
+                       capture_output=True, text=True)
+    if p.returncode != 0:
+        q = subprocess.run(['git', 'rev-parse', '--verify', pair['snapshot_commit'] + '^{commit}'], cwd=d,
+                           capture_output=True, text=True)
+        return None, 'snapshot absent: ' + ('ambiguous' if 'ambiguous' in q.stderr else 'does not resolve')
+    full = p.stdout.strip()
+    ct = git(['show', '-s', '--format=%cI', full], cwd=d).strip()
+    if instant(ct) != instant(pair['snapshot_time']):
+        return None, f'snapshot absent: committer time {ct} differs from {pair["snapshot_time"]}'
+    return full, 'read'
+
+
+def pair_inputs(p, fr_files, repo_pkgs, files):
+    T = [f['path'] for f in fr_files.get(p['pair_id'], [])]
+    T_kind = {f['path']: f['pin_class'] for f in fr_files.get(p['pair_id'], [])}
+    pinned = sorted({v for f in fr_files.get(p['pair_id'], []) for v in f['versions'].split(';') if v})
+    own = set(repo_pkgs) | own_names(files)
+    return T, T_kind, pinned, own
+
+
+def job_rows(repo, commit, jobs):
+    """data/jobs.csv and data/ci_lines.csv rows for one commit's jobs."""
+    jr, lr = [], []
+    for j in jobs:
+        key = f'{repo}@{commit}:{j["file"]}#{j["job"]}~{j["variant"]}'
+        j['key'] = key
+        m = j.get('meta') or {}
+        steps = j['steps']
+        uses = [s.get('uses', '') for s in steps if s.get('uses')]
+        cache = []
+        for s in steps:
+            u = (s.get('uses') or '').lower()
+            w = s.get('with') or {}
+            if u.startswith('actions/setup-python') and w.get('cache'):
+                cache.append('setup-python:' + str(w['cache']))
+            if u.startswith('astral-sh/setup-uv'):
+                cache.append('setup-uv:' + str(w.get('enable-cache', 'default')))
+            if u.startswith('actions/cache') and re.search(r'(?i)pip|uv|pypoetry|poetry|pdm|virtualenvs|\.venv',
+                                                           str(w.get('path', ''))):
+                cache.append('actions/cache:' + str(w.get('path', ''))[:60].replace('\n', ' '))
+        jr.append({'job_key': key, 'repo': repo, 'commit': commit, 'file': j['file'], 'system': j['system'], 'job': j['job'],
+                   'variant': j['variant'], 'values': json.dumps(j.get('values') or {}, sort_keys=True, default=str)[:400],
+                   'triggers': ' '.join(m.get('triggers') or []), 'inputs_from': m.get('inputs_from', ''),
+                   'caller_triggers': ' '.join(m.get('caller_triggers') or []),
+                   'container': (m.get('container') or '')[:120], 'runs_on': (m.get('runs_on') or '')[:120],
+                   'job_if': 'yes' if m.get('job_if') else 'no', 'needs': ' '.join(m.get('needs') or []),
+                   'checkout': 'yes' if any(u.lower().startswith('actions/checkout') for u in uses) or j['system'] == 'gitlab' else 'no',
+                   'cache': ' | '.join(cache)[:300], 'n_steps': len(steps), 'call': m.get('call', ''),
+                   'gitlab_avail': '' if j['system'] != 'gitlab' else ('yes' if m.get('gitlab_avail', True) else 'no')})
+        for s in steps:
+            rec = {k: v for k, v in s.items() if k not in ('run',)}
+            run = s.get('run')
+            txt = json.dumps(rec, sort_keys=True, default=str)
+            parts = [txt[i:i + 400] for i in range(0, len(txt), 400)] or ['']
+            for n, part in enumerate(parts):
+                lr.append({'job_key': key, 'seq': s.get('seq', 0), 'sub': s.get('sub', ''), 'field': 'step', 'part': n, 'text': part})
+            if run is not None:
+                for li, line in enumerate(run.split('\n')):
+                    for n, k0 in enumerate(range(0, max(len(line), 1), 400)):
+                        lr.append({'job_key': key, 'seq': s.get('seq', 0), 'sub': s.get('sub', ''), 'field': f'run:{li}',
+                                   'part': n, 'text': line[k0:k0 + 400]})
+    return jr, lr
+
+
+def analyse_commit(repo, commit, files, pairs, fr_files, repo_pkgs):
+    tree = LiveTree(repo, commit, files, sorted({p['library'] for p in pairs}))
+    tree.default_branch = pairs[0].get('default_branch', '')
+    wfs = sorted(f for f in files if re.fullmatch(r'\.github/workflows/[^/]+\.ya?ml', f))
+    gl = '.gitlab-ci.yml' in tree.files
+    others = sorted(f for f in files if OTHER_CI.match(f))
+    cif, jobs, docs = [], [], {}
+    for f in wfs:
+        txt = tree.read(f)
+        if txt is None:
+            cif.append({'path': f, 'system': 'github', 'status': 'unreadable'})
+            docs[f] = None
+            continue
+        try:
+            d = X.load_yaml(txt)
+            docs[f] = d if isinstance(d, dict) else None
+            cif.append({'path': f, 'system': 'github', 'status': 'read' if isinstance(d, dict) else 'does not parse'})
+        except Exception:
+            docs[f] = None
+            cif.append({'path': f, 'system': 'github', 'status': 'does not parse'})
+    callers = X.local_calls({f: d for f, d in docs.items() if d})
+    for f in wfs:
+        d = docs[f]
+        if d is None:
+            jobs.append({'file': f, 'system': 'github', 'job': '(file)', 'variant': '1', 'values': {}, 'meta': {},
+                         'steps': [{'seq': 0, 'origin': 'unreadable', 'note': f'{f} unreadable or does not parse'}]})
+            continue
+        for j in X.github_jobs(tree, f, d, callers):
+            j.update({'file': f, 'system': 'github'})
+            jobs.append(j)
+    if gl:
+        gj, note = X.gitlab_jobs(tree, '.gitlab-ci.yml')
+        cif.append({'path': '.gitlab-ci.yml', 'system': 'gitlab', 'status': 'read' if gj is not None else note, 'note': note})
+        if gj is None:
+            jobs.append({'file': '.gitlab-ci.yml', 'system': 'gitlab', 'job': '(file)', 'variant': '1', 'values': {}, 'meta': {},
+                         'steps': [{'seq': 0, 'origin': 'unreadable', 'note': '.gitlab-ci.yml ' + note}]})
+        else:
+            for j in gj:
+                j.update({'file': '.gitlab-ci.yml', 'system': 'gitlab'})
+                jobs.append(j)
+    for f in others:
+        cif.append({'path': f, 'system': 'other', 'status': 'counted'})
+    jr, lr = job_rows(repo, commit, jobs)
+    # classify each pair's jobs live, so that every query and relevant line the rules read is recorded
+    doc_rows = []
+    dfiles = sorted(f for f in files if '/' not in f and DOC_FILE.match(f))
+    for f in dfiles:
+        txt = tree.read(f)
+        for ln, cmd in (X.doc_commands(txt) if txt else []):
+            doc_rows.append({'repo': repo, 'commit': commit, 'path': f, 'line': ln, 'text': cmd})
+    for p in pairs:
+        T, T_kind, pinned, own = pair_inputs(p, fr_files, repo_pkgs, files)
+        for j in jobs:
+            B = C.Job(j['steps'], tree, T, T_kind, p['library'], pinned, own, system=j['system'])
+            C.classify_job(B)
+        for r in doc_rows:
+            B = C.Job([{'origin': 'doc', 'run': r['text'], 'wd': ''}], tree, T, T_kind, p['library'], pinned, own, system='gitlab')
+            C.classify_job(B)
+    return {'ci_files': [{'repo': repo, 'commit': commit, **c} for c in cif], 'jobs': jr, 'lines': lr, 'docs': doc_rows,
+            'tree': tree}
+
+
+def read_repo(repo, pairs, fr_files):
+    d = repo_dir(repo)
+    out = {'ci_files': [], 'jobs': [], 'lines': [], 'aux': [], 'q': [], 'pairs': [], 'docs': []}
+    if not (os.path.exists(os.path.join(d, 'HEAD')) or os.path.exists(os.path.join(d, '.git', 'HEAD'))):
+        for p in pairs:
+            out['pairs'].append({'pair_id': p['pair_id'], 'status': 'not read: clone refused'})
+        return out
+    repo_pkgs = sorted({norm(p['package']) for p in pairs if p.get('package')})
+    todo = {}
+    for p in pairs:
+        full, st = verify(d, p)
+        out['pairs'].append({'pair_id': p['pair_id'], 'status': st, 'snapshot': full[:12] if full else '', 'own_names': ''})
+        if full:
+            todo.setdefault(full[:12], []).append(p)
+    for c, ps in todo.items():
+        try:
+            t0 = time.time()
+            ls = [x for x in git(['ls-tree', '-r', '--name-only', c], cwd=d, timeout=600).split('\n') if x]
+            log(read_utc=now(), source='local clone', repo=repo, commit=c, method='git ls-tree -r --name-only',
+                status='ok', bytes=len(ls), seconds=round(time.time() - t0, 2), note='paths listed')
+        except Exception as ex:
+            log(read_utc=now(), source='local clone', repo=repo, commit=c, method='git ls-tree -r --name-only',
+                status='failed: ' + str(ex)[:100])
+            for row in out['pairs']:
+                if row['pair_id'] in {p['pair_id'] for p in ps}:
+                    row['status'] = 'not read: tree unreadable'
+            continue
+        res = analyse_commit(repo, c, ls, ps, fr_files, repo_pkgs)
+        for k in ('ci_files', 'jobs', 'lines', 'docs'):
+            out[k] += res[k]
+        tree = res['tree']
+        for (kq, path), v in tree.q.items():
+            out['q'].append({'repo': repo, 'commit': c, 'query': kq, 'path': path, 'result': v})
+        for (kind, path, key), (st, v) in tree.aux.items():
+            out['aux'].append({'repo': repo, 'commit': c, 'path': path, 'kind': kind, 'key': key, 'line': 0, 'text': st})
+            if st != 'read':
+                continue
+            if kind == 'lines':
+                out['aux'] += [{'repo': repo, 'commit': c, 'path': path, 'kind': kind, 'key': key, 'line': i + 1, 'text': t}
+                               for i, t in enumerate(v)]
+            else:
+                txt = json.dumps(v, sort_keys=True)
+                out['aux'] += [{'repo': repo, 'commit': c, 'path': path, 'kind': kind, 'key': key, 'line': i // 400 + 1,
+                                'text': txt[i:i + 400]} for i in range(0, len(txt), 400)]
+        for row in out['pairs']:
+            if row.get('snapshot') == c:
+                row['own_names'] = json.dumps(sorted(own_names(ls)))
+                row['ci_files'] = sum(1 for x in res['ci_files'] if x['system'] in ('github', 'gitlab'))
+                row['other_ci_files'] = sum(1 for x in res['ci_files'] if x['system'] == 'other')
+                row['jobs'] = len(res['jobs'])
+    log(read_utc=now(), source='local clone', repo=repo, method='du -sb', endpoint=d, status='size after reads', bytes=du(d))
+    return out
+
+
+def do_read():
+    fr = frame()
+    fr_files = {}
+    for r in read_csv('frame_files.csv'):
+        fr_files.setdefault(r['pair_id'], []).append(r)
+    by_repo = {}
+    for r in fr:
+        by_repo.setdefault(r['repo'], []).append(r)
+    only = set(sys.argv[2].split(',')) if len(sys.argv) > 2 else None
+    repos = [r for r in by_repo if not only or r in only]
+    t0 = time.time()
+    keys = ('ci_files', 'jobs', 'lines', 'aux', 'q', 'pairs', 'docs')
+    allout = {k: [] for k in keys}
+    done = [0]
+
+    def one(repo):
+        try:
+            o = read_repo(repo, by_repo[repo], fr_files)
+        except Exception as ex:
+            import traceback
+            o = {k: [] for k in keys}
+            o['pairs'] = [{'pair_id': p['pair_id'], 'status': 'not read: error ' + (str(ex) + ' ' +
+                           traceback.format_exc().splitlines()[-3])[:200]} for p in by_repo[repo]]
+        with _T:
+            done[0] += 1
+            if done[0] % 50 == 0:
+                print(f'{done[0]} repositories, {READS["show"]} reads, {round(time.time() - t0)} s', flush=True)
+        return o
+    with cf.ThreadPoolExecutor(WORKERS) as ex:
+        for o in ex.map(one, repos):
+            for k in keys:
+                allout[k] += o[k]
+    order = {r['pair_id']: i for i, r in enumerate(fr)}
+    allout['pairs'].sort(key=lambda r: order[r['pair_id']])
+    suffix = '' if not only else '_partial'
+    write_csv(f'pairs_read{suffix}.csv', allout['pairs'], ['pair_id', 'status', 'snapshot', 'ci_files', 'other_ci_files', 'jobs',
+                                                         'own_names'])
+    write_csv(f'ci_files{suffix}.csv', allout['ci_files'], ['repo', 'commit', 'path', 'system', 'status', 'note'])
+    write_csv(f'jobs{suffix}.csv', allout['jobs'], ['job_key', 'repo', 'commit', 'file', 'system', 'job', 'variant', 'values',
+                                                   'triggers', 'inputs_from', 'caller_triggers', 'container', 'runs_on', 'job_if', 'needs',
+                                                   'checkout', 'cache', 'n_steps', 'call', 'gitlab_avail'])
+    write_csv(f'ci_lines{suffix}.csv', allout['lines'], ['job_key', 'seq', 'sub', 'field', 'part', 'text'])
+    write_csv(f'aux_lines{suffix}.csv', allout['aux'], ['repo', 'commit', 'path', 'kind', 'key', 'line', 'text'])
+    write_csv(f'tree_paths{suffix}.csv', allout['q'], ['repo', 'commit', 'query', 'path', 'result'])
+    write_csv(f'docs_lines{suffix}.csv', allout['docs'], ['repo', 'commit', 'path', 'line', 'text'])
+    print(f'read {len(repos)} repositories: {READS["show"]} new git show reads, {round(time.time() - t0)} s')
+
+
+def do_pypi():
+    """PyPI's JSON for the jobs classed 3: L's requirement in the release the job would install (LH015's reading)."""
+    import urllib.request
+    from packaging.requirements import Requirement
+    from packaging.specifiers import SpecifierSet
+    fr = {r['pair_id']: r for r in frame()}
+    cache, rows, n = {}, [], [0]
+
+    def get(url):
+        if url in cache:
+            return cache[url]
+        if n[0] >= 60:
+            return None
+        n[0] += 1
+        t0, when = time.time(), now()
+        try:
+            with urllib.request.urlopen(url, timeout=60) as r:
+                body = r.read()
+            st, j = 200, json.loads(body)
+        except Exception as ex:
+            st, j, body = getattr(ex, 'code', 'error'), None, b''
+        log(read_utc=when, source='PyPI JSON API', endpoint=url, method='GET', status=st, bytes=len(body),
+            seconds=round(time.time() - t0, 2))
+        cache[url] = j
+        return j
+    seen = set()
+    for b in read_csv('job_classes.csv'):
+        if str(b['final_class']) != '3':
+            continue
+        f = fr[b['pair_id']]
+        snap_t = instant(f['snapshot_time'])
+        for item in (b['own_spec'] or b['own_pkgs']).split():
+            m = re.match(r'^([A-Za-z0-9._-]+)(.*)$', item)
+            name, spec = norm(m.group(1)), m.group(2)
+            key = (b['pair_id'], name, spec)
+            if key in seen:
+                continue
+            seen.add(key)
+            j = get(f'https://pypi.org/pypi/{name}/json')
+            row = {'pair_id': b['pair_id'], 'package': name, 'spec_named': spec}
+            if not j:
+                rows.append({**row, 'reading': 'not served'})
+                continue
+            exact = re.fullmatch(r'===?([^,*]+)', spec or '')
+            if exact:
+                ver, how = exact.group(1), 'version named'
+            else:
+                ok = []
+                for v, fs in (j.get('releases') or {}).items():
+                    vv = V(v)
+                    ts = [instant(x['upload_time_iso_8601']) for x in fs if x.get('upload_time_iso_8601')]
+                    if vv and not vv.is_prerelease and ts and min(ts) <= snap_t and (not spec or SpecifierSet(spec).contains(vv)):
+                        ok.append(vv)
+                ver, how = (str(max(ok)), 'newest non-pre-release at or before the snapshot') if ok else (None, 'none')
+            if not ver:
+                rows.append({**row, 'how': how, 'reading': 'no release'})
+                continue
+            jv = get(f'https://pypi.org/pypi/{name}/{ver}/json')
+            req = ''
+            for x in ((jv or {}).get('info') or {}).get('requires_dist') or []:
+                try:
+                    rq = Requirement(x)
+                except Exception:
+                    continue
+                if norm(rq.name) == norm(f['library']):
+                    req = str(rq.specifier) + (f'; {rq.marker}' if rq.marker else '')
+            one = req and re.fullmatch(r'===?[^,*;]+', req.split(';')[0])
+            rows.append({**row, 'version': ver, 'how': how, 'requires_L': req,
+                         'reading': 'not served' if jv is None else 'published pin' if one else 'published range' if req else 'not listed'})
+    write_csv('pypi.csv', rows, ['pair_id', 'package', 'spec_named', 'version', 'how', 'requires_L', 'reading'])
+    print(f'pypi: {len(rows)} rows, {n[0]} requests')
+
+
+def do_clean():
+    shutil.rmtree(REPOS, ignore_errors=True)
+    log(read_utc=now(), source='local', method='rm -r', endpoint=REPOS, status='clones deleted')
+    print('clones deleted')
+
+
+if __name__ == '__main__':
+    stage = sys.argv[1] if len(sys.argv) > 1 else ''
+    if stage == 'clone':
+        do_clone()
+    elif stage == 'read':
+        do_read()
+    elif stage == 'pypi':
+        do_pypi()
+    elif stage == 'clean':
+        do_clean()
+    else:
+        print(__doc__)

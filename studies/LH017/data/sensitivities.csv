@@ -1,0 +1,45 @@
+measure,view,num,den,n_repos,share,lo,hi,label,skipped
+"P1, other CI only counted as keeping CI",pairs,400,469,332,0.8529,0.809,0.8922,as a rule,0
+"P1, other CI only counted as keeping CI",repositories,275.5,332,332,0.8298,0.7892,0.869,as a rule,0
+"P2, undetermined counted as reads the pin",pairs,330,341,237,0.9677,0.9432,0.9879,as a rule,0
+"P2, undetermined counted as reads the pin",repositories,228.5,237,237,0.9641,0.9385,0.9854,as a rule,0
+"P2, lockfile, undetermined counted as reads the pin",pairs,128,135,95,0.9481,0.9037,0.982,as a rule,0
+"P2, lockfile, undetermined counted as reads the pin",repositories,88.0,95,95,0.9263,0.8696,0.9747,as a rule,0
+"P2, exact pin, undetermined counted as reads the pin",pairs,108,112,82,0.9643,0.9145,1.0,as a rule,0
+"P2, exact pin, undetermined counted as reads the pin",repositories,79.0,82,82,0.9634,0.9176,1.0,as a rule,0
+"P2, both, undetermined counted as reads the pin",pairs,94,94,65,1.0,1.0,1.0,as a rule,0
+"P2, both, undetermined counted as reads the pin",repositories,65.0,65,65,1.0,1.0,1.0,as a rule,0
+"P2, undetermined counted as does not read the pin",pairs,282,341,237,0.827,0.756,0.8916,as a rule,0
+"P2, undetermined counted as does not read the pin",repositories,203.5,237,237,0.8586,0.8125,0.9021,as a rule,0
+"P2, lockfile, undetermined counted as does not read the pin",pairs,97,135,95,0.7185,0.5857,0.84,for some pairs,0
+"P2, lockfile, undetermined counted as does not read the pin",repositories,71.0,95,95,0.7474,0.6579,0.8333,for some pairs,0
+"P2, exact pin, undetermined counted as does not read the pin",pairs,93,112,82,0.8304,0.7059,0.94,as a rule,0
+"P2, exact pin, undetermined counted as does not read the pin",repositories,73.0,82,82,0.8902,0.8161,0.9545,as a rule,0
+"P2, both, undetermined counted as does not read the pin",pairs,92,94,65,0.9787,0.9432,1.0,as a rule,0
+"P2, both, undetermined counted as does not read the pin",repositories,63.0,65,65,0.9692,0.92,1.0,as a rule,0
+"P3, undetermined counted as reads the timed lock",pairs,205,229,157,0.8952,0.8364,0.9451,as a rule,0
+"P3, undetermined counted as reads the timed lock",repositories,140.0,157,157,0.8917,0.8412,0.9375,as a rule,0
+"P3, undetermined counted as does not",pairs,164,229,157,0.7162,0.619,0.8112,for some pairs,0
+"P3, undetermined counted as does not",repositories,119.0,157,157,0.758,0.6899,0.8246,as a rule,0
+"P2, routine jobs only",pairs,271,283,202,0.9576,0.9274,0.9824,as a rule,0
+"P2, routine jobs only",repositories,192.5,202,202,0.953,0.9217,0.9797,as a rule,0
+"P2, routine jobs only, lockfile",pairs,96,104,78,0.9231,0.8605,0.9706,as a rule,0
+"P2, routine jobs only, lockfile",repositories,70.0,78,78,0.8974,0.825,0.9595,as a rule,0
+"P2, routine jobs only, exact pin",pairs,85,89,68,0.9551,0.8929,1.0,as a rule,0
+"P2, routine jobs only, exact pin",repositories,65.0,68,68,0.9559,0.9,1.0,as a rule,0
+"P2, routine jobs only, both",pairs,90,90,61,1.0,1.0,1.0,as a rule,0
+"P2, routine jobs only, both",repositories,61.0,61,61,1.0,1.0,1.0,as a rule,0
+"P3, routine jobs only",pairs,161,186,134,0.8656,0.7943,0.9274,as a rule,0
+"P3, routine jobs only",repositories,116.0,134,134,0.8657,0.8058,0.9213,as a rule,0
+"P2, LH015's pair rule",pairs,231,304,217,0.7599,0.6803,0.8345,as a rule,0
+"P2, LH015's pair rule",repositories,173.25,217,217,0.7984,0.7448,0.85,as a rule,0
+"P2, LH015's pair rule, lockfile",pairs,75,115,83,0.6522,0.5081,0.8,for some pairs,0
+"P2, LH015's pair rule, lockfile",repositories,59.333,83,83,0.7149,0.6157,0.8088,for some pairs,0
+"P2, LH015's pair rule, exact pin",pairs,80,97,76,0.8247,0.7321,0.9053,as a rule,0
+"P2, LH015's pair rule, exact pin",repositories,62.75,76,76,0.8257,0.7368,0.9054,as a rule,0
+"P2, LH015's pair rule, both",pairs,76,92,63,0.8261,0.686,0.9425,as a rule,0
+"P2, LH015's pair rule, both",repositories,54.0,63,63,0.8571,0.7656,0.9388,as a rule,0
+"P2, ""may re-lock"" jobs counted as class 2",pairs,205,269,197,0.7621,0.6976,0.8191,as a rule,0
+"P2, ""may re-lock"" jobs counted as class 2",repositories,137.5,197,197,0.698,0.6328,0.7603,for some pairs,0
+"P3, ""may re-lock"" jobs counted as class 2",pairs,81,161,119,0.5031,0.3862,0.6092,for some pairs,0
+"P3, ""may re-lock"" jobs counted as class 2",repositories,49.0,119,119,0.4118,0.3214,0.5,not as a rule,0

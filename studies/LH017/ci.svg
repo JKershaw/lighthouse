@@ -1,0 +1,59 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 720 422" width="720" height="422" role="img" aria-label="For 469 moments when a Python project pinned or locked a widely used library, whether its container recipes and its CI workflows install the library from the pinned file, and from the lockfile itself, with the cases that could not be decided">
+<style>svg{--bg:#fcfcfb;--ink:#0b0b0b;--ink2:#52514e;--a:#2a78d6;--b:#eb6834;--u:#a9a8a2;--n:#d6d5cf;--on:#ffffff}@media (prefers-color-scheme: dark){svg{--bg:#1a1a19;--ink:#ffffff;--ink2:#c3c2b7;--a:#3987e5;--b:#d95926;--u:#6f6e69;--n:#4a4945;--on:#ffffff}}text{font:12px system-ui,-apple-system,Segoe UI,sans-serif;fill:var(--ink2)}.t{fill:var(--ink);font-weight:600}.s{font-size:11px}.v{fill:var(--on);font-size:11px;font-weight:600}.d{fill:var(--ink);font-size:11px;font-weight:600}.fa{fill:var(--a)}.fr{fill:url(#stripe)}.fb{fill:var(--b)}.fu{fill:url(#hatch)}</style>
+<defs><pattern id="hatch" width="6" height="6" patternUnits="userSpaceOnUse" patternTransform="rotate(45)"><rect width="6" height="6" fill="var(--n)"/><rect width="2.2" height="6" fill="var(--u)"/></pattern><pattern id="stripe" width="6" height="6" patternUnits="userSpaceOnUse" patternTransform="rotate(135)"><rect width="6" height="6" fill="var(--a)"/><rect width="1.8" height="6" fill="var(--bg)"/></pattern></defs>
+<rect width="720" height="422" fill="var(--bg)"/>
+<text x="16" y="24" class="t">Whether a pinned project's own builds install what its pin or lockfile names</text>
+<text x="16" y="42" class="s">469 moments, from 2025 to 2026, when one of 332 Python projects held an older version of a library in a pin or</text>
+<text x="16" y="58" class="s">lockfile as a new release came out; each kind of build's instructions read at the project's last commit before it</text>
+<rect x="16" y="75" width="11" height="11" rx="2" class="fa"/>
+<text x="32" y="84" class="s">installs from it</text>
+<rect x="136" y="75" width="11" height="11" rx="2" class="fr"/>
+<text x="152" y="84" class="s">only through a command that may re-lock</text>
+<rect x="402" y="75" width="11" height="11" rx="2" class="fb"/>
+<text x="418" y="84" class="s">does not install from it</text>
+<rect x="562" y="75" width="11" height="11" rx="2" class="fu"/>
+<text x="578" y="84" class="s">could not be decided</text>
+<text x="16" y="106" class="s">Each bar counts the moments at which the project's builds of that kind install its requirements, or at which</text>
+<text x="16" y="122" class="s">the rules could not decide; a project appears once for each moment.</text>
+<text x="16" y="158" class="t">Some build installs the version from the pin or lockfile</text>
+<text x="16" y="183.0" class="t">Container recipes</text>
+<text x="16" y="197.0" class="s">235 moments</text>
+<rect x="150.0" y="170" width="299.7" height="24" rx="3" class="fa"><title>Container recipes: installs from it, 129 of 235 (54.9 per cent)</title></rect>
+<text x="299.9" y="186.0" text-anchor="middle" class="v">129</text>
+<rect x="451.7" y="170" width="86.3" height="24" rx="3" class="fb"><title>Container recipes: does not install from it, 38 of 235 (16.2 per cent)</title></rect>
+<text x="494.9" y="186.0" text-anchor="middle" class="v">38</text>
+<rect x="540.0" y="170" width="156.0" height="24" rx="3" class="fu"><title>Container recipes: could not be decided, 68 of 235 (28.9 per cent)</title></rect>
+<text x="618.0" y="186.0" text-anchor="middle" class="d">68</text>
+<text x="16" y="223.0" class="t">CI workflows</text>
+<text x="16" y="237.0" class="s">341 moments</text>
+<rect x="150.0" y="210" width="451.5" height="24" rx="3" class="fa"><title>CI workflows: installs from it, 282 of 341 (82.7 per cent)</title></rect>
+<text x="375.8" y="226.0" text-anchor="middle" class="v">282</text>
+<rect x="603.5" y="210" width="15.6" height="24" rx="3" class="fb"><title>CI workflows: does not install from it, 11 of 341 (3.2 per cent)</title></rect>
+<rect x="621.1" y="210" width="74.9" height="24" rx="3" class="fu"><title>CI workflows: could not be decided, 48 of 341 (14.1 per cent)</title></rect>
+<text x="658.6" y="226.0" text-anchor="middle" class="d">48</text>
+<text x="16" y="268" class="t">Some build installs it from the lockfile itself (projects with a timed lockfile)</text>
+<text x="16" y="293.0" class="t">Container recipes</text>
+<text x="16" y="307.0" class="s">148 moments</text>
+<rect x="150.0" y="280" width="143.9" height="24" rx="3" class="fa"><title>Container recipes: installs from it, 39 of 148 (26.4 per cent)</title></rect>
+<text x="221.9" y="296.0" text-anchor="middle" class="v">39</text>
+<rect x="295.9" y="280" width="20.1" height="24" rx="3" class="fr"><title>Container recipes: only through a command that may re-lock, 6 of 148 (4.1 per cent)</title></rect>
+<rect x="298.4" y="285" width="15" height="14" rx="3" class="fa"/>
+<text x="305.9" y="296.0" text-anchor="middle" class="v">6</text>
+<rect x="318.0" y="280" width="164.0" height="24" rx="3" class="fb"><title>Container recipes: does not install from it, 45 of 148 (30.4 per cent)</title></rect>
+<text x="400.0" y="296.0" text-anchor="middle" class="v">45</text>
+<rect x="484.0" y="280" width="212.0" height="24" rx="3" class="fu"><title>Container recipes: could not be decided, 58 of 148 (39.2 per cent)</title></rect>
+<text x="590.0" y="296.0" text-anchor="middle" class="d">58</text>
+<text x="16" y="333.0" class="t">CI workflows</text>
+<text x="16" y="347.0" class="s">229 moments</text>
+<rect x="150.0" y="320" width="193.1" height="24" rx="3" class="fa"><title>CI workflows: installs from it, 81 of 229 (35.4 per cent)</title></rect>
+<text x="246.6" y="336.0" text-anchor="middle" class="v">81</text>
+<rect x="345.1" y="320" width="195.9" height="24" rx="3" class="fr"><title>CI workflows: only through a command that may re-lock, 83 of 229 (36.2 per cent)</title></rect>
+<rect x="432.1" y="325" width="22" height="14" rx="3" class="fa"/>
+<text x="443.1" y="336.0" text-anchor="middle" class="v">83</text>
+<rect x="543.0" y="320" width="55.2" height="24" rx="3" class="fb"><title>CI workflows: does not install from it, 24 of 229 (10.5 per cent)</title></rect>
+<text x="570.6" y="336.0" text-anchor="middle" class="v">24</text>
+<rect x="600.2" y="320" width="95.8" height="24" rx="3" class="fu"><title>CI workflows: could not be decided, 41 of 229 (17.9 per cent)</title></rect>
+<text x="648.1" y="336.0" text-anchor="middle" class="d">41</text>
+<text x="16" y="392" class="s">A recipe is not a build and a workflow is not a run: nothing here shows which builds ran, how often or with what cache.</text>
+<text x="16" y="408" class="s">Container recipes read on 29 September 2026, CI workflows on 30 September 2026, from the projects' public repositories.</text>
+</svg>

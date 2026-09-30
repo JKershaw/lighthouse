@@ -1,0 +1,7 @@
+measure,view,num,den,n_repos,share,lo,hi,skipped
+"P2 among LH015's pairs ""not from the pinned file""",pairs,21,24,22,0.875,0.6923,1.0,0
+"P3 among LH015's pairs ""not from the pinned file"" with a timed lockfile",pairs,12,15,15,0.8,0.5714,1.0,0
+P2 among pairs whose recipe left a timed lock unused,pairs,4,5,5,0.8,0.3333,1.0,70
+P3 among pairs whose recipe left a timed lock unused,pairs,4,5,5,0.8,0.3333,1.0,70
+P3 among lockfile pairs whose decided recipes read no timed lock,pairs,20,25,21,0.8,0.6111,0.9524,0
+P2 among pairs with no recipe,pairs,127,133,108,0.9549,0.9084,0.9917,0
