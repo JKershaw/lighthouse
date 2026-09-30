@@ -1,0 +1,19 @@
+== 1. Container recipes (LH015) under this study's pair rule, and CI under LH015's ==
+recipes, pin, some build: {'does not': 30, 'no recipe': 222, 'nothing': 12, 'reads': 164, 'undetermined': 41} | reads 164 of 194 (84.5 per cent)
+recipes, pin, LH015's rule (every build): 129 of 167 (77.2 per cent)
+CI, pin, LH015's rule (every job): 231 of 302 (76.5 per cent)
+CI, pin, this study's rule (some job): 282 of 291 (96.9 per cent)
+recipes, timed lock, some build: {'does not': 42, 'no recipe': 115, 'outside': 7, 'reads': 57, 'reads, re-lock only': 14, 'undetermined': 35} | reads 71 of 113 (62.8 per cent)
+recipes, timed lock, LH015's frame (as its record gives it): 45 of 90 (50.0 per cent)
+CI, timed lock, decided under LH015's rule: 164 of 207 (79.2 per cent)
+CI, timed lock, this study's rule: 164 of 188 (87.2 per cent)
+timed lock, pairs both decide under the same rule: 79; a container build reads it in 56 ; a CI job in 72 ; where no container build reads it, 18 of 23 have a CI job that does
+pin, pairs both decide under the same rule: 132; a container build reads it in 114 ; a CI job in 129 ; where no container build reads it, 15 of 18 have a CI job that does
+
+== 2. What setup-uv's cache holds, by its README at the tag a job names ==
+pairs S2 counted as cached: 125
+class 1 jobs in them, by cache (a job with two caches counts under each): {'defaults not read': 281, 'keeps downloaded files': 174, 'no cache': 83, 'pruned': 342}
+  every class 1 job restores a cache that keeps downloaded files: 30
+  some class 1 job fetches its pre-built wheels at each run (no cache, or a pruned one): 55
+  some class 1 job names a setup-uv version whose defaults were not read: 40
+pairs with a setup-uv cache on some class 1 job: 96

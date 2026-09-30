@@ -39,3 +39,20 @@ Not opened: GitHub issues in two unrelated repositories on hardening CI installs
 | U1 | uv, using uv in GitHub Actions: https://docs.astral.sh/uv/guides/integration/github/ | 06:51:25 | The guide's install step is `uv sync --locked --all-extras --dev`, then `uv run pytest tests`. |
 | P1 | pre-commit: https://pre-commit.com/ | 06:51:26 | For Python hooks, "The hook repository must be installable via pip install ."; hooks are installed into their own environments. |
 | D1 | Docker Docs, build variables: https://docs.docker.com/build/building/variables/ | 06:51:26 | Build arguments and environment variables are "both declared in the Dockerfile and can be set using flags for the docker build command". The page was searched for these passages, not read whole. |
+
+## Read after the brief
+
+Documentation read by the writer after workflows were seen, each logged in data/read_log.csv with its time and size; ten pages in eleven attempts, the brief's ceiling. Copies were kept in scratch space only.
+
+| Source | Read | For | What was taken from it |
+| --- | --- | --- | --- |
+| hatch-pip-compile on PyPI's JSON API: https://pypi.org/pypi/hatch-pip-compile/json | 07:32:35 | reading B1 | Its environments install from the lockfiles the plugin writes. |
+| Poetry's commands: https://python-poetry.org/docs/cli/ | 07:32:46 (a first attempt at 07:32:05 failed) | amendment 2 | On `poetry add` and `poetry update`, `--lock`: "Do not perform install (only update the lockfile)". |
+| uv, workspaces: https://docs.astral.sh/uv/concepts/projects/workspaces/ | 08:45:44, after amendment 3 was made | amendment 3 | A workspace "shares a single lockfile"; `uv run` and `uv sync` "operate on the workspace root by default, though both accept a --package argument"; members are the directories the `members` globs include and the `exclude` globs do not. |
+| setup-uv's README at main (v10.1.0): https://raw.githubusercontent.com/astral-sh/setup-uv/main/README.md | 09:11:04, after the counts | Finding 15 | `enable-cache` "auto" (on for GitHub-hosted runners, except some events); `prune-cache` "false". |
+| uv, caching: https://docs.astral.sh/uv/concepts/cache/ | 09:11:04, after the counts | Finding 15 | `uv cache prune --ci` "removes all pre-built wheels and unzipped source distributions from the cache, but retains any wheels that were built from source". |
+| setup-uv's caching guide at main: https://raw.githubusercontent.com/astral-sh/setup-uv/main/docs/caching.md | 09:11:23, after the counts | Finding 15 | "By default, the entire uv cache is persisted across runs"; pruning, when enabled, removes pre-built wheels, which "are then re-downloaded from the registry on each run". |
+| setup-uv's README at v6: https://raw.githubusercontent.com/astral-sh/setup-uv/v6/README.md | 09:11:41, after the counts | Finding 15 | "Caching is enabled by default on GitHub-hosted runners"; "By default, the uv cache is pruned after every run, removing pre-built wheels". |
+| setup-uv's README at v5: https://raw.githubusercontent.com/astral-sh/setup-uv/v5/README.md | 09:11:42, after the counts | Finding 15 | The same two statements as at v6. |
+| setup-uv's README at v4: https://raw.githubusercontent.com/astral-sh/setup-uv/v4/README.md | 09:12:30, after the counts | Finding 15 | Caching as something the workflow enables, with no default stated; "By default, the uv cache is pruned after every run". |
+| setup-uv's README at v7: https://raw.githubusercontent.com/astral-sh/setup-uv/v7/README.md | 09:12:31, after the counts | Finding 15 | `enable-cache` "auto" (on for GitHub-hosted runners); `prune-cache` "true". |

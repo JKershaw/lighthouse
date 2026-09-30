@@ -1,0 +1,95 @@
+== A. Pair classes (pairs.csv) ==
+pairs read: 469
+pair_class: {'no CI': 74, 'reads the pin': 282, "nothing of the project's requirements": 54, 'undetermined': 50, 'does not read the pin': 9}
+P2: 282 of 291 (96.9)
+P2 frame (reads, does not, undetermined): 341 ; undetermined share 14.7
+  exact pin: 94 of 95 (98.9); undetermined 17 of 112 (15.2)
+  lockfile: 97 of 104 (93.3); undetermined 31 of 135 (23.0)
+  both: 91 of 92 (98.9); undetermined 2 of 94 (2.1)
+does not read the pin, by pin class: {'lockfile': 7, 'both': 1, 'exact pin': 1}
+decided pairs fall in 211 repositories; 203 read the pin at every decided pair
+undetermined pairs: 50 in 26 repositories
+pairs with CI: 395 ; no CI: 74 ; other CI only: 5
+shares of pairs with CI: nothing 13.7 undetermined 12.7
+nothing pairs with a CI container build: 17
+lock pairs with CI: 251 {'reads the timed lock': 164, 'does not': 24, 'outside': 22, 'undetermined': 41}
+P3: 164 of 188 (87.2)
+P3 readers whose every lock-reading job may re-lock: 83 ; relock_lock column: {'reads the timed lock': 81, 'does not': 80, 'outside': 22, 'undetermined': 68}
+P3 strict (relock_lock): 81 of 161 ; of the 83 re-lock-only readers, 27 become undetermined and 56 does not
+P2 under LH015's rule: 231 of 302 (76.5)
+  lockfile pairs: 150 of 207
+mixed: 51 of 282 (18.1)
+  mixed kinds (a pair can count under several): {'2 inline': 1, '2 lock absent': 2, '2 lock unused': 23, '2 other file': 8, '2 upgrade': 3, '3': 17, '4': 6}
+reads the pin only through conditional steps: 6
+routine: P2 271 of 281 (96.4)
+routine: P3 161 of 186 (86.6)
+S3: readers routine 271 not routine 11 gitlab 10
+S2: pip or uv reads 236 ; every class 1 job cached 125 ; some class 1 job no cache 157 ; other values: {'yes': 236, 'unknown': 16, 'no': 30}
+S5: documented 313 ; reads the pin 164 ; own package 198
+
+== B. Beside LH015 (pairs.csv lh015_* columns and LH015 pair_classes.csv) ==
+2x2 (container reads lock, CI lock): {('yes', 'does not'): 2, ('no', 'reads the timed lock'): 20, ('yes', 'reads the timed lock'): 38, ('no', 'does not'): 5}
+LH015 not from the pinned file: 38 ; CI decided 24 reads 21
+recipe left a timed lock unused: 7 ; CI decided 5 reads 4 ; lock decided 5 reads 4
+no recipe: 222 ; CI decided 131 reads 126 ; neither recipe nor CI 59
+a container build (LH015 class) or a CI job reads the pin: 321 of 469 (68.4)
+neither reads, both decided or absent: 92 of 413 (22.3) ; of them no recipe and no CI: 59 ; remaining pairs (a recipe or CI undetermined, neither reading): 56 = 56
+  of the 92 neither pairs, the 33 others: {('no recipe', "nothing of the project's requirements"): 15, ('not from the pinned file', 'no CI'): 3, ('no recipe', 'does not read the pin'): 5, ('not from the pinned file', 'does not read the pin'): 3, ('not from the pinned file', "nothing of the project's requirements"): 5, ("nothing of the project's requirements", 'no CI'): 1, ("nothing of the project's requirements", 'does not read the pin'): 1}
+
+== C. Finding 14 recomputed: LH015 builds under this study's rule (own code) ==
+recipes, pin, any build: {'reads': 164, 'no recipe': 222, 'undetermined': 41, 'does not': 30, 'nothing': 12} | reads 164 of 194 (84.5)
+recipes, pin, LH015's rule: 129 of 167 (77.2)
+recipes, lock, any build: {'reads': 57, 'no recipe': 115, 'does not': 42, 'undetermined': 35, 'outside': 7, 'relock only': 14} | reads 71 of 113 (62.8) ; relock only 14
+recipes, lock, LH015's frame: 45 of 90 (50.0) ; relock only among them 6
+  check reads_T_lock == any class 1 build with T_lock among all pairs: True
+CI, lock, in the frame LH015's rule decides: 164 of 207
+lock, both decided under one rule: 79 ; container reads 56 ; CI reads 72 ; container does not: 23 of which CI reads 18
+pin, both decided under one rule: 132 ; container reads 114 ; CI reads 129 ; container does not: 18 of which CI reads 15
+figure bars: recipes pin 164 30 41 of 235 ; CI pin 282 9 50 of 341
+  recipes lock 57 14 42 35 of 148 ; CI lock 81 83 24 41 of 229
+
+== D. Jobs (job_classes.csv) ==
+rows: 6115
+final_class: {'1': 1967, '2': 154, '3': 104, '4': 22, '5': 3084, '6': 784}
+decided_by: {'script': 5738, 'judged': 271, 'not judged': 106}
+class 1 among decided: 1967 of 5331 ; among installing: 1967 of 2247
+workflow files decided: 1964 ; with a class 1 job: 679
+S1 tools on script-decided class 1 rows (T_tools, once per row): {'uv': 934, 'pip': 734, 'poetry': 221, 'pipenv': 16, 'uvx': 3, 'pdm': 3}
+class 1 rows flagged may re-lock: 721 ; tools among them: {'uv': 687, 'pipenv': 16, 'pip uv': 14, 'pdm': 3, 'poetry': 1}
+lock-reading installers per P3 reader: {'uv': 88, 'poetry': 28, 'pip': 14, 'pip and uv': 13, 'judged': 10, 'pipenv': 8, 'pip and poetry': 2, 'pdm': 1}
+systems: {'github': 5894, 'gitlab': 221}
+rows with an xargs installer in ci lines: (not recomputed)
+
+== E. Judgements ==
+judgements: 271 in 34 pairs; classes {'1': 167, '2': 21, '4': 22, '5': 5, '6': 56} ; made: {'2026-09-30, before the blind sample was drawn': 244, '2026-09-30, after the blind check (notes/R-0026.md), for jobs the corrections exposed or changed': 27}
+before check: 261 ; classes {'1': 171, '2': 21, '4': 14, '5': 5, '6': 50}
+readings: {'A1': 94, 'A2': 52, 'B3': 45, 'B4': 32, 'A7': 18, 'B1': 10, 'B2': 9, 'B5': 4, 'B7': 4, 'A4': 4, 'A5': 4, 'A6': 4, 'A3': 2, 'B6': 1, 'B8': 1}
+A1/A2 (manifest takes dependencies from a timed file): 146 repos ['P020', 'P021', 'P022'] ... {'aider': 74, 'an-website': 52, 'forgepair': 20}
+an-website judgements: 93 classes {'4': 22, '1': 52, '5': 3, '6': 16} ; with pip-constraints in reason: 22 class 4 among those 22
+grimoirelab judgements: 32 ; snowflake-cli: 18 ; data-safe-haven: 10
+judged rows in job_classes: 271 classes {'1': 167, '2': 21, '4': 22, '5': 5, '6': 56}
+to-judge total (judged + not judged): 377
+
+== F. Files, reads, PyPI ==
+file_facts: files 187 at 100 pairs; holds_L values {'none': 178, 'exact pin': 7, 'lockfile': 2}
+read_log sources: {'git over HTTPS': 332, 'local clone': 6488, 'git over HTTPS (blob fetched on demand)': 3744, 'PyPI JSON API': 27, 'documentation': 11}
+read_log source/method: {('git over HTTPS', 'git clone --filter=blob:none --no-checkout'): 332, ('local clone', 'git ls-tree -r --name-only'): 3727, ('git over HTTPS (blob fetched on demand)', 'git show'): 3744, ('local clone', 'du -sb'): 2761, ('PyPI JSON API', 'GET'): 27, ('documentation', 'GET'): 11}
+git file reads (method starts with git, not clone): 7471 ; time span 2026-09-30T07:17:48Z to 2026-09-30T08:43:10Z
+reads at 08:24: 785 ['', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', 'packages/ai-parrot-loaders/pyproject.toml', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', 'packages/ai-parrot-pipelines/pyproject.toml', '', '', '', '', '', 'packages/ai-parrot-tools/pyproject.toml', '', '', 'packages/ai-parrot/pyproject.toml', '', '', '', '', '', '', '', '', '', '', '', '', '', 'packages/ai-parrot/src/parrot/yaml-rs/pyproject.toml', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', 'packages/parrot-formdesigner/pyproject.toml', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '']
+git file reads after 08:25 by path: {'.hatch/requirements-lint.txt': 15, '': 894}
+GET rows: 38 ; pypi.org 28 ; other endpoints: [('07:32:05', 'https://python-poetry.org/docs/cli/', 'failed: SSL_ERROR_SYSCALL'), ('07:32:35', 'https://pypi.org/pypi/hatch-pip-compile/json', '200'), ('07:32:46', 'https://python-poetry.org/docs/cli/', '200'), ('08:45:44', 'https://docs.astral.sh/uv/concepts/projects/workspaces/', '200'), ('09:11:04', 'https://raw.githubusercontent.com/astral-sh/setup-uv/main/README.md', '200'), ('09:11:04', 'https://docs.astral.sh/uv/concepts/cache/', '200'), ('09:11:23', 'https://raw.githubusercontent.com/astral-sh/setup-uv/main/docs/caching.md', '200'), ('09:11:41', 'https://raw.githubusercontent.com/astral-sh/setup-uv/v6/README.md', '200'), ('09:11:42', 'https://raw.githubusercontent.com/astral-sh/setup-uv/v5/README.md', '200'), ('09:12:30', 'https://raw.githubusercontent.com/astral-sh/setup-uv/v4/README.md', '200'), ('09:12:31', 'https://raw.githubusercontent.com/astral-sh/setup-uv/v7/README.md', '200')]
+clones: 332 ; first 2026-09-30T07:06:33Z last read 2026-09-30T09:12:31Z
+pypi readings without chain-gang: {'published pin': 13, 'published range': 2, 'not listed': 9, 'no release': 2} rows 28
+
+== G. S6 recomputed from pairs.csv ==
+  reads the pin: 282, {'moved': 207, 'censored': 72, 'removed': 3}; lags inclusive [4.0, 14.0, 34.4] exclusive [4.0, 14.0, 34.8]
+  does not read the pin: 9, {'moved': 6, 'removed': 1, 'censored': 2}; lags inclusive [19.6, 38.6, 98.7] exclusive [13.6, 38.6, 128.4]
+  nothing of the project's requirements: 54, {'censored': 21, 'moved': 31, 'removed': 2}; lags inclusive [4.9, 11.6, 54.1] exclusive [4.6, 11.6, 62.3]
+  undetermined: 50, {'moved': 37, 'censored': 13}; lags inclusive [14.1, 30.9, 54.9] exclusive [13.9, 30.9, 60.9]
+  no CI: 74, {'moved': 25, 'censored': 44, 'removed': 5}; lags inclusive [9.9, 29.2, 74.9] exclusive [7.7, 29.2, 76.8]
+outcome values: {'moved': 306, 'censored at the head as cloned': 152, 'removed: no file pins or locks the library': 11}
+
+== H. Finding 15 recomputed (own code over ci_lines.csv) ==
+pairs S2 counted as cached: 125 {'some job fetches (none or pruned)': 55, 'some job unread': 40, 'all keep': 30}
+setup-uv major versions named on those jobs (per job reference): {'v7': 281, 'v4': 92, 'v5': 46, 'v8': 42, 'e06108dd0aef18192324c70427afc47652e63a82': 38, 'v3': 36, 'fac544c07dec837d0ccb6301d7b5580bf5edae39': 31, 'v6': 30, '08807647e7069bb48b6ef5acd8ec9567f424441b': 29, '1e862dfacbd1d6d858c55d9b792c756523627244': 20, '37802adc94f370d6bfd71619e3f0bf239e1f3b78': 19, 'v1': 19, 'd4b2f3b6ecc6e67c4457f6d3e41ec42d3d0fcb86': 16, '61cb8a9741eeb8a550a1b8544337180c0fc8476b': 10, 'cec208311dfd045dd5311c1add060b2062131d57': 9, '38f3f104447c67c051c4a08e39b64a148898af3a': 5, '7eb50e6e20e1e2009087999ba91242e80253875f': 4, 'v9': 3, '6ee6290f1cbc4156c0bdd66691b2c144ef8df19a': 2, 'eac588ad8def6316056a12d4907a9d4d84ff7a3b': 1}
+cache column values on class 1 jobs of cached pairs: {'setup-uv': 730, 'actions/cache': 73, 'setup-python': 70, ' actions/cache': 7, ' setup-uv': 1}

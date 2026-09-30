@@ -1,0 +1,49 @@
+== LH015 (container recipes): pair class as recorded, and under LH017's "any build" rule ==
+recorded: {'from the pinned file': 129, 'no recipe': 222, 'undetermined': 68, 'not from the pinned file': 38, "nothing of the project's requirements": 12}
+any-build rule: {'from the pinned file': 164, 'no recipe': 222, 'undetermined': 41, 'not from the pinned file': 30, "nothing of the project's requirements": 12}
+P2 recorded (LH015 rule): 129 of 167 = 77.2 per cent
+P2 under the any-build rule: 164 of 194 = 84.5 per cent
+LH015 "not from the pinned file" by mixed flag: {('not from the pinned file', 'yes'): 5, ('not from the pinned file', 'no'): 33}
+  lockfile: recorded 21 of 37 = 56.8 per cent | any-build 45 of 57 = 78.9 per cent
+  exact pin: recorded 63 of 77 = 81.8 per cent | any-build 64 of 78 = 82.1 per cent
+  both: recorded 45 of 53 = 84.9 per cent | any-build 55 of 59 = 93.2 per cent
+
+== LH017 (CI workflows): pair class as recorded, and under LH015's rule (pairs.csv, lh015_rule_class) ==
+recorded: {'no CI': 74, 'reads the pin': 282, "nothing of the project's requirements": 54, 'undetermined': 50, 'does not read the pin': 9}
+LH015's rule: {'no CI': 74, 'reads the pin': 231, 'does not read the pin': 71, "nothing of the project's requirements": 54, 'undetermined': 39}
+P2 recorded (any job): 282 of 291 = 96.9 per cent
+P2 under LH015's rule: 231 of 302 = 76.5 per cent
+
+== The lock: LH015 lock pairs (pin class lockfile or both), pair class against reads_T_lock ==
+  ('from the pinned file', 'no'): 26
+  ('from the pinned file', 'yes'): 40
+  ('no recipe', 'no'): 115
+  ('not from the pinned file', 'no'): 19
+  ('not from the pinned file', 'yes'): 5
+  ("nothing of the project's requirements", 'no'): 7
+  ('undetermined', 'no'): 32
+  ('undetermined', 'yes'): 26
+recorded lock reading (decided under LH015 rule): 45 of 90 = 50.0 per cent
+recipes under LH017's lock rule: {'reads': 71, 'outside': 122, 'does not': 42, 'undetermined': 35} | 71 of 113 = 62.8 per cent
+
+== The lock: LH017 lock pairs under LH015's rule (decided only when no job is class 2 to 4 or 6 besides class 1/5) ==
+  ('does not read the pin', 'does not'): 8
+  ('does not read the pin', 'reads the timed lock'): 30
+  ('does not read the pin', 'undetermined'): 19
+  ('no CI', ''): 19
+  ("nothing of the project's requirements", 'outside'): 22
+  ('reads the pin', 'does not'): 16
+  ('reads the pin', 'reads the timed lock'): 134
+  ('undetermined', 'undetermined'): 22
+CI lock reading, decided under LH015's rule: 164 of 207 = 79.2 per cent
+CI lock reading as recorded: 164 of 188 = 87.2 per cent
+
+== Same pairs, both decided for the lock (LH017 pairs.csv, lh015_reads_T_lock) ==
+  recipe reads lock=no, CI does not: 22
+  recipe reads lock=no, CI reads the timed lock: 110
+  recipe reads lock=yes, CI does not: 2
+  recipe reads lock=yes, CI reads the timed lock: 54
+recipes: 56 of 188 = 29.8 per cent | CI: 164 of 188 = 87.2 per cent
+
+== Units: pairs against repositories in P2's decided frame ==
+decided pairs: 291 | distinct repositories: 211 | repositories with every decided pair reading: 203

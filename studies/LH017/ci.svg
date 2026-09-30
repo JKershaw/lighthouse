@@ -13,17 +13,17 @@
 <text x="418" y="84" class="s">does not install from it</text>
 <rect x="562" y="75" width="11" height="11" rx="2" class="fu"/>
 <text x="578" y="84" class="s">could not be decided</text>
-<text x="16" y="106" class="s">Each bar counts the moments at which the project's builds of that kind install its requirements, or at which</text>
-<text x="16" y="122" class="s">the rules could not decide; a project appears once for each moment.</text>
+<text x="16" y="106" class="s">Each bar counts the moments at which builds of that kind install the project's requirements, or at which the rules</text>
+<text x="16" y="122" class="s">could not decide; one build of that kind installing from the file is enough; a project appears once per moment.</text>
 <text x="16" y="158" class="t">Some build installs the version from the pin or lockfile</text>
 <text x="16" y="183.0" class="t">Container recipes</text>
 <text x="16" y="197.0" class="s">235 moments</text>
-<rect x="150.0" y="170" width="299.7" height="24" rx="3" class="fa"><title>Container recipes: installs from it, 129 of 235 (54.9 per cent)</title></rect>
-<text x="299.9" y="186.0" text-anchor="middle" class="v">129</text>
-<rect x="451.7" y="170" width="86.3" height="24" rx="3" class="fb"><title>Container recipes: does not install from it, 38 of 235 (16.2 per cent)</title></rect>
-<text x="494.9" y="186.0" text-anchor="middle" class="v">38</text>
-<rect x="540.0" y="170" width="156.0" height="24" rx="3" class="fu"><title>Container recipes: could not be decided, 68 of 235 (28.9 per cent)</title></rect>
-<text x="618.0" y="186.0" text-anchor="middle" class="d">68</text>
+<rect x="150.0" y="170" width="381.0" height="24" rx="3" class="fa"><title>Container recipes: installs from it, 164 of 235 (69.8 per cent)</title></rect>
+<text x="340.5" y="186.0" text-anchor="middle" class="v">164</text>
+<rect x="533.0" y="170" width="67.7" height="24" rx="3" class="fb"><title>Container recipes: does not install from it, 30 of 235 (12.8 per cent)</title></rect>
+<text x="566.9" y="186.0" text-anchor="middle" class="v">30</text>
+<rect x="602.7" y="170" width="93.3" height="24" rx="3" class="fu"><title>Container recipes: could not be decided, 41 of 235 (17.4 per cent)</title></rect>
+<text x="649.4" y="186.0" text-anchor="middle" class="d">41</text>
 <text x="16" y="223.0" class="t">CI workflows</text>
 <text x="16" y="237.0" class="s">341 moments</text>
 <rect x="150.0" y="210" width="451.5" height="24" rx="3" class="fa"><title>CI workflows: installs from it, 282 of 341 (82.7 per cent)</title></rect>
@@ -35,15 +35,15 @@
 <text x="16" y="268" class="t">Some build installs it from the lockfile itself (projects with a timed lockfile)</text>
 <text x="16" y="293.0" class="t">Container recipes</text>
 <text x="16" y="307.0" class="s">148 moments</text>
-<rect x="150.0" y="280" width="143.9" height="24" rx="3" class="fa"><title>Container recipes: installs from it, 39 of 148 (26.4 per cent)</title></rect>
-<text x="221.9" y="296.0" text-anchor="middle" class="v">39</text>
-<rect x="295.9" y="280" width="20.1" height="24" rx="3" class="fr"><title>Container recipes: only through a command that may re-lock, 6 of 148 (4.1 per cent)</title></rect>
-<rect x="298.4" y="285" width="15" height="14" rx="3" class="fa"/>
-<text x="305.9" y="296.0" text-anchor="middle" class="v">6</text>
-<rect x="318.0" y="280" width="164.0" height="24" rx="3" class="fb"><title>Container recipes: does not install from it, 45 of 148 (30.4 per cent)</title></rect>
-<text x="400.0" y="296.0" text-anchor="middle" class="v">45</text>
-<rect x="484.0" y="280" width="212.0" height="24" rx="3" class="fu"><title>Container recipes: could not be decided, 58 of 148 (39.2 per cent)</title></rect>
-<text x="590.0" y="296.0" text-anchor="middle" class="d">58</text>
+<rect x="150.0" y="280" width="210.3" height="24" rx="3" class="fa"><title>Container recipes: installs from it, 57 of 148 (38.5 per cent)</title></rect>
+<text x="255.1" y="296.0" text-anchor="middle" class="v">57</text>
+<rect x="362.3" y="280" width="49.6" height="24" rx="3" class="fr"><title>Container recipes: only through a command that may re-lock, 14 of 148 (9.5 per cent)</title></rect>
+<rect x="376.1" y="285" width="22" height="14" rx="3" class="fa"/>
+<text x="387.1" y="296.0" text-anchor="middle" class="v">14</text>
+<rect x="413.9" y="280" width="152.9" height="24" rx="3" class="fb"><title>Container recipes: does not install from it, 42 of 148 (28.4 per cent)</title></rect>
+<text x="490.4" y="296.0" text-anchor="middle" class="v">42</text>
+<rect x="568.9" y="280" width="127.1" height="24" rx="3" class="fu"><title>Container recipes: could not be decided, 35 of 148 (23.6 per cent)</title></rect>
+<text x="632.4" y="296.0" text-anchor="middle" class="d">35</text>
 <text x="16" y="333.0" class="t">CI workflows</text>
 <text x="16" y="347.0" class="s">229 moments</text>
 <rect x="150.0" y="320" width="193.1" height="24" rx="3" class="fa"><title>CI workflows: installs from it, 81 of 229 (35.4 per cent)</title></rect>

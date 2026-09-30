@@ -1,7 +1,7 @@
 #!/bin/sh
 # LH017 replay, offline: the frame's hashes, the rules' tests, the classification from the stored records, and every
-# measure; each output is compared byte for byte with the committed one. judgements.csv and review_sample.csv (drawn
-# before the blind check and kept as drawn) are inputs.
+# measure, with the two readings made after the counts (posthoc_r0027.py); each output is compared byte for byte with
+# the committed one. judgements.csv and review_sample.csv (drawn before the blind check and kept as drawn) are inputs.
 set -e
 cd "$(dirname "$0")"
 S=scripts
@@ -10,11 +10,12 @@ python3 $S/frame.py > /dev/null
 python3 $S/test_classify.py | tail -n 1
 for f in job_classes.csv doc_classes.csv pair_classes.csv file_facts.csv review_sample_redraw.txt pairs.csv not_read.csv measures.csv described.csv \
          beside_lh015.csv beside_lh015_shares.csv sensitivities.csv s1_mechanisms.csv s2_log.csv s3_triggers.csv \
-         s4_container.csv s5_docs.csv s6_moves.csv; do
+         s4_container.csv s5_docs.csv s6_moves.csv posthoc_r0027.txt; do
   cp data/$f "$OUT/$f"
 done
 python3 $S/classify.py > /dev/null
 python3 $S/analyse.py > /dev/null
+python3 $S/posthoc_r0027.py > /dev/null
 bad=0
 for f in "$OUT"/*; do
   b=$(basename "$f")

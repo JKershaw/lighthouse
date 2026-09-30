@@ -1,6 +1,7 @@
 #!/usr/bin/env python3
 """LH017: draw ci.svg from data/pairs.csv and job_classes.csv and LH015's data/pair_classes.csv and recipe_classes.csv
-(offline). Two groups of two bars, container recipes (LH015) above CI workflows (this study): whether some build installs
+(offline). Two groups of two bars, container recipes (LH015's builds, counted by this study's pair rule) above CI
+workflows (this study): whether some build installs
 the library's version from the pinned file, and, for pairs with a timed lockfile, from the lockfile itself. Each bar is
 the pairs where that kind of build installs the project's requirements or could not be decided: reads it (blue), reads
 the lockfile only through a command that may re-lock (blue, striped; lockfile group only), does not (orange), could not
@@ -31,15 +32,42 @@ for r in csv.DictReader(open(os.path.join(L15, 'recipe_classes.csv'))):
         l15b[r['pair_id']].append(r)
 LOCK = ('lockfile', 'both')
 
-# container recipes (LH015)
-rp = {'reads': sum(1 for r in l15.values() if r['pair_class'] == 'from the pinned file'),
-      'not': sum(1 for r in l15.values() if r['pair_class'] == 'not from the pinned file'),
-      'und': sum(1 for r in l15.values() if r['pair_class'] == 'undetermined')}
-rl_dec = [p for p, r in l15.items() if r['pin_class'] in LOCK and r['pair_class'] in ('from the pinned file', 'not from the pinned file')]
-rl_reads = [p for p in rl_dec if l15[p]['reads_T_lock'] == 'yes']
-rl_relock = [p for p in rl_reads if all('may re-lock' in b['flags'] for b in l15b[p] if b['class'] == '1' and b['T_lock'] == 'yes')]
-rl = {'reads': len(rl_reads) - len(rl_relock), 'relock': len(rl_relock), 'not': len(rl_dec) - len(rl_reads),
-      'und': sum(1 for r in l15.values() if r['pin_class'] in LOCK and r['pair_class'] == 'undetermined')}
+# container recipes (LH015's snapshot builds), counted by this study's pair rule, as the CI workflows are: a pair reads
+# the pin when some build is class 1, is undetermined when none is and some build is class 6, and does not when neither
+# and some build is class 2 to 4; for the timed lock, reads when some class 1 build reads a timed lockfile (re-lock only
+# when every such build is flagged "may re-lock"), is undetermined when none does and some build is class 6, and does
+# not when neither and some build is class 1 to 4. Made after the counts, at the reader review (notes/R-0027.md): LH015's
+# own pair rule asks it of every build, and gives 129, 38 and 68, and 39, 6, 45 and 58 (scripts/posthoc_r0027.py).
+def pin_any(bs):
+    cs = [b['class'] for b in bs]
+    if '1' in cs:
+        return 'reads'
+    if '6' in cs:
+        return 'und'
+    return 'not' if any(c in ('2', '3', '4') for c in cs) else None
+
+
+def lock_any(bs):
+    cs = [b['class'] for b in bs]
+    ones = [b for b in bs if b['class'] == '1' and b['T_lock'] == 'yes']
+    if ones:
+        return 'relock' if all('may re-lock' in b['flags'] for b in ones) else 'reads'
+    if '6' in cs:
+        return 'und'
+    return 'not' if any(c in ('1', '2', '3', '4') for c in cs) else None
+
+
+rp = defaultdict(int)
+rl = defaultdict(int)
+for p, r in l15.items():
+    k = pin_any(l15b[p])
+    if k:
+        rp[k] += 1
+    if r['pin_class'] in LOCK:
+        k = lock_any(l15b[p])
+        if k:
+            rl[k] += 1
+rp, rl = dict(rp), dict(rl)
 # CI workflows (this study)
 cp = {'reads': sum(1 for r in P if r['pair_class'] == 'reads the pin'),
       'not': sum(1 for r in P if r['pair_class'] == 'does not read the pin'),
@@ -83,8 +111,8 @@ for j, (key, cls, label) in enumerate(SEG):
     lx = (16, 136, 402, 562)[j]
     e.append(f'<rect x="{lx}" y="{84 - 9}" width="11" height="11" rx="2" class="{cls}"/>')
     e.append(f'<text x="{lx + 16}" y="84" class="s">{esc(label)}</text>')
-e.append('<text x="16" y="106" class="s">Each bar counts the moments at which the project\'s builds of that kind install its requirements, or at which</text>')
-e.append('<text x="16" y="122" class="s">the rules could not decide; a project appears once for each moment.</text>')
+e.append('<text x="16" y="106" class="s">Each bar counts the moments at which builds of that kind install the project\'s requirements, or at which the rules</text>')
+e.append('<text x="16" y="122" class="s">could not decide; one build of that kind installing from the file is enough; a project appears once per moment.</text>')
 y = y0
 for gname, rows in GROUPS:
     e.append(f'<text x="16" y="{y + 12}" class="t">{esc(gname)}</text>')
