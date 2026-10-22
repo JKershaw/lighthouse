@@ -1,0 +1,16 @@
+HTTP/1.1 200 OK
+date: Thu, 22 Oct 2026 04:00:37 GMT
+
+HTTP/2 200 
+x-clickhouse-summary: {"read_rows":"2625753","read_bytes":"14918612","written_rows":"0","written_bytes":"0","total_rows_to_read":"2625753","result_rows":"0","result_bytes":"0","elapsed_ns":"18923616","memory_usage":"12812064"}
+date: Thu, 22 Oct 2026 04:00:37 GMT
+content-type: text/csv; charset=UTF-8; header=present
+access-control-expose-headers: X-ClickHouse-Query-Id,X-ClickHouse-Summary,X-ClickHouse-Server-Display-Name,X-ClickHouse-Format,X-ClickHouse-Timezone,X-ClickHouse-Exception-Code,X-ClickHouse-Exception-Tag
+x-clickhouse-server-display-name: clickhouse-cloud
+x-clickhouse-query-id: bd0f6d94-359e-471f-a7e4-c23af6f84545
+x-clickhouse-format: CSVWithNames
+x-clickhouse-timezone: UTC
+x-clickhouse-exception-tag: yocjsttgeoiwjwpa
+x-envoy-upstream-service-time: 66
+server: envoy
+

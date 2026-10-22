@@ -1,0 +1,35 @@
+boundary,event,source_time_utc,precision,evidence,detail
+information,selected public issue opened,2026-10-21T07:17:01Z,second,php_issue_1693.raw,first in this selected source set; readership unknown
+source,php PR opened,2026-10-21T13:44:58Z,second,php_pr_1694.raw,
+CI,php selected run created,2026-10-21T13:45:03Z,second,php_run.raw,"attempt 1, conclusion success"
+CI,php selected run started,2026-10-21T13:45:03Z,second,php_run.raw,
+CI,php first selected-head check started,2026-10-21T13:45:06Z,second,php_checks.raw,68/68 check runs report success at retrieval
+CI,php selected run last job completed,2026-10-21T13:45:12Z,second,php_jobs.raw,1 jobs in retained page
+CI,php last selected-head check completed,2026-10-21T13:59:47Z,second,php_checks.raw,"across all returned check runs, not one workflow run"
+review,php approval,2026-10-21T14:15:47Z,second,php_reviews.raw,
+review,php approval,2026-10-21T14:17:01Z,second,php_reviews.raw,
+source,php PR merged,2026-10-21T14:19:23Z,second,php_pr_1694.raw,
+publisher,official PR opened,2026-10-21T14:29:43Z,second,official_pr_22541.raw,
+CI,official selected run created,2026-10-21T14:29:49Z,second,official_run.raw,"attempt 2, conclusion success"
+CI,official first selected-head check started,2026-10-21T14:29:50Z,second,official_checks.raw,71/71 check runs report success at retrieval
+CI,official selected run started,2026-10-21T14:31:46Z,second,official_run.raw,
+CI,official selected run last job completed,2026-10-21T14:46:33Z,second,official_jobs.raw,68 jobs in retained page
+CI,official last selected-head check completed,2026-10-21T14:50:45Z,second,official_checks.raw,"across all returned check runs, not one workflow run"
+review,official approval,2026-10-21T14:57:20Z,second,official_reviews.raw,
+publisher,official PR merged,2026-10-21T15:16:45Z,second,official_pr_22541.raw,
+registry,8.5.12-apache linux/amd64 platform pushed (Hub field),2026-10-21T16:27:22.736176736Z,second,LH018/hubtag_8_5_12_apache.raw,sha256:54264bcbb153449d0147fd6bb201cb936c5d3e74471f95ff9a618e5631ccb569
+registry,8.2.35-fpm linux/amd64 platform pushed (Hub field),2026-10-21T16:33:08.734452599Z,second,LH018/hubtag_8_2_35_fpm.raw,sha256:fdc8631291347c9d8d963063194cbcaba134523ca9017ca137adcd63148ada77
+registry,8.2.35-fpm tag pushed (Hub field),2026-10-21T16:35:05.253962Z,second,LH018/hubtag_8_2_35_fpm.raw,
+registry,8.3.36-cli linux/amd64 platform pushed (Hub field),2026-10-21T16:35:52.198955463Z,second,LH018/hubtag_8_3_36_cli.raw,sha256:e3fa2f571b4264bdf86ef8f5c2ed2d4ad4b4e5a66403a451ea896fbdbbe935f6
+registry,8.3.36-cli tag pushed (Hub field),2026-10-21T16:39:41.159597Z,second,LH018/hubtag_8_3_36_cli.raw,
+registry,8.4.27-fpm linux/amd64 platform pushed (Hub field),2026-10-21T16:43:02.855730787Z,second,LH018/hubtag_8_4_27_fpm.raw,sha256:d887786679bb47b5b5864c2c218ce649e407663174961a4d2a294114bff9020b
+registry,8.4.27-fpm tag pushed (Hub field),2026-10-21T16:46:14.194298Z,second,LH018/hubtag_8_4_27_fpm.raw,
+registry,8.5.12-apache tag pushed (Hub field),2026-10-21T16:48:23.259535Z,second,LH018/hubtag_8_5_12_apache.raw,
+observation,8.5.12-apache first Lighthouse observation,2026-10-21T16:49:08Z,second,LH018/read_log.csv,
+observation,8.4.27-fpm first Lighthouse observation,2026-10-21T16:49:37Z,second,LH018/read_log.csv,
+observation,8.3.36-cli first Lighthouse observation,2026-10-21T16:50:05Z,second,LH018/read_log.csv,
+observation,8.2.35-fpm first Lighthouse observation,2026-10-21T16:50:34Z,second,LH018/read_log.csv,
+observation,8.5-apache moving tag first Lighthouse observation,2026-10-21T17:12:59Z,second,LH019/read_log.csv,sha256:54264bcbb153449d0147fd6bb201cb936c5d3e74471f95ff9a618e5631ccb569
+observation,8.4-fpm moving tag first Lighthouse observation,2026-10-21T17:13:27Z,second,LH019/read_log.csv,sha256:d887786679bb47b5b5864c2c218ce649e407663174961a4d2a294114bff9020b
+observation,8.3-cli moving tag first Lighthouse observation,2026-10-21T17:13:56Z,second,LH019/read_log.csv,sha256:e3fa2f571b4264bdf86ef8f5c2ed2d4ad4b4e5a66403a451ea896fbdbbe935f6
+observation,8.2-fpm moving tag first Lighthouse observation,2026-10-21T17:14:25Z,second,LH019/read_log.csv,sha256:fdc8631291347c9d8d963063194cbcaba134523ca9017ca137adcd63148ada77

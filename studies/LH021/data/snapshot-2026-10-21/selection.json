@@ -1,0 +1,47 @@
+[
+  {
+    "repo": "docker-library/wordpress",
+    "head_sha": "2d7faab7fb71508e6854cdbed948c195957f279e",
+    "dockerfiles": [
+      "Dockerfile.template",
+      "beta/php8.2/apache/Dockerfile",
+      "beta/php8.2/fpm-alpine/Dockerfile",
+      "beta/php8.2/fpm/Dockerfile"
+    ],
+    "workflows": [
+      ".github/workflows/ci.yml",
+      ".github/workflows/verify-templating.yml"
+    ],
+    "tree_truncated": false
+  },
+  {
+    "repo": "docker-library/drupal",
+    "head_sha": "6ca4d0398c773ecc24ff9aba5b43df5717c365de",
+    "dockerfiles": [
+      "10.6/php8.3/apache-bookworm/Dockerfile",
+      "10.6/php8.3/apache-trixie/Dockerfile",
+      "10.6/php8.3/fpm-alpine3.23/Dockerfile",
+      "10.6/php8.3/fpm-alpine3.24/Dockerfile"
+    ],
+    "workflows": [
+      ".github/workflows/ci.yml",
+      ".github/workflows/verify-templating.yml"
+    ],
+    "tree_truncated": false
+  },
+  {
+    "repo": "nextcloud/docker",
+    "head_sha": "80cec4db5b29bc4f0ddf82382da7f78f7aac2198",
+    "dockerfiles": [
+      ".examples/docker-compose/with-nginx-proxy/mariadb/apache/proxy/Dockerfile",
+      ".examples/docker-compose/with-nginx-proxy/mariadb/fpm/proxy/Dockerfile",
+      ".examples/docker-compose/with-nginx-proxy/postgres/apache/proxy/Dockerfile",
+      ".examples/docker-compose/with-nginx-proxy/postgres/fpm/proxy/Dockerfile"
+    ],
+    "workflows": [
+      ".github/workflows/images.yml",
+      ".github/workflows/update-sh.yml"
+    ],
+    "tree_truncated": false
+  }
+]
