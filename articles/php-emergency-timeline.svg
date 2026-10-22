@@ -1,20 +1,20 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 650" role="img" aria-labelledby="title desc">
   <title id="title">Public clocks in the PHP emergency, as read on 22 October 2026</title>
-  <desc id="desc">A not-to-scale sequence from an Amazon-reported 17 October honeypot attempt, through PHP's 20 October advance notice, early attack and Cloudflare protection claims on 21 October, the public release, selected official image publication, and a selected Drupal image read on 22 October.</desc>
+  <desc id="desc">A not-to-scale sequence from an Amazon-reported 17 October honeypot attempt, through PHP's 20 October advance notice, early attack and Cloudflare protection claims on 21 October, CERT-EU's reported 13:30 fix release, the scheduled 14:00 embargo lift, selected official image publication, and a selected Drupal image read on 22 October.</desc>
   <rect width="900" height="650" rx="18" fill="#f5f7f4"/>
   <text x="36" y="48" fill="#183d37" font-family="system-ui,sans-serif" font-size="26" font-weight="700">Several clocks, one event</text>
-  <text x="36" y="76" fill="#526460" font-family="system-ui,sans-serif" font-size="15">Events positioned in order, not proportional to elapsed time · all times UTC</text>
+  <text x="36" y="76" fill="#526460" font-family="system-ui,sans-serif" font-size="15">Ordered by first stated time; windows may overlap · not to scale · UTC</text>
   <line x1="180" y1="120" x2="180" y2="560" stroke="#a4b9b1" stroke-width="4"/>
   <g font-family="system-ui,sans-serif" font-size="17" fill="#163c36">
     <text x="36" y="133" font-size="15" font-weight="700">17 Oct</text><circle cx="180" cy="126" r="9" fill="#b55432"/><text x="208" y="132">Amazon later reports a honeypot exploit attempt</text>
     <text x="36" y="211" font-size="15" font-weight="700">20 Oct</text><circle cx="180" cy="204" r="9" fill="#337c74"/><text x="208" y="210">PHP announces an emergency release, 19:33</text>
-    <text x="36" y="289" font-size="15" font-weight="700">21 Oct</text><circle cx="180" cy="282" r="9" fill="#b55432"/><text x="208" y="288">Amazon reports more attempts from 02:00 to 08:00</text>
+    <text x="36" y="289" font-size="15" font-weight="700">21 Oct</text><circle cx="180" cy="282" r="9" fill="#b55432"/><text x="208" y="288">Amazon reports attempts from 02:00 through 08:00</text>
     <circle cx="180" cy="360" r="9" fill="#337c74"/><text x="208" y="366">Cloudflare says default WAF protection starts, 03:02</text>
-    <circle cx="180" cy="438" r="9" fill="#337c74"/><text x="208" y="444">Public PHP patch release, 14:00; selected images later</text>
+    <circle cx="180" cy="438" r="9" fill="#337c74"/><text x="208" y="444">CERT-EU fixes 13:30 · AWS embargo 14:00 · images later</text>
     <text x="36" y="523" font-size="15" font-weight="700">22 Oct</text><circle cx="180" cy="516" r="9" fill="#337c74"/><text x="208" y="522">Selected Drupal image seen with fixed PHP base layers</text>
   </g>
   <rect x="36" y="578" width="828" height="48" rx="8" fill="#e4ece8"/>
   <circle cx="58" cy="601" r="7" fill="#b55432"/><text x="75" y="606" fill="#294942" font-family="system-ui,sans-serif" font-size="14">Source-reported attack clock</text>
   <circle cx="328" cy="601" r="7" fill="#337c74"/><text x="345" y="606" fill="#294942" font-family="system-ui,sans-serif" font-size="14">Notice, protection or artifact clock</text>
-  <text x="36" y="646" fill="#526460" font-family="system-ui,sans-serif" font-size="12">Sources: Amazon, PHP, Cloudflare, Docker Hub; read 21–22 Oct. Precise clocks and limits in linked records.</text>
+  <text x="36" y="638" fill="#526460" font-family="system-ui,sans-serif" font-size="12">Sources: Amazon, PHP, CERT-EU, Cloudflare, Docker Hub; read 21–22 Oct. Clocks and limits in records.</text>
 </svg>

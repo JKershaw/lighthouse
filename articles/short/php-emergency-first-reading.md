@@ -1,6 +1,6 @@
 published: 2026-10-22
 summary: Amazon reports a pre-disclosure PHP exploit attempt against a honeypot. The early response has left visible traces in protection rules and published images, but not a count of affected or fixed sites.
-status: draft
+status: released
 investigation: software-updates
 
 # The PHP patch was public on Wednesday; one reported attack trace is older
