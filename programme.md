@@ -12,6 +12,8 @@ The programme follows the order observatories have always followed: catalogue wh
 
 **One content link, 22 October 2026.** LH026 deliberately selected LH023's Drupal artifact after it was known to declare fixed PHP 8.3.36, then read the exact `php:8.3-fpm-trixie` base named by its production Dockerfile. All twelve ordered compressed layer digests and uncompressed rootfs diff IDs of that current fixed base form the first twelve of the Drupal artifact's seventeen layers. This is a reproducible content-level link between two published artifacts, stronger than a shared version declaration, but neither a historical resolved-base build log nor a deployment. The selected case cannot give an uptake rate.
 
+**Selected operator case, 22 October 2026.** LH027 fixed The National Archives' notice after a search snippet had already claimed a precautionary PHP-related outage. Its one bounded direct read returned HTTP 403. The case is inconclusive for the exact service list, current status and timing; neither an outage prevalence estimate nor a service availability check follows. Keep the retained denial and stop rather than completing the account from a search snippet.
+
 ## Answered
 
 Each answer says what its record's current Answer says, at the same certainty as the investigation page and the current account, [articles/where-software-updates-go.md](articles/where-software-updates-go.md); the release review checks that they agree. Where later evidence changes how an answer reads, a dated "Later evidence" line follows it, and the answer's own words stand for its own sample.
