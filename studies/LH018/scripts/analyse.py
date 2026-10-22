@@ -50,6 +50,6 @@ for track,tag,version in [('I1','8.5.12-apache','8.5.12'),('I2','8.4.27-fpm','8.
               'source_event_utc':platform['last_pushed']+' (platform pushed, tag pushed '+d['tag_last_pushed']+')',
               'first_seen_utc':next(x['observed_at_utc'] for x in log if x['kind']=='hubtag' and x['key']==key),
               'evidence':f'hubtag_{key}.raw; manifest_{key}.raw; config_{key}.raw'})
-with (root/'data/summary.csv').open('w',newline='') as f:w=csv.DictWriter(f,fieldnames=rows[0].keys());w.writeheader();w.writerows(rows)
+with (root/'data/summary.csv').open('w',newline='') as f:w=csv.DictWriter(f,fieldnames=rows[0].keys(),lineterminator="\n");w.writeheader();w.writerows(rows)
 print('Verified',len(rows),'tracks and',len(log),'HTTP observations; summary.csv written')
 for r in rows: print(r['track'],r['source'],r['source_event_utc'])

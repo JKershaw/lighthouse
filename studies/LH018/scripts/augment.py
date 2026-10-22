@@ -21,5 +21,5 @@ for kind,key,url in urls:
  except Exception as e:error=f'{type(e).__name__}: {e}'
  p=out/f'{kind}_{key}.raw';p.write_bytes(data)
  rows.append({'observed_at_utc':at,'kind':kind,'key':key,'url':url,'status':status,'bytes':len(data),'sha256':hashlib.sha256(data).hexdigest(),'file':p.relative_to(root).as_posix(),'last_modified':headers.get('Last-Modified',''),'etag':headers.get('ETag',''),'ratelimit_remaining':'','error':error})
- with log.open('w',newline='') as f:w=csv.DictWriter(f,fieldnames=rows[0].keys());w.writeheader();w.writerows(rows)
+ with log.open('w',newline='') as f:w=csv.DictWriter(f,fieldnames=rows[0].keys(),lineterminator="\n");w.writeheader();w.writerows(rows)
  print(kind,key,status,len(data),error,flush=True)

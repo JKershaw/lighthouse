@@ -36,7 +36,7 @@ def save(kind,key,url,headers=None,limit=1024*1024):
       'error':error}
  records.append(row)
  with LOG.open('w',newline='') as f:
-  w=csv.DictWriter(f,fieldnames=row.keys());w.writeheader();w.writerows(records)
+  w=csv.DictWriter(f,fieldnames=row.keys(),lineterminator="\n");w.writeheader();w.writerows(records)
  print(kind,key,status,'bytes',len(data),'error',error,flush=True)
  return status,data,hdr
 
@@ -66,7 +66,7 @@ for tag in tags:
  records[-1]['file']='[ephemeral anonymous bearer discarded]'
  records[-1]['sha256']=''
  with LOG.open('w',newline='') as f:
-  w=csv.DictWriter(f,fieldnames=records[-1].keys());w.writeheader();w.writerows(records)
+  w=csv.DictWriter(f,fieldnames=records[-1].keys(),lineterminator="\n");w.writeheader();w.writerows(records)
  headers={'Authorization':'Bearer '+token,'Accept':'application/vnd.oci.image.manifest.v1+json, application/vnd.docker.distribution.manifest.v2+json'}
  status,manifest,mh=save('manifest',key,f'https://registry-1.docker.io/v2/library/php/manifests/{digest}',headers)
  remain=mh.get('Ratelimit-Remaining','')
