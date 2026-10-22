@@ -18,6 +18,8 @@ studies:
 - studies/LH014/LH014.md
 - studies/LH015/LH015.md
 - studies/LH017/LH017.md
+- studies/LH018/LH018.md
+- studies/LH019/LH019.md
 pieces:
 - articles/where-software-updates-go.md
 - articles/where-a-software-update-went.md
@@ -60,6 +62,7 @@ Attention says where we are looking; this says how firm the findings are. That a
 ## Beside it
 
 - [The first snapshot of the emergency PHP fix](../studies/LH018/LH018.md), 21 October 2026: a bounded reading of three distribution package paths and four official PHP image tags. This is another ecosystem and a selected emergency, not a replication of the Python pace. Vendor fix records and image declarations were visible by the first reading; none reaches a running deployment. The protocol and evidence sit with the study, and a later reading needs a separate window.
+- [The first moving-tag baseline](../studies/LH019/LH019.md), 21 October 2026: four official PHP moving tags already named the same linux/amd64 digests as their fixed-version counterparts at first observation. Their earlier pointer states are unknown. Later checkpoints can bound a change between readings, but cannot measure deployments.
 
 - [The xz backdoor sat in public for nearly five weeks until a slow login gave it away](../articles/the-xz-backdoor.md): a historical case of a compromise travelling the same kind of distribution roads, unseen by the public sources we surveyed.
 - [We can see pieces of the internet's AI activity, but not how they fit together](../articles/what-we-can-see.md): the survey of public sources whose edges this investigation keeps meeting.
