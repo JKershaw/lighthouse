@@ -1,0 +1,5 @@
+# LH019 sources fixed before moving-tag results
+
+- Docker Hub tag API, documented at https://docs.docker.com/reference/api/hub/latest/operations/GetRepositoryTag/ (method documentation read for LH018 on 21 October 2026). Four exact URLs use `https://hub.docker.com/v2/namespaces/library/repositories/php/tags/<tag>`. Each response is current metadata, including architecture-specific digest and push fields, not a historical tag log.
+- OCI registry, `https://registry-1.docker.io/v2/library/php/manifests/<digest>` and `/blobs/<config-digest>`, via an ephemeral anonymous token from `https://auth.docker.io/token?service=registry.docker.io&scope=repository:library/php:pull`. The manifest and configuration describe the published image; a declared version does not inspect its executable. Access method was exercised in LH018 on 21 October 2026. Exact observed URLs, UTC times and response hashes go in each run's read log.
+- LH018's 21 October first snapshot, `studies/LH018/data/summary.csv`, contains the four same-variant version-specific counterparts. This is reused evidence, not a second release or independent observation.
