@@ -10,6 +10,8 @@ The programme follows the order observatories have always followed: catalogue wh
 
 **Derived-image panel, 22 October 2026.** LH025 fixed five WordPress, Drupal and Nextcloud moving tags, with Drupal's already-known result disclosed, then read their current linux/amd64 manifests and configs. All five current configs declared fixed PHP source versions at the first observation; their manifest and config bytes replay against OCI digests. This left-censored baseline cannot date a change of pointer or prove a deployment. Daily checkpoints through 28 October can bound later changes for these exact tags, while unchanged endpoints remain only snapshots.
 
+**One content link, 22 October 2026.** LH026 deliberately selected LH023's Drupal artifact after it was known to declare fixed PHP 8.3.36, then read the exact `php:8.3-fpm-trixie` base named by its production Dockerfile. All twelve ordered compressed layer digests and uncompressed rootfs diff IDs of that current fixed base form the first twelve of the Drupal artifact's seventeen layers. This is a reproducible content-level link between two published artifacts, stronger than a shared version declaration, but neither a historical resolved-base build log nor a deployment. The selected case cannot give an uptake rate.
+
 ## Answered
 
 Each answer says what its record's current Answer says, at the same certainty as the investigation page and the current account, [articles/where-software-updates-go.md](articles/where-software-updates-go.md); the release review checks that they agree. Where later evidence changes how an answer reads, a dated "Later evidence" line follows it, and the answer's own words stand for its own sample.
