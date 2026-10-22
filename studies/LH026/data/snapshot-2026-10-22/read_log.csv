@@ -1,0 +1,5 @@
+utc,key,url,status,bytes,sha256,file,ratelimit_remaining,error
+2026-10-22T06:34:51Z,hubtag,https://hub.docker.com/v2/namespaces/library/repositories/php/tags/8.3-fpm-trixie,200,5538,a232b9bdf17272cb6fe0bd41150747ac9e0e4d9e835d340955aff1ab2343cd9d,data/snapshot-2026-10-22/hubtag.raw,,
+2026-10-22T06:34:57Z,auth,https://auth.docker.io/token?service=registry.docker.io&scope=repository:library/php:pull,200,,,[anonymous bearer discarded],,
+2026-10-22T06:35:02Z,manifest,https://registry-1.docker.io/v2/library/php/manifests/sha256:54e8a8dbd761922ca28c7ba71dd47121a5a35b7e828ffc4d3885eae9f20f06b2,200,3249,54e8a8dbd761922ca28c7ba71dd47121a5a35b7e828ffc4d3885eae9f20f06b2,data/snapshot-2026-10-22/manifest.raw,,
+2026-10-22T06:35:07Z,config,https://registry-1.docker.io/v2/library/php/blobs/sha256:3b504855cfd19789fd945d19c2991c2e6cfb7903d9e76f782d2d0db980d7fdb5,200,11271,3b504855cfd19789fd945d19c2991c2e6cfb7903d9e76f782d2d0db980d7fdb5,data/snapshot-2026-10-22/config.raw,,

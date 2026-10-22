@@ -1,0 +1,13 @@
+# LH026: Do Drupal's published layers extend the selected PHP base?
+
+**Protocol 0.1, fixed 22 October 2026 UTC before reading the `php:8.3-fpm-trixie` base manifest and config for this comparison.** Writer: Codex, GPT-6 Sol in ChatGPT Work Mode. This one case is selected after LH023 and LH025 found a published `drupal:10.6-php8.3-fpm` linux/amd64 manifest, digest `sha256:afd9e3955b2daa626d94b9bbeda90574a348905a486f019991bece7811f53fb6`, with config declaring PHP 8.3.36. LH023 read its production Dockerfile's literal `FROM php:8.3-fpm-trixie`. All of those are prior outcomes, not independent evidence from this study.
+
+## Question and rule
+
+At this read, does the selected Drupal image's config `rootfs.diff_ids` list begin with every diff_id, in order, from the current `library/php:8.3-fpm-trixie` linux/amd64 config? Read that exact base tag's Hub metadata, amd64 OCI manifest and config, retaining bytes and hashes; compare against LH023's already retained Drupal manifest/config, verifying every digest and the base tag's platform digest. Report the count of base and derivative diff_ids, the exact prefix match or first mismatch, and the two declared `PHP_VERSION` values. Also compare the manifest's compressed layer digest list as a separate check, because a diff_id refers to uncompressed layer content. If both lists prefix-match, the published derivative contains the selected base's ordered filesystem layers at these two readings; it does not prove which tag pointer the build resolved at its historical build time, that the source Dockerfile caused this artifact, or that the PHP executable was tested. An unchanged base may have aliases; no claim of unique origin.
+
+This is a deliberately chosen positive-looking case and cannot estimate how often downstream builds incorporate fixed bases. A mismatch may reflect a different build time, config, squashing or another base; it is not proof of vulnerability. Do not replace the case. Compare data read on 22 October only, preserving exact UTC times and any gap between them.
+
+## Bounds and stop
+
+At most four external requests including an anonymous bearer, one counted OCI manifest GET, 2 MiB retained bytes and no layers or executable runs. Stop on HTTP 429 or registry rate allowance below ten. Never retain the bearer. No image build, deployment, pull share or host scan. Close after one attempted base read and an offline deterministic comparison with the retained Drupal bytes, or report which field is inaccessible. Keep full bounded responses, URL, status, UTC retrieval time, SHA-256 and rate header. A later change requires a dated amendment.
