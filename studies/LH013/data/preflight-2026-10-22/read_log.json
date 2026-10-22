@@ -1,0 +1,56 @@
+[
+  {
+    "label": "coverage_pypi_downloads_per_day",
+    "observed_at_utc": "2026-10-22T03:59:58+00:00",
+    "query": "SELECT project, min(date) AS first_day, max(date) AS last_day FROM pypi.pypi_downloads_per_day WHERE project IN ('aiobotocore','aiohttp','annotated-types','anyio','boto3','botocore','certifi','cffi','charset-normalizer','click','cryptography','filelock','fsspec','grpcio-status','idna','litellm','numpy','packaging','pandas','pathspec','platformdirs','protobuf','pydantic','pydantic-core','pygments','pyjwt','pytest','python-dotenv','requests','rpds-py','s3transfer','starlette','tqdm','typing-extensions','typing-inspection','urllib3','uvicorn') AND date >= '2025-09-01' GROUP BY project ORDER BY project",
+    "status": "200",
+    "bytes": 1428,
+    "sha256": "7dd38667b1c5aad471cd0c40dccaddd88982b577cc4e8382963ff4671668b9e9",
+    "stderr": ""
+  },
+  {
+    "label": "coverage_pypi_downloads_per_day_by_version",
+    "observed_at_utc": "2026-10-22T04:00:03+00:00",
+    "query": "SELECT project, min(date) AS first_day, max(date) AS last_day FROM pypi.pypi_downloads_per_day_by_version WHERE project IN ('aiobotocore','aiohttp','annotated-types','anyio','boto3','botocore','certifi','cffi','charset-normalizer','click','cryptography','filelock','fsspec','grpcio-status','idna','litellm','numpy','packaging','pandas','pathspec','platformdirs','protobuf','pydantic','pydantic-core','pygments','pyjwt','pytest','python-dotenv','requests','rpds-py','s3transfer','starlette','tqdm','typing-extensions','typing-inspection','urllib3','uvicorn') AND date >= '2025-09-01' GROUP BY project ORDER BY project",
+    "status": "200",
+    "bytes": 1428,
+    "sha256": "7dd38667b1c5aad471cd0c40dccaddd88982b577cc4e8382963ff4671668b9e9",
+    "stderr": ""
+  },
+  {
+    "label": "coverage_pypi_downloads_per_day_by_version_by_python",
+    "observed_at_utc": "2026-10-22T04:00:11+00:00",
+    "query": "SELECT project, min(date) AS first_day, max(date) AS last_day FROM pypi.pypi_downloads_per_day_by_version_by_python WHERE project IN ('aiobotocore','aiohttp','annotated-types','anyio','boto3','botocore','certifi','cffi','charset-normalizer','click','cryptography','filelock','fsspec','grpcio-status','idna','litellm','numpy','packaging','pandas','pathspec','platformdirs','protobuf','pydantic','pydantic-core','pygments','pyjwt','pytest','python-dotenv','requests','rpds-py','s3transfer','starlette','tqdm','typing-extensions','typing-inspection','urllib3','uvicorn') AND date >= '2025-09-01' GROUP BY project ORDER BY project",
+    "status": "200",
+    "bytes": 1428,
+    "sha256": "7dd38667b1c5aad471cd0c40dccaddd88982b577cc4e8382963ff4671668b9e9",
+    "stderr": ""
+  },
+  {
+    "label": "coverage_pypi_downloads_per_day_by_version_by_system",
+    "observed_at_utc": "2026-10-22T04:00:19+00:00",
+    "query": "SELECT project, min(date) AS first_day, max(date) AS last_day FROM pypi.pypi_downloads_per_day_by_version_by_system WHERE project IN ('aiobotocore','aiohttp','annotated-types','anyio','boto3','botocore','certifi','cffi','charset-normalizer','click','cryptography','filelock','fsspec','grpcio-status','idna','litellm','numpy','packaging','pandas','pathspec','platformdirs','protobuf','pydantic','pydantic-core','pygments','pyjwt','pytest','python-dotenv','requests','rpds-py','s3transfer','starlette','tqdm','typing-extensions','typing-inspection','urllib3','uvicorn') AND date >= '2025-09-01' GROUP BY project ORDER BY project",
+    "status": "200",
+    "bytes": 1428,
+    "sha256": "7dd38667b1c5aad471cd0c40dccaddd88982b577cc4e8382963ff4671668b9e9",
+    "stderr": ""
+  },
+  {
+    "label": "coverage_pypi_downloads_per_day_by_version_by_installer_by_type",
+    "observed_at_utc": "2026-10-22T04:00:25+00:00",
+    "query": "SELECT project, min(date) AS first_day, max(date) AS last_day FROM pypi.pypi_downloads_per_day_by_version_by_installer_by_type WHERE project IN ('aiobotocore','aiohttp','annotated-types','anyio','boto3','botocore','certifi','cffi','charset-normalizer','click','cryptography','filelock','fsspec','grpcio-status','idna','litellm','numpy','packaging','pandas','pathspec','platformdirs','protobuf','pydantic','pydantic-core','pygments','pyjwt','pytest','python-dotenv','requests','rpds-py','s3transfer','starlette','tqdm','typing-extensions','typing-inspection','urllib3','uvicorn') AND date >= '2025-09-01' GROUP BY project ORDER BY project",
+    "status": "200",
+    "bytes": 1428,
+    "sha256": "7dd38667b1c5aad471cd0c40dccaddd88982b577cc4e8382963ff4671668b9e9",
+    "stderr": ""
+  },
+  {
+    "label": "week_dates",
+    "observed_at_utc": "2026-10-22T04:00:31+00:00",
+    "query": "SELECT DISTINCT project, date FROM pypi.pypi_downloads_per_day WHERE project IN ('aiobotocore','aiohttp','annotated-types','anyio','boto3','botocore','certifi','cffi','charset-normalizer','click','cryptography','filelock','fsspec','grpcio-status','idna','litellm','numpy','packaging','pandas','pathspec','platformdirs','protobuf','pydantic','pydantic-core','pygments','pyjwt','pytest','python-dotenv','requests','rpds-py','s3transfer','starlette','tqdm','typing-extensions','typing-inspection','urllib3','uvicorn') AND date >= '2026-09-28' AND date <= '2026-10-11' ORDER BY project, date",
+    "status": "200",
+    "bytes": 12813,
+    "sha256": "0f64af00245aae56b4883b96df3b03f0431568425658c40acdcb48363fdf2d60",
+    "stderr": ""
+  }
+]

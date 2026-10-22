@@ -1,5 +1,11 @@
 # LH013 amendments
 
+## Amendment 3, 22 October 2026, before any count of W1 or W2 was read
+
+The programme's 30 September checkpoint selected an additional descriptive reading from LH017: for each of the same 37 projects in each fixed week, report the proportion of older-version downloads carrying `ci=true` and the proportion of at-or-newer downloads carrying `ci=true`, at fixed R0, plus their difference. These are reported client flags, not an independently identified build population. Exclude versions that LH012 calls "other" from this paired split, show their counts separately, and preserve unknown when a classification or field is absent. Compute these within the already planned per-project and per-day `pypi.pypi` pass for C and C5; do not spend another whole-table pass. Summarise the paired differences across projects descriptively, with no new "holds" threshold or causal inference. This is 74 project-week pairs and one across-project description, added before either week's counts were read.
+
+The eligibility preflight on 22 October returned dates only. All five checked per-day tables held through 21 October for all 37 projects, and every project had a row on all 14 W1/W2 days in `pypi_downloads_per_day`. Its six anonymous queries, exact SQL, raw CSV bodies, headers, hashes and UTC times are retained in `data/preflight-2026-10-22/`. No W1 or W2 download count has been requested. The original brief's windows, definitions, tests and ceiling remain fixed.
+
 ## Amendment 1, 29 September 2026, before any count of W1 or W2 was read
 
 Made by the driving session of the afternoon of 29 September 2026, from a finding of LH014's research agent while it wrote LH014's brief (studies/LH014/brief.md, "Resource ceiling"). The `demo` user's `read_overflow_mode` is `break` (studies/LH014/data/clickpy_settings.csv, read 12:28 UTC), which by ClickHouse's documentation (https://clickhouse.com/docs/operations/settings/query-complexity, read by that agent at 12:30 UTC) stops a query at 1,000,000,000 rows or 50 GB read and returns the partial result "as if the source data ran out", without an error. LH013's passes over `pypi.pypi` read about 9.4 billion rows a week and are split by project and by day, so a split that still passed the limit would return a count cut short.
