@@ -2,10 +2,14 @@
 """Offline verification of retained LH028 responses."""
 from hashlib import sha256
 from pathlib import Path
+import argparse
 import json
 
 root = Path(__file__).resolve().parents[1]
-rows = json.loads((root / 'data/snapshot-2026-10-22/read_log.json').read_text())
+parser = argparse.ArgumentParser()
+parser.add_argument('--snapshot', required=True)
+args = parser.parse_args()
+rows = json.loads((root / 'data' / ('snapshot-' + args.snapshot) / 'read_log.json').read_text())
 assert len(rows) == 3
 for row in rows:
     if 'file' not in row:

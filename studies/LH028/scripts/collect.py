@@ -5,6 +5,7 @@ from hashlib import sha256
 from pathlib import Path
 from urllib.error import HTTPError
 from urllib.request import Request, urlopen
+import argparse
 import json
 
 ROOT = Path(__file__).resolve().parents[1]
@@ -13,7 +14,11 @@ URLS = {
     'cloudflare': 'https://blog.cloudflare.com/php-vulnerabilities-waf-protection/',
     'openai': 'https://openai.com/index/coordinated-disclosure-of-critical-vulnerabilities/',
 }
-OUT = ROOT / 'data' / 'snapshot-2026-10-22'
+parser = argparse.ArgumentParser()
+parser.add_argument('--snapshot', required=True, help='UTC slot, e.g. 2026-10-22T1600Z')
+args = parser.parse_args()
+datetime.strptime(args.snapshot, '%Y-%m-%dT%H%MZ')
+OUT = ROOT / 'data' / ('snapshot-' + args.snapshot)
 assert not OUT.exists(), 'snapshot already exists; do not overwrite'
 OUT.mkdir(parents=True)
 rows = []
