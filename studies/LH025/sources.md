@@ -1,0 +1,3 @@
+# LH025 sources
+
+All 22 October 2026 UTC reads use the public Docker Hub tag API under `https://hub.docker.com/v2/namespaces/library/repositories/{repository}/tags/{tag}` and OCI manifest/config reads by digest under `https://registry-1.docker.io/v2/library/{repository}/`. The exact URLs, retrieval times, statuses, rate header values, retained body hashes and paths are in [the read log](data/snapshot-2026-10-22/read_log.csv). Anonymous `auth.docker.io` tokens were transient and discarded. The [brief](brief.md) fixes tags, architecture and interpretation; [replay](scripts/analyse.py) verifies byte integrity and OCI references. Docker Hub's `last_pushed` and `tag_last_pushed` are publisher metadata, not continuous observation or a measure of pulls.

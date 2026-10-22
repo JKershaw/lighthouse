@@ -25,6 +25,7 @@ studies:
 - studies/LH022/LH022.md
 - studies/LH023/LH023.md
 - studies/LH024/LH024.md
+- studies/LH025/LH025.md
 pieces:
 - articles/where-software-updates-go.md
 - articles/where-a-software-update-went.md

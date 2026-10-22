@@ -1,0 +1,106 @@
+{
+  "schemaVersion": 2,
+  "mediaType": "application/vnd.oci.image.manifest.v1+json",
+  "config": {
+    "mediaType": "application/vnd.oci.image.config.v1+json",
+    "digest": "sha256:c9a4632632a6c337b26c156b1346d2c88ae6e95f9925911b6751ba3344cb143c",
+    "size": 18052
+  },
+  "layers": [
+    {
+      "mediaType": "application/vnd.oci.image.layer.v1.tar+gzip",
+      "digest": "sha256:f2be67225471500c788ce88c597eb5ea8336e912ad1ca4815650e0281afe2034",
+      "size": 29843579
+    },
+    {
+      "mediaType": "application/vnd.oci.image.layer.v1.tar+gzip",
+      "digest": "sha256:81ef4631a92c7ed8c87c653517b98ef87a19988ae9e26d96ebaa9ce86d4a3396",
+      "size": 225
+    },
+    {
+      "mediaType": "application/vnd.oci.image.layer.v1.tar+gzip",
+      "digest": "sha256:3d47bdc8850a5d5a930547ab7fc11fd1a081d2ee8fcb11a151517786e04172cd",
+      "size": 117839064
+    },
+    {
+      "mediaType": "application/vnd.oci.image.layer.v1.tar+gzip",
+      "digest": "sha256:d0c8621320235d262415e0b1e8ca9bde019a188970808251fbdc173e3cc93efb",
+      "size": 225
+    },
+    {
+      "mediaType": "application/vnd.oci.image.layer.v1.tar+gzip",
+      "digest": "sha256:2d32e4639ebddc18f7dd8f40f851829f00c05a360352051d2e753127f2e7e967",
+      "size": 14702714
+    },
+    {
+      "mediaType": "application/vnd.oci.image.layer.v1.tar+gzip",
+      "digest": "sha256:4a169e688f65675c1f136d95f09cb368d5a4bcb26aeaefed394c1199497bad68",
+      "size": 489
+    },
+    {
+      "mediaType": "application/vnd.oci.image.layer.v1.tar+gzip",
+      "digest": "sha256:c2603bf0a84d19e175946f352eadaea4c4a61fec7f2da28516a4f003be2b03da",
+      "size": 15326810
+    },
+    {
+      "mediaType": "application/vnd.oci.image.layer.v1.tar+gzip",
+      "digest": "sha256:c20973dd39e8d6ffe38049b78479426cab71b806cbd4ffffbdda83c23ed0790a",
+      "size": 2456
+    },
+    {
+      "mediaType": "application/vnd.oci.image.layer.v1.tar+gzip",
+      "digest": "sha256:b3e63b7e83d7d5f39f15b382c48c69af9c053c3bd2d6efed038806ecc9e5610a",
+      "size": 245
+    },
+    {
+      "mediaType": "application/vnd.oci.image.layer.v1.tar+gzip",
+      "digest": "sha256:4f4fb700ef54461cfa02571ae0db9a0dc1e0cdb5577484a6d75e68dc38e8acc1",
+      "size": 32
+    },
+    {
+      "mediaType": "application/vnd.oci.image.layer.v1.tar+gzip",
+      "digest": "sha256:ab02e362e2b0afc3880c68109ea1e45d3b9c1bc5aa86edfedfdc7a8daf72a0ec",
+      "size": 9270
+    },
+    {
+      "mediaType": "application/vnd.oci.image.layer.v1.tar+gzip",
+      "digest": "sha256:4c6715c92117d6e38fa39477fecf17f4d1dcb1b617f4889545472c142817102c",
+      "size": 21602958
+    },
+    {
+      "mediaType": "application/vnd.oci.image.layer.v1.tar+gzip",
+      "digest": "sha256:0b8cd3dea951dfdb9be7eb7e46f370d16c1682b965cd022167fb30f94bb7e64a",
+      "size": 37123367
+    },
+    {
+      "mediaType": "application/vnd.oci.image.layer.v1.tar+gzip",
+      "digest": "sha256:742b8476ef6f6804b7b984f19ac993048d322f83f037b743acbe631f151eef9f",
+      "size": 793
+    },
+    {
+      "mediaType": "application/vnd.oci.image.layer.v1.tar+gzip",
+      "digest": "sha256:022dd363607111872bfe8508d758463e323d42f3e6b6b1db9de7d0067ed8f457",
+      "size": 276215911
+    },
+    {
+      "mediaType": "application/vnd.oci.image.layer.v1.tar+gzip",
+      "digest": "sha256:1ba7dd2b0b72c4dc42a5582ca0f80b4f86e2326b95428139019e86964fe01555",
+      "size": 4148
+    },
+    {
+      "mediaType": "application/vnd.oci.image.layer.v1.tar+gzip",
+      "digest": "sha256:f8f92efd5d6f354fccd1a8695dc3dfc03963781ec853acc930fdb6346e9b82f8",
+      "size": 2533
+    }
+  ],
+  "annotations": {
+    "com.docker.official-images.bashbrew.arch": "amd64",
+    "org.opencontainers.image.base.digest": "sha256:237a126ccaf0a26348c272fe71155e69a69f827b3c921178f7367e376cd8758d",
+    "org.opencontainers.image.base.name": "php:8.5-fpm-trixie",
+    "org.opencontainers.image.created": "2026-10-21T18:01:44Z",
+    "org.opencontainers.image.revision": "a1af1a30067045df8f258089cce4f31e50848ed4",
+    "org.opencontainers.image.source": "https://github.com/nextcloud/docker.git#a1af1a30067045df8f258089cce4f31e50848ed4:35/fpm",
+    "org.opencontainers.image.url": "https://hub.docker.com/_/nextcloud",
+    "org.opencontainers.image.version": "35.0.2-fpm"
+  }
+}
