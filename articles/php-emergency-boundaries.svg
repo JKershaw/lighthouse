@@ -1,0 +1,20 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 500" role="img" aria-labelledby="title desc">
+  <title id="title">Where the PHP fix is observed and where evidence stops</title>
+  <desc id="desc">Five evidence rows. The PHP fix, four selected official image digests, five selected derivative image configurations and one derivative layer match are observed. Pulls and running deployments are not measured. Traffic reports show attempted exploitation, not successful compromise or AI attribution.</desc>
+  <rect width="900" height="500" rx="18" fill="#f5f7f4"/>
+  <text x="32" y="45" fill="#183d37" font-family="system-ui,sans-serif" font-size="25" font-weight="700">Where the public record stops</text>
+  <text x="32" y="73" fill="#526460" font-family="system-ui,sans-serif" font-size="15">Selected records on 21–22 October · each row is a different kind of observation</text>
+  <g font-family="system-ui,sans-serif" font-size="17" fill="#153c35">
+    <rect x="32" y="96" width="836" height="66" rx="10" fill="#dcebe2"/>
+    <text x="52" y="124" font-weight="700">PHP publishes fixes</text><text x="52" y="146" font-size="14">Four supported branches in this episode</text><text x="691" y="134" font-size="15" font-weight="700" fill="#24604d">Observed</text>
+    <rect x="32" y="171" width="836" height="66" rx="10" fill="#dcebe2"/>
+    <text x="52" y="199" font-weight="700">Official images</text><text x="52" y="221" font-size="14">Four chosen moving tags match fixed-version digests</text><text x="691" y="209" font-size="15" font-weight="700" fill="#24604d">Observed</text>
+    <rect x="32" y="246" width="836" height="66" rx="10" fill="#dcebe2"/>
+    <text x="52" y="274" font-weight="700">Derived images</text><text x="52" y="296" font-size="14">Five chosen configs declare fixed PHP; one Drupal layer match</text><text x="691" y="284" font-size="15" font-weight="700" fill="#24604d">Observed</text>
+    <rect x="32" y="321" width="836" height="66" rx="10" fill="#eee9df"/>
+    <text x="52" y="349" font-weight="700">Pulls and running sites</text><text x="52" y="371" font-size="14">No pull share, deployment count or runtime check</text><text x="675" y="359" font-size="15" font-weight="700" fill="#7c6040">Unmeasured</text>
+    <rect x="32" y="396" width="836" height="66" rx="10" fill="#eee9df"/>
+    <text x="52" y="424" font-weight="700">Attack outcomes</text><text x="52" y="446" font-size="14">Attempts reported; no confirmed compromise or attacker AI trace</text><text x="675" y="434" font-size="15" font-weight="700" fill="#7c6040">Unmeasured</text>
+  </g>
+  <text x="32" y="489" fill="#526460" font-family="system-ui,sans-serif" font-size="12">These selected artifact counts are not a population rate. Sources and replay in the linked studies.</text>
+</svg>
