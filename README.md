@@ -1,5 +1,11 @@
 # Lighthouse
 
+## [A PHP emergency, from an early attack trace to published fixes](articles/php-emergency-first-reading.md)
+
+Amazon's threat-intelligence team says a decoy server saw an exploit attempt dated 17 October, before the PHP security release on 21 October. OpenAI describes AI-assisted discovery and a coordinated defensive response; neither the honeypot report nor the public traffic accounts establish AI use by attackers. By our first observations, selected official and derivative images already published fixed PHP versions, but a registry image does not tell us who is running it. [Our developing account](articles/php-emergency-first-reading.md) draws the visible clocks and the points where evidence stops. It is dated 22 October and will be revised as fixed sources change.
+
+---
+
 ## [Where does a software update go once it is released?](articles/where-software-updates-go.md)
 
 When a widely used library puts out a new version, some software has it within days and some waits weeks for a person or a bot to move a pin. We followed releases through project histories, the public download log and published software images, and this account puts the whole investigation in one place: what each record shows, where each one stops, and which of our own explanations weakened. It is ordinary software moving, and it is the road anything unusual would have to travel.
@@ -8,11 +14,11 @@ When a widely used library puts out a new version, some software has it within d
 
 ---
 
-## Current focus
+## The longer investigation
 
 When a Python project pins a library, or writes the exact versions it has settled on into a lockfile, do the builds it runs read them? At 469 moments from April 2025 to August 2026 when one of 332 Python projects held an older version of a widely used library in a pin or lockfile as a new release came out, 395 kept automated test and build workflows, the jobs a hosted service runs at every change. Where our rules could decide, some job installed the library from the pinned file at 282 of the 291 moments, and where a lockfile held the version, a job read the lockfile itself at 164 of 188, though at 83 of those only through commands that can rewrite it; the projects' container recipes, the files a packaged copy of a program is built from, counted the same way (a comparison made after the counts), had read it at 71 of 113. A workflow is not a run, and nothing here counts downloads ([the latest reading](articles/tests-read-the-lockfile.md), or [its short form](articles/short/tests-read-the-lockfile.md); the recipes are in [the reading before it](articles/recipes-follow-the-pin.md)). That matters because a pin holds software still only in the builds that read it.
 
-How soon a new version is most of what gets downloaded differs across the rankings: among the fifty most downloaded Python libraries, for 26 of the 37 that released, most new versions were half of the downloads within two days, and further down it was so for fewer, 25 of the 52 that released of 80 drawn at random from ranks 51 to 500, and 9 of the 35 that released of 80 drawn from ranks 501 to 5,000 ([the reading below the top fifty](articles/rarer-further-down.md)). Older versions also keep part of every library's downloads, for reasons the download log mostly cannot say ([the reading of what stays behind](articles/old-versions-new-pythons.md)). The next question is whether what stays behind holds from week to week. Its weeks are fixed, and it waits until the log's public copy holds them, from about 13 October 2026 ([the programme](programme.md)).
+How soon a new version is most of what gets downloaded differs across the rankings: among the fifty most downloaded Python libraries, for 26 of the 37 that released, most new versions were half of the downloads within two days, and further down it was so for fewer, 25 of the 52 that released of 80 drawn at random from ranks 51 to 500, and 9 of the 35 that released of 80 drawn from ranks 501 to 5,000 ([the reading below the top fifty](articles/rarer-further-down.md)). Older versions also keep part of every library's downloads, for reasons the download log mostly cannot say ([the reading of what stays behind](articles/old-versions-new-pythons.md)). A separate, predeclared question asks whether what stays behind holds from week to week. Its weeks are fixed and it remains in [the programme](programme.md) beside this time-sensitive watch.
 
 ## What Lighthouse is
 
