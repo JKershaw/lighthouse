@@ -20,7 +20,7 @@ On 23 October PHP suggested setting `session.upload_progress.enabled=0` until it
 
 ## Reads and schedule
 
-A baseline read as soon as this protocol is pushed on 23 October; then one read in each UTC day through 30 October; then on each Monday and Thursday, until the first scheduled read at least two days after PHP's news page shows its next regular bugfix release for the 8.x branches, and in any case not after 30 November 2026. PHP's earlier regular releases fell on 27 August and 24 September, so the next might fall about 19 November; that is an inference from cadence, and PHP gives no date. Each read runs the collector once: one GET per URL (20 in all), raw bytes up to 1 MiB each, retained under `data/read-<UTC label>/` with UTC start and finish, status, content type, `Last-Modified`, length and SHA-256. No search, crawl, login, exploit, probe of any site or paid service. A missed read stays missed, a repeat inside one UTC day is not a second observation, and nobody contacts any source.
+A baseline read as soon as this protocol is pushed on 23 October; then one read in each UTC day through 30 October; then on each Monday and Thursday, until the first scheduled read at least two days after PHP's news page shows its next regular bugfix release for the 8.x branches, and in any case not after 30 November 2026. PHP's earlier regular releases fell on 27 August and 24 September, so the next might fall about 19 November; that is an inference from cadence, and PHP gives no date. Each read runs the collector once: one GET per URL (19 in all), raw bytes up to 1 MiB each, retained under `data/read-<UTC label>/` with UTC start and finish, status, content type, `Last-Modified`, length and SHA-256. No search, crawl, login, exploit, probe of any site or paid service. A missed read stays missed, a repeat inside one UTC day is not a second observation, and nobody contacts any source.
 
 ## Classes
 
@@ -37,3 +37,5 @@ LH024's daily panel reads the same institutional URLs through 28 October and LH0
 ## Ceiling, stopping and what would leave it inconclusive
 
 At most 20 GETs and 20 MiB per read, and about 20 reads; collection needs no subagent. A first record follows the baseline; an interim record after 30 October; the final record after the stop. Any piece needs its own reviews. The study is inconclusive for an entry that stays unavailable, for the timing of any class whose reads were missed around it, and as a whole if fewer than half of the entries are readable at most reads. It cannot say how many applications are exposed, whether any operator followed the instruction, or how the instruction reached anyone who did not publish it.
+
+**Correction before the baseline read, 23 October 2026, 17:15 UTC.** Protocol 0.1 as pushed in `a61c66d` said 20 GETs per read; the panel has 19 URLs (the PHP reference, seven records and eleven notice URLs). The ceiling of 20 is unchanged. No outcome had been read.
