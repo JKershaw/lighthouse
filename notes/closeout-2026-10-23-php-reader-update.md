@@ -31,3 +31,5 @@ LH030 continues: one read a UTC day through 30 October, then Mondays and Thursda
 ## Spend
 
 Measured at list rates from the transcripts with `harbour/hb tokens` and `harbour/hb drivercost`: the driving session $8.89 to 17:34 UTC, before this close-out's commit (incomplete by the turns after it); subagents $6.94 (evidence review $2.96, reader-and-inference review $2.08, recheck $1.90). About $15.83 in all, within the bound of about twenty dollars. Requests to public services: 22 GETs for the reads (one for LH029, two in the discovery pass, nineteen for LH030's baseline), seven for the feasibility check and one live reread by the evidence reviewer, plus six searches.
+
+**Later the same evening:** the evening's extra work (LH024's and LH025's 23 October reads, LH031, LH032, the Google classing) took the driving session to about $16.41 by 19:00 UTC; with the review agents' $6.94, about $23.35, over the bound of about twenty dollars. The keeper waived the bound for this session, given the significance of the PHP event. The daily runs that wake this session from 24 to 30 October also come under that waiver; each records its own spend in its commit message.
