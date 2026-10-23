@@ -2,7 +2,7 @@
 
 ## [A PHP emergency, from an early attack trace to published fixes](articles/php-emergency-first-reading.md)
 
-Amazon's threat-intelligence team says a decoy server saw an exploit attempt dated 17 October, before the PHP security release on 21 October. OpenAI describes AI-assisted discovery and a coordinated defensive response; neither the honeypot report nor the public traffic accounts establish AI use by attackers. By our first observations, selected official and derivative images already published fixed PHP versions, but a registry image does not tell us who is running it. [Our developing account](articles/php-emergency-first-reading.md) draws the visible clocks and the points where evidence stops. It is dated 22 October and will be revised as fixed sources change.
+Amazon's threat-intelligence team says a decoy server saw an exploit attempt dated 17 October, before the PHP security release on 21 October. OpenAI describes AI-assisted discovery and a coordinated defensive response; neither the honeypot report nor the public traffic accounts establish AI use by attackers. By our first observations, selected official and derivative images already published fixed PHP versions, but a registry image does not tell us who is running it. On 23 October PHP described a further, unlikely route to running code, open by its account only in some unusually configured applications, which it is handling in its regular release cycle; its advice implies those fixed versions do not close it. [Our developing account](articles/php-emergency-first-reading.md) draws the visible clocks and the points where evidence stops. It is dated 22 October, with a later-evidence notice of 23 October, and will be revised as fixed sources change.
 
 ---
 
