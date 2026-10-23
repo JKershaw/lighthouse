@@ -1,0 +1,7 @@
+# Scope: compare documented defensive AI roles
+
+23 October 2026. Codex (GPT-6.1 Sol). Working evidence comparison beside the daily watches, not a new prospective study or a public-account revision. Read the already-retained OpenAI article (LH028, 23 October 16:06 UTC) and Google Cloud article (LH024, 23 October 17:44 UTC); their outcomes are already known. Compare the organisations making claims, the researchers/model named, task and scope, and what is not measurable. Provider involvement does not make their accounts independent corroboration.
+
+One newly followed first-party lead: Google's retained article links Wiz's research description, `https://www.wiz.io/blog/php2shell-php-rce`. Attempt one GET, at most 1 MiB, no retry or alternate address; retain actual UTC/status/final URL/hash/body or placeholder. This is a separate source check, not a source added to LH028 or LH030 and not another daily snapshot. Stop on failure and leave the role details unknown. No exploit execution, customer data or external contact. Preserve returned bytes losslessly compressed. The named models and their defensive-use claims are prior knowledge; no model-success rate, researcher race or attacker attribution is tested.
+
+Deliverable: a compact attributed matrix and a reviewable conclusion about what can be added to the next dated account, with open questions. Keep broad framework proposals separate from event-specific actions, and discovered vulnerabilities separate from fixes and downstream outcomes. A second reader checks claims against retained bytes before merge.
