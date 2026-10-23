@@ -1,6 +1,6 @@
 # LH029: What did PHP's own 23 October notice say about a related issue in the fixed releases?
 
-**Protocol 0.1, fixed 23 October 2026 at about 17:10 UTC, before this study's direct read of any page it names.** Writer: a Claude Code driving session (Claude Opus 5.5). This is a single-source retention study for a dated reader update to the 22 October PHP account (articles/php-emergency-first-reading.md). It is separate from LH028's fixed three-URL panel and from LH024's daily panel, and changes neither.
+**Protocol 0.1, fixed 23 October 2026 at 16:59 UTC (commit `a41f896`, pushed 16:59:50 UTC), before this study's direct read of any page it names.** Writer: a Claude Code driving session (Claude Opus 5.5). This is a single-source retention study for a dated reader update to the 22 October PHP account (articles/php-emergency-first-reading.md). It is separate from LH028's fixed three-URL panel and from LH024's daily panel, and changes neither.
 
 ## What is already known of the outcome
 
