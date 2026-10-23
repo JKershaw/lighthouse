@@ -59,10 +59,12 @@ Run a small feasibility check of source access first. If public histories cannot
 
 ## Progress and exact next action
 
-- [x] Five rapid snapshots retained, replayed and pushed to draft PR #28.
+- [x] Five rapid snapshots retained, replayed and pushed to draft PR #28 (merged into main as `e9bf2be`).
 - [x] Assessment, original-PHP-notice context and continuation decisions recorded here.
-- [ ] Retain PHP's original 23 October notice outside LH028 and prepare the reviewed dated reader update (Priority 1).
-- [ ] Complete the bounded discovery ledger (Priority 2).
-- [ ] Fix a feasible propagation brief before reading its remaining outcomes (Priority 3).
+- [x] **Priority 1.** LH029 retained PHP's 23 October notice at 17:00 UTC under a protocol committed beforehand (`a41f896`); its record classes what the notice states and implies. Version 1.1 of the PHP account adds a dated later-evidence notice, a caption note and a "What changed after 22 October" list, with matching surfaces; evidence review R-0032 and reader-and-inference review R-0033, with one recheck of what the resolutions wrote (see releases.md for the outcome and whether it was released for the keeper's merge).
+- [x] **Priority 2.** One bounded discovery pass (notes/php-discovery-2026-10-23/): query plan fixed and pushed before six searches, two first-party pages opened, a triage ledger. No reader update; two bounded candidate measurements (CISA's dated catalogue entries; a fixed panel of appliance vendors' advisories). SOCRadar's page turned out to carry the 23 October instruction and is disclosed as prior knowledge.
+- [x] **Priority 3.** LH030 fixed (`a61c66d`) after a feasibility check on an unrelated CVE: seven structured vulnerability records and LH024's eight institutions, read once a UTC day through 30 October, then Mondays and Thursdays until two days after PHP's next regular release, by 30 November. Baseline read 23 October 17:15 UTC (studies/LH030/LH030.md, version 0.1).
 
-**Next session: start Priority 1 by retaining the original PHP notice and drafting its contextualised Later evidence update.** Preserve any newer concurrent checkpoints. Credentials are not required for the public source reads; never recover old bootstrap tokens from conversation history. Repository publication can use the connected GitHub integration if plain git push lacks credentials; compare complete Git trees and use an expected-head check without force.
+**Not done in this session, and not to be assumed done elsewhere:** LH024's and LH025's daily reads for 23 October, and LH028's rapid slots from 22:00 UTC on 23 October. No scheduled task for Lighthouse is visible on this account; Codex's own automations, if any, were not inspectable. A missed slot stays missed under each protocol.
+
+**Next session: run LH030's next scheduled read first** (`python3 studies/LH030/scripts/collect.py --read <UTC label>`, then `classify.py` and `tabulate.py` on that read directory, with hand decisions on any IV snippets in its `hand_iv.json`), one per UTC day through 30 October. Then, in this order: the LH024 and LH025 daily reads through 28 October and LH019's 24 and 28 October checkpoints, under their own protocols; LH030's interim record after the 30 October read; and, if time allows, a brief for one of the discovery pass's two candidates, fixed before its outcomes are read. Do not refetch a slot already retained. Credentials are not required for any of these reads.
