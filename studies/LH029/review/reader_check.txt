@@ -1,0 +1,28 @@
+== hashes against the record ==
+studies/LH029/data/snapshot-2026-10-23/archive.raw: 102923 bytes, sha256 matches record: True
+studies/LH029/review/live-archive-2026-10-23.raw: 102923 bytes, sha256 matches record: True
+studies/LH024/data/snapshot-2026-10-22/php_0.raw: 99388 bytes, sha256 matches record: True
+
+== strings a reader's belief rests on, by copy (count of occurrences) ==
+[22 Oct 06:24 (LH024)] 2026-10-23-1=0, CVE-2026-115560=0, serialize_handler=0, upload_progress.enabled=0=1, until the next regular bugfix release=0, to fully protect=0, unlikely RCE vector=0, unlikely in practice=0, regular release cycle=0, restart every worker=2, 8.5.12=6, 8.4.27=6, 8.3.36=6, 8.2.35=6
+[23 Oct 17:00 (LH029)] 2026-10-23-1=3, CVE-2026-115560=1, serialize_handler=1, upload_progress.enabled=0=2, until the next regular bugfix release=0, to fully protect=1, unlikely RCE vector=1, unlikely in practice=1, regular release cycle=1, restart every worker=2, 8.5.12=6, 8.4.27=6, 8.3.36=6, 8.2.35=6
+[23 Oct 17:11 (R-0032)] 2026-10-23-1=3, CVE-2026-115560=1, serialize_handler=1, upload_progress.enabled=0=2, until the next regular bugfix release=0, to fully protect=1, unlikely RCE vector=1, unlikely in practice=1, regular release cycle=1, restart every worker=2, 8.5.12=6, 8.4.27=6, 8.3.36=6, 8.2.35=6
+
+== does any sentence of the 23 Oct entry name a PHP version? ==
+version-like tokens in entry text: []
+
+== Cloudflare retained copies: first to mention the new CVE or upload progress ==
+snapshot-2026-10-22: modified_time=2026-10-21T19:12:17.798Z 115560=0 upload_progress=1 "fully patched"=0 "all plans, including Free"=1
+snapshot-2026-10-22T1600Z: modified_time=2026-10-21T19:12:17.798Z 115560=0 upload_progress=1 "fully patched"=0 "all plans, including Free"=1
+snapshot-2026-10-22T2200Z: modified_time=2026-10-22T19:09:42.850Z 115560=0 upload_progress=1 "fully patched"=0 "all plans, including Free"=1
+snapshot-2026-10-23T0400Z: modified_time=2026-10-22T19:09:42.850Z 115560=0 upload_progress=1 "fully patched"=0 "all plans, including Free"=1
+snapshot-2026-10-23T1000Z: modified_time=2026-10-22T19:09:42.850Z 115560=0 upload_progress=1 "fully patched"=0 "all plans, including Free"=1
+snapshot-2026-10-23T1600Z: modified_time=2026-10-23T15:09:11.234Z 115560=1 upload_progress=2 "fully patched"=1 "all plans, including Free"=1
+
+== clock intervals the pieces cite (UTC) ==
+LH024 read without the entry (22 Oct 06:24:43) to LH029 read with it (23 Oct 17:00:11): 34h 35m 28s
+PHP entry stamp (10:12:28) to Cloudflare modified_time (15:09:11): 4h 56m 43s
+PHP entry stamp to LH028 read of Cloudflare revision (16:06:07): 5h 53m 39s
+PHP entry stamp to LH029 read (17:00:11): 6h 47m 43s
+LH028 10:00 slot without the revision (10:00) to 16:06 read with it: 6h 6m 7s
+RC4 entry stamp (21 Oct 15:41:41) to LH024 copy lacking it (22 Oct 06:24:43): 14h 43m 2s
