@@ -1,0 +1,5 @@
+{
+  "php_0": "none: the IV snippets are in the 21 October entries that follow the 23 October entry; the entry itself names no version (reference, not counted)",
+  "cert_eu_0": "none: the snippets are the advisory's 'Affected Products' list ('PHP 8.5 versions prior to 8.5.12' and so on) and its recommendation to update to the 21 October releases, both written for the original two flaws; no sentence asserts that the 21 October releases are affected by CVE-2026-115560 or do not fix it. It says 'PHP will not issue an out-of-band release for this vulnerability', which implies but does not assert the scope",
+  "cloudflare_0": "explicit: 'It affects fully patched PHP releases, including 8.5.12, and will be fixed in PHP's next regular release.'"
+}

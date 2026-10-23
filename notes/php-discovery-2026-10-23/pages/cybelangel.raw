@@ -1,0 +1,1680 @@
+<!DOCTYPE html>
+<html lang="en-US">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+	<link rel="preconnect" href="https://fonts.googleapis.com">
+	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+	<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;900&display=swap" rel="stylesheet">
+	<link rel="profile" href="http://gmpg.org/xfn/11">
+	<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Lexend+Deca:wght@100;200;300;400;500;600;700&display=swap" rel="stylesheet">
+	<meta name='robots' content='index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1' />
+
+<!-- Google Tag Manager for WordPress by gtm4wp.com -->
+<script data-cfasync="false" data-pagespeed-no-defer>
+	var gtm4wp_datalayer_name = "dataLayer";
+	var dataLayer = dataLayer || [];
+</script>
+<!-- End Google Tag Manager for WordPress by gtm4wp.com -->
+	<title>What We Know About php2shell [Critical update]</title>
+	<meta name="description" content="What we know about the php2shell incident and our recommendations and data points to use and know as this incident unfurls." />
+	<link rel="canonical" href="https://cybelangel.com/blog/critical-php-rce-vulnerabilities-cve-2026-109618-and-cve-2026-109619/" />
+	<meta property="og:locale" content="en_US" />
+	<meta property="og:type" content="article" />
+	<meta property="og:title" content="What We Know About php2shell [Critical update]" />
+	<meta property="og:description" content="What we know about the php2shell incident and our recommendations and data points to use and know as this incident unfurls." />
+	<meta property="og:url" content="https://cybelangel.com/blog/critical-php-rce-vulnerabilities-cve-2026-109618-and-cve-2026-109619/" />
+	<meta property="og:site_name" content="CybelAngel" />
+	<meta property="article:published_time" content="2026-10-21T10:48:54+00:00" />
+	<meta property="article:modified_time" content="2026-10-21T18:14:34+00:00" />
+	<meta property="og:image" content="https://cybelangel.com/wp-content/uploads/2026/10/php2shell.png" />
+	<meta property="og:image:width" content="1029" />
+	<meta property="og:image:height" content="540" />
+	<meta property="og:image:type" content="image/png" />
+	<meta name="author" content="Leah Koonthamattam" />
+	<meta name="twitter:card" content="summary_large_image" />
+	<meta name="twitter:label1" content="Written by" />
+	<meta name="twitter:data1" content="Leah Koonthamattam" />
+	<meta name="twitter:label2" content="Est. reading time" />
+	<meta name="twitter:data2" content="8 minutes" />
+	<script type="application/ld+json" class="yoast-schema-graph">{"@context":"https:\/\/schema.org","@graph":[{"@type":"Article","@id":"https:\/\/cybelangel.com\/blog\/critical-php-rce-vulnerabilities-cve-2026-109618-and-cve-2026-109619\/#article","isPartOf":{"@id":"https:\/\/cybelangel.com\/blog\/critical-php-rce-vulnerabilities-cve-2026-109618-and-cve-2026-109619\/"},"author":{"name":"Leah Koonthamattam","@id":"https:\/\/cybelangel.com\/#\/schema\/person\/2c3bf3eb859c730784d2af08c8538efa"},"headline":"2.24M Internet-Facing PHP Hosts, 59% on Versions With No Fix Coming: What We Know About php2shell","datePublished":"2026-10-21T10:48:54+00:00","dateModified":"2026-10-21T18:14:34+00:00","mainEntityOfPage":{"@id":"https:\/\/cybelangel.com\/blog\/critical-php-rce-vulnerabilities-cve-2026-109618-and-cve-2026-109619\/"},"wordCount":1520,"publisher":{"@id":"https:\/\/cybelangel.com\/#organization"},"image":{"@id":"https:\/\/cybelangel.com\/blog\/critical-php-rce-vulnerabilities-cve-2026-109618-and-cve-2026-109619\/#primaryimage"},"thumbnailUrl":"https:\/\/cybelangel.com\/wp-content\/uploads\/2026\/10\/php2shell.png","keywords":["Cyber News"],"articleSection":["News"],"inLanguage":"en-US"},{"@type":"WebPage","@id":"https:\/\/cybelangel.com\/blog\/critical-php-rce-vulnerabilities-cve-2026-109618-and-cve-2026-109619\/","url":"https:\/\/cybelangel.com\/blog\/critical-php-rce-vulnerabilities-cve-2026-109618-and-cve-2026-109619\/","name":"What We Know About php2shell [Critical update]","isPartOf":{"@id":"https:\/\/cybelangel.com\/#website"},"primaryImageOfPage":{"@id":"https:\/\/cybelangel.com\/blog\/critical-php-rce-vulnerabilities-cve-2026-109618-and-cve-2026-109619\/#primaryimage"},"image":{"@id":"https:\/\/cybelangel.com\/blog\/critical-php-rce-vulnerabilities-cve-2026-109618-and-cve-2026-109619\/#primaryimage"},"thumbnailUrl":"https:\/\/cybelangel.com\/wp-content\/uploads\/2026\/10\/php2shell.png","datePublished":"2026-10-21T10:48:54+00:00","dateModified":"2026-10-21T18:14:34+00:00","description":"What we know about the php2shell incident and our recommendations and data points to use and know as this incident unfurls.","breadcrumb":{"@id":"https:\/\/cybelangel.com\/blog\/critical-php-rce-vulnerabilities-cve-2026-109618-and-cve-2026-109619\/#breadcrumb"},"inLanguage":"en-US","potentialAction":[{"@type":"ReadAction","target":["https:\/\/cybelangel.com\/blog\/critical-php-rce-vulnerabilities-cve-2026-109618-and-cve-2026-109619\/"]}]},{"@type":"ImageObject","inLanguage":"en-US","@id":"https:\/\/cybelangel.com\/blog\/critical-php-rce-vulnerabilities-cve-2026-109618-and-cve-2026-109619\/#primaryimage","url":"https:\/\/cybelangel.com\/wp-content\/uploads\/2026\/10\/php2shell.png","contentUrl":"https:\/\/cybelangel.com\/wp-content\/uploads\/2026\/10\/php2shell.png","width":1029,"height":540},{"@type":"BreadcrumbList","@id":"https:\/\/cybelangel.com\/blog\/critical-php-rce-vulnerabilities-cve-2026-109618-and-cve-2026-109619\/#breadcrumb","itemListElement":[{"@type":"ListItem","position":1,"name":"Home","item":"https:\/\/cybelangel.com\/"},{"@type":"ListItem","position":2,"name":"Blog","item":"https:\/\/cybelangel.com\/blog\/"},{"@type":"ListItem","position":3,"name":"2.24M Internet-Facing PHP Hosts, 59% on Versions With No Fix Coming: What We Know About php2shell"}]},{"@type":"WebSite","@id":"https:\/\/cybelangel.com\/#website","url":"https:\/\/cybelangel.com\/","name":"CybelAngel","description":"","publisher":{"@id":"https:\/\/cybelangel.com\/#organization"},"potentialAction":[{"@type":"SearchAction","target":{"@type":"EntryPoint","urlTemplate":"https:\/\/cybelangel.com\/?s={search_term_string}"},"query-input":{"@type":"PropertyValueSpecification","valueRequired":true,"valueName":"search_term_string"}}],"inLanguage":"en-US"},{"@type":"Organization","@id":"https:\/\/cybelangel.com\/#organization","name":"CybelAngel","url":"https:\/\/cybelangel.com\/","logo":{"@type":"ImageObject","inLanguage":"en-US","@id":"https:\/\/cybelangel.com\/#\/schema\/logo\/image\/","url":"https:\/\/cybelangel.com\/wp-content\/uploads\/2022\/02\/CA-Logo.svg","contentUrl":"https:\/\/cybelangel.com\/wp-content\/uploads\/2022\/02\/CA-Logo.svg","width":144,"height":33,"caption":"CybelAngel"},"image":{"@id":"https:\/\/cybelangel.com\/#\/schema\/logo\/image\/"}},{"@type":"Person","@id":"https:\/\/cybelangel.com\/#\/schema\/person\/2c3bf3eb859c730784d2af08c8538efa","name":"Leah Koonthamattam","image":{"@type":"ImageObject","inLanguage":"en-US","@id":"https:\/\/secure.gravatar.com\/avatar\/8a9b7de2e06b64c39a7d43c3ca86db96e74cf601a8240e3fcca6ac4033f4e6de?s=96&d=mm&r=g","url":"https:\/\/secure.gravatar.com\/avatar\/8a9b7de2e06b64c39a7d43c3ca86db96e74cf601a8240e3fcca6ac4033f4e6de?s=96&d=mm&r=g","contentUrl":"https:\/\/secure.gravatar.com\/avatar\/8a9b7de2e06b64c39a7d43c3ca86db96e74cf601a8240e3fcca6ac4033f4e6de?s=96&d=mm&r=g","caption":"Leah Koonthamattam"},"description":"Leah Koonthamattam is a Cybersecurity Analyst at CybelAngel, specialising in threat intelligence and strategic client advisory. Her background spans international security, policy, and data governance, with experience at the OECD prior to moving into cybersecurity. At CybelAngel, she focuses on translating complex threat findings into clear intelligence for security and executive teams."}]}</script>
+
+
+<link rel='dns-prefetch' href='//js-eu1.hs-scripts.com' />
+<link rel="alternate" type="application/rss+xml" title="CybelAngel &raquo; Feed" href="https://cybelangel.com/feed/" />
+<link rel="alternate" type="application/rss+xml" title="CybelAngel &raquo; Comments Feed" href="https://cybelangel.com/comments/feed/" />
+<style id="wp-img-auto-sizes-contain-inline-css">
+img:is([sizes=auto i],[sizes^="auto," i]){contain-intrinsic-size:3000px 1500px}
+/*# sourceURL=wp-img-auto-sizes-contain-inline-css */
+</style>
+<style id="wp-block-library-inline-css">
+:root{--wp-block-synced-color:#7a00df;--wp-block-synced-color--rgb:122,0,223;--wp-bound-block-color:var(--wp-block-synced-color);--wp-editor-canvas-background:#ddd;--wp-admin-theme-color:#007cba;--wp-admin-theme-color--rgb:0,124,186;--wp-admin-theme-color-darker-10:#006ba1;--wp-admin-theme-color-darker-10--rgb:0,107,160.5;--wp-admin-theme-color-darker-20:#005a87;--wp-admin-theme-color-darker-20--rgb:0,90,135;--wp-admin-border-width-focus:2px}@media (min-resolution:192dpi){:root{--wp-admin-border-width-focus:1.5px}}.wp-element-button{cursor:pointer}:root .has-very-light-gray-background-color{background-color:#eee}:root .has-very-dark-gray-background-color{background-color:#313131}:root .has-very-light-gray-color{color:#eee}:root .has-very-dark-gray-color{color:#313131}:root .has-vivid-green-cyan-to-vivid-cyan-blue-gradient-background{background:linear-gradient(135deg,#00d084,#0693e3)}:root .has-purple-crush-gradient-background{background:linear-gradient(135deg,#34e2e4,#4721fb 50%,#ab1dfe)}:root .has-hazy-dawn-gradient-background{background:linear-gradient(135deg,#faaca8,#dad0ec)}:root .has-subdued-olive-gradient-background{background:linear-gradient(135deg,#fafae1,#67a671)}:root .has-atomic-cream-gradient-background{background:linear-gradient(135deg,#fdd79a,#004a59)}:root .has-nightshade-gradient-background{background:linear-gradient(135deg,#330968,#31cdcf)}:root .has-midnight-gradient-background{background:linear-gradient(135deg,#020381,#2874fc)}:root{--wp--preset--font-size--normal:16px;--wp--preset--font-size--huge:42px}.has-regular-font-size{font-size:1em}.has-larger-font-size{font-size:2.625em}.has-normal-font-size{font-size:var(--wp--preset--font-size--normal)}.has-huge-font-size{font-size:var(--wp--preset--font-size--huge)}:root .has-text-align-center{text-align:center}:root .has-text-align-left{text-align:left}:root .has-text-align-right{text-align:right}.has-fit-text{white-space:nowrap!important}#end-resizable-editor-section{display:none}.aligncenter{clear:both}.items-justified-left{justify-content:flex-start}.items-justified-center{justify-content:center}.items-justified-right{justify-content:flex-end}.items-justified-space-between{justify-content:space-between}.screen-reader-text{word-wrap:normal!important;border:0;clip-path:inset(50%);height:1px;margin:-1px;overflow:hidden;padding:0;position:absolute;width:1px;word-break:normal!important}.screen-reader-text:focus{background-color:#ddd;clip-path:none;color:#444;display:block;font-size:1em;height:auto;left:5px;line-height:normal;padding:15px 23px 14px;text-decoration:none;top:5px;width:auto;z-index:100000}html :where(.has-border-color){border-style:solid}html :where([style^=border-color],[style*=";border-color"],[style*="; border-color"]){border-style:solid}html :where([style^=border-top-color],[style*=";border-top-color"],[style*="; border-top-color"]){border-top-style:solid}html :where([style^=border-right-color],[style*=";border-right-color"],[style*="; border-right-color"]){border-right-style:solid}html :where([style^=border-bottom-color],[style*=";border-bottom-color"],[style*="; border-bottom-color"]){border-bottom-style:solid}html :where([style^=border-left-color],[style*=";border-left-color"],[style*="; border-left-color"]){border-left-style:solid}html :where([style^=border-width],[style*=";border-width"],[style*="; border-width"]){border-style:solid}html :where([style^=border-top-width],[style*=";border-top-width"],[style*="; border-top-width"]){border-top-style:solid}html :where([style^=border-right-width],[style*=";border-right-width"],[style*="; border-right-width"]){border-right-style:solid}html :where([style^=border-bottom-width],[style*=";border-bottom-width"],[style*="; border-bottom-width"]){border-bottom-style:solid}html :where([style^=border-left-width],[style*=";border-left-width"],[style*="; border-left-width"]){border-left-style:solid}html :where(img[class*=wp-image-]){height:auto;max-width:100%}:where(figure){margin:0 0 1em}html :where(.is-position-sticky){--wp-admin--admin-bar--position-offset:var(--wp-admin--admin-bar--height,0px)}@media screen and (max-width:600px){html :where(.is-position-sticky){--wp-admin--admin-bar--position-offset:0px}}
+
+/*# sourceURL=/wp-includes/css/dist/block-library/common.min.css */
+</style>
+<style id="wp-block-button-inline-css">
+.wp-block-button__link{align-content:center;box-sizing:border-box;cursor:pointer;display:inline-block;height:100%;text-align:center;word-break:break-word}.wp-block-button__link.aligncenter{text-align:center}.wp-block-button__link.alignright{text-align:right}:where(.wp-block-button__link){border-radius:9999px;box-shadow:none;padding:calc(.667em + 2px) calc(1.333em + 2px);text-decoration:none}.wp-block-button[style*=text-decoration] .wp-block-button__link{text-decoration:inherit}.wp-block-buttons>.wp-block-button.has-custom-width{max-width:none}.wp-block-buttons>.wp-block-button.has-custom-width .wp-block-button__link{width:100%}.wp-block-buttons>.wp-block-button.has-custom-font-size .wp-block-button__link{font-size:inherit}.wp-block-buttons>.wp-block-button[class*=wp-block-button__width]{width:calc(var(--wp--block-button--width)*1% - var(--wp--style--block-gap, .5em)*(1 - var(--wp--block-button--width)/100))}.wp-block-buttons>.wp-block-button.wp-block-button__width-25{width:calc(25% - var(--wp--style--block-gap, .5em)*.75)}.wp-block-buttons>.wp-block-button.wp-block-button__width-50{width:calc(50% - var(--wp--style--block-gap, .5em)*.5)}.wp-block-buttons>.wp-block-button.wp-block-button__width-75{width:calc(75% - var(--wp--style--block-gap, .5em)*.25)}.wp-block-buttons>.wp-block-button.wp-block-button__width-100{flex-basis:100%;width:100%}.wp-block-buttons.is-vertical>.wp-block-button[class*=wp-block-button__width]{width:calc(var(--wp--block-button--width)*1%)}.wp-block-buttons.is-vertical>.wp-block-button.wp-block-button__width-25{width:25%}.wp-block-buttons.is-vertical>.wp-block-button.wp-block-button__width-50{width:50%}.wp-block-buttons.is-vertical>.wp-block-button.wp-block-button__width-75{width:75%}.wp-block-button.is-style-squared,.wp-block-button__link.wp-block-button.is-style-squared{border-radius:0}.wp-block-button.no-border-radius,.wp-block-button__link.no-border-radius{border-radius:0!important}:root :where(.wp-block-button .wp-block-button__link.is-style-outline),:root :where(.wp-block-button.is-style-outline>.wp-block-button__link){border:2px solid;padding:.667em 1.333em}:root :where(.wp-block-button .wp-block-button__link.is-style-outline:not(.has-text-color)),:root :where(.wp-block-button.is-style-outline>.wp-block-button__link:not(.has-text-color)){color:currentColor}:root :where(.wp-block-button .wp-block-button__link.is-style-outline:not(.has-background)),:root :where(.wp-block-button.is-style-outline>.wp-block-button__link:not(.has-background)){background-color:transparent;background-image:none}
+/*# sourceURL=https://cybelangel.com/wp-includes/blocks/button/style.min.css */
+</style>
+<style id="wp-block-heading-inline-css">
+h1:where(.wp-block-heading).has-background,h2:where(.wp-block-heading).has-background,h3:where(.wp-block-heading).has-background,h4:where(.wp-block-heading).has-background,h5:where(.wp-block-heading).has-background,h6:where(.wp-block-heading).has-background{padding:1.25em 2.375em}h1.has-text-align-left[style*=writing-mode]:where([style*=vertical-lr]),h1.has-text-align-right[style*=writing-mode]:where([style*=vertical-rl]),h2.has-text-align-left[style*=writing-mode]:where([style*=vertical-lr]),h2.has-text-align-right[style*=writing-mode]:where([style*=vertical-rl]),h3.has-text-align-left[style*=writing-mode]:where([style*=vertical-lr]),h3.has-text-align-right[style*=writing-mode]:where([style*=vertical-rl]),h4.has-text-align-left[style*=writing-mode]:where([style*=vertical-lr]),h4.has-text-align-right[style*=writing-mode]:where([style*=vertical-rl]),h5.has-text-align-left[style*=writing-mode]:where([style*=vertical-lr]),h5.has-text-align-right[style*=writing-mode]:where([style*=vertical-rl]),h6.has-text-align-left[style*=writing-mode]:where([style*=vertical-lr]),h6.has-text-align-right[style*=writing-mode]:where([style*=vertical-rl]){rotate:180deg}
+/*# sourceURL=https://cybelangel.com/wp-includes/blocks/heading/style.min.css */
+</style>
+<style id="wp-block-image-inline-css">
+.wp-block-image>a,.wp-block-image>figure>a{display:inline-block}.wp-block-image img{box-sizing:border-box;height:auto;max-width:100%;vertical-align:bottom}@media not (prefers-reduced-motion){.wp-block-image img.hide{visibility:hidden}.wp-block-image img.show{animation:show-content-image .4s}}.wp-block-image[style*=border-radius] img,.wp-block-image[style*=border-radius]>a{border-radius:inherit}.wp-block-image.has-custom-border img{box-sizing:border-box}.wp-block-image.aligncenter{text-align:center}.wp-block-image.alignfull>a,.wp-block-image.alignwide>a{width:100%}.wp-block-image.alignfull img,.wp-block-image.alignwide img{height:auto;width:100%}.wp-block-image .aligncenter,.wp-block-image .alignleft,.wp-block-image .alignright,.wp-block-image.aligncenter,.wp-block-image.alignleft,.wp-block-image.alignright{display:table}.wp-block-image .aligncenter>figcaption,.wp-block-image .alignleft>figcaption,.wp-block-image .alignright>figcaption,.wp-block-image.aligncenter>figcaption,.wp-block-image.alignleft>figcaption,.wp-block-image.alignright>figcaption{caption-side:bottom;display:table-caption}.wp-block-image .alignleft{float:left;margin:.5em 1em .5em 0}.wp-block-image .alignright{float:right;margin:.5em 0 .5em 1em}.wp-block-image .aligncenter{margin-left:auto;margin-right:auto}.wp-block-image :where(figcaption){margin-bottom:1em;margin-top:.5em}.wp-block-image.is-style-circle-mask img{border-radius:9999px}@supports ((-webkit-mask-image:none) or (mask-image:none)) or (-webkit-mask-image:none){.wp-block-image.is-style-circle-mask img{border-radius:0;-webkit-mask-image:url('data:image/svg+xml;utf8,<svg viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg"><circle cx="50" cy="50" r="50"/></svg>');mask-image:url('data:image/svg+xml;utf8,<svg viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg"><circle cx="50" cy="50" r="50"/></svg>');mask-mode:alpha;-webkit-mask-position:center;mask-position:center;-webkit-mask-repeat:no-repeat;mask-repeat:no-repeat;-webkit-mask-size:contain;mask-size:contain}}:root :where(.wp-block-image.is-style-rounded img,.wp-block-image .is-style-rounded img){border-radius:9999px}.wp-block-image figure{margin:0}.wp-lightbox-container{display:flex;flex-direction:column;position:relative}.wp-lightbox-container img{cursor:zoom-in}.wp-lightbox-container img:hover+button{opacity:1}.wp-lightbox-container button{align-items:center;backdrop-filter:blur(16px) saturate(180%);background-color:rgba(90,90,90,.25);border:none;border-radius:4px;cursor:zoom-in;display:flex;height:20px;justify-content:center;opacity:0;padding:0;position:absolute;right:16px;text-align:center;top:16px;width:20px;z-index:100}@media not (prefers-reduced-motion){.wp-lightbox-container button{transition:opacity .2s ease}}.wp-lightbox-container button:focus-visible{outline:3px auto rgba(90,90,90,.25);outline:3px auto -webkit-focus-ring-color;outline-offset:3px}.wp-lightbox-container button:hover{cursor:pointer;opacity:1}.wp-lightbox-container button:focus{opacity:1}.wp-lightbox-container button:focus,.wp-lightbox-container button:hover,.wp-lightbox-container button:not(:hover):not(:active):not(.has-background){background-color:rgba(90,90,90,.25);border:none}.wp-lightbox-overlay{box-sizing:border-box;cursor:zoom-out;height:100vh;left:0;overflow:hidden;position:fixed;top:0;visibility:hidden;width:100%;z-index:100000}.wp-lightbox-overlay .wp-lightbox-close-button{align-items:center;cursor:pointer;display:flex;font-family:inherit;gap:8px;justify-content:center;line-height:1;min-height:40px;min-width:40px;padding:0 4px;position:absolute;right:calc(env(safe-area-inset-right) + 16px);top:calc(env(safe-area-inset-top) + 16px);z-index:5000000}.wp-lightbox-overlay .wp-lightbox-close-button:focus,.wp-lightbox-overlay .wp-lightbox-close-button:hover,.wp-lightbox-overlay .wp-lightbox-close-button:not(:hover):not(:active):not(.has-background){background:none;border:none}.wp-lightbox-overlay .wp-lightbox-close-button:has(.wp-lightbox-close-text:not([hidden])) .wp-lightbox-close-icon svg{height:1em;width:1em}.wp-lightbox-overlay .wp-lightbox-close-icon svg{display:block}.wp-lightbox-overlay .wp-lightbox-navigation-button-next,.wp-lightbox-overlay .wp-lightbox-navigation-button-prev{align-items:center;bottom:16px;cursor:pointer;display:flex;font-family:inherit;gap:4px;justify-content:center;line-height:1;min-height:40px;min-width:40px;padding:0 8px;position:absolute;z-index:2000002}.wp-lightbox-overlay .wp-lightbox-navigation-button-next[hidden],.wp-lightbox-overlay .wp-lightbox-navigation-button-prev[hidden]{display:none}@media (min-width:960px){.wp-lightbox-overlay .wp-lightbox-navigation-button-next,.wp-lightbox-overlay .wp-lightbox-navigation-button-prev{bottom:50%;transform:translateY(-50%)}}.wp-lightbox-overlay .wp-lightbox-navigation-button-next:focus,.wp-lightbox-overlay .wp-lightbox-navigation-button-next:hover,.wp-lightbox-overlay .wp-lightbox-navigation-button-next:not(:hover):not(:active):not(.has-background),.wp-lightbox-overlay .wp-lightbox-navigation-button-prev:focus,.wp-lightbox-overlay .wp-lightbox-navigation-button-prev:hover,.wp-lightbox-overlay .wp-lightbox-navigation-button-prev:not(:hover):not(:active):not(.has-background){background:none;border:none;padding:0 8px}.wp-lightbox-overlay .wp-lightbox-navigation-button-next:has(.wp-lightbox-navigation-text:not([hidden])) .wp-lightbox-navigation-icon svg,.wp-lightbox-overlay .wp-lightbox-navigation-button-prev:has(.wp-lightbox-navigation-text:not([hidden])) .wp-lightbox-navigation-icon svg{display:block;height:1.5em;width:1.5em}.wp-lightbox-overlay .wp-lightbox-navigation-button-prev{left:calc(env(safe-area-inset-left) + 16px)}.wp-lightbox-overlay .wp-lightbox-navigation-button-next{right:calc(env(safe-area-inset-right) + 16px)}.wp-lightbox-overlay .wp-lightbox-navigation-icon svg{vertical-align:middle}.wp-lightbox-overlay .lightbox-image-container{height:var(--wp--lightbox-container-height);left:50%;overflow:hidden;position:absolute;top:50%;transform:translate(-50%,-50%);transform-origin:top left;width:var(--wp--lightbox-container-width);z-index:2000001}.wp-lightbox-overlay .wp-block-image{align-items:center;box-sizing:border-box;display:flex;height:100%;justify-content:center;margin:0;position:relative;transform-origin:0 0;width:100%;z-index:3000000}.wp-lightbox-overlay .wp-block-image img{height:var(--wp--lightbox-image-height);min-height:var(--wp--lightbox-image-height);min-width:var(--wp--lightbox-image-width);width:var(--wp--lightbox-image-width)}.wp-lightbox-overlay .wp-block-image figcaption{display:none}.wp-lightbox-overlay button{background:none;border:none}.wp-lightbox-overlay .scrim{background-color:#fff;height:100%;opacity:.9;position:absolute;width:100%;z-index:2000000}.wp-lightbox-overlay.active{visibility:visible}@media not (prefers-reduced-motion){.wp-lightbox-overlay.active{animation:turn-on-visibility .25s both}.wp-lightbox-overlay.active img{animation:turn-on-visibility .35s both}.wp-lightbox-overlay.show-closing-animation:not(.active){animation:turn-off-visibility .35s both}.wp-lightbox-overlay.show-closing-animation:not(.active) img{animation:turn-off-visibility .25s both}.wp-lightbox-overlay.zoom.active{animation:none;opacity:1;visibility:visible}.wp-lightbox-overlay.zoom.active .lightbox-image-container{animation:lightbox-zoom-in .4s}.wp-lightbox-overlay.zoom.active .lightbox-image-container img{animation:none}.wp-lightbox-overlay.zoom.active .scrim{animation:turn-on-visibility .4s forwards}.wp-lightbox-overlay.zoom.show-closing-animation:not(.active){animation:none}.wp-lightbox-overlay.zoom.show-closing-animation:not(.active) .lightbox-image-container{animation:lightbox-zoom-out .4s}.wp-lightbox-overlay.zoom.show-closing-animation:not(.active) .lightbox-image-container img{animation:none}.wp-lightbox-overlay.zoom.show-closing-animation:not(.active) .scrim{animation:turn-off-visibility .4s forwards}}@keyframes show-content-image{0%{visibility:hidden}99%{visibility:hidden}to{visibility:visible}}@keyframes turn-on-visibility{0%{opacity:0}to{opacity:1}}@keyframes turn-off-visibility{0%{opacity:1;visibility:visible}99%{opacity:0;visibility:visible}to{opacity:0;visibility:hidden}}@keyframes lightbox-zoom-in{0%{transform:translate(calc((-100vw + var(--wp--lightbox-scrollbar-width))/2 + var(--wp--lightbox-initial-left-position)),calc(-50vh + var(--wp--lightbox-initial-top-position))) scale(var(--wp--lightbox-scale))}to{transform:translate(-50%,-50%) scale(1)}}@keyframes lightbox-zoom-out{0%{transform:translate(-50%,-50%) scale(1);visibility:visible}99%{visibility:visible}to{transform:translate(calc((-100vw + var(--wp--lightbox-scrollbar-width))/2 + var(--wp--lightbox-initial-left-position)),calc(-50vh + var(--wp--lightbox-initial-top-position))) scale(var(--wp--lightbox-scale));visibility:hidden}}
+/*# sourceURL=https://cybelangel.com/wp-includes/blocks/image/style.min.css */
+</style>
+<style id="wp-block-list-inline-css">
+ol,ul{box-sizing:border-box}:root :where(.wp-block-list.has-background){padding:1.25em 2.375em}
+/*# sourceURL=https://cybelangel.com/wp-includes/blocks/list/style.min.css */
+</style>
+<style id="wp-block-paragraph-inline-css">
+.is-small-text{font-size:.875em}.is-regular-text{font-size:1em}.is-large-text{font-size:2.25em}.is-larger-text{font-size:3em}.has-drop-cap:not(:focus):first-letter{float:left;font-size:8.4em;font-style:normal;font-weight:100;line-height:.68;margin:.05em .1em 0 0;text-transform:uppercase}body.rtl .has-drop-cap:not(:focus):first-letter{float:none;margin-left:.1em}p.has-drop-cap.has-background{overflow:hidden}:root :where(p.has-background){padding:1.25em 2.375em}:where(p.has-text-color:not(.has-link-color)) a{color:inherit}p.has-text-align-left[style*="writing-mode:vertical-lr"],p.has-text-align-right[style*="writing-mode:vertical-rl"]{rotate:180deg}
+/*# sourceURL=https://cybelangel.com/wp-includes/blocks/paragraph/style.min.css */
+</style>
+<style id="wp-block-buttons-inline-css">
+.wp-block-buttons{box-sizing:border-box}.wp-block-buttons.is-vertical{flex-direction:column}.wp-block-buttons.is-vertical>.wp-block-button:last-child{margin-bottom:0}.wp-block-buttons>.wp-block-button{display:inline-block;margin:0}.wp-block-buttons.is-content-justification-left{justify-content:flex-start}.wp-block-buttons.is-content-justification-left.is-vertical{align-items:flex-start}.wp-block-buttons.is-content-justification-center{justify-content:center}.wp-block-buttons.is-content-justification-center.is-vertical{align-items:center}.wp-block-buttons.is-content-justification-right{justify-content:flex-end}.wp-block-buttons.is-content-justification-right.is-vertical{align-items:flex-end}.wp-block-buttons.is-content-justification-space-between{justify-content:space-between}.wp-block-buttons.aligncenter{text-align:center}.wp-block-buttons:not(.is-content-justification-space-between,.is-content-justification-right,.is-content-justification-left,.is-content-justification-center) .wp-block-button.aligncenter{margin-left:auto;margin-right:auto;width:100%}.wp-block-buttons[style*=text-decoration] .wp-block-button,.wp-block-buttons[style*=text-decoration] .wp-block-button__link{text-decoration:inherit}.wp-block-buttons.has-custom-font-size .wp-block-button__link{font-size:inherit}.wp-block-buttons .wp-block-button__link{width:100%}.wp-block-button.aligncenter{text-align:center}
+/*# sourceURL=https://cybelangel.com/wp-includes/blocks/buttons/style.min.css */
+</style>
+<style id="wp-block-video-inline-css">
+.wp-block-video{box-sizing:border-box}.wp-block-video video{height:auto;vertical-align:middle;width:100%}@supports (position:sticky){.wp-block-video [poster]{-o-object-fit:cover;object-fit:cover}}.wp-block-video.aligncenter{text-align:center}.wp-block-video :where(figcaption){margin-bottom:1em;margin-top:.5em}
+/*# sourceURL=https://cybelangel.com/wp-includes/blocks/video/style.min.css */
+</style>
+<style id="wp-block-columns-inline-css">
+.wp-block-columns{box-sizing:border-box;display:flex;flex-wrap:wrap!important}@media (min-width:782px){.wp-block-columns{flex-wrap:nowrap!important}}.wp-block-columns{align-items:normal!important}.wp-block-columns.are-vertically-aligned-top{align-items:flex-start}.wp-block-columns.are-vertically-aligned-center{align-items:center}.wp-block-columns.are-vertically-aligned-bottom{align-items:flex-end}@media (max-width:781px){.wp-block-columns:not(.is-not-stacked-on-mobile)>.wp-block-column{flex-basis:100%!important}}@media (min-width:782px){.wp-block-columns:not(.is-not-stacked-on-mobile)>.wp-block-column{flex-basis:0;flex-grow:1}.wp-block-columns:not(.is-not-stacked-on-mobile)>.wp-block-column[style*=flex-basis]{flex-grow:0}}.wp-block-columns.is-not-stacked-on-mobile{flex-wrap:nowrap!important}.wp-block-columns.is-not-stacked-on-mobile>.wp-block-column{flex-basis:0;flex-grow:1}.wp-block-columns.is-not-stacked-on-mobile>.wp-block-column[style*=flex-basis]{flex-grow:0}:where(.wp-block-columns){margin-bottom:1.75em}:where(.wp-block-columns.has-background){padding:1.25em 2.375em}.wp-block-column{flex-grow:1;min-width:0;overflow-wrap:break-word;word-break:break-word}.wp-block-column.is-vertically-aligned-top{align-self:flex-start}.wp-block-column.is-vertically-aligned-center{align-self:center}.wp-block-column.is-vertically-aligned-bottom{align-self:flex-end}.wp-block-column.is-vertically-aligned-stretch{align-self:stretch}.wp-block-column.is-vertically-aligned-bottom,.wp-block-column.is-vertically-aligned-center,.wp-block-column.is-vertically-aligned-top{width:100%}
+/*# sourceURL=https://cybelangel.com/wp-includes/blocks/columns/style.min.css */
+</style>
+<style id="wp-block-group-inline-css">
+.wp-block-group{box-sizing:border-box}:where(.wp-block-group.wp-block-group-is-layout-constrained){position:relative}
+/*# sourceURL=https://cybelangel.com/wp-includes/blocks/group/style.min.css */
+</style>
+<style id="wp-block-quote-inline-css">
+.wp-block-quote{box-sizing:border-box;overflow-wrap:break-word}.wp-block-quote.is-large:where(:not(.is-style-plain)),.wp-block-quote.is-style-large:where(:not(.is-style-plain)){margin-bottom:1em;padding:0 1em}.wp-block-quote.is-large:where(:not(.is-style-plain)) p,.wp-block-quote.is-style-large:where(:not(.is-style-plain)) p{font-size:1.5em;font-style:italic;line-height:1.6}.wp-block-quote.is-large:where(:not(.is-style-plain)) cite,.wp-block-quote.is-large:where(:not(.is-style-plain)) footer,.wp-block-quote.is-style-large:where(:not(.is-style-plain)) cite,.wp-block-quote.is-style-large:where(:not(.is-style-plain)) footer{font-size:1.125em;text-align:right}.wp-block-quote>cite{display:block}
+/*# sourceURL=https://cybelangel.com/wp-includes/blocks/quote/style.min.css */
+</style>
+<style id="wp-block-table-inline-css">
+.wp-block-table{overflow-x:auto}.wp-block-table table{border-collapse:collapse;width:100%}.wp-block-table thead{border-bottom:3px solid}.wp-block-table tfoot{border-top:3px solid}.wp-block-table td,.wp-block-table th{border:1px solid;padding:.5em}.wp-block-table .has-fixed-layout{table-layout:fixed;width:100%}.wp-block-table .has-fixed-layout td,.wp-block-table .has-fixed-layout th{word-break:break-word}.wp-block-table.aligncenter,.wp-block-table.alignleft,.wp-block-table.alignright{display:table;width:auto}.wp-block-table.aligncenter td,.wp-block-table.aligncenter th,.wp-block-table.alignleft td,.wp-block-table.alignleft th,.wp-block-table.alignright td,.wp-block-table.alignright th{word-break:break-word}.wp-block-table .has-subtle-light-gray-background-color{background-color:#f3f4f5}.wp-block-table .has-subtle-pale-green-background-color{background-color:#e9fbe5}.wp-block-table .has-subtle-pale-blue-background-color{background-color:#e7f5fe}.wp-block-table .has-subtle-pale-pink-background-color{background-color:#fcf0ef}.wp-block-table.is-style-stripes{background-color:transparent;border-collapse:inherit;border-spacing:0}.wp-block-table.is-style-stripes tbody tr:nth-child(odd){background-color:#f0f0f0}.wp-block-table.is-style-stripes.has-subtle-light-gray-background-color tbody tr:nth-child(odd){background-color:#f3f4f5}.wp-block-table.is-style-stripes.has-subtle-pale-green-background-color tbody tr:nth-child(odd){background-color:#e9fbe5}.wp-block-table.is-style-stripes.has-subtle-pale-blue-background-color tbody tr:nth-child(odd){background-color:#e7f5fe}.wp-block-table.is-style-stripes.has-subtle-pale-pink-background-color tbody tr:nth-child(odd){background-color:#fcf0ef}.wp-block-table.is-style-stripes td,.wp-block-table.is-style-stripes th{border-color:transparent}.wp-block-table.is-style-stripes{border-bottom:1px solid #f0f0f0}.wp-block-table .has-border-color td,.wp-block-table .has-border-color th,.wp-block-table .has-border-color tr,.wp-block-table .has-border-color>*{border-color:inherit}.wp-block-table table[style*=border-top-color] tr:first-child,.wp-block-table table[style*=border-top-color] tr:first-child td,.wp-block-table table[style*=border-top-color] tr:first-child th,.wp-block-table table[style*=border-top-color]>*,.wp-block-table table[style*=border-top-color]>* td,.wp-block-table table[style*=border-top-color]>* th{border-top-color:inherit}.wp-block-table table[style*=border-top-color] tr:not(:first-child){border-top-color:currentColor}.wp-block-table table[style*=border-right-color] td:last-child,.wp-block-table table[style*=border-right-color] th,.wp-block-table table[style*=border-right-color] tr,.wp-block-table table[style*=border-right-color]>*{border-right-color:inherit}.wp-block-table table[style*=border-bottom-color] tr:last-child,.wp-block-table table[style*=border-bottom-color] tr:last-child td,.wp-block-table table[style*=border-bottom-color] tr:last-child th,.wp-block-table table[style*=border-bottom-color]>*,.wp-block-table table[style*=border-bottom-color]>* td,.wp-block-table table[style*=border-bottom-color]>* th{border-bottom-color:inherit}.wp-block-table table[style*=border-bottom-color] tr:not(:last-child){border-bottom-color:currentColor}.wp-block-table table[style*=border-left-color] td:first-child,.wp-block-table table[style*=border-left-color] th,.wp-block-table table[style*=border-left-color] tr,.wp-block-table table[style*=border-left-color]>*{border-left-color:inherit}.wp-block-table table[style*=border-style] td,.wp-block-table table[style*=border-style] th,.wp-block-table table[style*=border-style] tr,.wp-block-table table[style*=border-style]>*{border-style:inherit}.wp-block-table table[style*=border-width] td,.wp-block-table table[style*=border-width] th,.wp-block-table table[style*=border-width] tr,.wp-block-table table[style*=border-width]>*{border-style:inherit;border-width:inherit}
+/*# sourceURL=https://cybelangel.com/wp-includes/blocks/table/style.min.css */
+</style>
+
+<style id="classic-theme-styles-inline-css">
+/*! This file is auto-generated */
+.wp-block-button__link{color:#fff;background-color:#32373c;border-radius:9999px;box-shadow:none;text-decoration:none;padding:calc(.667em + 2px) calc(1.333em + 2px);font-size:1.125em}.wp-block-file__button{background:#32373c;color:#fff;text-decoration:none}
+/*# sourceURL=/wp-includes/css/classic-themes.min.css */
+</style>
+
+<style id="blockparty-table-of-content-style-inline-css">
+.blockparty-table-of-content{--blockparty-table-of-content--sticky-top:var(--wp-admin--admin-bar--height,0);--blockparty-table-of-content--list-style:none;--blockparty-table-of-content--list-style-ordered:decimal;--blockparty-table-of-content--list-style-unordered:disc;--blockparty-table-of-content--list-padding:0;--blockparty-table-of-content--list-margin:0}.blockparty-table-of-content:not(.is-style-toc-ordered,.is-style-toc-unordered) .blockparty-table-of-content__list{list-style-type:var(--blockparty-table-of-content--list-style)}.blockparty-table-of-content.is-style-toc-ordered .blockparty-table-of-content__list{list-style-type:var(--blockparty-table-of-content--list-style-ordered)}.blockparty-table-of-content.is-style-toc-unordered .blockparty-table-of-content__list{list-style-type:var(--blockparty-table-of-content--list-style-unordered)}.blockparty-table-of-content--sticky{position:sticky;top:var(--blockparty-table-of-content--sticky-top)}.blockparty-table-of-content--sticky-active .blockparty-table-of-content__list-item[data-toc-active=true] a{color:var(--blockparty-table-of-content--links-active-color)}.blockparty-table-of-content__list{margin:var(--blockparty-table-of-content--list-margin);padding:var(--blockparty-table-of-content--list-padding)}.blockparty-table-of-content__list-item a{color:var(--blockparty-table-of-content--links-color);transition:color .3s ease}
+
+/*# sourceURL=https://cybelangel.com/wp-content/plugins/blockparty-table-of-content/build/style-index.css */
+</style>
+<style id="beapi-mega-menu-style-inline-css">
+.mega-menu__item{position:static!important}.mega-menu__toggle{background-color:var(--mega-menu-button--background,transparent);border-color:var(--mega-menu-button--border-color,transparent);border-style:var(--mega-menu-button--border-style,solid);border-width:var(--mega-menu-button--border-width,0);color:var(--mega-menu-button--color,currentColor);padding:var(--mega-menu-button--padding,0)}.mega-menu__toggle[aria-expanded=true]+.mega-menu__wrapper{opacity:1;visibility:visible}.mega-menu__wrapper{--mega-menu--width:1200px;background-color:var(--mega-menu--background,#fff);display:none;opacity:0;overflow:hidden;transition:opacity .5s ease;visibility:hidden}.mega-menu__wrapper--simple ul{list-style:none}.beapi-mega-menu-domready .mega-menu__wrapper{display:block}@media(max-width:781px){.mega-menu__toggle{align-items:center;display:flex;position:relative;text-align:left;width:100%}.mega-menu__toggle:after,.mega-menu__toggle:before{background:var(--mega-menu-button-arrow--color,currentColor);border-radius:3px;content:"";height:2px;position:absolute;right:0;transition:transform .3s ease-in-out;width:14px}.mega-menu__toggle:after{transform:rotate(90deg)}.mega-menu__toggle[aria-expanded=true]:after{transform:rotate(180deg)}.mega-menu__toggle[aria-expanded=true]+.mega-menu__wrapper{height:auto}.mega-menu__wrapper{height:0;margin-top:.75rem}}@media(min-width:782px){.mega-menu__toggle:after{border-color:var(--mega-menu-button-arrow--color,currentColor);border-style:solid;border-width:0 2px 2px 0;content:"";display:inline-block;height:9px;margin-left:10px;transform:translateY(-25%) rotate(45deg);transition:transform .3s ease-in-out;width:9px}.mega-menu__toggle[aria-expanded=true]+.mega-menu__wrapper{top:100%}.mega-menu__wrapper{border-radius:var(--mega-menu--radius,0 0 20px 20px);box-shadow:var(--mega-menu--shadow,0 20px 24px -4px rgba(65,75,90,.15),0 8px 8px -4px rgba(65,75,90,.05));left:0;margin:0 auto;max-width:var(--mega-menu--width,var(--wp--style--global--wide-size));position:absolute;right:0;top:105%;transition:opacity .4s;width:100%;z-index:1}.mega-menu__wrapper--simple{border-radius:var(--mega-menu-simple--radius,0 0 12px 12px);box-shadow:var(--mega-menu-simple--shadow,0 4px 8px -2px rgba(65,75,90,.2));padding:var(--mega-menu-simple--padding,32px 20px)}}@media(max-width:781px){.wp-block-beapi-mega-menu>.wp-block-columns,.wp-block-beapi-mega-menu>.wp-block-group{padding:0!important}}.block-editor-page.post-type-megamenu .edit-post-start-page-options__modal-content .block-editor-block-patterns-list{-moz-column-count:1;column-count:1}
+
+/*# sourceURL=https://cybelangel.com/wp-content/plugins/mega-menu-block/build/beapi-mega-menu/style-index.css */
+</style>
+<style id="beapi-mega-menu-list-style-inline-css">
+.wp-block-mega-menu-list{list-style:none}.wp-block-mega-menu-list ul{list-style:disc;padding-left:2.85rem}.wp-block-mega-menu-list ul li+li{margin-top:0}
+
+/*# sourceURL=https://cybelangel.com/wp-content/plugins/mega-menu-block/build/beapi-mega-menu-list/style-index.css */
+</style>
+<style id="beapi-mega-menu-list-item-head-style-inline-css">
+.wp-block-mega-menu-list-item__head{display:flex;gap:8px}
+
+/*# sourceURL=https://cybelangel.com/wp-content/plugins/mega-menu-block/build/beapi-mega-menu-list-item-head/style-index.css */
+</style>
+
+<style id="global-styles-inline-css">
+:root{--wp--preset--aspect-ratio--square: 1;--wp--preset--aspect-ratio--4-3: 4/3;--wp--preset--aspect-ratio--3-4: 3/4;--wp--preset--aspect-ratio--3-2: 3/2;--wp--preset--aspect-ratio--2-3: 2/3;--wp--preset--aspect-ratio--16-9: 16/9;--wp--preset--aspect-ratio--9-16: 9/16;--wp--preset--color--black: #000000;--wp--preset--color--cyan-bluish-gray: #abb8c3;--wp--preset--color--white: #FFF;--wp--preset--color--pale-pink: #f78da7;--wp--preset--color--vivid-red: #cf2e2e;--wp--preset--color--luminous-vivid-orange: #ff6900;--wp--preset--color--luminous-vivid-amber: #fcb900;--wp--preset--color--light-green-cyan: #7bdcb5;--wp--preset--color--vivid-green-cyan: #00d084;--wp--preset--color--pale-cyan-blue: #8ed1fc;--wp--preset--color--vivid-cyan-blue: #0693e3;--wp--preset--color--vivid-purple: #9b51e0;--wp--preset--color--blue: #0d6efd;--wp--preset--color--indigo: #6610f2;--wp--preset--color--purple: #53f;--wp--preset--color--pink: #d63384;--wp--preset--color--red: #dc3545;--wp--preset--color--orange: #fd7e14;--wp--preset--color--yellow: #F1A848;--wp--preset--color--green: #198754;--wp--preset--color--teal: #20c997;--wp--preset--color--cyan: #0dcaf0;--wp--preset--color--gray: #6c757d;--wp--preset--color--gray-dark: #343a40;--wp--preset--gradient--vivid-cyan-blue-to-vivid-purple: linear-gradient(135deg,rgb(6,147,227) 0%,rgb(155,81,224) 100%);--wp--preset--gradient--light-green-cyan-to-vivid-green-cyan: linear-gradient(135deg,rgb(122,220,180) 0%,rgb(0,208,130) 100%);--wp--preset--gradient--luminous-vivid-amber-to-luminous-vivid-orange: linear-gradient(135deg,rgb(252,185,0) 0%,rgb(255,105,0) 100%);--wp--preset--gradient--luminous-vivid-orange-to-vivid-red: linear-gradient(135deg,rgb(255,105,0) 0%,rgb(207,46,46) 100%);--wp--preset--gradient--very-light-gray-to-cyan-bluish-gray: linear-gradient(135deg,rgb(238,238,238) 0%,rgb(169,184,195) 100%);--wp--preset--gradient--cool-to-warm-spectrum: linear-gradient(135deg,rgb(74,234,220) 0%,rgb(151,120,209) 20%,rgb(207,42,186) 40%,rgb(238,44,130) 60%,rgb(251,105,98) 80%,rgb(254,248,76) 100%);--wp--preset--gradient--blush-light-purple: linear-gradient(135deg,rgb(255,206,236) 0%,rgb(152,150,240) 100%);--wp--preset--gradient--blush-bordeaux: linear-gradient(135deg,rgb(254,205,165) 0%,rgb(254,45,45) 50%,rgb(107,0,62) 100%);--wp--preset--gradient--luminous-dusk: linear-gradient(135deg,rgb(255,203,112) 0%,rgb(199,81,192) 50%,rgb(65,88,208) 100%);--wp--preset--gradient--pale-ocean: linear-gradient(135deg,rgb(255,245,203) 0%,rgb(182,227,212) 50%,rgb(51,167,181) 100%);--wp--preset--gradient--electric-grass: linear-gradient(135deg,rgb(202,248,128) 0%,rgb(113,206,126) 100%);--wp--preset--gradient--midnight: linear-gradient(135deg,rgb(2,3,129) 0%,rgb(40,116,252) 100%);--wp--preset--font-size--small: 13px;--wp--preset--font-size--medium: 20px;--wp--preset--font-size--large: 36px;--wp--preset--font-size--x-large: 42px;--wp--preset--spacing--20: 0.44rem;--wp--preset--spacing--30: 0.67rem;--wp--preset--spacing--40: 1rem;--wp--preset--spacing--50: 1.5rem;--wp--preset--spacing--60: 2.25rem;--wp--preset--spacing--70: 3.38rem;--wp--preset--spacing--80: 5.06rem;--wp--preset--shadow--natural: 6px 6px 9px rgba(0, 0, 0, 0.2);--wp--preset--shadow--deep: 12px 12px 50px rgba(0, 0, 0, 0.4);--wp--preset--shadow--sharp: 6px 6px 0px rgba(0, 0, 0, 0.2);--wp--preset--shadow--outlined: 6px 6px 0px -3px rgb(255, 255, 255), 6px 6px rgb(0, 0, 0);--wp--preset--shadow--crisp: 6px 6px 0px rgb(0, 0, 0);}.wp-block-button{--wp--preset--dimension--25: 25%;--wp--preset--dimension--50: 50%;--wp--preset--dimension--75: 75%;--wp--preset--dimension--100: 100%;}:where(body) { margin: 0; }:where(.is-layout-flex){gap: 0.5em;}:where(.is-layout-grid){gap: 0.5em;}body .is-layout-flex{display: flex;}.is-layout-flex{flex-wrap: wrap;align-items: center;}.is-layout-flex > :is(*, div){margin: 0;}body .is-layout-grid{display: grid;}.is-layout-grid > :is(*, div){margin: 0;}body{padding-top: 0px;padding-right: 0px;padding-bottom: 0px;padding-left: 0px;}:root :where(.wp-element-button, .wp-block-button__link){background-color: #32373c;border-width: 0;color: #fff;font-family: inherit;font-size: inherit;font-style: inherit;font-weight: inherit;letter-spacing: inherit;line-height: inherit;padding-top: calc(0.667em + 2px);padding-right: calc(1.333em + 2px);padding-bottom: calc(0.667em + 2px);padding-left: calc(1.333em + 2px);text-decoration: none;text-transform: inherit;}.has-black-color{color: var(--wp--preset--color--black) !important;}.has-cyan-bluish-gray-color{color: var(--wp--preset--color--cyan-bluish-gray) !important;}.has-white-color{color: var(--wp--preset--color--white) !important;}.has-pale-pink-color{color: var(--wp--preset--color--pale-pink) !important;}.has-vivid-red-color{color: var(--wp--preset--color--vivid-red) !important;}.has-luminous-vivid-orange-color{color: var(--wp--preset--color--luminous-vivid-orange) !important;}.has-luminous-vivid-amber-color{color: var(--wp--preset--color--luminous-vivid-amber) !important;}.has-light-green-cyan-color{color: var(--wp--preset--color--light-green-cyan) !important;}.has-vivid-green-cyan-color{color: var(--wp--preset--color--vivid-green-cyan) !important;}.has-pale-cyan-blue-color{color: var(--wp--preset--color--pale-cyan-blue) !important;}.has-vivid-cyan-blue-color{color: var(--wp--preset--color--vivid-cyan-blue) !important;}.has-vivid-purple-color{color: var(--wp--preset--color--vivid-purple) !important;}.has-blue-color{color: var(--wp--preset--color--blue) !important;}.has-indigo-color{color: var(--wp--preset--color--indigo) !important;}.has-purple-color{color: var(--wp--preset--color--purple) !important;}.has-pink-color{color: var(--wp--preset--color--pink) !important;}.has-red-color{color: var(--wp--preset--color--red) !important;}.has-orange-color{color: var(--wp--preset--color--orange) !important;}.has-yellow-color{color: var(--wp--preset--color--yellow) !important;}.has-green-color{color: var(--wp--preset--color--green) !important;}.has-teal-color{color: var(--wp--preset--color--teal) !important;}.has-cyan-color{color: var(--wp--preset--color--cyan) !important;}.has-gray-color{color: var(--wp--preset--color--gray) !important;}.has-gray-dark-color{color: var(--wp--preset--color--gray-dark) !important;}.has-black-background-color{background-color: var(--wp--preset--color--black) !important;}.has-cyan-bluish-gray-background-color{background-color: var(--wp--preset--color--cyan-bluish-gray) !important;}.has-white-background-color{background-color: var(--wp--preset--color--white) !important;}.has-pale-pink-background-color{background-color: var(--wp--preset--color--pale-pink) !important;}.has-vivid-red-background-color{background-color: var(--wp--preset--color--vivid-red) !important;}.has-luminous-vivid-orange-background-color{background-color: var(--wp--preset--color--luminous-vivid-orange) !important;}.has-luminous-vivid-amber-background-color{background-color: var(--wp--preset--color--luminous-vivid-amber) !important;}.has-light-green-cyan-background-color{background-color: var(--wp--preset--color--light-green-cyan) !important;}.has-vivid-green-cyan-background-color{background-color: var(--wp--preset--color--vivid-green-cyan) !important;}.has-pale-cyan-blue-background-color{background-color: var(--wp--preset--color--pale-cyan-blue) !important;}.has-vivid-cyan-blue-background-color{background-color: var(--wp--preset--color--vivid-cyan-blue) !important;}.has-vivid-purple-background-color{background-color: var(--wp--preset--color--vivid-purple) !important;}.has-blue-background-color{background-color: var(--wp--preset--color--blue) !important;}.has-indigo-background-color{background-color: var(--wp--preset--color--indigo) !important;}.has-purple-background-color{background-color: var(--wp--preset--color--purple) !important;}.has-pink-background-color{background-color: var(--wp--preset--color--pink) !important;}.has-red-background-color{background-color: var(--wp--preset--color--red) !important;}.has-orange-background-color{background-color: var(--wp--preset--color--orange) !important;}.has-yellow-background-color{background-color: var(--wp--preset--color--yellow) !important;}.has-green-background-color{background-color: var(--wp--preset--color--green) !important;}.has-teal-background-color{background-color: var(--wp--preset--color--teal) !important;}.has-cyan-background-color{background-color: var(--wp--preset--color--cyan) !important;}.has-gray-background-color{background-color: var(--wp--preset--color--gray) !important;}.has-gray-dark-background-color{background-color: var(--wp--preset--color--gray-dark) !important;}.has-black-border-color{border-color: var(--wp--preset--color--black) !important;}.has-cyan-bluish-gray-border-color{border-color: var(--wp--preset--color--cyan-bluish-gray) !important;}.has-white-border-color{border-color: var(--wp--preset--color--white) !important;}.has-pale-pink-border-color{border-color: var(--wp--preset--color--pale-pink) !important;}.has-vivid-red-border-color{border-color: var(--wp--preset--color--vivid-red) !important;}.has-luminous-vivid-orange-border-color{border-color: var(--wp--preset--color--luminous-vivid-orange) !important;}.has-luminous-vivid-amber-border-color{border-color: var(--wp--preset--color--luminous-vivid-amber) !important;}.has-light-green-cyan-border-color{border-color: var(--wp--preset--color--light-green-cyan) !important;}.has-vivid-green-cyan-border-color{border-color: var(--wp--preset--color--vivid-green-cyan) !important;}.has-pale-cyan-blue-border-color{border-color: var(--wp--preset--color--pale-cyan-blue) !important;}.has-vivid-cyan-blue-border-color{border-color: var(--wp--preset--color--vivid-cyan-blue) !important;}.has-vivid-purple-border-color{border-color: var(--wp--preset--color--vivid-purple) !important;}.has-blue-border-color{border-color: var(--wp--preset--color--blue) !important;}.has-indigo-border-color{border-color: var(--wp--preset--color--indigo) !important;}.has-purple-border-color{border-color: var(--wp--preset--color--purple) !important;}.has-pink-border-color{border-color: var(--wp--preset--color--pink) !important;}.has-red-border-color{border-color: var(--wp--preset--color--red) !important;}.has-orange-border-color{border-color: var(--wp--preset--color--orange) !important;}.has-yellow-border-color{border-color: var(--wp--preset--color--yellow) !important;}.has-green-border-color{border-color: var(--wp--preset--color--green) !important;}.has-teal-border-color{border-color: var(--wp--preset--color--teal) !important;}.has-cyan-border-color{border-color: var(--wp--preset--color--cyan) !important;}.has-gray-border-color{border-color: var(--wp--preset--color--gray) !important;}.has-gray-dark-border-color{border-color: var(--wp--preset--color--gray-dark) !important;}.has-vivid-cyan-blue-to-vivid-purple-gradient-background{background: var(--wp--preset--gradient--vivid-cyan-blue-to-vivid-purple) !important;}.has-light-green-cyan-to-vivid-green-cyan-gradient-background{background: var(--wp--preset--gradient--light-green-cyan-to-vivid-green-cyan) !important;}.has-luminous-vivid-amber-to-luminous-vivid-orange-gradient-background{background: var(--wp--preset--gradient--luminous-vivid-amber-to-luminous-vivid-orange) !important;}.has-luminous-vivid-orange-to-vivid-red-gradient-background{background: var(--wp--preset--gradient--luminous-vivid-orange-to-vivid-red) !important;}.has-very-light-gray-to-cyan-bluish-gray-gradient-background{background: var(--wp--preset--gradient--very-light-gray-to-cyan-bluish-gray) !important;}.has-cool-to-warm-spectrum-gradient-background{background: var(--wp--preset--gradient--cool-to-warm-spectrum) !important;}.has-blush-light-purple-gradient-background{background: var(--wp--preset--gradient--blush-light-purple) !important;}.has-blush-bordeaux-gradient-background{background: var(--wp--preset--gradient--blush-bordeaux) !important;}.has-luminous-dusk-gradient-background{background: var(--wp--preset--gradient--luminous-dusk) !important;}.has-pale-ocean-gradient-background{background: var(--wp--preset--gradient--pale-ocean) !important;}.has-electric-grass-gradient-background{background: var(--wp--preset--gradient--electric-grass) !important;}.has-midnight-gradient-background{background: var(--wp--preset--gradient--midnight) !important;}.has-small-font-size{font-size: var(--wp--preset--font-size--small) !important;}.has-medium-font-size{font-size: var(--wp--preset--font-size--medium) !important;}.has-large-font-size{font-size: var(--wp--preset--font-size--large) !important;}.has-x-large-font-size{font-size: var(--wp--preset--font-size--x-large) !important;}
+:where(.wp-block-columns.is-layout-flex){gap: 2em;}:where(.wp-block-columns.is-layout-grid){gap: 2em;}
+/*# sourceURL=global-styles-inline-css */
+</style>
+
+<link rel='stylesheet' id='cmplz-general-css' href='https://cybelangel.com/wp-content/plugins/complianz-gdpr-premium/assets/css/cookieblocker.min.css?ver=6dd0dd0de7' media='all' />
+<link rel='stylesheet' id='child-understrap-styles-css' href='https://cybelangel.com/wp-content/themes/cybel-angel/css/child-theme.min.css?ver=df5249b218' media='all' />
+<link rel='stylesheet' id='trp-language-switcher-v2-css' href='https://cybelangel.com/wp-content/plugins/translatepress-multilingual/assets/css/trp-language-switcher-v2.css?ver=f1cf30a18b' media='all' />
+<link rel='stylesheet' id='popup-maker-site-css' href='//cybelangel.com/wp-content/uploads/pum/pum-site-styles.css?generated=1790854744&#038;ver=0093564689' media='all' />
+<link rel='stylesheet' id='swiper-css' href='https://cybelangel.com/wp-content/themes/cybel-angel/lib/swiper/swiper-bundle.min.css?ver=537da1b7fd' media='all' />
+<link rel='stylesheet' id='interactive-image-css' href='https://cybelangel.com/wp-content/themes/cybel-angel/lib/interactive/interactive-image.css?ver=c9ba737674' media='all' />
+<script id="jquery-core-js" src="https://cybelangel.com/wp-includes/js/jquery/jquery.min.js?ver=aea190223c"></script>
+<script id="jquery-migrate-js" src="https://cybelangel.com/wp-includes/js/jquery/jquery-migrate.min.js?ver=32e3565e81"></script>
+<script id="trp-language-switcher-js-v2-js" src="https://cybelangel.com/wp-content/plugins/translatepress-multilingual/assets/js/trp-frontend-language-switcher.js?ver=3baaabeeaf"></script>
+<script id="swiper-js" src="https://cybelangel.com/wp-content/themes/cybel-angel/lib/swiper/swiper-bundle.min.js?ver=537da1b7fd"></script>
+<script id="swiper-js-after">
+		// var swiper = new Swiper('.thumb-slider', {
+		//   spaceBetween: 10,
+		//   slidesPerView: 5,
+		//   freeMode: true,
+		//   watchSlidesProgress: true,
+		//   pagination: {
+		//     el: '.swiper-pagination',
+		//   }
+		//   breakpoints: {
+		//     0: {
+		//       slidesPerView: 2,
+		//       spaceBetween: 15,
+		//     },
+		//     500: {
+		//       slidesPerView: 2,
+		//       spaceBetween: 20,
+		//     },
+		//     768: {
+		//       slidesPerView: 3,
+		//       spaceBetween: 40,
+		//     },
+		//     1024: {
+		//       slidesPerView: 5,
+		//       spaceBetween: 50,
+		//     },
+		//   },
+		// });
+		
+		var swiper2 = new Swiper('.testimonial-new-slider', {
+			spaceBetween: 30,
+			slidesPerView: 1,
+			pagination: {
+				el: '.swiper-pagination',
+				clickable: true
+			},
+			autoplay: {
+				delay: 2500,
+				disableOnInteraction: false,
+				pauseOnMouseEnter: true,
+			},
+			//   navigation: {
+			//     nextEl: '.swiper-button-next',
+			//     prevEl: '.swiper-button-prev',
+			//   },
+			//   thumbs: {
+			//     swiper: swiper,
+			//   },
+		});
+	
+//# sourceURL=swiper-js-after
+</script>
+<script id="count-js" src="https://cybelangel.com/wp-content/themes/cybel-angel/lib/count.js?ver=25ea852d07"></script>
+<script id="interactive-image-js" src="https://cybelangel.com/wp-content/themes/cybel-angel/lib/interactive/interactive-image.js?ver=c9ba737674"></script>
+			<!-- DO NOT COPY THIS SNIPPET! Start of Page Analytics Tracking for HubSpot WordPress plugin v11.3.75-->
+			<script class="hsq-set-content-id" data-content-id="blog-post">
+				var _hsq = _hsq || [];
+				_hsq.push(["setContentType", "blog-post"]);
+			</script>
+			<!-- DO NOT COPY THIS SNIPPET! End of Page Analytics Tracking for HubSpot WordPress plugin -->
+			<link rel="alternate" hreflang="en-US" href="https://cybelangel.com/blog/critical-php-rce-vulnerabilities-cve-2026-109618-and-cve-2026-109619/"/>
+<link rel="alternate" hreflang="fr-FR" href="https://cybelangel.com/fr/blog/vulnerabilites-critiques-dans-le-php-rce-cve-2026-109618-et-cve-2026-109619/"/>
+<link rel="alternate" hreflang="de-DE" href="https://cybelangel.com/de/blog/kritische-php-rce-sicherheitslucken-cve-2026-109618-und-cve-2026-109619/"/>
+<link rel="alternate" hreflang="ja" href="https://cybelangel.com/ja/%e3%83%96%e3%83%ad%e3%82%b0/%e3%82%af%e3%83%aa%e3%83%86%e3%82%a3%e3%82%ab%e3%83%ab%e3%81%aa-php-rc-%e3%81%ae%e8%84%86%e5%bc%b1%e6%80%a7-cve-2026-109618-%e3%81%8a%e3%82%88%e3%81%b3-cve-2026-109619/"/>
+<link rel="alternate" hreflang="ar" href="https://cybelangel.com/ar/%d9%85%d8%af%d9%88%d9%86%d8%a9/critical-php-rce-vulnerabilities-cve-2026-109618-and-cve-2026-109619/"/>
+<link rel="alternate" hreflang="es-ES" href="https://cybelangel.com/es/blog/vulnerabilidades-criticas-en-php-rce-cve-2026-109618-y-cve-2026-109619/"/>
+<link rel="alternate" hreflang="en" href="https://cybelangel.com/blog/critical-php-rce-vulnerabilities-cve-2026-109618-and-cve-2026-109619/"/>
+<link rel="alternate" hreflang="fr" href="https://cybelangel.com/fr/blog/vulnerabilites-critiques-dans-le-php-rce-cve-2026-109618-et-cve-2026-109619/"/>
+<link rel="alternate" hreflang="de" href="https://cybelangel.com/de/blog/kritische-php-rce-sicherheitslucken-cve-2026-109618-und-cve-2026-109619/"/>
+<link rel="alternate" hreflang="es" href="https://cybelangel.com/es/blog/vulnerabilidades-criticas-en-php-rce-cve-2026-109618-y-cve-2026-109619/"/>
+			<style>.cmplz-hidden {
+					display: none !important;
+				}</style>
+<!-- Google Tag Manager for WordPress by gtm4wp.com -->
+<!-- GTM Container placement set to off -->
+<script data-cfasync="false" data-pagespeed-no-defer>
+	var dataLayer_content = {"pagePostType":"post","pagePostType2":"single-post","pageCategory":["press-releases"],"pageAttributes":["cyber-news"],"pagePostAuthor":"Leah Koonthamattam"};
+	dataLayer.push( dataLayer_content );
+</script>
+<!-- End Google Tag Manager for WordPress by gtm4wp.com --><link rel="icon" href="https://cybelangel.com/wp-content/uploads/2022/02/favicon.svg" sizes="32x32" />
+<link rel="icon" href="https://cybelangel.com/wp-content/uploads/2022/02/favicon.svg" sizes="192x192" />
+<link rel="apple-touch-icon" href="https://cybelangel.com/wp-content/uploads/2022/02/favicon.svg" />
+<meta name="msapplication-TileImage" content="https://cybelangel.com/wp-content/uploads/2022/02/favicon.svg" />
+<style id="core-block-supports-inline-css">
+.wp-container-core-columns-is-layout-8f761849{flex-wrap:nowrap;}.wp-container-core-group-is-layout-f221bfd0{flex-wrap:nowrap;align-items:flex-start;}.wp-container-core-group-is-layout-4fc3f8e1{flex-direction:column;align-items:flex-start;}.wp-elements-1 a:where(:not(.wp-element-button)){color:#fff;}.wp-container-core-columns-is-layout-13c8de35{flex-wrap:nowrap;}
+/*# sourceURL=core-block-supports-inline-css */
+</style>
+
+</head>
+
+<body data-cmplz=1 class="wp-singular post-template-default single single-post postid-20762 single-format-standard wp-custom-logo wp-embed-responsive wp-theme-understrap wp-child-theme-cybel-angel translatepress-en_US group-blog understrap-no-sidebar" >
+
+<nav class="skip-links skip-links--hidden" aria-label="Fast access links">
+	<ul>
+		<li>
+			<a href="#wrapper-navbar">Go to header</a>
+		</li>
+					<li class="is-desktop-only">
+				<a href="#navbarNavDropdown">Go to main navigation menu</a>
+			</li>
+			<li class="is-mobile-only">
+				<a href="#menu-toggle">Go to main navigation menu</a>
+			</li>
+				<li>
+			<a href="#main-content">Go to main content</a>
+		</li>
+		<li>
+			<a href="https://cybelangel.com/search/">Go to the search</a>
+		</li>
+		<li>
+			<a href="#footer">Go to footer</a>
+		</li>
+	</ul>
+</nav>
+
+<div class="site" id="page">
+	<div class="top-menu">
+		<div class="container">
+			<div class="row">
+				<div class="col-12">
+					<div class="menu-top-menu-container"><ul id="menu-top-menu" class="menu"><li id="menu-item-10748" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-10748"><a href="https://cybelangel.com/contact/">Contact</a></li>
+<li id="menu-item-10749" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-10749"><a href="https://cybelangel.com/search/">Search</a></li>
+<li id="menu-item-10751" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-10751"><a href="https://support.cybelangel.com/support/home">Support</a></li>
+<li id="menu-item-10752" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-10752"><a href="https://platform.cybelangel.com/">Login</a></li>
+</ul></div>
+<div class="language-switcher">
+	<div class="trp-shortcode-switcher__wrapper"
+     style="--bg:#ffffff;--bg-hover:#0000000d;--text:#143852;--text-hover:#1d2327;--border:1px solid #1438521a;--border-width:1px;--border-color:#1438521a;--border-radius:5px;--flag-radius:2px;--flag-size:18px;--aspect-ratio:4/3;--font-size:14px;--transition-duration:0.2s"
+     role="group"
+     data-open-mode="hover">
+
+    
+        <!-- ANCHOR (in-flow only; sizing/borders; inert) -->
+        <div class="trp-language-switcher trp-ls-dropdown trp-shortcode-switcher trp-shortcode-anchor trp-open-on-hover"
+             aria-hidden="true"
+             inert
+             data-no-translation>
+                <div class="trp-current-language-item__wrapper">
+        <a class="trp-language-item trp-language-item__default trp-language-item__current" data-no-translation href="https://cybelangel.com/blog/critical-php-rce-vulnerabilities-cve-2026-109618-and-cve-2026-109619/" title="EN"><span class="trp-language-item-name">EN</span></a>                    <svg class="trp-shortcode-arrow" width="20" height="20" viewBox="0 0 20 21" fill="none" aria-hidden="true" focusable="false" xmlns="http://www.w3.org/2000/svg">
+                <path d="M5 8L10 13L15 8" stroke="var(--text)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+            </div>
+            </div>
+
+        <!-- OVERLAY (positioned; interactive surface) -->
+        <div class="trp-language-switcher trp-ls-dropdown trp-shortcode-switcher trp-shortcode-overlay trp-open-on-hover"
+             role="navigation"
+             aria-label="Website language selector"
+             data-no-translation
+        >
+                <div class="trp-current-language-item__wrapper">
+        <div class="trp-language-item trp-language-item__default trp-language-item__current" data-no-translation role="button" aria-expanded="false" tabindex="0" aria-label="Change language" aria-controls="trp-shortcode-dropdown-6adb90889ee50"><span class="trp-language-item-name">EN</span></div>                    <svg class="trp-shortcode-arrow" width="20" height="20" viewBox="0 0 20 21" fill="none" aria-hidden="true" focusable="false" xmlns="http://www.w3.org/2000/svg">
+                <path d="M5 8L10 13L15 8" stroke="var(--text)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+            </div>
+    
+            <div class="trp-switcher-dropdown-list"
+                 id="trp-shortcode-dropdown-6adb90889ee50"
+                 role="group"
+                 aria-label="Available languages"
+                 hidden
+                 inert
+            >
+                                                            <a class="trp-language-item" href="https://cybelangel.com/fr/blog/vulnerabilites-critiques-dans-le-php-rce-cve-2026-109618-et-cve-2026-109619/" title="FR">
+                                                                                        <span class="trp-language-item-name" data-no-translation>FR</span>
+                                                                                </a>
+                                            <a class="trp-language-item" href="https://cybelangel.com/de/blog/kritische-php-rce-sicherheitslucken-cve-2026-109618-und-cve-2026-109619/" title="DE">
+                                                                                        <span class="trp-language-item-name" data-no-translation>DE</span>
+                                                                                </a>
+                                            <a class="trp-language-item" href="https://cybelangel.com/ja/%e3%83%96%e3%83%ad%e3%82%b0/%e3%82%af%e3%83%aa%e3%83%86%e3%82%a3%e3%82%ab%e3%83%ab%e3%81%aa-php-rc-%e3%81%ae%e8%84%86%e5%bc%b1%e6%80%a7-cve-2026-109618-%e3%81%8a%e3%82%88%e3%81%b3-cve-2026-109619/" title="JA">
+                                                                                        <span class="trp-language-item-name" data-no-translation>JA</span>
+                                                                                </a>
+                                            <a class="trp-language-item" href="https://cybelangel.com/ar/%d9%85%d8%af%d9%88%d9%86%d8%a9/critical-php-rce-vulnerabilities-cve-2026-109618-and-cve-2026-109619/" title="AR">
+                                                                                        <span class="trp-language-item-name" data-no-translation>AR</span>
+                                                                                </a>
+                                            <a class="trp-language-item" href="https://cybelangel.com/es/blog/vulnerabilidades-criticas-en-php-rce-cve-2026-109618-y-cve-2026-109619/" title="ES">
+                                                                                        <span class="trp-language-item-name" data-no-translation>ES</span>
+                                                                                </a>
+                                                </div>
+        </div>
+
+    </div>
+</div>
+
+				</div>
+			</div>
+		</div>
+	</div>
+	<!-- ******************* The Navbar Area ******************* -->
+	<header id="wrapper-navbar" class="sticky-md-top sticky_top" role="banner" tabindex="-1" aria-label="Header">
+		
+<nav id="main-nav" class="navbar navbar-expand-md navbar-dark1 bg-primary1" aria-labelledby="main-nav-label">
+
+	<span id="main-nav-label" class="screen-reader-text">
+		Main Navigation	</span>
+
+
+	<div class="container">
+
+		<!-- Your site title as branding in the menu -->
+		<a href="https://cybelangel.com/" class="custom-logo-link" rel="home"><img width="1251" height="277" src="https://cybelangel.com/wp-content/uploads/2025/05/cropped-CybelAngel-logo-color-RGB-Trademark.png" class="custom-logo" alt="CybelAngel" fetchpriority="high" decoding="async" srcset="https://cybelangel.com/wp-content/uploads/2025/05/cropped-CybelAngel-logo-color-RGB-Trademark.png 1251w, https://cybelangel.com/wp-content/uploads/2025/05/cropped-CybelAngel-logo-color-RGB-Trademark-300x66.png 300w, https://cybelangel.com/wp-content/uploads/2025/05/cropped-CybelAngel-logo-color-RGB-Trademark-1024x227.png 1024w, https://cybelangel.com/wp-content/uploads/2025/05/cropped-CybelAngel-logo-color-RGB-Trademark-768x170.png 768w, https://cybelangel.com/wp-content/uploads/2025/05/cropped-CybelAngel-logo-color-RGB-Trademark-800x177.png 800w, https://cybelangel.com/wp-content/uploads/2025/05/cropped-CybelAngel-logo-color-RGB-Trademark-373x83.png 373w, https://cybelangel.com/wp-content/uploads/2025/05/cropped-CybelAngel-logo-color-RGB-Trademark-746x165.png 746w" sizes="(max-width: 1251px) 100vw, 1251px" /></a>		<!-- end custom logo -->
+
+		<button id="menu-toggle" class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
+			<span class="navbar-toggler-icon"></span>
+		</button>
+
+					<nav id="navbarNavDropdown" class="collapse navbar-collapse" role="navigation" tabindex="-1" aria-label="Main navigation">
+				<!-- The WordPress Menu goes here -->
+				<ul id="main-menu" class="navbar-nav ms-auto"><li id="menu-item-11694" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-has-children mega-menu__item menu-item-11694"><button class="mega-menu__toggle" type="button" aria-expanded="false" aria-controls="mega-menu-11694">Platform</button><div id="mega-menu-11694" class="mega-menu__wrapper">
+<div class="wp-block-beapi-mega-menu">
+<div class="wp-block-columns is-layout-flex wp-container-core-columns-is-layout-8f761849 wp-block-columns-is-layout-flex">
+<div class="wp-block-column mega-menu__column-box is-layout-flow wp-block-column-is-layout-flow">
+<p class="mega-menu__title has-m-font-size wp-block-paragraph">Platform</p>
+
+
+
+<p class="mega-menu__text wp-block-paragraph">CybelAngel is the world’s leading platform for external threat intelligence.</p>
+
+
+
+<p class="mega-menu__text wp-block-paragraph">We help protect your business to secure your digital activities against cyberattacks and cyber breaches.</p>
+
+
+
+<div class="wp-block-buttons is-layout-flex wp-block-buttons-is-layout-flex">
+<div class="wp-block-button"><a class="wp-block-button__link wp-element-button menu-item custom" href="https://cybelangel.com/request-a-demo/">Request Demo</a></div>
+</div>
+</div>
+
+
+
+<div class="wp-block-column is-layout-flow wp-block-column-is-layout-flow">
+<ul class="wp-block-mega-menu-list no-list-style mega-menu__column-list">
+<li class="wp-block-beapi-mega-menu-list-item">
+<div class="wp-block-mega-menu-list-item__head"><div class="wp-block-mega-menu-list-item__content"><div class="wp-block-mega-menu-list-item__text"><a class="menu-item menu-item-object-page menu-item-type-post" href="https://cybelangel.com/attack-surface-management/" data-type="page" data-id="11487">Attack Surface Management</a></div><div class="wp-block-mega-menu-list-item__desc">Prevent harmful attacks by detecting and securing vulnerable shadow assets.</div></div></div>
+</li>
+
+
+
+<li class="wp-block-beapi-mega-menu-list-item">
+<div class="wp-block-mega-menu-list-item__head"><div class="wp-block-mega-menu-list-item__content"><div class="wp-block-mega-menu-list-item__text"><a class="menu-item menu-item-object-page menu-item-type-post" href="https://cybelangel.com/data-breach-prevention/" data-type="page" data-id="11487">Data Breach Prevention</a></div><div class="wp-block-mega-menu-list-item__desc">Proactively detect data leaks to safeguard your confidential assets from potential exploitation.</div></div></div>
+</li>
+
+
+
+<li class="wp-block-beapi-mega-menu-list-item">
+<div class="wp-block-mega-menu-list-item__head"><div class="wp-block-mega-menu-list-item__content"><div class="wp-block-mega-menu-list-item__text"><a class="menu-item menu-item-object-page menu-item-type-post" href="https://cybelangel.com/brand-protection/" data-type="page" data-id="11479">Brand Protection</a></div><div class="wp-block-mega-menu-list-item__desc">Detect and take down malicious domains, fake social media accounts, and fraudulent mobile apps.</div></div></div>
+</li>
+</ul>
+</div>
+
+
+
+<div class="wp-block-column is-layout-flow wp-block-column-is-layout-flow">
+<ul class="wp-block-mega-menu-list no-list-style mega-menu__column-list">
+<li class="wp-block-beapi-mega-menu-list-item">
+<div class="wp-block-mega-menu-list-item__head"><div class="wp-block-mega-menu-list-item__content"><div class="wp-block-mega-menu-list-item__text"><a class="menu-item menu-item-object-page menu-item-type-post" href="https://cybelangel.com/cyber-threat-intelligence/" data-type="page" data-id="11479">Cyber Threat Intelligence</a></div><div class="wp-block-mega-menu-list-item__desc">Enhance your security posture with top-tier threat intelligence.</div></div></div>
+</li>
+
+
+
+<li class="wp-block-beapi-mega-menu-list-item">
+<div class="wp-block-mega-menu-list-item__head"><div class="wp-block-mega-menu-list-item__content"><div class="wp-block-mega-menu-list-item__text"><a class="menu-item menu-item-object-page menu-item-type-post" href="https://cybelangel.com/credential-intelligence/" data-type="page" data-id="11479">Credential Intelligence</a></div><div class="wp-block-mega-menu-list-item__desc">Detect and manage critical credential leaks before they are compromised.</div></div></div>
+</li>
+
+
+
+<li class="wp-block-beapi-mega-menu-list-item">
+<div class="wp-block-mega-menu-list-item__head"><div class="wp-block-mega-menu-list-item__content"><div class="wp-block-mega-menu-list-item__text"><a class="menu-item menu-item-object-link menu-item-type-post" href="https://cybelangel.com/dark-deep-web-monitoring/" data-type="link" data-id="https://cybelangel.com/dark-deep-web-monitoring/">Dark Web Monitoring</a></div><div class="wp-block-mega-menu-list-item__desc">Gain visibility with the best deep dark web monitoring tool to side step targeted attacks.</div></div></div>
+</li>
+</ul>
+</div>
+</div>
+</div>
+</div></li>
+<li id="menu-item-10731" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-has-children mega-menu__item menu-item-10731"><button class="mega-menu__toggle" type="button" aria-expanded="false" aria-controls="mega-menu-10731">Services</button><div id="mega-menu-10731" class="mega-menu__wrapper">
+<div class="wp-block-beapi-mega-menu">
+<div class="wp-block-columns is-layout-flex wp-container-core-columns-is-layout-8f761849 wp-block-columns-is-layout-flex">
+<div class="wp-block-column mega-menu__column-box is-layout-flow wp-block-column-is-layout-flow">
+<p class="mega-menu__title has-m-font-size wp-block-paragraph">Services</p>
+
+
+
+<p class="mega-menu__text wp-block-paragraph">CybelAngel&#8217;s premium white-glove services empower you to tackle threats with confidence and precision.</p>
+
+
+
+<div class="wp-block-buttons is-layout-flex wp-block-buttons-is-layout-flex">
+<div class="wp-block-button"><a class="wp-block-button__link wp-element-button menu-item custom" href="https://cybelangel.com/remediation/">Request a service</a></div>
+</div>
+</div>
+
+
+
+<div class="wp-block-column is-layout-flow wp-block-column-is-layout-flow">
+<ul class="wp-block-mega-menu-list no-list-style mega-menu__column-list">
+<li class="wp-block-beapi-mega-menu-list-item">
+<div class="wp-block-mega-menu-list-item__head"><div class="wp-block-mega-menu-list-item__content"><div class="wp-block-mega-menu-list-item__text"><a class="menu-item menu-item-object-link menu-item-type-post" href="https://cybelangel.com/remediation/" data-type="link" data-id="https://cybelangel.com/remediation/">Cybersecurity Remediation</a></div><div class="wp-block-mega-menu-list-item__desc">Reduce time to take down by 85% with CybelAngel’s remediation services.</div></div></div>
+</li>
+
+
+
+<li class="wp-block-beapi-mega-menu-list-item">
+<div class="wp-block-mega-menu-list-item__head"><div class="wp-block-mega-menu-list-item__content"><div class="wp-block-mega-menu-list-item__text"><a class="menu-item menu-item-object-link menu-item-type-post" href="/risk-intelligence-threat-assessment/" data-type="link" data-id="/risk-intelligence-threat-assessment/">Comprehensive Risk Analysis</a></div><div class="wp-block-mega-menu-list-item__desc">Deploy our threat intelligence services by combining continuous threat monitoring with in-depth risk assessments for M&#038;A, third parties, and VIPs.</div></div></div>
+</li>
+</ul>
+</div>
+
+
+
+<div class="wp-block-column is-layout-flow wp-block-column-is-layout-flow">
+<ul class="wp-block-mega-menu-list no-list-style mega-menu__column-list">
+<li class="wp-block-beapi-mega-menu-list-item">
+<div class="wp-block-mega-menu-list-item__head"><div class="wp-block-mega-menu-list-item__content"><div class="wp-block-mega-menu-list-item__text"><a class="menu-item menu-item-object-link menu-item-type-post" href="/cyber-risk-intelligence-services/" data-type="link" data-id="https://cybelangel.com/cyber-risk-intelligence-services/">Cyber Risk Intelligence Services</a></div><div class="wp-block-mega-menu-list-item__desc">Expand your cybersecurity expertise and resilience with the CybelAngel REACT Team.</div></div></div>
+</li>
+</ul>
+
+
+
+<ul class="wp-block-mega-menu-list no-list-style mega-menu__column-list">
+<li class="wp-block-beapi-mega-menu-list-item">
+<div class="wp-block-mega-menu-list-item__head"><div class="wp-block-mega-menu-list-item__content"><div class="wp-block-mega-menu-list-item__text"><a class="menu-item menu-item-object-link menu-item-type-post" href="/solutions/compliance-cybelangel/" data-type="link" data-id="https://cybelangel.com/solutions/compliance-cybelangel/">Regulatory Cyber Compliance</a></div><div class="wp-block-mega-menu-list-item__desc">Learn more about our regulatory compliance with international industry standards. </div></div></div>
+</li>
+</ul>
+</div>
+</div>
+</div>
+</div></li>
+<li id="menu-item-10742" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-10742"><a href="https://cybelangel.com/partner-program/">Partners</a></li>
+<li id="menu-item-10728" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-has-children mega-menu__item menu-item-10728"><button class="mega-menu__toggle" type="button" aria-expanded="false" aria-controls="mega-menu-10728">Resources</button><div id="mega-menu-10728" class="mega-menu__wrapper">
+<div class="wp-block-beapi-mega-menu">
+<div class="wp-block-columns is-layout-flex wp-container-core-columns-is-layout-13c8de35 wp-block-columns-is-layout-flex" style="margin-top:0;margin-bottom:0;padding-top:0;padding-right:0;padding-bottom:0;padding-left:0">
+<div class="wp-block-column is-layout-flow wp-block-column-is-layout-flow" style="padding-top:var(--wp--preset--spacing--48);padding-right:var(--wp--preset--spacing--32);padding-bottom:var(--wp--preset--spacing--32);padding-left:var(--wp--preset--spacing--32);flex-basis:33%">
+<div class="wp-block-columns is-layout-flex wp-container-core-columns-is-layout-8f761849 wp-block-columns-is-layout-flex">
+<div class="wp-block-column is-layout-flow wp-block-column-is-layout-flow">
+<div class="wp-block-group mega-menu__column-off"><div class="wp-block-group__inner-container is-layout-constrained wp-block-group-is-layout-constrained">
+<p class="mega-menu__title has-m-font-size wp-block-paragraph">Resources</p>
+
+
+
+<p class="mega-menu__text wp-block-paragraph">Welcome to our Resource Hub.</p>
+
+
+
+<p class="mega-menu__text wp-block-paragraph">Explore in-depth threat intelligence notes, blogs on industry trends, customer success stories, and much more.</p>
+
+
+
+<div class="wp-block-group is-vertical is-layout-flex wp-container-core-group-is-layout-4fc3f8e1 wp-block-group-is-layout-flex">
+<div class="wp-block-group is-nowrap is-layout-flex wp-container-core-group-is-layout-f221bfd0 wp-block-group-is-layout-flex">
+<figure class="wp-block-image size-full is-resized"><img loading="lazy" width="48" height="48" src="https://cybelangel.com/wp-content/uploads/2025/02/file-05.png" alt="" class="wp-image-17512" style="width:22px"/></figure>
+
+
+
+<ul class="wp-block-mega-menu-list no-list-style mega-menu__list">
+<li class="wp-block-beapi-mega-menu-list-item">
+<div class="wp-block-mega-menu-list-item__head"><div class="wp-block-mega-menu-list-item__content"><div class="wp-block-mega-menu-list-item__text"><a class="menu-item custom" href="https://cybelangel.com/resource-library/">Industry resources</a></div><div class="wp-block-mega-menu-list-item__desc">Access white papers, reports and Ebooks.</div></div></div>
+</li>
+</ul>
+</div>
+
+
+
+<div class="wp-block-group is-nowrap is-layout-flex wp-container-core-group-is-layout-f221bfd0 wp-block-group-is-layout-flex">
+<figure class="wp-block-image size-full is-resized"><img loading="lazy" width="48" height="48" src="https://cybelangel.com/wp-content/uploads/2025/02/image-indent-left.png" alt="" class="wp-image-17505" style="width:22px"/></figure>
+
+
+
+<ul class="wp-block-mega-menu-list no-list-style mega-menu__list">
+<li class="wp-block-beapi-mega-menu-list-item">
+<div class="wp-block-mega-menu-list-item__head"><div class="wp-block-mega-menu-list-item__content"><div class="wp-block-mega-menu-list-item__text"><a class="menu-item menu-item-object-page menu-item-type-post" href="https://cybelangel.com/blog/" data-type="page" data-id="10555">Blog</a></div><div class="wp-block-mega-menu-list-item__desc">Tap into our External Threat Intelligence cyber insights to get a fresh perspective.</div></div></div>
+</li>
+</ul>
+</div>
+
+
+
+<div class="wp-block-group is-nowrap is-layout-flex wp-container-core-group-is-layout-f221bfd0 wp-block-group-is-layout-flex">
+<figure class="wp-block-image size-full is-resized"><img loading="lazy" width="48" height="48" src="https://cybelangel.com/wp-content/uploads/2025/02/video-recorder.png" alt="" class="wp-image-17504" style="width:22px"/></figure>
+
+
+
+<ul class="wp-block-mega-menu-list no-list-style mega-menu__list">
+<li class="wp-block-beapi-mega-menu-list-item">
+<div class="wp-block-mega-menu-list-item__head"><div class="wp-block-mega-menu-list-item__content"><div class="wp-block-mega-menu-list-item__text"><a class="menu-item menu-item-object-link menu-item-type-post" href="https://cybelangel.com/blog/webinar/glossary/" data-type="link" data-id="https://cybelangel.com/blog/webinar/glossary/" target="_blank" rel="noreferrer noopener">Cybersecurity glossary</a></div><div class="wp-block-mega-menu-list-item__desc">Access 215 cyber terms.</div></div></div>
+</li>
+</ul>
+</div>
+
+
+
+<div class="wp-block-group is-nowrap is-layout-flex wp-container-core-group-is-layout-f221bfd0 wp-block-group-is-layout-flex">
+<figure class="wp-block-image size-full is-resized"><img loading="lazy" width="48" height="48" src="https://cybelangel.com/wp-content/uploads/2025/02/file-05.png" alt="" class="wp-image-17512" style="width:22px"/></figure>
+
+
+
+<ul class="wp-block-mega-menu-list no-list-style mega-menu__list">
+<li class="wp-block-beapi-mega-menu-list-item">
+<div class="wp-block-mega-menu-list-item__head"><div class="wp-block-mega-menu-list-item__content"><div class="wp-block-mega-menu-list-item__text"><a class="menu-item menu-item-object-link menu-item-type-post" href="https://cybelangel.com/changelog/" data-type="link" data-id="https://cybelangel.com/changelog/">Product changelog</a></div><div class="wp-block-mega-menu-list-item__desc">Explore our product roadmap and updates,</div></div></div>
+</li>
+</ul>
+</div>
+</div>
+</div></div>
+</div>
+</div>
+</div>
+
+
+
+<div class="wp-block-column has-text-color has-background has-link-color wp-elements-1 is-layout-flow wp-block-column-is-layout-flow" style="color:#fff;background-color:#F0F1F3;padding-top:var(--wp--preset--spacing--32);padding-right:var(--wp--preset--spacing--32);padding-bottom:var(--wp--preset--spacing--32);padding-left:var(--wp--preset--spacing--32);flex-basis:66%"><section class="mega-menu__push-news">
+			<p class="title">Explore Fresh Content</p>
+		<div class="row">
+						<div class="item col-md-6 col-sm-12">
+					<article class="card--post">
+			<div class="card__image-container">
+			<img src="https://cybelangel.com/wp-content/uploads/2025/08/api_threat_report_trends-516x271.png" alt="The API Threat Report: What 2026 Has Taught Us So Far">
+		</div>
+		<div class="card__content">
+					<div class="card__tags">
+				<ul>
+												<li><a href="https://cybelangel.com/blog/tag/api-security/" class="link">API Security</a></li>
+											</ul>
+			</div>
+		
+		<h3 class="card__title">
+			<a href="https://cybelangel.com/blog/the-api-threat-report-2026/" class="card__link">
+				The API Threat Report: What 2026 Has Taught Us So Far			</a>
+		</h3>
+
+					<p class="card__author">
+				Orlaith Traynor			</p>
+		
+					<p class="card__time">
+				<span class="span-reading-time rt-reading-time"><span class="rt-label rt-prefix"></span> <span class="rt-time"> 8</span> <span class="rt-label rt-postfix">min read</span></span>				•
+				<span>October 23, 2026</span>
+			</p>
+			</div>
+
+</article>
+				</div>
+							<div class="item col-md-6 col-sm-12">
+					<article class="card--post">
+			<div class="card__image-container">
+			<img src="https://cybelangel.com/wp-content/uploads/2026/10/AfD-leak-cybersecurtiy_files-516x271.png" alt="AfD Email Leak: Hacktivism and European Political Unrest">
+		</div>
+		<div class="card__content">
+		
+		<h3 class="card__title">
+			<a href="https://cybelangel.com/blog/afd-email-leak-hacktivism-and-european-political-unrest/" class="card__link">
+				AfD Email Leak: Hacktivism and European Political Unrest			</a>
+		</h3>
+
+					<p class="card__author">
+				Leah Koonthamattam			</p>
+		
+					<p class="card__time">
+				<span class="span-reading-time rt-reading-time"><span class="rt-label rt-prefix"></span> <span class="rt-time"> 4</span> <span class="rt-label rt-postfix">min read</span></span>				•
+				<span>October 22, 2026</span>
+			</p>
+			</div>
+
+</article>
+				</div>
+				</div>
+</section>
+</div>
+</div>
+</div>
+</div></li>
+<li id="menu-item-10745" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-has-children mega-menu__item menu-item-10745"><button class="mega-menu__toggle" type="button" aria-expanded="false" aria-controls="mega-menu-10745">Company</button><div id="mega-menu-10745" class="mega-menu__wrapper">
+<div class="wp-block-beapi-mega-menu">
+<div class="wp-block-columns is-layout-flex wp-container-core-columns-is-layout-8f761849 wp-block-columns-is-layout-flex">
+<div class="wp-block-column mega-menu__column-box is-layout-flow wp-block-column-is-layout-flow">
+<p class="mega-menu__title has-m-font-size wp-block-paragraph">Company</p>
+
+
+
+<p class="mega-menu__text wp-block-paragraph">Learn more about life and work at CybelAngel.</p>
+
+
+
+<div class="wp-block-buttons is-layout-flex wp-block-buttons-is-layout-flex">
+<div class="wp-block-button"><a class="wp-block-button__link wp-element-button menu-item custom" href="https://cybelangel.com/about-cybelangel/">Our Story</a></div>
+</div>
+</div>
+
+
+
+<div class="wp-block-column is-layout-flow wp-block-column-is-layout-flow">
+<ul class="wp-block-mega-menu-list no-list-style mega-menu__column-list">
+<li class="wp-block-beapi-mega-menu-list-item">
+<div class="wp-block-mega-menu-list-item__head"><div class="wp-block-mega-menu-list-item__content"><div class="wp-block-mega-menu-list-item__text"><a class="menu-item menu-item-object-page menu-item-type-post" href="https://cybelangel.com/about-cybelangel/" data-type="page" data-id="11479">About CybelAngel</a></div><div class="wp-block-mega-menu-list-item__desc">Get up to speed on our journey so far in the threat intelligence fast lane</div></div></div>
+</li>
+</ul>
+</div>
+
+
+
+<div class="wp-block-column is-layout-flow wp-block-column-is-layout-flow">
+<ul class="wp-block-mega-menu-list no-list-style mega-menu__column-list">
+<li class="wp-block-beapi-mega-menu-list-item">
+<div class="wp-block-mega-menu-list-item__head"><div class="wp-block-mega-menu-list-item__content"><div class="wp-block-mega-menu-list-item__text"><a class="menu-item menu-item-object-page menu-item-type-post" href="https://cybelangel.com/cybel-careers/" data-type="page" data-id="11479">Careers</a></div><div class="wp-block-mega-menu-list-item__desc">Accelerate your career growth (and fun!) with a career at CybelAngel</div></div></div>
+</li>
+</ul>
+</div>
+</div>
+</div>
+</div></li>
+<li id="menu-item-20614" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-20614"><a href="https://cybelangel.com/pricing/">Pricing</a></li>
+<li id="menu-item-10729" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-10729"><a href="/request-a-demo/">Request Demo</a></li>
+</ul>			</nav>
+		
+	</div><!-- .container(-fluid) -->
+
+</nav><!-- .site-navigation -->
+
+	</header><!-- #wrapper-navbar end -->
+	<main id="main-content" role="main" tabindex="-1" aria-label="Main content">
+
+<div class="wrapper" id="single-wrapper">
+	<div id="content" tabindex="-1">
+		
+			<div class="hero-post">
+				<div class="hero-post__top">
+					<div class="container-lg">
+						<div class="breadcrumb"><span><span><a href="https://cybelangel.com/">Home</a></span> | <span><a href="https://cybelangel.com/blog/">Blog</a></span> | <span class="breadcrumb_last" aria-current="page">2.24M Internet-Facing PHP Hosts, 59% on Versions With No Fix Coming: What We Know About php2shell</span></span></div>						<div class="hero-post__inner">
+															<div class="hero-post__tags">
+									<ul class="tag-pills">
+																				<li><a href="https://cybelangel.com/blog/tag/cyber-news/">Cyber News</a>
+																				</ul>
+								</div>
+														<h1 class="hero-post__title">2.24M Internet-Facing PHP Hosts, 59% on Versions With No Fix Coming: What We Know About php2shell</h1>
+															<p class="hero-post__author">
+									<span class="hero-post__author-label">Written by:</span> <a href="https://cybelangel.com/blog/author/leah-koonthamattam/"><img width="150" height="150" src="https://cybelangel.com/wp-content/uploads/2025/11/1763636171811-150x150.jpeg" class="attachment-thumbnail size-thumbnail" alt="" /> <span>Leah Koonthamattam</span></a>							</p>
+														<div class="hero-post__metas">
+								<div class="hero-post__date">
+									<span class="span-reading-time rt-reading-time"><span class="rt-label rt-prefix"></span> <span class="rt-time"> 6</span> <span class="rt-label rt-postfix">min read</span></span> • <span>October 21, 2026</span>
+								</div>
+								<div class="hero-post__share">
+									<div class="share">
+	<button type="button" class="share__button" aria-controls="share-list">
+		<span class="share__label">Share</span>
+		<svg width="24" height="24" viewBox="0 0 24 24" fill="none" class="icon" aria-hidden="true" focusable="false">
+			<path d="M9 11.8L15.1 7.3C15.2 7.7 15.5 8 16 8H18C18.6 8 19 7.6 19 7V5C19 4.4 18.6 4 18 4H16C15.4 4 15 4.4 15 5V5.4L8.6 10.2C8.4 10.1 8.2 10 8 10H6C5.4 10 5 10.4 5 11V13C5 13.6 5.4 14 6 14H8C8.2 14 8.4 13.9 8.6 13.8L15 18.6V19C15 19.6 15.4 20 16 20H18C18.6 20 19 19.6 19 19V17C19 16.4 18.6 16 18 16H16C15.5 16 15.2 16.3 15.1 16.7L9 12.2V11.8Z" fill="#202020"/>
+		</svg>
+	</button>
+	<ul id="share-list" class="share__list" aria-hidden="true">
+					<li>
+				<a href="https://www.linkedin.com/shareArticle?url=https%3A%2F%2Fcybelangel.com%2Fblog%2Fcritical-php-rce-vulnerabilities-cve-2026-109618-and-cve-2026-109619%2F" target="_blank" tabindex="-1">
+					<span class="sr-only">Share on Linkedin</span>
+					<svg viewBox="0 0 32 32" class="icon" aria-hidden="true" focusable="false"><path d="M12 12h5.535v2.837h.079c.77-1.381 2.655-2.837 5.464-2.837C28.92 12 30 15.637 30 20.367V30h-5.769v-8.54c0-2.037-.042-4.657-3.001-4.657-3.005 0-3.463 2.218-3.463 4.509V30H12V12zM2 12h6v18H2V12zm6-5a3 3 0 11-6 0 3 3 0 016 0z"/></svg>				</a>
+			</li>
+					<li>
+				<a href="https://twitter.com/intent/tweet?url=https%3A%2F%2Fcybelangel.com%2Fblog%2Fcritical-php-rce-vulnerabilities-cve-2026-109618-and-cve-2026-109619%2F&#038;text=2.24M%20Internet-Facing%20PHP%20Hosts%2C%2059%25%20on%20Versions%20With%20No%20Fix%20Coming%3A%20What%20We%20Know%20About%20php2shell" target="_blank" tabindex="-1">
+					<span class="sr-only">Share on X</span>
+					<svg viewBox="0 0 32 32" class="icon" aria-hidden="true" focusable="false"><path d="M25.282 2h4.905l-10.77 12.263L32 30.897h-9.874l-7.73-10.109-8.851 10.109H.64l11.41-13.116L0 2h10.12l6.984 9.234L25.282 2Zm-1.716 26.018h2.719L8.69 4.772H5.77l17.796 23.246Z"/></svg>				</a>
+			</li>
+					<li>
+				<a href="http://www.facebook.com/sharer.php?u=https%3A%2F%2Fcybelangel.com%2Fblog%2Fcritical-php-rce-vulnerabilities-cve-2026-109618-and-cve-2026-109619%2F" target="_blank" tabindex="-1">
+					<span class="sr-only">Share on Facebook</span>
+					<svg viewBox="0 0 14.002 30" class="icon" aria-hidden="true" focusable="false"><path d="M7.986 30V14.98h4.956l.783-4.977H7.986V7.507c0-1.299.426-2.539 2.29-2.539h3.726V0H8.713C4.266 0 3.052 2.929 3.052 6.988V10H0v4.98h3.052V30h4.934z"/></svg>				</a>
+			</li>
+			</ul>
+</div>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+				<div class="hero-post__img">
+					<div class="hero-post__inner">
+						<img width="800" height="420" src="https://cybelangel.com/wp-content/uploads/2026/10/php2shell-800x420.png" class="attachment-single-post size-single-post wp-post-image" alt="" decoding="async" srcset="https://cybelangel.com/wp-content/uploads/2026/10/php2shell-800x420.png 800w, https://cybelangel.com/wp-content/uploads/2026/10/php2shell-640x336.png 640w, https://cybelangel.com/wp-content/uploads/2026/10/php2shell-768x403.png 768w, https://cybelangel.com/wp-content/uploads/2026/10/php2shell-18x9.png 18w, https://cybelangel.com/wp-content/uploads/2026/10/php2shell-516x271.png 516w, https://cybelangel.com/wp-content/uploads/2026/10/php2shell-373x196.png 373w, https://cybelangel.com/wp-content/uploads/2026/10/php2shell-746x391.png 746w, https://cybelangel.com/wp-content/uploads/2026/10/php2shell.png 1029w" sizes="(max-width: 800px) 100vw, 800px" />					</div>
+				</div>
+			</div>
+
+			<div class="container content">
+									<div class="table-of-contents">
+						<h2 aria-hidden="true">Table of contents</h2>
+						<nav class="blockparty-table-of-content is-style-toc-default wp-block-blockparty-table-of-content" aria-label="Table of contents">
+	<ol class="blockparty-table-of-content__list is-style-no-list-style">
+					<li class="blockparty-table-of-content__list-item" data-toc-active="false" data-toc-level="2">
+				<a href="#timeline">Timeline</a>			</li>
+					<li class="blockparty-table-of-content__list-item" data-toc-active="false" data-toc-level="2">
+				<a href="#what-we-know-about-the-vulnerabilities">What we know about the vulnerabilities</a>			</li>
+					<li class="blockparty-table-of-content__list-item" data-toc-active="false" data-toc-level="3">
+				<a href="#confirmed-by-php">Confirmed by PHP</a>			</li>
+					<li class="blockparty-table-of-content__list-item" data-toc-active="false" data-toc-level="3">
+				<a href="#reported-not-confirmed-by-php">Reported, not confirmed by PHP</a>			</li>
+					<li class="blockparty-table-of-content__list-item" data-toc-active="false" data-toc-level="2">
+				<a href="#affected-versions-and-patch-status">Affected versions and patch status</a>			</li>
+					<li class="blockparty-table-of-content__list-item" data-toc-active="false" data-toc-level="2">
+				<a href="#exposure-how-many-assets-and-where">Exposure: how many assets, and where</a>			</li>
+					<li class="blockparty-table-of-content__list-item" data-toc-active="false" data-toc-level="3">
+				<a href="#by-version">By version</a>			</li>
+					<li class="blockparty-table-of-content__list-item" data-toc-active="false" data-toc-level="3">
+				<a href="#by-country">By country</a>			</li>
+					<li class="blockparty-table-of-content__list-item" data-toc-active="false" data-toc-level="3">
+				<a href="#by-hosting-provider">By hosting provider</a>			</li>
+					<li class="blockparty-table-of-content__list-item" data-toc-active="false" data-toc-level="3">
+				<a href="#wordpress">WordPress</a>			</li>
+					<li class="blockparty-table-of-content__list-item" data-toc-active="false" data-toc-level="3">
+				<a href="#limits-of-these-numbers">Limits of these numbers</a>			</li>
+					<li class="blockparty-table-of-content__list-item" data-toc-active="false" data-toc-level="3">
+				<a href="#a-different-count-puts-france-first">A different count puts France first</a>			</li>
+					<li class="blockparty-table-of-content__list-item" data-toc-active="false" data-toc-level="3">
+				<a href="#what-we-see-across-the-assets-we-scanned">What we see across the assets we scanned</a>			</li>
+					<li class="blockparty-table-of-content__list-item" data-toc-active="false" data-toc-level="2">
+				<a href="#recommendations">Recommendations</a>			</li>
+					<li class="blockparty-table-of-content__list-item" data-toc-active="false" data-toc-level="2">
+				<a href="#how-cybelangel-is-helping">How CybelAngel is helping</a>			</li>
+			</ol>
+</nav>
+					</div>
+								
+<p class="wp-block-paragraph">PHP shipped an emergency security release on 21 October 2026 at about 13:35 UTC, some 25 minutes ahead of schedule, for two critical vulnerabilities in PHP core, CVE-2026-109618 and CVE-2026-109619, both rated 9.2 under CVSS v4.0. PHP now <a href="https://discourse.thephp.foundation/t/php-webmaster-web-php-master-announce-php-8-4-27/6274" data-type="link" data-id="https://discourse.thephp.foundation/t/php-webmaster-web-php-master-announce-php-8-4-27/6274">confirms they can allow unauthenticated remote code execution</a>, and researchers call them “php2shell”, a name implying an attacker could obtain a shell on a vulnerable server. The fixed versions are <a href="https://www.helpnetsecurity.com/2026/10/21/php2shell-php-vulnerabilities-patched-cve-2026-109618-cve-2026-109619/" data-type="link" data-id="https://www.helpnetsecurity.com/2026/10/21/php2shell-php-vulnerabilities-patched-cve-2026-109618-cve-2026-109619/">PHP 8.5.12, 8.4.27, 8.3.36 and 8.2.35</a>.</p>
+
+
+
+<p class="wp-block-paragraph">The incident started with a <a href="https://www.huntress.com/blog/php2shell-leaked-critical-php-vulnerabilities" data-type="link" data-id="https://www.huntress.com/blog/php2shell-leaked-critical-php-vulnerabilities">leak</a>. On the morning of 20 October, a since-removed Hacker News post claimed the two flaws were about to be disclosed; within hours, watchTowr confirmed they were real and said it had reproduced CVE-2026-109618. The PHP security team then scheduled its release a day earlier than the original embargo, and in the end shipped it ahead of that new deadline.</p>
+
+
+
+<p class="wp-block-paragraph">The stakes come from PHP’s reach: it powers WordPress, Drupal, Joomla and Magento sites, shared hosting platforms, control panels and a lot of vendor software that <a href="https://www.huntress.com/blog/php2shell-leaked-critical-php-vulnerabilities" data-type="link" data-id="https://www.huntress.com/blog/php2shell-leaked-critical-php-vulnerabilities">does not advertise it</a>. Attacks started before the patch: at 07:43 UTC, <a href="https://ma.ttias.be/php-cve-2026-109618-early-mitigation/" data-type="link" data-id="https://ma.ttias.be/php-cve-2026-109618-early-mitigation/">Cloudflare’s CTO reported early attacks emerging</a>, and <a href="https://www.aikido.dev/blog/critical-vulnerabilities-in-php-php2shell" data-type="link" data-id="https://www.aikido.dev/blog/critical-vulnerabilities-in-php-php2shell">Aikido</a> has also reported exploitation in the wild. Sansec had warned of mass exploitation within <strong><a href="https://www.securityweek.com/php2shell-mass-exploitation-looms-for-leaked-critical-php-flaws/" data-type="link" data-id="https://www.securityweek.com/php2shell-mass-exploitation-looms-for-leaked-critical-php-flaws/">15 minutes of the release</a></strong>.</p>
+
+
+
+<p class="wp-block-paragraph"><strong>The fix happens at the infrastructure level: updating PHP on the server is the only official remediation, and CMS or plugin updates will not apply it</strong>.</p>
+
+
+
+<blockquote class="wp-block-quote is-layout-flow wp-block-quote-is-layout-flow">
+<p class="wp-block-paragraph">A Free PHP Check is available <a href="https://php-check.cybelangel.com/" data-type="link" data-id="https://php-check.cybelangel.com/">here</a>.</p>
+
+
+
+<p class="wp-block-paragraph">Paste your domains, see which sites still run a PHP version exposed to php2shell, ranked by what to patch first.</p>
+</blockquote>
+
+
+
+<p class="wp-block-paragraph"></p>
+
+
+
+<h2 class="wp-block-heading" id="timeline"><strong id="timeline">Timeline</strong id="timeline"></h2 id="timeline">
+
+
+
+<p class="wp-block-paragraph">The disclosure was originally under embargo until Thursday 22 October at 11:00 ET; after the leak, PHP scheduled its release for 21 October at 14:00 UTC, <strong>then shipped it about 25 minutes early</strong>.</p>
+
+
+
+<figure class="wp-block-video aligncenter"><video height="1080" style="aspect-ratio: 1080 / 1080;" width="1080" controls src="https://cybelangel.com/wp-content/uploads/2026/10/php-disclosure-timeline-1.mp4"></video><figcaption class="wp-element-caption"><em>Above: a breakdown of the timeline so far.</em></figcaption></figure>
+
+
+
+<p class="wp-block-paragraph"><strong>You can review the technical timeline in more detail below</strong>.</p>
+
+
+
+<figure class="wp-block-table"><table class="has-fixed-layout"><thead><tr><th>Date (UTC)</th><th>Event</th><th>Source</th></tr></thead><tbody><tr><td>21 Oct, 13:35</td><td>PHP releases 8.5.12, 8.4.27, 8.3.36 and 8.2.35, about 25 minutes ahead of schedule, with minimal source patches for PHP 7.4, 8.0 and 8.1</td><td><a href="https://www.helpnetsecurity.com/2026/10/21/php2shell-php-vulnerabilities-patched-cve-2026-109618-cve-2026-109619/" target="_blank" rel="noreferrer noopener">Help Net Security</a></td></tr><tr><td>21 Oct, 09:18</td><td>Aikido reports exploitation in the wild, citing Cloudflare</td><td><a href="https://www.aikido.dev/blog/critical-vulnerabilities-in-php-php2shell" target="_blank" rel="noreferrer noopener">Aikido</a></td></tr><tr><td>21 Oct, 07:43</td><td>Cloudflare’s CTO reports early attacks; Cloudflare’s WAF rules are extended to every plan, including Free</td><td><a href="https://ma.ttias.be/php-cve-2026-109618-early-mitigation/" target="_blank" rel="noreferrer noopener">Mattias Geniar</a></td></tr><tr><td>21 Oct</td><td>Cloudflare pushes an emergency update to its managed WAF ruleset, adding four rules understood to target these flaws (its changelog does not mention PHP)</td><td><a href="https://www.therepository.email/exploit-claims-surface-ahead-of-critical-php-security-release-as-wordpress-hosts-scramble" target="_blank" rel="noreferrer noopener">The Repository</a></td></tr><tr><td>21 Oct</td><td>A site claiming to publish working exploit code goes public; WordPress hosts reportedly start disabling <code>session.upload_progress</code></td><td><a href="https://www.therepository.email/exploit-claims-surface-ahead-of-critical-php-security-release-as-wordpress-hosts-scramble" target="_blank" rel="noreferrer noopener">The Repository</a></td></tr><tr><td>20 Oct</td><td>CERT-EU publishes Security Advisory 2026-018</td><td><a href="https://cert.europa.eu/publications/security-advisories/2026-018" target="_blank" rel="noreferrer noopener">CERT-EU</a></td></tr><tr><td>20 Oct</td><td>PHP security team posts advance notice: two critical vulnerabilities, both CVSS v4.0 9.2</td><td><a href="https://cert.europa.eu/publications/security-advisories/2026-018" target="_blank" rel="noreferrer noopener">CERT-EU</a></td></tr><tr><td>20 Oct</td><td>watchTowr confirms the leaked vulnerabilities are real and names CVE-2026-109618 and CVE-2026-109619</td><td><a href="https://www.therepository.email/exploit-claims-surface-ahead-of-critical-php-security-release-as-wordpress-hosts-scramble" target="_blank" rel="noreferrer noopener">The Repository</a></td></tr><tr><td>20 Oct</td><td>A Hacker News post, since removed, reports two upcoming PHP RCE disclosures, breaking the embargo</td><td><a href="https://www.therepository.email/exploit-claims-surface-ahead-of-critical-php-security-release-as-wordpress-hosts-scramble" target="_blank" rel="noreferrer noopener">The Repository</a></td></tr></tbody></table></figure>
+
+
+
+<h2 class="wp-block-heading" id="what-we-know-about-the-vulnerabilities"><strong id="what-we-know-about-the-vulnerabilities">What we know about the vulnerabilities</strong id="what-we-know-about-the-vulnerabilities"></h2 id="what-we-know-about-the-vulnerabilities">
+
+
+
+<p class="wp-block-paragraph">PHP has now published the fix and its advisory; some details still come only from researchers and should be treated as provisional.</p>
+
+
+
+<h3 class="wp-block-heading" id="confirmed-by-php"><strong id="confirmed-by-php">Confirmed by PHP</strong id="confirmed-by-php"></h3 id="confirmed-by-php">
+
+
+
+<ul class="wp-block-list">
+<li><strong>Impact</strong>: PHP’s release announcement describes <a href="https://discourse.thephp.foundation/t/php-webmaster-web-php-master-announce-php-8-4-27/6274" data-type="link" data-id="https://discourse.thephp.foundation/t/php-webmaster-web-php-master-announce-php-8-4-27/6274">two critical vulnerabilities that can allow unauthenticated remote code execution</a>, and now names CVE-2026-109618 and CVE-2026-109619 itself.</li>
+
+
+
+<li><strong>Component</strong>: the PHP changelog lists both fixes under Core, as two GitHub security advisories that <a href="https://discourse.thephp.foundation/t/php-webmaster-web-php-master-announce-php-8-4-27/6274" data-type="link" data-id="https://discourse.thephp.foundation/t/php-webmaster-web-php-master-announce-php-8-4-27/6274">avoid state corruption via “bailout”</a>, a mechanism inside the interpreter itself. Researchers, including <a href="https://ma.ttias.be/php-cve-2026-109618-early-mitigation/" data-type="link" data-id="https://ma.ttias.be/php-cve-2026-109618-early-mitigation/">Mattias Geniar</a>, link the confirmed attack paths to session upload progress and multipart request parsing, both enabled by default.</li>
+
+
+
+<li><strong>Nature</strong>: CVE-2026-109619 is described as remote code execution via <a href="https://www.helpnetsecurity.com/2026/10/21/php2shell-php-vulnerabilities-patched-cve-2026-109618-cve-2026-109619/" data-type="link" data-id="https://www.helpnetsecurity.com/2026/10/21/php2shell-php-vulnerabilities-patched-cve-2026-109618-cve-2026-109619/">stale global state</a>: internal state that survives after the memory behind it has been freed.</li>
+
+
+
+<li><strong>Mitigation</strong>: PHP states that <a href="https://discourse.thephp.foundation/t/php-webmaster-web-php-master-announce-php-8-4-27/6274" data-type="link" data-id="https://discourse.thephp.foundation/t/php-webmaster-web-php-master-announce-php-8-4-27/6274">there are no complete mitigations and updating is the only safe choice</a>.</li>
+
+
+
+<li><strong>Scope</strong>: every PHP installation that serves web requests is affected, <a href="https://www.helpnetsecurity.com/2026/10/21/php2shell-php-vulnerabilities-patched-cve-2026-109618-cve-2026-109619/" data-type="link" data-id="https://www.helpnetsecurity.com/2026/10/21/php2shell-php-vulnerabilities-patched-cve-2026-109618-cve-2026-109619/">including PHP-FPM, Apache with mod_php, php-cgi, FrankenPHP and LiteSpeed</a>, and the PHP team reports finding the flaws in <a href="https://www.heise.de/en/news/php2shell-Critical-flaws-allow-code-injection-in-PHP-11494897.html" data-type="link" data-id="https://www.heise.de/en/news/php2shell-Critical-flaws-allow-code-injection-in-PHP-11494897.html">every PHP version since PHP 5</a>.</li>
+</ul>
+
+
+
+<h3 class="wp-block-heading" id="reported-not-confirmed-by-php"><strong id="reported-not-confirmed-by-php">Reported, not confirmed by PHP</strong id="reported-not-confirmed-by-php"></h3 id="reported-not-confirmed-by-php">
+
+
+
+<ul class="wp-block-list">
+<li><strong>Exploitation at scale</strong>: <a href="https://ma.ttias.be/php-cve-2026-109618-early-mitigation/" data-type="link" data-id="https://ma.ttias.be/php-cve-2026-109618-early-mitigation/">Cloudflare</a> and <a href="https://www.aikido.dev/blog/critical-vulnerabilities-in-php-php2shell" data-type="link" data-id="https://www.aikido.dev/blog/critical-vulnerabilities-in-php-php2shell">Aikido</a> report attacks in the wild.</li>
+
+
+
+<li><strong>Public exploit code</strong>: proof-of-concept code is circulating. Before the release, <a href="https://www.tenable.com/blog/php2shell-cve-2026-109618-cve-2026-109619-frequently-asked-questions-about-critical-php-remote" data-type="link" data-id="https://www.tenable.com/blog/php2shell-cve-2026-109618-cve-2026-109619-frequently-asked-questions-about-critical-php-remote">Tenable could not verify</a> that any of it worked; since then, <a href="https://www.helpnetsecurity.com/2026/10/21/php2shell-php-vulnerabilities-patched-cve-2026-109618-cve-2026-109619/" data-type="link" data-id="https://www.helpnetsecurity.com/2026/10/21/php2shell-php-vulnerabilities-patched-cve-2026-109618-cve-2026-109619/">Help Net Security reports</a> that a working exploit has shown a single unauthenticated request can trigger the attack.</li>
+
+
+
+<li><strong>Nature</strong>: before the release, <a href="https://blog.flatt.tech/entry/php2shell" data-type="link" data-id="https://blog.flatt.tech/entry/php2shell">GMO Flatt Security</a> read a researcher’s demo video, labelled “php2shell”, as showing a memory corruption bug, reproduced on mod_php and PHP-FPM and on WordPress, Laravel and Symfony setups.</li>
+</ul>
+
+
+
+<h2 class="wp-block-heading" id="affected-versions-and-patch-status"><strong id="affected-versions-and-patch-status">Affected versions and patch status</strong id="affected-versions-and-patch-status"></h2 id="affected-versions-and-patch-status">
+
+
+
+<p class="wp-block-paragraph">Only the four supported branches, PHP 8.2 to 8.5, received official releases. For PHP 7.4, 8.0 and 8.1, the PHP security team published <a href="https://www.helpnetsecurity.com/2026/10/21/php2shell-php-vulnerabilities-patched-cve-2026-109618-cve-2026-109619/" data-type="link" data-id="https://www.helpnetsecurity.com/2026/10/21/php2shell-php-vulnerabilities-patched-cve-2026-109618-cve-2026-109619/">minimal source backports</a>, but these are meant for people who build PHP themselves and are <a href="https://www.unlimitedwebhosting.co.uk/blog/php2shell-critical-php-vulnerabilities/" data-type="link" data-id="https://www.unlimitedwebhosting.co.uk/blog/php2shell-critical-php-vulnerabilities/">not something a hosting account can apply</a>. PHP publishes nothing for older branches, although some distributions and LTS vendors may backport fixes.</p>
+
+
+
+<figure class="wp-block-table"><table class="has-fixed-layout"><thead><tr><th>PHP branch</th><th>Support status</th><th>Fix</th></tr></thead><tbody><tr><td>8.5</td><td>Active support</td><td>8.5.12</td></tr><tr><td>8.4</td><td>Active support</td><td>8.4.27</td></tr><tr><td>8.3</td><td>Security fixes only</td><td>8.3.36</td></tr><tr><td>8.2</td><td>Security fixes only, until 31 Dec 2026</td><td>8.2.35</td></tr><tr><td>7.4, 8.0, 8.1</td><td>End of life</td><td>No official release; minimal source patches only</td></tr><tr><td>7.3 and older</td><td>End of life</td><td>None from PHP</td></tr></tbody></table></figure>
+
+
+
+<p class="wp-block-paragraph">Being on a supported branch is not enough on its own: the server must run the new patch level, and Linux distributions that package PHP may ship the fix under their own version numbers, so check your vendor’s advisory. Support dates are based on the php.net supported versions timetable, as reported by <a href="https://mysites.guru/blog/php-critical-security-release-joomla-wordpress/" data-type="link" data-id="https://mysites.guru/blog/php-critical-security-release-joomla-wordpress/">mySites.guru</a>.</p>
+
+
+
+<h2 class="wp-block-heading" id="exposure-how-many-assets-and-where"><strong id="exposure-how-many-assets-and-where">Exposure: how many assets, and where</strong id="exposure-how-many-assets-and-where"></h2 id="exposure-how-many-assets-and-where">
+
+
+
+<p class="wp-block-paragraph">About 2.24 million internet-facing hosts advertise PHP, and 59% of those that report a version (883,717 of about 1.5 million) run a branch with no official release. These figures come from Shodan banner counts published by <a href="https://mallory.ai/blog/php-rce-rapid-response" data-type="link" data-id="https://mallory.ai/blog/php-rce-rapid-response">Mallory</a> on 20 October 2026; they count hosts, not organisations or websites.</p>
+
+
+
+<h3 class="wp-block-heading" id="by-version"><strong id="by-version">By version</strong id="by-version"></h3 id="by-version">
+
+
+
+<p class="wp-block-paragraph">PHP 8.2 to 8.5 account for 612,269 versioned hosts and are covered by the official release. PHP 5.x (368,570), 7.x (329,358) and 8.0–8.1 (185,789) are not; only some of the 7.x, 8.0 and 8.1 hosts can benefit from PHP’s source patches, if their operators build PHP themselves. PHP 5.6 and 7.2 alone represent about 371,000 hosts for which PHP publishes no fix at all.</p>
+
+
+<div class="wp-block-image">
+<figure class="aligncenter size-large"><img decoding="async" width="1280" height="720" src="https://cybelangel.com/wp-content/uploads/2026/10/PHP-branches-without-a-fix-1280x720.png" alt="Bar chart: 59% of internet-facing PHP hosts reporting a version run PHP 8.1 or older, with no official release" class="wp-image-20763" srcset="https://cybelangel.com/wp-content/uploads/2026/10/PHP-branches-without-a-fix-1280x720.png 1280w, https://cybelangel.com/wp-content/uploads/2026/10/PHP-branches-without-a-fix-640x360.png 640w, https://cybelangel.com/wp-content/uploads/2026/10/PHP-branches-without-a-fix-768x432.png 768w, https://cybelangel.com/wp-content/uploads/2026/10/PHP-branches-without-a-fix-1536x864.png 1536w, https://cybelangel.com/wp-content/uploads/2026/10/PHP-branches-without-a-fix-18x10.png 18w, https://cybelangel.com/wp-content/uploads/2026/10/PHP-branches-without-a-fix-2048x1152.png 2048w, https://cybelangel.com/wp-content/uploads/2026/10/PHP-branches-without-a-fix-747x420.png 747w, https://cybelangel.com/wp-content/uploads/2026/10/PHP-branches-without-a-fix-373x210.png 373w, https://cybelangel.com/wp-content/uploads/2026/10/PHP-branches-without-a-fix-996x560.png 996w, https://cybelangel.com/wp-content/uploads/2026/10/PHP-branches-without-a-fix-746x420.png 746w, https://cybelangel.com/wp-content/uploads/2026/10/PHP-branches-without-a-fix-1111x625.png 1111w" sizes="(max-width: 1280px) 100vw, 1280px" /></figure>
+</div>
+
+
+<h3 class="wp-block-heading" id="by-country"><strong id="by-country">By country</strong id="by-country"></h3 id="by-country">
+
+
+
+<p class="wp-block-paragraph">The United States has the largest number of hosts with no official release (228,770), followed by China, Japan and Germany. Among these ten countries, Algeria (100%, almost entirely PHP 5.3 on Telecom Algeria), South Korea (82%) and China (75%) have the highest shares. France counts 25,439 such hosts, 54% of its versioned PHP hosts.</p>
+
+
+<div class="wp-block-image">
+<figure class="aligncenter size-large"><img loading="lazy" decoding="async" width="1280" height="720" src="https://cybelangel.com/wp-content/uploads/2026/10/No-fix-hosts-by-country-1280x720.png" alt="Bar chart: top 10 countries by PHP hosts with no official release, led by the United States; France ranks seventh" class="wp-image-20764" srcset="https://cybelangel.com/wp-content/uploads/2026/10/No-fix-hosts-by-country-1280x720.png 1280w, https://cybelangel.com/wp-content/uploads/2026/10/No-fix-hosts-by-country-640x360.png 640w, https://cybelangel.com/wp-content/uploads/2026/10/No-fix-hosts-by-country-768x432.png 768w, https://cybelangel.com/wp-content/uploads/2026/10/No-fix-hosts-by-country-1536x864.png 1536w, https://cybelangel.com/wp-content/uploads/2026/10/No-fix-hosts-by-country-2048x1152.png 2048w, https://cybelangel.com/wp-content/uploads/2026/10/No-fix-hosts-by-country-18x10.png 18w, https://cybelangel.com/wp-content/uploads/2026/10/No-fix-hosts-by-country-996x560.png 996w, https://cybelangel.com/wp-content/uploads/2026/10/No-fix-hosts-by-country-747x420.png 747w, https://cybelangel.com/wp-content/uploads/2026/10/No-fix-hosts-by-country-746x420.png 746w, https://cybelangel.com/wp-content/uploads/2026/10/No-fix-hosts-by-country-373x210.png 373w, https://cybelangel.com/wp-content/uploads/2026/10/No-fix-hosts-by-country-1111x625.png 1111w" sizes="auto, (max-width: 1280px) 100vw, 1280px" /></figure>
+</div>
+
+
+<h3 class="wp-block-heading" id="by-hosting-provider"><strong id="by-hosting-provider">By hosting provider</strong id="by-hosting-provider"></h3 id="by-hosting-provider">
+
+
+
+<p class="wp-block-paragraph">Exposure is concentrated: Amazon (293,480 PHP hosts), Hostinger (142,401) and Alibaba Cloud (81,078) host the largest PHP populations, which makes provider-side patching decisive.</p>
+
+
+
+<h3 class="wp-block-heading" id="wordpress"><strong id="wordpress">WordPress</strong id="wordpress"></h3 id="wordpress">
+
+
+
+<p class="wp-block-paragraph">According to <a href="https://www.therepository.email/exploit-claims-surface-ahead-of-critical-php-security-release-as-wordpress-hosts-scramble" data-type="link" data-id="https://www.therepository.email/exploit-claims-surface-ahead-of-critical-php-security-release-as-wordpress-hosts-scramble">WordPress.org statistics reported by The Repository</a>, 35.1% of WordPress sites run a PHP version the PHP project no longer supports, including 16.46% on PHP 7.4. Across the live Joomla and WordPress sites <a href="https://mysites.guru/blog/php-critical-security-release-joomla-wordpress/" data-type="link" data-id="https://mysites.guru/blog/php-critical-security-release-joomla-wordpress/">mySites.guru</a> monitors, 22.7% run PHP 8.1 or older.</p>
+
+
+
+<h3 class="wp-block-heading" id="limits-of-these-numbers"><strong id="limits-of-these-numbers">Limits of these numbers</strong id="limits-of-these-numbers"></h3 id="limits-of-these-numbers">
+
+
+
+<p class="wp-block-paragraph">The real exposure is higher than banner counts suggest: about 740,000 PHP hosts hide their version, and shared hosting puts many websites behind one IP. Conversely, some Linux distributions (Debian, Ubuntu, RHEL) and LTS vendors backport <a href="https://mallory.ai/blog/php-rce-rapid-response" data-type="link" data-id="https://mallory.ai/blog/php-rce-rapid-response">fixes to older packages</a>, so some hosts that report an old version may already be patched.</p>
+
+
+
+<h3 class="wp-block-heading" id="a-different-count-puts-france-first"><strong id="a-different-count-puts-france-first">A different count puts France first</strong id="a-different-count-puts-france-first"></h3 id="a-different-count-puts-france-first">
+
+
+
+<p class="wp-block-paragraph">Measuring active PHP services rather than hosts, <a href="https://infrawatch.com/blog/internet-exposure-report-11m-active-php-services-across-4.38m-ip-addresses" data-type="link" data-id="https://infrawatch.com/blog/internet-exposure-report-11m-active-php-services-across-4.38m-ip-addresses">Infrawatch</a> observes about 11 million services across 4.38 million IP addresses, with France at 6.62 million, more than eight times the United States. Much of that concentration comes from Freebox OS, the management software of Free’s home routers; Infrawatch stresses this does not mean these hosts are exploitable.</p>
+
+
+
+<h3 class="wp-block-heading" id="what-we-see-across-the-assets-we-scanned"><strong id="what-we-see-across-the-assets-we-scanned">What we see across the assets we scanned</strong id="what-we-see-across-the-assets-we-scanned"></h3 id="what-we-see-across-the-assets-we-scanned">
+
+
+
+<p class="wp-block-paragraph"><strong>After the release, CybelAngel scanned 1.3 million internet-facing assets. Among the sites that reveal their PHP version, 54% run an end-of-life branch</strong>.</p>
+
+
+
+<h2 class="wp-block-heading" id="recommendations"><strong id="recommendations">Recommendations</strong id="recommendations"></h2 id="recommendations">
+
+
+
+<p class="wp-block-paragraph">The fix is out: patch PHP itself now; every other measure only buys time.</p>
+
+
+
+<ol class="wp-block-list">
+<li><strong>Inventory every internet-facing PHP asset</strong>, including those run by <a href="https://mallory.ai/blog/php-rce-rapid-response" data-type="link" data-id="https://mallory.ai/blog/php-rce-rapid-response">hosting providers</a>, agencies and appliance vendors, and record the branch and SAPI (PHP-FPM, mod_php, php-cgi).</li>
+
+
+
+<li><strong>Update to PHP 8.5.12, 8.4.27, 8.3.36 or 8.2.35, then restart</strong> PHP-FPM or the web server so the new interpreter is loaded. <a href="https://mysites.guru/blog/php-critical-security-release-joomla-wordpress/" data-type="link" data-id="https://mysites.guru/blog/php-critical-security-release-joomla-wordpress/">Check the version</a> the site reports while serving a request, not <code>php -v</code>, as the two binaries often differ.</li>
+
+
+
+<li><strong>On managed hosting, confirm with your host that the patch is applied</strong>, and take a fresh backup before anything changes on the <a href="https://www.therepository.email/exploit-claims-surface-ahead-of-critical-php-security-release-as-wordpress-hosts-scramble" data-type="link" data-id="https://www.therepository.email/exploit-claims-surface-ahead-of-critical-php-security-release-as-wordpress-hosts-scramble">server</a>.</li>
+
+
+
+<li><strong>Upgrade end-of-life branches</strong> (8.1 and older) to a supported version, or ask your distribution or LTS vendor for a <a href="https://www.helpnetsecurity.com/2026/10/21/php2shell-php-vulnerabilities-patched-cve-2026-109618-cve-2026-109619/" data-type="link" data-id="https://www.helpnetsecurity.com/2026/10/21/php2shell-php-vulnerabilities-patched-cve-2026-109618-cve-2026-109619/">backported fix</a>. Until then, restrict access (VPN, IP allowlist) or isolate internet-facing applications, as <a href="https://cert.europa.eu/publications/security-advisories/2026-018" data-type="link" data-id="https://cert.europa.eu/publications/security-advisories/2026-018">CERT-EU recommends</a>.</li>
+
+
+
+<li><strong>Reduce exposure until you patch</strong>: take internet-facing PHP applications offline <a href="https://www.aikido.dev/blog/critical-vulnerabilities-in-php-php2shell" data-type="link" data-id="https://www.aikido.dev/blog/critical-vulnerabilities-in-php-php2shell">where you can</a>.</li>
+
+
+
+<li><strong>Check for compromise after patching</strong>, going back to at least June 2026: web shells, unexpected or modified PHP files, new admin users and unusual <a href="https://www.aikido.dev/blog/critical-vulnerabilities-in-php-php2shell" data-type="link" data-id="https://www.aikido.dev/blog/critical-vulnerabilities-in-php-php2shell">outbound connections</a>. Watch for unexpected child processes of the web server, reduce the data and cloud privileges held by PHP servers, and check that logs are retained.</li>
+</ol>
+
+
+
+<h2 class="wp-block-heading" id="how-cybelangel-is-helping"><strong id="how-cybelangel-is-helping">How CybelAngel is helping</strong id="how-cybelangel-is-helping"></h2 id="how-cybelangel-is-helping">
+
+
+
+<p class="wp-block-paragraph">Our teams are reviewing the external perimeters we monitor for the signals that matter here: exposed web servers, outdated software stacks and PHP-based control panels. Where we see heightened risk, we are reaching out to customers directly. If you are not a CybelAngel customer and want to understand your external exposure, contact our team.</p>
+
+
+
+<div class="wp-block-buttons is-layout-flex wp-block-buttons-is-layout-flex">
+<div class="wp-block-button"><a class="wp-block-button__link wp-element-button" href="https://cybelangel.com/contact/"><strong>Get help</strong></a></div>
+</div>
+
+
+
+<p class="wp-block-paragraph"><em>Updated on 21 October 2026 after PHP’s security release. We will keep updating this article as exploitation data and vendor advisories emerge.</em></p>
+
+									<div class="footer-post">
+						<h2>
+							About the author						</h2>
+						<div class="footer-post-author">
+							<div class="footer-post-author__image">
+								<img width="150" height="150" src="https://cybelangel.com/wp-content/uploads/2025/11/1763636171811-150x150.jpeg" class="attachment-thumbnail size-thumbnail" alt="" />							</div>
+							<div class="footer-post-author__content">
+								<h3>Leah Koonthamattam</h3>
+								<p>Leah Koonthamattam is a Cybersecurity Analyst at CybelAngel, specialising in threat intelligence and strategic client advisory. Her background spans international security, policy, and data governance, with experience at the OECD prior to moving into cybersecurity. At CybelAngel, she focuses on translating complex threat findings into clear intelligence for security and executive teams.</p>
+								<a href="https://cybelangel.com/blog/author/leah-koonthamattam/" class="button">
+									read all the articles								</a>
+							</div>
+						</div>
+											</div>
+							</div>
+
+				</div><!-- #content -->
+</div><!-- #single-wrapper -->
+
+</main>
+<footer class="footer" id="footer" role="contentinfo" tabindex="-1" aria-label="Footer">
+	<!-- <div class="footer-top">
+		<div class="container">
+			<div class="row">
+				<div class="col-12">
+					<div class="newsletter">
+						<div class="left-box">
+							<h2 class="title">Cyber news straight to your inbox</h2>
+							<p>Stay up to date with the latest news, announcements, and articles.</p>
+						</div>
+						<div class="right-box">
+							<div class="form">
+								<div class="row">
+									<div class="col-md-8">
+										<input type = "text" class = "form-control" placeholder = "Enter your email" name = "email">
+									</div>
+									<div class="col-md-4">
+										<button class="btn btn-newsletter">Subscribe</button>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div> -->
+	<div class="footer-middle">
+		<div class="container">
+			<div class="row">
+				<div class="col-12">
+					<div class="footer-columns">
+						<div class="footer-col-1">
+							
+							<div class="footer-logo">
+																<a href="#" class="logo">
+									<img src="https://cybelangel.com/wp-content/uploads/2025/05/cropped-CybelAngel-logo-color-RGB-Trademark.png" alt="CybelAngel">
+								</a>
+																								<div class="content">
+									<p>Start today on a path to a more secure tomorrow.</p>
+								</div>
+															</div>
+						</div>
+						<div class="footer-col-2">
+							<div class="widget">
+															<div id="nav_menu-2" class="footer-widget widget_nav_menu widget-count-1 col-md-12"><p role="heading" aria-level="2" class="widget-title title h3">Platform</p><div class="menu-footer-menu-one-container"><ul id="menu-footer-menu-one" class="menu"><li id="menu-item-11588" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-11588"><a href="https://cybelangel.com/attack-surface-management/">Attack Surface Management</a></li>
+<li id="menu-item-11587" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-11587"><a href="https://cybelangel.com/data-breach-prevention/">Data Breach Prevention</a></li>
+<li id="menu-item-11586" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-11586"><a href="https://cybelangel.com/credential-intelligence/">Credential Intelligence</a></li>
+<li id="menu-item-11585" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-11585"><a href="https://cybelangel.com/dark-deep-web-monitoring/">Dark Web Monitoring</a></li>
+<li id="menu-item-11584" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-11584"><a href="https://cybelangel.com/brand-protection/">Brand Protection</a></li>
+</ul></div></div><!-- .footer-widget -->							
+							
+							</div>
+						</div>
+						<div class="footer-col-3">
+							<div class="widget">
+															<div id="nav_menu-3" class="footer-widget widget_nav_menu widget-count-1 col-md-12"><p role="heading" aria-level="2" class="widget-title title h3">Services</p><div class="menu-footer-menu-two-container"><ul id="menu-footer-menu-two" class="menu"><li id="menu-item-11581" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-11581"><a href="https://cybelangel.com/cyber-risk-intelligence-services/">Cyber Risk Intelligence Services</a></li>
+<li id="menu-item-11582" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-11582"><a href="https://cybelangel.com/risk-intelligence-threat-assessment/">Comprehensive Risk Analysis</a></li>
+<li id="menu-item-11583" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-11583"><a href="https://cybelangel.com/remediation/">Remediation</a></li>
+<li id="menu-item-17814" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-17814"><a href="https://cybelangel.com/solutions/compliance-cybelangel/">Compliance</a></li>
+</ul></div></div><!-- .footer-widget -->														
+							</div>
+						</div>
+						<div class="footer-col-4">
+							<div class="widget">
+
+															<div id="nav_menu-4" class="footer-widget widget_nav_menu widget-count-1 col-md-12"><p role="heading" aria-level="2" class="widget-title title h3">Resources</p><div class="menu-footer-menu-three-container"><ul id="menu-footer-menu-three" class="menu"><li id="menu-item-10779" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-10779"><a href="/resource-library/">Resource Library</a></li>
+<li id="menu-item-10782" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-10782"><a href="/webinars/">Webinars</a></li>
+<li id="menu-item-11580" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-11580"><a href="https://cybelangel.com/blog/">Blog</a></li>
+<li id="menu-item-18740" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-18740"><a href="https://cybelangel.com/manufacturing/">Cybersecurity for Manufacturing</a></li>
+<li id="menu-item-18741" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-18741"><a href="https://cybelangel.com/healthcare-pharma/">Cybersecurity for Healthcare</a></li>
+<li id="menu-item-18742" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-18742"><a href="https://cybelangel.com/finance/">Cybersecurity for Financial Services</a></li>
+<li id="menu-item-18749" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-18749"><a href="https://cybelangel.com/retail/">Cybersecurity for Retail</a></li>
+<li id="menu-item-18750" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-18750"><a href="https://cybelangel.com/government/">Cybersecurity for Government</a></li>
+<li id="menu-item-18767" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-18767"><a href="https://cybelangel.com/transport/">Cybersecurity for Transport</a></li>
+</ul></div></div><!-- .footer-widget -->														
+							</div>
+						</div>
+						<div class="footer-col-5">
+							<div class="widget">
+															<div id="nav_menu-6" class="footer-widget widget_nav_menu widget-count-1 col-md-12"><p role="heading" aria-level="2" class="widget-title title h3">Quick Links</p><div class="menu-footer-menu-four-container"><ul id="menu-footer-menu-four" class="menu"><li id="menu-item-10792" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-10792"><a href="https://cybelangel.com/california-privacy-rights/">Privacy Notice for California Residents</a></li>
+<li id="menu-item-10793" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-10793"><a href="/contact/">Contact Us</a></li>
+<li id="menu-item-10794" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-10794"><a href="https://platform.cybelangel.com/">Login</a></li>
+<li id="menu-item-10795" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-10795"><a href="https://support.cybelangel.com/support/home">Support</a></li>
+<li id="menu-item-10798" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-10798"><a href="/request-a-demo/">Request a Demo</a></li>
+<li id="menu-item-10799" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-10799"><a href="/partner-program/">Partner With Us</a></li>
+</ul></div></div><!-- .footer-widget -->														
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+	<div class="footer-bottom">
+		<div class="container">
+			<div class="row">
+				<div class="col-md-5 copyright-wrapper">
+											<div class="copyright">
+							<span>© 2026 CybelAngel. All rights reserved.</span>
+						</div>
+													<div class="copyright-logo">
+															<img src="https://cybelangel.com/wp-content/uploads/2026/04/logo-clusif-300x154.png" alt="">
+														</div>
+															</div>
+				<div class="col-md-7">
+					<div class="social-menu">
+						<div class="footer-menu">
+
+						<div class="menu-footer-bottom-menu-container"><ul id="menu-footer-bottom-menu" class="menu"><li id="menu-item-10764" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-10764"><a href="https://cybelangel.com/terms-conditions/">Terms &amp; Conditions</a></li>
+<li id="menu-item-10762" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-privacy-policy menu-item-10762"><a rel="privacy-policy" href="https://cybelangel.com/privacy-policy/">Privacy Policy</a></li>
+<li id="menu-item-16293" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-16293"><a href="https://cybelangel.com/data-processing-policy/">Data Processing Policy</a></li>
+<li id="menu-item-18181" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-18181"><a href="https://cybelangel.com/cookie-policy-eu/">Cookie Policy</a></li>
+</ul></div>							
+						</div>
+						<div class="social-icons">
+														<ul>
+																	<li>
+										<a target="_blank" href="https://www.linkedin.com/company/cybelangel/">
+											<i class="fa fa-linkedin-square" aria-hidden="true"></i>
+											<span class="sr-only">Follow us on LinkedIn, open in new window</span>
+										</a>
+									</li>
+																									<li>
+										<a target="_blank" href="https://www.facebook.com/cybelangel">
+											<i class="fa fa-facebook" aria-hidden="true"></i>
+											<span class="sr-only">Follow us on Facebook, open in new window</span>
+										</a>
+									</li>
+																									<li>
+										<a target="_blank" href="https://www.youtube.com/channel/UCnFIPXOiX4oEaX8Y6fxtoGA">
+											<i class="fa fa-youtube" aria-hidden="true"></i>
+											<span class="sr-only">Follow us on YouTube, open in new window</span>
+										</a>
+									</li>
+																																	<li>
+										<a target="_blank" href="https://www.reddit.com/user/CybelAngel_official/">
+											<i class="fa fa-reddit" aria-hidden="true"></i>
+											<span class="sr-only">Follow us on Reddit, open in new window</span>
+										</a>
+									</li>
+															</ul>
+													</div>
+						<div class="footer-certification footer-certification--iso">
+							<a href="https://cybelangel.com/blog/cybelangel-achieves-iso-27001-certification/" target="_self" ><span class="sr-only">Discover our article on our ISO certification</span>								<img src="https://cybelangel.com/wp-content/themes/cybel-angel/images/iso-icon.svg" alt="">
+															</a>
+													</div>
+						
+						<div class="footer-certification footer-certification--soc2">
+															<img src="https://cybelangel.com/wp-content/themes/cybel-angel/images/icon-soc2.png" alt="">
+													</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</footer>
+<!-- OneTrust Cookies Settings button start -->
+<!-- <button id="ot-sdk-btn" class="ot-sdk-show-settings">Cookie Settings</button> -->
+<!-- OneTrust Cookies Settings button end -->
+
+
+
+
+</div><!-- #page we need this extra closing tag here -->
+
+<template id="tp-language" data-tp-language="en_US"></template><script type="speculationrules">
+{"prefetch":[{"source":"document","where":{"and":[{"href_matches":"/*"},{"not":{"href_matches":["/wp-*.php","/wp-admin/*","/wp-content/uploads/*","/wp-content/*","/wp-content/plugins/*","/wp-content/themes/cybel-angel/*","/wp-content/themes/understrap/*","/*\\?(.+)"]}},{"not":{"selector_matches":"a[rel~=\"nofollow\"]"}},{"not":{"selector_matches":".no-prefetch, .no-prefetch a"}}]},"eagerness":"conservative"}]}
+</script>
+
+<!-- Consent Management powered by Complianz | GDPR/CCPA Cookie Consent https://wordpress.org/plugins/complianz-gdpr -->
+<div id="cmplz-cookiebanner-container"><div class="cmplz-cookiebanner cmplz-hidden banner-1 banner-a optin cmplz-center cmplz-categories-type-view-preferences" aria-modal="true" data-nosnippet="true" role="dialog" aria-live="polite" aria-labelledby="cmplz-header-1-optin" aria-describedby="cmplz-message-1-optin">
+	<div class="cmplz-header">
+		<div class="cmplz-logo"></div>
+		<div class="cmplz-title" id="cmplz-header-1-optin">Manage Consent</div>
+		<div class="cmplz-close" tabindex="0" role="button" aria-label="Close dialog">
+			<svg aria-hidden="true" focusable="false" data-prefix="fas" data-icon="times" class="svg-inline--fa fa-times fa-w-11" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 352 512"><path fill="currentColor" d="M242.72 256l100.07-100.07c12.28-12.28 12.28-32.19 0-44.48l-22.24-22.24c-12.28-12.28-32.19-12.28-44.48 0L176 189.28 75.93 89.21c-12.28-12.28-32.19-12.28-44.48 0L9.21 111.45c-12.28 12.28-12.28 32.19 0 44.48L109.28 256 9.21 356.07c-12.28 12.28-12.28 32.19 0 44.48l22.24 22.24c12.28 12.28 32.2 12.28 44.48 0L176 322.72l100.07 100.07c12.28 12.28 32.2 12.28 44.48 0l22.24-22.24c12.28-12.28 12.28-32.19 0-44.48L242.72 256z"></path></svg>
+		</div>
+	</div>
+
+	<div class="cmplz-divider cmplz-divider-header"></div>
+	<div class="cmplz-body">
+		<div class="cmplz-message" id="cmplz-message-1-optin"><p>We and our partners use cookies to store and access device information, including your IP address and browsing data, for analytics and personalized advertising, which may include the sale or sharing of your personal data. We honor Global Privacy Control (GPC) signals. Manage your choices or opt out anytime.</p></div>
+		<!-- categories start -->
+		<div class="cmplz-categories">
+			<details class="cmplz-category cmplz-functional" >
+				<summary>
+						<span class="cmplz-category-header">
+							<span class="cmplz-category-title">Functional</span>
+							<span class='cmplz-always-active'>
+								<span class="cmplz-banner-checkbox">
+									<input type="checkbox"
+										   id="cmplz-functional-optin"
+										   data-category="cmplz_functional"
+										   class="cmplz-consent-checkbox cmplz-functional"
+										   size="40"
+										   value="1"/>
+									<label class="cmplz-label" for="cmplz-functional-optin"><span class="screen-reader-text">Functional</span></label>
+								</span>
+								Always active							</span>
+							<span class="cmplz-icon cmplz-open">
+								<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"  height="18" ><path d="M224 416c-8.188 0-16.38-3.125-22.62-9.375l-192-192c-12.5-12.5-12.5-32.75 0-45.25s32.75-12.5 45.25 0L224 338.8l169.4-169.4c12.5-12.5 32.75-12.5 45.25 0s12.5 32.75 0 45.25l-192 192C240.4 412.9 232.2 416 224 416z"/></svg>
+							</span>
+						</span>
+				</summary>
+				<div class="cmplz-description">
+					<span class="cmplz-description-functional">The technical storage or access is strictly necessary for the legitimate purpose of enabling the use of a specific service explicitly requested by the subscriber or user, or for the sole purpose of carrying out the transmission of a communication over an electronic communications network.</span>
+				</div>
+			</details>
+
+			<details class="cmplz-category cmplz-preferences" >
+				<summary>
+						<span class="cmplz-category-header">
+							<span class="cmplz-category-title">Preferences</span>
+							<span class="cmplz-banner-checkbox">
+								<input type="checkbox"
+									   id="cmplz-preferences-optin"
+									   data-category="cmplz_preferences"
+									   class="cmplz-consent-checkbox cmplz-preferences"
+									   size="40"
+									   value="1"/>
+								<label class="cmplz-label" for="cmplz-preferences-optin"><span class="screen-reader-text">Preferences</span></label>
+							</span>
+							<span class="cmplz-icon cmplz-open">
+								<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"  height="18" ><path d="M224 416c-8.188 0-16.38-3.125-22.62-9.375l-192-192c-12.5-12.5-12.5-32.75 0-45.25s32.75-12.5 45.25 0L224 338.8l169.4-169.4c12.5-12.5 32.75-12.5 45.25 0s12.5 32.75 0 45.25l-192 192C240.4 412.9 232.2 416 224 416z"/></svg>
+							</span>
+						</span>
+				</summary>
+				<div class="cmplz-description">
+					<span class="cmplz-description-preferences">The technical storage or access is necessary for the legitimate purpose of storing preferences that are not requested by the subscriber or user.</span>
+				</div>
+			</details>
+
+			<details class="cmplz-category cmplz-statistics" >
+				<summary>
+						<span class="cmplz-category-header">
+							<span class="cmplz-category-title">Statistics</span>
+							<span class="cmplz-banner-checkbox">
+								<input type="checkbox"
+									   id="cmplz-statistics-optin"
+									   data-category="cmplz_statistics"
+									   class="cmplz-consent-checkbox cmplz-statistics"
+									   size="40"
+									   value="1"/>
+								<label class="cmplz-label" for="cmplz-statistics-optin"><span class="screen-reader-text">Statistics</span></label>
+							</span>
+							<span class="cmplz-icon cmplz-open">
+								<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"  height="18" ><path d="M224 416c-8.188 0-16.38-3.125-22.62-9.375l-192-192c-12.5-12.5-12.5-32.75 0-45.25s32.75-12.5 45.25 0L224 338.8l169.4-169.4c12.5-12.5 32.75-12.5 45.25 0s12.5 32.75 0 45.25l-192 192C240.4 412.9 232.2 416 224 416z"/></svg>
+							</span>
+						</span>
+				</summary>
+				<div class="cmplz-description">
+					<span class="cmplz-description-statistics">The technical storage or access that is used exclusively for statistical purposes.</span>
+					<span class="cmplz-description-statistics-anonymous">The technical storage or access that is used exclusively for anonymous statistical purposes. Without a subpoena, voluntary compliance on the part of your Internet Service Provider, or additional records from a third party, information stored or retrieved for this purpose alone cannot usually be used to identify you.</span>
+				</div>
+			</details>
+			<details class="cmplz-category cmplz-marketing" >
+				<summary>
+						<span class="cmplz-category-header">
+							<span class="cmplz-category-title">Marketing</span>
+							<span class="cmplz-banner-checkbox">
+								<input type="checkbox"
+									   id="cmplz-marketing-optin"
+									   data-category="cmplz_marketing"
+									   class="cmplz-consent-checkbox cmplz-marketing"
+									   size="40"
+									   value="1"/>
+								<label class="cmplz-label" for="cmplz-marketing-optin"><span class="screen-reader-text">Marketing</span></label>
+							</span>
+							<span class="cmplz-icon cmplz-open">
+								<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"  height="18" ><path d="M224 416c-8.188 0-16.38-3.125-22.62-9.375l-192-192c-12.5-12.5-12.5-32.75 0-45.25s32.75-12.5 45.25 0L224 338.8l169.4-169.4c12.5-12.5 32.75-12.5 45.25 0s12.5 32.75 0 45.25l-192 192C240.4 412.9 232.2 416 224 416z"/></svg>
+							</span>
+						</span>
+				</summary>
+				<div class="cmplz-description">
+					<span class="cmplz-description-marketing">The technical storage or access is required to create user profiles to send advertising, or to track the user on a website or across several websites for similar marketing purposes.</span>
+				</div>
+			</details>
+		</div><!-- categories end -->
+			</div>
+
+	<div class="cmplz-links cmplz-information">
+		<ul>
+			<li><a class="cmplz-link cmplz-manage-options cookie-statement" href="#" data-relative_url="#cmplz-manage-consent-container">Manage options</a></li>
+			<li><a class="cmplz-link cmplz-manage-third-parties cookie-statement" href="#" data-relative_url="#cmplz-cookies-overview">Manage services</a></li>
+			<li><a class="cmplz-link cmplz-manage-vendors tcf cookie-statement" href="#" data-relative_url="#cmplz-tcf-wrapper">Manage {vendor_count} vendors</a></li>
+			<li><a class="cmplz-link cmplz-external cmplz-read-more-purposes tcf" target="_blank" rel="noopener noreferrer nofollow" href="https://cookiedatabase.org/tcf/purposes/" aria-label="Read more about TCF purposes on Cookie Database">Read more about these purposes</a></li>
+		</ul>
+			</div>
+
+	<div class="cmplz-divider cmplz-footer"></div>
+
+	<div class="cmplz-buttons">
+		<button class="cmplz-btn cmplz-accept">Accept All</button>
+		<button class="cmplz-btn cmplz-deny">Delete All</button>
+		<button class="cmplz-btn cmplz-view-preferences">Manage Preferences</button>
+		<button class="cmplz-btn cmplz-save-preferences">Save preferences</button>
+		<a class="cmplz-btn cmplz-manage-options tcf cookie-statement" href="#" data-relative_url="#cmplz-manage-consent-container">Manage Preferences</a>
+			</div>
+
+	
+	<div class="cmplz-documents cmplz-links">
+		<ul>
+			<li><a class="cmplz-link cookie-statement" href="#" data-relative_url="">{title}</a></li>
+			<li><a class="cmplz-link privacy-statement" href="#" data-relative_url="">{title}</a></li>
+			<li><a class="cmplz-link impressum" href="#" data-relative_url="">{title}</a></li>
+		</ul>
+			</div>
+</div>
+<div class="cmplz-cookiebanner cmplz-hidden banner-1 banner-a optout cmplz-center cmplz-categories-type-view-preferences" aria-modal="true" data-nosnippet="true" role="dialog" aria-live="polite" aria-labelledby="cmplz-header-1-optout" aria-describedby="cmplz-message-1-optout">
+	<div class="cmplz-header">
+		<div class="cmplz-logo"></div>
+		<div class="cmplz-title" id="cmplz-header-1-optout">Manage Consent</div>
+		<div class="cmplz-close" tabindex="0" role="button" aria-label="Close dialog">
+			<svg aria-hidden="true" focusable="false" data-prefix="fas" data-icon="times" class="svg-inline--fa fa-times fa-w-11" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 352 512"><path fill="currentColor" d="M242.72 256l100.07-100.07c12.28-12.28 12.28-32.19 0-44.48l-22.24-22.24c-12.28-12.28-32.19-12.28-44.48 0L176 189.28 75.93 89.21c-12.28-12.28-32.19-12.28-44.48 0L9.21 111.45c-12.28 12.28-12.28 32.19 0 44.48L109.28 256 9.21 356.07c-12.28 12.28-12.28 32.19 0 44.48l22.24 22.24c12.28 12.28 32.2 12.28 44.48 0L176 322.72l100.07 100.07c12.28 12.28 32.2 12.28 44.48 0l22.24-22.24c12.28-12.28 12.28-32.19 0-44.48L242.72 256z"></path></svg>
+		</div>
+	</div>
+
+	<div class="cmplz-divider cmplz-divider-header"></div>
+	<div class="cmplz-body">
+		<div class="cmplz-message" id="cmplz-message-1-optout">To provide the best experiences, we use technologies like cookies to store and/or access device information. Consenting to these technologies will allow us to process data such as browsing behavior or unique IDs on this site. Not consenting or withdrawing consent, may adversely affect certain features and functions.</div>
+		<!-- categories start -->
+		<div class="cmplz-categories">
+			<details class="cmplz-category cmplz-functional" >
+				<summary>
+						<span class="cmplz-category-header">
+							<span class="cmplz-category-title">Functional</span>
+							<span class='cmplz-always-active'>
+								<span class="cmplz-banner-checkbox">
+									<input type="checkbox"
+										   id="cmplz-functional-optout"
+										   data-category="cmplz_functional"
+										   class="cmplz-consent-checkbox cmplz-functional"
+										   size="40"
+										   value="1"/>
+									<label class="cmplz-label" for="cmplz-functional-optout"><span class="screen-reader-text">Functional</span></label>
+								</span>
+								Always active							</span>
+							<span class="cmplz-icon cmplz-open">
+								<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"  height="18" ><path d="M224 416c-8.188 0-16.38-3.125-22.62-9.375l-192-192c-12.5-12.5-12.5-32.75 0-45.25s32.75-12.5 45.25 0L224 338.8l169.4-169.4c12.5-12.5 32.75-12.5 45.25 0s12.5 32.75 0 45.25l-192 192C240.4 412.9 232.2 416 224 416z"/></svg>
+							</span>
+						</span>
+				</summary>
+				<div class="cmplz-description">
+					<span class="cmplz-description-functional">The technical storage or access is strictly necessary for the legitimate purpose of enabling the use of a specific service explicitly requested by the subscriber or user, or for the sole purpose of carrying out the transmission of a communication over an electronic communications network.</span>
+				</div>
+			</details>
+
+			<details class="cmplz-category cmplz-preferences" >
+				<summary>
+						<span class="cmplz-category-header">
+							<span class="cmplz-category-title">Preferences</span>
+							<span class="cmplz-banner-checkbox">
+								<input type="checkbox"
+									   id="cmplz-preferences-optout"
+									   data-category="cmplz_preferences"
+									   class="cmplz-consent-checkbox cmplz-preferences"
+									   size="40"
+									   value="1"/>
+								<label class="cmplz-label" for="cmplz-preferences-optout"><span class="screen-reader-text">Preferences</span></label>
+							</span>
+							<span class="cmplz-icon cmplz-open">
+								<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"  height="18" ><path d="M224 416c-8.188 0-16.38-3.125-22.62-9.375l-192-192c-12.5-12.5-12.5-32.75 0-45.25s32.75-12.5 45.25 0L224 338.8l169.4-169.4c12.5-12.5 32.75-12.5 45.25 0s12.5 32.75 0 45.25l-192 192C240.4 412.9 232.2 416 224 416z"/></svg>
+							</span>
+						</span>
+				</summary>
+				<div class="cmplz-description">
+					<span class="cmplz-description-preferences">The technical storage or access is necessary for the legitimate purpose of storing preferences that are not requested by the subscriber or user.</span>
+				</div>
+			</details>
+
+			<details class="cmplz-category cmplz-statistics" >
+				<summary>
+						<span class="cmplz-category-header">
+							<span class="cmplz-category-title">Statistics</span>
+							<span class="cmplz-banner-checkbox">
+								<input type="checkbox"
+									   id="cmplz-statistics-optout"
+									   data-category="cmplz_statistics"
+									   class="cmplz-consent-checkbox cmplz-statistics"
+									   size="40"
+									   value="1"/>
+								<label class="cmplz-label" for="cmplz-statistics-optout"><span class="screen-reader-text">Statistics</span></label>
+							</span>
+							<span class="cmplz-icon cmplz-open">
+								<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"  height="18" ><path d="M224 416c-8.188 0-16.38-3.125-22.62-9.375l-192-192c-12.5-12.5-12.5-32.75 0-45.25s32.75-12.5 45.25 0L224 338.8l169.4-169.4c12.5-12.5 32.75-12.5 45.25 0s12.5 32.75 0 45.25l-192 192C240.4 412.9 232.2 416 224 416z"/></svg>
+							</span>
+						</span>
+				</summary>
+				<div class="cmplz-description">
+					<span class="cmplz-description-statistics">The technical storage or access that is used exclusively for statistical purposes.</span>
+					<span class="cmplz-description-statistics-anonymous">The technical storage or access that is used exclusively for anonymous statistical purposes. Without a subpoena, voluntary compliance on the part of your Internet Service Provider, or additional records from a third party, information stored or retrieved for this purpose alone cannot usually be used to identify you.</span>
+				</div>
+			</details>
+			<details class="cmplz-category cmplz-marketing" >
+				<summary>
+						<span class="cmplz-category-header">
+							<span class="cmplz-category-title">Marketing</span>
+							<span class="cmplz-banner-checkbox">
+								<input type="checkbox"
+									   id="cmplz-marketing-optout"
+									   data-category="cmplz_marketing"
+									   class="cmplz-consent-checkbox cmplz-marketing"
+									   size="40"
+									   value="1"/>
+								<label class="cmplz-label" for="cmplz-marketing-optout"><span class="screen-reader-text">Marketing</span></label>
+							</span>
+							<span class="cmplz-icon cmplz-open">
+								<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"  height="18" ><path d="M224 416c-8.188 0-16.38-3.125-22.62-9.375l-192-192c-12.5-12.5-12.5-32.75 0-45.25s32.75-12.5 45.25 0L224 338.8l169.4-169.4c12.5-12.5 32.75-12.5 45.25 0s12.5 32.75 0 45.25l-192 192C240.4 412.9 232.2 416 224 416z"/></svg>
+							</span>
+						</span>
+				</summary>
+				<div class="cmplz-description">
+					<span class="cmplz-description-marketing">The technical storage or access is required to create user profiles to send advertising, or to track the user on a website or across several websites for similar marketing purposes.</span>
+				</div>
+			</details>
+		</div><!-- categories end -->
+			</div>
+
+	<div class="cmplz-links cmplz-information">
+		<ul>
+			<li><a class="cmplz-link cmplz-manage-options cookie-statement" href="#" data-relative_url="#cmplz-manage-consent-container">Manage options</a></li>
+			<li><a class="cmplz-link cmplz-manage-third-parties cookie-statement" href="#" data-relative_url="#cmplz-cookies-overview">Manage services</a></li>
+			<li><a class="cmplz-link cmplz-manage-vendors tcf cookie-statement" href="#" data-relative_url="#cmplz-tcf-wrapper">Manage {vendor_count} vendors</a></li>
+			<li><a class="cmplz-link cmplz-external cmplz-read-more-purposes tcf" target="_blank" rel="noopener noreferrer nofollow" href="https://cookiedatabase.org/tcf/purposes/" aria-label="Read more about TCF purposes on Cookie Database">Read more about these purposes</a></li>
+		</ul>
+			</div>
+
+	<div class="cmplz-divider cmplz-footer"></div>
+
+	<div class="cmplz-buttons">
+		<button class="cmplz-btn cmplz-accept">Accept</button>
+		<button class="cmplz-btn cmplz-deny">Delete All</button>
+		<button class="cmplz-btn cmplz-view-preferences">Manage Preferences</button>
+		<button class="cmplz-btn cmplz-save-preferences">Save preferences</button>
+		<a class="cmplz-btn cmplz-manage-options tcf cookie-statement" href="#" data-relative_url="#cmplz-manage-consent-container">Manage Preferences</a>
+			</div>
+
+	
+	<div class="cmplz-documents cmplz-links">
+		<ul>
+			<li><a class="cmplz-link cookie-statement" href="#" data-relative_url="">{title}</a></li>
+			<li><a class="cmplz-link privacy-statement" href="#" data-relative_url="">{title}</a></li>
+			<li><a class="cmplz-link impressum" href="#" data-relative_url="">{title}</a></li>
+		</ul>
+			</div>
+</div>
+</div>
+					<div id="cmplz-manage-consent" data-nosnippet="true"><button class="cmplz-btn cmplz-hidden cmplz-manage-consent manage-consent-1">Manage consent</button>
+
+<button class="cmplz-btn cmplz-hidden cmplz-manage-consent manage-consent-1">Manage consent</button>
+
+</div><div 
+	id="pum-16626" 
+	role="dialog" 
+	aria-modal="false"
+	class="pum pum-overlay pum-theme-16616 pum-theme-lightbox popmake-overlay pum-click-to-close click_open" 
+	data-popmake="{&quot;id&quot;:16626,&quot;slug&quot;:&quot;watch-video&quot;,&quot;theme_id&quot;:16616,&quot;cookies&quot;:[],&quot;triggers&quot;:[{&quot;type&quot;:&quot;click_open&quot;,&quot;settings&quot;:{&quot;cookie_name&quot;:&quot;&quot;,&quot;extra_selectors&quot;:&quot;.watch-video&quot;,&quot;do_default&quot;:true}}],&quot;mobile_disabled&quot;:null,&quot;tablet_disabled&quot;:null,&quot;meta&quot;:{&quot;display&quot;:{&quot;stackable&quot;:&quot;1&quot;,&quot;overlay_disabled&quot;:false,&quot;scrollable_content&quot;:false,&quot;disable_reposition&quot;:false,&quot;size&quot;:&quot;medium&quot;,&quot;responsive_min_width&quot;:&quot;0%&quot;,&quot;responsive_min_width_unit&quot;:false,&quot;responsive_max_width&quot;:&quot;100%&quot;,&quot;responsive_max_width_unit&quot;:false,&quot;custom_width&quot;:&quot;640px&quot;,&quot;custom_width_unit&quot;:false,&quot;custom_height&quot;:&quot;380px&quot;,&quot;custom_height_unit&quot;:false,&quot;custom_height_auto&quot;:false,&quot;location&quot;:&quot;center&quot;,&quot;position_from_trigger&quot;:false,&quot;position_top&quot;:&quot;100&quot;,&quot;position_left&quot;:&quot;0&quot;,&quot;position_bottom&quot;:&quot;0&quot;,&quot;position_right&quot;:&quot;0&quot;,&quot;position_fixed&quot;:false,&quot;animation_type&quot;:&quot;fade&quot;,&quot;animation_speed&quot;:&quot;350&quot;,&quot;animation_origin&quot;:&quot;center top&quot;,&quot;overlay_zindex&quot;:false,&quot;zindex&quot;:&quot;1999999999&quot;},&quot;close&quot;:{&quot;text&quot;:&quot;X&quot;,&quot;button_delay&quot;:&quot;0&quot;,&quot;overlay_click&quot;:&quot;1&quot;,&quot;esc_press&quot;:&quot;1&quot;,&quot;f4_press&quot;:&quot;1&quot;},&quot;click_open&quot;:[]}}">
+
+	<div id="popmake-16626" class="pum-container popmake theme-16616 pum-responsive pum-responsive-medium responsive size-medium">
+
+				
+				
+		
+				<div class="pum-content popmake-content" tabindex="0">
+			<p><iframe data-placeholder-image="https://cybelangel.com/wp-content/uploads/complianz/placeholders/youtube7LNHX6cBkYY-maxresdefault.webp" data-category="marketing" data-service="youtube" data-cmplz-target="src" data-src-cmplz="https://www.youtube.com/embed/7LNHX6cBkYY?feature=oembed"  class="cmplz-placeholder-element cmplz-video cmplz-iframe-styles cmplz-iframe youtube-video" title="CybelAngel | Discover More About the World's Leading EASM Platform" width="100%" height="70vh"  src="about:blank"  frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen=""></iframe></p>
+		</div>
+
+				
+							<button type="button" class="pum-close popmake-close" aria-label="Close">
+			X			</button>
+		
+	</div>
+
+</div>
+		<style>
+			div#hs-eu-cookie-confirmation {display: none;}
+		</style>
+	<script id="leadin-script-loader-js-js-extra">
+var leadin_wordpress = {"userRole":"visitor","pageType":"post","leadinPluginVersion":"11.3.75"};
+//# sourceURL=leadin-script-loader-js-js-extra
+</script>
+<script async defer id='hs-script-loader' src="https://js-eu1.hs-scripts.com/25375990.js?integration=WordPress&#038;ver=50cc332742"></script>
+<script id="child-understrap-scripts-js" src="https://cybelangel.com/wp-content/themes/cybel-angel/js/child-theme.min.js?ver=ddaaad1e65"></script>
+<script id="jquery-ui-core-js-before">
+jQuery.uiBackCompat = true;
+//# sourceURL=jquery-ui-core-js-before
+</script>
+<script id="jquery-ui-core-js" src="https://cybelangel.com/wp-includes/js/jquery/ui/core.min.js?ver=28a16dafc3"></script>
+<script id="wp-hooks-js" src="https://cybelangel.com/wp-includes/js/dist/hooks.min.js?ver=0cd231b0ae"></script>
+<script id="popup-maker-site-js-extra">
+var pum_vars = {"version":"1.25.0","pm_dir_url":"https://cybelangel.com/wp-content/plugins/popup-maker/","ajaxurl":"https://cybelangel.com/wp-admin/admin-ajax.php","restapi":"https://cybelangel.com/wp-json/pum/v1","rest_nonce":null,"default_theme":"16615","debug_mode":"","disable_tracking":"","disable_url_params":"","home_url":"/","message_position":"top","core_sub_forms_enabled":"1","popups":[],"cookie_domain":"","paramNames":{"popup_id":"pid","cta":"cta","notrack":"notrack"},"analytics_enabled":"1","analytics_route":"analytics","analytics_api":""};
+var pum_sub_vars = {"ajaxurl":"https://cybelangel.com/wp-admin/admin-ajax.php","message_position":"top"};
+var pum_popups = {"pum-16626":{"triggers":[{"type":"click_open","settings":{"cookie_name":"","extra_selectors":".watch-video","do_default":true}}],"cookies":[],"disable_on_mobile":false,"disable_on_tablet":false,"explain":null,"type_section":null,"theme_id":"16616","size":"medium","responsive_min_width":"0%","responsive_max_width":"100%","custom_width":"640px","custom_height_auto":false,"custom_height":"380px","scrollable_content":false,"animation_type":"fade","animation_speed":"350","animation_origin":"center top","open_sound":"none","custom_sound":"","location":"center","position_top":"100","position_bottom":"0","position_left":"0","position_right":"0","position_from_trigger":false,"position_fixed":false,"overlay_disabled":false,"stackable":true,"disable_reposition":false,"zindex":"1999999999","close_button_delay":"0","close_on_form_submission":false,"close_on_form_submission_delay":"0","close_on_overlay_click":true,"close_on_esc_press":true,"close_on_f4_press":true,"disable_form_reopen":false,"disable_accessibility":false,"atc_promotion":null,"fi_promotion":null,"theme_slug":"lightbox","id":16626,"slug":"watch-video"}};
+//# sourceURL=popup-maker-site-js-extra
+</script>
+<script id="popup-maker-site-js" src="//cybelangel.com/wp-content/uploads/pum/pum-site-scripts.js?defer&#038;generated=1790854748&#038;ver=0093564689"></script>
+<script id="cmplz-cookiebanner-js-extra">
+var complianz = {"prefix":"cmplz_","user_banner_id":"1","set_cookies":[],"block_ajax_content":"0","banner_version":"268","version":"7.5.6.1","store_consent":"1","do_not_track_enabled":"1","consenttype":"optin","region":"us","geoip":"1","dismiss_timeout":"","disable_cookiebanner":"","soft_cookiewall":"","dismiss_on_scroll":"","cookie_expiry":"365","url":"https://cybelangel.com/wp-json/complianz/v1/","locale":"lang=en&locale=en_US","set_cookies_on_root":"0","cookie_domain":"","current_policy_id":"10","cookie_path":"/","categories":{"statistics":"statistics","marketing":"marketing"},"tcf_active":"","placeholdertext":"Click to accept {category} cookies and enable this content","css_file":"https://cybelangel.com/wp-content/uploads/complianz/css/banner-{banner_id}-{type}.css?v=268","page_links":{"eu":{"cookie-statement":{"title":"Cookie Policy ","url":"https://cybelangel.com/cookie-policy-uk/"},"privacy-statement":{"title":"Privacy Policy","url":"https://cybelangel.com/privacy-policy/"},"impressum":{"title":"CybelAngel Terms &#038; Conditions","url":"https://cybelangel.com/legal-notice-cybelangel-terms-conditions/"}},"us":{"cookie-statement":{"title":"Cookie Policy ","url":"https://cybelangel.com/cookie-policy-uk/"},"privacy-statement":{"title":"Privacy Policy","url":"https://cybelangel.com/privacy-policy/"},"privacy-statement-children":{"title":"","url":"https://cybelangel.com/"},"impressum":{"title":"CybelAngel Terms &#038; Conditions","url":"https://cybelangel.com/legal-notice-cybelangel-terms-conditions/"}},"uk":{"cookie-statement":{"title":"Cookie Policy ","url":"https://cybelangel.com/cookie-policy-uk/"},"privacy-statement":{"title":"Privacy Policy","url":"https://cybelangel.com/privacy-policy/"},"privacy-statement-children":{"title":"","url":"https://cybelangel.com/"},"impressum":{"title":"CybelAngel Terms &#038; Conditions","url":"https://cybelangel.com/legal-notice-cybelangel-terms-conditions/"}},"ca":{"impressum":{"title":"CybelAngel Terms &#038; Conditions","url":"https://cybelangel.com/legal-notice-cybelangel-terms-conditions/"}},"au":{"impressum":{"title":"CybelAngel Terms &#038; Conditions","url":"https://cybelangel.com/legal-notice-cybelangel-terms-conditions/"}},"za":{"impressum":{"title":"CybelAngel Terms &#038; Conditions","url":"https://cybelangel.com/legal-notice-cybelangel-terms-conditions/"}},"br":{"impressum":{"title":"CybelAngel Terms &#038; Conditions","url":"https://cybelangel.com/legal-notice-cybelangel-terms-conditions/"}}},"tm_categories":"1","forceEnableStats":"","preview":"","clean_cookies":"","aria_label":"Click to accept {category} cookies and enable this content"};
+//# sourceURL=cmplz-cookiebanner-js-extra
+</script>
+<script defer id="cmplz-cookiebanner-js" src="https://cybelangel.com/wp-content/plugins/complianz-gdpr-premium/cookiebanner/js/complianz.min.js?ver=0146d5871c"></script>
+<script id="cmplz-cookiebanner-js-after">
+		
+			document.addEventListener("cmplz_enable_category", cmplzHubspotScriptHandler);
+			document.addEventListener("cmplz_status_change_service", cmplzHubspotScriptHandler);
+			document.addEventListener("cmplz_status_change", cmplzHubspotScriptHandler);
+			function cmplzHubspotScriptHandler(consentData) {
+				let hubspotAcceptBtn = document.getElementById("hs-eu-confirmation-button");
+				let hubspotDeclinetBtn = document.getElementById("hs-eu-decline-button");
+				if ( consentData.detail.category === 'marketing' ) {
+					if ( hubspotAcceptBtn != null ) {
+						hubspotAcceptBtn.click();
+					}
+				} else {
+					if ( hubspotDeclinetBtn != null && !consentData.detail.categories.includes("marketing") ) {
+						hubspotDeclinetBtn.click();
+					}
+				}
+				// if ( hubspotAcceptBtn ) {
+				// 	hubspotAcceptBtn.parentNode.removeChild(hubspotAcceptBtn);
+				// }
+			}
+		
+		
+
+	let cmplzBlockedContent = document.querySelector('.cmplz-blocked-content-notice');
+	if ( cmplzBlockedContent) {
+	        cmplzBlockedContent.addEventListener('click', function(event) {
+            event.stopPropagation();
+        });
+	}
+    
+//# sourceURL=cmplz-cookiebanner-js-after
+</script>
+<script data-wp-strategy="defer" defer id="beapi-mega-menu-view-script-js" src="https://cybelangel.com/wp-content/plugins/mega-menu-block/build/beapi-mega-menu/view.js?ver=42a41f9eb1"></script>
+<script data-wp-strategy="defer" defer id="blockparty-table-of-content-view-script-js" src="https://cybelangel.com/wp-content/plugins/blockparty-table-of-content/build/view.js?ver=b49791d4fa"></script>
+<!-- Statistics script Complianz GDPR/CCPA -->
+						<script data-category="functional">
+							(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+		new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+	j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+	'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+})(window,document,'script','dataLayer','GTM-TWCDQZM');
+
+const revokeListeners = [];
+window.addRevokeListener = (callback) => {
+	revokeListeners.push(callback);
+};
+document.addEventListener("cmplz_revoke", function (e) {
+	cmplz_set_cookie('cmplz_consent_mode', 'revoked', false );
+	revokeListeners.forEach((callback) => {
+		callback();
+	});
+});
+
+const consentListeners = [];
+/**
+ * Called from GTM template to set callback to be executed when user consent is provided.
+ * @param callback
+ */
+window.addConsentUpdateListener = (callback) => {
+	consentListeners.push(callback);
+};
+document.addEventListener("cmplz_fire_categories", function (e) {
+	var consentedCategories = e.detail.categories;
+	const consent = {
+		'security_storage': "granted",
+		'functionality_storage': "granted",
+		'personalization_storage':  cmplz_in_array( 'preferences', consentedCategories ) ? 'granted' : 'denied',
+		'analytics_storage':  cmplz_in_array( 'statistics', consentedCategories ) ? 'granted' : 'denied',
+		'ad_storage': cmplz_in_array( 'marketing', consentedCategories ) ? 'granted' : 'denied',
+		'ad_user_data': cmplz_in_array( 'marketing', consentedCategories ) ? 'granted' : 'denied',
+		'ad_personalization': cmplz_in_array( 'marketing', consentedCategories ) ? 'granted' : 'denied',
+	};
+
+	//don't use automatic prefixing, as the TM template needs to be sure it's cmplz_.
+	let consented = [];
+	for (const [key, value] of Object.entries(consent)) {
+		if (value === 'granted') {
+			consented.push(key);
+		}
+	}
+	cmplz_set_cookie('cmplz_consent_mode', consented.join(','), false );
+	consentListeners.forEach((callback) => {
+		callback(consent);
+	});
+});
+						</script><div hidden>299054M46O4EGYO57Q46</div><div hidden data-wpu-integrity="174c13fdcfbc3850b0b6dce4aed9a0d5"></div>
+<script>
+	jQuery('.mega-menu-item').mouseover(function(){
+		jQuery('.menu-dropdown', this).addClass('show');
+	});
+	jQuery('.mega-menu-item').mouseleave(function(){
+		jQuery('.menu-dropdown', this).removeClass('show');
+	});
+
+	jQuery('.mega-menu-item').click(function(){
+		jQuery('.menu-dropdown', this).toggleClass('show');
+	});
+
+
+	
+
+	jQuery('.menu-item-has-children').mouseover(function(){
+		jQuery('.dropdown-toggle', this).addClass('show');
+		jQuery('.dropdown-menu', this).addClass('show');
+	});
+	jQuery('.menu-item-has-children').mouseleave(function(){
+		jQuery('.dropdown-toggle', this).removeClass('show');
+		jQuery('.dropdown-menu', this).removeClass('show');
+	});
+
+
+
+	new PureCounter();
+
+
+
+	// When the user scrolls the page, execute myFunction
+window.onscroll = function() {stickyFunction()};
+
+// Get the header
+var header = document.getElementById("main-nav");
+
+// Get the offset position of the navbar
+var sticky = header.offsetTop;
+
+// Add the sticky class to the header when you reach its scroll position. Remove "sticky" when you leave the scroll position
+function stickyFunction() {
+	if (window.pageYOffset > sticky) {
+	header.classList.add("sticky");
+	} else {
+	header.classList.remove("sticky");
+	}
+}
+
+</script>
+<style>
+.sticky {
+	position: fixed;
+	top: 0;
+	width: 100%;
+	background-color: #ffffff;
+	animation:slide-down 0.7s;
+}
+
+@keyframes slide-down {
+	0% {
+		opacity: 0;
+		transform: translateY(-100%);
+	} 
+	100% {
+		opacity: 1;
+		transform: translateY(0);
+	} 
+}
+</style>
+</body>
+
+</html>
+
