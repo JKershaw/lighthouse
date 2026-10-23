@@ -64,6 +64,10 @@ Each answer says what its record's current Answer says, at the same certainty as
 
 ## Next
 
+### Checkpoint, 23 October 2026: connect the PHP watch to investigation and reading
+
+Five rapid LH028 snapshots through 23 October 16:00 UTC preserve two consequential Cloudflare revisions, while the public account remains dated 22 October. Continuing identical captures, repairing the reader loop, and launching another measurement were weighed. Repair the reader loop first: retain PHP's original related-vulnerability notice, whose configuration conditions were read separately during the keeper's assessment, and prepare a reviewed dated update. Then make a bounded discovery pass and fix one feasible question about how a mitigation instruction travels through a defined public-notice panel. The [continuation plan](notes/php-watch-continuation-2026-10-23.md) records source context, existing work, ceilings, acceptance gates and exact next action. The existing source/image protocols retain their clocks; the fixed panel does not prevent separately logged investigation. No public deployment rate or causal AI effect is currently measured. LH013 remains the standing baseline priority after time-sensitive capture and this reader repair.
+
 ### Checkpoint, 21 October 2026: the emergency PHP release
 
 **Consumer boundary:** LH021 fixed three application-image repositories and a tiny deterministic file and run rule in [its protocol](studies/LH021/brief.md), commit `f58afb6`, before reading their files and runs. Its [feasibility record](studies/LH021/LH021.md) finds literal PHP base references in selected WordPress and Drupal recipes and two successful runs at each sampled head among the latest ten, but no resolved input digest or derived-image publication; the fixed four-file cap reaches only Nextcloud proxy examples. Some sampled commits and runs precede the patched registry images. This is an instrument failure for one repository and an adoption limit for all three, not a negative uptake result. Repair the production-recipe selection and link runs to digests under a new brief before attempting an uptake estimate; no population denominator is available.
