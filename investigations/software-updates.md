@@ -30,7 +30,6 @@ studies:
 - studies/LH027/LH027.md
 - studies/LH028/LH028.md
 - studies/LH029/LH029.md
-- studies/LH028/LH028.md
 pieces:
 - articles/where-software-updates-go.md
 - articles/where-a-software-update-went.md
@@ -75,7 +74,7 @@ Attention says where we are looking; this says how firm the findings are. That a
 
 - [A PHP emergency, from an early attack trace to published fixes](../articles/php-emergency-first-reading.md), dated 22 October 2026, puts this event's public source clocks beside the selected image snapshots. Amazon reports a 17 October honeypot attempt retrospectively; OpenAI documents AI-assisted defensive discovery; the fixed panels show network-provider claims, agency advice and published fixed-version images. Neither attack success nor deployment uptake is measured. The [short form](../articles/short/php-emergency-first-reading.md) and two diagrams give the same boundaries. Further source reads are intended every six hours through 24 October, alongside daily image and response panels; missed slots and later changes will be dated. A later-evidence notice of 23 October adds PHP's own notice of a further, separately numbered flaw: by PHP's account an unlikely route to running code that arises only where an application changes its session data format at runtime with upload progress on, for which PHP suggests switching that feature off until its next regular release; PHP names no version, but its advice implies the 21 October releases do not close it, as Cloudflare's revised page says outright.
 
-- [PHP's own notice of a related issue](../studies/LH029/LH029.md), 23 October 2026: one retained read of PHP's news page at 17:00 UTC, under a protocol committed beforehand that disclosed what a web reader had already shown. The notice's conditions, advice and promised advisory are PHP's claims; how many applications meet the conditions is not measured, and the page's entry time of 10:12 UTC is not proof of when the text became public.
+- [PHP's own notice of a related issue](../studies/LH029/LH029.md), 23 October 2026: one retained read of PHP's news page at 17:00 UTC, under a protocol committed beforehand that disclosed what a web reader had already shown. The notice's conditions, advice and promised advisory are PHP's claims; how many applications meet the conditions is not measured, and the page's 10:12 UTC stamp on the entry is not proof of when the text became public.
 
 - [The first snapshot of the emergency PHP fix](../studies/LH018/LH018.md), 21 October 2026: a bounded reading of three distribution package paths and four official PHP image tags. This is another ecosystem and a selected emergency, not a replication of the Python pace. Vendor fix records and image declarations were visible by the first reading; none reaches a running deployment. The protocol and evidence sit with the study, and a later reading needs a separate window.
 - [The first moving-tag baseline](../studies/LH019/LH019.md), 21 October 2026: four official PHP moving tags already named the same linux/amd64 digests as their fixed-version counterparts at first observation. Their earlier pointer states are unknown. Later checkpoints can bound a change between readings, but cannot measure deployments.

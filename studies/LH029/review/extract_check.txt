@@ -1,0 +1,239 @@
+LH029 23 Oct archive.raw: 102923 bytes sha256 941317fe0df9a5e2c642f3b817724c9682ad1e751707b5db8a65d86c21ae11dc
+LH024 22 Oct php_0.raw: 99388 bytes sha256 3b02b9e9f8ebedb87cbe39a2852c8cc3205067f59572000c730844fbc4a03555
+
+entries parsed: 23 Oct copy 59, 22 Oct copy 57
+
+== entry 2026-10-23-1 in 23 Oct copy ==
+datetime attribute: 2026-10-23T10:12:28+00:00
+header links: ['https://www.php.net/archive/2026.php#2026-10-23-1']
+body links: ['https://github.com/php/php-src/security/advisories/GHSA-6wmf-4rv5-p3rp']
+text: 23 Oct 2026 Informational advisory: Session upload progress We suggest you set session.upload_progress.enabled=0 until the next regular bugfix release, to fully protect from an unlikely RCE vector. This setting was already listed as a mitigation in the GHSA-6wmf-4rv5-p3rp advisory for CVE-2026-109619 published on Oct 21st, 2026. If you applied it then, keep it in place and no further action is needed. The issue can only occur under an unusual combination of configuration and application code. An application must set session.serialize_handler to php_binary or php_serialize in its configuration and then switch it to php at runtime with ini_set() before calling session_start() . Session upload progress must also still be enabled. Applications that never change the serialize handler at runtime can keep the feature enabled. Since this setup is unlikely in practice, we are handling it in the regular release cycle and will publish a full advisory for CVE-2026-115560 with the next release.
+matches LH029 stored extraction: True
+raw HTML of the entry:
+<article class="newsItem">
+  <header class="title">
+    <time class="newsdate" datetime="2026-10-23T10:12:28+00:00">23 Oct 2026</time>
+    <h2 class="newstitle"><a id="2026-10-23-1" href="https://www.php.net/archive/2026.php#2026-10-23-1" rel="bookmark" class="bookmark">Informational advisory: Session upload progress</a></h2>
+  </header>
+  <div class="newscontent">
+    <div class="newsImage"></div>
+    <div>
+      <p>
+        We suggest you set <code>session.upload_progress.enabled=0</code> until the
+        next regular bugfix release, to fully protect from an unlikely RCE vector.
+        This setting was already listed as a mitigation in the
+        <a href="https://github.com/php/php-src/security/advisories/GHSA-6wmf-4rv5-p3rp">GHSA-6wmf-4rv5-p3rp</a>
+        advisory for CVE-2026-109619 published on Oct 21st, 2026. If you applied it
+        then, keep it in place and no further action is needed.
+      </p>
+      <p>
+        The issue can only occur under an unusual combination of configuration and
+        application code. An application must set
+        <code>session.serialize_handler</code> to <code>php_binary</code> or
+        <code>php_serialize</code> in its configuration and then switch it to
+        <code>php</code> at runtime with <code>ini_set()</code> before calling
+        <code>session_start()</code>. Session upload progress must also still be
+        enabled. Applications that never change the serialize handler at runtime can
+        keep the feature enabled. Since this setup is unlikely in practice, we are
+        handling it in the regular release cycle and will publish a full advisory for
+        CVE-2026-115560 with the next release.
+      </p>
+    </div>
+  
+  </div>
+</article>
+
+== presence checks in the 22 Oct copy ==
+'2026-10-23-1': 0 occurrence(s)
+'115560': 0 occurrence(s)
+'Informational advisory': 0 occurrence(s)
+'upload_progress': 1 occurrence(s)
+'serialize_handler': 0 occurrence(s)
+'2026-10-21-6': 0 occurrence(s)
+'RC4': 1 occurrence(s)
+'remirepo': 1 occurrence(s)
+
+== presence checks in the 23 Oct copy ==
+'2026-10-23-1': 3 occurrence(s)
+'115560': 1 occurrence(s)
+'upload_progress': 2 occurrence(s)
+'serialize_handler': 1 occurrence(s)
+'2026-10-21-6': 2 occurrence(s)
+'RC4': 6 occurrence(s)
+'remirepo': 0 occurrence(s)
+'8.5.12': 6 occurrence(s)
+'8.4.27': 6 occurrence(s)
+'8.3.36': 6 occurrence(s)
+'8.2.35': 6 occurrence(s)
+
+== entries dated 21 Oct or later, both copies (id, datetime) ==
+2026-10-20-1: 23Oct=2026-10-20T20:32:00+00:00 22Oct=2026-10-20T20:32:00+00:00
+2026-10-21-1: 23Oct=2026-10-21T00:05:37+00:00 22Oct=2026-10-21T00:05:37+00:00
+2026-10-21-2: 23Oct=2026-10-21T00:14:54+00:00 22Oct=2026-10-21T00:14:54+00:00
+2026-10-21-3: 23Oct=2026-10-21T00:20:54+00:00 22Oct=2026-10-21T00:20:54+00:00
+2026-10-21-4: 23Oct=2026-10-21T00:24:52+00:00 22Oct=2026-10-21T00:24:52+00:00
+2026-10-21-5: 23Oct=2026-10-21T00:35:26+00:00 22Oct=2026-10-21T00:35:26+00:00
+2026-10-21-6: 23Oct=2026-10-21T15:41:41+00:00 22Oct=ABSENT
+2026-10-23-1: 23Oct=2026-10-23T10:12:28+00:00 22Oct=ABSENT
+
+== 21 Oct security advisory entry (2026-10-21-5): sentences mentioning upload_progress, in each copy ==
+[22 Oct] If you cannot update immediately: while only an update is a complete solution, the following measures reduce exposure to specific attack paths but do not make an installation safe.
+[22 Oct] RCE via stale global state (CVE-2026-109619): Set session.upload_progress.enabled=0 and restart every worker.
+[22 Oct] This blocks the confirmed session paths but not other variants.
+[23 Oct] If you cannot update immediately: while only an update is a complete solution, the following measures reduce exposure to specific attack paths but do not make an installation safe.
+[23 Oct] RCE via stale global state (CVE-2026-109619): Set session.upload_progress.enabled=0 and restart every worker.
+[23 Oct] This blocks the confirmed session paths but not other variants.
+
+sentence-level diff of 2026-10-21-5 between copies:
+--- old
++++ new
+@@ -15,2 +14,0 @@
+-If you rely on the volunteer-maintained rpms.remirepo.net , we urge you to switch to distribution packages or build from source, so you can immediately apply updates.
+-The repo will not have updates today.
+
+== Cloudflare retained copies: modified_time and key sentences ==
+
+[snapshot-2026-10-22] bytes=301730 sha256=d007f9a68aa3b868ff732f65450324bb40c4ed1127519a046893b5b201a79b37
+  article:modified_time=2026-10-21T19:12:17.798Z  article:published_time=2026-10-21T13:56:45.655Z
+  links to php.net archive: ['https://www.php.net/archive/2026.php#2026-10-21-5', 'https://www.php.net/archive/2026.php#2026-10-21-5']
+  > Free
+  > Freedom of Speech
+  > The protections are available and deployed automatically on all plans with WAF deployed, including Free users.
+  > For Free customers, new rules have been released under the Cloudflare Managed Free Ruleset (Ruleset ID 77454fe2d30c4220b5701f6fdfb893ba). Free customers don’t have to take any actions to enable the protection. To override the ruleset behavior you can refer to our
+  > The following rules have been deployed to the new Cloudflare Managed Response Firewall Default for customers on all plans, including Free:
+
+[snapshot-2026-10-22T1600Z] bytes=301730 sha256=3d0f90b29a5d79e364b79ce217eb2d05906662e0d6128efb076690839ac16f86
+  article:modified_time=2026-10-21T19:12:17.798Z  article:published_time=2026-10-21T13:56:45.655Z
+  links to php.net archive: ['https://www.php.net/archive/2026.php#2026-10-21-5', 'https://www.php.net/archive/2026.php#2026-10-21-5']
+  > Free
+  > Freedom of Speech
+  > The protections are available and deployed automatically on all plans with WAF deployed, including Free users.
+  > For Free customers, new rules have been released under the Cloudflare Managed Free Ruleset (Ruleset ID 77454fe2d30c4220b5701f6fdfb893ba). Free customers don’t have to take any actions to enable the protection. To override the ruleset behavior you can refer to our
+  > The following rules have been deployed to the new Cloudflare Managed Response Firewall Default for customers on all plans, including Free:
+
+[snapshot-2026-10-22T2200Z] bytes=305077 sha256=630e8de4bff8324345addf43f54a5ba5f5d47ea6526b789a9479a90861eac721
+  article:modified_time=2026-10-22T19:09:42.850Z  article:published_time=2026-10-21T13:56:45.655Z
+  links to php.net archive: ['https://www.php.net/archive/2026.php#2026-10-21-5', 'https://www.php.net/archive/2026.php#2026-10-21-5']
+  > Free
+  > Freedom of Speech
+  > The protections are available and deployed automatically on all plans with WAF deployed, including Free users.
+  > For Free customers, new rules have been released under the Cloudflare Managed Free Ruleset (Ruleset ID 77454fe2d30c4220b5701f6fdfb893ba). Free customers don’t have to take any actions to enable the protection. To override the ruleset behavior, you can refer to our
+  > The new Cloudflare Managed Response Firewall Default has been automatically deployed for customers on all plans, including Free. To verify that the response rules are active, you can visit the
+  > The new Cloudflare Managed Response Firewall Default detection is protecting your traffic.
+
+[snapshot-2026-10-23T0400Z] bytes=305077 sha256=7de29cbe444fa8836b926be32e187e1d76675595d685baa8a20c5a7efaa14f98
+  article:modified_time=2026-10-22T19:09:42.850Z  article:published_time=2026-10-21T13:56:45.655Z
+  links to php.net archive: ['https://www.php.net/archive/2026.php#2026-10-21-5', 'https://www.php.net/archive/2026.php#2026-10-21-5']
+  > Free
+  > Freedom of Speech
+  > The protections are available and deployed automatically on all plans with WAF deployed, including Free users.
+  > For Free customers, new rules have been released under the Cloudflare Managed Free Ruleset (Ruleset ID 77454fe2d30c4220b5701f6fdfb893ba). Free customers don’t have to take any actions to enable the protection. To override the ruleset behavior, you can refer to our
+  > The new Cloudflare Managed Response Firewall Default has been automatically deployed for customers on all plans, including Free. To verify that the response rules are active, you can visit the
+  > The new Cloudflare Managed Response Firewall Default detection is protecting your traffic.
+
+[snapshot-2026-10-23T1000Z] bytes=305077 sha256=b8c364037d9e944909eeb8c2ae7e9f921f0d5c12c16593f75dfcc0e56d1f9a44
+  article:modified_time=2026-10-22T19:09:42.850Z  article:published_time=2026-10-21T13:56:45.655Z
+  links to php.net archive: ['https://www.php.net/archive/2026.php#2026-10-21-5', 'https://www.php.net/archive/2026.php#2026-10-21-5']
+  > Free
+  > Freedom of Speech
+  > The protections are available and deployed automatically on all plans with WAF deployed, including Free users.
+  > For Free customers, new rules have been released under the Cloudflare Managed Free Ruleset (Ruleset ID 77454fe2d30c4220b5701f6fdfb893ba). Free customers don’t have to take any actions to enable the protection. To override the ruleset behavior, you can refer to our
+  > The new Cloudflare Managed Response Firewall Default has been automatically deployed for customers on all plans, including Free. To verify that the response rules are active, you can visit the
+  > The new Cloudflare Managed Response Firewall Default detection is protecting your traffic.
+
+[snapshot-2026-10-23T1600Z] bytes=306061 sha256=7261c4bf3ddb1694d3966ecb6a16700106e9a1390eadfd03bc5551e5842c49ab
+  article:modified_time=2026-10-23T15:09:11.234Z  article:published_time=2026-10-21T13:56:45.655Z
+  links to php.net archive: ['https://www.php.net/archive/2026.php#2026-10-23-1', 'https://www.php.net/archive/2026.php#2026-10-21-5', 'https://www.php.net/archive/2026.php#2026-10-21-5']
+  > Free
+  > Freedom of Speech
+  > informational advisory
+  > for a related vulnerability, CVE-2026-115560, in PHP's session upload progress feature. It affects fully patched PHP releases, including 8.5.12, and will be fixed in PHP's next regular release.
+  > All Cloudflare WAF customers are protected against known exploit attempts if their site uses PHP's default upload progress field name. Customers who have changed
+  > session.upload_progress.name
+  > The protections are available and deployed automatically on all plans with WAF deployed, including Free users.
+  > For Free customers, new rules have been released under the Cloudflare Managed Free Ruleset (Ruleset ID 77454fe2d30c4220b5701f6fdfb893ba). Free customers don’t have to take any actions to enable the protection. To override the ruleset behavior, you can refer to our
+  > The new Cloudflare Managed Response Firewall Default has been automatically deployed for customers on all plans, including Free. To verify that the response rules are active, you can visit the
+  > The new Cloudflare Managed Response Firewall Default detection is protecting your traffic.
+
+== visible-text diff Cloudflare 2026-10-22T1600Z -> 2026-10-22T2200Z ==
+--- 1600Z
++++ 2200Z
+@@ -890 +890 @@
+-For Free customers, new rules have been released under the Cloudflare Managed Free Ruleset (Ruleset ID 77454fe2d30c4220b5701f6fdfb893ba). Free customers don’t have to take any actions to enable the protection. To override the ruleset behavior you can refer to our
++For Free customers, new rules have been released under the Cloudflare Managed Free Ruleset (Ruleset ID 77454fe2d30c4220b5701f6fdfb893ba). Free customers don’t have to take any actions to enable the protection. To override the ruleset behavior, you can refer to our
+@@ -895 +895 @@
+-Generic Rules - Anomalous Execution - 1
++PHP Remote Code Execution Attack (CVE-2026-109618, CVE-2026-109619)
+@@ -897 +897 @@
+-Generic Rules - Anomalous Execution - 2
++PHP Remote Code Execution Attack (CVE-2026-109618, CVE-2026-109619) #2
+@@ -899 +899 @@
+-Generic Rules - Anomalous Execution - 3
++PHP Remote Code Execution Attack (CVE-2026-109618, CVE-2026-109619) #3
+@@ -901 +901 @@
+-Generic Rules - Anomalous Execution - 4
++PHP Remote Code Execution Attack (CVE-2026-109618, CVE-2026-109619) #4
+@@ -903 +903 @@
+-Generic Rules - Anomalous Execution - 5
++PHP Remote Code Execution Attack (CVE-2026-109618, CVE-2026-109619) #5
+@@ -905 +905 @@
+-Generic Rules - Anomalous Execution - 6
++PHP Remote Code Execution Attack (CVE-2026-109618, CVE-2026-109619) #6
+@@ -907 +907 @@
+-Generic Rules - Anomalous Execution - 7
++PHP Remote Code Execution Attack (CVE-2026-109618, CVE-2026-109619) #7
+@@ -909 +909 @@
+-Protection for paid plans has been released as part of the Cloudflare Managed Ruleset (Ruleset ID efb7b8c949ac4650a09736fc376e9aee). If you are on a Professional, Business, or Enterprise plan, review your Managed Ruleset deployment to confirm it’s
++Protection for paid plans has been released as part of the Cloudflare Managed Ruleset (Ruleset ID efb7b8c949ac4650a09736fc376e9aee). If you are on a Professional, Business, or Enterprise plan, review your Managed Ruleset deployment to confirm it has
+@@ -914 +914 @@
+-Generic Rules - Anomalous Execution - 1
++PHP Remote Code Execution Attack (CVE-2026-109618, CVE-2026-109619)
+@@ -916 +916 @@
+-Generic Rules - Anomalous Execution - 2
++PHP Remote Code Execution Attack (CVE-2026-109618, CVE-2026-109619) #2
+@@ -918 +918 @@
+-Generic Rules - Anomalous Execution - 3
++PHP Remote Code Execution Attack (CVE-2026-109618, CVE-2026-109619) #3
+@@ -920 +920 @@
+-Generic Rules - Anomalous Execution - 4
++PHP Remote Code Execution Attack (CVE-2026-109618, CVE-2026-109619) #4
+@@ -922 +922 @@
+-Generic Rules - Anomalous Execution - 5
++PHP Remote Code Execution Attack (CVE-2026-109618, CVE-2026-109619) #5
+@@ -924 +924 @@
+-Generic Rules - Anomalous Execution - 6
++PHP Remote Code Execution Attack (CVE-2026-109618, CVE-2026-109619) #6
+@@ -926 +926 @@
+-Generic Rules - Anomalous Execution - 7
++PHP Remote Code Execution Attack (CVE-2026-109618, CVE-2026-109619) #7
+@@ -931,6 +931,6 @@
+-The following rules have been deployed to the new Cloudflare Managed Response Firewall Default for customers on all plans, including Free:
+-Rule Description
+-Rule ID
+-Default block for High confidence Signatures
+-afffe22785674c80a31875c848d2242a
+-Note: rule descriptions will be updated soon.
++The new Cloudflare Managed Response Firewall Default has been automatically deployed for customers on all plans, including Free. To verify that the response rules are active, you can visit the
++Security > Security Rules
++page. Read the full transaction
++blog
++to learn how to customize its deployment.
++The new Cloudflare Managed Response Firewall Default detection is protecting your traffic.
+
+== visible-text diff Cloudflare 2026-10-23T1000Z -> 2026-10-23T1600Z ==
+--- 1000Z
++++ 1600Z
+@@ -853 +853 @@
+-5 minute read
++6 minute read
+@@ -855 +855,9 @@
+-Today, Calif.io, Wiz, OpenAI and Quarkslab disclosed two
++Update - On October 23, the PHP project published an
++informational advisory
++for a related vulnerability, CVE-2026-115560, in PHP's session upload progress feature. It affects fully patched PHP releases, including 8.5.12, and will be fixed in PHP's next regular release.
++All Cloudflare WAF customers are protected against known exploit attempts if their site uses PHP's default upload progress field name. Customers who have changed
++session.upload_progress.name
++are not covered by the WAF rule.
++The existing rules "PHP Remote Code Execution Attack (CVE-2026-109618, CVE-2026-109619) #6" protects against this vulnerability.
++More information to follow.
++October 21, Calif.io, Wiz, OpenAI and Quarkslab disclosed two
