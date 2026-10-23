@@ -1,0 +1,126 @@
+{
+  "source_revision": "2fdc314ded280d18868d13d2f33d092a15e5a231",
+  "source_fragments": 14,
+  "source_elements": 2286,
+  "source_fragment_hashes": {
+    "software/spdx/segments/applications.json": "4edc74cd0ea7a5b91a8ac6f99cd08f1e6302319fe91d6c8b05ca244c85dd3cd0",
+    "software/spdx/segments/containers-images.json": "03c8663af41846410baa19e30984608a9b2a7e2377ba524b411e00e7c603eb30",
+    "software/spdx/segments/developer-tooling.json": "f82ed0d8d374350d1e00a4da368d9dff5f435eff78054da73330670df2a5a457",
+    "software/spdx/segments/edge-devices.json": "ec8085dbf82fa7deb678a77fb5601ccb1927b1b4b1d21beb2b30c1829c35eab3",
+    "software/spdx/segments/frameworks-libraries.json": "bd85182de1a54aaa86e3a8a534ce2ab84a242ea50e9a96b19c98fd0ad0c0e098",
+    "software/spdx/segments/hosting-cloud.json": "1a46acd950595780f493ee29e5a5307fc03da7392b0187885494114bb7d5c1a2",
+    "software/spdx/segments/observability-admin.json": "1a8dc0afb735935321608e5c741b6658d07424f5cb2682ca0a08c09a2a1f6fb8",
+    "software/spdx/segments/os-distributions.json": "29993a60e09eeb6282cd087751b1f3add1459a7b2c6ea7a6a91863af301950ad",
+    "software/spdx/segments/runtime-core.json": "f545d3cfb467ddb46d8dc2a083fe4527c375b292814051cb5999d001c372b46e",
+    "software/spdx/segments/unclassified.json": "d8cde3e582ae149ae5a4560cb75b1923a43e64058177fc4bad3fb023ab6f5822",
+    "software/spdx/shared/assessments.json": "d339108d52671da41451573d89cc397e12c3e8345ef9ba7fd7d5d5cb878cd150",
+    "software/spdx/shared/core.json": "59fe8ffd7e5073044c987f412c8178757419d3b40a94c21eb10cc1fde8a9a08c",
+    "software/spdx/shared/organizations.json": "44644f8e829dac54d9627e84945d6765a453f5a4efc25519ece9a78c1c871d92",
+    "software/spdx/shared/vulnerabilities.json": "6e8e26906f7a5139e6bb66b01d08f2b19eeed49b46f5077e312775ae2e9cfb20"
+  },
+  "source_matches_compiled": true,
+  "identities_and_per_entry_statuses_and_url_presence_match_markdown": true,
+  "entries": 751,
+  "entries_with_url": 749,
+  "entries_with_advisory_typed_url": 202,
+  "statuses": {
+    "CVE-2026-109618": {
+      "Vulnerable": 222,
+      "Investigation": 389,
+      "Fix": 109,
+      "Not vuln": 30,
+      "": 1
+    },
+    "CVE-2026-109619": {
+      "Vulnerable": 220,
+      "Investigation": 390,
+      "Fix": 109,
+      "Not vuln": 31,
+      "": 1
+    }
+  },
+  "mainline_commits": 65,
+  "first_resolution_bins_hours": {
+    "0_to_12": 50,
+    "36_to_48": 72,
+    "12_to_24": 18,
+    "24_to_36": 1
+  },
+  "first_listed_clock_differences": 66,
+  "first_resolution_clock_differences": 117,
+  "surviving_entries_with_status_changes": 308,
+  "url_corrections": [
+    {
+      "supplier": "Composer / Satis maintainers",
+      "product": "Satis Composer repository generator",
+      "original_url_flag": false,
+      "source_url_flag": true
+    },
+    {
+      "supplier": "PHPStan / Ondrej Mirtes and contributors",
+      "product": "PHPStan static analyzer",
+      "original_url_flag": false,
+      "source_url_flag": true
+    },
+    {
+      "supplier": "PHPStan project",
+      "product": "PHPStan PHPDoc parser library",
+      "original_url_flag": false,
+      "source_url_flag": true
+    },
+    {
+      "supplier": "PHPro / GrumPHP contributors",
+      "product": "GrumPHP Git quality-check orchestration",
+      "original_url_flag": false,
+      "source_url_flag": true
+    },
+    {
+      "supplier": "ParaTest / Brian Scaturro, Filippo Tessarotto and contributors",
+      "product": "ParaTest parallel PHPUnit runner",
+      "original_url_flag": false,
+      "source_url_flag": true
+    },
+    {
+      "supplier": "PhpSpec project",
+      "product": "PhpSpec specification test runner",
+      "original_url_flag": false,
+      "source_url_flag": true
+    },
+    {
+      "supplier": "Prophecy / PhpSpec project",
+      "product": "Prophecy PHP mocking library",
+      "original_url_flag": false,
+      "source_url_flag": true
+    },
+    {
+      "supplier": "Psalm project / Matthew Brown, Daniil Gentili and contributors",
+      "product": "Psalm PHP static analyzer",
+      "original_url_flag": false,
+      "source_url_flag": true
+    },
+    {
+      "supplier": "PsySH / Justin Hileman and contributors",
+      "product": "PsySH interactive PHP shell",
+      "original_url_flag": false,
+      "source_url_flag": true
+    },
+    {
+      "supplier": "Rector project",
+      "product": "Rector automated PHP refactoring tool",
+      "original_url_flag": false,
+      "source_url_flag": true
+    },
+    {
+      "supplier": "Roave",
+      "product": "Roave backward-compatibility checker",
+      "original_url_flag": false,
+      "source_url_flag": true
+    },
+    {
+      "supplier": "WP-CLI / WordPress project",
+      "product": "WP-CLI WordPress administration framework",
+      "original_url_flag": false,
+      "source_url_flag": true
+    }
+  ]
+}

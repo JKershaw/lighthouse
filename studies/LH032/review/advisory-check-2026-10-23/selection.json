@@ -1,0 +1,88 @@
+[
+ {
+  "id": "urn:php2shell:inventory:package:PHP-0035",
+  "supplier": "Amazon Web Services",
+  "product": "AWS Elastic Beanstalk PHP platform",
+  "status": [
+   "Fix",
+   "Fix"
+  ],
+  "urls": [
+   "https://docs.aws.amazon.com/elasticbeanstalk/latest/platforms/platforms-supported.html",
+   "https://aws.amazon.com/security/security-bulletins/2026-143-aws/",
+   "https://docs.aws.amazon.com/elasticbeanstalk/latest/relnotes/release-2026-10-21-al2023-php84-php85.html",
+   "https://docs.aws.amazon.com/elasticbeanstalk/latest/relnotes/release-2026-10-22-al2023-php82-php83.html"
+  ],
+  "advisory_urls": [
+   "https://aws.amazon.com/security/security-bulletins/2026-143-aws/",
+   "https://docs.aws.amazon.com/elasticbeanstalk/latest/relnotes/release-2026-10-21-al2023-php84-php85.html",
+   "https://docs.aws.amazon.com/elasticbeanstalk/latest/relnotes/release-2026-10-22-al2023-php82-php83.html"
+  ]
+ },
+ {
+  "id": "urn:php2shell:inventory:package:PHP-0361",
+  "supplier": "Arch Linux package maintainers",
+  "product": "Arch Linux Extra PHP package",
+  "status": [
+   "Fix",
+   "Fix"
+  ],
+  "urls": [
+   "https://archlinux.org/packages/extra/x86_64/php/",
+   "https://archlinux.org/news/update-to-php-8512-andor-php-legacy-8336-to-prevent-remote-code-execution/"
+  ],
+  "advisory_urls": [
+   "https://archlinux.org/news/update-to-php-8512-andor-php-legacy-8336-to-prevent-remote-code-execution/"
+  ]
+ },
+ {
+  "id": "urn:php2shell:inventory:package:PHP-0641",
+  "supplier": "Arch Linux package maintainers",
+  "product": "Arch Linux Extra php-legacy package",
+  "status": [
+   "Fix",
+   "Fix"
+  ],
+  "urls": [
+   "https://archlinux.org/packages/extra/x86_64/php-legacy/",
+   "https://archlinux.org/news/update-to-php-8512-andor-php-legacy-8336-to-prevent-remote-code-execution/"
+  ],
+  "advisory_urls": [
+   "https://archlinux.org/news/update-to-php-8512-andor-php-legacy-8336-to-prevent-remote-code-execution/"
+  ]
+ },
+ {
+  "id": "urn:php2shell:inventory:package:PHP-0183",
+  "supplier": "BookStack project",
+  "product": "BookStack",
+  "status": [
+   "Fix",
+   "Fix"
+  ],
+  "urls": [
+   "https://www.bookstackapp.com/docs/admin/installation/",
+   "https://www.bookstackapp.com/blog/php-security-release-critical/"
+  ],
+  "advisory_urls": [
+   "https://www.bookstackapp.com/blog/php-security-release-critical/"
+  ]
+ },
+ {
+  "id": "urn:php2shell:inventory:package:PHP-0642",
+  "supplier": "Bref project",
+  "product": "Bref PHP Lambda runtime layers",
+  "status": [
+   "Fix",
+   "Fix"
+  ],
+  "urls": [
+   "https://bref.sh/docs/runtimes",
+   "https://github.com/brefphp/bref/issues/2222",
+   "https://bref.sh/news/06-php-security-release-october-2026"
+  ],
+  "advisory_urls": [
+   "https://github.com/brefphp/bref/issues/2222",
+   "https://bref.sh/news/06-php-security-release-october-2026"
+  ]
+ }
+]

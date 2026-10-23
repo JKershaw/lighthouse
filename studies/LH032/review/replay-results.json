@@ -1,0 +1,1704 @@
+{
+ "source_commit": "2fdc314ded280d18868d13d2f33d092a15e5a231",
+ "all_four_corrected_outputs_replayed": true,
+ "original_retained_list_files_match_pinned_source": true,
+ "field_difference_counts": {
+  "first_fix_or_not_vuln": 117,
+  "first_listed": 66,
+  "links_vendor": 12
+ },
+ "first_fix_or_not_vuln_bins_hours": {
+  "36_to_48": 72,
+  "0_to_12": 50,
+  "12_to_24": 18,
+  "24_to_36": 1
+ },
+ "largest_surviving_identity_first_listed_batch": [
+  [
+   "2026-10-21T13:20:17+02:00",
+   615
+  ]
+ ],
+ "corrected_artifact_sha256": {
+  "entries.json.gz": "823e5a0255b54b5cdee6b961a98a7fe864916280a9823f8003012d20489e6f77",
+  "inventory_verification.json.gz": "70ee85bde63687ccc7c1662554029058422030008274d2db35e462b9b59a3bb2",
+  "source_entries.json.gz": "9112038187973c56f6094ec8736fa97ae9ad9ed55da96b4a314cd30ea7f7c1a5",
+  "summary.json.gz": "67a65161a484c86b90e7fbd06c0f1aaa3a4573d8f7ef895359ea6e89ad93af81"
+ },
+ "differences": [
+  {
+   "supplier": "Amazon Web Services",
+   "product": "AWS Elastic Beanstalk PHP platform",
+   "changed": {
+    "first_fix_or_not_vuln": {
+     "original": "2026-10-23T11:16:56+02:00",
+     "corrected": "2026-10-23T11:34:29+02:00"
+    }
+   }
+  },
+  {
+   "supplier": "Arch Linux package maintainers",
+   "product": "Arch Linux Extra PHP package",
+   "changed": {
+    "first_fix_or_not_vuln": {
+     "original": "2026-10-21T18:30:46+02:00",
+     "corrected": "2026-10-21T19:03:18+02:00"
+    }
+   }
+  },
+  {
+   "supplier": "BookStack project",
+   "product": "BookStack",
+   "changed": {
+    "first_fix_or_not_vuln": {
+     "original": "2026-10-21T19:41:35+02:00",
+     "corrected": "2026-10-21T20:01:23+02:00"
+    }
+   }
+  },
+  {
+   "supplier": "Bref project",
+   "product": "Bref PHP Lambda runtime layers",
+   "changed": {
+    "first_fix_or_not_vuln": {
+     "original": "2026-10-21T19:54:22+02:00",
+     "corrected": "2026-10-21T20:01:23+02:00"
+    }
+   }
+  },
+  {
+   "supplier": "Bref project",
+   "product": "Bref PHP serverless application adapter",
+   "changed": {
+    "first_fix_or_not_vuln": {
+     "original": "2026-10-21T19:41:35+02:00",
+     "corrected": "2026-10-21T20:01:23+02:00"
+    }
+   }
+  },
+  {
+   "supplier": "Bref project",
+   "product": "Bref v2 PHP Docker images",
+   "changed": {
+    "first_fix_or_not_vuln": {
+     "original": "2026-10-21T19:54:22+02:00",
+     "corrected": "2026-10-21T20:01:23+02:00"
+    }
+   }
+  },
+  {
+   "supplier": "Broadcom",
+   "product": "Symantec Endpoint Protection Manager (SEPM)",
+   "changed": {
+    "first_fix_or_not_vuln": {
+     "original": "2026-10-23T14:47:55+02:00",
+     "corrected": "2026-10-23T14:50:49+02:00"
+    }
+   }
+  },
+  {
+   "supplier": "Canonical / Ubuntu package maintainers",
+   "product": "Ubuntu optional PHP package and SAPI family",
+   "changed": {
+    "first_fix_or_not_vuln": {
+     "original": "2026-10-21T19:41:35+02:00",
+     "corrected": "2026-10-21T20:01:23+02:00"
+    }
+   }
+  },
+  {
+   "supplier": "Check Point",
+   "product": "Check Point firewall web interfaces",
+   "changed": {
+    "first_listed": {
+     "original": "2026-10-22T15:04:02+02:00",
+     "corrected": "2026-10-22T15:08:35+02:00"
+    }
+   }
+  },
+  {
+   "supplier": "Cisco",
+   "product": "AppDynamics On-Premises Secure Application",
+   "changed": {
+    "first_listed": {
+     "original": "2026-10-22T11:32:47+02:00",
+     "corrected": "2026-10-22T15:17:07+02:00"
+    },
+    "first_fix_or_not_vuln": {
+     "original": "2026-10-23T11:16:56+02:00",
+     "corrected": "2026-10-23T11:34:29+02:00"
+    }
+   }
+  },
+  {
+   "supplier": "Cisco",
+   "product": "AppDynamics PHP Agent",
+   "changed": {
+    "first_listed": {
+     "original": "2026-10-22T11:32:47+02:00",
+     "corrected": "2026-10-22T15:17:07+02:00"
+    },
+    "first_fix_or_not_vuln": {
+     "original": "2026-10-23T11:16:56+02:00",
+     "corrected": "2026-10-23T11:34:29+02:00"
+    }
+   }
+  },
+  {
+   "supplier": "Cisco",
+   "product": "AppDynamics SaaS Secure Application",
+   "changed": {
+    "first_listed": {
+     "original": "2026-10-22T11:32:47+02:00",
+     "corrected": "2026-10-22T15:17:07+02:00"
+    },
+    "first_fix_or_not_vuln": {
+     "original": "2026-10-23T11:16:56+02:00",
+     "corrected": "2026-10-23T11:34:29+02:00"
+    }
+   }
+  },
+  {
+   "supplier": "Cisco",
+   "product": "Cisco AI Defense (hybrid on-premises deployment)",
+   "changed": {
+    "first_listed": {
+     "original": "2026-10-22T11:32:47+02:00",
+     "corrected": "2026-10-22T15:17:07+02:00"
+    },
+    "first_fix_or_not_vuln": {
+     "original": "2026-10-22T11:32:47+02:00",
+     "corrected": "2026-10-22T15:17:07+02:00"
+    }
+   }
+  },
+  {
+   "supplier": "Cisco",
+   "product": "Cisco ASR 5000 Series Software (StarOS)",
+   "changed": {
+    "first_listed": {
+     "original": "2026-10-22T11:32:47+02:00",
+     "corrected": "2026-10-22T15:17:07+02:00"
+    },
+    "first_fix_or_not_vuln": {
+     "original": "2026-10-23T11:16:56+02:00",
+     "corrected": "2026-10-23T11:34:29+02:00"
+    }
+   }
+  },
+  {
+   "supplier": "Cisco",
+   "product": "Cisco Business Process Automation (BPA)",
+   "changed": {
+    "first_listed": {
+     "original": "2026-10-22T11:32:47+02:00",
+     "corrected": "2026-10-22T15:17:07+02:00"
+    },
+    "first_fix_or_not_vuln": {
+     "original": "2026-10-23T11:16:56+02:00",
+     "corrected": "2026-10-23T11:34:29+02:00"
+    }
+   }
+  },
+  {
+   "supplier": "Cisco",
+   "product": "Cisco CX Cloud",
+   "changed": {
+    "first_listed": {
+     "original": "2026-10-22T11:32:47+02:00",
+     "corrected": "2026-10-22T15:17:07+02:00"
+    }
+   }
+  },
+  {
+   "supplier": "Cisco",
+   "product": "Cisco Catalyst Center (formerly DNA Center)",
+   "changed": {
+    "first_listed": {
+     "original": "2026-10-22T11:32:47+02:00",
+     "corrected": "2026-10-22T15:17:07+02:00"
+    }
+   }
+  },
+  {
+   "supplier": "Cisco",
+   "product": "Cisco Catalyst SD-WAN Manager",
+   "changed": {
+    "first_listed": {
+     "original": "2026-10-22T11:32:47+02:00",
+     "corrected": "2026-10-22T15:17:07+02:00"
+    },
+    "first_fix_or_not_vuln": {
+     "original": "2026-10-23T11:16:56+02:00",
+     "corrected": "2026-10-23T11:34:29+02:00"
+    }
+   }
+  },
+  {
+   "supplier": "Cisco",
+   "product": "Cisco Defense Orchestrator",
+   "changed": {
+    "first_listed": {
+     "original": "2026-10-22T11:32:47+02:00",
+     "corrected": "2026-10-22T15:17:07+02:00"
+    },
+    "first_fix_or_not_vuln": {
+     "original": "2026-10-23T11:16:56+02:00",
+     "corrected": "2026-10-23T11:34:29+02:00"
+    }
+   }
+  },
+  {
+   "supplier": "Cisco",
+   "product": "Cisco Expressway Series",
+   "changed": {
+    "first_listed": {
+     "original": "2026-10-22T11:32:47+02:00",
+     "corrected": "2026-10-22T15:17:07+02:00"
+    }
+   }
+  },
+  {
+   "supplier": "Cisco",
+   "product": "Cisco Hypershield",
+   "changed": {
+    "first_listed": {
+     "original": "2026-10-22T11:32:47+02:00",
+     "corrected": "2026-10-22T15:17:07+02:00"
+    },
+    "first_fix_or_not_vuln": {
+     "original": "2026-10-23T11:16:56+02:00",
+     "corrected": "2026-10-23T11:34:29+02:00"
+    }
+   }
+  },
+  {
+   "supplier": "Cisco",
+   "product": "Cisco Identity Services Engine (ISE)",
+   "changed": {
+    "first_listed": {
+     "original": "2026-10-22T11:32:47+02:00",
+     "corrected": "2026-10-22T15:17:07+02:00"
+    },
+    "first_fix_or_not_vuln": {
+     "original": "2026-10-23T11:16:56+02:00",
+     "corrected": "2026-10-23T11:34:29+02:00"
+    }
+   }
+  },
+  {
+   "supplier": "Cisco",
+   "product": "Cisco IoT Control Center",
+   "changed": {
+    "first_listed": {
+     "original": "2026-10-22T11:32:47+02:00",
+     "corrected": "2026-10-22T15:17:07+02:00"
+    }
+   }
+  },
+  {
+   "supplier": "Cisco",
+   "product": "Cisco Multicloud Defense",
+   "changed": {
+    "first_listed": {
+     "original": "2026-10-22T11:32:47+02:00",
+     "corrected": "2026-10-22T15:17:07+02:00"
+    },
+    "first_fix_or_not_vuln": {
+     "original": "2026-10-23T11:16:56+02:00",
+     "corrected": "2026-10-23T11:34:29+02:00"
+    }
+   }
+  },
+  {
+   "supplier": "Cisco",
+   "product": "Cisco Nexus Dashboard Insights",
+   "changed": {
+    "first_listed": {
+     "original": "2026-10-22T11:32:47+02:00",
+     "corrected": "2026-10-22T15:17:07+02:00"
+    },
+    "first_fix_or_not_vuln": {
+     "original": "2026-10-23T11:16:56+02:00",
+     "corrected": "2026-10-23T11:34:29+02:00"
+    }
+   }
+  },
+  {
+   "supplier": "Cisco",
+   "product": "Cisco Panoptica",
+   "changed": {
+    "first_listed": {
+     "original": "2026-10-22T11:32:47+02:00",
+     "corrected": "2026-10-22T15:17:07+02:00"
+    }
+   }
+  },
+  {
+   "supplier": "Cisco",
+   "product": "Cisco Policy Suite (CPS)",
+   "changed": {
+    "first_listed": {
+     "original": "2026-10-22T11:32:47+02:00",
+     "corrected": "2026-10-22T15:17:07+02:00"
+    },
+    "first_fix_or_not_vuln": {
+     "original": "2026-10-23T11:16:56+02:00",
+     "corrected": "2026-10-23T11:34:29+02:00"
+    }
+   }
+  },
+  {
+   "supplier": "Cisco",
+   "product": "Cisco Secure Access",
+   "changed": {
+    "first_listed": {
+     "original": "2026-10-22T11:32:47+02:00",
+     "corrected": "2026-10-22T15:17:07+02:00"
+    },
+    "first_fix_or_not_vuln": {
+     "original": "2026-10-23T11:16:56+02:00",
+     "corrected": "2026-10-23T11:34:29+02:00"
+    }
+   }
+  },
+  {
+   "supplier": "Cisco",
+   "product": "Cisco Secure Email Threat Defense",
+   "changed": {
+    "first_listed": {
+     "original": "2026-10-22T11:32:47+02:00",
+     "corrected": "2026-10-22T15:17:07+02:00"
+    },
+    "first_fix_or_not_vuln": {
+     "original": "2026-10-23T11:16:56+02:00",
+     "corrected": "2026-10-23T11:34:29+02:00"
+    }
+   }
+  },
+  {
+   "supplier": "Cisco",
+   "product": "Cisco Ultra Cloud Core - Converged Policy and Charging",
+   "changed": {
+    "first_listed": {
+     "original": "2026-10-22T11:32:47+02:00",
+     "corrected": "2026-10-22T15:17:07+02:00"
+    }
+   }
+  },
+  {
+   "supplier": "Cisco",
+   "product": "Cisco Ultra Cloud Core - Policy Control Function",
+   "changed": {
+    "first_listed": {
+     "original": "2026-10-22T11:32:47+02:00",
+     "corrected": "2026-10-22T15:17:07+02:00"
+    },
+    "first_fix_or_not_vuln": {
+     "original": "2026-10-23T11:16:56+02:00",
+     "corrected": "2026-10-23T11:34:29+02:00"
+    }
+   }
+  },
+  {
+   "supplier": "Cisco",
+   "product": "Cisco Ultra Cloud Core - Subscriber Microservices Infrastructure",
+   "changed": {
+    "first_listed": {
+     "original": "2026-10-22T11:32:47+02:00",
+     "corrected": "2026-10-22T15:17:07+02:00"
+    },
+    "first_fix_or_not_vuln": {
+     "original": "2026-10-23T11:16:56+02:00",
+     "corrected": "2026-10-23T11:34:29+02:00"
+    }
+   }
+  },
+  {
+   "supplier": "Cisco",
+   "product": "Cisco Ultra-Reliable Wireless Backhaul (URWB)",
+   "changed": {
+    "first_listed": {
+     "original": "2026-10-22T11:32:47+02:00",
+     "corrected": "2026-10-22T15:17:07+02:00"
+    }
+   }
+  },
+  {
+   "supplier": "Cisco",
+   "product": "Cisco Umbrella",
+   "changed": {
+    "first_listed": {
+     "original": "2026-10-22T11:32:47+02:00",
+     "corrected": "2026-10-22T15:17:07+02:00"
+    },
+    "first_fix_or_not_vuln": {
+     "original": "2026-10-22T11:32:47+02:00",
+     "corrected": "2026-10-22T15:17:07+02:00"
+    }
+   }
+  },
+  {
+   "supplier": "Cisco",
+   "product": "Cisco Unified Industrial Wireless Software",
+   "changed": {
+    "first_listed": {
+     "original": "2026-10-22T11:32:47+02:00",
+     "corrected": "2026-10-22T15:17:07+02:00"
+    }
+   }
+  },
+  {
+   "supplier": "Cisco",
+   "product": "Cisco Vulnerability Management (formerly Kenna.VM)",
+   "changed": {
+    "first_listed": {
+     "original": "2026-10-22T11:32:47+02:00",
+     "corrected": "2026-10-22T15:17:07+02:00"
+    },
+    "first_fix_or_not_vuln": {
+     "original": "2026-10-23T11:16:56+02:00",
+     "corrected": "2026-10-23T11:34:29+02:00"
+    }
+   }
+  },
+  {
+   "supplier": "Cisco",
+   "product": "Cisco WAN Automation Engine (WAE)",
+   "changed": {
+    "first_listed": {
+     "original": "2026-10-22T11:32:47+02:00",
+     "corrected": "2026-10-22T15:17:07+02:00"
+    }
+   }
+  },
+  {
+   "supplier": "Cisco",
+   "product": "Cisco+ Secure Connect",
+   "changed": {
+    "first_listed": {
+     "original": "2026-10-22T11:32:47+02:00",
+     "corrected": "2026-10-22T15:17:07+02:00"
+    },
+    "first_fix_or_not_vuln": {
+     "original": "2026-10-23T11:16:56+02:00",
+     "corrected": "2026-10-23T11:34:29+02:00"
+    }
+   }
+  },
+  {
+   "supplier": "Cisco",
+   "product": "Slido",
+   "changed": {
+    "first_listed": {
+     "original": "2026-10-22T11:32:47+02:00",
+     "corrected": "2026-10-22T15:17:07+02:00"
+    }
+   }
+  },
+  {
+   "supplier": "Cisco",
+   "product": "Webex",
+   "changed": {
+    "first_listed": {
+     "original": "2026-10-22T11:32:47+02:00",
+     "corrected": "2026-10-22T15:17:07+02:00"
+    },
+    "first_fix_or_not_vuln": {
+     "original": "2026-10-23T11:16:56+02:00",
+     "corrected": "2026-10-23T11:34:29+02:00"
+    }
+   }
+  },
+  {
+   "supplier": "CloudLinux",
+   "product": "CloudLinux ea-PHP fixed packages for CloudLinux 7-10",
+   "changed": {
+    "first_listed": {
+     "original": "2026-10-23T13:30:06+02:00",
+     "corrected": "2026-10-23T13:33:24+02:00"
+    },
+    "first_fix_or_not_vuln": {
+     "original": "2026-10-23T13:30:06+02:00",
+     "corrected": "2026-10-23T13:33:24+02:00"
+    }
+   }
+  },
+  {
+   "supplier": "CloudLinux / TuxCare",
+   "product": "CloudLinux Alt-PHP fixed packages for CloudLinux 7-10 and Ubuntu 22.04",
+   "changed": {
+    "first_listed": {
+     "original": "2026-10-23T13:30:06+02:00",
+     "corrected": "2026-10-23T13:33:24+02:00"
+    },
+    "first_fix_or_not_vuln": {
+     "original": "2026-10-23T13:30:06+02:00",
+     "corrected": "2026-10-23T13:33:24+02:00"
+    }
+   }
+  },
+  {
+   "supplier": "Composer / Satis maintainers",
+   "product": "Satis Composer repository generator",
+   "changed": {
+    "links_vendor": {
+     "original": false,
+     "corrected": true
+    }
+   }
+  },
+  {
+   "supplier": "Coolify",
+   "product": "Coolify",
+   "changed": {
+    "first_fix_or_not_vuln": {
+     "original": "2026-10-22T10:56:12+02:00",
+     "corrected": "2026-10-22T11:25:32+02:00"
+    }
+   }
+  },
+  {
+   "supplier": "DDEV project",
+   "product": "DDEV PHP webserver development container",
+   "changed": {
+    "first_fix_or_not_vuln": {
+     "original": "2026-10-23T11:16:56+02:00",
+     "corrected": "2026-10-23T11:34:29+02:00"
+    }
+   }
+  },
+  {
+   "supplier": "Delta Controls",
+   "product": "enteliWEB building management system",
+   "changed": {
+    "first_listed": {
+     "original": "2026-10-23T11:16:56+02:00",
+     "corrected": "2026-10-23T11:34:29+02:00"
+    },
+    "first_fix_or_not_vuln": {
+     "original": "2026-10-23T11:16:56+02:00",
+     "corrected": "2026-10-23T11:34:29+02:00"
+    }
+   }
+  },
+  {
+   "supplier": "FileCloud",
+   "product": "FileCloud Server PHP installation and maintenance",
+   "changed": {
+    "first_fix_or_not_vuln": {
+     "original": "2026-10-23T13:30:06+02:00",
+     "corrected": "2026-10-23T13:33:24+02:00"
+    }
+   }
+  },
+  {
+   "supplier": "FileRun",
+   "product": "FileRun official Docker image (fixed PHP rebuild)",
+   "changed": {
+    "first_listed": {
+     "original": "2026-10-23T13:30:06+02:00",
+     "corrected": "2026-10-23T13:33:24+02:00"
+    },
+    "first_fix_or_not_vuln": {
+     "original": "2026-10-23T13:30:06+02:00",
+     "corrected": "2026-10-23T13:33:24+02:00"
+    }
+   }
+  },
+  {
+   "supplier": "Firefly III project",
+   "product": "Firefly III",
+   "changed": {
+    "first_fix_or_not_vuln": {
+     "original": "2026-10-22T10:56:12+02:00",
+     "corrected": "2026-10-22T11:25:32+02:00"
+    }
+   }
+  },
+  {
+   "supplier": "Fortinet",
+   "product": "FortiADC",
+   "changed": {
+    "first_fix_or_not_vuln": {
+     "original": "2026-10-23T11:16:56+02:00",
+     "corrected": "2026-10-23T11:34:29+02:00"
+    }
+   }
+  },
+  {
+   "supplier": "Fortinet",
+   "product": "FortiADC Manager",
+   "changed": {
+    "first_listed": {
+     "original": "2026-10-22T11:31:26+02:00",
+     "corrected": "2026-10-22T17:28:33+02:00"
+    },
+    "first_fix_or_not_vuln": {
+     "original": "2026-10-23T11:16:56+02:00",
+     "corrected": "2026-10-23T11:34:29+02:00"
+    }
+   }
+  },
+  {
+   "supplier": "Fortinet",
+   "product": "FortiClient Cloud Services",
+   "changed": {
+    "first_listed": {
+     "original": "2026-10-22T17:26:18+02:00",
+     "corrected": "2026-10-22T17:28:33+02:00"
+    }
+   }
+  },
+  {
+   "supplier": "Fortinet",
+   "product": "FortiDDoS",
+   "changed": {
+    "first_listed": {
+     "original": "2026-10-22T11:31:26+02:00",
+     "corrected": "2026-10-22T17:28:33+02:00"
+    }
+   }
+  },
+  {
+   "supplier": "Fortinet",
+   "product": "FortiDDoS-F",
+   "changed": {
+    "first_listed": {
+     "original": "2026-10-22T11:31:26+02:00",
+     "corrected": "2026-10-22T17:28:33+02:00"
+    }
+   }
+  },
+  {
+   "supplier": "Fortinet",
+   "product": "FortiEndpoint",
+   "changed": {
+    "first_listed": {
+     "original": "2026-10-22T11:31:26+02:00",
+     "corrected": "2026-10-22T17:28:33+02:00"
+    },
+    "first_fix_or_not_vuln": {
+     "original": "2026-10-23T11:16:56+02:00",
+     "corrected": "2026-10-23T11:34:29+02:00"
+    }
+   }
+  },
+  {
+   "supplier": "Fortinet",
+   "product": "FortiMonitor",
+   "changed": {
+    "first_listed": {
+     "original": "2026-10-22T11:31:26+02:00",
+     "corrected": "2026-10-22T17:28:33+02:00"
+    },
+    "first_fix_or_not_vuln": {
+     "original": "2026-10-23T11:16:56+02:00",
+     "corrected": "2026-10-23T11:34:29+02:00"
+    }
+   }
+  },
+  {
+   "supplier": "Fortinet",
+   "product": "FortiSIEM",
+   "changed": {
+    "first_listed": {
+     "original": "2026-10-22T11:31:26+02:00",
+     "corrected": "2026-10-22T17:28:33+02:00"
+    },
+    "first_fix_or_not_vuln": {
+     "original": "2026-10-23T11:16:56+02:00",
+     "corrected": "2026-10-23T11:34:29+02:00"
+    }
+   }
+  },
+  {
+   "supplier": "Fortinet",
+   "product": "FortiSOAR",
+   "changed": {
+    "first_listed": {
+     "original": "2026-10-22T11:31:26+02:00",
+     "corrected": "2026-10-22T17:28:33+02:00"
+    }
+   }
+  },
+  {
+   "supplier": "Fortinet",
+   "product": "FortiSOAR PaaS",
+   "changed": {
+    "first_listed": {
+     "original": "2026-10-22T11:31:26+02:00",
+     "corrected": "2026-10-22T17:28:33+02:00"
+    }
+   }
+  },
+  {
+   "supplier": "FrankenPHP",
+   "product": "FrankenPHP static builds",
+   "changed": {
+    "first_fix_or_not_vuln": {
+     "original": "2026-10-23T13:30:06+02:00",
+     "corrected": "2026-10-23T13:33:24+02:00"
+    }
+   }
+  },
+  {
+   "supplier": "FreeBSD Project / ports maintainers",
+   "product": "FreeBSD PHP port and mod_php package integration",
+   "changed": {
+    "first_fix_or_not_vuln": {
+     "original": "2026-10-22T10:56:12+02:00",
+     "corrected": "2026-10-22T11:25:32+02:00"
+    }
+   }
+  },
+  {
+   "supplier": "GLPI / Teclib",
+   "product": "GLPI official Docker images (main, 12, 11, 10)",
+   "changed": {
+    "first_listed": {
+     "original": "2026-10-23T13:30:06+02:00",
+     "corrected": "2026-10-23T13:33:24+02:00"
+    },
+    "first_fix_or_not_vuln": {
+     "original": "2026-10-23T13:30:06+02:00",
+     "corrected": "2026-10-23T13:33:24+02:00"
+    }
+   }
+  },
+  {
+   "supplier": "Gentoo PHP maintainers",
+   "product": "Gentoo dev-lang/php runtime package family",
+   "changed": {
+    "first_fix_or_not_vuln": {
+     "original": "2026-10-21T19:41:35+02:00",
+     "corrected": "2026-10-21T20:01:23+02:00"
+    }
+   }
+  },
+  {
+   "supplier": "Google Cloud",
+   "product": "Google App Engine Standard PHP runtime",
+   "changed": {
+    "first_fix_or_not_vuln": {
+     "original": "2026-10-21T18:30:46+02:00",
+     "corrected": "2026-10-21T19:03:18+02:00"
+    }
+   }
+  },
+  {
+   "supplier": "Grav project",
+   "product": "Grav official Docker images (getgrav/grav)",
+   "changed": {
+    "first_listed": {
+     "original": "2026-10-23T13:30:06+02:00",
+     "corrected": "2026-10-23T13:33:24+02:00"
+    },
+    "first_fix_or_not_vuln": {
+     "original": "2026-10-23T13:30:06+02:00",
+     "corrected": "2026-10-23T13:33:24+02:00"
+    }
+   }
+  },
+  {
+   "supplier": "Heroku / Salesforce",
+   "product": "Heroku PHP buildpack and application runtime",
+   "changed": {
+    "first_fix_or_not_vuln": {
+     "original": "2026-10-21T19:41:35+02:00",
+     "corrected": "2026-10-21T20:01:23+02:00"
+    }
+   }
+  },
+  {
+   "supplier": "Hestia Control Panel project",
+   "product": "HestiaCP hestia-php internal runtime",
+   "changed": {
+    "first_fix_or_not_vuln": {
+     "original": "2026-10-23T13:30:06+02:00",
+     "corrected": "2026-10-23T13:33:24+02:00"
+    }
+   }
+  },
+  {
+   "supplier": "Hestia Control Panel project",
+   "product": "HestiaCP hosted-site PHP-FPM / MultiPHP option",
+   "changed": {
+    "first_fix_or_not_vuln": {
+     "original": "2026-10-21T19:41:35+02:00",
+     "corrected": "2026-10-21T20:01:23+02:00"
+    }
+   }
+  },
+  {
+   "supplier": "Hewlett Packard Enterprise",
+   "product": "HPE Networking ClearPass Policy Manager",
+   "changed": {
+    "first_listed": {
+     "original": "2026-10-23T14:41:26+02:00",
+     "corrected": "2026-10-23T14:50:49+02:00"
+    }
+   }
+  },
+  {
+   "supplier": "Homebrew maintainers",
+   "product": "Homebrew PHP formula and bottles",
+   "changed": {
+    "first_fix_or_not_vuln": {
+     "original": "2026-10-22T10:56:12+02:00",
+     "corrected": "2026-10-22T11:25:32+02:00"
+    }
+   }
+  },
+  {
+   "supplier": "JBMC Software / DirectAdmin",
+   "product": "DirectAdmin CustomBuild hosted PHP",
+   "changed": {
+    "first_fix_or_not_vuln": {
+     "original": "2026-10-21T19:41:35+02:00",
+     "corrected": "2026-10-21T20:01:23+02:00"
+    }
+   }
+  },
+  {
+   "supplier": "Kevin Papst / Kimai project",
+   "product": "Kimai",
+   "changed": {
+    "first_fix_or_not_vuln": {
+     "original": "2026-10-21T19:41:35+02:00",
+     "corrected": "2026-10-21T20:01:23+02:00"
+    }
+   }
+  },
+  {
+   "supplier": "Kinsta",
+   "product": "Kinsta managed WordPress PHP hosting",
+   "changed": {
+    "first_fix_or_not_vuln": {
+     "original": "2026-10-22T10:56:12+02:00",
+     "corrected": "2026-10-22T11:25:32+02:00"
+    }
+   }
+  },
+  {
+   "supplier": "Laravel",
+   "product": "Laravel Cloud PHP runtime option",
+   "changed": {
+    "first_fix_or_not_vuln": {
+     "original": "2026-10-22T10:56:12+02:00",
+     "corrected": "2026-10-22T11:25:32+02:00"
+    }
+   }
+  },
+  {
+   "supplier": "Laravel; AWS infrastructure",
+   "product": "Laravel Vapor PHP serverless hosting configuration",
+   "changed": {
+    "first_fix_or_not_vuln": {
+     "original": "2026-10-22T10:56:12+02:00",
+     "corrected": "2026-10-22T11:25:32+02:00"
+    }
+   }
+  },
+  {
+   "supplier": "Lime Technology / Unraid",
+   "product": "Unraid PHP management runtime distribution",
+   "changed": {
+    "first_fix_or_not_vuln": {
+     "original": "2026-10-23T11:16:56+02:00",
+     "corrected": "2026-10-23T11:34:29+02:00"
+    }
+   }
+  },
+  {
+   "supplier": "Microsoft",
+   "product": "Azure App Service PHP on Linux",
+   "changed": {
+    "first_fix_or_not_vuln": {
+     "original": "2026-10-23T11:16:56+02:00",
+     "corrected": "2026-10-23T11:34:29+02:00"
+    }
+   }
+  },
+  {
+   "supplier": "N-able",
+   "product": "Mail Assure / Spam Experts",
+   "changed": {
+    "first_fix_or_not_vuln": {
+     "original": "2026-10-23T11:16:56+02:00",
+     "corrected": "2026-10-23T11:34:29+02:00"
+    }
+   }
+  },
+  {
+   "supplier": "N-able",
+   "product": "N-sight",
+   "changed": {
+    "first_fix_or_not_vuln": {
+     "original": "2026-10-23T11:16:56+02:00",
+     "corrected": "2026-10-23T11:34:29+02:00"
+    }
+   }
+  },
+  {
+   "supplier": "N-able",
+   "product": "Passportal",
+   "changed": {
+    "first_fix_or_not_vuln": {
+     "original": "2026-10-23T11:16:56+02:00",
+     "corrected": "2026-10-23T11:34:29+02:00"
+    }
+   }
+  },
+  {
+   "supplier": "N-able",
+   "product": "Take Control Session routing",
+   "changed": {
+    "first_fix_or_not_vuln": {
+     "original": "2026-10-23T11:16:56+02:00",
+     "corrected": "2026-10-23T11:34:29+02:00"
+    }
+   }
+  },
+  {
+   "supplier": "NetApp",
+   "product": "ONTAP 9",
+   "changed": {
+    "first_listed": {
+     "original": "2026-10-23T14:41:26+02:00",
+     "corrected": "2026-10-23T14:50:49+02:00"
+    },
+    "first_fix_or_not_vuln": {
+     "original": "2026-10-23T14:41:26+02:00",
+     "corrected": "2026-10-23T14:50:49+02:00"
+    }
+   }
+  },
+  {
+   "supplier": "Netgate / pfSense",
+   "product": "pfSense management components",
+   "changed": {
+    "first_fix_or_not_vuln": {
+     "original": "2026-10-22T10:56:12+02:00",
+     "corrected": "2026-10-22T11:25:32+02:00"
+    }
+   }
+  },
+  {
+   "supplier": "Nextcloud GmbH / Nextcloud AIO maintainers",
+   "product": "Nextcloud AIO Nextcloud application container",
+   "changed": {
+    "first_fix_or_not_vuln": {
+     "original": "2026-10-23T13:30:06+02:00",
+     "corrected": "2026-10-23T13:33:24+02:00"
+    }
+   }
+  },
+  {
+   "supplier": "NixOS / Nixpkgs maintainers",
+   "product": "Nixpkgs PHP runtime environments",
+   "changed": {
+    "first_fix_or_not_vuln": {
+     "original": "2026-10-23T11:16:56+02:00",
+     "corrected": "2026-10-23T11:34:29+02:00"
+    }
+   }
+  },
+  {
+   "supplier": "OPNsense / Deciso",
+   "product": "OPNsense WebGUI and API",
+   "changed": {
+    "first_fix_or_not_vuln": {
+     "original": "2026-10-22T10:56:12+02:00",
+     "corrected": "2026-10-22T11:25:32+02:00"
+    }
+   }
+  },
+  {
+   "supplier": "OpenEMR project",
+   "product": "OpenEMR",
+   "changed": {
+    "first_fix_or_not_vuln": {
+     "original": "2026-10-22T10:56:12+02:00",
+     "corrected": "2026-10-22T11:25:32+02:00"
+    }
+   }
+  },
+  {
+   "supplier": "OpenWrt packages feed maintainers",
+   "product": "OpenWrt selectable PHP8 package family",
+   "changed": {
+    "first_fix_or_not_vuln": {
+     "original": "2026-10-22T10:56:12+02:00",
+     "corrected": "2026-10-22T11:25:32+02:00"
+    }
+   }
+  },
+  {
+   "supplier": "PHPStan / Ondrej Mirtes and contributors",
+   "product": "PHPStan static analyzer",
+   "changed": {
+    "links_vendor": {
+     "original": false,
+     "corrected": true
+    }
+   }
+  },
+  {
+   "supplier": "PHPStan project",
+   "product": "PHPStan PHPDoc parser library",
+   "changed": {
+    "links_vendor": {
+     "original": false,
+     "corrected": true
+    }
+   }
+  },
+  {
+   "supplier": "PHPro / GrumPHP contributors",
+   "product": "GrumPHP Git quality-check orchestration",
+   "changed": {
+    "links_vendor": {
+     "original": false,
+     "corrected": true
+    }
+   }
+  },
+  {
+   "supplier": "Pantheon",
+   "product": "Pantheon managed PHP application runtime",
+   "changed": {
+    "first_fix_or_not_vuln": {
+     "original": "2026-10-22T10:56:12+02:00",
+     "corrected": "2026-10-22T11:25:32+02:00"
+    }
+   }
+  },
+  {
+   "supplier": "ParaTest / Brian Scaturro, Filippo Tessarotto and contributors",
+   "product": "ParaTest parallel PHPUnit runner",
+   "changed": {
+    "links_vendor": {
+     "original": false,
+     "corrected": true
+    }
+   }
+  },
+  {
+   "supplier": "Part-DB project",
+   "product": "Part-DB official Docker image (PHP 8.4.27 rebuild)",
+   "changed": {
+    "first_listed": {
+     "original": "2026-10-23T13:30:06+02:00",
+     "corrected": "2026-10-23T13:33:24+02:00"
+    },
+    "first_fix_or_not_vuln": {
+     "original": "2026-10-23T13:30:06+02:00",
+     "corrected": "2026-10-23T13:33:24+02:00"
+    }
+   }
+  },
+  {
+   "supplier": "Passbolt SA",
+   "product": "Passbolt API server",
+   "changed": {
+    "first_fix_or_not_vuln": {
+     "original": "2026-10-21T19:41:35+02:00",
+     "corrected": "2026-10-21T20:01:23+02:00"
+    }
+   }
+  },
+  {
+   "supplier": "PhpSpec project",
+   "product": "PhpSpec specification test runner",
+   "changed": {
+    "links_vendor": {
+     "original": false,
+     "corrected": true
+    }
+   }
+  },
+  {
+   "supplier": "Plesk",
+   "product": "Plesk for Linux hosted PHP 7.4 and 8.0-8.5 fixed packages",
+   "changed": {
+    "first_listed": {
+     "original": "2026-10-23T13:30:06+02:00",
+     "corrected": "2026-10-23T13:33:24+02:00"
+    },
+    "first_fix_or_not_vuln": {
+     "original": "2026-10-23T13:30:06+02:00",
+     "corrected": "2026-10-23T13:33:24+02:00"
+    }
+   }
+  },
+  {
+   "supplier": "Plesk",
+   "product": "Plesk for Windows hosted PHP 8.2-8.5 fixed packages",
+   "changed": {
+    "first_listed": {
+     "original": "2026-10-23T13:30:06+02:00",
+     "corrected": "2026-10-23T13:33:24+02:00"
+    },
+    "first_fix_or_not_vuln": {
+     "original": "2026-10-23T13:30:06+02:00",
+     "corrected": "2026-10-23T13:33:24+02:00"
+    }
+   }
+  },
+  {
+   "supplier": "Plesk",
+   "product": "Plesk plesk-engine internal PHP management runtime for Windows",
+   "changed": {
+    "first_fix_or_not_vuln": {
+     "original": "2026-10-23T13:30:06+02:00",
+     "corrected": "2026-10-23T13:33:24+02:00"
+    }
+   }
+  },
+  {
+   "supplier": "Plesk",
+   "product": "Plesk sw-engine internal PHP management runtime",
+   "changed": {
+    "first_fix_or_not_vuln": {
+     "original": "2026-10-23T13:30:06+02:00",
+     "corrected": "2026-10-23T13:33:24+02:00"
+    }
+   }
+  },
+  {
+   "supplier": "Prophecy / PhpSpec project",
+   "product": "Prophecy PHP mocking library",
+   "changed": {
+    "links_vendor": {
+     "original": false,
+     "corrected": true
+    }
+   }
+  },
+  {
+   "supplier": "Psalm project / Matthew Brown, Daniil Gentili and contributors",
+   "product": "Psalm PHP static analyzer",
+   "changed": {
+    "links_vendor": {
+     "original": false,
+     "corrected": true
+    }
+   }
+  },
+  {
+   "supplier": "PsySH / Justin Hileman and contributors",
+   "product": "PsySH interactive PHP shell",
+   "changed": {
+    "links_vendor": {
+     "original": false,
+     "corrected": true
+    }
+   }
+  },
+  {
+   "supplier": "Rector project",
+   "product": "Rector automated PHP refactoring tool",
+   "changed": {
+    "links_vendor": {
+     "original": false,
+     "corrected": true
+    }
+   }
+  },
+  {
+   "supplier": "Red Hat",
+   "product": "Red Hat Enterprise Linux 9 PHP 8.0 packages",
+   "changed": {
+    "first_listed": {
+     "original": "2026-10-23T13:30:06+02:00",
+     "corrected": "2026-10-23T13:33:24+02:00"
+    },
+    "first_fix_or_not_vuln": {
+     "original": "2026-10-23T13:30:06+02:00",
+     "corrected": "2026-10-23T13:33:24+02:00"
+    }
+   }
+  },
+  {
+   "supplier": "Red Hat",
+   "product": "Red Hat Enterprise Linux 9 php:8.3 module",
+   "changed": {
+    "first_listed": {
+     "original": "2026-10-23T13:30:06+02:00",
+     "corrected": "2026-10-23T13:33:24+02:00"
+    },
+    "first_fix_or_not_vuln": {
+     "original": "2026-10-23T13:30:06+02:00",
+     "corrected": "2026-10-23T13:33:24+02:00"
+    }
+   }
+  },
+  {
+   "supplier": "Roave",
+   "product": "Roave backward-compatibility checker",
+   "changed": {
+    "links_vendor": {
+     "original": false,
+     "corrected": true
+    }
+   }
+  },
+  {
+   "supplier": "Roundcube project",
+   "product": "Roundcube official 1.7.x-fpm-alpine Docker image",
+   "changed": {
+    "first_listed": {
+     "original": "2026-10-23T13:30:06+02:00",
+     "corrected": "2026-10-23T13:33:24+02:00"
+    },
+    "first_fix_or_not_vuln": {
+     "original": "2026-10-23T13:30:06+02:00",
+     "corrected": "2026-10-23T13:33:24+02:00"
+    }
+   }
+  },
+  {
+   "supplier": "SUSE",
+   "product": "SUSE Linux Enterprise PHP8 package families",
+   "changed": {
+    "first_fix_or_not_vuln": {
+     "original": "2026-10-23T11:16:56+02:00",
+     "corrected": "2026-10-23T11:34:29+02:00"
+    }
+   }
+  },
+  {
+   "supplier": "SUSE",
+   "product": "SUSE SLE BCI PHP CLI container",
+   "changed": {
+    "first_fix_or_not_vuln": {
+     "original": "2026-10-21T19:41:35+02:00",
+     "corrected": "2026-10-21T20:01:23+02:00"
+    }
+   }
+  },
+  {
+   "supplier": "SUSE",
+   "product": "SUSE SLE BCI PHP-Apache container",
+   "changed": {
+    "first_fix_or_not_vuln": {
+     "original": "2026-10-21T19:41:35+02:00",
+     "corrected": "2026-10-21T20:01:23+02:00"
+    }
+   }
+  },
+  {
+   "supplier": "SUSE",
+   "product": "SUSE SLE BCI PHP-FPM 8 container",
+   "changed": {
+    "first_fix_or_not_vuln": {
+     "original": "2026-10-21T19:41:35+02:00",
+     "corrected": "2026-10-21T20:01:23+02:00"
+    }
+   }
+  },
+  {
+   "supplier": "Scalingo",
+   "product": "Scalingo PHP buildpack",
+   "changed": {
+    "first_fix_or_not_vuln": {
+     "original": "2026-10-22T10:56:12+02:00",
+     "corrected": "2026-10-22T11:25:32+02:00"
+    }
+   }
+  },
+  {
+   "supplier": "Scalingo",
+   "product": "Scalingo PaaS",
+   "changed": {
+    "first_fix_or_not_vuln": {
+     "original": "2026-10-22T10:56:12+02:00",
+     "corrected": "2026-10-22T11:25:32+02:00"
+    }
+   }
+  },
+  {
+   "supplier": "Securepoint GmbH",
+   "product": "Securepoint Resellerportal",
+   "changed": {
+    "first_listed": {
+     "original": "2026-10-22T10:35:09+02:00",
+     "corrected": "2026-10-22T10:40:58+02:00"
+    }
+   }
+  },
+  {
+   "supplier": "Server Side Up",
+   "product": "Server Side Up PHP Docker images, v5.0.2 for PHP 8.2-8.5",
+   "changed": {
+    "first_listed": {
+     "original": "2026-10-23T00:00:30-07:00",
+     "corrected": "2026-10-23T10:50:06+02:00"
+    },
+    "first_fix_or_not_vuln": {
+     "original": "2026-10-23T00:00:30-07:00",
+     "corrected": "2026-10-23T10:50:06+02:00"
+    }
+   }
+  },
+  {
+   "supplier": "Shaarli community",
+   "product": "Shaarli",
+   "changed": {
+    "first_fix_or_not_vuln": {
+     "original": "2026-10-23T13:30:06+02:00",
+     "corrected": "2026-10-23T13:33:24+02:00"
+    }
+   }
+  },
+  {
+   "supplier": "Shivam Mathur / setup-php project",
+   "product": "setup-php GitHub Action external PHP provisioning",
+   "changed": {
+    "first_fix_or_not_vuln": {
+     "original": "2026-10-21T19:41:35+02:00",
+     "corrected": "2026-10-21T20:01:23+02:00"
+    }
+   }
+  },
+  {
+   "supplier": "Shlink project",
+   "product": "Shlink official Docker image",
+   "changed": {
+    "first_listed": {
+     "original": "2026-10-23T13:30:06+02:00",
+     "corrected": "2026-10-23T13:33:24+02:00"
+    },
+    "first_fix_or_not_vuln": {
+     "original": "2026-10-23T13:30:06+02:00",
+     "corrected": "2026-10-23T13:33:24+02:00"
+    }
+   }
+  },
+  {
+   "supplier": "Synology",
+   "product": "Synology PHP 7.4 archived package family",
+   "changed": {
+    "first_fix_or_not_vuln": {
+     "original": "2026-10-23T11:16:56+02:00",
+     "corrected": "2026-10-23T11:34:29+02:00"
+    }
+   }
+  },
+  {
+   "supplier": "Synology",
+   "product": "Synology PHP 8.0 archived package family",
+   "changed": {
+    "first_fix_or_not_vuln": {
+     "original": "2026-10-23T11:16:56+02:00",
+     "corrected": "2026-10-23T11:34:29+02:00"
+    }
+   }
+  },
+  {
+   "supplier": "Synology",
+   "product": "Synology PHP 8.1 archived package family",
+   "changed": {
+    "first_fix_or_not_vuln": {
+     "original": "2026-10-23T11:16:56+02:00",
+     "corrected": "2026-10-23T11:34:29+02:00"
+    }
+   }
+  },
+  {
+   "supplier": "Synology",
+   "product": "Synology PHP 8.2 archived package family",
+   "changed": {
+    "first_fix_or_not_vuln": {
+     "original": "2026-10-23T11:16:56+02:00",
+     "corrected": "2026-10-23T11:34:29+02:00"
+    }
+   }
+  },
+  {
+   "supplier": "Synology",
+   "product": "Synology PHP 8.3 archived package family",
+   "changed": {
+    "first_fix_or_not_vuln": {
+     "original": "2026-10-23T11:16:56+02:00",
+     "corrected": "2026-10-23T11:34:29+02:00"
+    }
+   }
+  },
+  {
+   "supplier": "Synology",
+   "product": "Synology PHP 8.4 package distribution",
+   "changed": {
+    "first_fix_or_not_vuln": {
+     "original": "2026-10-23T11:16:56+02:00",
+     "corrected": "2026-10-23T11:34:29+02:00"
+    }
+   }
+  },
+  {
+   "supplier": "Synology",
+   "product": "Synology Web Station optional PHP hosting",
+   "changed": {
+    "first_fix_or_not_vuln": {
+     "original": "2026-10-23T11:16:56+02:00",
+     "corrected": "2026-10-23T11:34:29+02:00"
+    }
+   }
+  },
+  {
+   "supplier": "Tenable",
+   "product": "Tenable Enclave Security",
+   "changed": {
+    "first_listed": {
+     "original": "2026-10-23T12:24:23+03:00",
+     "corrected": "2026-10-23T11:44:18+02:00"
+    },
+    "first_fix_or_not_vuln": {
+     "original": "2026-10-23T12:24:23+03:00",
+     "corrected": "2026-10-23T11:44:18+02:00"
+    }
+   }
+  },
+  {
+   "supplier": "Tenable",
+   "product": "Tenable Security Center (formerly Tenable.sc)",
+   "changed": {
+    "first_listed": {
+     "original": "2026-10-23T12:24:23+03:00",
+     "corrected": "2026-10-23T11:44:18+02:00"
+    },
+    "first_fix_or_not_vuln": {
+     "original": "2026-10-23T12:24:23+03:00",
+     "corrected": "2026-10-23T11:44:18+02:00"
+    }
+   }
+  },
+  {
+   "supplier": "The PHP Group",
+   "product": "PHP LiteSpeed SAPI",
+   "changed": {
+    "first_fix_or_not_vuln": {
+     "original": "2026-10-21T18:30:46+02:00",
+     "corrected": "2026-10-21T19:03:18+02:00"
+    }
+   }
+  },
+  {
+   "supplier": "The PHP Group",
+   "product": "PHP core and Zend Engine",
+   "changed": {
+    "first_fix_or_not_vuln": {
+     "original": "2026-10-21T18:30:46+02:00",
+     "corrected": "2026-10-21T19:03:18+02:00"
+    }
+   }
+  },
+  {
+   "supplier": "The PHP Group",
+   "product": "PHP-CGI",
+   "changed": {
+    "first_fix_or_not_vuln": {
+     "original": "2026-10-21T18:30:46+02:00",
+     "corrected": "2026-10-21T19:03:18+02:00"
+    }
+   }
+  },
+  {
+   "supplier": "The PHP Group",
+   "product": "PHP-FPM",
+   "changed": {
+    "first_fix_or_not_vuln": {
+     "original": "2026-10-21T18:30:46+02:00",
+     "corrected": "2026-10-21T19:03:18+02:00"
+    }
+   }
+  },
+  {
+   "supplier": "The PHP Group / Apache operators",
+   "product": "Apache PHP module (mod_php)",
+   "changed": {
+    "first_fix_or_not_vuln": {
+     "original": "2026-10-21T18:30:46+02:00",
+     "corrected": "2026-10-21T19:03:18+02:00"
+    }
+   }
+  },
+  {
+   "supplier": "The PHP Group / PHP Windows maintainers",
+   "product": "Official PHP Windows binary ZIP distribution",
+   "changed": {
+    "first_fix_or_not_vuln": {
+     "original": "2026-10-21T18:30:46+02:00",
+     "corrected": "2026-10-21T19:03:18+02:00"
+    }
+   }
+  },
+  {
+   "supplier": "TransIP",
+   "product": "TransIP shared webhosting PHP option",
+   "changed": {
+    "first_fix_or_not_vuln": {
+     "original": "2026-10-23T11:16:56+02:00",
+     "corrected": "2026-10-23T11:34:29+02:00"
+    }
+   }
+  },
+  {
+   "supplier": "Trend Micro",
+   "product": "Apex Central",
+   "changed": {
+    "first_listed": {
+     "original": "2026-10-21T15:58:15+02:00",
+     "corrected": "2026-10-21T16:33:41+02:00"
+    }
+   }
+  },
+  {
+   "supplier": "Trend Micro",
+   "product": "Apex One",
+   "changed": {
+    "first_listed": {
+     "original": "2026-10-21T15:58:15+02:00",
+     "corrected": "2026-10-21T16:33:41+02:00"
+    }
+   }
+  },
+  {
+   "supplier": "TuxCare / CloudLinux",
+   "product": "TuxCare ELS PHP distribution family",
+   "changed": {
+    "first_fix_or_not_vuln": {
+     "original": "2026-10-23T13:30:06+02:00",
+     "corrected": "2026-10-23T13:33:24+02:00"
+    }
+   }
+  },
+  {
+   "supplier": "UnoPim",
+   "product": "UnoPim",
+   "changed": {
+    "first_fix_or_not_vuln": {
+     "original": "2026-10-23T11:16:56+02:00",
+     "corrected": "2026-10-23T11:34:29+02:00"
+    }
+   }
+  },
+  {
+   "supplier": "UnoPim",
+   "product": "UnoPim official Docker images (webkul/unopim, webkul/unopim-queue)",
+   "changed": {
+    "first_listed": {
+     "original": "2026-10-22T21:45:52+05:30",
+     "corrected": "2026-10-23T00:48:02+02:00"
+    },
+    "first_fix_or_not_vuln": {
+     "original": "2026-10-22T21:45:52+05:30",
+     "corrected": "2026-10-23T00:48:02+02:00"
+    }
+   }
+  },
+  {
+   "supplier": "Upsun",
+   "product": "Upsun PHP application containers",
+   "changed": {
+    "first_fix_or_not_vuln": {
+     "original": "2026-10-22T10:56:12+02:00",
+     "corrected": "2026-10-22T11:25:32+02:00"
+    }
+   }
+  },
+  {
+   "supplier": "WP Engine",
+   "product": "WP Engine managed WordPress PHP hosting",
+   "changed": {
+    "first_fix_or_not_vuln": {
+     "original": "2026-10-23T11:16:56+02:00",
+     "corrected": "2026-10-23T11:34:29+02:00"
+    }
+   }
+  },
+  {
+   "supplier": "WP-CLI / WordPress project",
+   "product": "WP-CLI WordPress administration framework",
+   "changed": {
+    "links_vendor": {
+     "original": false,
+     "corrected": true
+    }
+   }
+  },
+  {
+   "supplier": "WebPros / cPanel",
+   "product": "cPanel EasyApache 4 / MultiPHP",
+   "changed": {
+    "first_fix_or_not_vuln": {
+     "original": "2026-10-21T19:41:35+02:00",
+     "corrected": "2026-10-21T20:01:23+02:00"
+    }
+   }
+  },
+  {
+   "supplier": "WebPros / cPanel",
+   "product": "cPanel internal PHP for hooks and AppConfig applications",
+   "changed": {
+    "first_fix_or_not_vuln": {
+     "original": "2026-10-21T19:41:35+02:00",
+     "corrected": "2026-10-21T20:01:23+02:00"
+    }
+   }
+  },
+  {
+   "supplier": "aaPanel",
+   "product": "aaPanel PHP Project hosting and CLI selection",
+   "changed": {
+    "first_fix_or_not_vuln": {
+     "original": "2026-10-21T19:41:35+02:00",
+     "corrected": "2026-10-21T20:01:23+02:00"
+    }
+   }
+  },
+  {
+   "supplier": "grommunio GmbH",
+   "product": "grommunio PHP packages for SUSE-based installations",
+   "changed": {
+    "first_listed": {
+     "original": "2026-10-23T13:30:06+02:00",
+     "corrected": "2026-10-23T13:33:24+02:00"
+    },
+    "first_fix_or_not_vuln": {
+     "original": "2026-10-23T13:30:06+02:00",
+     "corrected": "2026-10-23T13:33:24+02:00"
+    }
+   }
+  },
+  {
+   "supplier": "iBabs",
+   "product": "iBabs bestuursportaal",
+   "changed": {
+    "first_listed": {
+     "original": "2026-10-21T15:01:09+02:00",
+     "corrected": "2026-10-21T15:38:10+02:00"
+    },
+    "first_fix_or_not_vuln": {
+     "original": "2026-10-21T15:01:09+02:00",
+     "corrected": "2026-10-21T15:38:10+02:00"
+    }
+   }
+  },
+  {
+   "supplier": "phpLDAPadmin / leenooks project",
+   "product": "phpLDAPadmin official Docker image",
+   "changed": {
+    "first_listed": {
+     "original": "2026-10-23T13:30:06+02:00",
+     "corrected": "2026-10-23T13:33:24+02:00"
+    },
+    "first_fix_or_not_vuln": {
+     "original": "2026-10-23T13:30:06+02:00",
+     "corrected": "2026-10-23T13:33:24+02:00"
+    }
+   }
+  }
+ ]
+}
