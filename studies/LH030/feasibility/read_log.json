@@ -1,0 +1,86 @@
+[
+  {
+    "source": "debian",
+    "url": "https://security-tracker.debian.org/tracker/CVE-2024-4577",
+    "start_utc": "2026-10-23T17:11:00.546385+00:00",
+    "finish_utc": "2026-10-23T17:11:01.095171+00:00",
+    "status": 200,
+    "content_type": "text/html; charset=UTF-8",
+    "last_modified": "",
+    "bytes": 4882,
+    "sha256": "12925cdbede31977c3442707d1793c633a0a2376ccff32b20b1b9250dc9aa085",
+    "file": "debian.raw"
+  },
+  {
+    "source": "ubuntu",
+    "url": "https://ubuntu.com/security/cves/CVE-2024-4577.json",
+    "start_utc": "2026-10-23T17:11:01.095604+00:00",
+    "finish_utc": "2026-10-23T17:11:23.511734+00:00",
+    "status": 200,
+    "content_type": "application/json",
+    "last_modified": "",
+    "bytes": 8368,
+    "sha256": "3e430154986763c36ffc8c5cd75290192f5d2fc933103c6f5458e3614cebd70f",
+    "file": "ubuntu.raw"
+  },
+  {
+    "source": "redhat",
+    "url": "https://access.redhat.com/hydra/rest/securitydata/cve/CVE-2024-4577.json",
+    "start_utc": "2026-10-23T17:11:23.512048+00:00",
+    "finish_utc": "2026-10-23T17:11:24.262504+00:00",
+    "status": 200,
+    "content_type": "application/json",
+    "last_modified": "",
+    "bytes": 4202,
+    "sha256": "bdd98759e1c7260bf3a0c7acc77edf195ac8ae87a71e30069e69e9ce7f7f4931",
+    "file": "redhat.raw"
+  },
+  {
+    "source": "suse",
+    "url": "https://www.suse.com/security/cve/CVE-2024-4577.html",
+    "start_utc": "2026-10-23T17:11:24.262805+00:00",
+    "finish_utc": "2026-10-23T17:11:24.711819+00:00",
+    "status": 200,
+    "content_type": "text/html",
+    "last_modified": "Fri, 16 Oct 2026 09:11:05 GMT",
+    "bytes": 205765,
+    "sha256": "ccb1d1052abf69df6b4a959c7d7ff21ba479f7b90dec64e4ba18cfdcb8b12cb7",
+    "file": "suse.raw"
+  },
+  {
+    "source": "cve_org",
+    "url": "https://cveawg.mitre.org/api/cve/CVE-2024-4577",
+    "start_utc": "2026-10-23T17:11:24.712425+00:00",
+    "finish_utc": "2026-10-23T17:11:24.923240+00:00",
+    "status": 200,
+    "content_type": "application/json; charset=utf-8",
+    "last_modified": "",
+    "bytes": 9077,
+    "sha256": "e8cc1b1dcd1a3333776e9a0f08cd4543bc662e0ee60fc094bda0820f84b114eb",
+    "file": "cve_org.raw"
+  },
+  {
+    "source": "nvd",
+    "url": "https://services.nvd.nist.gov/rest/json/cves/2.0?cveId=CVE-2024-4577",
+    "start_utc": "2026-10-23T17:11:24.923521+00:00",
+    "finish_utc": "2026-10-23T17:11:25.188443+00:00",
+    "status": 200,
+    "content_type": "application/json",
+    "last_modified": "",
+    "bytes": 12147,
+    "sha256": "399338d08971009e9e609176e3be0c69e79ebc3d2e2a26374413215766e1f2d1",
+    "file": "nvd.raw"
+  },
+  {
+    "source": "osv",
+    "url": "https://api.osv.dev/v1/vulns/CVE-2024-4577",
+    "start_utc": "2026-10-23T17:11:25.188821+00:00",
+    "finish_utc": "2026-10-23T17:11:25.371926+00:00",
+    "status": 200,
+    "content_type": "application/json",
+    "last_modified": "",
+    "bytes": 4522,
+    "sha256": "ed434fbd60151a077f18c86f1262a79f175778a91efc4be573d70e95a689a1a9",
+    "file": "osv.raw"
+  }
+]

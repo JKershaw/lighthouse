@@ -1,0 +1,22 @@
+{
+  "reference": {"php": ["https://www.php.net/archive/2026.php"]},
+  "records": {
+    "cve_org": "https://cveawg.mitre.org/api/cve/CVE-2026-115560",
+    "nvd": "https://services.nvd.nist.gov/rest/json/cves/2.0?cveId=CVE-2026-115560",
+    "osv": "https://api.osv.dev/v1/vulns/CVE-2026-115560",
+    "debian": "https://security-tracker.debian.org/tracker/CVE-2026-115560",
+    "ubuntu": "https://ubuntu.com/security/cves/CVE-2026-115560.json",
+    "redhat": "https://access.redhat.com/hydra/rest/securitydata/cve/CVE-2026-115560.json",
+    "suse": "https://www.suse.com/security/cve/CVE-2026-115560.html"
+  },
+  "notices": {
+    "ncsc_uk": ["https://www.ncsc.gov.uk/news/critical-security-issue-affecting-php"],
+    "cisa": ["https://www.cisa.gov/news-events/alerts/2026/10/21/critical-vulnerabilities-php-require-immediate-patching"],
+    "cert_eu": ["https://cert.europa.eu/publications/security-advisories/2026-018/"],
+    "cloudflare": ["https://blog.cloudflare.com/php-vulnerabilities-waf-protection/"],
+    "fastly": ["https://www.fastly.com/blog/fastlys-proactive-protection-critical-php-rce-cve-2026-109618", "https://www.fastly.com/documentation/reference/changes/2026/10/added-virtual-patch-for-CVE-2026-109618-and-CVE-2026-109619/"],
+    "akamai": ["https://www.akamai.com/blog/security-research/critical-remote-code-execution-vulnerabilities-php-core"],
+    "aws": ["https://alas.aws.amazon.com/AL2023/ALAS2023-2026-3304.html", "https://alas.aws.amazon.com/AL2023/ALAS2023-2026-3302.html"],
+    "google_cloud": ["https://cloud.google.com/blog/products/identity-security/responding-to-core-php-vulnerabilities-cve-2026-109618-cve-2026-109619", "https://docs.cloud.google.com/support/bulletins"]
+  }
+}

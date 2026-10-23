@@ -1,0 +1,23 @@
+{"name": "neg22oct_php_0", "access": "read", "I": false, "II_yes": false, "III_yes": false, "IV_yes": false, "V": []}
+{"name": "neg22oct_ncsc_uk_0", "access": "read", "I": false, "II_yes": false, "III_yes": false, "IV_yes": false, "V": []}
+{"name": "neg22oct_cisa_0", "access": "unavailable", "I": null, "II_yes": null, "III_yes": null, "IV_yes": null, "V": null}
+{"name": "neg22oct_cert_eu_0", "access": "read", "I": false, "II_yes": false, "III_yes": false, "IV_yes": false, "V": []}
+{"name": "neg22oct_cloudflare_0", "access": "read", "I": false, "II_yes": false, "III_yes": false, "IV_yes": false, "V": []}
+{"name": "neg22oct_fastly_0", "access": "read", "I": false, "II_yes": false, "III_yes": false, "IV_yes": false, "V": []}
+{"name": "neg22oct_fastly_1", "access": "read", "I": false, "II_yes": false, "III_yes": false, "IV_yes": false, "V": []}
+{"name": "neg22oct_akamai_0", "access": "read", "I": false, "II_yes": false, "III_yes": false, "IV_yes": false, "V": []}
+{"name": "neg22oct_aws_0", "access": "unavailable", "I": null, "II_yes": null, "III_yes": null, "IV_yes": null, "V": null}
+{"name": "neg22oct_aws_1", "access": "unavailable", "I": null, "II_yes": null, "III_yes": null, "IV_yes": null, "V": null}
+{"name": "neg22oct_google_cloud_0", "access": "unavailable", "I": null, "II_yes": null, "III_yes": null, "IV_yes": null, "V": null}
+{"name": "neg22oct_google_cloud_1", "access": "unavailable", "I": null, "II_yes": null, "III_yes": null, "IV_yes": null, "V": null}
+{"name": "pos_php_23oct", "access": "read", "I": true, "II_yes": true, "III_yes": true, "IV_yes": true, "V": ["https://www.php.net/archive/2026.php#2026-10-23-1"]}
+   IV snippet: 60 with the next release. 21 Oct 2026 Security advisory: Critical remote code execution vulnerabilities, update now PHP 8.5.12, 8.4.27, 8.3.36 and 8.2.35 fix two critical vulnerabilities that can allow unauthenticated remote code execution. All P
+   IV snippet: the next release. 21 Oct 2026 Security advisory: Critical remote code execution vulnerabilities, update now PHP 8.5.12, 8.4.27, 8.3.36 and 8.2.35 fix two critical vulnerabilities that can allow unauthenticated remote code execution. All PHP users
+   IV snippet:  release. 21 Oct 2026 Security advisory: Critical remote code execution vulnerabilities, update now PHP 8.5.12, 8.4.27, 8.3.36 and 8.2.35 fix two critical vulnerabilities that can allow unauthenticated remote code execution. All PHP users are str
+{"name": "pos_cloudflare_23oct", "access": "read", "I": true, "II_yes": false, "III_yes": false, "IV_yes": true, "V": ["https://www.php.net/archive/2026.php#2026-10-23-1"]}
+   IV snippet: formational advisory for a related vulnerability, CVE-2026-115560, in PHP's session upload progress feature. It affects fully patched PHP releases, including 8.5.12, and will be fixed in PHP's next regular release. All Cloudflare WAF customers are prote
+   IV snippet: nerability, CVE-2026-115560, in PHP's session upload progress feature. It affects fully patched PHP releases, including 8.5.12, and will be fixed in PHP's next regular release. All Cloudflare WAF customers are protected against known exploit atte
+{"name": "pos_socradar_23oct", "access": "read", "I": true, "II_yes": true, "III_yes": true, "IV_yes": true, "V": ["https://www.php.net/archive/2026.php#2026-10-23-1"]}
+   IV snippet: l PHP installations serving web requests on releases before the fixed versions, including end-of-life branches Fixed In 8.5.12, 8.4.27, 8.3.36, and 8.2.35; source backports for 8.1, 8.0, and 7.4 Exploitation Status In-the-wild exploitation report
+   IV snippet: stallations serving web requests on releases before the fixed versions, including end-of-life branches Fixed In 8.5.12, 8.4.27, 8.3.36, and 8.2.35; source backports for 8.1, 8.0, and 7.4 Exploitation Status In-the-wild exploitation reported by Am
+   IV snippet: ons serving web requests on releases before the fixed versions, including end-of-life branches Fixed In 8.5.12, 8.4.27, 8.3.36, and 8.2.35; source backports for 8.1, 8.0, and 7.4 Exploitation Status In-the-wild exploitation reported by Amazon. SO
