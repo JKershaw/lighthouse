@@ -13,3 +13,5 @@ Each tag is compared only to its own prior daily observed platform digest and de
 ## Bounds and stop
 
 For each labelled UTC date, at most 24 external requests, five OCI manifest GETs, 10 MiB retained bodies and no layers or executable runs. Anonymous registry bearer bodies are discarded and never committed. Stop OCI reads at HTTP 429 or reported pull allowance below ten. Preserve response bytes, HTTP status, cache and rate headers, UTC retrieval times, SHA-256 and any failure. The collector refuses to overwrite a date. Finish each daily run after one attempted read of every fixed tag or a binding ceiling, reporting unattempted tracks as unknown. After 24 October give a provisional account; after 28 October summarise the measured intervals. No pull share, host coverage, patch effectiveness, deployment or AI effect is inferred.
+
+**Note, 24 October 2026:** from 24 October the daily read is taken at about 12:30 UTC rather than about 06:30, after the registry's rate limit stopped that morning's read (checkpoints/2026-10-24.md). One read per UTC day, as before; the 24 October read stays partial and is not repeated.
