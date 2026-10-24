@@ -17,8 +17,10 @@ A few plain lines a day on what the fixed PHP panels saw, newest first, each lin
   - IT-Connect reports that the PHP Foundation said the underlying problem was flagged in a 2024 Quarkslab audit and left unfixed, calling it "a structural failure".
   - Reuters reports precautionary shutdowns: German federal sites (ITZBund, "purely preventive", no incidents known), French prefecture sites, Dutch sites including Overheid.nl and the Port of Rotterdam, and Finland's Valtori, which said it had found no attempt to exploit the flaws.
   - Reuters reports that, by Censys's count, about 1.5 million of 2.6 million hosts reporting a PHP version run one with no fix.
+  - Reuters reports that Belgium's foreign ministry temporarily took its websites offline "following reports of cyberattacks exploiting the PHP vulnerabilities", while Belgium's cybersecurity centre said it "had not recorded any attacks on Belgian websites".
+  - Reuters reports that tech firms warned some hackers were already exploiting the flaws; the sentence names no firm. Cloudflare (seeing early attacks) and Australia's cyber agency (not aware of active exploitation) are named in the same coverage.
   - Nothing found on the newer flaw, CVE-2026-115560.
-- **Flagged for review:** two sweep items await the keeper under the rule on claims of harm, and are not repeated here.
+- **Flagged for review:** nothing.
 
 ## 23 October 2026
 

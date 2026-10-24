@@ -29,7 +29,7 @@ Fix small things where you find them, without filing, listing or reporting them.
 ## Rules that matter
 
 - Every claim says where it came from and when the source was read. Label a statement as observation, derived measurement, interpretation or scenario wherever a reader could confuse them. Never invent a timing, a count or a source. Say what was not checked.
-- Three things wait for a person: a claim that harm is happening now, a claim that a named system is compromised, and anything irreversible outside this repository, such as contacting a third party. Everything else is the session's to decide.
+- Three things wait for a person: a claim that harm is happening now, a claim that a named system is compromised, and anything irreversible outside this repository, such as contacting a third party. Everything else is the session's to decide. These are Lighthouse's own claims, made in its voice. Someone else's published report of harm or compromise is part of the record and may be quoted, attributed to its source and with what it rests on, and tracked like any other source (the keeper, 24 October 2026).
 - Do not read or use credentials from the environment unless the task names them. Never write a token, a session id or a key into the repository.
 - No piece is released without a review that found nothing that must be fixed. Commit with a message that says what changed and why, and never rewrite history on a shared branch.
 

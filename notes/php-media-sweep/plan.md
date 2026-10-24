@@ -19,7 +19,7 @@ Run by a Sonnet sub-agent at about 06:33 and 18:33 UTC. It writes `<UTC label>.m
 
 ## What reaches the daily log
 
-Only new, consequential reports, one plain line each, written as "X reports that ...", with a link to the sweep file. Anything that would change the public account (a claim of compromise, of exploitation with a stated source, of a new fix or of a version scope for CVE-2026-115560) is flagged for review and needs its primary source read before it goes anywhere near the article. A claim that harm is happening now, or that a named system is compromised, waits for the keeper (AGENTS.md).
+Only new, consequential reports, one plain line each, written as "X reports that ...", with a link to the sweep file. Anything that would change the public account (a claim of compromise, of exploitation with a stated source, of a new fix or of a version scope for CVE-2026-115560) is flagged for review and needs its primary source read before it goes anywhere near the article. Published reports of harm or compromise are tracked like any other report: quoted, attributed, with what they rest on and any contradicting source beside them. Only Lighthouse's own claim of harm or compromise waits for the keeper (AGENTS.md, as clarified on 24 October 2026).
 
 ## Limits
 
