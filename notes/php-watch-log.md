@@ -13,7 +13,12 @@ A few plain lines a day on what the fixed PHP panels saw, newest first, each lin
 - **Products embedding PHP:** no change; the Dutch NCSC's list has not been edited since 12:50 UTC yesterday. A check of five sampled entries found each supported by a readable first-party notice ([LH032 checkpoint](../studies/LH032/checkpoints/2026-10-24.md)).
 - **Images:** a partial read; Docker's registry rate-limited both image studies after a few requests. The tags still readable through Docker Hub's tag pages were unchanged ([LH025](../studies/LH025/checkpoints/2026-10-24.md), [LH019](../studies/LH019/checkpoints/2026-10-24.md)).
 - **Institutions:** AWS's bulletin, revised 23 October 13:30 PDT by its own field, now names affected Amazon EMR releases; Google's blog added guidance from Mandiant. Neither mentions the newer flaw ([LH024 checkpoint](../studies/LH024/checkpoints/2026-10-24.md)).
-- **Flagged for review:** nothing new today.
+- **Media sweep, 08:30 UTC** (the first; [sweep](php-media-sweep/2026-10-24T0830Z.md)), all wire and trade reports of 21 and 22 October, not read at their primary sources:
+  - IT-Connect reports that the PHP Foundation said the underlying problem was flagged in a 2024 Quarkslab audit and left unfixed, calling it "a structural failure".
+  - Reuters reports precautionary shutdowns: German federal sites (ITZBund, "purely preventive", no incidents known), French prefecture sites, Dutch sites including Overheid.nl and the Port of Rotterdam, and Finland's Valtori, which said it had found no attempt to exploit the flaws.
+  - Reuters reports that, by Censys's count, about 1.5 million of 2.6 million hosts reporting a PHP version run one with no fix.
+  - Nothing found on the newer flaw, CVE-2026-115560.
+- **Flagged for review:** two sweep items await the keeper under the rule on claims of harm, and are not repeated here.
 
 ## 23 October 2026
 
