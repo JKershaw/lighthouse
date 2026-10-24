@@ -20,6 +20,7 @@ A few plain lines a day on what the fixed PHP panels saw, newest first, each lin
   - Reuters reports that Belgium's foreign ministry temporarily took its websites offline "following reports of cyberattacks exploiting the PHP vulnerabilities", while Belgium's cybersecurity centre said it "had not recorded any attacks on Belgian websites".
   - Reuters reports that tech firms warned some hackers were already exploiting the flaws; the sentence names no firm. Cloudflare (seeing early attacks) and Australia's cyber agency (not aware of active exploitation) are named in the same coverage.
   - Nothing found on the newer flaw, CVE-2026-115560.
+- **18:33 UTC:** Google Cloud's bulletins page added GCP-2026-072 (published 24 October): it says the original two flaws affect Drupal-based Apigee developer portals that customers deploy, and no other Apigee product ([checkpoint](../studies/LH030/checkpoints/2026-10-24.md)). Trackers and CISA unchanged; the evening media sweep found no new coverage ([sweep](php-media-sweep/2026-10-24T1830Z.md)).
 - **Flagged for review:** nothing.
 
 ## 23 October 2026
