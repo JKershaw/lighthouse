@@ -6,6 +6,15 @@ date: 2026-10-23
 
 A few plain lines a day on what the fixed PHP panels saw, newest first, each linking the day's checkpoints. These are working records: what a source said and when Lighthouse read it, not reviewed findings. Anything that would change [the public account](../articles/php-emergency-first-reading.md) is flagged here and goes through review before it reaches that page. How the watch runs is in [the continuation plan](php-watch-continuation-2026-10-23.md).
 
+## 24 October 2026
+
+- **How the 23 October instruction travels:** no change. No vulnerability tracker yet holds a record for CVE-2026-115560 (Ubuntu's timed out this morning); CERT-EU and Cloudflare say what they said yesterday ([LH030 checkpoint](../studies/LH030/checkpoints/2026-10-24.md)).
+- **CISA's catalogue:** no change; none of the three CVEs listed, catalogue released 23 October 19:30 UTC ([LH031 checkpoint](../studies/LH031/checkpoints/2026-10-24.md)).
+- **Products embedding PHP:** no change; the Dutch NCSC's list has not been edited since 12:50 UTC yesterday. A check of five sampled entries found each supported by a readable first-party notice ([LH032 checkpoint](../studies/LH032/checkpoints/2026-10-24.md)).
+- **Images:** a partial read; Docker's registry rate-limited both image studies after a few requests. The tags still readable through Docker Hub's tag pages were unchanged ([LH025](../studies/LH025/checkpoints/2026-10-24.md), [LH019](../studies/LH019/checkpoints/2026-10-24.md)).
+- **Institutions:** AWS's bulletin, revised 23 October 13:30 PDT by its own field, now names affected Amazon EMR releases; Google's blog added guidance from Mandiant. Neither mentions the newer flaw ([LH024 checkpoint](../studies/LH024/checkpoints/2026-10-24.md)).
+- **Flagged for review:** nothing new today.
+
 ## 23 October 2026
 
 - **PHP's own notice** of a further, separately numbered flaw (CVE-2026-115560) was retained at 17:00 UTC; the public account gained a reviewed later-evidence notice ([LH029](../studies/LH029/LH029.md)).
