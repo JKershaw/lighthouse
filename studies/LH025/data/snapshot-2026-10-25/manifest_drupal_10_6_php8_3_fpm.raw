@@ -1,0 +1,106 @@
+{
+  "schemaVersion": 2,
+  "mediaType": "application/vnd.oci.image.manifest.v1+json",
+  "config": {
+    "mediaType": "application/vnd.oci.image.config.v1+json",
+    "digest": "sha256:fda6f3ab99611d8cc82c17c713963d992ed1c1715c6ecf2a4ec0224c559ba278",
+    "size": 14390
+  },
+  "layers": [
+    {
+      "mediaType": "application/vnd.oci.image.layer.v1.tar+gzip",
+      "digest": "sha256:f2be67225471500c788ce88c597eb5ea8336e912ad1ca4815650e0281afe2034",
+      "size": 29843579
+    },
+    {
+      "mediaType": "application/vnd.oci.image.layer.v1.tar+gzip",
+      "digest": "sha256:d163be0907f47dd781759917bdcd8b5e9b424bceb216a7b61139745c8a3d0097",
+      "size": 225
+    },
+    {
+      "mediaType": "application/vnd.oci.image.layer.v1.tar+gzip",
+      "digest": "sha256:6ac94aae81836d3e202d8cd39fd2feb71884e0a6cbaa624db7eeecb6191a4c48",
+      "size": 117839351
+    },
+    {
+      "mediaType": "application/vnd.oci.image.layer.v1.tar+gzip",
+      "digest": "sha256:2dde4aafaf948ad2c481fbffbb37e9108e798ff1029f8c13129fd5ac96992816",
+      "size": 223
+    },
+    {
+      "mediaType": "application/vnd.oci.image.layer.v1.tar+gzip",
+      "digest": "sha256:d5345eae7cda8b09ee906f6e7b7d974d9942e71a66c279f76ab57762a5494913",
+      "size": 12817498
+    },
+    {
+      "mediaType": "application/vnd.oci.image.layer.v1.tar+gzip",
+      "digest": "sha256:a7b54a0969563804afab305ae97ae5551263ff37b2bc0343caa3aa1980f6e57c",
+      "size": 488
+    },
+    {
+      "mediaType": "application/vnd.oci.image.layer.v1.tar+gzip",
+      "digest": "sha256:6e07afe918bb830d39878b901b5ef906455cabb00f33b1974b97371844fd41af",
+      "size": 11952639
+    },
+    {
+      "mediaType": "application/vnd.oci.image.layer.v1.tar+gzip",
+      "digest": "sha256:00c4e231cd5ec3b892049b925ebd7a45d09ca88635b895d4df0320ffb78dfc4a",
+      "size": 2454
+    },
+    {
+      "mediaType": "application/vnd.oci.image.layer.v1.tar+gzip",
+      "digest": "sha256:77d22cb9f31c8d4722d878da4d3a2470edd4c5be9f34961f73e2ad2d2a50b0ce",
+      "size": 251
+    },
+    {
+      "mediaType": "application/vnd.oci.image.layer.v1.tar+gzip",
+      "digest": "sha256:ef128df0eddf7c5944af666783c1e6bb7ffd60edd6ae7d0bc3cf3b50f351c1f9",
+      "size": 246
+    },
+    {
+      "mediaType": "application/vnd.oci.image.layer.v1.tar+gzip",
+      "digest": "sha256:4f4fb700ef54461cfa02571ae0db9a0dc1e0cdb5577484a6d75e68dc38e8acc1",
+      "size": 32
+    },
+    {
+      "mediaType": "application/vnd.oci.image.layer.v1.tar+gzip",
+      "digest": "sha256:0379ec1d3e70f0807b084ce084deabadd78825905cb7a19d9cfaa0e8685c69fc",
+      "size": 9258
+    },
+    {
+      "mediaType": "application/vnd.oci.image.layer.v1.tar+gzip",
+      "digest": "sha256:27096a3c9d97f801e0f56cd5c16f9503415ea817d46c58115d77feba3a511322",
+      "size": 10775565
+    },
+    {
+      "mediaType": "application/vnd.oci.image.layer.v1.tar+gzip",
+      "digest": "sha256:3c107c6673699495f75aa0891dc2e4171d82c33bed3cf5f87b0c00ebbcc437bd",
+      "size": 313
+    },
+    {
+      "mediaType": "application/vnd.oci.image.layer.v1.tar+gzip",
+      "digest": "sha256:f437abdb3759aa4fe754fe117a7f2445c222d41d665f78aebeb1c65eebe80f47",
+      "size": 832981
+    },
+    {
+      "mediaType": "application/vnd.oci.image.layer.v1.tar+gzip",
+      "digest": "sha256:772f1971f9c03511a847d7b44a2cccd8ecfb7021cb239176d6e68d87825b2947",
+      "size": 115
+    },
+    {
+      "mediaType": "application/vnd.oci.image.layer.v1.tar+gzip",
+      "digest": "sha256:81f2e483a86c864af46b1e201c1fe9b05b5fba65f1600f80b139becee758138a",
+      "size": 22118771
+    }
+  ],
+  "annotations": {
+    "com.docker.official-images.bashbrew.arch": "amd64",
+    "org.opencontainers.image.base.digest": "sha256:54e8a8dbd761922ca28c7ba71dd47121a5a35b7e828ffc4d3885eae9f20f06b2",
+    "org.opencontainers.image.base.name": "php:8.3-fpm-trixie",
+    "org.opencontainers.image.created": "2026-10-22T00:21:57Z",
+    "org.opencontainers.image.revision": "2ecfbed5dd6aa9d5555753c0a5afb883fe8706a4",
+    "org.opencontainers.image.source": "https://github.com/docker-library/drupal.git#2ecfbed5dd6aa9d5555753c0a5afb883fe8706a4:10.6/php8.3/fpm-trixie",
+    "org.opencontainers.image.url": "https://hub.docker.com/_/drupal",
+    "org.opencontainers.image.version": "10.6.20-php8.3-fpm-trixie"
+  }
+}

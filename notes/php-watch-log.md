@@ -20,6 +20,7 @@ A few plain lines a day on what the fixed PHP panels saw, newest first, each lin
   ![A line chart and a bar, redrawn with each daily read. The line chart shows, by days since release from 0 to 30, the share of internet-facing PHP services in each fixed branch that Censys counts as patched, beside an orange band for four Python security fixes' share of downloads and a dashed line for the median over 37 Python libraries. The bar splits the PHP services that reported a version on the latest completed day into patched, not yet patched, and on branches with no fix. The chart's own description gives the figures.](../studies/LH033/figure.svg)
 
   A working chart, unreviewed, redrawn with each daily read; the two sides measure different things (services as last scanned; downloads in a day).
+- **Images, 12:34 UTC:** a partial read; Docker's registry rate-limited it on the fourth tag. The three WordPress and Drupal tags read name the same fixed-version images as on 23 October; Nextcloud's apache tag was pushed again at 19:50 UTC on 23 October with the same image ([LH025](../studies/LH025/checkpoints/2026-10-25.md)). Trackers and CISA: no change.
 
 ## 24 October 2026
 
