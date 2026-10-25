@@ -6,6 +6,16 @@ date: 2026-10-23
 
 A few plain lines a day on what the fixed PHP panels saw, newest first, each linking the day's checkpoints. These are working records: what a source said and when Lighthouse read it, not reviewed findings. Anything that would change [the public account](../articles/php-emergency-first-reading.md) is flagged here and goes through review before it reaches that page. How the watch runs is in [the continuation plan](php-watch-continuation-2026-10-23.md).
 
+## 25 October 2026
+
+- **How the 23 October instruction travels:** no change; no tracker holds a record for CVE-2026-115560 at 00:33 or 06:33 UTC ([LH030](../studies/LH030/checkpoints/2026-10-25.md)).
+- **CISA's catalogue:** no change; none of the three CVEs listed ([LH031](../studies/LH031/checkpoints/2026-10-25.md)).
+- **Products embedding PHP:** no change; the Dutch NCSC's list has had no edit since 23 October 12:50 UTC ([LH032](../studies/LH032/checkpoints/2026-10-25.md)).
+- **Institutions:** no change in any exposed field ([LH024](../studies/LH024/checkpoints/2026-10-25.md)).
+- **Media sweep, 06:30 UTC:** no new coverage; the same 56 results as the evening before, so no page was opened ([sweep](php-media-sweep/2026-10-25T0630Z.md)).
+- **Images:** the daily read moves to 12:33 UTC from today.
+- **Flagged for review:** nothing.
+
 ## 24 October 2026
 
 - **How the 23 October instruction travels:** no change. No vulnerability tracker yet holds a record for CVE-2026-115560 (Ubuntu's timed out this morning); CERT-EU and Cloudflare say what they said yesterday ([LH030 checkpoint](../studies/LH030/checkpoints/2026-10-24.md)).
