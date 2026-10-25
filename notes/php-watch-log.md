@@ -15,6 +15,7 @@ A few plain lines a day on what the fixed PHP panels saw, newest first, each lin
 - **Media sweep, 06:30 UTC:** no new coverage; the same 56 results as the evening before, so no page was opened ([sweep](php-media-sweep/2026-10-25T0630Z.md)).
 - **Images:** the daily read moves to 12:33 UTC from today.
 - **Flagged for review:** nothing.
+- **New, 08:55 UTC: how far the fix has reached, by others' counts.** A new study, [LH033](../studies/LH033/brief.md), fixed before its first read at the keeper's request, follows Censys's public count of internet-facing PHP services and sets it beside the Python download and pin curves. By Censys's classification, the share of version-reporting services counted as patched by 24 October (day 3) was 46 per cent in 8.2, 46 in 8.3, 62 in 8.4 and 73 in 8.5; about 23.5 million services, over half of those reporting a version, run branches PHP did not fix at all. These are floors: distributions that backport the fix keep reporting the old version, and a service counts as patched only after a rescan. W3Techs, which visits each website about once a month, shows 2 to 6 per cent of sites on the fixed releases so far ([checkpoint](../studies/LH033/checkpoints/2026-10-25.md)).
 
 ## 24 October 2026
 
