@@ -17,6 +17,10 @@ A few plain lines a day on what the fixed PHP panels saw, newest first, each lin
 - **Flagged for review:** nothing.
 - **New, 08:55 UTC: how far the fix has reached, by others' counts.** A new study, [LH033](../studies/LH033/brief.md), fixed before its first read at the keeper's request, follows Censys's public count of internet-facing PHP services and sets it beside the Python download and pin curves. By Censys's classification, the share of version-reporting services counted as patched by 24 October (day 3) was 46 per cent in 8.2, 46 in 8.3, 62 in 8.4 and 73 in 8.5; about 23.5 million services, over half of those reporting a version, run branches PHP did not fix at all. These are floors: distributions that backport the fix keep reporting the old version, and a service counts as patched only after a rescan. W3Techs, which visits each website about once a month, shows 2 to 6 per cent of sites on the fixed releases so far ([checkpoint](../studies/LH033/checkpoints/2026-10-25.md)).
 
+  ![A line chart and a bar, redrawn with each daily read. The line chart shows, by days since release from 0 to 30, the share of internet-facing PHP services in each fixed branch that Censys counts as patched, beside an orange band for four Python security fixes' share of downloads and a dashed line for the median over 37 Python libraries. The bar splits the PHP services that reported a version on the latest completed day into patched, not yet patched, and on branches with no fix. The chart's own description gives the figures.](../studies/LH033/figure.svg)
+
+  A working chart, unreviewed, redrawn with each daily read; the two sides measure different things (services as last scanned; downloads in a day).
+
 ## 24 October 2026
 
 - **How the 23 October instruction travels:** no change. No vulnerability tracker yet holds a record for CVE-2026-115560 (Ubuntu's timed out this morning); CERT-EU and Cloudflare say what they said yesterday ([LH030 checkpoint](../studies/LH030/checkpoints/2026-10-24.md)).
