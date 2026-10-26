@@ -76,7 +76,9 @@ text { font-family: system-ui, -apple-system, "Segoe UI", Roboto, Helvetica, Ari
 o.append('<defs><pattern id="hatch" width="6" height="6" patternUnits="userSpaceOnUse" patternTransform="rotate(45)">'
          '<rect width="6" height="6" fill="var(--bg)"/><line x1="0" y1="0" x2="0" y2="6" stroke="var(--hatch)" stroke-width="2"/></pattern></defs>')
 o.append(f'<rect width="{W}" height="{H}" fill="var(--bg)"/>')
-o.append(f'<text x="16" y="30" class="head">PHP\'s emergency fix, three days in, beside Python fixes\' downloads</text>')
+WORDS = ['no', 'one', 'two', 'three', 'four', 'five', 'six', 'seven', 'eight', 'nine', 'ten']
+span_words = f'{WORDS[last]} day' if last < len(WORDS) else f'{last} day'
+o.append(f'<text x="16" y="30" class="head">PHP\'s emergency fix, {span_words}{"s" if last != 1 else ""} in, beside Python fixes\' downloads</text>')
 o.append('<text x="16" y="51" class="sub">PHP: share of internet-facing services in each fixed branch that Censys counts as patched.</text>')
 o.append('<text x="16" y="68" class="sub">Python: share of a library\'s daily downloads at the fixed release or later. Different units; see below.</text>')
 o.append(f'<line x1="16" y1="98" x2="40" y2="98" stroke="var(--a)" stroke-width="2.5"/>'

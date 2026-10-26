@@ -6,6 +6,16 @@ date: 2026-10-23
 
 A few plain lines a day on what the fixed PHP panels saw, newest first, each linking the day's checkpoints. These are working records: what a source said and when Lighthouse read it, not reviewed findings. Anything that would change [the public account](../articles/php-emergency-first-reading.md) is flagged here and goes through review before it reaches that page. How the watch runs is in [the continuation plan](php-watch-continuation-2026-10-23.md).
 
+## 26 October 2026
+
+- **How the 23 October instruction travels:** no change; no tracker holds a record for CVE-2026-115560 at 06:34 UTC ([LH030](../studies/LH030/checkpoints/2026-10-26.md)).
+- **CISA's catalogue:** no change; none of the three CVEs listed ([LH031](../studies/LH031/checkpoints/2026-10-26.md)).
+- **Products embedding PHP:** the Dutch NCSC's list changed for the first time since 23 October, in commits early this morning, one titled "Verify eligible PHP products against official public advisories". It now has 752 entries; for CVE-2026-109618, 119 record a fix (109 yesterday), 216 vulnerable (222), 378 under investigation (389) and 38 not vulnerable (30). Still no column for CVE-2026-115560. A check of the same five sampled entries found each still supported by its vendor's page ([LH032](../studies/LH032/checkpoints/2026-10-26.md)).
+- **Institutions:** no change in any exposed field ([LH024](../studies/LH024/checkpoints/2026-10-26.md)).
+- **How far the fix has reached, by others' counts:** by Censys's classification, on 25 October (day 4) 48 per cent of version-reporting services were counted patched in 8.2, 48 in 8.3, 63 in 8.4 and 75 in 8.5, each up one to two points on the day before; 23.6 million services, 55 per cent of those reporting a version, run branches PHP did not fix. Censys revised no earlier day. W3Techs, which visits each website about once a month, now shows 3 to 8 per cent of sites on the fixed releases ([LH033](../studies/LH033/checkpoints/2026-10-26.md)).
+- **Media sweep, 06:30 UTC:** no new coverage; all 56 results repeat earlier ones, so no page was opened ([sweep](php-media-sweep/2026-10-26T0630Z.md)).
+- **Flagged for review:** nothing.
+
 ## 25 October 2026
 
 - **How the 23 October instruction travels:** no change; no tracker holds a record for CVE-2026-115560 at 00:33 or 06:33 UTC ([LH030](../studies/LH030/checkpoints/2026-10-25.md)).
