@@ -15,6 +15,7 @@ A few plain lines a day on what the fixed PHP panels saw, newest first, each lin
 - **How far the fix has reached, by others' counts:** by Censys's classification, on 25 October (day 4) 48 per cent of version-reporting services were counted patched in 8.2, 48 in 8.3, 63 in 8.4 and 75 in 8.5, each up one to two points on the day before; 23.6 million services, 55 per cent of those reporting a version, run branches PHP did not fix. Censys revised no earlier day. W3Techs, which visits each website about once a month, now shows 3 to 8 per cent of sites on the fixed releases ([LH033](../studies/LH033/checkpoints/2026-10-26.md)).
 - **Media sweep, 06:30 UTC:** no new coverage; all 56 results repeat earlier ones, so no page was opened ([sweep](php-media-sweep/2026-10-26T0630Z.md)).
 - **Flagged for review:** nothing.
+- **Images, 12:36 UTC:** a partial read; Docker's registry refused it on the first manifest. The one tag read through Docker Hub's tag page, `wordpress:php8.2-apache`, is unchanged ([LH025](../studies/LH025/checkpoints/2026-10-26.md)). Trackers and CISA: no change (Ubuntu's record timed out).
 
 ## 25 October 2026
 

@@ -1,0 +1,286 @@
+[
+  {
+    "group": "reference",
+    "source": "php",
+    "name": "php_0",
+    "status": 200,
+    "bytes": 102924,
+    "sha256": "36cad7cc5c2d93f7b2926a82e04e515459ab570430c9ffc4f49d4b97e70694ad",
+    "access": "read",
+    "I": true,
+    "II": [
+      "ms we have published in 2026 on PHP.net. 23 Oct 2026 Informational advisory: Session upload progress We suggest you set session.upload_progress.enabled=0 until the next regular bugfix release, to fully protect from an unlikely RCE vector. This setting was already listed as"
+    ],
+    "III": [
+      "nder an unusual combination of configuration and application code. An application must set session.serialize_handler to php_binary or php_serialize in its configuration and then switch it to php at runtime with ini_set() before calling session_start(",
+      "l combination of configuration and application code. An application must set session.serialize_handler to php_binary or php_serialize in its configuration and then switch it to php at runtime with ini_set() before calling session_start() . Session uploa"
+    ],
+    "IV": [
+      "60 with the next release. 21 Oct 2026 Security advisory: Critical remote code execution vulnerabilities, update now PHP 8.5.12, 8.4.27, 8.3.36 and 8.2.35 fix two critical vulnerabilities that can allow unauthenticated remote code execution. All P",
+      "the next release. 21 Oct 2026 Security advisory: Critical remote code execution vulnerabilities, update now PHP 8.5.12, 8.4.27, 8.3.36 and 8.2.35 fix two critical vulnerabilities that can allow unauthenticated remote code execution. All PHP users",
+      " release. 21 Oct 2026 Security advisory: Critical remote code execution vulnerabilities, update now PHP 8.5.12, 8.4.27, 8.3.36 and 8.2.35 fix two critical vulnerabilities that can allow unauthenticated remote code execution. All PHP users are str",
+      "1 Oct 2026 Security advisory: Critical remote code execution vulnerabilities, update now PHP 8.5.12, 8.4.27, 8.3.36 and 8.2.35 fix two critical vulnerabilities that can allow unauthenticated remote code execution. All PHP users are strongly encou",
+      "andled by the same worker may use that stale state before normal initialization resets it. How to update: Update to PHP 8.5.12, 8.4.27, 8.3.36 or 8.2.35. Source downloads are on our downloads page . Windows source and binaries are on the same pag",
+      "y the same worker may use that stale state before normal initialization resets it. How to update: Update to PHP 8.5.12, 8.4.27, 8.3.36 or 8.2.35. Source downloads are on our downloads page . Windows source and binaries are on the same page . Linu",
+      "me worker may use that stale state before normal initialization resets it. How to update: Update to PHP 8.5.12, 8.4.27, 8.3.36 or 8.2.35. Source downloads are on our downloads page . Windows source and binaries are on the same page . Linux distri",
+      "may use that stale state before normal initialization resets it. How to update: Update to PHP 8.5.12, 8.4.27, 8.3.36 or 8.2.35. Source downloads are on our downloads page . Windows source and binaries are on the same page . Linux distributions an"
+    ],
+    "V": [
+      "https://www.php.net/archive/2026.php#2026-10-23-1"
+    ],
+    "II_yes": true,
+    "III_yes": true,
+    "IV_yes": true
+  },
+  {
+    "group": "records",
+    "source": "cve_org",
+    "name": "cve_org_0",
+    "status": 404,
+    "bytes": 84,
+    "sha256": "ff0793bc04d228fac6b8634ea8a29ce08d68067d615654d72b11955d01433b66",
+    "access": "unavailable"
+  },
+  {
+    "group": "records",
+    "source": "nvd",
+    "name": "nvd_0",
+    "status": 200,
+    "bytes": 146,
+    "sha256": "cbdc1b54751664a93641ae71af8b49b1168d4c3359fdbd7ceb7cc851fcd2a769",
+    "access": "unavailable"
+  },
+  {
+    "group": "records",
+    "source": "osv",
+    "name": "osv_0",
+    "status": 404,
+    "bytes": 46,
+    "sha256": "eff9d6063693b72bd0cbba8a64cbc29e0d38b4fb05e86450909fe741c83f9253",
+    "access": "unavailable"
+  },
+  {
+    "group": "records",
+    "source": "debian",
+    "name": "debian_0",
+    "status": 404,
+    "bytes": 926,
+    "sha256": "8497713c176646194b80a08c3a99ba5d06f704d674318db6e5ccb84a2ce388ff",
+    "access": "unavailable"
+  },
+  {
+    "group": "records",
+    "source": "ubuntu",
+    "name": "ubuntu_0",
+    "status": null,
+    "bytes": null,
+    "sha256": null,
+    "access": "unavailable"
+  },
+  {
+    "group": "records",
+    "source": "redhat",
+    "name": "redhat_0",
+    "status": 404,
+    "bytes": 29,
+    "sha256": "f9cfc520758ea14b52eff5a78af5895e6259421fc7b7ae38896994ae290cad0b",
+    "access": "unavailable"
+  },
+  {
+    "group": "records",
+    "source": "suse",
+    "name": "suse_0",
+    "status": 404,
+    "bytes": 133901,
+    "sha256": "fc6a8e60fceaccbdf03d6e1ff292bc3023be5b85e92c22fbfcf5b090fe390d2f",
+    "access": "unavailable"
+  },
+  {
+    "group": "notices",
+    "source": "ncsc_uk",
+    "name": "ncsc_uk_0",
+    "status": 200,
+    "bytes": 225253,
+    "sha256": "0190a4ffd4bc5ef447c3055202132ec85d1e5df2dfba175802fdac2bf1e32065",
+    "access": "read",
+    "I": false,
+    "II": [],
+    "III": [],
+    "IV": [],
+    "V": [],
+    "II_yes": false,
+    "III_yes": false,
+    "IV_yes": false
+  },
+  {
+    "group": "notices",
+    "source": "cisa",
+    "name": "cisa_0",
+    "status": 403,
+    "bytes": 495,
+    "sha256": "2fdd2e5597bb5ba2ccbc910b951f09f8d201cb5e73905743faad2314b5b2dfa7",
+    "access": "unavailable"
+  },
+  {
+    "group": "notices",
+    "source": "cert_eu",
+    "name": "cert_eu_0",
+    "status": 200,
+    "bytes": 25613,
+    "sha256": "22e009ba732c8abc268424c24898d3f404ce3a72813a26509d8be7ea3ab5d20a",
+    "access": "read",
+    "I": true,
+    "II": [
+      "MIT_DATA instead, because they can trigger the vulnerable allocation failure. CVE-2026-109619 (stale global state): Set session.upload_progress.enabled=0 and restart every worker. Apply this in php.ini , an FPM pool or a server configuration that takes effect before reques",
+      "ackers can reach, including failures in callbacks, upload or import processing, and cleanup. [New] CVE-2026-115560: Set session.upload_progress.enabled=0 and restart every worker until the next regular bugfix release, to fully protect from CVE-2026-115560. References [1] h"
+    ],
+    "III": [],
+    "IV": [
+      "execution. The PHP team will publish a full advisory with the next release. Affected Products PHP 8.5 versions prior to 8.5.12 PHP 8.4 versions prior to 8.4.27 PHP 8.3 versions prior to 8.3.36 PHP 8.2 versions prior to 8.2.35 End-of-life branches",
+      "ish a full advisory with the next release. Affected Products PHP 8.5 versions prior to 8.5.12 PHP 8.4 versions prior to 8.4.27 PHP 8.3 versions prior to 8.3.36 PHP 8.2 versions prior to 8.2.35 End-of-life branches (PHP 8.1 and older), which no lo",
+      " release. Affected Products PHP 8.5 versions prior to 8.5.12 PHP 8.4 versions prior to 8.4.27 PHP 8.3 versions prior to 8.3.36 PHP 8.2 versions prior to 8.2.35 End-of-life branches (PHP 8.1 and older), which no longer receive updates from the PHP",
+      ".5 versions prior to 8.5.12 PHP 8.4 versions prior to 8.4.27 PHP 8.3 versions prior to 8.3.36 PHP 8.2 versions prior to 8.2.35 End-of-life branches (PHP 8.1 and older), which no longer receive updates from the PHP project [4] Many commercial and ",
+      "ies [5]. Recommendations CERT-EU strongly recommends updating all affected PHP installations as soon as possible to PHP 8.5.12, 8.4.27, 8.3.36 or 8.2.35 [4]. Distribution packages: Linux distributions and LTS vendors received the patches in advan",
+      " Recommendations CERT-EU strongly recommends updating all affected PHP installations as soon as possible to PHP 8.5.12, 8.4.27, 8.3.36 or 8.2.35 [4]. Distribution packages: Linux distributions and LTS vendors received the patches in advance. Chec",
+      "ndations CERT-EU strongly recommends updating all affected PHP installations as soon as possible to PHP 8.5.12, 8.4.27, 8.3.36 or 8.2.35 [4]. Distribution packages: Linux distributions and LTS vendors received the patches in advance. Check with y",
+      "ERT-EU strongly recommends updating all affected PHP installations as soon as possible to PHP 8.5.12, 8.4.27, 8.3.36 or 8.2.35 [4]. Distribution packages: Linux distributions and LTS vendors received the patches in advance. Check with your vendor"
+    ],
+    "V": [],
+    "II_yes": true,
+    "III_yes": false,
+    "IV_yes": true
+  },
+  {
+    "group": "notices",
+    "source": "cloudflare",
+    "name": "cloudflare_0",
+    "status": 200,
+    "bytes": 306061,
+    "sha256": "abe83375251a6e173de3ba96a6246d2abd6b359f6871d1e9b3e6cbf6eadb8394",
+    "access": "read",
+    "I": true,
+    "II": [],
+    "III": [],
+    "IV": [
+      "formational advisory for a related vulnerability, CVE-2026-115560, in PHP's session upload progress feature. It affects fully patched PHP releases, including 8.5.12, and will be fixed in PHP's next regular release. All Cloudflare WAF customers are prote",
+      "nerability, CVE-2026-115560, in PHP's session upload progress feature. It affects fully patched PHP releases, including 8.5.12, and will be fixed in PHP's next regular release. All Cloudflare WAF customers are protected against known exploit atte"
+    ],
+    "V": [
+      "https://www.php.net/archive/2026.php#2026-10-23-1"
+    ],
+    "II_yes": false,
+    "III_yes": false,
+    "IV_yes": true
+  },
+  {
+    "group": "notices",
+    "source": "fastly",
+    "name": "fastly_0",
+    "status": 200,
+    "bytes": 164855,
+    "sha256": "38708b00ce5a632e41ce45d1af875df5dbfc9f080568ccd906fe81b7bfb20c86",
+    "access": "read",
+    "I": false,
+    "II": [],
+    "III": [],
+    "IV": [],
+    "V": [],
+    "II_yes": false,
+    "III_yes": false,
+    "IV_yes": false
+  },
+  {
+    "group": "notices",
+    "source": "fastly",
+    "name": "fastly_1",
+    "status": 200,
+    "bytes": 372981,
+    "sha256": "cf73ad8394114c99b3f571d8adc1af7dae2f2648a186e5a592cb93a4cc3aa7ea",
+    "access": "read",
+    "I": false,
+    "II": [],
+    "III": [],
+    "IV": [],
+    "V": [],
+    "II_yes": false,
+    "III_yes": false,
+    "IV_yes": false
+  },
+  {
+    "group": "notices",
+    "source": "akamai",
+    "name": "akamai_0",
+    "status": 403,
+    "bytes": 478,
+    "sha256": "cb43f7bc71ac4d221f1659bb27e393d1e149658f8af3e54b8540c27b321e1815",
+    "access": "unavailable"
+  },
+  {
+    "group": "notices",
+    "source": "aws",
+    "name": "aws_0",
+    "status": 200,
+    "bytes": 18031,
+    "sha256": "ada0edb5e378d0256448893ca0b5e0f0be71344e333943d8db2b83c194dda44b",
+    "access": "read",
+    "I": false,
+    "II": [],
+    "III": [],
+    "IV": [],
+    "V": [],
+    "II_yes": false,
+    "III_yes": false,
+    "IV_yes": false
+  },
+  {
+    "group": "notices",
+    "source": "aws",
+    "name": "aws_1",
+    "status": 200,
+    "bytes": 18615,
+    "sha256": "782d28dc18fae8b02beca13892ea0c6d4e831118b70058c8f17b28f135c94ea8",
+    "access": "read",
+    "I": false,
+    "II": [],
+    "III": [],
+    "IV": [],
+    "V": [],
+    "II_yes": false,
+    "III_yes": false,
+    "IV_yes": false
+  },
+  {
+    "group": "notices",
+    "source": "google_cloud",
+    "name": "google_cloud_0",
+    "status": 200,
+    "bytes": 322557,
+    "sha256": "6452930431bad568bc421fa08ff270db4524dfc081a6eb4a32e1d5d5870c6683",
+    "access": "read",
+    "I": false,
+    "II": [],
+    "III": [],
+    "IV": [],
+    "V": [],
+    "II_yes": false,
+    "III_yes": false,
+    "IV_yes": false
+  },
+  {
+    "group": "notices",
+    "source": "google_cloud",
+    "name": "google_cloud_1",
+    "status": 200,
+    "bytes": 731055,
+    "sha256": "b3b6ce74845ea156697341a1822ebf5872b159e57d53f01a2a5bbc6785c38c4d",
+    "access": "read",
+    "I": false,
+    "II": [],
+    "III": [],
+    "IV": [],
+    "V": [],
+    "II_yes": false,
+    "III_yes": false,
+    "IV_yes": false
+  }
+]
