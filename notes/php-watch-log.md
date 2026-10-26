@@ -16,6 +16,7 @@ A few plain lines a day on what the fixed PHP panels saw, newest first, each lin
 - **Media sweep, 06:30 UTC:** no new coverage; all 56 results repeat earlier ones, so no page was opened ([sweep](php-media-sweep/2026-10-26T0630Z.md)).
 - **Flagged for review:** nothing.
 - **Images, 12:36 UTC:** a partial read; Docker's registry refused it on the first manifest. The one tag read through Docker Hub's tag page, `wordpress:php8.2-apache`, is unchanged ([LH025](../studies/LH025/checkpoints/2026-10-26.md)). Trackers and CISA: no change (Ubuntu's record timed out).
+- **PHP, 18:34 UTC:** PHP's news page has a new item dated 26 October, "Updated PHP Windows builds for Brotli security fix": Windows packages 8.5.12-1, 8.4.27-1, 8.3.36-1 and 8.2.35-1 bundle Brotli 1.2.1, which fixes CVE-2026-111497, a flaw PHP says is reachable through cURL only when automatic response decompression is turned on; the PHP runtime versions are unchanged. It does not concern CVE-2026-115560 or the October flaws, and is not PHP's next regular release. Not flagged ([LH030](../studies/LH030/checkpoints/2026-10-26.md)).
 
 ## 25 October 2026
 
