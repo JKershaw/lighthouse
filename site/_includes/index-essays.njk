@@ -1,0 +1,10 @@
+---
+layout: base.njk
+---
+<article class="index">
+  <h1>Essays</h1>
+  <p class="lede">Essays are interpretation, not findings. Each says which records it rests on, marks what is a reading rather than a measurement, and ends with what would test it. The findings, each reviewed against its sources, are in <a href="/articles/">Pieces</a>.</p>
+  {% if repo.releasedEssays.length %}<ol class="entries">
+    {% for p in repo.releasedEssays %}{% set twin = null %}{% include "entry-piece.njk" %}{% endfor %}
+  </ol>{% else %}<p>No essay has been released yet.</p>{% endif %}
+</article>

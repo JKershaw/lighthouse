@@ -3,13 +3,13 @@
 {{ parts.front | safe }}
 </div>
 <div class="below prose">
-  {% for s in parts.sections %}{% if loop.first %}<section>{{ s | safe }}</section>{% endif %}{% endfor %}
-  <section class="latest">
-    <h2 id="latest">Latest</h2>
-    <ol class="entries">
-      {% for g in repo.latest %}{% set p = g.lead %}<li><a href="{{ p.url }}">{{ p.title }}</a> <span class="when">{% if p.short %}Short form · {% endif %}{% include "piece-dates.njk" %}{% if g.twin %} · <a href="{{ g.twin.url }}">Short form</a>{% endif %}</span></li>
-      {% endfor %}
-    </ol>
-  </section>
-  {% for s in parts.sections %}{% if not loop.first %}<section>{{ s | safe }}</section>{% endif %}{% endfor %}
+  {% for s in parts.sections %}<section{% if s.id %} class="door-{{ s.id }}"{% endif %}>{{ s.head | safe }}
+    {%- if s.id == "the-watch" and repo.watch %}{% include "home-watch.njk" %}{% endif %}{{ s.body | safe }}
+    {%- if s.id == "findings" %}
+    <div class="latest">{% set latestLevel = "h3" %}{% include "home-latest.njk" %}</div>{% endif %}
+    {%- if s.id == "essays" and repo.releasedEssays.length %}
+    <div class="latest">{% include "home-essays.njk" %}</div>{% endif %}</section>
+  {% if loop.first and not parts.hasFindings %}<section class="latest">{% set latestLevel = "h2" %}{% include "home-latest.njk" %}</section>
+  {% endif %}{% endfor %}
+  {% if not parts.sections.length %}<section class="latest">{% set latestLevel = "h2" %}{% include "home-latest.njk" %}</section>{% endif %}
 </div>

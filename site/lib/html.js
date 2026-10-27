@@ -64,9 +64,10 @@ function takeMarked(html, name) {
 }
 
 // A piece: notices, opening and byline, then the layout's context block
-// placed after the byline and its pager before the colophon's rule.
+// placed after the byline and its pager before the colophon's rule. The
+// colophon, where a piece names its reviews, gets an anchor.
 export function arrangePiece(html) {
-  html = markNotices(html);
+  html = markNotices(html).replace(/<p><strong>Colophon\.<\/strong>/, '<p id="colophon"><strong>Colophon.</strong>');
   const top = takeMarked(html, "top");
   html = top.html;
   const end = takeMarked(html, "end");
