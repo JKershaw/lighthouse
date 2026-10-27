@@ -298,6 +298,56 @@ function namedPath(text, from) {
 
 const link = (p) => (p ? { title: p.title, url: p.url, path: p.path } : null);
 
+// Which way a page reads: a reviewed finding, an essay, or a working record
+// (a study's files, a note, or any document whose header is shown as facts).
+export function registerOf(page) {
+  if (page.section === "articles") return "finding";
+  if (page.essay) return "essay";
+  if (page.section === "studies" || page.section === "notes") return "record";
+  return page.header && page.section !== "investigations" ? "record" : "";
+}
+
+// The review notes a piece links to, notes/R-*.md, in the order it first
+// names them. Only notes that exist count; nothing is guessed.
+export function reviewNotes(body, from, byPath) {
+  const out = [];
+  for (const m of String(body || "").matchAll(/\]\(([^)\s]+)\)/g)) {
+    const target = m[1].replace(/[#?].*$/, "");
+    const rel = path.posix.normalize(target.startsWith("/") ? target.slice(1) : path.posix.join(path.posix.dirname(from), target));
+    if (!/^notes\/R-[^/]+\.md$/.test(rel) || !byPath[rel] || out.some((n) => n.path === rel)) continue;
+    out.push({ ...link(byPath[rel]), id: path.posix.basename(rel, ".md").match(/^R-\d+/)[0] });
+  }
+  return out;
+}
+
+// The daily log of the time-sensitive watch, read for the front page.
+export const WATCH_LOG = "notes/php-watch-log.md";
+
+// A log's newest day: its `## 27 October 2026` heading, the latest time a
+// read is logged under it (items such as `**Media sweep, 06:34 UTC:**`), and
+// what its `**Flagged for review...**` item says. Null when no day is found.
+export function watchLog(source) {
+  const text = String(source || "").replace(/\r\n?/g, "\n");
+  const m = text.match(/^## (\d{1,2} [A-Za-z]+ \d{4})[ \t]*\n([\s\S]*?)(?=^## |(?![\s\S]))/m);
+  if (!m || !longDate(m[1])) return null;
+  const items = m[2].split("\n").filter((l) => /^- \*\*/.test(l));
+  const times = items
+    .map((l) => (l.match(/^- \*\*[^*]*?,\s*(\d{2}:\d{2}) UTC:?\*\*/) || [])[1])
+    .filter(Boolean)
+    .sort();
+  // "**Flagged for review:** nothing." or "**Flagged for review: what.**"
+  const flagItem = items.find((l) => /^- \*\*Flagged for review\b/.test(l)) || "";
+  const nothing = /^- \*\*Flagged for review:?\*\*:?\s*nothing\b/i.test(flagItem);
+  const what = (flagItem.match(/^- \*\*Flagged for review:\s*([^*]+?)\*\*/) || [])[1] || "";
+  return {
+    day: formatDate(longDate(m[1])),
+    dayIso: longDate(m[1]).toISOString().slice(0, 10),
+    lastRead: times.length ? `${times[times.length - 1]} UTC` : "",
+    flag: !flagItem ? "" : nothing ? "nothing" : what ? "flagged" : "",
+    flagged: nothing ? "" : plainText(what).replace(/\.$/, ""),
+  };
+}
+
 // Options: `siteFile`, the JSON file holding the site's description
 // (site/site.json by default).
 export function scanRepo(root, { siteFile = path.join(root, "site", "site.json") } = {}) {
@@ -310,6 +360,7 @@ export function scanRepo(root, { siteFile = path.join(root, "site", "site.json")
 
   const pages = [];
   const byPath = {};
+  const bodies = new Map();
   for (const rel of files.filter((f) => f.toLowerCase().endsWith(".md"))) {
     const raw = fs.readFileSync(path.join(root, rel), "utf8");
     const header = parseHeader(raw);
@@ -348,6 +399,14 @@ export function scanRepo(root, { siteFile = path.join(root, "site", "site.json")
     }
     pages.push(page);
     byPath[rel] = page;
+    if (isPiece) bodies.set(rel, body);
+  }
+  for (const page of pages) page.register = registerOf(page);
+
+  // A released finding links its review notes; a draft shows none.
+  for (const page of pages.filter((p) => p.section === "articles")) {
+    page.reviews = page.draft ? [] : reviewNotes(bodies.get(page.path), page.path, byPath);
+    page.hasColophon = /^\*\*Colophon\.\*\*/m.test(bodies.get(page.path));
   }
 
   const images = files.filter((f) => IMAGE_EXT.includes(path.posix.extname(f).toLowerCase()));
@@ -487,8 +546,11 @@ export function scanRepo(root, { siteFile = path.join(root, "site", "site.json")
   // The site's description, from site/site.json; else the first sentence of
   // AGENTS.md's first paragraph.
   let strap = "";
+  let siteUrl = "";
   try {
-    strap = String(JSON.parse(fs.readFileSync(siteFile, "utf8")).description || "").trim();
+    const site = JSON.parse(fs.readFileSync(siteFile, "utf8"));
+    strap = String(site.description || "").trim();
+    siteUrl = String(site.url || "").trim().replace(/\/+$/, "");
   } catch {
     // No site.json: fall back to AGENTS.md below.
   }
@@ -498,6 +560,11 @@ export function scanRepo(root, { siteFile = path.join(root, "site", "site.json")
     const m = plainText(para).match(/^(.+?[.!?])(\s|$)/);
     strap = m ? m[1] : plainText(para);
   }
+
+  // The watch log's newest day, if the log is there and reads as expected.
+  const watchPage = byPath[WATCH_LOG];
+  const watchDay = watchPage ? watchLog(fs.readFileSync(path.join(root, WATCH_LOG), "utf8")) : null;
+  const watch = watchDay ? { ...watchDay, url: watchPage.url, title: watchPage.title } : null;
 
   return {
     root,
@@ -521,6 +588,8 @@ export function scanRepo(root, { siteFile = path.join(root, "site", "site.json")
     notes,
     latest,
     strap,
+    siteUrl,
+    watch,
     warnings,
     commit,
     commitUrl: commit ? `${REPO_URL}/commit/${commit}` : "",

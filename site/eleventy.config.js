@@ -11,6 +11,7 @@ import { scanRepo, pageUrl, IGNORED_DIRS, IGNORED_FILES } from "./lib/repo.js";
 import { stripHeader } from "./lib/header.js";
 import lighthousePlugin, { unresolved } from "./lib/markdown.js";
 import { arrangePiece, markNotices } from "./lib/html.js";
+import { atomFeed } from "./lib/feed.js";
 
 const siteDir = path.dirname(fileURLToPath(import.meta.url));
 const root = path.resolve(siteDir, "..");
@@ -75,17 +76,23 @@ export default function (eleventyConfig) {
 
   eleventyConfig.addFilter("mdInline", (value, page) => (md ? md.renderInline(String(value || ""), { page }) : value));
 
-  // README.md above its rule is the front page; below it, one section per h2.
-  // The latest list closes the section headed "Findings", else follows the
-  // first; the released essays close the section headed "Essays".
+  // README.md above its rule is the front page; below it, one section per h2,
+  // each with its heading apart and its id, so that the layout can add to the
+  // sections headed "The watch", "Findings" and "Essays".
   eleventyConfig.addFilter("homeParts", (html) => {
     const at = html.search(/<hr\s*\/?>/);
     let front = at >= 0 ? html.slice(0, at) : html;
     const rest = at >= 0 ? html.slice(at).replace(/^<hr\s*\/?>/, "") : "";
     front = front.replace(/^\s*<h1[^>]*>[\s\S]*?<\/h1>\s*/, "");
-    const sections = rest.split(/(?=<h2[\s>])/).filter((s) => s.trim());
-    const headed = (id) => sections.findIndex((s) => new RegExp(`^\\s*<h2[^>]*\\sid="${id}"`).test(s));
-    return { front, sections, latestIn: headed("findings"), essaysIn: headed("essays") };
+    const sections = rest
+      .split(/(?=<h2[\s>])/)
+      .filter((s) => s.trim())
+      .map((s) => {
+        const head = s.match(/^\s*<h2[^>]*>[\s\S]*?<\/h2>/);
+        const id = head ? (head[0].match(/\sid="([^"]+)"/) || [])[1] || "" : "";
+        return { id, head: head ? head[0] : "", body: head ? s.slice(head[0].length) : s };
+      });
+    return { front, sections, hasFindings: sections.some((s) => s.id === "findings") };
   });
 
   // Illustrations become figures with their italic captions, each linked to
@@ -145,6 +152,13 @@ export default function (eleventyConfig) {
   for (const [name, data] of indexes) {
     eleventyConfig.addTemplate(`_lighthouse/${name}.njk`, "", { ...data, layout: `index-${name}.njk` });
   }
+  // The Atom feed of released pieces and essays.
+  eleventyConfig.addFilter("atomFeed", (repo) => atomFeed(repo));
+  eleventyConfig.addTemplate("_lighthouse/feed.njk", "{{ repo | atomFeed | safe }}", {
+    permalink: "/feed.xml",
+    layout: false,
+    eleventyExcludeFromCollections: true,
+  });
   eleventyConfig.addTemplate("_lighthouse/study.njk", "", {
     layout: "index-study.njk",
     section: "studies",

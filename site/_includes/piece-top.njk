@@ -1,7 +1,9 @@
 {# Placed after the byline by the lighthouse-html transform. #}
 {%- set ctx = doc.context %}<!--lh:top-->
-{%- if doc.essay or (ctx and (ctx.investigation or ctx.twin)) %}<aside class="piece-context" aria-label="About this {% if doc.essay %}essay{% else %}piece{% endif %}">
+{%- if doc.essay or doc.reviews.length or (ctx and (ctx.investigation or ctx.twin)) %}<aside class="piece-context" aria-label="About this {% if doc.essay %}essay{% else %}piece{% endif %}">
   <ul>
+    {#- A released finding that links its review notes; the colophon names them all. #}
+    {%- if doc.reviews.length %}<li class="reviewed"><a class="badge" href="{{ doc.reviews[0].url }}" title="{{ doc.reviews[0].title }}">Reviewed</a>{% if doc.reviews.length > 1 and doc.hasColophon %} <a href="#colophon">{{ doc.reviews.length }} review notes</a>{% elif doc.reviews.length > 1 %} {% for r in doc.reviews %}<a href="{{ r.url }}" title="{{ r.title }}">{{ r.id }}</a>{% if not loop.last %}, {% endif %}{% endfor %}{% endif %}</li>{%- endif %}
     {%- if doc.essay %}<li>An essay: interpretation, not a finding. The findings are in <a href="/articles/">Pieces</a>.</li>{%- endif %}
     {%- if ctx.investigation %}<li>Part of <a href="{{ ctx.investigation.url }}">{{ ctx.investigation.title }}</a></li>{%- endif %}
     {%- if ctx.current %}<li>Current account: <a href="{{ ctx.current.url }}">{{ ctx.current.title }}</a></li>{%- endif %}

@@ -8,7 +8,8 @@ import os from "node:os";
 import path from "node:path";
 import { fileURLToPath } from "node:url";
 import { execFileSync } from "node:child_process";
-import { scanRepo, bylineDate, longDate, parseRevision, noticeDates, pieceInfo } from "../lib/repo.js";
+import { scanRepo, bylineDate, longDate, parseRevision, noticeDates, pieceInfo, watchLog } from "../lib/repo.js";
+import { atomFeed, feedEntries, escapeXml } from "../lib/feed.js";
 import { parseHeader } from "../lib/header.js";
 import { markNotices, arrangeOpening, arrangePiece, noticeKind } from "../lib/html.js";
 
@@ -260,4 +261,116 @@ test("the layout's context goes after the byline and its pager before the coloph
   assert.ok(out.indexOf("piece-context") < out.indexOf("notice-correction"));
   assert.ok(out.indexOf("piece-pager") < out.indexOf("<hr>"));
   assert.ok(out.indexOf("<p>Text.</p>") < out.indexOf("piece-pager"));
+});
+
+test("registers: findings, essays and records read differently", () => {
+  const repo = scanCopy();
+  assert.equal(repo.byPath["articles/updated.md"].register, "finding");
+  assert.equal(repo.byPath["articles/short/legacy.md"].register, "finding");
+  assert.equal(repo.byPath["essays/reading.md"].register, "essay");
+  assert.equal(repo.byPath["studies/LH001/LH001.md"].register, "record");
+  assert.equal(repo.byPath["notes/R-0002.md"].register, "record");
+  assert.equal(repo.byPath["about.md"].register, "");
+  assert.equal(repo.byPath["investigations/fixture-inv.md"].register, "");
+});
+
+test("a released finding links the review notes it names; a draft shows none", () => {
+  const repo = scanCopy();
+  const updated = repo.byPath["articles/updated.md"];
+  // In the order first named, each once, and only notes that exist.
+  assert.deepEqual(updated.reviews.map((r) => [r.id, r.url]), [
+    ["R-0001", "/notes/R-0001-fixture/"],
+    ["R-0002", "/notes/R-0002/"],
+  ]);
+  assert.equal(updated.hasColophon, true);
+  assert.deepEqual(repo.byPath["articles/draft.md"].reviews, []);
+  assert.deepEqual(repo.byPath["articles/legacy.md"].reviews, []);
+  assert.equal(repo.byPath["essays/reading.md"].reviews, undefined);
+});
+
+test("the colophon gets an anchor for the review badge", () => {
+  const html = '<div class="prose"><h1>T</h1>\n<p>One.</p>\n<hr>\n<p><strong>Colophon.</strong> Reviewed.</p></div>';
+  assert.match(arrangePiece(html), /<p id="colophon"><strong>Colophon\.<\/strong>/);
+});
+
+const LOG = `title: Watch log
+kind: working log
+
+# Watch log
+
+Plain lines a day.
+
+## 27 October 2026
+
+- **Flagged for review: A catalogue lists the flaw.** Details, released 22:24 UTC.
+- **Trackers:** no change.
+- **Media sweep, 06:34 UTC:** nothing new.
+- **Images, 12:38 UTC:** a partial read, pushed at 18:17 UTC.
+
+## 26 October 2026
+
+- **Flagged for review:** nothing.
+- **PHP, 18:34 UTC:** a new item.
+`;
+
+test("the watch log's newest day: its date, latest logged read and flag", () => {
+  const day = watchLog(LOG);
+  assert.equal(day.day, "27 October 2026");
+  assert.equal(day.dayIso, "2026-10-27");
+  // Only times in an item's label count as reads, not times in its text.
+  assert.equal(day.lastRead, "12:38 UTC");
+  assert.equal(day.flag, "flagged");
+  assert.equal(day.flagged, "A catalogue lists the flaw");
+  const quiet = watchLog(LOG.replace(/## 27 October 2026[\s\S]*?(?=## 26)/, ""));
+  assert.equal(quiet.day, "26 October 2026");
+  assert.equal(quiet.flag, "nothing");
+  assert.equal(quiet.lastRead, "18:34 UTC");
+  // A day with no flag item says nothing either way; no day at all is null.
+  assert.equal(watchLog("## 1 May 2026\n\n- **Trackers:** no change.\n").flag, "");
+  assert.equal(watchLog("# Log\n\nNo days yet.\n"), null);
+  assert.equal(watchLog(""), null);
+  // The fixture has no watch log, so the front page shows no strip.
+  assert.equal(scanCopy().watch, null);
+});
+
+// Well-formed: every tag closed in order, every ampersand an entity.
+function wellFormed(xml) {
+  const body = xml.replace(/^<\?xml[^>]*\?>\s*/, "");
+  if (/&(?!(amp|lt|gt|quot|apos);)/.test(body)) return false;
+  const stack = [];
+  for (const m of body.matchAll(/<(\/?)([A-Za-z][\w:.-]*)[^>]*?(\/?)>/g)) {
+    if (m[3]) continue;
+    if (!m[1]) stack.push(m[2]);
+    else if (stack.pop() !== m[2]) return false;
+  }
+  return stack.length === 0 && !/<(?![\/A-Za-z?])/.test(body);
+}
+
+test("the feed: released pieces and essays, newest first, with kinds and RFC 3339 dates", () => {
+  const repo = scanCopy({ siteJson: { description: "A <fixture> & more.", url: "https://example.org/" } });
+  const entries = feedEntries(repo);
+  const urls = entries.map((e) => e.url);
+  assert.ok(!urls.some((u) => u.includes("draft") || u.includes("unfinished")));
+  assert.equal(urls[0], "https://example.org/essays/reading/");
+  assert.equal(urls[1], "https://example.org/articles/current/");
+  assert.ok(urls.includes("https://example.org/articles/short/updated/"));
+  const pub = entries.map((e) => e.published);
+  assert.deepEqual([...pub].sort().reverse(), pub);
+  const kind = (u) => entries.find((e) => e.url.endsWith(u)).kind;
+  assert.equal(kind("/essays/reading/"), "essay");
+  assert.equal(kind("/articles/short/updated/"), "short-form");
+  assert.equal(kind("/articles/updated/"), "piece");
+  // Updated is the latest revision or dated notice, else the publication.
+  const updated = entries.find((e) => e.url.endsWith("/articles/updated/"));
+  assert.equal(updated.published, "2026-09-25T00:00:00Z");
+  assert.equal(updated.updated, "2026-09-27T00:00:00Z");
+  const rfc3339 = /^\d{4}-\d{2}-\d{2}T\d{2}:\d{2}:\d{2}(\.\d+)?(Z|[+-]\d{2}:\d{2})$/;
+  const xml = atomFeed(repo);
+  for (const m of xml.matchAll(/<(published|updated)>([^<]*)</g)) assert.match(m[2], rfc3339);
+  assert.ok(wellFormed(xml));
+  assert.match(xml, /<subtitle>A &lt;fixture&gt; &amp; more\.<\/subtitle>/);
+  assert.match(xml, /<category term="essay" label="Essay"\/>/);
+  assert.equal((xml.match(/<entry>/g) || []).length, entries.length);
+  assert.ok(!wellFormed("<feed><entry></feed></entry>"));
+  assert.equal(escapeXml(`a & "b" <c>`), "a &amp; &quot;b&quot; &lt;c&gt;");
 });

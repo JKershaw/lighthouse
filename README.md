@@ -4,15 +4,24 @@ AI systems now write code, run tasks and call one another across the internet, s
 
 No single instrument sees that world whole: a code archive, a download log, a package registry and an internet scanner each show one part of it, and each stops somewhere. Lighthouse sets those partial views side by side, says where each one stops, and publishes what the shape looks like once the work has been reviewed against its sources. Much of what it sees is ordinary software moving, because anything unusual would travel the same roads.
 
+![Four windows on AI activity, drawn with soft edges that fade out: public code and packages, one broker's traffic, one vendor's consumer chats and one network's crawler traffic, each with the unit it counts. The space between and around them is marked unobserved, which is not the same as empty.](articles/what-we-can-see-map.svg)
+
+*Four windows on AI activity, with soft edges because none says how much it sees or where it overlaps the others; the space around them is unobserved, which is not the same as empty. From [We can see pieces of the internet's AI activity, but not how they fit together](articles/what-we-can-see.md).*
+
 ---
 
 ## The watch
 
 ### [A PHP emergency, from an early attack trace to published fixes](articles/php-emergency-first-reading.md)
 
-Amazon's threat-intelligence team says a decoy server saw an exploit attempt dated 17 October, before PHP's security release on 21 October. OpenAI describes AI-assisted discovery and a coordinated defensive response; neither the honeypot report nor the public traffic accounts establish AI use by attackers. Selected official and derivative images had published fixed versions by our first observations, though a registry image does not tell us who is running it. On 23 October PHP described a further route to running code, unlikely by its account and open only in some unusually configured applications, which it is handling in its regular release cycle and which, its advice implies, the fixed versions do not close. On 26 October CISA, the US cybersecurity agency, listed both emergency flaws in its catalogue of known exploited vulnerabilities: a classification by criteria the catalogue does not state, not a count of attacks or proof that any succeeded.
+PHP's emergency security release of 21 October, followed from the first public trace of an attack to the fixed versions, and to where the evidence stops.
 
-[Our developing account](articles/php-emergency-first-reading.md), dated 22 October with later-evidence notices of 23 and 27 October, draws the visible clocks and the points where evidence stops, and will be revised as fixed sources change. [The daily log](notes/php-watch-log.md) holds what those sources show each day, before any of it is reviewed. How far the fix spreads is now being set beside Python libraries' releases and a Node.js security release of the same day, with a reviewed reading due after its first week.
+- **Before the fix.** Amazon's threat-intelligence team says a decoy server saw an exploit attempt dated 17 October. OpenAI describes AI-assisted discovery and a coordinated defensive response; neither the honeypot report nor the public traffic accounts establish AI use by attackers.
+- **The fixed versions.** Selected official and derivative images had published them by our first observations, though a registry image does not tell us who is running it.
+- **A further route.** On 23 October PHP described another way to run code: unlikely by its account, open only in some unusually configured applications, and handled in its regular release cycle. Its advice implies the fixed versions do not close it.
+- **Listed as exploited.** On 26 October CISA, the US cybersecurity agency, listed both emergency flaws in its catalogue of known exploited vulnerabilities: a classification by criteria the catalogue does not state, not a count of attacks or proof that any succeeded.
+
+[Our developing account](articles/php-emergency-first-reading.md) is dated 22 October, with later-evidence notices of 23 and 27 October, and will be revised as fixed sources change. [The daily log](notes/php-watch-log.md) holds what those sources show each day, before any of it is reviewed. How far the fix spreads is now being set beside Python libraries' releases and a Node.js security release of the same day, with a reviewed reading due after its first week.
 
 ## Findings
 
