@@ -76,15 +76,16 @@ export default function (eleventyConfig) {
   eleventyConfig.addFilter("mdInline", (value, page) => (md ? md.renderInline(String(value || ""), { page }) : value));
 
   // README.md above its rule is the front page; below it, one section per h2.
-  // The latest list closes the section headed "Findings", else follows the first.
+  // The latest list closes the section headed "Findings", else follows the
+  // first; the released essays close the section headed "Essays".
   eleventyConfig.addFilter("homeParts", (html) => {
     const at = html.search(/<hr\s*\/?>/);
     let front = at >= 0 ? html.slice(0, at) : html;
     const rest = at >= 0 ? html.slice(at).replace(/^<hr\s*\/?>/, "") : "";
     front = front.replace(/^\s*<h1[^>]*>[\s\S]*?<\/h1>\s*/, "");
     const sections = rest.split(/(?=<h2[\s>])/).filter((s) => s.trim());
-    const findings = sections.findIndex((s) => /^\s*<h2[^>]*\sid="findings"/.test(s));
-    return { front, sections, latestIn: findings };
+    const headed = (id) => sections.findIndex((s) => new RegExp(`^\\s*<h2[^>]*\\sid="${id}"`).test(s));
+    return { front, sections, latestIn: headed("findings"), essaysIn: headed("essays") };
   });
 
   // Illustrations become figures with their italic captions, each linked to

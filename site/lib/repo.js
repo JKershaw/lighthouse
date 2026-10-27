@@ -472,13 +472,12 @@ export function scanRepo(root, { siteFile = path.join(root, "site", "site.json")
   const essays = pages.filter((p) => p.essay).sort(byPublished);
   const releasedEssays = essays.filter((p) => !p.draft);
 
-  // The front page's latest: released pieces and essays by publication date,
-  // each full piece with its short form. Drafts, records and notes are left out.
-  const latest = [
-    ...pieceGroups.filter((g) => !g.lead.draft).map((g) => ({ lead: g.lead, twin: g.twin && !g.twin.draft ? g.twin : null })),
-    ...releasedEssays.map((e) => ({ lead: e, twin: null })),
-  ]
-    .sort((a, b) => byPublished(a.lead, b.lead))
+  // The front page's latest: released pieces by publication date, each full
+  // piece with its short form. Drafts, essays, records and notes are left out;
+  // released essays have a list of their own.
+  const latest = pieceGroups
+    .filter((g) => !g.lead.draft)
+    .map((g) => ({ lead: g.lead, twin: g.twin && !g.twin.draft ? g.twin : null }))
     .slice(0, 8);
 
   // Directories with an index page, so that links to them resolve.

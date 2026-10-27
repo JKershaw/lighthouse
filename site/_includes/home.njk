@@ -4,7 +4,8 @@
 </div>
 <div class="below prose">
   {% for s in parts.sections %}<section>{{ s | safe }}{% if loop.index0 == parts.latestIn %}
-    <div class="latest">{% set latestLevel = "h3" %}{% include "home-latest.njk" %}</div>{% endif %}</section>
+    <div class="latest">{% set latestLevel = "h3" %}{% include "home-latest.njk" %}</div>{% endif %}{% if loop.index0 == parts.essaysIn and repo.releasedEssays.length %}
+    <div class="latest">{% include "home-essays.njk" %}</div>{% endif %}</section>
   {% if loop.first and parts.latestIn < 0 %}<section class="latest">{% set latestLevel = "h2" %}{% include "home-latest.njk" %}</section>
   {% endif %}{% endfor %}
   {% if not parts.sections.length %}<section class="latest">{% set latestLevel = "h2" %}{% include "home-latest.njk" %}</section>{% endif %}

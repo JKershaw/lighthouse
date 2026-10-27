@@ -26,7 +26,7 @@ When a widely used library puts out a new version, some software has it within d
 
 ## Essays
 
-An essay strand is starting, kept apart from the findings. An essay is interpretation: it says which records it rests on, marks what is a reading rather than a measurement, and ends with what would test it. When the first is released it will have a section of its own and appear in the latest list marked as an essay, so that what we think is never mistaken for what we measured.
+An essay strand is starting, kept apart from the findings. An essay is interpretation: it says which records it rests on, marks what is a reading rather than a measurement, and ends with what would test it. When the first is released, the site will list it in a section of its own, apart from the findings, so that what we think is never mistaken for what we measured.
 
 ## The map
 
