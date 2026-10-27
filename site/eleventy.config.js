@@ -5,12 +5,14 @@
 // of pages to maintain.
 
 import path from "node:path";
+import fs from "node:fs";
 import { fileURLToPath } from "node:url";
 import { HtmlBasePlugin } from "@11ty/eleventy";
 import { scanRepo, pageUrl, IGNORED_DIRS, IGNORED_FILES } from "./lib/repo.js";
 import { stripHeader } from "./lib/header.js";
 import lighthousePlugin, { unresolved } from "./lib/markdown.js";
 import { arrangePiece, markNotices } from "./lib/html.js";
+import { writeOfflineFiles } from "./lib/offline.js";
 import { atomFeed } from "./lib/feed.js";
 
 const siteDir = path.dirname(fileURLToPath(import.meta.url));
@@ -32,6 +34,7 @@ export default function (eleventyConfig) {
     unresolved.length = 0;
   });
   eleventyConfig.on("eleventy.after", () => {
+    writeOfflineFiles(path.join(siteDir, "_site"), process.env.PATH_PREFIX || "/", fs.readFileSync(path.join(siteDir, "service-worker.js"), "utf8"));
     const seen = new Set();
     for (const { from, target } of unresolved) {
       const key = `${from} -> ${target}`;
@@ -148,6 +151,7 @@ export default function (eleventyConfig) {
       },
     ],
     ["notfound", { permalink: "/404.html", title: "Not found", section: "" }],
+    ["offline", { permalink: "/offline/", title: "Offline reading", section: "" }],
   ];
   for (const [name, data] of indexes) {
     eleventyConfig.addTemplate(`_lighthouse/${name}.njk`, "", { ...data, layout: `index-${name}.njk` });
