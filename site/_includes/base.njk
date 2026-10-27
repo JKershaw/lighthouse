@@ -21,6 +21,7 @@
   <nav class="sections" aria-label="Sections">
     <ul>
       <li><a href="/articles/"{% if navSection == "articles" %} aria-current="page"{% endif %}>Pieces</a></li>
+      {% if repo.releasedEssays.length %}<li><a href="/essays/"{% if navSection == "essays" %} aria-current="page"{% endif %}>Essays</a></li>{% endif %}
       {% if repo.hasInvestigations %}<li><a href="/investigations/"{% if navSection == "investigations" %} aria-current="page"{% endif %}>Investigations</a></li>{% endif %}
       <li><a href="/studies/"{% if navSection == "studies" %} aria-current="page"{% endif %}>Studies</a></li>
       {% if repo.byPath["programme.md"] %}<li><a href="/programme/"{% if navSection == "programme" %} aria-current="page"{% endif %}>Programme</a></li>{% endif %}

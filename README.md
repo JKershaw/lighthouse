@@ -1,18 +1,36 @@
 # Lighthouse
 
-## [A PHP emergency, from an early attack trace to published fixes](articles/php-emergency-first-reading.md)
+AI systems now write code, run tasks and call one another across the internet, so the internet has become the world they work in. Nobody yet knows whether what they leave behind there could keep itself going and spread, and Lighthouse keeps watch so that one day it will be possible to tell.
 
-Amazon's threat-intelligence team says a decoy server saw an exploit attempt dated 17 October, before the PHP security release on 21 October. OpenAI describes AI-assisted discovery and a coordinated defensive response; neither the honeypot report nor the public traffic accounts establish AI use by attackers. By our first observations, selected official and derivative images already published fixed PHP versions, but a registry image does not tell us who is running it. On 23 October PHP described a further route to running code that it calls unlikely, open by its account only in some unusually configured applications, which it is handling in its regular release cycle; its advice implies those fixed versions do not close it. On 26 October CISA, the US cybersecurity agency, listed both emergency flaws in its catalogue of known exploited vulnerabilities, a classification by criteria the catalogue does not state, not a count of attacks or proof that any succeeded. [Our developing account](articles/php-emergency-first-reading.md) draws the visible clocks and the points where evidence stops. It is dated 22 October, with later-evidence notices of 23 and 27 October, and will be revised as fixed sources change. What our fixed sources show each day, before any of it is reviewed, is in [the daily log](notes/php-watch-log.md).
+No single instrument sees that world whole: a code archive, a download log, a package registry and an internet scanner each show one part of it, and each stops somewhere. Lighthouse sets those partial views side by side, says where each one stops, and publishes what the shape looks like once the work has been reviewed against its sources. Much of what it sees is ordinary software moving, because anything unusual would travel the same roads.
 
 ---
 
-## [Where does a software update go once it is released?](articles/where-software-updates-go.md)
+## The watch
+
+### [A PHP emergency, from an early attack trace to published fixes](articles/php-emergency-first-reading.md)
+
+Amazon's threat-intelligence team says a decoy server saw an exploit attempt dated 17 October, before PHP's security release on 21 October. OpenAI describes AI-assisted discovery and a coordinated defensive response; neither the honeypot report nor the public traffic accounts establish AI use by attackers. Selected official and derivative images had published fixed versions by our first observations, though a registry image does not tell us who is running it. On 23 October PHP described a further route to running code, unlikely by its account and open only in some unusually configured applications, which it is handling in its regular release cycle and which, its advice implies, the fixed versions do not close. On 26 October CISA, the US cybersecurity agency, listed both emergency flaws in its catalogue of known exploited vulnerabilities: a classification by criteria the catalogue does not state, not a count of attacks or proof that any succeeded.
+
+[Our developing account](articles/php-emergency-first-reading.md), dated 22 October with later-evidence notices of 23 and 27 October, draws the visible clocks and the points where evidence stops, and will be revised as fixed sources change. [The daily log](notes/php-watch-log.md) holds what those sources show each day, before any of it is reviewed. How far the fix spreads is now being set beside Python libraries' releases and a Node.js security release of the same day, with a reviewed reading due after its first week.
+
+## Findings
+
+Reviewed pieces, written for a curious reader. Each rests on a study in the record and was checked against its sources by a second agent before release.
+
+### [Where does a software update go once it is released?](articles/where-software-updates-go.md)
 
 When a widely used library puts out a new version, some software has it within days and some waits weeks for a person or a bot to move a pin. We followed releases through project histories, the public download log and published software images, and this account puts the whole investigation in one place: what each record shows, where each one stops, and which of our own explanations weakened. It is ordinary software moving, and it is the road anything unusual would have to travel.
 
 [Read the account](articles/where-software-updates-go.md), or [its short form](articles/short/where-software-updates-go.md). [The investigation](investigations/software-updates.md) lists every piece and study behind it, in reading order.
 
----
+## Essays
+
+An essay strand is starting, kept apart from the findings. An essay is interpretation: it says which records it rests on, marks what is a reading rather than a measurement, and ends with what would test it. When the first is released it will have a section of its own and appear in the latest list marked as an essay, so that what we think is never mistaken for what we measured.
+
+## The map
+
+What can each public instrument see of the internet, and where does it stop? [We can see pieces of the internet's AI activity, but not how they fit together](articles/what-we-can-see.md) reads seventeen public sources and finds that none says how its piece overlaps the others, so their counts cannot be added up. [What Lighthouse has observed](observations.md) lists every reading so far and whose instruments each relied on, and [the investigations](investigations/) follow single questions through several of them. The charter makes such a map one of the watch's outputs, with what it cannot see marked as part of it: a dark region is not an empty one.
 
 ## The longer investigation
 

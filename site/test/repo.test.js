@@ -103,8 +103,29 @@ test("drafts are labelled and left out of the latest list", () => {
   assert.equal(repo.byPath["articles/draft.md"].draft, true);
   assert.equal(repo.byPath["articles/updated.md"].draft, false);
   assert.ok(!repo.latest.some((g) => g.lead.path === "articles/draft.md"));
-  assert.equal(repo.latest[0].lead.path, "articles/current.md");
-  assert.ok(repo.latest.every((g) => g.lead.section === "articles"));
+  assert.equal(repo.latest[0].lead.path, "essays/reading.md");
+  assert.equal(repo.latest[1].lead.path, "articles/current.md");
+  assert.ok(repo.latest.every((g) => g.lead.section === "articles" || g.lead.essay));
+});
+
+test("essays: read like pieces, labelled apart, drafts left out of the latest list", () => {
+  const repo = scanCopy();
+  const essay = repo.byPath["essays/reading.md"];
+  assert.equal(essay.section, "essays");
+  assert.equal(essay.label, "Essay");
+  assert.equal(essay.essay, true);
+  assert.equal(essay.publishedIso, "2026-09-27");
+  assert.equal(essay.summary, "An essay's editorial summary.");
+  // Its header is read by the site, as a piece's is, and it is not a piece.
+  assert.equal(essay.header, null);
+  assert.equal(essay.ownH1, true);
+  assert.ok(!repo.pieces.includes(essay));
+  assert.deepEqual(repo.essays.map((p) => p.path), ["essays/unfinished.md", "essays/reading.md"]);
+  assert.equal(repo.byPath["essays/unfinished.md"].draft, true);
+  assert.deepEqual(repo.releasedEssays.map((p) => p.path), ["essays/reading.md"]);
+  assert.ok(!repo.latest.some((g) => g.lead.path === "essays/unfinished.md"));
+  assert.equal(repo.hasEssays, true);
+  assert.ok(repo.siteDirs.has("essays"));
 });
 
 test("a revision is shown; an incidental edit changes neither publication nor revision", () => {

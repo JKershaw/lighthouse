@@ -1,0 +1,5 @@
+<{{ latestLevel }} id="latest">Latest</{{ latestLevel }}>
+    <ol class="entries">
+      {% for g in repo.latest %}{% set p = g.lead %}<li>{% if p.essay %}<span class="tag">Essay</span> {% endif %}<a href="{{ p.url }}">{{ p.title }}</a> <span class="when">{% if p.short %}Short form · {% endif %}{% include "piece-dates.njk" %}{% if g.twin %} · <a href="{{ g.twin.url }}">Short form</a>{% endif %}</span></li>
+      {% endfor %}
+    </ol>

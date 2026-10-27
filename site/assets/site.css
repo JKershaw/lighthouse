@@ -370,13 +370,38 @@ td:last-child, th:last-child { padding-right: 0; }
 .front > h2:first-child a:hover { color: var(--accent); text-decoration: underline; }
 .front > h2:first-child + p { font-size: 1.1em; line-height: 1.55; }
 .front > h2 { margin-top: 2.4em; }
+/* A front of plain text, with no headline of its own, reads as a lede. */
+.front > p:first-child { font-size: 1.1em; line-height: 1.55; }
 .below {
   margin-top: 3rem;
   padding-top: 0.5rem;
   border-top: 1px solid var(--ink);
 }
-.below h2 { font-size: 1.15rem; letter-spacing: 0.01em; margin-top: 2em; }
-.below section:first-child h2 { margin-top: 1.4em; }
+/* Below the rule each section is a door: a small label, then its lead. */
+.below > section + section {
+  margin-top: 2.6rem;
+  padding-top: 0.2rem;
+  border-top: 1px solid var(--rule);
+}
+.below h2 {
+  margin: 1.4rem 0 0.7rem;
+  font-size: 0.8rem;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--muted);
+}
+.below h3 { font-size: 1.4rem; line-height: 1.22; margin: 0 0 0.6em; }
+.below h3 a { color: var(--ink); text-decoration: none; }
+.below h3 a:hover { color: var(--accent); text-decoration: underline; }
+.below section:first-child h3 { font-size: 1.75rem; line-height: 1.18; }
+.below .latest { margin-top: 1.8rem; }
+.below .latest > h3 {
+  margin: 0 0 0.6rem;
+  font-size: 0.8rem;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--muted);
+}
 
 /* Lists of entries: Latest, the section indexes */
 .entries { list-style: none; padding: 0; }
@@ -445,6 +470,8 @@ td:last-child, th:last-child { padding-right: 0; }
   h1 { font-size: 1.65rem; }
   h2 { font-size: 1.25rem; }
   .front > h2:first-child { font-size: 1.65rem; }
+  .below h3 { font-size: 1.25rem; }
+  .below section:first-child h3 { font-size: 1.5rem; }
   .entry-title { font-size: 1.15rem; }
 }
 

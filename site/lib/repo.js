@@ -16,7 +16,7 @@ export const IGNORED_FILES = ["CLAUDE.md"];
 export const IMAGE_EXT = [".svg", ".png", ".jpg", ".jpeg", ".gif", ".webp", ".avif"];
 
 // Directories that get an index page of their own.
-const SECTION_DIRS = ["articles", "articles/short", "investigations", "studies", "notes"];
+const SECTION_DIRS = ["articles", "articles/short", "essays", "investigations", "studies", "notes"];
 
 // Root files with a label of their own. When about.md exists it is the About
 // page and AGENTS.md is labelled as the operating manual it is.
@@ -270,6 +270,8 @@ function titleFromName(rel) {
 function describe(rel, { hasAbout = false } = {}) {
   if (rel.startsWith("articles/short/")) return { section: "articles", label: "Short form", short: true };
   if (rel.startsWith("articles/")) return { section: "articles", label: "Piece", short: false };
+  // An essay is interpretation, kept apart from the pieces but read like one.
+  if (/^essays\/[^/]+\.md$/.test(rel)) return { section: "essays", label: "Essay", essay: true };
   if (rel.startsWith("studies/")) {
     const id = rel.split("/")[1];
     return { section: "studies", label: rel.split("/").length > 2 ? `Study ${id}` : "Studies", study: id };
@@ -314,7 +316,8 @@ export function scanRepo(root, { siteFile = path.join(root, "site", "site.json")
     const body = header ? header.body : raw.replace(/\r\n?/g, "\n");
     const heading = firstHeading(body);
     const info = describe(rel, { hasAbout });
-    const isPiece = info.section === "articles";
+    // An essay takes a piece's header and dates, and is read the same way.
+    const isPiece = info.section === "articles" || Boolean(info.essay);
     let time = dates.get(rel);
     if (!time) time = fs.statSync(path.join(root, rel)).mtimeMs;
     const title = plainText(header && header.title) || (heading && heading.text) || titleFromName(rel);
@@ -465,11 +468,17 @@ export function scanRepo(root, { siteFile = path.join(root, "site", "site.json")
     })
     .sort((a, b) => b.sortDay - a.sortDay || b.time - a.time || b.path.localeCompare(a.path));
 
-  // The front page's latest: released pieces by publication date, each full
-  // piece with its short form. Drafts, records and notes are left out.
-  const latest = pieceGroups
-    .filter((g) => !g.lead.draft)
-    .map((g) => ({ lead: g.lead, twin: g.twin && !g.twin.draft ? g.twin : null }))
+  // Essays by publication date, newest first, as pieces are.
+  const essays = pages.filter((p) => p.essay).sort(byPublished);
+  const releasedEssays = essays.filter((p) => !p.draft);
+
+  // The front page's latest: released pieces and essays by publication date,
+  // each full piece with its short form. Drafts, records and notes are left out.
+  const latest = [
+    ...pieceGroups.filter((g) => !g.lead.draft).map((g) => ({ lead: g.lead, twin: g.twin && !g.twin.draft ? g.twin : null })),
+    ...releasedEssays.map((e) => ({ lead: e, twin: null })),
+  ]
+    .sort((a, b) => byPublished(a.lead, b.lead))
     .slice(0, 8);
 
   // Directories with an index page, so that links to them resolve.
@@ -502,6 +511,9 @@ export function scanRepo(root, { siteFile = path.join(root, "site", "site.json")
     pieces,
     pieceGroups,
     shorts,
+    essays,
+    releasedEssays,
+    hasEssays: dirs.includes("essays"),
     investigations,
     investigationsById,
     hasInvestigations: dirs.includes("investigations"),

@@ -76,13 +76,15 @@ export default function (eleventyConfig) {
   eleventyConfig.addFilter("mdInline", (value, page) => (md ? md.renderInline(String(value || ""), { page }) : value));
 
   // README.md above its rule is the front page; below it, one section per h2.
+  // The latest list closes the section headed "Findings", else follows the first.
   eleventyConfig.addFilter("homeParts", (html) => {
     const at = html.search(/<hr\s*\/?>/);
     let front = at >= 0 ? html.slice(0, at) : html;
     const rest = at >= 0 ? html.slice(at).replace(/^<hr\s*\/?>/, "") : "";
     front = front.replace(/^\s*<h1[^>]*>[\s\S]*?<\/h1>\s*/, "");
     const sections = rest.split(/(?=<h2[\s>])/).filter((s) => s.trim());
-    return { front, sections };
+    const findings = sections.findIndex((s) => /^\s*<h2[^>]*\sid="findings"/.test(s));
+    return { front, sections, latestIn: findings };
   });
 
   // Illustrations become figures with their italic captions, each linked to
@@ -93,9 +95,9 @@ export default function (eleventyConfig) {
   };
   eleventyConfig.addTransform("lighthouse-html", function (content) {
     if (!(this.page.outputPath || "").endsWith(".html")) return content;
-    // In a piece, the paragraphs before the italic date line are its opening;
-    // notices and the layout's context block are placed around it.
-    if (/^\.?\/?articles\//.test(this.page.inputPath || "")) content = arrangePiece(content);
+    // In a piece or an essay, the paragraphs before the italic date line are
+    // its opening; notices and the layout's context block are placed around it.
+    if (/^\.?\/?(articles|essays)\//.test(this.page.inputPath || "")) content = arrangePiece(content);
     else content = markNotices(content);
     return content
       .replace(/<p>(<img [^>]*>)<\/p>(\s*<p><em>((?:(?!<\/p>)[\s\S])*?)<\/em><\/p>)?/g, (all, img, capBlock, caption) => {
@@ -116,6 +118,15 @@ export default function (eleventyConfig) {
   const indexes = [
     ["articles", { permalink: "/articles/", title: "Pieces", section: "articles" }],
     ["short", { permalink: "/articles/short/", title: "Short forms", section: "articles" }],
+    // Only when essays/ exists and has no index.md of its own.
+    [
+      "essays",
+      {
+        title: "Essays",
+        section: "essays",
+        permalink: (data) => (data.repo.hasEssays && !data.repo.byPath["essays/index.md"] ? "/essays/" : false),
+      },
+    ],
     ["studies", { permalink: "/studies/", title: "Studies", section: "studies" }],
     ["notes", { permalink: "/notes/", title: "Notes", section: "notes" }],
     // Only when investigations/ exists and has no index.md of its own.

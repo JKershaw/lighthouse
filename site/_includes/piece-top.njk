@@ -1,7 +1,8 @@
 {# Placed after the byline by the lighthouse-html transform. #}
 {%- set ctx = doc.context %}<!--lh:top-->
-{%- if ctx and (ctx.investigation or ctx.twin) %}<aside class="piece-context" aria-label="About this piece">
+{%- if doc.essay or (ctx and (ctx.investigation or ctx.twin)) %}<aside class="piece-context" aria-label="About this {% if doc.essay %}essay{% else %}piece{% endif %}">
   <ul>
+    {%- if doc.essay %}<li>An essay: interpretation, not a finding. The findings are in <a href="/articles/">Pieces</a>.</li>{%- endif %}
     {%- if ctx.investigation %}<li>Part of <a href="{{ ctx.investigation.url }}">{{ ctx.investigation.title }}</a></li>{%- endif %}
     {%- if ctx.current %}<li>Current account: <a href="{{ ctx.current.url }}">{{ ctx.current.title }}</a></li>{%- endif %}
     {%- if ctx.twin %}<li><a href="{{ ctx.twin.url }}">{%- if ctx.twin.short %}Short form{% else %}Full piece{%- endif %}</a></li>{%- endif %}
