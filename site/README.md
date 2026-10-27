@@ -27,3 +27,15 @@ For a custom domain, enter it under Settings, Pages, Custom domain. At your DNS 
 ## Any other host
 
 Any static host can serve site/_site. Below a domain's root, build with PATH_PREFIX set to that path, such as /lighthouse/.
+
+## Home screen and offline reading
+
+On HTTPS (or localhost), the manifest allows a browser to offer installation or Add to Home Screen. Icons are PNG renders of assets/favicon.svg at 192, 512 and 180 pixels; the light background and theme colour match the site's paper token. There is no installation prompt or tracking.
+
+The build writes manifest.webmanifest and sw.js after generating the pages. The worker saves the front page, every top-level section front present in that build, the offline fallback, CSS, scripts and local fonts. It also saves opened pages and their illustrations, including a first visit directly to an article. HTML always goes to the network first with the HTTP cache bypassed; a saved copy is used only when the network request fails. A server error remains a server error. Static assets use the cache first.
+
+A content hash changes the worker on each changed build. Installation fetches the new shell before activating it, refreshes saved illustrations where possible, and removes the preceding asset cache. Opened pages survive an update and are refreshed on their next online visit. Storage is bounded to 80 pages and 120 assets, apart from the protected shell (section fronts, CSS, scripts, fonts and icons); a browser may also evict saved data. Offline copies reflect the last successful visit, rather than a promise that an account is current. No background checking happens when the site is closed.
+
+Source Serif 4 is served locally in its original regular, semibold and italic styles, alongside the interface face Source Sans 3 in regular and semibold. The font files were retrieved on 27 October 2026 through [Google Fonts' CSS endpoint](https://fonts.googleapis.com/css2?family=Source+Sans+3:wght@400;600&family=Source+Serif+4:ital,opsz,wght@0,8..60,400;0,8..60,600;1,8..60,400&display=swap) and converted from TTF to WOFF2 with fontTools. Their SIL Open Font Licenses are included for [Source Serif 4](assets/fonts/source-serif-4-LICENSE.md) and [Source Sans 3](assets/fonts/source-sans-3-LICENSE.md). Reading needs no third-party stylesheets, fonts or scripts.
+
+`npm test` checks shell generation and prefix handling. For browser checks, install Playwright as a development tool, build, then run `npm run test:offline`. Set PLAYWRIGHT_MODULE to an absolute Playwright module path and CHROMIUM_PATH to a Chromium executable when using a preinstalled browser. The same test supports a build made with PATH_PREFIX=/lighthouse/ when that variable is also passed to the test command. It exercises Chromium's manifest and installability checks, first-visit saving, offline pages and illustrations, the fallback, fresh online HTML, a new worker and old-cache removal. Screenshots are kept in test/screenshots/offline-36/.
