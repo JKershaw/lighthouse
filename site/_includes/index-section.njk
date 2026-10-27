@@ -5,6 +5,7 @@ layout: base.njk
 <article class="index section-front{% if sectionId == 'essays' %} is-essay{% endif %}">
   <h1>{{ section.title }}</h1>
   <p class="lede">{{ section.lede }}</p>
+  <p class="when"><a href="/follow/">Follow this section and its investigations</a></p>
   {% if sectionId == 'watch' and repo.watch %}{% include "home-watch.njk" %}{% endif %}
   {% if section.lead %}<section class="section-lead" aria-label="Lead item">
     {% set p = section.lead %}<p class="kicker">Start here · {{ p.entryKind }}</p>

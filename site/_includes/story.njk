@@ -1,0 +1,19 @@
+{% set story = doc.storyData %}
+<article class="developing-story">
+  <p class="kicker">Developing story</p><h1>{{ story.title }}</h1>
+  <div class="story-account">
+    <p class="kicker">Reviewed account · Released{% if story.account.revised %} · {{ story.account.revisedLabel }} {{ story.account.revised }}{% endif %}</p>
+    <h2><a href="{{ story.account.url }}">{{ story.account.title }}</a></h2>
+    <p>{{ story.account.summary }}</p>
+    <p class="when">Published {{ story.account.published }}. <a href="{{ story.account.url }}">Read the reviewed account and its sources</a>.</p>
+  </div>
+  <p class="thread-key">Reviewed notices and <strong>unreviewed daily logs</strong> share this dated thread. Entries on the same date are grouped without claiming a within-day sequence. Logs have not been checked as findings; their sources' claims remain attributed.</p>
+  <p><a href="{{ story.url }}feed.xml">Follow this story</a> · <a href="{{ story.log.url }}">Read the unreviewed daily log</a></p>
+  <ol class="story-thread">
+  {% for entry in story.entries %}<li id="{{ entry.id }}" class="thread-entry{% if entry.reviewed %} thread-reviewed{% else %} thread-unreviewed{% endif %}">
+    <p class="thread-label">{% if entry.reviewed %}Reviewed {{ entry.label | lower }}{% else %}Unreviewed daily log{% endif %} · <time datetime="{{ entry.iso }}">{{ entry.iso }}</time></p>
+    <div class="prose">{{ entry.markdown | sourceMarkdown(entry.sourcePath) | safe }}</div>
+    <p class="when"><a href="{{ entry.sourceUrl }}{% if entry.reviewed %}#{{ entry.id }}{% endif %}">{% if entry.reviewed %}Source: reviewed account{% else %}Source: unreviewed daily log{% endif %}</a> · <a href="#{{ entry.id }}">Link to this entry</a></p>
+  </li>{% endfor %}
+  </ol>
+</article>

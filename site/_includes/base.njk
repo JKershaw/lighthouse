@@ -14,7 +14,7 @@
 <link rel="stylesheet" href="/assets/fonts.css">
 <link rel="stylesheet" href="/assets/site.css">
 <script src="/assets/offline-register.js" defer></script>
-<link rel="alternate" type="application/atom+xml" title="Lighthouse: pieces and essays" href="/feed.xml">
+{% for feed in repo | relevantFeeds(doc, navSection) %}<link rel="alternate" type="application/atom+xml" title="{{ feed.title }}" href="{{ feed.feedPath }}">{% endfor %}
 </head>
 <body>
 <a class="skip" href="#main">Skip to the text</a>
@@ -40,6 +40,7 @@
 {{ content | safe }}
 </main>
 <footer class="footer">
+  <p><a href="/follow/">Follow Lighthouse</a></p>
   <nav aria-label="Documents">
     <ul>
       {% for file in ["charter.md", "design.md", "sources.md", "programme.md", "releases.md", "observations.md", ("AGENTS.md" if repo.hasAbout else "")] %}{% set d = repo.byPath[file] %}{% if d %}<li><a href="{{ d.url }}">{{ d.label }}</a></li>{% endif %}{% endfor %}

@@ -1,0 +1,9 @@
+---
+layout: base.njk
+---
+<article class="follow-area">
+  <h1>Follow Lighthouse</h1>
+  <p>Choose an Atom feed for your reader. Findings are reviewed against sources; essays are interpretation. The watch-notice feed contains only dated notices from released findings. Story feeds mix reviewed notices with daily entries whose titles and categories always say <strong>unreviewed</strong>.</p>
+  <p>Feeds exclude drafts. A date without a source time is represented at midnight UTC for the feed; that is a calendar date, not a measured event time.</p>
+  <ul>{% for feed in repo.feeds %}<li><a href="{{ feed.feedPath }}">{{ feed.title }}</a> · <a href="{{ feed.homePath }}">Read on the site</a></li>{% endfor %}</ul>
+</article>
