@@ -14,7 +14,7 @@ No single instrument sees that world whole: a code archive, a download log, a pa
 
 ### [A PHP emergency, from an early attack trace to published fixes](articles/php-emergency-first-reading.md)
 
-PHP's emergency security release of 21 October, followed from the first public trace of an attack to the fixed versions, and to where the evidence stops.
+PHP's emergency security release of 21 October, followed from an early attack trace to the fixed versions, and to where the evidence stops.
 
 - **Before the fix.** Amazon's threat-intelligence team says a decoy server saw an exploit attempt dated 17 October. OpenAI describes AI-assisted discovery and a coordinated defensive response; neither the honeypot report nor the public traffic accounts establish AI use by attackers.
 - **The fixed versions.** Selected official and derivative images had published them by our first observations, though a registry image does not tell us who is running it.
