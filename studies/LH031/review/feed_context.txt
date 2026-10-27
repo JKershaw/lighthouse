@@ -1,0 +1,111 @@
+[binding] ...2-04-04",
+            "shortDescription": "Spring MVC or Spring WebFlux application running on JDK 9+ may be vulnerable to remote code execution (RCE) via data binding.",
+            "requiredAction": "Apply updates per vendor instructions.",
+            "dueDate": "2022-04-25",
+            "knownRansomwareCampaignUse": "Unkn...
+
+[agencies] ... vulnerability. This vulnerability could be chained with CVE-2025-20333.",
+            "requiredAction": "The KEV due date refers to the deadline by which FCEB agencies are expected to review and begin implementing the guidance outlined in Emergency Directive (ED) 25-03 (URL listed below in Notes). Agencies must follow the mit...
+
+[agencies] ...code execution. This vulnerability could be chained with CVE-2025-20362.",
+            "requiredAction": "The KEV due date refers to the deadline by which FCEB agencies are expected to review and begin implementing the guidance outlined in Emergency Directive (ED) 25-03 (URL listed below in Notes). Agencies must follow the mit...
+
+[agencies] ...nce-security-advisory-2022-06-02-1130377146.html] OR remove the affected products by the due date on the right. Note: Once the update is successfully deployed, agencies can reassess the internet blocking rules.",
+            "dueDate": "2022-06-06",
+            "knownRansomwareCampaignUse": "Known",
+            "forensicTriage...
+
+[agency] ...ed remote attacker to execute arbitrary code.",
+            "requiredAction": "Versions 6 and earlier for this product are end-of-life and must be removed from agency networks. Versions 7 and later are not considered vulnerable.",
+            "dueDate": "2022-05-02",
+            "knownRansomwareCampaignUse": "Unknown",
+     ...
+
+[agency] ...n": "For all affected software assets for which updates exist, the only acceptable remediation actions are: 1) Apply updates; OR 2) remove affected assets from agency networks. Temporary mitigations using one of the measures provided at https:\/\/www.cisa.gov\/uscert\/ed-22-02-apache-log4j-recommended-mitigation-measures are...
+
+[Directive] ...tion": "Please adhere to CISA\u2019s guidelines to assess exposure and mitigate risks associated with Cisco SD-WAN devices as outlined in CISA\u2019s Emergency Directive 26-03 (URL listed below in Notes) and CISA\u2019s Hunt & Hardening Guidance for Cisco SD-WAN Devices (URL listed below in Notes). Adhere to the applicable BOD ...
+
+[Directive] ...tion": "Please adhere to CISA\u2019s guidelines to assess exposure and mitigate risks associated with Cisco SD-WAN devices as outlines in CISA\u2019s Emergency Directive 26-03 (URL listed below in Notes) and CISA\u2019s \u201cHunt & Hardening Guidance for Cisco SD-WAN Devices (URL listed below in Notes). Adhere to the applicabl...
+
+[Directive] ...tion": "Please adhere to CISA\u2019s guidelines to assess exposure and mitigate risks associated with Cisco SD-WAN devices as outlines in CISA\u2019s Emergency Directive 26-03 (URL listed below in Notes) and CISA\u2019s \u201cHunt & Hardening Guidance for Cisco SD-WAN Devices (URL listed below in Notes). Adhere to the applicabl...
+
+[Directive] ...tion": "Please adhere to CISA\u2019s guidelines to assess exposure and mitigate risks associated with Cisco SD-WAN devices as outlines in CISA\u2019s Emergency Directive 26-03 (URL listed below in Notes) and CISA\u2019s \u201cHunt & Hardening Guidance for Cisco SD-WAN Devices (URL listed below in Notes). Adhere to the applicabl...
+
+[Directive] ...tion": "Please adhere to CISA\u2019s guidelines to assess exposure and mitigate risks associated with Cisco SD-WAN devices as outlines in CISA\u2019s Emergency Directive 26-03 (URL listed below in Notes) and CISA\u2019s \u201cHunt & Hardening Guidance for Cisco SD-WAN Devices (URL listed below in Notes). Adhere to the applicabl...
+
+[Directive] ...tion": "Please adhere to CISA\u2019s guidelines to assess exposure and mitigate risks associated with Cisco SD-WAN devices as outlines in CISA\u2019s Emergency Directive 26-03 (URL listed below in Notes) and CISA\u2019s \u201cHunt & Hardening Guidance for Cisco SD-WAN Devices (URL listed below in Notes). Adhere to the applicabl...
+
+[Directive] ...quiredAction": "The KEV due date refers to the deadline by which FCEB agencies are expected to review and begin implementing the guidance outlined in Emergency Directive (ED) 25-03 (URL listed below in Notes). Agencies must follow the mitigation steps provided by CISA (URL listed below in Notes) and vendor\u2019s instructions (...
+
+[Directive] ...quiredAction": "The KEV due date refers to the deadline by which FCEB agencies are expected to review and begin implementing the guidance outlined in Emergency Directive (ED) 25-03 (URL listed below in Notes). Agencies must follow the mitigation steps provided by CISA (URL listed below in Notes) and vendor\u2019s instructions (...
+
+[must] ...      "forensicTriage": "Yes",
+            "notes": "Running the provided IOCs in the NetScaler console may help identify indicators of exploitation. Customers must conduct forensic triage as directed by BOD 26\u201104 and follow Citrix\u2019s published guidance for mitigations. For more information, please see: https:\/\/...
+
+[must] ...      "forensicTriage": "Yes",
+            "notes": "Running the provided IOCs in the NetScaler console may help identify indicators of exploitation. Customers must conduct forensic triage as directed by BOD 26\u201104 and follow Citrix\u2019s published guidance for mitigations. For more information, please see: https:\/\/...
+
+[must] ...ility involves a supply\u2011chain compromise in a product that may be used across multiple products and environments. Additional vendor\u2011provided guidance must be followed to ensure full remediation. For more information, please see: https:\/\/github.com\/advisories\/GHSA-69fq-xp46-6x23 ; https:\/\/nvd.nist.gov\/vuln\...
+
+[must] ...t allows unauthenticated remote code execution via shell metacharacters in the t_total parameter in a filemanager changePerm request. A valid non-root username must be known.",
+            "requiredAction": "Apply mitigations per vendor instructions, follow applicable BOD 22-01 guidance for cloud services, or discontinue u...
+
+[must] ...which FCEB agencies are expected to review and begin implementing the guidance outlined in Emergency Directive (ED) 25-03 (URL listed below in Notes). Agencies must follow the mitigation steps provided by CISA (URL listed below in Notes) and vendor\u2019s instructions (URL listed below in Notes). Adhere to the applicable B...
+
+[must] ...which FCEB agencies are expected to review and begin implementing the guidance outlined in Emergency Directive (ED) 25-03 (URL listed below in Notes). Agencies must follow the mitigation steps provided by CISA (URL listed below in Notes) and vendor\u2019s instructions (URL listed below in Notes). Adhere to the applicable B...
+
+[must] ...ssion Recording contains an improper privilege management vulnerability that could allow for privilege escalation to NetworkService Account access. An attacker must be an authenticated user in the same Windows Active Directory domain as the session recording server domain.",
+            "requiredAction": "Apply mitigations...
+
+[must] ...ontains a deserialization of untrusted data vulnerability that allows limited remote code execution with privilege of a NetworkService Account access. Attacker must be an authenticated user on the same intranet as the session recording server.",
+            "requiredAction": "Apply mitigations per vendor instructions, foll...
+
+[must] ...hortDescription": "Citrix NetScaler ADC and Gateway contain a buffer overflow vulnerability leading to unintended control flow and Denial of Service. NetScaler must be configured as Gateway (VPN virtual server, ICA Proxy, CVPN, RDP Proxy) OR AAA virtual server.",
+            "requiredAction": "Apply mitigations per vendor ...
+
+[must] ....",
+            "dueDate": "2025-06-05",
+            "knownRansomwareCampaignUse": "Known",
+            "forensicTriage": "No",
+            "notes": "SAP users must have an account to log in and access the patch: https:\/\/me.sap.com\/notes\/3604119 ; https:\/\/nvd.nist.gov\/vuln\/detail\/CVE-2025-42999",
+            "cwes...
+
+[must] ...,
+            "dueDate": "2025-04-09",
+            "knownRansomwareCampaignUse": "Unknown",
+            "forensicTriage": "No",
+            "notes": "SAP users must have an account to log in and access the patch: https:\/\/me.sap.com\/notes\/3476549 ; https:\/\/nvd.nist.gov\/vuln\/detail\/CVE-2017-12637",
+            "cwes...
+
+[must] ...ns a hard-coded credentials vulnerability that could allow an attacker to achieve remote code execution on the system that runs the application. The MachineKey must be obtained via a separate vulnerability or other channel.",
+            "requiredAction": "Apply mitigations per vendor instructions or discontinue use of the...
+
+[must] ...ied vulnerability in the third-party anti-virus uninstaller that could allow an attacker to manipulate the module to conduct remote code execution. An attacker must first obtain administrative console access on the target system in order to exploit this vulnerability.",
+            "requiredAction": "Apply mitigations per ...
+
+[must] ... can force VMware Tools to fail to authenticate host-to-guest operations, impacting the confidentiality and integrity of the guest virtual machine. An attacker must have root access over ESXi to exploit this vulnerability.",
+            "requiredAction": "Apply updates per vendor instructions.",
+            "dueDate": "202...
+
+[must] ...Please see the AA for associated IOCs. Additional information is available at: https:\/\/my.goanywhere.com\/webclient\/DownloadProductFiles.xhtml. Fortra users must have an account in order to login and access the patch.;  https:\/\/nvd.nist.gov\/vuln\/detail\/CVE-2023-0669",
+            "cwes": [
+                "CWE-502"...
+
+[must] ...,
+            "dueDate": "2022-09-08",
+            "knownRansomwareCampaignUse": "Unknown",
+            "forensicTriage": "No",
+            "notes": "SAP users must have an account in order to login and access the patch. https:\/\/accounts.sap.com\/saml2\/idp\/sso;  https:\/\/nvd.nist.gov\/vuln\/detail\/CVE-2022-22536",
+  ...
+
+[must] ...lows an unauthenticated remote attacker to execute arbitrary code.",
+            "requiredAction": "Versions 6 and earlier for this product are end-of-life and must be removed from agency networks. Versions 7 and later are not considered vulnerable.",
+            "dueDate": "2022-05-02",
+            "knownRansomwareCampaig...
+
+[must] ...Citrix SD-WAN WANOP appliance models contain an authorization bypass vulnerability that may allow unauthenticated access to certain URL endpoints. The attacker must have access to the NetScaler IP (NSIP) in order to perform exploitation.",
+            "requiredAction": "Apply updates per vendor instructions.",
+            ...
+
+entries whose requiredAction or notes contain 'due': ['CVE-2025-20362', 'CVE-2025-20333', 'CVE-2022-26134', 'CVE-2021-34527', 'CVE-2020-1350', 'CVE-2020-1472', 'CVE-2021-26855', 'CVE-2021-26858', 'CVE-2021-27065', 'CVE-2020-0601', 'CVE-2021-26857', 'CVE-2021-22893', 'CVE-2020-8243', 'CVE-2021-22900', 'CVE-2021-22894', 'CVE-2020-8260', 'CVE-2021-22899', 'CVE-2019-11510'] count 18
+distinct requiredAction texts among entries dated 2026-10: 1

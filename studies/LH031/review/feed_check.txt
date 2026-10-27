@@ -1,0 +1,94 @@
+Retained reads, in order:
+  read-2026-10-23T1845Z: start 2026-10-23T18:45:46.310274+00:00 version 2026.10.23 released 2026-10-23T17:00:09.9001Z count 1755 listed none
+  read-2026-10-24T0630Z: start 2026-10-24T06:34:57.509012+00:00 version 2026.10.23 released 2026-10-23T19:30:18.9209Z count 1756 listed none
+  read-2026-10-24T1230Z: start 2026-10-24T12:34:01.926787+00:00 version 2026.10.23 released 2026-10-23T19:30:18.9209Z count 1756 listed none
+  read-2026-10-24T1830Z: start 2026-10-24T18:34:21.098776+00:00 version 2026.10.23 released 2026-10-23T19:30:18.9209Z count 1756 listed none
+  read-2026-10-25T0030Z: start 2026-10-25T00:34:48.330342+00:00 version 2026.10.23 released 2026-10-23T19:30:18.9209Z count 1756 listed none
+  read-2026-10-25T0630Z: start 2026-10-25T06:34:33.175371+00:00 version 2026.10.23 released 2026-10-23T19:30:18.9209Z count 1756 listed none
+  read-2026-10-25T1230Z: start 2026-10-25T12:34:23.905573+00:00 version 2026.10.23 released 2026-10-23T19:30:18.9209Z count 1756 listed none
+  read-2026-10-25T1830Z: start 2026-10-25T18:34:20.446007+00:00 version 2026.10.23 released 2026-10-23T19:30:18.9209Z count 1756 listed none
+  read-2026-10-26T0634Z: start 2026-10-26T06:34:26.484620+00:00 version 2026.10.23 released 2026-10-23T19:30:18.9209Z count 1756 listed none
+  read-2026-10-26T1230Z: start 2026-10-26T12:36:28.096015+00:00 version 2026.10.23 released 2026-10-23T19:30:18.9209Z count 1756 listed none
+  read-2026-10-26T1830Z: start 2026-10-26T18:34:59.156223+00:00 version 2026.10.23 released 2026-10-23T19:30:18.9209Z count 1756 listed none
+  read-2026-10-27T0633Z: start 2026-10-27T06:34:14.844870+00:00 version 2026.10.26 released 2026-10-26T22:24:24.6101Z count 1758 listed ['CVE-2026-109618', 'CVE-2026-109619']
+
+Previous read (should lack all three):
+== read-2026-10-26T1830Z
+  read_log: start 2026-10-26T18:34:59.156223+00:00 status 200 bytes 1807090 sha256 97a6e54bc74c651a...
+  file:     bytes 1807090 sha256 97a6e54bc74c651a... (log matches: True)
+  top-level keys: ['catalogVersion', 'count', 'dateReleased', 'title', 'vulnerabilities']
+  title: 'CISA Catalog of Known Exploited Vulnerabilities'
+  catalogVersion '2026.10.23' dateReleased '2026-10-23T19:30:18.9209Z' count field 1756 entries parsed 1756 (count == len: True) duplicate ids 0
+  CVE-2026-109618: parsed entry present False; byte string present False
+  CVE-2026-109619: parsed entry present False; byte string present False
+  CVE-2026-115560: parsed entry present False; byte string present False
+
+Read under review (should hold the first two, lack the third):
+== read-2026-10-27T0633Z
+  read_log: start 2026-10-27T06:34:14.844870+00:00 status 200 bytes 1810928 sha256 653c72ea869cbca7...
+  file:     bytes 1810928 sha256 653c72ea869cbca7... (log matches: True)
+  top-level keys: ['catalogVersion', 'count', 'dateReleased', 'title', 'vulnerabilities']
+  title: 'CISA Catalog of Known Exploited Vulnerabilities'
+  catalogVersion '2026.10.26' dateReleased '2026-10-26T22:24:24.6101Z' count field 1758 entries parsed 1758 (count == len: True) duplicate ids 0
+  CVE-2026-109618: parsed entry present True; byte string present True
+  CVE-2026-109619: parsed entry present True; byte string present True
+  CVE-2026-115560: parsed entry present False; byte string present False
+
+Fields of the two entries, from the parsed 27 October body:
+  CVE-2026-109618:
+    cveID: 'CVE-2026-109618'
+    vendorProject: 'PHP Group'
+    product: 'PHP'
+    vulnerabilityName: 'PHP Memory Corruption Vulnerability'
+    dateAdded: '2026-10-26'
+    dueDate: '2026-10-29'
+    forensicTriage: 'Yes'
+    knownRansomwareCampaignUse: 'Unknown'
+    shortDescription: 'PHP contains an out-of-memory corruption vulnerability that allows for unauthenticated remote code execution.'
+    requiredAction: "Apply mitigations in accordance with vendor instructions, ensuring compliance with CISA’s BOD 26-04 Prioritizing Security Updates Based on Risk (see URL in Notes) guidance and CISA’s “Forensics Triage Requirements” (see URL in Notes). Follow applicable BOD 26-04 guidance for cloud services or discontinue use of the product if mitigations are unavailable. Stakeholders are responsible for evaluating each asset's internet exposure and ensuring adherence to BOD 26-04 patching guidelines."
+    notes: 'This vulnerability affects an open-source component, third-party library, protocol, or proprietary implementation that could be used by different products. For more information, please see: https://www.php.net/ ; https://www.cisa.gov/news-events/alerts/2026/10/21/critical-vulnerabilities-php-require-immediate-patching ; BOD 26-04: https://www.cisa.gov/news-events/directives/bod-26-04-prioritizing-security-updates-based-risk ; Forensics Triage Requirements: https://www.cisa.gov/news-events/directives/bod-26-04-implementation-guidance-prioritizing-security-updates-based-risk ;  https://nvd.nist.gov/vuln/detail/CVE-2026-109618'
+    cwes: ['CWE-416', 'CWE-755', 'CWE-824', 'CWE-1325', 'CWE-1419']
+    (other fields: [])
+  CVE-2026-109619:
+    cveID: 'CVE-2026-109619'
+    vendorProject: 'PHP Group'
+    product: 'PHP'
+    vulnerabilityName: 'PHP Stale Internal Request-State Vulnerability'
+    dateAdded: '2026-10-26'
+    dueDate: '2026-10-29'
+    forensicTriage: 'Yes'
+    knownRansomwareCampaignUse: 'Unknown'
+    shortDescription: 'PHP contains a stale internal request-state vulnerability that allows for unauthenticated remote code execution.'
+    requiredAction: "Apply mitigations in accordance with vendor instructions, ensuring compliance with CISA’s BOD 26-04 Prioritizing Security Updates Based on Risk (see URL in Notes) guidance and CISA’s “Forensics Triage Requirements” (see URL in Notes). Follow applicable BOD 26-04 guidance for cloud services or discontinue use of the product if mitigations are unavailable. Stakeholders are responsible for evaluating each asset's internet exposure and ensuring adherence to BOD 26-04 patching guidelines."
+    notes: 'This vulnerability affects an open-source component, third-party library, protocol, or proprietary implementation that could be used by different products. For more information, please see: https://www.php.net/ ; https://www.cisa.gov/news-events/alerts/2026/10/21/critical-vulnerabilities-php-require-immediate-patching ; BOD 26-04: https://www.cisa.gov/news-events/directives/bod-26-04-prioritizing-security-updates-based-risk ; Forensics Triage Requirements: https://www.cisa.gov/news-events/directives/bod-26-04-implementation-guidance-prioritizing-security-updates-based-risk ;  https://nvd.nist.gov/vuln/detail/CVE-2026-109619'
+    cwes: ['CWE-416', 'CWE-755', 'CWE-824', 'CWE-1325', 'CWE-1419']
+    (other fields: [])
+  fields identical across the two entries: ['vendorProject', 'product', 'dateAdded', 'dueDate', 'forensicTriage', 'knownRansomwareCampaignUse', 'requiredAction', 'cwes']
+
+Entries added in the 27 October body that the 26 October 18:34 body lacked:
+  CVE-2026-109618 PHP Group / PHP dateAdded 2026-10-26 dueDate 2026-10-29
+  CVE-2026-109619 PHP Group / PHP dateAdded 2026-10-26 dueDate 2026-10-29
+  removed: none; count difference 2
+  entries with dateAdded 2026-10-26: ['CVE-2026-109618', 'CVE-2026-109619']
+
+Date arithmetic (calendar dates only; dateAdded is a day):
+  PHP fixes 2026-10-21 -> dateAdded 2026-10-26: 5 days
+  dateAdded 2026-10-26 -> dueDate 2026-10-29: 3 days
+  dateReleased parsed: 2026-10-26T22:24:24.610100+00:00 (UTC day 2026-10-26)
+  previous read start 2026-10-26T18:34:59.156223+00:00 < dateReleased 2026-10-26T22:24:24.610100+00:00 < this read start 2026-10-27T06:34:14.844870+00:00: True
+
+What the feed itself says about who the directive binds (top-level text and the entries' own text):
+  feed.title: 'CISA Catalog of Known Exploited Vulnerabilities'
+  byte count of 'federal' in the 27 October body: 0
+  byte count of 'Federal' in the 27 October body: 0
+  byte count of 'agencies' in the 27 October body: 3
+  byte count of 'agency' in the 27 October body: 2
+  byte count of 'binding' in the 27 October body: 1
+  byte count of 'BOD' in the 27 October body: 909
+  byte count of 'directive' in the 27 October body: 314
+  byte count of 'Directive' in the 27 October body: 8
+  CVE-2026-109618 entry text mentions: none of federal/agenc/civilian/FCEB
+  CVE-2026-109619 entry text mentions: none of federal/agenc/civilian/FCEB
+
+Compare the stored extract (result.json) with this parse:
+  extract matches parse: True

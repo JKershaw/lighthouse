@@ -9,7 +9,7 @@ Amazon says one of its decoy servers received a PHP exploit attempt dated 17 Oct
 
 *22 October 2026 · Lighthouse*
 
-> **Later evidence, 27 October 2026.** CISA, the US cybersecurity agency, has added both emergency flaws to its catalogue of known exploited vulnerabilities, dated 26 October: its judgement, by its own criteria, that there is reliable evidence they have been exploited. The catalogue gives no count of attacks and names no affected system. The later flaw is not listed. [What changed](../php-emergency-first-reading.md#what-changed-after-22-october).
+> **Later evidence, 27 October 2026.** CISA, the US cybersecurity agency, has added both emergency flaws to its catalogue of known exploited vulnerabilities, dated 26 October: its classification of them as known to be exploited, by criteria the feed does not state. The catalogue gives no count of attacks and names no system as compromised. The further flaw PHP described on 23 October, in the next notice, is not listed. [What changed](../php-emergency-first-reading.md#what-changed-after-22-october).
 
 > **Later evidence, 23 October 2026.** PHP has since described a further, separately numbered flaw: an "unlikely" route to running code that, by its account, arises only in applications whose configuration stores session data in one of two named formats and whose own code switches to a third before starting a session, while file-upload progress reporting is on. PHP suggests switching that feature off until its next regular release. It names no version, but its advice implies the fixed releases do not close this route. The images described below hold the fixes for the two emergency flaws. [What changed](../php-emergency-first-reading.md#what-changed-after-22-october).
 
