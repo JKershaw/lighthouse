@@ -6,6 +6,19 @@ date: 2026-10-23
 
 A few plain lines a day on what the fixed PHP panels saw, newest first, each linking the day's checkpoints. These are working records: what a source said and when Lighthouse read it, not reviewed findings. Anything that would change [the public account](../articles/php-emergency-first-reading.md) is flagged here and goes through review before it reaches that page. How the watch runs is in [the continuation plan](php-watch-continuation-2026-10-23.md).
 
+## 27 October 2026
+
+- **Flagged for review: CISA lists the two October flaws as exploited.** CISA's catalogue of known exploited vulnerabilities, version 2026.10.26 (released 26 October 22:24 UTC, read 06:34 UTC), adds CVE-2026-109618 ("PHP Memory Corruption Vulnerability") and CVE-2026-109619 ("PHP Stale Internal Request-State Vulnerability"), both dated 26 October, with a due date of 29 October for the agencies its directive binds, forensic triage marked "Yes" and known ransomware use "Unknown". CVE-2026-115560 is not listed. An entry is CISA's judgement that there is reliable evidence of exploitation, by its own criteria; it is not a count of attacks or a statement about any named system ([LH031](../studies/LH031/checkpoints/2026-10-27.md)). The public account will carry it in its next reviewed revision.
+- **How the 23 October instruction travels:** no change; no tracker holds a record for CVE-2026-115560 ([LH030](../studies/LH030/checkpoints/2026-10-27.md)).
+- **Products embedding PHP:** no change since yesterday's update; 752 entries, still no column for CVE-2026-115560 ([LH032](../studies/LH032/checkpoints/2026-10-27.md)).
+- **Institutions:** no change in any exposed field; four pages' server timestamps moved with identical visible text ([LH024](../studies/LH024/checkpoints/2026-10-27.md)).
+- **How far the fix has reached, by others' counts:** by Censys's classification, on 26 October (day 5) 49.6 per cent of version-reporting services were counted patched in 8.2, 49.0 in 8.3, 64.5 in 8.4 and 75.7 in 8.5; 23.8 million services, 55 per cent of those reporting a version, run branches PHP did not fix. No earlier day revised ([LH033](../studies/LH033/checkpoints/2026-10-27.md)).
+- **Media sweep, 06:34 UTC:** the search tool's results changed for the first time in three days, 35 of 54 distinct URLs new; four pages were opened, through a reader that returns a model's summary, so the wording below is not verified quotation ([sweep](php-media-sweep/2026-10-27T0630Z.md)).
+  - Reuters, in a factbox of 22 October republished by Internazionale, reports further precautionary shutdowns, among them the Wikimedia Foundation taking systems down and the Internet Archive going offline for "emergency maintenance and security patches", and Canada saying there was "no indication at this time" of compromise. None is a report of compromise.
+  - Varonis, in a post last updated 23 October, reports that the flaws were reported to PHP on 11 August and that "attackers are probing for it", naming no source for the latter.
+  - Forbes Australia, on 22 October, reports that the flaws had "never been exploited", naming no source; Amazon's honeypot report, Cloudflare's attack-traffic claim and now CISA's listing stand against it.
+  - Leads only, from the search tool's summaries of pages not opened: a claim attributed by Recorded Future to Patchstack of exploitation before PHP's release on 21 October; the first results on CVE-2026-115560 itself (oss-sec and several outlets), consistent with PHP's own notice; and Cisco's advisory listing products under review.
+
 ## 26 October 2026
 
 - **How the 23 October instruction travels:** no change; no tracker holds a record for CVE-2026-115560 at 06:34 UTC ([LH030](../studies/LH030/checkpoints/2026-10-26.md)).

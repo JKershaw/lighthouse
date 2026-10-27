@@ -51,7 +51,7 @@ pct = lambda v: f'{v * 100:.0f}%'
 o = [f'<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 {W} {H}" width="{W}" height="{H}" role="img" aria-labelledby="t d">']
 o.append('<title id="t">The PHP emergency fix by Censys\'s count of internet-facing services, beside how Python security fixes '
          f'reached downloads, to {last_date.day} October 2026</title>')
-ends = ', '.join(f'{b} {pct(s[-1][1])}' for b, s in sorted(m1.items(), key=lambda kv: -kv[1][-1][1]))
+ends = ', '.join(f'{b} {s[-1][1] * 100:.1f}%' for b, s in sorted(m1.items(), key=lambda kv: -kv[1][-1][1]))
 o.append('<desc id="d">Two charts. The first is a line chart: the horizontal axis is days since release, 0 to 30; the vertical axis '
          'is a share from 0 to 100 per cent, with a dashed line at half. Four blue lines, one per PHP branch, show the share of '
          'version-reporting internet-facing PHP services in that branch that Censys counts as patched, by day since PHP\'s release '
@@ -108,7 +108,7 @@ for b, s in sorted(m1.items()):
     for d, v in s:
         o.append(f'<circle cx="{x(d):.1f}" cy="{y(v):.1f}" r="4" fill="var(--a)" stroke="var(--bg)" stroke-width="2">'
                  f'<title>PHP {b}, day {d}: {pct(v)} of version-reporting services counted patched</title></circle>')
-    labels.append([y(s[-1][1]) + 4, f'{b}  {pct(s[-1][1])}', s[-1][0]])
+    labels.append([y(s[-1][1]) + 4, f'{b}  {s[-1][1] * 100:.1f}%', s[-1][0]])  # one decimal: 49.6 must not read as half
 labels.sort()
 for i in range(1, len(labels)):   # keep names 14 px apart
     labels[i][0] = max(labels[i][0], labels[i - 1][0] + 14)
