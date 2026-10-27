@@ -1,0 +1,6 @@
+<h3 id="latest-essays">Latest essays</h3>
+    <ol class="entries">
+      {% for p in repo.releasedEssays %}{% if loop.index <= 5 %}<li><a href="{{ p.url }}">{{ p.title }}</a> <span class="when">Essay · {% include "piece-dates.njk" %}</span></li>{% endif %}
+      {% endfor %}
+    </ol>
+    <p><a href="/essays/">All essays</a>, each saying which records it rests on and what would test it.</p>

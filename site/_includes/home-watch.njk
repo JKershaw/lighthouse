@@ -1,0 +1,2 @@
+{# The watch log's newest day, generated from the log; unreviewed by design. #}
+<p class="watch-strip"><span class="tag">Unreviewed</span> <a href="{{ repo.watch.url }}">Daily log</a>, <time datetime="{{ repo.watch.dayIso }}">{{ repo.watch.day }}</time>{% if repo.watch.lastRead %}, latest read logged {{ repo.watch.lastRead }}{% endif %}{% if repo.watch.flag == "flagged" %}. <span class="watch-flag">Flagged for review: {{ repo.watch.flagged }}.</span>{% elif repo.watch.flag == "nothing" %}. Nothing flagged for review.{% else %}.{% endif %}</p>

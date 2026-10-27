@@ -17,4 +17,4 @@ Body text.
 
 ---
 
-**Colophon.** Written for the tests.
+**Colophon.** Written for the tests. Reviewed against the record ([the review](../notes/R-0001-fixture.md)), and again ([a second look](/notes/R-0002.md#checks)); [a note that is missing](../notes/R-0099.md) is not counted, and [the review](../notes/R-0001-fixture.md) named twice counts once.
