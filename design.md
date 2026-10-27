@@ -124,3 +124,7 @@ Studies begin with literature, historical evidence and contained simulations; re
 
 A published assessment names its author, evidence reviewer, as-of date, time horizon, expiry or review trigger, and practical implication. Evidence might justify adding an instrument, investigating a dependency or revising a scenario. The report says which decision it informs and what remains unresolved.
 
+
+## Drawing figures
+
+The [chart style](notes/chart-style.md) defines the shared SVG palette, type, labels and theme treatment, with an offline contrast and colour-vision check. New figures use the shared Python helper; released figures change with their piece's review.
