@@ -1,0 +1,64 @@
+{
+  "light": {
+    "contrast_on_background": {
+      "ink": 15.79,
+      "muted": 6.76,
+      "teal": 6.32,
+      "amber": 5.13,
+      "purple": 5.68,
+      "blue": 5.62,
+      "neutral": 4.67
+    },
+    "simulated_categorical_colours": {
+      "protanopia": {
+        "teal": "#5a6277",
+        "amber": "#726300",
+        "purple": "#42639e",
+        "blue": "#456bae"
+      },
+      "deuteranopia": {
+        "teal": "#4e5976",
+        "amber": "#7e7010",
+        "purple": "#4b6499",
+        "blue": "#305faa"
+      },
+      "tritanopia": {
+        "teal": "#006b6a",
+        "amber": "#a15352",
+        "purple": "#736070",
+        "blue": "#007680"
+      }
+    }
+  },
+  "dark": {
+    "contrast_on_background": {
+      "ink": 13.69,
+      "muted": 7.14,
+      "teal": 9.27,
+      "amber": 8.21,
+      "purple": 8.42,
+      "blue": 8.65,
+      "neutral": 7.14
+    },
+    "simulated_categorical_colours": {
+      "protanopia": {
+        "teal": "#b9c1d5",
+        "amber": "#bba847",
+        "purple": "#9eb1e1",
+        "blue": "#a5bbef"
+      },
+      "deuteranopia": {
+        "teal": "#aeb8d4",
+        "amber": "#c9b652",
+        "purple": "#a4b3dd",
+        "blue": "#99b1ec"
+      },
+      "tritanopia": {
+        "teal": "#76cac9",
+        "amber": "#f39793",
+        "purple": "#c3aebb",
+        "blue": "#67c5cb"
+      }
+    }
+  }
+}
