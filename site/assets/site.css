@@ -453,3 +453,14 @@ td:last-child, th:last-child { padding-right: 0; }
   body { background: #fff; color: #000; }
   a { color: inherit; }
 }
+
+/* A figure may use the room beside the reading column, never the phone gutter. */
+@media (min-width: 1000px) {
+  .prose > figure {
+    width: min(960px, calc(100vw - 2 * var(--gutter)));
+    max-width: none;
+    position: relative;
+    left: 50%;
+    transform: translateX(-50%);
+  }
+}
