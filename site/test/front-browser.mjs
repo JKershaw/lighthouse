@@ -29,7 +29,7 @@ try{
     await page.screenshot({path:path.join(shots,`home-${theme}-390.png`),fullPage:true});
     for(const [route,title] of [['watch','The watch'],['articles','Findings'],['essays','Essays'],['map','The map']]){
       await page.goto(`${origin}/${route}/`,{waitUntil:'domcontentloaded'});assert.equal(await page.locator('main h1').textContent(),title);assert.equal(await page.evaluate(()=>document.documentElement.scrollWidth),390);
-      if(route==='watch'){assert.match(await page.locator('main').textContent(),/unreviewed/);assert.match(await page.locator('.compact-entry').first().textContent(),/Unreviewed log/);}
+      if(route==='watch'){assert.match(await page.locator('main').textContent(),/unreviewed/);assert.match((await page.locator('.compact-entry').allTextContents()).join(' '),/Unreviewed log/);}
       if(route==='essays')assert.match(await page.locator('main').textContent(),/interpretation/);
       await page.screenshot({path:path.join(shots,`${route}-${theme}-390.png`)});
     }

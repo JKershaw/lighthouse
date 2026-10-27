@@ -12,8 +12,8 @@ import { scanRepo, pageUrl, IGNORED_DIRS, IGNORED_FILES } from "./lib/repo.js";
 import { stripHeader } from "./lib/header.js";
 import lighthousePlugin, { unresolved } from "./lib/markdown.js";
 import { arrangePiece, markNotices } from "./lib/html.js";
+import { atomFeed, relevantFeeds } from "./lib/feed.js";
 import { writeOfflineFiles } from "./lib/offline.js";
-import { atomFeed } from "./lib/feed.js";
 
 const siteDir = path.dirname(fileURLToPath(import.meta.url));
 const root = path.resolve(siteDir, "..");
@@ -77,6 +77,8 @@ export default function (eleventyConfig) {
     },
   });
 
+  eleventyConfig.addFilter("sourceMarkdown", (value, sourcePath) => md ? md.render(String(value || ""), { page: { inputPath: path.join(root, sourcePath) } }) : value);
+  eleventyConfig.addFilter("relevantFeeds", (repo, doc, section) => relevantFeeds(repo, doc, section));
   eleventyConfig.addFilter("mdInline", (value, page) => (md ? md.renderInline(String(value || ""), { page }) : value));
 
   eleventyConfig.addFilter("homeBackground", (html) => html.replace(/^\s*<h1[^>]*>[\s\S]*?<\/h1>\s*/, ""));
@@ -166,11 +168,18 @@ export default function (eleventyConfig) {
     });
   }
   // The Atom feed of released pieces and essays.
-  eleventyConfig.addFilter("atomFeed", (repo) => atomFeed(repo));
+  eleventyConfig.addFilter("atomFeed", (repo, options) => atomFeed(repo, options));
   eleventyConfig.addTemplate("_lighthouse/feed.njk", "{{ repo | atomFeed | safe }}", {
     permalink: "/feed.xml",
     layout: false,
     eleventyExcludeFromCollections: true,
+  });
+  eleventyConfig.addTemplate("_lighthouse/topic-feeds.njk", "{{ repo | atomFeed(feed) | safe }}", {
+    pagination: { data: "repo.feeds", size: 1, alias: "feed", before: (feeds) => feeds.filter(feed => feed.id !== "all") },
+    permalink: (data) => data.feed.feedPath, layout: false, eleventyExcludeFromCollections: true,
+  });
+  eleventyConfig.addTemplate("_lighthouse/follow.njk", "", {
+    permalink: "/follow/", layout: "index-follow.njk", title: "Follow Lighthouse", section: "follow",
   });
   eleventyConfig.addTemplate("_lighthouse/study.njk", "", {
     layout: "index-study.njk",

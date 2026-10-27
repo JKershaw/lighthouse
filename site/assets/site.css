@@ -626,3 +626,17 @@ td:last-child, th:last-child { padding-right: 0; }
   .masthead nav a { display: inline-flex; align-items: center; min-height: 44px; }
   .masthead nav ul { column-gap: 1rem; row-gap: 0; }
 }
+
+/* A developing account and working log keep different visual registers. */
+.story-account { border-top: 3px solid var(--accent); padding-top: 1rem; }
+.story-account h2 { margin-top: .3rem; }
+.thread-key { font-family: var(--sans); font-size: .92rem; color: var(--muted); }
+.story-thread { list-style: none; padding: 0; }
+.thread-entry { padding: 1.2rem 1rem; margin: 1.2rem 0; border: 1px solid var(--rule); border-left: 3px solid var(--accent); }
+.thread-entry + .thread-entry { margin-top: 1.2rem; }
+.thread-unreviewed { border-left-style: dashed; border-left-color: var(--muted); background: var(--tint); font-family: var(--sans); }
+.thread-label { font-family: var(--sans); font-size: .8rem; font-weight: 600; letter-spacing: .03em; color: var(--accent); }
+.thread-unreviewed .thread-label { color: var(--muted); }
+.thread-unreviewed .prose { font-size: .94rem; line-height: 1.55; }
+.thread-entry .prose > :last-child { margin-bottom: .8rem; }
+.follow-area li { margin-bottom: .8rem; }

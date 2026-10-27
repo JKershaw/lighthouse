@@ -7,6 +7,9 @@ import path from "node:path";
 import { execFileSync } from "node:child_process";
 import { parseHeader, headerField } from "./header.js";
 import { frontInfo } from "./front.js";
+import { buildStories } from "./stories.js";
+import { datedNotices } from "./updates.js";
+import { feedCatalog } from "./feed.js";
 
 export const REPO_URL = "https://github.com/JKershaw/lighthouse";
 export const REPO_BRANCH = "main";
@@ -367,7 +370,7 @@ export function scanRepo(root, { siteFile = path.join(root, "site", "site.json")
     const header = parseHeader(raw);
     const body = header ? header.body : raw.replace(/\r\n?/g, "\n");
     const heading = firstHeading(body);
-    const info = describe(rel, { hasAbout });
+    const info = headerField(header?.fields, "kind")?.value === "developing story" ? { section: "watch", label: "Developing story", story: true, draft: headerField(header?.fields, "status")?.value.toLowerCase() === "draft" } : describe(rel, { hasAbout });
     // An essay takes a piece's header and dates, and is read the same way.
     const isPiece = info.section === "articles" || Boolean(info.essay);
     let time = dates.get(rel);
@@ -402,7 +405,10 @@ export function scanRepo(root, { siteFile = path.join(root, "site", "site.json")
     byPath[rel] = page;
     bodies.set(rel, body);
   }
-  for (const page of pages) page.register = registerOf(page);
+  for (const page of pages) {
+    page.register = registerOf(page);
+    page.notices = (page.section === "articles" && !page.draft) ? datedNotices(bodies.get(page.path)) : [];
+  }
 
   // A released finding links its review notes; a draft shows none.
   for (const page of pages.filter((p) => p.section === "articles")) {
@@ -567,14 +573,21 @@ export function scanRepo(root, { siteFile = path.join(root, "site", "site.json")
   const watchDay = watchPage ? watchLog(fs.readFileSync(path.join(root, WATCH_LOG), "utf8")) : null;
   const watch = watchDay ? { ...watchDay, path: watchPage.path, url: watchPage.url, title: watchPage.title } : null;
 
+  const stories = buildStories(pages, byPath, bodies);
+  for (const story of stories) siteDirs.add(story.url.replace(/^\/|\/$/g, ""));
+  siteDirs.add("follow");
   const front = frontInfo({ source: files.includes("README.md") ? fs.readFileSync(path.join(root, "README.md"), "utf8") : "",
     config: fs.existsSync(path.join(root, "site/sections.md")) ? fs.readFileSync(path.join(root, "site/sections.md"), "utf8") : "",
     byPath, bodies, images, pieces: fulls, essays: releasedEssays, investigations, watch });
   for (const section of front.sections) siteDirs.add(section.url.replace(/^\/|\/$/g, ""));
+  const watchSection = front.sections.find(section => section.id === "watch");
+  watchSection.entries.unshift(...stories.map(story => ({ title: story.title, url: story.url, path: story.path, compactSummary: "Reviewed notices and unreviewed daily logs in one dated thread.", entryKind: "Developing story", entryDate: story.account.revised || story.account.published })));
 
-  return {
+  const repo = {
     root,
     front,
+    stories,
+    sourceBodies: Object.fromEntries(bodies),
     pages,
     byPath,
     images,
@@ -604,4 +617,6 @@ export function scanRepo(root, { siteFile = path.join(root, "site", "site.json")
     buildDate: formatDate(buildDate),
     buildIso: buildDate.toISOString(),
   };
+  repo.feeds = feedCatalog(repo);
+  return repo;
 }

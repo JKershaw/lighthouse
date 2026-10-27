@@ -230,7 +230,7 @@ test("notices: Correction and Later evidence blockquotes, not others", () => {
   assert.equal(noticeKind(later), "later-evidence");
   assert.equal(noticeKind("<blockquote><p><strong>Correction, 1 May.</strong></p></blockquote>"), "correction");
   assert.equal(noticeKind(plain), "");
-  assert.match(markNotices(later), /^<aside class="notice notice-later-evidence" aria-label="Later evidence">/);
+  assert.match(markNotices(later), /^<aside class="notice notice-later-evidence" aria-label="Later evidence" id="notice-2026-09-27-later-evidence">/);
   assert.equal(markNotices(plain), plain);
 });
 

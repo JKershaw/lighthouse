@@ -1,3 +1,4 @@
+import { datedDay, noticeId } from "./updates.js";
 // Rewrites of a rendered page's HTML that Markdown cannot express: notices,
 // a piece's opening and date line, and the context the layout places around
 // a piece's text.
@@ -12,10 +13,15 @@ export function noticeKind(html) {
 }
 
 export function markNotices(html) {
+  const counts = new Map();
   return html.replace(NOTICE, (all, lead, rest) => {
     const label = lead.startsWith("Correction") ? "Correction" : "Later evidence";
     const kind = label === "Correction" ? "correction" : "later-evidence";
-    return `<aside class="notice notice-${kind}" aria-label="${label}">\n<p><strong>${lead}</strong>${rest}</aside>`;
+    const day = datedDay(lead);
+    const key = `${day?.iso}-${kind}`, index = counts.get(key) || 0;
+    counts.set(key, index + 1);
+    const id = day ? ` id="${noticeId(kind, day.iso, index)}"` : "";
+    return `<aside class="notice notice-${kind}" aria-label="${label}"${id}>\n<p><strong>${lead}</strong>${rest}</aside>`;
   });
 }
 
