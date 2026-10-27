@@ -1,0 +1,18 @@
+---
+layout: base.njk
+---
+{% set section = repo.front.sections | sectionById(sectionId) %}
+<article class="index section-front{% if sectionId == 'essays' %} is-essay{% endif %}">
+  <h1>{{ section.title }}</h1>
+  <p class="lede">{{ section.lede }}</p>
+  {% if sectionId == 'watch' and repo.watch %}{% include "home-watch.njk" %}{% endif %}
+  {% if section.lead %}<section class="section-lead" aria-label="Lead item">
+    {% set p = section.lead %}<p class="kicker">Start here · {{ p.entryKind }}</p>
+    <h2><a href="{{ p.url }}">{{ p.title }}</a></h2>
+    <p>{{ p.compactSummary }}</p><p class="when">{{ p.entryDate }}{% if p.revised %} · {{ p.revisedLabel }} {{ p.revised }}{% endif %}</p>
+  </section>{% endif %}
+  {% if section.entries.length %}<ol class="compact-entries">
+  {% for p in section.entries %}{% include "compact-entry.njk" %}{% endfor %}
+  </ol>{% elif not section.lead %}<p>No {{ 'essay has' if sectionId == 'essays' else 'item has' }} been released here yet.</p>{% endif %}
+  {% if sectionId == 'findings' %}<p><a href="/articles/short/">Short forms</a> are standalone readings of the same findings.</p>{% endif %}
+</article>

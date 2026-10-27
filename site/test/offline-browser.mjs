@@ -78,7 +78,7 @@ try {
   assert.ok((await page.locator('h1').textContent()).includes('PHP'));
   await page.waitForFunction(() => [...document.querySelectorAll('main img')].every((image) => image.complete && image.naturalWidth > 0));
   await page.goto(root + 'articles/');
-  assert.equal(await page.locator('h1').textContent(), 'Pieces');
+  assert.match(await page.locator('h1').textContent(), /^(Pieces|Findings)$/);
   await page.goto(root + 'never-opened/');
   assert.equal(await page.locator('h1').textContent(), 'You are offline');
   assert.equal(await page.evaluate(() => document.documentElement.scrollWidth), 390);

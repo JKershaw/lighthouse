@@ -23,8 +23,10 @@
   {% if repo.strap %}<p class="strap">{{ repo.strap }}</p>{% endif %}
   <nav class="sections" aria-label="Sections">
     <ul>
-      <li><a href="/articles/"{% if navSection == "articles" %} aria-current="page"{% endif %}>Pieces</a></li>
-      {% if repo.releasedEssays.length %}<li><a href="/essays/"{% if navSection == "essays" %} aria-current="page"{% endif %}>Essays</a></li>{% endif %}
+      <li><a href="/watch/"{% if navSection == "watch" %} aria-current="page"{% endif %}>Watch</a></li>
+      <li><a href="/articles/"{% if navSection == "articles" %} aria-current="page"{% endif %}>Findings</a></li>
+      <li><a href="/essays/"{% if navSection == "essays" %} aria-current="page"{% endif %}>Essays</a></li>
+      <li><a href="/map/"{% if navSection == "map" %} aria-current="page"{% endif %}>Map</a></li>
       {% if repo.hasInvestigations %}<li><a href="/investigations/"{% if navSection == "investigations" %} aria-current="page"{% endif %}>Investigations</a></li>{% endif %}
       <li><a href="/studies/"{% if navSection == "studies" %} aria-current="page"{% endif %}>Studies</a></li>
       {% if repo.byPath["programme.md"] %}<li><a href="/programme/"{% if navSection == "programme" %} aria-current="page"{% endif %}>Programme</a></li>{% endif %}

@@ -6,6 +6,7 @@ import fs from "node:fs";
 import path from "node:path";
 import { execFileSync } from "node:child_process";
 import { parseHeader, headerField } from "./header.js";
+import { frontInfo } from "./front.js";
 
 export const REPO_URL = "https://github.com/JKershaw/lighthouse";
 export const REPO_BRANCH = "main";
@@ -399,7 +400,7 @@ export function scanRepo(root, { siteFile = path.join(root, "site", "site.json")
     }
     pages.push(page);
     byPath[rel] = page;
-    if (isPiece) bodies.set(rel, body);
+    bodies.set(rel, body);
   }
   for (const page of pages) page.register = registerOf(page);
 
@@ -564,10 +565,16 @@ export function scanRepo(root, { siteFile = path.join(root, "site", "site.json")
   // The watch log's newest day, if the log is there and reads as expected.
   const watchPage = byPath[WATCH_LOG];
   const watchDay = watchPage ? watchLog(fs.readFileSync(path.join(root, WATCH_LOG), "utf8")) : null;
-  const watch = watchDay ? { ...watchDay, url: watchPage.url, title: watchPage.title } : null;
+  const watch = watchDay ? { ...watchDay, path: watchPage.path, url: watchPage.url, title: watchPage.title } : null;
+
+  const front = frontInfo({ source: files.includes("README.md") ? fs.readFileSync(path.join(root, "README.md"), "utf8") : "",
+    config: fs.existsSync(path.join(root, "site/sections.md")) ? fs.readFileSync(path.join(root, "site/sections.md"), "utf8") : "",
+    byPath, bodies, images, pieces: fulls, essays: releasedEssays, investigations, watch });
+  for (const section of front.sections) siteDirs.add(section.url.replace(/^\/|\/$/g, ""));
 
   return {
     root,
+    front,
     pages,
     byPath,
     images,

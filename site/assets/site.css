@@ -586,3 +586,43 @@ td:last-child, th:last-child { padding-right: 0; }
     transform: translateX(-50%);
   }
 }
+
+/* A lead followed by four compact doors; the complete background stays readable. */
+.front-lead { margin-bottom: 2.4rem; }
+.front-lead h1 { max-width: 24ch; }
+.front-lead h1 a { color: var(--ink); text-decoration: none; }
+.front-lead .lead-deck { font-size: 1.08em; line-height: 1.5; }
+.front-lead figure { margin: 1.1rem 0 0; }
+.front-lead figure img { max-height: 24rem; object-fit: contain; }
+.front-lead figcaption { font-family: var(--sans); font-style: normal; font-size: .8rem; }
+.front-doors { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 2rem; }
+.front-door { min-width: 0; border-top: 2px solid var(--accent); padding-top: .8rem; }
+.front-door h2 { font-family: var(--sans); font-size: 1rem; margin: 0 0 .7rem; }
+.front-door h2 a { color: var(--ink); text-decoration: none; }
+.door-essays { border-color: var(--essay); }
+.door-essays h2 a, .compact-essay h3 a { color: var(--essay); }
+.compact-entries { list-style: none; padding: 0; margin: 0; }
+.compact-entry { padding: .8rem 0; border-bottom: 1px solid var(--rule); }
+.compact-entry h3 { font-size: 1rem; line-height: 1.35; margin: 0; }
+.compact-entry h3 a { display: block; min-height: 44px; padding: .1rem 0; }
+.compact-entry p { margin: .25rem 0 0; }
+.compact-deck { font-family: var(--sans); font-size: .88rem; line-height: 1.45; }
+.compact-entry .when { font-size: .76rem; }
+.section-link { display: inline-flex; align-items: center; min-height: 44px; font-family: var(--sans); font-size: .88rem; gap: .4em; margin-top: .5rem; }
+.empty-section { font-family: var(--sans); font-size: .9rem; color: var(--muted); }
+.front-background { border-top: 1px solid var(--rule); margin-top: 2.5rem; padding-top: .7rem; }
+.front-background > summary { cursor: pointer; font-family: var(--sans); font-size: .9rem; min-height: 44px; padding: .5rem 0; }
+.front-background > .prose { padding-top: 1rem; }
+.front-background h1 { font-size: 1.4rem; }
+.front-background:focus-within { outline-offset: 4px; }
+.section-front .section-lead { padding: 1rem 0; border-top: 2px solid var(--accent); border-bottom: 1px solid var(--rule); margin-bottom: .5rem; }
+.section-lead h2 { font-size: 1.4rem; margin: .2rem 0 .7rem; }
+.section-lead > p:not(.kicker):not(.when) { font-family: var(--sans); font-size: 1rem; }
+.section-front .compact-entry h3 { font-size: 1.1rem; }
+@media (max-width: 44rem) {
+  .front-doors { grid-template-columns: minmax(0, 1fr); gap: 1.5rem; }
+  .front-lead h1 { font-size: 1.65rem; }
+  .front-lead figure img { max-height: 20rem; }
+  .masthead nav a { display: inline-flex; align-items: center; min-height: 44px; }
+  .masthead nav ul { column-gap: 1rem; row-gap: 0; }
+}

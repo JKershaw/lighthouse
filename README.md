@@ -1,3 +1,6 @@
+lead: articles/php-emergency-first-reading.md
+deck: An early attack trace, defensive discovery and published fixes, with the boundary of each public record stated.
+
 # Lighthouse
 
 AI systems now write code, run tasks and call one another across the internet, so the internet has become the world they work in. Nobody yet knows whether what they leave behind there could keep itself going and spread, and Lighthouse keeps watch so that one day it will be possible to tell.
