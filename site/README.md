@@ -27,3 +27,11 @@ For a custom domain, enter it under Settings, Pages, Custom domain. At your DNS 
 ## Any other host
 
 Any static host can serve site/_site. Below a domain's root, build with PATH_PREFIX set to that path, such as /lighthouse/.
+
+## The front page and section fronts
+
+README.md selects its lead with `lead: articles/name.md` and supplies a short `deck:` in the same opening header. Only a released full finding can lead. Its first existing image supplies the illustration, original alternative text and caption; a draft or a missing illustration cannot supply an image. The publication and latest substantive update are shown beside it. The lead deck must remain true when read alone.
+
+The four section fronts are always available at /watch/, /articles/, /essays/ and /map/. Their optional hand-set leads, ledes and short listing summaries live in [sections.md](sections.md), as repository paths rather than template constants. The scan supplies lists, dates and kinds, with drafts excluded. The daily log is labelled unreviewed wherever it is listed. Short listing summaries are editorial signposts; they do not replace a piece's full summary.
+
+The home page shows compact section lists. All of README.md's original prose, figures and qualifications remain in the keyboard-accessible **Background and qualifications** disclosure below them, and README.md continues to read as ordinary Markdown on GitHub. Nothing in a released article is rewritten by these templates.

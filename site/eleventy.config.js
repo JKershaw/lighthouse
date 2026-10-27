@@ -76,6 +76,9 @@ export default function (eleventyConfig) {
 
   eleventyConfig.addFilter("mdInline", (value, page) => (md ? md.renderInline(String(value || ""), { page }) : value));
 
+  eleventyConfig.addFilter("homeBackground", (html) => html.replace(/^\s*<h1[^>]*>[\s\S]*?<\/h1>\s*/, ""));
+  eleventyConfig.addFilter("sectionById", (sections, id) => sections.find((section) => section.id === id));
+
   // README.md above its rule is the front page; below it, one section per h2,
   // each with its heading apart and its id, so that the layout can add to the
   // sections headed "The watch", "Findings" and "Essays".
@@ -124,7 +127,7 @@ export default function (eleventyConfig) {
 
   // Section indexes and study pages, built from the scan rather than listed.
   const indexes = [
-    ["articles", { permalink: "/articles/", title: "Pieces", section: "articles" }],
+    ["articles", { permalink: false, title: "Pieces", section: "articles" }],
     ["short", { permalink: "/articles/short/", title: "Short forms", section: "articles" }],
     // Only when essays/ exists and has no index.md of its own.
     [
@@ -132,7 +135,7 @@ export default function (eleventyConfig) {
       {
         title: "Essays",
         section: "essays",
-        permalink: (data) => (data.repo.hasEssays && !data.repo.byPath["essays/index.md"] ? "/essays/" : false),
+        permalink: false,
       },
     ],
     ["studies", { permalink: "/studies/", title: "Studies", section: "studies" }],
@@ -151,6 +154,12 @@ export default function (eleventyConfig) {
   ];
   for (const [name, data] of indexes) {
     eleventyConfig.addTemplate(`_lighthouse/${name}.njk`, "", { ...data, layout: `index-${name}.njk` });
+  }
+  for (const section of getRepo().front.sections) {
+    eleventyConfig.addTemplate(`_lighthouse/section-${section.id}.njk`, "", {
+      layout: "index-section.njk", permalink: section.url, title: section.title,
+      section: section.id === "findings" ? "articles" : section.id, sectionId: section.id,
+    });
   }
   // The Atom feed of released pieces and essays.
   eleventyConfig.addFilter("atomFeed", (repo) => atomFeed(repo));

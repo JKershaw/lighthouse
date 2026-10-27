@@ -1,15 +1,25 @@
-{% set parts = content | homeParts %}
-<div class="front prose">
-{{ parts.front | safe }}
+{% if repo.front.lead %}{% set p = repo.front.lead %}
+<section class="front-lead" aria-labelledby="lead-title">
+  <p class="kicker">In focus · Finding</p>
+  <h1 id="lead-title"><a href="{{ p.url }}">{{ p.title }}</a></h1>
+  <p class="lead-deck">{{ p.deck }}</p>
+  <p class="when">{{ p.published }} · Released{% if p.revised %} · {{ p.revisedLabel }} {{ p.revised }}{% endif %}</p>
+  {% if p.figure %}<figure><a class="figure-link" href="{{ p.url }}"><img src="{{ p.figure.url }}" alt="{{ p.figure.alt }}"></a><figcaption>{{ p.figure.caption }} From <a href="{{ p.url }}">the account published {{ p.published }}</a>; later dated notices may postdate this illustration.</figcaption></figure>{% endif %}
+</section>
+{% else %}<h1>Lighthouse</h1>{% endif %}
+<div class="front-doors">
+{% for section in repo.front.sections %}<section class="front-door door-{{ section.id }}" aria-labelledby="door-{{ section.id }}">
+  <h2 id="door-{{ section.id }}"><a href="{{ section.url }}">{{ section.title }}</a></h2>
+  {% if section.id == 'watch' and repo.watch %}{% include "home-watch.njk" %}{% endif %}
+  <ol class="compact-entries">
+  {% if section.lead %}{% set p = section.lead %}{% include "compact-entry.njk" %}{% endif %}
+  {% for p in section.entries %}{% if loop.index <= 2 %}{% include "compact-entry.njk" %}{% endif %}{% endfor %}
+  </ol>
+  {% if section.id == 'essays' and not section.lead and not section.entries.length %}<p class="empty-section">No essay has been released yet. Essays will be labelled interpretation.</p>{% endif %}
+  <a class="section-link" href="{{ section.url }}">Explore {{ section.title | lower }} <span aria-hidden="true">→</span></a>
+</section>{% endfor %}
 </div>
-<div class="below prose">
-  {% for s in parts.sections %}<section{% if s.id %} class="door-{{ s.id }}"{% endif %}>{{ s.head | safe }}
-    {%- if s.id == "the-watch" and repo.watch %}{% include "home-watch.njk" %}{% endif %}{{ s.body | safe }}
-    {%- if s.id == "findings" %}
-    <div class="latest">{% set latestLevel = "h3" %}{% include "home-latest.njk" %}</div>{% endif %}
-    {%- if s.id == "essays" and repo.releasedEssays.length %}
-    <div class="latest">{% include "home-essays.njk" %}</div>{% endif %}</section>
-  {% if loop.first and not parts.hasFindings %}<section class="latest">{% set latestLevel = "h2" %}{% include "home-latest.njk" %}</section>
-  {% endif %}{% endfor %}
-  {% if not parts.sections.length %}<section class="latest">{% set latestLevel = "h2" %}{% include "home-latest.njk" %}</section>{% endif %}
-</div>
+<details class="front-background">
+  <summary>Background and qualifications</summary>
+  <div class="prose">{{ content | homeBackground | safe }}</div>
+</details>
