@@ -18,6 +18,7 @@ A few plain lines a day on what the fixed PHP panels saw, newest first, each lin
   - Varonis, in a post last updated 23 October, reports that the flaws were reported to PHP on 11 August and that "attackers are probing for it", naming no source for the latter.
   - Forbes Australia, on 22 October, reports that the flaws had "never been exploited", naming no source; Amazon's honeypot report, Cloudflare's attack-traffic claim and now CISA's listing stand against it.
   - Leads only, from the search tool's summaries of pages not opened: a claim attributed by Recorded Future to Patchstack of exploitation before PHP's release on 21 October; the first results on CVE-2026-115560 itself (oss-sec and several outlets), consistent with PHP's own notice; and Cisco's advisory listing products under review.
+- **Images, 12:38 UTC:** a partial read again (Docker's rate limit on the second tag). Both WordPress tags read were pushed again on 26 October, at 15:16 and 18:17 UTC, with the same linux/amd64 images as before ([LH025](../studies/LH025/checkpoints/2026-10-27.md)). Trackers and CISA: no change since the morning.
 
 ## 26 October 2026
 
