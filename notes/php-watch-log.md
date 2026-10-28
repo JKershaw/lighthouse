@@ -6,6 +6,19 @@ date: 2026-10-23
 
 A few plain lines a day on what the fixed PHP panels saw, newest first, each linking the day's checkpoints. These are working records: what a source said and when Lighthouse read it, not reviewed findings. Anything that would change [the public account](../articles/php-emergency-first-reading.md) is flagged here and goes through review before it reaches that page. How the watch runs is in [the continuation plan](php-watch-continuation-2026-10-23.md).
 
+## 28 October 2026
+
+- **How the 23 October instruction travels:** no change; no tracker holds a record for CVE-2026-115560 ([LH030](../studies/LH030/checkpoints/2026-10-28.md)).
+- **CISA's catalogue:** catalogue version 2026.10.27 adds two unrelated entries; the two PHP entries are unchanged and CVE-2026-115560 is not listed ([LH031](../studies/LH031/checkpoints/2026-10-28.md)).
+- **Products embedding PHP:** the Dutch NCSC's list changed in eight commits on 27 October. It now has 757 entries; for CVE-2026-109618, 132 record a fix (119 before), 219 vulnerable (216), 365 under investigation (378) and 40 not vulnerable (38). Still no column for CVE-2026-115560, but NCSC-NL's README now names it for the first time. It restates PHP's 23 October advice and says "this repository does not track CVE-2026-115560 separately in the software list", giving no affected or fixed version ([LH032](../studies/LH032/checkpoints/2026-10-28.md)).
+- **Institutions:** no change in any exposed field; three pages' server timestamps moved with identical visible text. This was the last daily read ([LH024](../studies/LH024/checkpoints/2026-10-28.md)).
+- **How far the fix has reached, by others' counts:** by Censys's classification, on 27 October (day 6) 51.2 per cent of version-reporting services were counted patched in 8.2, 50.6 in 8.3, 66.0 in 8.4 and 77.5 in 8.5. That puts 8.2 and 8.3 above half for the first time. 24.1 million services, 55 per cent of those reporting a version, run branches PHP did not fix. No earlier day revised ([LH033](../studies/LH033/checkpoints/2026-10-28.md)).
+- **Node.js downloads:** no new day. nodejs.org had not yet posted 27 October's summary at 06:38 UTC, and no release is dated after 21 October ([LH034](../studies/LH034/checkpoints/2026-10-28.md)).
+- **Media sweep, 06:35 UTC:** 13 of 56 distinct URLs new, most of them older, unrelated PHP advisories; four pages opened, two refused ([sweep](php-media-sweep/2026-10-28T0630Z.md)).
+  - Intelligence Community News, on 24 October, reports the NSA's forecast that "Cyber actors are likely to weaponize PHP2Shell vulnerabilities", with advice to inventory PHP-dependent systems. That is a forecast, not a report of exploitation; the NSA's own page is a lead, not read.
+  - AEB, a software company, reports on 22 October that it patched within minutes and that "No anomalies were detected".
+  - Leads only, from the search tool's summaries of pages not opened: the Recorded Future and Patchstack exploitation claim already listed on 27 October, and a Chinese-language report said to say that Wiz saw attack traffic before disclosure (its page refused the read).
+
 ## 27 October 2026
 
 - **Flagged for review: CISA lists the two October flaws as exploited.** CISA's catalogue of known exploited vulnerabilities, version 2026.10.26 (released 26 October 22:24 UTC, read 06:34 UTC), adds CVE-2026-109618 ("PHP Memory Corruption Vulnerability") and CVE-2026-109619 ("PHP Stale Internal Request-State Vulnerability"), both dated 26 October, with a due date of 29 October for the agencies its directives cover, forensic triage marked "Yes" and known ransomware use "Unknown". CVE-2026-115560 is not listed. An entry is CISA's classification of a flaw as known to be exploited, by criteria the feed does not state; it is not a count of attacks or a statement about any named system ([LH031](../studies/LH031/checkpoints/2026-10-27.md)). The public account will carry it in its next reviewed revision.

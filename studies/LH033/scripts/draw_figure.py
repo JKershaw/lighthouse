@@ -84,7 +84,7 @@ for v in (0, 0.25, 0.5, 0.75, 1):
     style = 'stroke="var(--muted)" stroke-dasharray="4 3"' if v == 0.5 else 'stroke="var(--grid)"'
     o.append(f'<line x1="{X0}" y1="{y(v):.1f}" x2="{X1}" y2="{y(v):.1f}" {style} stroke-width="1"/>')
     o.append(f'<text x="{X0 - 8}" y="{y(v) + 4:.1f}" class="ax" text-anchor="end">{int(v * 100)}%</text>')
-o.append(f'<text x="{X1 - 4}" y="{y(0.5) - 6:.1f}" text-anchor="end" class="ann">half</text>')
+o.append(f'<text x="{X1 - 4}" y="{y(0.5) + 14:.1f}" text-anchor="end" class="ann">half</text>')  # below the line, clear of the Python labels
 for d in (0, 1, 2, 3, 7, 14, 21, 30):
     o.append(f'<line x1="{x(d):.1f}" y1="{Y1}" x2="{x(d):.1f}" y2="{Y1 + 4}" stroke="var(--muted)" stroke-width="1"/>')
     o.append(f'<text x="{x(d):.1f}" y="{Y1 + 18}" class="ax" text-anchor="middle">{d}</text>')
@@ -108,9 +108,9 @@ for i in range(1, len(labels)):   # keep names 14 px apart
     labels[i][0] = max(labels[i][0], labels[i - 1][0] + 14)
 for yy, text, d, endpoint_y in labels:
     o.append(f'<path d="M{x(d) + 4:.1f},{endpoint_y:.1f} L{x(d) + 9:.1f},{yy - 4:.1f}" fill="none" stroke="var(--teal)"/>')
-    o.append(f'<text x="{x(d) + 10:.1f}" y="{yy:.1f}" class="nm">{text}</text>')
+    o.append(f'<text x="{x(d) + 10:.1f}" y="{yy:.1f}" class="nm" paint-order="stroke" stroke="var(--bg)" stroke-width="4" stroke-linejoin="round">{text}</text>')  # halo keeps names legible over the Python band
 o.append(f'<text x="{x(30) - 4:.1f}" y="{y(hi[30]) - 8:.1f}" class="ann" text-anchor="end">Four Python fixes: range</text>')
-o.append(f'<text x="{x(30) - 4:.1f}" y="{y(med[30]) + 18:.1f}" class="ann" text-anchor="end">Python: median over 37 libraries</text>')
+o.append(f'<text x="{x(30) - 4:.1f}" y="{y(med[30]) + 18:.1f}" class="ann" text-anchor="end" paint-order="stroke" stroke="var(--bg)" stroke-width="4" stroke-linejoin="round">Python: median over 37 libraries</text>')
 o.append('<text x="16" y="505" class="note">Four fixes: urllib3, cryptography, pyjwt, starlette. Python series reuse retained 2026 data.</text>')
 
 BY, BH = 570, 34
