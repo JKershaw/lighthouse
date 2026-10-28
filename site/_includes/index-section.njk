@@ -10,7 +10,7 @@ layout: base.njk
   {% if section.lead %}<section class="section-lead" aria-label="Lead item">
     {% set p = section.lead %}<p class="kicker">Start here · {{ p.entryKind }}</p>
     <h2><a href="{{ p.url }}">{{ p.title }}</a></h2>
-    <p>{{ p.compactSummary }}</p><p class="when">{{ p.entryDate }}{% if p.revised %} · {{ p.revisedLabel }} {{ p.revised }}{% endif %}</p>
+    <p>{{ p.compactSummary }}</p><p class="when">{{ p.entryDate }}{% if p.displayState %} · {{ p.displayState }}{% endif %}{% if p.revised %} · {{ p.revisedLabel }} {{ p.revised }}{% endif %}</p>
   </section>{% endif %}
   {% if section.entries.length %}<ol class="compact-entries">
   {% for p in section.entries %}{% include "compact-entry.njk" %}{% endfor %}

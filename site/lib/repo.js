@@ -10,6 +10,7 @@ import { frontInfo } from "./front.js";
 import { buildStories } from "./stories.js";
 import { datedNotices } from "./updates.js";
 import { feedCatalog } from "./feed.js";
+import { revisionInfo } from "./revisions.js";
 
 export const REPO_URL = "https://github.com/JKershaw/lighthouse";
 export const REPO_BRANCH = "main";
@@ -263,6 +264,7 @@ export function pieceInfo(header, body, time, added = time) {
     revised: latestRevision ? formatDate(latestRevision.time) : "",
     revisedTime: latestRevision ? latestRevision.time : 0,
     revisedLabel: latestRevision ? UPDATE_LABELS[latestRevision.kind] : "",
+    ...revisionInfo(header, body, revisions, status === "draft"),
   };
 }
 

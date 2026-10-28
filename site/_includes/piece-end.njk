@@ -1,5 +1,5 @@
 {# Placed before the colophon's rule by the lighthouse-html transform. #}
-{%- set ctx = doc.context %}<!--lh:end-->
+{%- set ctx = doc.context %}<!--lh:end-->{% include "revision-history.njk" %}
 {%- if ctx and ctx.investigation and (ctx.prev or ctx.next) %}<nav class="piece-pager" aria-label="In this investigation">
   <p class="pager-label">In <a href="{{ ctx.investigation.url }}">{{ ctx.investigation.title }}</a></p>
   <ul>

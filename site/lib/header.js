@@ -7,7 +7,7 @@ export const KEY_LINE = /^([A-Za-z][A-Za-z0-9_ ()-]{0,48}?):(?:[ \t]+(.*))?$/;
 
 // A piece's header may be a single line, such as `published: 2026-09-27`,
 // when its key is one the site reads on pieces.
-export const PIECE_KEYS = ["published", "summary", "status", "investigation", "revised"];
+export const PIECE_KEYS = ["published", "summary", "status", "investigation", "revised", "developing", "next-revision"];
 
 function isHeading(line) {
   return /^#{1,6}(\s|$)/.test(line);

@@ -14,6 +14,7 @@ import lighthousePlugin, { unresolved } from "./lib/markdown.js";
 import { arrangePiece, markNotices } from "./lib/html.js";
 import { atomFeed, relevantFeeds } from "./lib/feed.js";
 import { writeOfflineFiles } from "./lib/offline.js";
+import sideNotes from "./lib/side-notes.js";
 
 const siteDir = path.dirname(fileURLToPath(import.meta.url));
 const root = path.resolve(siteDir, "..");
@@ -57,6 +58,7 @@ export default function (eleventyConfig) {
     lib.set({ html: false, linkify: true, typographer: false });
     lib.linkify.set({ fuzzyLink: false, fuzzyEmail: false });
     lib.use(lighthousePlugin, { getRepo });
+    lib.use(sideNotes);
   });
 
   // Study records and notes open with a header block; it is shown as metadata.
@@ -77,7 +79,13 @@ export default function (eleventyConfig) {
     },
   });
 
-  eleventyConfig.addFilter("sourceMarkdown", (value, sourcePath) => md ? md.render(String(value || ""), { page: { inputPath: path.join(root, sourcePath) } }) : value);
+  eleventyConfig.addFilter("sourceMarkdown", (value, sourcePath, scope = "excerpt") => {
+    if (!md) return value;
+    const prefix = `note-${sourcePath}-${scope}`.replace(/[^A-Za-z0-9_-]/g, "-");
+    const html = md.render(String(value || ""), { page: { inputPath: path.join(root, sourcePath) }, sideNotePrefix: prefix });
+    const url = getRepo().byPath[sourcePath]?.url || "";
+    return html.replace(/href="#([^"]*)"/g, `href="${url}#$1"`);
+  });
   eleventyConfig.addFilter("relevantFeeds", (repo, doc, section) => relevantFeeds(repo, doc, section));
   eleventyConfig.addFilter("mdInline", (value, page) => (md ? md.renderInline(String(value || ""), { page }) : value));
 
