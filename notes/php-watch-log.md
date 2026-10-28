@@ -18,6 +18,7 @@ A few plain lines a day on what the fixed PHP panels saw, newest first, each lin
   - Intelligence Community News, on 24 October, reports the NSA's forecast that "Cyber actors are likely to weaponize PHP2Shell vulnerabilities", with advice to inventory PHP-dependent systems. That is a forecast, not a report of exploitation; the NSA's own page is a lead, not read.
   - AEB, a software company, reports on 22 October that it patched within minutes and that "No anomalies were detected".
   - Leads only, from the search tool's summaries of pages not opened: the Recorded Future and Patchstack exploitation claim already listed on 27 October, and a Chinese-language report said to say that Wiz saw attack traffic before disclosure (its page refused the read).
+- **Images, 12:38 UTC:** partial reads again (Docker's rate limit on the second tag of each panel). New linux/amd64 images were pushed overnight for `php:8.5-apache` (still PHP 8.5.12), `php:8.4-fpm`, `wordpress:php8.2-apache` (still PHP 8.2.35) and `wordpress:php8.3-fpm`: rebuilds, not a new PHP release, as far as the configurations read show ([LH019](../studies/LH019/checkpoints/2026-10-28.md), [LH025](../studies/LH025/checkpoints/2026-10-28.md)). Trackers and CISA: no change since the morning.
 
 ## 27 October 2026
 
