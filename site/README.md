@@ -55,3 +55,17 @@ The home page shows compact section lists. All of README.md's original prose, fi
 A Markdown file with `kind: developing story`, `account: articles/name.md` and `log: notes/name.md` declares a story, with optional `investigation:`. Its title is the page title. `watch/php.md` is the first declaration. The account must be a released full finding. Existing account notices and daily-log `## <day> <month> <year>` blocks are read without changing either source's format. Their complete Markdown is rendered relative to its original source, so source links and illustrations keep working. Same-day reviewed notices precede logs for readability, with a visible warning that this does not establish within-day order.
 
 Every log block is labelled unreviewed on the story page and in its story feed, whose titles, summaries and categories identify working material. Reviewed notices keep a separate visual treatment and link back to stable notice anchors in the account. The source account and daily log remain the authoritative individual records. `lib/updates.js` supplies the shared date, notice and daily-entry metadata.
+
+## Side notes
+
+Write an inline note as `A public trace.^[The qualification, with a [source](sources.md).]` beside the sentence it qualifies. The note may contain ordinary inline Markdown, including links; it cannot contain a newline or another side note. Numbered buttons expose notes on phones by tap, Enter or Space, with their expanded state announced to assistive technology. At 1450px and wider the notes start open in the margin, with placement adjusted to keep adjacent notes apart. They can still be collapsed. Without JavaScript every note remains visible in the text, including on wide screens; print shows the notes too. Embedded source fragments use source-and-entry prefixes to keep control IDs distinct.
+
+The convention is demonstrated in the draft `articles/drafts/reading-one-trace.md` and `test/fixtures/markdown/side-notes.md`. It has not been applied to a released piece. Adopting it in released prose requires that piece's normal review.
+
+## Publication status and revision histories
+
+Pieces and essays keep `status: released` or `status: draft` as the publication gate. The optional `developing: true` marks a released account that is still being followed. The optional `next-revision:` is the author's explicit statement of the next revision, shown verbatim; the site does not infer dates or plans from prose. The PHP account now declares that its next revision depends on reviewed fixed-source evidence, matching its existing stated intent.
+
+Under a piece's byline, the site shows Draft, Developing, Revised or Released, its latest dated revision kind, and any explicit next revision. Developing takes priority over Revised; a developing account remains released and eligible for listings. The same state appears in listings and as a second Atom category under the publication-state scheme; an explicit next revision also accompanies the feed summary.
+
+The revision history at a piece's end combines its dated Correction and Later evidence notices with `revised` header items, newest date first. Same-day items retain source order rather than invent a clock. A link labelled earlier/previous edition or version in the revision text is shown as Earlier edition; no missing edition is guessed or reconstructed. Notices link back to their anchors in the piece. The history retains complete notice text, its source links and qualifications.

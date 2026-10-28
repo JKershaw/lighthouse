@@ -1,5 +1,5 @@
 {# Placed after the byline by the lighthouse-html transform. #}
-{%- set ctx = doc.context %}<!--lh:top-->
+{%- set ctx = doc.context %}<!--lh:top-->{% include "piece-status.njk" %}
 {%- if doc.essay or doc.reviews.length or (ctx and (ctx.investigation or ctx.twin)) %}<aside class="piece-context" aria-label="About this {% if doc.essay %}essay{% else %}piece{% endif %}">
   <ul>
     {#- A released finding that links its review notes; the colophon names them all. Not counted, because a piece may also link reviews of related pieces. #}

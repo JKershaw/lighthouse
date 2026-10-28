@@ -1,6 +1,8 @@
 published: 2026-10-22
 summary: A first-party honeypot account dates a PHP exploit attempt to 17 October, before public disclosure on 21 October. AI helped find a flaw; people and organisations coordinated the response. Public attack reports do not identify AI in the requests. The fix has reached selected published images, but their users and running sites remain outside this watch. On 23 October PHP described a further, separately numbered flaw, a route to running code that it calls unlikely, open by its account only in some unusually configured applications, which it is handling in its regular release cycle. On 26 October CISA, the US cybersecurity agency, listed both emergency flaws in its catalogue of known exploited vulnerabilities, a classification by criteria the catalogue does not state, not a count of attacks or proof that any succeeded.
 status: released
+developing: true
+next-revision: As reviewed fixed-source evidence changes.
 investigation: software-updates
 
 # A PHP emergency, from an early attack trace to published fixes

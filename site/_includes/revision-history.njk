@@ -1,0 +1,9 @@
+{% if doc.revisionHistory.length %}<section class="revision-history" aria-labelledby="revision-history">
+  <h2 id="revision-history">Revision history</h2>
+  <ol>{% for revision in doc.revisionHistory %}<li><details>
+    <summary><strong>{{ revision.label }}</strong> · <time datetime="{{ revision.iso }}">{{ revision.date }}</time></summary>
+    <div class="revision-text">{{ revision.markdown | sourceMarkdown(doc.path, "revision-" + loop.index) | safe }}</div>
+    {% if revision.id %}<p class="when"><a href="#{{ revision.id }}">Notice in this piece</a></p>{% endif %}
+    {% if revision.earlierEdition %}<p class="when">Earlier edition: {{ ('[' + revision.earlierEdition.label + '](' + revision.earlierEdition.target + ')') | mdInline(page) | safe }}</p>{% endif %}
+  </details></li>{% endfor %}</ol>
+</section>{% endif %}

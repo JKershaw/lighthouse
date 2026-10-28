@@ -39,6 +39,8 @@ export function feedEntries(repo) {
       // The latest revision or dated notice, else the publication.
       updated: rfc3339(Math.max(p.pubTime, p.revisedTime || 0)),
       kind: kindOf(p),
+      status: p.displayState || "Released",
+      nextRevision: p.nextRevision || "",
     }));
 }
 
@@ -65,7 +67,8 @@ export function atomFeed(repo, { title = "Lighthouse", entries = feedEntries(rep
       `    <published>${e.published}</published>`,
       `    <updated>${e.updated}</updated>`,
       `    <category term="${e.kind}" label="${KINDS[e.kind]}"/>`,
-      e.summary ? `    <summary>${escapeXml(e.summary)}</summary>` : "",
+      e.status ? `    <category scheme="https://lighthouse.harbour.cat/publication-state" term="${escapeXml(e.status.toLowerCase())}" label="${escapeXml(e.status)}"/>` : "",
+      e.summary ? `    <summary>${escapeXml(e.summary + (e.nextRevision ? " Next revision: " + e.nextRevision : ""))}</summary>` : "",
       "  </entry>",
     );
   }

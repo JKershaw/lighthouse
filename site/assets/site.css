@@ -640,3 +640,28 @@ td:last-child, th:last-child { padding-right: 0; }
 .thread-unreviewed .prose { font-size: .94rem; line-height: 1.55; }
 .thread-entry .prose > :last-child { margin-bottom: .8rem; }
 .follow-area li { margin-bottom: .8rem; }
+
+/* Notes stay in the sentence without scripts; controls progressively enhance them. */
+.side-note-body { color: var(--muted); font-family: var(--sans); font-size: .88em; }
+.side-note-body[hidden], .side-note-toggle[hidden] { display: none; }
+.side-note-label { font-weight: 600; }
+.side-note-toggle { display: inline-flex; min-width: 44px; min-height: 44px; align-items: center; justify-content: center; margin: 0 .1em; padding: 0; border: 1px solid var(--rule); border-radius: 3px; background: var(--tint); color: var(--accent); font: 600 .75rem var(--sans); cursor: pointer; vertical-align: baseline; }
+.side-note-toggle:focus-visible { outline: 2px solid var(--accent); outline-offset: 2px; }
+.side-note-body:not([hidden]) { display: block; padding: .6rem .75rem; margin: .4rem 0; border-left: 2px solid var(--accent); background: var(--tint); }
+@media (min-width: 1450px) {
+ .has-side-note { position: relative; }
+ .has-side-note .side-note-body:not([hidden]) { position: absolute; left: calc(100% + 1.5rem); width: 15rem; margin: 0; padding: .5rem .75rem; font-size: .85rem; line-height: 1.5; }
+ .side-note-toggle { min-width: 28px; min-height: 28px; }
+}
+@media print { .side-note-toggle { display: none; } .side-note-body[hidden], .side-note-body:not([hidden]) { display: block; position: static; width: auto; color: #000; } }
+
+.piece-status { font-family: var(--sans); font-size: .86rem; line-height: 1.5; color: var(--muted); margin: -1.2em 0 1.4em; border-left: 2px solid var(--accent); padding-left: .7rem; }
+.next-revision { display: block; margin-top: .2rem; }
+.revision-history { margin-top: 2rem; padding-top: 1rem; border-top: 1px solid var(--rule); }
+.revision-history > h2 { font-family: var(--sans); font-size: 1.1rem; margin-top: 0; }
+.revision-history ol { list-style: none; padding: 0; }
+.revision-history li { border-bottom: 1px solid var(--rule); padding: .7rem 0; margin: 0; }
+.revision-history .when { margin-bottom: .5rem; }
+.revision-text { font-size: .92rem; line-height: 1.55; }
+.revision-history summary { font-family: var(--sans); font-size: .85rem; min-height: 44px; padding: .5rem 0; cursor: pointer; }
+.revision-history details[open] summary { margin-bottom: .5rem; }

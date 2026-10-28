@@ -14,6 +14,7 @@
 <link rel="stylesheet" href="/assets/fonts.css">
 <link rel="stylesheet" href="/assets/site.css">
 <script src="/assets/offline-register.js" defer></script>
+<script src="/assets/side-notes.js" defer></script>
 {% for feed in repo | relevantFeeds(doc, navSection) %}<link rel="alternate" type="application/atom+xml" title="{{ feed.title }}" href="{{ feed.feedPath }}">{% endfor %}
 </head>
 <body>

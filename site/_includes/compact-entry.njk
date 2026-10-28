@@ -1,5 +1,5 @@
 <li class="compact-entry{% if p.essay %} compact-essay{% endif %}">
   <h3><a href="{{ p.url }}">{{ p.title }}</a></h3>
   {% if p.compactSummary %}<p class="compact-deck">{{ p.compactSummary }}</p>{% endif %}
-  <p class="when"><span>{{ p.entryKind }}</span>{% if p.entryDate %} · {{ p.entryDate }}{% endif %}{% if p.revised %} · {{ p.revisedLabel }} {{ p.revised }}{% endif %}</p>
+  <p class="when"><span>{{ p.entryKind }}</span>{% if p.displayState %} · {{ p.displayState }}{% endif %}{% if p.entryDate %} · {{ p.entryDate }}{% endif %}{% if p.revised %} · {{ p.revisedLabel }} {{ p.revised }}{% endif %}</p>
 </li>
