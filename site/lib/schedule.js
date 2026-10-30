@@ -75,6 +75,9 @@ export function buildSchedule(root, now = new Date()) {
   }
   const first = weeks[0].days[0].date, last = weeks.at(-1).days[6].date;
 
+  const runsFile = path.join(root, "schedule/runs.csv");
+  const runs = fs.existsSync(runsFile) ? parseCsv(fs.readFileSync(runsFile, "utf8")).sort((a, b) => b.started.localeCompare(a.started)) : [];
+
   const counts = {};
   for (const r of rows) counts[r.state] = (counts[r.state] || 0) + 1;
   const pick = (states) => rows.filter((r) => states.includes(r.state));
@@ -89,5 +92,7 @@ export function buildSchedule(root, now = new Date()) {
     beyond: rows.filter((r) => r.latest && r.earliest > last && r.state === "upcoming"),
     recent: rows.filter((r) => ["done", "missed"].includes(r.state)).sort((a, b) => (b.updated || "").localeCompare(a.updated || "")).slice(0, 12),
     range: { first, last },
+    lastRun: runs[0] || null,
+    runs: runs.slice(0, 8),
   };
 }

@@ -9,6 +9,8 @@ layout: base.njk
   {% if not s %}<p>No schedule yet.</p>{% else %}
   <p class="lede">Everything Lighthouse has promised to do, from its reads to its write-ups, each with a window and a status. Scheduled agent runs take what is due; a run that never happens leaves a row overdue here, not a hole in the record. As of {{ s.today }}, the date of this page's last build; the table is <a href="https://github.com/JKershaw/lighthouse/blob/main/schedule/due.csv">schedule/due.csv</a> and a run follows <a href="/schedule/runner/">its instructions</a>.</p>
 
+  {% if s.lastRun %}<p class="sched-note">Last run: {{ s.lastRun.started }}, {{ s.lastRun.by }}: {{ s.lastRun.did }}.</p>{% endif %}
+
   <ul class="sched-counts">{% for c in s.counts %}<li><span class="chip chip-{{ c.state }}">{{ c.label }}</span> {{ c.n }}</li>{% endfor %}</ul>
 
   {% if s.attention.length %}<h2>Needs attention</h2>
@@ -37,5 +39,7 @@ layout: base.njk
 
   {% if s.recent.length %}<h2>Recently done or missed</h2>
   <ul class="sched-list">{% for r in s.recent %}{{ line(r) }}{% endfor %}</ul>{% endif %}
+  {% if s.runs.length %}<h2>Recent runs</h2>
+  <ul class="sched-list">{% for r in s.runs %}<li><strong>{{ r.started }}</strong>, {{ r.by }}: {{ r.did }}{% if r.commit %} <span class="sched-note">({{ r.commit }})</span>{% endif %}</li>{% endfor %}</ul>{% endif %}
   {% endif %}
 </article>
