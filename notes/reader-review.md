@@ -12,6 +12,8 @@ It runs for the next two research rounds, the rounds that release a piece or cha
 
 ## Allowance
 
+**From 30 October 2026, the figures below are a guide, not a limit:** the keeper set no spending bound for now and watches the total.
+
 Up to seven dollars at list rates on Fable 5.1, inside the round's bound of about twenty dollars of subagent spend: about one for stage 1, about five for stage 2 and about one for the recheck. The driving session tells the reviewer its allowance, prices each stage from the transcript (`harbour/hb tokens --latest`) and writes the figures in the log. If the round cannot fit it beside the research and the evidence review, the driving session says in the log and the close-out what it cut to make room, or that the pilot was skipped and why. The allowance was first set at five dollars and raised to seven after the rehearsal of 29 September, which cost $13.34: $1.24 for stage 1, $6.46 for stage 2 (its own analysis of 37 libraries' version profiles, which found the problem that mattered) and $5.64 for a recheck sent to the same agent, whose whole context was re-read on every call.
 
 ## How to dispatch it
