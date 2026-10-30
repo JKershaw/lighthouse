@@ -83,6 +83,8 @@ Run a small feasibility check of source access first. If public histories cannot
 
 **30 October, week-one piece released.** articles/a-week-after-two-fixes.md, version 1.0, from LH033 and LH034 version 0.1 (reviews notes/R-0039 to R-0041, on Opus). The reader review suggested two additions at later reads: set Censys's current snapshot's share on the fixed release beside the daily history (the retained reads hold it), and learn how Censys counts a service first seen already fixed (asking Censys would be contact with a third party and waits for the keeper). Revise the piece after the day-30 reads.
 
+**30 October, later: the essay's tests fixed in advance.** LH033 amendment 2 and LH034 amendment 1 fix the essay's first two tests (late share after week one; older lines more than five points behind at day 30) before any day after day 8 (PHP) or day 7 (Node.js) was read. At the day-30 revision, report both outcomes and replace the essay's sentence that says the comparisons are not yet fixed with links to these amendments.
+
 **Budget:** the keeper waived AGENTS.md's bound of about twenty dollars for this session and its daily scheduled runs, given the significance of the PHP event (23 October 2026). A fresh session is still the cheaper place for LH013.
 
 **Candidate for the PHP account's next dated revision (not yet reviewed):** Google's blog, read by LH024 on 23 October, claims that Wiz used "a mix of models" and that Gemini 4 Argon contributed to finding the vulnerability, exploit development, attack detection and patch validation (studies/LH024/checkpoints/2026-10-23.md). The account currently gives OpenAI's version of AI's role only. Weigh it with PHP's CVE-2026-115560 advisory for version 1.2, with both reviews.

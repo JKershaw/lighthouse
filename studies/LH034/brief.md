@@ -51,3 +51,10 @@ The Python figures are LH008's and LH011's retained data and the PHP figures LH0
 ## Stopping and what would leave it inconclusive
 
 Stop after the read holding day 30, at the latest on 30 November 2026. An interim checkpoint after the read of 29 or 30 October may report measures 1, 2 and 4 to the last completed published day, labelled interim. Measure 1 is inconclusive for a line if a day's file is missing for days 0 to 2, if the version table changes shape, or if a re-read of days 0 to 7 differs by more than five points of share. If the summaries stop being published, the study reports what its reads hold and when they stopped. The resource ceiling is the GETs above and about $15 of model spend for the reads and checkpoints, recorded in the close-out; any public piece takes the full review sequence and its own spend.
+
+**Amendment 1, 30 October 2026, about 08:30 UTC, after day 7 (28 October) was read and before any later day.** The two comparisons of LH033's amendment 2, fixed now from the essay released today (essays/seen-from-outside-seen-from-inside.md), stated here for the Node.js side. For each fixed line, S7 is the mean of measure 1 on days 5 to 7 and S30 the mean on days 28 to 30 (earliest read per day; the day-30 re-read of days 0 to 7 is reported beside, and its first values stand).
+
+- **A, standing and rebuilt.** L = (S30 − S7) / S30 per line; the reading predicts that the median L over lines 22, 24 and 26 is smaller than LH033's median L over PHP 8.2 to 8.5, and fails if it is not.
+- **B, older lines lag.** The reading predicts that on S30 line 22 is more than five points below the lower of lines 24 and 26. It fails for Node.js if not.
+
+Labelled as tests of post hoc readings whatever their outcome; different units from LH033's; no cause. Nothing else changes.
