@@ -85,6 +85,8 @@ Run a small feasibility check of source access first. If public histories cannot
 
 **30 October, later: the essay's tests fixed in advance.** LH033 amendment 2 and LH034 amendment 1 fix the essay's first two tests (late share after week one; older lines more than five points behind at day 30) before any day after day 8 (PHP) or day 7 (Node.js) was read. At the day-30 revision, report both outcomes and replace the essay's sentence that says the comparisons are not yet fixed with links to these amendments.
 
+**30 October, the schedule moves to a table.** Every read and write-up named above (the Monday and Thursday reads of LH030 to LH034, the day-30 reads, LH034's re-read, W3Techs on 1 December, the records, the piece and essay revisions, LH035, the contact rules) is now a row in schedule/due.csv, and scheduled runs follow schedule/runner.md. Where this plan and the table differ, the table is the schedule.
+
 **Budget:** the keeper waived AGENTS.md's bound of about twenty dollars for this session and its daily scheduled runs, given the significance of the PHP event (23 October 2026). A fresh session is still the cheaper place for LH013.
 
 **Candidate for the PHP account's next dated revision (not yet reviewed):** Google's blog, read by LH024 on 23 October, claims that Wiz used "a mix of models" and that Gemini 4 Argon contributed to finding the vulnerability, exploit development, attack detection and patch validation (studies/LH024/checkpoints/2026-10-23.md). The account currently gives OpenAI's version of AI's role only. Weigh it with PHP's CVE-2026-115560 advisory for version 1.2, with both reviews.

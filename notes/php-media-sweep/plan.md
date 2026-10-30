@@ -26,3 +26,5 @@ Only new, consequential reports, one plain line each, written as "X reports that
 One search tool's ranking, on one day, in English: what it returns depends on its index and on wording, and an absence means nothing. Media restate each other; a claim repeated by many outlets is one claim.
 
 **Change, 25 October 2026:** once a day from 26 October, at about 06:33 UTC, at the keeper's agreement, after three sweeps returned identical results. The queries and rules are unchanged.
+
+**Change, 30 October 2026:** with the PHP watch's daily reads ended, a sweep on each Monday and Thursday read through 30 November 2026, as rows in schedule/due.csv. The queries and rules are unchanged.
