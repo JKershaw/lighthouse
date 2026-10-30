@@ -1,0 +1,181 @@
+{
+  "source": "feed",
+  "catalogVersion": "2026.10.29",
+  "dateReleased": "2026-10-29T19:09:34.4003Z",
+  "count": 1764,
+  "entries": {
+    "CVE-2026-109618": {
+      "cveID": "CVE-2026-109618",
+      "vendorProject": "PHP Group",
+      "product": "PHP",
+      "vulnerabilityName": "PHP Memory Corruption Vulnerability",
+      "dateAdded": "2026-10-26",
+      "shortDescription": "PHP contains an out-of-memory corruption vulnerability that allows for unauthenticated remote code execution.",
+      "requiredAction": "Apply mitigations in accordance with vendor instructions, ensuring compliance with CISA\u2019s BOD 26-04 Prioritizing Security Updates Based on Risk (see URL in Notes) guidance and CISA\u2019s \u201cForensics Triage Requirements\u201d (see URL in Notes). Follow applicable BOD 26-04 guidance for cloud services or discontinue use of the product if mitigations are unavailable. Stakeholders are responsible for evaluating each asset's internet exposure and ensuring adherence to BOD 26-04 patching guidelines.",
+      "dueDate": "2026-10-29",
+      "knownRansomwareCampaignUse": "Unknown",
+      "forensicTriage": "Yes",
+      "notes": "This vulnerability affects an open-source component, third-party library, protocol, or proprietary implementation that could be used by different products. For more information, please see: https://www.php.net/ ; https://www.cisa.gov/news-events/alerts/2026/10/21/critical-vulnerabilities-php-require-immediate-patching ; BOD 26-04: https://www.cisa.gov/news-events/directives/bod-26-04-prioritizing-security-updates-based-risk ; Forensics Triage Requirements: https://www.cisa.gov/news-events/directives/bod-26-04-implementation-guidance-prioritizing-security-updates-based-risk ;  https://nvd.nist.gov/vuln/detail/CVE-2026-109618",
+      "cwes": [
+        "CWE-416",
+        "CWE-755",
+        "CWE-824",
+        "CWE-1325",
+        "CWE-1419"
+      ]
+    },
+    "CVE-2026-109619": {
+      "cveID": "CVE-2026-109619",
+      "vendorProject": "PHP Group",
+      "product": "PHP",
+      "vulnerabilityName": "PHP Stale Internal Request-State Vulnerability",
+      "dateAdded": "2026-10-26",
+      "shortDescription": "PHP contains a stale internal request-state vulnerability that allows for unauthenticated remote code execution.",
+      "requiredAction": "Apply mitigations in accordance with vendor instructions, ensuring compliance with CISA\u2019s BOD 26-04 Prioritizing Security Updates Based on Risk (see URL in Notes) guidance and CISA\u2019s \u201cForensics Triage Requirements\u201d (see URL in Notes). Follow applicable BOD 26-04 guidance for cloud services or discontinue use of the product if mitigations are unavailable. Stakeholders are responsible for evaluating each asset's internet exposure and ensuring adherence to BOD 26-04 patching guidelines.",
+      "dueDate": "2026-10-29",
+      "knownRansomwareCampaignUse": "Unknown",
+      "forensicTriage": "Yes",
+      "notes": "This vulnerability affects an open-source component, third-party library, protocol, or proprietary implementation that could be used by different products. For more information, please see: https://www.php.net/ ; https://www.cisa.gov/news-events/alerts/2026/10/21/critical-vulnerabilities-php-require-immediate-patching ; BOD 26-04: https://www.cisa.gov/news-events/directives/bod-26-04-prioritizing-security-updates-based-risk ; Forensics Triage Requirements: https://www.cisa.gov/news-events/directives/bod-26-04-implementation-guidance-prioritizing-security-updates-based-risk ;  https://nvd.nist.gov/vuln/detail/CVE-2026-109619",
+      "cwes": [
+        "CWE-416",
+        "CWE-755",
+        "CWE-824",
+        "CWE-1325",
+        "CWE-1419"
+      ]
+    },
+    "CVE-2026-115560": null
+  },
+  "mentions": [
+    {
+      "cveID": "CVE-2026-46300",
+      "dateAdded": "2026-10-28",
+      "shortDescription": "Linux Kernel contains a missing initialization of a variable vulnerability that could allow for unintended modification of page-cache-backed data via failure to preserve the shared-fragment marker during socket buffer coalescing, causing ESP input processing to decrypt shared fragments in place. This vulnerability can be chained with CVE-2026-109618 and CVE-2026-109619 to implant PHP webshells and run commands as root."
+    },
+    {
+      "cveID": "CVE-2026-48939",
+      "dateAdded": "2026-07-10",
+      "shortDescription": "iCagenda contains an unrestricted upload of file with dangerous type vulnerability that allows the upload of arbitrary files in the file attachment feature, ultimately resulting in PHP code upload and execution."
+    },
+    {
+      "cveID": "CVE-2026-48908",
+      "dateAdded": "2026-07-07",
+      "shortDescription": "JoomShaper SP Page Builder contains an unrestricted upload of file with dangerous type vulnerability that allows unauthenticated users to upload arbitrary files, ultimately resulting in the upload and execution of PHP code."
+    },
+    {
+      "cveID": "CVE-2026-48907",
+      "dateAdded": "2026-06-16",
+      "shortDescription": "Widget Factory Joomla Content Editor contains an improper access control vulnerability which could allow for upload and execution of PHP code via the creation of new editor profiles for unauthenticated users. "
+    },
+    {
+      "cveID": "CVE-2026-45247",
+      "dateAdded": "2026-06-03",
+      "shortDescription": "Mirasvit Full Page Cache Warmer contains a deserialization of untrusted data vulnerability that could allow unauthenticated attackers to achieve remote code execution by supplying a crafted serialized PHP object in the CacheWarmer cookie."
+    },
+    {
+      "cveID": "CVE-2025-68645",
+      "dateAdded": "2026-01-22",
+      "shortDescription": "Synacor Zimbra Collaboration Suite (ZCS) contains a PHP remote file inclusion vulnerability that could allow for remote attackers to craft requests to the /h/rest endpoint to influence internal request dispatching, allowing inclusion of arbitrary files from the WebRoot directory."
+    },
+    {
+      "cveID": "CVE-2016-10033",
+      "dateAdded": "2025-07-07",
+      "shortDescription": "PHPMailer contains a command injection vulnerability because it fails to sanitize user-supplied input. Specifically, this issue affects the 'mail()' function of 'class.phpmailer.php' script. An attacker can exploit this issue to execute arbitrary code within the context of the application. Failed exploit attempts will result in a denial-of-service condition."
+    },
+    {
+      "cveID": "CVE-2025-35939",
+      "dateAdded": "2025-06-02",
+      "shortDescription": "Craft CMS contains an external control of assumed-immutable web parameter vulnerability. This vulnerability could allow an unauthenticated client to introduce arbitrary values, such as PHP code, to a known local file location on the server. This vulnerability could be chained with CVE-2024-58136 as represented by CVE-2025-32432."
+    },
+    {
+      "cveID": "CVE-2025-0108",
+      "dateAdded": "2025-02-18",
+      "shortDescription": "Palo Alto Networks PAN-OS contains an authentication bypass vulnerability in its management web interface. This vulnerability allows an unauthenticated attacker with network access to the management web interface to bypass the authentication normally required and invoke certain PHP scripts."
+    },
+    {
+      "cveID": "CVE-2024-4577",
+      "dateAdded": "2024-06-12",
+      "shortDescription": "PHP, specifically Windows-based PHP used in CGI mode, contains an OS command injection vulnerability that allows for arbitrary code execution. This vulnerability is a patch bypass for CVE-2012-1823."
+    },
+    {
+      "cveID": "CVE-2023-36844",
+      "dateAdded": "2023-11-13",
+      "shortDescription": "Juniper Junos OS on EX Series contains a PHP external variable modification vulnerability that allows an unauthenticated, network-based attacker to control certain, important environment variables. Using a crafted request an attacker is able to modify certain PHP environment variables, leading to partial loss of integrity, which may allow chaining to other vulnerabilities."
+    },
+    {
+      "cveID": "CVE-2023-36845",
+      "dateAdded": "2023-11-13",
+      "shortDescription": "Juniper Junos OS on EX Series and SRX Series contains a PHP external variable modification vulnerability that allows an unauthenticated, network-based attacker to control an important environment variable. Using a crafted request, which sets the variable PHPRC, an attacker is able to modify the PHP execution environment allowing the injection und execution of code."
+    },
+    {
+      "cveID": "CVE-2023-22952",
+      "dateAdded": "2023-02-02",
+      "shortDescription": "Multiple SugarCRM products contain a remote code execution vulnerability in the EmailTemplates. Using a specially crafted request, custom PHP code can be injected through the EmailTemplates."
+    },
+    {
+      "cveID": "CVE-2020-36193",
+      "dateAdded": "2022-08-25",
+      "shortDescription": "PEAR Archive_Tar Tar.php allows write operations with directory traversal due to inadequate checking of symbolic links. PEAR stands for PHP Extension and Application Repository and it is an open-source framework and distribution system for reusable PHP components with known usage in third-party products such as Drupal Core and Red Hat Linux."
+    },
+    {
+      "cveID": "CVE-2020-28949",
+      "dateAdded": "2022-08-25",
+      "shortDescription": "PEAR Archive_Tar allows an unserialization attack because phar: is blocked but PHAR: is not blocked. PEAR stands for PHP Extension and Application Repository and it is an open-source framework and distribution system for reusable PHP components with known usage in third-party products such as Drupal Core and Red Hat Linux."
+    },
+    {
+      "cveID": "CVE-2019-6340",
+      "dateAdded": "2022-03-25",
+      "shortDescription": "In Drupal Core, some field types do not properly sanitize data from non-form sources. This can lead to arbitrary PHP code execution in some cases."
+    },
+    {
+      "cveID": "CVE-2019-11043",
+      "dateAdded": "2022-03-25",
+      "shortDescription": "In some versions of PHP in certain configurations of FPM setup, it is possible to cause FPM module to write past allocated buffers allowing the possibility of remote code execution."
+    },
+    {
+      "cveID": "CVE-2012-1823",
+      "dateAdded": "2022-03-25",
+      "shortDescription": "sapi/cgi/cgi_main.c in PHP, when configured as a CGI script, does not properly handle query strings, which allows remote attackers to execute arbitrary code."
+    },
+    {
+      "cveID": "CVE-2009-1151",
+      "dateAdded": "2022-03-25",
+      "shortDescription": "Setup script used to generate configuration can be fooled using a crafted POST request to include arbitrary PHP code in generated configuration file."
+    },
+    {
+      "cveID": "CVE-2017-9841",
+      "dateAdded": "2022-02-15",
+      "shortDescription": "PHPUnit allows remote attackers to execute arbitrary PHP code via HTTP POST data beginning with a \"<?php \" substring, as demonstrated by an attack on a site with an exposed /vendor folder, i.e., external access to the /vendor/phpunit/phpunit/src/Util/PHP/eval-stdin.php URI."
+    },
+    {
+      "cveID": "CVE-2018-20062",
+      "dateAdded": "2021-11-03",
+      "shortDescription": "ThinkPHP \"noneCms\" contains an unspecified vulnerability that allows for remote code execution through crafted use of the filter parameter."
+    },
+    {
+      "cveID": "CVE-2019-9082",
+      "dateAdded": "2021-11-03",
+      "shortDescription": "ThinkPHP contains an unspecified vulnerability that allows for remote code execution via public//?s=index/\\think\\app/invokefunction&function=call_user_func_array&vars[0]=system&vars[1][]= followed by the command."
+    },
+    {
+      "cveID": "CVE-2020-5847",
+      "dateAdded": "2021-11-03",
+      "shortDescription": "Unraid contains a vulnerability due to the insecure use of the extract PHP function that can be abused to execute remote code as root. This CVE is chainable with CVE-2020-5849 for initial access."
+    },
+    {
+      "cveID": "CVE-2019-16759",
+      "dateAdded": "2021-11-03",
+      "shortDescription": "The PHP module within vBulletin contains an unspecified vulnerability that allows for remote code execution via the widgetConfig[code] parameter in an ajax/render/widget_php routestring request."
+    },
+    {
+      "cveID": "CVE-2020-17496",
+      "dateAdded": "2021-11-03",
+      "shortDescription": "The PHP module within vBulletin contains an unspecified vulnerability that allows for remote code execution via crafted subWidgets data in an ajax/render/widget_tabbedcontainer_tab_panel request. This CVE ID resolves an incomplete patch for CVE-2019-16759."
+    },
+    {
+      "cveID": "CVE-2020-25213",
+      "dateAdded": "2021-11-03",
+      "shortDescription": "WordPress File Manager plugin contains a remote code execution vulnerability that allows unauthenticated users to execute PHP code and upload malicious files on a target site."
+    }
+  ]
+}
