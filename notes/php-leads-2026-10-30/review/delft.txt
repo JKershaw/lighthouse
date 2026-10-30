@@ -1,0 +1,221 @@
+PHP2Shell in the Wild: live CVE-2026-109618 / CVE-2026-109619 exploitation data 
+ Delft Threat Intelligence Lab Delft University of Technology 
+ PHP2Shell in the wild 
+ Delft Threat Intelligence Lab 
+ Updated 2026-10-30 11:47:10 UTC 
+ Data since 20 October 2026 
+ PHP2Shell in the wild
+ Exploitation of CVE-2026-109618 and CVE-2026-109619 (PHP2Shell, the PHP session.upload_progress use-after-free) as seen by the honeypots and network telescope of the Delft Threat Intelligence Lab since 20 October 2026. Our own test traffic is left out and our sensor addresses are replaced by <sensor>. All times are UTC. The data is refreshed every 5 minutes.
+ Last updated: 2026-10-30 11:47:10 UTC 
+ Key numbers
+ 76,216 exploitation requests from 680 source IPs in 317 autonomous systems and 73 countries, 2026-10-21 08:37:17 to 2026-10-30 11:40:30 UTC.
+ 177 source IPs sent code or a dropper.
+ First request: 2026-10-21 08:37:17 UTC (First request resembling PHP2Shell seen by the network telescope).
+ 2 IPs sent 49 requests before the fixed PHP releases (8.2.35, 8.3.36, 8.4.27, 8.5.12) on 2026-10-21.
+ Busiest hour: 2026-10-26 14:00 UTC with 8,179 requests.
+ 749 distinct multipart boundaries; 2,726 sensor addresses hit.
+ First sightings
+ 2026-10-21 08:37:17 UTC: First request resembling PHP2Shell seen by the network telescope
+ 2026-10-21 13:00:12 UTC: First request seen by the high-interaction honeypot
+ 2026-10-21 13:25:25 UTC: First OS command and first PHP code in filename
+ 2026-10-21 13:42:29 UTC: First UAF: forged zval structs
+ 2026-10-21 14:20:28 UTC: First request after the fix was released and first tool that names itself in the user agent
+ 2026-10-21 14:25:31 UTC: First request seen by the honeypot fleet and first wget / curl dropper
+ 2026-10-21 15:01:07 UTC: First session deserialization gadget
+ 2026-10-21 15:38:33 UTC: First request seen by the cloud telescope and first PHP code in progress field
+ 2026-10-21 16:13:51 UTC: First OOM: deeply nested names and first OOM: empty file fields
+ 2026-10-21 18:35:15 UTC: First OOM: header-line flood
+ 2026-10-21 18:36:14 UTC: First OOM: hundreds of parts
+ 2026-10-21 19:26:35 UTC: First request seen by the partner honeypot
+ 2026-10-21 22:15:14 UTC: First body of 1 MB or more
+ Public timeline
+ 2026-10-20 : OpenAI / Trail of Bits, Patch the Planet: disclosures and guidance hub . Collects official patch links, interim mitigations and verification guidance.
+ 2026-10-20T15:20:00 : news.ycombinator.com, Hacker News: the leak thread . The two CVE IDs and an incorrect 10.0 score first circulate here, which led PHP to bring the release forward.
+ 2026-10-20T18:39:00 : Kevin Beaumont (cyberplace.social), Kevin Beaumont identifies the CVEs . Mastodon post naming the two CVE IDs during the leak window.
+ 2026-10-20T19:30:00 : PHP Group, PHP.net: advance notice of the release . Announces the release for 21 October 14:00 UTC and a CVSS score of 9.2.
+ 2026-10-20T19:52:00 : The PHP Foundation (X), The PHP Foundation: advance notice . Release set for Wednesday 21 October 14:00 UTC, two critical bugs rated 9.2.
+ 2026-10-20T20:27:00 : Calif, reposted by Kirill Firsov (@k_firsov), Calif PoC demonstration video . A video of a working exploit is published by mistake and deleted. Copies keep circulating.
+ 2026-10-21 : AWS (CJ Moses), Amazon: exploitation before disclosure . Amazon's MadPot honeypots saw a first attempt on 17 October and more from about 02:00 UTC on 21 October.
+ 2026-10-21 : OpenAI, OpenAI: Patch the Planet response coordination . Account of the coordinated response and how Calif found the bugs.
+ 2026-10-21 : Wiz / partners, php2shell.com . Public information page about the two vulnerabilities.
+ 2026-10-21T00:30:00 : @J4ck3LSyN (X), J4ck3LSyN claims a working PoC . Claim of a working exploit on X, later deleted. Not verified.
+ 2026-10-21T07:43:00 : Dane Knecht, Cloudflare (X), Cloudflare CTO: early attacks . Cloudflare's CTO reports early attack traffic and calls WAF rules a stopgap until the patch.
+ 2026-10-21T07:58:00 : ikow (Qi Deng research repo), ikow/php2shell-poc . Proof of concept code and a Docker lab for several attack chains. Not independently confirmed.
+ 2026-10-21T08:43:00 : eness, eness PoC repository . Placeholder repository, no exploit code at the time.
+ 2026-10-21T09:01:00 : Tenable Research, Tenable: FAQ and plugin coverage . Nessus and web app scanning plugins, with an FAQ.
+ 2026-10-21T09:59:00 : Wiz Research, Wiz Research: disclosure . Describes four bug variants and pre-auth RCE on WordPress, Drupal and Joomla.
+ 2026-10-21T10:44:00 : Is4yev, Is4yev/php2shell-poc . Crash demonstrator for the use-after-free. Not independently confirmed.
+ 2026-10-21T11:03:00 : Ademking, Nuclei templates . Scanner templates that check whether a server is affected.
+ 2026-10-21T12:00:00 : UK NCSC, UK NCSC advisory . National advisory urging organisations to update PHP.
+ 2026-10-21T12:00:00 : US CISA, US CISA alert . Urges immediate patching, or taking affected systems offline.
+ 2026-10-21T12:38:00 : murrez, murrez/php2shell . Fingerprint and trigger checks. Mainly a checker.
+ 2026-10-21T13:34:00 : php/php-src GitHub Security Advisory, GHSA-6wmf-4rv5-p3rp: CVE-2026-109619 . Official advisory for the stale global state bug, which uses the PHP_SESSION_UPLOAD_PROGRESS path.
+ 2026-10-21T13:34:00 : php/php-src GitHub Security Advisory, GHSA-w8hw-w9fx-j79w: CVE-2026-109618 . Official advisory for the out-of-memory corruption bug.
+ 2026-10-21T13:46:00 : US NSA (@NSACyber), NSA Cybersecurity . Warns that the flaws can give attackers direct access to files and databases.
+ 2026-10-21T13:52:00 : scallydima, scallydima/php2shell-poc . Research PoC claiming three attack chains. Not independently confirmed.
+ 2026-10-21T13:56:00 : Cloudflare, Cloudflare: WAF protections . WAF rules live since 21 October 03:02 UTC. Attackers were changing payloads to get past them.
+ 2026-10-21T14:00:00 : PHP Group, PHP 8.5.12, 8.4.27, 8.3.36 and 8.2.35 released . The official advisory with fixed versions, affected server APIs and interim mitigations.
+ 2026-10-21T14:00:00 : Calif Research (Ryan Austin / @lcfr_hax), Calif: a tale of two PHP remote vulnerabilities . Technical write-up by the researchers who found the bugs.
+ 2026-10-21T14:00:00 : The PHP Foundation, The PHP Foundation: security release . How the bugs were found and fixed, and how the leak moved the release forward.
+ 2026-10-21T14:19:00 : watchTowr, watchTowr: PHP2Shell FAQ . Reproduction of CVE-2026-109618 and notes on exploitation status.
+ 2026-10-21T14:59:00 : US FBI (@FBICyberDiv), FBI Cyber Division . Advises watching for PHP processes that start shells or download files.
+ 2026-10-21T15:20:00 : CERT-EU, CERT-EU advisory 2026-018 . EU advisory covering both CVEs.
+ 2026-10-21T15:38:00 : BillReyor, BillReyor/php2shell . Wraps the Calif chain plus a use-after-free mode. Later deleted, not independently confirmed.
+ 2026-10-21T16:31:00 : Whackermelon, Whackermelon/Php2Shell-POC . Mostly an older session poisoning technique. Later deleted, not independently confirmed.
+ 2026-10-21T21:02:00 : ELLIO Threat Research, ELLIO: what we observed and what to do . Hour by hour honeypot observations from the first day, with indicators.
+ Exploitation steps
+ Furthest step
+ Requests
+ Source IPs
+ probe
+ 55,835
+ 566
+ code execution
+ 10,525
+ 150
+ overload
+ 5,128
+ 140
+ dropper
+ 4,728
+ 51
+ Techniques
+ Technique
+ Requests
+ Source IPs
+ probe only
+ 55,835
+ 566
+ session deserialization gadget
+ 1,323
+ 108
+ OOM: hundreds of parts
+ 1,634
+ 84
+ OS command
+ 11,045
+ 64
+ OOM: deeply nested names
+ 3,181
+ 57
+ wget / curl dropper
+ 4,728
+ 51
+ OOM: empty file fields
+ 2,711
+ 47
+ PHP code in progress field
+ 10,479
+ 36
+ PHP code in filename
+ 1,464
+ 35
+ body of 1 MB or more
+ 424
+ 21
+ UAF: forged zval structs
+ 1,807
+ 10
+ OOM: header-line flood
+ 606
+ 9
+ Dropper URLs
+ URLs that wget or curl commands in the exploit requests download from (indicators to block; do not open them).
+ http://45.74.7.227/collect/p2srun.php?w=p2s<sensor> : 159 requests from 16 IPs
+ http://45.74.7.227/collect/p2srun.php?w=p2s<sensor>&stage=diag&u=$ : 76 requests from 13 IPs
+ http://45.74.7.227/collect/p2srun.php?w=p2s<sensor>&stage=diag&d=u%3D$ : 83 requests from 12 IPs
+ http://176.65.139.153/wget.sh : 17 requests from 6 IPs
+ https://217.60.102.5/sh : 3,561 requests from 4 IPs
+ https://pastebin.com/raw/wCYGVCBG : 71 requests from 2 IPs
+ http://92.118.112.100/p : 70 requests from 2 IPs
+ https://webhook.site/c8370342-2a5c-489c-a0d3-35930cc2bc54/be67d5f4e708 : 2 requests from 2 IPs
+ https://webhook.site/c8370342-2a5c-489c-a0d3-35930cc2bc54/c18e174d1e85 : 2 requests from 2 IPs
+ https://webhook.site/c8370342-2a5c-489c-a0d3-35930cc2bc54/3c5744c6208a : 2 requests from 2 IPs
+ https://webhook.site/c8370342-2a5c-489c-a0d3-35930cc2bc54/baf153efbb95 : 2 requests from 2 IPs
+ https://webhook.site/c8370342-2a5c-489c-a0d3-35930cc2bc54/c33b9dad02d6 : 2 requests from 2 IPs
+ https://webhook.site/c8370342-2a5c-489c-a0d3-35930cc2bc54/fbb6474028eb : 2 requests from 2 IPs
+ https://webhook.site/c8370342-2a5c-489c-a0d3-35930cc2bc54/b4e7ccc1095b : 2 requests from 2 IPs
+ http://92.118.112.100/s : 572 requests from 1 IPs
+ http://217.15.162.38:27182/$T/srl.sh : 93 requests from 1 IPs
+ http://217.15.162.38:27182/DT14REn1ylaykdkWBqbML5wf/issue : 93 requests from 1 IPs
+ http://134.209.89.212/p : 65 requests from 1 IPs
+ http://87.251.64.204:7716/i : 29 requests from 1 IPs
+ https://webhook.site/0e7f04d6-7839-40d6-963e-a6d7744a4cd3 : 23 requests from 1 IPs
+ http://185.225.191.232/c : 21 requests from 1 IPs
+ http://191.217.250.227:8081/b.php?w=p2s<sensor> : 14 requests from 1 IPs
+ http://92.118.112.100/nfs : 7 requests from 1 IPs
+ http://45.115.26.26:8000/cCmono : 5 requests from 1 IPs
+ http://45.115.26.26:8000/cClar : 5 requests from 1 IPs
+ http://hana.by/ : 2 requests from 1 IPs
+ Malware samples
+ nfs (Mirai-derived DDoS bot), SHA-256 0c5486f06620e26e316f4b33f318b0d646d5e1133789331aa2fed012360d1486 : A DDoS bot built on Mirai with an encrypted C2 channel. It finds its C2 through a domain and, as a backup, through Ethereum ENS names.
+ x86_64(2) (Mirai variant "2.0.4_socks5"), SHA-256 7d9965deae0d3d9834a1299e98ce901329ae071f8744f97746137ea033f100a9 : A Mirai DDoS bot. In the sandbox its domain lookup failed, so it used its fallback address. That C2 was live: it accepted the bot and kept the session open, but sent no attack command.
+ cb (Nim implant "crong3-agent" (build 3.0.0-929), poses as "sysmon"), SHA-256 a5289abece66fbaf33a6186f315fb6901658e8551c68933e56e65838b95fc3af : A backdoor that stays on the host in many ways and reads its C2 from an Ethereum ENS name and a Solana account. It never uses the normal DNS resolver. The sandbox blocked its connections, so it did not reach a C2.
+ f0aa… (Unknown), SHA-256 f0aa83bbbd2c75e2f71ec16029ee5fcfad59f3a8efa30a500b815f0f6c18d987 : An unidentified program with no static analysis yet. In the sandbox it looked up a name over DNS over TLS and sent one encrypted message to a server that never answered.
+ Networks
+ Autonomous system
+ Country
+ Requests
+ Source IPs
+ AS137409 GSL Networks Pty LTD
+ US
+ 3,796
+ 57
+ AS206092 F.n.s. Holdings Limited
+ US
+ 120
+ 38
+ AS212238 Datacamp Limited
+ CA
+ 1,889
+ 27
+ AS9009 M247 Europe SRL
+ HK
+ 13,821
+ 24
+ AS14061 DigitalOcean, LLC
+ SG
+ 985
+ 12
+ AS39351 31173 Services AB
+ NL
+ 933
+ 10
+ AS13335 Cloudflare, Inc.
+ SG
+ 141
+ 10
+ AS219502 Storm Industries LLC
+ DE
+ 135
+ 10
+ AS211680 Sistemas Informaticos, S.A.
+ PT
+ 2,063
+ 9
+ AS215125 Church of Cyberology
+ NL
+ 51
+ 9
+ AS132203 Tencent Building, Kejizhongyi Avenue
+ SG
+ 30
+ 8
+ AS208172 Proton AG
+ NO
+ 627
+ 7
+ AS16276 OVH SAS
+ PL
+ 193
+ 7
+ AS24940 Hetzner Online GmbH
+ FI
+ 124
+ 7
+ AS36183 Akamai Technologies, Inc.
+ ID
+ 49
+ 7
+ About
+ A research team at the Delft University of Technology. Main contributors: Harm Griffioen, Zohar Cochavi, Murtuza Ali; with contributions from Martin Mladenov. Questions or feedback: h.j.griffioen@tudelft.nl . delftintellab.com
