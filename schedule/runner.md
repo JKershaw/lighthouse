@@ -4,7 +4,7 @@ date: 2026-10-30
 
 # The scheduled run
 
-This file is the whole of a scheduled run of Lighthouse. A scheduler starts an agent with one line: *"Clone https://github.com/JKershaw/lighthouse (or fetch it if you have it) and follow schedule/runner.md."* Several schedulers on different providers may fire at different times; the steps below are written so that two runs never do the same work twice and a run that never happens harms nothing. A person's own sessions run alongside and follow the same table.
+This file is the whole of a scheduled run of Lighthouse. A scheduler starts an agent, in a checkout of https://github.com/JKershaw/lighthouse, with one line: *"Follow schedule/runner.md."* A scheduler that should only keep promises adds: *"Do the due rows and the gap sweep only, not step 5."* Whatever branch the harness checked out, the run starts from `origin/main` (step 1). Several schedulers on different providers may fire at different times; the steps below are written so that two runs never do the same work twice and a run that never happens harms nothing. A person's own sessions run alongside and follow the same table.
 
 Read AGENTS.md first: it is how Lighthouse works, and nothing here overrides it. CLAUDE.md has notes for Claude Code; other harnesses skip what does not apply.
 
