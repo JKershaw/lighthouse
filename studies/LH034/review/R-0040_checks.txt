@@ -1,0 +1,54 @@
+snapshot keys: ['asns', 'branch_history', 'branch_versions', 'branches', 'countries', 'history', 'kpi', 'patched_daily', 'per_minute', 'refreshed_at', 'top_versions']
+branch_history row keys: ['branch', 'day', 'patched', 'targets']
+
+== A. Per branch: targets, patched, unpatched (targets-patched), in thousands; day-on-day changes
+branch 8.2
+  d0: targets     5315  patched      114  unpatched     5201  share   2.1%   {}
+  d1: targets     5517  patched     1219  unpatched     4297  share  22.1%   d_targets    +202  d_patched   +1105  d_unpatched    -904   {}
+  d2: targets     5659  patched     2330  unpatched     3329  share  41.2%   d_targets    +143  d_patched   +1111  d_unpatched    -968   {}
+  d3: targets     5707  patched     2630  unpatched     3077  share  46.1%   d_targets     +47  d_patched    +299  d_unpatched    -252   {}
+  d4: targets     5759  patched     2771  unpatched     2987  share  48.1%   d_targets     +52  d_patched    +142  d_unpatched     -90   {}
+  d5: targets     5814  patched     2884  unpatched     2930  share  49.6%   d_targets     +55  d_patched    +112  d_unpatched     -57   {}
+  d6: targets     5887  patched     3012  unpatched     2875  share  51.2%   d_targets     +73  d_patched    +128  d_unpatched     -55   {}
+  d7: targets     6010  patched     3186  unpatched     2824  share  53.0%   d_targets    +123  d_patched    +174  d_unpatched     -51   {}
+  d0->d7: targets +695k, patched +3072k, unpatched -2377k; share if targets held at d0 and every new patched were an upgrade: 59.9%; share counting only fall in unpatched as upgrades: 46.9%
+branch 8.3
+  d0: targets     6896  patched      121  unpatched     6775  share   1.8%   {}
+  d1: targets     7178  patched     1706  unpatched     5472  share  23.8%   d_targets    +282  d_patched   +1584  d_unpatched   -1302   {}
+  d2: targets     7286  patched     3071  unpatched     4215  share  42.2%   d_targets    +108  d_patched   +1366  d_unpatched   -1258   {}
+  d3: targets     7371  patched     3383  unpatched     3988  share  45.9%   d_targets     +85  d_patched    +312  d_unpatched    -227   {}
+  d4: targets     7512  patched     3587  unpatched     3925  share  47.8%   d_targets    +141  d_patched    +204  d_unpatched     -63   {}
+  d5: targets     7597  patched     3723  unpatched     3874  share  49.0%   d_targets     +85  d_patched    +136  d_unpatched     -50   {}
+  d6: targets     7703  patched     3899  unpatched     3804  share  50.6%   d_targets    +106  d_patched    +176  d_unpatched     -70   {}
+  d7: targets     7861  patched     4118  unpatched     3743  share  52.4%   d_targets    +158  d_patched    +218  d_unpatched     -60   {}
+  d0->d7: targets +965k, patched +3996k, unpatched -3031k; share if targets held at d0 and every new patched were an upgrade: 59.7%; share counting only fall in unpatched as upgrades: 45.7%
+branch 8.4
+  d0: targets     2785  patched      121  unpatched     2664  share   4.3%   {}
+  d1: targets     2911  patched     1027  unpatched     1884  share  35.3%   d_targets    +126  d_patched    +906  d_unpatched    -780   {}
+  d2: targets     3009  patched     1760  unpatched     1248  share  58.5%   d_targets     +98  d_patched    +733  d_unpatched    -636   {}
+  d3: targets     3052  patched     1900  unpatched     1152  share  62.3%   d_targets     +44  d_patched    +140  d_unpatched     -96   {}
+  d4: targets     3082  patched     1956  unpatched     1126  share  63.5%   d_targets     +30  d_patched     +56  d_unpatched     -26   {}
+  d5: targets     3117  patched     2011  unpatched     1106  share  64.5%   d_targets     +35  d_patched     +55  d_unpatched     -20   {}
+  d6: targets     3169  patched     2092  unpatched     1077  share  66.0%   d_targets     +52  d_patched     +81  d_unpatched     -29   {}
+  d7: targets     3242  patched     2197  unpatched     1044  share  67.8%   d_targets     +73  d_patched    +105  d_unpatched     -32   {}
+  d0->d7: targets +457k, patched +2077k, unpatched -1620k; share if targets held at d0 and every new patched were an upgrade: 78.9%; share counting only fall in unpatched as upgrades: 62.5%
+branch 8.5
+  d0: targets     2430  patched       45  unpatched     2384  share   1.9%   {}
+  d1: targets     2727  patched      984  unpatched     1744  share  36.1%   d_targets    +298  d_patched    +938  d_unpatched    -640   {}
+  d2: targets     2916  patched     2055  unpatched      861  share  70.5%   d_targets    +189  d_patched   +1071  d_unpatched    -883   {}
+  d3: targets     3019  patched     2214  unpatched      805  share  73.3%   d_targets    +103  d_patched    +159  d_unpatched     -56   {}
+  d4: targets     3096  patched     2307  unpatched      789  share  74.5%   d_targets     +78  d_patched     +93  d_unpatched     -16   {}
+  d5: targets     3177  patched     2405  unpatched      772  share  75.7%   d_targets     +81  d_patched     +99  d_unpatched     -18   {}
+  d6: targets     3272  patched     2535  unpatched      737  share  77.5%   d_targets     +95  d_patched    +129  d_unpatched     -34   {}
+  d7: targets     3382  patched     2665  unpatched      716  share  78.8%   d_targets    +109  d_patched    +131  d_unpatched     -21   {}
+  d0->d7: targets +952k, patched +2620k, unpatched -1668k; share if targets held at d0 and every new patched were an upgrade: 100.0%; share counting only fall in unpatched as upgrades: 70.5%
+
+== B. Node.js July vs October, line 26, as the record reports (LH034.md tables): July d7 89.0, Oct d7 64.7; posting-aligned July d8 89.4
+
+== C. Censys current snapshot (29 Oct 06:15, part of day 8) beside branch_history day 7
+  8.2: branch_history d7 targets 6.01M patched 3.19M | current branch_versions total 5.70M, on fixed release 3.24M (56.8%)
+  8.3: branch_history d7 targets 7.86M patched 4.12M | current branch_versions total 7.47M, on fixed release 4.18M (56.0%)
+  8.4: branch_history d7 targets 3.24M patched 2.20M | current branch_versions total 3.06M, on fixed release 2.23M (72.9%)
+  8.5: branch_history d7 targets 3.38M patched 2.67M | current branch_versions total 3.33M, on fixed release 2.72M (81.6%)
+  branch 7.4 current 7.85M, of which 7.4.33 (the last upstream 7.4 release) 6.64M = 84.6%
+  largest affected_nofix versions: [('7.4.33', 6.64), ('8.1.34', 2.03), ('5.2.6', 1.57), ('5.6.40', 1.53), ('8.0.30', 1.09), ('7.2.34', 0.92)]
