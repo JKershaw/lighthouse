@@ -45,6 +45,7 @@
   <nav aria-label="Documents">
     <ul>
       {% for file in ["charter.md", "design.md", "sources.md", "programme.md", "releases.md", "observations.md", ("AGENTS.md" if repo.hasAbout else "")] %}{% set d = repo.byPath[file] %}{% if d %}<li><a href="{{ d.url }}">{{ d.label }}</a></li>{% endif %}{% endfor %}
+      {% if schedule %}<li><a href="/schedule/">Schedule</a></li>{% endif %}
       <li><a href="/feed.xml">Feed</a></li>
     </ul>
   </nav>

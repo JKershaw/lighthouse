@@ -665,3 +665,32 @@ td:last-child, th:last-child { padding-right: 0; }
 .revision-text { font-size: .92rem; line-height: 1.55; }
 .revision-history summary { font-family: var(--sans); font-size: .85rem; min-height: 44px; padding: .5rem 0; cursor: pointer; }
 .revision-history details[open] summary { margin-bottom: .5rem; }
+
+/* The schedule page: a calendar of rows by the day their window opens. */
+.schedule { --s-done: #3d7a4f; --s-due: #1f6576; --s-overdue: #a8432d; --s-keeper: #93600c; --s-blocked: #78549b; --s-missed: #74716a; --s-upcoming: var(--muted); }
+@media (prefers-color-scheme: dark) { .schedule { --s-done: #8fcf9f; --s-due: #8ec4d4; --s-overdue: #f0977f; --s-keeper: #e0a650; --s-blocked: #c6a7df; --s-missed: #aaa498; } }
+.chip { display: inline-block; font: 600 0.78rem/1.5 var(--sans); padding: 0 0.45em; margin: 0 0.25em 0.25em 0; border-radius: 0.6em; border: 1px solid currentColor; color: var(--s-upcoming); text-decoration: none; white-space: nowrap; }
+a.chip:hover { background: var(--tint); }
+.chip-due, .chip-running { color: var(--s-due); }
+.chip-overdue { color: var(--s-overdue); }
+.chip-keeper { color: var(--s-keeper); }
+.chip-blocked { color: var(--s-blocked); }
+.chip-done { color: var(--s-done); background: color-mix(in srgb, var(--s-done) 12%, transparent); }
+.chip-missed, .chip-cancelled { color: var(--s-missed); text-decoration: line-through; }
+.sched-counts { list-style: none; padding: 0; display: flex; flex-wrap: wrap; gap: 0.25em 1.2em; font-family: var(--sans); }
+.sched-list { padding-left: 0; list-style: none; font-family: var(--sans); font-size: 0.95rem; }
+.sched-list li { margin: 0 0 0.6em; }
+.sched-note { color: var(--muted); font-size: 0.9em; }
+.sched-cal { font-family: var(--sans); border-top: 1px solid var(--rule); margin: 0.5em 0 1.5em; }
+.sched-row { display: grid; grid-template-columns: repeat(7, minmax(0, 1fr)); border-bottom: 1px solid var(--rule); }
+.sched-head div { font-size: 0.78rem; color: var(--muted); padding: 0.3em 0.35em; }
+.sched-day { min-height: 4.2em; padding: 0.3em 0.35em; border-left: 1px solid var(--rule); }
+.sched-day:first-child { border-left: 0; }
+.sched-day.is-past { opacity: 0.6; }
+.sched-day.is-today { background: var(--tint); box-shadow: inset 0 2px 0 var(--accent); opacity: 1; }
+.sched-date { display: block; font-size: 0.75rem; color: var(--muted); margin-bottom: 0.15em; }
+.sched-month { color: var(--faint); }
+@media (max-width: 640px) {
+  .sched-day { min-height: 3.2em; padding: 0.2em; }
+  .sched-day .chip { font-size: 0.66rem; padding: 0 0.3em; }
+}

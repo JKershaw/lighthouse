@@ -15,6 +15,7 @@ import { arrangePiece, markNotices } from "./lib/html.js";
 import { atomFeed, relevantFeeds } from "./lib/feed.js";
 import { writeOfflineFiles } from "./lib/offline.js";
 import sideNotes from "./lib/side-notes.js";
+import { buildSchedule } from "./lib/schedule.js";
 
 const siteDir = path.dirname(fileURLToPath(import.meta.url));
 const root = path.resolve(siteDir, "..");
@@ -65,6 +66,7 @@ export default function (eleventyConfig) {
   eleventyConfig.addPreprocessor("lighthouse-header", "md", (data, content) => stripHeader(content));
 
   eleventyConfig.addGlobalData("repo", () => getRepo());
+  eleventyConfig.addGlobalData("schedule", () => buildSchedule(root));
   eleventyConfig.addGlobalData("layout", "page.njk");
   eleventyConfig.addGlobalData("permalink", () => (data) => pageUrl(relPath(data.page.inputPath)));
   eleventyConfig.addGlobalData("eleventyComputed", {
@@ -163,6 +165,7 @@ export default function (eleventyConfig) {
           data.repo.hasInvestigations && !data.repo.byPath["investigations/index.md"] ? "/investigations/" : false,
       },
     ],
+    ["schedule", { permalink: "/schedule/", title: "Schedule", section: "schedule" }],
     ["notfound", { permalink: "/404.html", title: "Not found", section: "" }],
     ["offline", { permalink: "/offline/", title: "Offline reading", section: "" }],
   ];
