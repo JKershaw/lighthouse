@@ -25,9 +25,9 @@ NODE = ROOT / 'studies/LH034/data/tables.json'
 out = Path(sys.argv[1]) if len(sys.argv) > 1 else ROOT / 'articles/a-week-after-two-fixes.svg'
 LAST = 7
 
-php = {b: [s[str(d)]['share'] for d in range(LAST + 1)]
+php = {b: [s[str(d)]['patched'] / s[str(d)]['targets'] for d in range(LAST + 1)]  # unrounded, so labels round once
        for b, s in json.loads(PHP_READ.read_text())['m1_patched_share_by_branch'].items()}
-node = {l: [s[str(d)]['share'] for d in range(LAST + 1)]
+node = {l: [s[str(d)]['at_or_newer'] / s[str(d)]['line_downloads'] for d in range(LAST + 1)]
         for l, s in json.loads(NODE.read_text())['measure_1_2026-10']['by_line'].items()}
 
 FIXES = {('urllib3', '2.7.0'), ('cryptography', '48.0.1'), ('pyjwt', '2.13.0'), ('starlette', '1.1.0')}

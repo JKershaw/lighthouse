@@ -1,5 +1,5 @@
 published: 2026-10-30
-summary: A week after the PHP and Node.js fixes of 21 October 2026, half or more of most counts had moved, while more than half of the PHP services showing a version ran branches no fix reaches.
+summary: A week after the PHP and Node.js fixes of 21 October 2026, every fixed Node.js line and PHP branch had passed half in the two daily counts we read, while more than half of the PHP services showing a version ran branches PHP no longer fixes.
 status: draft
 investigation: software-updates
 
@@ -7,7 +7,7 @@ investigation: software-updates
 
 How far does a security fix spread in a week? On 21 October 2026 PHP and Node.js both released one, and a week later, on 28 October, two kinds of public count gave an answer.
 
-On Node.js's own download server, the fixed release or a newer one was 54 of every hundred downloads in its oldest fixed line and 72 in its most used; both had first passed half on the second day. Seen from outside, Censys, a company that scans the internet, counted 52 to 79 per cent of the PHP services that show a version in each fixed branch as patched, the newer branches well ahead of the older ones.
+On Node.js's own download server, the fixed release or a newer one was 54 of every hundred downloads in its oldest fixed line and 72 in its most used; both had first passed half two days after release. Seen from outside, Censys, a company that scans the internet, counted 52 to 79 per cent of the PHP services that show a version in each fixed branch as patched, the newer branches well ahead of the older ones.
 
 Beside those, 24.4 million PHP services, more than half of those showing a version, ran branches PHP no longer fixes.
 

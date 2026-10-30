@@ -1,0 +1,151 @@
+
+======== A. Censys, read-2026-10-29T0635Z only (LH033 brief: interim uses this read for day 7)
+refreshed_at 2026-10-29 06:15:03.506434+00:00
+  8.2: d0=2.14 d1=22.10 d2=41.18 d3=46.08 d4=48.13 d5=49.60 d6=51.16 d7=53.02 | first day >=50%: 6 | targets d7 6,010,022
+      daily rises d3..d7 (points): 4.90, 2.05, 1.47, 1.56, 1.85
+  8.3: d0=1.76 d1=23.76 d2=42.15 d3=45.90 d4=47.76 d5=49.01 d6=50.62 d7=52.38 | first day >=50%: 6 | targets d7 7,860,923
+      daily rises d3..d7 (points): 3.75, 1.86, 1.25, 1.62, 1.76
+  8.4: d0=4.34 d1=35.29 d2=58.51 d3=62.26 d4=63.47 d5=64.52 d6=66.02 d7=67.79 | first day >=50%: 2 | targets d7 3,241,669
+      daily rises d3..d7 (points): 3.75, 1.21, 1.06, 1.50, 1.77
+  8.5: d0=1.87 d1=36.06 d2=70.47 d3=73.33 d4=74.50 d5=75.71 d6=77.46 d7=78.82 | first day >=50%: 2 | targets d7 3,381,503
+      daily rises d3..d7 (points): 2.86, 1.17, 1.21, 1.75, 1.36
+  days held: [0, 1, 2, 3, 4, 5, 6, 7]
+  older (8.2, 8.3) below newer (8.4, 8.5) on every day 1..7: True
+  history by day: nofix (M), versioned (M), nofix/versioned, unknown/all, all (M), fixed-branch versioned (affected+patched, M)
+   d0: 23.31  40.74  57.22  28.41  56.91  17.43  unknown 16.17
+   d1: 23.34  41.67  56.00  32.12  61.39  18.33  unknown 19.72
+   d2: 23.32  42.19  55.27  55.96  95.78  18.87  unknown 53.60
+   d3: 23.49  42.64  55.09  56.89  98.89  19.15  unknown 56.25
+   d4: 23.62  43.07  54.84  57.31  100.88  19.45  unknown 57.82
+   d5: 23.82  43.52  54.72  57.78  103.09  19.71  unknown 59.56
+   d6: 24.07  44.10  54.58  58.42  106.06  20.03  unknown 61.96
+   d7: 24.39  44.88  54.34  59.55  110.94  20.50  unknown 66.06
+  status keys in history: ['affected', 'affected_nofix', 'patched', 'unknown']
+  unknown d2/d1 ratio: 2.72
+  snapshot (29 Oct read) unfixed branches, largest first: [('7.4', 7.85), ('8.1', 2.63), ('5.6', 2.05), ('7.2', 2.02), ('5.2', 2.0), ('8.0', 1.48)]
+  snapshot (25 Oct baseline) unfixed branches, largest first: [('7.4', 7.93), ('8.1', 2.69), ('7.2', 2.31), ('5.6', 2.06), ('5.2', 2.0), ('8.0', 1.57)]
+  snapshot kpi (29 Oct, current, not a day): {'affected_nofix': 23044232, 'unknown': 66205438, 'php_targets': 108818850}
+
+======== A2. Revisions: every completed day 0..7 identical in every read that holds it?
+  reads: ['read-2026-10-25T0855Z', 'read-2026-10-26T0637Z', 'read-2026-10-27T0637Z', 'read-2026-10-28T0637Z', 'read-2026-10-29T0635Z', 'read-2026-10-30T0635Z'] | revisions found: 0
+
+======== B. W3Techs, share of websites within each minor at or above the fixed patch (from raw HTML)
+  read-2026-10-25T0855Z | 8.2 1.9% (36 rows, fixed .35 row: 1.9); 8.3 2.6% (36 rows, fixed .36 row: 2.6); 8.4 4.2% (29 rows, fixed .27 row: 4.2); 8.5 5.9% (13 rows, fixed .12 row: 5.9)
+  read-2026-10-26T0637Z | 8.2 2.8% (36 rows, fixed .35 row: 2.8); 8.3 3.8% (36 rows, fixed .36 row: 3.8); 8.4 6.0% (29 rows, fixed .27 row: 6.0); 8.5 8.3% (13 rows, fixed .12 row: 8.3)
+
+======== C. Packagist, September 2026 installs from PHP 8.1 or older (packagist.json; raw body not retained, by design)
+  monthly: 583.7 M of 5809.9 M = 10.05%
+  daily series summed over 30 September days: 583.7 M of 5809.9 M = 10.05%
+
+======== D. Node.js, from the raw daily summaries (earliest read per day) and dist/index.json
+  line 22: versions in dist/index.json at or above v22.23.4: [('v22.23.4', '2026-10-20', 'security')]
+  line 24: versions in dist/index.json at or above v24.22.1: [('v24.22.1', '2026-10-20', 'security'), ('v24.22.2', '2026-10-27', '')]
+  line 26: versions in dist/index.json at or above v26.12.1: [('v26.12.1', '2026-10-21', 'security'), ('v26.13.0', '2026-10-28', '')]
+  releases dated after 2026-10-21 in dist/index.json: [('v27.0.0-alpha.0.0.0', '2026-10-29'), ('v26.13.0', '2026-10-28'), ('v24.22.2', '2026-10-27')]
+  October: share at or above fix by line (in dist/index.json); [all keys incl. not in index]; line downloads
+   d0 2026-10-21 (read-2026-10-27T1811Z): 22 16.00 [16.00] 8.21M  24 14.02 [14.02] 12.99M  26 18.08 [18.08] 2.25M  | total 27.4M
+   d1 2026-10-22 (read-2026-10-27T1811Z): 22 41.01 [41.01] 8.92M  24 45.77 [45.77] 14.28M  26 45.35 [45.35] 3.06M  | total 30.3M
+   d2 2026-10-23 (read-2026-10-27T1811Z): 22 51.68 [51.68] 9.03M  24 72.40 [72.40] 18.05M  26 79.67 [79.67] 3.85M  | total 35.1M
+   d3 2026-10-24 (read-2026-10-27T1811Z): 22 48.06 [48.06] 4.45M  24 71.35 [71.35] 7.45M  26 76.93 [76.93] 2.15M  | total 16.2M
+   d4 2026-10-25 (read-2026-10-27T1811Z): 22 49.30 [49.30] 4.48M  24 71.26 [71.26] 7.34M  26 77.34 [77.34] 1.91M  | total 16.1M
+   d5 2026-10-26 (read-2026-10-27T1811Z): 22 52.70 [52.70] 8.29M  24 69.29 [69.29] 14.62M  26 61.50 [61.50] 3.75M  | total 30.5M
+   d6 2026-10-27 (read-2026-10-29T0635Z): 22 53.30 [53.30] 8.71M  24 70.92 [70.92] 14.47M  26 76.40 [76.40] 3.05M  | total 30.2M
+   d7 2026-10-28 (read-2026-10-30T0635Z): 22 53.90 [53.90] 9.11M  24 72.24 [72.24] 13.72M  26 64.71 [64.71] 4.52M  | total 32.1M
+  line 22/24/26 keys not in dist/index.json (summed d0..7): {}
+   line 22 first day >= 50%: 2; days below 50% after that: [3, 4]
+   line 24 first day >= 50%: 2; days below 50% after that: []
+   line 26 first day >= 50%: 2; days below 50% after that: []
+   day 7 line 24: v24.22.2 alone 2.56% of the line; fixed release alone 69.68%
+   day 7 line 26: v26.13.0 alone 18.30% of the line; fixed release alone 46.41%
+
+======== D2. Unfixed lines, line 20, line 25 and no-version share, 23 Sept to 28 Oct
+   2026-09-23 Wed unfixed 18.57  l20 9.76  l25 1.07  noversion 0.0033%  total 21.6M
+   2026-09-24 Thu unfixed 18.43  l20 9.55  l25 1.16  noversion 0.0032%  total 21.7M
+   2026-09-25 Fri unfixed 17.84  l20 9.39  l25 1.16  noversion 0.0036%  total 20.6M
+   2026-09-26 Sat unfixed 20.20  l20 9.89  l25 1.05  noversion 0.0042%  total 11.6M
+   2026-09-27 Sun unfixed 20.32  l20 9.89  l25 1.16  noversion 0.0043%  total 11.5M
+   2026-09-28 Mon unfixed 19.17  l20 10.10  l25 1.08  noversion 0.0068%  total 22.2M
+   2026-09-29 Tue unfixed 18.42  l20 9.55  l25 1.07  noversion 0.0035%  total 23.0M
+   2026-09-30 Wed unfixed 17.98  l20 9.66  l25 1.04  noversion 0.0037%  total 22.6M
+   2026-10-01 Thu unfixed 18.49  l20 10.11  l25 1.07  noversion 0.0034%  total 22.7M
+   2026-10-02 Fri unfixed 17.92  l20 9.66  l25 1.10  noversion 0.0039%  total 19.9M
+   2026-10-03 Sat unfixed 18.07  l20 9.03  l25 1.02  noversion 0.0051%  total 11.6M
+   2026-10-04 Sun unfixed 18.49  l20 9.23  l25 1.12  noversion 0.0032%  total 11.3M
+   2026-10-05 Mon unfixed 17.79  l20 9.59  l25 1.14  noversion 0.0035%  total 20.9M
+   2026-10-06 Tue unfixed 17.13  l20 9.49  l25 1.16  noversion 0.0037%  total 24.0M
+   2026-10-07 Wed unfixed 17.18  l20 9.47  l25 1.10  noversion 0.0037%  total 24.4M
+   2026-10-08 Thu unfixed 16.47  l20 8.87  l25 1.02  noversion 0.0041%  total 25.5M
+   2026-10-09 Fri unfixed 17.16  l20 8.93  l25 1.05  noversion 0.0035%  total 22.1M
+   2026-10-10 Sat unfixed 17.36  l20 7.85  l25 0.98  noversion 0.0043%  total 13.2M
+   2026-10-11 Sun unfixed 16.77  l20 8.14  l25 0.97  noversion 0.0041%  total 12.5M
+   2026-10-12 Mon unfixed 17.57  l20 8.72  l25 1.01  noversion 0.0047%  total 21.3M
+   2026-10-13 Tue unfixed 17.12  l20 8.63  l25 1.04  noversion 0.0046%  total 24.8M
+   2026-10-14 Wed unfixed 16.19  l20 8.31  l25 1.01  noversion 0.0034%  total 26.4M
+   2026-10-15 Thu unfixed 15.09  l20 7.65  l25 0.98  noversion 0.0035%  total 27.1M
+   2026-10-16 Fri unfixed 14.87  l20 7.21  l25 0.99  noversion 0.0046%  total 24.2M
+   2026-10-17 Sat unfixed 12.70  l20 5.23  l25 0.95  noversion 0.0073%  total 14.2M
+   2026-10-18 Sun unfixed 14.14  l20 5.90  l25 1.07  noversion 0.0095%  total 12.9M
+   2026-10-19 Mon unfixed 16.46  l20 8.52  l25 1.04  noversion 0.0047%  total 24.6M
+   2026-10-20 Tue unfixed 15.65  l20 8.14  l25 1.03  noversion 0.0045%  total 26.3M
+   2026-10-21 Wed unfixed 14.33  l20 7.20  l25 1.02  noversion 0.0053%  total 27.4M
+   2026-10-22 Thu unfixed 13.25  l20 6.75  l25 0.92  noversion 0.0048%  total 30.3M
+   2026-10-23 Fri unfixed 11.79  l20 5.81  l25 0.70  noversion 0.0036%  total 35.1M
+   2026-10-24 Sat unfixed 13.02  l20 5.95  l25 0.86  noversion 0.0067%  total 16.2M
+   2026-10-25 Sun unfixed 14.83  l20 6.40  l25 0.84  noversion 0.0051%  total 16.1M
+   2026-10-26 Mon unfixed 12.45  l20 5.80  l25 0.79  noversion 0.0037%  total 30.5M
+   2026-10-27 Tue unfixed 13.20  l20 6.46  l25 0.76  noversion 0.0040%  total 30.2M
+   2026-10-28 Wed unfixed 14.66  l20 6.87  l25 0.73  noversion 0.0042%  total 32.1M
+  14-28 Oct unfixed range 11.79 to 16.46 | l20 5.23 to 8.52 | l25 0.70 to 1.07
+  23-30 Sept unfixed: ['18.57', '18.43', '17.84', '20.20', '20.32', '19.17', '18.42', '17.98']
+  max no-version share of total, 23 Sept-28 Oct: 0.0095%
+  weekend totals (24, 25 Oct) vs mean of weekday days 1,2,5,6,7: [0.51, 0.51]
+   line 22 downloads, weekend vs weekday mean: 0.51
+   line 24 downloads, weekend vs weekday mean: 0.49
+   line 26 downloads, weekend vs weekday mean: 0.56
+
+======== D3. July security release (measure 4): day 0 = 28 July by the brief; posting-aligned is post hoc
+  July days held: 0 to 30 31
+   line 22: d1=13.64 d2=30.66 d3=31.90 d7=31.05 d8=30.98 | first day >=50%: 18
+   line 24: d1=4.33 d2=15.09 d3=46.02 d7=29.37 d8=26.82 | first day >=50%: 4
+   line 26: d1=41.61 d2=69.89 d3=89.12 d7=88.98 d8=89.38 | first day >=50%: 2
+  October above July on every day 1..7, brief alignment (July day k) and posting alignment (July day k+1):
+   line 22: brief True, posting True; day 7 Oct 53.90 vs July d7 31.05 / d8 30.98
+   line 24: brief True, posting True; day 7 Oct 72.24 vs July d7 29.37 / d8 26.82
+   line 26: brief False, posting False; day 7 Oct 64.71 vs July d7 88.98 / d8 89.38
+
+======== E. Python comparators from LH011 release_days.csv and LH008 lags.csv
+   ('cryptography', '48.0.1') d1=54.67 d2=53.79 d7=55.64 d14=58.02 d30=60.05
+   ('pyjwt', '2.13.0') d1=57.60 d2=63.71 d7=57.65 d14=59.85 d30=72.29
+   ('starlette', '1.1.0') d1=53.84 d2=52.66 d7=59.53 d14=59.08 d30=57.28
+   ('urllib3', '2.7.0') d1=60.76 d2=60.09 d7=58.45 d14=64.14 d30=66.35
+   day 1: four fixes 53.84 to 60.76; median of 37 project medians 57.60
+   day 2: four fixes 52.66 to 63.71; median of 37 project medians 57.19
+   day 7: four fixes 55.64 to 59.53; median of 37 project medians 57.86
+   day 14: four fixes 58.02 to 64.14; median of 37 project medians 58.87
+   day 30: four fixes 57.28 to 72.29; median of 37 project medians 61.55
+   fixes higher on day 30 than day 7: {'cryptography 48.0.1': True, 'pyjwt 2.13.0': True, 'starlette 1.1.0': False, 'urllib3 2.7.0': True}
+   LH008 fix pairs: 102; moved within 7 days 18, within 30 days 50
+
+======== F. Comparison sentences, day by day
+  day 1: PHP 22.10-36.06; Node 41.01-45.77; Python 53.84-60.76
+    every PHP below every Python: True; Node all below Python: True; Node all above PHP: True
+    Node lines below / within / above Python range: {'22': 'below', '24': 'below', '26': 'below'}
+    PHP branches below / within / above Python range: {'8.2': 'below', '8.3': 'below', '8.4': 'below', '8.5': 'below'}
+  day 2: PHP 41.18-70.47; Node 51.68-79.67; Python 52.66-63.71
+    every PHP below every Python: False; Node all below Python: False; Node all above PHP: False
+    Node lines below / within / above Python range: {'22': 'below', '24': 'above', '26': 'above'}
+    PHP branches below / within / above Python range: {'8.2': 'below', '8.3': 'below', '8.4': 'within', '8.5': 'above'}
+  day 7: PHP 52.38-78.82; Node 53.90-72.24; Python 55.64-59.53
+    every PHP below every Python: False; Node all below Python: False; Node all above PHP: False
+    Node lines below / within / above Python range: {'22': 'below', '24': 'above', '26': 'above'}
+    PHP branches below / within / above Python range: {'8.2': 'below', '8.3': 'below', '8.4': 'above', '8.5': 'above'}
+  PHP 8.5 above every Node line AND above Python max, by day:
+    d0: 8.5 1.87 vs Node max 18.08: above Node False
+    d1: 8.5 36.06 vs Node max 45.77: above Node False
+    d2: 8.5 70.47 vs Node max 79.67: above Node False
+    d3: 8.5 73.33 vs Node max 76.93: above Node False
+    d4: 8.5 74.50 vs Node max 77.34: above Node False
+    d5: 8.5 75.71 vs Node max 69.29: above Node True
+    d6: 8.5 77.46 vs Node max 76.40: above Node True
+    d7: 8.5 78.82 vs Node max 72.24: above Node True
+  (Python comparators exist only for days 1, 2, 7, 14, 30 in python_side.json; the figure uses LH011 days 0..7)
