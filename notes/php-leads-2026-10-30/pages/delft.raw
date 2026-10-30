@@ -1,0 +1,195 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>PHP2Shell in the Wild: live CVE-2026-109618 / CVE-2026-109619 exploitation data</title>
+<link rel="canonical" href="https://php2shell.delftintellab.com/">
+<meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1">
+<meta name="author" content="Delft Threat Intelligence Lab, Delft University of Technology">
+<meta name="keywords" content="PHP2Shell, CVE-2026-109618, CVE-2026-109619, PHP session.upload_progress, use-after-free, exploitation, honeypot, network telescope, indicators of compromise, malware">
+<meta name="theme-color" content="#1d3f9e">
+<link rel="icon" href="favicon.ico" sizes="48x48">
+<link rel="icon" href="favicon.svg" type="image/svg+xml">
+<link rel="apple-touch-icon" href="apple-touch-icon.png">
+<link rel="manifest" href="site.webmanifest">
+<meta name="description" content="Live data on scanning and exploitation of PHP2Shell (CVE-2026-109618 and CVE-2026-109619) from the honeypots and network telescope of the Delft Threat Intelligence Lab: timeline, techniques, indicators and malware samples.">
+<!-- link previews (LinkedIn, X, Slack, ...): the image must be an absolute URL -->
+<meta property="og:type" content="website">
+<meta property="og:locale" content="en_US">
+<meta property="og:site_name" content="Delft Threat Intelligence Lab">
+<meta property="og:title" content="PHP2Shell in the wild">
+<meta property="og:description" content="Live data on scanning and exploitation of PHP2Shell (CVE-2026-109618 and CVE-2026-109619) from the honeypots and network telescope of the Delft Threat Intelligence Lab: timeline, techniques, indicators and malware samples.">
+<meta property="og:url" content="https://php2shell.delftintellab.com/">
+<meta property="og:image" content="https://php2shell.delftintellab.com/og-image.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="627">
+<meta property="og:image:alt" content="PHP2Shell in the wild, by the Delft Threat Intelligence Lab">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="PHP2Shell in the wild">
+<meta name="twitter:description" content="Live data on scanning and exploitation of PHP2Shell (CVE-2026-109618 and CVE-2026-109619) from the honeypots and network telescope of the Delft Threat Intelligence Lab: timeline, techniques, indicators and malware samples.">
+<meta name="twitter:image" content="https://php2shell.delftintellab.com/og-image.png">
+<script type="application/ld+json">{"@context":"https://schema.org","@graph":[{"@type":"Organization","@id":"https://delftintellab.com/#org","name":"Delft Threat Intelligence Lab","url":"https://delftintellab.com/","parentOrganization":{"@type":"CollegeOrUniversity","name":"Delft University of Technology","url":"https://www.tudelft.nl/"}},{"@type":"WebSite","@id":"https://php2shell.delftintellab.com/#website","url":"https://php2shell.delftintellab.com/","name":"PHP2Shell in the wild","publisher":{"@id":"https://delftintellab.com/#org"},"inLanguage":"en"},{"@type":"TechArticle","@id":"https://php2shell.delftintellab.com/#report","headline":"PHP2Shell in the wild","description":"Live data on scanning and exploitation of PHP2Shell (CVE-2026-109618 and CVE-2026-109619) from the honeypots and network telescope of the Delft Threat Intelligence Lab: timeline, techniques, indicators and malware samples.","url":"https://php2shell.delftintellab.com/","mainEntityOfPage":"https://php2shell.delftintellab.com/","inLanguage":"en","image":"https://php2shell.delftintellab.com/og-image.png","datePublished":"2026-10-23T00:00:00+00:00","dateModified":"2026-10-30T11:47:10+00:00","author":[{"@type":"Person","name":"Harm Griffioen","affiliation":{"@id":"https://delftintellab.com/#org"}},{"@type":"Person","name":"Zohar Cochavi","affiliation":{"@id":"https://delftintellab.com/#org"}},{"@type":"Person","name":"Murtuza Ali","affiliation":{"@id":"https://delftintellab.com/#org"}}],"publisher":{"@id":"https://delftintellab.com/#org"},"isPartOf":{"@id":"https://php2shell.delftintellab.com/#website"},"keywords":"PHP2Shell, CVE-2026-109618, CVE-2026-109619, PHP, session.upload_progress, use-after-free, honeypot, network telescope, exploitation, indicators of compromise, malware","about":[{"@type":"Thing","name":"CVE-2026-109618","sameAs":"https://www.cve.org/CVERecord?id=CVE-2026-109618"},{"@type":"Thing","name":"CVE-2026-109619","sameAs":"https://www.cve.org/CVERecord?id=CVE-2026-109619"}]},{"@type":"Dataset","@id":"https://php2shell.delftintellab.com/#data","name":"PHP2Shell exploitation attempts seen by the Delft Threat Intelligence Lab","description":"Live data on scanning and exploitation of PHP2Shell (CVE-2026-109618 and CVE-2026-109619) from the honeypots and network telescope of the Delft Threat Intelligence Lab: timeline, techniques, indicators and malware samples. 76,216 requests from 680 source IPs so far.","url":"https://php2shell.delftintellab.com/","creator":{"@id":"https://delftintellab.com/#org"},"temporalCoverage":"2026-10-20/..","dateModified":"2026-10-30T11:47:10+00:00","isAccessibleForFree":true,"keywords":["PHP2Shell","CVE-2026-109618","CVE-2026-109619","honeypot"]}]}</script>
+<link rel="preload" href="fonts/Archivo-700.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="stylesheet" href="uPlot.min.css">
+<link rel="stylesheet" href="app.css">
+</head>
+<body>
+<header class="hdr">
+  <div class="hdr-nav">
+    <a class="dtl-wm" href="./" aria-label="Delft Threat Intelligence Lab"><svg class="dtl-wm-glyph" width="26" height="36" viewBox="0 0 72 100" aria-hidden="true"><polygon class="dtl-t-left" points="1.6,21.1 18.4,15.5 18.4,33.8 1.6,38.0"/><polygon class="dtl-t-dark" points="21.6,14.4 38.4,8.8 38.4,28.8 21.6,33.0"/><polygon class="dtl-t-right" points="41.6,7.7 58.4,2.1 58.4,23.8 41.6,28.0"/><polygon class="dtl-t-left" points="1.6,41.2 18.4,37.0 18.4,55.3 1.6,58.1"/><polygon class="dtl-t-hit" points="21.6,36.2 38.4,32.0 38.4,52.0 21.6,54.8"/><polygon class="dtl-t-light" points="41.6,31.2 58.4,27.0 58.4,48.7 41.6,51.5"/><polygon class="dtl-t-left" points="1.6,61.3 18.4,58.5 18.4,76.9 1.6,78.3"/><polygon class="dtl-t-dark" points="21.6,58.0 38.4,55.2 38.4,75.2 21.6,76.6"/><polygon class="dtl-t-right" points="41.6,54.7 58.4,51.9 58.4,73.5 41.6,74.9"/><polygon class="dtl-t-left" points="1.6,81.5 18.4,80.1 18.4,98.4 1.6,98.4"/><polygon class="dtl-t-light" points="21.6,79.8 38.4,78.4 38.4,98.4 21.6,98.4"/><polygon class="dtl-t-light" points="41.6,78.1 58.4,76.7 58.4,98.4 41.6,98.4"/><polygon class="dtl-t-red" points="62.2,3.4 71.0,10.6 71.0,30.1 62.2,24.8"/><polygon class="dtl-t-red" points="62.2,28.0 71.0,33.4 71.0,52.9 62.2,49.3"/><polygon class="dtl-t-red" points="62.2,52.5 71.0,56.1 71.0,75.7 62.2,73.9"/><polygon class="dtl-t-red" points="62.2,77.0 71.0,78.8 71.0,98.4 62.2,98.4"/></svg>
+      <span class="dtl-wm-text"><span class="dtl-wm-name">Delft Threat Intelligence Lab</span><span class="dtl-wm-sub">Delft University of Technology</span></span></a>
+    <nav class="hdr-links"><a class="on" href="./">PHP2Shell in the wild</a></nav>
+  </div>
+</header>
+<div class="top">
+  <div class="controls">
+    <span class="bar-brand">Delft Threat Intelligence Lab</span>
+    <nav class="barnav" id="barnav" aria-label="Sections"></nav>
+    <span class="asof" id="asof">Updated 2026-10-30 11:47:10 UTC</span>
+    <button id="newer" class="btn small primary" hidden></button>
+    <span class="asof">Data since 20 October 2026</span>
+  </div>
+</div>
+<main id="main"><div class="prerender">
+<h1>PHP2Shell in the wild</h1>
+<p>Exploitation of CVE-2026-109618 and CVE-2026-109619 (PHP2Shell, the PHP session.upload_progress use-after-free) as seen by the honeypots and network telescope of the Delft Threat Intelligence Lab since 20 October 2026. Our own test traffic is left out and our sensor addresses are replaced by &lt;sensor&gt;. All times are UTC. The data is refreshed every 5 minutes.</p>
+<p><strong>Last updated:</strong> <time datetime="2026-10-30T11:47:10+00:00">2026-10-30 11:47:10 UTC</time></p>
+<h2>Key numbers</h2><ul>
+<li>76,216 exploitation requests from 680 source IPs in 317 autonomous systems and 73 countries, 2026-10-21 08:37:17 to 2026-10-30 11:40:30 UTC.</li>
+<li>177 source IPs sent code or a dropper.</li>
+<li>First request: 2026-10-21 08:37:17 UTC (First request resembling PHP2Shell seen by the network telescope).</li>
+<li>2 IPs sent 49 requests before the fixed PHP releases (8.2.35, 8.3.36, 8.4.27, 8.5.12) on 2026-10-21.</li>
+<li>Busiest hour: 2026-10-26 14:00 UTC with 8,179 requests.</li>
+<li>749 distinct multipart boundaries; 2,726 sensor addresses hit.</li>
+</ul>
+<h2>First sightings</h2><ul>
+<li><time>2026-10-21 08:37:17</time> UTC: First request resembling PHP2Shell seen by the network telescope</li>
+<li><time>2026-10-21 13:00:12</time> UTC: First request seen by the high-interaction honeypot</li>
+<li><time>2026-10-21 13:25:25</time> UTC: First OS command and first PHP code in filename</li>
+<li><time>2026-10-21 13:42:29</time> UTC: First UAF: forged zval structs</li>
+<li><time>2026-10-21 14:20:28</time> UTC: First request after the fix was released and first tool that names itself in the user agent</li>
+<li><time>2026-10-21 14:25:31</time> UTC: First request seen by the honeypot fleet and first wget / curl dropper</li>
+<li><time>2026-10-21 15:01:07</time> UTC: First session deserialization gadget</li>
+<li><time>2026-10-21 15:38:33</time> UTC: First request seen by the cloud telescope and first PHP code in progress field</li>
+<li><time>2026-10-21 16:13:51</time> UTC: First OOM: deeply nested names and first OOM: empty file fields</li>
+<li><time>2026-10-21 18:35:15</time> UTC: First OOM: header-line flood</li>
+<li><time>2026-10-21 18:36:14</time> UTC: First OOM: hundreds of parts</li>
+<li><time>2026-10-21 19:26:35</time> UTC: First request seen by the partner honeypot</li>
+<li><time>2026-10-21 22:15:14</time> UTC: First body of 1 MB or more</li>
+</ul>
+<h2>Public timeline</h2><ul>
+<li><time>2026-10-20</time>: OpenAI / Trail of Bits, <a href="https://patchtheplanet.org/" rel="noopener nofollow">Patch the Planet: disclosures and guidance hub</a>. Collects official patch links, interim mitigations and verification guidance.</li>
+<li><time>2026-10-20T15:20:00</time>: news.ycombinator.com, <a href="https://news.ycombinator.com/item?id=50167754" rel="noopener nofollow">Hacker News: the leak thread</a>. The two CVE IDs and an incorrect 10.0 score first circulate here, which led PHP to bring the release forward.</li>
+<li><time>2026-10-20T18:39:00</time>: Kevin Beaumont (cyberplace.social), <a href="https://cyberplace.social/@GossiTheDog/117474220875882526" rel="noopener nofollow">Kevin Beaumont identifies the CVEs</a>. Mastodon post naming the two CVE IDs during the leak window.</li>
+<li><time>2026-10-20T19:30:00</time>: PHP Group, <a href="https://www.php.net/archive/2026.php#2026-10-20-1" rel="noopener nofollow">PHP.net: advance notice of the release</a>. Announces the release for 21 October 14:00 UTC and a CVSS score of 9.2.</li>
+<li><time>2026-10-20T19:52:00</time>: The PHP Foundation (X), <a href="https://x.com/ThePHPF/status/2112633155631108544" rel="noopener nofollow">The PHP Foundation: advance notice</a>. Release set for Wednesday 21 October 14:00 UTC, two critical bugs rated 9.2.</li>
+<li><time>2026-10-20T20:27:00</time>: Calif, reposted by Kirill Firsov (@k_firsov), <a href="https://x.com/k_firsov/status/2112641845926989944" rel="noopener nofollow">Calif PoC demonstration video</a>. A video of a working exploit is published by mistake and deleted. Copies keep circulating.</li>
+<li><time>2026-10-21</time>: AWS (CJ Moses), <a href="https://aws.amazon.com/blogs/security/amazon-threat-intelligence-identifies-php2shell-exploitation-prior-to-public-disclosure-in-madpot/" rel="noopener nofollow">Amazon: exploitation before disclosure</a>. Amazon&#x27;s MadPot honeypots saw a first attempt on 17 October and more from about 02:00 UTC on 21 October.</li>
+<li><time>2026-10-21</time>: OpenAI, <a href="https://openai.com/index/coordinated-disclosure-of-critical-vulnerabilities/" rel="noopener nofollow">OpenAI: Patch the Planet response coordination</a>. Account of the coordinated response and how Calif found the bugs.</li>
+<li><time>2026-10-21</time>: Wiz / partners, <a href="https://www.php2shell.com/" rel="noopener nofollow">php2shell.com</a>. Public information page about the two vulnerabilities.</li>
+<li><time>2026-10-21T00:30:00</time>: @J4ck3LSyN (X), <a href="https://x.com/J4ck3LSyN/status/2112703096443097263" rel="noopener nofollow">J4ck3LSyN claims a working PoC</a>. Claim of a working exploit on X, later deleted. Not verified.</li>
+<li><time>2026-10-21T07:43:00</time>: Dane Knecht, Cloudflare (X), <a href="https://x.com/dok2001/status/2112811965735202970" rel="noopener nofollow">Cloudflare CTO: early attacks</a>. Cloudflare&#x27;s CTO reports early attack traffic and calls WAF rules a stopgap until the patch.</li>
+<li><time>2026-10-21T07:58:00</time>: ikow (Qi Deng research repo), <a href="https://github.com/ikow/php2shell-poc" rel="noopener nofollow">ikow/php2shell-poc</a>. Proof of concept code and a Docker lab for several attack chains. Not independently confirmed.</li>
+<li><time>2026-10-21T08:43:00</time>: eness, <a href="https://github.com/eness/php2shell-CVE-2026-109618-CVE-2026-109619-PoC" rel="noopener nofollow">eness PoC repository</a>. Placeholder repository, no exploit code at the time.</li>
+<li><time>2026-10-21T09:01:00</time>: Tenable Research, <a href="https://www.tenable.com/blog/php2shell-cve-2026-109618-cve-2026-109619-frequently-asked-questions-about-critical-php-remote" rel="noopener nofollow">Tenable: FAQ and plugin coverage</a>. Nessus and web app scanning plugins, with an FAQ.</li>
+<li><time>2026-10-21T09:59:00</time>: Wiz Research, <a href="https://www.wiz.io/blog/php2shell-php-rce" rel="noopener nofollow">Wiz Research: disclosure</a>. Describes four bug variants and pre-auth RCE on WordPress, Drupal and Joomla.</li>
+<li><time>2026-10-21T10:44:00</time>: Is4yev, <a href="https://github.com/Is4yev/php2shell-poc" rel="noopener nofollow">Is4yev/php2shell-poc</a>. Crash demonstrator for the use-after-free. Not independently confirmed.</li>
+<li><time>2026-10-21T11:03:00</time>: Ademking, <a href="https://github.com/Ademking/php2shell-nuclei-templates" rel="noopener nofollow">Nuclei templates</a>. Scanner templates that check whether a server is affected.</li>
+<li><time>2026-10-21T12:00:00</time>: UK NCSC, <a href="https://www.ncsc.gov.uk/news/critical-security-issue-affecting-php" rel="noopener nofollow">UK NCSC advisory</a>. National advisory urging organisations to update PHP.</li>
+<li><time>2026-10-21T12:00:00</time>: US CISA, <a href="https://www.cisa.gov/news-events/alerts/2026/10/21/critical-vulnerabilities-php-require-immediate-patching" rel="noopener nofollow">US CISA alert</a>. Urges immediate patching, or taking affected systems offline.</li>
+<li><time>2026-10-21T12:38:00</time>: murrez, <a href="https://github.com/murrez/php2shell" rel="noopener nofollow">murrez/php2shell</a>. Fingerprint and trigger checks. Mainly a checker.</li>
+<li><time>2026-10-21T13:34:00</time>: php/php-src GitHub Security Advisory, <a href="https://github.com/php/php-src/security/advisories/GHSA-6wmf-4rv5-p3rp" rel="noopener nofollow">GHSA-6wmf-4rv5-p3rp: CVE-2026-109619</a>. Official advisory for the stale global state bug, which uses the PHP_SESSION_UPLOAD_PROGRESS path.</li>
+<li><time>2026-10-21T13:34:00</time>: php/php-src GitHub Security Advisory, <a href="https://github.com/php/php-src/security/advisories/GHSA-w8hw-w9fx-j79w" rel="noopener nofollow">GHSA-w8hw-w9fx-j79w: CVE-2026-109618</a>. Official advisory for the out-of-memory corruption bug.</li>
+<li><time>2026-10-21T13:46:00</time>: US NSA (@NSACyber), <a href="https://x.com/NSACyber/status/2112903220209098897" rel="noopener nofollow">NSA Cybersecurity</a>. Warns that the flaws can give attackers direct access to files and databases.</li>
+<li><time>2026-10-21T13:52:00</time>: scallydima, <a href="https://github.com/scallydima/php2shell-poc" rel="noopener nofollow">scallydima/php2shell-poc</a>. Research PoC claiming three attack chains. Not independently confirmed.</li>
+<li><time>2026-10-21T13:56:00</time>: Cloudflare, <a href="https://blog.cloudflare.com/php-vulnerabilities-waf-protection" rel="noopener nofollow">Cloudflare: WAF protections</a>. WAF rules live since 21 October 03:02 UTC. Attackers were changing payloads to get past them.</li>
+<li><time>2026-10-21T14:00:00</time>: PHP Group, <a href="https://www.php.net/archive/2026.php#2026-10-21-5" rel="noopener nofollow">PHP 8.5.12, 8.4.27, 8.3.36 and 8.2.35 released</a>. The official advisory with fixed versions, affected server APIs and interim mitigations.</li>
+<li><time>2026-10-21T14:00:00</time>: Calif Research (Ryan Austin / @lcfr_hax), <a href="https://calif.io/php2shell/" rel="noopener nofollow">Calif: a tale of two PHP remote vulnerabilities</a>. Technical write-up by the researchers who found the bugs.</li>
+<li><time>2026-10-21T14:00:00</time>: The PHP Foundation, <a href="https://thephp.foundation/blog/2026/10/21/todays-php-security-release-and-how-were-strengthening-php-security/" rel="noopener nofollow">The PHP Foundation: security release</a>. How the bugs were found and fixed, and how the leak moved the release forward.</li>
+<li><time>2026-10-21T14:19:00</time>: watchTowr, <a href="https://watchtowr.com/intelligence/php-remote-code-execution-php2shell/" rel="noopener nofollow">watchTowr: PHP2Shell FAQ</a>. Reproduction of CVE-2026-109618 and notes on exploitation status.</li>
+<li><time>2026-10-21T14:59:00</time>: US FBI (@FBICyberDiv), <a href="https://x.com/FBICyberDiv/status/2112921648252719420" rel="noopener nofollow">FBI Cyber Division</a>. Advises watching for PHP processes that start shells or download files.</li>
+<li><time>2026-10-21T15:20:00</time>: CERT-EU, <a href="https://cert.europa.eu/publications/security-advisories/2026-018/" rel="noopener nofollow">CERT-EU advisory 2026-018</a>. EU advisory covering both CVEs.</li>
+<li><time>2026-10-21T15:38:00</time>: BillReyor, <a href="https://github.com/BillReyor/php2shell" rel="noopener nofollow">BillReyor/php2shell</a>. Wraps the Calif chain plus a use-after-free mode. Later deleted, not independently confirmed.</li>
+<li><time>2026-10-21T16:31:00</time>: Whackermelon, <a href="https://github.com/Whackermelon/Php2Shell-POC" rel="noopener nofollow">Whackermelon/Php2Shell-POC</a>. Mostly an older session poisoning technique. Later deleted, not independently confirmed.</li>
+<li><time>2026-10-21T21:02:00</time>: ELLIO Threat Research, <a href="https://ellio.tech/en/blog/php2shell-what-we-observed-and-what-to-do/" rel="noopener nofollow">ELLIO: what we observed and what to do</a>. Hour by hour honeypot observations from the first day, with indicators.</li>
+</ul>
+<h2>Exploitation steps</h2><table><thead><tr><th>Furthest step</th><th>Requests</th><th>Source IPs</th></tr></thead><tbody>
+<tr><td>probe</td><td>55,835</td><td>566</td></tr>
+<tr><td>code execution</td><td>10,525</td><td>150</td></tr>
+<tr><td>overload</td><td>5,128</td><td>140</td></tr>
+<tr><td>dropper</td><td>4,728</td><td>51</td></tr>
+</tbody></table>
+<h2>Techniques</h2><table><thead><tr><th>Technique</th><th>Requests</th><th>Source IPs</th></tr></thead><tbody>
+<tr><td>probe only</td><td>55,835</td><td>566</td></tr>
+<tr><td>session deserialization gadget</td><td>1,323</td><td>108</td></tr>
+<tr><td>OOM: hundreds of parts</td><td>1,634</td><td>84</td></tr>
+<tr><td>OS command</td><td>11,045</td><td>64</td></tr>
+<tr><td>OOM: deeply nested names</td><td>3,181</td><td>57</td></tr>
+<tr><td>wget / curl dropper</td><td>4,728</td><td>51</td></tr>
+<tr><td>OOM: empty file fields</td><td>2,711</td><td>47</td></tr>
+<tr><td>PHP code in progress field</td><td>10,479</td><td>36</td></tr>
+<tr><td>PHP code in filename</td><td>1,464</td><td>35</td></tr>
+<tr><td>body of 1 MB or more</td><td>424</td><td>21</td></tr>
+<tr><td>UAF: forged zval structs</td><td>1,807</td><td>10</td></tr>
+<tr><td>OOM: header-line flood</td><td>606</td><td>9</td></tr>
+</tbody></table>
+<h2>Dropper URLs</h2><p>URLs that wget or curl commands in the exploit requests download from (indicators to block; do not open them).</p><ul>
+<li><code>http://45.74.7.227/collect/p2srun.php?w=p2s&lt;sensor&gt;</code>: 159 requests from 16 IPs</li>
+<li><code>http://45.74.7.227/collect/p2srun.php?w=p2s&lt;sensor&gt;&amp;stage=diag&amp;u=$</code>: 76 requests from 13 IPs</li>
+<li><code>http://45.74.7.227/collect/p2srun.php?w=p2s&lt;sensor&gt;&amp;stage=diag&amp;d=u%3D$</code>: 83 requests from 12 IPs</li>
+<li><code>http://176.65.139.153/wget.sh</code>: 17 requests from 6 IPs</li>
+<li><code>https://217.60.102.5/sh</code>: 3,561 requests from 4 IPs</li>
+<li><code>https://pastebin.com/raw/wCYGVCBG</code>: 71 requests from 2 IPs</li>
+<li><code>http://92.118.112.100/p</code>: 70 requests from 2 IPs</li>
+<li><code>https://webhook.site/c8370342-2a5c-489c-a0d3-35930cc2bc54/be67d5f4e708</code>: 2 requests from 2 IPs</li>
+<li><code>https://webhook.site/c8370342-2a5c-489c-a0d3-35930cc2bc54/c18e174d1e85</code>: 2 requests from 2 IPs</li>
+<li><code>https://webhook.site/c8370342-2a5c-489c-a0d3-35930cc2bc54/3c5744c6208a</code>: 2 requests from 2 IPs</li>
+<li><code>https://webhook.site/c8370342-2a5c-489c-a0d3-35930cc2bc54/baf153efbb95</code>: 2 requests from 2 IPs</li>
+<li><code>https://webhook.site/c8370342-2a5c-489c-a0d3-35930cc2bc54/c33b9dad02d6</code>: 2 requests from 2 IPs</li>
+<li><code>https://webhook.site/c8370342-2a5c-489c-a0d3-35930cc2bc54/fbb6474028eb</code>: 2 requests from 2 IPs</li>
+<li><code>https://webhook.site/c8370342-2a5c-489c-a0d3-35930cc2bc54/b4e7ccc1095b</code>: 2 requests from 2 IPs</li>
+<li><code>http://92.118.112.100/s</code>: 572 requests from 1 IPs</li>
+<li><code>http://217.15.162.38:27182/$T/srl.sh</code>: 93 requests from 1 IPs</li>
+<li><code>http://217.15.162.38:27182/DT14REn1ylaykdkWBqbML5wf/issue</code>: 93 requests from 1 IPs</li>
+<li><code>http://134.209.89.212/p</code>: 65 requests from 1 IPs</li>
+<li><code>http://87.251.64.204:7716/i</code>: 29 requests from 1 IPs</li>
+<li><code>https://webhook.site/0e7f04d6-7839-40d6-963e-a6d7744a4cd3</code>: 23 requests from 1 IPs</li>
+<li><code>http://185.225.191.232/c</code>: 21 requests from 1 IPs</li>
+<li><code>http://191.217.250.227:8081/b.php?w=p2s&lt;sensor&gt;</code>: 14 requests from 1 IPs</li>
+<li><code>http://92.118.112.100/nfs</code>: 7 requests from 1 IPs</li>
+<li><code>http://45.115.26.26:8000/cCmono</code>: 5 requests from 1 IPs</li>
+<li><code>http://45.115.26.26:8000/cClar</code>: 5 requests from 1 IPs</li>
+<li><code>http://hana.by/</code>: 2 requests from 1 IPs</li>
+</ul>
+<h2>Malware samples</h2><ul>
+<li><strong>nfs</strong> (Mirai-derived DDoS bot), SHA-256 <code>0c5486f06620e26e316f4b33f318b0d646d5e1133789331aa2fed012360d1486</code>: A DDoS bot built on Mirai with an encrypted C2 channel. It finds its C2 through a domain and, as a backup, through Ethereum ENS names.</li>
+<li><strong>x86_64(2)</strong> (Mirai variant &quot;2.0.4_socks5&quot;), SHA-256 <code>7d9965deae0d3d9834a1299e98ce901329ae071f8744f97746137ea033f100a9</code>: A Mirai DDoS bot. In the sandbox its domain lookup failed, so it used its fallback address. That C2 was live: it accepted the bot and kept the session open, but sent no attack command.</li>
+<li><strong>cb</strong> (Nim implant &quot;crong3-agent&quot; (build 3.0.0-929), poses as &quot;sysmon&quot;), SHA-256 <code>a5289abece66fbaf33a6186f315fb6901658e8551c68933e56e65838b95fc3af</code>: A backdoor that stays on the host in many ways and reads its C2 from an Ethereum ENS name and a Solana account. It never uses the normal DNS resolver. The sandbox blocked its connections, so it did not reach a C2.</li>
+<li><strong>f0aa…</strong> (Unknown), SHA-256 <code>f0aa83bbbd2c75e2f71ec16029ee5fcfad59f3a8efa30a500b815f0f6c18d987</code>: An unidentified program with no static analysis yet. In the sandbox it looked up a name over DNS over TLS and sent one encrypted message to a server that never answered.</li>
+</ul>
+<h2>Networks</h2><table><thead><tr><th>Autonomous system</th><th>Country</th><th>Requests</th><th>Source IPs</th></tr></thead><tbody>
+<tr><td>AS137409 GSL Networks Pty LTD</td><td>US</td><td>3,796</td><td>57</td></tr>
+<tr><td>AS206092 F.n.s. Holdings Limited</td><td>US</td><td>120</td><td>38</td></tr>
+<tr><td>AS212238 Datacamp Limited</td><td>CA</td><td>1,889</td><td>27</td></tr>
+<tr><td>AS9009 M247 Europe SRL</td><td>HK</td><td>13,821</td><td>24</td></tr>
+<tr><td>AS14061 DigitalOcean, LLC</td><td>SG</td><td>985</td><td>12</td></tr>
+<tr><td>AS39351 31173 Services AB</td><td>NL</td><td>933</td><td>10</td></tr>
+<tr><td>AS13335 Cloudflare, Inc.</td><td>SG</td><td>141</td><td>10</td></tr>
+<tr><td>AS219502 Storm Industries LLC</td><td>DE</td><td>135</td><td>10</td></tr>
+<tr><td>AS211680 Sistemas Informaticos, S.A.</td><td>PT</td><td>2,063</td><td>9</td></tr>
+<tr><td>AS215125 Church of Cyberology</td><td>NL</td><td>51</td><td>9</td></tr>
+<tr><td>AS132203 Tencent Building, Kejizhongyi Avenue</td><td>SG</td><td>30</td><td>8</td></tr>
+<tr><td>AS208172 Proton AG</td><td>NO</td><td>627</td><td>7</td></tr>
+<tr><td>AS16276 OVH SAS</td><td>PL</td><td>193</td><td>7</td></tr>
+<tr><td>AS24940 Hetzner Online GmbH</td><td>FI</td><td>124</td><td>7</td></tr>
+<tr><td>AS36183 Akamai Technologies, Inc.</td><td>ID</td><td>49</td><td>7</td></tr>
+</tbody></table>
+<h2>About</h2><p>A research team at the Delft University of Technology. Main contributors: Harm Griffioen, Zohar Cochavi, Murtuza Ali; with contributions from Martin Mladenov. Questions or feedback: <a href="mailto:h.j.griffioen@tudelft.nl">h.j.griffioen@tudelft.nl</a>. <a href="https://delftintellab.com/">delftintellab.com</a></p>
+<noscript><p>Enable JavaScript for the interactive charts, all tables, example requests and downloads.</p></noscript>
+</div></main>
+<div id="status" class="status"></div>
+<script src="uPlot.iife.min.js"></script>
+<script src="app.js"></script>
+</body>
+</html>

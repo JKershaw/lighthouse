@@ -1,0 +1,41 @@
+[
+  {
+    "source": "criteria",
+    "url": "https://www.cisa.gov/known-exploited-vulnerabilities",
+    "reader": "direct",
+    "start_utc": "2026-10-30T11:48:33.039545+00:00",
+    "finish_utc": "2026-10-30T11:48:33.576953+00:00",
+    "status": 403,
+    "final_url": "https://www.cisa.gov/known-exploited-vulnerabilities",
+    "bytes": 405,
+    "sha256": "1cd1944e98e88048507c657843182066dd2f643093ec1a4b6ea731c1274f6200",
+    "content_type": "text/html",
+    "file": "criteria.raw"
+  },
+  {
+    "source": "alert",
+    "url": "https://www.cisa.gov/news-events/alerts/2026/10/21/critical-vulnerabilities-php-require-immediate-patching",
+    "reader": "direct",
+    "start_utc": "2026-10-30T11:48:33.577330+00:00",
+    "finish_utc": "2026-10-30T11:48:33.788176+00:00",
+    "status": 403,
+    "final_url": "https://www.cisa.gov/news-events/alerts/2026/10/21/critical-vulnerabilities-php-require-immediate-patching",
+    "bytes": 495,
+    "sha256": "eaf842edfcf0513385c68fed4809358760f7e4c98cec2e46e0216d4c18f694da",
+    "content_type": "text/html",
+    "file": "alert.raw"
+  },
+  {
+    "source": "guidance",
+    "url": "https://www.cisa.gov/news-events/directives/bod-26-04-implementation-guidance-prioritizing-security-updates-based-risk",
+    "reader": "direct",
+    "start_utc": "2026-10-30T11:48:33.788693+00:00",
+    "finish_utc": "2026-10-30T11:48:34.059827+00:00",
+    "status": 403,
+    "final_url": "https://www.cisa.gov/news-events/directives/bod-26-04-implementation-guidance-prioritizing-security-updates-based-risk",
+    "bytes": 511,
+    "sha256": "d9929903dac5ed0ec1029018369b747d5af69b829176d75fe1da90f210158739",
+    "content_type": "text/html",
+    "file": "guidance.raw"
+  }
+]

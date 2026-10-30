@@ -36,7 +36,10 @@ for name, url in SOURCES:
             data = json.loads(body)
             entries = {v['cveID']: v for v in data.get('vulnerabilities', [])}
             result = {'source': name, 'catalogVersion': data.get('catalogVersion'), 'dateReleased': data.get('dateReleased'),
-                      'count': data.get('count'), 'entries': {c: entries.get(c) for c in CVES}}
+                      'count': data.get('count'), 'entries': {c: entries.get(c) for c in CVES},
+                      'mentions': [{k: v.get(k) for k in ('cveID', 'dateAdded', 'shortDescription')}
+                                   for v in data.get('vulnerabilities', []) if v.get('cveID') not in CVES
+                                   and any(t in json.dumps(v) for t in ('PHP',) + CVES)]}
     except Exception as error:
         row.setdefault('finish_utc', datetime.now(timezone.utc).isoformat())
         row['error'] = type(error).__name__ + ': ' + str(error)[:200]
