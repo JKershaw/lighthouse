@@ -1,0 +1,26 @@
+1. Delft dashboard, furthest step, as rendered at 11:47:10 UTC on 30 October
+   probe            55,835   73.3%
+   code execution   10,525   13.8%
+   overload          5,128    6.7%
+   dropper           4,728    6.2%
+   sum of steps 76,216 against headline 76,216
+
+2. Palo Alto Networks, "approximately .02%" of its installed base "were impacted"
+   if .02% were the rooted firewalls (Dream, 24): implied installed base 120,000
+   if .02% were the servers exploited (Dream, 25): implied installed base 125,000
+   if .02% were the firewalls targeted (Dream, 240): implied installed base 1,200,000
+   if .02% were the exposed firewalls found (Dream, about 19,000): implied installed base 95,000,000
+   (the installed base is not in any retained source; the readings differ by a factor of about 800)
+   advisory usage of "impacted": * Although Cortex XCORE (SaaS) was previously impacted, a remediation patch was deployed on October 21, 2026.
+   advisory usage of "impacted": ** Although WildFire Cloud was previously impacted, a remediation patch was deployed on October 22, 2026.
+
+3. Clocks: PHP fixed releases against the dates Dream gives
+   first government firewall rooted: 23 Oct 18:14 UTC, 52.2 h after PHP's 14:00 UTC release of 21 October
+   second government firewall exploited: 24 Oct 10:09 UTC, 68.2 h after PHP's 14:00 UTC release of 21 October
+   management server exploited: 24 Oct 11:35 UTC, 69.6 h after PHP's 14:00 UTC release of 21 October
+   Dream figure 1 caption: Figure 1: Operational timeline of the campaign, from setup on October 8 through exploitation, the pivot into the internal network, and post-exploitation on October 24
+   advisory, at the 11:51 UTC read: This issue will be fixed in the upcoming releases of PAN-OS.
+   Unit 42, at the 11:50 UTC read: Customers who have applied the available patches are not affected.
+   PHP fixed releases, as Delft lists them: 8.2.35, 8.3.36, 8.4.27, 8.5.12
+   PHP inside PAN-OS, by Dream: ['7.4.33', '8.0.30']
+   CISA CVE-2026-46300 dateAdded 2026-10-28; Dream's post dated 26 October, updated 29 October
