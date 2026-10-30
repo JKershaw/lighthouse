@@ -4,6 +4,8 @@ date: 2026-10-30
 
 # R-0044, reader-and-inference review of the PHP account, version 1.3
 
+Reviewer: a fresh Claude Code subagent on Claude Opus 5.5, dispatched by the scheduled run 2026-10-30T1146Z; stage 2 sent to the same agent after stage 1 returned.
+
 ## What a reader would believe, written before reading the record
 
 Said back: the PHP flaws fixed on 21 October have now been used to break into real machines. Palo Alto Networks says attackers exploited them through exposed firewall management pages, and confirmed a security firm's count of 25 servers taken over to root, three in a US government-affiliated network. An AI coding tool, Claude Code, sat on the attacker's machines, with no direct evidence it wrote the exploit.
