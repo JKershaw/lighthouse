@@ -38,7 +38,7 @@ When a widely used library puts out a new version, some software has it within d
 
 ## Essays
 
-An essay strand is starting, kept apart from the findings. An essay is interpretation: it says which records it rests on, marks what is a reading rather than a measurement, and ends with what would test it. When the first is released, the site will list it in a section of its own, apart from the findings, so that what we think is never mistaken for what we measured.
+Essays are where we say what we think the findings mean, kept apart from the findings themselves so that a reading is never mistaken for a measurement. Each says which records it rests on, marks what is a reading made after the evidence was seen, and ends with what would test it. The first, [Seen from outside, seen from inside](essays/seen-from-outside-seen-from-inside.md), asks why PHP's fix could be watched only from outside and Node.js's only from inside, and what each view's blind spot says about how the software lives.
 
 ## The map
 
