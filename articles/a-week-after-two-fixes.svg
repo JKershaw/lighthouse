@@ -1,0 +1,165 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 720 800" width="720" height="800" role="img" aria-labelledby="t d">
+<title id="t">A week after the PHP and Node.js fixes of 21 October 2026: Node.js downloads beside Python downloads, and PHP services counted from outside</title>
+<desc id="d">Two line charts, one above the other, each with its own unit, by day since the releases of 21 October 2026 (day 0) to day 7, 28 October. The top chart is downloads: the share of each fixed Node.js line&#x27;s daily downloads from nodejs.org that were the fixed release or newer. Line 22 went from 41.0% on day 1 to 53.9% on day 7, line 24 from 45.8% to 72.2%, and line 26 from 45.4% to 64.7%, after 79.7% on day 2. Behind them, a band shows the range of four Python security fixes&#x27; share of their library&#x27;s daily downloads, 53.8 to 60.8 per cent on day 1 and 55.6 to 59.5 per cent on day 7, and a dashed line the median over 37 Python libraries, 57.6% on day 1 and 57.9% on day 7; those releases date from April to August 2026. The bottom chart is services seen from outside: the share of internet-facing PHP services reporting a version in each fixed branch that Censys counts as patched. On day 7: 8.5 78.8%, 8.4 67.8%, 8.2 53.0%, 8.3 52.4%; on day 1 they were 22.1 to 36.1 per cent. A dashed line marks half in each chart. Downloads are requests, not machines; Censys&#x27;s patched shares are floors, because distributions that backport a fix keep the old version number and a service counts only after a rescan. Sources: nodejs.org download summaries and Censys ARC&#x27;s PHP2Shell dashboard, read by Lighthouse to 29 and 30 October 2026; ClickPy&#x27;s copy of the Python Package Index download log, read 28 September 2026.</desc>
+<style>
+svg { --bg:#fbfaf7; --ink:#1f1f1f; --muted:#5d5850; --grid:#e3ddd1; --teal:#1f6576; --amber:#93600c; --purple:#78549b; --blue:#2866ab; --neutral:#74716a; color-scheme:light dark; }
+@media (prefers-color-scheme: dark) { svg { --bg:#15191b; --ink:#e6e2d9; --muted:#aaa498; --grid:#2f3538; --teal:#8ec4d4; --amber:#e0a650; --purple:#c6a7df; --blue:#8bb9ed; --neutral:#aaa498; } }
+text { font-family:"Source Sans 3", "Source Sans Pro", system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif; font-variant-numeric:tabular-nums lining-nums; fill:var(--ink); }
+.head { font-size:17px; font-weight:600; }
+.sub { font-size:13px; fill:var(--muted); }
+.ann,.ax { font-size:12px; fill:var(--muted); }
+.nm { font-size:12px; font-weight:600; }
+.note { font-size:11.5px; fill:var(--muted); }
+.sec { font-size:14px; font-weight:600; }
+.grid { stroke:var(--grid); stroke-width:1; }
+.axis { stroke:var(--muted); stroke-width:1; }
+</style>
+<rect width="720" height="800" fill="var(--bg)"/>
+<text x="16" y="30" class="head">A week after the fixes of 21 October 2026</text>
+<text x="16" y="51" class="sub">Two kinds of count, drawn apart: requests to download servers, and services seen from outside.</text>
+<text x="16" y="68" class="sub">Each panel has its own unit. Day 0 is the release day (UTC), a part day.</text>
+<text x="16" y="110" class="sec">Downloads: share of a day's downloads at the fixed release or newer</text>
+<line x1="60" y1="360.0" x2="520" y2="360.0" stroke="var(--grid)" stroke-width="1"/>
+<text x="52" y="364.0" class="ax" text-anchor="end">0%</text>
+<line x1="60" y1="307.5" x2="520" y2="307.5" stroke="var(--grid)" stroke-width="1"/>
+<text x="52" y="311.5" class="ax" text-anchor="end">25%</text>
+<line x1="60" y1="255.0" x2="520" y2="255.0" stroke="var(--muted)" stroke-dasharray="4 3" stroke-width="1"/>
+<text x="52" y="259.0" class="ax" text-anchor="end">50%</text>
+<line x1="60" y1="202.5" x2="520" y2="202.5" stroke="var(--grid)" stroke-width="1"/>
+<text x="52" y="206.5" class="ax" text-anchor="end">75%</text>
+<line x1="60" y1="150.0" x2="520" y2="150.0" stroke="var(--grid)" stroke-width="1"/>
+<text x="52" y="154.0" class="ax" text-anchor="end">100%</text>
+<line x1="60.0" y1="360" x2="60.0" y2="364" stroke="var(--muted)" stroke-width="1"/>
+<text x="60.0" y="378" class="ax" text-anchor="middle">0</text>
+<line x1="125.7" y1="360" x2="125.7" y2="364" stroke="var(--muted)" stroke-width="1"/>
+<text x="125.7" y="378" class="ax" text-anchor="middle">1</text>
+<line x1="191.4" y1="360" x2="191.4" y2="364" stroke="var(--muted)" stroke-width="1"/>
+<text x="191.4" y="378" class="ax" text-anchor="middle">2</text>
+<line x1="257.1" y1="360" x2="257.1" y2="364" stroke="var(--muted)" stroke-width="1"/>
+<text x="257.1" y="378" class="ax" text-anchor="middle">3</text>
+<line x1="322.9" y1="360" x2="322.9" y2="364" stroke="var(--muted)" stroke-width="1"/>
+<text x="322.9" y="378" class="ax" text-anchor="middle">4</text>
+<line x1="388.6" y1="360" x2="388.6" y2="364" stroke="var(--muted)" stroke-width="1"/>
+<text x="388.6" y="378" class="ax" text-anchor="middle">5</text>
+<line x1="454.3" y1="360" x2="454.3" y2="364" stroke="var(--muted)" stroke-width="1"/>
+<text x="454.3" y="378" class="ax" text-anchor="middle">6</text>
+<line x1="520.0" y1="360" x2="520.0" y2="364" stroke="var(--muted)" stroke-width="1"/>
+<text x="520.0" y="378" class="ax" text-anchor="middle">7</text>
+<text x="290" y="394" class="ax" text-anchor="middle">days since the release</text>
+<text x="60" y="138" class="ann">Node.js (nodejs.org) and Python (PyPI): requests in a day, not machines</text>
+<path d="M60.0,315.7 L125.7,232.4 L191.4,226.2 L257.1,227.4 L322.9,233.1 L388.6,236.9 L454.3,238.6 L520.0,235.0 L520.0,243.2 L454.3,243.1 L388.6,243.5 L322.9,256.3 L257.1,257.3 L191.4,249.4 L125.7,246.9 L60.0,352.8 Z" fill="var(--amber)" fill-opacity="0.12" stroke="var(--amber)" stroke-width="1.2"><title>Four Python security fixes: 53.8% to 60.8% on day 1, 55.6% to 59.5% on day 7</title></path>
+<path d="M60.0,333.5 L125.7,239.0 L191.4,239.9 L257.1,236.4 L322.9,237.8 L388.6,236.9 L454.3,238.5 L520.0,238.5" fill="none" stroke="var(--amber)" stroke-width="2" stroke-dasharray="5 3"><title>Median over 37 Python libraries: 57.6% on day 1, 57.9% on day 7</title></path>
+<path d="M60.0,326.4 L125.7,273.9 L191.4,251.5 L257.1,259.1 L322.9,256.5 L388.6,249.3 L454.3,248.1 L520.0,246.8" fill="none" stroke="var(--purple)" stroke-width="2.2" stroke-linejoin="round"/>
+<circle cx="60.0" cy="326.4" r="3.5" fill="var(--purple)" stroke="var(--bg)" stroke-width="1.5"><title>Node.js 22, day 0: 16.0% of the line's downloads at or above the fix</title></circle>
+<circle cx="125.7" cy="273.9" r="3.5" fill="var(--purple)" stroke="var(--bg)" stroke-width="1.5"><title>Node.js 22, day 1: 41.0% of the line's downloads at or above the fix</title></circle>
+<circle cx="191.4" cy="251.5" r="3.5" fill="var(--purple)" stroke="var(--bg)" stroke-width="1.5"><title>Node.js 22, day 2: 51.7% of the line's downloads at or above the fix</title></circle>
+<circle cx="257.1" cy="259.1" r="3.5" fill="var(--purple)" stroke="var(--bg)" stroke-width="1.5"><title>Node.js 22, day 3: 48.1% of the line's downloads at or above the fix</title></circle>
+<circle cx="322.9" cy="256.5" r="3.5" fill="var(--purple)" stroke="var(--bg)" stroke-width="1.5"><title>Node.js 22, day 4: 49.3% of the line's downloads at or above the fix</title></circle>
+<circle cx="388.6" cy="249.3" r="3.5" fill="var(--purple)" stroke="var(--bg)" stroke-width="1.5"><title>Node.js 22, day 5: 52.7% of the line's downloads at or above the fix</title></circle>
+<circle cx="454.3" cy="248.1" r="3.5" fill="var(--purple)" stroke="var(--bg)" stroke-width="1.5"><title>Node.js 22, day 6: 53.3% of the line's downloads at or above the fix</title></circle>
+<circle cx="520.0" cy="246.8" r="3.5" fill="var(--purple)" stroke="var(--bg)" stroke-width="1.5"><title>Node.js 22, day 7: 53.9% of the line's downloads at or above the fix</title></circle>
+<path d="M60.0,330.6 L125.7,263.9 L191.4,208.0 L257.1,210.2 L322.9,210.4 L388.6,214.5 L454.3,211.1 L520.0,208.3" fill="none" stroke="var(--purple)" stroke-width="2.2" stroke-linejoin="round" stroke-dasharray="7 3"/>
+<circle cx="60.0" cy="330.6" r="3.5" fill="var(--purple)" stroke="var(--bg)" stroke-width="1.5"><title>Node.js 24, day 0: 14.0% of the line's downloads at or above the fix</title></circle>
+<circle cx="125.7" cy="263.9" r="3.5" fill="var(--purple)" stroke="var(--bg)" stroke-width="1.5"><title>Node.js 24, day 1: 45.8% of the line's downloads at or above the fix</title></circle>
+<circle cx="191.4" cy="208.0" r="3.5" fill="var(--purple)" stroke="var(--bg)" stroke-width="1.5"><title>Node.js 24, day 2: 72.4% of the line's downloads at or above the fix</title></circle>
+<circle cx="257.1" cy="210.2" r="3.5" fill="var(--purple)" stroke="var(--bg)" stroke-width="1.5"><title>Node.js 24, day 3: 71.4% of the line's downloads at or above the fix</title></circle>
+<circle cx="322.9" cy="210.4" r="3.5" fill="var(--purple)" stroke="var(--bg)" stroke-width="1.5"><title>Node.js 24, day 4: 71.3% of the line's downloads at or above the fix</title></circle>
+<circle cx="388.6" cy="214.5" r="3.5" fill="var(--purple)" stroke="var(--bg)" stroke-width="1.5"><title>Node.js 24, day 5: 69.3% of the line's downloads at or above the fix</title></circle>
+<circle cx="454.3" cy="211.1" r="3.5" fill="var(--purple)" stroke="var(--bg)" stroke-width="1.5"><title>Node.js 24, day 6: 70.9% of the line's downloads at or above the fix</title></circle>
+<circle cx="520.0" cy="208.3" r="3.5" fill="var(--purple)" stroke="var(--bg)" stroke-width="1.5"><title>Node.js 24, day 7: 72.2% of the line's downloads at or above the fix</title></circle>
+<path d="M60.0,322.0 L125.7,264.8 L191.4,192.7 L257.1,198.4 L322.9,197.6 L388.6,230.8 L454.3,199.6 L520.0,224.1" fill="none" stroke="var(--purple)" stroke-width="2.2" stroke-linejoin="round" stroke-dasharray="2 3"/>
+<circle cx="60.0" cy="322.0" r="3.5" fill="var(--purple)" stroke="var(--bg)" stroke-width="1.5"><title>Node.js 26, day 0: 18.1% of the line's downloads at or above the fix</title></circle>
+<circle cx="125.7" cy="264.8" r="3.5" fill="var(--purple)" stroke="var(--bg)" stroke-width="1.5"><title>Node.js 26, day 1: 45.4% of the line's downloads at or above the fix</title></circle>
+<circle cx="191.4" cy="192.7" r="3.5" fill="var(--purple)" stroke="var(--bg)" stroke-width="1.5"><title>Node.js 26, day 2: 79.7% of the line's downloads at or above the fix</title></circle>
+<circle cx="257.1" cy="198.4" r="3.5" fill="var(--purple)" stroke="var(--bg)" stroke-width="1.5"><title>Node.js 26, day 3: 76.9% of the line's downloads at or above the fix</title></circle>
+<circle cx="322.9" cy="197.6" r="3.5" fill="var(--purple)" stroke="var(--bg)" stroke-width="1.5"><title>Node.js 26, day 4: 77.3% of the line's downloads at or above the fix</title></circle>
+<circle cx="388.6" cy="230.8" r="3.5" fill="var(--purple)" stroke="var(--bg)" stroke-width="1.5"><title>Node.js 26, day 5: 61.5% of the line's downloads at or above the fix</title></circle>
+<circle cx="454.3" cy="199.6" r="3.5" fill="var(--purple)" stroke="var(--bg)" stroke-width="1.5"><title>Node.js 26, day 6: 76.4% of the line's downloads at or above the fix</title></circle>
+<circle cx="520.0" cy="224.1" r="3.5" fill="var(--purple)" stroke="var(--bg)" stroke-width="1.5"><title>Node.js 26, day 7: 64.7% of the line's downloads at or above the fix</title></circle>
+<path d="M525.0,208.3 L531.0,208.3" fill="none" stroke="var(--purple)"/>
+<text x="534" y="212.3" class="nm">Node.js 24  72.2%</text>
+<path d="M525.0,224.1 L531.0,224.1" fill="none" stroke="var(--purple)"/>
+<text x="534" y="228.1" class="nm">Node.js 26  64.7%</text>
+<path d="M525.0,235.0 L531.0,239.1" fill="none" stroke="var(--amber)"/>
+<text x="534" y="243.1" class="nm">Python fixes, range</text>
+<path d="M525.0,238.5 L531.0,254.1" fill="none" stroke="var(--amber)"/>
+<text x="534" y="258.1" class="nm">Python, median</text>
+<path d="M525.0,246.8 L531.0,269.1" fill="none" stroke="var(--purple)"/>
+<text x="534" y="273.1" class="nm">Node.js 22  53.9%</text>
+<text x="16" y="430" class="sec">Services seen from outside: share Censys counts as patched</text>
+<line x1="60" y1="680.0" x2="520" y2="680.0" stroke="var(--grid)" stroke-width="1"/>
+<text x="52" y="684.0" class="ax" text-anchor="end">0%</text>
+<line x1="60" y1="627.5" x2="520" y2="627.5" stroke="var(--grid)" stroke-width="1"/>
+<text x="52" y="631.5" class="ax" text-anchor="end">25%</text>
+<line x1="60" y1="575.0" x2="520" y2="575.0" stroke="var(--muted)" stroke-dasharray="4 3" stroke-width="1"/>
+<text x="52" y="579.0" class="ax" text-anchor="end">50%</text>
+<line x1="60" y1="522.5" x2="520" y2="522.5" stroke="var(--grid)" stroke-width="1"/>
+<text x="52" y="526.5" class="ax" text-anchor="end">75%</text>
+<line x1="60" y1="470.0" x2="520" y2="470.0" stroke="var(--grid)" stroke-width="1"/>
+<text x="52" y="474.0" class="ax" text-anchor="end">100%</text>
+<line x1="60.0" y1="680" x2="60.0" y2="684" stroke="var(--muted)" stroke-width="1"/>
+<text x="60.0" y="698" class="ax" text-anchor="middle">0</text>
+<line x1="125.7" y1="680" x2="125.7" y2="684" stroke="var(--muted)" stroke-width="1"/>
+<text x="125.7" y="698" class="ax" text-anchor="middle">1</text>
+<line x1="191.4" y1="680" x2="191.4" y2="684" stroke="var(--muted)" stroke-width="1"/>
+<text x="191.4" y="698" class="ax" text-anchor="middle">2</text>
+<line x1="257.1" y1="680" x2="257.1" y2="684" stroke="var(--muted)" stroke-width="1"/>
+<text x="257.1" y="698" class="ax" text-anchor="middle">3</text>
+<line x1="322.9" y1="680" x2="322.9" y2="684" stroke="var(--muted)" stroke-width="1"/>
+<text x="322.9" y="698" class="ax" text-anchor="middle">4</text>
+<line x1="388.6" y1="680" x2="388.6" y2="684" stroke="var(--muted)" stroke-width="1"/>
+<text x="388.6" y="698" class="ax" text-anchor="middle">5</text>
+<line x1="454.3" y1="680" x2="454.3" y2="684" stroke="var(--muted)" stroke-width="1"/>
+<text x="454.3" y="698" class="ax" text-anchor="middle">6</text>
+<line x1="520.0" y1="680" x2="520.0" y2="684" stroke="var(--muted)" stroke-width="1"/>
+<text x="520.0" y="698" class="ax" text-anchor="middle">7</text>
+<text x="290" y="714" class="ax" text-anchor="middle">days since the release</text>
+<text x="60" y="458" class="ann">PHP: internet-facing services reporting a version, as last scanned; a floor on protection</text>
+<path d="M60.0,675.5 L125.7,633.6 L191.4,593.5 L257.1,583.2 L322.9,578.9 L388.6,575.8 L454.3,572.6 L520.0,568.7" fill="none" stroke="var(--teal)" stroke-width="2.2" stroke-linejoin="round"/>
+<circle cx="60.0" cy="675.5" r="3.5" fill="var(--teal)" stroke="var(--bg)" stroke-width="1.5"><title>PHP 8.2, day 0: 2.1% of version-reporting services counted patched</title></circle>
+<circle cx="125.7" cy="633.6" r="3.5" fill="var(--teal)" stroke="var(--bg)" stroke-width="1.5"><title>PHP 8.2, day 1: 22.1% of version-reporting services counted patched</title></circle>
+<circle cx="191.4" cy="593.5" r="3.5" fill="var(--teal)" stroke="var(--bg)" stroke-width="1.5"><title>PHP 8.2, day 2: 41.2% of version-reporting services counted patched</title></circle>
+<circle cx="257.1" cy="583.2" r="3.5" fill="var(--teal)" stroke="var(--bg)" stroke-width="1.5"><title>PHP 8.2, day 3: 46.1% of version-reporting services counted patched</title></circle>
+<circle cx="322.9" cy="578.9" r="3.5" fill="var(--teal)" stroke="var(--bg)" stroke-width="1.5"><title>PHP 8.2, day 4: 48.1% of version-reporting services counted patched</title></circle>
+<circle cx="388.6" cy="575.8" r="3.5" fill="var(--teal)" stroke="var(--bg)" stroke-width="1.5"><title>PHP 8.2, day 5: 49.6% of version-reporting services counted patched</title></circle>
+<circle cx="454.3" cy="572.6" r="3.5" fill="var(--teal)" stroke="var(--bg)" stroke-width="1.5"><title>PHP 8.2, day 6: 51.2% of version-reporting services counted patched</title></circle>
+<circle cx="520.0" cy="568.7" r="3.5" fill="var(--teal)" stroke="var(--bg)" stroke-width="1.5"><title>PHP 8.2, day 7: 53.0% of version-reporting services counted patched</title></circle>
+<path d="M60.0,676.3 L125.7,630.1 L191.4,591.5 L257.1,583.6 L322.9,579.7 L388.6,577.1 L454.3,573.7 L520.0,570.0" fill="none" stroke="var(--teal)" stroke-width="2.2" stroke-linejoin="round" stroke-dasharray="7 3"/>
+<circle cx="60.0" cy="676.3" r="3.5" fill="var(--teal)" stroke="var(--bg)" stroke-width="1.5"><title>PHP 8.3, day 0: 1.8% of version-reporting services counted patched</title></circle>
+<circle cx="125.7" cy="630.1" r="3.5" fill="var(--teal)" stroke="var(--bg)" stroke-width="1.5"><title>PHP 8.3, day 1: 23.8% of version-reporting services counted patched</title></circle>
+<circle cx="191.4" cy="591.5" r="3.5" fill="var(--teal)" stroke="var(--bg)" stroke-width="1.5"><title>PHP 8.3, day 2: 42.1% of version-reporting services counted patched</title></circle>
+<circle cx="257.1" cy="583.6" r="3.5" fill="var(--teal)" stroke="var(--bg)" stroke-width="1.5"><title>PHP 8.3, day 3: 45.9% of version-reporting services counted patched</title></circle>
+<circle cx="322.9" cy="579.7" r="3.5" fill="var(--teal)" stroke="var(--bg)" stroke-width="1.5"><title>PHP 8.3, day 4: 47.8% of version-reporting services counted patched</title></circle>
+<circle cx="388.6" cy="577.1" r="3.5" fill="var(--teal)" stroke="var(--bg)" stroke-width="1.5"><title>PHP 8.3, day 5: 49.0% of version-reporting services counted patched</title></circle>
+<circle cx="454.3" cy="573.7" r="3.5" fill="var(--teal)" stroke="var(--bg)" stroke-width="1.5"><title>PHP 8.3, day 6: 50.6% of version-reporting services counted patched</title></circle>
+<circle cx="520.0" cy="570.0" r="3.5" fill="var(--teal)" stroke="var(--bg)" stroke-width="1.5"><title>PHP 8.3, day 7: 52.4% of version-reporting services counted patched</title></circle>
+<path d="M60.0,670.9 L125.7,605.9 L191.4,557.1 L257.1,549.3 L322.9,546.7 L388.6,544.5 L454.3,541.4 L520.0,537.6" fill="none" stroke="var(--teal)" stroke-width="2.2" stroke-linejoin="round" stroke-dasharray="2 3"/>
+<circle cx="60.0" cy="670.9" r="3.5" fill="var(--teal)" stroke="var(--bg)" stroke-width="1.5"><title>PHP 8.4, day 0: 4.3% of version-reporting services counted patched</title></circle>
+<circle cx="125.7" cy="605.9" r="3.5" fill="var(--teal)" stroke="var(--bg)" stroke-width="1.5"><title>PHP 8.4, day 1: 35.3% of version-reporting services counted patched</title></circle>
+<circle cx="191.4" cy="557.1" r="3.5" fill="var(--teal)" stroke="var(--bg)" stroke-width="1.5"><title>PHP 8.4, day 2: 58.5% of version-reporting services counted patched</title></circle>
+<circle cx="257.1" cy="549.3" r="3.5" fill="var(--teal)" stroke="var(--bg)" stroke-width="1.5"><title>PHP 8.4, day 3: 62.3% of version-reporting services counted patched</title></circle>
+<circle cx="322.9" cy="546.7" r="3.5" fill="var(--teal)" stroke="var(--bg)" stroke-width="1.5"><title>PHP 8.4, day 4: 63.5% of version-reporting services counted patched</title></circle>
+<circle cx="388.6" cy="544.5" r="3.5" fill="var(--teal)" stroke="var(--bg)" stroke-width="1.5"><title>PHP 8.4, day 5: 64.5% of version-reporting services counted patched</title></circle>
+<circle cx="454.3" cy="541.4" r="3.5" fill="var(--teal)" stroke="var(--bg)" stroke-width="1.5"><title>PHP 8.4, day 6: 66.0% of version-reporting services counted patched</title></circle>
+<circle cx="520.0" cy="537.6" r="3.5" fill="var(--teal)" stroke="var(--bg)" stroke-width="1.5"><title>PHP 8.4, day 7: 67.8% of version-reporting services counted patched</title></circle>
+<path d="M60.0,676.1 L125.7,604.3 L191.4,532.0 L257.1,526.0 L322.9,523.5 L388.6,521.0 L454.3,517.3 L520.0,514.5" fill="none" stroke="var(--teal)" stroke-width="2.2" stroke-linejoin="round" stroke-dasharray="8 3 2 3"/>
+<circle cx="60.0" cy="676.1" r="3.5" fill="var(--teal)" stroke="var(--bg)" stroke-width="1.5"><title>PHP 8.5, day 0: 1.9% of version-reporting services counted patched</title></circle>
+<circle cx="125.7" cy="604.3" r="3.5" fill="var(--teal)" stroke="var(--bg)" stroke-width="1.5"><title>PHP 8.5, day 1: 36.1% of version-reporting services counted patched</title></circle>
+<circle cx="191.4" cy="532.0" r="3.5" fill="var(--teal)" stroke="var(--bg)" stroke-width="1.5"><title>PHP 8.5, day 2: 70.5% of version-reporting services counted patched</title></circle>
+<circle cx="257.1" cy="526.0" r="3.5" fill="var(--teal)" stroke="var(--bg)" stroke-width="1.5"><title>PHP 8.5, day 3: 73.3% of version-reporting services counted patched</title></circle>
+<circle cx="322.9" cy="523.5" r="3.5" fill="var(--teal)" stroke="var(--bg)" stroke-width="1.5"><title>PHP 8.5, day 4: 74.5% of version-reporting services counted patched</title></circle>
+<circle cx="388.6" cy="521.0" r="3.5" fill="var(--teal)" stroke="var(--bg)" stroke-width="1.5"><title>PHP 8.5, day 5: 75.7% of version-reporting services counted patched</title></circle>
+<circle cx="454.3" cy="517.3" r="3.5" fill="var(--teal)" stroke="var(--bg)" stroke-width="1.5"><title>PHP 8.5, day 6: 77.5% of version-reporting services counted patched</title></circle>
+<circle cx="520.0" cy="514.5" r="3.5" fill="var(--teal)" stroke="var(--bg)" stroke-width="1.5"><title>PHP 8.5, day 7: 78.8% of version-reporting services counted patched</title></circle>
+<path d="M525.0,514.5 L531.0,514.5" fill="none" stroke="var(--teal)"/>
+<text x="534" y="518.5" class="nm">PHP 8.5  78.8%</text>
+<path d="M525.0,537.6 L531.0,537.6" fill="none" stroke="var(--teal)"/>
+<text x="534" y="541.6" class="nm">PHP 8.4  67.8%</text>
+<path d="M525.0,568.7 L531.0,568.7" fill="none" stroke="var(--teal)"/>
+<text x="534" y="572.7" class="nm">PHP 8.2  53.0%</text>
+<path d="M525.0,570.0 L531.0,583.7" fill="none" stroke="var(--teal)"/>
+<text x="534" y="587.7" class="nm">PHP 8.3  52.4%</text>
+<text x="16" y="748" class="note">Python: four security fixes (urllib3, cryptography, pyjwt, starlette) and 37 libraries&#x27; releases, April to August 2026.</text>
+<text x="16" y="764" class="note">Censys counts a service patched only after a rescan sees a fixed version; distributions that backport keep the old number.</text>
+<text x="16" y="780" class="note">Sources: nodejs.org download summaries; Censys ARC PHP2Shell (read 29 Oct 2026); ClickPy (read 28 Sept 2026).</text>
+</svg>
