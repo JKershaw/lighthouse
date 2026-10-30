@@ -1,6 +1,6 @@
 published: 2026-10-30
 summary: A week after the PHP and Node.js fixes of 21 October 2026, every fixed Node.js line and PHP branch had passed half in the two counts we followed each day, while more than half of the PHP services showing a version ran branches PHP no longer fixes.
-status: draft
+status: released
 investigation: software-updates
 
 # A week after two fixes

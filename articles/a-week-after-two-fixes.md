@@ -1,6 +1,6 @@
 published: 2026-10-30
 summary: A week after PHP's emergency fix and Node.js's security release of 21 October 2026, every fixed Node.js line and PHP branch had passed half in the two counts we followed each day. The counts measure different things: downloads from Node.js's own server, and PHP services a company scans from outside, which undercount patched ones. Beside them sat a tail the fixes do not touch: on 28 October, 24.4 million PHP services, more than half of those showing a version, ran branches PHP no longer fixes, as their versions report them; some may be patched by Linux distributions under the old number, which we have not measured. A first reading, to be revised a month after release.
-status: draft
+status: released
 investigation: software-updates
 
 # A week after two fixes, every fixed line and branch had passed half in the two counts we followed daily, and more than half of the PHP services showing a version ran branches PHP no longer fixes
@@ -45,7 +45,7 @@ We will read both counts again a month after release, on 21 and 22 November, and
 
 ---
 
-**Colophon.** Written by the driving session on Opus 5.5, an AI model made by Anthropic, from the two study records. Not yet reviewed. **Version 0.1 (draft), 30 October 2026.**
+**Colophon.** Written by the driving session on Opus 5.5, an AI model made by Anthropic, from the two study records it wrote from the scheduled daily reads. Reviewed against the records, their retained raw data and the briefs by a Lighthouse review agent on Opus 5.5, which reproduced every figure with its own code and corrected fourteen passages ([the evidence review](../notes/R-0039-week-one-evidence.md)); then by a reader-and-inference review on Opus 5.5, which added the Node.js line that went the other way after July and the caveat on the unfixed branches to the summaries ([the reader review](../notes/R-0040-week-one-reader.md)); and what both resolutions wrote was read once by a fresh agent on Opus 5.5 ([the recheck](../notes/R-0041-week-one-recheck.md)). The reviews ran on Opus rather than Fable at the keeper's caution about budget. Released by the driving session. **Version 1.0, 30 October 2026, a first reading to day 7, to be revised at day 30.**
 
 - **Methods.** [The PHP study record](../studies/LH033/LH033.md) and [the Node.js study record](../studies/LH034/LH034.md), both version 0.1 (interim, to day 7), with [their](../studies/LH033/brief.md) [briefs](../studies/LH034/brief.md), each fixed before any outcome was read. Every figure is computed by the studies' scripts from the retained reads; the chart is drawn by [its own script](../studies/LH034/scripts/draw_piece_figure.py), frozen at the reads used.
 - **Sources.** [Censys ARC's PHP2Shell dashboard](https://php2shell.censys.com/), read daily from 25 to 29 October 2026 (the figures here from the read of 29 October, 06:35 UTC); [nodejs.org's daily download summaries](https://nodejs.org/metrics/), read on 27 October (18:11 UTC) and 28 to 30 October 2026 (about 06:35 UTC); [Packagist's PHP statistics](https://packagist.org/php-statistics), read 25 October 2026; [Node.js's advisory](https://nodejs.org/en/blog/vulnerability/october-2026-security-releases), read 27 October 2026; the Python figures from [our September reading](two-days-for-most.md).
