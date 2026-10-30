@@ -36,7 +36,7 @@ Read AGENTS.md first: it is how Lighthouse works, and nothing here overrides it.
 AGENTS.md's three things wait for a person: a claim by Lighthouse that harm is happening now, a claim by Lighthouse that a named system is compromised, and anything irreversible outside the repository. For a run that nobody watches, these also wait:
 
 - contacting anyone outside Lighthouse (draft the message in the repository; the keeper sends it);
-- changing the charter, AGENTS.md's rules, CLAUDE.md or this file;
+- changing the charter, AGENTS.md's rules (its sections on how a session goes, rules, evidence and writing), CLAUDE.md or this file. Keeping AGENTS.md's "Where things stand", programme.md, the investigation pages and the front page current is ordinary work after a release or a finding, and does not wait;
 - spending far beyond a session's usual bound, or starting a new kind of standing cost.
 
 Mark the row `keeper`, put the question in its note with the options and your recommendation, and carry on with everything else; a block is expected and costs nothing. Where your harness can file an issue on the repository (or through Harbour), file one titled with the row's id, so the keeper sees it. The keeper answers by changing the row or adding a note, in their own session.
