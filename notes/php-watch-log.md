@@ -6,6 +6,10 @@ date: 2026-10-23
 
 A few plain lines a day on what the fixed PHP panels saw, newest first, each linking the day's checkpoints. These are working records: what a source said and when Lighthouse read it, not reviewed findings. Anything that would change [the public account](../articles/php-emergency-first-reading.md) is flagged here and goes through review before it reaches that page. How the watch runs is in [the continuation plan](php-watch-continuation-2026-10-23.md).
 
+## 31 October 2026
+
+- **How the 23 October instruction travels, interim:** in 22 reads from 23 October 17:15 UTC to 30 October 13:04 UTC nothing in the fixed panel changed class. A week after PHP named CVE-2026-115560, none of the seven trackers holds a record for it (the CVE Program's API still answers that the record does not exist); CERT-EU still carries the instruction without PHP's condition and Cloudflare still links PHP's notice without the instruction, their visible text unchanged; CISA's and Akamai's pages refused every read. The read due at about 18:30 UTC on 30 October was not made. No daily read today; the Monday and Thursday reads begin on 2 November. Not flagged: the public account makes no claim about the trackers ([LH030 interim record](../studies/LH030/LH030.md)).
+
 ## 30 October 2026
 
 - **How the 23 October instruction travels:** no change; no tracker holds a record for CVE-2026-115560 ([LH030](../studies/LH030/checkpoints/2026-10-30.md)).
