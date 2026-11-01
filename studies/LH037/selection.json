@@ -1,0 +1,117 @@
+{
+  "source": "studies/LH031/data/read-2026-10-23T1845Z/feed.raw",
+  "catalogVersion": "2026.10.23",
+  "window": [
+    "2023-01-01",
+    "2026-10-20"
+  ],
+  "excluded": [
+    "PHP"
+  ],
+  "cut_at_20th": 10,
+  "vendors_counted": 216,
+  "panel": [
+    {
+      "vendorProject": "Microsoft",
+      "kev_entries": 142
+    },
+    {
+      "vendorProject": "Apple",
+      "kev_entries": 46
+    },
+    {
+      "vendorProject": "Cisco",
+      "kev_entries": 40
+    },
+    {
+      "vendorProject": "Google",
+      "kev_entries": 31
+    },
+    {
+      "vendorProject": "Ivanti",
+      "kev_entries": 27
+    },
+    {
+      "vendorProject": "Fortinet",
+      "kev_entries": 23
+    },
+    {
+      "vendorProject": "Adobe",
+      "kev_entries": 23
+    },
+    {
+      "vendorProject": "Linux",
+      "kev_entries": 22
+    },
+    {
+      "vendorProject": "Oracle",
+      "kev_entries": 17
+    },
+    {
+      "vendorProject": "Apache",
+      "kev_entries": 16
+    },
+    {
+      "vendorProject": "Citrix",
+      "kev_entries": 16
+    },
+    {
+      "vendorProject": "D-Link",
+      "kev_entries": 14
+    },
+    {
+      "vendorProject": "Palo Alto Networks",
+      "kev_entries": 12
+    },
+    {
+      "vendorProject": "Synacor",
+      "kev_entries": 12
+    },
+    {
+      "vendorProject": "Android",
+      "kev_entries": 12
+    },
+    {
+      "vendorProject": "Samsung",
+      "kev_entries": 12
+    },
+    {
+      "vendorProject": "Zyxel",
+      "kev_entries": 10
+    },
+    {
+      "vendorProject": "SonicWall",
+      "kev_entries": 10
+    },
+    {
+      "vendorProject": "Roundcube",
+      "kev_entries": 10
+    },
+    {
+      "vendorProject": "VMware",
+      "kev_entries": 10
+    }
+  ],
+  "next_five_outside": [
+    {
+      "vendorProject": "Qualcomm",
+      "kev_entries": 9
+    },
+    {
+      "vendorProject": "Progress",
+      "kev_entries": 7
+    },
+    {
+      "vendorProject": "SolarWinds",
+      "kev_entries": 7
+    },
+    {
+      "vendorProject": "Juniper",
+      "kev_entries": 7
+    },
+    {
+      "vendorProject": "Arm",
+      "kev_entries": 6
+    }
+  ]
+}
