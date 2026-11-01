@@ -16,7 +16,7 @@ Lighthouse watches for what AI systems do on the internet and what their activit
 ## Questions
 
 1. **The core watch** ([LH036](../studies/LH036/brief.md), running from 1 November 2026). For CVE-2026-98432: how EPSS, CISA's catalogue, the CVE record's scoring and enrichment, NVD and the references move, read back to 15 October; and when each named distribution release's security channel carries a fix. Twice a week to mid January 2027.
-2. **The disclosure timeline.** A dated reconstruction from primary sources: report, fix, CVE, distribution advisories, Anthropic's post, downstream notices; set beside the policies each party states (Anthropic's 90 days and 45 more, the kernel security team's, and the linux-distros list's). The report date is not public, and the timeline records it as unknown unless a source gives it; asking Anthropic or the kernel security team is optional and the keeper's choice. Brief to come.
+2. **The disclosure timeline.** A dated reconstruction from primary sources: report, fix, CVE, distribution advisories, Anthropic's post, downstream notices; set beside the policies each party states (Anthropic's 90 days and 45 more, the kernel security team's, and the linux-distros list's). The report date is not public; the timeline records it as unknown unless a public source gives it. Brief to come.
 3. **How the post's five chains were scored.** Chrome, Safari, Android, Windows and Linux: severity, EPSS and CISA's catalogue for each flaw the post names, a set chosen by the post, not by us. Five cases, not a sample. Brief to come.
 4. **Later, an essay**: what responsible disclosure means when the finder is a model and a working exploit runs in under an hour. It waits for the evidence.
 

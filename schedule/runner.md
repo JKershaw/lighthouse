@@ -35,13 +35,13 @@ Read AGENTS.md first: it is how Lighthouse works, and nothing here overrides it.
 
 AGENTS.md's three things wait for a person: a claim by Lighthouse that harm is happening now, a claim by Lighthouse that a named system is compromised, and anything irreversible outside the repository. For a run that nobody watches, these also wait:
 
-- contacting anyone outside Lighthouse (draft the message in the repository; the keeper sends it);
+- contacting anyone outside Lighthouse. Lighthouse works from public sources and does not contact outside organisations (the keeper, 1 November 2026): never draft outreach, and never write a row that asks a question of an outsider. Where public sources are silent, the record says the thing is unknown;
 - changing the charter, AGENTS.md's rules (its sections on how a session goes, rules, evidence and writing), CLAUDE.md or this file. Keeping AGENTS.md's "Where things stand", programme.md, the investigation pages and the front page current is ordinary work after a release or a finding, and does not wait;
 - taking on a paid service, an account or any standing cost outside the agent runs themselves.
 
 There is no spending limit on a run itself: do what it takes to keep the table current and the work moving, and record the spend in the commit message and the run's line. The keeper watches the total.
 
-Mark the row `keeper`, put the question in its note with the options and your recommendation, and carry on with everything else; a block is expected and costs nothing. Where your harness can file an issue on the repository (or through Harbour), file one titled with the row's id, so the keeper sees it. The keeper answers by changing the row or adding a note, in their own session.
+Mark the row `keeper`, put the question in its note with the options and your recommendation, and carry on with everything else; a block is expected and costs nothing. A `keeper` row holds a decision only the keeper can make; it never asks the keeper to do work, and no run creates work for the keeper. Rows come from briefs, records and what the keeper has asked for in their own words, not from a remark in conversation. Where your harness can file an issue on the repository (or through Harbour), file one titled with the row's id, once, so the keeper sees it; later runs do not raise it again in issues, commit messages or reports. The keeper answers by changing the row or adding a note, in their own session, whenever they choose; a `keeper` row never lapses and is never counted against anyone.
 
 A piece whose reviews find nothing that must be fixed is released, as AGENTS.md says; that does not wait.
 
