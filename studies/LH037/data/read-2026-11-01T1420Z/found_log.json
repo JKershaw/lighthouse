@@ -1,0 +1,112 @@
+[
+  {
+    "stratum": "rule_panel",
+    "vendor": "Cisco",
+    "kind": "advisories",
+    "name": "cisco__cisco-sa-php-october26",
+    "url": "https://sec.cloudapps.cisco.com/security/center/content/CiscoSecurityAdvisory/cisco-sa-php-october26-Jj384Daq",
+    "start_utc": "2026-11-01T14:21:21.540214+00:00",
+    "finish_utc": "2026-11-01T14:21:22.275569+00:00",
+    "status": 200,
+    "final_url": "https://sec.cloudapps.cisco.com/security/center/content/CiscoSecurityAdvisory/cisco-sa-php-october26-Jj384Daq",
+    "content_type": "text/html;charset=ISO-8859-1",
+    "last_modified": "",
+    "bytes": 237855,
+    "sha256": "438ed928364c8598b1a3cd8e042de7a7cff00f8258dc4af1dae720b70d83bcf4",
+    "mentions": {
+      "CVE-2026-109618": 6,
+      "CVE-2026-109619": 6,
+      "CVE-2026-115560": 0,
+      "PHP": 18
+    },
+    "file": "cisco__cisco-sa-php-october26.raw.gz"
+  },
+  {
+    "stratum": "rule_panel",
+    "vendor": "Fortinet",
+    "kind": "advisories",
+    "name": "fortinet__FG-IR-26-186",
+    "url": "https://fortiguard.fortinet.com/psirt/FG-IR-26-186",
+    "start_utc": "2026-11-01T14:21:22.287304+00:00",
+    "finish_utc": "2026-11-01T14:21:23.732204+00:00",
+    "status": 200,
+    "final_url": "https://fortiguard.fortinet.com/psirt/FG-IR-26-186",
+    "content_type": "text/html; charset=utf-8",
+    "last_modified": "",
+    "bytes": 105267,
+    "sha256": "610782b20d7205e337ddd09f8e3bc275173e0c9c5157f7acd163093fc7d686bd",
+    "mentions": {
+      "CVE-2026-109618": 5,
+      "CVE-2026-109619": 2,
+      "CVE-2026-115560": 0,
+      "PHP": 2
+    },
+    "file": "fortinet__FG-IR-26-186.raw.gz"
+  },
+  {
+    "stratum": "rule_panel",
+    "vendor": "Fortinet",
+    "kind": "advisories",
+    "name": "fortinet__FG-IR-26-186_csaf",
+    "url": "https://filestore.fortinet.com/fortiguard/psirt/csaf_php-core-rce-vulnerability-patches-cve-2026-109618-and-cve-2026-109619_fg-ir-26-186.json",
+    "start_utc": "2026-11-01T14:21:23.736789+00:00",
+    "finish_utc": "2026-11-01T14:21:25.027446+00:00",
+    "status": 200,
+    "final_url": "https://filestore.fortinet.com/fortiguard/psirt/csaf_php-core-rce-vulnerability-patches-cve-2026-109618-and-cve-2026-109619_fg-ir-26-186.json",
+    "content_type": "application/json",
+    "last_modified": "Wed, 28 Oct 2026 08:54:17 GMT",
+    "bytes": 764,
+    "sha256": "be4127049786dd36b8263cb8b9939a0b286d3297f66fe41a1b791cd378ef8018",
+    "mentions": {
+      "CVE-2026-109618": 1,
+      "CVE-2026-109619": 1,
+      "CVE-2026-115560": 0,
+      "PHP": 0
+    },
+    "file": "fortinet__FG-IR-26-186_csaf.raw.gz"
+  },
+  {
+    "stratum": "rule_panel",
+    "vendor": "Zyxel",
+    "kind": "advisories",
+    "name": "zyxel__statement-2026-10-28",
+    "url": "https://www.zyxel.com/global/en/support/security-advisories/zyxel-statement-for-php-core-rce-vulnerabilities-cve-2026-109618-and-cve-2026-109619-10-28-2026",
+    "start_utc": "2026-11-01T14:21:25.027845+00:00",
+    "finish_utc": "2026-11-01T14:21:25.447313+00:00",
+    "status": 200,
+    "final_url": "https://www.zyxel.com/global/en/support/security-advisories/zyxel-statement-for-php-core-rce-vulnerabilities-cve-2026-109618-and-cve-2026-109619-10-28-2026",
+    "content_type": "text/html; charset=UTF-8",
+    "last_modified": "Sun, 01 Nov 2026 13:38:33 GMT",
+    "bytes": 101408,
+    "sha256": "9d9c6f7141019742720472f016ab841d2ffb5ba2e9d215767737339bb42cfc72",
+    "mentions": {
+      "CVE-2026-109618": 17,
+      "CVE-2026-109619": 17,
+      "CVE-2026-115560": 0,
+      "PHP": 24
+    },
+    "file": "zyxel__statement-2026-10-28.raw.gz"
+  },
+  {
+    "stratum": "named_stratum",
+    "vendor": "Splunk",
+    "kind": "advisories",
+    "name": "splunk__SVD-2026-1013",
+    "url": "https://advisory.splunk.com/advisories/SVD-2026-1013",
+    "start_utc": "2026-11-01T14:21:25.451047+00:00",
+    "finish_utc": "2026-11-01T14:21:25.682342+00:00",
+    "status": 200,
+    "final_url": "https://advisory.splunk.com/advisories/SVD-2026-1013",
+    "content_type": "text/html; charset=utf-8",
+    "last_modified": "Wed, 28 Oct 2026 18:26:03 GMT",
+    "bytes": 9394,
+    "sha256": "b0fb227b28ac08bc9f626a7b8c52d2e5a8ae3bef4be92842204750730b3863e8",
+    "mentions": {
+      "CVE-2026-109618": 4,
+      "CVE-2026-109619": 4,
+      "CVE-2026-115560": 0,
+      "PHP": 17
+    },
+    "file": "splunk__SVD-2026-1013.raw.gz"
+  }
+]

@@ -1,30 +1,170 @@
 {
-  "cves": ["CVE-2026-109618", "CVE-2026-109619", "CVE-2026-115560"],
+  "cves": [
+    "CVE-2026-109618",
+    "CVE-2026-109619",
+    "CVE-2026-115560"
+  ],
   "note": "Routes fixed 1 November 2026 from the writer's knowledge of each vendor's advisory channel, before any was opened for this study. 'advisories' grows: an advisory URL found through a route is added with the read that found it, and read at every later read. A route that fails at the baseline may be replaced once, by a dated amendment in the brief.",
   "rule_panel": {
-    "Microsoft": {"routes": {"msrc_109618": "https://api.msrc.microsoft.com/sug/v2.0/en-US/affectedProduct?%24filter=cveNumber%20eq%20%27CVE-2026-109618%27", "msrc_109619": "https://api.msrc.microsoft.com/sug/v2.0/en-US/affectedProduct?%24filter=cveNumber%20eq%20%27CVE-2026-109619%27"}, "advisories": {}},
-    "Apple": {"routes": {"security_releases": "https://support.apple.com/en-us/100100"}, "advisories": {}},
-    "Cisco": {"routes": {"psirt_rss": "https://sec.cloudapps.cisco.com/security/center/psirtrss20/CiscoSecurityAdvisory.xml"}, "advisories": {}},
-    "Google": {"routes": {"gcp_bulletins": "https://cloud.google.com/feeds/gcp-security-bulletins.xml"}, "advisories": {}},
-    "Ivanti": {"routes": {"advisory_blog": "https://www.ivanti.com/blog/topics/security-advisory"}, "advisories": {}},
-    "Fortinet": {"routes": {"psirt_rss": "https://filestore.fortinet.com/fortiguard/rss/ir.xml"}, "advisories": {}},
-    "Adobe": {"routes": {"bulletins": "https://helpx.adobe.com/security/security-bulletin.html"}, "advisories": {}},
-    "Linux": {"routes": {}, "no_route": "The Linux kernel project's CVE team publishes advisories for the kernel only; no channel for software it does not maintain. Recorded as no route (unknown), not as no statement.", "advisories": {}},
-    "Oracle": {"routes": {"oracle_linux_109618": "https://linux.oracle.com/cve/CVE-2026-109618.html", "oracle_linux_109619": "https://linux.oracle.com/cve/CVE-2026-109619.html", "security_rss": "https://www.oracle.com/ocom/groups/public/@otn/documents/webcontent/rss-otn-sec.xml"}, "advisories": {}},
-    "Apache": {"routes": {}, "no_route": "The Apache Software Foundation has no single advisory channel across its projects, and PHP is not one of them. Recorded as no route (unknown), not as no statement.", "advisories": {}},
-    "Citrix": {"routes": {"bulletins_rss": "https://support.citrix.com/feed/products/all/securitybulletins.rss"}, "advisories": {}},
-    "D-Link": {"routes": {"announcements": "https://supportannouncement.us.dlink.com/"}, "advisories": {}},
-    "Palo Alto Networks": {"routes": {"rss": "https://security.paloaltonetworks.com/rss.xml", "advisory_109619": "https://security.paloaltonetworks.com/CVE-2026-109619"}, "advisories": {}, "overlap": "Its advisory for CVE-2026-109618, the CSAF document and Unit 42's brief are read by LH031 (amendment 5) and are used from there, not re-read."},
-    "Synacor": {"routes": {"zimbra_security_center": "https://wiki.zimbra.com/wiki/Security_Center"}, "advisories": {}},
-    "Android": {"routes": {"bulletins": "https://source.android.com/docs/security/bulletin"}, "advisories": {}},
-    "Samsung": {"routes": {"mobile_updates": "https://security.samsungmobile.com/securityUpdate.smsb"}, "advisories": {}},
-    "Zyxel": {"routes": {"advisories": "https://www.zyxel.com/global/en/support/security-advisories"}, "advisories": {}},
-    "SonicWall": {"routes": {"vuln_list": "https://psirt.global.sonicwall.com/vuln-list"}, "advisories": {}},
-    "Roundcube": {"routes": {"news": "https://roundcube.net/news"}, "advisories": {}},
-    "VMware": {"routes": {"broadcom_advisories": "https://support.broadcom.com/web/ecx/security-advisory"}, "advisories": {}}
+    "Microsoft": {
+      "routes": {
+        "msrc_109618": "https://api.msrc.microsoft.com/sug/v2.0/en-US/affectedProduct?%24filter=cveNumber%20eq%20%27CVE-2026-109618%27",
+        "msrc_109619": "https://api.msrc.microsoft.com/sug/v2.0/en-US/affectedProduct?%24filter=cveNumber%20eq%20%27CVE-2026-109619%27"
+      },
+      "advisories": {}
+    },
+    "Apple": {
+      "routes": {
+        "security_releases": "https://support.apple.com/en-us/100100"
+      },
+      "advisories": {}
+    },
+    "Cisco": {
+      "routes": {
+        "psirt_rss": "https://sec.cloudapps.cisco.com/security/center/psirtrss20/CiscoSecurityAdvisory.xml"
+      },
+      "advisories": {
+        "cisco-sa-php-october26": {
+          "url": "https://sec.cloudapps.cisco.com/security/center/content/CiscoSecurityAdvisory/cisco-sa-php-october26-Jj384Daq",
+          "found_at_read": "2026-11-01T1420Z"
+        }
+      }
+    },
+    "Google": {
+      "routes": {
+        "gcp_bulletins": "https://cloud.google.com/feeds/gcp-security-bulletins.xml"
+      },
+      "advisories": {}
+    },
+    "Ivanti": {
+      "routes": {
+        "advisory_blog": "https://www.ivanti.com/blog/topics/security-advisory"
+      },
+      "advisories": {}
+    },
+    "Fortinet": {
+      "routes": {
+        "psirt_rss": "https://filestore.fortinet.com/fortiguard/rss/ir.xml"
+      },
+      "advisories": {
+        "FG-IR-26-186": {
+          "url": "https://fortiguard.fortinet.com/psirt/FG-IR-26-186",
+          "found_at_read": "2026-11-01T1420Z"
+        },
+        "FG-IR-26-186_csaf": {
+          "url": "https://filestore.fortinet.com/fortiguard/psirt/csaf_php-core-rce-vulnerability-patches-cve-2026-109618-and-cve-2026-109619_fg-ir-26-186.json",
+          "found_at_read": "2026-11-01T1420Z"
+        }
+      }
+    },
+    "Adobe": {
+      "routes": {
+        "bulletins": "https://helpx.adobe.com/security/security-bulletin.html"
+      },
+      "advisories": {}
+    },
+    "Linux": {
+      "routes": {},
+      "no_route": "The Linux kernel project's CVE team publishes advisories for the kernel only; no channel for software it does not maintain. Recorded as no route (unknown), not as no statement.",
+      "advisories": {}
+    },
+    "Oracle": {
+      "routes": {
+        "oracle_linux_109618": "https://linux.oracle.com/cve/CVE-2026-109618.html",
+        "oracle_linux_109619": "https://linux.oracle.com/cve/CVE-2026-109619.html",
+        "security_rss": "https://www.oracle.com/ocom/groups/public/@otn/documents/webcontent/rss-otn-sec.xml"
+      },
+      "advisories": {}
+    },
+    "Apache": {
+      "routes": {},
+      "no_route": "The Apache Software Foundation has no single advisory channel across its projects, and PHP is not one of them. Recorded as no route (unknown), not as no statement.",
+      "advisories": {}
+    },
+    "Citrix": {
+      "routes": {
+        "bulletins_rss": "https://support.citrix.com/feed/products/all/securitybulletins.rss"
+      },
+      "advisories": {}
+    },
+    "D-Link": {
+      "routes": {
+        "announcements": "https://supportannouncement.us.dlink.com/"
+      },
+      "advisories": {}
+    },
+    "Palo Alto Networks": {
+      "routes": {
+        "rss": "https://security.paloaltonetworks.com/rss.xml",
+        "advisory_109619": "https://security.paloaltonetworks.com/CVE-2026-109619"
+      },
+      "advisories": {},
+      "overlap": "Its advisory for CVE-2026-109618, the CSAF document and Unit 42's brief are read by LH031 (amendment 5) and are used from there, not re-read."
+    },
+    "Synacor": {
+      "routes": {
+        "zimbra_security_center": "https://wiki.zimbra.com/wiki/Security_Center"
+      },
+      "advisories": {}
+    },
+    "Android": {
+      "routes": {
+        "bulletins": "https://source.android.com/docs/security/bulletin"
+      },
+      "advisories": {}
+    },
+    "Samsung": {
+      "routes": {
+        "mobile_updates": "https://security.samsungmobile.com/securityUpdate.smsb"
+      },
+      "advisories": {}
+    },
+    "Zyxel": {
+      "routes": {
+        "advisories": "https://www.zyxel.com/global/en/support/security-advisories"
+      },
+      "advisories": {
+        "statement-2026-10-28": {
+          "url": "https://www.zyxel.com/global/en/support/security-advisories/zyxel-statement-for-php-core-rce-vulnerabilities-cve-2026-109618-and-cve-2026-109619-10-28-2026",
+          "found_at_read": "2026-11-01T1420Z"
+        }
+      }
+    },
+    "SonicWall": {
+      "routes": {
+        "vuln_list": "https://psirt.global.sonicwall.com/vuln-list"
+      },
+      "advisories": {}
+    },
+    "Roundcube": {
+      "routes": {
+        "news": "https://roundcube.net/news"
+      },
+      "advisories": {}
+    },
+    "VMware": {
+      "routes": {
+        "broadcom_advisories": "https://support.broadcom.com/web/ecx/security-advisory"
+      },
+      "advisories": {}
+    }
   },
   "named_stratum": {
-    "Splunk": {"routes": {"advisories": "https://advisory.splunk.com/"}, "advisories": {}}
+    "Splunk": {
+      "routes": {
+        "advisories": "https://advisory.splunk.com/"
+      },
+      "advisories": {
+        "SVD-2026-1013": {
+          "url": "https://advisory.splunk.com/advisories/SVD-2026-1013",
+          "found_at_read": "2026-11-01T1420Z"
+        }
+      }
+    }
   },
-  "named_stratum_also_in_rule_panel": ["Palo Alto Networks", "Cisco", "Fortinet"]
+  "named_stratum_also_in_rule_panel": [
+    "Palo Alto Networks",
+    "Cisco",
+    "Fortinet"
+  ]
 }

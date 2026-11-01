@@ -51,6 +51,8 @@ A baseline read as soon as this protocol is on main, labelled with the UTC minut
 
 Palo Alto Networks' advisory for CVE-2026-109618, its CSAF document and Unit 42's brief are LH031's (amendment 5) and are used from LH031's reads with that disclosed; LH037's own GETs for the vendor are its feed and its advisory for CVE-2026-109619. LH031's retained KEV catalogue is used only to choose the panel, a use that touches no outcome of either study. The media sweep's vendor leads are disclosed above and not counted. Nothing else reuses another study's data.
 
+*Note, 1 November 2026, after the baseline; no measure changes.* LH032 follows the Dutch NCSC's list of products embedding PHP, which gathers vendors' statements, some of this panel's vendors among them, on the list's own clock. LH037 reads the vendors' own channels and uses none of LH032's data; the record may set the two side by side, labelled as two instruments. Also at the baseline, the collector gained `--found`, which fetches the statements found at a read into that read's directory with their own log; it reads nothing else.
+
 ## Ceiling, stopping and what would leave it inconclusive
 
 At most 60 GETs and 100 MiB per read, and 11 reads after the baseline; no subagent is needed for collection. The study stops after the read of 3 December 2026 (or the last read made before it), and the record follows by 18 December. Any piece needs its own reviews.

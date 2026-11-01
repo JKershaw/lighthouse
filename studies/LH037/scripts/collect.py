@@ -17,17 +17,23 @@ PANEL = json.loads((ROOT / 'panel.json').read_text())
 CEILING = 4 * 1024 * 1024
 parser = argparse.ArgumentParser()
 parser.add_argument('--read', required=True)
+parser.add_argument('--found', action='store_true', help='fetch only the advisories found at this read, into the existing read directory, logging to found_log.json')
 args = parser.parse_args()
 datetime.strptime(args.read, '%Y-%m-%dT%H%MZ')
 OUT = ROOT / 'data' / ('read-' + args.read)
-assert not OUT.exists(), 'read already exists; do not overwrite'
-OUT.mkdir(parents=True)
+if args.found:
+    assert OUT.exists() and not (OUT / 'found_log.json').exists()
+else:
+    assert not OUT.exists(), 'read already exists; do not overwrite'
+    OUT.mkdir(parents=True)
 targets = []
 for stratum in ('rule_panel', 'named_stratum'):
     for vendor, entry in PANEL[stratum].items():
         for kind in ('routes', 'advisories'):
             for key, value in entry[kind].items():
                 url = value if isinstance(value, str) else value['url']
+                if args.found and not (kind == 'advisories' and value.get('found_at_read') == args.read):
+                    continue
                 targets.append((stratum, vendor, kind, key, url))
 assert len(targets) <= 60
 php = re.compile(rb'\bPHP\b')
@@ -58,4 +64,4 @@ for stratum, vendor, kind, key, url in targets:
         row.update(finish_utc=datetime.now(timezone.utc).isoformat(), error=type(error).__name__ + ': ' + str(error))
     rows.append(row)
     print(json.dumps({k: row.get(k) for k in ('name', 'status', 'bytes', 'mentions', 'error')}), flush=True)
-(OUT / 'read_log.json').write_text(json.dumps(rows, indent=2) + '\n')
+(OUT / ('found_log.json' if args.found else 'read_log.json')).write_text(json.dumps(rows, indent=2) + '\n')
