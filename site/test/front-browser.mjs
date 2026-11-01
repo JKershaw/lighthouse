@@ -9,6 +9,7 @@ const site=path.resolve(path.dirname(fileURLToPath(import.meta.url)),'..');
 const output=path.join(site,'_site'), shots=path.join(site,'test/screenshots/front-32-33');fs.mkdirSync(shots,{recursive:true});
 const types={'.html':'text/html','.svg':'image/svg+xml','.css':'text/css','.js':'text/javascript','.woff2':'font/woff2'};
 const server=http.createServer((req,res)=>{let file=path.join(output,decodeURIComponent(new URL(req.url,'http://localhost').pathname));try{if(fs.statSync(file).isDirectory())file=path.join(file,'index.html');if(!file.startsWith(output+path.sep))throw Error();res.setHeader('Content-Type',types[path.extname(file)]||'application/octet-stream');res.end(fs.readFileSync(file));}catch{res.writeHead(404);res.end();}});await new Promise(r=>server.listen(0,'127.0.0.1',r));
+const readmeLastH2=[...fs.readFileSync(path.join(site,'..','README.md'),'utf8').matchAll(/^## (.+)$/gm)].at(-1)[1].trim();
 const browser=await chromium.launch({executablePath:process.env.CHROMIUM_PATH,headless:true,args:['--no-sandbox','--disable-gpu','--disable-dev-shm-usage']});
 try{
   const origin=`http://127.0.0.1:${server.address().port}`;
@@ -24,13 +25,19 @@ try{
     const lead=await page.locator('.front-lead h1 a').getAttribute('href');
     assert.ok(!(await page.locator('.front-section .compact-entry h3 a').evaluateAll(as=>as.map(a=>a.getAttribute('href')))).includes(lead),'the lead is not repeated in Latest');
     assert.equal(await page.evaluate(()=>document.documentElement.scrollWidth),390);
-    assert.ok((await page.locator('.front-lead figcaption').textContent()).trim().length>0);
+    // The caption warns of later notices only when the lead is a developing piece.
+    const developing=/Developing/.test(await page.locator('.front-lead .when').textContent());
+    assert.equal(/later dated notices/.test(await page.locator('.front-lead figcaption').textContent()),developing);
+    // No entry repeats its own date as a revision date.
+    for(const line of await page.locator('.compact-entry .when').allTextContents())assert.doesNotMatch(line,/(\d{1,2} \w+ \d{4}) · [A-Z][a-z ]+ \1/);
     assert.equal(await page.locator('.front-background').getAttribute('open'),null);
     await page.locator('.front-background summary').focus();await page.keyboard.press('Enter');
     assert.notEqual(await page.locator('.front-background').getAttribute('open'),null);
-    assert.ok((await page.locator('.front-background .prose').textContent()).trim().length>0);
+    // README's remainder, through its last section, stays behind the disclosure.
+    assert.ok(await page.locator('.front-background .prose h2').count()>0);
+    assert.equal(await page.locator('.front-background .prose h2').last().textContent(),readmeLastH2);
     await page.locator('.front-background summary').click();
-    for(const target of await page.locator('.compact-entry h3 a,.section-link').all())assert.ok((await target.boundingBox()).height>=44);
+    for(const target of await page.locator('.compact-entry h3 a,.investigation-card h3 a,.section-link,.footer nav a').all())assert.ok((await target.boundingBox()).height>=44);
     await page.screenshot({path:path.join(shots,`home-${theme}-390.png`),fullPage:true});
     for(const [route,title] of [['watch','The watch'],['articles','Findings'],['essays','Essays'],['map','The map']]){
       await page.goto(`${origin}/${route}/`,{waitUntil:'domcontentloaded'});assert.equal(await page.locator('main h1').textContent(),title);assert.equal(await page.evaluate(()=>document.documentElement.scrollWidth),390);

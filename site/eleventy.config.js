@@ -16,7 +16,7 @@ import { atomFeed, relevantFeeds } from "./lib/feed.js";
 import { writeOfflineFiles } from "./lib/offline.js";
 import sideNotes from "./lib/side-notes.js";
 import { buildSchedule } from "./lib/schedule.js";
-import { homeContent } from "./lib/front.js";
+import { homeContent, withoutTitle } from "./lib/front.js";
 
 const siteDir = path.dirname(fileURLToPath(import.meta.url));
 const root = path.resolve(siteDir, "..");
@@ -93,6 +93,7 @@ export default function (eleventyConfig) {
   eleventyConfig.addFilter("mdInline", (value, page) => (md ? md.renderInline(String(value || ""), { page }) : value));
 
   eleventyConfig.addFilter("homeContent", homeContent);
+  eleventyConfig.addFilter("withoutTitle", withoutTitle);
   eleventyConfig.addFilter("sectionById", (sections, id) => sections.find((section) => section.id === id));
 
   // Illustrations become figures with their italic captions, each linked to

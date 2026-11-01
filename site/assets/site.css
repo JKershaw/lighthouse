@@ -594,14 +594,13 @@ td:last-child, th:last-child { padding-right: 0; }
 .section-link { display: inline-flex; align-items: center; min-height: 44px; font-family: var(--sans); font-size: .88rem; gap: .4em; margin-top: .5rem; }
 .section-links { display: flex; flex-wrap: wrap; column-gap: 1.5rem; margin: 0; }
 .investigation-cards { list-style: none; padding: 0; margin: 0; display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 1rem; }
-.investigation-card { border: 1px solid var(--rule); border-radius: 3px; padding: .8rem 1rem; }
+.investigation-card { border: 1px solid var(--rule); border-radius: 3px; padding: .8rem 1rem; margin: 0; }
 .investigation-card h3 { font-size: 1.05rem; line-height: 1.35; margin: 0 0 .4rem; }
 .investigation-card p { font-family: var(--sans); font-size: .88rem; line-height: 1.45; margin: .35rem 0 0; }
 .investigation-card .when { font-size: .76rem; }
 .front-background { border-top: 1px solid var(--rule); margin-top: 2.5rem; padding-top: .7rem; }
 .front-background > summary { cursor: pointer; font-family: var(--sans); font-size: .9rem; min-height: 44px; padding: .5rem 0; }
 .front-background > .prose { padding-top: 1rem; }
-.front-background h1 { font-size: 1.4rem; }
 .front-background:focus-within { outline-offset: 4px; }
 .section-front .section-lead { padding: 1rem 0; border-top: 2px solid var(--accent); border-bottom: 1px solid var(--rule); margin-bottom: .5rem; }
 .section-lead h2 { font-size: 1.4rem; margin: .2rem 0 .7rem; }
@@ -609,7 +608,9 @@ td:last-child, th:last-child { padding-right: 0; }
 .section-front .compact-entry h3 { font-size: 1.1rem; }
 @media (max-width: 44rem) {
   .investigation-cards { grid-template-columns: minmax(0, 1fr); }
-  .compact-entry h3 a { min-height: 44px; }
+  .compact-entry h3 a, .investigation-card h3 a { display: flex; align-items: center; min-height: 44px; }
+  .footer nav a { display: inline-flex; align-items: center; min-height: 44px; }
+  .footer nav ul { row-gap: 0; }
   .front-lead h1 { font-size: 1.65rem; }
   .front-lead figure img { max-height: 32rem; }
   .masthead nav a { display: inline-flex; align-items: center; min-height: 44px; }

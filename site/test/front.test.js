@@ -1,6 +1,6 @@
 import { test } from 'node:test';
 import assert from 'node:assert/strict';
-import { frontInfo, homeContent, LATEST_COUNT } from '../lib/front.js';
+import { frontInfo, homeContent, withoutTitle, LATEST_COUNT } from '../lib/front.js';
 const finding = {path:'articles/finding.md',url:'/articles/finding/',title:'A finding',section:'articles',status:'released',published:'1 October 2026',summary:'A complete summary with a limit.'};
 const draft = {...finding,path:'articles/draft.md',draft:true,status:'draft'};
 const essay = {...finding,path:'essays/reading.md',section:'essays',essay:true};
@@ -39,12 +39,19 @@ test('latest lists released findings and essays by last activity, without the le
   assert.equal(frontInfo({...data(),pieces:many,essays:[]}).latest.length,LATEST_COUNT);
 });
 
-test('investigations put active ones first, then by title',()=>{
-  const investigations=[{title:'B resting',attention:'resting'},{title:'C active',attention:'active'},{title:'A active',attention:'active'}];
-  assert.deepEqual(frontInfo({...data(),investigations}).investigations.map(i=>i.title),['A active','C active','B resting']);
+test('investigations put active ones first, keeping their title order, each with a line of facts',()=>{
+  const inv=(title,attention,more={})=>({title,attention,started:'',studies:[],pieces:[],...more});
+  const investigations=[inv('A active','active',{started:'1 November 2026',studies:[{}]}),inv('B resting','resting'),inv('C active','active',{pieces:[{},{draft:true},{short:true}]}),inv('D unlabelled','')];
+  const cards=frontInfo({...data(),investigations}).investigations;
+  assert.deepEqual(cards.map(i=>i.title),['A active','C active','B resting','D unlabelled']);
+  assert.deepEqual(cards[0].facts,['Attention: active','since 1 November 2026','1 study']);
+  assert.deepEqual(cards[1].facts,['Attention: active','1 piece']);
+  assert.deepEqual(cards[3].facts,[]);
 });
 
 test('README splits into a visible introduction and the background behind the disclosure',()=>{
   assert.deepEqual(homeContent('<h1>Lighthouse</h1>\n<p>Why.</p>\n<p>More.</p>\n<h2>Where</h2>'),{intro:'<p>Why.</p>',background:'<p>More.</p>\n<h2>Where</h2>'});
   assert.deepEqual(homeContent('<h1>Lighthouse</h1>\n<h2>Only headings</h2>'),{intro:'',background:'<h2>Only headings</h2>'});
+  assert.equal(homeContent('<h1>L</h1><p class="x">Why.</p>').intro,'<p class="x">Why.</p>');
+  assert.equal(withoutTitle('<h1 id="t">Title</h1>\n<p>Body.</p>'),'<p>Body.</p>');
 });

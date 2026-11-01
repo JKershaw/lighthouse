@@ -72,10 +72,21 @@ export function frontInfo({ source = '', config = '', byPath, bodies, images, pi
     .slice(0, LATEST_COUNT)
     .map(entry);
 
-  // Investigations: active ones first, each with its question.
+  // Investigations: active ones first, each group in the order given (by title),
+  // with a line of facts about each.
   const isActive = (inv) => inv.attention === 'active';
+  const count = (n, one, many) => (n ? `${n} ${n === 1 ? one : many}` : '');
   const investigationCards = [...investigations]
-    .sort((a, b) => Number(isActive(b)) - Number(isActive(a)) || a.title.localeCompare(b.title));
+    .sort((a, b) => Number(isActive(b)) - Number(isActive(a)))
+    .map((inv) => ({
+      ...inv,
+      facts: [
+        inv.attention && `Attention: ${inv.attention}`,
+        inv.started && `since ${inv.started}`,
+        count(inv.studies.length, 'study', 'studies'),
+        count(inv.pieces.filter((p) => !p.draft && !p.short).length, 'piece', 'pieces'),
+      ].filter(Boolean),
+    }));
 
   // The section fronts (/watch/, /articles/, /essays/, /map/).
   const sections = [
@@ -90,14 +101,19 @@ export function frontInfo({ source = '', config = '', byPath, bodies, images, pi
   ];
   for (const section of sections) section.entries = section.entries.filter((p) => p.path !== section.lead?.path);
 
-  return { lead, latest, investigations: investigationCards, sections, summaries: Object.fromEntries(summaries) };
+  return { lead, latest, investigations: investigationCards, sections };
+}
+
+// Rendered Markdown without its leading h1, for a layout that sets the title itself.
+export function withoutTitle(html = '') {
+  return html.replace(/^\s*<h1[^>]*>[\s\S]*?<\/h1>\s*/, '');
 }
 
 // README.md rendered: its title is dropped, its first paragraph becomes the
 // front page's visible introduction, and the rest stays behind the page's
 // "Background and qualifications" disclosure.
 export function homeContent(html = '') {
-  const body = html.replace(/^\s*<h1[^>]*>[\s\S]*?<\/h1>\s*/, '');
-  const first = body.match(/^\s*(<p>[\s\S]*?<\/p>)\s*/);
+  const body = withoutTitle(html);
+  const first = body.match(/^\s*(<p[\s>][\s\S]*?<\/p>)\s*/);
   return first ? { intro: first[1], background: body.slice(first[0].length) } : { intro: '', background: body };
 }

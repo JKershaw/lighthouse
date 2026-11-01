@@ -38,18 +38,15 @@
 </main>
 <footer class="footer">
   <p><a href="/follow/">Follow Lighthouse</a></p>
-  <nav aria-label="Records">
+  <nav aria-label="Sections and records">
     <ul>
-      <li><a href="/watch/">The watch</a></li>
-      <li><a href="/map/">The map</a></li>
-      <li><a href="/studies/">Studies</a></li>
-      <li><a href="/notes/">Notes</a></li>
-      {% for file in ["programme.md", "observations.md", "sources.md", "releases.md"] %}{% set d = repo.byPath[file] %}{% if d %}<li><a href="{{ d.url }}">{{ d.label }}</a></li>{% endif %}{% endfor %}
+      {% for link in [["/watch/", "The watch", "watch"], ["/map/", "The map", "map"], ["/studies/", "Studies", "studies"], ["/notes/", "Notes", "notes"]] %}<li><a href="{{ link[0] }}"{% if navSection == link[2] %} aria-current="page"{% endif %}>{{ link[1] }}</a></li>{% endfor %}
+      {% for file in ["programme.md", "observations.md", "sources.md", "releases.md"] %}{% set d = repo.byPath[file] %}{% if d %}<li><a href="{{ d.url }}"{% if page.url == d.url %} aria-current="page"{% endif %}>{{ d.label }}</a></li>{% endif %}{% endfor %}
     </ul>
   </nav>
   <nav aria-label="Documents">
     <ul>
-      {% for file in ["charter.md", "design.md", ("AGENTS.md" if repo.hasAbout else "")] %}{% set d = repo.byPath[file] %}{% if d %}<li><a href="{{ d.url }}">{{ d.label }}</a></li>{% endif %}{% endfor %}
+      {% for file in ["charter.md", "design.md", ("AGENTS.md" if repo.hasAbout else "")] %}{% set d = repo.byPath[file] %}{% if d %}<li><a href="{{ d.url }}"{% if page.url == d.url %} aria-current="page"{% endif %}>{{ d.label }}</a></li>{% endif %}{% endfor %}
       <li><a href="/feed.xml">Feed</a></li>
     </ul>
   </nav>
