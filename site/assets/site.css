@@ -593,7 +593,7 @@ td:last-child, th:last-child { padding-right: 0; }
 .front-lead h1 a { color: var(--ink); text-decoration: none; }
 .front-lead .lead-deck { font-size: 1.08em; line-height: 1.5; }
 .front-lead figure { margin: 1.1rem 0 0; }
-.front-lead figure img { max-height: 24rem; object-fit: contain; }
+.front-lead figure img { max-height: 44rem; object-fit: contain; }
 .front-lead figcaption { font-family: var(--sans); font-style: normal; font-size: .8rem; }
 .front-doors { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 2rem; }
 .front-door { min-width: 0; border-top: 2px solid var(--accent); padding-top: .8rem; }
@@ -622,7 +622,7 @@ td:last-child, th:last-child { padding-right: 0; }
 @media (max-width: 44rem) {
   .front-doors { grid-template-columns: minmax(0, 1fr); gap: 1.5rem; }
   .front-lead h1 { font-size: 1.65rem; }
-  .front-lead figure img { max-height: 20rem; }
+  .front-lead figure img { max-height: 32rem; }
   .masthead nav a { display: inline-flex; align-items: center; min-height: 44px; }
   .masthead nav ul { column-gap: 1rem; row-gap: 0; }
 }

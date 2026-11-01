@@ -1,5 +1,5 @@
-lead: articles/php-emergency-first-reading.md
-deck: An early attack trace, defensive discovery and published fixes, with the boundary of each public record stated.
+lead: articles/a-week-after-two-fixes.md
+deck: How far PHP's emergency fix and Node.js's security release had spread a week on, in two counts that measure different things, beside the PHP services on branches no fix reaches.
 
 # Lighthouse
 
