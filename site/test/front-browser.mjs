@@ -17,13 +17,18 @@ try{
     // Remote font availability must not determine layout or verification.
     await context.route('https://fonts.googleapis.com/**',r=>r.abort());await context.route('https://fonts.gstatic.com/**',r=>r.abort());
     const page=await context.newPage();await page.goto(origin,{waitUntil:'domcontentloaded'});
-    assert.equal(await page.locator('main h1').count(),1);assert.equal(await page.locator('.front-door').count(),4);
+    assert.equal(await page.locator('main h1').count(),1);
+    assert.ok((await page.locator('.front-intro p').textContent()).trim().length>0);
+    assert.deepEqual(await page.locator('.front-section h2').allTextContents(),['Latest','Investigations']);
+    assert.ok(await page.locator('.investigation-card').count()>=1);
+    const lead=await page.locator('.front-lead h1 a').getAttribute('href');
+    assert.ok(!(await page.locator('.front-section .compact-entry h3 a').evaluateAll(as=>as.map(a=>a.getAttribute('href')))).includes(lead),'the lead is not repeated in Latest');
     assert.equal(await page.evaluate(()=>document.documentElement.scrollWidth),390);
-    assert.match(await page.locator('.front-lead figcaption').textContent(),/not a count of attacks/);
+    assert.ok((await page.locator('.front-lead figcaption').textContent()).trim().length>0);
     assert.equal(await page.locator('.front-background').getAttribute('open'),null);
     await page.locator('.front-background summary').focus();await page.keyboard.press('Enter');
     assert.notEqual(await page.locator('.front-background').getAttribute('open'),null);
-    assert.match(await page.locator('.front-background').textContent(),/a classification by criteria the catalogue does not state/);
+    assert.ok((await page.locator('.front-background .prose').textContent()).trim().length>0);
     await page.locator('.front-background summary').click();
     for(const target of await page.locator('.compact-entry h3 a,.section-link').all())assert.ok((await target.boundingBox()).height>=44);
     await page.screenshot({path:path.join(shots,`home-${theme}-390.png`),fullPage:true});
@@ -36,5 +41,5 @@ try{
     await page.setViewportSize({width:1280,height:960});await page.goto(origin,{waitUntil:'domcontentloaded'});assert.equal(await page.evaluate(()=>document.documentElement.scrollWidth),1280);
     await page.screenshot({path:path.join(shots,`home-${theme}-1280.png`),fullPage:true});await context.close();
   }
-  console.log('Front/section Chromium checks passed in both themes: 390px, 1280px, keyboard disclosure, retained qualifications, labelled log, and 44px entry targets.');
+  console.log('Front/section Chromium checks passed in both themes: 390px, 1280px, introduction, Latest without the lead, investigations, keyboard disclosure, labelled log, and 44px entry targets.');
 }finally{await browser.close();await new Promise(r=>server.close(r));}

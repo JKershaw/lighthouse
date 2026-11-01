@@ -16,6 +16,7 @@ import { atomFeed, relevantFeeds } from "./lib/feed.js";
 import { writeOfflineFiles } from "./lib/offline.js";
 import sideNotes from "./lib/side-notes.js";
 import { buildSchedule } from "./lib/schedule.js";
+import { homeContent } from "./lib/front.js";
 
 const siteDir = path.dirname(fileURLToPath(import.meta.url));
 const root = path.resolve(siteDir, "..");
@@ -91,27 +92,8 @@ export default function (eleventyConfig) {
   eleventyConfig.addFilter("relevantFeeds", (repo, doc, section) => relevantFeeds(repo, doc, section));
   eleventyConfig.addFilter("mdInline", (value, page) => (md ? md.renderInline(String(value || ""), { page }) : value));
 
-  eleventyConfig.addFilter("homeBackground", (html) => html.replace(/^\s*<h1[^>]*>[\s\S]*?<\/h1>\s*/, ""));
+  eleventyConfig.addFilter("homeContent", homeContent);
   eleventyConfig.addFilter("sectionById", (sections, id) => sections.find((section) => section.id === id));
-
-  // README.md above its rule is the front page; below it, one section per h2,
-  // each with its heading apart and its id, so that the layout can add to the
-  // sections headed "The watch", "Findings" and "Essays".
-  eleventyConfig.addFilter("homeParts", (html) => {
-    const at = html.search(/<hr\s*\/?>/);
-    let front = at >= 0 ? html.slice(0, at) : html;
-    const rest = at >= 0 ? html.slice(at).replace(/^<hr\s*\/?>/, "") : "";
-    front = front.replace(/^\s*<h1[^>]*>[\s\S]*?<\/h1>\s*/, "");
-    const sections = rest
-      .split(/(?=<h2[\s>])/)
-      .filter((s) => s.trim())
-      .map((s) => {
-        const head = s.match(/^\s*<h2[^>]*>[\s\S]*?<\/h2>/);
-        const id = head ? (head[0].match(/\sid="([^"]+)"/) || [])[1] || "" : "";
-        return { id, head: head ? head[0] : "", body: head ? s.slice(head[0].length) : s };
-      });
-    return { front, sections, hasFindings: sections.some((s) => s.id === "findings") };
-  });
 
   // Illustrations become figures with their italic captions, each linked to
   // its file so that a phone reader can open it at full size; tables scroll.

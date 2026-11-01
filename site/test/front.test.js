@@ -1,6 +1,6 @@
 import { test } from 'node:test';
 import assert from 'node:assert/strict';
-import { frontInfo } from '../lib/front.js';
+import { frontInfo, homeContent, LATEST_COUNT } from '../lib/front.js';
 const finding = {path:'articles/finding.md',url:'/articles/finding/',title:'A finding',section:'articles',status:'released',published:'1 October 2026',summary:'A complete summary with a limit.'};
 const draft = {...finding,path:'articles/draft.md',draft:true,status:'draft'};
 const essay = {...finding,path:'essays/reading.md',section:'essays',essay:true};
@@ -24,4 +24,27 @@ test('configured findings and essay leads cannot mislabel a record or the other 
   for(const config of ['title: S\nfindings lead: notes/log.md\nessays lead: articles/finding.md\n\n# Notes','title: S\nfindings lead: essays/reading.md\n\n# Notes']){
     const front=frontInfo({...data(),config});assert.equal(front.sections[1].lead,null);assert.ok(front.sections[2].lead.essay);assert.equal(front.sections[2].lead.path,essay.path);
   }
+});
+
+test('latest lists released findings and essays by last activity, without the lead, up to its limit',()=>{
+  const older={...finding,path:'articles/older.md',pubTime:1,revisedTime:5};
+  const newer={...finding,path:'articles/newer.md',pubTime:4};
+  const lead={...finding,path:'articles/lead.md',pubTime:9};
+  const read={...essay,pubTime:3};
+  const byPath={...data().byPath,[older.path]:older,[newer.path]:newer,[lead.path]:lead,[read.path]:read};
+  const front=frontInfo({...data(),byPath,pieces:[lead,newer,older,draft],essays:[read],source:'lead: articles/lead.md\ndeck: D\n\n# Home'});
+  assert.deepEqual(front.latest.map(p=>p.path),['articles/older.md','articles/newer.md','essays/reading.md']);
+  assert.equal(front.latest[2].entryKind,'Essay · interpretation');
+  const many=Array.from({length:LATEST_COUNT+3},(_,i)=>({...finding,path:`articles/p${i}.md`,pubTime:i}));
+  assert.equal(frontInfo({...data(),pieces:many,essays:[]}).latest.length,LATEST_COUNT);
+});
+
+test('investigations put active ones first, then by title',()=>{
+  const investigations=[{title:'B resting',attention:'resting'},{title:'C active',attention:'active'},{title:'A active',attention:'active'}];
+  assert.deepEqual(frontInfo({...data(),investigations}).investigations.map(i=>i.title),['A active','C active','B resting']);
+});
+
+test('README splits into a visible introduction and the background behind the disclosure',()=>{
+  assert.deepEqual(homeContent('<h1>Lighthouse</h1>\n<p>Why.</p>\n<p>More.</p>\n<h2>Where</h2>'),{intro:'<p>Why.</p>',background:'<p>More.</p>\n<h2>Where</h2>'});
+  assert.deepEqual(homeContent('<h1>Lighthouse</h1>\n<h2>Only headings</h2>'),{intro:'',background:'<h2>Only headings</h2>'});
 });

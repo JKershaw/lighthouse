@@ -399,18 +399,6 @@ td:last-child, th:last-child { padding-right: 0; }
 
 .unresolved { border-bottom: 1px dotted var(--faint); }
 
-/* The front page */
-.front > h2:first-child {
-  font-size: 2.05rem;
-  line-height: 1.18;
-  margin-top: 0;
-}
-.front > h2:first-child a { color: var(--ink); text-decoration: none; }
-.front > h2:first-child a:hover { color: var(--accent); text-decoration: underline; }
-.front > h2:first-child + p { font-size: 1.1em; line-height: 1.55; }
-.front > h2 { margin-top: 2.4em; }
-/* A front of plain text, with no headline of its own, reads as a lede. */
-.front > p:first-child { font-size: 1.1em; line-height: 1.55; }
 .below {
   margin-top: 3rem;
   padding-top: 0.5rem;
@@ -491,8 +479,7 @@ td:last-child, th:last-child { padding-right: 0; }
 .files .path { display: block; }
 .when .path { display: block; }
 
-/* The front page's figure, from a released piece, and the watch strip. */
-.front figure { margin: 2rem 0 0.5rem; }
+/* The watch strip: the daily log's newest day, unreviewed. */
 .watch-strip {
   font-family: var(--sans);
   font-variant-numeric: tabular-nums;
@@ -507,9 +494,6 @@ td:last-child, th:last-child { padding-right: 0; }
 }
 .watch-strip .tag { margin-right: 0.35em; }
 .watch-flag { color: var(--ink); }
-.door-the-watch ul { padding-left: 1.1em; }
-.door-the-watch li + li { margin-top: 0.5em; }
-.door-the-watch h3 + p { font-size: 1.08em; line-height: 1.55; }
 
 /* Essays: a column, not a report. An italic opening, more air, and an
    accent of their own in place of the findings' blue. */
@@ -563,7 +547,6 @@ td:last-child, th:last-child { padding-right: 0; }
   .masthead { padding-top: 1.4rem; margin-bottom: 1.8rem; }
   h1 { font-size: 1.65rem; }
   h2 { font-size: 1.25rem; }
-  .front > h2:first-child { font-size: 1.65rem; }
   .is-record h1 { font-size: 1.45rem; }
   .below h3 { font-size: 1.25rem; }
   .below section:first-child h3 { font-size: 1.5rem; }
@@ -587,29 +570,34 @@ td:last-child, th:last-child { padding-right: 0; }
   }
 }
 
-/* A lead followed by four compact doors; the complete background stays readable. */
+/* The front page: an introduction, the lead, Latest and the investigations;
+   the complete background stays one disclosure away. */
+.front-intro { border-bottom: 1px solid var(--rule); padding-bottom: .9rem; margin-bottom: 2rem; }
+.front-intro p { font-size: 1.08em; line-height: 1.55; margin: 0; }
+.front-intro .section-link { margin-top: .2rem; }
 .front-lead { margin-bottom: 2.4rem; }
-.front-lead h1 { max-width: 24ch; }
 .front-lead h1 a { color: var(--ink); text-decoration: none; }
 .front-lead .lead-deck { font-size: 1.08em; line-height: 1.5; }
 .front-lead figure { margin: 1.1rem 0 0; }
 .front-lead figure img { max-height: 44rem; object-fit: contain; }
 .front-lead figcaption { font-family: var(--sans); font-style: normal; font-size: .8rem; }
-.front-doors { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 2rem; }
-.front-door { min-width: 0; border-top: 2px solid var(--accent); padding-top: .8rem; }
-.front-door h2 { font-family: var(--sans); font-size: 1rem; margin: 0 0 .7rem; }
-.front-door h2 a { color: var(--ink); text-decoration: none; }
-.door-essays { border-color: var(--essay); }
-.door-essays h2 a, .compact-essay h3 a { color: var(--essay); }
+.front-section { border-top: 2px solid var(--accent); padding-top: .8rem; margin-top: 2.4rem; }
+.front-section h2 { font-family: var(--sans); font-size: 1rem; margin: 0 0 .7rem; }
+.compact-essay h3 a { color: var(--essay); }
 .compact-entries { list-style: none; padding: 0; margin: 0; }
 .compact-entry { padding: .8rem 0; border-bottom: 1px solid var(--rule); }
 .compact-entry h3 { font-size: 1rem; line-height: 1.35; margin: 0; }
-.compact-entry h3 a { display: block; min-height: 44px; padding: .1rem 0; }
+.compact-entry h3 a { display: block; padding: .1rem 0; }
 .compact-entry p { margin: .25rem 0 0; }
 .compact-deck { font-family: var(--sans); font-size: .88rem; line-height: 1.45; }
 .compact-entry .when { font-size: .76rem; }
 .section-link { display: inline-flex; align-items: center; min-height: 44px; font-family: var(--sans); font-size: .88rem; gap: .4em; margin-top: .5rem; }
-.empty-section { font-family: var(--sans); font-size: .9rem; color: var(--muted); }
+.section-links { display: flex; flex-wrap: wrap; column-gap: 1.5rem; margin: 0; }
+.investigation-cards { list-style: none; padding: 0; margin: 0; display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 1rem; }
+.investigation-card { border: 1px solid var(--rule); border-radius: 3px; padding: .8rem 1rem; }
+.investigation-card h3 { font-size: 1.05rem; line-height: 1.35; margin: 0 0 .4rem; }
+.investigation-card p { font-family: var(--sans); font-size: .88rem; line-height: 1.45; margin: .35rem 0 0; }
+.investigation-card .when { font-size: .76rem; }
 .front-background { border-top: 1px solid var(--rule); margin-top: 2.5rem; padding-top: .7rem; }
 .front-background > summary { cursor: pointer; font-family: var(--sans); font-size: .9rem; min-height: 44px; padding: .5rem 0; }
 .front-background > .prose { padding-top: 1rem; }
@@ -620,7 +608,8 @@ td:last-child, th:last-child { padding-right: 0; }
 .section-lead > p:not(.kicker):not(.when) { font-family: var(--sans); font-size: 1rem; }
 .section-front .compact-entry h3 { font-size: 1.1rem; }
 @media (max-width: 44rem) {
-  .front-doors { grid-template-columns: minmax(0, 1fr); gap: 1.5rem; }
+  .investigation-cards { grid-template-columns: minmax(0, 1fr); }
+  .compact-entry h3 a { min-height: 44px; }
   .front-lead h1 { font-size: 1.65rem; }
   .front-lead figure img { max-height: 32rem; }
   .masthead nav a { display: inline-flex; align-items: center; min-height: 44px; }

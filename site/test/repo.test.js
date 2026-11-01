@@ -99,16 +99,15 @@ test("summary: editorial when given, else the opening", () => {
   assert.equal(repo.byPath["articles/updated.md"].ownH1, true);
 });
 
-test("drafts are labelled and left out of the latest list", () => {
+test("drafts are labelled and left out of the front page's latest list", () => {
   const repo = scanCopy();
   assert.equal(repo.byPath["articles/draft.md"].draft, true);
   assert.equal(repo.byPath["articles/updated.md"].draft, false);
-  assert.ok(!repo.latest.some((g) => g.lead.path === "articles/draft.md"));
-  assert.equal(repo.latest[0].lead.path, "articles/current.md");
-  assert.ok(repo.latest.every((g) => g.lead.section === "articles"));
+  assert.ok(!repo.front.latest.some((p) => p.path === "articles/draft.md"));
+  assert.ok(repo.front.latest.every((p) => p.section === "articles" ? !p.short : p.essay));
 });
 
-test("essays: read like pieces, kept out of the pieces' latest list, drafts not released", () => {
+test("essays: read like pieces, not pieces themselves, drafts not released", () => {
   const repo = scanCopy();
   const essay = repo.byPath["essays/reading.md"];
   assert.equal(essay.section, "essays");
@@ -123,7 +122,8 @@ test("essays: read like pieces, kept out of the pieces' latest list, drafts not 
   assert.deepEqual(repo.essays.map((p) => p.path), ["essays/unfinished.md", "essays/reading.md"]);
   assert.equal(repo.byPath["essays/unfinished.md"].draft, true);
   assert.deepEqual(repo.releasedEssays.map((p) => p.path), ["essays/reading.md"]);
-  assert.ok(!repo.latest.some((g) => g.lead.essay));
+  assert.ok(repo.front.latest.some((p) => p.path === "essays/reading.md"));
+  assert.ok(!repo.front.latest.some((p) => p.path === "essays/unfinished.md"));
   assert.equal(repo.hasEssays, true);
   assert.ok(repo.siteDirs.has("essays"));
 });

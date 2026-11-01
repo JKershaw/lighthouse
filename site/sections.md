@@ -8,6 +8,8 @@ map lead: articles/what-we-can-see.md
 map lede: The map brings partial views of the internet together with the edges of each instrument stated. Its findings are reviewed against sources; the observation catalogue and investigations link to the working records. An unobserved region is not an empty one.
 summaries:
 - articles/php-emergency-first-reading.md | An attributed early attack trace, defensive discovery and published fixes, with deployment and attack outcomes unmeasured.
+- articles/a-week-after-two-fixes.md | How far two fixes had spread a week on, in two counts that measure different things.
+- essays/seen-from-outside-seen-from-inside.md | What watching software from outside and from inside each shows, and what each misses.
 - articles/where-software-updates-go.md | Follow ordinary software through public records, and see where the trail stops.
 - articles/tests-read-the-lockfile.md | What pinned projects' build instructions read, and why an instruction is not a run.
 - articles/recipes-follow-the-pin.md | Whether container recipes read the pinned file, with undecided cases kept visible.

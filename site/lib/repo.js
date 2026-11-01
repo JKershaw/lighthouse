@@ -540,14 +540,6 @@ export function scanRepo(root, { siteFile = path.join(root, "site", "site.json")
   const essays = pages.filter((p) => p.essay).sort(byPublished);
   const releasedEssays = essays.filter((p) => !p.draft);
 
-  // The front page's latest: released pieces by publication date, each full
-  // piece with its short form. Drafts, essays, records and notes are left out;
-  // released essays have a list of their own.
-  const latest = pieceGroups
-    .filter((g) => !g.lead.draft)
-    .map((g) => ({ lead: g.lead, twin: g.twin && !g.twin.draft ? g.twin : null }))
-    .slice(0, 8);
-
   // Directories with an index page, so that links to them resolve.
   const siteDirs = new Set(SECTION_DIRS.filter((d) => dirs.includes(d)));
   for (const s of studies) siteDirs.add(s.dir);
@@ -608,7 +600,6 @@ export function scanRepo(root, { siteFile = path.join(root, "site", "site.json")
     hasAbout,
     studies,
     notes,
-    latest,
     strap,
     siteUrl,
     watch,
