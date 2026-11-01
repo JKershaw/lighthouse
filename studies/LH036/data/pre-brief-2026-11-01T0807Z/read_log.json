@@ -1,0 +1,104 @@
+{
+  "note": "Reads made on 1 November 2026 between 08:07 and 08:09 UTC by the driving session, with curl, to answer the keeper's question about CVE-2026-98432, before LH036 or its brief existed. saved_utc is each file's modification time, which is when curl finished writing it. Every response was HTTP 200. NVD's API (https://services.nvd.nist.gov/rest/json/cves/2.0?cveId=CVE-2026-98432) was also read, at 08:07:36 UTC by its own timestamp, and its first 4,000 characters were seen (vulnStatus Received, lastModified 2026-10-31T21:16:53.683); its body was not retained. The CVE Program and OSV records were each read twice, about eight seconds apart; the second reads are kept. Bodies are gzipped; sha256 and bytes are of the uncompressed body. These reads were seen before the brief was fixed; the brief lists what they showed.",
+  "reads": [
+    {
+      "name": "cve_org",
+      "url": "https://cveawg.mitre.org/api/cve/CVE-2026-98432",
+      "file": "cve_org.json.gz",
+      "bytes": 9733,
+      "sha256": "3ba94d6e5c28ca461e63675fcfe23afdf25fee9a0346bb923266a5dc8404b062",
+      "saved_utc": "2026-11-01T08:07:44.808048+00:00",
+      "status": 200
+    },
+    {
+      "name": "osv",
+      "url": "https://api.osv.dev/v1/vulns/CVE-2026-98432",
+      "file": "osv.json.gz",
+      "bytes": 5535,
+      "sha256": "561d92224e585d4c2b23261d38c9e204592ef5c12f7e661abe65ed486b05a675",
+      "saved_utc": "2026-11-01T08:07:44.998400+00:00",
+      "status": 200
+    },
+    {
+      "name": "oss_2026_10_30_1",
+      "url": "https://www.openwall.com/lists/oss-security/2026/10/30/1",
+      "file": "oss_2026_10_30_1.html.gz",
+      "bytes": 8336,
+      "sha256": "b14cedfc7882c682c164be4bd81b12746ab1f1916279f7be3e89a755dd460a24",
+      "saved_utc": "2026-11-01T08:07:53.952860+00:00",
+      "status": 200
+    },
+    {
+      "name": "oss_2026_10_30_6",
+      "url": "https://www.openwall.com/lists/oss-security/2026/10/30/6",
+      "file": "oss_2026_10_30_6.html.gz",
+      "bytes": 6254,
+      "sha256": "62718c333c547040a769b0a8f37623a88dd12ffc2a2715ee60dbfbc0c3ab1674",
+      "saved_utc": "2026-11-01T08:07:54.820860+00:00",
+      "status": 200
+    },
+    {
+      "name": "oss_2026_10_31_5",
+      "url": "https://www.openwall.com/lists/oss-security/2026/10/31/5",
+      "file": "oss_2026_10_31_5.html.gz",
+      "bytes": 6496,
+      "sha256": "742443f963e75aeada0a9857e8b58fe626726c2392868b87b5396569154a6e80",
+      "saved_utc": "2026-11-01T08:07:55.520860+00:00",
+      "status": 200
+    },
+    {
+      "name": "kev",
+      "url": "https://www.cisa.gov/sites/default/files/feeds/known_exploited_vulnerabilities.json",
+      "file": "kev.json.gz",
+      "bytes": 1826755,
+      "sha256": "3aa9cf3c01f116362a29d111702979175453c425e3733bde80fc4f6f8e2294e5",
+      "saved_utc": "2026-11-01T08:07:55.992860+00:00",
+      "status": 200
+    },
+    {
+      "name": "debian",
+      "url": "https://security-tracker.debian.org/tracker/CVE-2026-98432",
+      "file": "debian.html.gz",
+      "bytes": 6950,
+      "sha256": "a70b6180b4d5129515837d05341b52c3dcdcc38920bce1ceee9fda2ddbf948a7",
+      "saved_utc": "2026-11-01T08:07:56.201343+00:00",
+      "status": 200
+    },
+    {
+      "name": "ubuntu",
+      "url": "https://ubuntu.com/security/cves/CVE-2026-98432.json",
+      "file": "ubuntu.json.gz",
+      "bytes": 217633,
+      "sha256": "21398b9c31585d98512f80a4dc57be8f8fd61641b2d13987f212a12f1a9f2ca6",
+      "saved_utc": "2026-11-01T08:07:56.872860+00:00",
+      "status": 200
+    },
+    {
+      "name": "epss_current",
+      "url": "https://api.first.org/data/v1/epss?cve=CVE-2026-98432",
+      "file": "epss_current.json.gz",
+      "bytes": 203,
+      "sha256": "ed9835a763516b3181362e62c28dade8124be7a8be95db546d6f1045014644c4",
+      "saved_utc": "2026-11-01T08:07:57.052955+00:00",
+      "status": 200
+    },
+    {
+      "name": "almalinux",
+      "url": "https://almalinux.org/blog/2026-10-30-cve-2026-98432/",
+      "file": "almalinux.html.gz",
+      "bytes": 31634,
+      "sha256": "13479d3696814a831422558b3b2d1c940a0c4644927bf248893c43b0409eb379",
+      "saved_utc": "2026-11-01T08:08:12.461025+00:00",
+      "status": 200
+    },
+    {
+      "name": "anthropic",
+      "url": "https://www.anthropic.com/research/discovering-vulnerabilities-with-claude",
+      "file": "anthropic.html.gz",
+      "bytes": 166442,
+      "sha256": "8048720452b02a5eace027559b47527bb9551885a4ea21db0ad8e45a5e5452e8",
+      "saved_utc": "2026-11-01T08:08:12.952861+00:00",
+      "status": 200
+    }
+  ]
+}

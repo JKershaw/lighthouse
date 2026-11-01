@@ -1,0 +1,53 @@
+# LH036: How do the public signals about CVE-2026-98432 move, from its fix on 15 October 2026 through Anthropic's account of an exploit on 27 October, and where has the fix landed?
+
+**Protocol 0.1, fixed 1 November 2026, before this study's first read of any panel URL under it and before any EPSS history for this CVE was read.** Writer: a Claude Code driving session (Claude Opus 5.5), at the keeper's request. The core watch of the investigation [When a model finds the bug](../../investigations/model-found-bugs.md). The frame, measures, schedule and [collector](scripts/collect.py) are committed together; [panel.json](panel.json) fixes every URL.
+
+## Question
+
+CVE-2026-98432 is a use-after-free in the Linux kernel's handling of IPv4 TCP connection requests that carry IP options, published by the kernel's CVE team on 15 October 2026 with fixes in every maintained stable branch. On 27 October Anthropic published a description of an exploit its model wrote for it: remote root on a server with a Multipath TCP listener, with no credentials, in about 53 minutes. The question has two parts. **Signals:** how do the public signals of exploitation and severity for this CVE move from 15 October, as each source dates itself and as Lighthouse's reads bound it: EPSS's daily score, CISA's Known Exploited Vulnerabilities catalogue, the CVE record's scoring and enrichment, NVD's status, and the references the records gather? **Fixes:** when does each named distribution release's security channel carry a fixed kernel, by its tracker? The unit is the CVE for the signals and a distribution release for the fixes.
+
+## Model disclosure
+
+The exploit and the post are Anthropic's, and every agent that writes or reviews for Lighthouse in this study runs on an Anthropic model. The keeper weighed a reviewer from another provider on 1 November 2026 and chose disclosure instead, for now. Every record and piece from this study states this beside its model line, and its reviews are asked to look specifically for wording that is easier on Anthropic, or on the exploit's significance, than the sources allow, in either direction.
+
+## What is already known of the outcome
+
+The driving session read these on 1 November 2026 at 08:07 to 08:09 UTC to answer the keeper's question, before this brief existed. The bodies are kept under [data/pre-brief-2026-11-01T0807Z/](data/pre-brief-2026-11-01T0807Z/read_log.json), and NVD's was seen and not kept.
+
+- **CVE record** (CVE Program API): published 2026-10-15T12:08:22Z by the Linux CNA, reserved 2026-09-25, updated 2026-10-31T21:04:43Z. The CNA container (its own dateUpdated 2026-10-24T14:08:46Z) carries CVSS 3.1 9.8, `AV:N/AC:L/PR:N/UI:N/S:U/C:H/I:H/A:H`, with a scenario text for each metric, and fixed versions 5.10.272, 5.15.223, 6.1.190, 6.6.159, 6.12.113, 6.18.56, 7.2.10 and 7.3; affected from 4.4. One ADP container, the CVE Program's, lists three oss-security posts (30 October, two; 31 October, one). No CISA ADP container.
+- **NVD:** vulnStatus Received, lastModified 2026-10-31T21:16:53.683; no NVD score was seen in the part read.
+- **OSV:** modified 2026-11-01T02:30Z; related lists eight SUSE and openSUSE advisories; references include the three oss-security posts and eight stable commits.
+- **EPSS** (current value only, no history): 0.00457, percentile 0.39673, dated 2026-10-31.
+- **KEV:** the catalogue as read did not contain the CVE.
+- **Debian:** fixed in bookworm's security suite (6.1.190-1, DLA-4841-1), trixie's (6.12.113-1, DSA-6568-1), forky (7.2.12-1) and sid (7.2.14-1); bookworm (6.1.176-1) and trixie (6.12.107-1) point releases listed vulnerable; linux-6.12 in bookworm's security suite fixed (6.12.113-1~deb12u1, DLA-4850-1).
+- **Ubuntu:** priority high; stonking, jammy, noble and resolute pending; bionic, focal and xenial needed; trusty not affected.
+- **Pages:** Anthropic's post, datePublished 2026-10-27, dateModified 2026-10-30T15:24:16Z, states a coordinated disclosure policy (90 days to patch, a further 45 before details beyond a public advisory) and that the bug "was patched upstream and backported to all maintained stable kernel branches"; no exploit code or link to code was found on the page. Go's security team (golang-announce, 29 October 16:34 PDT, forwarded to oss-security) notes that Go programs enable MPTCP on Linux listeners by default since Go 1.24 and recommends a patched kernel. AlmaLinux (30 October) has patched kernels in testing for AlmaLinux 8, 9 and 10. An oss-security post of 31 October suggests `init_on_free=1` as an interim hardening.
+- **Feasibility, on an unrelated CVE (CVE-2024-4577), 1 November:** EPSS's `scope=time-series` returned 30 daily values back to 1 October; Red Hat's and SUSE's per-CVE URLs answered HTTP 200. Neither has been read for CVE-2026-98432.
+
+## Named events and clocks
+
+Fixed here, each by its source's own date: **E0**, the CVE's publication, 2026-10-15T12:08Z (CVE record). **E1**, the CNA container's update of 2026-10-24T14:08Z, the latest version of the container that carries the score; when the score first appeared is not known and is left to the timeline study. **E2**, Anthropic's post, 27 October 2026 (the page's datePublished, a day without a time). **E3**, Go's announcement, 2026-10-29T23:34Z. **E4**, a KEV listing, if one comes, by its `dateAdded`. Lighthouse's observation clock for any change is an interval: after the last read that did not show it and at or before the first that did. A source's own date is recorded beside it and never substituted.
+
+## Measures
+
+1. **EPSS.** The daily score and percentile for every date the API returns from 15 October on, each date's value taken from the earliest read holding it. A **step** is a day-on-day change in score by a factor of two or more, up or down. Reported: the first date scored, the series, every step with its date, and how many days it falls before or after each of E1, E2 and E3. A step near an event is a coincidence of dates until something else shows more; no cause is claimed.
+2. **KEV.** At each read: listed or not; if listed, `dateAdded`, `dueDate`, `knownRansomwareCampaignUse` and the notes field.
+3. **The record's scoring and enrichment.** At each read: the CNA's CVSS vector and score; any ADP container, by provider, and for CISA's, its SSVC values (Exploitation, Automatable, Technical Impact) as given; NVD's vulnStatus and any NVD score; and the references in the CVE record and in OSV, each new reference listed with the first read that showed it.
+4. **Fixes.** At each read, per distribution release as each tracker names them: Debian (each suite's status and version), Ubuntu (each codename's status and version), Red Hat (each listed product's state or fixed release, with advisory and date where given) and SUSE (each listed product's status, as the page gives it). For each release that turns fixed: the observation interval, and the tracker's own advisory id and date where it gives one. Whether a fixed package was installed or a machine rebooted into it is not observable here.
+5. **The pages.** At each read: whether Anthropic's post, AlmaLinux's post and the kernel's announcement changed (SHA-256 of the body, and the page's own modified date where it gives one), and what changed, described.
+
+The comparison that matters is within this one CVE: the EPSS series and the KEV status set against E0 to E4, and the fix intervals set against E0 and E2 (how many named releases carried a fix in their security channel by each date, where the trackers give a date, and otherwise from the first read). One CVE is a case, not a sample: nothing here says how AI-found vulnerabilities are scored in general. That comparison is the investigation's question 3, with its own brief.
+
+## Reads and schedule
+
+A baseline read with `--baseline` as soon as this protocol is on main, then a read on each Monday and Thursday, in the window of the scheduled run, through the stop. Each read runs the collector once: one GET per URL (12, and 16 at the baseline), raw bytes up to 4 MiB each (the KEV catalogue is about 1.8 MB), kept gzipped under `data/read-<UTC label>/` with UTC start and finish, status, content type, `Last-Modified`, length and SHA-256 of the uncompressed body. No search, crawl, login, exploit, probe of any host or paid service; the study never tests any host for the flaw or sends it crafted packets. A missed read stays missed; a body under 200 bytes, a refusal or a challenge is **unavailable** at that read; a 404 from a tracker is **no record** at that read. Unknown is never no. A tabulator written after the baseline implements the measures above as written, and changes nothing here.
+
+## Overlap
+
+LH031 reads the KEV catalogue on Mondays and Thursdays for its three PHP-related CVEs; LH036 reads it separately for this CVE, and no read is counted in both. The fix-tracking follows LH030's method of fixed URLs and observation intervals. The pre-brief reads are disclosed above and are not the baseline. Nothing here reuses another study's data.
+
+## Ceiling, stopping and what would leave it inconclusive
+
+At most 20 GETs and 40 MiB per read, and about 22 reads; no subagent is needed for collection. The study stops at the last scheduled read on or before 13 January 2027 (90 days after E0), or at the first scheduled read at least 14 days after a KEV listing, whichever comes first. An interim record follows the read of 16 November 2026 (day 32), and the record follows the stop. Any piece needs its own reviews.
+
+It is inconclusive for EPSS if the API stops returning this CVE's history, for a distribution whose tracker is unavailable at most reads, and for the timing of any change whose surrounding reads were missed. It cannot say whether anyone has exploited the bug, how many machines run an affected kernel, whether a fixed package was installed, or why any score moved. It makes no claim that harm is happening or that a system is compromised; a third party's published report of exploitation would be recorded as that party's claim, with what it rests on. Whether Anthropic's publication kept to its stated policy is not a measure here; it is the timeline study's question.
