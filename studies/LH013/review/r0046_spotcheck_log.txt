@@ -1,0 +1,26 @@
+== 2026-11-02T15:55:54Z ClickPy demo: SELECT project, sum(count) AS n FROM pypi.pypi_downloads_per_day_by_version WHERE project IN ('boto3','pydantic-core','litellm') AND date BETWEEN '2026-09-28' AND '2026-10-04' GROUP BY project ORDER BY project
+project	n
+boto3	577042163
+litellm	22711594
+pydantic-core	206913472
+
+== 2026-11-02T15:55:54Z ClickPy demo: SELECT project, sum(count) AS n FROM pypi.pypi_downloads_per_day_by_version WHERE project IN ('boto3','pydantic-core','litellm') AND date BETWEEN '2026-10-05' AND '2026-10-11' GROUP BY project ORDER BY project
+project	n
+boto3	602989913
+litellm	21791819
+pydantic-core	223263942
+
+== 2026-11-02T15:55:55Z ClickPy demo: SELECT sum(count) AS n FROM pypi.pypi_downloads_per_day_by_version WHERE project = 'pydantic-core' AND version = '2.50.0' AND date BETWEEN '2026-10-05' AND '2026-10-11'
+n
+43828209
+
+== 2026-11-02T15:55:55Z ClickPy demo: SELECT sum(count) AS n FROM pypi.pypi_downloads_per_day_by_version_by_python WHERE project = 'boto3' AND python_minor = '3.9' AND date BETWEEN '2026-10-05' AND '2026-10-11'
+n
+392846382
+
+== 2026-11-02T15:55:55Z PyPI JSON https://pypi.org/pypi/pydantic/2.14.0/json requires_dist (pydantic-core lines)
+version 2.14.0
+pydantic-core==2.50.0
+== 2026-11-02T15:55:55Z PyPI JSON https://pypi.org/pypi/pydantic/2.14.2/json requires_dist (pydantic-core lines)
+version 2.14.2
+pydantic-core==2.50.2

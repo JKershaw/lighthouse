@@ -1,0 +1,97 @@
+A. W0 baseline and gap rule
+   W0 totals read again equal to LH012 week.csv and to the sum of LH012 week/versions: 37 of 37; daily totals compared 259, unequal 0
+   project-days of W1 and W2 held (days listing): 518 of 518; gap days by LH011's rule over the 37: 0
+   smallest ratio of a day's 37-project total to the median of its seven days: 0.688
+   eligibility: rows 185, last days held ['2026-11-01']
+
+B. Older share O at R0
+   project-weeks recomputed 111; differing from older.csv by more than 5e-7: 0 []
+   O holds: 32 of 37; does not: aiohttp, fsspec, litellm, numpy, pydantic-core
+      aiohttp: 33.83 31.47 28.82; changes -2.36 -5.01
+      fsspec: 74.48 74.31 69.26; changes -0.17 -5.22
+      litellm: 65.90 59.77 52.42; changes -6.13 -13.48
+      numpy: 73.30 70.21 67.47; changes -3.08 -5.82
+      pydantic-core: 99.33 99.23 78.38; changes -0.10 -20.95
+   W0: median 37.3, range 20.0 to 99.3, pooled 45.6
+   W1: median 36.6, range 17.9 to 99.2, pooled 44.4
+   W2: median 36.7, range 17.3 to 96.5, pooled 42.8
+   change from W0 over 74 project-weeks: median -1.26, largest absolute 20.95
+   post hoc reading 3: lower than W0 in W1 31, in W2 35, both 31; any change of more than 5 points upward: []
+
+C. Python exclusion P at R0
+   project-weeks recomputed 111; P or class differing from python.csv: 0 []
+   W0 classes equal to LH012 python.csv: 37 of 37
+   P class holds (accounts for little inside cannot): 35 of 37; changed: [('pandas', 'undetermined', 'cannot be the main reason', 'cannot be the main reason'), ('urllib3', 'undetermined', 'undetermined', 'cannot be the main reason')]
+   (counting accounts for little as its own class it would be 33 of 37)
+   W0: accounts for little 8 (litellm, pydantic, pydantic-core, pygments, python-dotenv, starlette, tqdm, uvicorn); accounts for most 3 (aiobotocore, boto3, numpy); cannot be the main reason 24; undetermined 2 (pandas, urllib3)
+      median P 12.2 to 18.0
+   W1: accounts for little 9 (litellm, pathspec, pydantic, pydantic-core, pygments, python-dotenv, starlette, tqdm, uvicorn); accounts for most 3 (aiobotocore, boto3, numpy); cannot be the main reason 24; undetermined 1 (urllib3)
+      median P 10.4 to 17.7
+   W2: accounts for little 10 (litellm, pathspec, pydantic, pydantic-core, pygments, pytest, python-dotenv, starlette, tqdm, uvicorn); accounts for most 3 (aiobotocore, boto3, numpy); cannot be the main reason 24
+      median P 9.9 to 17.6
+   boto3: W0 76.3 to 77.0, W1 77.5 to 78.3, W2 76.9 to 77.7
+   aiobotocore: W0 63.0 to 63.5, W1 65.9 to 66.5, W2 63.1 to 63.8
+   numpy: W0 62.5 to 66.7, W1 61.5 to 66.0, W2 60.5 to 64.8
+   pandas: W0 47.5 to 51.3, W1 44.6 to 48.4, W2 41.0 to 44.7
+   urllib3: W0 45.6 to 50.9, W1 44.4 to 50.2, W2 42.4 to 48.5
+   (project, week, minor) whose exclusion at R0 differs between the week's start and end: 0 []
+   largest difference of by-Python weekly total from per-version total, W1 and W2: 0.0109 per cent
+
+D. Concentration C and C5 from the pass files
+   project-weeks 74; differing from cells.csv: 0 []
+   largest |pass total - per-version total| / per-version total: 0.0073 per cent
+   c6 holds: 33 of 37; fails ['litellm', 'numpy', 'pyjwt', 'typing-extensions']; of which by size []
+      W1: median 10.2, range 6.9 to 61.1; cells carrying half median 9, range 1 to 11
+      W2: median 10.1, range 7.2 to 61.3; cells carrying half median 9, range 1 to 11
+      over older only: median W1 16.3, W2 16.0
+   c5 holds: 29 of 37; fails ['click', 'litellm', 'numpy', 'pydantic-core', 'pygments', 'pyjwt', 'pytest', 'requests']; of which by size []
+      W1: median 11.8, range 8.2 to 64.9; cells carrying half median 6, range 1 to 7
+      W2: median 12.5, range 8.6 to 64.8; cells carrying half median 6, range 1 to 7
+      over older only: median W1 19.3, W2 19.1
+   largest six-field cell with country US: 74 of 74
+   boto3: C 61.1 61.3 (3.9|pip|Linux|glibc|false|US); C5 64.9 64.8; half 1 1; older C 68.7 69.1
+   aiobotocore: C 49.5 47.5 (3.9|pip|Linux|glibc|false|US); C5 52.6 50.6; half 2 2; older C 51.2 49.2
+   grpcio-status: C 40.4 40.0 (3.10|pip|Linux|glibc|false|US); C5 43.1 42.8; half 3 4; older C 47.7 47.2
+   fsspec: C 28.1 26.1 (3.9|pip|Linux|glibc|false|US); C5 29.7 27.6; half 4 4; older C 37.9 37.6
+   botocore: C 20.4 19.6 (3.9|pip|Linux|glibc|false|US); C5 23.2 22.3; half 7 7; older C 29.0 28.8
+   certifi: C 7.4 7.7 (3.12|pip|Linux|glibc|true|US); C5 8.8 9.1; half 11 10; older C 16.3 15.8
+      changed c6 litellm: 3.12|pip|Linux|glibc|false|US -> 3.12|uv|Linux|glibc|false|US; gap between two largest W1 6.09, W2 3.64 points
+      changed c6 numpy: 3.9|pip|Linux|glibc|false|US -> 3.13|uv|Linux|glibc|false|US; gap between two largest W1 1.71, W2 0.37 points
+      changed c6 pyjwt: 3.12|uv|Linux|glibc|true|US -> 3.13|uv|Linux|glibc|false|US; gap between two largest W1 2.06, W2 0.64 points
+      changed c6 typing-extensions: 3.12|uv|Linux|glibc|true|US -> 3.12|pip|Linux|glibc|true|US; gap between two largest W1 0.01, W2 0.07 points
+      changed c5 click: 3.12|uv|Linux|glibc|true -> 3.12|uv|Linux|glibc|false; gap between two largest W1 0.05, W2 0.00 points
+      changed c5 litellm: 3.12|pip|Linux|glibc|false -> 3.12|uv|Linux|glibc|false; gap between two largest W1 4.09, W2 7.05 points
+      changed c5 numpy: 3.9|pip|Linux|glibc|false -> 3.13|uv|Linux|glibc|false; gap between two largest W1 1.16, W2 0.46 points
+      changed c5 pydantic-core: 3.12|uv|Linux|glibc|true -> 3.12|uv|Linux|glibc|false; gap between two largest W1 0.48, W2 0.04 points
+      changed c5 pygments: 3.12|uv|Linux|glibc|true -> 3.13|uv|Linux|glibc|false; gap between two largest W1 0.69, W2 0.59 points
+      changed c5 pyjwt: 3.12|uv|Linux|glibc|true -> 3.13|uv|Linux|glibc|false; gap between two largest W1 1.88, W2 0.73 points
+      changed c5 pytest: 3.12|uv|Linux|glibc|true -> 3.13|uv|Linux|glibc|false; gap between two largest W1 2.09, W2 0.19 points
+      changed c5 requests: 3.12|pip|Linux|glibc|false -> 3.12|pip|Linux|glibc|true; gap between two largest W1 0.01, W2 0.59 points
+   CI flag split (amendment 3):
+      W1: median older 44.1, at-or-newer 40.1, difference median +0.2, older higher 19 of 37, unknown 0; boto3 6.6 vs 33.3; certifi 53.3 vs 38.9
+      W2: median older 44.7, at-or-newer 40.0, difference median +3.5, older higher 20 of 37, unknown 0; boto3 6.3 vs 34.5; certifi 53.3 vs 39.6
+
+E. Project-resampled 95 per cent percentile intervals, 10,000 resamples, reviewer's own resampler
+   O holds 86.5: seed 1 75.7 to 97.3; seed 20261102 75.7 to 97.3
+   P holds 94.6: seed 1 86.5 to 100.0; seed 20261102 86.5 to 100.0
+   C holds 89.2: seed 1 78.4 to 97.3; seed 20261102 78.4 to 97.3
+   C5 holds 78.4: seed 1 64.9 to 91.9; seed 20261102 64.9 to 91.9
+   median O W0: seed 1 33.8 to 46.7
+   median O W1: seed 1 32.9 to 47.0
+   median O W2: seed 1 30.8 to 46.6
+   median C W1: seed 1 9.6 to 11.4; median CI difference older minus at-or-newer W1: -6.4 to +8.6
+   median C W2: seed 1 9.8 to 11.1; median CI difference older minus at-or-newer W2: -6.6 to +9.1
+
+F. The four tests
+   W0: boto3 3.9 372,822,043 of 575,788,722 = 64.7; ratio on 3.9 7.51, all 2.94; below 1.42.97 95.4
+   W1: boto3 3.9 376,523,227 of 577,011,832 = 65.3; ratio on 3.9 7.16, all 2.73; below 1.42.97 95.2
+   W2: boto3 3.9 392,846,382 of 602,996,072 = 65.1; ratio on 3.9 8.04, all 2.92; below 1.42.97 95.5
+   highest usable boto3 below R0 (1.43.78) admitting 3.9: 1.42.97; boto3 R0 excludes 3.9 in W1 and W2: True True
+   W0: boto3 3.9 flatness 0.0007; versions 2022; blocks 1, 5, 6, 25, 26, 40: 886,738 870,518 527,432 513,021 107,185 2; blocks 1 to 5 range 870,518 to 886,738, 6 to 25 513,021 to 527,432, 26 on 2 to 108,220; 1.42.87 ratio 0.55
+   W1: boto3 3.9 flatness 0.0007; versions 2022; blocks 1, 5, 6, 25, 26, 40: 862,942 848,750 536,185 519,506 110,389 15; blocks 1 to 5 range 848,750 to 862,942, 6 to 25 519,506 to 536,185, 26 on 15 to 111,080; 1.42.87 ratio 0.53
+   W2: boto3 3.9 flatness 0.0005; versions 2022; blocks 1, 5, 6, 25, 26, 40: 901,972 888,678 549,830 533,524 125,698 3; blocks 1 to 5 range 888,678 to 901,972, 6 to 25 533,524 to 549,855, 26 on 3 to 127,038; 1.42.87 ratio 0.55
+
+G. Walk-shaped share of older downloads (measure 4), reviewer's implementation
+   W0: pooled 17.1; median 0.0; boto3 78.9, aiobotocore 84.2, botocore 11.6, anyio 7.6, fsspec 0.0, grpcio-status 10.9, litellm 19.3; over a tenth 5
+   W1: pooled 16.1; median 0.0; boto3 78.3, aiobotocore 84.4, botocore 13.2, anyio 7.5, fsspec 0.0, grpcio-status 0.0, litellm 0.0; over a tenth 3
+   W2: pooled 17.5; median 0.0; boto3 79.3, aiobotocore 83.4, botocore 12.4, anyio 6.3, fsspec 29.2, grpcio-status 2.2, litellm 10.5; over a tenth 5
