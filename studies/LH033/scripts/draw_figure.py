@@ -54,7 +54,7 @@ y = lambda v: Y1 - (Y1 - Y0) * v
 pct = lambda v: f'{v * 100:.0f}%'
 o = [f'<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 {W} {H}" width="{W}" height="{H}" role="img" aria-labelledby="t d">']
 o.append('<title id="t">The PHP emergency fix by Censys\'s count of internet-facing services, beside how Python security fixes '
-         f'reached downloads, to {last_date.day} October 2026</title>')
+         f'reached downloads, to {last_date.day} {last_date.strftime("%B")} 2026</title>')
 ends = ', '.join(f'{b} {s[-1][1] * 100:.1f}%' for b, s in sorted(m1.items(), key=lambda kv: -kv[1][-1][1]))
 o.append('<desc id="d">Two charts. The first is a line chart: the horizontal axis is days since release, 0 to 30; the vertical axis '
          'is a share from 0 to 100 per cent, with a dashed line at half. Four teal lines with different dash patterns, one per PHP branch, show the share of '
@@ -64,7 +64,7 @@ o.append('<desc id="d">Two charts. The first is a line chart: the horizontal axi
          f'library\'s daily downloads, from {pct(lo[1])} to {pct(hi[1])} on day 1 and {pct(lo[30])} to {pct(hi[30])} on day 30, nearly flat; '
          f'a dashed amber line shows the median over 37 Python libraries, {pct(med[1])} on day 1 and {pct(med[30])} on day 30. The two '
          'measure different things: services as last scanned, and downloads in a day. The second chart is one bar splitting the '
-         f'{tail["versioned"] / 1e6:.1f} million PHP services that reported a version on {last_date.day} October: '
+         f'{tail["versioned"] / 1e6:.1f} million PHP services that reported a version on {last_date.day} {last_date.strftime("%B")}: '
          f'{tail["patched"] / 1e6:.1f} million patched, {tail["affected"] / 1e6:.1f} million in fixed branches not yet counted patched, '
          f'and {tail["affected_nofix"] / 1e6:.1f} million on branches PHP did not fix. A further {tail["unknown"] / 1e6:.1f} million '
          'reported no version. Sources: Censys ARC\'s PHP2Shell dashboard, read by Lighthouse; ClickPy\'s copy of the Python '
@@ -114,7 +114,7 @@ o.append(f'<text x="{x(30) - 4:.1f}" y="{y(med[30]) + 18:.1f}" class="ann" text-
 o.append('<text x="16" y="505" class="note">Four fixes: urllib3, cryptography, pyjwt, starlette. Python series reuse retained 2026 data.</text>')
 
 BY, BH = 570, 34
-o.append(f'<text x="16" y="{BY - 34}" class="sec">PHP services that reported a version, {last_date.day} October 2026: '
+o.append(f'<text x="16" y="{BY - 34}" class="sec">PHP services that reported a version, {last_date.day} {last_date.strftime("%B")} 2026: '
          f'{tail["versioned"] / 1e6:.1f} million</text>')
 parts = [('patched', tail['patched'], 'var(--teal)', 'patched'),
          ('waiting', tail['affected'], 'var(--neutral)', 'not yet patched'),

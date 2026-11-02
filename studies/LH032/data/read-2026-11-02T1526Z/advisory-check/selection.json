@@ -1,0 +1,89 @@
+[
+ {
+  "id": "urn:php2shell:inventory:package:PHP-0395",
+  "supplier": "aaPanel",
+  "product": "aaPanel PHP Project hosting and CLI selection",
+  "status": [
+   "Fix",
+   "Fix"
+  ],
+  "urls": [
+   "https://www.aapanel.com/docs/Function/php.html",
+   "https://www.aapanel.com/forum/d/26249-critical-php-security-update"
+  ],
+  "advisory_urls": [
+   "https://www.aapanel.com/forum/d/26249-critical-php-security-update"
+  ]
+ },
+ {
+  "id": "urn:php2shell:inventory:package:PHP-0402",
+  "supplier": "Acquia",
+  "product": "Acquia Cloud Platform PHP hosting",
+  "status": [
+   "Fix",
+   "Fix"
+  ],
+  "urls": [
+   "https://docs.acquia.com/acquia-cloud-platform/configuring-php-settings",
+   "https://docs.acquia.com/acquia-cloud-platform/release/2026-10-22/100321-cloud-platform-october-22-2026",
+   "https://github.com/php/php-src/security/advisories/GHSA-w8hw-w9fx-j79w",
+   "https://github.com/php/php-src/security/advisories/GHSA-6wmf-4rv5-p3rp"
+  ],
+  "advisory_urls": [
+   "https://github.com/php/php-src/security/advisories/GHSA-w8hw-w9fx-j79w",
+   "https://github.com/php/php-src/security/advisories/GHSA-6wmf-4rv5-p3rp"
+  ]
+ },
+ {
+  "id": "urn:php2shell:inventory:package:PHP-0359",
+  "supplier": "Alpine Linux package maintainers",
+  "product": "Alpine Linux v3.22 php84 package family",
+  "status": [
+   "Fix",
+   "Fix"
+  ],
+  "urls": [
+   "https://pkgs.alpinelinux.org/package/v3.22/community/x86_64/php84",
+   "https://raw.githubusercontent.com/alpinelinux/aports/3.22-stable/community/php84/APKBUILD"
+  ],
+  "advisory_urls": [
+   "https://raw.githubusercontent.com/alpinelinux/aports/3.22-stable/community/php84/APKBUILD"
+  ]
+ },
+ {
+  "id": "urn:php2shell:inventory:package:PHP-0035",
+  "supplier": "Amazon Web Services",
+  "product": "AWS Elastic Beanstalk PHP platform",
+  "status": [
+   "Fix",
+   "Fix"
+  ],
+  "urls": [
+   "https://docs.aws.amazon.com/elasticbeanstalk/latest/platforms/platforms-supported.html",
+   "https://aws.amazon.com/security/security-bulletins/2026-143-aws/",
+   "https://docs.aws.amazon.com/elasticbeanstalk/latest/relnotes/release-2026-10-21-al2023-php84-php85.html",
+   "https://docs.aws.amazon.com/elasticbeanstalk/latest/relnotes/release-2026-10-22-al2023-php82-php83.html"
+  ],
+  "advisory_urls": [
+   "https://aws.amazon.com/security/security-bulletins/2026-143-aws/",
+   "https://docs.aws.amazon.com/elasticbeanstalk/latest/relnotes/release-2026-10-21-al2023-php84-php85.html",
+   "https://docs.aws.amazon.com/elasticbeanstalk/latest/relnotes/release-2026-10-22-al2023-php82-php83.html"
+  ]
+ },
+ {
+  "id": "urn:php2shell:inventory:package:PHP-0417",
+  "supplier": "Antagonist",
+  "product": "Antagonist DirectAdmin PHP hosting selector",
+  "status": [
+   "Fix",
+   "Fix"
+  ],
+  "urls": [
+   "https://help.antagonist.nl/hc/nl/articles/8523972848401-Wat-kan-ik-met-de-PHP-selector-in-DirectAdmin",
+   "https://www.antagonist.nl/blog/php-lekken-gedicht-zo-hebben-we-het-aangepakt/"
+  ],
+  "advisory_urls": [
+   "https://www.antagonist.nl/blog/php-lekken-gedicht-zo-hebben-we-het-aangepakt/"
+  ]
+ }
+]
