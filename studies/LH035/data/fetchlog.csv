@@ -1,0 +1,101 @@
+n,purpose,url,outcome
+1,instrument,https://docs.peeringdb.com/faq/,read
+2,instrument,https://www.caida.org/catalog/datasets/as-facilities/,read
+3,instrument,https://www.submarinecablemap.com/,thin: title only
+4,instrument,https://internetatlas.org/,failed: DNS EAI_AGAIN
+5,instrument,https://www2.telegeography.com/submarine-cable-faqs-frequently-asked-questions,read
+6,instrument,https://ris.ripe.net/docs/,thin: index page
+7,instrument,https://www.routeviews.org/routeviews/,read
+8,instrument,https://www.pch.net/resources/BGP_Routing_Data,302 to downloads.pch.net
+9,instrument,https://downloads.pch.net/BGP_Routing_Data,thin: directory listing with licence line
+10,instrument,https://ris.ripe.net/docs/route-collectors/,read
+11,instrument,https://atlas.ripe.net/about/,302 to www.ripe.net
+12,instrument,https://www.caida.org/catalog/datasets/as-relationships/,read
+13,instrument,https://www.ripe.net/analyse/internet-measurements/ripe-atlas/,read
+14,instrument,https://ris.ripe.net/docs/mrt/,read
+15,instrument,https://www.caida.org/catalog/datasets/ipv4_routed_24_topology_dataset/,read
+16,instrument,https://ant.isi.edu/datasets/,read
+17,instrument,https://docs.censys.com/docs/platform-datasets,read
+18,instrument,https://help.shodan.io/the-basics/what-is-shodan,read
+19,instrument,https://www.rapid7.com/research/project-sonar/,read
+20,instrument,https://www.shadowserver.org/what-we-do/network-reporting/,read
+21,instrument,https://opendata.rapid7.com/about/,301 to sonardata.rapid7.com
+22,instrument,https://dashboard.shadowserver.org/,failed: HTTP 503
+23,instrument,https://www.measurementlab.net/about/,read
+24,instrument,https://www.caida.org/catalog/datasets/telescope-near-real-time-data/,failed: HTTP 404
+25,instrument,https://sonardata.rapid7.com/about/,read
+26,instrument,https://www.measurementlab.net/data/docs/,read
+27,instrument,https://www.caida.org/projects/network_telescope/,read
+28,instrument,https://urlscan.io/about/,read
+29,instrument,https://dns.coffee/faq,read
+30,instrument,https://czds.icann.org/help,read (sign-in page)
+31,instrument,https://tranco-list.eu/methodology,read
+32,instrument,https://developers.cloudflare.com/radar/,read
+33,instrument,https://certificate.transparency.dev/howctworks/,read
+34,instrument,https://developers.cloudflare.com/radar/glossary/,read
+35,instrument,https://netlas.io/legal/data_collection_policy/,read
+36,instrument,https://httparchive.org/faq,read
+37,instrument,https://www.shodan.io/pricing,failed: HTTP 403
+38,instrument,https://censys.com/pricing,read
+39,instrument,https://w3techs.com/technologies,read
+40,instrument,https://commoncrawl.org/faq,read
+41,instrument,https://docs.pypi.org/api/bigquery/,read
+42,instrument,https://pypistats.org/about,read
+43,instrument,https://clickpy.clickhouse.com/,read
+44,instrument,https://nodejs.org/metrics/,read
+45,instrument,https://raw.githubusercontent.com/npm/registry/main/docs/download-counts.md,read
+46,instrument,https://packagist.org/statistics,read
+47,instrument,https://docs.docker.com/docker-hub/usage/pulls/,read
+48,instrument,https://www.gharchive.org/,read
+49,instrument,https://www.softwareheritage.org/archive/,failed: HTTP 503
+50,instrument,https://docs.deps.dev/faq/,read
+51,instrument,https://huggingface.co/docs/hub/models-download-stats,read
+52,instrument,https://docs.docker.com/reference/api/hub/latest/,read
+53,instrument,https://www.cisa.gov/known-exploited-vulnerabilities,read
+54,instrument,https://osv.dev/about,302 to google.github.io/osv.dev/faq
+55,instrument,https://www.first.org/epss/data_stats,failed: HTTP 404
+56,instrument,https://www.cve.org/About/Overview,thin: heading only
+57,instrument,https://google.github.io/osv.dev/faq,read
+58,instrument,https://www.first.org/epss/faq,read
+59,instrument,https://raw.githubusercontent.com/CVEProject/cvelistV5/main/README.md,read
+60,instrument,https://nvd.nist.gov/general/nvd-background,thin: title only
+61,instrument,https://docs.github.com/en/code-security/security-advisories/working-with-global-security-advisories-from-the-github-advisory-database/about-the-github-advisory-database,read
+62,instrument,https://docs.greynoise.io/docs/understanding-greynoise-data-collection,failed: HTTP 404
+63,instrument,https://isc.sans.edu/data/,read
+64,instrument,https://www.atlanticcouncil.org/content-series/cybersecurity-policy-and-strategy/software-supply-chain-security-the-dataset/,read
+65,instrument,https://docs.greynoise.io/docs/introduction,failed: HTTP 404
+66,instrument,https://mawi.wide.ad.jp/mawi/,failed: HTTP 503
+67,instrument,https://www.exploit-db.com/about-exploit-db,read
+68,instrument,https://pulse.internetsociety.org/en/blog/can-ixps-take-the-pulse-of-the-internet/,read
+69,instrument,https://docs.softwareheritage.org/devel/getting-started/index.html,failed: bot protection (Anubis) Access Denied
+70,instrument,https://php2shell.censys.com/,read
+71,instrument,https://w3techs.com/disclaimer,read
+72,instrument,https://interconnection.cs.uchicago.edu/,301 to imp.cablelabs.com
+73,instrument,https://imp.cablelabs.com/,read
+74,instrument,https://research.utwente.nl/en/publications/itsa-internet-traffic-statistics-archive/,read
+75,instrument,https://stat.ripe.net/docs/data-api/,failed: HTTP 404
+76,instrument,https://www.shadowserver.org/what-we-do/,read
+77,instrument,https://developer.chrome.com/docs/crux/methodology,read
+78,instrument,http://mawi.wide.ad.jp/mawi/,read
+79,instrument,https://archive.softwareheritage.org/,failed: bot protection (Anubis) Access Denied
+80,instrument,https://nvd.nist.gov/developers/start-here,thin: title only
+81,instrument,https://epoch.ai/data/data-centers,read (extract names the page epoch.ai/data/ai-data-centers)
+82,instrument,https://www.greynoise.io/,read
+83,instrument,https://commoncrawl.org/overview,read
+84,instrument,https://dashboard.shadowserver.org/,failed: HTTP 503 (second attempt)
+85,literature,https://zakird.com/papers/censys-2025.pdf,PDF not parsed by the tool; saved file read with pdftotext
+86,literature,https://www.ndss-symposium.org/wp-content/uploads/madweb2021_23009_paper.pdf,PDF not parsed by the tool; saved file read with pdftotext
+87,literature,https://ar5iv.labs.arxiv.org/html/1806.01156,read (first 100000 of 107266 characters)
+88,literature,https://faculty.cc.gatech.edu/~mbailey/publications/imc16_certperspectives.pdf,failed: HTTP 503
+89,literature,https://arxiv.org/abs/2309.01441,read (abstract page)
+90,literature,https://arxiv.org/html/2405.13172,read (first 100000 of 106308 characters)
+91,literature,https://arxiv.org/abs/2307.09958,read (abstract page)
+92,literature,https://arxiv.org/html/2411.02618v1,read
+93,literature,https://arxiv.org/html/2309.01441v1,read
+94,literature,https://arxiv.org/html/2307.09958v2,read
+95,literature,https://par.nsf.gov/servlets/purl/10202310,PDF not parsed by the tool; saved file read with pdftotext
+96,literature,https://www.caida.org/catalog/papers/2026_through_smaller_lens/through_smaller_lens.pdf,PDF not parsed by the tool; saved file read with pdftotext
+97,literature,https://www.ida.liu.se/~nikca89/papers/pam17.pdf,PDF not parsed by the tool; saved file read with pdftotext
+98,instrument,https://www.cisa.gov/known-exploited-vulnerabilities-catalog,read
+99,instrument,https://docs.docker.com/subscription/details/,read
+100,instrument,https://huggingface.co/docs/hub/api,read
