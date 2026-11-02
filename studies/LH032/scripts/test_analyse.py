@@ -1,5 +1,6 @@
 #!/usr/bin/env python3
 """Offline regression of the actual history and head-validation failure modes."""
+from datetime import datetime
 import json
 import os
 from pathlib import Path
@@ -11,6 +12,11 @@ from verify_inventory import markdown_entries, verify, table_cells
 
 SCRIPT = Path(__file__).with_name('analyse.py')
 CVES = ('CVE-2026-109618', 'CVE-2026-109619')
+
+
+def instant(text):
+    """Git prints a UTC committer time as Z or +00:00 depending on its version."""
+    return datetime.fromisoformat(text.replace('Z', '+00:00'))
 
 
 class HistoryTest(unittest.TestCase):
@@ -77,11 +83,11 @@ class HistoryTest(unittest.TestCase):
         result = self.run_analysis(pin, out)
         self.assertEqual(result.returncode, 0, result.stderr)
         row = json.loads((out / 'entries.json').read_text())[0]
-        self.assertEqual(row['first_fix_or_not_vuln'], '2026-10-21T14:00:00Z')
+        self.assertEqual(instant(row['first_fix_or_not_vuln']), instant('2026-10-21T14:00:00Z'))
         self.assertEqual(row['hours_from_php_release_to_that_commit'], 0.5)
-        self.assertEqual(row['last_changed_fields']['status']['time'], '2026-10-21T14:00:00Z')
-        self.assertEqual(row['last_changed_fields']['links']['time'], '2026-10-21T15:00:00Z')
-        self.assertEqual(row['last_changed_fields']['notes']['time'], '2026-10-21T15:00:00Z')
+        self.assertEqual(instant(row['last_changed_fields']['status']['time']), instant('2026-10-21T14:00:00Z'))
+        self.assertEqual(instant(row['last_changed_fields']['links']['time']), instant('2026-10-21T15:00:00Z'))
+        self.assertEqual(instant(row['last_changed_fields']['notes']['time']), instant('2026-10-21T15:00:00Z'))
         self.assertEqual(row['notes'], r'left \| right')
         self.assertEqual(row['links'], 'https://example.invalid/new')
         self.assertNotEqual(self.run_analysis(pin, out).returncode, 0)
@@ -98,6 +104,48 @@ class HistoryTest(unittest.TestCase):
         sha = self.commit('2026-10-21T10:00:00Z')
         with self.assertRaises(AssertionError):
             verify(self.repo, sha)
+
+    def test_runtime_dependent_status_reconciles_and_is_counted(self):
+        """Amendment of 2 November 2026: the list's derived sixth status."""
+        family = 'urn:php2shell:inventory:package:PHP-0037'
+        directory = self.repo / 'software'
+        (directory / 'spdx/shared').mkdir(parents=True)
+        rows = {'PHP': ' | ', 'Library': 'Runtime-dependent | Runtime-dependent',
+                'Module': 'Runtime-dependent | Runtime-dependent',
+                'Extension': 'Runtime-dependent | Runtime-dependent', 'Assessed': 'Fix | Runtime-dependent'}
+        (directory / 'software_list_a.md').write_text(
+            '| Supplier | Product | Version (see Status) | Status CVE-2026-109618 | Status CVE-2026-109619 | Notes | Links |\n'
+            '|---|---|---|---|---|---|---|\n' + ''.join(f'| Acme | {name} | | {status} | | |\n' for name, status in rows.items()))
+        package = lambda id_, name: {'spdxId': id_, 'type': 'software_Package', 'name': name, 'suppliedBy': 'org'}
+        relation = lambda id_, kind, source, target: {'spdxId': id_, 'type': 'Relationship',
+                                                      'relationshipType': kind, 'from': source, 'to': [target]}
+        graph = [{'spdxId': 'org', 'type': 'Organization', 'name': 'Acme'}, package(family, 'PHP'),
+                 package('lib', 'Library'), package('mod', 'Module'), package('ext', 'Extension'),
+                 package('own', 'Assessed'),
+                 relation('r1', 'hasProvidedDependency', 'lib', family),
+                 relation('r2', 'hasOptionalDependency', 'own', family),
+                 relation('r3', 'contains', family, 'mod'), relation('r4', 'contains', 'mod', 'ext'),
+                 relation('r5', 'dependsOn', 'ext', family),
+                 {'spdxId': 'vex', 'type': 'security_VexFixedVulnAssessmentRelationship', 'from': CVES[0],
+                  'to': ['own'], 'relationshipType': 'fixedIn'}]
+        graph += [{'spdxId': c, 'type': 'security_Vulnerability', 'name': c} for c in CVES]
+        raw = json.dumps({'@graph': graph})
+        (directory / 'spdx/shared/source.json').write_text(raw)
+        (directory / 'spdx/PHP_Downstream_Inventory.spdx3.json').write_text(raw)
+        sha = self.commit('2026-11-02T10:00:00Z')
+        verification, _ = verify(self.repo, sha)
+        self.assertEqual(verification['status_counts'][CVES[0]], {'': 1, 'Runtime-dependent': 3, 'Fix': 1})
+        out = self.root / 'output'
+        result = self.run_analysis(sha, out)
+        self.assertEqual(result.returncode, 0, result.stderr)
+        summary = json.loads((out / 'summary.json').read_text())
+        self.assertEqual(summary['analysis_version'], '0.3')
+        self.assertEqual(summary['status_at_head_cve_109619'], {'': 1, 'Runtime-dependent': 4})
+        # The status is never merged into another class: a table saying Investigation fails.
+        path = directory / 'software_list_a.md'
+        path.write_text(path.read_text().replace('| Library | | Runtime-dependent', '| Library | | Investigation'))
+        with self.assertRaises(AssertionError):
+            verify(self.repo, self.commit('2026-11-02T11:00:00Z'))
 
     def test_conflicting_identity_is_rejected_and_empty_links_survive(self):
         self.write(links='')

@@ -15,6 +15,13 @@ import unicodedata
 CVES = ('CVE-2026-109618', 'CVE-2026-109619')
 STATUS = {'underInvestigationFor': 'Investigation', 'affects': 'Vulnerable',
           'fixedIn': 'Fix', 'doesNotAffect': 'Not vuln'}
+# Amendment of 2 November 2026 (instrument 0.3): the list's sixth status. Not a VEX
+# relationship; the list derives it for a package with no direct VEX assertion for a
+# CVE that is the source of a provided/optional dependency or is contained, at any
+# depth, beneath the PHP runtime family (php2shell tools/README.md at 60d6616).
+RUNTIME_DEPENDENT = 'Runtime-dependent'
+RUNTIME_RELATIONSHIPS = {'hasProvidedDependency', 'hasOptionalDependency'}
+PHP_RUNTIME_FAMILY = 'urn:php2shell:inventory:package:PHP-0037'
 
 
 def git(clone, *args):
@@ -74,6 +81,25 @@ def markdown_entries(clone, commit):
     return result
 
 
+def runtime_scoped(graph):
+    """Packages whose CVE status the list delegates to a supplied or containing runtime."""
+    scoped, contains = set(), defaultdict(set)
+    for e in graph.values():
+        if e.get('type') != 'Relationship':
+            continue
+        if e.get('relationshipType') in RUNTIME_RELATIONSHIPS:
+            scoped.add(e['from'])
+        elif e.get('relationshipType') == 'contains':
+            contains[e['from']].update(e.get('to', []))
+    pending, seen = list(contains.get(PHP_RUNTIME_FAMILY, ())), set()
+    while pending:
+        id_ = pending.pop()
+        if id_ not in seen:
+            seen.add(id_)
+            pending.extend(contains.get(id_, ()))
+    return scoped | seen
+
+
 def verify(clone, commit):
     names = git(clone, 'ls-tree', '-r', '--name-only', commit).decode().splitlines()
     source_paths = [p for p in names if re.fullmatch(r'software/spdx/(segments|shared)/.+\.json', p)]
@@ -108,6 +134,9 @@ def verify(clone, commit):
             assert target in graph
             assert statuses[target].get(cve, status) == status, 'conflicting VEX status'
             statuses[target][cve] = status
+    for id_ in runtime_scoped(graph):
+        for cve in CVES:
+            statuses[id_].setdefault(cve, RUNTIME_DEPENDENT)
     packages = {}
     source_rows = []
     for id_, e in graph.items():

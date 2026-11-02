@@ -1,0 +1,28 @@
+{
+ "kind": "derived audit of the captured head of the 2 November 2026 read; not a new read",
+ "instrument": "analysis_version 0.3 (amendment of 2 November 2026)",
+ "from_commit": "640dcb0a9b72540a555cc955d194b7da82696999",
+ "to_commit": "60d6616dbbe3559a89fdf1668c9e1a955045fc15",
+ "method": "generated Markdown tables at each commit, matched by (supplier, product); 929 identities at both, none added or removed",
+ "entries_changing_status_in_either_cve": 257,
+ "first_mainline_commit_showing_runtime_dependent": {
+  "c005d3d (2026-11-02T10:43:29+01:00)": 238,
+  "60d6616 (2026-11-02T15:35:18+01:00)": 2
+ },
+ "transitions_per_cve": {
+  "CVE-2026-109618": {
+   "Investigation -> Runtime-dependent": 240,
+   "Investigation -> Not vuln": 13,
+   "Vulnerable -> Investigation": 2,
+   "Investigation -> Vulnerable": 1,
+   "Vulnerable -> Fix": 1
+  },
+  "CVE-2026-109619": {
+   "Investigation -> Runtime-dependent": 239,
+   "Investigation -> Not vuln": 13,
+   "Vulnerable -> Investigation": 2,
+   "Investigation -> Vulnerable": 1,
+   "Vulnerable -> Fix": 1
+  }
+ }
+}

@@ -1,5 +1,6 @@
 #!/usr/bin/env python3
 """LH032: immutable, pinned mainline-history read with SPDX head reconciliation.
+Instrument 0.3 (amendment of 2 November 2026) admits the list's "Runtime-dependent" status.
 Usage: analyse.py <clone path> <read label> [--commit <sha>]
 The selected head is a recorded source revision; commit clocks are not push clocks.
 """
@@ -66,7 +67,7 @@ def main():
                      'first_recorded_per_cve': per_cve,
                      'first_fix_or_not_vuln': resolved['time'] if resolved else None,
                      'hours_from_php_release_to_that_commit': hours(resolved['time']) if resolved else None})
-    summary = {'analysis_version': '0.2', 'clone_head': head_sha, 'head_commit_time': commits[-1][1],
+    summary = {'analysis_version': '0.3', 'clone_head': head_sha, 'head_commit_time': commits[-1][1],
                'history_axis': 'first-parent mainline; committer timestamps, not public visibility',
                'commits': len(commits), 'entries_at_head': len(previous),
                'status_at_head_cve_109618': dict(Counter(v['status'][0] for v in previous.values())),
