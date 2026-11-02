@@ -1,0 +1,68 @@
+[
+  {
+    "stratum": "rule_panel",
+    "vendor": "Google",
+    "kind": "advisories",
+    "name": "google__apigee-gcp-2026-072",
+    "url": "https://docs.cloud.google.com/apigee/docs/security-bulletins/security-bulletins",
+    "start_utc": "2026-11-02T15:32:02.885872+00:00",
+    "finish_utc": "2026-11-02T15:32:05.629217+00:00",
+    "status": 200,
+    "final_url": "https://docs.cloud.google.com/apigee/docs/security-bulletins/security-bulletins",
+    "content_type": "text/html; charset=utf-8",
+    "last_modified": "Mon, 26 Oct 2026 17:58:28 GMT",
+    "bytes": 207340,
+    "sha256": "7f29edf17d58af6cfc3a4230cdc153b4a7d766754fbcf6ac98dde13cea1944e5",
+    "mentions": {
+      "CVE-2026-109618": 3,
+      "CVE-2026-109619": 3,
+      "CVE-2026-115560": 0,
+      "PHP": 38
+    },
+    "file": "google__apigee-gcp-2026-072.raw.gz"
+  },
+  {
+    "stratum": "rule_panel",
+    "vendor": "Google",
+    "kind": "advisories",
+    "name": "google__blog-php-2026-10",
+    "url": "https://cloud.google.com/blog/products/identity-security/responding-to-core-php-vulnerabilities-cve-2026-109618-cve-2026-109619",
+    "start_utc": "2026-11-02T15:32:05.639826+00:00",
+    "finish_utc": "2026-11-02T15:32:05.917469+00:00",
+    "status": 200,
+    "final_url": "https://cloud.google.com/blog/products/identity-security/responding-to-core-php-vulnerabilities-cve-2026-109618-cve-2026-109619",
+    "content_type": "text/html; charset=utf-8",
+    "last_modified": "",
+    "bytes": 321767,
+    "sha256": "dee8da1199e76e987786097c4b6a3a4cf914641c6e44bebe5445e38cb8aa84e0",
+    "mentions": {
+      "CVE-2026-109618": 34,
+      "CVE-2026-109619": 34,
+      "CVE-2026-115560": 0,
+      "PHP": 152
+    },
+    "file": "google__blog-php-2026-10.raw.gz"
+  },
+  {
+    "stratum": "rule_panel",
+    "vendor": "Oracle",
+    "kind": "advisories",
+    "name": "oracle__alert-cve-2026-109618",
+    "url": "https://www.oracle.com/security-alerts/alert-cve-2026-109618.html",
+    "start_utc": "2026-11-02T15:32:05.927665+00:00",
+    "finish_utc": "2026-11-02T15:32:06.139542+00:00",
+    "status": 200,
+    "final_url": "https://www.oracle.com/security-alerts/alert-cve-2026-109618.html",
+    "content_type": "text/html; charset=UTF-8",
+    "last_modified": "Sat, 31 Oct 2026 06:33:35 GMT",
+    "bytes": 41253,
+    "sha256": "3ca78f5c5bb0e66c4fac65aad1b6e5fc82f300e86ca177d2f18d70960a9a6acb",
+    "mentions": {
+      "CVE-2026-109618": 22,
+      "CVE-2026-109619": 12,
+      "CVE-2026-115560": 0,
+      "PHP": 11
+    },
+    "file": "oracle__alert-cve-2026-109618.raw.gz"
+  }
+]

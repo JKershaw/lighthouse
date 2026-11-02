@@ -4,7 +4,7 @@
     "CVE-2026-109619",
     "CVE-2026-115560"
   ],
-  "note": "Routes fixed 1 November 2026 from the writer's knowledge of each vendor's advisory channel, before any was opened for this study. 'advisories' grows: an advisory URL found through a route is added with the read that found it, and read at every later read. A route that fails at the baseline may be replaced once, by a dated amendment in the brief.",
+  "note": "Routes fixed 1 November 2026 from the writer's knowledge of each vendor's advisory channel, before any was opened for this study. 'advisories' grows: an advisory URL found through a route is added with the read that found it, and read at every later read. A route that fails at the baseline may be replaced once, by a dated amendment in the brief. Amendment 1 (2 November 2026, after the baseline outcomes were seen) replaced Google's, Ivanti's and Citrix's routes; the old URLs are kept under 'replaced_routes', which the collector does not read.",
   "rule_panel": {
     "Microsoft": {
       "routes": {
@@ -32,15 +32,36 @@
     },
     "Google": {
       "routes": {
-        "gcp_bulletins": "https://cloud.google.com/feeds/gcp-security-bulletins.xml"
+        "gcp_security_bulletins_feed": "https://cloud.google.com/feeds/google-cloud-security-bulletins.xml"
       },
-      "advisories": {}
+      "advisories": {
+        "apigee-gcp-2026-072": {
+          "url": "https://docs.cloud.google.com/apigee/docs/security-bulletins/security-bulletins",
+          "found_at_read": "2026-11-02T1530Z"
+        },
+        "blog-php-2026-10": {
+          "url": "https://cloud.google.com/blog/products/identity-security/responding-to-core-php-vulnerabilities-cve-2026-109618-cve-2026-109619",
+          "found_at_read": "2026-11-02T1530Z"
+        }
+      },
+      "replaced_routes": {
+        "gcp_bulletins": {
+          "url": "https://cloud.google.com/feeds/gcp-security-bulletins.xml",
+          "replaced": "2026-11-02, brief amendment 1, after the baseline 2026-11-01T1420Z"
+        }
+      }
     },
     "Ivanti": {
       "routes": {
-        "advisory_blog": "https://www.ivanti.com/blog/topics/security-advisory"
+        "advisory_blog_rss": "https://www.ivanti.com/blog/topics/security-advisory/rss"
       },
-      "advisories": {}
+      "advisories": {},
+      "replaced_routes": {
+        "advisory_blog": {
+          "url": "https://www.ivanti.com/blog/topics/security-advisory",
+          "replaced": "2026-11-02, brief amendment 1, after the baseline 2026-11-01T1420Z"
+        }
+      }
     },
     "Fortinet": {
       "routes": {
@@ -74,7 +95,12 @@
         "oracle_linux_109619": "https://linux.oracle.com/cve/CVE-2026-109619.html",
         "security_rss": "https://www.oracle.com/ocom/groups/public/@otn/documents/webcontent/rss-otn-sec.xml"
       },
-      "advisories": {}
+      "advisories": {
+        "alert-cve-2026-109618": {
+          "url": "https://www.oracle.com/security-alerts/alert-cve-2026-109618.html",
+          "found_at_read": "2026-11-02T1530Z"
+        }
+      }
     },
     "Apache": {
       "routes": {},
@@ -83,9 +109,15 @@
     },
     "Citrix": {
       "routes": {
-        "bulletins_rss": "https://support.citrix.com/feed/products/all/securitybulletins.rss"
+        "securitybulletins": "https://support.citrix.com/securitybulletins/"
       },
-      "advisories": {}
+      "advisories": {},
+      "replaced_routes": {
+        "bulletins_rss": {
+          "url": "https://support.citrix.com/feed/products/all/securitybulletins.rss",
+          "replaced": "2026-11-02, brief amendment 1, after the baseline 2026-11-01T1420Z"
+        }
+      }
     },
     "D-Link": {
       "routes": {
