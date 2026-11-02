@@ -1,0 +1,75 @@
+project,week,R,R_differs_from_R0,O,P_lower,P_upper,class_,O_at_R0
+aiobotocore,W1,3.9.0,False,0.967073,0.658677,0.664619,accounts for most,0.967073
+aiobotocore,W2,3.9.0,False,0.965487,0.631061,0.637790,accounts for most,0.965487
+aiohttp,W1,3.14.3,False,0.314716,0.318258,0.380814,cannot be the main reason,0.314716
+aiohttp,W2,3.14.3,False,0.288223,0.315265,0.381122,cannot be the main reason,0.288223
+annotated-types,W1,0.8.0,False,0.331333,0.081789,0.150367,cannot be the main reason,0.331333
+annotated-types,W2,0.8.0,False,0.322495,0.077128,0.145318,cannot be the main reason,0.322495
+anyio,W1,4.14.2,False,0.245159,0.087559,0.138747,cannot be the main reason,0.245159
+anyio,W2,4.15.0,True,0.366020,0.055661,0.105087,cannot be the main reason,0.230274
+boto3,W1,1.43.83,True,0.892284,0.772136,0.779932,accounts for most,0.888819
+boto3,W2,1.43.89,True,0.894677,0.761734,0.769670,accounts for most,0.886271
+botocore,W1,1.43.83,True,0.709545,0.459751,0.485913,cannot be the main reason,0.704928
+botocore,W2,1.43.89,True,0.692839,0.449393,0.477518,cannot be the main reason,0.681557
+certifi,W1,2026.7.22,False,0.246117,0.015518,0.104711,cannot be the main reason,0.246117
+certifi,W2,2026.7.22,False,0.240152,0.014855,0.103800,cannot be the main reason,0.240152
+cffi,W1,2.1.1,False,0.329070,0.230511,0.307084,cannot be the main reason,0.329070
+cffi,W2,2.1.1,False,0.320699,0.228323,0.304823,cannot be the main reason,0.320699
+charset-normalizer,W1,3.5.1,False,0.270411,0.007309,0.111601,cannot be the main reason,0.270411
+charset-normalizer,W2,3.5.1,False,0.266601,0.007112,0.114227,cannot be the main reason,0.266601
+click,W1,8.5.0,True,0.415882,0.077540,0.161146,cannot be the main reason,0.310611
+click,W2,8.5.0,True,0.402058,0.072053,0.155645,cannot be the main reason,0.299447
+cryptography,W1,50.0.1,True,0.443626,0.055192,0.109136,cannot be the main reason,0.358048
+cryptography,W2,50.0.1,True,0.428509,0.057747,0.113507,cannot be the main reason,0.347186
+filelock,W1,3.32.4,True,0.397400,0.136365,0.193978,cannot be the main reason,0.366169
+filelock,W2,3.32.5,True,0.411847,0.127028,0.182537,cannot be the main reason,0.367422
+fsspec,W1,2026.7.0,False,0.743052,0.461214,0.477859,cannot be the main reason,0.743052
+fsspec,W2,2026.7.0,False,0.692599,0.461994,0.479659,cannot be the main reason,0.692599
+grpcio-status,W1,1.83.1,True,0.790725,0.140596,0.171566,cannot be the main reason,0.759873
+grpcio-status,W2,1.83.1,True,0.793108,0.139061,0.171047,cannot be the main reason,0.761233
+idna,W1,3.19,False,0.259252,0.134353,0.217299,cannot be the main reason,0.259252
+idna,W2,3.19,False,0.253026,0.129206,0.213351,cannot be the main reason,0.253026
+litellm,W1,1.98.0,True,0.616359,0.001933,0.026549,accounts for little,0.597709
+litellm,W2,1.99.0,True,0.555060,0.002496,0.033237,accounts for little,0.524207
+numpy,W1,2.5.2,False,0.702144,0.615004,0.659730,accounts for most,0.702144
+numpy,W2,2.5.2,False,0.674727,0.605380,0.648213,accounts for most,0.674727
+packaging,W1,26.3,False,0.256079,0.070496,0.159779,cannot be the main reason,0.256079
+packaging,W2,26.3,False,0.245732,0.061549,0.150439,cannot be the main reason,0.245732
+pandas,W1,3.0.5,False,0.707250,0.446419,0.483805,cannot be the main reason,0.707250
+pandas,W2,3.0.5,False,0.706454,0.409889,0.446741,cannot be the main reason,0.706454
+pathspec,W1,1.1.1,False,0.228074,0.029836,0.099972,accounts for little,0.228074
+pathspec,W2,1.1.1,False,0.227284,0.025223,0.096591,accounts for little,0.227284
+platformdirs,W1,4.11.5,True,0.431179,0.194177,0.260614,cannot be the main reason,0.413263
+platformdirs,W2,4.11.7,True,0.441875,0.192427,0.258340,cannot be the main reason,0.421990
+protobuf,W1,7.36.0,False,0.692173,0.100595,0.152381,cannot be the main reason,0.692173
+protobuf,W2,7.36.1,True,0.680939,0.097828,0.152753,cannot be the main reason,0.673629
+pydantic,W1,2.13.5,True,0.475850,0.022632,0.076738,accounts for little,0.328893
+pydantic,W2,2.13.5,True,0.451392,0.018211,0.072493,accounts for little,0.307838
+pydantic-core,W1,2.48.0,False,0.992346,0.026242,0.068561,accounts for little,0.992346
+pydantic-core,W2,2.48.0,False,0.783817,0.029804,0.081328,accounts for little,0.783817
+pygments,W1,2.21.0,False,0.300942,0.027545,0.092251,accounts for little,0.300942
+pygments,W2,2.21.0,False,0.283895,0.025256,0.089619,accounts for little,0.283895
+pyjwt,W1,2.13.0,False,0.178754,0.134553,0.188058,cannot be the main reason,0.178754
+pyjwt,W2,2.13.0,False,0.172677,0.134924,0.188597,cannot be the main reason,0.172677
+pytest,W1,9.1.1,False,0.552765,0.058739,0.108967,cannot be the main reason,0.552765
+pytest,W2,9.1.1,False,0.562830,0.048078,0.095374,accounts for little,0.562830
+python-dotenv,W1,1.2.3,False,0.434626,0.036388,0.091398,accounts for little,0.434626
+python-dotenv,W2,1.2.3,False,0.428578,0.034191,0.089806,accounts for little,0.428578
+requests,W1,2.34.2,False,0.373222,0.267703,0.316176,cannot be the main reason,0.373222
+requests,W2,2.34.2,False,0.368813,0.239318,0.287475,cannot be the main reason,0.368813
+rpds-py,W1,2026.6.3,False,0.366063,0.326520,0.383585,cannot be the main reason,0.366063
+rpds-py,W2,2026.6.3,False,0.343759,0.291842,0.354183,cannot be the main reason,0.343759
+s3transfer,W1,0.19.2,False,0.627865,0.436432,0.468517,cannot be the main reason,0.627865
+s3transfer,W2,0.19.2,False,0.621848,0.422616,0.455388,cannot be the main reason,0.621848
+starlette,W1,1.6.0,False,0.423205,0.015129,0.061410,accounts for little,0.423205
+starlette,W2,1.6.0,False,0.411339,0.014669,0.063182,accounts for little,0.411339
+tqdm,W1,4.70.0,False,0.375004,0.017292,0.075152,accounts for little,0.375004
+tqdm,W2,4.70.0,False,0.379238,0.016687,0.074419,accounts for little,0.379238
+typing-extensions,W1,4.16.0,False,0.215310,0.142686,0.212260,cannot be the main reason,0.215310
+typing-extensions,W2,4.16.0,False,0.202143,0.137158,0.207089,cannot be the main reason,0.202143
+typing-inspection,W1,0.4.4,False,0.348218,0.049122,0.110815,cannot be the main reason,0.348218
+typing-inspection,W2,0.4.4,False,0.338240,0.047415,0.108517,cannot be the main reason,0.338240
+urllib3,W1,2.7.0,False,0.255302,0.444015,0.501852,undetermined,0.255302
+urllib3,W2,2.7.0,False,0.243640,0.423852,0.485151,cannot be the main reason,0.243640
+uvicorn,W1,0.52.4,False,0.470056,0.015748,0.060507,accounts for little,0.470056
+uvicorn,W2,0.52.4,False,0.466353,0.014797,0.061987,accounts for little,0.466353

@@ -1,0 +1,21 @@
+1. Largest cell changed between W1 and W2: the two largest cells as a share of all downloads, in points
+   C5 click: 3.12|uv|Linux|glibc|true -> 3.12|uv|Linux|glibc|false; W1 11.06 and 11.01 (gap 0.05); W2 11.27 and 11.27 (gap 0.00)
+   C litellm: 3.12|pip|Linux|glibc|false|US -> 3.12|uv|Linux|glibc|false|US; W1 19.43 and 13.34 (gap 6.09); W2 17.12 and 13.48 (gap 3.64)
+   C5 litellm: 3.12|pip|Linux|glibc|false -> 3.12|uv|Linux|glibc|false; W1 22.39 and 18.30 (gap 4.09); W2 22.43 and 15.37 (gap 7.05)
+   C numpy: 3.9|pip|Linux|glibc|false|US -> 3.13|uv|Linux|glibc|false|US; W1 8.40 and 6.69 (gap 1.71); W2 8.06 and 7.69 (gap 0.37)
+   C5 numpy: 3.9|pip|Linux|glibc|false -> 3.13|uv|Linux|glibc|false; W1 10.02 and 8.86 (gap 1.16); W2 9.71 and 9.25 (gap 0.46)
+   C5 pydantic-core: 3.12|uv|Linux|glibc|true -> 3.12|uv|Linux|glibc|false; W1 11.79 and 11.32 (gap 0.48); W2 11.53 and 11.49 (gap 0.04)
+   C5 pygments: 3.12|uv|Linux|glibc|true -> 3.13|uv|Linux|glibc|false; W1 11.80 and 11.11 (gap 0.69); W2 12.48 and 11.89 (gap 0.59)
+   C pyjwt: 3.12|uv|Linux|glibc|true|US -> 3.13|uv|Linux|glibc|false|US; W1 9.39 and 7.34 (gap 2.06); W2 9.94 and 9.30 (gap 0.64)
+   C5 pyjwt: 3.12|uv|Linux|glibc|true -> 3.13|uv|Linux|glibc|false; W1 10.65 and 8.77 (gap 1.88); W2 11.44 and 10.71 (gap 0.73)
+   C5 pytest: 3.12|uv|Linux|glibc|true -> 3.13|uv|Linux|glibc|false; W1 13.25 and 11.16 (gap 2.09); W2 13.38 and 13.19 (gap 0.19)
+   C5 requests: 3.12|pip|Linux|glibc|false -> 3.12|pip|Linux|glibc|true; W1 8.22 and 8.21 (gap 0.01); W2 8.58 and 8.00 (gap 0.59)
+   C typing-extensions: 3.12|uv|Linux|glibc|true|US -> 3.12|pip|Linux|glibc|true|US; W1 7.02 and 7.01 (gap 0.01); W2 7.25 and 7.18 (gap 0.07)
+
+2. pydantic-core, share of each week's downloads by version (at least 1 per cent), with first upload (UTC)
+   W1: 2.46.5 54.8 (2026-08-28T09:57); 2.46.4 15.8 (2026-05-06T13:36); 2.41.5 12.9 (2025-11-04T13:39); 2.33.2 3.9 (2025-04-23T18:30); 2.46.3 1.8 (2026-04-20T14:40); 2.27.2 1.4 (2024-12-18T11:27); 2.23.4 1.3 (2024-09-16T16:03)
+   W2: 2.46.5 36.2 (2026-08-28T09:57); 2.50.0 19.6 (2026-10-08T14:25); 2.46.4 15.3 (2026-05-06T13:36); 2.41.5 12.1 (2025-11-04T13:39); 2.33.2 3.7 (2025-04-23T18:30); 2.46.3 1.6 (2026-04-20T14:40); 2.50.1 1.4 (2026-10-11T18:31); 2.27.2 1.3 (2024-12-18T11:27); 2.23.4 1.2 (2024-09-16T16:03)
+   pydantic 2.14.0 first uploaded 2026-10-08T14:34
+
+3. O at fixed R0, change from W0
+   lower in W1 than W0: 31 of 37; lower in W2 than W0: 35; lower in W2 than W1: 32; lower in both weeks: 31
