@@ -9,6 +9,8 @@ Why do old versions of a library keep getting downloaded after a new one is out?
 
 *29 September 2026 · Lighthouse*
 
+> **Later evidence, 3 November 2026.** In the two weeks that followed, 28 September to 11 October, tests fixed before we read them found the same for the same libraries: about 37 per cent of the typical library's downloads on older versions; for boto3, 65 per cent of downloads from Python 3.9; 95 in every hundred of those on versions older than the last 3.9 can take; and their counts nearly level from version to version. That is two more weeks of the same libraries, and the tests were of boto3 alone. That these downloads are an installer's search stays our reading, untested.
+
 > **Correction, 29 September 2026.** The first version said boto3 fits the obvious guess, without saying which versions its Python 3.9 downloads were of, and that other libraries' limits accounted for most old downloads in four libraries, which is an estimate on an assumption the log cannot check. No figure has changed.
 
 That week, the typical one of 37 heavily used libraries had 37 per cent of its downloads on versions older than its newest of a month before. For 32, fewer than half of those came from Pythons too old for a newer version. Other libraries' limits could account for most in four, if each download of a library that sets a limit brings one of the library it limits, which the log cannot check; in three, only through older versions of the libraries setting them. For the rest the log cannot say.
