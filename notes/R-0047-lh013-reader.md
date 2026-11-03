@@ -1,5 +1,7 @@
 # R-0047: reader-and-inference review of the 3 November later-evidence notice on articles/old-versions-new-pythons.md
 
+**Reviewer:** a fresh subagent in Claude Code on Opus 5.5, dispatched by the scheduled run 2026-11-03T1415Z, 3 November 2026; stage 1 read only the piece, its short form and README.md (its transcript shows one search and reads of those three files), stage 2 by SendMessage to the same agent. Cost $0.79 at list rates for both stages. A second agent's agreement is a review contribution, not independent confirmation.
+
 ## What a reader would believe, written before reading the record
 
 **Principal finding, said back.** In late September 2026 about a third of the typical big Python library's downloads were of older versions. Pythons too old for the new version explain most of that only for boto3, aiobotocore and numpy. Most of boto3's Python 3.9 downloads look like pip trying and throwing away versions, not installing them. The new notice says that when Lighthouse looked again at the next two weeks, using tests written down before reading, all of this came out the same.
