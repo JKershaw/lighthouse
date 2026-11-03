@@ -1,0 +1,14 @@
+W0: projects 37, median O 37.3
+W1: projects 37, median O 36.6
+W2: projects 37, median O 36.7
+O within 5 points of W0 in W1 and W2: 32 of 37
+left the band: [('aiohttp', '-0.023565', '-0.050058'), ('fsspec', '-0.001723', '-0.052175'), ('litellm', '-0.061329', '-0.134831'), ('numpy', '-0.030828', '-0.058245'), ('pydantic-core', '-0.000975', '-0.209505')]
+O lower than W0: {'W1': 31, 'W2': 35}
+W0 P accounts for most: ['aiobotocore', 'boto3', 'numpy']
+W1 P accounts for most: ['aiobotocore', 'boto3', 'numpy']
+W2 P accounts for most: ['aiobotocore', 'boto3', 'numpy']
+P class changes: [('pandas', 'undetermined', 'cannot be the main reason', 'cannot be the main reason'), ('urllib3', 'undetermined', 'undetermined', 'cannot be the main reason')]
+W0: boto3 3.9 share 64.75 (stated 64.7); ratio 3.9 7.51 vs all 2.94; below edge 95.4
+W1: boto3 3.9 share 65.25 (stated 65.3); ratio 3.9 7.16 vs all 2.73; below edge 95.2
+W2: boto3 3.9 share 65.15 (stated 65.1); ratio 3.9 8.04 vs all 2.92; below edge 95.5
+["test 4 (the walk), boto3's Python 3.9 profile below 1.42.97 walk-shaped in W1 and W2: holds; flatness W0 0.0007, W1 0.0007, W2 0.0005 (start 1.42.97, 1.42.97, 1.42.97)"]
