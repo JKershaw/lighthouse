@@ -6,6 +6,7 @@ question: When an AI model finds a serious flaw in software the internet runs on
 started: 2026-11-01
 studies:
 - studies/LH036/brief.md
+- studies/LH038/brief.md
 
 ## Why this, and why now
 
@@ -16,7 +17,7 @@ Lighthouse watches for what AI systems do on the internet and what their activit
 ## Questions
 
 1. **The core watch** ([LH036](../studies/LH036/brief.md), running from 1 November 2026). For CVE-2026-98432: how EPSS, CISA's catalogue, the CVE record's scoring and enrichment, NVD and the references move, read back to 15 October; and when each named distribution release's security channel carries a fix. Twice a week to mid January 2027.
-2. **The disclosure timeline.** A dated reconstruction from primary sources: report, fix, CVE, distribution advisories, Anthropic's post, downstream notices; set beside the policies each party states (Anthropic's 90 days and 45 more, the kernel security team's, and the linux-distros list's). The report date is not public; the timeline records it as unknown unless a public source gives it. Brief to come.
+2. **The disclosure timeline** ([LH038](../studies/LH038/brief.md), brief fixed 4 November 2026). A dated reconstruction from primary sources: report, fix, CVE, stable releases, distribution advisories, Anthropic's post, downstream notices; set beside the policies each party states, which were read and kept before the brief was fixed: Anthropic's (90 days, and 45 days after a patch before full technical details, worded differently in the post itself), the kernel security team's (fixes released at once or within 7 days, and AI-found bugs treated as public), the kernel CVE team's, the linux-distros list's (14 days at most), Ubuntu's and Debian's. The report date is not public; the timeline records it as unknown unless a public source gives it. One read from 17 November, the record by 30 November.
 3. **How the post's five chains were scored.** Chrome, Safari, Android, Windows and Linux: severity, EPSS and CISA's catalogue for each flaw the post names, a set chosen by the post, not by us. Five cases, not a sample. Brief to come.
 4. **Later, an essay**: what responsible disclosure means when the finder is a model and a working exploit runs in under an hour. It waits for the evidence.
 

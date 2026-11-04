@@ -1,0 +1,80 @@
+[
+  {
+    "name": "anthropic_cvd",
+    "url": "https://www.anthropic.com/coordinated-vulnerability-disclosure",
+    "start_utc": "2026-11-04T14:15:56.042419+00:00",
+    "finish_utc": "2026-11-04T14:15:56.556568+00:00",
+    "status": 200,
+    "final_url": "https://www.anthropic.com/coordinated-vulnerability-disclosure",
+    "content_type": "text/html; charset=utf-8",
+    "last_modified": "",
+    "bytes": 131264,
+    "sha256": "7ac15b715120e96bb59bd7e777b57ec46daa5807a6e4120465505b0a72588bec",
+    "file": "anthropic_cvd.raw.gz"
+  },
+  {
+    "name": "kernel_security_bugs",
+    "url": "https://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git/plain/Documentation/process/security-bugs.rst",
+    "start_utc": "2026-11-04T14:15:56.561094+00:00",
+    "finish_utc": "2026-11-04T14:15:56.738034+00:00",
+    "status": 200,
+    "final_url": "https://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git/plain/Documentation/process/security-bugs.rst",
+    "content_type": "text/html; charset=utf-8",
+    "last_modified": "",
+    "bytes": 7346,
+    "sha256": "c2591ddbc13531f1a1fe31b47b0f1e34a6a3fc5bf197bd83a4271ec8df988dff",
+    "file": "kernel_security_bugs.raw.gz"
+  },
+  {
+    "name": "kernel_cve",
+    "url": "https://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git/plain/Documentation/process/cve.rst",
+    "start_utc": "2026-11-04T14:15:56.738726+00:00",
+    "finish_utc": "2026-11-04T14:15:56.936308+00:00",
+    "status": 200,
+    "final_url": "https://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git/plain/Documentation/process/cve.rst",
+    "content_type": "text/html; charset=utf-8",
+    "last_modified": "",
+    "bytes": 7346,
+    "sha256": "b202f1bcb7a7ea2cf050f823d43d4b92edd8e83cf0dd0f047704a36f79566feb",
+    "file": "kernel_cve.raw.gz"
+  },
+  {
+    "name": "linux_distros",
+    "url": "https://oss-security.openwall.org/wiki/mailing-lists/distros",
+    "start_utc": "2026-11-04T14:15:56.936981+00:00",
+    "finish_utc": "2026-11-04T14:15:58.179678+00:00",
+    "status": 200,
+    "final_url": "https://oss-security.openwall.org/wiki/mailing-lists/distros",
+    "content_type": "text/html; charset=utf-8",
+    "last_modified": "",
+    "bytes": 43145,
+    "sha256": "9b486f72539e142f6d7567083d19d95986e4d8040d444432491227117cc62966",
+    "file": "linux_distros.raw.gz"
+  },
+  {
+    "name": "debian_security_faq",
+    "url": "https://www.debian.org/security/faq",
+    "start_utc": "2026-11-04T14:15:58.181205+00:00",
+    "finish_utc": "2026-11-04T14:15:58.543166+00:00",
+    "status": 200,
+    "final_url": "https://www.debian.org/security/faq",
+    "content_type": "text/html",
+    "last_modified": "Mon, 02 Nov 2026 23:42:24 GMT",
+    "bytes": 31208,
+    "sha256": "112317c52b00a5074660b998f94055f26c33be92a844e4540bae4363091900bc",
+    "file": "debian_security_faq.raw.gz"
+  },
+  {
+    "name": "ubuntu_disclosure",
+    "url": "https://ubuntu.com/security/disclosure-policy",
+    "start_utc": "2026-11-04T14:15:58.544617+00:00",
+    "finish_utc": "2026-11-04T14:16:04.131100+00:00",
+    "status": 200,
+    "final_url": "https://ubuntu.com/security/disclosure-policy",
+    "content_type": "text/html; charset=utf-8",
+    "last_modified": "",
+    "bytes": 73255,
+    "sha256": "234f868ea3310c200168b41037cf09a9714f2516752c4a88545fdfe8574f16d1",
+    "file": "ubuntu_disclosure.raw.gz"
+  }
+]

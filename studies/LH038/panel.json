@@ -1,0 +1,42 @@
+{
+  "cve": "CVE-2026-98432",
+  "note": "Fixed URLs for the timeline read (protocol 0.1). The commit list is the eight git references in the CVE record as read by LH036 before this brief; the stable versions are the CNA's fixed versions as LH036's brief lists them. Group 'follow' is filled at the read by the rule in the brief (section Sources), from LH036's read of 16 November 2026, and kept in follow.json.",
+  "commits": {
+    "upstream_e3f33b0a1d89": "https://api.github.com/repos/torvalds/linux/commits/e3f33b0a1d89d738e2b913dab519226eaf76e15b",
+    "stable_b3b027ef0cd3": "https://api.github.com/repos/gregkh/linux/commits/b3b027ef0cd322bfa839b9aaf5b27551eea54cf6",
+    "stable_95a8c8fa9f27": "https://api.github.com/repos/gregkh/linux/commits/95a8c8fa9f27dce64c40c41c062de7728bf34ab5",
+    "stable_89b5b1eb7d63": "https://api.github.com/repos/gregkh/linux/commits/89b5b1eb7d633c33832b7ff2c02e19a144705036",
+    "stable_742f73df544e": "https://api.github.com/repos/gregkh/linux/commits/742f73df544e03744f2981c467d6542fe8172a2a",
+    "stable_11a03ce3c4a6": "https://api.github.com/repos/gregkh/linux/commits/11a03ce3c4a62d84c10ccdfe47f8075006498568",
+    "stable_a47406c769f7": "https://api.github.com/repos/gregkh/linux/commits/a47406c769f72c070386985488f1c4d057df86b2",
+    "stable_26d4c36d318c": "https://api.github.com/repos/gregkh/linux/commits/26d4c36d318cffbbd160884a0e4cec0da4da4936"
+  },
+  "changelogs": {
+    "changelog_5.10.272": "https://cdn.kernel.org/pub/linux/kernel/v5.x/ChangeLog-5.10.272",
+    "changelog_5.15.223": "https://cdn.kernel.org/pub/linux/kernel/v5.x/ChangeLog-5.15.223",
+    "changelog_6.1.190": "https://cdn.kernel.org/pub/linux/kernel/v6.x/ChangeLog-6.1.190",
+    "changelog_6.6.159": "https://cdn.kernel.org/pub/linux/kernel/v6.x/ChangeLog-6.6.159",
+    "changelog_6.12.113": "https://cdn.kernel.org/pub/linux/kernel/v6.x/ChangeLog-6.12.113",
+    "changelog_6.18.56": "https://cdn.kernel.org/pub/linux/kernel/v6.x/ChangeLog-6.18.56",
+    "changelog_7.2.10": "https://cdn.kernel.org/pub/linux/kernel/v7.x/ChangeLog-7.2.10",
+    "changelog_7.3": "https://cdn.kernel.org/pub/linux/kernel/v7.x/ChangeLog-7.3"
+  },
+  "lists": {
+    "oss_security_2026_09": "https://www.openwall.com/lists/oss-security/2026/09/",
+    "oss_security_2026_10": "https://www.openwall.com/lists/oss-security/2026/10/",
+    "oss_security_2026_11": "https://www.openwall.com/lists/oss-security/2026/11/",
+    "openwall_distros_stats": "https://oss-security.openwall.org/wiki/mailing-lists/distros/stats",
+    "linux_cve_announce_search": "https://lore.kernel.org/linux-cve-announce/?q=CVE-2026-98432"
+  },
+  "advisories": {
+    "debian_dsa_6568": "https://www.debian.org/security/2026/dsa-6568",
+    "debian_dla_4841": "https://www.debian.org/lts/security/2026/dla-4841",
+    "debian_dla_4850": "https://www.debian.org/lts/security/2026/dla-4850"
+  },
+  "archives": {
+    "wayback_anthropic_post": "https://web.archive.org/cdx/search/cdx?url=anthropic.com/research/discovering-vulnerabilities-with-claude&output=json",
+    "wayback_anthropic_cvd": "https://web.archive.org/cdx/search/cdx?url=anthropic.com/coordinated-vulnerability-disclosure&output=json",
+    "kernel_security_bugs_history": "https://api.github.com/repos/torvalds/linux/commits?path=Documentation/process/security-bugs.rst&per_page=20",
+    "anthropic_post": "https://www.anthropic.com/research/discovering-vulnerabilities-with-claude"
+  }
+}
