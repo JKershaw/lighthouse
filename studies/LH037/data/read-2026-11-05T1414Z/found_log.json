@@ -1,0 +1,68 @@
+[
+  {
+    "stratum": "rule_panel",
+    "vendor": "Google",
+    "kind": "advisories",
+    "name": "google__cloud-run-release-notes",
+    "url": "https://docs.cloud.google.com/run/docs/release-notes",
+    "start_utc": "2026-11-05T14:23:57.368561+00:00",
+    "finish_utc": "2026-11-05T14:23:58.413061+00:00",
+    "status": 200,
+    "final_url": "https://docs.cloud.google.com/run/docs/release-notes",
+    "content_type": "text/html; charset=utf-8",
+    "last_modified": "Fri, 30 Oct 2026 19:18:04 GMT",
+    "bytes": 288790,
+    "sha256": "24110e524ea31097593a73bc4401f6b410d1cf5faab9c7d11a7a540f1f7d5c19",
+    "mentions": {
+      "CVE-2026-109618": 0,
+      "CVE-2026-109619": 0,
+      "CVE-2026-115560": 0,
+      "PHP": 11
+    },
+    "file": "google__cloud-run-release-notes.raw.gz"
+  },
+  {
+    "stratum": "rule_panel",
+    "vendor": "Google",
+    "kind": "advisories",
+    "name": "google__cloud-run-functions-release-notes",
+    "url": "https://docs.cloud.google.com/functions/docs/release-notes",
+    "start_utc": "2026-11-05T14:23:58.425134+00:00",
+    "finish_utc": "2026-11-05T14:23:59.345747+00:00",
+    "status": 200,
+    "final_url": "https://docs.cloud.google.com/functions/docs/release-notes",
+    "content_type": "text/html; charset=utf-8",
+    "last_modified": "Mon, 26 Oct 2026 17:58:28 GMT",
+    "bytes": 251223,
+    "sha256": "bc35c3067276ece0992ed9dfc44c7d58a1f3cccbf2423e1ee16c4ff4031f321b",
+    "mentions": {
+      "CVE-2026-109618": 0,
+      "CVE-2026-109619": 0,
+      "CVE-2026-115560": 0,
+      "PHP": 22
+    },
+    "file": "google__cloud-run-functions-release-notes.raw.gz"
+  },
+  {
+    "stratum": "rule_panel",
+    "vendor": "Google",
+    "kind": "advisories",
+    "name": "google__appengine-php-gen2-release-notes",
+    "url": "https://docs.cloud.google.com/appengine/docs/standard/php-gen2/release-notes",
+    "start_utc": "2026-11-05T14:23:59.356169+00:00",
+    "finish_utc": "2026-11-05T14:24:00.422799+00:00",
+    "status": 200,
+    "final_url": "https://docs.cloud.google.com/appengine/docs/standard/php-gen2/release-notes",
+    "content_type": "text/html; charset=utf-8",
+    "last_modified": "Mon, 26 Oct 2026 17:58:28 GMT",
+    "bytes": 198874,
+    "sha256": "0ccb91e4bfa681c124294eaa123faeadace7366f5affdc26d1991470b6d819f2",
+    "mentions": {
+      "CVE-2026-109618": 0,
+      "CVE-2026-109619": 0,
+      "CVE-2026-115560": 0,
+      "PHP": 48
+    },
+    "file": "google__appengine-php-gen2-release-notes.raw.gz"
+  }
+]
