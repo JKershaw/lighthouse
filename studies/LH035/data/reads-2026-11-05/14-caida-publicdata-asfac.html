@@ -1,0 +1,109 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 3.2 Final//EN">
+<html>
+ <head>
+  <title>Index of /datasets/topology/as-facilities</title>
+  <link rel="stylesheet" href="/datasets/styling.css" type="text/css">
+ </head>
+ <body>
+  <h1 id="indextitle">Index of /datasets/topology/as-facilities</h1>
+<pre>      <a href="?C=N;O=D">Name</a>                                <a href="?C=M;O=A">Last modified</a>      <a href="?C=S;O=A">Size</a>  <a href="?C=D;O=A">Description</a><hr>      <a href="/datasets/topology/">Parent Directory</a>                                         -   
+      <a href="README.txt">README.txt</a>                          2026-08-07 16:57  5.1K  
+      <a href="asn-to-facilities.txt.gz">asn-to-facilities.txt.gz</a>            2017-02-06 15:57  479K  
+      <a href="caida-aua.pdf">caida-aua.pdf</a>                       2025-12-09 21:44  1.3M  Acceptable Use Agreement
+      <a href="mapped-aslinks-201704.json.gz">mapped-aslinks-201704.json.gz</a>       2017-06-12 15:13  716K  
+      <a href="mapped-aslinks-201704.midar.sets.gz">mapped-aslinks-201704.midar.sets.gz</a> 2017-06-14 11:45  3.7K  
+      <a href="md5.md5">md5.md5</a>                             2017-07-16 15:40  190   
+<hr></pre>
+<pre>
+File: mapped-aslinks-201704.json
+      Mapping of peering interconnections to the colocation facilities
+
+The data for each AS interconnection are encoded in JSON format with the following attributes:
+- "near-end": the attributes of the near-end AS of the interconnection.
+- "far-end": the attributes of the far-end AS of the interconnection.
+   For instance, for the interconnection "101 8075", 101 is the near-end AS and 8075 is the far-end AS
+- "peering_type": whether the peering is established over an IXP ("public") or directly ("private")
+- "peering_subtype": whether the peering ASes are in the same facility ("cross-connect" for "private" type, "local" for "public" type),
+                     or in different facilities ("tethering" for "private" type, "remote" for "public" type).
+- "ixp": the name of the IXP (ONLY for "public" peering types)
+
+Each "near-end" node has the following attributes:
+.... "asn": The AS number
+.... "facility_name": The name of the co-location facility where the border router is located
+.... "facility_operator": The operator of the co-location facility where the border router is located
+.... "city": The city where the co-location facility is located
+.... "country": The country of the co-location facility (2-letter ISO code)
+.... "ip": The router interface IP
+
+Apart from the "asn" attribute, the other attributes are optional for the "far-end" depending on the peering type.
+For private cross-connects the facility is the same as the near end.
+For private tethering the facility data of the "far-end" are included only if they have been inferred.
+
+
+File: mapped-aslinks-201704.midar.sets
+      Groups of alias sets for IP addresses
+
+The MIDAR run on your 1737 targets found 191 alias sets involving 518 unique addresses.
+Lines starting with '#' are comments and can be ignored with the exception of lines of
+the following form:
+
+# set      0:     11     55      0      0      0      0       0      0      0     55
+59.144.36.118
+59.144.36.126
+...
+
+Such a line denotes the beginning of an alias set. The addresses in the alias set are then
+given one per line. All addresses in an alias set were tested and confirmed (multiple times)
+to share a counter with each other (in a full mesh).
+
+
+File: asn-to-facilities.txt
+      AS-to-Facilities co-location
+
+The file contains the map of Autonomous Systems (ASes) to co-location
+facilities. To develop this map we parse two datasets, PeeringDB (PDB) and
+CloudScene (CLS) to extract the existing facilities and the ASes that are
+present in each facility (facility members). 
+
+Combining these two datasets is non-trivial due to the lack of standardization
+in the identification of facilities. Typically, for each facility both
+databases include three main attributes: the facility name, the facility
+operator and the address of of the facility. Since both the name of the
+facility, and the name of the facility operator are not standardized, we first
+attempt to create a mapping between the PDB and CLS facilities based on the
+address. When the two datasets indicate the same postcode and country for a
+facility, we map the two records together and we merge their respective lists
+of members. Although this approach works well when the address of a facility
+is accurately recorded, in many cases the postcode formats differ, the postcode
+may be missing altogether, or a wrong postcode may be recorded. Indeed, the
+records in both datasets are manually maintained which can lead in
+"fat-finger" errors or incomplete address information. 
+
+To improve the mapping of facility records to the same physical location we
+feed the provided addresses to the Google Maps Geocoding (GMG) API, which
+returns the geographic coordinates (latitude and longitude). The benefit of
+using the GMG API is the ability to handle different formats of human-readable
+addresses and flag errors in the provided addresses.
+
+In some cases a building may host multiple facilities, therefore we may end up
+with many-to-many mappings between PDB and CLS facilities for the same address.
+In such cases, in order to create a one-to-one mapping we calculate the
+similarity of the organization and facilities names using the Levenshtein
+distance and we select the PDB and CLS facility with the lowest distance.
+
+After identifying which facilities correspond to the same physical location we
+need to merge the corresponding members. Again, this step is complicated by the
+fact that CloudScene provides only the organization names of each member but
+not their corresponding AS numbers (ASNs) which are their unique identifiers.
+To map organizations to ASNs, we extract the organization names from WHOIS
+records and PDB. When an organization has multiple sibling ASNs, we consider
+all of the siblings co-located in the same facilities. 
+
+=============================================================================
+More information on this dataset is available on the CAIDA Catalog.
+Use of this data is governed by the CAIDA Acceptable Use Agreement (AUA).
+To reference this data, please use the citation information available at:
+https://catalog.caida.org/dataset/as_facilities_map
+=============================================================================
+</pre>
+</body></html>

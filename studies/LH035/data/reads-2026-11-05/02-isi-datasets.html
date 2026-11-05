@@ -1,0 +1,363 @@
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1"><meta name="author" content="ISI Analysis of Network Traffic Lab" />
+    <meta name="description" content="Information about the ANT project's research." />
+    <title>ANT datasets</title>
+    <link rel="alternate" type="application/rss+xml" href="./atom.xml" />
+    <link rel="stylesheet" href="../css/bootstrap.min.css" />
+    <link rel="stylesheet" href="../css/bsstyle.css" />
+    <link rel="icon" type="image/png" href="../images/logos/ant_favicon.png" />
+  </head>
+<body>
+  <div class="container-fluid">
+    <div class="row">
+      <div class="col-xs-1 col-sm-1 sidebar-offcanvas" id="sidebar" role="navigation">
+
+
+<div class="nav nav-sidebar">
+  <a href="../index.html">
+    <img src="../images/logos/ant_logo_1_128px.png"
+         class="avatar image img-fluid img-responsive"
+         alt="[ANT logo]" />
+  </a>
+
+    
+
+    <ol class="list-unstyled">
+      <li><a href="../index.html">home</a></li>
+      <li><a href="../about/index.html">about</a></li>
+      <li><a href="https://ant.isi.edu/blog/">blog</a></li>
+      <li><a href="../people/index.html">people</a></li>
+      <li><a href="../papers/index.html">papers</a></li>
+      <li><a href="../datasets/index.html">datasets</a></li>
+      <li><a href="../results/index.html">results</a></li>
+      <li><a href="../software/index.html">software</a></li>
+      <li><a href="../projects/index.html">projects</a></li>
+      <li><a href="../events/index.html">events</a></li>
+      <li><a href="../privacy/index.html">privacy</a></li>
+    </ol>
+</div>
+
+</div>
+      <div class="col-xs-11 col-sm-11 main">
+      
+        <h1 class="title header page-header">ANT datasets</h1>
+      
+      <p>ANT provides a number of datasets in different <a href="formats.html">formats</a>.</p>
+
+<h2 id="getting-datasets"><a name="getting_datasets">getting datasets</a></h2>
+
+<p>See our separate <a href="requests.html">datasets requests page</a> for
+steps to take to get access to our data,
+or contact <a href="https://www.impactcybertrust.org">IMPACT</a>.</p>
+
+<p>See also our <strong><a href="all.html">list of all datasets</a></strong>,
+and pointers to their <a href="formats.html">formats</a>.</p>
+
+<h2 id="dataset-categories"><a name="dataset_categories">dataset categories</a></h2>
+
+<p>We have several <strong>categories of dataset types</strong>:</p>
+
+<h3 id="address-space-allocation-data">Address-Space-Allocation Data</h3>
+
+<p><strong>Address Space Allocation Data</strong>
+contains Internet addresses that have some properties
+that characterize Internet topology (for example, addresses that
+respond with different codes, or that appear to be dynamic, etc.). The
+IP addresses in this dataset are not typically anonymized because they
+are determined from measurement traffic and not actual sender-receiver
+communications and so are not associated with specific individuals.
+This data can be used to better understand the Internet topology and
+address usage.</p>
+
+<p>Specific sub-categories of address space allocation data include:</p>
+
+<ul>
+  <li>
+    <p><strong>Internet address censuses</strong> (<a href="address_surveys/format.html">format</a>):
+     we ping <em>every</em> allocated IP address <em>one time</em> over about two months and report the results.
+     A census is useful for studying address allocation policies.
+     We have collected 2 censuses every 2-4 months since 2006.
+     (Example: <code class="language-plaintext highlighter-rouge">internet_address_survey_it39w-20110322</code> was the first census
+     after all IPv4 blocks were allocated.)</p>
+  </li>
+  <li>
+    <p><strong>Internet address surveys</strong> (<a href="address_surveys/format.html">format</a>):
+     we pick 1-2% of the /24 blocks in allocated Internet address space and
+     ping every address in those blocks <em>many times</em> (approximately every 11
+     minutes) for up to two weeks.
+     An address survey is useful for studying address usage (for example, static vs. dynamic allocation).
+     We have collected 2 surveys every 2-4 months since 2006.
+     (Example: <code class="language-plaintext highlighter-rouge">internet_address_survey_reprobing_it43j-20111012</code> is our first survey from Japan.)</p>
+  </li>
+  <li>
+    <p><a name="#ip_hitlists"><strong>IP Address Hitlists</strong></a> (<a href="ip_hitlists/format.html">format</a>):
+     a hitlist provides a representative for each /24 IPv4 address block
+     that is judged mostly likely to reply to pings.
+     Our goal is to provide representatives that are responsive, complete and stable:
+     that is, addresses that respond to pings and traceroutes (with high probability),
+     that cover every allocated IPv4 /24 prefix,
+     and that do not change much over time.
+     Our hitlists are derived from our census data.
+     Hitlists are useful input for Internet topology studies.
+     We have generated hitlists every 2-4 months since 2009.
+     (Example: <code class="language-plaintext highlighter-rouge">internet_address_hitlist_it29w-20091102</code> was our first production hitlist.)</p>
+  </li>
+  <li>
+    <p><strong><a href="ipv4_history/index.html">IP Address History</a></strong> (<a href="ipv4_history/format.html">format</a>):
+     The IP address history contains all IPv4 addresses who ever responded to
+     16 prior IPv4 address censuses, along with a scores for each address
+     about its likelihood to respond to future pings.
+     Address histories are useful for doing customized selection of IP
+     addresses for topology and reliability studies.
+     (Example: <code class="language-plaintext highlighter-rouge">internet_address_history_it43w-20110913</code> was our first address history.)</p>
+  </li>
+  <li>
+    <p><strong><a href="ip_accumulation/index.html">IP address accumulation</a></strong> (<a href="ip_accumulation/format.html">format</a>:
+  IP accumulation datasets report counts of the number of active addresses
+  per /24 IPv4 block over time, estimated from Trinocular probing.
+  (Example: <code class="language-plaintext highlighter-rouge">ip_accumulation_a39-20200101</code>.)</p>
+  </li>
+</ul>
+
+<h3 id="internet-outage-data">Internet Outage Data</h3>
+
+<p>Datasets in this category record information about Internet outages–address
+blocks that become unreachable. Typically outages are inferred from active
+probing. It may include /24 block-level outages over time, or lists of inferred
+outages that affect larger parts of the Internet. Outage data can be useful to
+understand Internet reliability.</p>
+
+<p>For detail of this dataset, please refer to the <a href="outage/index.html">description page</a>
+and <a href="outage/format.html">outages formats</a>.</p>
+
+<p>Specific sub-categories of Internet outage data include:</p>
+
+<ul>
+  <li>
+    <p><strong>all outages</strong>: Datasets like <a href="https://wiki.isi.edu/predict/index.php/LANDER:internet_outage_adaptive_a28all-20170403"><code class="language-plaintext highlighter-rouge">internet_outage_adaptive_a28all-20170403</code></a> represent Trinocular’s evaluation of outages for a quarter.</p>
+  </li>
+  <li>
+    <p><strong>raw probing output</strong>: Datasets like <a href="https://wiki.isi.edu/predict/index.php/LANDER:internet_outage_adaptive_a28w-20170403"><code class="language-plaintext highlighter-rouge">internet_outage_adaptive_a28w-20170403</code></a> represent the “raw” results from one observation location.</p>
+  </li>
+  <li>
+    <p><strong>additional raw probing output</strong>: To provide timely address status reconstruction we do additional probing of some blocks.  The format is the same as raw probing output.  Sample dataset <a href="https://wiki.isi.edu/predict/index.php/LANDER:internet_outage_adaptive_additional_a49w-20220701"><code class="language-plaintext highlighter-rouge">internet_outage_adaptive_additional_a49w-20220701</code></a>.</p>
+  </li>
+  <li>
+    <p><strong>suppplemental outage data</strong>: 
+Starting with <a href="https://wiki.isi.edu/predict/index.php/LANDERinternet_outage_adaptive_a16_supplement-20140407"><code class="language-plaintext highlighter-rouge">internet_outage_adaptive_a16_supplement-20140407</code></a> we provide supplement data of IP mappings AS numbers, DNS names, organization.  We used to provide geolocation data but no longer can, but we have a <a href="../software/outage_adaptive_geolocation/index.html">tool that can process Maxmind data to match our outage data</a>.</p>
+  </li>
+</ul>
+
+<h3 id="partial-reachability-in-ipv4-and-ipv6">Partial Reachability in IPv4 and IPv6</h3>
+
+<p>We have new data about <strong>partial reachability</strong> in the Internet,
+complementing our above study of full outages,
+with data for Trinocular and RIPE Atlas:</p>
+
+<ul>
+  <li>
+    <p><a href="ipv4_partial/index.html"><strong>IPv4 partial reachability from Trinocular</strong></a>: 
+Datasets like <a href="https://wiki.isi.edu/predict/index.php/LANDERoutages_partial_a28_20170403"><code class="language-plaintext highlighter-rouge">outages_partial_a28_20170403</code></a> are derived from Trinocular.</p>
+  </li>
+  <li>
+    <p><a href="https://ant.isi.edu/ripe_atlas_islands/"><strong>RIPE Atlas Islands and Peninsulas</strong></a>: Provide daily analysis of all RIPE Atlas VPs 
+showing which are islands (isolated from the public Internet, either in IPv4 or IPv6),
+and which see peninsulas (partial connectivity in IPv4 or IPv6).</p>
+  </li>
+</ul>
+
+<h3 id="ipv6-deployment-data">IPv6 Deployment Data</h3>
+
+<ul>
+  <li><a href="ipv6/index.html"><strong>IPv6 Deplyoment Data</strong></a>: Custom crawls used to measure deployment and status of IPv6.</li>
+</ul>
+
+<h3 id="other-internet-topology-data">Other Internet Topology Data</h3>
+
+<ul>
+  <li>
+    <p><strong>Geolocation data</strong>:
+  IP Geolocation datasets provide the inferred geographic location
+  (latitude/longitude) of specific IP addresses, and in some cases the source
+  data that was used to make that inference. Geolocation data can be used to
+  understand where Internet traffic comes from and how it can be influenced by
+  local policies. <strong><a href="geolocation/index.html">More information</a></strong>.</p>
+  </li>
+  <li>
+    <p><strong>AS-to-Organization maps</strong>:
+  we relate ASes (from BGP routing) to organizations (companies).
+  (Example: <code class="language-plaintext highlighter-rouge">as_to_org_mapping_inferred_truth-20100507</code>)</p>
+  </li>
+  <li>
+    <p><strong>Internet Topology data</strong>:
+  Internet topology data is created by a program that tries to map the
+  Internet.  The program is able to determine which routers are capable of
+  talking to other routers.  Internet topology data only shows router
+  connectivity within the Internet core and to external enterprise borders;
+  it does not contain any identifiable information or internal enterprise
+  topology information.  This dataset can be used for worm outbreak modeling
+  and simulation, worm containment and countermeasures, zombie distribution
+  for DDoS attacks, vulnerability assessments, longitudinal studies of the
+  evolution of Internet topology and address distribution, Internet topology
+  and address map inference.
+  (Example: <code class="language-plaintext highlighter-rouge">internet_router_map_planetlab-20030412</code>)</p>
+  </li>
+</ul>
+
+<h3 id="traffic-related-data">Traffic-related Data</h3>
+
+<p>Much of our data is <strong>IP Packet Headers</strong>:  these datasets are comprised of
+headers of traffic data, containing information such as anonymized source and
+destination IP addresses and other IP and transport (e.g., TCP, UDP, ICMP,
+SCTP) header fields.  No packet contents are included.  Depending on the
+specific dataset, this category of data can be used for characterization of
+typical Internet traffic, or of traffic anomalies such as DDoS attacks, port
+scans, or worm outbreaks.</p>
+
+<ul>
+  <li>
+    <p><strong>general anonymized packet headers</strong>:
+  collections of packet headers from regional network access links.
+  (Example: <code class="language-plaintext highlighter-rouge">lander_sample-20080903</code>)</p>
+  </li>
+  <li>
+    <p><strong>anonymized attack traffic (packet headers)</strong>:
+  collections of packet headers containing known denial-of-service attacks
+  taken from a regional network access link.
+  (Example: <code class="language-plaintext highlighter-rouge">attack-tcpsyn-20061106</code>)</p>
+  </li>
+  <li>
+    <p><strong>artificial attacks over real background traffic</strong>:
+  we have generated a set of artificial attacks of varying intensity
+  overlayed on real network background traffic.
+  (Example: <code class="language-plaintext highlighter-rouge">UniformAttack_Traces_Generated20070821-20041202</code>)</p>
+  </li>
+  <li>
+    <p><strong>anonamolous events from real B-Root DNS traffic</strong>:
+  we have curated a number of events pertaining to B-Root events,
+  including DDoS attacks and flash traffic.
+  (Example: <code class="language-plaintext highlighter-rouge">B_Root_Anomaly_message_question-20151130</code>)</p>
+  </li>
+</ul>
+
+<p>We also have <strong>traffic flow data</strong>:
+Network traffic can represented as flows between two endpoints.
+This dataset contains traffic flow information, which includes a variety of
+attributes such as source and destination IP address, source and destination
+port, protocol type, and packet and byte counts.  This data can be in different
+formats generated by a range of different collection tools such as
+<a href="https://ant.isi.edu/datasets/">NetFlow</a>, IPFIX, and
+<a href="https://en.wikipedia.org/wiki/Argus_-_Audit_Record_Generation_and_Utilization_System">argus</a>,
+or variants.  IP addresses in these files are anonymized on a per-dataset or
+per-time interval basis.  These datasets are useful for research such as
+network economics and accounting, network planning, analysis, security, denial
+of service attacks, network monitoring, as well as traffic visualization.</p>
+
+<ul>
+  <li>
+    <p><strong>generalized flows</strong>:
+we provide some flow data in
+<a href="https://en.wikipedia.org/wiki/Argus_-_Audit_Record_Generation_and_Utilization_System">Argus</a>
+format.
+(Example: <code class="language-plaintext highlighter-rouge">FRGPContinuousFlowData_sample-20130923</code>)</p>
+  </li>
+  <li>
+    <p><strong>long-flows</strong> (<a href="long_flows/format.html">format</a>):
+we provide network traffic flow data,
+derived from packet headers at regional network access links,
+in a format designed to support examination of short and long flows.
+(Example: <code class="language-plaintext highlighter-rouge">long_flows_D1_2_days-20090605</code>)</p>
+  </li>
+</ul>
+
+<h3 id="domain-name-system-data-dns">Domain Name System Data (DNS)</h3>
+
+<p>We have <strong>DNS data</strong> (Domain Name System), showing DNS-protocol lookups.
+We have <a href="./dns/index.html">more information about DNS datasets pertaining to specific papers</a>
+and <a href="./anycast/index.html">data about anycast</a>.</p>
+
+<p>Our DNS data comes in three flavors:</p>
+
+<ul>
+  <li>
+    <p><strong>Public DNS data</strong>: this dataset consists of Domain Name Systems data
+derived from public sources, such as from pubic DNS servers.  It is not
+associated with users and has no privacy constraints.</p>
+
+    <p>An example public DNS dataset is our reverse DNS data <code class="language-plaintext highlighter-rouge">rdns_ipv4-20160312</code>.</p>
+  </li>
+  <li>
+    <p><strong>Anonymized DNS data</strong>: this dataset consists of Domain Name Systems data
+that contains no identifying information for individuals, either because it
+was anonymized, or because it is aggregated to the level that individual’s
+queries are obscured, or contains only experimental data from test programs
+(not individuals).</p>
+
+    <p>An example anonymized DNS datasets is our DITL data <code class="language-plaintext highlighter-rouge">DITL_B_Root-20160405</code>.</p>
+  </li>
+  <li>
+    <p><strong>Limited DNS data</strong>:  this dataset consists of Domain Name Systems data that
+does not directly identify individuals, but cannot be combined with
+other data sources.</p>
+  </li>
+  <li>
+    <p><strong><a href="./dnsintegration/index.html">Data about DNS Integrations</a></strong>: DNS integrations are when DNS names are linked to names in another system, like Ethereum Wallest with ENS, or Java Packages with Maven Central.  These datasets concern how how closely DNS integrations track changes.</p>
+  </li>
+</ul>
+
+<h3 id="service-enumeration-data">Service Enumeration Data</h3>
+
+<p>Our service enumeration data consists of our efforts to enumeration different
+Internet services, now including:</p>
+
+<ul>
+  <li>
+    <p><strong>Anycast enumeration datasets:</strong> Active probing information to DNS anycast
+services such as root DNS. Typically probes are made from many vantage points
+with the goal to enumerate all anycast nodes in the service. Anycast
+enumeration datasets are useful to understand the operational status and
+geographic reach of anycast services and nodes. For detailed information
+about the dataset, please refer to <a href="anycast/index.html">dataset description
+page</a>.</p>
+  </li>
+  <li>
+    <p><strong>Google front-ends enumeration and mapping:</strong> Active DNS queries with
+EDNS-client-subnet allow enumeration of Google front-ends IP addresses. With
+all the front-ends IP addresses, we use new technique to geolocate the
+front-ends and clustering them into serving sites. For detailed information
+about the dataset, please refer to <a href="mapping_google/index.html">dataset description
+page</a>.</p>
+  </li>
+  <li>
+    <p><strong>Reverse DNS</strong> data: We collect and provide a crawl of <a href="rdns/index.html">the IPv4 Reverse DNS
+domain names</a>.</p>
+
+    <p>An example reverse DNS dataset is <code class="language-plaintext highlighter-rouge">rdns_ipv4-20160312</code>.</p>
+  </li>
+  <li>
+    <p><strong>Other DNS data</strong>: we have data related to <a href="dns_backscatter/index.html">DNS backscatter</a>.</p>
+  </li>
+</ul>
+
+<h3 id="other-types-of-data">Other Types of Data</h3>
+
+<p><strong>other paper-specific datasets</strong>: We have several other datasets specific to
+papers we have published, including p2p traffic detection, TCP SYNs, etc.</p>
+
+<p>Some things to look for:</p>
+
+<ul>
+  <li><strong><a href="addelivery/index.html">ad delivery</a></strong>: datasets about algorithmic fairness in ad delivery on social media</li>
+</ul>
+
+<h2 id="data-formats"><a name="data_formats">Data Formats</a></h2>
+
+<p><a href="formats.html">Documentation about dataset formats is now here.</a></p>
+
+      </div>
+    </div>
+  </div><!--removed 2024-07-21 johnh-->
+</body></html>
