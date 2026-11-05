@@ -26,6 +26,9 @@ SHORT = {
     "I31": "CVE List", "I32": "OSV", "I33": "GitHub advisories", "I34": "EPSS",
     "I35": "Exploit-DB", "I36": "Breaking Trust", "I37": "DShield", "I38": "GreyNoise",
     "I39": "MAWI", "I40": "M-Lab",
+    "I41": "CAIDA AS facilities", "I42": "DNS Coffee", "I43": "Docker Hub",
+    "I44": "Hugging Face", "I45": "Netlas", "I46": "Software Heritage", "I47": "NVD",
+    "I48": "RIPEstat",
 }
 CAND_SHORT = {
     "CAIDA AS Facilities": "CAIDA AS facilities", "USC/ISI ANT datasets (censuses, hitlists, outages, Trinocular)": "ISI ANT",
@@ -85,7 +88,7 @@ H = legend_y + 52
 
 svg = f'''<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 {W} {H}" width="{W}" height="{H}" role="img" aria-labelledby="t d">
 <title id="t">Public instruments placed on ten layers of the internet (LH035 draft)</title>
-<desc id="d">Each band is one of the brief's ten layers. Filled boxes are instruments included in the survey on their primary layer, outlined boxes the other layers they sit on, dashed boxes candidates whose free access was not established or whose pages could not be read. Read 2 November 2026.</desc>
+<desc id="d">Each band is one of the brief's ten layers. Filled boxes are instruments included in the survey on their primary layer, outlined boxes the other layers they sit on, dashed boxes candidates whose free access was not established or whose pages could not be read. Read 2 and 5 November 2026.</desc>
 <style>
 :root{{--bg:#ffffff;--band0:#f4f5f7;--band1:#ffffff;--ink:#1d2330;--muted:#5b6475;--p:#2f5d9e;--pt:#ffffff;--s:#2f5d9e;--st:#1d2330;--u:#8a6d1d;--r:#a33a3a}}
 @media (prefers-color-scheme: dark){{:root{{--bg:#14171c;--band0:#1c2027;--band1:#14171c;--ink:#e6e8ec;--muted:#a3abb9;--p:#7fa7e0;--pt:#10141a;--s:#7fa7e0;--st:#e6e8ec;--u:#d9b45a;--r:#e08080}}}}
@@ -101,7 +104,7 @@ text{{font-family:system-ui,-apple-system,"Segoe UI",sans-serif;font-size:{FS}px
 </style>
 <rect width="{W}" height="{H}" fill="var(--bg)"/>
 <text class="head" x="10" y="24">Who observes which layer: a first sketch</text>
-<text class="sub" x="10" y="44">40 public instruments and 12 further candidates, from their own pages read on 2 November 2026</text>
+<text class="sub" x="10" y="44">{len(rows)} public instruments and {len(cands)} further candidates, from their own pages read on 2 and 5 November 2026</text>
 {chr(10).join(body)}
 </svg>
 '''

@@ -1,0 +1,244 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <title>What is Shodan? - Shodan Help Center</title>
+
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <link rel="shortcut icon" href="https://www.shodan.io/static/img/favicon.png" type="image/x-icon">
+  <link rel="stylesheet" media="(prefers-color-scheme: light)" href="/lib/highlightjs/styles/atom-one-light.css">
+  <link rel="stylesheet" media="(prefers-color-scheme: dark)" href="/lib/highlightjs/styles/atom-one-dark.css">
+  <link rel="stylesheet" media="(prefers-color-scheme: light)" href="https://wire.shodan.io/v2.4.0/default/css/wire.css">
+  <link rel="stylesheet" media="(prefers-color-scheme: dark)" href="https://wire.shodan.io/v2.4.0/dark/css/wire.css">
+
+  <style>
+    .navbar a.title {
+      filter: hue-rotate(210deg)
+    }
+
+    .searchbox {
+      font-family: Arial;
+    }
+  </style>
+
+  <script defer src="https://kit.fontawesome.com/b7e79643d9.js" crossorigin="anonymous"></script>
+
+</head>
+
+<body class="page-the-basics-what-is-shodan">
+  <div class="quickbar">
+    <ul>
+      <li><a href="https://www.shodan.io">Shodan</a>
+      </li>
+      <li><a href="https://developer.shodan.io">Developers</a>
+      </li>
+      <li><a href="https://monitor.shodan.io">Monitor</a>
+      </li>
+      <li><a href="https://www.shodan.io/about/products">View All...</a>
+      </li>
+    </ul>
+    <div class="clear"></div>
+  </div>
+
+  <!-- Header -->
+  <header class='container u-full-width'>
+    <div class='row'>
+      <div class='twelve columns'>
+        <div class='navbar'>
+          <a href='/' class='title'>
+            <img src='/images/logo.png' alt='Shodan' width='112' height='32' />
+            <span>Help Center</span>
+          </a>
+          <form action="/">
+            <div class="searchbox">
+              <div class="input-wrapper">
+                <input type="text" name="search" id="search" size="30" value=""
+                  placeholder="Search">
+              </div>
+              <button type="submit" class="button-blue"><i class="fas fa-search  fa-fw "></i></button>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+  </header>
+  <br /><br />
+
+  <!-- Main -->
+  <div class="container">
+    
+<style>
+  @media screen and (min-width: 700px) {
+    .content .card-padding {
+      padding: 50px 80px;
+    }
+  }
+
+  .content h2 {
+    font-weight: bold;
+  }
+
+  .content h3 {
+    font-size: 2.5rem;
+    font-weight: bold;
+  }
+
+  .content h4 {
+    font-size: 2rem;
+    font-weight: bold;
+  }
+
+  .content p {
+    /* font-size: 1.8rem; */
+    line-height: 1.75em;
+    text-align: justify;
+  }
+
+  .content ul > li,
+  .content ol > li {
+    list-style-type: disc;
+  }
+
+  .content code {
+    font-size: 1.4rem !important;
+    padding: 10px 20px !important;
+  }
+
+  .content ol > li > p {
+    display: inline;
+  }
+
+  .content p > code,
+  .content li > code {
+    padding: 2px 5px !important;
+  }
+
+  .content blockquote {
+    /* background-color: #f0f0f0; */
+    border-left: 5px solid #ddd;
+    padding: 10px 20px
+  }
+
+  .content blockquote p {
+    margin: 0;
+    padding: 0;
+  }
+
+  .content p > a {
+    font-weight: bold;
+    text-decoration: underline;;
+  }
+</style>
+<section class="row content">
+  <div class="twelve columns card card-padding">
+      <h2>What is Shodan?</h2>
+
+      <p>Shodan is a search engine for Internet-connected devices. Web search engines, such as Google and Bing, are great for finding websites. But what if you&#39;re interested in measuring which countries are becoming more connected? Or if you want to know which version of Microsoft IIS is the most popular? Or you want to find the control servers for malware? Maybe a new vulnerability came out and you want to see how many hosts it could affect? Traditional web search engines don&#39;t let you answer those questions.</p>
+<p>Shodan gathers information about all devices directly connected to the Internet. If a device is directly hooked up to the Internet then Shodan queries it for various publicly-available information. The types of devices that are indexed can vary tremendously: ranging from small desktops up to nuclear power plants and everything in between.</p>
+<p>So what does Shodan index then? The bulk of the data is taken from <strong>banners</strong>, which are metadata about a software that&#39;s running on a device. This can be information about the server software, what options the service supports, a welcome message or anything else that the client would like to know before interacting with the server. For example, following is a FTP banner:</p>
+<pre><code class="http">220 kcg.cz FTP server (Version 6.00LS) ready.
+</code></pre>
+<p>This tells us a potential name of the server (kcg.cz), the type of FTP server (Solaris ftpd) and its version (6.00LS). For HTTP a banner looks like:</p>
+<pre><code class="http">HTTP/1.0 200 OK
+Date: Tue, 16 Feb 2010 10:03:04 GMT
+Server: Apache/1.3.26 (Unix) AuthMySQL/2.20 PHP/4.1.2 mod_gzip/1.3.19.1a mod_ssl/2.8.9 OpenSSL/0.9.6g
+Last-Modified: Wed, 01 Jul 1998 08:51:04 GMT
+ETag: &quot;135074-61-3599f878&quot;
+Accept-Ranges: bytes
+Content-Length: 97
+Content-Type: text/html
+</code></pre>
+<p>The information gained from these services is applied to many areas:</p>
+<ul>
+<li><strong>Network Security</strong>: keep an eye on all devices at your company that are facing the Internet</li>
+<li><strong>Market Research</strong>: find out which products people are using in the real-world</li>
+<li><strong>Cyber Risk</strong>: include the online exposure of your vendors as a risk metric</li>
+<li><strong>Internet of Things</strong>: track the growing usage of smart devices</li>
+<li><strong>Tracking Ransomware</strong>: measure how many devices have been impacted by ransomware</li>
+</ul>
+<p>As you can tell the use cases for the data are varied. We provide the platform that ensures accurate, consistent and up-to-date information on Internet-facing devices - it&#39;s up to you to decide what type of information you&#39;re most interested in.</p>
+<h4 id="how-is-it-different-than-google">How is it different than Google?</h4>
+<p>The most fundamental difference is that Shodan crawls the Internet whereas Google crawls the World Wide Web. However, the devices powering the World Wide Web only make up a tiny fraction of what&#39;s actually connected to the Internet. Shodan&#39;s goal is to provide a complete picture of the Internet.</p>
+<p>Another difference with Google is that Shodan requires you to understand the search query syntax. For example, you can&#39;t simply enter <strong>power plant</strong> into Shodan and expect to get proper results. We designed Shodan for engineers/ developers and to get the most out of the data you need to understand the search query syntax.</p>
+<a class='button button-blue' href='/the-basics/search-query-fundamentals'>
+    Next: Search query fundamentals
+</a>
+  </div>
+</div>
+
+<!-- JavaScript -->
+<script src="/lib/jquery/dist/jquery.min.js"></script>
+<script src="/lib/highlightjs/highlight.min.js"></script>
+<script>
+  window.onload = function() {
+    hljs.highlightAll();
+  };
+</script>
+  </div>
+
+  <!-- Footer -->
+  <br />
+  <footer class="container u-full-width bg-solid"><br /><br />
+    <div class="container">
+      <div class="row">
+        <div class="three columns">
+          <h6 class="grid-heading">Products</h6>
+          <ul>
+            <li><a href="https://monitor.shodan.io" class="light">Monitor</a>
+            </li>
+            <li><a href="https://www.shodan.io" class="light">Search Engine</a>
+            </li>
+            <li><a href="https://developer.shodan.io" class="light">Developer API</a>
+            </li>
+            <li><a href="https://maps.shodan.io" class="light">Maps</a>
+            </li>
+          </ul>
+        </div>
+        <div class="three columns">
+          <h6 style="visibility:hidden" class="grid-heading">&nbsp;</h6>
+          <ul>
+            <li><a href="https://enterprise.shodan.io" class="light">Bulk Data</a>
+            </li>
+            <li><a href="https://images.shodan.io" class="light">Images</a>
+            </li>
+            <li><a href="https://snippets.shodan.io" class="light">Snippets</a>
+            </li>
+          </ul>
+        </div>
+        <div class="three columns">
+          <h6 class="grid-heading">Pricing</h6>
+          <ul>
+            <li><a href="https://www.shodan.io/store/member" class="light">Membership</a>
+            </li>
+            <li><a href="https://developer.shodan.io/pricing" class="light">API Subscriptions</a>
+            </li>
+            <li><a href="https://enterprise.shodan.io" class="light">Enterprise</a>
+            </li>
+          </ul>
+        </div>
+        <div class="three columns">
+          <h6 class="grid-heading">Contact Us</h6>
+          <ul>
+            <li><a href="mailto:support@shodan.io" class="light">support@shodan.io</a>
+            </li>
+            <li>
+              <h5><a href="https://twitter.com/shodanhq" class="f-lightgrey"><i
+                    class="fab fa-twitter   "></i></a>&nbsp;&nbsp;<a href="https://www.linkedin.com/company/shodan/"
+                  class="f-lightgrey"><i class="fab fa-linkedin   "></i></a>&nbsp;&nbsp;<a
+                  href="https://www.facebook.com/shodan.io" class="f-lightgrey"><i class="fab fa-facebook   "></i></a>
+              </h5>
+            </li>
+          </ul>
+          <p class="light">Shodan &reg; - All rights reserved</p>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+</body>
+
+</html>

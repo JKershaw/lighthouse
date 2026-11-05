@@ -1,0 +1,288 @@
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="google" content="notranslate" />
+    <meta http-equiv="content-language" content="en" />
+    <title>Terms of Service - DNS Coffee</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    
+    <script>
+        (function () {
+            var stored = null;
+            try { stored = localStorage.getItem('dc-theme'); } catch (e) { }
+            var mq = window.matchMedia('(prefers-color-scheme: dark)');
+            function apply() {
+                var mode = stored === 'light' || stored === 'dark' ? stored : (mq.matches ? 'dark' : 'light');
+                document.documentElement.setAttribute('data-bs-theme', mode);
+                document.dispatchEvent(new CustomEvent('dc-theme-applied'));
+            }
+            apply();
+            mq.addEventListener('change', function () { if (!stored) { apply(); } });
+            window.dcTheme = {
+                get: function () { return stored; },
+                set: function (pref) {
+                    stored = pref || null;
+                    try { pref ? localStorage.setItem('dc-theme', pref) : localStorage.removeItem('dc-theme'); } catch (e) { }
+                    apply();
+                }
+            };
+        })();
+    </script>
+    
+    <link rel="stylesheet" href="/static/bootstrap-5.3.8.min.css?v=ac920dca773a1282d540d16d1031cf2ade63ebd0"
+        media="screen">
+    
+    <link rel="stylesheet" href="/static/theme.css?v=ac920dca773a1282d540d16d1031cf2ade63ebd0">
+    <link rel="stylesheet" href="/static/custom.css?v=ac920dca773a1282d540d16d1031cf2ade63ebd0">
+    <link rel="icon" type="image/png" sizes="512x512" href="/static/favicon-512x512.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="/static/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="/static/favicon-16x16.png">
+    <link rel="shortcut icon" href="/static/favicon.ico">
+    <link rel="alternate" type="application/rss+xml" title="DNS Coffee News" href="/news.xml">
+    
+    <script src="/static/bootstrap-bundle-5.3.8.min.js?v=ac920dca773a1282d540d16d1031cf2ade63ebd0"></script>
+    
+    <script src="/static/plotly-basic-3.7.0.min.js?v=ac920dca773a1282d540d16d1031cf2ade63ebd0"></script>
+    <script src="/static/timeline.js?v=ac920dca773a1282d540d16d1031cf2ade63ebd0"></script>
+    <script src="/static/charts.js?v=ac920dca773a1282d540d16d1031cf2ade63ebd0"></script>
+    <script src="/static/sort.js?v=ac920dca773a1282d540d16d1031cf2ade63ebd0" defer></script>
+    <script src="/static/filter.js?v=ac920dca773a1282d540d16d1031cf2ade63ebd0" defer></script>
+</head>
+
+<body>
+    
+<div class="navbar navbar-expand-lg fixed-top dc-navbar">
+    <div class="container">
+        <a href="/" class="navbar-brand">DNS Coffee ☕</a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarResponsive"
+            aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarResponsive">
+            <ul class="navbar-nav">
+                <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle" data-bs-toggle="dropdown" href="#" role="button" aria-expanded="false">Records</a>
+                    <div class="dropdown-menu">
+                        <a class="dropdown-item" href="/domains">Domains</a>
+                        <a class="dropdown-item" href="/nameservers">Nameservers</a>
+                        <a class="dropdown-item" href="/ip">IPs</a>
+                        <div class="dropdown-divider"></div>
+                        <a class="dropdown-item" href="/records">DNS Records</a>
+                        <a class="dropdown-item" href="/dnssec">DNSSEC</a>
+                    </div>
+                </li>
+                <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle" data-bs-toggle="dropdown" href="#" role="button" aria-expanded="false">Zones</a>
+                    <div class="dropdown-menu">
+                        <a class="dropdown-item" href="/tlds">TLDs</a>
+                        <a class="dropdown-item" href="/tlds/graveyard">TLD Graveyard</a>
+                        <a class="dropdown-item" href="/root">Root Zone</a>
+                        <div class="dropdown-divider"></div>
+                        <a class="dropdown-item" href="/zones">Imported</a>
+                    </div>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="/feeds">Feeds</a>
+                </li>
+                <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle" data-bs-toggle="dropdown" href="/search" role="button" aria-expanded="false">Search</a>
+                    <div class="dropdown-menu">
+                        <a class="dropdown-item" href="/search">Advanced Search</a>
+                        <a class="dropdown-item" href="/search/prefix">Prefix</a>
+                        <a class="dropdown-item" href="/search/trends">Trends</a>
+                    </div>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="/research">Research</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="//api.dns.coffee">API</a>
+                </li>
+            </ul>
+
+            <ul class="navbar-nav ms-auto">
+                <li class="nav-item">
+                    <form class="d-flex my-2 my-lg-0" method="get" action="/search">
+                        <input class="form-control me-sm-2" type="text" name="query" placeholder="example.com">
+                        <button class="btn btn-secondary my-2 my-sm-0" type="submit">Search</button>
+                    </form>
+                </li>
+                <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle" data-bs-toggle="dropdown" href="/about" role="button" aria-expanded="false">About</a>
+                    <div class="dropdown-menu dropdown-menu-end">
+                        <a class="dropdown-item" href="/about">About</a>
+                        <a class="dropdown-item" href="/faq">FAQ</a>
+                        <a class="dropdown-item" href="/news">News</a>
+                    </div>
+                </li>
+                <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle" data-bs-toggle="dropdown" href="#" role="button"
+                        aria-expanded="false" aria-label="Color theme" title="Color theme"
+                        id="themeToggleLabel">◐</a>
+                    <div class="dropdown-menu dropdown-menu-end">
+                        <button class="dropdown-item" type="button" data-dc-theme="">◐ Auto</button>
+                        <button class="dropdown-item" type="button" data-dc-theme="light">☀ Light</button>
+                        <button class="dropdown-item" type="button" data-dc-theme="dark">☾ Dark</button>
+                    </div>
+                </li>
+            </ul>
+        </div>
+    </div>
+</div>
+
+<script>
+    (function () {
+        var icons = { auto: '◐', light: '☀', dark: '☾' };
+        function sync() {
+            var pref = window.dcTheme.get() || '';
+            document.getElementById('themeToggleLabel').textContent = icons[pref || 'auto'];
+            document.querySelectorAll('[data-dc-theme]').forEach(function (item) {
+                item.classList.toggle('active', item.getAttribute('data-dc-theme') === pref);
+            });
+        }
+        document.querySelectorAll('[data-dc-theme]').forEach(function (item) {
+            item.addEventListener('click', function () {
+                window.dcTheme.set(item.getAttribute('data-dc-theme'));
+                sync();
+            });
+        });
+        sync();
+    })();
+</script>
+
+    <div class="container">
+        
+
+<header class="dc-page-header">
+  <div class="dc-kicker">Legal</div>
+  <h1 class="dc-page-title">Terms of Service</h1>
+  <p class="dc-presence">The agreement covering use of the DNS Coffee website and API. Last updated
+    16 October 2026.</p>
+</header>
+
+<div class="col-lg-9 px-0">
+
+  <h3 id="who">Who We Are</h3>
+  <p>DNS Coffee is operated by <strong>Vorsk LLC</strong> ("we", "us"). These terms govern your use of
+    the dns.coffee website, the api.dns.coffee API, and any related services (together, the
+    "Service"). By using the Service you agree to them. If you do not agree, do not use the
+    Service.</p>
+
+  <h3 id="service">The Service</h3>
+  <p>DNS Coffee indexes publicly available DNS data &mdash; principally public zone files, queries to
+    public nameservers, and public domain lists &mdash; and makes it searchable through a website and a
+    REST API.</p>
+  <p>The data is provided as observed. We make no guarantee that it is complete, current, or accurate.
+    Zone files are periodic snapshots, so records that appear and disappear between imports may never be
+    recorded. Dates shown are observation dates, not registry events.</p>
+
+  <h3 id="accounts">Accounts and API Keys</h3>
+  <p>API access requires a key. You are responsible for keeping your keys confidential and for all
+    activity conducted with them. Notify us promptly at
+    <a href="/cdn-cgi/l/email-protection#c7a5aeababaea9a087a3a9b4e9a4a8a1a1a2a2"><span class="__cf_email__" data-cfemail="ccaea5a0a0a5a2ab8ca8a2bfe2afa3aaaaa9a9">[email&#160;protected]</span></a> if you believe a key has been
+    compromised, and we will revoke and reissue it.</p>
+  <p>Keys are issued to the account that requested them and may not be shared, resold, or transferred to
+    a third party without our written agreement.</p>
+
+  <h3 id="acceptable">Acceptable Use</h3>
+  <p>You may not:</p>
+  <ul>
+    <li>Exceed, evade, or attempt to circumvent the rate limits and usage quotas applicable to your
+      plan, including by using multiple accounts or keys to obtain allowance you have not paid for.</li>
+    <li>Scrape or otherwise access the dns.coffee website by automated means, except search engines
+      indexing the pages our <a href="/robots.txt">robots.txt</a> permits. Bulk and programmatic access
+      is what the API is for.</li>
+    <li>Resell, redistribute, or republish the data in bulk, or offer it as a competing data service,
+      without a written agreement with us.</li>
+    <li>Use the Service to interfere with, attack, or gain unauthorised access to any system or
+      network.</li>
+    <li>Use the Service in violation of any applicable law, or of the terms under which the underlying
+      zone data is made available to us.</li>
+  </ul>
+  <p>We may suspend or revoke access for conduct that, in our reasonable judgement, breaches these
+    terms or threatens the stability of the Service.</p>
+
+  <h3 id="plans">Plans, Billing, and Cancellation</h3>
+  <p>Paid subscriptions are billed in advance, monthly or annually, through our payment provider. Plans
+    renew automatically until cancelled. You may cancel at any time; access continues to the end of the
+    period you have already paid for. Refunds are covered by our
+    <a href="/refunds">Refund Policy</a>.</p>
+  <p>Academic and non-commercial access is granted at our discretion, for a fixed term, and may be
+    renewed on application. It may be withdrawn if the use it was granted for changes materially, such
+    as becoming commercial.</p>
+  <p>We may change plan pricing or limits. Existing subscriptions keep the price and limits they were
+    purchased under until the subscriber changes plan; we will give reasonable notice before any change
+    that affects an active subscription.</p>
+
+  <h3 id="availability">Availability</h3>
+  <p>The Service is provided without an uptime commitment unless a separate written agreement says
+    otherwise. We may modify, suspend, or discontinue any part of the Service, including specific API
+    endpoints. Where a change would break existing integrations, we will give notice where
+    practicable.</p>
+
+  <h3 id="warranty">Disclaimer</h3>
+  <p>The Service and all data in it are provided "as is" and "as available", without warranty of any
+    kind, express or implied, including any warranty of merchantability, fitness for a particular
+    purpose, accuracy, or non-infringement. You are responsible for verifying any data before relying
+    on it for a decision of consequence.</p>
+
+  <h3 id="liability">Limitation of Liability</h3>
+  <p>To the maximum extent permitted by law, Vorsk LLC shall not be liable for any indirect, incidental,
+    special, consequential, or punitive damages, or for any loss of profits, revenue, data, or business,
+    arising out of or relating to your use of the Service. Our total aggregate liability arising out of
+    or relating to the Service shall not exceed the amount you paid us in the twelve months preceding
+    the event giving rise to the claim.</p>
+
+  <h3 id="indemnity">Indemnity</h3>
+  <p>You agree to indemnify and hold harmless Vorsk LLC against any claim, damage, or expense arising
+    from your use of the Service in breach of these terms or of applicable law.</p>
+
+  <h3 id="changes">Changes to These Terms</h3>
+  <p>We may update these terms. The date at the top of this page reflects the most recent revision.
+    Material changes affecting paid subscribers will be notified by email to the address on the account.
+    Continued use after a change takes effect constitutes acceptance.</p>
+
+  <h3 id="law">Governing Law</h3>
+  <p>These terms are governed by the laws of the State of Wyoming, United States, without regard to its
+    conflict-of-law rules. The exclusive venue for any dispute shall be the state or federal courts
+    located in Wyoming.</p>
+
+  <h3 id="contact">Contact</h3>
+  <p>Questions about these terms: <a href="/cdn-cgi/l/email-protection#076b6260666b4763697429646861616262"><span class="__cf_email__" data-cfemail="80ece5e7e1ecc0e4eef3aee3efe6e6e5e5">[email&#160;protected]</span></a>.<br>
+    Billing and account questions: <a href="/cdn-cgi/l/email-protection#294b40454540474e694d475a074a464f4f4c4c"><span class="__cf_email__" data-cfemail="4d2f24212124232a0d29233e632e222b2b2828">[email&#160;protected]</span></a>.</p>
+  <p>Data removal requests and the reasoning behind how we handle them are covered on the
+    <a href="/faq">FAQ</a>.</p>
+
+</div>
+
+
+        <footer id="footer">
+            <div class="row">
+                <div class="col-lg-12">
+                    <ul class="list-unstyled">
+                        <li class="float-lg-end"><a href="#top">Back to top</a></li>
+                    </ul>
+                    <p>&copy; 2026 Vorsk LLC. &middot;
+                        <a href="/terms">Terms</a> &middot;
+                        <a href="/privacy">Privacy</a></p>
+                </div>
+            </div>
+        </footer>
+    </div>
+    
+    <script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script async src="https://www.googletagmanager.com/gtag/js?id=G-S5J5GCL740"></script>
+    <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+
+    gtag('config', 'G-S5J5GCL740');
+    </script>
+</body>
+
+</html>
+

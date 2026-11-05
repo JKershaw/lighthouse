@@ -1,18 +1,6 @@
 {
-  "about": "LH035 candidates without a row in instruments.json, each with its class and reason. A row is included when the pages read show data, link to data files, or describe the data as public, published, free or openly licensed. 'undetermined' = documentation read, but the pages read put the data behind an account, request, credentials or subscription without saying any is free, or say nothing of its availability, so the brief's inclusion rule could not be applied; 'unreadable' = the instrument's pages could not be read in this run (inconclusive, not excluded); 'excluded' = fails an inclusion rule, with the reason. Read on 2026-11-02.",
+  "about": "LH035 candidates without a row in instruments.json, each with its class and reason. A row is included when the pages read show data, link to data files, or describe the data as public, published, free or openly licensed. 'undetermined' = documentation read, but the pages read put the data behind an account, request, credentials or subscription without saying any is free, or say nothing of its availability, so the brief's inclusion rule could not be applied; 'unreadable' = the instrument's pages could not be read in this run (inconclusive, not excluded); 'excluded' = fails an inclusion rule, with the reason. Read on 2026-11-02; the four still without a row were read again on 2026-11-05 (raw curl reads in data/reads-2026-11-05/), and the eight settled then are rows I41 to I48 in instruments.json.",
   "rows": [
-    {
-      "name": "CAIDA AS Facilities",
-      "class": "undetermined",
-      "layers": [
-        1
-      ],
-      "origin": "c (search L1b results 3 and 9; current catalogue page read)",
-      "urls_read": [
-        "https://www.caida.org/catalog/datasets/as-facilities/"
-      ],
-      "reason": "Access \"subject to the terms of the following CAIDA Acceptable Use Agreement\" through a request form; whether it is free is not stated. The page also gives one measurement period, March to April 2017, last modified 24 June 2020, and \"Not all facilities have all fields\"."
-    },
     {
       "name": "USC/ISI ANT datasets (censuses, hitlists, outages, Trinocular)",
       "class": "undetermined",
@@ -21,9 +9,11 @@
       ],
       "origin": "c (search L3a result 4, opened)",
       "urls_read": [
-        "https://ant.isi.edu/datasets/"
+        "https://ant.isi.edu/datasets/ (2 and 5 November)",
+        "https://ant.isi.edu/datasets/requests.html (5 November)",
+        "https://ant.isi.edu/datasets/all.html (5 November)"
       ],
-      "reason": "\"See our separate datasets requests page for steps to take to get access to our data\"; terms and cost not stated on the page read. The page itself states censuses that \"ping every allocated IP address one time over about two months\", 2 censuses \"every 2-4 months\" since 2006, hitlists since 2009, and \"We used to provide geolocation data but no longer can.\""
+      "reason": "Still undetermined on 5 November (raw reads). The list of all datasets says they \"are available through the LANDER project's participiation in the PREDICT program , or on request through the e-mail address listed below\"; the requests page asks for the datasets wanted, the research project, \"e-mail sent from your institution\" and a justification, and says \"You will need to sign the data use agrement\". No page read says whether access is free or that any dataset is public. The datasets page states censuses that \"ping every allocated IP address one time over about two months\", \"2 censuses every 2-4 months since 2006\", and \"We used to provide geolocation data but no longer can\"."
     },
     {
       "name": "ICANN Centralized Zone Data Service (CZDS)",
@@ -33,48 +23,11 @@
       ],
       "origin": "c (ICANN's public data announcement, search L4b result 2, not opened; CZDS page read directly)",
       "urls_read": [
-        "https://czds.icann.org/help"
+        "https://czds.icann.org/help (2 and 5 November)",
+        "https://www.icann.org/resources/pages/czds-2014-03-03-en (5 November)",
+        "http://newgtlds.icann.org/en/program-status/czds/terms-conditions-30sep13-en.pdf (5 November)"
       ],
-      "reason": "A sign-in page: zone files \"provided by participating generic Top-Level Domains (gTLDs)\", account required, cost not stated; for a TLD \"not listed in CZDS\" one must ask the registry."
-    },
-    {
-      "name": "DNS Coffee",
-      "class": "undetermined",
-      "layers": [
-        4
-      ],
-      "origin": "c (search L4b result 12, opened)",
-      "urls_read": [
-        "https://dns.coffee/faq"
-      ],
-      "reason": "Data from \"public zone files, DNS queries to public nameservers, and public domain lists\" for \"over 1200\" zones since 2011; its API is \"private, authenticated\" and on request; whether the site's own pages may be read freely is implied by a ban on scraping but not stated. Limits it states: \"Zone files are periodic snapshots, so a name that appears and disappears between two imports may not be recorded at all.\""
-    },
-    {
-      "name": "Docker Hub",
-      "class": "undetermined",
-      "layers": [
-        8
-      ],
-      "origin": "a (LH019, LH025)",
-      "urls_read": [
-        "https://docs.docker.com/docker-hub/usage/pulls/",
-        "https://docs.docker.com/reference/api/hub/latest/",
-        "https://docs.docker.com/subscription/details/"
-      ],
-      "reason": "\"Most Docker Hub API endpoints require you to authenticate using your Docker credentials\"; responses vary by subscription; no page read says whether pull counts or tags are readable by others without payment. (Lighthouse's own studies read image tags through the registry; that is the repository's experience, not this page read.) The pull page defines \"A Docker pull includes both a version check and any download\" and counts a multi-architecture pull once per architecture. The subscription page says \"Docker Personal and Docker Pro are subscriptions for individual accounts\" without saying whether Personal is free."
-    },
-    {
-      "name": "Hugging Face Hub download counts",
-      "class": "undetermined",
-      "layers": [
-        8
-      ],
-      "origin": "b (LH003 row)",
-      "urls_read": [
-        "https://huggingface.co/docs/hub/models-download-stats",
-        "https://huggingface.co/docs/hub/api"
-      ],
-      "reason": "The page defines a download (\"Every HTTP request to these files, including GET and HEAD, will be counted as a download\"; GGUF files counted so that cloning a repository \"will double count\") but does not say where counts are published or on what terms. The API page says \"We have open endpoints that you can use to retrieve information from the Hub\" and that \"All API calls are subject to the HF-wide Rate limits\", but does not say whether download counts are among that information."
+      "reason": "Still undetermined on 5 November (raw reads). An account and each registry's approval are needed: \"Every new gTLD Registry is required to provide zone data to approved requesters (e.g. law enforcement agents, IP attorneys, researchers)\"; the terms of 30 September 2013 grant \"a nonexclusive, nontransferable, limited right to access and use for any legal purpose\", forbid redistribution without the registry's consent and limit access to \"no more than once per 24-hour period\". No page read states a cost or a fee, either way. Covers \"participating generic Top-Level Domains (gTLDs)\"; for others, \"contact the Registry Operator directly\"."
     },
     {
       "name": "Shodan",
@@ -84,49 +37,12 @@
       ],
       "origin": "c (named in search summaries L5a, L6b, L9b)",
       "urls_read": [
-        "https://help.shodan.io/the-basics/what-is-shodan",
-        "https://www.shodan.io/pricing (403)"
+        "https://help.shodan.io/the-basics/what-is-shodan (2 and 5 November)",
+        "https://www.shodan.io/pricing (403 on 2 and 5 November)",
+        "https://developer.shodan.io/pricing (403)",
+        "https://internetdb.shodan.io/ (404, a JSON 'No information available')"
       ],
-      "reason": "The help page describes \"banners, which are metadata about a software that's running on a device\" and an aim \"to provide a complete picture of the Internet\", but gives no access terms, and the pricing page returned HTTP 403."
-    },
-    {
-      "name": "Netlas",
-      "class": "undetermined",
-      "layers": [
-        6
-      ],
-      "origin": "c (search L5b result 14, opened)",
-      "urls_read": [
-        "https://netlas.io/legal/data_collection_policy/"
-      ],
-      "reason": "A data collection policy (last updated 14 September 2026): \"collects only externally accessible and publicly available data\", \"Only nonintrusive techniques\"; access terms not stated."
-    },
-    {
-      "name": "Software Heritage",
-      "class": "unreadable",
-      "layers": [
-        8
-      ],
-      "origin": "b (LH003 row)",
-      "urls_read": [
-        "https://www.softwareheritage.org/archive/ (503)",
-        "https://docs.softwareheritage.org/devel/getting-started/index.html (bot protection: Access Denied)",
-        "https://archive.softwareheritage.org/ (bot protection: Access Denied)"
-      ],
-      "reason": "Every page tried returned 503 or an Anubis bot-protection block."
-    },
-    {
-      "name": "National Vulnerability Database (NVD)",
-      "class": "unreadable",
-      "layers": [
-        9
-      ],
-      "origin": "a and b (LH003 row; LH030)",
-      "urls_read": [
-        "https://nvd.nist.gov/general/nvd-background (title only)",
-        "https://nvd.nist.gov/developers/start-here (title only)"
-      ],
-      "reason": "Both pages returned only the title \"NVD - Home\" to the fetch tool, as in LH003."
+      "reason": "Still undetermined on 5 November (raw reads). Both pricing pages returned HTTP 403 with a browser challenge (\"Just a moment...\"); the help page describes \"banners, which are metadata about a software that's running on a device\" and links \"Pricing\", \"Membership\" and \"API Subscriptions\" but states no free access. The InternetDB host's root returned 404 and no documentation was read for it."
     },
     {
       "name": "Internet Atlas (University of Wisconsin)",
@@ -136,22 +52,10 @@
       ],
       "origin": "c (named in the summary of search L1a)",
       "urls_read": [
-        "https://internetatlas.org/ (DNS failure, EAI_AGAIN)"
+        "https://internetatlas.org/ (2 November; curl exit 56 and WebFetch EAI_AGAIN on 5 November)",
+        "http://internetatlas.org/ (curl exit 6, host not resolved, 5 November)"
       ],
-      "reason": "The host name did not resolve from this container; no other address for it was in the search results."
-    },
-    {
-      "name": "RIPEstat",
-      "class": "unreadable",
-      "layers": [
-        2,
-        3
-      ],
-      "origin": "c (named in the summary of search L3b)",
-      "urls_read": [
-        "https://stat.ripe.net/docs/data-api/ (404)"
-      ],
-      "reason": "The documentation URL tried returned 404; no other page was tried within the ceiling."
+      "reason": "Still unreadable on 5 November: the host did not resolve, or the connection failed, by curl over HTTPS and HTTP and by WebFetch. No other address for it was tried."
     },
     {
       "name": "Rapid7 Project Sonar / Sonar data",

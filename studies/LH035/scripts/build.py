@@ -20,6 +20,7 @@ rows = inst["rows"]
 cands = json.loads((D / "data/candidates.json").read_text())["rows"]
 lit = json.loads((D / "data/literature.json").read_text())["papers"]
 fetches = list(csv.DictReader(open(D / "data/fetchlog.csv")))
+reads5 = list(csv.DictReader(open(D / "data/reads-2026-11-05/readlog.csv")))
 
 
 def cell(s):
@@ -65,7 +66,7 @@ def write_sources():
     any_layer, primary, other = counts()
     out = []
     out.append("# LH035 survey table\n")
-    out.append("Built by `python3 studies/LH035/scripts/build.py` from studies/LH035/data/ (instruments.json, candidates.json, literature.json, fetchlog.csv); edit the data, not this file. Every row was filled from the instrument's own pages fetched on 2 November 2026 with WebFetch, which returns a model-written extract of each page rather than the page itself; quotation marks enclose the extract's quotation of the page. \"not stated\" means the pages read did not give it. The last column but one, the characteristic blind spot, is Lighthouse's reading (interpretation), not the instrument's statement, and may be blank. Layer numbers are the brief's: " + "; ".join(f"{k} {v}" for k, v in LAYERS.items()) + ".\n")
+    out.append("Built by `python3 studies/LH035/scripts/build.py` from studies/LH035/data/ (instruments.json, candidates.json, literature.json, fetchlog.csv); edit the data, not this file. Rows I01 to I40 were filled from the instrument's own pages fetched on 2 November 2026 with WebFetch, which returns a model-written extract of each page rather than the page itself; in them, quotation marks enclose the extract's quotation of the page. Rows I41 to I48 were filled on 5 November 2026 from raw pages fetched with curl and saved in data/reads-2026-11-05/, so their quotations were checked against the page itself, except where a row says it rests on a 2 November extract. Each row says how and when it was read. \"not stated\" means the pages read did not give it. The last column but one, the characteristic blind spot, is Lighthouse's reading (interpretation), not the instrument's statement, and may be blank. Layer numbers are the brief's: " + "; ".join(f"{k} {v}" for k, v in LAYERS.items()) + ".\n")
     out.append("Origin: a = an instrument Lighthouse's studies used; b = an LH003 row touching a layer here (re-read, not copied); c = the fixed search plan (search ids as in searchlog.md). Literature ids (L01 to L11) are in the table near the end; a paper's evaluation is cited beside the row it concerns.\n")
     out.append(f"## Included: {len(rows)} instruments\n")
     out.append("| Id | Instrument and pages read | Layers (primary first) | What it counts | Vantage | Cadence | History | Access and licence | Page date; observation window; date read | What it says it cannot see | Blind spot (Lighthouse's reading, interpretation) | Origin | Literature |")
@@ -73,9 +74,9 @@ def write_sources():
     for r in rows:
         layers = [r["primary"]] + [l for l in r["layers"] if l != r["primary"]]
         out.append("| " + " | ".join(cell(x) for x in [
-            r["id"], r["name"] + ": " + "; ".join(r["urls_read"]), ", ".join(map(str, layers)),
+            r["id"], r["name"] + ": " + "; ".join(r["urls_read"]) + " (" + r.get("how_read", "WebFetch extract, 2 November 2026") + ")", ", ".join(map(str, layers)),
             r["counts"], r["vantage"], r["cadence"], r["history"], r["access"],
-            f"{r['page_date']}; {r['window']}; read {inst['date_read']}",
+            f"{r['page_date']}; {r['window']}; read {r.get('date_read', inst['date_read'])}",
             r["cannot_see"], r["blind_spot"] or "(blank)", r["origin"], r["literature"] or "",
         ]) + " |")
     notes = [r for r in rows if r.get("note")]
@@ -113,6 +114,12 @@ def write_sources():
     out.append("| --- | --- | --- | --- |")
     for f in fetches:
         out.append(f"| {f['n']} | {f['purpose']} | {f['url']} | {f['outcome']} |")
+    out.append("\n## Every read, 5 November 2026\n")
+    out.append(f"{len(reads5)} fetches of the twelve candidates without a row in version 0.1: raw reads with curl (User-Agent \"Lighthouse-research/1.0\"), each body saved in data/reads-2026-11-05/ with its SHA-256 as fetched, three public endpoints checked once for status and size with no body kept, and one WebFetch fallback. Embedded page-furniture keys were redacted from six saved bodies after hashing (data/reads-2026-11-05/REDACTION.txt).\n")
+    out.append("| File | URL | Start (UTC) | Status | Bytes |")
+    out.append("| --- | --- | --- | --- | --- |")
+    for f in reads5:
+        out.append(f"| {cell(f['file'])} | {cell(f['url'])} | {f['start_utc']} | {cell(f['http_status'])} | {f['bytes']} |")
     (D / "sources.md").write_text("\n".join(out) + "\n")
 
 
@@ -125,4 +132,4 @@ if __name__ == "__main__":
               "undetermined", other[("undetermined", k)], "unreadable", other[("unreadable", k)])
     print("candidates", Counter(c["class"] for c in cands))
     print("origin a/b/c", Counter(o for r in rows for o in "abc" if r["origin"].startswith(o) or f" {o} (" in r["origin"] or f"and {o}" in r["origin"]))
-    print("fetches", len(fetches))
+    print("fetches", len(fetches), "reads 5 November", len(reads5))

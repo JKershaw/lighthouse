@@ -1,0 +1,272 @@
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="google" content="notranslate" />
+    <meta http-equiv="content-language" content="en" />
+    <title>FAQ - DNS Coffee</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    
+    <script>
+        (function () {
+            var stored = null;
+            try { stored = localStorage.getItem('dc-theme'); } catch (e) { }
+            var mq = window.matchMedia('(prefers-color-scheme: dark)');
+            function apply() {
+                var mode = stored === 'light' || stored === 'dark' ? stored : (mq.matches ? 'dark' : 'light');
+                document.documentElement.setAttribute('data-bs-theme', mode);
+                document.dispatchEvent(new CustomEvent('dc-theme-applied'));
+            }
+            apply();
+            mq.addEventListener('change', function () { if (!stored) { apply(); } });
+            window.dcTheme = {
+                get: function () { return stored; },
+                set: function (pref) {
+                    stored = pref || null;
+                    try { pref ? localStorage.setItem('dc-theme', pref) : localStorage.removeItem('dc-theme'); } catch (e) { }
+                    apply();
+                }
+            };
+        })();
+    </script>
+    
+    <link rel="stylesheet" href="/static/bootstrap-5.3.8.min.css?v=ac920dca773a1282d540d16d1031cf2ade63ebd0"
+        media="screen">
+    
+    <link rel="stylesheet" href="/static/theme.css?v=ac920dca773a1282d540d16d1031cf2ade63ebd0">
+    <link rel="stylesheet" href="/static/custom.css?v=ac920dca773a1282d540d16d1031cf2ade63ebd0">
+    <link rel="icon" type="image/png" sizes="512x512" href="/static/favicon-512x512.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="/static/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="/static/favicon-16x16.png">
+    <link rel="shortcut icon" href="/static/favicon.ico">
+    <link rel="alternate" type="application/rss+xml" title="DNS Coffee News" href="/news.xml">
+    
+    <script src="/static/bootstrap-bundle-5.3.8.min.js?v=ac920dca773a1282d540d16d1031cf2ade63ebd0"></script>
+    
+    <script src="/static/plotly-basic-3.7.0.min.js?v=ac920dca773a1282d540d16d1031cf2ade63ebd0"></script>
+    <script src="/static/timeline.js?v=ac920dca773a1282d540d16d1031cf2ade63ebd0"></script>
+    <script src="/static/charts.js?v=ac920dca773a1282d540d16d1031cf2ade63ebd0"></script>
+    <script src="/static/sort.js?v=ac920dca773a1282d540d16d1031cf2ade63ebd0" defer></script>
+    <script src="/static/filter.js?v=ac920dca773a1282d540d16d1031cf2ade63ebd0" defer></script>
+</head>
+
+<body>
+    
+<div class="navbar navbar-expand-lg fixed-top dc-navbar">
+    <div class="container">
+        <a href="/" class="navbar-brand">DNS Coffee ☕</a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarResponsive"
+            aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarResponsive">
+            <ul class="navbar-nav">
+                <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle" data-bs-toggle="dropdown" href="#" role="button" aria-expanded="false">Records</a>
+                    <div class="dropdown-menu">
+                        <a class="dropdown-item" href="/domains">Domains</a>
+                        <a class="dropdown-item" href="/nameservers">Nameservers</a>
+                        <a class="dropdown-item" href="/ip">IPs</a>
+                        <div class="dropdown-divider"></div>
+                        <a class="dropdown-item" href="/records">DNS Records</a>
+                        <a class="dropdown-item" href="/dnssec">DNSSEC</a>
+                    </div>
+                </li>
+                <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle" data-bs-toggle="dropdown" href="#" role="button" aria-expanded="false">Zones</a>
+                    <div class="dropdown-menu">
+                        <a class="dropdown-item" href="/tlds">TLDs</a>
+                        <a class="dropdown-item" href="/tlds/graveyard">TLD Graveyard</a>
+                        <a class="dropdown-item" href="/root">Root Zone</a>
+                        <div class="dropdown-divider"></div>
+                        <a class="dropdown-item" href="/zones">Imported</a>
+                    </div>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="/feeds">Feeds</a>
+                </li>
+                <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle" data-bs-toggle="dropdown" href="/search" role="button" aria-expanded="false">Search</a>
+                    <div class="dropdown-menu">
+                        <a class="dropdown-item" href="/search">Advanced Search</a>
+                        <a class="dropdown-item" href="/search/prefix">Prefix</a>
+                        <a class="dropdown-item" href="/search/trends">Trends</a>
+                    </div>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="/research">Research</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="//api.dns.coffee">API</a>
+                </li>
+            </ul>
+
+            <ul class="navbar-nav ms-auto">
+                <li class="nav-item">
+                    <form class="d-flex my-2 my-lg-0" method="get" action="/search">
+                        <input class="form-control me-sm-2" type="text" name="query" placeholder="example.com">
+                        <button class="btn btn-secondary my-2 my-sm-0" type="submit">Search</button>
+                    </form>
+                </li>
+                <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle active" data-bs-toggle="dropdown" href="/about" role="button" aria-expanded="false">About</a>
+                    <div class="dropdown-menu dropdown-menu-end">
+                        <a class="dropdown-item" href="/about">About</a>
+                        <a class="dropdown-item" href="/faq">FAQ</a>
+                        <a class="dropdown-item" href="/news">News</a>
+                    </div>
+                </li>
+                <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle" data-bs-toggle="dropdown" href="#" role="button"
+                        aria-expanded="false" aria-label="Color theme" title="Color theme"
+                        id="themeToggleLabel">◐</a>
+                    <div class="dropdown-menu dropdown-menu-end">
+                        <button class="dropdown-item" type="button" data-dc-theme="">◐ Auto</button>
+                        <button class="dropdown-item" type="button" data-dc-theme="light">☀ Light</button>
+                        <button class="dropdown-item" type="button" data-dc-theme="dark">☾ Dark</button>
+                    </div>
+                </li>
+            </ul>
+        </div>
+    </div>
+</div>
+
+<script>
+    (function () {
+        var icons = { auto: '◐', light: '☀', dark: '☾' };
+        function sync() {
+            var pref = window.dcTheme.get() || '';
+            document.getElementById('themeToggleLabel').textContent = icons[pref || 'auto'];
+            document.querySelectorAll('[data-dc-theme]').forEach(function (item) {
+                item.classList.toggle('active', item.getAttribute('data-dc-theme') === pref);
+            });
+        }
+        document.querySelectorAll('[data-dc-theme]').forEach(function (item) {
+            item.addEventListener('click', function () {
+                window.dcTheme.set(item.getAttribute('data-dc-theme'));
+                sync();
+            });
+        });
+        sync();
+    })();
+</script>
+
+    <div class="container">
+        
+
+<header class="dc-page-header">
+  <div class="dc-kicker">About</div>
+  <h1 class="dc-page-title">FAQ</h1>
+  <p class="dc-presence">Answers to common questions about where DNS Coffee's data comes from, how to
+    request its removal, how to get the most out of the site, and how to get in touch.</p>
+</header>
+
+<div class="col-lg-9 px-0">
+  <h3>Data Sources</h3>
+      <p>All data on DNS Coffee comes from publicly available sources. Most of it is derived from public
+        zone files, DNS queries to public nameservers, and public domain lists.</p>
+
+      <h3 id="dates">What the Dates Mean</h3>
+      <p><strong>First Seen and Last Seen are observation dates, not registry events.</strong> First Seen is the
+        first day a name appeared in a zone file we imported &mdash; or, for a TLD, in the root zone. It is not
+        a registration or creation date. A domain registered in 2004 whose zone we only began indexing in 2011
+        reads as 2011 here, the same as one registered the day we started. If you need the actual registration
+        date, look it up in WHOIS or RDAP; we do not collect it.</p>
+      <p>The floor is per zone, not site-wide. DNS Coffee began with four zones in 2011 and now imports over
+        1200, each with its own start date &mdash; shown as <strong>First Import</strong> on that zone's page,
+        such as <a href="/zones/com">/zones/com</a>. Nothing under a zone can be seen earlier than that zone's
+        first import.</p>
+      <p>Where a name was already present at that point, we say so instead of quoting a misleading date:
+        <em>Before</em> the zone's first import date when we can bound it that way, or
+        <em>before tracking</em> when we cannot. Both mean the real date is earlier by an unknown amount.</p>
+      <p><strong>Last Seen is the last day we observed the record, and <em>Present</em> means it is still
+        there.</strong> A domain leaves its zone file when it stops having nameservers, which happens when it
+        expires but also when it is parked, put on hold, or moved between registrars &mdash; so Last Seen is not
+        an expiry or deletion date either. Zone files are periodic snapshots, so a name that appears and
+        disappears between two imports may not be recorded at all.</p>
+
+      <h3 id="glue">What Glue Records Are</h3>
+      <p>A <strong>glue record</strong> is an IP address for a nameserver, published in the parent zone
+        alongside the delegation that points at it. It exists to break a circular dependency: if
+        <code>example.com</code> is served by <code>ns1.example.com</code>, then finding that nameserver's
+        address would require querying <code>example.com</code> &mdash; which you cannot reach until you
+        know the address. The <code>com</code> zone therefore carries the address itself, gluing the
+        delegation together.</p>
+      <p>Glue is only published when the nameserver lives <em>inside</em> the zone it serves. A domain
+        delegated to a nameserver somewhere else &mdash; most domains, using their registrar's or a
+        managed DNS provider's nameservers &mdash; needs no glue, because that nameserver's address is
+        resolvable independently.</p>
+      <p><strong>This is where all of our IP data comes from.</strong> We read zone files, not general
+        DNS lookups, so an address appears on this site only if some zone we import publishes it as glue.
+        That is why the <a href="/ip">IP pages</a> describe addresses in terms of the nameservers pointing
+        at them, and why an address serving no in-zone nameserver will not appear here at all &mdash; it
+        is not absent from the DNS, just absent from the zone files.</p>
+
+      <h3>API Access</h3>
+      <p>DNS Coffee offers a private, authenticated REST API. See
+        <a href="//api.dns.coffee">api.dns.coffee</a> for the documentation and how to request access.</p>
+      <p>Automated scraping of dns.coffee is not permitted. If you need data in bulk or
+        programmatically, use the API instead.</p>
+
+      <h3>Tips and Tricks</h3>
+      <ul>
+        <li>The quick lookup path <code>/q/&lt;name&gt;</code> sends you straight to a domain,
+          nameserver, IP, or zone. If the term matches more than one thing, or nothing at all, it drops
+          you on the search page instead. For example, <a href="/q/example.com">/q/example.com</a>.</li>
+        <li>Every object has its own URL you can link or bookmark directly:
+          <code>/domains/&lt;name&gt;</code>, <code>/nameservers/&lt;name&gt;</code>,
+          <code>/ip/&lt;address&gt;</code>, and <code>/zones/&lt;name&gt;</code>.</li>
+      </ul>
+
+      <h3>Takedown Requests</h3>
+      <p>The records here are already public, so most takedown requests do not apply. For reference:</p>
+      <ul>
+        <li><strong>DMCA.</strong> There is no copyrightable content on DNS Coffee. All data is derived
+          from publicly available DNS records.</li>
+        <li><strong>GDPR and CCPA.</strong> There is no Personally Identifiable Information (PII) on DNS
+          Coffee. All data is derived from publicly available DNS records.</li>
+        <li><strong>Security.</strong> DNS records are public. Every record on DNS Coffee can be
+          retrieved by sending a DNS query to the authoritative nameservers. If you have a DNS record
+          you would rather not be public, remove it from your domain's public nameservers.</li>
+      </ul>
+      <p>If you believe your case still warrants review, submit a request to
+        <a href="/cdn-cgi/l/email-protection#74181113151834101a075a171b12121111"><span class="__cf_email__" data-cfemail="264a4341474a6642485508454940404343">[email&#160;protected]</span></a> with your reasoning and enough
+        supporting evidence to establish that you own the records in question. Each request is
+        reviewed, and we may take action when it is warranted.</p>
+
+      <h3 id="feedback">Feedback and Questions</h3>
+      <p>Questions, feature ideas, corrections, and any other constructive feedback are welcome at
+        <a href="/cdn-cgi/l/email-protection#c3a5a6a6a7a1a2a0a883a7adb0eda0aca5a5a6a6"><span class="__cf_email__" data-cfemail="77111212131516141c3713190459141811111212">[email&#160;protected]</span></a>. We read every message, and
+        suggestions from users have shaped much of what the site does today.</p>
+</div>
+
+
+        <footer id="footer">
+            <div class="row">
+                <div class="col-lg-12">
+                    <ul class="list-unstyled">
+                        <li class="float-lg-end"><a href="#top">Back to top</a></li>
+                    </ul>
+                    <p>&copy; 2026 Vorsk LLC. &middot;
+                        <a href="/terms">Terms</a> &middot;
+                        <a href="/privacy">Privacy</a></p>
+                </div>
+            </div>
+        </footer>
+    </div>
+    
+    <script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script async src="https://www.googletagmanager.com/gtag/js?id=G-S5J5GCL740"></script>
+    <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+
+    gtag('config', 'G-S5J5GCL740');
+    </script>
+</body>
+
+</html>
+
