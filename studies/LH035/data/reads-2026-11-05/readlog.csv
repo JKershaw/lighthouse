@@ -35,3 +35,4 @@ file,url,start_utc,http_status,bytes,sha256
 32-ripestat-docs.html,https://stat.ripe.net/docs/data_api,2026-11-05T14:26:08Z,200,72215,cd96f24937a49dd7b8eaf40a3e30edc0f0408cb9044d3ae70e1136083bb136cf
 33-ripestat-terms.html,https://www.ripe.net/about-us/legal/ripestat-service-terms-and-conditions/,2026-11-05T14:26:09Z,200,123575,e92b1e9db7572eca07a6a9ddc12b8a8ca55338885afd8e120f9dc6e5cdf3f9c2
 (endpoint check; body not kept),https://stat.ripe.net/data/routing-status/data.json?resource=AS3333&sourceapp=lighthouse-research,2026-11-05T14:26:26Z,200,911,(not kept)
+(WebFetch fallback; no body),https://internetatlas.org/,2026-11-05T14:27:03Z,error: getaddrinfo EAI_AGAIN (WebFetch),0,

@@ -1,5 +1,5 @@
 {
-  "about": "LH035 included rows. Every field is filled from the instrument's own pages fetched on 2026-11-02 with WebFetch (which returns a model-written extract of the page, not the raw page); 'not stated' means the pages read did not give it. 'blind_spot' is Lighthouse's reading (interpretation), not the instrument's statement. 'literature' cites papers opened in this run (literature.json). 'origin': a = used by Lighthouse's studies, b = an LH003 row, c = the fixed search plan (search ids as in searchlog.md).",
+  "about": "LH035 included rows. Rows I01 to I40 are filled from the instrument's own pages fetched on 2026-11-02 with WebFetch (which returns a model-written extract of the page, not the raw page); rows I41 to I48 from raw curl reads of 2026-11-05 saved in data/reads-2026-11-05/, except where 'how_read' names a 2 November extract. Each row's 'date_read' and 'how_read' say which; 'not stated' means the pages read did not give it. 'blind_spot' is Lighthouse's reading (interpretation), not the instrument's statement. 'literature' cites papers opened in this run (literature.json). 'origin': a = used by Lighthouse's studies, b = an LH003 row, c = the fixed search plan (search ids as in searchlog.md).",
   "date_read": "2026-11-02",
   "rows": [
     {
@@ -22,7 +22,9 @@
       "window": "not stated (current records)",
       "cannot_see": "not stated on the page read",
       "blind_spot": "Only what operators choose to declare: a declared presence at a facility or exchange, not whether traffic flows there or at what volume.",
-      "literature": "Sermpezis et al. 2023 (L05) note as a limitation of their own inputs that \"only 25% of ASNs have records in PeeringDB\"."
+      "literature": "Sermpezis et al. 2023 (L05) note as a limitation of their own inputs that \"only 25% of ASNs have records in PeeringDB\".",
+      "date_read": "2026-11-02",
+      "how_read": "WebFetch extract, 2 November 2026"
     },
     {
       "id": "I02",
@@ -45,7 +47,9 @@
       "window": "current systems, active and planned",
       "cannot_see": "\"The cable routes on our map are stylized and do not reflect the precise geolocation of systems.\" Capacity is not in the free map.",
       "blind_spot": "Land networks and what the cables carry: it is a register of systems as their owners describe them, with capacity behind a subscription.",
-      "literature": ""
+      "literature": "",
+      "date_read": "2026-11-02",
+      "how_read": "WebFetch extract, 2 November 2026"
     },
     {
       "id": "I03",
@@ -67,7 +71,9 @@
       "window": "2023 to 2030 as estimated timelines",
       "cannot_see": "\"we estimate this database's coverage of global deployed AI computing capacity to be 45%\" (90% interval 30% to 78%); power estimates within a factor of 1.4 \"80% of the time\"; \"we are uncertain about these affiliations, especially the data center users\"; coverage being expanded in \"Asia, Europe and the Middle East\"",
       "blind_spot": "Every data centre that is not built for AI, and most of the internet's ordinary facilities.",
-      "literature": ""
+      "literature": "",
+      "date_read": "2026-11-02",
+      "how_read": "WebFetch extract, 2 November 2026"
     },
     {
       "id": "I04",
@@ -91,7 +97,9 @@
       "window": "January 2018 to December 2024",
       "cannot_see": "\"a 95% utilization does not necessarily indicate a poor user experience\"; \"the percentage of interconnects at the various utilization thresholds is not weighted by capacity\"; \"the largest interconnections for ISPs are typically application specific\"",
       "blind_spot": "Every network but four US cable ISPs, and any single link: only aggregates are public, and the period read ends in 2024.",
-      "literature": ""
+      "literature": "",
+      "date_read": "2026-11-02",
+      "how_read": "WebFetch extract, 2 November 2026"
     },
     {
       "id": "I05",
@@ -113,7 +121,9 @@
       "window": "1990s to the read date",
       "cannot_see": "not stated on the page read",
       "blind_spot": "The routes of networks that do not peer with a collector, which the literature puts at most networks.",
-      "literature": "Alfroy et al. 2024 (L06): \"A tiny fraction (1.3%) of the 74k ASes\" host a RIS or RouteViews vantage point; a private collector (bgp.tools) saw 192k AS links no RIS or RouteViews point saw. Sermpezis et al. 2023 (L05): average bias score 0.15 for RouteViews, against 0.00 to 0.01 for a random sample."
+      "literature": "Alfroy et al. 2024 (L06): \"A tiny fraction (1.3%) of the 74k ASes\" host a RIS or RouteViews vantage point; a private collector (bgp.tools) saw 192k AS links no RIS or RouteViews point saw. Sermpezis et al. 2023 (L05): average bias score 0.15 for RouteViews, against 0.00 to 0.01 for a random sample.",
+      "date_read": "2026-11-02",
+      "how_read": "WebFetch extract, 2 November 2026"
     },
     {
       "id": "I06",
@@ -137,7 +147,9 @@
       "window": "not stated",
       "cannot_see": "\"Deprecated RRCs will not have new data but their data will be accessible.\" No coverage limit stated.",
       "blind_spot": "As RouteViews: networks without a peering session, and a placement weighted towards exchange points.",
-      "literature": "Alfroy et al. 2024 (L06): RIS had 1,526 vantage points in May 2023, RouteViews 1,071; about 32% full feeders. Sermpezis et al. 2023 (L05): \"RIPE RIS is heavily biased towards larger networks and IXPs\" (average bias 0.16)."
+      "literature": "Alfroy et al. 2024 (L06): RIS had 1,526 vantage points in May 2023, RouteViews 1,071; about 32% full feeders. Sermpezis et al. 2023 (L05): \"RIPE RIS is heavily biased towards larger networks and IXPs\" (average bias 0.16).",
+      "date_read": "2026-11-02",
+      "how_read": "WebFetch extract, 2 November 2026"
     },
     {
       "id": "I07",
@@ -161,7 +173,9 @@
       "cannot_see": "not stated",
       "blind_spot": "",
       "literature": "",
-      "note": "The page read is a directory listing. The search summary's figure of more than 225 exchange points was not on it and is not used."
+      "note": "The page read is a directory listing. The search summary's figure of more than 225 exchange points was not on it and is not used.",
+      "date_read": "2026-11-02",
+      "how_read": "WebFetch extract, 2 November 2026"
     },
     {
       "id": "I08",
@@ -183,7 +197,9 @@
       "window": "1998 to present",
       "cannot_see": "\"A truly accurate picture of the Internet topology would require collection of data from every AS\"; \"AS relationships are more complex than allowed for in our approach\"",
       "blind_spot": "Inherits the collectors' blind spots, since it is inferred from them.",
-      "literature": "Alfroy et al. 2024 (L06) report about 15% more AS relationships inferred when vantage points are chosen for low redundancy, at the same data volume."
+      "literature": "Alfroy et al. 2024 (L06) report about 15% more AS relationships inferred when vantage points are chosen for low redundancy, at the same data volume.",
+      "date_read": "2026-11-02",
+      "how_read": "WebFetch extract, 2 November 2026"
     },
     {
       "id": "I09",
@@ -209,7 +225,9 @@
       "window": "not stated",
       "cannot_see": "\"only countries where users run speed tests with sufficient regularity are included\"; IQI gaps \"do not indicate outages\"; geolocation from \"a third-party database\" whose accuracy mobile networks, VPNs and proxies affect; robots.txt view: \"we only include AI-focused user agents\"",
       "blind_spot": "Traffic that never touches Cloudflare's network or resolver; its routing view inherits the public collectors'.",
-      "literature": ""
+      "literature": "",
+      "date_read": "2026-11-02",
+      "how_read": "WebFetch extract, 2 November 2026"
     },
     {
       "id": "I10",
@@ -232,7 +250,9 @@
       "window": "not stated",
       "cannot_see": "not stated on the page read",
       "blind_spot": "Places where no volunteer hosts a probe.",
-      "literature": "Sermpezis et al. 2023 (L05): Atlas \"substantially less biased\" than RIS and RouteViews (average 0.06); its default probe selection is \"almost two times higher\" in bias than random selection."
+      "literature": "Sermpezis et al. 2023 (L05): Atlas \"substantially less biased\" than RIS and RouteViews (average 0.06); its default probe selection is \"almost two times higher\" in bias than random selection.",
+      "date_read": "2026-11-02",
+      "how_read": "WebFetch extract, 2 November 2026"
     },
     {
       "id": "I11",
@@ -255,7 +275,9 @@
       "window": "September 2007 to present",
       "cannot_see": "\"Measurements to consistent IPv4 addresses are not available in this dataset\"; prefixes \"are not probed by the same set of monitors consistently over time\"",
       "blind_spot": "IPv6 is outside this dataset by its definition; the newest year is not public.",
-      "literature": ""
+      "literature": "",
+      "date_read": "2026-11-02",
+      "how_read": "WebFetch extract, 2 November 2026"
     },
     {
       "id": "I12",
@@ -281,7 +303,9 @@
       "window": "not stated",
       "cannot_see": "not stated in the documentation read; the tracker's \"Notes & limitations\" heading had no text under it",
       "blind_spot": "Services that do not answer its scanners or that report no version; a reported version is not a patch state.",
-      "literature": "Durumeric et al. 2025 (L01, Censys's own authors): Censys sees an estimated \"98% of IPv4-based services on the top 10 ports, 97% of the top 100 ports, and 62% of services across all 65K ports\"; \"we do not conduct comprehensive IPv6 scans\"; it restricts \"data that is ripe for abuse\". Bennett et al. 2021 (L02): Censys and Shodan made all planted test tokens visible within 24 hours, from five cloud machines."
+      "literature": "Durumeric et al. 2025 (L01, Censys's own authors): Censys sees an estimated \"98% of IPv4-based services on the top 10 ports, 97% of the top 100 ports, and 62% of services across all 65K ports\"; \"we do not conduct comprehensive IPv6 scans\"; it restricts \"data that is ripe for abuse\". Bennett et al. 2021 (L02): Censys and Shodan made all planted test tokens visible within 24 hours, from five cloud machines.",
+      "date_read": "2026-11-02",
+      "how_read": "WebFetch extract, 2 November 2026"
     },
     {
       "id": "I13",
@@ -306,7 +330,9 @@
       "window": "2001 to present",
       "cannot_see": "\"System resource limitations sometimes cause packets to be dropped, or failure to generate flowtuples\"; \"The telescope instrumentation is in need of an overhaul to keep up with traffic growth\"",
       "blind_spot": "Traffic aimed at addresses that are in use, and scanners that avoid dark space.",
-      "literature": "Degen et al. 2026 (L09): after excluding assigned subnets the UCSD telescope monitors 10.9 million addresses; larger telescopes \"detect many attacks missed by smaller ones\"; 37.0% of sources targeted a /16 block in each of three telescopes within an hour."
+      "literature": "Degen et al. 2026 (L09): after excluding assigned subnets the UCSD telescope monitors 10.9 million addresses; larger telescopes \"detect many attacks missed by smaller ones\"; 37.0% of sources targeted a /16 block in each of three telescopes within an hour.",
+      "date_read": "2026-11-02",
+      "how_read": "WebFetch extract, 2 November 2026"
     },
     {
       "id": "I14",
@@ -328,7 +354,9 @@
       "window": "rolling 30 days",
       "cannot_see": "inherited per source: Majestic \"only domains linked to from other websites are considered\"; Umbrella \"invalid domains are also included\"; CrUX \"Only websites are included.\"",
       "blind_spot": "Popularity, not existence: names nobody visits, links or resolves through the panels are absent.",
-      "literature": "Le Pochat et al. 2019 (L03): the four source lists then held about 2.82 million sites and agreed on about 70,000; all were manipulated in experiments; Tranco inherits their biases and lists \"remain susceptible to manipulation\" if all four are manipulated."
+      "literature": "Le Pochat et al. 2019 (L03): the four source lists then held about 2.82 million sites and agreed on about 70,000; all were manipulated in experiments; Tranco inherits their biases and lists \"remain susceptible to manipulation\" if all four are manipulated.",
+      "date_read": "2026-11-02",
+      "how_read": "WebFetch extract, 2 November 2026"
     },
     {
       "id": "I15",
@@ -351,7 +379,9 @@
       "window": "not stated",
       "cannot_see": "the popularity threshold \"is not disclosed\"; pages must be \"publicly discoverable\"; \"Chrome does not publish data about the proportions of users that meet these criteria\"",
       "blind_spot": "Sites below an undisclosed popularity floor and people on other browsers.",
-      "literature": ""
+      "literature": "",
+      "date_read": "2026-11-02",
+      "how_read": "WebFetch extract, 2 November 2026"
     },
     {
       "id": "I16",
@@ -373,7 +403,9 @@
       "window": "not stated",
       "cannot_see": "not stated on the page read",
       "blind_spot": "Names that never receive a publicly trusted certificate.",
-      "literature": "Sommese et al. 2023 (L07, preprint): CT logs from 2017 covered 52% of the names in 19 ccTLD zones in 2023; \"Scraping CT logs does not provide an explicit and reliable indicator of the publication time of a certificate\". Gustafsson et al. 2017 (L11): for almost all domains seen on a campus network to December 2015 at least one log held a valid DV certificate, when logging was still voluntary for most CAs."
+      "literature": "Sommese et al. 2023 (L07, preprint): CT logs from 2017 covered 52% of the names in 19 ccTLD zones in 2023; \"Scraping CT logs does not provide an explicit and reliable indicator of the publication time of a certificate\". Gustafsson et al. 2017 (L11): for almost all domains seen on a campus network to December 2015 at least one log held a valid DV certificate, when logging was still voluntary for most CAs.",
+      "date_read": "2026-11-02",
+      "how_read": "WebFetch extract, 2 November 2026"
     },
     {
       "id": "I17",
@@ -399,7 +431,9 @@
       "window": "not stated",
       "cannot_see": "no general statement; the DDoS report notes \"traffic might also be spoofed\"",
       "blind_spot": "A reader who is not a network owner sees only what the dashboard aggregates; the reports go to those who can fix things.",
-      "literature": ""
+      "literature": "",
+      "date_read": "2026-11-02",
+      "how_read": "WebFetch extract, 2 November 2026"
     },
     {
       "id": "I18",
@@ -421,7 +455,9 @@
       "window": "late 2016 to the read date",
       "cannot_see": "\"A single observation is often meaningless without the necessary context.\"",
       "blind_spot": "Only what someone thought worth submitting, which leans towards the suspicious.",
-      "literature": ""
+      "literature": "",
+      "date_read": "2026-11-02",
+      "how_read": "WebFetch extract, 2 November 2026"
     },
     {
       "id": "I19",
@@ -443,7 +479,9 @@
       "window": "not stated",
       "cannot_see": "\"does not crawl the website's other pages\"; \"The landing page may not be representative of the overall site\"; \"Each URL is loaded only once\"; tests \"generated from various datacenters in the US\"",
       "blind_spot": "Internal and logged-in pages, and the web as seen from outside the US.",
-      "literature": "Aqeel et al. 2020 (L08): internal pages of 1,000 sites \"differ substantially\" from landing pages, and nearly two thirds of 119 web-performance studies would need revision to apply to them; their own sample is the top 2,000 or so sites."
+      "literature": "Aqeel et al. 2020 (L08): internal pages of 1,000 sites \"differ substantially\" from landing pages, and nearly two thirds of 119 web-performance studies would need revision to apply to them; their own sample is the top 2,000 or so sites.",
+      "date_read": "2026-11-02",
+      "how_read": "WebFetch extract, 2 November 2026"
     },
     {
       "id": "I20",
@@ -467,7 +505,9 @@
       "window": "current",
       "cannot_see": "\"We investigate technologies of websites, not of individual web pages\"; \"We do not consider subdomains to be separate websites\"; \"our research does not cover all technologies\"; \"Some technologies may become visible only after user interaction\"; results \"may be incomplete and inaccurate\"",
       "blind_spot": "Software that does not announce itself to a visitor.",
-      "literature": ""
+      "literature": "",
+      "date_read": "2026-11-02",
+      "how_read": "WebFetch extract, 2 November 2026"
     },
     {
       "id": "I21",
@@ -490,7 +530,9 @@
       "window": "2008 to the read date",
       "cannot_see": "\"we do not generally archive any entire website but a randomly selected subset of it\"; \"Currently, JavaScript is not executed and Cookies are not used\"; \"Common Crawl's dataset is a sample of the web\"",
       "blind_spot": "Pages that need scripts, logins or permission, and sites that refuse its crawler.",
-      "literature": "Sommese et al. 2023 (L07, preprint): Common Crawl covered 31% of names in 19 ccTLD zones in 2023, 7% that CT logs did not."
+      "literature": "Sommese et al. 2023 (L07, preprint): Common Crawl covered 31% of names in 19 ccTLD zones in 2023, 7% that CT logs did not.",
+      "date_read": "2026-11-02",
+      "how_read": "WebFetch extract, 2 November 2026"
     },
     {
       "id": "I22",
@@ -512,7 +554,9 @@
       "window": "not stated",
       "cannot_see": "not stated on the page read",
       "blind_spot": "A fetch is not an install, and nothing in the record says whose machine fetched (Lighthouse's own studies, LH011 to LH013).",
-      "literature": ""
+      "literature": "",
+      "date_read": "2026-11-02",
+      "how_read": "WebFetch extract, 2 November 2026"
     },
     {
       "id": "I23",
@@ -534,7 +578,9 @@
       "window": "rolling 180 days",
       "cannot_see": "\"All aggregate download stats ignore known PyPI mirrors\", \"unless noted otherwise\"",
       "blind_spot": "As the PyPI table it summarises, over a shorter memory.",
-      "literature": ""
+      "literature": "",
+      "date_read": "2026-11-02",
+      "how_read": "WebFetch extract, 2 November 2026"
     },
     {
       "id": "I24",
@@ -556,7 +602,9 @@
       "window": "not stated",
       "cannot_see": "not stated",
       "blind_spot": "As the PyPI table; it is another view of the same logs, not an independent instrument.",
-      "literature": ""
+      "literature": "",
+      "date_read": "2026-11-02",
+      "how_read": "WebFetch extract, 2 November 2026"
     },
     {
       "id": "I25",
@@ -578,7 +626,9 @@
       "window": "10 January 2015 to the previous UTC day",
       "cannot_see": "a download is not defined on the page (it defers to an external post); bulk queries at most 128 packages and 365 days; other queries at most 18 months; per-version counts \"only available for the previous 7 days\"",
       "blind_spot": "Which fetches were people, robots or CI, and installs from mirrors.",
-      "literature": ""
+      "literature": "",
+      "date_read": "2026-11-02",
+      "how_read": "WebFetch extract, 2 November 2026"
     },
     {
       "id": "I26",
@@ -600,7 +650,9 @@
       "window": "14 May 2014 to the read date",
       "cannot_see": "a gap \"from the 1st to the 21st of September 2015 due to a server configuration error\"; \"IP addresses and exact times are not reported\"; the version field \"occasionaly empty\"",
       "blind_spot": "Node.js obtained any other way: package managers, images, mirrors.",
-      "literature": ""
+      "literature": "",
+      "date_read": "2026-11-02",
+      "how_read": "WebFetch extract, 2 November 2026"
     },
     {
       "id": "I27",
@@ -622,7 +674,9 @@
       "window": "13 April 2012 to the read date",
       "cannot_see": "\"The last data point is for the current month and shows partial data.\"",
       "blind_spot": "What an \"install\" is, which the page does not define; PHP software fetched outside Composer.",
-      "literature": ""
+      "literature": "",
+      "date_read": "2026-11-02",
+      "how_read": "WebFetch extract, 2 November 2026"
     },
     {
       "id": "I28",
@@ -644,7 +698,9 @@
       "window": "12 February 2011 to the read date",
       "cannot_see": "the payload \"may be updated by GitHub at any point\"",
       "blind_spot": "Private repositories and every other forge.",
-      "literature": ""
+      "literature": "",
+      "date_read": "2026-11-02",
+      "how_read": "WebFetch extract, 2 November 2026"
     },
     {
       "id": "I29",
@@ -667,7 +723,9 @@
       "window": "current",
       "cannot_see": "\"Quiescent or obsolete packages can be presented with staler data\"; \"there is no data for C or C++\"; differences from \"input from the build system not available to us\"",
       "blind_spot": "What is resolved on paper, not what any machine runs.",
-      "literature": ""
+      "literature": "",
+      "date_read": "2026-11-02",
+      "how_read": "WebFetch extract, 2 November 2026"
     },
     {
       "id": "I30",
@@ -690,7 +748,9 @@
       "window": "not stated (entries dated by \"Date Added\")",
       "cannot_see": "exploitability is not a criterion; scanning and proof-of-concept code are not exploitation; listing requires \"a clear remediation action\"",
       "blind_spot": "Exploited flaws with no fix yet, and exploitation nobody reported with evidence.",
-      "literature": "Parla 2024 (L10): KEV \"is also a subset of all exploited CVEs\"; a fix must exist before listing."
+      "literature": "Parla 2024 (L10): KEV \"is also a subset of all exploited CVEs\"; a fix must exist before listing.",
+      "date_read": "2026-11-02",
+      "how_read": "WebFetch extract, 2 November 2026"
     },
     {
       "id": "I31",
@@ -713,7 +773,9 @@
       "window": "the CVE Program's history",
       "cannot_see": "\"Publication and update date discrepancies exist for CVE Records published by the MITRE CNA-LR.\"",
       "blind_spot": "Flaws never assigned a number, and anything about exploitation.",
-      "literature": ""
+      "literature": "",
+      "date_read": "2026-11-02",
+      "how_read": "WebFetch extract, 2 November 2026"
     },
     {
       "id": "I32",
@@ -736,7 +798,9 @@
       "window": "not stated",
       "cannot_see": "records may fail import \"due to there being a quality issue\"; deleted upstream records left \"valid but orphaned\"",
       "blind_spot": "Anything its sources have not published.",
-      "literature": ""
+      "literature": "",
+      "date_read": "2026-11-02",
+      "how_read": "WebFetch extract, 2 November 2026"
     },
     {
       "id": "I33",
@@ -758,7 +822,9 @@
       "window": "not stated",
       "cannot_see": "unreviewed advisories \"isn't checked for validity or completion\"; \"Malware alerts do not contain a fix version\"; reviewed coverage limited to twelve ecosystems",
       "blind_spot": "Ecosystems outside the twelve, and packages from private registries.",
-      "literature": ""
+      "literature": "",
+      "date_read": "2026-11-02",
+      "how_read": "WebFetch extract, 2 November 2026"
     },
     {
       "id": "I34",
@@ -781,7 +847,9 @@
       "window": "not stated",
       "cannot_see": "the model \"does not assume we are seeing all of the exploitation activity\"; partner telemetry is under agreements \"that prohibit redistribution, so the training data cannot be released\"",
       "blind_spot": "Exploitation its partners' sensors do not see, and its evidence stays private.",
-      "literature": "Parla 2024 (L10): of 57 KEV entries from 2023 or later, 42 had consistently low EPSS scores before listing; more than two thirds of 250 KEV entries in the period were below a 36% threshold just before listing; the author calls EPSS \"a trailing indicator of exploitation\". A single-author preprint on a purposive sample."
+      "literature": "Parla 2024 (L10): of 57 KEV entries from 2023 or later, 42 had consistently low EPSS scores before listing; more than two thirds of 250 KEV entries in the period were below a 36% threshold just before listing; the author calls EPSS \"a trailing indicator of exploitation\". A single-author preprint on a purposive sample.",
+      "date_read": "2026-11-02",
+      "how_read": "WebFetch extract, 2 November 2026"
     },
     {
       "id": "I35",
@@ -803,7 +871,9 @@
       "window": "not stated",
       "cannot_see": "\"repository for exploits and proof-of-concepts rather than advisories\"",
       "blind_spot": "Whether any exploit was ever used; a proof of concept is not an attack.",
-      "literature": ""
+      "literature": "",
+      "date_read": "2026-11-02",
+      "how_read": "WebFetch extract, 2 November 2026"
     },
     {
       "id": "I36",
@@ -826,7 +896,9 @@
       "window": "not stated",
       "cannot_see": "not stated",
       "blind_spot": "Incidents nobody made public; its last update read is from 2023.",
-      "literature": ""
+      "literature": "",
+      "date_read": "2026-11-02",
+      "how_read": "WebFetch extract, 2 November 2026"
     },
     {
       "id": "I37",
@@ -849,7 +921,9 @@
       "window": "not stated",
       "cannot_see": "not stated",
       "blind_spot": "Only the networks whose volunteers submit logs.",
-      "literature": ""
+      "literature": "",
+      "date_read": "2026-11-02",
+      "how_read": "WebFetch extract, 2 November 2026"
     },
     {
       "id": "I38",
@@ -874,7 +948,9 @@
       "window": "not stated",
       "cannot_see": "not stated",
       "blind_spot": "Traffic that does not reach its sensors; only the home page could be read, so its own account of its limits is unknown.",
-      "literature": ""
+      "literature": "",
+      "date_read": "2026-11-02",
+      "how_read": "WebFetch extract, 2 November 2026"
     },
     {
       "id": "I39",
@@ -897,7 +973,9 @@
       "window": "1999 to 2026",
       "cannot_see": "\"Data is missing from November 4 to December 15 in 2022, due to a hardware failure\"; duplicated packets in 2015; \"a large amount of ICMP traffic is in the traces since 2013, probing the entire IPv4 space\"",
       "blind_spot": "One academic network's transit link in Japan; nothing about anyone else's traffic.",
-      "literature": ""
+      "literature": "",
+      "date_read": "2026-11-02",
+      "how_read": "WebFetch extract, 2 November 2026"
     },
     {
       "id": "I40",
@@ -920,7 +998,225 @@
       "window": "not stated",
       "cannot_see": "not stated",
       "blind_spot": "Only paths that someone chose to test; a performance test does not count traffic. Placed on the traffic layer as the nearest, a classification made here.",
-      "literature": ""
+      "literature": "",
+      "date_read": "2026-11-02",
+      "how_read": "WebFetch extract, 2 November 2026"
+    },
+    {
+      "id": "I41",
+      "name": "CAIDA AS Facilities",
+      "urls_read": [
+        "https://www.caida.org/catalog/datasets/as-facilities/",
+        "https://publicdata.caida.org/datasets/topology/as-facilities/",
+        "https://www.caida.org/about/legal/aua/caida_aua.html"
+      ],
+      "layers": [
+        1
+      ],
+      "primary": 1,
+      "origin": "c (search L1b results 3 and 9)",
+      "counts": "\"the mapping of peering interconnections to the interconnection facilities\" (file mapped-aslinks.json), with facilities and AS-to-facility lists",
+      "vantage": "Inference: \"a large set of traceroutes toward the target ASes\", combined with facility lists from \"a public data source (e.g., PeeringDB database)\" and CAIDA's AS Relationships data",
+      "cadence": "One dataset: \"derived using measurement data collected in March-April 2017\"; no later edition listed",
+      "history": "March to April 2017 only",
+      "access": "The catalogue page links a public directory (publicdata.caida.org) listing the data files, which answered without an account on 5 November 2026; \"Access to these data is subject to the terms of the following CAIDA Acceptable Use Agreement\", whose licence is \"solely for the purpose of non-profit research, non-profit education, commercial internal testing and evaluation of the data, or for government purposes\"",
+      "page_date": "\"This dataset created in April 2017\"; the directory's README.txt last modified 2026-08-07",
+      "window": "March to April 2017",
+      "cannot_see": "\"Not all facilities have all fields\"",
+      "blind_spot": "One snapshot from 2017; only interconnections that the traceroutes crossed, placed among facilities that operators declared in PeeringDB.",
+      "literature": "",
+      "date_read": "2026-11-05",
+      "how_read": "raw curl read, 5 November 2026 (data/reads-2026-11-05/)",
+      "note": "Undetermined in version 0.1 (the request form was read, not the public directory). Draws on PeeringDB (I01) and CAIDA's AS Relationships (I08), by its own page."
+    },
+    {
+      "id": "I42",
+      "name": "DNS Coffee",
+      "urls_read": [
+        "https://dns.coffee/faq",
+        "https://dns.coffee/zones/com",
+        "https://dns.coffee/terms"
+      ],
+      "layers": [
+        4
+      ],
+      "primary": 4,
+      "origin": "c (search L4b result 12, opened)",
+      "counts": "Names, nameservers and glue addresses seen in zone files: \"Most of it is derived from public zone files, DNS queries to public nameservers, and public domain lists\"; the com zone's page showed \"168,656,928 Domains\" on 5 November 2026",
+      "vantage": "Zone files it imports and queries to public nameservers; \"We read zone files, not general DNS lookups\"",
+      "cadence": "\"Zone files are periodic snapshots\"; the com page showed \"Last Import Nov 05, 2026\"",
+      "history": "\"DNS Coffee began with four zones in 2011 and now imports over 1200, each with its own start date\"; com's \"First Import Apr 11, 2011\"",
+      "access": "Zone and domain pages are readable without an account (the com zone's page was); \"DNS Coffee offers a private, authenticated REST API\"; the terms mention \"Paid subscriptions\" and say \"Academic and non-commercial access is granted at our discretion\"; automated access to the website is not permitted except by search engines; no licence stated",
+      "page_date": "Terms \"Last updated 16 October 2026\"",
+      "window": "2011 to 5 November 2026 for com; per zone otherwise",
+      "cannot_see": "\"Zone files are periodic snapshots, so a name that appears and disappears between two imports may not be recorded at all\"; \"an address serving no in-zone nameserver will not appear here at all\"; terms: \"We make no guarantee that it is complete, current, or accurate\"",
+      "blind_spot": "Only zones whose files it obtains, and only delegated names in them; names below those, and names in zones it does not import, are unseen.",
+      "literature": "",
+      "date_read": "2026-11-05",
+      "how_read": "raw curl read, 5 November 2026 (data/reads-2026-11-05/)",
+      "note": "Undetermined in version 0.1 (only the FAQ was read). The FAQ and the com zone page were fetched with curl before the terms were read; the terms prohibit accessing the website \"by automated means, except search engines\", so no further page was fetched."
+    },
+    {
+      "id": "I43",
+      "name": "Docker Hub pull counts",
+      "urls_read": [
+        "https://docs.docker.com/docker-hub/usage/",
+        "https://docs.docker.com/reference/api/hub/latest.yaml",
+        "https://hub.docker.com/v2/namespaces/library/repositories/nginx (endpoint check: HTTP 200, 17,842 bytes, no account; body not kept)",
+        "https://docs.docker.com/docker-hub/usage/pulls/ (2 November extract)"
+      ],
+      "layers": [
+        8
+      ],
+      "primary": 8,
+      "origin": "a (LH019, LH025)",
+      "counts": "A cumulative pull count per repository (the API's pull_count field); by the 2 November extract of the pulls page, \"A Docker pull includes both a version check and any download\", and a multi-architecture pull counts once per architecture",
+      "vantage": "Docker's own registry",
+      "cadence": "not stated",
+      "history": "not stated",
+      "access": "The Hub API specification: \"Public repositories are accessible to everyone, while private repositories require appropriate authentication and permissions\"; the repository endpoint answered without an account on 5 November 2026; unauthenticated users may pull \"100 per IPv4 address or IPv6 /64 subnet\" per 6 hours; licence not stated",
+      "page_date": "not stated",
+      "window": "not stated (current totals)",
+      "cannot_see": "not stated",
+      "blind_spot": "A running total per repository, not per version or per day, and not who pulled; pulls through mirrors and other registries are unseen.",
+      "literature": "",
+      "date_read": "2026-11-05",
+      "how_read": "raw curl read, 5 November 2026 (data/reads-2026-11-05/); the pull definition rests on the 2 November WebFetch extract",
+      "note": "Undetermined in version 0.1 (the pages then read said most endpoints need authentication)."
+    },
+    {
+      "id": "I44",
+      "name": "Hugging Face Hub download counts",
+      "urls_read": [
+        "https://huggingface.co/docs/hub/models-download-stats",
+        "https://huggingface.co/docs/hub/api",
+        "https://huggingface.co/.well-known/openapi.md",
+        "https://huggingface.co/google-bert/bert-base-uncased"
+      ],
+      "layers": [
+        8
+      ],
+      "primary": 8,
+      "origin": "b (LH003 row)",
+      "counts": "Requests for a model's query files: \"Every HTTP request to these files, including GET and HEAD , will be counted as a download\"; GGUF files \"will double count downloads in the case a user performs cloning\" of a repository",
+      "vantage": "\"The count is done server-side as the Hub serves files for downloads\"",
+      "cadence": "A model page shows \"Downloads last month\"; update frequency not stated",
+      "history": "not stated (the page read shows the last month)",
+      "access": "A model page showed \"Downloads last month 30,006,776\" (google-bert/bert-base-uncased) without an account on 5 November 2026; \"We have open endpoints that you can use to retrieve information from the Hub\"; the OpenAPI document read names downloads only as a sort field; licence of the counts not stated",
+      "page_date": "not stated",
+      "window": "the last month, as labelled",
+      "cannot_see": "not stated, beyond the double counting of GGUF files on cloning",
+      "blind_spot": "Requests for chosen files, not users or uses; copies fetched from mirrors or caches outside the Hub are unseen.",
+      "literature": "",
+      "date_read": "2026-11-05",
+      "how_read": "raw curl read, 5 November 2026 (data/reads-2026-11-05/)",
+      "note": "Undetermined in version 0.1 (the documentation did not say where counts are published); settled by a model page that shows one. Five fetches, one more than the round's guide of about four."
+    },
+    {
+      "id": "I45",
+      "name": "Netlas",
+      "urls_read": [
+        "https://netlas.io/pricing",
+        "https://netlas.io/legal/data_collection_policy/ (2 November extract)"
+      ],
+      "layers": [
+        6
+      ],
+      "primary": 6,
+      "origin": "c (search L5b result 14, opened)",
+      "counts": "Its free plan offers \"internet scan data\" and \"DNS & IP WHOIS lookups\"; by the 2 November extract of its policy, it \"collects only externally accessible and publicly available data\"",
+      "vantage": "Its own scanning; by the 2 November extract, \"Only nonintrusive techniques\"",
+      "cadence": "not stated",
+      "history": "not stated",
+      "access": "\"Community Free Forever\": \"Basic plan for personal use only. 50 requests / day up to 200 results / download 2,5K search results / month\"; \"The Community subscription plan applies to every new account\" (an account is needed) and is for \"non-commercial use only\"; paid plans above it; licence not stated",
+      "page_date": "Policy last updated 14 September 2026 (2 November extract); pricing page not dated",
+      "window": "not stated",
+      "cannot_see": "not stated",
+      "blind_spot": "Only what answers its scanners, and the free plan reads a small slice of it.",
+      "literature": "",
+      "date_read": "2026-11-05",
+      "how_read": "raw curl read, 5 November 2026 (data/reads-2026-11-05/) (pricing); the policy fields rest on the 2 November WebFetch extract",
+      "note": "Undetermined in version 0.1 (only the collection policy was read). Included on a free tier that needs an account, which the brief allows (\"a free tier counts\")."
+    },
+    {
+      "id": "I46",
+      "name": "Software Heritage graph dataset",
+      "urls_read": [
+        "https://docs.softwareheritage.org/devel/swh-export/graph/dataset.html"
+      ],
+      "layers": [
+        8
+      ],
+      "primary": 8,
+      "origin": "b (LH003 row)",
+      "counts": "Exports of the archive's graph, as \"Columnar data storage\" and a \"Compressed graph\"; its nodes include origins, snapshots, releases, revisions, directories and contents",
+      "vantage": "The archive's own holdings; how it collects is not stated on the page read",
+      "cadence": "\"We aim to provide regular exports\"; exports listed include 2025-10-08, 2026-03-02 and 2026-06-04",
+      "history": "Exports from January 2019 (done \"in two phases\", one of them dated 2018-09-25) to June 2026",
+      "access": "\"All datasets below are available publicly and with no login required, subject to the terms of use above\" (an Ethical Charter and \"Terms of use for bulk access\", not read); the largest only from Amazon S3",
+      "page_date": "not stated; the latest export listed is dated 2026-06-04",
+      "window": "Exports dated January 2019 to June 2026",
+      "cannot_see": "not stated; the page lists errata, such as an export whose \"author and committer timestamps were shifted back 1 or 2 hours\"",
+      "blind_spot": "Source code as archived, not fetches or installs: it says what exists, not who uses it.",
+      "literature": "",
+      "date_read": "2026-11-05",
+      "how_read": "raw curl read, 5 November 2026 (data/reads-2026-11-05/)",
+      "note": "Unreadable in version 0.1. On 5 November its home page failed a TLS check from this container (curl exit 60); the documentation host answered."
+    },
+    {
+      "id": "I47",
+      "name": "National Vulnerability Database (NVD)",
+      "urls_read": [
+        "https://www.nist.gov/itl/nvd",
+        "https://nvd.nist.gov/developers/start-here (script shell only)",
+        "https://services.nvd.nist.gov/rest/json/cves/2.0?resultsPerPage=1 (endpoint check: HTTP 200, 2,517 bytes, no key; body not kept)"
+      ],
+      "layers": [
+        9
+      ],
+      "primary": 9,
+      "origin": "a and b (LH003 row; LH030)",
+      "counts": "\"a repository of information on software and hardware flaws that can compromise computer security\"; it enriches CVE records (scores, SSVC and \"affected\" data, by its updates of 2026)",
+      "vantage": "NIST's analysis of CVE records it receives (\"incoming CVEs\")",
+      "cadence": "not stated",
+      "history": "not stated",
+      "access": "\"a reliable, sustainable and publicly available source of information about cybersecurity vulnerabilities\"; the page links data feeds and an API, and the CVE API answered without a key on 5 November 2026; licence not stated",
+      "page_date": "News items dated 15 April to 26 August 2026",
+      "window": "not stated",
+      "cannot_see": "\"Starting in early 2024, the NVD developed a significant backlog of unenriched CVEs. Unfortunately, we have been unable to clear that backlog\"; backlogged CVEs published before 1 March 2026 move to \"Not Scheduled\" (update of 15 April 2026)",
+      "blind_spot": "Only flaws with a CVE record, and since 2024 full analysis for a prioritised subset of them.",
+      "literature": "",
+      "date_read": "2026-11-05",
+      "how_read": "raw curl read, 5 November 2026 (data/reads-2026-11-05/) (NIST's page); nvd.nist.gov returned a script shell, as in LH003",
+      "note": "Unreadable in version 0.1 (nvd.nist.gov returned only its title). Read through NIST's own page about it. Draws on the CVE List (I31)."
+    },
+    {
+      "id": "I48",
+      "name": "RIPEstat Data API",
+      "urls_read": [
+        "https://stat.ripe.net/docs/data_api",
+        "https://www.ripe.net/about-us/legal/ripestat-service-terms-and-conditions/",
+        "https://stat.ripe.net/data/routing-status/data.json?resource=AS3333 (endpoint check: HTTP 200, 911 bytes, no account; body not kept)"
+      ],
+      "layers": [
+        2,
+        3
+      ],
+      "primary": 2,
+      "origin": "c (named in the summary of search L3b)",
+      "counts": "\"The RIPEstat Data API is the public data interface for RIPEstat\"; its endpoints include BGP Updates, Routing History, RIS Peers, Atlas Probes and Address Space Usage",
+      "vantage": "The RIPE NCC's data and others': the terms say the service \"contains data that is provided by third parties\"; endpoint names point to RIS and RIPE Atlas",
+      "cadence": "not stated",
+      "history": "not stated",
+      "access": "\"No limit on the amount of requests but please register if you plan to regularly do more than 1000 requests/day\"; an endpoint answered without an account on 5 November 2026; terms: for \"network analysis, network monitoring and debugging and research\", no redistribution, no commercial use without written permission, and research results must be notified to the RIPE NCC",
+      "page_date": "not stated",
+      "window": "not stated",
+      "cannot_see": "Terms: \"The RIPE NCC shall not be responsible for the accuracy of this data\" (third parties' data)",
+      "blind_spot": "An interface over RIS, Atlas and registry data: it sees what they see, from the same vantage points.",
+      "literature": "",
+      "date_read": "2026-11-05",
+      "how_read": "raw curl read, 5 November 2026 (data/reads-2026-11-05/)",
+      "note": "Unreadable in version 0.1 (the documentation URL tried returned 404). Draws on RIPE RIS (I06) and RIPE Atlas (I10), by its endpoint names."
     }
   ]
 }
