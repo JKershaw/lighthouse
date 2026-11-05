@@ -6,6 +6,19 @@ date: 2026-10-23
 
 A few plain lines a day on what the fixed PHP panels saw, newest first, each linking the day's checkpoints. These are working records: what a source said and when Lighthouse read it, not reviewed findings. Anything that would change [the public account](../articles/php-emergency-first-reading.md) is flagged here and goes through review before it reaches that page. How the watch runs is in [the continuation plan](php-watch-continuation-2026-10-23.md).
 
+## 5 November 2026
+
+The Thursday read (scheduled run, 14:14 to 14:19 UTC).
+
+- **How the 23 October instruction travels:** SUSE opened a page for CVE-2026-115560 on 4 November (by its own clock), the first of the seven trackers with a record: state "Analysis", moderate severity, no fixed package and no instruction. Ubuntu answered HTTP 503, so its state is unknown at this read. PHP has made no 8.x release since 21 October; the study's stop condition is not met ([LH030](../studies/LH030/checkpoints/2026-11-05.md)).
+- **CISA's catalogue:** version 2026.11.04 lists the two PHP flaws as before; CVE-2026-115560 is not listed. Palo Alto Networks' advisory and Unit 42's brief are unchanged; the advisory's CSAF file moved its release date to 3 November with no new revision entry ([LH031](../studies/LH031/checkpoints/2026-11-05.md)).
+- **Products embedding PHP:** the Dutch NCSC's list holds 948 entries (929 on 2 November). All 19 net additions record a fix, mostly vendors' hosted services and official container images, so 185 entries now record a fix for CVE-2026-109618; no entry already listed changed status, and the 93 under investigation and 240 runtime-dependent are as before ([LH032](../studies/LH032/checkpoints/2026-11-05.md)).
+- **How far the fix has reached, by others' counts:** by Censys's classification, on 4 November (day 14) 73.4 per cent of version-reporting services were counted patched in 8.2, 70.4 in 8.3, 81.0 in 8.4 and 89.7 in 8.5, a slight fall on the day in three branches as their counts grew; 24.2 million services, 53 per cent of those reporting a version, run branches PHP did not fix ([LH033](../studies/LH033/checkpoints/2026-11-05.md)).
+- **Node.js downloads:** on day 14 (4 November) 62.6 per cent of line 22's downloads were at or above the fixed release, 69.6 per cent of line 24's and 95.0 per cent of line 26's; 12.6 per cent came from lines the release does not fix ([LH034](../studies/LH034/checkpoints/2026-11-05.md)).
+- **Vendors that ship PHP:** 6 of 20 vendors have a statement, as on 2 November. Fortinet now lists FortiSOAR as affected, with fixes and patches, and assesses the impact as denial of service only (severity lowered from 9.8 to 5.3); it says CVE-2026-115560 affects none of its products. Google's release notes for Cloud Run, Cloud Run functions and App Engine now mark their 21 October "already patched" entries "This note is incorrect". No vendor states its own products were exploited, and none states a new PHP branch ([LH037](../studies/LH037/checkpoints/2026-11-05T1414Z.md)).
+- **Media sweep, 14:19 UTC:** 79 distinct URLs, 6 new, 3 pages read; nothing new to the account ([sweep](php-media-sweep/2026-11-05T1419Z.md)).
+- **Flagged for review:** nothing. Fortinet's denial-of-service assessment and Google's correction of its own release notes are for the PHP account's next reviewed revision (row php-account-rev) to weigh; neither piece cites those pages now.
+
 ## 2 November 2026
 
 The first Monday read (scheduled run, 15:26 to 15:31 UTC).
