@@ -1,0 +1,3568 @@
+
+
+
+
+
+
+
+
+
+<!doctype html>
+<html 
+      lang="en"
+      dir="ltr">
+  <head>
+    <meta name="google-signin-client-id" content="157101835696-ooapojlodmuabs2do2vuhhnf90bccmoi.apps.googleusercontent.com"><meta name="google-signin-scope"
+          content="profile email https://www.googleapis.com/auth/developerprofiles https://www.googleapis.com/auth/developerprofiles.award https://www.googleapis.com/auth/devprofiles.full_control.firstparty"><meta property="og:site_name" content="Chrome for Developers">
+    <meta property="og:type" content="website"><meta name="theme-color" content="#1a73e8"><meta charset="utf-8">
+    <meta content="IE=Edge" http-equiv="X-UA-Compatible">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    
+
+    <link rel="manifest" href="/_pwa/chrome/manifest.json"
+          crossorigin="use-credentials">
+    <link rel="preconnect" href="//www.gstatic.com" crossorigin>
+    <link rel="preconnect" href="//fonts.googleapis.com" crossorigin>
+    <link rel="preconnect" href="//www.google-analytics.com" crossorigin><link rel="stylesheet" href="//fonts.googleapis.com/css?family=Google+Sans:400,500|Roboto:400,400italic,500,500italic,700,700italic|Roboto+Mono:400,500,700&display=swap">
+      <link rel="stylesheet"
+            href="//fonts.googleapis.com/css2?family=Material+Icons&family=Material+Symbols+Outlined&display=block"><link rel="stylesheet" href="https://www.gstatic.com/devrel-devsite/prod/vab328caf183ea693bb389a1701d6be5b2db91193de097b9f38bbe8a87dd02cd9/chrome/css/app.css">
+      
+        <link rel="stylesheet" href="https://www.gstatic.com/devrel-devsite/prod/vab328caf183ea693bb389a1701d6be5b2db91193de097b9f38bbe8a87dd02cd9/chrome/css/dark-theme.css" disabled>
+      <link rel="shortcut icon" href="https://www.gstatic.com/devrel-devsite/prod/vab328caf183ea693bb389a1701d6be5b2db91193de097b9f38bbe8a87dd02cd9/chrome/images/favicon.png">
+    <link rel="apple-touch-icon" href="https://www.gstatic.com/devrel-devsite/prod/vab328caf183ea693bb389a1701d6be5b2db91193de097b9f38bbe8a87dd02cd9/chrome/images/touchicon-180.png"><link rel="canonical" href="https://developer.chrome.com/docs/crux/methodology"><link rel="search" type="application/opensearchdescription+xml"
+            title="Chrome for Developers" href="https://developer.chrome.com/s/opensearch.xml">
+      <link rel="alternate" hreflang="en"
+          href="https://developer.chrome.com/docs/crux/methodology" /><link rel="alternate" hreflang="x-default" href="https://developer.chrome.com/docs/crux/methodology" /><link rel="alternate" hreflang="ar"
+          href="https://developer.chrome.com/docs/crux/methodology?hl=ar" /><link rel="alternate" hreflang="bn"
+          href="https://developer.chrome.com/docs/crux/methodology?hl=bn" /><link rel="alternate" hreflang="zh-Hans"
+          href="https://developer.chrome.com/docs/crux/methodology?hl=zh-cn" /><link rel="alternate" hreflang="zh-Hant"
+          href="https://developer.chrome.com/docs/crux/methodology?hl=zh-tw" /><link rel="alternate" hreflang="nl"
+          href="https://developer.chrome.com/docs/crux/methodology?hl=nl" /><link rel="alternate" hreflang="fa"
+          href="https://developer.chrome.com/docs/crux/methodology?hl=fa" /><link rel="alternate" hreflang="fr"
+          href="https://developer.chrome.com/docs/crux/methodology?hl=fr" /><link rel="alternate" hreflang="de"
+          href="https://developer.chrome.com/docs/crux/methodology?hl=de" /><link rel="alternate" hreflang="he"
+          href="https://developer.chrome.com/docs/crux/methodology?hl=he" /><link rel="alternate" hreflang="hi"
+          href="https://developer.chrome.com/docs/crux/methodology?hl=hi" /><link rel="alternate" hreflang="id"
+          href="https://developer.chrome.com/docs/crux/methodology?hl=id" /><link rel="alternate" hreflang="it"
+          href="https://developer.chrome.com/docs/crux/methodology?hl=it" /><link rel="alternate" hreflang="ja"
+          href="https://developer.chrome.com/docs/crux/methodology?hl=ja" /><link rel="alternate" hreflang="ko"
+          href="https://developer.chrome.com/docs/crux/methodology?hl=ko" /><link rel="alternate" hreflang="pl"
+          href="https://developer.chrome.com/docs/crux/methodology?hl=pl" /><link rel="alternate" hreflang="pt-BR"
+          href="https://developer.chrome.com/docs/crux/methodology?hl=pt-br" /><link rel="alternate" hreflang="ru"
+          href="https://developer.chrome.com/docs/crux/methodology?hl=ru" /><link rel="alternate" hreflang="es-419"
+          href="https://developer.chrome.com/docs/crux/methodology?hl=es-419" /><link rel="alternate" hreflang="th"
+          href="https://developer.chrome.com/docs/crux/methodology?hl=th" /><link rel="alternate" hreflang="tr"
+          href="https://developer.chrome.com/docs/crux/methodology?hl=tr" /><link rel="alternate" hreflang="vi"
+          href="https://developer.chrome.com/docs/crux/methodology?hl=vi" /><link rel="alternate" hreflang="en-cn"
+          href="https://developer.chrome.google.cn/docs/crux/methodology" /><link rel="alternate" hreflang="x-default" href="https://developer.chrome.google.cn/docs/crux/methodology" /><link rel="alternate" hreflang="ar-cn"
+          href="https://developer.chrome.google.cn/docs/crux/methodology?hl=ar" /><link rel="alternate" hreflang="bn-cn"
+          href="https://developer.chrome.google.cn/docs/crux/methodology?hl=bn" /><link rel="alternate" hreflang="zh-Hans-cn"
+          href="https://developer.chrome.google.cn/docs/crux/methodology?hl=zh-cn" /><link rel="alternate" hreflang="zh-Hant-cn"
+          href="https://developer.chrome.google.cn/docs/crux/methodology?hl=zh-tw" /><link rel="alternate" hreflang="nl-cn"
+          href="https://developer.chrome.google.cn/docs/crux/methodology?hl=nl" /><link rel="alternate" hreflang="fa-cn"
+          href="https://developer.chrome.google.cn/docs/crux/methodology?hl=fa" /><link rel="alternate" hreflang="fr-cn"
+          href="https://developer.chrome.google.cn/docs/crux/methodology?hl=fr" /><link rel="alternate" hreflang="de-cn"
+          href="https://developer.chrome.google.cn/docs/crux/methodology?hl=de" /><link rel="alternate" hreflang="he-cn"
+          href="https://developer.chrome.google.cn/docs/crux/methodology?hl=he" /><link rel="alternate" hreflang="hi-cn"
+          href="https://developer.chrome.google.cn/docs/crux/methodology?hl=hi" /><link rel="alternate" hreflang="id-cn"
+          href="https://developer.chrome.google.cn/docs/crux/methodology?hl=id" /><link rel="alternate" hreflang="it-cn"
+          href="https://developer.chrome.google.cn/docs/crux/methodology?hl=it" /><link rel="alternate" hreflang="ja-cn"
+          href="https://developer.chrome.google.cn/docs/crux/methodology?hl=ja" /><link rel="alternate" hreflang="ko-cn"
+          href="https://developer.chrome.google.cn/docs/crux/methodology?hl=ko" /><link rel="alternate" hreflang="pl-cn"
+          href="https://developer.chrome.google.cn/docs/crux/methodology?hl=pl" /><link rel="alternate" hreflang="pt-BR-cn"
+          href="https://developer.chrome.google.cn/docs/crux/methodology?hl=pt-br" /><link rel="alternate" hreflang="ru-cn"
+          href="https://developer.chrome.google.cn/docs/crux/methodology?hl=ru" /><link rel="alternate" hreflang="es-419-cn"
+          href="https://developer.chrome.google.cn/docs/crux/methodology?hl=es-419" /><link rel="alternate" hreflang="th-cn"
+          href="https://developer.chrome.google.cn/docs/crux/methodology?hl=th" /><link rel="alternate" hreflang="tr-cn"
+          href="https://developer.chrome.google.cn/docs/crux/methodology?hl=tr" /><link rel="alternate" hreflang="vi-cn"
+          href="https://developer.chrome.google.cn/docs/crux/methodology?hl=vi" /><title>CrUX methodology &nbsp;|&nbsp; Chrome UX Report &nbsp;|&nbsp; Chrome for Developers</title>
+
+<meta property="og:title" content="CrUX methodology &nbsp;|&nbsp; Chrome UX Report &nbsp;|&nbsp; Chrome for Developers"><meta name="description" content="Technical documentation on CrUX eligibility, metrics, dimensions and accessing the data.">
+  <meta property="og:description" content="Technical documentation on CrUX eligibility, metrics, dimensions and accessing the data."><meta property="og:url" content="https://developer.chrome.com/docs/crux/methodology"><meta property="og:locale" content="en"><script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Article",
+    "dateModified": "2024-06-20",
+    "headline": "CrUX methodology"
+  }
+</script><script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    "itemListElement": [{
+      "@type": "ListItem",
+      "position": 1,
+      "name": "Docs",
+      "item": "https://developer.chrome.com/docs"
+    },{
+      "@type": "ListItem",
+      "position": 2,
+      "name": "Chrome UX Report",
+      "item": "https://developer.chrome.com/docs/crux"
+    },{
+      "@type": "ListItem",
+      "position": 3,
+      "name": "CrUX methodology",
+      "item": "https://developer.chrome.com/docs/crux/methodology"
+    }]
+  }
+  </script>
+  
+
+  
+
+  
+
+  
+
+  
+
+
+    </head>
+  <body class="color-scheme--light"
+        template="page"
+        theme="chrome-theme"
+        type="article"
+        
+        appearance
+        
+        layout="docs"
+        
+        
+        
+        
+        
+        display-toc
+        pending>
+  
+    <devsite-progress type="indeterminate" id="app-progress"></devsite-progress>
+  
+  
+    <a href="#main-content" class="skip-link button">
+      
+      Skip to main content
+    </a>
+    <section class="devsite-wrapper">
+      <devsite-cookie-notification-bar></devsite-cookie-notification-bar>
+        <devsite-header role="banner">
+  
+    
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div class="devsite-header--inner" data-nosnippet>
+  <div class="devsite-top-logo-row-wrapper-wrapper">
+    <div class="devsite-top-logo-row-wrapper">
+      <div class="devsite-top-logo-row">
+        <button type="button" id="devsite-hamburger-menu"
+          class="devsite-header-icon-button button-flat material-icons gc-analytics-event"
+          data-category="Site-Wide Custom Events"
+          data-label="Navigation menu button"
+          visually-hidden
+          aria-label="Open menu">
+        </button>
+        
+<div class="devsite-product-name-wrapper">
+
+  <a href="/" class="devsite-site-logo-link gc-analytics-event"
+   data-category="Site-Wide Custom Events" data-label="Site logo" track-type="globalNav"
+   track-name="chromeForDevelopers" track-metadata-position="nav"
+   track-metadata-eventDetail="nav">
+  
+  <picture>
+    
+    <source srcset="https://www.gstatic.com/devrel-devsite/prod/vab328caf183ea693bb389a1701d6be5b2db91193de097b9f38bbe8a87dd02cd9/chrome/images/lockup-dark-theme.svg"
+            media="(prefers-color-scheme: dark)"
+            class="devsite-dark-theme">
+    
+    <img src="https://www.gstatic.com/devrel-devsite/prod/vab328caf183ea693bb389a1701d6be5b2db91193de097b9f38bbe8a87dd02cd9/chrome/images/lockup.svg" class="devsite-site-logo" alt="Chrome for Developers">
+  </picture>
+  
+</a>
+
+
+
+</div>
+        <div class="devsite-top-logo-row-middle">
+          <div class="devsite-header-upper-tabs">
+            
+              
+              
+  <devsite-tabs class="upper-tabs">
+
+    <nav class="devsite-tabs-wrapper" aria-label="Upper tabs">
+      
+        
+          <tab class="devsite-dropdown
+    devsite-dropdown-full
+    devsite-active
+    
+    ">
+  
+    <a href="https://developer.chrome.com/docs"
+    class="devsite-tabs-content gc-analytics-event "
+      track-metadata-eventdetail="https://developer.chrome.com/docs"
+    
+       track-type="nav"
+       track-metadata-position="nav - docs"
+       track-metadata-module="primary nav"
+       aria-label="Docs, selected" 
+       
+         
+           data-category="Site-Wide Custom Events"
+         
+           data-label="Tab: Docs"
+         
+           track-name="docs"
+         
+       >
+    Docs
+  
+    </a>
+    
+      <button
+         aria-haspopup="menu"
+         aria-expanded="false"
+         aria-label="Dropdown menu for Docs"
+         track-type="nav"
+         track-metadata-eventdetail="https://developer.chrome.com/docs"
+         track-metadata-position="nav - docs"
+         track-metadata-module="primary nav"
+         
+          
+            data-category="Site-Wide Custom Events"
+          
+            data-label="Tab: Docs"
+          
+            track-name="docs"
+          
+        
+         class="devsite-tabs-dropdown-toggle devsite-icon devsite-icon-arrow-drop-down"></button>
+    
+  
+  <div class="devsite-tabs-dropdown" role="menu" aria-label="submenu" hidden>
+    <div class="devsite-tabs-dropdown-content">
+      
+      
+        <div class="devsite-tabs-dropdown-column
+                    ">
+          
+            <ul class="devsite-tabs-dropdown-section
+                       build-icon dcc-subnav">
+              
+                <li class="devsite-nav-title" role="heading" tooltip>Build with Chrome</li>
+              
+              
+                <li class="devsite-nav-description">Learn how Chrome works, participate in origin trials, and build with Chrome everywhere.
+</li>
+              
+              
+                <li class="devsite-nav-item">
+                  <a href="https://developer.chrome.com/docs/web-platform"
+                    
+                     track-type="nav"
+                     track-metadata-eventdetail="https://developer.chrome.com/docs/web-platform"
+                     track-metadata-position="nav - docs"
+                     track-metadata-module="tertiary nav"
+                     
+                       track-metadata-module_headline="build with chrome"
+                     
+                     tooltip
+                  >
+                    
+                    <div class="devsite-nav-item-title">
+                      Web Platform
+                    </div>
+                    
+                  </a>
+                </li>
+              
+                <li class="devsite-nav-item">
+                  <a href="https://developer.chrome.com/docs/iwa"
+                    
+                     track-type="nav"
+                     track-metadata-eventdetail="https://developer.chrome.com/docs/iwa"
+                     track-metadata-position="nav - docs"
+                     track-metadata-module="tertiary nav"
+                     
+                       track-metadata-module_headline="build with chrome"
+                     
+                     tooltip
+                  >
+                    
+                    <div class="devsite-nav-item-title">
+                      Isolated Web Apps (IWA)
+                    </div>
+                    
+                  </a>
+                </li>
+              
+                <li class="devsite-nav-item">
+                  <a href="https://developer.chrome.com/docs/capabilities"
+                    
+                     track-type="nav"
+                     track-metadata-eventdetail="https://developer.chrome.com/docs/capabilities"
+                     track-metadata-position="nav - docs"
+                     track-metadata-module="tertiary nav"
+                     
+                       track-metadata-module_headline="build with chrome"
+                     
+                     tooltip
+                  >
+                    
+                    <div class="devsite-nav-item-title">
+                      Capabilities
+                    </div>
+                    
+                  </a>
+                </li>
+              
+                <li class="devsite-nav-item">
+                  <a href="https://developer.chrome.com/docs/automation-and-testing"
+                    
+                     track-type="nav"
+                     track-metadata-eventdetail="https://developer.chrome.com/docs/automation-and-testing"
+                     track-metadata-position="nav - docs"
+                     track-metadata-module="tertiary nav"
+                     
+                       track-metadata-module_headline="build with chrome"
+                     
+                     tooltip
+                  >
+                    
+                    <div class="devsite-nav-item-title">
+                      Automation and testing
+                    </div>
+                    
+                  </a>
+                </li>
+              
+                <li class="devsite-nav-item">
+                  <a href="https://developer.chrome.com/docs/chromedriver"
+                    
+                     track-type="nav"
+                     track-metadata-eventdetail="https://developer.chrome.com/docs/chromedriver"
+                     track-metadata-position="nav - docs"
+                     track-metadata-module="tertiary nav"
+                     
+                       track-metadata-module_headline="build with chrome"
+                     
+                     tooltip
+                  >
+                    
+                    <div class="devsite-nav-item-title">
+                      ChromeDriver
+                    </div>
+                    
+                  </a>
+                </li>
+              
+                <li class="devsite-nav-item">
+                  <a href="https://developer.chrome.com/docs/extensions"
+                    
+                     track-type="nav"
+                     track-metadata-eventdetail="https://developer.chrome.com/docs/extensions"
+                     track-metadata-position="nav - docs"
+                     track-metadata-module="tertiary nav"
+                     
+                       track-metadata-module_headline="build with chrome"
+                     
+                     tooltip
+                  >
+                    
+                    <div class="devsite-nav-item-title">
+                      Extensions
+                    </div>
+                    
+                  </a>
+                </li>
+              
+                <li class="devsite-nav-item">
+                  <a href="https://developer.chrome.com/docs/webstore"
+                    
+                     track-type="nav"
+                     track-metadata-eventdetail="https://developer.chrome.com/docs/webstore"
+                     track-metadata-position="nav - docs"
+                     track-metadata-module="tertiary nav"
+                     
+                       track-metadata-module_headline="build with chrome"
+                     
+                     tooltip
+                  >
+                    
+                    <div class="devsite-nav-item-title">
+                      Chrome Web Store
+                    </div>
+                    
+                  </a>
+                </li>
+              
+                <li class="devsite-nav-item">
+                  <a href="https://developer.chrome.com/docs/chromium"
+                    
+                     track-type="nav"
+                     track-metadata-eventdetail="https://developer.chrome.com/docs/chromium"
+                     track-metadata-position="nav - docs"
+                     track-metadata-module="tertiary nav"
+                     
+                       track-metadata-module_headline="build with chrome"
+                     
+                     tooltip
+                  >
+                    
+                    <div class="devsite-nav-item-title">
+                      Chromium
+                    </div>
+                    
+                  </a>
+                </li>
+              
+                <li class="devsite-nav-item">
+                  <a href="https://developer.chrome.com/docs/android"
+                    
+                     track-type="nav"
+                     track-metadata-eventdetail="https://developer.chrome.com/docs/android"
+                     track-metadata-position="nav - docs"
+                     track-metadata-module="tertiary nav"
+                     
+                       track-metadata-module_headline="build with chrome"
+                     
+                     tooltip
+                  >
+                    
+                    <div class="devsite-nav-item-title">
+                      Web on Android
+                    </div>
+                    
+                  </a>
+                </li>
+              
+                <li class="devsite-nav-item">
+                  <a href="https://developer.chrome.com/origintrials/"
+                    
+                     track-type="nav"
+                     track-metadata-eventdetail="https://developer.chrome.com/origintrials/"
+                     track-metadata-position="nav - docs"
+                     track-metadata-module="tertiary nav"
+                     
+                       track-metadata-module_headline="build with chrome"
+                     
+                     tooltip
+                  >
+                    
+                    <div class="devsite-nav-item-title">
+                      Origin trials
+                    </div>
+                    
+                  </a>
+                </li>
+              
+                <li class="devsite-nav-item">
+                  <a href="https://developer.chrome.com/release-notes"
+                    
+                     track-type="nav"
+                     track-metadata-eventdetail="https://developer.chrome.com/release-notes"
+                     track-metadata-position="nav - docs"
+                     track-metadata-module="tertiary nav"
+                     
+                       track-metadata-module_headline="build with chrome"
+                     
+                     tooltip
+                  >
+                    
+                    <div class="devsite-nav-item-title">
+                      Release notes
+                    </div>
+                    
+                  </a>
+                </li>
+              
+            </ul>
+          
+        </div>
+      
+        <div class="devsite-tabs-dropdown-column
+                    ">
+          
+            <ul class="devsite-tabs-dropdown-section
+                       productivity-icon dcc-subnav">
+              
+                <li class="devsite-nav-title" role="heading" tooltip>Productivity</li>
+              
+              
+                <li class="devsite-nav-description">Create the best experience for your users with the web&#39;s best tools.</li>
+              
+              
+                <li class="devsite-nav-item">
+                  <a href="https://developer.chrome.com/docs/devtools"
+                    
+                     track-type="nav"
+                     track-metadata-eventdetail="https://developer.chrome.com/docs/devtools"
+                     track-metadata-position="nav - docs"
+                     track-metadata-module="tertiary nav"
+                     
+                       track-metadata-module_headline="productivity"
+                     
+                     tooltip
+                  >
+                    
+                    <div class="devsite-nav-item-title">
+                      DevTools
+                    </div>
+                    
+                  </a>
+                </li>
+              
+                <li class="devsite-nav-item">
+                  <a href="https://developer.chrome.com/docs/lighthouse"
+                    
+                     track-type="nav"
+                     track-metadata-eventdetail="https://developer.chrome.com/docs/lighthouse"
+                     track-metadata-position="nav - docs"
+                     track-metadata-module="tertiary nav"
+                     
+                       track-metadata-module_headline="productivity"
+                     
+                     tooltip
+                  >
+                    
+                    <div class="devsite-nav-item-title">
+                      Lighthouse
+                    </div>
+                    
+                  </a>
+                </li>
+              
+                <li class="devsite-nav-item">
+                  <a href="https://developer.chrome.com/docs/crux"
+                    
+                     track-type="nav"
+                     track-metadata-eventdetail="https://developer.chrome.com/docs/crux"
+                     track-metadata-position="nav - docs"
+                     track-metadata-module="tertiary nav"
+                     
+                       track-metadata-module_headline="productivity"
+                     
+                     tooltip
+                  >
+                    
+                    <div class="devsite-nav-item-title">
+                      Chrome UX Report
+                    </div>
+                    
+                  </a>
+                </li>
+              
+                <li class="devsite-nav-item">
+                  <a href="https://developer.chrome.com/docs/accessibility"
+                    
+                     track-type="nav"
+                     track-metadata-eventdetail="https://developer.chrome.com/docs/accessibility"
+                     track-metadata-position="nav - docs"
+                     track-metadata-module="tertiary nav"
+                     
+                       track-metadata-module_headline="productivity"
+                     
+                     tooltip
+                  >
+                    
+                    <div class="devsite-nav-item-title">
+                      Accessibility
+                    </div>
+                    
+                  </a>
+                </li>
+              
+                <li class="devsite-nav-item">
+                  <a href="https://developer.chrome.com/docs/modern-web-guidance"
+                    
+                     track-type="nav"
+                     track-metadata-eventdetail="https://developer.chrome.com/docs/modern-web-guidance"
+                     track-metadata-position="nav - docs"
+                     track-metadata-module="tertiary nav"
+                     
+                       track-metadata-module_headline="productivity"
+                     
+                     tooltip
+                  >
+                    
+                    <div class="devsite-nav-item-title">
+                      Modern Web Guidance
+                    </div>
+                    
+                  </a>
+                </li>
+              
+            </ul>
+          
+            <ul class="devsite-tabs-dropdown-section
+                       dcc-subnav second-column-list">
+              
+              
+                <li class="devsite-nav-description">Get things done quicker and neater, with our ready-made libraries.
+</li>
+              
+              
+                <li class="devsite-nav-item">
+                  <a href="https://developer.chrome.com/docs/workbox"
+                    
+                     track-type="nav"
+                     track-metadata-eventdetail="https://developer.chrome.com/docs/workbox"
+                     track-metadata-position="nav - docs"
+                     track-metadata-module="tertiary nav"
+                     
+                       track-metadata-module_headline="productivity"
+                     
+                     tooltip
+                  >
+                    
+                    <div class="devsite-nav-item-title">
+                      Workbox
+                    </div>
+                    
+                  </a>
+                </li>
+              
+                <li class="devsite-nav-item">
+                  <a href="https://developer.chrome.com/docs/puppeteer"
+                    
+                     track-type="nav"
+                     track-metadata-eventdetail="https://developer.chrome.com/docs/puppeteer"
+                     track-metadata-position="nav - docs"
+                     track-metadata-module="tertiary nav"
+                     
+                       track-metadata-module_headline="productivity"
+                     
+                     tooltip
+                  >
+                    
+                    <div class="devsite-nav-item-title">
+                      Puppeteer
+                    </div>
+                    
+                  </a>
+                </li>
+              
+            </ul>
+          
+        </div>
+      
+        <div class="devsite-tabs-dropdown-column
+                    ">
+          
+            <ul class="devsite-tabs-dropdown-section
+                       experience-icon dcc-subnav">
+              
+                <li class="devsite-nav-title" role="heading" tooltip>Experience</li>
+              
+              
+                <li class="devsite-nav-description">Design a beautiful and performant web with Chrome.
+</li>
+              
+              
+                <li class="devsite-nav-item">
+                  <a href="https://developer.chrome.com/docs/ai"
+                    
+                     track-type="nav"
+                     track-metadata-eventdetail="https://developer.chrome.com/docs/ai"
+                     track-metadata-position="nav - docs"
+                     track-metadata-module="tertiary nav"
+                     
+                       track-metadata-module_headline="experience"
+                     
+                     tooltip
+                  >
+                    
+                    <div class="devsite-nav-item-title">
+                      AI
+                    </div>
+                    
+                  </a>
+                </li>
+              
+                <li class="devsite-nav-item">
+                  <a href="https://developer.chrome.com/docs/performance"
+                    
+                     track-type="nav"
+                     track-metadata-eventdetail="https://developer.chrome.com/docs/performance"
+                     track-metadata-position="nav - docs"
+                     track-metadata-module="tertiary nav"
+                     
+                       track-metadata-module_headline="experience"
+                     
+                     tooltip
+                  >
+                    
+                    <div class="devsite-nav-item-title">
+                      Performance
+                    </div>
+                    
+                  </a>
+                </li>
+              
+                <li class="devsite-nav-item">
+                  <a href="https://developer.chrome.com/docs/css-ui"
+                    
+                     track-type="nav"
+                     track-metadata-eventdetail="https://developer.chrome.com/docs/css-ui"
+                     track-metadata-position="nav - docs"
+                     track-metadata-module="tertiary nav"
+                     
+                       track-metadata-module_headline="experience"
+                     
+                     tooltip
+                  >
+                    
+                    <div class="devsite-nav-item-title">
+                      CSS and UI
+                    </div>
+                    
+                  </a>
+                </li>
+              
+                <li class="devsite-nav-item">
+                  <a href="https://developer.chrome.com/docs/identity"
+                    
+                     track-type="nav"
+                     track-metadata-eventdetail="https://developer.chrome.com/docs/identity"
+                     track-metadata-position="nav - docs"
+                     track-metadata-module="tertiary nav"
+                     
+                       track-metadata-module_headline="experience"
+                     
+                     tooltip
+                  >
+                    
+                    <div class="devsite-nav-item-title">
+                      Identity
+                    </div>
+                    
+                  </a>
+                </li>
+              
+                <li class="devsite-nav-item">
+                  <a href="https://developer.chrome.com/docs/payments"
+                    
+                     track-type="nav"
+                     track-metadata-eventdetail="https://developer.chrome.com/docs/payments"
+                     track-metadata-position="nav - docs"
+                     track-metadata-module="tertiary nav"
+                     
+                       track-metadata-module_headline="experience"
+                     
+                     tooltip
+                  >
+                    
+                    <div class="devsite-nav-item-title">
+                      Payments
+                    </div>
+                    
+                  </a>
+                </li>
+              
+                <li class="devsite-nav-item">
+                  <a href="https://developer.chrome.com/docs/privacy-security"
+                    
+                     track-type="nav"
+                     track-metadata-eventdetail="https://developer.chrome.com/docs/privacy-security"
+                     track-metadata-position="nav - docs"
+                     track-metadata-module="tertiary nav"
+                     
+                       track-metadata-module_headline="experience"
+                     
+                     tooltip
+                  >
+                    
+                    <div class="devsite-nav-item-title">
+                      Privacy and security
+                    </div>
+                    
+                  </a>
+                </li>
+              
+                <li class="devsite-nav-item">
+                  <a href="https://developer.chrome.com/docs/ads"
+                    
+                     track-type="nav"
+                     track-metadata-eventdetail="https://developer.chrome.com/docs/ads"
+                     track-metadata-position="nav - docs"
+                     track-metadata-module="tertiary nav"
+                     
+                       track-metadata-module_headline="experience"
+                     
+                     tooltip
+                  >
+                    
+                    <div class="devsite-nav-item-title">
+                      Ads
+                    </div>
+                    
+                  </a>
+                </li>
+              
+            </ul>
+          
+        </div>
+      
+        <div class="devsite-tabs-dropdown-column
+                    ">
+          
+            <ul class="devsite-tabs-dropdown-section
+                       resources-icon dcc-subnav">
+              
+                <li class="devsite-nav-title" role="heading" tooltip>Resources</li>
+              
+              
+                <li class="devsite-nav-description">More from Chrome and Google.
+</li>
+              
+              
+                <li class="devsite-nav-item">
+                  <a href="https://developer.chrome.com/docs"
+                    
+                     track-type="nav"
+                     track-metadata-eventdetail="https://developer.chrome.com/docs"
+                     track-metadata-position="nav - docs"
+                     track-metadata-module="tertiary nav"
+                     
+                       track-metadata-module_headline="resources"
+                     
+                     tooltip
+                  >
+                    
+                    <div class="devsite-nav-item-title">
+                      All documentation
+                    </div>
+                    
+                  </a>
+                </li>
+              
+                <li class="devsite-nav-item">
+                  <a href="https://web.dev/baseline"
+                    
+                     track-type="nav"
+                     track-metadata-eventdetail="https://web.dev/baseline"
+                     track-metadata-position="nav - docs"
+                     track-metadata-module="tertiary nav"
+                     
+                       track-metadata-module_headline="resources"
+                     
+                     tooltip
+                  >
+                    
+                    <div class="devsite-nav-item-title">
+                      Baseline <span class="material-icons" style="font-size: 12px;" aria-hidden="true" translate="no">open_in_new</span>
+                    </div>
+                    
+                  </a>
+                </li>
+              
+                <li class="devsite-nav-item">
+                  <a href="https://web.dev"
+                    
+                     track-type="nav"
+                     track-metadata-eventdetail="https://web.dev"
+                     track-metadata-position="nav - docs"
+                     track-metadata-module="tertiary nav"
+                     
+                       track-metadata-module_headline="resources"
+                     
+                     tooltip
+                  >
+                    
+                    <div class="devsite-nav-item-title">
+                      web.dev <span class="material-icons" style="font-size: 12px;" aria-hidden="true" translate="no">open_in_new</span>
+                    </div>
+                    
+                  </a>
+                </li>
+              
+                <li class="devsite-nav-item">
+                  <a href="https://pagespeed.web.dev"
+                    
+                     track-type="nav"
+                     track-metadata-eventdetail="https://pagespeed.web.dev"
+                     track-metadata-position="nav - docs"
+                     track-metadata-module="tertiary nav"
+                     
+                       track-metadata-module_headline="resources"
+                     
+                     tooltip
+                  >
+                    
+                    <div class="devsite-nav-item-title">
+                      PageSpeed Insights audit <span class="material-icons" style="font-size: 12px;" aria-hidden="true" translate="no">open_in_new</span>
+                    </div>
+                    
+                  </a>
+                </li>
+              
+            </ul>
+          
+        </div>
+      
+    </div>
+  </div>
+</tab>
+        
+      
+        
+          <tab  >
+            
+    <a href="https://developer.chrome.com/case-studies"
+    class="devsite-tabs-content gc-analytics-event "
+      track-metadata-eventdetail="https://developer.chrome.com/case-studies"
+    
+       track-type="nav"
+       track-metadata-position="nav - case studies"
+       track-metadata-module="primary nav"
+       
+       
+         
+           data-category="Site-Wide Custom Events"
+         
+           data-label="Tab: Case studies"
+         
+           track-name="case studies"
+         
+       >
+    Case studies
+  
+    </a>
+    
+  
+          </tab>
+        
+      
+        
+          <tab  >
+            
+    <a href="https://developer.chrome.com/blog"
+    class="devsite-tabs-content gc-analytics-event "
+      track-metadata-eventdetail="https://developer.chrome.com/blog"
+    
+       track-type="nav"
+       track-metadata-position="nav - blog"
+       track-metadata-module="primary nav"
+       
+       
+         
+           data-category="Site-Wide Custom Events"
+         
+           data-label="Tab: Blog"
+         
+           track-name="blog"
+         
+       >
+    Blog
+  
+    </a>
+    
+  
+          </tab>
+        
+      
+        
+          <tab  >
+            
+    <a href="https://developer.chrome.com/new"
+    class="devsite-tabs-content gc-analytics-event "
+      track-metadata-eventdetail="https://developer.chrome.com/new"
+    
+       track-type="nav"
+       track-metadata-position="nav - new in chrome"
+       track-metadata-module="primary nav"
+       
+       
+         
+           data-category="Site-Wide Custom Events"
+         
+           data-label="Tab: New in Chrome"
+         
+           track-name="new in chrome"
+         
+       >
+    New in Chrome
+  
+    </a>
+    
+  
+          </tab>
+        
+      
+    </nav>
+
+  </devsite-tabs>
+
+            
+           </div>
+          
+<devsite-search
+    enable-signin
+    enable-search
+    enable-suggestions
+      enable-query-completion
+    
+    enable-search-summaries
+    project-name="Chrome UX Report"
+    tenant-name="Chrome for Developers"
+    
+    
+    
+    
+    
+    >
+  <form class="devsite-search-form" action="https://developer.chrome.com/s/results" method="GET">
+    <div class="devsite-search-container">
+      <button type="button"
+              search-open
+              class="devsite-search-button devsite-header-icon-button button-flat material-icons"
+              
+              aria-label="Open search"></button>
+      <div class="devsite-searchbox">
+        <input
+          aria-activedescendant=""
+          aria-autocomplete="list"
+          
+          aria-label="Search"
+          aria-expanded="false"
+          aria-haspopup="listbox"
+          autocomplete="off"
+          class="devsite-search-field devsite-search-query"
+          name="q"
+          
+          placeholder="Search"
+          role="combobox"
+          type="text"
+          value=""
+          >
+          <div class="devsite-search-image material-icons" aria-hidden="true">
+            
+              <svg class="devsite-search-ai-image" width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                  <g clip-path="url(#clip0_6641_386)">
+                    <path d="M19.6 21L13.3 14.7C12.8 15.1 12.225 15.4167 11.575 15.65C10.925 15.8833 10.2333 16 9.5 16C7.68333 16 6.14167 15.375 4.875 14.125C3.625 12.8583 3 11.3167 3 9.5C3 7.68333 3.625 6.15 4.875 4.9C6.14167 3.63333 7.68333 3 9.5 3C10.0167 3 10.5167 3.05833 11 3.175C11.4833 3.275 11.9417 3.43333 12.375 3.65L10.825 5.2C10.6083 5.13333 10.3917 5.08333 10.175 5.05C9.95833 5.01667 9.73333 5 9.5 5C8.25 5 7.18333 5.44167 6.3 6.325C5.43333 7.19167 5 8.25 5 9.5C5 10.75 5.43333 11.8167 6.3 12.7C7.18333 13.5667 8.25 14 9.5 14C10.6667 14 11.6667 13.625 12.5 12.875C13.35 12.1083 13.8417 11.15 13.975 10H15.975C15.925 10.6333 15.7833 11.2333 15.55 11.8C15.3333 12.3667 15.05 12.8667 14.7 13.3L21 19.6L19.6 21ZM17.5 12C17.5 10.4667 16.9667 9.16667 15.9 8.1C14.8333 7.03333 13.5333 6.5 12 6.5C13.5333 6.5 14.8333 5.96667 15.9 4.9C16.9667 3.83333 17.5 2.53333 17.5 0.999999C17.5 2.53333 18.0333 3.83333 19.1 4.9C20.1667 5.96667 21.4667 6.5 23 6.5C21.4667 6.5 20.1667 7.03333 19.1 8.1C18.0333 9.16667 17.5 10.4667 17.5 12Z" fill="#5F6368"/>
+                  </g>
+                <defs>
+                <clipPath id="clip0_6641_386">
+                <rect width="24" height="24" fill="white"/>
+                </clipPath>
+                </defs>
+              </svg>
+            
+          </div>
+          <div class="devsite-search-shortcut-icon-container" aria-hidden="true">
+            <kbd class="devsite-search-shortcut-icon">/</kbd>
+          </div>
+      </div>
+    </div>
+  </form>
+  <button type="button"
+          search-close
+          class="devsite-search-button devsite-header-icon-button button-flat material-icons"
+          
+          aria-label="Close search"></button>
+</devsite-search>
+
+        </div>
+
+        
+
+          
+
+          
+
+          
+
+          <devsite-appearance-selector></devsite-appearance-selector>
+
+          
+<devsite-language-selector>
+  <ul role="presentation">
+    
+    
+    <li role="presentation">
+      <a role="menuitem" lang="en"
+        >English</a>
+    </li>
+    
+    <li role="presentation">
+      <a role="menuitem" lang="de"
+        >Deutsch</a>
+    </li>
+    
+    <li role="presentation">
+      <a role="menuitem" lang="es_419"
+        >Español – América Latina</a>
+    </li>
+    
+    <li role="presentation">
+      <a role="menuitem" lang="fr"
+        >Français</a>
+    </li>
+    
+    <li role="presentation">
+      <a role="menuitem" lang="id"
+        >Indonesia</a>
+    </li>
+    
+    <li role="presentation">
+      <a role="menuitem" lang="it"
+        >Italiano</a>
+    </li>
+    
+    <li role="presentation">
+      <a role="menuitem" lang="nl"
+        >Nederlands</a>
+    </li>
+    
+    <li role="presentation">
+      <a role="menuitem" lang="pl"
+        >Polski</a>
+    </li>
+    
+    <li role="presentation">
+      <a role="menuitem" lang="pt_br"
+        >Português – Brasil</a>
+    </li>
+    
+    <li role="presentation">
+      <a role="menuitem" lang="vi"
+        >Tiếng Việt</a>
+    </li>
+    
+    <li role="presentation">
+      <a role="menuitem" lang="tr"
+        >Türkçe</a>
+    </li>
+    
+    <li role="presentation">
+      <a role="menuitem" lang="ru"
+        >Русский</a>
+    </li>
+    
+    <li role="presentation">
+      <a role="menuitem" lang="he"
+        >עברית</a>
+    </li>
+    
+    <li role="presentation">
+      <a role="menuitem" lang="ar"
+        >العربيّة</a>
+    </li>
+    
+    <li role="presentation">
+      <a role="menuitem" lang="fa"
+        >فارسی</a>
+    </li>
+    
+    <li role="presentation">
+      <a role="menuitem" lang="hi"
+        >हिंदी</a>
+    </li>
+    
+    <li role="presentation">
+      <a role="menuitem" lang="bn"
+        >বাংলা</a>
+    </li>
+    
+    <li role="presentation">
+      <a role="menuitem" lang="th"
+        >ภาษาไทย</a>
+    </li>
+    
+    <li role="presentation">
+      <a role="menuitem" lang="zh_cn"
+        >中文 – 简体</a>
+    </li>
+    
+    <li role="presentation">
+      <a role="menuitem" lang="zh_tw"
+        >中文 – 繁體</a>
+    </li>
+    
+    <li role="presentation">
+      <a role="menuitem" lang="ja"
+        >日本語</a>
+    </li>
+    
+    <li role="presentation">
+      <a role="menuitem" lang="ko"
+        >한국어</a>
+    </li>
+    
+  </ul>
+</devsite-language-selector>
+
+
+          
+
+        
+
+        
+          <devsite-user 
+                        
+                        
+                          enable-profiles
+                        
+                        
+                        id="devsite-user">
+            
+              
+              <span class="button devsite-top-button" aria-hidden="true" visually-hidden>Sign in</span>
+            
+          </devsite-user>
+        
+        
+        
+      </div>
+    </div>
+  </div>
+
+
+
+  <div class="devsite-collapsible-section
+    
+      devsite-header-no-lower-tabs
+    ">
+    <div class="devsite-header-background">
+      
+        
+          <div class="devsite-product-id-row"
+           >
+            <div class="devsite-product-description-row">
+              
+                
+                <div class="devsite-product-id">
+                  
+                  
+                  
+                    <ul class="devsite-breadcrumb-list"
+  
+    aria-label="Lower header breadcrumb">
+  
+  <li class="devsite-breadcrumb-item
+             ">
+    
+    
+    
+      
+        
+  <a href="https://developer.chrome.com/docs"
+      
+        class="devsite-breadcrumb-link gc-analytics-event"
+      
+        data-category="Site-Wide Custom Events"
+      
+        data-label="Lower Header"
+      
+        data-value="1"
+      
+        track-type="globalNav"
+      
+        track-name="breadcrumb"
+      
+        track-metadata-position="1"
+      
+        track-metadata-eventdetail="Docs"
+      
+    >
+    
+          Docs
+        
+  </a>
+  
+      
+    
+  </li>
+  
+  <li class="devsite-breadcrumb-item
+             ">
+    
+      
+      <div class="devsite-breadcrumb-guillemet material-icons" aria-hidden="true"></div>
+    
+    
+    
+      
+        
+  <a href="https://developer.chrome.com/docs/crux"
+      
+        class="devsite-breadcrumb-link gc-analytics-event"
+      
+        data-category="Site-Wide Custom Events"
+      
+        data-label="Lower Header"
+      
+        data-value="2"
+      
+        track-type="globalNav"
+      
+        track-name="breadcrumb"
+      
+        track-metadata-position="2"
+      
+        track-metadata-eventdetail="Chrome UX Report"
+      
+    >
+    
+          Chrome UX Report
+        
+  </a>
+  
+      
+    
+  </li>
+  
+</ul>
+                </div>
+                
+              
+              
+            </div>
+            
+          </div>
+          
+        
+      
+      
+    </div>
+  </div>
+
+</div>
+
+
+
+  
+
+  
+</devsite-header>
+        <devsite-book-nav scrollbars >
+          
+            
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div class="devsite-book-nav-filter"
+     >
+  <span class="filter-list-icon material-icons" aria-hidden="true"></span>
+  <input type="text"
+         placeholder="Filter"
+         
+         aria-label="Type to filter"
+         role="searchbox">
+  
+  <span class="filter-clear-button hidden"
+        data-title="Clear filter"
+        aria-label="Clear filter"
+        role="button"
+        tabindex="0"></span>
+</div>
+
+<nav class="devsite-book-nav devsite-nav nocontent" data-nosnippet
+     aria-label="Side menu">
+  <div class="devsite-mobile-header">
+    <button type="button"
+            id="devsite-close-nav"
+            class="devsite-header-icon-button button-flat material-icons gc-analytics-event"
+            data-category="Site-Wide Custom Events"
+            data-label="Close navigation"
+            aria-label="Close navigation">
+    </button>
+    <div class="devsite-product-name-wrapper">
+
+  <a href="/" class="devsite-site-logo-link gc-analytics-event"
+   data-category="Site-Wide Custom Events" data-label="Site logo" track-type="globalNav"
+   track-name="chromeForDevelopers" track-metadata-position="nav"
+   track-metadata-eventDetail="nav">
+  
+  <picture>
+    
+    <source srcset="https://www.gstatic.com/devrel-devsite/prod/vab328caf183ea693bb389a1701d6be5b2db91193de097b9f38bbe8a87dd02cd9/chrome/images/lockup-dark-theme.svg"
+            media="(prefers-color-scheme: dark)"
+            class="devsite-dark-theme">
+    
+    <img src="https://www.gstatic.com/devrel-devsite/prod/vab328caf183ea693bb389a1701d6be5b2db91193de097b9f38bbe8a87dd02cd9/chrome/images/lockup.svg" class="devsite-site-logo" alt="Chrome for Developers">
+  </picture>
+  
+</a>
+
+
+</div>
+  </div>
+
+  <div class="devsite-book-nav-wrapper">
+    <div class="devsite-mobile-nav-top">
+      
+        <ul class="devsite-nav-list">
+          
+            <li class="devsite-nav-item">
+              
+  
+  <a href="/docs"
+    
+       class="devsite-nav-title gc-analytics-event
+              devsite-nav-has-children
+              devsite-nav-active"
+    
+
+    
+      
+        data-category="Site-Wide Custom Events"
+      
+        data-label="Tab: Docs"
+      
+        track-name="docs"
+      
+    
+     data-category="Site-Wide Custom Events"
+     data-label="Responsive Tab: Docs"
+     track-type="globalNav"
+     track-metadata-eventDetail="globalMenu"
+     track-metadata-position="nav">
+  
+    <span class="devsite-nav-text" tooltip >
+      Docs
+   </span>
+    
+    <span class="devsite-nav-icon material-icons" data-icon="forward"
+          >
+    </span>
+    
+  
+  </a>
+  
+
+  
+    <ul class="devsite-nav-responsive-tabs devsite-nav-has-menu
+               ">
+      
+<li class="devsite-nav-item">
+
+  
+  <span
+    
+       class="devsite-nav-title"
+       tooltip
+    
+    
+      
+        data-category="Site-Wide Custom Events"
+      
+        data-label="Tab: Docs"
+      
+        track-name="docs"
+      
+    >
+  
+    <span class="devsite-nav-text" tooltip menu="Docs">
+      More
+   </span>
+    
+    <span class="devsite-nav-icon material-icons" data-icon="forward"
+          menu="Docs">
+    </span>
+    
+  
+  </span>
+  
+
+</li>
+
+    </ul>
+  
+              
+            </li>
+          
+            <li class="devsite-nav-item">
+              
+  
+  <a href="/case-studies"
+    
+       class="devsite-nav-title gc-analytics-event
+              
+              "
+    
+
+    
+      
+        data-category="Site-Wide Custom Events"
+      
+        data-label="Tab: Case studies"
+      
+        track-name="case studies"
+      
+    
+     data-category="Site-Wide Custom Events"
+     data-label="Responsive Tab: Case studies"
+     track-type="globalNav"
+     track-metadata-eventDetail="globalMenu"
+     track-metadata-position="nav">
+  
+    <span class="devsite-nav-text" tooltip >
+      Case studies
+   </span>
+    
+  
+  </a>
+  
+
+  
+              
+            </li>
+          
+            <li class="devsite-nav-item">
+              
+  
+  <a href="/blog"
+    
+       class="devsite-nav-title gc-analytics-event
+              
+              "
+    
+
+    
+      
+        data-category="Site-Wide Custom Events"
+      
+        data-label="Tab: Blog"
+      
+        track-name="blog"
+      
+    
+     data-category="Site-Wide Custom Events"
+     data-label="Responsive Tab: Blog"
+     track-type="globalNav"
+     track-metadata-eventDetail="globalMenu"
+     track-metadata-position="nav">
+  
+    <span class="devsite-nav-text" tooltip >
+      Blog
+   </span>
+    
+  
+  </a>
+  
+
+  
+              
+            </li>
+          
+            <li class="devsite-nav-item">
+              
+  
+  <a href="/new"
+    
+       class="devsite-nav-title gc-analytics-event
+              
+              "
+    
+
+    
+      
+        data-category="Site-Wide Custom Events"
+      
+        data-label="Tab: New in Chrome"
+      
+        track-name="new in chrome"
+      
+    
+     data-category="Site-Wide Custom Events"
+     data-label="Responsive Tab: New in Chrome"
+     track-type="globalNav"
+     track-metadata-eventDetail="globalMenu"
+     track-metadata-position="nav">
+  
+    <span class="devsite-nav-text" tooltip >
+      New in Chrome
+   </span>
+    
+  
+  </a>
+  
+
+  
+              
+            </li>
+          
+          
+          
+        </ul>
+      
+    </div>
+    
+      <div class="devsite-mobile-nav-bottom">
+        
+          
+          <ul class="devsite-nav-list" menu="_book">
+            <li class="devsite-nav-item
+           devsite-nav-heading"><div class="devsite-nav-title devsite-nav-title-no-path">
+        <span class="devsite-nav-text" tooltip>Get started</span>
+      </div></li>
+
+  <li class="devsite-nav-item"><a href="/docs/crux"
+        class="devsite-nav-title"
+      ><span class="devsite-nav-text" tooltip>CrUX overview</span></a></li>
+
+  <li class="devsite-nav-item"><a href="/docs/crux/methodology"
+        class="devsite-nav-title"
+      ><span class="devsite-nav-text" tooltip>Methodology</span></a></li>
+
+  <li class="devsite-nav-item"><a href="/docs/crux/methodology/metrics"
+        class="devsite-nav-title"
+      ><span class="devsite-nav-text" tooltip>Metrics</span></a></li>
+
+  <li class="devsite-nav-item"><a href="/docs/crux/methodology/dimensions"
+        class="devsite-nav-title"
+      ><span class="devsite-nav-text" tooltip>Dimensions</span></a></li>
+
+  <li class="devsite-nav-item"><a href="/docs/crux/release-notes"
+        class="devsite-nav-title"
+      ><span class="devsite-nav-text" tooltip>Release notes</span></a></li>
+
+  <li class="devsite-nav-item"><a href="/docs/crux/feedback"
+        class="devsite-nav-title"
+      ><span class="devsite-nav-text" tooltip>Feedback and support</span></a></li>
+
+  <li class="devsite-nav-item
+           devsite-nav-heading"><div class="devsite-nav-title devsite-nav-title-no-path">
+        <span class="devsite-nav-text" tooltip>Tools</span>
+      </div></li>
+
+  <li class="devsite-nav-item"><a href="/docs/crux/methodology/tools"
+        class="devsite-nav-title"
+      ><span class="devsite-nav-text" tooltip>Overview of CrUX tools</span></a></li>
+
+  <li class="devsite-nav-item"><a href="/docs/crux/vis"
+        class="devsite-nav-title"
+      ><span class="devsite-nav-text" tooltip>CrUX Vis</span></a></li>
+
+  <li class="devsite-nav-item"><a href="/docs/crux/bigquery"
+        class="devsite-nav-title"
+      ><span class="devsite-nav-text" tooltip>CrUX on BigQuery</span></a></li>
+
+  <li class="devsite-nav-item"><a href="/docs/crux/api"
+        class="devsite-nav-title"
+      ><span class="devsite-nav-text" tooltip>CrUX API</span></a></li>
+
+  <li class="devsite-nav-item"><a href="/docs/crux/history-api"
+        class="devsite-nav-title"
+      ><span class="devsite-nav-text" tooltip>CrUX History API</span></a></li>
+
+  <li class="devsite-nav-item
+           devsite-nav-heading"><div class="devsite-nav-title devsite-nav-title-no-path">
+        <span class="devsite-nav-text" tooltip>Guides</span>
+      </div></li>
+
+  <li class="devsite-nav-item"><a href="/docs/crux/guides"
+        class="devsite-nav-title"
+      ><span class="devsite-nav-text" tooltip>Guides overview</span></a></li>
+
+  <li class="devsite-nav-item"><a href="/docs/crux/guides/pagespeed-insights"
+        class="devsite-nav-title"
+      ><span class="devsite-nav-text" tooltip>How to view CrUX data on PageSpeed Insights</span></a></li>
+
+  <li class="devsite-nav-item"><a href="/docs/crux/guides/crux-api"
+        class="devsite-nav-title"
+      ><span class="devsite-nav-text" tooltip>How to use the CrUX API</span></a></li>
+
+  <li class="devsite-nav-item"><a href="/docs/crux/guides/history-api"
+        class="devsite-nav-title"
+      ><span class="devsite-nav-text" tooltip>How to use the CrUX History API</span></a></li>
+
+  <li class="devsite-nav-item"><a href="/docs/crux/guides/bigquery"
+        class="devsite-nav-title"
+      ><span class="devsite-nav-text" tooltip>How to use the CrUX BigQuery dataset</span></a></li>
+
+  <li class="devsite-nav-item"><a href="/docs/ads"
+        class="devsite-nav-title"
+      ><span class="devsite-nav-text" tooltip>CrUX ad metrics</span></a></li>
+          </ul>
+        
+        
+          
+    
+      
+      <ul class="devsite-nav-list" menu="Docs"
+          aria-label="Side menu" hidden>
+        
+          
+            
+              
+<li class="devsite-nav-item devsite-nav-heading">
+
+  
+  <span
+    
+       class="devsite-nav-title"
+       tooltip
+    
+    >
+  
+    <span class="devsite-nav-text" tooltip >
+      Build with Chrome
+   </span>
+    
+  
+  </span>
+  
+
+</li>
+
+            
+            
+              
+<li class="devsite-nav-item">
+
+  
+  <a href="/docs/web-platform"
+    
+       class="devsite-nav-title gc-analytics-event
+              
+              "
+    
+
+    
+     data-category="Site-Wide Custom Events"
+     data-label="Responsive Tab: Web Platform"
+     track-type="navMenu"
+     track-metadata-eventDetail="globalMenu"
+     track-metadata-position="nav">
+  
+    <span class="devsite-nav-text" tooltip >
+      Web Platform
+   </span>
+    
+  
+  </a>
+  
+
+</li>
+
+            
+              
+<li class="devsite-nav-item">
+
+  
+  <a href="/docs/iwa"
+    
+       class="devsite-nav-title gc-analytics-event
+              
+              "
+    
+
+    
+     data-category="Site-Wide Custom Events"
+     data-label="Responsive Tab: Isolated Web Apps (IWA)"
+     track-type="navMenu"
+     track-metadata-eventDetail="globalMenu"
+     track-metadata-position="nav">
+  
+    <span class="devsite-nav-text" tooltip >
+      Isolated Web Apps (IWA)
+   </span>
+    
+  
+  </a>
+  
+
+</li>
+
+            
+              
+<li class="devsite-nav-item">
+
+  
+  <a href="/docs/capabilities"
+    
+       class="devsite-nav-title gc-analytics-event
+              
+              "
+    
+
+    
+     data-category="Site-Wide Custom Events"
+     data-label="Responsive Tab: Capabilities"
+     track-type="navMenu"
+     track-metadata-eventDetail="globalMenu"
+     track-metadata-position="nav">
+  
+    <span class="devsite-nav-text" tooltip >
+      Capabilities
+   </span>
+    
+  
+  </a>
+  
+
+</li>
+
+            
+              
+<li class="devsite-nav-item">
+
+  
+  <a href="/docs/automation-and-testing"
+    
+       class="devsite-nav-title gc-analytics-event
+              
+              "
+    
+
+    
+     data-category="Site-Wide Custom Events"
+     data-label="Responsive Tab: Automation and testing"
+     track-type="navMenu"
+     track-metadata-eventDetail="globalMenu"
+     track-metadata-position="nav">
+  
+    <span class="devsite-nav-text" tooltip >
+      Automation and testing
+   </span>
+    
+  
+  </a>
+  
+
+</li>
+
+            
+              
+<li class="devsite-nav-item">
+
+  
+  <a href="/docs/chromedriver"
+    
+       class="devsite-nav-title gc-analytics-event
+              
+              "
+    
+
+    
+     data-category="Site-Wide Custom Events"
+     data-label="Responsive Tab: ChromeDriver"
+     track-type="navMenu"
+     track-metadata-eventDetail="globalMenu"
+     track-metadata-position="nav">
+  
+    <span class="devsite-nav-text" tooltip >
+      ChromeDriver
+   </span>
+    
+  
+  </a>
+  
+
+</li>
+
+            
+              
+<li class="devsite-nav-item">
+
+  
+  <a href="/docs/extensions"
+    
+       class="devsite-nav-title gc-analytics-event
+              
+              "
+    
+
+    
+     data-category="Site-Wide Custom Events"
+     data-label="Responsive Tab: Extensions"
+     track-type="navMenu"
+     track-metadata-eventDetail="globalMenu"
+     track-metadata-position="nav">
+  
+    <span class="devsite-nav-text" tooltip >
+      Extensions
+   </span>
+    
+  
+  </a>
+  
+
+</li>
+
+            
+              
+<li class="devsite-nav-item">
+
+  
+  <a href="/docs/webstore"
+    
+       class="devsite-nav-title gc-analytics-event
+              
+              "
+    
+
+    
+     data-category="Site-Wide Custom Events"
+     data-label="Responsive Tab: Chrome Web Store"
+     track-type="navMenu"
+     track-metadata-eventDetail="globalMenu"
+     track-metadata-position="nav">
+  
+    <span class="devsite-nav-text" tooltip >
+      Chrome Web Store
+   </span>
+    
+  
+  </a>
+  
+
+</li>
+
+            
+              
+<li class="devsite-nav-item">
+
+  
+  <a href="/docs/chromium"
+    
+       class="devsite-nav-title gc-analytics-event
+              
+              "
+    
+
+    
+     data-category="Site-Wide Custom Events"
+     data-label="Responsive Tab: Chromium"
+     track-type="navMenu"
+     track-metadata-eventDetail="globalMenu"
+     track-metadata-position="nav">
+  
+    <span class="devsite-nav-text" tooltip >
+      Chromium
+   </span>
+    
+  
+  </a>
+  
+
+</li>
+
+            
+              
+<li class="devsite-nav-item">
+
+  
+  <a href="/docs/android"
+    
+       class="devsite-nav-title gc-analytics-event
+              
+              "
+    
+
+    
+     data-category="Site-Wide Custom Events"
+     data-label="Responsive Tab: Web on Android"
+     track-type="navMenu"
+     track-metadata-eventDetail="globalMenu"
+     track-metadata-position="nav">
+  
+    <span class="devsite-nav-text" tooltip >
+      Web on Android
+   </span>
+    
+  
+  </a>
+  
+
+</li>
+
+            
+              
+<li class="devsite-nav-item">
+
+  
+  <a href="https://developer.chrome.com/origintrials/"
+    
+       class="devsite-nav-title gc-analytics-event
+              
+              "
+    
+
+    
+     data-category="Site-Wide Custom Events"
+     data-label="Responsive Tab: Origin trials"
+     track-type="navMenu"
+     track-metadata-eventDetail="globalMenu"
+     track-metadata-position="nav">
+  
+    <span class="devsite-nav-text" tooltip >
+      Origin trials
+   </span>
+    
+  
+  </a>
+  
+
+</li>
+
+            
+              
+<li class="devsite-nav-item">
+
+  
+  <a href="/release-notes"
+    
+       class="devsite-nav-title gc-analytics-event
+              
+              "
+    
+
+    
+     data-category="Site-Wide Custom Events"
+     data-label="Responsive Tab: Release notes"
+     track-type="navMenu"
+     track-metadata-eventDetail="globalMenu"
+     track-metadata-position="nav">
+  
+    <span class="devsite-nav-text" tooltip >
+      Release notes
+   </span>
+    
+  
+  </a>
+  
+
+</li>
+
+            
+          
+        
+          
+            
+              
+<li class="devsite-nav-item devsite-nav-heading">
+
+  
+  <span
+    
+       class="devsite-nav-title"
+       tooltip
+    
+    >
+  
+    <span class="devsite-nav-text" tooltip >
+      Productivity
+   </span>
+    
+  
+  </span>
+  
+
+</li>
+
+            
+            
+              
+<li class="devsite-nav-item">
+
+  
+  <a href="/docs/devtools"
+    
+       class="devsite-nav-title gc-analytics-event
+              
+              "
+    
+
+    
+     data-category="Site-Wide Custom Events"
+     data-label="Responsive Tab: DevTools"
+     track-type="navMenu"
+     track-metadata-eventDetail="globalMenu"
+     track-metadata-position="nav">
+  
+    <span class="devsite-nav-text" tooltip >
+      DevTools
+   </span>
+    
+  
+  </a>
+  
+
+</li>
+
+            
+              
+<li class="devsite-nav-item">
+
+  
+  <a href="/docs/lighthouse"
+    
+       class="devsite-nav-title gc-analytics-event
+              
+              "
+    
+
+    
+     data-category="Site-Wide Custom Events"
+     data-label="Responsive Tab: Lighthouse"
+     track-type="navMenu"
+     track-metadata-eventDetail="globalMenu"
+     track-metadata-position="nav">
+  
+    <span class="devsite-nav-text" tooltip >
+      Lighthouse
+   </span>
+    
+  
+  </a>
+  
+
+</li>
+
+            
+              
+<li class="devsite-nav-item">
+
+  
+  <a href="/docs/crux"
+    
+       class="devsite-nav-title gc-analytics-event
+              
+              "
+    
+
+    
+     data-category="Site-Wide Custom Events"
+     data-label="Responsive Tab: Chrome UX Report"
+     track-type="navMenu"
+     track-metadata-eventDetail="globalMenu"
+     track-metadata-position="nav">
+  
+    <span class="devsite-nav-text" tooltip >
+      Chrome UX Report
+   </span>
+    
+  
+  </a>
+  
+
+</li>
+
+            
+              
+<li class="devsite-nav-item">
+
+  
+  <a href="/docs/accessibility"
+    
+       class="devsite-nav-title gc-analytics-event
+              
+              "
+    
+
+    
+     data-category="Site-Wide Custom Events"
+     data-label="Responsive Tab: Accessibility"
+     track-type="navMenu"
+     track-metadata-eventDetail="globalMenu"
+     track-metadata-position="nav">
+  
+    <span class="devsite-nav-text" tooltip >
+      Accessibility
+   </span>
+    
+  
+  </a>
+  
+
+</li>
+
+            
+              
+<li class="devsite-nav-item">
+
+  
+  <a href="/docs/modern-web-guidance"
+    
+       class="devsite-nav-title gc-analytics-event
+              
+              "
+    
+
+    
+     data-category="Site-Wide Custom Events"
+     data-label="Responsive Tab: Modern Web Guidance"
+     track-type="navMenu"
+     track-metadata-eventDetail="globalMenu"
+     track-metadata-position="nav">
+  
+    <span class="devsite-nav-text" tooltip >
+      Modern Web Guidance
+   </span>
+    
+  
+  </a>
+  
+
+</li>
+
+            
+          
+            
+            
+              
+<li class="devsite-nav-item">
+
+  
+  <a href="/docs/workbox"
+    
+       class="devsite-nav-title gc-analytics-event
+              
+              "
+    
+
+    
+     data-category="Site-Wide Custom Events"
+     data-label="Responsive Tab: Workbox"
+     track-type="navMenu"
+     track-metadata-eventDetail="globalMenu"
+     track-metadata-position="nav">
+  
+    <span class="devsite-nav-text" tooltip >
+      Workbox
+   </span>
+    
+  
+  </a>
+  
+
+</li>
+
+            
+              
+<li class="devsite-nav-item">
+
+  
+  <a href="/docs/puppeteer"
+    
+       class="devsite-nav-title gc-analytics-event
+              
+              "
+    
+
+    
+     data-category="Site-Wide Custom Events"
+     data-label="Responsive Tab: Puppeteer"
+     track-type="navMenu"
+     track-metadata-eventDetail="globalMenu"
+     track-metadata-position="nav">
+  
+    <span class="devsite-nav-text" tooltip >
+      Puppeteer
+   </span>
+    
+  
+  </a>
+  
+
+</li>
+
+            
+          
+        
+          
+            
+              
+<li class="devsite-nav-item devsite-nav-heading">
+
+  
+  <span
+    
+       class="devsite-nav-title"
+       tooltip
+    
+    >
+  
+    <span class="devsite-nav-text" tooltip >
+      Experience
+   </span>
+    
+  
+  </span>
+  
+
+</li>
+
+            
+            
+              
+<li class="devsite-nav-item">
+
+  
+  <a href="/docs/ai"
+    
+       class="devsite-nav-title gc-analytics-event
+              
+              "
+    
+
+    
+     data-category="Site-Wide Custom Events"
+     data-label="Responsive Tab: AI"
+     track-type="navMenu"
+     track-metadata-eventDetail="globalMenu"
+     track-metadata-position="nav">
+  
+    <span class="devsite-nav-text" tooltip >
+      AI
+   </span>
+    
+  
+  </a>
+  
+
+</li>
+
+            
+              
+<li class="devsite-nav-item">
+
+  
+  <a href="/docs/performance"
+    
+       class="devsite-nav-title gc-analytics-event
+              
+              "
+    
+
+    
+     data-category="Site-Wide Custom Events"
+     data-label="Responsive Tab: Performance"
+     track-type="navMenu"
+     track-metadata-eventDetail="globalMenu"
+     track-metadata-position="nav">
+  
+    <span class="devsite-nav-text" tooltip >
+      Performance
+   </span>
+    
+  
+  </a>
+  
+
+</li>
+
+            
+              
+<li class="devsite-nav-item">
+
+  
+  <a href="/docs/css-ui"
+    
+       class="devsite-nav-title gc-analytics-event
+              
+              "
+    
+
+    
+     data-category="Site-Wide Custom Events"
+     data-label="Responsive Tab: CSS and UI"
+     track-type="navMenu"
+     track-metadata-eventDetail="globalMenu"
+     track-metadata-position="nav">
+  
+    <span class="devsite-nav-text" tooltip >
+      CSS and UI
+   </span>
+    
+  
+  </a>
+  
+
+</li>
+
+            
+              
+<li class="devsite-nav-item">
+
+  
+  <a href="/docs/identity"
+    
+       class="devsite-nav-title gc-analytics-event
+              
+              "
+    
+
+    
+     data-category="Site-Wide Custom Events"
+     data-label="Responsive Tab: Identity"
+     track-type="navMenu"
+     track-metadata-eventDetail="globalMenu"
+     track-metadata-position="nav">
+  
+    <span class="devsite-nav-text" tooltip >
+      Identity
+   </span>
+    
+  
+  </a>
+  
+
+</li>
+
+            
+              
+<li class="devsite-nav-item">
+
+  
+  <a href="/docs/payments"
+    
+       class="devsite-nav-title gc-analytics-event
+              
+              "
+    
+
+    
+     data-category="Site-Wide Custom Events"
+     data-label="Responsive Tab: Payments"
+     track-type="navMenu"
+     track-metadata-eventDetail="globalMenu"
+     track-metadata-position="nav">
+  
+    <span class="devsite-nav-text" tooltip >
+      Payments
+   </span>
+    
+  
+  </a>
+  
+
+</li>
+
+            
+              
+<li class="devsite-nav-item">
+
+  
+  <a href="/docs/privacy-security"
+    
+       class="devsite-nav-title gc-analytics-event
+              
+              "
+    
+
+    
+     data-category="Site-Wide Custom Events"
+     data-label="Responsive Tab: Privacy and security"
+     track-type="navMenu"
+     track-metadata-eventDetail="globalMenu"
+     track-metadata-position="nav">
+  
+    <span class="devsite-nav-text" tooltip >
+      Privacy and security
+   </span>
+    
+  
+  </a>
+  
+
+</li>
+
+            
+              
+<li class="devsite-nav-item">
+
+  
+  <a href="/docs/ads"
+    
+       class="devsite-nav-title gc-analytics-event
+              
+              "
+    
+
+    
+     data-category="Site-Wide Custom Events"
+     data-label="Responsive Tab: Ads"
+     track-type="navMenu"
+     track-metadata-eventDetail="globalMenu"
+     track-metadata-position="nav">
+  
+    <span class="devsite-nav-text" tooltip >
+      Ads
+   </span>
+    
+  
+  </a>
+  
+
+</li>
+
+            
+          
+        
+          
+            
+              
+<li class="devsite-nav-item devsite-nav-heading">
+
+  
+  <span
+    
+       class="devsite-nav-title"
+       tooltip
+    
+    >
+  
+    <span class="devsite-nav-text" tooltip >
+      Resources
+   </span>
+    
+  
+  </span>
+  
+
+</li>
+
+            
+            
+              
+<li class="devsite-nav-item">
+
+  
+  <a href="/docs"
+    
+       class="devsite-nav-title gc-analytics-event
+              
+              "
+    
+
+    
+     data-category="Site-Wide Custom Events"
+     data-label="Responsive Tab: All documentation"
+     track-type="navMenu"
+     track-metadata-eventDetail="globalMenu"
+     track-metadata-position="nav">
+  
+    <span class="devsite-nav-text" tooltip >
+      All documentation
+   </span>
+    
+  
+  </a>
+  
+
+</li>
+
+            
+              
+<li class="devsite-nav-item">
+
+  
+  <a href="https://web.dev/baseline"
+    
+       class="devsite-nav-title gc-analytics-event
+              
+              "
+    
+
+    
+     data-category="Site-Wide Custom Events"
+     data-label="Responsive Tab: Baseline &lt;span class=&#34;material-icons&#34; style=&#34;font-size: 12px;&#34; aria-hidden=&#34;true&#34; translate=&#34;no&#34;&gt;open_in_new&lt;/span&gt;"
+     track-type="navMenu"
+     track-metadata-eventDetail="globalMenu"
+     track-metadata-position="nav">
+  
+    <span class="devsite-nav-text" tooltip >
+      Baseline &lt;span class=&#34;material-icons&#34; style=&#34;font-size: 12px;&#34; aria-hidden=&#34;true&#34; translate=&#34;no&#34;&gt;open_in_new&lt;/span&gt;
+   </span>
+    
+  
+  </a>
+  
+
+</li>
+
+            
+              
+<li class="devsite-nav-item">
+
+  
+  <a href="https://web.dev"
+    
+       class="devsite-nav-title gc-analytics-event
+              
+              "
+    
+
+    
+     data-category="Site-Wide Custom Events"
+     data-label="Responsive Tab: web.dev &lt;span class=&#34;material-icons&#34; style=&#34;font-size: 12px;&#34; aria-hidden=&#34;true&#34; translate=&#34;no&#34;&gt;open_in_new&lt;/span&gt;"
+     track-type="navMenu"
+     track-metadata-eventDetail="globalMenu"
+     track-metadata-position="nav">
+  
+    <span class="devsite-nav-text" tooltip >
+      web.dev &lt;span class=&#34;material-icons&#34; style=&#34;font-size: 12px;&#34; aria-hidden=&#34;true&#34; translate=&#34;no&#34;&gt;open_in_new&lt;/span&gt;
+   </span>
+    
+  
+  </a>
+  
+
+</li>
+
+            
+              
+<li class="devsite-nav-item">
+
+  
+  <a href="https://pagespeed.web.dev"
+    
+       class="devsite-nav-title gc-analytics-event
+              
+              "
+    
+
+    
+     data-category="Site-Wide Custom Events"
+     data-label="Responsive Tab: PageSpeed Insights audit &lt;span class=&#34;material-icons&#34; style=&#34;font-size: 12px;&#34; aria-hidden=&#34;true&#34; translate=&#34;no&#34;&gt;open_in_new&lt;/span&gt;"
+     track-type="navMenu"
+     track-metadata-eventDetail="globalMenu"
+     track-metadata-position="nav">
+  
+    <span class="devsite-nav-text" tooltip >
+      PageSpeed Insights audit &lt;span class=&#34;material-icons&#34; style=&#34;font-size: 12px;&#34; aria-hidden=&#34;true&#34; translate=&#34;no&#34;&gt;open_in_new&lt;/span&gt;
+   </span>
+    
+  
+  </a>
+  
+
+</li>
+
+            
+          
+        
+      </ul>
+    
+  
+    
+  
+    
+  
+    
+  
+        
+        
+          
+    
+  
+        
+      </div>
+    
+  </div>
+</nav>
+          
+        </devsite-book-nav>
+      
+      <section id="gc-wrapper">
+        <main role="main" id="main-content" class="devsite-main-content"
+            
+              has-book-nav
+              has-sidebar
+            >
+          <div class="devsite-sidebar">
+            <div class="devsite-sidebar-content">
+                
+                <devsite-toc class="devsite-nav"
+                            role="navigation"
+                            aria-label="On this page"
+                            depth="2"
+                            scrollbars
+                            data-nosnippet
+                  ></devsite-toc>
+                <devsite-recommendations-sidebar class="nocontent devsite-nav" data-nosnippet>
+                </devsite-recommendations-sidebar>
+            </div>
+          </div>
+          <devsite-content>
+            
+              
+
+
+
+
+
+
+
+
+
+
+<article class="devsite-article">
+  
+  
+  
+  
+  
+
+  <div class="devsite-article-meta nocontent" role="navigation" data-nosnippet>
+    
+    
+    <ul class="devsite-breadcrumb-list"
+  
+    aria-label="Breadcrumb">
+  
+  <li class="devsite-breadcrumb-item
+             ">
+    
+    
+    
+      
+        
+  <a href="https://developer.chrome.com/"
+      
+        class="devsite-breadcrumb-link gc-analytics-event"
+      
+        data-category="Site-Wide Custom Events"
+      
+        data-label="Breadcrumbs"
+      
+        data-value="1"
+      
+        track-type="globalNav"
+      
+        track-name="breadcrumb"
+      
+        track-metadata-position="1"
+      
+        track-metadata-eventdetail=""
+      
+    >
+    
+          Home
+        
+  </a>
+  
+      
+    
+  </li>
+  
+  <li class="devsite-breadcrumb-item
+             ">
+    
+      
+      <div class="devsite-breadcrumb-guillemet material-icons" aria-hidden="true"></div>
+    
+    
+    
+      
+        
+  <a href="https://developer.chrome.com/docs"
+      
+        class="devsite-breadcrumb-link gc-analytics-event"
+      
+        data-category="Site-Wide Custom Events"
+      
+        data-label="Breadcrumbs"
+      
+        data-value="2"
+      
+        track-type="globalNav"
+      
+        track-name="breadcrumb"
+      
+        track-metadata-position="2"
+      
+        track-metadata-eventdetail="Docs"
+      
+    >
+    
+          Docs
+        
+  </a>
+  
+      
+    
+  </li>
+  
+  <li class="devsite-breadcrumb-item
+             ">
+    
+      
+      <div class="devsite-breadcrumb-guillemet material-icons" aria-hidden="true"></div>
+    
+    
+    
+      
+        
+  <a href="https://developer.chrome.com/docs/crux"
+      
+        class="devsite-breadcrumb-link gc-analytics-event"
+      
+        data-category="Site-Wide Custom Events"
+      
+        data-label="Breadcrumbs"
+      
+        data-value="3"
+      
+        track-type="globalNav"
+      
+        track-name="breadcrumb"
+      
+        track-metadata-position="3"
+      
+        track-metadata-eventdetail="Chrome UX Report"
+      
+    >
+    
+          Chrome UX Report
+        
+  </a>
+  
+      
+    
+  </li>
+  
+</ul>
+    
+      
+    <devsite-thumb-rating position="header">
+    </devsite-thumb-rating>
+  
+    
+  </div>
+  
+    <h1 class="devsite-page-title" tabindex="-1">
+      CrUX methodology<devsite-actions hidden data-nosnippet><devsite-feature-tooltip
+      ack-key="AckCollectionsBookmarkTooltipDismiss"
+      analytics-category="Site-Wide Custom Events"
+      analytics-action-show="Callout Profile displayed"
+      analytics-action-close="Callout Profile dismissed"
+      analytics-label="Create Collection Callout"
+      class="devsite-page-bookmark-tooltip nocontent"
+      data-nosnippet
+      dismiss-button="true"
+      id="devsite-collections-dropdown"
+      
+      dismiss-button-text="Dismiss"
+
+      
+      close-button-text="Got it">
+
+    
+    
+      <devsite-bookmark></devsite-bookmark>
+    
+
+    <span slot="popout-heading">
+      
+      Stay organized with collections
+    </span>
+    <span slot="popout-contents">
+      
+      Save and categorize content based on your preferences.
+    </span>
+  </devsite-feature-tooltip>
+    <devsite-llm-tools></devsite-llm-tools></devsite-actions>
+  
+      
+    </h1>
+  <div class="devsite-page-title-meta"><devsite-view-release-notes></devsite-view-release-notes></div>
+  
+
+  <devsite-toc class="devsite-nav"
+    depth="2"
+    devsite-toc-embedded
+    >
+  </devsite-toc>
+  
+    
+  <div class="devsite-article-body clearfix
+  ">
+
+  
+    
+    
+
+
+<p>This section documents how CrUX collects and organizes user experience data.</p>
+
+<h2 id="eligibility" data-text="Eligibility" tabindex="-1">Eligibility</h2>
+
+<p>At the core of the CrUX dataset are individual user experiences, which are
+aggregated into page-level and origin-level distributions. This section
+documents user eligibility and the requirements for pages and origins to be
+included in the dataset. All eligibility criteria must be satisfied in order for
+an experience to be included in page-level data available in PageSpeed Insights
+and the CrUX API: <a href="#user-eligibility">User</a>, <a href="#origin-eligibility">Origin</a> and
+<a href="#page-eligibility">Page</a>. Experiences which meet the User and Origin criteria
+but not Page aren&#39;t included in the origin-level data available in all CrUX data
+sources.</p>
+
+<p>Pages and origins are automatically included or removed from the dataset if
+their eligibility changes over time. At this time, you cannot manually submit
+pages or origins for inclusion.</p>
+
+<h3 id="discoverability-eligibility" data-text="Publicly discoverable" tabindex="-1">Publicly discoverable</h3>
+
+<p>A page must be publicly discoverable to be considered for inclusion in the CrUX
+dataset.</p>
+
+<p>A page is determined to be publicly discoverable using the same
+<a href="https://developers.google.com/search/docs/advanced/crawling/block-indexing">indexability</a>
+criteria as search engines.</p>
+
+<p>A page <strong>cannot</strong> meet the discoverability requirement if <strong>any</strong> of the
+following conditions are met, including root pages for the origin dataset:</p>
+
+<ul>
+<li>The page is served with an HTTP
+<a href="https://developer.mozilla.org/docs/Web/HTTP/Status">status code</a> other than
+<code translate="no" dir="ltr">200</code> (after redirects).</li>
+<li>The page is served with an HTTP <code translate="no" dir="ltr">X-Robots-Tag: noindex</code>
+<a href="https://developers.google.com/search/docs/advanced/robots/robots_meta_tag#xrobotstag-implementation">header</a>
+or equivalent.</li>
+<li>The document includes a <code translate="no" dir="ltr">&lt;meta name=&quot;robots&quot; content=&quot;noindex&quot;&gt;</code>
+<a href="https://developers.google.com/search/docs/advanced/robots/robots_meta_tag">meta tag</a>
+or equivalent.</li>
+</ul>
+
+<p>Refer to <a href="https://search.google.com/search-console/about">Google Search Console</a>
+for an overview of your site&#39;s indexing status.</p>
+
+<h3 id="popularity-eligibility" data-text="Sufficiently popular" tabindex="-1">Sufficiently popular</h3>
+
+<p>A page is determined to be sufficiently popular if it has a minimum number of
+visitors. An origin is determined to be sufficiently popular if it has a minimum
+number of visitors across all of its pages. An exact number is not disclosed,
+but it has been chosen to ensure that we have enough samples to be confident in
+the statistical distributions for included pages. The minimum number is the same
+for pages and origins.</p>
+
+<p>Pages and origins that don&#39;t meet the popularity threshold are not included in
+the CrUX dataset.</p>
+
+<h3 id="origin-eligibility" data-text="Origin" tabindex="-1">Origin</h3>
+
+<p>An <a href="https://developer.mozilla.org/docs/Glossary/Origin"><strong>origin</strong></a> represents
+an entire website, addressable by a URL like <code translate="no" dir="ltr">https://www.example.com</code>. For an
+origin to be included in the CrUX dataset it must meet two requirements:</p>
+
+<ol>
+<li><a href="#discoverability-eligibility">Publicly discoverable</a></li>
+<li><a href="#popularity-eligibility">Sufficiently popular</a></li>
+</ol>
+
+<p>You can verify that your origin is discoverable by running a
+<a href="https://pagespeed.web.dev/">Lighthouse audit</a> and looking at the SEO category
+results. Your site is not discoverable if your root page fails the
+<a href="/docs/lighthouse/seo/is-crawlable"><em>Page is blocked from indexing</em></a> or
+<a href="/docs/lighthouse/seo/http-status-code"><em>Page has unsuccessful HTTP status code</em></a>
+audits.</p>
+
+<p>If an origin is determined to be publicly discoverable, eligible user
+experiences on all of that origin&#39;s pages are aggregated at the origin-level,
+regardless of individual page discoverability. All of these experiences count
+towards the origin&#39;s popularity requirement.</p>
+
+<p>For querying purposes, note that all origins in the CrUX dataset are lowercase.</p>
+
+<h3 id="page-eligibility" data-text="Page" tabindex="-1">Page</h3>
+
+<p>The requirements for a <strong>page</strong> to be included in the CrUX dataset are the same
+as origins:</p>
+
+<ol>
+<li><a href="#discoverability-eligibility">Publicly discoverable</a></li>
+<li><a href="#popularity-eligibility">Sufficiently popular</a></li>
+</ol>
+
+<p>You can verify that a page is discoverable by running a
+<a href="https://pagespeed.web.dev/">Lighthouse audit</a> and looking at the SEO category
+results. Your page is not discoverable if it fails the
+<a href="/docs/lighthouse/seo/is-crawlable"><em>Page is blocked from indexing</em></a> or
+<a href="/docs/lighthouse/seo/http-status-code"><em>Page has unsuccessful HTTP status code</em></a>
+audits.</p>
+
+<p>If page is publicly discoverable for some users, but returns a non-success HTTP status in some circumstances, then those experiences won&#39;t be included in CrUX.</p>
+
+<p>Pages commonly have additional identifiers in their URL including query string parameters like <code translate="no" dir="ltr">?utm_medium=email</code> and fragments like <code translate="no" dir="ltr">#main</code>. These identifiers are stripped from the URL in the CrUX dataset so that all user experiences on the page are aggregated together. This is useful for pages that would otherwise not meet the popularity threshold if there were many disjointed URL variations for the same page. Note that in rare cases this may unexpectedly group experiences for distinct pages together; for example if parameters <code translate="no" dir="ltr">?productID=101</code> and <code translate="no" dir="ltr">?productID=102</code> represent different pages.</p>
+
+<p>Pages in CrUX are measured based on the top-level page. Pages included as iframes are not reported on separately in CrUX, but do contribute to the metrics of the top-level page. For example, if <code translate="no" dir="ltr">https://www.example.com/page.html</code> embeds <code translate="no" dir="ltr">https://www.example.com/frame.html</code> in an iframe, then <code translate="no" dir="ltr">page.html</code> <em>will be</em> represented in CrUX (subject to the other eligibility criteria) but <code translate="no" dir="ltr">frame.html</code> <em>will not</em>. And if <code translate="no" dir="ltr">frame.html</code> has poor <a href="/docs/crux/methodology/metrics#cls-metric">CLS</a> then the CLS will be included when measuring the CLS for <code translate="no" dir="ltr">page.html</code>. CrUX is the Chrome <em>User Experience</em> Report and a user may not even be aware this is an iframe. Therefore, the experience is measured at the top level page—as per how the user sees this.</p>
+
+<p>A website&#39;s architecture may complicate how its data is represented in CrUX. For example, single page apps (SPAs) may use a JavaScript-based <em>route transition</em> scheme to move between pages, as opposed to conventional anchor-based page navigations. These transitions appear as new page views to the user, but to Chrome and the underlying platform APIs the entire experience is attributed to the initial page view. This is a limitation of the web platform APIs on which CrUX is built, see <a href="https://web.dev/articles/vitals-spa-faq">How SPA architectures affect Core Web Vitals</a> on web.dev for more information.</p>
+
+<h3 id="user-eligibility" data-text="User" tabindex="-1">User</h3>
+
+<p>For a <strong>user</strong> to have their experiences aggregated in the CrUX dataset, they must meet the following criteria:</p>
+
+<ol>
+<li>Enable <a href="https://support.google.com/chrome/answer/96817">usage statistic reporting</a>.</li>
+<li>Sync their <a href="https://support.google.com/chrome/answer/185277">browser history</a>.</li>
+<li>Not have a <a href="https://support.google.com/chrome/answer/165139?co=GENIE.Platform%3DAndroid#zippy=%2Ccreate-a-passphrase">Sync passphrase</a> set.</li>
+<li>Use a supported platform.</li>
+</ol>
+
+<p>The current supported platforms are:</p>
+
+<ul>
+<li>Desktop versions of Chrome including Windows, macOS, ChromeOS, and Linux operating systems.</li>
+<li>Android versions of Chrome, including mobile apps using <a href="/docs/android/custom-tabs">Custom Tabs</a> and <a href="https://web.dev/articles/webapks">WebAPKs</a>.</li>
+</ul>
+
+<p>There are a few notable exceptions that don&#39;t provide data to the CrUX dataset:</p>
+
+<ul>
+<li>Chrome on iOS.</li>
+<li>Android apps using WebView.</li>
+<li>Other Chromium browsers (for example <a href="https://www.microsoft.com/edge">Microsoft Edge</a>).</li>
+</ul>
+
+<p>Chrome does not publish data about the proportions of users that meet these criteria. You can learn more about <a href="https://support.google.com/chrome/answer/14746339">the data we collect in the Chrome</a>.</p>
+
+<h3 id="accelerated_mobile_pages_amp" data-text="Accelerated Mobile Pages (AMP)" tabindex="-1">Accelerated Mobile Pages (AMP)</h3>
+
+<p>Pages built with AMP are included in the CrUX dataset like any other web page. As of the <a href="/docs/crux/release-notes#202006">June 2020 CrUX release</a>, pages served using the <a href="https://developers.google.com/amp/cache">AMP Cache</a> and / or rendered in the <a href="https://developers.google.com/search/docs/advanced/experience/about-amp#about-google-amp-viewer">AMP Viewer</a> are also captured, and attributed to the publisher&#39;s page URL.</p>
+
+<h3 id="ad-metrics-eligibility" data-text="Ad metrics" tabindex="-1">Ad metrics</h3>
+
+<p>Ad metrics in CrUX are only reported for pages that include ad resources. Pages must have at least one authorized seller defined in an <code translate="no" dir="ltr">ads.txt</code> file to be included in the ad metrics. For more details see <a href="/docs/ads/methodology#reporting_scope">ad metrics methodology documentation</a>.</p>
+
+<h2 id="data_quality" data-text="Data quality" tabindex="-1">Data quality</h2>
+
+<p>Data in CrUX undergoes a small amount of processing to ensure that it is statistically accurate, well structured and easier to query.</p>
+
+<h3 id="filtering" data-text="Filtering" tabindex="-1">Filtering</h3>
+
+<p>The CrUX dataset is filtered to ensure that the presented data is statistically valid. This may exclude entire pages or origins from appearing in the dataset.</p>
+
+<p>In addition to the <a href="#eligibility">eligibility criteria</a> applied to origins and pages, further filtering is applied for segments within the data:</p>
+
+<p>Origins or pages having more than 20% of their total traffic excluded due to ineligible combinations of dimensions are excluded entirely from the dataset.</p>
+
+<p>Because the global-level dataset encompasses user experiences from all countries, combinations of dimensions that don&#39;t meet the popularity criteria at the country level may still be included at the global level, provided that there is sufficient popularity.</p>
+
+<h3 id="fuzzing" data-text="Fuzzing" tabindex="-1">Fuzzing</h3>
+
+<p>A small amount of randomness is applied to the dataset to prevent reverse-engineering of sensitive data, such as total traffic volumes. This does not affect the accuracy of aggregate statistics.</p>
+
+<h3 id="precision" data-text="Precision" tabindex="-1">Precision</h3>
+
+<p>Most metric values within the CrUX dataset are represented as histograms of
+values and bin sizes, where the histogram value is a fraction of all included
+segments summing to 1. Bin sizes are floating point numbers between 1.0 and
+0.0001.</p>
+
+<p>Histogram <a href="https://twitter.com/chromeuxreport/status/1042443549676064768">bin widths are normalized</a> to simplify querying and visualizing the data. This means that larger bins may be split into smaller bins, which equally share the original density in order to maintain consistent bin widths.</p>
+
+<h2 id="license" data-text="License" tabindex="-1">License</h2>
+
+<p>CrUX datasets by Google are licensed under a <a href="https://creativecommons.org/licenses/by/4.0/">Creative Commons Attribution 4.0 International License</a>.</p>
+
+  
+
+  
+</div>
+
+  
+    
+    
+      
+    <devsite-thumb-rating position="footer">
+    </devsite-thumb-rating>
+  
+       
+    
+    
+  
+
+  <div class="devsite-floating-action-buttons"></div></article>
+
+
+<devsite-content-footer class="nocontent" data-nosnippet>
+  <p>Except as otherwise noted, the content of this page is licensed under the <a href="https://creativecommons.org/licenses/by/4.0/">Creative Commons Attribution 4.0 License</a>, and code samples are licensed under the <a href="https://www.apache.org/licenses/LICENSE-2.0">Apache 2.0 License</a>. For details, see the <a href="https://developers.google.com/site-policies">Google Developers Site Policies</a>. Java is a registered trademark of Oracle and/or its affiliates.</p>
+  <p>Last updated 2024-06-20 UTC.</p>
+</devsite-content-footer>
+
+
+<devsite-notification
+>
+</devsite-notification>
+
+
+  
+<div class="devsite-content-data">
+  
+  
+    <template class="devsite-content-data-template">
+      [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Missing the information I need","missingTheInformationINeed","thumb-down"],["Too complicated / too many steps","tooComplicatedTooManySteps","thumb-down"],["Out of date","outOfDate","thumb-down"],["Samples / code issue","samplesCodeIssue","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2024-06-20 UTC."],[],[]]
+    </template>
+  
+</div>
+            
+          </devsite-content>
+        </main>
+        <devsite-footer-promos class="devsite-footer">
+          
+            
+          
+        </devsite-footer-promos>
+        <devsite-footer-linkboxes class="devsite-footer">
+          
+            
+<nav class="devsite-footer-linkboxes nocontent"
+     aria-label="Footer links"
+     data-nosnippet>
+  
+  <ul class="devsite-footer-linkboxes-list">
+    
+    <li class="devsite-footer-linkbox ">
+    <h3 class="devsite-footer-linkbox-heading no-link">Contribute</h3>
+      <ul class="devsite-footer-linkbox-list">
+        
+        <li class="devsite-footer-linkbox-item">
+          
+          <a href="https://issuetracker.google.com/issues/new?component=1400036&amp;template=1897236"
+             class="devsite-footer-linkbox-link gc-analytics-event"
+             data-category="Site-Wide Custom Events"
+            
+             data-label="Footer Link (index 1)"
+            >
+            
+          
+            File a bug
+          
+          </a>
+          
+          
+        </li>
+        
+        <li class="devsite-footer-linkbox-item">
+          
+          <a href="https://issuetracker.google.com/issues?q=status:open%20componentid:1400036&amp;s=created_time:desc"
+             class="devsite-footer-linkbox-link gc-analytics-event"
+             data-category="Site-Wide Custom Events"
+            
+             data-label="Footer Link (index 2)"
+            >
+            
+              
+              
+            
+          
+            See open issues
+          
+          </a>
+          
+          
+        </li>
+        
+      </ul>
+    </li>
+    
+    <li class="devsite-footer-linkbox ">
+    <h3 class="devsite-footer-linkbox-heading no-link">Related content</h3>
+      <ul class="devsite-footer-linkbox-list">
+        
+        <li class="devsite-footer-linkbox-item">
+          
+          <a href="https://blog.chromium.org/"
+             class="devsite-footer-linkbox-link gc-analytics-event"
+             data-category="Site-Wide Custom Events"
+            
+             data-label="Footer Link (index 1)"
+            >
+            
+          
+            Chromium updates
+          
+          </a>
+          
+          
+        </li>
+        
+        <li class="devsite-footer-linkbox-item">
+          
+          <a href="/case-studies"
+             class="devsite-footer-linkbox-link gc-analytics-event"
+             data-category="Site-Wide Custom Events"
+            
+             data-label="Footer Link (index 2)"
+            >
+            
+          
+            Case studies
+          
+          </a>
+          
+          
+        </li>
+        
+        <li class="devsite-footer-linkbox-item">
+          
+          <a href="/deprecated"
+             class="devsite-footer-linkbox-link gc-analytics-event"
+             data-category="Site-Wide Custom Events"
+            
+             data-label="Footer Link (index 3)"
+            >
+            
+          
+            Archive
+          
+          </a>
+          
+          
+        </li>
+        
+        <li class="devsite-footer-linkbox-item">
+          
+          <a href="https://web.dev/shows"
+             class="devsite-footer-linkbox-link gc-analytics-event"
+             data-category="Site-Wide Custom Events"
+            
+             data-label="Footer Link (index 4)"
+            >
+            
+              
+              
+            
+          
+            Podcasts &amp; shows
+          
+          </a>
+          
+          
+        </li>
+        
+      </ul>
+    </li>
+    
+    <li class="devsite-footer-linkbox ">
+    <h3 class="devsite-footer-linkbox-heading no-link">Follow</h3>
+      <ul class="devsite-footer-linkbox-list">
+        
+        <li class="devsite-footer-linkbox-item">
+          
+          <a href="https://twitter.com/ChromiumDev"
+             class="devsite-footer-linkbox-link gc-analytics-event"
+             data-category="Site-Wide Custom Events"
+            
+             data-label="Footer Link (index 1)"
+            >
+            
+          
+            @ChromiumDev on X
+          
+          </a>
+          
+          
+        </li>
+        
+        <li class="devsite-footer-linkbox-item">
+          
+          <a href="https://www.youtube.com/user/ChromeDevelopers"
+             class="devsite-footer-linkbox-link gc-analytics-event"
+             data-category="Site-Wide Custom Events"
+            
+             data-label="Footer Link (index 2)"
+            >
+            
+          
+            YouTube
+          
+          </a>
+          
+          
+        </li>
+        
+        <li class="devsite-footer-linkbox-item">
+          
+          <a href="https://www.linkedin.com/showcase/chrome-for-developers"
+             class="devsite-footer-linkbox-link gc-analytics-event"
+             data-category="Site-Wide Custom Events"
+            
+             data-label="Footer Link (index 3)"
+            >
+            
+          
+            Chrome for Developers on LinkedIn
+          
+          </a>
+          
+          
+        </li>
+        
+        <li class="devsite-footer-linkbox-item">
+          
+          <a href="/static/blog/feed.xml"
+             class="devsite-footer-linkbox-link gc-analytics-event"
+             data-category="Site-Wide Custom Events"
+            
+             data-label="Footer Link (index 4)"
+            >
+            
+              
+              
+            
+          
+            RSS
+          
+          </a>
+          
+          
+        </li>
+        
+      </ul>
+    </li>
+    
+  </ul>
+  
+</nav>
+          
+        </devsite-footer-linkboxes>
+        <devsite-footer-utility class="devsite-footer">
+          
+            
+
+<div class="devsite-footer-utility nocontent" data-nosnippet>
+  
+
+  
+  <nav class="devsite-footer-utility-links" aria-label="Utility links">
+    
+    <ul class="devsite-footer-utility-list">
+      
+      <li class="devsite-footer-utility-item
+                 ">
+        
+        
+        <a class="devsite-footer-utility-link gc-analytics-event"
+           href="//policies.google.com/terms"
+           data-category="Site-Wide Custom Events"
+           data-label="Footer Terms link"
+         >
+          Terms
+        </a>
+        
+      </li>
+      
+      <li class="devsite-footer-utility-item
+                 ">
+        
+        
+        <a class="devsite-footer-utility-link gc-analytics-event"
+           href="//policies.google.com/privacy"
+           data-category="Site-Wide Custom Events"
+           data-label="Footer Privacy link"
+         >
+          Privacy
+        </a>
+        
+      </li>
+      
+      <li class="devsite-footer-utility-item
+                 glue-cookie-notification-bar-control">
+        
+        
+        <a class="devsite-footer-utility-link gc-analytics-event"
+           href="#"
+           data-category="Site-Wide Custom Events"
+           data-label="Footer Manage cookies link"
+         
+           aria-hidden="true"
+         >
+          Manage cookies
+        </a>
+        
+      </li>
+      
+    </ul>
+    
+    
+<devsite-language-selector>
+  <ul role="presentation">
+    
+    
+    <li role="presentation">
+      <a role="menuitem" lang="en"
+        >English</a>
+    </li>
+    
+    <li role="presentation">
+      <a role="menuitem" lang="de"
+        >Deutsch</a>
+    </li>
+    
+    <li role="presentation">
+      <a role="menuitem" lang="es_419"
+        >Español – América Latina</a>
+    </li>
+    
+    <li role="presentation">
+      <a role="menuitem" lang="fr"
+        >Français</a>
+    </li>
+    
+    <li role="presentation">
+      <a role="menuitem" lang="id"
+        >Indonesia</a>
+    </li>
+    
+    <li role="presentation">
+      <a role="menuitem" lang="it"
+        >Italiano</a>
+    </li>
+    
+    <li role="presentation">
+      <a role="menuitem" lang="nl"
+        >Nederlands</a>
+    </li>
+    
+    <li role="presentation">
+      <a role="menuitem" lang="pl"
+        >Polski</a>
+    </li>
+    
+    <li role="presentation">
+      <a role="menuitem" lang="pt_br"
+        >Português – Brasil</a>
+    </li>
+    
+    <li role="presentation">
+      <a role="menuitem" lang="vi"
+        >Tiếng Việt</a>
+    </li>
+    
+    <li role="presentation">
+      <a role="menuitem" lang="tr"
+        >Türkçe</a>
+    </li>
+    
+    <li role="presentation">
+      <a role="menuitem" lang="ru"
+        >Русский</a>
+    </li>
+    
+    <li role="presentation">
+      <a role="menuitem" lang="he"
+        >עברית</a>
+    </li>
+    
+    <li role="presentation">
+      <a role="menuitem" lang="ar"
+        >العربيّة</a>
+    </li>
+    
+    <li role="presentation">
+      <a role="menuitem" lang="fa"
+        >فارسی</a>
+    </li>
+    
+    <li role="presentation">
+      <a role="menuitem" lang="hi"
+        >हिंदी</a>
+    </li>
+    
+    <li role="presentation">
+      <a role="menuitem" lang="bn"
+        >বাংলা</a>
+    </li>
+    
+    <li role="presentation">
+      <a role="menuitem" lang="th"
+        >ภาษาไทย</a>
+    </li>
+    
+    <li role="presentation">
+      <a role="menuitem" lang="zh_cn"
+        >中文 – 简体</a>
+    </li>
+    
+    <li role="presentation">
+      <a role="menuitem" lang="zh_tw"
+        >中文 – 繁體</a>
+    </li>
+    
+    <li role="presentation">
+      <a role="menuitem" lang="ja"
+        >日本語</a>
+    </li>
+    
+    <li role="presentation">
+      <a role="menuitem" lang="ko"
+        >한국어</a>
+    </li>
+    
+  </ul>
+</devsite-language-selector>
+
+  </nav>
+</div>
+          
+        </devsite-footer-utility>
+        <devsite-panel>
+          
+        </devsite-panel>
+        
+      </section>
+      </section>
+    <devsite-sitemask></devsite-sitemask>
+    <devsite-snackbar></devsite-snackbar>
+    <devsite-tooltip ></devsite-tooltip>
+    <devsite-heading-link></devsite-heading-link>
+    <devsite-analytics>
+      
+        <script type="application/json" analytics>[]</script>
+<script type="application/json" tag-management>{&#34;at&#34;: &#34;True&#34;, &#34;ga4&#34;: [], &#34;ga4p&#34;: [], &#34;gtm&#34;: [{&#34;id&#34;: &#34;GTM-5QF3RT2&#34;, &#34;purpose&#34;: 0}], &#34;parameters&#34;: {&#34;internalUser&#34;: &#34;False&#34;, &#34;language&#34;: {&#34;machineTranslated&#34;: &#34;False&#34;, &#34;requested&#34;: &#34;en&#34;, &#34;served&#34;: &#34;en&#34;}, &#34;pageType&#34;: &#34;article&#34;, &#34;projectName&#34;: &#34;Chrome UX Report&#34;, &#34;signedIn&#34;: &#34;False&#34;, &#34;tenant&#34;: &#34;chrome&#34;, &#34;recommendations&#34;: {&#34;sourcePage&#34;: &#34;&#34;, &#34;sourceType&#34;: 0, &#34;sourceRank&#34;: 0, &#34;sourceIdenticalDescriptions&#34;: 0, &#34;sourceTitleWords&#34;: 0, &#34;sourceDescriptionWords&#34;: 0, &#34;experiment&#34;: &#34;&#34;}, &#34;experiment&#34;: {&#34;ids&#34;: &#34;&#34;}}}</script>
+      
+    </devsite-analytics>
+    
+      <devsite-badger></devsite-badger>
+    
+    
+    
+    
+    
+<script nonce="2FVrwoAcPli+EMWxQj6ICJYzojbH85">
+  
+  (function(d,e,v,s,i,t,E){d['GoogleDevelopersObject']=i;
+    t=e.createElement(v);t.async=1;t.src=s;E=e.getElementsByTagName(v)[0];
+    E.parentNode.insertBefore(t,E);})(window, document, 'script',
+    'https://www.gstatic.com/devrel-devsite/prod/vab328caf183ea693bb389a1701d6be5b2db91193de097b9f38bbe8a87dd02cd9/chrome/js/app_loader.js', '[53,"en",null,"/js/devsite_app_module.js","https://www.gstatic.com/devrel-devsite/prod/vab328caf183ea693bb389a1701d6be5b2db91193de097b9f38bbe8a87dd02cd9","https://www.gstatic.com/devrel-devsite/prod/vab328caf183ea693bb389a1701d6be5b2db91193de097b9f38bbe8a87dd02cd9/chrome","https://chrome-dot-devsite-v2-prod-3p.appspot.com",1,null,["/_pwa/chrome/manifest.json","https://www.gstatic.com/devrel-devsite/prod/vab328caf183ea693bb389a1701d6be5b2db91193de097b9f38bbe8a87dd02cd9/images/video-placeholder.svg","https://www.gstatic.com/devrel-devsite/prod/vab328caf183ea693bb389a1701d6be5b2db91193de097b9f38bbe8a87dd02cd9/chrome/images/favicon.png","https://www.gstatic.com/devrel-devsite/prod/vab328caf183ea693bb389a1701d6be5b2db91193de097b9f38bbe8a87dd02cd9/chrome/images/lockup.svg","https://fonts.googleapis.com/css?family=Google+Sans:400,500|Roboto:400,400italic,500,500italic,700,700italic|Roboto+Mono:400,500,700&display=swap"],1,null,[1,6,8,12,14,17,21,25,50,52,63,70,75,76,80,87,91,92,93,97,98,100,101,102,103,104,105,107,108,109,110,112,113,116,117,118,120,122,124,125,126,127,129,130,131,132,133,134,135,136,138,140,141,147,148,149,151,152,156,157,158,159,161,163,164,168,169,170,179,180,182,183,186,191,193,196],"[token redacted by Lighthouse]","[token redacted by Lighthouse]","developer.chrome.com","[token redacted by Lighthouse]","[token redacted by Lighthouse]",null,null,null,["MiscFeatureFlags__enable_markdown_accept_header","TpcFeatures__proxy_prod_host","Profiles__enable_auto_apply_credits","Concierge__enable_actions_menu","Cloud__enable_cloudx_experiment_ids","Profiles__enable_dashboard_curated_recommendations","DevPro__enable_embed_profile_creation","Search__enable_dynamic_content_confidential_banner","TpcFeatures__enable_unmirrored_page_left_nav","DevPro__enable_devpro_offers","Profiles__enable_callout_notifications","BookNav__enable_tenant_cache_key","Profiles__enable_developer_profile_benefits_ui_redesign","Search__enable_ai_search_summaries_for_all","MiscFeatureFlags__enable_variable_operator_index_yaml","MiscFeatureFlags__enable_variable_operator","MiscFeatureFlags__developers_footer_dark_image","Profiles__enable_public_developer_profiles","Analytics__enable_devpro_interaction_logging","Profiles__enable_targeted_hero","Profiles__enable_purchase_prompts","Profiles__enable_page_saving","Concierge__enable_remove_info_panel_tags","DevPro__enable_g1_ineligible_redirect","Profiles__enable_awarding_url","DevPro__enable_developer_subscriptions","ProgramGroups__enable_auto_enroll","Profiles__enable_completequiz_endpoint","Home__enable_chatbot","Profiles__require_profile_eligibility_for_signin","MiscFeatureFlags__gdp_dashboard_reskin_enabled","DevPro__enable_g1_integration","DevPro__enable_google_one_card","Profiles__enable_user_type","DevPro__enable_devsite_captcha","MiscFeatureFlags__enable_view_transitions","Profiles__enable_playlist_community_acl","Profiles__enable_join_program_group_endpoint","DevPro__enable_google_payments_buyflow","Concierge__enable_devsite_llm_tools","EngEduTelemetry__enable_engedu_telemetry","DevPro__enable_vertex_credit_card","OnSwitch__enable","AIStudioInteractionsToggle__interactions_are_default","DevPro__enable_enterprise","MiscFeatureFlags__enable_explicit_template_dependencies","MiscFeatureFlags__enable_appearance_cookies","MiscFeatureFlags__remove_cross_domain_tracking_params","CloudShell__cloud_code_overflow_menu","Cloud__fast_free_trial","MiscFeatureFlags__enable_framebox_badge_methods","DevPro__enable_credits_banner","MiscFeatureFlags__fix_lower_breadcrumbs","DevPro__remove_eu_tax_intake_form","Profiles__enable_profile_collections","MiscFeatureFlags__enable_llms_txt","Search__enable_page_map","Profiles__enable_developer_profile_pages_as_content","DevPro__enable_firebase_workspaces_card","DevPro__enable_cloud_innovators_plus","DevPro__enable_code_assist","Search__enable_ai_eligibility_checks","Experiments__reqs_query_experiments","MiscFeatureFlags__enable_project_variables","Search__enable_suggestions_from_borg","Cloud__enable_cloud_dlp_service","Cloud__enable_cloud_shell","MiscFeatureFlags__developers_footer_image","Profiles__enable_complete_playlist_endpoint","Cloud__cache_serialized_dynamic_content","MiscFeatureFlags__enable_firebase_utm","Cloud__enable_free_trial_server_call","Cloud__enable_cloud_shell_fte_user_flow","Profiles__enable_stripe_subscription_management","Cloud__enable_legacy_calculator_redirect","Concierge__enable_pushui","Analytics__enable_clearcut_logging","Profiles__enable_completecodelab_endpoint","Profiles__enable_developer_profiles_callout","DevPro__enable_nvidia_credits_card","Profiles__enable_recognition_badges","CloudShell__cloud_shell_button","Profiles__enable_release_notes_notifications","SignIn__enable_l1_signup_flow","DevPro__enable_free_benefits"],null,null,"[token redacted by Lighthouse]","https://developerscontentserving-pa.googleapis.com","[token redacted by Lighthouse]","https://developerscontentsearch-pa.googleapis.com",2,4,null,"https://developerprofiles-pa.googleapis.com",[53,"chrome","Chrome for Developers","developer.chrome.com",null,"chrome-dot-devsite-v2-prod-3p.appspot.com",null,null,[null,null,null,null,null,null,null,null,null,null,null,[1],null,null,null,null,null,null,[1],null,null,null,null,[1,null,1],[1,1,null,1,1],null,null,null,null,null,[1]],null,[69,null,null,null,null,null,"/images/lockup.svg","/images/touchicon-180.png",null,null,null,1,1,null,null,null,null,null,null,null,null,2,null,null,null,"/images/lockup-dark-theme.svg",[]],[],null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,[[],[1,1]],[[null,null,null,null,null,["GTM-5QF3RT2"],null,null,null,null,null,[["GTM-5QF3RT2",1]],1]],null,4],1,null,1,null,"https://developerscontentinsights-pa.googleapis.com","[token redacted by Lighthouse]","[token redacted by Lighthouse]","https://developers.googleapis.com",null,null,"[token redacted by Lighthouse]",null,null,"https://developers.googleapis.com"]')
+  
+</script>
+
+    <devsite-a11y-announce></devsite-a11y-announce>
+  </body>
+</html>

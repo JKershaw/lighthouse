@@ -1,0 +1,251 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <title>Frequently Asked Questions | Open Source Insights</title>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Rubik:wght@400;500&family=Source+Code+Pro:wght@400&family=Source+Sans+Pro:wght@400;600&display=swap" />
+    <link rel="stylesheet" href="/css/style.css" />
+    <link rel="icon" href="/favicon.ico" />
+    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-180545145-1"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag() {
+        dataLayer.push(arguments);
+      }
+      gtag('js', new Date());
+      gtag('config', 'UA-180545145-1', {
+        'anonymize_ip': true,
+        'referrer': document.referrer.split('?')[0],
+      });
+    </script>
+  </head>
+  <body>
+    <div class="layout">
+      <header>
+        <div class="logo">
+          <a href="/"><img src="/img/logo2.svg" alt="Open Source Insights" /></a>
+        </div>
+        <div class="accent"></div>
+      </header>
+      <main><h1 id="frequently-asked-questions">Frequently Asked Questions</h1>
+
+<h2 id="what-is-the-open-source-insights-project">What is the Open Source Insights project?</h2>
+
+<p>Open Source Insights is a service developed and hosted
+by Google to help developers better understand the structure,
+security, and construction of open source software packages. The
+service examines each package, constructs a full, detailed graph
+of its dependencies and their properties, and makes the results
+available to anyone who could benefit from them.</p>
+
+<p>The dependency graph is decorated with versioning and licensing
+information, known vulnerabilities, and other important signals of
+code health and safety.</p>
+
+<p>The data is provided not just for the project’s own code, but for
+all packages in the fully constructed graph of all dependencies of
+the project, right down to the individual versions of each dependency.
+This means, for instance, if the software depends on a version of
+a dependent package with a vulnerability, the vulnerability will
+be made visible on the Insights web view of the project at the top
+level.</p>
+
+<p>Insights shows you the licenses used throughout the dependency graph,
+which you can use to find conflicts or other license issues.</p>
+
+<p>It also provides interactive tools to visualize the dependency
+graph, compare versions, filter the dependencies, and more.</p>
+
+<p>Finally, Insights also shows version histories and other relevant
+information.</p>
+
+<h2 id="why-have-you-built-this">Why have you built this?</h2>
+
+<p>We want everyone to have a productive, safe, dependable and
+trustworthy open source software environment. Understanding a
+project’s dependencies is a critical part of meeting that goal. An
+unwisely chosen dependency can introduce licensing or security
+problems, while simply having too many dependencies can make
+maintenance challenging. Developers everywhere are updating their code
+every day, and that could affect your own software unexpectedly.
+It can be hard to keep up.</p>
+
+<p>The Insights project aims to help by providing developers and project
+owners insights into the health of their software by integrating
+information about all their dependencies and providing a way to see
+how they fit together. Existing tools and packaging systems do some of
+this, of course, but not enough and not uniformly.</p>
+
+<p>We hope that access to high-quality information and analysis about open
+source software projects will make it easier to build and maintain
+high-quality software.</p>
+
+<h2 id="how-does-this-differ-from-what-is-provided-by-my-usual-tooling-such-as-npm-or-by-other-services">How does this differ from what is provided by my usual tooling such as npm or by other services?</h2>
+
+<p>Insights is not an attempt to replace the standard tool set, but
+rather to augment it with a fresh, integrated view of the whole
+ecosystem for each packaging model.</p>
+
+<p>A key difference is that the Insights data is derived from first
+principles, looking at the software and its packaging definition. The
+result may be substantially different or more complete than just the
+declared dependencies of, for instance, a packaging “lock” file.
+Moreover, the data presented by Insights is re-evaluated regularly,
+to keep it up to date, which is important in the fast-moving world
+of open source development.</p>
+
+<p>Some of the information provided by the Insights project may be
+available from your regular “native” tools, although just how much
+depends greatly on the packaging system being used. However, none of
+the systems provide all the information Insights does. Moreover,
+although it may not matter unless you work in multiple languages, the
+Insights service attempts to provide, as much as possible, the
+same analysis and user experience for every packaging system.</p>
+
+<p>The site includes not just details about the dependencies of a
+package, but also some information about its dependents, those
+packages that depend on it, transitively. This informs to package
+authors but also helps locate packages that may be of special
+importance to the ecosystem, those depended on either directly or
+indirectly by many packages.</p>
+
+<p>Finally, Insights integrates the metadata, showing how licensing
+problems, security vulnerabilities, and other relevant issues affect
+the whole system, not just the project itself.</p>
+
+<h2 id="how-do-i-access-the-information">How do I access the information?</h2>
+
+<p>The Insights portal provides a web page for each project. It can be used to
+examine the data, study it, and perhaps help understand how to address problems
+that it uncovers.</p>
+
+<p>The data is also available via our <a href="/api/">API</a> and as a
+<a href="/bigquery/v1">BigQuery dataset</a>.</p>
+
+<h2 id="how-is-insights-implemented">How is Insights implemented?</h2>
+
+<p>The project is hosted on Google Cloud Platform. It scans the public
+open source packaging systems and repositories, and from the data
+received constructs the dependency graph and annotates it with other
+metadata such as licensing and vulnerability information.</p>
+
+<p>Most of the back end is written in Go and reimplements the dependency
+analysis algorithm (version resolution) of each packaging system. The
+code has been tested for agreement with the native tooling, but is
+faster because it is decoupled from package installation. It
+constructs the graph without actually building and installing the
+software.</p>
+
+<p>For a more detailed discussion of how the project works and the
+terminology it uses, see the <a href="/glossary">Glossary</a>.</p>
+
+<h2 id="what-packages-does-insights-cover">What packages does Insights cover?</h2>
+
+<p>The project scans all the available packages it can discover, either
+by reading the package home site for a system like npm, or by scanning
+GitHub and other repository hosting sites.</p>
+
+<p>The project currently supports Cargo (Rust), Go’s module system, Maven (Java),
+npm (Node.js), NuGet (.NET), PyPI (Python) and RubyGems (Ruby). At the moment,
+Insights can only analyze systems, like these, with a known packaging model,
+since it needs the packaging information to construct the dependency graph.
+This means that, for now at least, there is no data for C or C++, which do not
+have a clear packaging model.</p>
+
+<h2 id="what-systems-will-it-cover-in-the-future">What systems will it cover in the future?</h2>
+
+<p>We are working to include a number of other packaging systems. There
+is a fair bit of work to do for each system we add, though, so we
+cannot predict just when new systems will be supported or what they
+will be.</p>
+
+<h2 id="how-fresh-is-the-information">How fresh is the information?</h2>
+
+<p>The Insights service’s view of a package is updated by two independent
+mechanisms. Several feeds maintain the information for packages being
+actively updated. Meanwhile a background scan visits every known
+package at a constant rate to catch any updates that might be missed.</p>
+
+<p>As a result, the data for commonly used packages is usually fresh, up
+to date to within an hour or so. Quiescent or obsolete packages can
+be presented with staler data, however.</p>
+
+<p>There is no mechanism for users to trigger an update.</p>
+
+<h2 id="how-accurate-is-the-information">How accurate is the information?</h2>
+
+<p>The Insights team has independent implementations of the resolve
+algorithms that compute the dependencies for a package. These have
+been tested against the “native” implementations, and given identical
+inputs the results agree closely: 99% or higher, often much higher.
+Differences can arise because of version skew, undocumented or obscure
+features of the packaging model, input from the build system not
+available to us, and other factors.</p>
+
+<p>Be aware, too, that the dependency graph for a package is not always a
+unique item, as it can depend on whether test or other dependencies
+are included, what features are enabled, and so on. Since the graph
+calculation is transitive, even a small change in any detail of the
+dependency specification can affect the entire graph.</p>
+
+<h2 id="how-are-licenses-determined">How are licenses determined?</h2>
+
+<p>For Cargo, Maven, npm, NuGet, PyPI and RubyGems, license information is read
+from the package metadata. For Go, license information is determined using the
+<a href="https://github.com/google/licensecheck">licensecheck</a> package.</p>
+
+<p>License information shown is not intended to be legal advice, and you should
+independently verify the license or terms of any software for your own needs.</p>
+
+<p>We identify licenses as <a href="https://spdx.org/">SPDX</a> expressions. When there is no
+associated SPDX identifier, we indicate the license is <em>non-standard</em>. When we
+are unable to obtain license information, we indicate the license is <em>unknown</em>.</p>
+
+<h2 id="is-this-open-source">Is this open source?</h2>
+
+<p>The underlying platform is not open source, although some pieces, such as the
+<a href="https://github.com/google/licensecheck">licensecheck</a> package, are available.</p>
+
+<h2 id="how-can-i-get-more-information-or-ask-for-new-features">How can I get more information or ask for new features?</h2>
+
+<p>Feel free to contact us at
+<a href="mailto:depsdev@google.com">depsdev@google.com</a>.</p>
+
+<h2 id="who-is-that-creature-on-the-web-page">Who is that creature on the web page?</h2>
+
+<p>That’s our team mascot, Ol’ Cap’n Napkins, designed by
+<a href="http://reneefrench.io">Renee French</a> and copyrighted by Google LLC.</p>
+</main>
+      <footer>
+        <div class="links">
+          <a class="logo" href="https://deps.dev/"><img src="/img/logo.svg" alt="Open Source Insights" /></a>
+          <div class="column">
+            <h3>Documentation</h3>
+            <a href="https://deps.dev/about">About</a>
+            <a href="https://docs.deps.dev/faq/">FAQ</a>
+            <a href="https://docs.deps.dev/glossary/">Glossary</a>
+            <a href="https://docs.deps.dev/api/">API</a>
+            <a href="https://docs.deps.dev/bigquery/v1/">BigQuery dataset</a>
+            <a href="https://github.com/google/deps.dev">GitHub</a>
+          </div>
+          <div class="column">
+            <h3>Contact</h3>
+            <a href="https://blog.deps.dev/">Blog</a>
+            <a href="mailto:depsdev@google.com">Contact us</a>
+          </div>
+          <div class="column">
+            <h3>Legal</h3>
+            <a href="https://policies.google.com/privacy">Privacy</a>
+            <a href="https://policies.google.com/terms">Terms</a>
+          </div>
+        </div>
+        <div class="attribution">
+          <p>The Open Source Insights mascot &ldquo;Ol&rsquo; Cap&rsquo;n Napkins&rdquo; was created by Renee French. Copyright &copy; 2021 Google LLC.</p>
+          <p>A project by<a class="google" href="https://google.com/"><img src="/img/google-logo.svg" alt="Google" /></a></p>
+        </div>
+      </footer>
+    </div>
+    <script src="/js/main.js"></script>
+  </body>
+</html>

@@ -1,0 +1,323 @@
+<!DOCTYPE html>
+<html>
+ <head>
+  <title>MAWI Working Group Traffic Archive</title>
+ </head>
+<!-- Background white, links blue (unvisited), navy (visited), red (active) -->
+ <body
+  BGCOLOR="#FFFFFF"
+  TEXT="#000000"
+  LINK="#0000FF"
+  VLINK="#000080"
+  ALINK="#FF0000"
+ >
+
+<center>
+<h3>MAWI Working Group Traffic Archive</h3>
+</center>
+
+<hr />
+
+<h3>Packet traces from WIDE backbone</h3>
+
+<p>
+This is a traffic data repository maintained by
+<a href="http://www.wide.ad.jp/project/wg/mawi.html">the MAWI Working Group</a> of
+<a href="http://www.wide.ad.jp/">the WIDE Project</a>.
+</p>
+
+<p>
+Currently, traffic traces are collected at the following sampling points:
+<dl>
+<dt> samplepoint-F</dt>
+<dd> daily traces at the transit link of WIDE to the upstream ISP,
+in operation since 2006/07/01:
+  <a href=samplepoint-F/2006/>2006</a>, 
+  <a href=samplepoint-F/2007/>2007</a>,
+  <a href=samplepoint-F/2008/>2008</a>,
+  <a href=samplepoint-F/2009/>2009</a>,
+  <a href=samplepoint-F/2010/>2010</a>,
+  <a href=samplepoint-F/2011/>2011</a>,
+  <a href=samplepoint-F/2012/>2012</a>,
+  <a href=samplepoint-F/2013/>2013</a>,
+  <a href=samplepoint-F/2014/>2014</a>,
+  <a href=samplepoint-F/2015/>2015</a>,
+  <a href=samplepoint-F/2016/>2016</a>,
+  <a href=samplepoint-F/2017/>2017</a>,
+  <a href=samplepoint-F/2018/>2018</a>,
+  <a href=samplepoint-F/2019/>2019</a>,
+  <a href=samplepoint-F/2020/>2020</a>,
+  <a href=samplepoint-F/2021/>2021</a>,
+  <a href=samplepoint-F/2022/>2022</a>,
+  <a href=samplepoint-F/2023/>2023</a>,
+  <a href=samplepoint-F/2024/>2024</a>.
+  <a href=samplepoint-F/2025/>2025</a>.
+  <a href=samplepoint-F/2026/>2026</a>.<br />
+longer traces:
+48-hour-long traces on <a href=ditl/ditl2007/>2007/01/09-11</a>, 
+72-hour-long traces on <a href=ditl/ditl2008/>2008/03/18-20</a>, 
+96-hour-long traces on <a href=ditl/ditl2009/>2009/03/30-04/02</a>,
+83-hour-long traces on <a href=ditl/ditl2010/>2010/04/13-16</a>,
+63-hour-long traces on <a href=ditl/ditl2012/>2012/03/30-04/01</a>,
+72-hour-long traces on <a href=ditl/ditl2013/>2013/06/25-27</a>,
+24-hour-long traces on <a href=ditl/ditl2014/>2014/10/02</a>,
+<a href=ditl/ditl201412/>2014/12/10</a>,
+<a href=ditl/ditl2021/>2021/04/14</a>, 
+<a href=ditl/ditl2023/>2023/04/12</a>, 
+<a href=ditl/ditl2024/>2024/06/19</a>, 
+<a href=ditl/ditl2025/>2025/04/09</a>, 
+<a href=ditl/ditl2026/>2026/04/08</a>, 
+48-hour-long traces on <a href=ditl/ditl2015/>2015/12/02-03</a>, <a href=ditl/ditl2017/>2017/04/12-13</a>, <a href=ditl/ditl2018/>2018/05/09-10</a>, <a href=ditl/ditl2019/>2019/04/09-10</a>, <a href=ditl/ditl2020/>2020/04/08-09</a>, <a href=ditl/ditl2022/>2022/04/13-14</a>
+as part of <a href="http://www.caida.org/projects/ditl/">
+a Day in the Life of the Internet</a> project.<br />
+The link was upgraded from 100Mbps to 1Gbps with 150Mbps Committed Access Rate (CAR) on June 1 2007,
+and then, the CAR was officially removed on June 21, 2016.<br />
+Data is missing from November 4 to December 15 in 2022, due to a
+hardware failure in the middle of the POP migration.
+<br /><br />
+
+WIDE started operation at another IX (BBIX) on July 31, 2023 and,
+as a result, the transit traffic was considerablly reduced.
+To restore the monitoring coverage, this IX traffic was added to the
+samplepoint-F on August 8, 2023. Now, the samplepoint-F contains the
+traffic from the 2 links, the transit link and the BBIX link.
+
+<br /><br />
+
+Note: there are a considerable amount of duplicated packets in the
+traces from May 28 to September 3, 2015, due to a mis-configured VLAN
+at the monitored  router. (A quick way to remove the duplicates is to
+use editcap in the wireshark distribution, e.g., "editcap -D64 infile outfile".)
+<br /><br />
+
+Note about a large amount of ICMP traffic is in the traces since
+2013, probing the entire IPv4 space by the 
+<a href="https://ant.isi.edu/address/">USC ANT project</a>.
+The probing started in September 2011 with sporadic probing, but changed to
+constant higher-rate probing since March 27, 2013. The probing once
+terminated on December 4, 2020, but restarted on July 2, 2023. <br /><br />
+
+You can browse the traffic of this link using the
+<a href="http://mawi.wide.ad.jp/~agurim/about.html">agurim</a> tool
+from <a href="http://mawi.wide.ad.jp/~agurim/">here</a>.
+</dd>
+</dl>
+</p>
+
+<p>
+Older traces:
+<dl>
+<dt> samplepoint-G (2018 May -- 2020 June)</dt>
+<dd> weekly traces from the main IX link of WIDE to DIX-IE:
+  <a href=samplepoint-G/2018/>2018</a>,
+  <a href=samplepoint-G/2019/>2019</a>,
+  <a href=samplepoint-G/2020/>2020</a>.<br />
+longer traces:
+24-hour-long traces on <a href=ditl/ditl2018-G/>2018/05/09</a>, and
+<a href=ditl/ditl2019-G/>2019/04/09</a>,
+and an 8-hour-long trace on <a href=ditl/ditl2020-G/>2020/04/08</a>.
+<br />
+</dd>
+</dl>
+
+<dl>
+<dt> samplepoint-A (terminated in Nov 2000)</dt>
+<dd> daily trace of a trans-Pacific T1 line (one of them): 
+<a href=samplepoint-A/1999/>1999</a>, 
+<a href=samplepoint-A/2000/>2000</a><br />
+<a href=samplepoint-A/Y2K/>Y2K roll-over</a><br />
+</dd>
+<dt> samplepoint-B</dt>
+<dd> daily trace of another trans-Pacific line (18Mbps CAR on 100Mbps link)
+This link was terminated on 2006/07/01, and replaced by Samplepoint-F:
+<a href=samplepoint-B/2000/>2000</a>,
+<a href=samplepoint-B/2001/>2001</a>,
+<a href=samplepoint-B/2002/>2002</a>, 
+<a href=samplepoint-B/2003/>2003</a>, 
+<a href=samplepoint-B/2004/>2004</a>, 
+<a href=samplepoint-B/2005/>2005</a>, 
+<a href=samplepoint-B/2006/>2006<br />
+<a href=samplepoint-B/1999/>107-hour-long traces</a> 
+from another US-Japan link taken from 1999/05/10 10pm to 1999/05/15 7am.<br />
+The link was upgraded from 4Mbps to 10Mbps on 5/13 around 15:30.<br />
+24-hour-long traces on <a href=samplepoint-B/20030227/>2003/02/27</a>,
+<a href=samplepoint-B/20050107/>2005/01/07</a>,
+<a href=samplepoint-B/20050922/>2005/09/22</a>,
+and
+<a href=samplepoint-B/20060303/>2006/03/03</a>.<br />
+plot graphs by <a href="http://www.csl.sony.co.jp/~kjc/software.html#aguri">aguri</a>:
+port numbers:
+<a href="aguri-ports-B/2001/">2001</a>,
+<a href="aguri-ports-B/2002/">2002</a>, 
+<a href="aguri-ports-B/2003/">2003</a>, 
+<a href="aguri-ports-B/2004/">2004</a>, 
+<a href="aguri-ports-B/2005/">2005</a>, 
+<a href="aguri-ports-B/2006/">2006</a>
+(wide-members only: addresses:
+<a href="/members_only/aguri-plots-B/2001/">2001</a>,
+<a href="/members_only/aguri-plots-B/2002/">2002</a>, 
+<a href="/members_only/aguri-plots-B/2003/">2003</a>, 
+<a href="/members_only/aguri-plots-B/2004/">2004</a>, 
+<a href="/members_only/aguri-plots-B/2005/">2005</a>, 
+<a href="/members_only/aguri-plots-B/2006/">2006</a>)
+</dd>
+<dt> samplepoint-C</dt>
+<dd> daily trace at an IPv6 line connected to 6Bone: 
+<a href=samplepoint-C/2000/>2000</a>,
+<a href=samplepoint-C/2001/>2001</a>,
+<a href=samplepoint-C/2002/>2002</a>, 
+<a href=samplepoint-C/2003/>2003</a>, 
+<a href=samplepoint-C/2004/>2004</a>, 
+<a href=samplepoint-C/2005/>2005</a>, 
+<a href=samplepoint-C/2006/>2006</a>, 
+<a href=samplepoint-C/2007/>2007</a>,
+<a href=samplepoint-C/2008/>2008</a>,
+<a href=samplepoint-C/2009/>2009</a><br />
+<dt> samplepoint-D
+<dd> daily trace at an IPv6 line connected to WIDE-6Bone:
+<a href=samplepoint-D/2000/>2000</a>,
+<a href=samplepoint-D/2001/>2001</a>,
+<a href=samplepoint-D/2002/>2002</a>, 
+<a href=samplepoint-D/2003/>2003</a>, 
+<a href=samplepoint-D/2004/>2004</a>, 
+<a href=samplepoint-D/2005/>2005</a>, 
+<a href=samplepoint-D/2006/>2006</a>, 
+<a href=samplepoint-D/2007/>2007</a>,
+<a href=samplepoint-D/2008/>2008</a>,
+<a href=samplepoint-D/2009/>2009</a><br />
+</dd>
+<dt> samplepoint-E</dt>
+<dd> yet another US-Japan line (OC-3) which came into operation in Dec 2001:<br />
+plot graphs by <a href="http://www.iijlab.net/~kjc/software/index.html#aguri">aguri</a>:
+port numbers:
+<a href="aguri-ports-E/2002/">2002</a>, 
+<a href="aguri-ports-E/2003/">2003</a>, 
+<a href="aguri-ports-E/2004/">2004</a>, 
+<a href="aguri-ports-E/2005/">2005</a>, 
+<a href="aguri-ports-E/2006/">2006</a>, 
+<a href="aguri-ports-E/2007/">2007</a>,
+<a href="aguri-ports-E/2008/">2008</a>,
+<a href="aguri-ports-E/2009/">2009</a>
+(wide-members only: addresses:
+<a href="/members_only/aguri-plots-E/2002/">2002</a>, 
+<a href="/members_only/aguri-plots-E/2003/">2003</a>, 
+<a href="/members_only/aguri-plots-E/2004/">2004</a>, 
+<a href="/members_only/aguri-plots-E/2005/">2005</a>, 
+<a href="/members_only/aguri-plots-E/2006/">2006</a>, 
+<a href="/members_only/aguri-plots-E/2007/">2007</a>,
+<a href="/members_only/aguri-plots-E/2008/">2008</a>,
+<a href="/members_only/aguri-plots-E/2009/">2009</a>)
+</dd>
+</dl>
+</p>
+
+<p>
+Traffic traces are made by <a href="http://www.tcpdump.org">
+tcpdump</a>, and then, IP addresses in the traces are scrambled by a modified
+version of 
+<a href="http://ita.ee.lbl.gov/html/contrib/tcpdpriv.html">tcpdpriv</a>.<br />
+The <a href="http://mawi.nezu.wide.ad.jp/mawi/tools/tcpd-tools.tar.gz">
+soure code of a set of tools</a> used to create our archive is also available.
+</p>
+
+<p>
+<a href="http://www.fukuda-lab.org/mawilab/">MAWILab</a>
+is a database that assists researchers to evaluate their traffic
+anomaly detection methods. It consists of a set of labels locating
+traffic anomalies in the MAWI archive  (samplepoints B and F). The
+labels are obtained using an advanced graph-based methodology that
+compares and combines different and independent anomaly detectors.
+(The MAWILab operation was terminated in December 2024.)
+</p>
+
+<p>
+You may use WIDE traffic data for only research purposes.
+Actions that trespass upon users' privacy are prohibited.
+</p>
+
+<p>
+Here is <a href="guideline.txt">guidelines</a> for protecting user privacy
+in WIDE traffic archive. (<a href="guideline-j.txt">japanese version</a>).
+</p>
+
+<p>
+<a href="faq.html">MAWI traffic archive Frequently Asked Questions</a>.
+</p>
+
+<h3>Related Papers</h3>
+<ol>
+<li>Kenjiro Cho. <br />
+<i><a href="http://www.iijlab.net/~kjc/papers/imc2017-rls.pdf">
+"Recursive Lattice Search: Hierarchical Heavy Hitters Revisited".</a></i><br />
+ACM IMC 2017, London, UK, November 2017.
+</li>
+<li>Romain Fontugne, Patrice Abry, Kensuke Fukuda, Darryl Veitch, Kenjiro Cho, Pierre Borgnat, Herwig Wendt.<br />
+<i><a href="http://www.iijlab.net/~kjc/papers/TNET2675450_author_version.pdf">
+:Scaling in Internet Traffic: a 14 year and 3 day longitudinal study, with multiscale analyses and random projections".</a></i><br />
+IEEE/ACM Transactions on Networking, vol.25(4). pp2152--2165. August 2017.
+<li>Midori Kato, Kenjiro Cho, Michio Honda, Hideyuki Tokuda.<br />
+<i><a href="http://www.iijlab.net/~kjc/papers/agurim-mad2012.pdf">
+"Monitoring the Dynamics of Network Traffic by Recursive Multi-dimensional Aggregation".</a></i><br />
+OSDI2012 MAD Workshop.  Hollywood, CA.  October 2012.
+</li>
+<li>R. Fontugne, P. Borgnat, P. Abry, K. Fukuda.<br />
+<i><a href="http://conferences.sigcomm.org/co-next/2010/CoNEXT_papers/08-Fontugne.pdf">"MAWILab: Combining diverse anomaly detectors for
+automated anomaly labeling and performance benchmarking".</a></i><br />
+ACM CoNEXT 2010.  Philadelphia, PA.  December 2010.
+</li>
+<li>Pierre Borgnat, Guillaume Dewaele, Kensuke Fukuda, Patrice Abry, Kenjiro Cho.<br />
+<i><a href="http://www.iijlab.net/~kjc/papers/PID811896.pdf">
+"Seven Years and One Day: Sketching the Evolution of Internet Traffic."</a></i><br />
+INFOCOM2009.  Rio de Janeiro, Brazil.  April 2009.
+</li>
+<li>Guilaume Dewaele, Kensuke Fukuda, Pierre Borgnat, Patrice Abry,
+Kenjiro Cho.<br />
+<i><a href="http://www.iijlab.net/~kjc/papers/lextracting.pdf">
+"Extracting Hidden Anomalies using Sketch and Non Gaussian Multiresolution Statistical Detection Procedures".</a></i><br />
+SIGCOMM2007 LSAD Workshop, Kyoto Japan. August 2007.
+</li>
+<li> Kenjiro Cho, Ryo Kaizaki and Akira Kato.<br>
+<i><a href="http://www.iijlab.net/~kjc/papers/aguri.pdf">
+"Aguri: An Aggregation-based Traffic Profiler".</a></i><br>
+In Proceedings of QofIS2001 (published by Springer-Verlag in
+<a href="http://www.springer.de/comp/lncs/index.html">the LCNS
+series</a>). September 2001.
+</li>
+<li> Kenjiro Cho, Koushirou Mitsuya and Akira Kato.<br />
+<i><a href="http://www.iijlab.net/~kjc/papers/freenix2000.pdf">
+"Traffic Data Repository at the WIDE Project".</a></i><br />
+USENIX 2000 FREENIX Track,
+San Diego, CA, June 2000.
+(<a href=http://www.iijlab.net/~kjc/papers/freenix2000/>HTML version</a>)
+</li>
+<li>Akira KATO, Jun MURAI, Satoshi KATSUNO and Tohru ASAMI.<br />
+<i><a href="http://www.isoc.org/isoc/conferences/inet/99/proceedings/4h/index.htm">
+"An Internet Traffic Data Repository: The Architecture and the Design Policy".
+</a></i><br />
+INET99, San Jose, CA, June 1999. 
+</li>
+</ol>
+
+<hr />
+
+<h3>Links</h3>
+<ul>
+<li><a href="http://www.fukuda-lab.org/mawilab/">MAWILab</a>
+</li>
+<li><a href="http://www.wide.ad.jp/">WIDE Project</a>
+</li>
+<li><a href="http://www.acm.org/sigcomm/ITA/">ITA (The Internet Traffic Archive)</a>
+</li>
+<li><a href="http://www.cs.columbia.edu/~hgs/internet/traces.html">A list of traffic trace info</a> by Henning Schulzrinne
+</li>
+<li><a href="http://www.tcpdump.org/">tcpdump.org</a>
+</li>
+</ul>
+
+<hr />
+	contact info: Kenjiro Cho, WIDE Project (kjc at wide.ad.jp)
+<hr />
+
+</body>
+</html>
+

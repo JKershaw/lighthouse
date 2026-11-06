@@ -1,0 +1,412 @@
+<!-- downloads.pch.net files browser -->
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+
+<head>
+    <title>PCH Downloads</title>
+
+    <!-- load source favicon via Webpack alias '@images' -->
+    <link href="/assets/images/favicon.png" rel="icon" type="image/png">
+
+    <!-- block for global styles -->
+    <link href="/styles.css" rel="stylesheet">
+    <link href="/assets/font-awesome.css" rel="stylesheet">
+
+</head>
+
+<body cz-shortcut-listen="true">
+    <!-- Header -->
+    <div class="container">
+        <header>
+            <!-- {/* mobile nav */} -->
+            <div id="mobile-nav" class="mobile-nav">
+                <div class="mobile-nav__top">
+                    <a href="https://www.pch.net/user/login">
+                        <button id="mobile-auth-login" class="ghost-sm">
+                            Login
+                        </button>
+                    </a>
+                </div>
+                <div class="mobile-nav__body">
+                    <div id="about-mobile-dropdown" class="dropdown focus lg">
+                        <a id="about-mobile-dropdown__dropdown-label" href="#" class="dropdown__label">
+                            <p>About</p>
+                        </a>
+                        <div id="about__user-options" class="dropdown__container">
+                            <div>
+                                <ul class="dropdown__options">
+                                    <li>
+                                        <a href="https://www.pch.net/about/education">Education</a>
+                                    </li>
+                                    <li>
+                                        <a href="https://www.pch.net/about/peering">Peering</a>
+                                    </li>
+                                    <li>
+                                        <a href="https://www.pch.net/about/people">People</a>
+                                    </li>
+                                    <li>
+                                        <a href="https://www.pch.net/about/research">Research</a>
+                                    </li>
+                                    <li id="mobile-sublink-parent" class="mobile-sublink-parent">
+                                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
+                                            <path d="M10 17L15 12L10 7V17Z" fill="#212121"></path>
+                                        </svg>
+                                        <a href="#">
+                                            Support Us
+                                        </a>
+                                    </li>
+                                    <li id="mobile-sublink-child" class="dropdown__options__sublink sublink-close">
+                                        <a href="https://www.pch.net/about/sponsors">Sponsors</a>
+                                    </li>
+                                    <li id="mobile-sublink-child" class="dropdown__options__sublink sublink-close">
+                                        <a href="https://www.pch.net/about/donate">Donate</a>
+                                    </li>
+                                    <li>
+                                        <a href="https://www.pch.net/about/pops">Pop Locations</a>
+                                    </li>
+                                    <li>
+                                        <a href="https://www.pch.net/about/privacy">Privacy Policy</a>
+                                    </li>
+                                    <li>
+                                        <a href="https://www.pch.net/about/trust">Trust Policy</a>
+                                    </li>
+                                    <li>
+                                        <a href="https://www.pch.net/about/cookies">Cookie Usage</a>
+                                    </li>
+                                    <li>
+                                        <a href="https://www.pch.net/about/contact">Contact</a>
+                                    </li>
+                                    <li>
+                                        <a href="https://www.pch.net/about/annual_reports">Annual Reports</a>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                    <div id="services-mobile-dropdown" class="dropdown focus lg">
+                        <a id="services-mobile-dropdown__dropdown-label" href="#" class="dropdown__label">
+                            <p>Services</p>
+                        </a>
+                        <div id="services__user-options" class="dropdown__container">
+                            <div>
+                                <ul class="dropdown__options">
+                                    <li>
+                                        <a href="https://www.pch.net/services/internet_exchange_points">IXPs</a>
+                                    </li>
+                                    <li>
+                                        <a href="https://www.pch.net/services/anycast">Anycast DNS</a>
+                                    </li>
+                                    <li>
+                                        <a href="https://www.pch.net/services/dnssec">DNSSEC</a>
+                                    </li>
+                                    <li>
+                                        <a href="https://www.pch.net/services/digitalemblem">Digital Emblems</a>
+                                    </li>
+                                    <li>
+                                        <a href="https://www.pch.net/services/policy">Regulatory &amp; Policy</a>
+                                    </li>
+                                    <li>
+                                        <a href="https://www.pch.net/services/pnt">PNT</a>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                    <div id="tools-mobile-dropdown" class="dropdown focus lg">
+                        <a id="tools-mobile-dropdown__dropdown-label" href="#" class="dropdown__label">
+                            <p>Tools</p>
+                        </a>
+                        <div id="tools__user-options" class="dropdown__container">
+                            <div>
+                                <ul class="dropdown__options">
+                                    <li>
+                                        <a href="https://prefix.pch.net/applications/cablesystem">Cable System</a>
+                                    </li>
+                                    <li>
+                                        <a href="https://www.pch.net/meetings">Internet Governance Calendar</a>
+                                    </li>
+                                    <li>
+                                        <a href="https://www.pch.net/ixp/dir">IXP Directory</a>
+                                    </li>
+                                    <li>
+                                        <a href="https://www.pch.net/tools/looking_glass/">Looking Glass</a>
+                                    </li>
+                                    <li><a href="https://prefix.pch.net">Prefix-Sanity Checker</a>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                    <div id="resources-mobile-dropdown" class="dropdown focus lg">
+                        <a id="resources-mobile-dropdown__dropdown-label" href="#" class="dropdown__label">
+                            <p>Resources</p>
+                        </a>
+                        <div id="resources__user-options" class="dropdown__container">
+                            <div>
+                                <ul class="dropdown__options">
+                                    <li>
+                                        <a href="/DNSSEC_Key_Ceremonies/">DNSSEC Key
+                                            Ceremonies</a>
+                                    </li>
+                                    <li>
+                                        <a href="/Papers/">Papers</a>
+                                    </li>
+                                    <li>
+                                        <a href="/Raw_Routing_Data/">MRT Routing
+                                            Updates</a>
+                                    </li>
+                                    <li>
+                                        <a href="/NSFNET/">NSFNET</a>
+                                    </li>
+                                    <li><a href="/Routing_Data/">Daily Routing
+                                            Snapshots</a>
+                                    </li>
+                                    <li>
+                                        <a href="/Tutorials/">Tutorials</a>
+                                    </li>
+                                    <li><a href="/oldwiki/">Old Wiki</a></li>
+                                    <li><a href="https://www.pch.net/resources/IIFQ/">IIFQ</a></li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- {/* header */} -->
+            <div class="primary-nav">
+                <!-- {/* primary nav content */} -->
+                <div class="primary-nav__left">
+                    <!-- {/* logo */} -->
+                    <a href="https://www.pch.net">
+                        <img src="/assets/images/favicon.svg">
+                    </a>
+                </div>
+                <div class="primary-nav__right">
+                    <!-- {/* nav options */} -->
+                    <div class="primary-nav__right__top">
+                        <a href="https://www.pch.net/user/login">
+                            <button id="auth-login" class="ghost-sm">
+                                Login
+                            </button>
+                        </a>
+                    </div>
+                    <div class="primary-nav__right__bottom">
+                        <div id="about" class="dropdown focus lg">
+                            <a id="about__dropdown-label" href="#" class="dropdown__label">
+                                <p>About</p>
+                            </a>
+                            <div id="about__user-options" class="dropdown__container">
+                                <div>
+                                    <ul class="dropdown__options">
+                                        <li>
+                                            <a href="https://www.pch.net/about/education">Education</a>
+                                        </li>
+                                        <li>
+                                            <a href="https://www.pch.net/about/peering">Peering</a>
+                                        </li>
+                                        <li>
+                                            <a href="https://www.pch.net/about/people">People</a>
+                                        </li>
+                                        <li>
+                                            <a href="https://www.pch.net/about/research">Research</a>
+                                        </li>
+                                        <li id="sublink-parent" class="sublink-parent">
+                                            <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
+                                                <path d="M10 17L15 12L10 7V17Z" fill="#212121"></path>
+                                            </svg>
+                                            <a href="#">
+                                                Support Us
+                                            </a>
+                                        </li>
+                                        <li id="sublink-child" class="dropdown__options__sublink sublink-close">
+                                            <a href="https://www.pch.net/about/sponsors">Sponsors</a>
+                                        </li>
+                                        <li id="sublink-child" class="dropdown__options__sublink sublink-close">
+                                            <a href="https://www.pch.net/about/donate">Donate</a>
+                                        </li>
+                                        <li>
+                                            <a href="https://www.pch.net/about/pops">Pop Locations</a>
+                                        </li>
+                                        <li>
+                                            <a href="https://www.pch.net/about/privacy">Privacy Policy</a>
+                                        </li>
+                                        <li>
+                                            <a href="https://www.pch.net/about/trust">Trust Policy</a>
+                                        </li>
+                                        <li>
+                                            <a href="https://www.pch.net/about/cookies">Cookie Usage</a>
+                                        </li>
+                                        <li>
+                                            <a href="https://www.pch.net/about/contact">Contact</a>
+                                        </li>
+                                        <li>
+                                            <a href="https://www.pch.net/about/annual_reports">Annual Reports</a>
+                                        </li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                        <div id="services" class="dropdown focus lg">
+                            <a id="services__dropdown-label" href="#" class="dropdown__label">
+                                <p>Services</p>
+                            </a>
+                            <div id="services__user-options" class="dropdown__container">
+                                <div>
+                                    <ul class="dropdown__options">
+                                        <li>
+                                            <a href="https://www.pch.net/services/internet_exchange_points">IXPs</a>
+                                        </li>
+                                        <li>
+                                            <a href="https://www.pch.net/services/anycast">Anycast DNS</a>
+                                        </li>
+                                        <li>
+                                            <a href="https://www.pch.net/services/dnssec">DNSSEC</a>
+                                        </li>
+                                        <li>
+                                            <a href="https://www.pch.net/services/digitalemblem">Digital Emblems</a>
+                                        </li>
+                                        <li>
+                                            <a href="https://www.pch.net/services/policy">Regulatory &amp; Policy</a>
+                                        </li>
+                                        <li>
+                                            <a href="https://www.pch.net/services/pnt">PNT</a>
+                                        </li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                        <div id="tools" class="dropdown focus lg">
+                            <a id="tools__dropdown-label" href="#" class="dropdown__label">
+                                <p>Tools</p>
+                            </a>
+                            <div id="tools__user-options" class="dropdown__container">
+                                <div>
+                                    <ul class="dropdown__options">
+                                        <li>
+                                            <a href="https://prefix.pch.net/applications/cablesystem">Cable System</a>
+                                        </li>
+                                        <li>
+                                            <a href="https://www.pch.net/meetings">Internet Governance Calendar</a>
+                                        </li>
+                                        <li>
+                                            <a href="https://www.pch.net/ixp/dir">IXP Directory</a>
+                                        </li>
+                                        <li>
+                                            <a href="https://www.pch.net/tools/looking_glass/">Looking Glass</a>
+                                        </li>
+                                        <li><a href="https://prefix.pch.net">Prefix-Sanity Checker</a>
+                                        </li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                        <div id="resources" class="dropdown focus lg">
+                            <a id="resources__dropdown-label" href="#" class="dropdown__label">
+                                <p>Resources</p>
+                            </a>
+                            <div id="resources__user-options" class="dropdown__container">
+                                <div>
+                                    <ul class="dropdown__options">
+                                        <li>
+                                            <a href="/DNSSEC_Key_Ceremonies/">DNSSEC Key
+                                                Ceremonies</a>
+                                        </li>
+                                        <li>
+                                            <a href="/Papers/">Papers</a>
+                                        </li>
+                                        <li>
+                                            <a href="/Raw_Routing_Data/">MRT Routing
+                                                Updates</a>
+                                        </li>
+                                        <li>
+                                            <a href="/NSFNET/">NSFNET</a>
+                                        </li>
+                                        <li><a href="/Routing_Data/">Daily Routing
+                                                Snapshots</a>
+                                        </li>
+                                        <li>
+                                            <a href="/Tutorials/">Tutorials</a>
+                                        </li>
+                                        <li><a href="/oldwiki/">Old Wiki</a></li>
+                                        <li><a href="https://www.pch.net/resources/IIFQ/">IIFQ</a></li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div id="mobile-nav-toggle" class="primary-nav__right__menu-toggle">
+                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M3 18H21V16H3V18ZM3 13H21V11H3V13ZM3 6V8H21V6H3Z" fill="#212121"></path>
+                        </svg>
+                    </div>
+                </div>
+            </div>
+            <div class="page-menu">
+                <div class="page-menu-toggle page-menu-disabled"><i class="fa fa-bars"></i></div>
+                <div class="page-sub-menu-container">
+                    <div class="page-sub-menu"><a class="bc-parent" href="https://www.pch.net">Home</a></div>
+                </div>
+            </div>
+        </header>
+        <main class="container__body">
+            <!-- block for specific page content -->
+            <div class="public-body">
+                <!-- file browser table goes here -->
+                <br />
+                <br />
+                <h1 class="container-title">Resources</h1>
+                <div class="table-responsive">
+                    <table id="resources-table" class="table table-striped">
+                        <thead>
+                            <tr>
+                                <th class="text-left sorting-asc">Name</th>
+                                <th class="text-left">Size</th>
+                                <th class="text-right">Modified</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <!-- directory file list goes here -->
+                        </tbody>
+                        <tfoot></tfoot>
+                    </table>
+                </div>
+            </div>
+        </main>
+        <footer class="footer">
+            <!-- {/* footer content */} -->
+            <div class="footer__left">
+                <img src="/assets/images/by-nc-sa.svg">
+                <p>
+                    This work is licensed under a <a
+                        href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.en">Creative Commons Attribution
+                        ShareAlike 4.0</a> License.
+                </p>
+            </div>
+            <div class="footer__right">
+                <h5>
+                    <a id="services-link" href="https://www.pch.net/about/privacy">PRIVACY</a>
+                </h5>
+                <h5>
+                    <a id="privacy-link" href="https://www.pch.net/about/donate">DONATE</a>
+                </h5>
+            </div>
+        </footer>
+        <div id="toast">
+            <div id="img">
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path
+                        d="M12 2C6.48 2 2 6.48 2 12C2 17.52 6.48 22 12 22C17.52 22 22 17.52 22 12C22 6.48 17.52 2 12 2ZM13 17H11V11H13V17ZM13 9H11V7H13V9Z"
+                        fill="#ffffff"></path>
+                </svg>
+            </div>
+            <div id="desc"></div>
+        </div>
+    </div>
+
+    <!-- block for specific page scripts -->
+    <script src="/common.js"></script>
+    <script src="/file-browser.js"></script>
+
+</body>
+
+</html>

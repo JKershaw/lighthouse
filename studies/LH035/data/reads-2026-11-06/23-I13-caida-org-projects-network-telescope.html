@@ -1,0 +1,1249 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="x-ua-compatible" content="ie=edge">
+  <!--[if lt IE 9]><script src='//cdnjs.cloudflare.com/ajax/libs/html5shiv/3.7.0/html5shiv.min.js'></script><![endif] -->
+  <title>The UCSD Network Telescope - CAIDA</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1"><meta name="twitter:card" content="summary_large_image"/>
+  <meta name="twitter:image" content="https://www.caida.org/projects/network_telescope/images/Worm_Frame.jpg"/>
+  <meta name="twitter:title" content="The UCSD Network Telescope" />
+  <meta name="twitter:site" content="@caidaorg" />
+  <meta name="twitter:description" content="The UCSD Network Telescope is a passive traffic monitoring system built on a globally routed, but lightly utilized /9 and /10 network. Under CAIDA stewardship, this unique resource provides valuable data for network security researchers." />
+  <meta property="og:title" content="The UCSD Network Telescope" />
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content="https://www.caida.org/projects/network_telescope/" />
+  <meta property="og:image" content="https://www.caida.org/projects/network_telescope/images/Worm_Frame.jpg"/>
+  <meta property="og:site_name" content="CAIDA" />
+  <meta property="og:updated_time" content="2025-01-29T18:02:57+00:00" />
+  <meta property="article:publisher" content="https://www.facebook.com/caidaorg" />
+  <meta property="article:section" content="projects" />
+
+  <meta property="og:description" content="The UCSD Network Telescope is a passive traffic monitoring system built on a globally routed, but lightly utilized /9 and /10 network. Under CAIDA stewardship, this unique resource provides valuable data for network security researchers." />
+  <meta name="description" content="The UCSD Network Telescope is a passive traffic monitoring system built on a globally routed, but lightly utilized /9 and /10 network. Under CAIDA stewardship, this unique resource provides valuable data for network security researchers." />  
+  <link rel="canonical" href="https://www.caida.org/projects/network_telescope/">
+  <link rel="icon" href="https://www.caida.org/favicon.ico">
+  <link rel="apple-touch-icon" sizes="180x180" href="https://www.caida.org/apple-touch-icon.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="https://www.caida.org/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="https://www.caida.org/favicon-16x16.png">
+  <link rel="manifest" href="https://www.caida.org/site.webmanifest">
+  <link rel="mask-icon" href="https://www.caida.org/safari-pinned-tab.svg" color="#e37d35">
+  <meta name="msapplication-TileColor" content="#2b5797">
+  <meta name="theme-color" content="#ffffff">
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
+  <script src="https://code.jquery.com/jquery-3.5.1.min.js" integrity="sha256-9/aliU8dGd2tb6OSsuzixeV4y/faTqgFtohetphbbj0=" crossorigin="anonymous"></script>
+  <link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
+  <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.min.js" integrity="sha256-VazP97ZCwtekAsvgPBSUwPFKdrwD3unUfSGVYrahUqU=" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js" integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN" crossorigin="anonymous"></script>
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js" integrity="sha384-B4gt1jrGC7Jh4AgTPSdUtOBvfO8shuf57BaghqFfPlYxofvL8/KUEfYiJOMMV+rV" crossorigin="anonymous"></script>
+  <script>
+    $( document ).ready(function() {    
+      breadcrumbTogglesWidth();
+    });
+  </script>
+    <link rel="stylesheet" href="/css/style.min.effc8cf43f5cff86f0808ab43035189eb920eda9a239f7be95664ab633a1bde8.css">
+    <link rel="stylesheet" media="print" href="/css/print.min.a2e549b51b385c848970ce4a67a767b3555b6b73f99956694fc5b3ef443bdf74.css">
+    
+    <style>
+  #player { float:left; margin-right:2em;box-shadow: 3px 3px 2px #888888;width:355px;height:200px;display:none;margin-bottom:1em;}
+  .scrollinglist {
+      height:15rem;
+      overflow:scroll;
+      overflow-x:hidden;
+      background-color:#efefef;
+  }
+</style>
+
+<!-- YouTube iFrame API to replace #player with iFrame  -->
+<script>
+  var tag = document.createElement('script');
+  tag.src = "https://www.youtube.com/iframe_api";
+  var firstScriptTag = document.getElementsByTagName('script')[0];
+  firstScriptTag.parentNode.insertBefore(tag, firstScriptTag);
+
+  var player;
+  function onYouTubeIframeAPIReady() {
+    player = new YT.Player('player', {
+      height: '200',
+      width: '355',
+      videoId: 'Yj_SdiG0RuY',
+      events: {
+        'onReady': onPlayerReady
+      }
+    });
+  }
+
+  function onPlayerReady(event) {
+    document.getElementById('player').style.display = "block";
+    //event.target.playVideo(); // auto-play video
+  }
+</script>
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@id": "https://www.caida.org/#organization",
+  "@type": "Organization",
+  "address": {
+    "@type": "PostalAddress",
+    "addressCountry": "US",
+    "addressLocality": "La Jolla",
+    "addressRegion": "CA",
+    "postalCode": "92093-0505",
+    "streetAddress": "9500 Gilman Drive MC 0505"
+  },
+  "alternateName": [
+    "CAIDA"
+  ],
+  "email": "info@caida.org",
+  "founder": {
+    "@type": "Person",
+    "name": "kc claffy"
+  },
+  "foundingDate": "1997",
+  "logo": {
+    "@type": "ImageObject",
+    "url": "https://www.caida.org/images/logo_caida_hires.png"
+  },
+  "name": "Center for Applied Internet Data Analysis",
+  "parentOrganization": {
+    "@type": "Organization",
+    "alternateName": [
+      "SDSC"
+    ],
+    "name": "San Diego Supercomputer Center",
+    "parentOrganization": {
+      "@type": "CollegeOrUniversity",
+      "alternateName": [
+        "UC San Diego",
+        "UCSD"
+      ],
+      "name": "University of California, San Diego",
+      "url": "https://ucsd.edu/"
+    }
+  },
+  "sameAs": [
+    "https://twitter.com/caidaorg",
+    "https://www.facebook.com/caidaorg/",
+    "https://www.linkedin.com/company/19083013",
+    "https://github.com/CAIDA",
+    "https://catalog.caida.org/",
+    "https://www.re3data.org/repository/r3d100010195"
+  ],
+  "telephone": "+1-858-534-5000",
+  "url": "https://www.caida.org/"
+}
+</script>
+
+
+
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Project",
+  "description": "The UCSD Network Telescope passively monitors a large block of unused IPv4 address space to capture anomalous traffic and provide continuous data on global threat activity.",
+  "foundingDate": "2012-09-28",
+  "funding": [
+    {
+      "@type": "MonetaryGrant",
+      "url": "https://www.caida.org/funding/impact/"
+    },
+    {
+      "@type": "MonetaryGrant",
+      "url": "https://www.caida.org/funding/cri-telescope/"
+    },
+    {
+      "@type": "MonetaryGrant",
+      "url": "https://www.caida.org/funding/stardust/"
+    }
+  ],
+  "image": {
+    "@type": "ImageObject",
+    "url": "https://www.caida.org/projects/network_telescope/images/DoS_Frame_3_small.gif"
+  },
+  "name": "Network Telescope",
+  "parentOrganization": {
+    "@id": "https://www.caida.org/#organization"
+  },
+  "url": "https://www.caida.org/projects/network_telescope/"
+}
+</script>
+
+</head>
+
+<body class='page page-default-list'>
+  <a href="#main-content" class="sr-only">Skip to main content</a>
+  <nav id="main-menu-mobile" class="main-menu-mobile overflow-auto">
+  <ul>
+    <li class="menu-item-resource catalog">       
+      <a href="https://catalog.caida.org/"><span>Resource Catalog</span></a>
+        <a class="subsection" href="https://catalog.caida.org/search?query=types=dataset%20links=tag:caida%20"><span>Datasets</span></a>
+        <a class="subsection" href="https://catalog.caida.org/search?query=types=presentation%20links=tag:caida%20"><span>Media / Presentations</span></a>
+        <a class="subsection" href="https://catalog.caida.org/search?query=types=paper%20links=tag:caida%20"><span>Papers</span></a>
+        <a class="subsection" href="https://catalog.caida.org/search?query=types=recipe%20"><span>Recipes</span></a>
+        <a class="subsection" href="https://catalog.caida.org/search?query=types=software%20"><span>Software / Tools</span></a>
+    </li>
+    <li class="menu-item-about">       
+      <a href="/about/"><span>About</span></a>
+        <a class="subsection" href="/about/supporting/"><span>Supporting</span></a>
+        <a class="subsection" href="/about/donate/"><span>Donate</span></a>
+        <a class="subsection" href="/about/sponsors/"><span>Sponsors</span></a>
+        <a class="subsection" href="/about/jobs/"><span>Jobs at CAIDA</span></a>
+        <a class="subsection" href="/about/annualreports/"><span>Annual Reports</span></a>
+        <a class="subsection" href="/about/progplan/"><span>Program Plan</span></a>
+        <a class="subsection" href="/about/legal/"><span>Legal Agreements</span></a>
+        <a class="subsection" href="/about/sso/"><span>Single Sign-On</span></a>
+        <a class="subsection" href="/staff/"><span>Staff</span></a>
+        <a class="subsection" href="/blog/"><span>Blog</span></a>
+        <a class="subsection" href="/about/contactinfo/"><span>Contact Us</span></a>
+    </li>
+    <li class="menu-item-workshops">
+        <a href="/workshops/"><span>Workshops</span></a>
+    </li>
+    <li class="menu-item-projects active">
+        <a href="/projects/"><span>Projects</span></a>
+    </li>
+    <li class="menu-item-funding">
+        <a href="/funding/"><span>Funding</span></a>
+    </li>
+    <li class="menu-item-blog">
+        <a href="/blog/"><span>Blog</span></a>
+    </li>
+  </ul>
+</nav>
+  <div class="wrapper">
+    <header>
+    <div class='header'>
+  <div class="container">
+    
+    <div class="logo">
+      
+      <a href="https://www.caida.org/"><img alt="CAIDA home" src="/images/caida.png" title="CAIDA - Center for Applied Internet Data Analysis" /></a>
+    </div>
+    <div class="logo-mobile">
+      <a href="https://www.caida.org/"><img alt="CAIDA home" src="/images/caida_mobile.png" title="CAIDA - Center for Applied Internet Data Analysis" /></a>
+    </div>
+    <div class="d-none d-print-block p-2"><div class="h1 text-light">The UCSD Network Telescope</div></div>
+    <nav id="main-menu" class="main-menu" aria-label="Main">
+    <div class="btn-group">
+       
+        <a href="https://catalog.caida.org/" class="btn btn-light btn-md dropdown-toggle minw " aria-haspopup="true" aria-expanded="false" role="button" ><span class="d-lg-none">Catalog</span><span class="d-none d-lg-block">Resource Catalog</span><span class="sr-only" data-toggle="dropdown"> Toggle Dropdown</span></a>
+        <div class="dropdown-menu">
+            
+              <div class="dropdown-submenu">
+                <a class="dropdown-item dropdown-toggle" href="https://catalog.caida.org/search?query=types=dataset%20links=tag:caida%20">Datasets</a>
+                <div class="dropdown-menu">
+                    <a class="dropdown-item" href="/catalog/datasets/overview/">Overview table</a>
+                </div>
+              </div>
+            
+            
+              <div class="dropdown-submenu">
+                <a class="dropdown-item dropdown-toggle" href="https://catalog.caida.org/search?query=types=presentation%20links=tag:caida%20">Media / Presentations</a>
+                <div class="dropdown-menu">
+                    <a class="dropdown-item" href="https://www.caida.org/catalog/media/posters/">Posters</a>
+                    <a class="dropdown-item" href="https://www.caida.org/catalog/media/visualizations/">Visualizations</a>
+                </div>
+              </div>
+            
+            
+              <div class="dropdown-submenu">
+                <a class="dropdown-item dropdown-toggle" href="https://catalog.caida.org/search?query=types=paper%20links=tag:caida%20">Papers</a>
+                <div class="dropdown-menu">
+                    <a class="dropdown-item" href="https://catalog.caida.org/search?query=types=paper%20!links=tag:caida%20links=tag:used_caida_data%20">External papers</a>
+                    <a class="dropdown-item" href="https://www.caida.org/catalog/datasets/publications/report-publication/">Report new publication</a>
+                </div>
+              </div>
+            
+            
+              <a class="dropdown-item solo" href="https://catalog.caida.org/search?query=types=recipe%20">Recipes</a>
+            
+              <a class="dropdown-item solo" href="https://catalog.caida.org/search?query=types=software%20">Software / Tools</a>
+        </div>
+      
+    </div>
+    <div class="btn-group">
+       
+        <a href="/about/" class="btn btn-light btn-md dropdown-toggle minw " aria-haspopup="true" aria-expanded="false" role="button" ><span class="d-lg-none">About</span><span class="d-none d-lg-block">About</span><span class="sr-only" data-toggle="dropdown"> Toggle Dropdown</span></a>
+        <div class="dropdown-menu">
+            
+              <a class="dropdown-item solo" href="/about/supporting/">Supporting</a>
+            
+              <a class="dropdown-item solo" href="/about/donate/">Donate</a>
+            
+              <a class="dropdown-item solo" href="/about/sponsors/">Sponsors</a>
+            
+              <a class="dropdown-item solo" href="/about/jobs/">Jobs at CAIDA</a>
+            
+              <a class="dropdown-item solo" href="/about/annualreports/">Annual Reports</a>
+            
+              <a class="dropdown-item solo" href="/about/progplan/">Program Plan</a>
+            
+              <a class="dropdown-item solo" href="/about/legal/">Legal Agreements</a>
+            
+              <a class="dropdown-item solo" href="/about/sso/">Single Sign-On</a>
+            
+              <a class="dropdown-item solo" href="/staff/">Staff</a>
+            
+              <a class="dropdown-item solo" href="/blog/">Blog</a>
+            
+              <a class="dropdown-item solo" href="/about/contactinfo/">Contact Us</a>
+        </div>
+      
+    </div>
+    <div class="btn-group">
+      
+        <a href="/workshops/" class="btn btn-light btn-md dropdown-toggle minw " aria-haspopup="true" aria-expanded="false" role="button" >Workshops<span class="sr-only" data-toggle="dropdown"> Toggle Dropdown</span></a>
+          
+        <div class="dropdown-menu">
+  
+  <a class="dropdown-item wkshp" href="/workshops/?workshopserieslisting=GMI&show_all=1" title="GMI3S">GMI Meetings</a>
+      <a class="dropdown-item solo wkshp" href="/workshops/training/2606/" title="ESCALATE Training Program (ETP)">ETP</a>
+      <a class="dropdown-item solo wkshp" href="/workshops/wide/2602/" title="11th CAIDA-WIDE Workshop">CAIDA-WIDE</a>
+      <a class="dropdown-item solo wkshp" href="/workshops/aims/2602/" title="AIMS-19 Workshop">AIMS-19</a>
+      <a class="dropdown-item solo wkshp" href="/workshops/aims/2509/" title="AIMS-18 (GMI-AIMS-6) Workshop">AIMS-18 (GMI-AIMS-6)</a>
+      <a class="dropdown-item solo wkshp" href="/workshops/aims/2502/" title="AIMS-17 (GMI-AIMS-5) Workshop">AIMS-17 (GMI-AIMS-5)</a>
+        </div>
+      
+    </div>
+    <div class="btn-group">
+      
+        <a href="/projects/" class="btn btn-light btn-md dropdown-toggle minw  active" aria-haspopup="true" aria-expanded="false" role="button" >Projects<span class="sr-only" data-toggle="dropdown"> Toggle Dropdown</span></a>
+          
+        <div class="dropdown-menu">
+  
+          <a class="dropdown-item solo" href="/projects/canis/" title="Curated AI-ready Network telescope datasets for Internet Security">CANIS</a>
+          <a class="dropdown-item solo" href="/projects/nids/" title="Network Infrastructure Data Science">NIDS</a>
+          <a class="dropdown-item solo" href="/projects/escalate/" title="Engaging Scholars in Cybersecurity Analysis: A Laboratory for Teaching and Education">ESCALATE</a>
+          <a class="dropdown-item solo" href="/projects/rootbeer/" title="Routing Operations Observational Technology: Building to Enable Education and Research">ROOTBEER</a>
+          <a class="dropdown-item solo" href="/projects/avoid/" title="Automated Verification Of Internet Data-paths for 5G">AVOID</a>
+          <a class="dropdown-item solo" href="/projects/spoofer/" title="Spoofer">Spoofer</a>
+          <a class="dropdown-item solo" href="/projects/cloudtrace/" title="Cloudtrace">Cloudtrace</a>
+          <a class="dropdown-item solo" href="/projects/network_telescope/" title="Network Telescope">Network Telescope</a>
+          <a class="dropdown-item solo" href="/projects/as-core/" title="AS Core Visualization">AS Core Visualization</a>
+          <a class="dropdown-item solo" href="/projects/ark/" title="Archipelago Measurement Infrastructure">Ark</a>
+        </div>
+      
+    </div>
+    <div class="btn-group">
+      
+        <a href="/funding/" class="btn btn-light btn-md dropdown-toggle minw " aria-haspopup="true" aria-expanded="false" role="button" >Funding<span class="sr-only" data-toggle="dropdown"> Toggle Dropdown</span></a>
+          
+        <div class="dropdown-menu">
+  
+          <a class="dropdown-item solo" href="/funding/msri-glimpse/" title="Global Laboratory for Internet Measurement, Probing, and Security Evaluation">GLIMPSE</a>
+          <a class="dropdown-item solo" href="/funding/cns-ivoyager/" title=" Internet Voyager for Gathering Cyber Threat Intelligence">iVoyager</a>
+          <a class="dropdown-item solo" href="/funding/cici-canis/" title="Curated AI-ready Network telescope datasets for Internet Security">CANIS</a>
+          <a class="dropdown-item solo" href="/funding/cici-rootbeer/" title="Routing Operations Observational Technology: Building to Enable Education and Research">ROOTBEER</a>
+          <a class="dropdown-item solo" href="/funding/cybertraining-escalate/" title="Engaging Scholars in Cybersecurity Analysis: A Laboratory for Teaching and Education">ESCALATE</a>
+          <a class="dropdown-item solo" href="/funding/cici-starnova/" title="Scalable Technology to Accelerate Research Network Operations Vulnerability Alerts">STARNOVA</a>
+          <a class="dropdown-item solo" href="/funding/cns-cloudbottlenecks/" title="Detection and Analysis of Infrastructure Bottlenecks in a Cloud-Centric Internet">Cloud Bottlenecks</a>
+          <a class="dropdown-item solo" href="/funding/ccri-ilands/" title="Integrated Library for Advancing Network Data Science">ILANDS</a>
+        </div>
+      
+    </div>
+    <div class="btn-group">
+      
+        <a href="/blog/" class="btn btn-light btn-md dropdown-toggle minw " aria-haspopup="true" aria-expanded="false" role="button" >Blog<span class="sr-only" data-toggle="dropdown"> Toggle Dropdown</span></a>
+          
+        <div class="dropdown-menu">
+    <a class="dropdown-item solo" href="/blog/caidas-annual-2024-report/" title="CAIDA&#39;s Annual 2024 Report">CAIDA&#39;s Annual 2024 Report</a>
+    <a class="dropdown-item solo" href="/blog/new-developments-in-100-gb-anonymized-passive-traces/" title="New Developments in 100 GB Anonymized Passive Traces">New Developments in 100 GB Anonymized Passive Traces</a>
+    <a class="dropdown-item solo" href="/blog/observing-the-ddos-landscape-requires-collaboration/" title="Observing the DDoS Landscape Requires Collaboration">Observing the DDoS Landscape Requires Collaboration</a>
+    <a class="dropdown-item solo" href="/blog/as-reachability-visualization/" title="AS Reachability Visualization">AS Reachability Visualization</a>
+    <a class="dropdown-item solo" href="/blog/caidas-2023-annual-report/" title="CAIDA&#39;s 2023 Annual Report">CAIDA&#39;s 2023 Annual Report</a>
+    <a class="dropdown-item solo" href="/blog/streamlining-access-to-bgp-routing-data/" title="Streamlining Access to BGP Routing Data">Streamlining Access to BGP Routing Data</a>
+    <a class="dropdown-item solo" href="/blog/seeking-beta-users-for-100-gb-link-anonymized-passive-traces/" title="Seeking Beta Users for 100 GB link Anonymized  Passive Traces">Seeking Beta Users for 100 GB link Anonymized  Passive Traces</a>
+    <a class="dropdown-item solo" href="/blog/help-caida-refine-and-enhance-the-fantail-platform/" title="Help CAIDA Refine and Enhance the FANTAIL Traceroute Analytics platform.">Help CAIDA Refine and Enhance the FANTAIL Traceroute Analytics platform.</a>
+    <a class="dropdown-item solo" href="/blog/understanding-the-deployment-of-public-recursive-resolvers/" title="Understanding the deployment of public recursive resolvers">Understanding the deployment of public recursive resolvers</a>
+    <a class="dropdown-item solo" href="/blog/itdk-2024-02/" title="ITDK 2024-02">ITDK 2024-02</a>
+
+        </div>
+      
+    </div>
+</nav>
+
+<div id="searchbox" class="d-none d-xl-block d-print-none">
+  <form method="GET" action="https://duckduckgo.com/" id="ddgform-main" class="form-inline my-2 my-xl-0">
+    <div class="input-group">
+      <input name="q" id="ddg-xl-search" value="" class="form-control" type="search" placeholder="Search CAIDA" aria-label="Search">
+      <input name="sites" value="www.caida.org" type="hidden">
+      <span class="input-group-append">
+        <button class="btn btn-outline-light ddg-search-button" aria-label="Search" title="Search within CAIDA pages" type="submit">
+            <i class="fa fa-search fa-2x"></i>
+        </button>
+      </span>
+    </div>   
+  </form>
+</div>
+
+
+    <div class="d-xl-none d-print-none">
+      <button class="btn d-inline d-xl-none btn-outline-light" aria-label="Search" data-toggle="collapse" data-target="#mobilesearch"><i class="fa fa-search"></i></button>
+      
+<button id="toggle-main-menu-mobile" class="btn hamburger hamburger--spin" type="button" aria-label="Open menu" aria-expanded="false" aria-controls="main-menu-mobile">
+  <span class="hamburger-box">
+    <span class="hamburger-inner"></span>
+  </span>
+</button>
+
+    </div>
+  </div>
+</div>
+<div class="container d-print-none" data-id="mobilesearch">
+  <div class="row">
+    <div id="mobilesearch" class="col-12 collapse bg-primary ">
+      <form method="GET" action="https://duckduckgo.com/" id="ddgform-mobile" class="my-2 my-xl-0">
+        <div class="input-group d-xl-none">
+          <input name="q" id="ddg-collapse-search" value="" class="form-control" type="search" placeholder="Search CAIDA" aria-label="Search">
+          <input name="sites" value="www.caida.org" type="hidden">         
+          <span class="input-group-append">
+            <button class="btn btn-success ddg-search-button" aria-label="Search" type="submit">
+                Search
+            </button>
+          </span>
+        </div>        
+      </form>
+    </div>
+  </div>
+</div>
+<div class="container">
+<ul class="breadcrumb">
+  
+<li class="breadcrumb-item"><a href="/">CAIDA</a>
+</li>
+<li class="breadcrumb-item"><a href="/projects/">Projects</a>
+</li>
+<li class="breadcrumb-item active"><a >The UCSD Network Telescope</a>
+</li>
+</ul></div>
+
+    </header>
+
+    <div class="pt-2 pt-md-3 pb-3 pb-md-6" data-id="sidebarcontainer" id="sidebarcontainer">
+        <div class="row">
+          <aside class="col-12 order-1 col-lg-3 col-xxl-2 mb-3"  id="asidebar">
+            <div class="sticky-top mw-50 sidebar ">
+              
+
+<div class="docs-menu">
+  <div class="h5" id="onthispage">On this page</div><div id="pagetoc"></div> 
+
+</div>  
+  
+            </div>
+          </aside>
+          <main id="main-content" class="col-12 order-12 col-lg-9 col-xxl-10">
+<h1 class="title d-print-none">The UCSD Network Telescope</h1>
+  <div class="hrwrap">The UCSD Network Telescope is a passive traffic monitoring system
+built on a globally routed, but lightly utilized /9 and /10 network.
+Under CAIDA stewardship, this unique resource
+provides valuable data for network security researchers.   
+
+  </div>
+
+<div class="content"><h2 id="introduction">Introduction</h2>
+<p>The UCSD network telescope is a sophisticated system that monitors one-way, passive Internet traffic directed toward the unused portion of a globally routed /9 and /10 IPv4 network, which is often referred to as a black hole, Internet sink, darkspace, or darknet. This network, allocated by ARDC, represents approximately 1/256th of all IPv4 addresses and carries almost no legitimate traffic due to its lack of provider-allocated IP addresses.</p>
+<p>After filtering out legitimate traffic from the incoming packets, the remaining signal provides a continuous view of anomalous unsolicited traffic, commonly referred to as Internet Background Radiation (IBR). This traffic includes a mixture of signals resulting from various sources such as misconfigurations (e.g. mistyping an IP addressxx), malicious activities (e.g., scanning, probing, and backscatter from denial-of-service attacks), propagation of worms and viruses, and other unintended network behaviors. IBR is generally studied to gain insights into Internet-wide phenomena, including cybersecurity threats, vulnerabilities, and systemic misconfigurations.
+Traditionally, darkspace traffic was dominated by high-intensity scanning, backscatter from large-scale denial-of-service (DDoS) attacks, and worm propagation. However, in recent years, traffic destined for darkspace has increasingly included longer-duration, low-intensity events, some of which are associated with botnet operations.</p>
+<p>CAIDA personnel maintains and expands the telescope instrumentation, collects, curates, archives, and analyzes the data, and enables data access for vetted security researchers. As a result, <a href="https://catalog.caida.org/search?query=types=paper%20links=collection:ucsd_telescope_datasets"><span>317</span> publications</a> were written using datasets generated from the UCSD Network Telescope.</p>
+<h2 id="subnet-filters">Subnet Filters</h2>
+<p>The UCSD network Telescope is a passive monitoring system that captures Internet traffic sent to a segment of IP address space owned by Amateur Radio Digital Communications. The range consists predominantly of unutilized IP addresses, meaning they are not assigned to active hosts. It also encompasses a few utilized IP address blocks. We wrote a tool to filter out any legitimate traffic inadvertently captured. Our filtering process relies on an exclusion list obtained by querying a database maintained by ARDC. This list includes all address blocks allocated by ARDC for use, including some users that announce their prefix via the Border Gateway Protocol (BGP) into the global Internet. Theoretically, we should not receive traffic from these BGP-announced networks; this filtering is a preventative measure. As of November 2023, we have enhanced our operations by automatically updating subnet filters twice daily. Additionally, for historical reference, we archive all filters going forward (starting with the timestamp 1700517778) in a swift container named amprnet-legit-networks-all-subnets. This container also has files of daily filters before this time, but there is a gap where we had not updated the pipeline to use the new database querying mechanism, i.e., we were not performing this filtering accurately. Authorized users of the telescope data can access this historical information which may help analyze the data, as it indicates which prefixes we should not see traffic to because we filter it. I.e, those address blocks are not part of our darknet.</p>
+<p>The telescope instrumentation is in need of an overhaul to keep up with traffic growth. System resource limitations sometimes cause packets to be dropped, or failure to generate flowtuples. We are in the process of upgrading the hardware and software to accommodate this growth.</p>
+<h2 id="ibr-origin">IBR Origin</h2>
+<h3 id="denial_of_service">Denial-of-service Attacks</h3>
+<div id="player"></div>
+<noscript><a href="https://youtu.be/Yj_SdiG0RuY"><img src="images/backscatter-video-thumb.png" width="355" height="200" alt="Backscatter Analysis video" align="left" /></a></noscript>
+<p>The UCSD network telescope can be used to monitor the spread of random-source distributed denial-of-service attacks. To make it difficult for the attack victim (and the victim&rsquo;s ISPs) to block an incoming attack, the attacker may use a fake source IP address (similar to a fake return address in postal mail) in each packet sent to the victim (Figure 1). Because the denial-of-service attack victim can&rsquo;t distinguish between incoming requests from an attacker and legitimate inbound requests, the victim tries to respond to every received request (Figure 2). When the attacker spoofs a source address in the network telescope, we observe a response destined for a computer that doesn&rsquo;t exist (and therefore never sent the initial query) (Figure 3). By monitoring these unsolicited responses, researchers can identify denial-of-service attack victims and infer information about the volume of the attack, the bandwidth of the victim, the location of the victim, and the types of services the attacker targets.</p>
+<table border="0">
+    <tr>
+  <td><a href="images/DoS_Frame_1.gif"><img src ="images/DoS_Frame_1_small.gif" alt="The attacker sends packets with spoofed source addresses to the denial-of-service attack victim." /></a></td>
+  <td><a href="images/DoS_Frame_2.gif"><img src ="images/DoS_Frame_2_small.gif" alt="The denial-of-service attack victim cannot differentiate between legitimate traffic and the attack packets, so the victim responds to as many of the attack packets as possible." /></a></td>
+  <td><a href="images/DoS_Frame_3.gif"><img src ="images/DoS_Frame_3_small.gif" alt="Because the network telescope composes 1/256th of the IPv4 address space, the telescope receives approximately 1/256th of the responses to spoofed packets generated by the denial-of-service attack victim." /></a></td>
+    </tr><tr>
+  <td valign="top" width="275"><p><small><b>Figure 1:</b> The
+      attacker sends packets with spoofed source addresses to the
+      denial-of-service attack victim.</small></p></td>
+  <td valign="top" width="275"><p><small><b>Figure 2:</b> The
+      denial-of-service attack victim cannot differentiate
+      between legitimate traffic and the attack packets, so the
+      victim responds to as many of the attack packets as
+      possible.</small></p></td>
+  <td valign="top" width="275"><p><small><b>Figure 3:</b> Because
+      the network telescope composes 1/256th of the IPv4 address
+      space, the telescope receives approximately 1/256th of the
+      responses to spoofed packets generated by the
+      denial-of-service attack victim.</small></p></td>
+    </tr>
+</table>
+<p>We know of <a href="https://catalog.caida.org/search?query=types=paper%20links=collection:ucsd_telescope_datasets%20dos%20sort=date"><span>13</span> papers relating to Denial-of-Service</a> that have been written using telescope data :
+ 
+<div class="aitn349"></div>
+<script class="aitn349">
+  
+  $(document).ready(function() {
+    $(".aitn349").nextAll("ul").first().attr("class","scrollinglist");  
+    $(".aitn349").remove();
+  });
+</script>
+
+
+
+
+          <ul><li>
+                    <a href=https://catalog.caida.org/paper/2026_through_smaller_lens>
+                      Through a Smaller Lens: Revisiting Opportunistic Analysis using Network Telescopes</a>.
+                    B. Degen, N. Kempen, k. claffy, R. Mok, R. Holz, R. Van Rijswijk-Deij, R. Sommese, M. Jonker. <br>Passive and Active Measurement Conference (PAM),
+                      Mar 2026.
+                </li><li>
+                    <a href=https://catalog.caida.org/paper/2025_analyzing_internet_background_radiation_reflective>
+                      Analyzing Internet Background Radiation with Reflective Network Telescopes</a>.
+                    E. Chan, R. Mok, E. Chan, X. Luo. <br>Applied Networking Research Workshop,
+                      Jul 2025.
+                </li><li>
+                    <a href=https://catalog.caida.org/paper/2024_darksim>
+                      DarkSim: A Similarity-Based Time Series Analytic Framework for Darknet Traffic</a>.
+                    M. Gao, R. Mok, E. Carisimo, k. claffy, E. Li, S. Kulkarni. <br>ACM Internet Measurement Conference (IMC),
+                      Nov 2024.
+                </li><li>
+                    <a href=https://catalog.caida.org/paper/2024_age_of_ddoscovery>
+                      The Age of DDoScovery: An Empirical Comparison of Industry and Academic DDoS Assessments</a>.
+                    R. Hiesgen, M. Nawrocki, M. Barcellos, D. Kopp, O. Hohlfeld, E. Chan, R. Dobbins, C. Doerr, C. Rossow, D. Thomas, M. Jonker, R. Mok, X. Luo, J. Kristoff, T. Schmidt, M. Wählisch, k. claffy. <br>ACM Internet Measurement Conference (IMC),
+                      Nov 2024.
+                </li><li>
+                    <a href=https://catalog.caida.org/paper/2022_investigating_impact_ddos_attacks>
+                      Investigating the impact of DDoS attacks on DNS infrastructure</a>.
+                    R. Sommese, k. claffy, R. Van Rijswijk-Deij, A. Chattopadhyay, A. Dainotti, A. Sperotto, M. Jonker. <br>ACM Internet Measurement Conference (IMC),
+                      Oct 2022.
+                </li><li>
+                    <a href=https://catalog.caida.org/paper/2021_nawrocki_m_acm_3487840>
+                      QUICsand: quantifying QUIC reconnaissance scans and DoS flooding events</a>.
+                    M. Nawrocki, R. Hiesgen, T. Schmidt, M. Wahlisch. <br>Proceedings of the 21st ACM Internet Measurement Conference,
+                      Nov 2021.
+                </li><li>
+                    <a href=https://catalog.caida.org/paper/2019_at_home_abroad>
+                      At Home and Abroad: The Use of Denial-of-service Attacks during Elections in Nondemocratic Regimes</a>.
+                    P. Lutscher, N. Weidmann, M. Roberts, M. Jonker, A. King, A. Dainotti. <br>Journal of Conflict Resolution,
+                      Jul 2019.
+                </li><li>
+                    <a href=https://catalog.caida.org/paper/2018_fs_ebh_jc_ng_2019541>
+                      A machine learning model for classifying unsolicited IoT devices by observing Network Telescopes</a>.
+                    F. Shaikh, E. Bou-Harb, J. Crichigno, N. Ghani. <br>Intl Wireless Comm. and Mobile Computing Conf. (IWCMC),
+                </li><li>
+                    <a href=https://catalog.caida.org/paper/2018_ss_ssa_2019608>
+                      Inferring the deployment of source address validation filtering using silence of path-backscatter</a>.
+                    S. Saurabh, A. Sairam. <br>Natl Conf. on Communications (NCC),
+                </li><li>
+                    <a href=https://catalog.caida.org/paper/2017_millions_targets_under_attack>
+                      Millions of Targets Under Attack: a Macroscopic Characterization of the DoS Ecosystem</a>.
+                    M. Jonker, A. King, J. Krupp, C. Rossow, A. Sperotto, A. Dainotti. <br>ACM Internet Measurement Conference (IMC),
+                      Nov 2017.
+                </li><li>
+                    <a href=https://catalog.caida.org/paper/2015_c_fachkha_concordia_980810>
+                      Darknet as a source of cyber threat intelligence: Investigating distributed and reflection Denial of Service attacks</a>.
+                    C. Fachkha. <br>
+                      Nov 2015.
+                </li><li>
+                    <a href=https://catalog.caida.org/paper/2011_mohay_g_springer_0277>
+                      Detection and Mitigation of High-Rate Flooding Attacks</a>.
+                    G. Mohay, E. Ahmed, S. Bhatia, A. Nadarajan, B. Ravindran, A. Tickle, R. Vijayasarathy. <br>An Investigation into the Detection and Mitigation of Denial of Service (DoS) Attacks,
+                      Sep 2011.
+                </li><li>
+                    <a href=https://catalog.caida.org/paper/2006_backscatter_dos>
+                      Inferring Internet Denial-of-Service Activity</a>.
+                    D. Moore, C. Shannon, D. Brown, G. Voelker, S. Savage. <br>ACM Transactions on Computer Systems,
+                      May 2006.
+                </li>
+            </ul></p>
+<h3 id="worm">Internet Worms</h3>
+<p>Many Internet worms spread by randomly generating an IP address to be the target of an infection attempt and sending the worm off to that IP address in the hope that it is in use by a vulnerable computer (Figure 4). Because the network telescope includes one out of every 256 IPv4 addresses, it receives approximately one out of every 256 probes from hosts infected with randomly scanning worms. Many worms do not scan truly randomly, and network problems (both worm-induced and independent) may prevent the network telescope from receiving probes from all infected hosts. In general, though, the telescope sees a newly infected hosts transmitting at the slow speed of 10 packets per second within 30 seconds of the infection.</p>
+<p><a href="images/Worm_Frame.jpg"><img src="images/Worm_Frame_small.jpg" alt="Infected computers randomly attempt to infect other vulnerable computers.  The network telescope monitors approximately one out of every 256 infection attempts." /></a></p>
+  <p><small><b>Figure 4:</b>
+      Infected computers randomly attempt to infect other
+      vulnerable computers.  The network telescope captures
+      approximately one out of every 256 infection
+      attempts.</small></p>
+<p>We know of <a href="https://catalog.caida.org/search?query=types=paper%20links=collection:ucsd_telescope_datasets%20dos%20sort=date"><span>51</span> papers relating to Internet Worms</a> that have been written using telescope data:</p>
+<p> 
+<div class="aitn704"></div>
+<script class="aitn704">
+  
+  $(document).ready(function() {
+    $(".aitn704").nextAll("ul").first().attr("class","scrollinglist");  
+    $(".aitn704").remove();
+  });
+</script>
+
+
+
+
+          <ul><li>
+                    <a href=https://catalog.caida.org/paper/2025_zhuravel_i_ieee_1019>
+                      Stochastic SIR Model for Computer Worm Propagation</a>.
+                    I. Zhuravel, S. Semenyuk, T. Korobeinikova, O. Romanyuk, O. Reshetnik, V. Maydanyuk. <br>2025 15th International Conference on Advanced Computer Information Technologies (ACIT),
+                      Sep 2025.
+                </li><li>
+                    <a href=https://catalog.caida.org/paper/2020_wang_t_lspringer_60248217>
+                      H2P: A Novel Model to Study the Propagation of Modern Hybrid Worm in Hierarchical Networks</a>.
+                    T. Wang, C. Xia. <br>LNTCS,
+                      Sep 2020.
+                </li><li>
+                    <a href=https://catalog.caida.org/paper/2020_gao_q_scidir_9305764>
+                      Stability analysis and control strategies for worm attack in mobile networks via a VEIQS propagation model</a>.
+                    Q. Gao, J. Zhuang. <br>Applied Mathematics and Computation,
+                      Mar 2020.
+                </li><li>
+                    <a href=https://catalog.caida.org/paper/2019_ochieng_n_hindawi_4656480>
+                      Optimizing Computer Worm Detection Using Ensembles</a>.
+                    N. Ochieng, W. Mwangi, I. Ateya. <br>Security and Communication Networks,
+                      Apr 2019.
+                </li><li>
+                    <a href=https://catalog.caida.org/paper/2019_ai_nk_ar_tt_20191204>
+                      Some New Approaches for Modelling Large-scale Worm Spreading on the Internet. II</a>.
+                    A. Iliev, N. Kyurkchiev, A. Rahnev, T. Terzieva. <br>Neural, Parallel and Scientific Computations,
+                </li><li>
+                    <a href=https://catalog.caida.org/paper/2019_chumachenko_d_begellhouse_52815085107>
+                      Intelligent Simulation Of Network Worm Propagation Using The Code Red As An Example</a>.
+                    D. Chumachenko, K. Chumachenko, S. Yakovlev. <br>Telecommunications and Radio Engineering,
+                       2019.
+                </li><li>
+                    <a href=https://catalog.caida.org/paper/2018_ochieng_o_ijcaonline_18044917>
+                      A Hybrid Filter/Wrapper Method for Feature Selection for Computer Worm Detection using Darknet Traffic</a>.
+                    O. Ochieng, R. Waweru, L. Ismail. <br>International Journal of Computer Applications,
+                      May 2018.
+                </li><li>
+                    <a href=https://catalog.caida.org/paper/2017_n_ochieng_pact_715182>
+                      Detecting scanning computer worms using machine learning and darkspace network traffic</a>.
+                    N. Ochieng, A. Ismail, M. Waweru, J. Orero. <br>Pan African Conf. on Science, Computing and Telecommunications (PACT),
+                      Mar 2017.
+                </li><li>
+                    <a href=https://catalog.caida.org/paper/2017_j_dauxois_cssc_47_1066>
+                      Some estimation problems in epidemic modeling</a>.
+                    J. Dauxois, A. Nucit. <br>Communications in Statistics - Simulation and Computation,
+                      Mar 2017.
+                </li><li>
+                    <a href=https://catalog.caida.org/paper/2017_h_alharbi_ustirling>
+                      Novel analytical modelling-based simulation of worm propagation in unstructured peer-to-peer networks</a>.
+                    H. Alharbi. <br>
+                      Jan 2017.
+                </li><li>
+                    <a href=https://catalog.caida.org/paper/2016_c_lin_srdsw_7600155>
+                      Adaptive IP mutation: A proactive approach for defending against worm propagation</a>.
+                    C. Lin, C. Wu, M. Huang, Z. Wen, Q. Cheng. <br>IEEE Symp. onReliable Distributed Systems Workshops (SRDSW),
+                      Sep 2016.
+                </li><li>
+                    <a href=https://catalog.caida.org/paper/2016_c_fachkha_cst_18_1197>
+                      Darknet as a source of cyber intelligence: Survey, taxonomy, and characterization</a>.
+                    C. Fachkha, M. Debbabi. <br>IEEE Communications Surveys and Tutorials,
+                      May 2016.
+                </li><li>
+                    <a href=https://catalog.caida.org/paper/2016_z_chen_ijsn_11>
+                      Characterising heterogeneity in vulnerable hosts on worm propagation</a>.
+                    Z. Chen, C. Chen. <br>Intl J. Security and Networks,
+                      Jan 2016.
+                </li><li>
+                    <a href=https://catalog.caida.org/paper/2015_x_chen_58_1>
+                      CIPA: A collaborative intrusion prevention architecture for programmable network and SDN</a>.
+                    X. Chen, S. Yu. <br>Computers and Security,
+                      Dec 2015.
+                </li><li>
+                    <a href=https://catalog.caida.org/paper/2015_c_zhang_plosone_0127478>
+                      Hybrid epidemics - A case study on computer worm Conficker</a>.
+                    C. Zhang, S. Zhou, B. Chain. <br>Plos One,
+                      May 2015.
+                </li><li>
+                    <a href=https://catalog.caida.org/paper/2015_h_chen_binghamton_244620>
+                      Toward hardware-oriented defensive network infrastructure</a>.
+                    H. Chen. <br>
+                       2015.
+                </li><li>
+                    <a href=https://catalog.caida.org/paper/2014_a_kolesnichenko_twente_93238>
+                      Model-checking mean-field models: algorithms and applications</a>.
+                    A. Kolesnichenko. <br>
+                      Dec 2014.
+                </li><li>
+                    <a href=https://catalog.caida.org/paper/2014_j_fowler_vizsec>
+                      IMap: Visualizing network activity over Internet maps</a>.
+                    J. Fowler, T. Johnson, P. Simonetto, P. Lazos, S. Kobourov, M. Schneider, C. Aceda. <br>Visualization for Cyber Security (VizSec),
+                      Nov 2014.
+                </li><li>
+                    <a href=https://catalog.caida.org/paper/2013_l_tidy_j_dms>
+                      Simulation of zero-day worm epidemiology in the dynamic, heterogeneous Internet</a>.
+                    L. Tidy, S. Woodhead, J. Wetherall. <br>J. Defense Modeling and Simulation: Applications, Methodology, Technology,
+                      Oct 2013.
+                </li><li>
+                    <a href=https://catalog.caida.org/paper/2013_b_irwin_saiee_104_38>
+                      A source analysis of the Conficker outbreak from a Network Telescope</a>.
+                    B. Irwin. <br>SAIEE Africa Research J.,
+                      Jun 2013.
+                </li><li>
+                    <a href=https://catalog.caida.org/paper/2013_y_chen_infocom_1788>
+                      Cardinality change-based early detection of large-scale cyber-attacks</a>.
+                    W. Chen, Y. Liu, Y. Guan. <br>IEEE INFOCOM,
+                      Apr 2013.
+                </li><li>
+                    <a href=https://catalog.caida.org/paper/2013_p_kumar_comp_comm_36_303>
+                      Detection of distributed denial of service attacks using an ensemble of adaptive and hybrid neuro-fuzzy systems</a>.
+                    P. Kumar, S. Selvakumar. <br>Computer Communications,
+                      Feb 2013.
+                </li><li>
+                    <a href=https://catalog.caida.org/paper/2013_l_tidy_jacns>
+                      A large-scale zero-day worm simulator for cyber-epidemiological analysis</a>.
+                    L. Tidy, S. Woodhead, J. Wetherall. <br>Conf. on Advances in Computer Science and Electronics Engineering (CSEE),
+                      Feb 2013.
+                </li><li>
+                    <a href=https://catalog.caida.org/paper/2012_l_zheng_adv_sci_lett_7_456>
+                      Traffic anomaly detection improvement based on spatial-temporal characteristics</a>.
+                    L. Zheng, P. Zou, Y. Jia, W. Han. <br>Advanced Science Lett.,
+                      Mar 2012.
+                </li><li>
+                    <a href=https://catalog.caida.org/paper/2011_yao_y_ieee_6103806>
+                      Diurnal Forced Models for Worm Propagation Based on Conficker Dataset</a>.
+                    Y. Yao, W. Xiang, H. Guo, G. Yu, F. Gao. <br>2011 Third International Conference on Multimedia Information Networking and Security,
+                      Nov 2011.
+                </li><li>
+                    <a href=https://catalog.caida.org/paper/2011_wang_q_ieee_5940226>
+                      Darknet-Based Inference of Internet Worm Temporal Characteristics</a>.
+                    Q. Wang, Z. Chen, C. Chen. <br>IEEE Transactions on Information Forensics and Security,
+                      Jul 2011.
+                </li><li>
+                    <a href=https://catalog.caida.org/paper/2011_l_saganowski_aisc_95_727>
+                      Expansion of matching pursuit methodology for anomaly detection in computer networks</a>.
+                    L. Saganowski, T. Andrysiak, M. Choras, R. Renk. <br>Advances in Intelligent and Soft Computing,
+                       2011.
+                </li><li>
+                    <a href=https://catalog.caida.org/paper/2009_chen_z_acm_027339>
+                      Deriving a closed-form expression for worm-scanning strategies</a>.
+                    Z. Chen, C. Chen, Y. Li. <br>International Journal of Security and Networks,
+                      Jul 2009.
+                </li><li>
+                    <a href=https://catalog.caida.org/paper/2009_yao_y_ieee_4760309>
+                      Behavior-Based Worm Detection and Signature Generation</a>.
+                    Y. Yao, J. Lv, F. Gao, Y. Zhang, G. Yu. <br>2008 International Multi-symposiums on Computer and Computational Sciences,
+                      Jan 2009.
+                </li><li>
+                    <a href=https://catalog.caida.org/paper/2008_wang_f_owiley_703573>
+                      Modeling and analysis of a self-learning worm based on good point set scanning</a>.
+                    F. Wang, Y. Zhang, J. Ma. <br>Wireless Communications and Mobile Computing,
+                      Nov 2008.
+                </li><li>
+                    <a href=https://catalog.caida.org/paper/2008_wei_s_acm_1452536>
+                      Correcting congestion-based error in network telescope&#39;s observations of worm dynamics</a>.
+                    S. Wei, J. Mirkovic. <br>Proceedings of the 8th ACM SIGCOMM conference on Internet measurement (IMC&#39;08),
+                      Oct 2008.
+                </li><li>
+                    <a href=https://catalog.caida.org/paper/2008_liu_q_ieee_4597074>
+                      An Improved Method of Hybrid Worm Simulation</a>.
+                    Q. Liu, J. Jing, Y. Wang. <br>2008 The Ninth International Conference on Web-Age Information Management,
+                      Aug 2008.
+                </li><li>
+                    <a href=https://catalog.caida.org/paper/2008_b_irwin_vizsec2007_147>
+                      High level internet scale traffic visualization using Hilbert curve mapping</a>.
+                    B. Irwin, N. Pilkington. <br>Mathematics and Visualization,
+                      May 2008.
+                </li><li>
+                    <a href=https://catalog.caida.org/paper/2008_s_wei_acm_sigcomm_imc_125>
+                      Correcting congestion-based error in network telescopes observations of worm dynamics</a>.
+                    S. Wei, J. Mirkovic. <br>Internet Measurement Conf. (IMC),
+                       2008.
+                </li><li>
+                    <a href=https://catalog.caida.org/paper/2007_a_dainotti_ieee_icc_1435>
+                      Worm traffic analysis and characterization</a>.
+                    A. Dainotti, A. Pescape, G. Ventre. <br>IEEE Conf. on Communications (ICC),
+                      Jun 2007.
+                </li><li>
+                    <a href=https://catalog.caida.org/paper/2007_chen_z_185314582>
+                      Modeling and Defending Against Internet Worm Attacks</a>.
+                    Z. Chen. <br>
+                      May 2007.
+                </li><li>
+                    <a href=https://catalog.caida.org/paper/2007_z_chen_ieee_infocom_116>
+                      Measuring network-aware worm spreading ability</a>.
+                    Z. Chen, C. Ji. <br>IEEE Conf. on Computer Communications (INFOCOM),
+                      May 2007.
+                </li><li>
+                    <a href=https://catalog.caida.org/paper/2007_z_chen_ijsn_71>
+                      Optimal worm-scanning method using vulnerable-host distributions</a>.
+                    Z. Chen, C. Ji. <br>J. Security and Networks,
+                       2007.
+                </li><li>
+                    <a href=https://catalog.caida.org/paper/2006_rajab_m_acm_1179554>
+                      On the impact of dynamic addressing on malware propagation</a>.
+                    M. Rajab, F. Monrose, A. Terzis. <br>Proceedings of the 4th ACM workshop on Recurring malcode (WORM &#39;06),
+                      Nov 2006.
+                </li><li>
+                    <a href=https://catalog.caida.org/paper/2006_christoffersen_d_ntnuopen_261895>
+                      Worm Detection Using Honeypots</a>.
+                    D. Christoffersen, B. Mauland. <br>
+                      Jun 2006.
+                </li><li>
+                    <a href=https://catalog.caida.org/paper/2005_m_rajab_acm_worm_52>
+                      Worm evolution tracking via timing analysis</a>.
+                    M. Rajab, F. Monrose, A. Terzis. <br>ACM workshop on Rapid Malcode (WORM),
+                      Nov 2005.
+                </li><li>
+                    <a href=https://catalog.caida.org/paper/2005_z_chen_ieee_globecom_3_1>
+                      Importance-scanning worm using vulnerable-host distribution</a>.
+                    Z. Chen, C. Ji. <br>IEEE Global Telecommunications Conf. (GLOBECOM),
+                      Nov 2005.
+                </li><li>
+                    <a href=https://catalog.caida.org/paper/2005_m_rajab_usenix_security_symp_15>
+                      On the effectiveness of distributed worm monitoring</a>.
+                    M. Rajab, F. Monrose, A. Terzis. <br>Usenix Security Conf. (SEC),
+                      Jul 2005.
+                </li><li>
+                    <a href=https://catalog.caida.org/paper/2005_c_zhou_ieee_200524>
+                      Routing worm: A fast, selective attack worm based on ip address information</a>.
+                    C. Zhou, D. Towsley, W. Gong, S. Cai. <br>Workshop on Principles of Advanced and Distributed Simulation (PADS&#39;05), IEEE, 2005,
+                      Jun 2005.
+                </li><li>
+                    <a href=https://catalog.caida.org/paper/2005_wagner_a_ieee_8723816>
+                      Entropy based worm and anomaly detection in fast IP networks</a>.
+                    A. Wagner, A. Plattner. <br>Proceedings of the 14th IEEE International Workshops on Enabling Technologies: Infrastructure for Collaborative Enterprise,
+                      Jun 2005.
+                </li><li>
+                    <a href=https://catalog.caida.org/paper/2005_p_chhabra_lncs_3462_730>
+                      PISA: Automatic extraction of traffic signatures</a>.
+                    P. Chhabra, A. John, H. Saran. <br>Lecture Notes in Computer Science (LNCS),
+                      May 2005.
+                </li><li>
+                    <a href=https://catalog.caida.org/paper/2004_cooke_e_acm_1029627>
+                      Toward understanding distributed blackhole placement</a>.
+                    E. Cooke, M. Bailey, Z. Mao, D. Watson, F. Jahanian, D. McPherson. <br>Proceedings of the 2004 ACM workshop on Rapid malcode (WORM &#39;04),
+                      Oct 2004.
+                </li><li>
+                    <a href=https://catalog.caida.org/paper/2004_witty>
+                      The Spread of the Witty Worm</a>.
+                    C. Shannon, D. Moore. <br>IEEE Security and Privacy,
+                      Aug 2004.
+                </li><li>
+                    <a href=https://catalog.caida.org/paper/2004_jiang_s_libpurdue_26072004>
+                      Worm Meets Beehive</a>.
+                    X. Jiang, D. Xu, S. Lei, P. Ruth, J. Sun. <br>
+                       2004.
+                </li><li>
+                    <a href=https://catalog.caida.org/paper/2003_quarantine>
+                      Internet Quarantine: Requirements for Containing Self-Propagating Code</a>.
+                    D. Moore, C. Shannon, G. Voelker, S. Savage. <br>IEEE Conference on Computer Communications (INFOCOM),
+                      Apr 2003.
+                </li><li>
+                    <a href=https://catalog.caida.org/paper/2002_codered>
+                      Code-Red: a case study on the spread and victims of an Internet worm</a>.
+                    D. Moore, C. Shannon, J. Brown. <br>Internet Measurement Workshop (IMW),
+                      Nov 2002.
+                </li>
+            </ul></p>
+<h3 id="scan">Malicious Network Scans</h3>
+<p>Scans are automated, semi-automated, and manual attempts to locate exploitable computers on the Internet. The scan traffic often differs from other types of traffic visible on the network telescope because it is not driven by chance. Rather, the attacker&rsquo;s byzantine motives in selecting scan targets appear arbitrary from the perspective of the recipient of the scan. The UCSD Network Telescope observes many types of scans continually, including ping based scans for the existence of a device at a given IP address, sequential scans of ports on a single IP address, methodical scans for a single or a small number of vulnerable ports sequentially through an IP address range, and even scans utilizing TCP resets.</p>
+<h2 id="accessing-and-analyzing-ucsd-network-telescope-data">Accessing and Analyzing UCSD Network Telescope Data</h2>
+<p>With support from multiple funding sources, we have worked to lower the barrier to entry for researchers by making network telescope data more accessible and easier to analyze while maintaining necessary privacy and security safeguards.</p>
+<p>Currently there are <a href="https://catalog.caida.org/search?query=collection:ucsd_telescope_datasets"><span>22</span> Telescope datasets listed in CAIDA catalog</a>:</p>
+<p> 
+<div class="aitn448"></div>
+<script class="aitn448">
+  
+  $(document).ready(function() {
+    $(".aitn448").nextAll("ul").first().attr("class","scrollinglist");  
+    $(".aitn448").remove();
+  });
+</script>
+
+
+
+
+          <ul><li>
+                    <a href=https://catalog.caida.org/dataset/corsaro_flowtuple>
+                      UCSD Network Telescope Aggregated Flow Dataset</a>.
+                    
+                      Nov 2003.
+                </li><li>
+                    <a href=https://catalog.caida.org/dataset/telescope_daily_rsdos>
+                      Aggregated Daily RSDoS Attack Metadata</a>.
+                    
+                      Jan 2008.
+                </li><li>
+                    <a href=https://catalog.caida.org/dataset/telescope_live>
+                      UCSD Real-time Network Telescope</a>.
+                    
+                      Apr 2020.
+                </li><li>
+                    <a href=https://catalog.caida.org/dataset/telescope_ndag_live>
+                      Telescope nDAG Live</a>.
+                    
+                </li><li>
+                    <a href=https://catalog.caida.org/dataset/telescope_nersc>
+                      UCSD Telescope data at NERSC</a>.
+                    
+                      Nov 2003.
+                </li><li>
+                    <a href=https://catalog.caida.org/dataset/annotated_anonymized_telescope_packets_sampler>
+                      Annotated Anonymized Telescope Packets Sampler</a>.
+                    
+                      Aug 2022.
+                </li><li>
+                    <a href=https://catalog.caida.org/dataset/ucsd_nt_flowtuple_sampler>
+                      UCSD-NT FlowTuple Sampler</a>.
+                    
+                      May 2022.
+                </li><li>
+                    <a href=https://catalog.caida.org/dataset/2024_ieee_anonymized_nsg_challenge>
+                      Anonymized Network Sensing Graph Challenge Dataset</a>.
+                    
+                      Apr 2022.
+                </li><li>
+                    <a href=https://catalog.caida.org/dataset/telescope_corsaro2_daily_rsdos>
+                      Aggregated Daily RSDoS Attack Metadata (Corsaro 2)</a>.
+                    
+                      Aug 2021.
+                </li><li>
+                    <a href=https://catalog.caida.org/dataset/2022_ieee_caida_greynoise_cross_correlation>
+                      CAIDA-GreyNoise Cross Correlation Dataset</a>.
+                    
+                      Oct 2020.
+                </li><li>
+                    <a href=https://catalog.caida.org/dataset/telescope_live_sampler>
+                      UCSD-NT Telescope One-Hour Traffic Sample (2018-05-17, 13:00 UTC)</a>.
+                    
+                      May 2018.
+                </li><li>
+                    <a href=https://catalog.caida.org/dataset/2017_imc_rsdos_targets>
+                      CAIDA Randomly and Uniformly Spoofed Denial-of-Service Attack Metadata</a>.
+                    
+                      Feb 2017.
+                </li><li>
+                    <a href=https://catalog.caida.org/dataset/telescope_darknet_scanners>
+                      Telescope Darknet Scanners</a>.
+                    
+                      Jun 2016.
+                </li><li>
+                    <a href=https://catalog.caida.org/dataset/corsaro_patch_tuesday>
+                      Corsaro Patch Tuesday</a>.
+                    
+                      Jun 2012.
+                </li><li>
+                    <a href=https://catalog.caida.org/dataset/telescope_educational>
+                      Telescope Educational</a>.
+                    
+                      Apr 2012.
+                </li><li>
+                    <a href=https://catalog.caida.org/dataset/telescope_sipscan>
+                      Telescope Sipscan dataset</a>.
+                    
+                      Feb 2011.
+                </li><li>
+                    <a href=https://catalog.caida.org/dataset/telescope_anon_conficker>
+                      Three days of Conficker</a>.
+                    
+                      Jan 2009.
+                </li><li>
+                    <a href=https://catalog.caida.org/dataset/telescope_anon_twodays>
+                      Two-Days-in-2008 Telescope Dataset</a>.
+                    
+                      Nov 2008.
+                </li><li>
+                    <a href=https://catalog.caida.org/dataset/telescope_backscatter>
+                      UCSD Network Telescope Traffic Samples</a>.
+                    
+                      Nov 2008.
+                </li><li>
+                    <a href=https://catalog.caida.org/dataset/telescope_witty_worm>
+                      Witty Worm dataset</a>.
+                    
+                      Mar 2004.
+                </li><li>
+                    <a href=https://catalog.caida.org/dataset/backscatter_tocs_originals>
+                      Backscatter datasets for TOCS paper</a>.
+                    
+                      Feb 2004.
+                </li><li>
+                    <a href=https://catalog.caida.org/dataset/telescope_codered_worm>
+                      Code Red worm dataset</a>.
+                    
+                      Aug 2001.
+                </li>
+            </ul></p>
+<p>Several historical datasets are available for download, either publicly or upon request.
+However, ongoing  datasets containing sensitive information can only be accessed through a VM-based analysis platform, where users can bring their code to the data but cannot download unanonymized data to ensure security and privacy.</p>
+<p>To further support researchers, CAIDA provides free access to U.S.-based and vetted foreign academic researchers and offers telescope data licensing to vetted, paying industry partners under restricted data-use policies.</p>
+<p>We have compiled <a href="https://www.caida.org/projects/network_telescope/docs/">comprehensive documentation</a>, including a user guide and tutorials, offering step-by-step guidance on accessing, processing, and analyzing telescope data.</p>
+<h2 id="published-research-supported-by-telescope-data">Published research supported by Telescope Data</h2>
+<p>The UCSD Network Telescope datasets resulted in the following <a href="https://catalog.caida.org/search?query=links=collection:ucsd_telescope_datasets%20types=paper"><span>317</span></a> publications:</p>
+<ul>
+<li><a href="https://catalog.caida.org/search?query=links=collection:ucsd_telescope_datasets%20types=paper">Papers using UCSD Network Telescope Datasets</a></li>
+</ul>
+<h2 id="acknowledgments">Acknowledgments</h2>
+
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+  
+      
+      
+      
+
+  
+      
+
+  
+      
+
+
+
+
+
+
+
+  
+  
+
+  
+    
+    
+    
+
+  
+  
+  
+
+  
+		
+    
+    
+    
+    
+  
+  
+
+  
+		
+    
+    
+    
+    
+  
+  
+
+  
+    
+      
+
+      
+
+			
+
+      
+      
+			
+
+
+  
+  
+  
+
+  
+    
+			
+      
+      
+
+      
+    
+
+
+  
+
+
+
+		
+
+  
+    
+    
+
+
+
+    
+      <a href="https://www.dhs.gov/"><img style="margin-right: 0.5em; margin-bottom: 1em;" src="/images/logo_dhs_hu15270912012995344217.png" alt="Department of Homeland Security (DHS)" title="Department of Homeland Security (DHS)"></a>
+
+    
+      <a href="https://www.nsf.gov/"><img style="margin-right: 0.5em; margin-bottom: 1em;" src="/images/logo_nsf_hu7925490292150375322.png" alt="National Science Foundation (NSF)" title="National Science Foundation (NSF)"></a>
+
+    
+
+  
+  
+
+<br>
+
+
+  <p>The UCSD Network Telescope project is funded by NSF award <a href="/funding/cici-starnova/">OAC-2319959 &ldquo;Scalable Technology to Accelerate Research Network Operations Vulnerability Alerts&rdquo;</a>, . The project was originally funded by NSF award, <a href="/funding/cri-telescope/">(CNS 1059439) &ldquo;CRI-Telescope: A Real-time Lens into Dark Address Space of the Internet&rdquo;</a>, and subsequently by NSF award <a href="/funding/stardust/">CNS-1730661 &ldquo;STARDUST: Sustainable Tools for Analysis and Research on Darknet Unsolicited Traffic&rdquo;</a>, DHS S&amp;T cooperative agreement <a href="/funding/impact/">(FA8750-12-2-0326) Supporting Research and Development of Security Technologies through Network and Security Data Collection</a>, Amateur Radio Digital Communications (ARDC) service agreement &ldquo;Supporting AMPRNet and the UCSD Network Telescope&rdquo;, and MIT Lincoln Labs service agreement.</p>
+
+
+</div>
+    <hr>
+    <h2 id="subpages">Additional Content</h2>  <h3 class="title-summary"><i class="fa fa-folder-open"></i> <a href="/projects/network_telescope/docs/">UCSD Network Telescope Documentation Overview</a></h3>
+  <div class="summary mb-2">
+    <p>Documentation Overview page</p>
+  </div>
+
+          </main>
+        </div>
+      </div>
+
+</div>
+<footer class="d-print-none">
+  
+
+<div class="text-center d-print-none" id="lastmod">
+  <div class="d-flex justify-content-center text-muted">
+    <div><small>
+      <i class="fa fa-clock-o"></i> <strong>Published</strong>
+      <time datetime="2012-06-12T20:41:26&#43;00:00">June 12, 2012</time>
+    </small></div>
+    <div class="mx-3">
+      <div class="ml-2"><small>
+      <i class="fa fa-edit"></i> <strong>Last Modified</strong> <time datetime="2025-01-29T18:02:57&#43;00:00">January 29, 2025</time>
+      </small></div>
+    </div>
+  </div>
+  
+</div>
+  
+  <div class="sub-footer">
+  <div class="container">
+    <div class="row">
+      <div class="col-2 col-md-1">
+        
+      </div>
+      <div class="col-8">
+        <div class="sub-footer-inner">
+          <ul>
+            <li><span class="d-none d-md-inline">Center&nbsp;for Applied Internet&nbsp;Data&nbsp;Analysis</span><span class="d-md-none">CAIDA</span> based at the <a href="//www.sdsc.edu/">University&nbsp;of&nbsp;California's San&nbsp;Diego&nbsp;Supercomputer&nbsp;Center</a></li>
+          </ul>
+        </div>
+      </div>
+      <div class="col-2 col-md-3">
+        <div class="sub-footer-inner">
+          <a class="text-nowrap" href="/about/accessibility/">Accessibility</a><span class="d-none d-md-inline">&nbsp;&middot;&nbsp;</span><a class="text-nowrap" href="/about/legal/privacy/">Privacy</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+  
+
+  
+  <script>
+    function renderSidebar(){
+      if(window.innerWidth >= 1920){
+
+        $("#sidebarcontainer").removeClass("container");
+        $("#sidebarcontainer").addClass("container-fluid");
+        $("#asidebar").addClass("");
+        $("#asidebar").addClass("col-xxxl-1");
+        
+        
+        let main_width = $(".breadcrumb").width();
+        $("main").css({"max-width": main_width});
+        
+        
+        let marg_size = $(".breadcrumb")[0].getBoundingClientRect().x - $("aside")[0].getBoundingClientRect().width-10;
+        $("#asidebar").css({"margin-left":marg_size+"px"});
+        
+
+        $("#sidebarcontainer").css({"opacity":"1"});
+
+      } else {
+
+        $("#sidebarcontainer").removeClass("container-fluid");
+        $("#asidebar").removeClass("text-right");
+        $("#asidebar").css({"margin-left":""});
+        $("main").css({"max-width": ""});
+
+        $("#sidebarcontainer").addClass("container");
+        $("#sidebarcontainer").css({"opacity":"1"});
+
+      }
+    }
+
+    renderSidebar();
+
+     
+    $(window).resize(renderSidebar);
+    
+  </script>
+  <noscript>
+    <style>#sidebarcontainer { opacity: 1; }#asidebar { opacity: 0; }</style>
+  </noscript>
+  <script src="/js/global.min.37b7d559c2ddee04acb2526ee1001ff15c80c35e96f4c922b608ae8c36fa65fa.js"></script>
+
+  <script src="/c2supportfiles/awstats_misc_tracker.js" ></script>
+  <noscript><img src="/c2supportfiles/awstats_misc_tracker.js?nojs=y" height="0" width="0" style="display: none; border: 0;" alt="" /></noscript>
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-GJW4XFS0MC"></script>
+  <script>
+  function isDoNotTrackEnabled() {
+    if (typeof window === 'undefined') return false
+    const { doNotTrack, navigator } = window
+    const dnt = (doNotTrack || navigator.doNotTrack || navigator.msDoNotTrack || msTracking())
+    if (!dnt) return false
+    if (dnt === true || dnt === 1 || dnt === 'yes' || (typeof dnt === 'string' && dnt.charAt(0) === '1')) {
+      return true
+    }
+    return false
+  }
+
+  function msTracking() {
+    const { external } = window
+    return 'msTrackingProtectionEnabled' in external &&
+    typeof external.msTrackingProtectionEnabled === 'function' &&
+    window.external.msTrackingProtectionEnabled()
+  }
+
+  if (!isDoNotTrackEnabled()) {
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-GJW4XFS0MC', { 'anonymize_ip': false, cookie_flags: 'SameSite=None;Secure' });
+  }
+  </script>
+  
+  
+  
+</footer>
+</body>
+
+</html>
