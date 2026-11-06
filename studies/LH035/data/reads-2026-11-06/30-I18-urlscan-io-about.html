@@ -1,0 +1,601 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <title>About - urlscan.io</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="urlscan.io - Website scanner for suspicious and malicious URLs" />
+    <meta name="keywords" content="url,website,web,scanner,analyze,analyzer" />
+    <meta name="author" content="urlscan.io">
+    
+    
+
+    <meta name="theme-color" content="#2c3e50">
+
+    <link rel="alternate" type="application/rss+xml" title="Blog - urlscan.io" href="https://urlscan.io/blog/feed.xml">
+
+    <link rel="preconnect" href="//fonts.gstatic.com">
+    <link rel="preconnect" href="//www.google.com">
+    <link rel="preconnect" href="//www.gstatic.com">
+    <link rel="preconnect" href="//fonts.googleapis.com">
+    <link href="https://fonts.googleapis.com/css?family=Lato:400,700,400italic&display=swap" rel="stylesheet">
+    <link rel="preload" href="/vendor/bootstrap/fonts/glyphicons-halflings-regular.woff2" as="font" crossorigin>
+
+    <link rel="icon" type="image/png" href="/img/urlscan_256.png" />
+    <link id="bootstrap-theme" href="/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet" type="text/css" media="screen">
+    <link href="/vendor/bootstrap/css/glyphicons.css?version=0bcace068a2ddcfbea51bcc61d40524587ec9e9137394197d709f7ab2bd62a32" rel="stylesheet" type="text/css" media="screen">
+    <link href="/vendor/social-buttons/sc-btn.css?version=cdaa043da36b05e233c207b1665a195ea1e7838dbd6c49b70e6db45c567a5b21" rel="stylesheet" type="text/css" media="screen">
+    <link href="/urlscan.css?version=c985ca83d7b113d1156e37bac8a72b8ef7434aa497be2c63dcfd4e66371c71ef" rel="stylesheet" type="text/css" media="screen">
+    <link href="/vendor/flag-icon-css/css/flag-icon.min.css?version=1108d9c16e258ebb7d76ca276f25feb22ea46f182455d7b8ed3cbd1507a19d48" rel="stylesheet" type="text/css" media="screen">
+  </head>
+
+  <body>
+
+    <nav class="navbar navbar-expand-lg navbar-dark bg-navbar sticky-top">
+      <div class="container">
+        <div class="navbar-brand-group">
+          
+            <a class="navbar-brand navbar-brand-img d-none d-md-inline-block paddingleft5pxpaddingright5px" href="/"><img src="/img/urlscan_256.png" class="height50pxmargintop15pxpadding0px0px0px0px" alt="urlscan.io logo"></a>
+            <a class="navbar-brand navbar-brand-img d-inline-block d-md-none" href="/"><img src="/img/urlscan_256.png" class="height50pxmargintop15px" alt="urlscan.io logo"></a>
+          
+
+          <a class="navbar-brand" href="/">
+            <span class="header">urlscan.<span class="text-success">io</span></span>
+          </a>
+        </div>
+
+        <button type="button" class="navbar-toggler ms-auto" data-bs-toggle="collapse" data-bs-target="#mainNavbar" aria-controls="mainNavbar" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+
+        <div class="collapse navbar-collapse" id="mainNavbar">
+          <ul class="navbar-nav navbar-nav-main">
+            <li class="nav-item"><a class="nav-link " href="/">Scan</a></li>
+            <li class="nav-item dropdown">
+              <a class="nav-link dropdown-toggle " href="#" id="nav-search" role="button" data-bs-toggle="dropdown" aria-expanded="false">Search</a>
+              <div class="dropdown-menu mega-menu">
+                <div class="mega-col">
+                  <a class="mega-item" href="/search/">
+                    <span class="mega-title">Search Scans</span>
+                    <span class="mega-desc">Query historical scans and pivot on indicators</span>
+                  </a>
+                  <a class="mega-item" href="/live/">
+                    <span class="mega-title">Live Scans</span>
+                    <span class="mega-desc">Watch scans as they happen</span>
+                  </a>
+                </div>
+              </div>
+            </li>
+            <li class="nav-item dropdown">
+              <a class="nav-link dropdown-toggle " href="#" id="nav-product" role="button" data-bs-toggle="dropdown" aria-expanded="false">Platform</a>
+              <div class="dropdown-menu mega-menu mega-menu-wide">
+                <div class="mega-col">
+                  <div class="mega-heading">Platform</div>
+                  <a class="mega-item" href="/platform/urlscan-community/">
+                    <span class="mega-title">The urlscan Community</span>
+                    <span class="mega-desc">Real-time threats from a global community</span>
+                  </a>
+                  <a class="mega-item mega-item-pro" href="/pricing/urlscanpro/">
+                    <span class="mega-title">urlscan <span class="procolor">Pro</span></span>
+                    <span class="mega-desc">Threat hunting platform for security teams</span>
+                  </a>
+                  <a class="mega-item" href="/docs/integrations/">
+                    <span class="mega-title">API &amp; Integrations</span>
+                    <span class="mega-desc">Automate everything and connect to your SOAR, SIEM and TIP</span>
+                  </a>
+                </div>
+                <div class="mega-col">
+                  <div class="mega-heading">Data Feeds</div>
+                  <a class="mega-item" href="/pricing/phishingfeed/">
+                    <span class="mega-title">Phishing URL Feed</span>
+                    <span class="mega-desc">Phishing URLs mapped to 3,000+ targeted brands</span>
+                  </a>
+                  <a class="mega-item" href="/pricing/newly-observed-domains/">
+                    <span class="mega-title">Newly Observed Domains</span>
+                    <span class="mega-desc">Real-time feed of new domains and hostnames</span>
+                  </a>
+                </div>
+                <div class="mega-cta">
+                  <span>Interested? Talk to our team.</span>
+                  <a class="btn btn-sm btn-outline-success" href="mailto:sales@urlscan.io?subject=urlscan Platform">Contact Sales</a>
+                </div>
+              </div>
+            </li>
+            <li class="nav-item dropdown">
+              <a class="nav-link dropdown-toggle " href="#" id="nav-solutions" role="button" data-bs-toggle="dropdown" aria-expanded="false">Solutions</a>
+              <div class="dropdown-menu mega-menu mega-menu-wide">
+                <div class="mega-col">
+                  <div class="mega-heading">Use Cases</div>
+                  <a class="mega-item" href="/solutions/phishing-detection/">
+                    <span class="mega-title">Phishing Detection</span>
+                    <span class="mega-desc">Identify and analyze phishing sites</span>
+                  </a>
+                  <a class="mega-item" href="/solutions/threat-hunting/">
+                    <span class="mega-title">Threat Hunting</span>
+                    <span class="mega-desc">Uncover malicious infrastructure</span>
+                  </a>
+                  <a class="mega-item" href="/solutions/brand-protection/">
+                    <span class="mega-title">Brand Protection</span>
+                    <span class="mega-desc">Detect abuse of your brand online</span>
+                  </a>
+                  <a class="mega-item" href="/solutions/incident-response/">
+                    <span class="mega-title">Incident Response</span>
+                    <span class="mega-desc">Triage suspicious URLs quickly</span>
+                  </a>
+                  <a class="mega-item" href="/solutions/soc-automation/">
+                    <span class="mega-title">SOC Automation</span>
+                    <span class="mega-desc">Enrich alerts at scale via API</span>
+                  </a>
+                </div>
+                <div class="mega-col">
+                  <div class="mega-heading">Industries</div>
+                  <a class="mega-item" href="/solutions/financial-services/">
+                    <span class="mega-title">Financial Services</span>
+                    <span class="mega-desc">Protect customers from fraud</span>
+                  </a>
+                  <a class="mega-item" href="/solutions/cybersecurity/">
+                    <span class="mega-title">Cybersecurity</span>
+                    <span class="mega-desc">Data for security vendors, MSSPs &amp; MDR</span>
+                  </a>
+                  <a class="mega-item" href="/solutions/public-sector/">
+                    <span class="mega-title">Government &amp; Public Sector</span>
+                    <span class="mega-desc">Defend critical services</span>
+                  </a>
+                  <a class="mega-item" href="/solutions/technology-saas/">
+                    <span class="mega-title">Technology &amp; SaaS</span>
+                    <span class="mega-desc">Secure your users and platform</span>
+                  </a>
+                  <a class="mega-item" href="/solutions/retail-ecommerce/">
+                    <span class="mega-title">Retail &amp; E-commerce</span>
+                    <span class="mega-desc">Stop fake shops and scams</span>
+                  </a>
+                </div>
+                <div class="mega-cta">
+                  <span>Interested? Talk to our team.</span>
+                  <a class="btn btn-sm btn-outline-success" href="mailto:sales@urlscan.io?subject=urlscan Solutions">Contact Sales</a>
+                </div>
+              </div>
+            </li>
+            <li class="nav-item dropdown">
+              <a class="nav-link dropdown-toggle active" href="#" id="nav-resources" role="button" data-bs-toggle="dropdown" aria-expanded="false">Resources</a>
+              <div class="dropdown-menu mega-menu mega-menu-wide">
+                <div class="mega-col">
+                  <div class="mega-heading">Learn</div>
+                  <a class="mega-item" href="https://docs.urlscan.io/" target="_blank" rel="noopener">
+                    <span class="mega-title">Documentation</span>
+                    <span class="mega-desc">Guides and reference material</span>
+                  </a>
+                  <a class="mega-item" href="https://docs.urlscan.io/pages/api-intro" target="_blank" rel="noopener">
+                    <span class="mega-title">API Reference</span>
+                    <span class="mega-desc">Endpoints, parameters and examples</span>
+                  </a>
+                  <a class="mega-item" href="https://docs.urlscan.io/pages/faq" target="_blank" rel="noopener">
+                    <span class="mega-title">FAQ</span>
+                    <span class="mega-desc">Answers to common questions</span>
+                  </a>
+                  <a class="mega-item" href="/blog/">
+                    <span class="mega-title">Blog</span>
+                    <span class="mega-desc">Research, product news and updates</span>
+                  </a>
+                  <a class="mega-item" href="https://status.urlscan.io" target="_blank" rel="noopener">
+                    <span class="mega-title">Status Page</span>
+                    <span class="mega-desc">Current platform availability</span>
+                  </a>
+                </div>
+                <div class="mega-col">
+                  <div class="mega-heading">Company</div>
+                  <a class="mega-item" href="/about/">
+                    <span class="mega-title">About Us</span>
+                    <span class="mega-desc">Our mission &amp; history</span>
+                  </a>
+                  <a class="mega-item" href="/coverage/">
+                    <span class="mega-title">Coverage &amp; Reports</span>
+                    <span class="mega-desc">Media mentions and industry research</span>
+                  </a>
+                  <a class="mega-item" href="/sponsors/">
+                    <span class="mega-title">Sponsors</span>
+                    <span class="mega-desc">Companies that support the community service</span>
+                  </a>
+                  <a class="mega-item" href="/partners/">
+                    <span class="mega-title">Partners</span>
+                    <span class="mega-desc">Our technology and channel partners</span>
+                  </a>
+                </div>
+              </div>
+            </li>
+            <li class="nav-item"><a class="nav-link " href="/pricing/">Pricing</a></li>
+            
+          </ul>
+          <div class="navbar-actions">
+            <ul class="navbar-nav navbar-nav-secondary">
+              <li class="nav-item">
+                <a class="nav-link" href="#" id="theme-toggle" title="Toggle dark mode" aria-label="Toggle dark mode">
+                  <span class="glyphicon glyphicon-adjust"></span>
+                </a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link loggedout " href="/user/login/"><span class="glyphicon glyphicon-user"></span> Log in</a>
+                <a class="nav-link loggedin d-none " href="/user/"><span class="glyphicon glyphicon-user green"></span> <span id="username"></span></a>
+              </li>
+            </ul>
+          </div>
+          
+          <div class="sectr ms-auto d-none d-lg-block">
+            
+            <a href="/securitytrails/" target="_blank" rel="noopener">
+              <img src="/img/securitytrails-rf.png" alt="SecurityTrails logo">
+            </a>
+            
+          </div>
+          
+        </div>
+      </div>
+    </nav>
+
+    <div class="container" id="main">
+
+      
+
+      <div class="main content">
+        
+
+
+<section class="product-hero">
+  <div class="product-eyebrow">Company &middot; About</div>
+  <h1>urlscan.<span class="text-success">io</span>: A sandbox for the web</h1>
+  <p class="product-lead">
+    urlscan.io is a free service to scan and analyze websites. We browse to a
+    URL like a regular user and record everything that the page navigation
+    creates, so that anyone can easily and confidently analyze unknown and
+    potentially malicious websites.
+  </p>
+  <div class="product-hero-actions">
+    <a class="btn btn-success" href="/pricing/">Commercial Products</a>
+    <a class="btn btn-outline-secondary" href="/platform/urlscan-community/">The urlscan Community</a>
+  </div>
+  <div class="product-plans mt-4 justify-content-center">
+    <a class="product-plan" href="#mission">Our Mission</a>
+    <a class="product-plan" href="#history">History</a>
+    <a class="product-plan" href="#ack">Acknowledgements</a>
+    <a class="product-plan" href="#contact">Contact</a>
+  </div>
+</section>
+
+<div class="product-stats">
+  <div class="product-stat">
+    <div class="product-stat-value">Hundreds</div>
+    <div class="product-stat-label">of commercial customers</div>
+  </div>
+  <div class="product-stat">
+    <div class="product-stat-value">3M</div>
+    <div class="product-stat-label">user-submitted scans per day</div>
+  </div>
+  <div class="product-stat">
+    <div class="product-stat-value">25k+</div>
+    <div class="product-stat-label">phishing URLs detected per day</div>
+  </div>
+  <div class="product-stat">
+    <div class="product-stat-value">3,000+</div>
+    <div class="product-stat-label">brands tracked</div>
+  </div>
+</div>
+
+<section class="product-section" id="mission">
+  <h2 class="product-section-title">Our Mission</h2>
+  <div class="product-cards">
+    <div class="product-card">
+      <div class="product-card-icon"><span class="glyphicon glyphicon-user"></span></div>
+      <h3>Bringing the community and defenders together</h3>
+      <p>
+        Every day, researchers, analysts and automated pipelines around the
+        world submit millions of URLs to urlscan.io. We want to connect this
+        community with the defenders who protect their organizations and
+        customers, so that what one person discovers can help everyone else.
+      </p>
+    </div>
+    <div class="product-card">
+      <div class="product-card-icon"><span class="glyphicon glyphicon-hdd"></span></div>
+      <h3>Collecting data on threats</h3>
+      <p>
+        We record what websites actually do and make it searchable, so that
+        phishing, malware and fraud infrastructure can be found, tracked and
+        taken down. Our detections are organic: they come from our own
+        scanning and research, not from aggregating other vendors' verdicts.
+      </p>
+    </div>
+    <div class="product-card">
+      <div class="product-card-icon"><span class="glyphicon glyphicon-link"></span></div>
+      <h3>Context matters</h3>
+      <p>
+        A single observation is often meaningless without the necessary
+        context. Is this domain something that websites usually load
+        third-party JavaScript from? Are any other reputable websites talking
+        to this weird IP address on the Cayman Islands?
+      </p>
+    </div>
+    <div class="product-card">
+      <div class="product-card-icon"><span class="glyphicon glyphicon-tower"></span></div>
+      <h3>A sandbox for URLs</h3>
+      <p>
+        Just like you would use a malware sandbox to analyze suspicious files,
+        you can use urlscan.io to do the same thing, but with URLs. We break
+        down a page navigation into digestible chunks and anticipate the
+        attributes that allow pivoting during an investigation.
+      </p>
+    </div>
+  </div>
+</section>
+
+<section class="product-section" id="history">
+  <h2 class="product-section-title">Our History</h2>
+  <p class="product-strip-text mb-4">
+    From a free community tool to a platform for defenders: commercialization
+    in 2020, search and data at scale in 2021&ndash;22, monitoring with urlscan
+    Observe from 2023, and the AI and integration era in 2025&ndash;26.
+  </p>
+
+  <div class="about-timeline">
+
+    <div class="timeline-year">
+      <h3>2016</h3>
+      <span class="timeline-era">The beginning</span>
+    </div>
+    <div class="timeline-entry timeline-milestone">
+      <div class="timeline-date">Late 2016</div>
+      <h4>urlscan.io is created</h4>
+      <p>The free community version of urlscan.io goes live: a sandbox for the web that anyone can use to scan and analyze websites.</p>
+    </div>
+
+    <div class="timeline-year">
+      <h3>2020</h3>
+      <span class="timeline-era">Commercialization</span>
+    </div>
+    <div class="timeline-entry timeline-milestone">
+      <div class="timeline-date">2020</div>
+      <h4>Launch of commercial operations</h4>
+      <p>urlscan GmbH starts commercial operations with urlscan Pro and the Phishing URL Feed.</p>
+    </div>
+    <div class="timeline-entry">
+      <div class="timeline-date">June</div>
+      <h4>Commercial plans, Teams and Unlisted scans</h4>
+      <p>Commercial API plans alongside the free tier, Teams with team subscriptions, the Unlisted scan visibility, API quotas and revamped API documentation.</p>
+    </div>
+
+    <div class="timeline-year">
+      <h3>2021</h3>
+      <span class="timeline-era">Search &amp; data at scale</span>
+    </div>
+    <div class="timeline-entry timeline-milestone">
+      <div class="timeline-date">June</div>
+      <h4>100+ customers</h4>
+      <p>urlscan serves more than 100 commercial customers.</p>
+    </div>
+    <div class="timeline-entry">
+      <div class="timeline-date">December</div>
+      <h4>Scanning Engine v2 and the new urlscan Pro</h4>
+      <p>A ground-up rewrite of the scanning engine, Live Scanning (beta), file downloads with SHA256 storage, country selection for scans and the new urlscan Pro platform.</p>
+    </div>
+
+    <div class="timeline-year">
+      <h3>2022</h3>
+      <span class="timeline-era">Search &amp; data at scale</span>
+    </div>
+    <div class="timeline-entry">
+      <div class="timeline-date">May</div>
+      <h4>Visual Search</h4>
+      <p>Find visually similar pages across the dataset, available via the API together with the general availability of Live Scanning.</p>
+      <a href="https://urlscan.io/blog/2022/05/02/visual-search/" class="product-item-link"><span class="glyphicon glyphicon-arrow-right"></span> Read more</a>
+    </div>
+    <div class="timeline-entry">
+      <div class="timeline-date">July</div>
+      <h4>Saved Searches and urlscan Pro updates</h4>
+      <a href="https://urlscan.io/blog/2022/07/11/urlscan-pro-product-updates-for-q2-2022/" class="product-item-link"><span class="glyphicon glyphicon-arrow-right"></span> Read more</a>
+    </div>
+    <div class="timeline-entry">
+      <div class="timeline-date">November</div>
+      <h4>Newly Observed Domains &amp; Hostnames</h4>
+      <p>A new urlscan Pro dataset of domains and hostnames as soon as we see them for the first time.</p>
+      <a href="https://urlscan.io/blog/2022/11/22/newly-observed-domains-and-hostnames/" class="product-item-link"><span class="glyphicon glyphicon-arrow-right"></span> Read more</a>
+    </div>
+
+    <div class="timeline-year">
+      <h3>2023</h3>
+      <span class="timeline-era">Monitoring</span>
+    </div>
+    <div class="timeline-entry">
+      <div class="timeline-date">July</div>
+      <h4>urlscan Observe</h4>
+      <p>Our monitoring product line launches, built around Incidents.</p>
+      <a href="https://urlscan.io/blog/2023/07/18/launching-urlscan-observe/" class="product-item-link"><span class="glyphicon glyphicon-arrow-right"></span> Read more</a>
+    </div>
+
+    <div class="timeline-year">
+      <h3>2024</h3>
+      <span class="timeline-era">Monitoring</span>
+    </div>
+    <div class="timeline-entry">
+      <div class="timeline-date">January</div>
+      <h4>Inline Matching, System Labels and User Tags</h4>
+      <a href="https://urlscan.io/blog/2024/01/10/inline-matching-system-labels-user-tags/" class="product-item-link"><span class="glyphicon glyphicon-arrow-right"></span> Read more</a>
+    </div>
+    <div class="timeline-entry">
+      <div class="timeline-date">July</div>
+      <h4>Live Browsing</h4>
+      <p>Interactive browsing sessions, along with major improvements to the scanning engine.</p>
+      <a href="https://urlscan.io/blog/2024/07/08/live-browsing/" class="product-item-link"><span class="glyphicon glyphicon-arrow-right"></span> Read more</a>
+    </div>
+
+    <div class="timeline-year">
+      <h3>2025</h3>
+      <span class="timeline-era">AI &amp; integrations</span>
+    </div>
+    <div class="timeline-entry timeline-milestone">
+      <div class="timeline-date">Early 2025</div>
+      <h4>Growing the team</h4>
+      <p>We start hiring, including our dedicated Threat Research Team.</p>
+    </div>
+    <div class="timeline-entry">
+      <div class="timeline-date">February</div>
+      <h4>urlscan Observe GA</h4>
+      <p>urlscan Observe becomes generally available with significantly updated Incidents.</p>
+      <a href="https://urlscan.io/blog/2025/02/10/urlscan-observe-ga/" class="product-item-link"><span class="glyphicon glyphicon-arrow-right"></span> Read more</a>
+    </div>
+    <div class="timeline-entry timeline-milestone">
+      <div class="timeline-date">May</div>
+      <h4>500 customers</h4>
+      <p>urlscan serves 500 commercial customers.</p>
+    </div>
+    <div class="timeline-entry">
+      <div class="timeline-date">May</div>
+      <h4>Browser extension and Python library</h4>
+      <p>Official urlscan extensions for Chrome and Firefox, followed by our official Python library and, in September, the urlscan CLI.</p>
+      <a href="https://urlscan.io/blog/2025/05/12/urlscan-extension/" class="product-item-link"><span class="glyphicon glyphicon-arrow-right"></span> Browser extension</a>
+      <a href="https://urlscan.io/blog/2025/05/21/urlscan-python-library/" class="product-item-link"><span class="glyphicon glyphicon-arrow-right"></span> Python library</a>
+      <a href="https://urlscan.io/blog/2025/09/02/cli-announcement/" class="product-item-link"><span class="glyphicon glyphicon-arrow-right"></span> CLI</a>
+    </div>
+    <div class="timeline-entry">
+      <div class="timeline-date">June</div>
+      <h4>New Documentation Hub</h4>
+      <a href="https://docs.urlscan.io/" class="product-item-link"><span class="glyphicon glyphicon-arrow-right"></span> docs.urlscan.io</a>
+    </div>
+    <div class="timeline-entry">
+      <div class="timeline-date">July</div>
+      <h4>ML Verdicts, content analysis and Brand AI</h4>
+      <p>Automated threat classification with ML Verdicts, our first content-analysis features (NSFW detection and QR code reading) and visual brand detection with Brand AI.</p>
+      <a href="https://urlscan.io/blog/2025/07/14/ml-verdicts-experimental/" class="product-item-link"><span class="glyphicon glyphicon-arrow-right"></span> ML Verdicts</a>
+      <a href="https://urlscan.io/blog/2025/07/15/content-analysis-features/" class="product-item-link"><span class="glyphicon glyphicon-arrow-right"></span> Content analysis</a>
+      <a href="https://urlscan.io/blog/2025/07/30/brand-ai-experimental/" class="product-item-link"><span class="glyphicon glyphicon-arrow-right"></span> Brand AI</a>
+    </div>
+    <div class="timeline-entry">
+      <div class="timeline-date">August</div>
+      <h4>Intel Reports</h4>
+      <p>In-house research reports by our Threat Research Team, available in urlscan Pro.</p>
+      <a href="https://urlscan.io/blog/2025/08/26/urlscan-intel-reports/" class="product-item-link"><span class="glyphicon glyphicon-arrow-right"></span> Read more</a>
+    </div>
+
+    <div class="timeline-year">
+      <h3>2026</h3>
+      <span class="timeline-era">AI &amp; integrations</span>
+    </div>
+    <div class="timeline-entry">
+      <div class="timeline-date">March</div>
+      <h4>Data Dumps, AI summaries and the Malicious Lookup API</h4>
+      <p>Bulk downloads of scan data, improved Brand AI and ML Verdicts with new AI summaries, and fast lookups of observables against our verdicts.</p>
+      <a href="https://urlscan.io/blog/2026/03/12/datadump/" class="product-item-link"><span class="glyphicon glyphicon-arrow-right"></span> Data Dumps</a>
+      <a href="https://urlscan.io/blog/2026/03/23/brand-ai-ml-verdicts-ai-summaries/" class="product-item-link"><span class="glyphicon glyphicon-arrow-right"></span> AI summaries</a>
+      <a href="https://urlscan.io/blog/2026/03/24/malicious-api/" class="product-item-link"><span class="glyphicon glyphicon-arrow-right"></span> Malicious Lookup API</a>
+    </div>
+    <div class="timeline-entry timeline-milestone">
+      <div class="timeline-date">2025 &ndash; 2026</div>
+      <h4>Meeting the community</h4>
+      <p>Our team joins defenders and researchers at conferences such as CyberWarCon and PivotCon.</p>
+      <a href="https://urlscan.io/blog/2026/04/13/join-us-at-pivotcon/" class="product-item-link"><span class="glyphicon glyphicon-arrow-right"></span> PivotCon</a>
+    </div>
+    <div class="timeline-entry">
+      <div class="timeline-date">October</div>
+      <h4>urlscan Labs</h4>
+      <p>Early access to experimental features for Enterprise and Ultimate customers.</p>
+      <a href="https://urlscan.io/blog/2026/10/07/urlscan-labs/" class="product-item-link"><span class="glyphicon glyphicon-arrow-right"></span> Read more</a>
+    </div>
+    <div class="timeline-entry timeline-milestone">
+      <div class="timeline-date">October</div>
+      <h4>650+ customers worldwide</h4>
+      <p>urlscan serves more than 650 commercial customers around the world.</p>
+    </div>
+
+  </div>
+</section>
+
+<section class="product-section" id="ack">
+  <h2 class="product-section-title">Acknowledgements</h2>
+  <ul class="product-checklist">
+<li><span class="glyphicon glyphicon-ok"></span> The IP geo-location is courtesy of the <a href="http://dev.maxmind.com/geoip/geoip2/geolite2/">MaxMind GeoIP Lite database</a>.</li>
+      <li><span class="glyphicon glyphicon-ok"></span> ASN information is thanks to <a href="http://www.team-cymru.org/IP-ASN-mapping.html">Team Cymru's IP-to-ASN mapping service</a>.</li>
+      <li><span class="glyphicon glyphicon-ok"></span> We detect technologies on a website using the definitions from the <a href="https://wappalyzer.com/">Wappalyzer Project</a>.</li>
+      <li><span class="glyphicon glyphicon-ok"></span> The country flags are part of the <a href="https://github.com/lipis/flag-icon-css">flag-icon-css</a> library.</li>
+  </ul>
+</section>
+
+<section class="product-section" id="contact">
+  <h2 class="product-section-title">Contact</h2>
+  <div class="product-usecases">
+    <div class="product-usecase">
+      <h4>Sales</h4>
+      <p>Commercial products, trials, quotes and custom plans.</p>
+      <a href="mailto:sales@urlscan.io?subject=urlscan Sales Inquiry" class="product-item-link mt-2">sales@urlscan.io</a>
+    </div>
+    <div class="product-usecase">
+      <h4>Support</h4>
+      <p>Technical support, account questions and feature requests.</p>
+      <a href="mailto:support@urlscan.io" class="product-item-link mt-2">support@urlscan.io</a>
+    </div>
+    <div class="product-usecase">
+      <h4>Threat Research</h4>
+      <p>Sharing intelligence, research collaboration and questions about our reports.</p>
+      <a href="mailto:intel@urlscan.io" class="product-item-link mt-2">intel@urlscan.io</a>
+    </div>
+    <div class="product-usecase">
+      <h4>General</h4>
+      <p>Everything else, including press inquiries.</p>
+      <a href="mailto:info@urlscan.io" class="product-item-link mt-2">info@urlscan.io</a>
+    </div>
+  </div>
+  <p class="product-strip-text mt-4">
+    For matters of security, please see our <a href="/security/">Security Page</a>.
+    Follow <a href="https://twitter.com/urlscanio">@urlscanio</a> for updates.
+  </p>
+</section>
+
+</div>
+</div>
+<footer class="footer bg-navbar">
+  <div class="container">
+    <div class="row">
+      <div class="col-md-3 col-6">
+        <div class="text-start">
+          <div><span class="d-none d-sm-inline">Copyright</span> &copy; 2026, urlscan GmbH</div>
+          <div>Version: <span id="version" class="text-muted"></span></div>
+          <div class="d-none d-sm-block top5">
+          <a href="https://twitter.com/urlscanio" class="sc-btn sc--twitter sc--tiny sc--flat">
+            <span class="sc-icon">
+              <svg viewBox="0 0 33 33" width="25" height="25" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"><g><path d="M 32,6.076c-1.177,0.522-2.443,0.875-3.771,1.034c 1.355-0.813, 2.396-2.099, 2.887-3.632 c-1.269,0.752-2.674,1.299-4.169,1.593c-1.198-1.276-2.904-2.073-4.792-2.073c-3.626,0-6.565,2.939-6.565,6.565 c0,0.515, 0.058,1.016, 0.17,1.496c-5.456-0.274-10.294-2.888-13.532-6.86c-0.565,0.97-0.889,2.097-0.889,3.301 c0,2.278, 1.159,4.287, 2.921,5.465c-1.076-0.034-2.088-0.329-2.974-0.821c-0.001,0.027-0.001,0.055-0.001,0.083 c0,3.181, 2.263,5.834, 5.266,6.438c-0.551,0.15-1.131,0.23-1.73,0.23c-0.423,0-0.834-0.041-1.235-0.118 c 0.836,2.608, 3.26,4.506, 6.133,4.559c-2.247,1.761-5.078,2.81-8.154,2.81c-0.53,0-1.052-0.031-1.566-0.092 c 2.905,1.863, 6.356,2.95, 10.064,2.95c 12.076,0, 18.679-10.004, 18.679-18.68c0-0.285-0.006-0.568-0.019-0.849 C 30.007,8.548, 31.12,7.392, 32,6.076z"></path></g></svg>
+            </span>
+            <span class="sc-text">
+              Follow @urlscanio
+            </span>
+          </a>
+          </div>
+        </div>
+      </div>
+      <div class="col-6 text-center d-none d-sm-block">
+        <h4 class="bottom5 none">
+          <span class="badge text-bg-success halfgray" id="stats-running" title="Scans running">0</span> 
+          <span class="badge text-bg-warning halfgray" id="stats-queued" title="Scans queued">0</span>
+        </h4>
+        <h4>
+          <span class="badge text-bg-success" id="stats-public" title="Public scans over the past 24h">0</span> 
+          <span class="badge text-bg-info" id="stats-unlisted" title="Unlisted scans over the past 24h">0</span>
+          <span class="badge text-bg-warning" id="stats-private" title="Private scans over the past 24h">0</span>
+        </h4>
+        <div class="text-muted text-center d-none d-sm-block">Page generated on 2026-11-06 14:17:54</div>
+      </div>
+      <div class="col-md-3 col-6">
+        <ul class="float-end left10 d-none d-sm-block d-md-block">
+          <li><a href="/about/" class="fw-bold">About Us</a></li>
+          <li><a href="/security/" class="">Security</a></li>
+          <li><a href="/sitemap/">Sitemap</a></li>
+        </ul>
+        <ul class="float-end">
+          <li><a href="https://status.urlscan.io" class="fw-bold" target="_blank" rel="noopener">Status Page</a></li>
+          <li><a href="/terms/">Terms of Service</a></li>
+          <li><a href="/privacy/">Privacy Policy</a></li>
+          <li><a href="/impressum/">Impressum / Legal</a></li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</footer>
+
+<script defer src="/js/338.9bcfb20afab8738fde39.js"></script><script defer src="/js/496.27fe123ce3321e06f9bf.js"></script><script defer src="/js/app.52e9ba2f5ccd509096d0.js"></script></body>
+</html>
+

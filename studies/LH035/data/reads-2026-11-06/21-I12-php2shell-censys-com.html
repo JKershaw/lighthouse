@@ -1,0 +1,148 @@
+<!doctype html>
+<!-- LZ WUZ HERE -->
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Censys PHP2Shell Exposure Tracker</title>
+<meta name="description" content="Track Internet-wide PHP2Shell exposure and patching progress by country, network, and PHP version with hourly data from Censys.">
+<link rel="canonical" href="https://php2shell.censys.com/">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="Censys">
+<meta property="og:url" content="https://php2shell.censys.com/">
+<meta property="og:title" content="Censys PHP2Shell Exposure Tracker">
+<meta property="og:description" content="See how many Internet-facing PHP services remain on affected versions, and how quickly organizations are patching worldwide.">
+<meta property="og:image" content="https://php2shell.censys.com/static/og-image.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="Censys PHP2Shell Exposure Tracker: Internet-facing PHP services on affected versions, and how fast they are being patched worldwide.">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Censys PHP2Shell Exposure Tracker">
+<meta name="twitter:description" content="Track Internet-wide PHP2Shell exposure and patching progress with hourly data from Censys.">
+<meta name="twitter:image" content="https://php2shell.censys.com/static/og-image.png">
+<meta name="twitter:image:alt" content="Censys PHP2Shell Exposure Tracker: Internet-facing PHP services on affected versions, and how fast they are being patched worldwide.">
+<link rel="icon" href="static/favicon.ico" sizes="any">
+<link rel="icon" type="image/png" sizes="32x32" href="static/favicon-32.png">
+<link rel="icon" type="image/png" sizes="192x192" href="static/favicon-192.png">
+<link rel="apple-touch-icon" href="static/apple-touch-icon.png">
+<link rel="stylesheet" href="static/app.css?v=5cce0714b9c5">
+</head>
+<body>
+<header class="topbar">
+  <div class="topbar-inner">
+    <div class="brand">
+      <a class="logo-link" href="https://censys.com" target="_blank" rel="noopener" aria-label="Censys"><img class="logo" src="static/censys-arc-logo.svg" alt="Censys ARC"></a>
+      <span class="divider" aria-hidden="true"></span>
+      <h1>PHP2Shell <strong>services</strong></h1>
+    </div>
+    <div class="meta">
+      <span id="chip" class="status"><span class="dot"></span><span id="snapshot-line">Loading…</span></span>
+      <label class="switch"><input type="checkbox" id="unknown-toggle"><span class="track"></span>Include unknown versions</label>
+      <a class="btn" href="https://censys.com/advisory/cve-2026-109618-cve-2026-109619/" target="_blank" rel="noopener" title="Read the advisory">CVE-2026-109618 · CVE-2026-109619 <span aria-hidden="true">↗</span></a>
+    </div>
+  </div>
+</header>
+
+<main class="grid" id="grid">
+  <section class="panel full hero" id="hero"></section>
+
+
+  <section class="panel left">
+    <h2>Exposure</h2>
+    <p class="desc" id="exposure-desc"></p>
+    <div class="rings-wrap"><div class="rings" id="rings"></div></div>
+    <p class="foot" id="unknown-line"></p>
+    <p class="foot" id="implausible-line"></p>
+    <p class="foot">Fixed releases: 8.2.35, 8.3.36, 8.4.27 and 8.5.12. Branches 8.1 and older receive no official release.</p>
+  </section>
+
+  <section class="panel">
+    <h2>Where</h2>
+    <div class="where-bar">
+      <div class="tabs" role="tablist" id="tabs">
+        <button class="tab" role="tab" data-tab="affected" aria-selected="true">Affected</button>
+        <button class="tab" role="tab" data-tab="patched" aria-selected="false">Patched</button>
+        <button class="tab" role="tab" data-tab="all" aria-selected="false">All PHP</button>
+      </div>
+      <label class="country-pick"><select id="country-pick" aria-label="Choose a country"><option value="">All countries</option></select></label>
+    </div>
+    <div class="globe-card" id="globe-card" aria-live="polite"></div>
+    <div class="globe-wrap"><canvas id="globe" width="1200" height="640" aria-label="Globe of PHP services by country"></canvas></div>
+    <div class="cells" id="cells"></div>
+    <p class="note globe-hint" id="globe-hint"></p>
+  </section>
+
+  <section class="panel full live">
+    <div class="live-head">
+      <div>
+        <h2><span class="live-dot"></span>Live from the Scanners</h2>
+        <p class="desc">PHP responses Censys scanners receive per minute, by the version they report. Last 24 hours, smoothed; hover for 5-minute detail. Updated hourly.</p>
+      </div>
+      <div class="live-rate">
+        <div class="live-num" id="live-num">–</div>
+        <div class="live-sub" id="live-sub">PHP responses / min</div>
+      </div>
+    </div>
+    <div class="legend" id="legend-live"></div>
+    <div class="chart" id="live"></div>
+    <p class="note" id="live-note"></p>
+  </section>
+
+  <section class="panel left">
+    <h2>Patch Progress</h2>
+    <p class="desc">How the exposed population changes as fixes roll out. One bar per UTC day: today's bar updates hourly and becomes final at midnight UTC.</p>
+    <div class="legend" id="legend-history"></div>
+    <div class="chart" id="history"></div>
+    <p class="note" id="history-note"></p>
+  </section>
+
+  <section class="panel">
+    <h2>Services Patched</h2>
+    <p class="desc">Services previously seen on an affected version, by the day a scan first saw them on a fixed version. Each upgrade happened between those two sightings.</p>
+    <div class="chart" id="patched"></div>
+  </section>
+
+  <section class="panel left adopt">
+    <h2>Fix Adoption by Branch</h2>
+    <p class="desc">How far each supported branch is from its fixed release: services on the fix, one release behind, 2–5 behind, and 6 or more behind. These branches can patch; 8.1 and older have no official fix.</p>
+    <div class="multiples" id="multiples"></div>
+  </section>
+
+  <section class="panel">
+    <h2>By PHP Branch</h2>
+    <p class="desc">Share of current PHP services per branch. Expand a row for its counts.</p>
+    <div class="rows" id="rows"></div>
+    <p class="foot" id="rows-foot"></p>
+  </section>
+
+  <section class="panel left">
+    <h2>Networks</h2>
+    <p class="desc" id="nets-desc"></p>
+    <div class="legend" id="legend-nets"></div>
+    <div id="nets"></div>
+  </section>
+
+  <section class="panel">
+    <h2>Most Common Versions</h2>
+    <p class="desc">The 20 most common reported PHP versions and whether each is affected.</p>
+    <table id="versions"></table>
+  </section>
+  <section class="panel full notes">
+    <h2>Notes &amp; limitations</h2>
+    <ul id="notes"></ul>
+  </section>
+</main>
+<footer class="footer">
+  <div class="footer-inner">
+    <a class="footer-logo" href="https://censys.com" target="_blank" rel="noopener" aria-label="Censys"><img src="static/censys-arc-lockup.svg" alt="Censys ARC"></a>
+    <div class="footer-links">
+      <a href="https://censys.com/advisory/cve-2026-109618-cve-2026-109619/" target="_blank" rel="noopener">Read the Censys advisory <span aria-hidden="true">↗</span></a>
+      <a href="https://censys.com" target="_blank" rel="noopener">censys.com <span aria-hidden="true">↗</span></a>
+    </div>
+  </div>
+</footer>
+<div id="tip"></div>
+
+<script src="static/app.js?v=2d347bf0f59d" defer></script>
+</body>
+</html>
