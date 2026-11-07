@@ -1,0 +1,60 @@
+included rows 48
+any-layer {1: 5, 2: 7, 3: 6, 4: 4, 5: 3, 6: 4, 7: 5, 8: 12, 9: 13, 10: 7}
+primary   {1: 5, 2: 5, 3: 2, 4: 2, 5: 1, 6: 3, 7: 5, 8: 11, 9: 11, 10: 3}
+layers with zero rows []
+certificate rows (layer 5): [('I09', 'Cloudflare Radar'), ('I12', 'Censys (platform and the public PHP2Shell tracker)'), ('I16', 'Certificate Transparency logs')]
+names rows (layer 4): [('I09', 'Cloudflare Radar'), ('I14', 'Tranco'), ('I15', 'Chrome UX Report (CrUX)'), ('I42', 'DNS Coffee')]
+running-services rows (layer 6): [('I12', 'Censys (platform and the public PHP2Shell tracker)'), ('I17', 'The Shadowserver Foundation'), ('I20', 'W3Techs'), ('I45', 'Netlas')]
+traffic rows (layer 10): [('I04', 'Interconnection Measurement Project (CableLabs)'), ('I09', 'Cloudflare Radar'), ('I13', 'CAIDA UCSD Network Telescope'), ('I37', 'SANS Internet Storm Center / DShield'), ('I38', 'GreyNoise'), ('I39', 'WIDE MAWI traffic archive'), ('I40', 'Measurement Lab (M-Lab)')]
+routing rows (layer 2): [('I05', 'RouteViews'), ('I06', 'RIPE RIS (Routing Information Service)'), ('I07', 'Packet Clearing House BGP routing data'), ('I08', 'CAIDA AS Relationships'), ('I09', 'Cloudflare Radar'), ('I11', 'CAIDA Ark IPv4 Routed /24 Topology'), ('I48', 'RIPEstat Data API')]
+address rows (layer 3): [('I10', 'RIPE Atlas'), ('I11', 'CAIDA Ark IPv4 Routed /24 Topology'), ('I12', 'Censys (platform and the public PHP2Shell tracker)'), ('I13', 'CAIDA UCSD Network Telescope'), ('I17', 'The Shadowserver Foundation'), ('I48', 'RIPEstat Data API')]
+  I08 CAIDA AS Relationships -> ['I05', 'I06']  [vantage: Derived from "RouteViews and RIPE RIS BGP table snapshots"; serial-2 adds IX looking-glass communities and Ark]
+  I09 Cloudflare Radar -> ['I05', 'I06', 'I16']  [vantage: "Cloudflare's global network" and "aggregated and anonymized data from Cloudflare's 1.1.1.1 public DNS resolve]
+  I14 Tranco -> ['I15', 'I09']  [vantage: combines provider lists: CrUX, Cloudflare Radar, Farsight, Majestic and Cisco Umbrella (the page also says "al]
+  I19 HTTP Archive -> ['I15']  [vantage: a private WebPageTest instance in "Google Cloud regions" in the US; URLs from the Chrome UX Report; desktop Ch]
+  I20 W3Techs -> ['I15', 'I14']  [vantage: a sample of "the relevant web", ranked by CrUX and a customised Tranco list; crawler location not stated]
+  I23 PyPI Stats (pypistats.org) -> ['I22']  [vantage: the Python Software Foundation's public BigQuery dataset]
+  I33 GitHub Advisory Database -> ['I47']  [vantage: reviewed advisories from GitHub, NVD, npm, FriendsOfPHP, Go Vulncheck, the Python Packaging Advisory DB, the R]
+  I32 OSV.dev -> ['I33']  [vantage: upstream databases including "GitHub Security Advisories, PyPA, RustSec, and many more"]
+  I41 CAIDA AS Facilities -> ['I01', 'I08']  [note: Undetermined in version 0.1 (the request form was read, not the public directory). Draws on PeeringDB (I01) an]
+  I48 RIPEstat Data API -> ['I06', 'I10']  [note: Unreadable in version 0.1 (the documentation URL tried returned 404). Draws on RIPE RIS (I06) and RIPE Atlas (]
+  I47 National Vulnerability Database (NVD) -> ['I31']  [note: Unreadable in version 0.1 (nvd.nist.gov returned only its title). Read through NIST's own page about it. Draws]
+rows drawing on another included instrument: 11 of 48
+  not counted, check: I24 ClickPy vantage = not named on the page beyond PyPI
+  not counted, check: I11 Ark vs I08 (I08 serial-2 adds Ark traceroutes): I08 already counted
+  not counted, check: I29 deps.dev vulns source: package registries and repository hosts for Cargo, Go, Maven, npm, NuGet, PyPI and RubyGems
+cannot_see starts 'not stated': 16
+  I01 PeeringDB: not stated on the page read
+  I05 RouteViews: not stated on the page read
+  I07 Packet Clearing House BGP routing data: not stated
+  I10 RIPE Atlas: not stated on the page read
+  I12 Censys (platform and the public PHP2Shell tracker): not stated in the documentation read; the tracker's "Notes & limitations" heading had no text under it
+  I16 Certificate Transparency logs: not stated on the page read
+  I22 PyPI download table on BigQuery: not stated on the page read
+  I24 ClickPy: not stated
+  I36 Atlantic Council, Breaking Trust (software supply chain attacks): not stated
+  I37 SANS Internet Storm Center / DShield: not stated
+  I38 GreyNoise: not stated
+  I40 Measurement Lab (M-Lab): not stated
+  I43 Docker Hub pull counts: not stated
+  I44 Hugging Face Hub download counts: not stated, beyond the double counting of GGUF files on cloning
+  I45 Netlas: not stated
+  I46 Software Heritage graph dataset: not stated; the page lists errata, such as an export whose "author and committer timestamps were shifted back 1 or 2 hours"
+of which carry a qualification ('beyond', ';', etc.): ['I12', 'I44', 'I46']
+v0.1 rows (I01-I40) in that set: 12  rows I41-I48: 4
+borderline rows not counted: [('I06', '"Deprecated RRCs will not have new data but their data will be accessible." No coverage limit stated'), ('I17', 'no general statement; the DDoS report notes "traffic might also be spoofed"')]
+rows giving a percentage of their own coverage: [('I03', 'Epoch AI, AI data centers')]
+IPv6 mention: I09 Cloudflare Radar
+IPv6 mention: I11 CAIDA Ark IPv4 Routed /24 Topology
+IPv6 mention: I12 Censys (platform and the public PHP2Shell tracker)
+IPv6 mention: I43 Docker Hub pull counts
+
+no-limit count, by reading:
+  mechanical (cannot_see begins 'not stated'): 16
+  + I06 ('No coverage limit stated', page states only a deprecation note): 17
+  + I06 + I17 ('no general statement', one report's spoofing caveat): 18
+  strict 'no limit at all' (drop I44, I46, which state a caveat): 14
+  record's own figure: 13 of I01-I40 + 4 of I41-I48 = 17; mechanical I01-I40 = 12
+  I03 Epoch AI, AI data centers: '45%' in fields: True
+  I13 CAIDA UCSD Network Telescope: '1/256' in fields: True
+  I04 Interconnection Measurement Project (CableLabs): '>75%' in fields: True
