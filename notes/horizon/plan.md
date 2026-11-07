@@ -14,27 +14,28 @@ Twice a week, on Tuesdays and Fridays, as rows `horizon-<date>` in schedule/due.
 
 1. **Read the keeper first.** proposals.md's "From the keeper" and every `Keeper, <date>:` line added since the last sweep. Act on them: an agreed proposal gets its brief and rows (step 6), a declined one moves to the end with the keeper's reason, a direction becomes a proposal or steers this sweep's searches.
 2. **Look inward.** What changed since the last sweep file: the Next sections of records, checkpoints that flagged something, review notes' open questions, programme.md's Next, and rows marked missed, blocked or keeper. Each open thread not already in proposals.md or the schedule is a candidate.
-3. **Look outward.** A subagent (Sonnet, or as the harness allows) runs the standing searches below in the session's web-search tool, standard mode, one search each, and writes the ranked results as returned. It lists the URLs new since every earlier sweep file in this directory and opens at most eight of them, the highest-ranked that make a claim of fact, read directly; for each it records the URL, UTC read time, status, the page's own date and the claim in a sentence with a short quotation, classed as **reported by** the page, never as an observation. It also reads CISA's catalogue of known exploited vulnerabilities (its JSON feed) for entries added since the last sweep. Tell it not to read keys from the environment, to keep searches out of harbour/.session/, and not to commit.
+3. **Look outward, widely.** Dispatch the scouts below in parallel, one subagent each (Sonnet for reading, Opus where a scout must judge), each told not to read keys from the environment, to keep searches out of harbour/.session/, and not to commit. Each scout reads its standing sources directly, then searches: it writes its own queries from what it has just read and from the keeper's directions, as many as it needs, and it follows a lead to its primary source. Each opens up to about twenty-five pages, records for each the URL, UTC read time, status, the page's own date and the claim in a sentence with a short quotation, classed as **reported by** the page, never as an observation, and returns its five best leads with a sentence on why each matters to the charter's question. Every URL it lists is checked against earlier sweep files so the sweep reports what is new.
 4. **Write the sweep file**, notes/horizon/`<UTC label>`.md: the inward threads, the searches and results, the new URLs, the pages opened, and the candidates drawn from them.
 5. **Propose.** At most five new proposals a sweep, in proposals.md's form, each citing what was read with its date. A proposal is **urgent** only when its first observations are lost if nobody looks soon (a fresh advisory, a score's daily history, a page likely to change), and it states that window. Prefer what fits the charter's question and an active investigation; say plainly when it does neither.
 6. **Gate.** A fresh agent (Opus 5.5 or stronger) that wrote none of the proposals reads each new one with the charter, AGENTS.md's rules and the throttle, and gives it a lane with a sentence of reason: started, waiting for the keeper, backlog or declined. The run then starts what was put in the started lane, within the throttle: a brief fixed before outcomes are read, its rows in schedule/due.csv, and for an urgent watch an end 14 days after its first read. Without a fresh agent, the run may still start an urgent watch, since waiting loses it, and leaves everything else in the backlog with "not gated".
 7. **Re-rank and summarise.** Re-rank the backlog by the programme's criteria (scientific value, decision relevance, evidence access, tractability, cost), moving anything untouched for twelve weeks to parked. Rewrite "For the next review": what started since the keeper last reviewed, what waits for them, the top five of the backlog with a recommendation each, and the spend since the last review.
 
-## Standing searches
+## The scouts
 
-Revisable by any sweep with a dated note here; a sweep is discovery, so the list is not frozen, but every change is written down.
+Each scout has standing sources, read every sweep, and a brief for its own searching. A sweep may add, drop or change a scout or a source with a dated note here; discovery is not frozen, but every change is written down.
 
-1. `AI agent incident internet infrastructure`
-2. `autonomous AI agents web traffic bots share`
-3. `vulnerability discovered by AI model exploit`
-4. `software supply chain attack package registry`
-5. `exploited in the wild widely used open source library`
-6. `major internet outage root cause`
-7. `self-propagating malware worm`
-8. `AI crawler robots.txt blocking study`
-9. `Model Context Protocol security vulnerability`
-10. `internet measurement research new dataset`
+1. **AI activity on the internet.** How AI agents, crawlers and automated systems act on shared infrastructure: traffic and bot reports (Cloudflare Radar and its blog, Fastly and Akamai reports, Imperva's bad-bot report), robots.txt and crawler studies, agent platforms' and protocols' announcements and incidents (agents, tool use, the Model Context Protocol, agent-to-agent protocols), AI labs' system cards, threat reports and disclosure posts (Anthropic, OpenAI, Google DeepMind, Microsoft, Meta).
+2. **Security and vulnerabilities.** CISA's catalogue of known exploited vulnerabilities (JSON feed), the CVE and OSV feeds and GitHub's advisory database for new critical entries in widely used software, EPSS's top movers, national CERT notices (CISA, NCSC UK, CERT-EU), Project Zero and vendor research blogs, and disclosures where a model found or exploited the flaw.
+3. **Software supply chain.** Package registries' security notices and malware takedowns (PyPI, npm, crates.io, RubyGems), OpenSSF and Socket-style malware reports, compromised maintainer accounts, poisoned images and actions, and model and dataset hubs (Hugging Face) as a new supply chain.
+4. **Internet infrastructure and measurement.** Outages and routing incidents (Cloudflare Radar, RIPE Labs, Kentik, ThousandEyes, status pages of the large providers), DNS and certificate events, and new public datasets and instruments; each sweep also rotates through eight of the 48 instruments in studies/LH035/sources.md, reading what each has published since the last time.
+5. **Research.** New papers on arXiv (cs.CR, cs.NI, cs.AI, cs.SE and cs.CY) and in measurement and security venues (IMC, USENIX Security, NDSS, PAM) that bear on agents online, self-propagation, automated exploitation, or the instruments Lighthouse uses.
+6. **Policy and institutions.** Regulators' and standards bodies' moves on AI agents and online infrastructure (EU AI Office, NIST and CAISI, the UK AI Security Institute, IETF working groups), and court or enforcement actions about automated traffic.
+7. **Wildcard.** Told to look for what the other six would miss: a different language's press, a forum or community where operators talk (NANOG, operator mailing lists, Hacker News, Mastodon's infosec community), an unusual event with no obvious category, and anything the keeper's directions name. Its question is "what would Lighthouse regret not having watched?"
+
+## Bounds
+
+Breadth comes from the scouts; the bound is on what follows. A sweep proposes at most five new things and the throttle in proposals.md decides what starts. The scouts' reading is not capped beyond the guide of about twenty-five pages each; the sweep file records the pages opened and the spend, so the keeper can see the cost and change it.
 
 ## Limits
 
-One search tool, in English, on one day: absence means nothing, and media repeat each other, so a claim reported by many outlets is one claim. The sweep's choice of what to open is a judgement and is recorded as one. A proposal is an idea with its sources, not a finding; nothing from a sweep reaches a piece except through a study and its reviews.
+Several readers, mostly in English, on one day: absence means nothing, and media repeat each other, so a claim reported by many outlets is one claim. Each scout's choice of what to read and search is a judgement and is recorded as one; the standing sources are a starting point, not a sample. A proposal is an idea with its sources, not a finding; nothing from a sweep reaches a piece except through a study and its reviews.
