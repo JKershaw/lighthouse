@@ -7,7 +7,7 @@ layout: base.njk
 <article class="index schedule">
   <h1>Schedule</h1>
   {% if not s %}<p>No schedule yet.</p>{% else %}
-  <p class="lede">Everything Lighthouse has promised to do, from its reads to its write-ups, each with a window and a status. Scheduled agent runs take what is due; a run that never happens leaves a row overdue here, not a hole in the record. As of {{ s.today }}, the date of this page's last build; the table is <a href="https://github.com/JKershaw/lighthouse/blob/main/schedule/due.csv">schedule/due.csv</a> and a run follows <a href="/schedule/runner/">its instructions</a>.</p>
+  <p class="lede">Everything Lighthouse has promised to do, from its reads to its write-ups, each with a window and a status. Scheduled agent runs take what is due; a run that never happens leaves a row overdue here, not a hole in the record. As of {{ s.today }}, the date of this page's last build; the table is <a href="https://github.com/JKershaw/lighthouse/blob/main/schedule/due.csv">schedule/due.csv</a> and a run follows <a href="/schedule/runner/">its instructions</a>. Ideas not yet promised wait, ranked, in <a href="/proposals/">the proposals</a>.</p>
 
   {% if s.lastRun %}<p class="sched-note">Last run: {{ s.lastRun.started }}, {{ s.lastRun.by | escape }}: {{ s.lastRun.did | escape }}.</p>{% endif %}
 

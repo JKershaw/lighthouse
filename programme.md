@@ -72,6 +72,10 @@ Each answer says what its record's current Answer says, at the same certainty as
 
 ## Next
 
+### Decision, 7 November 2026: proposals, a horizon sweep and a throttle
+
+The keeper asked for Lighthouse to widen and deepen what it watches without a person acting as its clock, while keeping a person able to steer. Ideas that are not yet promises now live in [proposals.md](proposals.md), ranked; a horizon sweep twice a week ([its plan](notes/horizon/plan.md), rows `horizon-<date>`) adds them from the news and from Lighthouse's own open threads; a fresh agent gates each into started, waiting for the keeper or backlog; and a throttle set by the keeper bounds what starts unreviewed (three active investigations at most, two new studies a week, urgent watches of 14 days unless extended). The keeper reviews the list when they choose and adds directions of their own; nothing waits on that review. The candidates listed under "Questions after these" and the open question issues were copied into proposals.md as its first backlog, not yet gated.
+
 ### Checkpoint, 6 November 2026: the map of instruments (LH035) goes to review
 
 [LH035](studies/LH035/LH035.md), at version 0.3, re-read rows I01 to I40 raw: 62 pages fetched with curl and kept, 214 of 228 quotations found verbatim, and the unquoted fields checked against the raw text. Eleven fields in ten rows were corrected, and five live values in four rows given both readings (the largest corrections: CAIDA's AS relationships dataset lists no sibling links, and one quotation from CAIDA's telescope page was the reading tool's paraphrase); none touched the Answer. CISA's catalogue page refused the research client, so row I30 alone still rests on an extract. With the measurement repaired, the map page the brief mentions goes ahead from figure.svg through the full review sequence (row LH035-map-page), ahead of a new outward question, because the survey is otherwise finished and unpublished. The blind-spot grouping stays a reading (the record's Next, item 4).

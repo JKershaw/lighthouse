@@ -32,6 +32,7 @@ const ROOT_LABELS = {
   "charter.md": "Charter",
   "design.md": "Research design",
   "programme.md": "Programme",
+  "proposals.md": "Proposals",
   "releases.md": "Releases",
   "sources.md": "Sources",
 };

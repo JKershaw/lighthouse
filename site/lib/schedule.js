@@ -49,7 +49,7 @@ const LABELS = {
 };
 
 // Where a row's study label leads: a study's directory, or the page its work lives on.
-const PLACES = { media: "/notes/php-media-sweep/plan/", log: "/notes/php-watch-log/", articles: "/articles/", essays: "/essays/" };
+const PLACES = { media: "/notes/php-media-sweep/plan/", horizon: "/notes/horizon/plan/", log: "/notes/php-watch-log/", articles: "/articles/", essays: "/essays/" };
 export function hrefFor(study) {
   return /^LH\d+$/.test(study) ? `/studies/${study}/` : PLACES[study] || "";
 }

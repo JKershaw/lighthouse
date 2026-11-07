@@ -41,7 +41,7 @@
   <nav aria-label="Sections and records">
     <ul>
       {% for link in [["/watch/", "The watch", "watch"], ["/map/", "The map", "map"], ["/studies/", "Studies", "studies"], ["/notes/", "Notes", "notes"]] %}<li><a href="{{ link[0] }}"{% if navSection == link[2] %} aria-current="page"{% endif %}>{{ link[1] }}</a></li>{% endfor %}
-      {% for file in ["programme.md", "observations.md", "sources.md", "releases.md"] %}{% set d = repo.byPath[file] %}{% if d %}<li><a href="{{ d.url }}"{% if page.url == d.url %} aria-current="page"{% endif %}>{{ d.label }}</a></li>{% endif %}{% endfor %}
+      {% for file in ["programme.md", "proposals.md", "observations.md", "sources.md", "releases.md"] %}{% set d = repo.byPath[file] %}{% if d %}<li><a href="{{ d.url }}"{% if page.url == d.url %} aria-current="page"{% endif %}>{{ d.label }}</a></li>{% endif %}{% endfor %}
     </ul>
   </nav>
   <nav aria-label="Documents">
