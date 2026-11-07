@@ -4,6 +4,7 @@
 
 import fs from "node:fs";
 import path from "node:path";
+import { REPO_URL, isIgnored, pageUrl, sourceUrl } from "./repo.js";
 
 export const SCHEDULE_TABLE = "schedule/due.csv";
 
@@ -53,13 +54,48 @@ export function hrefFor(study) {
   return /^LH\d+$/.test(study) ? `/studies/${study}/` : PLACES[study] || "";
 }
 
+// A row's ref split into text and links, for what the work produced: a
+// Markdown file in the repository links to its page, any other file or a
+// directory to its source on GitHub. Text that names nothing present stays text.
+export function refParts(ref, root) {
+  const text = String(ref || "");
+  const parts = [];
+  let last = 0;
+  for (const m of text.matchAll(/[\w./-]+/g)) {
+    const token = m[0].replace(/[.,;:]+$/, "");
+    const rel = token.replace(/^\/+/, "").replace(/\/$/, "");
+    if (!rel || !(rel.includes("/") || /\.md$/i.test(rel)) || rel.split("/").includes("..") || isIgnored(rel)) continue;
+    const full = path.join(root, rel);
+    if (!fs.existsSync(full)) continue;
+    const isDir = fs.statSync(full).isDirectory();
+    const page = !isDir && /\.md$/i.test(rel);
+    if (m.index > last) parts.push({ text: text.slice(last, m.index) });
+    parts.push({ text: token, href: page ? pageUrl(rel) : sourceUrl(rel, isDir), page });
+    last = m.index + token.length;
+  }
+  if (last < text.length) parts.push({ text: text.slice(last) });
+  return parts;
+}
+
+// The calendar day a row sits on: the day its window opens, or, for a row
+// without an end date, the day it was claimed or done.
+export function dayOf(row) {
+  if (row.status === "cancelled") return "";
+  if (row.latest) return row.earliest;
+  return ["done", "missed", "running"].includes(row.status) ? (row.updated || "").slice(0, 10) : "";
+}
+
 export function buildSchedule(root, now = new Date()) {
   const file = path.join(root, SCHEDULE_TABLE);
   if (!fs.existsSync(file)) return null;
   const today = iso(now);
-  const rows = parseCsv(fs.readFileSync(file, "utf8")).map((r) => ({
-    ...r, state: stateOf(r, today), stateLabel: LABELS[stateOf(r, today)] || r.status, href: hrefFor(r.study),
-  }));
+  const rows = parseCsv(fs.readFileSync(file, "utf8")).map((r) => {
+    const state = stateOf(r, today);
+    const refs = refParts(r.ref, root);
+    // A finished row leads to what it produced; any other to its study.
+    const made = ["done", "missed"].includes(state) && refs.find((p) => p.page);
+    return { ...r, state, stateLabel: LABELS[state] || r.status, refs, href: made ? made.href : hrefFor(r.study), day: dayOf(r) };
+  });
 
   // Weeks from the Monday of last week to six weeks ahead, each a row of seven days.
   const start = addDays(now, -((now.getUTCDay() + 6) % 7) - 7);
@@ -68,7 +104,7 @@ export function buildSchedule(root, now = new Date()) {
     const days = [];
     for (let d = 0; d < 7; d++) {
       const date = iso(addDays(start, w * 7 + d));
-      const items = rows.filter((r) => r.earliest === date && r.latest && r.status !== "cancelled");
+      const items = rows.filter((r) => r.day === date);
       days.push({ date, day: Number(date.slice(8)), month: date.slice(5, 7), isToday: date === today, isPast: date < today, items });
     }
     weeks.push({ label: weeks.length === 0 ? "Last week" : "", days });
@@ -93,6 +129,6 @@ export function buildSchedule(root, now = new Date()) {
     recent: rows.filter((r) => ["done", "missed"].includes(r.state)).sort((a, b) => (b.updated || "").localeCompare(a.updated || "")).slice(0, 12),
     range: { first, last },
     lastRun: runs[0] || null,
-    runs: runs.slice(0, 8),
+    runs: runs.slice(0, 8).map((r) => ({ ...r, commitUrl: /^[0-9a-f]{7,40}$/.test(r.commit || "") ? `${REPO_URL}/commit/${r.commit}` : "" })),
   };
 }

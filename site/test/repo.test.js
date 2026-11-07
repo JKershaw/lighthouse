@@ -16,9 +16,13 @@ import { markNotices, arrangeOpening, arrangePiece, noticeKind } from "../lib/ht
 const fixture = path.join(path.dirname(fileURLToPath(import.meta.url)), "fixtures", "repo");
 
 // A copy outside any git checkout, with fixed file times standing in for git.
-function scanCopy({ touch = {}, siteJson } = {}) {
+function scanCopy({ touch = {}, siteJson, extra = {} } = {}) {
   const dir = fs.mkdtempSync(path.join(os.tmpdir(), "lighthouse-fixture-"));
   fs.cpSync(fixture, dir, { recursive: true });
+  for (const [rel, text] of Object.entries(extra)) {
+    fs.mkdirSync(path.dirname(path.join(dir, rel)), { recursive: true });
+    fs.writeFileSync(path.join(dir, rel), text);
+  }
   const at = (iso) => new Date(iso);
   const walk = (d) =>
     fs.readdirSync(d, { withFileTypes: true }).forEach((e) => {
@@ -373,4 +377,34 @@ test("the feed: released pieces and essays, newest first, with kinds and RFC 333
   assert.equal((xml.match(/<entry>/g) || []).length, entries.length);
   assert.ok(!wellFormed("<feed><entry></feed></entry>"));
   assert.equal(escapeXml(`a & "b" <c>`), "a &amp; &quot;b&quot; &lt;c&gt;");
+});
+
+test("a study lists its checkpoints newest first, and a checkpoint moves its last change", () => {
+  const repo = scanCopy({
+    extra: {
+      "studies/LH001/checkpoints/2026-09-22.md": "# LH001 read: 22 September 2026\n\nNo change.\n",
+      "studies/LH001/checkpoints/2026-09-24T1530Z.md": "# LH001 read: 24 September 2026\n\nOne change.\n",
+      "studies/LH001/checkpoints/interim-2026-09-23.md": "# LH001 interim\n\nInterim.\n",
+      "studies/LH001/data/read-2026-09-24/list.md": "# A retained list\n",
+    },
+    touch: {
+      "studies/LH001/checkpoints/2026-09-24T1530Z.md": "2026-09-24T15:40:00Z",
+      "studies/LH001/data/read-2026-09-24/list.md": "2026-09-24T15:35:00Z",
+    },
+  });
+  const study = repo.studies.find((s) => s.id === "LH001");
+  assert.equal(study.lead.path, "studies/LH001/LH001.md");
+  assert.deepEqual(study.others.map((p) => p.path), [], "subfolder files are not listed as the study's own files");
+  assert.deepEqual(
+    study.checkpoints.map((c) => [c.path, c.date, c.time]),
+    [
+      ["studies/LH001/checkpoints/2026-09-24T1530Z.md", "24 September 2026", "15:30 UTC"],
+      ["studies/LH001/checkpoints/interim-2026-09-23.md", "23 September 2026", ""],
+      ["studies/LH001/checkpoints/2026-09-22.md", "22 September 2026", ""],
+    ],
+  );
+  assert.equal(study.checkpoints[0].title, "LH001 read: 24 September 2026");
+  assert.equal(study.checkpoints[0].url, "/studies/LH001/checkpoints/2026-09-24T1530Z/");
+  assert.equal(study.changed, "24 September 2026");
+  assert.equal(scanCopy().studies.find((s) => s.id === "LH001").checkpoints.length, 0);
 });

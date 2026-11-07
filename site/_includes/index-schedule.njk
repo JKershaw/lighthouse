@@ -2,14 +2,14 @@
 layout: base.njk
 ---
 {% set s = schedule %}
-{% macro chip(r) %}{% set tip %}{{ r.id }}: {{ r.task }} ({{ r.stateLabel }}{% if r.note %}; {{ r.note }}{% endif %}){% endset %}{% if r.href %}<a class="chip chip-{{ r.state }}" href="{{ r.href }}" title="{{ tip }}">{{ r.study }}</a>{% else %}<span class="chip chip-{{ r.state }}" title="{{ tip }}">{{ r.study }}</span>{% endif %}{% endmacro %}
-{% macro line(r) %}<li><span class="chip chip-{{ r.state }}">{{ r.stateLabel }}</span> <strong>{{ r.id }}</strong>, {{ r.earliest }}{% if r.latest %} to {{ r.latest }}{% else %} onwards{% endif %}: {{ r.task }}{% if r.note %} <span class="sched-note">{{ r.note }}</span>{% endif %}{% if r.ref %} <span class="sched-note">({{ r.ref }})</span>{% endif %}</li>{% endmacro %}
+{% macro chip(r) %}{% set tip %}{{ r.id }}: {{ r.task }} ({{ r.stateLabel }}{% if r.note %}; {{ r.note }}{% endif %}){% endset %}{% if r.href %}<a class="chip chip-{{ r.state }}" href="{{ r.href }}" title="{{ tip | trim | escape }}">{{ r.study }}</a>{% else %}<span class="chip chip-{{ r.state }}" title="{{ tip | trim | escape }}">{{ r.study }}</span>{% endif %}{% endmacro %}
+{% macro line(r) %}<li><span class="chip chip-{{ r.state }}">{{ r.stateLabel }}</span> <strong>{{ r.id | escape }}</strong>, {{ r.earliest }}{% if r.latest %} to {{ r.latest }}{% else %} onwards{% endif %}: {{ r.task | escape }}{% if r.note %} <span class="sched-note">{{ r.note | escape }}</span>{% endif %}{% if r.ref %} <span class="sched-note">({% for p in r.refs %}{% if p.href %}<a href="{{ p.href }}">{{ p.text | escape }}</a>{% else %}{{ p.text | escape }}{% endif %}{% endfor %})</span>{% endif %}</li>{% endmacro %}
 <article class="index schedule">
   <h1>Schedule</h1>
   {% if not s %}<p>No schedule yet.</p>{% else %}
   <p class="lede">Everything Lighthouse has promised to do, from its reads to its write-ups, each with a window and a status. Scheduled agent runs take what is due; a run that never happens leaves a row overdue here, not a hole in the record. As of {{ s.today }}, the date of this page's last build; the table is <a href="https://github.com/JKershaw/lighthouse/blob/main/schedule/due.csv">schedule/due.csv</a> and a run follows <a href="/schedule/runner/">its instructions</a>.</p>
 
-  {% if s.lastRun %}<p class="sched-note">Last run: {{ s.lastRun.started }}, {{ s.lastRun.by }}: {{ s.lastRun.did }}.</p>{% endif %}
+  {% if s.lastRun %}<p class="sched-note">Last run: {{ s.lastRun.started }}, {{ s.lastRun.by | escape }}: {{ s.lastRun.did | escape }}.</p>{% endif %}
 
   <ul class="sched-counts">{% for c in s.counts %}<li><span class="chip chip-{{ c.state }}">{{ c.label }}</span> {{ c.n }}</li>{% endfor %}</ul>
 
@@ -20,8 +20,8 @@ layout: base.njk
   <ul class="sched-list">{% for r in s.due %}{{ line(r) }}{% endfor %}</ul>{% endif %}
 
   <h2>The coming weeks</h2>
-  <p class="sched-note">Each study appears on the day its window opens; hover or tap for the task. Rows without an end date are listed below.</p>
-  <div class="sched-cal" role="table" aria-label="Scheduled rows by the day their window opens, {{ s.range.first }} to {{ s.range.last }}">
+  <p class="sched-note">Each study appears on the day its window opens, or, for a row without an end date, the day it was done; hover for the task. A finished row links to what it produced, and an unfinished one to its study. Rows without an end date still to do are listed below.</p>
+  <div class="sched-cal" role="table" aria-label="Scheduled rows by the day their window opens, or the day a row without an end date was done, {{ s.range.first }} to {{ s.range.last }}">
     <div class="sched-row sched-head" role="row">{% for d in ["Mon", "Tue", "Wed", "Thu", "Fri", "Sat", "Sun"] %}<div role="columnheader">{{ d }}</div>{% endfor %}</div>
     {% for w in s.weeks %}<div class="sched-row" role="row">
       {% for d in w.days %}<div role="cell" class="sched-day{% if d.isToday %} is-today{% endif %}{% if d.isPast %} is-past{% endif %}{% if not d.items.length %} is-empty{% endif %}">
@@ -40,6 +40,6 @@ layout: base.njk
   {% if s.recent.length %}<h2>Recently done or missed</h2>
   <ul class="sched-list">{% for r in s.recent %}{{ line(r) }}{% endfor %}</ul>{% endif %}
   {% if s.runs.length %}<h2>Recent runs</h2>
-  <ul class="sched-list">{% for r in s.runs %}<li><strong>{{ r.started }}</strong>, {{ r.by }}: {{ r.did }}{% if r.commit %} <span class="sched-note">({{ r.commit }})</span>{% endif %}</li>{% endfor %}</ul>{% endif %}
+  <ul class="sched-list">{% for r in s.runs %}<li><strong>{{ r.started }}</strong>, {{ r.by | escape }}: {{ r.did | escape }}{% if r.commit %} <span class="sched-note">({% if r.commitUrl %}<a href="{{ r.commitUrl }}">{{ r.commit }}</a>{% else %}{{ r.commit }}{% endif %})</span>{% endif %}</li>{% endfor %}</ul>{% endif %}
   {% endif %}
 </article>

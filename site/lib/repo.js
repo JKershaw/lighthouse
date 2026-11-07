@@ -304,6 +304,18 @@ function namedPath(text, from) {
 
 const link = (p) => (p ? { title: p.title, url: p.url, path: p.path } : null);
 
+// When a checkpoint was written: the date and time in its file name
+// (2026-11-05.md, 2026-11-02T1530Z.md, interim-2026-10-30.md), else the day
+// the file last changed. `key` sorts them.
+export function checkpointWhen(page) {
+  const m = path.posix.basename(page.path).match(/(\d{4}-\d{2}-\d{2})(?:T(\d{2})(\d{2})Z)?/);
+  if (!m) {
+    const d = new Date(page.time || 0);
+    return { key: d.toISOString().slice(0, 16), date: formatDate(d), time: "" };
+  }
+  return { key: `${m[1]}T${m[2] ? m[2] + ":" + m[3] : ""}`, date: formatDate(headerDate(m[1])), time: m[2] ? `${m[2]}:${m[3]} UTC` : "" };
+}
+
 // Which way a page reads: a reviewed finding, an essay, or a working record
 // (a study's files, a note, or any document whose header is shown as facts).
 export function registerOf(page) {
@@ -521,8 +533,15 @@ export function scanRepo(root, { siteFile = path.join(root, "site", "site.json")
       // Without a write-up yet, the study is led by its brief or first file.
       const lead = writeup || sorted.find((p) => path.posix.basename(p.path) === "brief.md") || sorted[0];
       const others = sorted.filter((p) => p !== lead);
-      const time = Math.max(0, ...inDir.map((p) => p.time));
-      return { id, dir: d, url: `/${d}/`, source: sourceUrl(d, true), writeup, lead, others, time, changed: formatDate(time) };
+      // The working notes written at each read, newest first, and the study's
+      // last change counted over the whole folder, so a read moves the date.
+      const below = pages.filter((p) => p.path.startsWith(`${d}/`));
+      const checkpoints = below
+        .filter((p) => path.posix.dirname(p.path) === `${d}/checkpoints`)
+        .map((p) => ({ ...link(p), ...checkpointWhen(p) }))
+        .sort((a, b) => b.key.localeCompare(a.key) || b.path.localeCompare(a.path));
+      const time = Math.max(0, ...below.map((p) => p.time));
+      return { id, dir: d, url: `/${d}/`, source: sourceUrl(d, true), writeup, lead, others, checkpoints, time, changed: formatDate(time) };
     })
     .filter((s) => s.lead)
     .sort((a, b) => b.id.localeCompare(a.id, "en", { numeric: true }));

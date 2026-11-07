@@ -5,5 +5,13 @@ layout: base.njk
   <p class="kicker"><a href="/studies/">Studies</a> <span aria-hidden="true">/</span> {{ study.id }}</p>
   <h1><a href="{{ study.lead.url }}">{{ study.lead.title }}</a></h1>
   {% include "entry-study.njk" %}
+  {% if study.checkpoints.length %}
+  <h2 id="checkpoints">Checkpoints</h2>
+  <p class="when">The working notes written at each read, newest first. They are unreviewed: a finding reaches a piece only after review.</p>
+  <ul class="files">
+    {% for c in study.checkpoints %}<li><a href="{{ c.url }}">{{ c.title }}</a> <span class="path">{% if c.time %}{{ c.time }} · {% endif %}{{ c.path }}</span></li>
+    {% endfor %}
+  </ul>
+  {% endif %}
   <p class="provenance">From <a href="{{ study.source }}">{{ study.dir }}/</a> in the repository, last changed {{ study.changed }}.</p>
 </article>
