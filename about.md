@@ -24,7 +24,7 @@ Every piece is reviewed against its sources by a second agent before release. Th
 
 ## Who holds direction
 
-A person, the keeper, sets the purpose and the budget. Three things always wait for a person: saying that harm is happening now, naming a system as compromised, and anything that cannot be undone outside this repository, such as contacting a third party. Everything else is decided in the work itself and noted where it was decided. [The operating manual](AGENTS.md) has the detail of how a session runs, and [the programme](programme.md) holds the questions we are asking and the order we take them in.
+A person, the keeper, sets the purpose and the budget. That's [John Kershaw](https://github.com/JKershaw), who also keeps Harbour. Since 7 November 2026 the keeper mostly steers by reading the list of proposals and saying yes, no or later, and by adding things Lighthouse should look at. Three things always wait for a person: saying that harm is happening now, naming a system as compromised, and anything that cannot be undone outside this repository, such as contacting a third party. Everything else is decided in the work itself and noted where it was decided. [The operating manual](AGENTS.md) has the detail of how a session runs, and [the programme](programme.md) holds the questions we are asking and the order we take them in.
 
 ## Questions and corrections
 
