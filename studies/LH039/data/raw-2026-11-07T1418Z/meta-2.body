@@ -1,0 +1,1550 @@
+<?xml version="1.0" encoding="UTF-8"?><rss version="2.0"
+	xmlns:content="http://purl.org/rss/1.0/modules/content/"
+	xmlns:wfw="http://wellformedweb.org/CommentAPI/"
+	xmlns:dc="http://purl.org/dc/elements/1.1/"
+	xmlns:atom="http://www.w3.org/2005/Atom"
+	xmlns:sy="http://purl.org/rss/1.0/modules/syndication/"
+	xmlns:slash="http://purl.org/rss/1.0/modules/slash/"
+	>
+
+<channel>
+	<title>Releases &#124; WordPress News</title>
+	<atom:link href="https://wordpress.org/news/category/releases/feed/" rel="self" type="application/rss+xml" />
+	<link>https://wordpress.org/news</link>
+	<description>The latest news about WordPress and the WordPress community</description>
+	<lastBuildDate>Fri, 06 Nov 2026 14:34:17 +0000</lastBuildDate>
+	<language>en-US</language>
+	<sy:updatePeriod>
+	hourly	</sy:updatePeriod>
+	<sy:updateFrequency>
+	1	</sy:updateFrequency>
+	<generator>https://wordpress.org/?v=7.2-beta4-65314</generator>
+
+<image>
+	<url>https://s.w.org/favicon.ico?2</url>
+	<title>Releases &#124; WordPress News</title>
+	<link>https://wordpress.org/news</link>
+	<width>32</width>
+	<height>32</height>
+</image> 
+<site xmlns="com-wordpress:feed-additions:1">14607090</site>	<item>
+		<title>WordPress 7.2 Beta 4</title>
+		<link>https://wordpress.org/news/2026/11/wordpress-7-2-beta-4/</link>
+		
+		<dc:creator><![CDATA[David Baumwald]]></dc:creator>
+		<pubDate>Tue, 03 Nov 2026 15:45:29 +0000</pubDate>
+				<category><![CDATA[Development]]></category>
+		<category><![CDATA[Releases]]></category>
+		<category><![CDATA[7.2]]></category>
+		<category><![CDATA[development]]></category>
+		<category><![CDATA[release]]></category>
+		<guid isPermaLink="false">https://wordpress.org/news/?p=21907</guid>
+
+					<description><![CDATA[WordPress 7.2 Beta 4 is ready for download and testing! This beta release is intended for testing and development only. Please do not install, run, or test this version of WordPress on production or mission-critical websites. Instead, use a test environment or local site to explore the new features. Wait, what happened to 7.2 Beta [&#8230;]]]></description>
+										<content:encoded><![CDATA[
+<p class="wp-block-paragraph">WordPress 7.2 Beta 4 is ready for download and testing!</p>
+
+
+
+<p class="wp-block-paragraph"><strong>This beta release is intended for testing and development</strong> only. Please do not install, run, or test this version of WordPress on production or mission-critical websites. Instead, use a test environment or local site to explore the new features.</p>
+
+
+
+<h3 class="wp-block-heading">Wait, what happened to 7.2 Beta 3???</h3>
+
+
+
+<p class="wp-block-paragraph"><a href="https://wordpress.org/news/2026/10/wordpress-7-1-4/">WordPress 7.1.4 was released on October 28</a> which included WordPress 7.2 Beta 3.</p>
+
+
+
+<h2 class="wp-block-heading">How to Test WordPress 7.2 Beta 4</h2>
+
+
+
+<p class="wp-block-paragraph">You can test WordPress 7.2 Beta 4 in any of the following ways:</p>
+
+
+
+<figure class="wp-block-table"><table class="has-fixed-layout"><tbody><tr><td><strong>WordPress Beta Tester Plugin</strong></td><td>Install and activate the <a href="https://wordpress.org/plugins/wordpress-beta-tester/" rel="noreferrer noopener" target="_blank">WordPress Beta Tester</a> plugin on a WordPress install. Select the “Bleeding edge” channel and “Beta/RC Only” stream.</td></tr><tr><td><strong>Direct Download</strong></td><td>Download the <a href="https://wordpress.org/wordpress-7.2-beta4.zip">Beta 4 version (zip)</a> and install it on a WordPress website.</td></tr><tr><td><strong>Command Line (WP-CLI)</strong></td><td>Use this <a href="https://make.wordpress.org/cli/" rel="noreferrer noopener" target="_blank">WP-CLI</a> command: <br><code>wp core update --version=7.2-beta4</code></td></tr><tr><td><strong>WordPress Playground</strong></td><td>Use a <a href="https://playground.wordpress.net/release" rel="noopener" target="_blank">7.2 Beta 4 WordPress Playground instance</a> to test the software directly in your browser. No setup required-just click and go!</td></tr></tbody></table></figure>
+
+
+
+<p class="wp-block-paragraph">The scheduled final release date for WordPress 7.2 is <strong><strong>December 8, 2026</strong></strong>. The full <a href="https://make.wordpress.org/core/2026/10/06/wordpress-7-2-release-party-schedule/">release schedule can be found here</a>. Your help testing Beta and RC versions is vital to making this release as stable and powerful as possible. Thank you to everyone who contributes by testing!</p>
+
+
+
+<h2 class="wp-block-heading">What&#8217;s in WordPress 7.2 Beta 4?</h2>
+
+
+
+<p class="wp-block-paragraph">For technical details on the issues addressed since Beta 2, see the following links:</p>
+
+
+
+<ul class="wp-block-list">
+<li><a href="https://core.trac.wordpress.org/query?status=closed&amp;changetime=10%2F27%2F2026..11%2F03%2F2026&amp;milestone=7.2&amp;group=component&amp;col=id&amp;col=milestone&amp;col=owner&amp;col=type&amp;col=priority&amp;order=id">Closed 7.2 WordPress Core Trac tickets</a> since October 27, 2026</li>
+
+
+
+<li><a href="https://github.com/WordPress/gutenberg/commits/wp/7.2?since=2026-10-27&amp;until=2026-11-03">7.2 Gutenberg commits</a> since October 27, 2026</li>
+</ul>
+
+
+
+<h3 class="wp-block-heading">Continued Improvements to WordPress 7.2</h3>
+
+
+
+<p class="wp-block-paragraph">WordPress 7.2 Beta 4 continues refining the upcoming release with improvements to accessibility, editor reliability, and developer APIs, alongside additional bug fixes and compatibility updates.</p>
+
+
+
+<p class="wp-block-paragraph">Recent work includes improved keyboard focus visibility in Windows High Contrast mode, refinements to administration interfaces, and fixes for right-to-left block alignment and custom block spacing.</p>
+
+
+
+<p class="wp-block-paragraph">Developers will also benefit from continued improvements to the Abilities API, DataViews extensibility, and REST API behavior. Additional fixes strengthen revision handling, input validation, and compatibility across supported environments.</p>
+
+
+
+<p class="wp-block-paragraph"><strong>Learn more:</strong> <a href="https://core.trac.wordpress.org/ticket/45910">Trac #45910</a>, <a href="https://core.trac.wordpress.org/ticket/66382">Trac #66382</a>, <a href="https://core.trac.wordpress.org/ticket/66427">Trac #66427</a>, <a href="https://core.trac.wordpress.org/ticket/66383">Trac #66383</a>, <a href="https://core.trac.wordpress.org/ticket/66343">Trac #66343</a>, <a href="https://core.trac.wordpress.org/ticket/66329">Trac #66329</a></p>
+
+
+
+<h3 class="wp-block-heading">Continued Improvements to Ipsum</h3>
+
+
+
+<p class="wp-block-paragraph">The new default theme, Ipsum, continues to receive refinements ahead of WordPress 7.2&#8217;s final release. Recent updates improve accessibility with clearer keyboard focus indicators, more descriptive screen reader links, and better support for right-to-left languages. Additional improvements refine block patterns, touch target spacing, and color palette compatibility with other default themes.</p>
+
+
+
+<p class="wp-block-paragraph"><strong>Learn more:</strong> <a href="https://core.trac.wordpress.org/ticket/66352">Trac #66352</a>, <a href="https://github.com/WordPress/wordpress-develop/pull/15113">GitHub #15113</a></p>
+
+
+
+<h3 class="wp-block-heading">Improved Translation Update Management</h3>
+
+
+
+<p class="wp-block-paragraph">WordPress 7.2 makes managing translation updates easier by displaying individual available updates on the Updates screen. Administrators can now review and selectively install translation updates, bringing language management in line with the familiar plugin and theme update experience.</p>
+
+
+
+<p class="wp-block-paragraph"><strong>Learn more:</strong> <a href="https://core.trac.wordpress.org/ticket/42281">Trac #42281</a>, <a href="https://github.com/WordPress/wordpress-develop/pull/11610">GitHub #11610</a></p>
+
+
+
+<h2 class="wp-block-heading">How important is your testing?</h2>
+
+
+
+<p class="wp-block-paragraph">Testing for issues is a critical part of developing any software, and it’s a meaningful way for anyone to contribute – whether or not you have experience. <a href="https://make.wordpress.org/test/2026/10/20/help-test-wordpress-7-2/">Details on what to test in WordPress 7.2 are available here</a>.</p>
+
+
+
+<p class="wp-block-paragraph">If you encounter an issue, please share it in the <a href="https://wordpress.org/support/forum/alphabeta/" rel="noopener" target="_blank">Alpha/Beta area</a> of the support forums. If you are comfortable submitting a reproducible bug report, you can do so <a href="https://core.trac.wordpress.org/newticket" rel="noopener" target="_blank">via WordPress Trac</a>. You can also check your issue against this list of <a href="https://core.trac.wordpress.org/tickets/major" rel="noopener" target="_blank">known bugs</a>.</p>
+
+
+
+<p class="wp-block-paragraph">Curious about testing releases in general and how to get started? Follow along with the <a href="https://make.wordpress.org/test/">testing initiatives in Make Core</a> and join the <a href="https://wordpress.slack.com/messages/core-test/">#core-test channel</a> on <a href="https://wordpress.slack.com/">Making WordPress Slack</a>.</p>
+
+
+
+<h2 class="wp-block-heading">A Beta 4 haiku</h2>
+
+
+
+<p class="wp-block-paragraph"><em>Where did Beta Three go?<br>A surprise along the way<br>Four arrives on cue</em>.</p>
+
+
+
+<p class="has-text-align-right wp-block-paragraph"><em>Props to <a href='https://profiles.wordpress.org/audrasjb/' class='mention'><span class='mentions-prefix'>@</span>audrasjb</a>, <a href='https://profiles.wordpress.org/courane01/' class='mention'><span class='mentions-prefix'>@</span>courane01</a>, <a href='https://profiles.wordpress.org/huzaifaalmesbah/' class='mention'><span class='mentions-prefix'>@</span>huzaifaalmesbah</a> for pre-publish review</em>.</p>
+]]></content:encoded>
+					
+		
+		
+		<post-id xmlns="com-wordpress:feed-additions:1">21907</post-id>	</item>
+		<item>
+		<title>WordPress 7.1.4</title>
+		<link>https://wordpress.org/news/2026/10/wordpress-7-1-4/</link>
+		
+		<dc:creator><![CDATA[Aaron Jorbin]]></dc:creator>
+		<pubDate>Wed, 28 Oct 2026 17:13:02 +0000</pubDate>
+				<category><![CDATA[Releases]]></category>
+		<category><![CDATA[Security]]></category>
+		<guid isPermaLink="false">https://wordpress.org/news/?p=21896</guid>
+
+					<description><![CDATA[This security release features fixes for multiple issues. Because this is a security release, it is recommended that you update your sites immediately. You can download WordPress 7.1.4 from WordPress.org, or visit your WordPress Dashboard, click “Updates”, and then click “Update Now”. If you have sites that support automatic background updates, the update process will [&#8230;]]]></description>
+										<content:encoded><![CDATA[
+<p class="wp-block-paragraph">This security release features fixes for multiple issues.</p>
+
+
+
+<p class="wp-block-paragraph"><strong>Because this is a security release, it is recommended that you update your sites immediately.</strong></p>
+
+
+
+<p class="wp-block-paragraph">You can <a href="https://wordpress.org/download/">download WordPress 7.1.4 from WordPress.org</a>, or visit your WordPress Dashboard, click “Updates”, and then click “Update Now”. If you have sites that support automatic background updates, the update process will begin automatically.<br>WordPress 7.1.4 is a short-cycle release. The next major release will be <a href="https://make.wordpress.org/core/7-2/">version 7.2</a>, currently planned for December 8th.</p>
+
+
+
+<p class="wp-block-paragraph">For more information, please visit the <a href="https://wordpress.org/documentation/wordpress-version/version-7-1-4/">WordPress 7.1.4 HelpHub site</a>.</p>
+
+
+
+<h2 class="wp-block-heading">Security updates included in this release</h2>
+
+
+
+<p class="wp-block-paragraph">The security team would like to thank the following people and organizations for responsibly reporting vulnerabilities, and allowing them to be fixed in this release:</p>
+
+
+
+<ul class="wp-block-list">
+<li>A weakness in the WordPress upgrade process which can lead to remote code execution during the upgrade window, reported by <a href="https://www.picussecurity.com/resource/author/umut-bayram">Umut Bayram</a>.</li>
+
+
+
+<li>A stored XSS with specially crafted block markup, reported by <a href="https://www.linkedin.com/in/rafiemuhammad/">Rafie Muhammad</a> (Awesome Motive, Inc.).</li>
+
+
+
+<li>Privacy Data Removal Requests can be created in a way that leads to stored XSS, reported by Anthropic.</li>
+
+
+
+<li>Multiple stored XSS issues in the Interactivity API independently discovered by AnC and DatNLQ from VietSunshine Cyber Security, rekter0 and Anas cherni, <a href="https://decentsecurity.io/">Marcel Karlsson (whoismarcel)</a>, and Weston Ruter, Jon Surrell, Alex Concha, and Luis Herranz of the WordPress Security Team.</li>
+
+
+
+<li>A stored denial of service issue in the Interactivity API, reported by Jon Surrell of the WordPress Security Team.</li>
+
+
+
+<li>A stored XSS in Customizer selective refresh, reported by <a href="https://www.linkedin.com/in/rafiemuhammad/">Rafie Muhammad</a> (Awesome Motive, Inc.).</li>
+
+
+
+<li>A Stored XSS in the Categories block reported by Ben Bidner of the WordPress Security Team.</li>
+
+
+
+<li>Specially crafted User Logins can lead to a stored XSS reported by Anthropic.</li>
+
+
+
+<li>Unpublished customizer changesets can be discovered by unauthenticated users, reported by <a href="https://www.linkedin.com/in/antoniolorensius/">Antonio Lorensius Silaban</a>.</li>
+
+
+
+<li>A Stored XSS in Playlist and image blocks, reported by Ben Bidner of the WordPress Security Team.</li>
+
+
+
+<li>Stored XSS in <code>core/comments-pagination-next</code> and <code>core/comments-pagination-previous</code> blocks, reported by Alex Concha of the WordPress Security Team.</li>
+
+
+
+<li>Notes can be read by privileged users that lack access to edit the post the note is attached to, reported by Ramon of the WordPress Security Team.</li>
+
+
+
+<li>An update to the bundled root certificates due to the eMudhra revocation.</li>
+</ul>
+
+
+
+<h2 class="wp-block-heading">Thank you to these WordPress contributors</h2>
+
+
+
+<p class="wp-block-paragraph">This release was led by <a href="https://profiles.wordpress.org/jorbin/">Aaron Jorbin</a> and <a href="https://profiles.wordpress.org/ntsekouras/">Nik Tsekouras</a>. WordPress 7.1.4 would not have been possible without the contributions of the following people:</p>
+
+
+
+<p class="is-style-wporg-props-medium wp-block-paragraph"><a href="https://w.org/@jorbin">Aaron Jorbin</a>, <a href="https://w.org/@adamsilverstein">Adam Silverstein</a>, <a href="https://w.org/@xknown">Alex Concha</a>, <a href="https://w.org/@aduth">Andrew Duthie</a>, <a href="https://w.org/@andrewserong">Andrew Serong</a>, <a href="https://w.org/@darerodz">David Arenas</a>, <a href="https://w.org/@dmsnell">Dennis Snell</a>, <a href="https://w.org/@ellatrix">Ella Van Durpe</a>, <a href="https://w.org/@mamaduka">George Mamadashvili</a>, <a href="https://w.org/@isabel_brison">Isabel Brison</a>, <a href="https://w.org/@whyisjake">Jake Spurlock</a>, <a href="https://w.org/@audrasjb">Jb Audras</a>, <a href="https://w.org/@jeremyfelt">Jeremy Felt</a>, <a href="https://w.org/@johnbillion">John Blackbourn</a>, <a href="https://w.org/@jonsurrell">Jon Surrell</a>, <a href="https://w.org/@desrosj">Jonathan Desrosiers</a>, <a href="https://profiles.wordpress.org/kirasong/">Kira Song,</a><a href="https://w.org/@lancewillett">Lance Willett</a>, <a href="https://w.org/@luisherranz">luisherranz</a>, <a href="https://w.org/@mciampini">Marco Ciampini</a>, <a href="https://w.org/@marcs0h">marcs0h</a>, <a href="https://w.org/@tyxla">Marin Atanasov</a>, <a href="https://w.org/@santosguillamot">Mario Santos</a>, <a href="https://w.org/@mcsf">Miguel Fonseca</a>, <a href="https://w.org/@ntsekouras">Nik Tsekouras</a>, <a href="https://w.org/@peterwilsoncc">Peter Wilson</a>, <a href="https://w.org/@ramonopoly">ramonopoly</a>, <a href="https://w.org/@rfaile313">Rudy Faile</a>, <a href="https://w.org/@sergeybiryukov">Sergey Biryukov</a>, <a href="https://w.org/@umut3806">umut3806</a>, <a href="https://w.org/@westonruter">Weston Ruter</a></p>
+
+
+
+<h2 class="wp-block-heading">Backports</h2>
+
+
+
+<p class="wp-block-paragraph">As a courtesy, the security fixes were backported to all branches eligible to receive security fixes (currently through 4.7). As a reminder, <strong>only the most recent version of WordPress is actively supported</strong>. The backports are in progress and will ship as they become ready.</p>
+
+
+
+<p class="wp-block-paragraph">WordPress 7.2 Beta 3 has also been released, containing all applicable fixes.</p>
+]]></content:encoded>
+					
+		
+		
+		<post-id xmlns="com-wordpress:feed-additions:1">21896</post-id>	</item>
+		<item>
+		<title>WordPress 7.2 Beta 2 </title>
+		<link>https://wordpress.org/news/2026/10/wordpress-7-2-beta-2/</link>
+		
+		<dc:creator><![CDATA[David Baumwald]]></dc:creator>
+		<pubDate>Tue, 27 Oct 2026 15:49:21 +0000</pubDate>
+				<category><![CDATA[Development]]></category>
+		<category><![CDATA[Releases]]></category>
+		<category><![CDATA[7.2]]></category>
+		<category><![CDATA[development]]></category>
+		<category><![CDATA[release]]></category>
+		<guid isPermaLink="false">https://wordpress.org/news/?p=21890</guid>
+
+					<description><![CDATA[WordPress 7.2 Beta 2 is ready for download and testing!  This beta release is intended for testing and development only. Please do not install, run, or test this version of WordPress on production or mission-critical websites. Instead, use a test environment or local site to explore the new features. How to Test WordPress 7.2 Beta [&#8230;]]]></description>
+										<content:encoded><![CDATA[
+<p class="wp-block-paragraph">WordPress 7.2 Beta 2 is ready for download and testing! </p>
+
+
+
+<p class="wp-block-paragraph"><strong>This beta release is intended for testing and development</strong> only. Please do not install, run, or test this version of WordPress on production or mission-critical websites. Instead, use a test environment or local site to explore the new features.</p>
+
+
+
+<h2 class="wp-block-heading">How to Test WordPress 7.2 Beta 2</h2>
+
+
+
+<p class="wp-block-paragraph">You can test WordPress 7.2 Beta 2 in any of the following ways:</p>
+
+
+
+<figure class="wp-block-table"><table class="has-fixed-layout"><tbody><tr><td><strong>WordPress Beta Tester Plugin</strong></td><td>Install and activate the <a href="https://wordpress.org/plugins/wordpress-beta-tester/" rel="noreferrer noopener" target="_blank">WordPress Beta Tester</a> plugin on a WordPress install. Select the “Bleeding edge” channel and “Beta/RC Only” stream.</td></tr><tr><td><strong>Direct Download</strong></td><td>Download the <a href="https://wordpress.org/wordpress-7.2-beta2.zip">Beta 2 version (zip)</a> and install it on a WordPress website.</td></tr><tr><td><strong>Command Line (WP-CLI)</strong></td><td>Use this <a href="https://make.wordpress.org/cli/" rel="noreferrer noopener" target="_blank">WP-CLI</a> command: <br><code>wp core update --version=7.2-beta2</code></td></tr><tr><td><strong>WordPress Playground</strong></td><td>Use a <a href="https://playground.wordpress.net/?site-slug=kind-classic-mountain&amp;networking=no&amp;php=8.3&amp;wp=beta&amp;language=&amp;multisite=no" rel="noopener" target="_blank">7.2 Beta 2 WordPress Playground instance</a> to test the software directly in your browser. No setup required-just click and go!</td></tr></tbody></table></figure>
+
+
+
+<p class="wp-block-paragraph">The scheduled final release date for WordPress 7.2 is <strong><strong>December 8, 2026</strong></strong>. The full <a href="https://make.wordpress.org/core/2026/10/06/wordpress-7-2-release-party-schedule/">release schedule can be found here</a>. Your help testing Beta and RC versions is vital to making this release as stable and powerful as possible. Thank you to everyone who contributes by testing!</p>
+
+
+
+<h2 class="wp-block-heading">What&#8217;s in WordPress 7.2 Beta 2?</h2>
+
+
+
+<p class="wp-block-paragraph">For technical details on the issues addressed since Beta 1, see the following links:</p>
+
+
+
+<ul class="wp-block-list">
+<li><a href="https://core.trac.wordpress.org/query?status=closed&amp;changetime=10%2F21%2F2026..10%2F28%2F2026&amp;milestone=7.2&amp;group=component&amp;col=id&amp;col=milestone&amp;col=owner&amp;col=type&amp;col=priority&amp;order=id">Closed 7.2 WordPress Core Trac tickets</a> since October 20, 2026</li>
+
+
+
+<li><a href="https://github.com/WordPress/gutenberg/commits/wp/7.2?since=2026-10-21&amp;until=2026-10-28">7.2 Gutenberg commits</a> since October 20, 2026</li>
+</ul>
+
+
+
+<h3 class="wp-block-heading">Continued Improvements to WordPress 7.2</h3>
+
+
+
+<p class="wp-block-paragraph">WordPress 7.2 Beta 2 builds on the first beta with additional enhancements, bug fixes, and refinements across the administration experience and developer APIs.</p>
+
+
+
+<p class="wp-block-paragraph">Development continues on the <strong>Abilities API</strong>, including content querying, capability requirements, and improvements to schema handling and permissions. New server-side registration capabilities for <strong>DataViews and DataForm</strong> also provide developers with more ways to extend WordPress interfaces.</p>
+
+
+
+<p class="wp-block-paragraph">Additional work includes improvements to REST API flexibility, admin asset loading, and the transition to modern SVG icons throughout WordPress administration.</p>
+
+
+
+<p class="wp-block-paragraph"><strong>Learn more:</strong> <a href="https://core.trac.wordpress.org/ticket/66268">Trac #66268</a>, <a href="https://core.trac.wordpress.org/ticket/66325">Trac #66325</a>, <a href="https://core.trac.wordpress.org/ticket/66229">Trac #66229</a>, <a href="https://core.trac.wordpress.org/ticket/66343">Trac #66343</a>, <a href="https://core.trac.wordpress.org/ticket/57548">Trac #57548</a>, <a href="https://core.trac.wordpress.org/ticket/65089">Trac #65089</a></p>
+
+
+
+<h2 class="wp-block-heading">How important is your testing?</h2>
+
+
+
+<p class="wp-block-paragraph">Testing for issues is a critical part of developing any software, and it’s a meaningful way for anyone to contribute – whether or not you have experience. <a href="https://make.wordpress.org/test/2026/10/20/help-test-wordpress-7-2/">Details on what to test in WordPress 7.2 are available here</a>.</p>
+
+
+
+<p class="wp-block-paragraph">If you encounter an issue, please share it in the <a href="https://wordpress.org/support/forum/alphabeta/" rel="noopener" target="_blank">Alpha/Beta area</a> of the support forums. If you are comfortable submitting a reproducible bug report, you can do so <a href="https://core.trac.wordpress.org/newticket" rel="noopener" target="_blank">via WordPress Trac</a>. You can also check your issue against this list of <a href="https://core.trac.wordpress.org/tickets/major" rel="noopener" target="_blank">known bugs</a>.</p>
+
+
+
+<p class="wp-block-paragraph">Curious about testing releases in general and how to get started? Follow along with the <a href="https://make.wordpress.org/test/">testing initiatives in Make Core</a> and join the <a href="https://wordpress.slack.com/messages/core-test/">#core-test channel</a> on <a href="https://wordpress.slack.com/">Making WordPress Slack</a>.</p>
+
+
+
+<h2 class="wp-block-heading">A Beta 2 haiku</h2>
+
+
+
+<p class="wp-block-paragraph"><em>Second beta takes shape<br>New abilities take root<br>WordPress grows stronger</em></p>
+
+
+
+<p class="has-text-align-right wp-block-paragraph"><em>Props to <a href='https://profiles.wordpress.org/mamaduka/' class='mention'><span class='mentions-prefix'>@</span>mamaduka</a> for pre-publish review</em>.</p>
+]]></content:encoded>
+					
+		
+		
+		<post-id xmlns="com-wordpress:feed-additions:1">21890</post-id>	</item>
+		<item>
+		<title>WordPress 7.2 Beta 1 is Ready for Download and Testing</title>
+		<link>https://wordpress.org/news/2026/10/wordpress-7-2-beta-1-is-ready-for-download-and-testing/</link>
+		
+		<dc:creator><![CDATA[David Baumwald]]></dc:creator>
+		<pubDate>Tue, 20 Oct 2026 16:02:09 +0000</pubDate>
+				<category><![CDATA[Development]]></category>
+		<category><![CDATA[Releases]]></category>
+		<category><![CDATA[7.2]]></category>
+		<category><![CDATA[development]]></category>
+		<category><![CDATA[release]]></category>
+		<guid isPermaLink="false">https://wordpress.org/news/?p=21813</guid>
+
+					<description><![CDATA[This beta release is intended for testing and development only. Please do not install, run, or test this version of WordPress on production or mission-critical websites. Instead, use a test environment or local site to explore the new features. How to Test WordPress 7.2 Beta 1 You can test WordPress 7.2 Beta 1 in any of [&#8230;]]]></description>
+										<content:encoded><![CDATA[
+<p class="wp-block-paragraph"><strong>This beta release is intended for testing and development</strong> only. Please do not install, run, or test this version of WordPress on production or mission-critical websites. Instead, use a test environment or local site to explore the new features.</p>
+
+
+
+<h2 class="wp-block-heading">How to Test WordPress 7.2 Beta 1</h2>
+
+
+
+<p class="wp-block-paragraph">You can test WordPress 7.2 Beta 1 in any of the following ways:</p>
+
+
+
+<figure class="wp-block-table"><table class="has-fixed-layout"><tbody><tr><td><strong>WordPress Beta Tester Plugin</strong></td><td>Install and activate the <a href="https://wordpress.org/plugins/wordpress-beta-tester/" rel="noreferrer noopener" target="_blank">WordPress Beta Tester</a> plugin on a WordPress install. Select the “Bleeding edge” channel and “Beta/RC Only” stream.</td></tr><tr><td><strong>Direct Download</strong></td><td>Download the <a href="https://wordpress.org/wordpress-7.2-beta1.zip">Beta 1 version (zip)</a> and install it on a WordPress website.</td></tr><tr><td><strong>Command Line (WP-CLI)</strong></td><td>Use this <a href="https://make.wordpress.org/cli/" rel="noreferrer noopener" target="_blank">WP-CLI</a> command: <br><code>wp core update --version=7.2-beta1</code></td></tr><tr><td><strong>WordPress Playground</strong></td><td>Use a <a data-id="https://playground.wordpress.net/?php=8.3&amp;wp=beta&amp;language=&amp;multisite=no" data-type="link" href="https://playground.wordpress.net/?php=8.3&amp;wp=beta&amp;language=&amp;multisite=no" rel="noopener" target="_blank">7.2 Beta 1 WordPress Playground instance</a> to test the software directly in your browser. No setup required-just click and go!</td></tr></tbody></table></figure>
+
+
+
+<p class="wp-block-paragraph">The scheduled final release date for WordPress 7.2 is <strong>December 8, 2026</strong>. The full <a data-id="https://make.wordpress.org/core/2026/07/03/wordpress-7-1-release-party-schedule/" data-type="link" href="https://make.wordpress.org/core/2026/10/06/wordpress-7-2-release-party-schedule/" rel="noopener" target="_blank">release schedule can be found here</a>. Your help testing Beta and RC versions is vital to making this release as stable and powerful as possible. Thank you to everyone who contributes by testing!</p>
+
+
+
+<h2 class="wp-block-heading">Editing Experience</h2>
+
+
+
+<h3 class="wp-block-heading">Responsive Design Controls</h3>
+
+
+
+<p class="wp-block-paragraph">Building on the responsive design improvements introduced in WordPress 7.1, WordPress 7.2 expands viewport-specific styling to additional design tools and blocks. Creators gain more granular control over how layouts and visual settings adapt across screen sizes, including responsive Gallery settings for columns, image cropping, and aspect ratios.</p>
+
+
+
+<p class="wp-block-paragraph"><strong>Learn more:</strong> <a href="https://github.com/WordPress/gutenberg/issues/80388">GitHub #80388</a>, <a href="https://github.com/WordPress/gutenberg/pull/82003">#82003</a></p>
+
+
+
+<h3 class="wp-block-heading">Improved Global Styles and Design Tools</h3>
+
+
+
+<figure class="wp-block-image size-large"><img data-recalc-dims="1" fetchpriority="high" decoding="async" width="1024" height="576" alt="" class="wp-image-21825" role="none" src="https://i0.wp.com/wordpress.org/news/files/2026/10/Forms-Global-1.webp?resize=1024%2C576&#038;ssl=1" srcset="https://i0.wp.com/wordpress.org/news/files/2026/10/Forms-Global-1.webp?resize=1024%2C576&amp;ssl=1 1024w, https://i0.wp.com/wordpress.org/news/files/2026/10/Forms-Global-1.webp?resize=300%2C169&amp;ssl=1 300w, https://i0.wp.com/wordpress.org/news/files/2026/10/Forms-Global-1.webp?resize=768%2C432&amp;ssl=1 768w, https://i0.wp.com/wordpress.org/news/files/2026/10/Forms-Global-1.webp?resize=1536%2C864&amp;ssl=1 1536w, https://i0.wp.com/wordpress.org/news/files/2026/10/Forms-Global-1.webp?w=1920&amp;ssl=1 1920w" sizes="(max-width: 1000px) 100vw, 1000px" /></figure>
+
+
+
+<p class="wp-block-paragraph">WordPress 7.2 makes site-wide styling easier to manage with a new <em>Customized</em> filter for finding blocks with modified styles and inherited Global Styles values displayed directly in block inspector controls. Expanded design tools and support for styling form elements provide additional flexibility when creating a consistent visual identity across a site.</p>
+
+
+
+<p class="wp-block-paragraph"><strong>Learn more:</strong> <a href="https://github.com/WordPress/gutenberg/issues/82520">GitHub #82520</a>, <a href="https://github.com/WordPress/gutenberg/issues/76525">#76525</a>, <a href="https://github.com/WordPress/gutenberg/issues/34198">#34198</a>, <a href="https://github.com/WordPress/gutenberg/pull/84657">#84657</a></p>
+
+
+
+<h3 class="wp-block-heading">Text Shadow Support</h3>
+
+
+
+<p class="wp-block-paragraph">WordPress 7.2 introduces new text shadow controls, giving creators more ways to add depth and emphasis to their content. Text shadows can be customized through block settings and defined as presets in <code>theme.json</code>, making it easier to maintain consistent typography across a site.</p>
+
+
+
+<p class="wp-block-paragraph"><strong>Learn more:</strong> <a href="https://github.com/WordPress/gutenberg/pull/73320">GitHub #73320</a>, <a href="https://github.com/WordPress/gutenberg/pull/79584">GitHub #79584</a>, <a href="https://core.trac.wordpress.org/ticket/65869">Trac #65869</a></p>
+
+
+
+<h3 class="wp-block-heading">Easier Navigation Management</h3>
+
+
+
+<p class="wp-block-paragraph">Improvements to the Site Editor make managing navigation links more intuitive. Creators can add, organize, and edit navigation items directly from the editor sidebar, making it easier to maintain site menus without interrupting their editing workflow.</p>
+
+
+
+<p class="wp-block-paragraph"><strong>Learn more:</strong> <a href="https://github.com/WordPress/gutenberg/issues/77069">GitHub #77069</a></p>
+
+
+
+<h3 class="wp-block-heading">Better Collaboration with Notes</h3>
+
+
+
+<figure class="wp-block-image size-large"><img data-recalc-dims="1" decoding="async" width="1024" height="576" alt="" class="wp-image-21820" role="none" src="https://i0.wp.com/wordpress.org/news/files/2026/10/Emojis-in-Notes.webp?resize=1024%2C576&#038;ssl=1" srcset="https://i0.wp.com/wordpress.org/news/files/2026/10/Emojis-in-Notes.webp?resize=1024%2C576&amp;ssl=1 1024w, https://i0.wp.com/wordpress.org/news/files/2026/10/Emojis-in-Notes.webp?resize=300%2C169&amp;ssl=1 300w, https://i0.wp.com/wordpress.org/news/files/2026/10/Emojis-in-Notes.webp?resize=768%2C432&amp;ssl=1 768w, https://i0.wp.com/wordpress.org/news/files/2026/10/Emojis-in-Notes.webp?resize=1536%2C864&amp;ssl=1 1536w, https://i0.wp.com/wordpress.org/news/files/2026/10/Emojis-in-Notes.webp?w=1920&amp;ssl=1 1920w" sizes="(max-width: 1000px) 100vw, 1000px" /></figure>
+
+
+
+<p class="wp-block-paragraph">WordPress 7.2 introduces Emoji reactions on notes and a new toolbar icon that makes Notes easier to access and manage. Notes move to the editor canvas, bringing conversations directly into the margin. Users can now keep Notes and the block settings sidebar open simultaneously, making it easier to review feedback while editing content.</p>
+
+
+
+<p class="wp-block-paragraph">A new minimized Notes mode reduces visual clutter, while improvements to positioning and display create a smoother, more consistent collaboration experience.</p>
+
+
+
+<p class="wp-block-paragraph"><strong>Learn more:</strong> <a href="https://github.com/WordPress/gutenberg/issues/79970">GitHub #79970</a>, <a href="https://github.com/WordPress/gutenberg/pull/83786">GitHub #83786</a>, <a href="https://github.com/WordPress/gutenberg/issues/80015">GitHub #80015</a>, <a href="https://core.trac.wordpress.org/ticket/64638">Trac #64638</a></p>
+
+
+
+<h3 class="wp-block-heading">Faster, More Efficient Media Uploads</h3>
+
+
+
+<p class="wp-block-paragraph">WordPress 7.2 expands client-side media processing to the Media Library, allowing images to be resized, compressed, and converted directly in the browser before being uploaded. This can improve upload performance, reduce server resource usage, and provide better support for modern image formats, particularly on hosting environments with limited image-processing capabilities.</p>
+
+
+
+<p class="wp-block-paragraph"><strong>Learn more:</strong> <a href="https://core.trac.wordpress.org/ticket/65661">Trac #65661</a>, <a href="https://github.com/WordPress/wordpress-develop/pull/12585">GitHub #12585</a></p>
+
+
+
+<h3 class="wp-block-heading">New “On This Day” Dashboard Widget</h3>
+
+
+
+<p class="wp-block-paragraph">WordPress 7.2 introduces a new <strong>On This Day</strong> dashboard widget that helps users rediscover content published on the same date in previous years. By highlighting posts from the site&#8217;s history, the widget makes it easier to revisit past content, celebrate milestones, and find opportunities to refresh or reshare older posts.</p>
+
+
+
+<p class="wp-block-paragraph"><strong>Learn more:</strong> <a href="https://core.trac.wordpress.org/ticket/65116">Trac #65116</a></p>
+
+
+
+<h3 class="wp-block-heading">Block Editor Usability Improvements</h3>
+
+
+
+<p class="wp-block-paragraph">WordPress 7.2 includes a collection of smaller improvements aimed at reducing friction in everyday editing. These changes include clearer error messages, more helpful feedback when something goes wrong, and refinements to common editor interactions, making the editing experience more predictable and approachable.</p>
+
+
+
+<figure class="wp-block-image size-large"><img data-recalc-dims="1" decoding="async" width="1024" height="576" alt="" class="wp-image-21821" role="none" src="https://i0.wp.com/wordpress.org/news/files/2026/10/Error-message-update.webp?resize=1024%2C576&#038;ssl=1" srcset="https://i0.wp.com/wordpress.org/news/files/2026/10/Error-message-update.webp?resize=1024%2C576&amp;ssl=1 1024w, https://i0.wp.com/wordpress.org/news/files/2026/10/Error-message-update.webp?resize=300%2C169&amp;ssl=1 300w, https://i0.wp.com/wordpress.org/news/files/2026/10/Error-message-update.webp?resize=768%2C432&amp;ssl=1 768w, https://i0.wp.com/wordpress.org/news/files/2026/10/Error-message-update.webp?resize=1536%2C864&amp;ssl=1 1536w, https://i0.wp.com/wordpress.org/news/files/2026/10/Error-message-update.webp?w=1920&amp;ssl=1 1920w" sizes="(max-width: 1000px) 100vw, 1000px" /></figure>
+
+
+
+<p class="wp-block-paragraph"><strong>Learn more:</strong> <a href="https://github.com/WordPress/gutenberg/issues/81453">GitHub #81453</a>, <a href="https://github.com/WordPress/gutenberg/pull/82496">#82496</a>, <a href="https://github.com/WordPress/gutenberg/pull/84656">#84656</a>, <a href="https://github.com/WordPress/gutenberg/pull/84649">#84649</a></p>
+
+
+
+<h3 class="wp-block-heading">A More Consistent WordPress Admin</h3>
+
+
+
+<p class="wp-block-paragraph">WordPress 7.2 continues modernizing the administration experience by replacing legacy Dashicons in the admin bar and sidebar with icons from the WordPress icon library. The updated icons bring greater visual consistency between the traditional WordPress dashboard and newer editing interfaces.</p>
+
+
+
+<p class="wp-block-paragraph"><strong>Learn more:</strong> <a href="https://github.com/WordPress/wordpress-develop/pull/12270">GitHub #12270</a></p>
+
+
+
+<h3 class="wp-block-heading">An Updated Block Settings Experience</h3>
+
+
+
+<figure class="wp-block-image size-large"><img data-recalc-dims="1" loading="lazy" decoding="async" width="1024" height="576" alt="" class="wp-image-21822" role="none" src="https://i0.wp.com/wordpress.org/news/files/2026/10/Forms-Global.webp?resize=1024%2C576&#038;ssl=1" srcset="https://i0.wp.com/wordpress.org/news/files/2026/10/Forms-Global.webp?resize=1024%2C576&amp;ssl=1 1024w, https://i0.wp.com/wordpress.org/news/files/2026/10/Forms-Global.webp?resize=300%2C169&amp;ssl=1 300w, https://i0.wp.com/wordpress.org/news/files/2026/10/Forms-Global.webp?resize=768%2C432&amp;ssl=1 768w, https://i0.wp.com/wordpress.org/news/files/2026/10/Forms-Global.webp?resize=1536%2C864&amp;ssl=1 1536w, https://i0.wp.com/wordpress.org/news/files/2026/10/Forms-Global.webp?w=1920&amp;ssl=1 1920w" sizes="auto, (max-width: 1000px) 100vw, 1000px" /></figure>
+
+
+
+<p class="wp-block-paragraph">A new DataForm-powered inspector introduces a refreshed approach to managing block settings in the editor. Built on the DataForm component system, this work aims to provide more consistent controls and a more extensible foundation for future block editing improvements.</p>
+
+
+
+<p class="wp-block-paragraph"><strong>Learn more:</strong> <a href="https://github.com/WordPress/gutenberg">GitHub Gutenberg</a> · <a href="https://make.wordpress.org/core/2026/09/17/call-for-testing-dataform-editor-inspector/">Call for Testing</a></p>
+
+
+
+<h3 class="wp-block-heading">Faster WordPress Administration</h3>
+
+
+
+<p class="wp-block-paragraph">WordPress 7.2 improves admin performance by modernizing how scripts and stylesheets are loaded. Instead of combining assets into large files, WordPress now loads them individually for better browser caching. A new prefetching mechanism also anticipates which admin screen users are likely to visit next, loading its resources in advance to make navigation between the dashboard, post lists, and editor faster.</p>
+
+
+
+<p class="wp-block-paragraph"><strong>Learn more:</strong> <a href="https://core.trac.wordpress.org/ticket/57548">Trac #57548</a></p>
+
+
+
+<h2 class="wp-block-heading">For Developers</h2>
+
+
+
+<h3 class="wp-block-heading">New Secrets API</h3>
+
+
+
+<p class="wp-block-paragraph">WordPress 7.2 introduces a <strong>Secrets API</strong>, providing developers with a standardized, secure way to store sensitive credentials such as API keys and authentication tokens. The API supports encryption at rest, credential rotation, and customizable storage providers, helping plugins and integrations manage sensitive information more securely.</p>
+
+
+
+<p class="wp-block-paragraph"><a href="https://core.trac.wordpress.org/ticket/66187">Learn more (Trac #66187)</a></p>
+
+
+
+<h3 class="wp-block-heading">Random Content Redirects</h3>
+
+
+
+<p class="wp-block-paragraph">WordPress 7.2 adds support for random content redirects, allowing visitors to discover a randomly selected post through a dedicated URL. This provides a simple way to encourage content exploration and help readers rediscover older posts.</p>
+
+
+
+<p class="wp-block-paragraph"><strong>Learn more:</strong> <a href="https://core.trac.wordpress.org/ticket/64498">Trac #64498</a></p>
+
+
+
+<h3 class="wp-block-heading">More Powerful APIs for Developers</h3>
+
+
+
+<p class="wp-block-paragraph">WordPress 7.2 expands the <strong>Abilities API</strong> with new capabilities for accessing and querying WordPress data, providing a more consistent foundation for integrations, automation, and AI-powered tools. (<a href="https://core.trac.wordpress.org/ticket/66268">Trac #66268</a>, <a href="https://core.trac.wordpress.org/ticket/64605">#64605</a>, <a href="https://core.trac.wordpress.org/ticket/64657">#64657</a>)</p>
+
+
+
+<p class="wp-block-paragraph">Enhancements to the <strong>Interactivity API</strong> introduce new ways to render trusted HTML and manage reactive navigation, giving developers more flexibility when building dynamic, interactive blocks. (<a href="https://core.trac.wordpress.org/ticket/66246">Trac #66246</a>, <a href="https://github.com/WordPress/gutenberg/pull/83092">Gutenberg PR #83092</a>)</p>
+
+
+
+<p class="wp-block-paragraph">Additional improvements to the <strong>HTML API</strong>, block supports, and responsive design tools provide more reliable markup processing and greater control over how custom blocks are styled and displayed across devices. (<a href="https://core.trac.wordpress.org/ticket/65824">Trac #65824</a>, <a href="https://core.trac.wordpress.org/ticket/66150">#66150</a>, <a href="https://core.trac.wordpress.org/ticket/65869">#65869</a>)</p>
+
+
+
+<h2 class="wp-block-heading">How important is your testing?</h2>
+
+
+
+<p class="wp-block-paragraph">Testing for issues is a critical part of developing any software, and it’s a meaningful way for anyone to contribute – whether or not you have experience. <a href="https://make.wordpress.org/test/2026/10/20/help-test-wordpress-7-2/">Details on what to test in WordPress 7.2 are available here</a>.</p>
+
+
+
+<p class="wp-block-paragraph">If you encounter an issue, please share it in the <a href="https://wordpress.org/support/forum/alphabeta/" rel="noopener" target="_blank">Alpha/Beta area</a> of the support forums. If you are comfortable submitting a reproducible bug report, you can do so <a href="https://core.trac.wordpress.org/newticket" rel="noopener" target="_blank">via WordPress Trac</a>. You can also check your issue against this list of <a href="https://core.trac.wordpress.org/tickets/major" rel="noopener" target="_blank">known bugs</a>.</p>
+
+
+
+<p class="wp-block-paragraph">Curious about testing releases in general and how to get started? Follow along with the<a href="https://make.wordpress.org/test/"> testing initiatives in Make Core</a> and join the <a href="https://wordpress.slack.com/messages/core-test/">#core-test channel</a> on <a href="https://wordpress.slack.com/">Making WordPress Slack</a>.</p>
+
+
+
+<p class="wp-block-paragraph">WordPress 7.2 will include new features that were previously only available in the Gutenberg plugin. Learn more about Gutenberg updates since WordPress 7.1 in the <a href="https://make.wordpress.org/core/tag/gutenberg-new/">What’s New in Gutenberg</a> posts for versions <a href="https://make.wordpress.org/core/2026/08/06/whats-new-in-gutenberg-23-7-05-august/">23.7</a>, <a href="https://make.wordpress.org/core/2026/08/19/whats-new-in-gutenberg-23-8-19-august/">23.8</a>, <a href="https://make.wordpress.org/core/2026/09/02/whats-new-in-gutenberg-23-9-2-september/">23.9</a>, <a href="https://make.wordpress.org/core/2026/09/16/whats-new-in-gutenberg-24-0-16-september/">24.0</a>, <a href="https://make.wordpress.org/core/2026/09/30/whats-new-in-gutenberg-24-1-30-september/">24.1</a>, <a href="https://make.wordpress.org/core/2026/10/14/whats-new-in-gutenberg-24-2-14-october/">24.2</a>, and 24.3.</p>
+
+
+
+<h2 class="wp-block-heading">What’s new in WordPress 7.2?</h2>
+
+
+
+<p class="wp-block-paragraph">With so much in progress for WordPress 7.2 Beta 1, this is still only the beginning; expect continued refinement with each Beta and RC release ahead of the final release on <strong>December 8, 2026</strong></p>
+
+
+
+<h2 class="wp-block-heading">Just for you: a Beta 1 haiku:</h2>
+
+
+
+<p class="wp-block-paragraph"><em>Ipsum takes the stage<br>Secrets bloom, designs take shape<br>New blocks come alive</em></p>
+
+
+
+<p class="has-text-align-right wp-block-paragraph"><em>Props to </em><a href='https://profiles.wordpress.org/audrasjb/' class='mention'><span class='mentions-prefix'>@</span>audrasjb</a>, <a href='https://profiles.wordpress.org/annezazu/' class='mention'><span class='mentions-prefix'>@</span>annezazu</a>, <a href='https://profiles.wordpress.org/adamsilverstein/' class='mention'><span class='mentions-prefix'>@</span>adamsilverstein</a>, <a href='https://profiles.wordpress.org/westonruter/' class='mention'><span class='mentions-prefix'>@</span>westonruter</a>, <a href='https://profiles.wordpress.org/markoserb/' class='mention'><span class='mentions-prefix'>@</span>markoserb</a>, <a href='https://profiles.wordpress.org/im3dabasia1/' class='mention'><span class='mentions-prefix'>@</span>im3dabasia1</a>, <a href='https://profiles.wordpress.org/jorbin/' class='mention'><span class='mentions-prefix'>@</span>jorbin</a>, and <a href='https://profiles.wordpress.org/noruzzaman/' class='mention'><span class='mentions-prefix'>@</span>noruzzaman</a><em> for proofreading and review.</em></p>
+]]></content:encoded>
+					
+		
+		
+		<post-id xmlns="com-wordpress:feed-additions:1">21813</post-id>	</item>
+		<item>
+		<title>WordPress 7.1.3 Maintenance and Security Release</title>
+		<link>https://wordpress.org/news/2026/10/wordpress-7-1-3-maintenance-and-security-release/</link>
+		
+		<dc:creator><![CDATA[Jake Spurlock]]></dc:creator>
+		<pubDate>Tue, 06 Oct 2026 17:00:00 +0000</pubDate>
+				<category><![CDATA[Releases]]></category>
+		<category><![CDATA[Security]]></category>
+		<guid isPermaLink="false">https://wordpress.org/news/?p=21753</guid>
+
+					<description><![CDATA[This security and maintenance release features 7 security fixes and 4 bug fixes. Because this is a security release, it is recommended that you update your sites immediately. You can download WordPress 7.1.3 from WordPress.org, or visit your WordPress Dashboard, click “Updates”, and then click “Update Now”. If you have sites that support automatic background [&#8230;]]]></description>
+										<content:encoded><![CDATA[
+<p class="wp-block-paragraph">This security and maintenance release features 7 security fixes and <a href="https://core.trac.wordpress.org/query?milestone=7.1.3&amp;status=closed&amp;order=priority&amp;col=id&amp;col=summary&amp;col=status&amp;col=milestone&amp;col=owner&amp;col=type&amp;col=priority">4 bug fixes</a>.</p>
+
+
+
+<p class="wp-block-paragraph"><strong>Because this is a security release, it is recommended that you update your sites immediately.</strong></p>
+
+
+
+<p class="wp-block-paragraph">You can <a href="https://wordpress.org/wordpress-7.1.3.zip">download WordPress 7.1.3 from WordPress.org</a>, or visit your WordPress Dashboard, click “Updates”, and then click “Update Now”. If you have sites that support automatic background updates, the update process will begin automatically.</p>
+
+
+
+<h2 class="wp-block-heading">Security updates included in this release</h2>
+
+
+
+<p class="wp-block-paragraph">The security team would like to thank the following people and organizations for responsibly reporting vulnerabilities, and allowing them to be fixed in this release:</p>
+
+
+
+<ul class="wp-block-list">
+<li>A stored XSS on the Comments administration page, exploitable via pending comments, reported by <a href="https://trailofbits.com/">Trail of Bits</a> in collaboration with OpenAI.</li>
+
+
+
+<li>A DoS issue in the <code>WP_Http::make_absolute_url()</code> method, reported by Anthropic</li>
+
+
+
+<li>A second-Order SQL injection in WordPress WXR export, reported by Anthropic</li>
+
+
+
+<li>A weakness allowing Author role users to sticky posts, reported by Anthropic</li>
+
+
+
+<li>Unauthenticated disclosure of comments on private &amp; unpublished posts, reported by <a href="https://patchstack.com/">Ananda Dhakal from Patchstack</a></li>
+
+
+
+<li>Imgur embeds are vulnerable to XSS, reported by <a href="https://jackfromeast.github.io/">Zhengyu Liu</a>, <a href="https://jesse-yang.com/">Jingcheng Yang</a>, and <a href="https://gvzhong.github.io/">Gavin Zhong</a></li>
+
+
+
+<li>Forgeable parameters passed to the <code>{status}_{type}</code> hook can lead to action name collision, reported by Alex Concha of the WordPress security team</li>
+</ul>
+
+
+
+<h2 class="wp-block-heading">Thank you to these WordPress contributors</h2>
+
+
+
+<p class="wp-block-paragraph">This release was led by <a href="https://profiles.wordpress.org/whyisjake/">Jake Spurlock</a>.</p>
+
+
+
+<p class="wp-block-paragraph">WordPress 7.1.3 would not have been possible without the contributions of the following people. Their asynchronous coordination to deliver maintenance and security fixes into a stable release is a testament to the power and capability of the WordPress community.</p>
+
+
+
+<p class="wp-block-paragraph"><a href="https://w.org/@jorbin">Aaron Jorbin</a>, <a href="https://w.org/@adamsilverstein">Adam Silverstein</a>, <a href="https://w.org/@adrianmoldovanwp">Adi Moldovan</a>, <a href="https://w.org/@adrianduffell">Adrian Duffell</a>, <a href="https://w.org/@xknown">Alex Concha</a>, <a href="https://w.org/@arkaprabhachowdhury">Arkaprabha Chowdhury</a>, <a href="https://w.org/@iamchitti">Deepak Kumar</a>, <a href="https://w.org/@donniam">donniam</a>, <a href="https://w.org/@ehtis">Ehtisham Siddiqui</a>, <a href="https://w.org/@whyisjake">Jake Spurlock</a>, <a href="https://w.org/@audrasjb">Jb Audras</a>, <a href="https://w.org/@jeremyfelt">Jeremy Felt</a>, <a href="https://w.org/@joedolson">Joe Dolson</a>, <a href="https://w.org/@johnbillion">John Blackbourn</a>, <a href="https://w.org/@jonsurrell">Jon Surrell</a>, <a href="https://w.org/@desrosj">Jonathan Desrosiers</a>, <a href="https://w.org/@kgagne">Ken Gagne</a>, <a href="https://w.org/@khokansardar">Khokan Sardar</a>, <a href="https://w.org/@lancewillett">Lance Willett</a>, <a href="https://w.org/@lucatume">lucatume</a>, <a href="https://w.org/@marcs0h">marcs0h</a>, <a href="https://w.org/@peterwilsoncc">Peter Wilson</a>, <a href="https://w.org/@paulkevan">Paul Kevan</a>, <a href="https://w.org/@therssoftware">RS Software</a>, <a href="https://w.org/@rfaile313">Rudy Faile</a>, <a href="https://w.org/@sergeybiryukov">Sergey Biryukov</a>, <a href="https://w.org/@siliconforks">siliconforks</a>, <a href="https://w.org/@smerriman">smerriman</a>, <a href="https://w.org/@sabernhardt">Stephen Bernhardt</a>, <a href="https://w.org/@suryakantupadhyay">Suryakant Upadhyay</a>, <a href="https://w.org/@vortfu">vortfu</a>, <a href="https://w.org/@webverts">webVerts</a>, <a href="https://w.org/@westonruter">Weston Ruter</a>, <a href="https://w.org/@yogeshbhutkar">Yogesh Bhutkar</a></p>
+
+
+
+<h2 class="wp-block-heading">Backports</h2>
+
+
+
+<p class="wp-block-paragraph">As a courtesy, the security fixes are being backported, where necessary, to all branches eligible to receive security fixes (currently through 4.7). As a reminder, <strong>only the most recent version of WordPress is actively supported</strong>. The backports are in progress and will ship as they become ready.</p>
+
+
+
+<h2 class="wp-block-heading">How to contribute</h2>
+
+
+
+<p class="wp-block-paragraph">To get involved in WordPress core development, head over to Trac, <a href="https://core.trac.wordpress.org/report/6">pick a ticket</a>, and join the conversation in the <a href="https://wordpress.slack.com/archives/C02RQBWTW">#core</a> channel. Need help? Check out the <a href="https://make.wordpress.org/core/handbook/">Core Contributor Handbook</a>.</p>
+]]></content:encoded>
+					
+		
+		
+		<post-id xmlns="com-wordpress:feed-additions:1">21753</post-id>	</item>
+		<item>
+		<title>WordPress 7.1.2 Release</title>
+		<link>https://wordpress.org/news/2026/09/wordpress-7-1-2-release/</link>
+		
+		<dc:creator><![CDATA[John Blackbourn]]></dc:creator>
+		<pubDate>Tue, 22 Sep 2026 14:01:20 +0000</pubDate>
+				<category><![CDATA[Releases]]></category>
+		<category><![CDATA[Security]]></category>
+		<guid isPermaLink="false">https://wordpress.org/news/?p=21731</guid>
+
+					<description><![CDATA[This security release features a fix for a critical severity security vulnerability. Because this is a security release, it is recommended that you update your sites immediately. You can download WordPress 7.1.2 from WordPress.org, or visit your WordPress Dashboard, click “Updates”, and then click “Update Now”. If you have sites that support automatic background updates, [&#8230;]]]></description>
+										<content:encoded><![CDATA[
+<p class="wp-block-paragraph">This security release features a fix for a critical severity security vulnerability.</p>
+
+
+
+<p class="wp-block-paragraph"><strong>Because this is a security release, it is recommended that you update your sites immediately.</strong></p>
+
+
+
+<p class="wp-block-paragraph">You can <a href="https://wordpress.org/download/">download WordPress 7.1.2 from WordPress.org</a>, or visit your WordPress Dashboard, click “Updates”, and then click “Update Now”. If you have sites that support automatic background updates, the update process will begin automatically.</p>
+
+
+
+<h2 class="wp-block-heading">Security update included in this release</h2>
+
+
+
+<p class="wp-block-paragraph">The security team would like to thank <a href="https://ressl.ch/">Robert Ressl</a> for responsibly disclosing that an unauthenticated attacker can, under certain conditions, make page template resolution include a chosen readable local PHP file outside the active theme directories. If relevant pre-conditions for both the server environment and the active theme are met, this can lead to remote code execution (RCE).</p>
+
+
+
+<h2 class="wp-block-heading">Thank you to these WordPress contributors</h2>
+
+
+
+<p class="wp-block-paragraph">This release was led by <a href="https://w.org/@johnbillion">John Blackbourn</a>. WordPress 7.1.2 would not have been possible without the contributions of the following people:</p>
+
+
+
+<p class="wp-block-paragraph"><a href="https://w.org/@jorbin">Aaron Jorbin</a>, <a href="https://w.org/@wildworks">Aki Hamano</a>, <a href="https://w.org/@xknown">Alex Concha</a>, <a href="https://w.org/@ehti">Ehtisham Siddiqui</a>, <a href="https://w.org/@fiocavallari">fiocavallari</a>, <a href="https://w.org/@audrasjb">Jb Audras</a>, <a href="https://w.org/@jeffpaul">Jeffrey Paul</a>, <a href="https://w.org/@jeremyfelt">Jeremy Felt</a>, <a href="https://w.org/@joemcgill">Joe McGill</a>, <a href="https://w.org/@johnbillion">John Blackbourn</a>, <a href="https://w.org/@jonsurrell">Jon Surrell</a>, <a href="https://w.org/@lancewillett">Lance Willett</a>, <a href="https://w.org/@sirlouen">Manuel Camargo</a>, <a href="https://w.org/@marcs0h">marcs0h</a>, <a href="https://w.org/@martinkrcho">martin.krcho</a>, <a href="https://w.org/@mukesh27">Mukesh Panchal</a>, <a href="https://w.org/@oglekler">Olga Gleckler</a>, <a href="https://w.org/@swissspidy">Pascal Birchler</a>, <a href="https://w.org/@peterwilsoncc">Peter Wilson</a>, <a href="https://w.org/@rajinsharwar">Rajin Sharwar</a>, <a href="https://w.org/@ressl">Ressl</a>, <a href="https://w.org/@rfaile313">Rudy Faile</a>, <a href="https://w.org/@sergeybiryukov">Sergey Biryukov</a>, <a href="https://w.org/@shailu25">Shail Mehta</a>, <a href="https://w.org/@pypwalters">Stephanie Walters</a>, and <a href="https://w.org/@vortfu">vortfu</a>.</p>
+
+
+
+<h2 class="wp-block-heading">CVE and GHSA references</h2>
+
+
+
+<p class="wp-block-paragraph">Further details can be found in the advisory: <a href="https://github.com/WordPress/wordpress-develop/security/advisories/GHSA-7hp8-65ch-5whp">CVE-2026-87902 / GHSA-7hp8-65ch-5whp</a>.</p>
+
+
+
+<h2 class="wp-block-heading">Backports</h2>
+
+
+
+<p class="wp-block-paragraph">As a courtesy, the security fix was backported to all branches eligible to receive security fixes (currently through 4.7). As a reminder, <strong>only the most recent version of WordPress is actively supported</strong>.</p>
+]]></content:encoded>
+					
+		
+		
+		<post-id xmlns="com-wordpress:feed-additions:1">21731</post-id>	</item>
+		<item>
+		<title>WordPress 7.1.1 Maintenance and Security Release</title>
+		<link>https://wordpress.org/news/2026/09/wordpress-7-1-1-maintenance-and-security-release/</link>
+		
+		<dc:creator><![CDATA[Aaron Jorbin]]></dc:creator>
+		<pubDate>Thu, 17 Sep 2026 19:53:09 +0000</pubDate>
+				<category><![CDATA[Releases]]></category>
+		<category><![CDATA[Security]]></category>
+		<guid isPermaLink="false">https://wordpress.org/news/?p=21717</guid>
+
+					<description><![CDATA[This security and maintenance release features 17 bug fixes on Core, 19 bug fixes for the Block Editor, and 11 security fixes. Because this is a security release, it is recommended that you update your sites immediately. You can download WordPress 7.1.1 from WordPress.org, or visit your WordPress Dashboard, click “Updates”, and then click “Update [&#8230;]]]></description>
+										<content:encoded><![CDATA[
+<p class="wp-block-paragraph">This security and maintenance release features <a href="https://core.trac.wordpress.org/query?milestone=7.1.1&amp;status=closed&amp;group=status&amp;order=priority">17 bug fixes on Core</a>, <a href="https://github.com/WordPress/gutenberg/pull/82383">19 bug fixes for the Block Editor</a>, and 11 security fixes.</p>
+
+
+
+<p class="wp-block-paragraph"><strong>Because this is a security release, it is recommended that you update your sites immediately.</strong></p>
+
+
+
+<p class="wp-block-paragraph">You can <a href="https://wordpress.org/wordpress-7.1.1.zip">download WordPress 7.1.1 from WordPress.org</a>, or visit your WordPress Dashboard, click “Updates”, and then click “Update Now”. If you have sites that support automatic background updates, the update process will begin automatically.</p>
+
+
+
+<p class="wp-block-paragraph">WordPress 7.1.1 is a short-cycle release. The next major release will be <a href="https://make.wordpress.org/core/7-2/">version 7.2</a> and is currently planned for December.</p>
+
+
+
+<p class="wp-block-paragraph">For more information, please visit the&nbsp;<a href="https://wordpress.org/documentation/wordpress-version/version-7-1-1/" data-type="link" data-id="https://wordpress.org/documentation/wordpress-version/version-7-1-1/">WordPress 7.1.1 HelpHub site</a>.</p>
+
+
+
+<h2 class="wp-block-heading">Security updates included in this release</h2>
+
+
+
+<p class="wp-block-paragraph">The security team would like to thank the following people for responsibly reporting vulnerabilities, and allowing them to be fixed in this release:</p>
+
+
+
+<ul class="wp-block-list">
+<li>Stored cross-site scripting in <code>wpautop()</code> allows an unauthenticated visitor to inject script (subject to comment approval), reported by <a href="https://www.linkedin.com/in/rafiemuhammad/">Rafie Muhammad</a> (Awesome Motive, Inc.).</li>
+
+
+
+<li>HTML API: <code>set_modifiable_text()</code> allows breaking out of a comment via abrupt-closing sequences, reported by <a href="https://happyprime.co/">Jeremy Felt</a> of the WordPress Security Team.</li>
+
+
+
+<li>Stored XSS in some themes that support custom headers, reported by <a href="https://happyprime.co/">Jeremy Felt</a> of the WordPress Security Team.</li>
+
+
+
+<li>Specially crafted URLs can automatically install and preview an inactive theme from WordPress.org, reported by Paulos Yibelo and <a href="https://pwn.ai/">pwn.ai</a>.</li>
+
+
+
+<li>Site Administrator can network-activate an installed Network-only plugin, reported by <a href="https://profiles.wordpress.org/buffer1024/">Jesse McNeil</a>.</li>
+
+
+
+<li>Authenticated Path Traversal in WP REST Templates Controller, reported by Anthropic.</li>
+
+
+
+<li>XML-RPC can be used to publish <code>customize_changeset</code> posts that bypass checks for <code>edit_css</code>, reported by Ben Bidner of the WordPress Security Team.</li>
+
+
+
+<li>Contributor+ Arbitrary Post Overwrite, reported by Anthropic.</li>
+
+
+
+<li>Missing <code>read_post</code> check in <code>attachment_submitbox_metadata()</code> leaks a private parent-post title, reported by <a href="https://hdwsec.fr/">HDWSec</a>.</li>
+
+
+
+<li>Missing Authorization leads to Draft/Pending Post Slug Disclosure by Contributor+, reported by Jakub Herman.</li>
+
+
+
+<li>Comments, including notes, can be reparented by any authenticated user, reported by Justin Hart, Viridis Security.</li>
+</ul>
+
+
+
+<h2 class="wp-block-heading">Thank you to these WordPress contributors</h2>
+
+
+
+<p class="wp-block-paragraph">This release was led by <a href="https://profiles.wordpress.org/adamsilverstein/">Adam Silverstein</a>, <a href="https://profiles.wordpress.org/adrianduffell/">Adrian Duffell</a>, <a href="https://profiles.wordpress.org/andraganescu/">Andrei Draganescu</a>, and <a href="https://profiles.wordpress.org/jorbin/">Aaron Jorbin</a>.</p>
+
+
+
+<p class="wp-block-paragraph">WordPress 7.1.1 would not have been possible without the contributions of the following people. Their asynchronous coordination to deliver maintenance and security fixes into a stable release is a testament to the power and capability of the WordPress community.</p>
+
+
+
+<p class="is-style-wporg-props-long wp-block-paragraph"><a href="https://profiles.wordpress.org/jorbin/">Aaron Jorbin</a>, <a href="https://profiles.wordpress.org/abrahamfariaz/">abrahamfariaz</a>, <a href="https://profiles.wordpress.org/adamsilverstein/">Adam Silverstein</a>, <a href="https://profiles.wordpress.org/adrianmoldovanwp/">Adi Moldovan</a>, <a href="https://profiles.wordpress.org/adrianduffell/">Adrian Duffell</a>, <a href="https://profiles.wordpress.org/wildworks/">Aki Hamano</a>, <a href="https://profiles.wordpress.org/xknown/">Alex Concha</a>, <a href="https://profiles.wordpress.org/afercia/">Andrea Fercia</a>, <a href="https://profiles.wordpress.org/andreasca/">andreasca</a>, <a href="https://profiles.wordpress.org/andraganescu/">Andrei Draganescu</a>, <a href="https://profiles.wordpress.org/aduth/">Andrew Duthie</a>, <a href="https://profiles.wordpress.org/andrewserong/">Andrew Serong</a>, <a href="https://profiles.wordpress.org/oandregal/">André Maneiro</a>, <a href="https://profiles.wordpress.org/annezazu/">annezazu</a>, <a href="https://profiles.wordpress.org/antwonw/">Anthony White</a>, <a href="https://profiles.wordpress.org/arkaprabhachowdhury/">Arkaprabha Chowdhury</a>, <a href="https://profiles.wordpress.org/fushar/">Ashar Fuadi</a>, <a href="https://profiles.wordpress.org/azragh/">Azragh</a>, <a href="https://profiles.wordpress.org/barry/">Barry</a>, <a href="https://profiles.wordpress.org/buffer1024/">buffer1024</a>, <a href="https://profiles.wordpress.org/jack960330/">Chunhui Ouyang</a>, <a href="https://profiles.wordpress.org/courane01/">Courtney Robertson</a>, <a href="https://profiles.wordpress.org/dugi-digitaly/">Dagan</a>, <a href="https://profiles.wordpress.org/talldanwp/">Daniel Richards</a>, <a href="https://profiles.wordpress.org/villanovachile/">Daniel Rodriguez</a>, <a href="https://profiles.wordpress.org/darshitrajyaguru97/">Darshit Rajyaguru</a>, <a href="https://profiles.wordpress.org/davidbinda/">David Biňovec</a>, <a href="https://profiles.wordpress.org/iamchitti/">Deepak Kumar</a>, <a href="https://profiles.wordpress.org/dmsnell/">Dennis Snell</a>, <a href="https://profiles.wordpress.org/saiful09/">DevSaiful</a>, <a href="https://profiles.wordpress.org/dhruvang21/">Dhruvang21</a>, <a href="https://profiles.wordpress.org/ocean90/">Dominik Schilling</a>, <a href="https://profiles.wordpress.org/ehtis/">Ehtisham Siddiqui</a>, <a href="https://profiles.wordpress.org/ellatrix/">Ella Van Durpe</a>, <a href="https://profiles.wordpress.org/r1k0/">Erick Wambua</a>, <a href="https://profiles.wordpress.org/fahimmurshed/">FahimMurshed</a>, <a href="https://profiles.wordpress.org/fernandot/">Fernando Tellado</a>, <a href="https://profiles.wordpress.org/fiocavallari/">fiocavallari</a>, <a href="https://profiles.wordpress.org/mamaduka/">George Mamadashvili</a>, <a href="https://profiles.wordpress.org/poseidonas/">George Vasiliades</a>, <a href="https://profiles.wordpress.org/gregbenz/">gregbenz</a>, <a href="https://profiles.wordpress.org/harishtewari/">Harish Tewari</a>, <a href="https://profiles.wordpress.org/hbhalodia/">Hit Bhalodia</a>, <a href="https://profiles.wordpress.org/isabel_brison/">Isabel Brison</a>, <a href="https://profiles.wordpress.org/whyisjake/">Jake Spurlock</a>, <a href="https://profiles.wordpress.org/jdab/">Jamie Dąbrowiecki</a>, <a href="https://profiles.wordpress.org/audrasjb/">Jb Audras</a>, <a href="https://profiles.wordpress.org/jeffpaul/">Jeffrey Paul</a>, <a href="https://profiles.wordpress.org/jeremyfelt/">Jeremy Felt</a>, <a href="https://profiles.wordpress.org/kimjiwoon/">Jiwoon Kim</a>, <a href="https://profiles.wordpress.org/joedolson/">Joe Dolson</a>, <a href="https://profiles.wordpress.org/joehoyle/">Joe Hoyle</a>, <a href="https://profiles.wordpress.org/joemcgill/">Joe McGill</a>, <a href="https://profiles.wordpress.org/joen/">Joen Asmussen</a>, <a href="https://profiles.wordpress.org/timse201/">Johannes Jülg</a>, <a href="https://profiles.wordpress.org/johnbillion/">John Blackbourn</a>, <a href="https://profiles.wordpress.org/jonsurrell/">Jon Surrell</a>, <a href="https://profiles.wordpress.org/desrosj/">Jonathan Desrosiers</a>, <a href="https://profiles.wordpress.org/jmccallweb/">Josh</a>, <a href="https://profiles.wordpress.org/ekamran/">Kamran Abdul Aziz</a>, <a href="https://profiles.wordpress.org/khokansardar/">Khokan Sardar</a>, <a href="https://profiles.wordpress.org/kirasong/">Kira Schroder</a>, <a href="https://profiles.wordpress.org/kleisauke/">kleisauke</a>, <a href="https://profiles.wordpress.org/kush123/">Kushagra Goyal</a>, <a href="https://profiles.wordpress.org/l1onofjudah/">l1onofjudah</a>, <a href="https://profiles.wordpress.org/lancewillett/">Lance Willett</a>, <a href="https://profiles.wordpress.org/luksusspokoju/">luksusspokoju</a>, <a href="https://profiles.wordpress.org/manzoorwanijk/">Manzoor Wani</a>, <a href="https://profiles.wordpress.org/mciampini/">Marco Ciampini</a>, <a href="https://profiles.wordpress.org/marcs0h/">marcs0h</a>, <a href="https://profiles.wordpress.org/tyxla/">Marin Atanasov</a>, <a href="https://profiles.wordpress.org/mgyura/">Michael</a>, <a href="https://profiles.wordpress.org/batmoo/">Mohammad Jangda</a>, <a href="https://profiles.wordpress.org/mrkenobi/">mrkenobi</a>, <a href="https://profiles.wordpress.org/mukesh27/">Mukesh Panchal</a>, <a href="https://profiles.wordpress.org/nkpathan/">Nawazkhan Pathan</a>, <a href="https://profiles.wordpress.org/ntsekouras/">Nik Tsekouras</a>, <a href="https://profiles.wordpress.org/parthjoginyusoft/">Parth Jogi</a>, <a href="https://profiles.wordpress.org/swissspidy/">Pascal Birchler</a>, <a href="https://profiles.wordpress.org/pbiron/">Paul Biron</a>, <a href="https://profiles.wordpress.org/paulkevan/">Paul Kevan</a>, <a href="https://profiles.wordpress.org/peterwilsoncc/">Peter Wilson</a>, <a href="https://profiles.wordpress.org/rafiem/">Rafie Muhammad</a>, <a href="https://profiles.wordpress.org/ramonopoly/">ramonopoly</a>, <a href="https://profiles.wordpress.org/wprashed/">Rashed Hossain</a>, <a href="https://profiles.wordpress.org/ressl/">Ressl</a>, <a href="https://profiles.wordpress.org/youknowriad/">Riad Benguella</a>, <a href="https://profiles.wordpress.org/rfaile313/">Rudy Faile</a>, <a href="https://profiles.wordpress.org/sainathpoojary/">Sainath Poojary</a>, <a href="https://profiles.wordpress.org/sc0ttkclark/">Scott Kingsley Clark</a>, <a href="https://profiles.wordpress.org/sergeybiryukov/">Sergey Biryukov</a>, <a href="https://profiles.wordpress.org/shailu25/">Shail Mehta</a>, <a href="https://profiles.wordpress.org/shameemreza/">Shameem – a11n</a>, <a href="https://profiles.wordpress.org/siliconforks/">siliconforks</a>, <a href="https://profiles.wordpress.org/slaffik/">Slava Abakumov</a>, <a href="https://profiles.wordpress.org/sabernhardt/">Stephen Bernhardt</a>, <a href="https://profiles.wordpress.org/sukhendu2002/">Sukhendu Sekhar Guria</a>, <a href="https://profiles.wordpress.org/ugyensupport/">Ugyen Dorji</a>, <a href="https://profiles.wordpress.org/utsavladani/">Utsav Ladani</a>, <a href="https://profiles.wordpress.org/vortfu/">vortfu</a>, <a href="https://profiles.wordpress.org/westonruter/">Weston Ruter</a>, <a href="https://profiles.wordpress.org/w3bdsgn/">w3bdsgn</a>, <a href="https://profiles.wordpress.org/wolf45/">wolf45</a> plus representatives from Automattic, Bluehost, GoDaddy, Pantheon, and WP Engine.</p>
+
+
+
+<h2 class="wp-block-heading">Backports</h2>
+
+
+
+<p class="wp-block-paragraph">As a courtesy, the security fixes are being backported, where necessary, to all branches eligible to receive security fixes (currently through 4.7). As a reminder, <strong>only the most recent version of WordPress is actively supported</strong>. The backports are in progress and will ship as they become ready.</p>
+
+
+
+<h2 class="wp-block-heading">How to contribute</h2>
+
+
+
+<p class="wp-block-paragraph">To get involved in WordPress core development, head over to Trac, <a href="https://core.trac.wordpress.org/report/6">pick a ticket</a>, and join the conversation in the <a href="https://wordpress.slack.com/archives/C02RQBWTW">#core</a> channel. Need help? Check out the <a href="https://make.wordpress.org/core/handbook/">Core Contributor Handbook</a>.</p>
+
+
+
+<p class="wp-block-paragraph"><em>Props to <a href="https://profiles.wordpress.org/ehtis/">Ehtisham Siddiqui</a>, <a href="https://profiles.wordpress.org/lancewillett/">Lance Willett</a>, <a href="https://profiles.wordpress.org/westonruter/">Weston Ruter</a>, and <a href="https://profiles.wordpress.org/adamsilverstein/">Adam Silverstein</a> for proofreading.</em></p>
+
+
+
+<p class="wp-block-paragraph"></p>
+]]></content:encoded>
+					
+		
+		
+		<post-id xmlns="com-wordpress:feed-additions:1">21717</post-id>	</item>
+		<item>
+		<title>WordPress 7.1 “Mary Lou”</title>
+		<link>https://wordpress.org/news/2026/08/mary-lou/</link>
+		
+		<dc:creator><![CDATA[annezazu]]></dc:creator>
+		<pubDate>Wed, 19 Aug 2026 23:33:49 +0000</pubDate>
+				<category><![CDATA[Releases]]></category>
+		<category><![CDATA[7-1]]></category>
+		<category><![CDATA[7.1]]></category>
+		<category><![CDATA[releases]]></category>
+		<guid isPermaLink="false">https://wordpress.org/news/?p=21420</guid>
+
+					<description><![CDATA[WordPress 7.1, “Mary Lou,” is here—celebrating the pioneering jazz pianist, composer, and arranger Mary Lou Williams and her spirit of reinvention and collaboration. This release brings a more flexible, responsive, and collaborative WordPress experience, with new responsive styling controls, a redesigned media editor, richer Notes with mentions and inline feedback, improved image processing, and new Playlist and Tabs blocks.]]></description>
+										<content:encoded><![CDATA[
+<figure class="wp-block-image size-full"><img data-recalc-dims="1" loading="lazy" decoding="async" width="2560" height="1337" alt="" class="wp-image-21456" role="none" src="https://i0.wp.com/wordpress.org/news/files/2026/08/release-edition-featured-image-7-1-scaled.webp?resize=2560%2C1337&#038;ssl=1" srcset="https://i0.wp.com/wordpress.org/news/files/2026/08/release-edition-featured-image-7-1-scaled.webp?w=2560&amp;ssl=1 2560w, https://i0.wp.com/wordpress.org/news/files/2026/08/release-edition-featured-image-7-1-scaled.webp?resize=300%2C157&amp;ssl=1 300w, https://i0.wp.com/wordpress.org/news/files/2026/08/release-edition-featured-image-7-1-scaled.webp?resize=1024%2C535&amp;ssl=1 1024w, https://i0.wp.com/wordpress.org/news/files/2026/08/release-edition-featured-image-7-1-scaled.webp?resize=768%2C401&amp;ssl=1 768w, https://i0.wp.com/wordpress.org/news/files/2026/08/release-edition-featured-image-7-1-scaled.webp?resize=1536%2C802&amp;ssl=1 1536w, https://i0.wp.com/wordpress.org/news/files/2026/08/release-edition-featured-image-7-1-scaled.webp?resize=2048%2C1070&amp;ssl=1 2048w" sizes="auto, (max-width: 1000px) 100vw, 1000px" /></figure>
+
+
+
+<p class="wp-block-paragraph">Each WordPress release celebrates an artist who has made an indelible mark on the world of music. <a href="https://wordpress.org/download/releases/7-1/">WordPress 7.1</a>, code-named “Mary Lou,” honors pioneering jazz pianist, arranger, and composer Mary Lou Williams.</p>
+
+
+
+<p class="wp-block-paragraph">A child prodigy who began playing publicly at six, her influence and work cut across nearly every major era of jazz, moving through swing, bebop, and sacred jazz. Through all of it, she kept reinventing her own sound. In the 1940s, she turned her Harlem apartment into a nightly workshop where Thelonious Monk, Dizzy Gillespie, and Bud Powell came to trade ideas and shape bebop itself. That combination of reinvention and collaboration inspired WordPress 7.1.</p>
+
+
+
+<p class="wp-block-paragraph">Let the range of <a href="https://www.youtube.com/channel/UCha4zVvYM9Tv8Hx0Q9lN_jQ" rel="noopener" target="_blank">Mary Lou’s music</a> carry you through everything 7.1 offers.</p>
+
+
+
+<h2 class="wp-block-heading">Welcome to WordPress 7.1!</h2>
+
+
+
+<p class="wp-block-paragraph">WordPress 7.1 is built around how you work: navigating the admin, controlling your designs, collaborating with others, and building what you want. The admin bar now follows you across the entire admin experience, putting the tools you need within reach, whether you&#8217;re writing a post or editing your site&#8217;s design. Built-in responsive styling, added to the current show/hide options for blocks, means you can ensure your site looks exactly how you want across screen sizes, without custom CSS. A new media editor keeps the familiar Crop button entry point, and brings freeform and aspect-ratio cropping, horizontal and vertical flipping, fine-grained and snap rotation, and metadata editing into one dedicated workflow. Leave Notes anywhere in your content—no longer limited to the block level. Rich text support and @mentions make it easier to collaborate with others as you write. Two new blocks, Playlist and Tabs, as well as a new API to register your own set of icons for the Icon block, give you even more flexibility to build what you want without additional plugins. These are just the highlights! Read on to see everything WordPress 7.1 has to offer.</p>
+
+
+
+<div class="wp-block-buttons is-layout-flex wp-block-buttons-is-layout-flex">
+<div class="wp-block-button"><a class="wp-block-button__link wp-element-button" href="https://wordpress.org/wordpress-7.1.zip">Download WordPress 7.1</a></div>
+</div>
+
+
+
+<h2 class="wp-block-heading">What&#8217;s inside</h2>
+
+
+
+<p class="wp-block-paragraph">There&#8217;s a lot packed into WordPress 7.1 across new styling tools, updated media flows, added Notes functionality, and more. Some changes add new capabilities, while others refine existing tools and workflows.</p>
+
+
+
+<p class="wp-block-paragraph">Here&#8217;s a closer look at what&#8217;s new in this release, starting with the release video:</p>
+
+
+
+<figure class="wp-block-embed is-type-video is-provider-youtube wp-block-embed-youtube wp-embed-aspect-16-9 wp-has-aspect-ratio"><div class="wp-block-embed__wrapper">
+<iframe loading="lazy" class="youtube-player" width="600" height="338" src="https://www.youtube.com/embed/dO751c8jkn0?version=3&#038;rel=1&#038;showsearch=0&#038;showinfo=1&#038;iv_load_policy=1&#038;fs=1&#038;hl=en-US&#038;autohide=2&#038;wmode=transparent" allowfullscreen="true" style="border:0;" sandbox="allow-scripts allow-same-origin allow-popups allow-presentation allow-popups-to-escape-sandbox"></iframe>
+</div></figure>
+
+
+
+<h3 class="wp-block-heading">Apply responsive styles</h3>
+
+
+
+<p class="wp-block-paragraph"><strong>Style your content your way, on every screen.</strong></p>
+
+
+
+<p class="wp-block-paragraph">WordPress 7.1 brings more responsive controls directly into the Site Editor. Style how a block looks at different screen sizes from Global Styles or in individual block settings, without custom CSS. You can also preview your changes at different viewport sizes as you work, making it straightforward to build layouts that adapt to the way people browse the web.</p>
+
+
+
+<figure class="wp-block-image aligncenter size-large"><img data-recalc-dims="1" loading="lazy" decoding="async" width="1024" height="632" alt="" class="wp-image-21424" role="none" src="https://i0.wp.com/wordpress.org/news/files/2026/08/Apply-responsive-styles.webp?resize=1024%2C632&#038;ssl=1" srcset="https://i0.wp.com/wordpress.org/news/files/2026/08/Apply-responsive-styles-scaled.webp?resize=1024%2C632&amp;ssl=1 1024w, https://i0.wp.com/wordpress.org/news/files/2026/08/Apply-responsive-styles-scaled.webp?resize=300%2C185&amp;ssl=1 300w, https://i0.wp.com/wordpress.org/news/files/2026/08/Apply-responsive-styles-scaled.webp?resize=767%2C474&amp;ssl=1 767w, https://i0.wp.com/wordpress.org/news/files/2026/08/Apply-responsive-styles-scaled.webp?resize=1536%2C949&amp;ssl=1 1536w, https://i0.wp.com/wordpress.org/news/files/2026/08/Apply-responsive-styles-scaled.webp?resize=2048%2C1265&amp;ssl=1 2048w" sizes="auto, (max-width: 1000px) 100vw, 1000px" /></figure>
+
+
+
+<h3 class="wp-block-heading">Admin bar, now in every editor</h3>
+
+
+
+<p class="wp-block-paragraph"><strong>Consistent navigation, from dashboard to editor.</strong></p>
+
+
+
+<p class="wp-block-paragraph">The WordPress admin bar now stays with you as you move across all editors, so you always know where you are and have easy access to familiar tools. The admin bar also features some small visual updates to more fully polish the experience. </p>
+
+
+
+<figure class="wp-block-image aligncenter size-large"><img data-recalc-dims="1" loading="lazy" decoding="async" width="1024" height="632" alt="" class="wp-image-21428" role="none" src="https://i0.wp.com/wordpress.org/news/files/2026/08/Admin-bar-now-in-every-editor-1024x632.webp?resize=1024%2C632&#038;ssl=1" srcset="https://i0.wp.com/wordpress.org/news/files/2026/08/Admin-bar-now-in-every-editor-scaled.webp?resize=1024%2C632&amp;ssl=1 1024w, https://i0.wp.com/wordpress.org/news/files/2026/08/Admin-bar-now-in-every-editor-scaled.webp?resize=300%2C185&amp;ssl=1 300w, https://i0.wp.com/wordpress.org/news/files/2026/08/Admin-bar-now-in-every-editor-scaled.webp?resize=767%2C474&amp;ssl=1 767w, https://i0.wp.com/wordpress.org/news/files/2026/08/Admin-bar-now-in-every-editor-scaled.webp?resize=1536%2C949&amp;ssl=1 1536w, https://i0.wp.com/wordpress.org/news/files/2026/08/Admin-bar-now-in-every-editor-scaled.webp?resize=2048%2C1265&amp;ssl=1 2048w" sizes="auto, (max-width: 1000px) 100vw, 1000px" /></figure>
+
+
+
+<h3 class="wp-block-heading">A new way to crop</h3>
+
+
+
+<p class="wp-block-paragraph"><strong>One dedicated workflow for editing your images.</strong></p>
+
+
+
+<p class="wp-block-paragraph">A new media editor modal replaces the previous inline cropping tool, bringing together freeform and aspect-ratio cropping, horizontal and vertical flipping, precise rotation control, and metadata editing in one place. The familiar Crop button still gets you there.</p>
+
+
+
+<figure class="wp-block-image size-large"><img data-recalc-dims="1" loading="lazy" decoding="async" width="1024" height="632" alt="" class="wp-image-21430" role="none" src="https://i0.wp.com/wordpress.org/news/files/2026/08/A-new-way-to-crop.webp?resize=1024%2C632&#038;ssl=1" srcset="https://i0.wp.com/wordpress.org/news/files/2026/08/A-new-way-to-crop-scaled.webp?resize=1024%2C632&amp;ssl=1 1024w, https://i0.wp.com/wordpress.org/news/files/2026/08/A-new-way-to-crop-scaled.webp?resize=300%2C185&amp;ssl=1 300w, https://i0.wp.com/wordpress.org/news/files/2026/08/A-new-way-to-crop-scaled.webp?resize=767%2C474&amp;ssl=1 767w, https://i0.wp.com/wordpress.org/news/files/2026/08/A-new-way-to-crop-scaled.webp?resize=1536%2C949&amp;ssl=1 1536w, https://i0.wp.com/wordpress.org/news/files/2026/08/A-new-way-to-crop-scaled.webp?resize=2048%2C1265&amp;ssl=1 2048w" sizes="auto, (max-width: 1000px) 100vw, 1000px" /></figure>
+
+
+
+<h3 class="wp-block-heading">Inline notes with mentions and rich text</h3>
+
+
+
+<p class="wp-block-paragraph"><strong>More ways to leave feedback.</strong></p>
+
+
+
+<p class="wp-block-paragraph">Notes now support rich text and mentions, making it easier to leave clear feedback and loop in the right people. Format your Notes with bold, italic, and code, add links, or type <code>@</code> to mention a collaborator and notify them.</p>
+
+
+
+<p class="wp-block-paragraph">You can also leave a note on a specific piece of text instead of just an entire block, keep multiple conversations going on the same block, and collapse longer notes to keep the margin tidy. It&#8217;s built for the back-and-forth that happens when people review content together.</p>
+
+
+
+<figure class="wp-block-image aligncenter size-large"><img data-recalc-dims="1" loading="lazy" decoding="async" width="1024" height="632" alt="" class="wp-image-21434" role="none" src="https://i0.wp.com/wordpress.org/news/files/2026/08/Inline-notes-with-mentions-and-rich-text.webp?resize=1024%2C632&#038;ssl=1" srcset="https://i0.wp.com/wordpress.org/news/files/2026/08/Inline-notes-with-mentions-and-rich-text-scaled.webp?resize=1024%2C632&amp;ssl=1 1024w, https://i0.wp.com/wordpress.org/news/files/2026/08/Inline-notes-with-mentions-and-rich-text-scaled.webp?resize=300%2C185&amp;ssl=1 300w, https://i0.wp.com/wordpress.org/news/files/2026/08/Inline-notes-with-mentions-and-rich-text-scaled.webp?resize=767%2C474&amp;ssl=1 767w, https://i0.wp.com/wordpress.org/news/files/2026/08/Inline-notes-with-mentions-and-rich-text-scaled.webp?resize=1536%2C949&amp;ssl=1 1536w, https://i0.wp.com/wordpress.org/news/files/2026/08/Inline-notes-with-mentions-and-rich-text-scaled.webp?resize=2048%2C1265&amp;ssl=1 2048w" sizes="auto, (max-width: 1000px) 100vw, 1000px" /></figure>
+
+
+
+<h3 class="wp-block-heading">Improved media handling</h3>
+
+
+
+<p class="wp-block-paragraph"><strong>Faster, more flexible image processing.</strong></p>
+
+
+
+<p class="wp-block-paragraph">Image compression, resizing, and thumbnail generation now happen in the browser, reducing server load and producing smaller files — without hitting PHP memory limits or upload timeouts.</p>
+
+
+
+<p class="wp-block-paragraph">Media handling in 7.1 also includes native support for AVIF, HEIC, and HDR gain maps, adding native support for the image formats modern cameras and phones already produce.</p>
+
+
+
+<figure class="wp-block-image aligncenter size-large"><img data-recalc-dims="1" loading="lazy" decoding="async" width="1024" height="632" alt="" class="wp-image-21437" role="none" src="https://i0.wp.com/wordpress.org/news/files/2026/08/More-image-formats-with-faster-uploads.webp?resize=1024%2C632&#038;ssl=1" srcset="https://i0.wp.com/wordpress.org/news/files/2026/08/More-image-formats-with-faster-uploads-scaled.webp?resize=1024%2C632&amp;ssl=1 1024w, https://i0.wp.com/wordpress.org/news/files/2026/08/More-image-formats-with-faster-uploads-scaled.webp?resize=300%2C185&amp;ssl=1 300w, https://i0.wp.com/wordpress.org/news/files/2026/08/More-image-formats-with-faster-uploads-scaled.webp?resize=767%2C474&amp;ssl=1 767w, https://i0.wp.com/wordpress.org/news/files/2026/08/More-image-formats-with-faster-uploads-scaled.webp?resize=1536%2C949&amp;ssl=1 1536w, https://i0.wp.com/wordpress.org/news/files/2026/08/More-image-formats-with-faster-uploads-scaled.webp?resize=2048%2C1265&amp;ssl=1 2048w" sizes="auto, (max-width: 1000px) 100vw, 1000px" /></figure>
+
+
+
+<h3 class="wp-block-heading">Enhanced details and new blocks</h3>
+
+
+
+<p class="wp-block-paragraph">WordPress 7.1 also adds two new blocks, along with more ways to customize how content looks and behaves.</p>
+
+
+
+<h4 class="wp-block-heading">Create playlists</h4>
+
+
+
+<p class="wp-block-paragraph">Bring multiple audio tracks together in one playlist, with an optional waveform that gives listeners a visual sense of each track as it plays.</p>
+
+
+
+<figure class="wp-block-image aligncenter size-large"><img data-recalc-dims="1" loading="lazy" decoding="async" width="1024" height="632" alt="" class="wp-image-21439" role="none" src="https://i0.wp.com/wordpress.org/news/files/2026/08/Create-playlists.webp?resize=1024%2C632&#038;ssl=1" srcset="https://i0.wp.com/wordpress.org/news/files/2026/08/Create-playlists-scaled.webp?resize=1024%2C632&amp;ssl=1 1024w, https://i0.wp.com/wordpress.org/news/files/2026/08/Create-playlists-scaled.webp?resize=300%2C185&amp;ssl=1 300w, https://i0.wp.com/wordpress.org/news/files/2026/08/Create-playlists-scaled.webp?resize=767%2C474&amp;ssl=1 767w, https://i0.wp.com/wordpress.org/news/files/2026/08/Create-playlists-scaled.webp?resize=1536%2C949&amp;ssl=1 1536w, https://i0.wp.com/wordpress.org/news/files/2026/08/Create-playlists-scaled.webp?resize=2048%2C1265&amp;ssl=1 2048w" sizes="auto, (max-width: 1000px) 100vw, 1000px" /></figure>
+
+
+
+<h4 class="wp-block-heading">Customize responsive breakpoints</h4>
+
+
+
+<p class="wp-block-paragraph">Block themes can now define their own mobile and tablet breakpoints in theme.json, overriding the defaults for responsive styles and block visibility.</p>
+
+
+
+<figure class="wp-block-image aligncenter size-large"><img data-recalc-dims="1" loading="lazy" decoding="async" width="1024" height="632" alt="" class="wp-image-21441" role="none" src="https://i0.wp.com/wordpress.org/news/files/2026/08/Customize-responsive-breakpoints.webp?resize=1024%2C632&#038;ssl=1" srcset="https://i0.wp.com/wordpress.org/news/files/2026/08/Customize-responsive-breakpoints-scaled.webp?resize=1024%2C632&amp;ssl=1 1024w, https://i0.wp.com/wordpress.org/news/files/2026/08/Customize-responsive-breakpoints-scaled.webp?resize=300%2C185&amp;ssl=1 300w, https://i0.wp.com/wordpress.org/news/files/2026/08/Customize-responsive-breakpoints-scaled.webp?resize=767%2C474&amp;ssl=1 767w, https://i0.wp.com/wordpress.org/news/files/2026/08/Customize-responsive-breakpoints-scaled.webp?resize=1536%2C949&amp;ssl=1 1536w, https://i0.wp.com/wordpress.org/news/files/2026/08/Customize-responsive-breakpoints-scaled.webp?resize=2048%2C1265&amp;ssl=1 2048w" sizes="auto, (max-width: 1000px) 100vw, 1000px" /></figure>
+
+
+
+<h4 class="wp-block-heading">Organize with tabs</h4>
+
+
+
+<p class="wp-block-paragraph">Organize content into tabbed panels instead of showing everything at once—a cleaner way to present related information without crowding your content.</p>
+
+
+
+<figure class="wp-block-image aligncenter size-full"><img data-recalc-dims="1" loading="lazy" decoding="async" width="2560" height="1581" alt="" class="wp-image-21443" role="none" src="https://i0.wp.com/wordpress.org/news/files/2026/08/Organize-with-tabs-scaled.webp?resize=2560%2C1581&#038;ssl=1" srcset="https://i0.wp.com/wordpress.org/news/files/2026/08/Organize-with-tabs-scaled.webp?w=2560&amp;ssl=1 2560w, https://i0.wp.com/wordpress.org/news/files/2026/08/Organize-with-tabs-scaled.webp?resize=300%2C185&amp;ssl=1 300w, https://i0.wp.com/wordpress.org/news/files/2026/08/Organize-with-tabs-scaled.webp?resize=767%2C474&amp;ssl=1 767w, https://i0.wp.com/wordpress.org/news/files/2026/08/Organize-with-tabs-scaled.webp?resize=1024%2C632&amp;ssl=1 1024w, https://i0.wp.com/wordpress.org/news/files/2026/08/Organize-with-tabs-scaled.webp?resize=1536%2C949&amp;ssl=1 1536w, https://i0.wp.com/wordpress.org/news/files/2026/08/Organize-with-tabs-scaled.webp?resize=2048%2C1265&amp;ssl=1 2048w" sizes="auto, (max-width: 1000px) 100vw, 1000px" /></figure>
+
+
+
+<h4 class="wp-block-heading">Add custom icons</h4>
+
+
+
+<p class="wp-block-paragraph">Developers can extend WordPress&#8217;s icon library with their own collections, making custom icons available throughout the editor alongside the built-in library.</p>
+
+
+
+<figure class="wp-block-image aligncenter size-large"><img data-recalc-dims="1" loading="lazy" decoding="async" width="1024" height="632" alt="" class="wp-image-21444" role="none" src="https://i0.wp.com/wordpress.org/news/files/2026/08/Add-custom-icons.webp?resize=1024%2C632&#038;ssl=1" srcset="https://i0.wp.com/wordpress.org/news/files/2026/08/Add-custom-icons-scaled.webp?resize=1024%2C632&amp;ssl=1 1024w, https://i0.wp.com/wordpress.org/news/files/2026/08/Add-custom-icons-scaled.webp?resize=300%2C185&amp;ssl=1 300w, https://i0.wp.com/wordpress.org/news/files/2026/08/Add-custom-icons-scaled.webp?resize=767%2C474&amp;ssl=1 767w, https://i0.wp.com/wordpress.org/news/files/2026/08/Add-custom-icons-scaled.webp?resize=1536%2C949&amp;ssl=1 1536w, https://i0.wp.com/wordpress.org/news/files/2026/08/Add-custom-icons-scaled.webp?resize=2048%2C1265&amp;ssl=1 2048w" sizes="auto, (max-width: 1000px) 100vw, 1000px" /></figure>
+
+
+
+<h4 class="wp-block-heading">Set interactive styles</h4>
+
+
+
+<p class="wp-block-paragraph">Give Button blocks distinct styles for hover, focus, and active states directly in the editor&#8217;s style controls. Set the styles for just one button or all buttons.</p>
+
+
+
+<figure class="wp-block-image aligncenter size-large"><img data-recalc-dims="1" loading="lazy" decoding="async" width="1024" height="632" alt="" class="wp-image-21446" role="none" src="https://i0.wp.com/wordpress.org/news/files/2026/08/Set-interactive-styles.webp?resize=1024%2C632&#038;ssl=1" srcset="https://i0.wp.com/wordpress.org/news/files/2026/08/Set-interactive-styles-scaled.webp?resize=1024%2C632&amp;ssl=1 1024w, https://i0.wp.com/wordpress.org/news/files/2026/08/Set-interactive-styles-scaled.webp?resize=300%2C185&amp;ssl=1 300w, https://i0.wp.com/wordpress.org/news/files/2026/08/Set-interactive-styles-scaled.webp?resize=767%2C474&amp;ssl=1 767w, https://i0.wp.com/wordpress.org/news/files/2026/08/Set-interactive-styles-scaled.webp?resize=1536%2C949&amp;ssl=1 1536w, https://i0.wp.com/wordpress.org/news/files/2026/08/Set-interactive-styles-scaled.webp?resize=2048%2C1265&amp;ssl=1 2048w" sizes="auto, (max-width: 1000px) 100vw, 1000px" /></figure>
+
+
+
+<h3 class="wp-block-heading">A more consistent editing experience</h3>
+
+
+
+<p class="wp-block-paragraph">The post editor is now fully iframed for all themes, matching the Site Editor.</p>
+
+
+
+<p class="wp-block-paragraph">The editing canvas runs separately from the WordPress admin interface, so admin styles don’t interfere with your content. Viewport-relative units and media queries now target the editing canvas directly, so responsive layouts behave more predictably as you build. The change is mostly invisible, but the result is a more reliable and consistent editor.</p>
+
+
+
+<h2 class="wp-block-heading">Developer&#8217;s toolbox</h2>
+
+
+
+<p class="wp-block-paragraph"><strong>Advanced tools for building your way.</strong></p>
+
+
+
+<p class="wp-block-paragraph">WordPress 7.1 expands several of the APIs and tools developers use to build on WordPress, with new options for icons, automation, admin interfaces, and responsive styling.</p>
+
+
+
+<p class="wp-block-paragraph">The SVG Icon API is now a public API, allowing developers to register their own icon collections and icons and use them throughout the editor with functions such as <code>wp_register_icon_collection(), wp_register_icon(), and wp_get_icon().</code></p>
+
+
+
+<p class="wp-block-paragraph">The Abilities API builds on the infrastructure introduced in WordPress 6.9 with a filterable execution lifecycle, custom validation, and shared discovery. These additions make it easier to build integrations and automation on top of WordPress, including AI-powered tooling.</p>
+
+
+
+<p class="wp-block-paragraph">A new Design System provides foundational support for theming WordPress admin interfaces, including color, roundness, and cursor styles. Developers can use semantic design tokens and the <code>ThemeProvider</code> React component to bring more consistency to custom admin interfaces while still feeling at home in WordPress.</p>
+
+
+
+<p class="wp-block-paragraph">Theme authors also get responsive styling and pseudo-state styling for hover, focus, focus-visible, and active states through <code>theme.json</code>, along with new filters for configuring the DataViews and DataForm screens that power Pages, Templates, Parts, and Patterns in the Site Editor.</p>
+
+
+
+<h2 class="wp-block-heading">Accessibility</h2>
+
+
+
+<p class="wp-block-paragraph">WordPress 7.1 continues to improve accessibility across WordPress Core and the editor. New <code>wp_get_tooltip()</code> and <code>wp_get_toggletip()</code> functions bring accessible tooltips to more areas of the WordPress admin, including post meta boxes and the login screen.</p>
+
+
+
+<p class="wp-block-paragraph">Screen reader support also improves across admin interfaces, with clearer labeling and more predictable navigation in post list tables. The new Tab and Playlist blocks, along with improvements to editor navigation and interaction, add to the broader accessibility work included in this release.</p>
+
+
+
+<p class="wp-block-paragraph">Together, these changes continue to make WordPress easier to navigate and use for more people.</p>
+
+
+
+<h2 class="wp-block-heading">Performance improvements</h2>
+
+
+
+<p class="wp-block-paragraph">Image compression, resizing, and thumbnail generation now run in the browser (via a WebAssembly build of libvips), reducing the processing load on your server and helping avoid memory limits and timeouts with larger uploads.</p>
+
+
+
+<p class="wp-block-paragraph">Opt-in GIF-to-video conversion produces typically smaller files, while upload progress indicators and automatic retries make uploads more resilient when connections drop.</p>
+
+
+
+<p class="wp-block-paragraph">The Media Library now uses infinite scrolling by default, with a per-user option to return to pagination. Speculative loading defaults can now be set through environment variables or constants, so hosts and site owners can configure how WordPress prefetches pages without writing a plugin.</p>
+
+
+
+<h2 class="wp-block-heading">And much more!</h2>
+
+
+
+<p class="wp-block-paragraph">For a comprehensive overview of everything new and improved in WordPress 7.1, visit the feature showcase website.</p>
+
+
+
+<div class="wp-block-buttons is-layout-flex wp-block-buttons-is-layout-flex">
+<div class="wp-block-button"><a class="wp-block-button__link wp-element-button" href="https://wordpress.org/download/releases/7-1/">Check out what&#8217;s new in 7.1</a></div>
+</div>
+
+
+
+<h2 class="wp-block-heading">Learn more about WordPress 7.1</h2>
+
+
+
+<p class="wp-block-paragraph"><a href="https://learn.wordpress.org/">Learn WordPress</a> is a free resource for new and experienced WordPress users.  Learn is stocked with how-to videos on using various features in WordPress, <a href="https://learn.wordpress.org/social-learning/">interactive workshops</a> for exploring topics in-depth, and lesson plans for diving deep into specific areas of WordPress.</p>
+
+
+
+<p class="wp-block-paragraph">Read the <a href="https://wordpress.org/documentation/wordpress-version/version-7.1/">WordPress 7.1 Release Notes</a> for information on installation, enhancements, fixed issues, release contributors, learning resources, and the list of file changes.</p>
+
+
+
+<p class="wp-block-paragraph">Explore the <a href="https://make.wordpress.org/core/2026/08/05/wordpress-7-1-field-guide/">WordPress 7.1 Field Guide</a>.  Learn about the changes in this release with detailed developer notes to help you build with WordPress.</p>
+
+
+
+<h2 class="wp-block-heading">The 7.1 release squad</h2>
+
+
+
+<p class="wp-block-paragraph">Every release comes to you from a dedicated team of enthusiastic contributors who help keep things on track and moving smoothly. The team that has led 7.1 is a cross-functional group of contributors who are always ready to champion ideas, remove blockers, and resolve issues.</p>
+
+
+
+<ul class="wp-block-list">
+<li>Release Lead: <a href="https://profiles.wordpress.org/annezazu/">Anne McCarthy</a></li>
+
+
+
+<li>Release Coordination: <a href="https://profiles.wordpress.org/benjamin_zekavica/">Benjamin Zekavica</a>, <a href="https://profiles.wordpress.org/krupajnanda/">Krupa Nanda</a></li>
+
+
+
+<li>Tech Leads: <a href="https://profiles.wordpress.org/wildworks/">Aki Hamano</a>, <a href="https://profiles.wordpress.org/joedolson/">Joe Dolson</a></li>
+
+
+
+<li>Triage Leads: <a href="https://profiles.wordpress.org/adrianduffell/">Adrian Duffell</a>, <a href="https://profiles.wordpress.org/sajjad67/">Sajjad Hossain Sagor</a>, <a href="https://profiles.wordpress.org/sergeybiryukov/">Sergey Biryukov</a></li>
+
+
+
+<li>Test Leads: <a href="https://profiles.wordpress.org/huzaifaalmesbah/">Huzaifa Al Mesbah</a>, <a href="https://profiles.wordpress.org/nikunj8866/">Nikunj Hatkar</a></li>
+</ul>
+
+
+
+<h2 class="wp-block-heading">Thank you, contributors</h2>
+
+
+
+<p class="wp-block-paragraph">The mission of WordPress is to <a href="https://wordpress.org/about/">democratize</a> publishing and <a href="https://opensource.org/osd-annotated">embody the freedoms that come with open source</a>.  A global and diverse community of people collaborating to strengthen the software supports this effort.</p>
+
+
+
+<p class="wp-block-paragraph">WordPress 7.1 reflects the tireless efforts and passion of more than 800 contributors from all over the world. This release also welcomed over 170 first-time contributors! </p>
+
+
+
+<p class="wp-block-paragraph">Together, their work delivered more than 1500 enhancements and fixes, helping make WordPress 7.1 a stable and polished release for everyone. It’s another great example of what the WordPress open source community can accomplish when people come together to build, test, and improve the software</p>
+
+
+
+<p class="wp-block-paragraph"><p class="has-small-font-size"><a href="https://profiles.wordpress.org/ishihara-takashi/">1shiharaT</a> · <a href="https://profiles.wordpress.org/aagam94/">Aagam Shah</a> · <a href="https://profiles.wordpress.org/aakashverma1/">Aakash Verma</a> · <a href="https://profiles.wordpress.org/aaroncampbell/">Aaron D. Campbell</a> · <a href="https://profiles.wordpress.org/jorbin/">Aaron Jorbin</a> · <a href="https://profiles.wordpress.org/aaronrobertshaw/">Aaron Robertshaw</a> · <a href="https://profiles.wordpress.org/abdalsalaam/">Abdalsalaam Halawa</a> · <a href="https://profiles.wordpress.org/abdullahramzan/">Abdullah Ramzan</a> · <a href="https://profiles.wordpress.org/abduremon/">Abdur Rahman Emon</a> · <a href="https://profiles.wordpress.org/abhishekfdd/">Abhishek Kumar</a> · <a href="https://profiles.wordpress.org/abrahamfariaz/">abrahamfariaz</a> · <a href="https://profiles.wordpress.org/ibachal/">Achal Jain</a> · <a href="https://profiles.wordpress.org/raftaar1191/">AcrossAI</a> · <a href="https://profiles.wordpress.org/adamsilverstein/">Adam Silverstein</a> · <a href="https://profiles.wordpress.org/adamwood/">Adam Wood</a> · <a href="https://profiles.wordpress.org/zieladam/">Adam Zieliński</a> · <a href="https://profiles.wordpress.org/adrianmoldovanwp/">Adi Moldovan</a> · <a href="https://profiles.wordpress.org/adithyanaik/">adithyanaik</a> · <a href="https://profiles.wordpress.org/iamadisingh/">Aditya Singh</a> · <a href="https://profiles.wordpress.org/adrianduffell/">Adrian Duffell</a> · <a href="https://profiles.wordpress.org/adrmf25/">adrmf25</a> · <a href="https://profiles.wordpress.org/agulbra/">agulbra</a> · <a href="https://profiles.wordpress.org/elazzabi/">Ahmed</a> · <a href="https://profiles.wordpress.org/chaion07/">Ahmed Kabir Chaion</a> · <a href="https://profiles.wordpress.org/ahuseyn/">ahuseyn</a> · <a href="https://profiles.wordpress.org/wildworks/">Aki Hamano</a> · <a href="https://profiles.wordpress.org/akshat2802/">Akshat Kakkad</a> · <a href="https://profiles.wordpress.org/schlessera/">Alain Schlesser</a> · <a href="https://profiles.wordpress.org/alanjacobmathew/">Alan Jacob Mathew</a> · <a href="https://profiles.wordpress.org/aljullu/">Albert Juhé Lluveras</a> · <a href="https://profiles.wordpress.org/alecgeatches/">Alec Geatches</a> · <a href="https://profiles.wordpress.org/xknown/">Alex Concha</a> · <a href="https://profiles.wordpress.org/alexcu21/">Alex Cuadra</a> · <a href="https://profiles.wordpress.org/akirk/">Alex Kirk</a> · <a href="https://profiles.wordpress.org/alexstine/">Alex Stine</a> · <a href="https://profiles.wordpress.org/alhrath/">alhrath</a> · <a href="https://profiles.wordpress.org/firewatch/">allilevine</a> · <a href="https://profiles.wordpress.org/mrfoxtalbot/">Alvaro Gómez</a> · <a href="https://profiles.wordpress.org/alh0319/">Amber Hinds</a> · <a href="https://profiles.wordpress.org/aialvi/">Aminul Islam Alvi</a> · <a href="https://profiles.wordpress.org/amitjoel85/">Amit Joel</a> · <a href="https://profiles.wordpress.org/amitraj2203/">Amit Raj</a> · <a href="https://profiles.wordpress.org/amjadr360/">Amjad Ali</a> · <a href="https://profiles.wordpress.org/amykamala/">Amy Kamala</a> · <a href="https://profiles.wordpress.org/anastis/">Anastis Sourgoutsidis</a> · <a href="https://profiles.wordpress.org/anlino/">Anders Norén</a> · <a href="https://profiles.wordpress.org/afercia/">Andrea Fercia</a> · <a href="https://profiles.wordpress.org/andreasdl/">Andrea Grassi</a> · <a href="https://profiles.wordpress.org/awetz583/">Andrea Roenning</a> · <a href="https://profiles.wordpress.org/andreasca/">andreasca</a> · <a href="https://profiles.wordpress.org/andraganescu/">Andrei Draganescu</a> · <a href="https://profiles.wordpress.org/r33d3m33r/">Andrej Mernik</a> · <a href="https://profiles.wordpress.org/aduth/">Andrew Duthie</a> · <a href="https://profiles.wordpress.org/linewebdigital/">Andrew Matia</a> · <a href="https://profiles.wordpress.org/azaozz/">Andrew Ozz</a> · <a href="https://profiles.wordpress.org/andrewserong/">Andrew Serong</a> · <a href="https://profiles.wordpress.org/oandregal/">André Maneiro</a> · <a href="https://profiles.wordpress.org/afragen/">Andy Fragen</a> · <a href="https://profiles.wordpress.org/andizer/">Andy Meerwaldt</a> · <a href="https://profiles.wordpress.org/rilwis/">Anh Tran</a> · <a href="https://profiles.wordpress.org/ankit-k-gupta/">Ankit K Gupta</a> · <a href="https://profiles.wordpress.org/ankitkumarshah/">Ankit Kumar Shah</a> · <a href="https://profiles.wordpress.org/ankitmaru/">Ankit Panchal</a> · <a href="https://profiles.wordpress.org/ankitpatel1578/">Ankit Patel</a> · <a href="https://profiles.wordpress.org/annezazu/">Anne McCarthy</a> · <a href="https://profiles.wordpress.org/annebovelett/">Anne-Mieke Bovelett</a> · <a href="https://profiles.wordpress.org/ahortin/">Anthony Hortin</a> · <a href="https://profiles.wordpress.org/antwonw/">Anthony White</a> · <a href="https://profiles.wordpress.org/anukasha/">Anukasha Singh</a> · <a href="https://profiles.wordpress.org/anupkankale/">Anup Kankale</a> · <a href="https://profiles.wordpress.org/anveshika/">Anveshika Srivastava</a> · <a href="https://profiles.wordpress.org/aperto/">aperto</a> · <a href="https://profiles.wordpress.org/arcangelini/">arcangelini</a> · <a href="https://profiles.wordpress.org/aristath/">Ari Stathopoulos</a> · <a href="https://profiles.wordpress.org/arisch24/">Arischvaran Puvanesvaran</a> · <a href="https://profiles.wordpress.org/arkaprabhachowdhury/">Arkaprabha Chowdhury</a> · <a href="https://profiles.wordpress.org/armandmatthey/">Armand MD</a> · <a href="https://profiles.wordpress.org/arshidkv12/">Arshid</a> · <a href="https://profiles.wordpress.org/arthur791004/">Arthur Chu</a> · <a href="https://profiles.wordpress.org/artpi/">Artur Piszek</a> · <a href="https://profiles.wordpress.org/fushar/">Ashar Fuadi</a> · <a href="https://profiles.wordpress.org/aslushnikov/">aslushnikov</a> · <a href="https://profiles.wordpress.org/aswasif007/">aswasif007</a> · <a href="https://profiles.wordpress.org/atomiks/">atomiks</a> · <a href="https://profiles.wordpress.org/aurooba/">Aurooba Ahmed</a> · <a href="https://profiles.wordpress.org/avcascade/">avcascade</a> · <a href="https://profiles.wordpress.org/ayazahmed12/">ayaz ahmed</a> · <a href="https://profiles.wordpress.org/ayushhoff/">ayushhoff</a> · <a href="https://profiles.wordpress.org/softglaze/">Azhar Ali</a> · <a href="https://profiles.wordpress.org/azharderaiya/">Azhar Deraiya</a> · <a href="https://profiles.wordpress.org/azragh/">Azragh</a> · <a href="https://profiles.wordpress.org/neo2k23/">BackuPs</a> · <a href="https://profiles.wordpress.org/baikaresandeep007-1/">Baikare Sandip</a> · <a href="https://profiles.wordpress.org/barry/">Barry</a> · <a href="https://profiles.wordpress.org/bartkalisz/">Bart Kalisz</a> · <a href="https://profiles.wordpress.org/bayejid00/">Bayejid Ahmed</a> · <a href="https://profiles.wordpress.org/scruffian/">Ben Dwyer</a> · <a href="https://profiles.wordpress.org/benniledl/">Benedikt Ledl</a> · <a href="https://profiles.wordpress.org/benjgrolleau/">Benjamin Grolleau</a> · <a href="https://profiles.wordpress.org/benjamin_zekavica/">Benjamin Zekavica</a> · <a href="https://profiles.wordpress.org/benoitchantre/">Benoit Chantre</a> · <a href="https://profiles.wordpress.org/bernhard-reiter/">Bernie Reiter</a> · <a href="https://profiles.wordpress.org/berislavgrgicak/">Bero</a> · <a href="https://profiles.wordpress.org/bigdigital/">bigdigital</a> · <a href="https://profiles.wordpress.org/mbigul/">Bigul Malayi</a> · <a href="https://profiles.wordpress.org/birgire/">Birgir Erlendsson (birgire)</a> · <a href="https://profiles.wordpress.org/bph/">Birgit Pauli-Haack</a> · <a href="https://profiles.wordpress.org/elblakeo31/">Blake Bertuccelli-Booth</a> · <a href="https://profiles.wordpress.org/bluefuton/">bluefuton</a> · <a href="https://profiles.wordpress.org/bobbingwide/">bobbingwide</a> · <a href="https://profiles.wordpress.org/bor0/">Boro Sitnikovski</a> · <a href="https://profiles.wordpress.org/bradley2083/">brad hogan</a> · <a href="https://profiles.wordpress.org/bjorsch/">Brad Jorsch</a> · <a href="https://profiles.wordpress.org/bradshawtm/">bradshawtm</a> · <a href="https://profiles.wordpress.org/brajdas0022/">brajdas0022</a> · <a href="https://profiles.wordpress.org/bhubbard/">Brandon Hubbard</a> · <a href="https://profiles.wordpress.org/kraftbj/">Brandon Kraft</a> · <a href="https://profiles.wordpress.org/bpayton/">Brandon Payton</a> · <a href="https://profiles.wordpress.org/brbrr/">brbrr</a> · <a href="https://profiles.wordpress.org/ironprogrammer/">Brian Alexander</a> · <a href="https://profiles.wordpress.org/bacoords/">Brian Coords</a> · <a href="https://profiles.wordpress.org/bgardner/">Brian Gardner</a> · <a href="https://profiles.wordpress.org/masteradhoc/">Brian Haas</a> · <a href="https://profiles.wordpress.org/brianhenryie/">Brian Henry</a> · <a href="https://profiles.wordpress.org/brianhogg/">Brian Hogg</a> · <a href="https://profiles.wordpress.org/bridgetwillard/">Bridget Willard</a> · <a href="https://profiles.wordpress.org/brnhrst/">brnhrst</a> · <a href="https://profiles.wordpress.org/buffer1024/">buffer1024</a> · <a href="https://profiles.wordpress.org/burhandodhy/">Burhan Nasir</a> · <a href="https://profiles.wordpress.org/burnuser/">burnuser</a> · <a href="https://profiles.wordpress.org/beryldlg/">Béryl de La Grandière</a> · <a href="https://profiles.wordpress.org/concept83/">C83</a> · <a href="https://profiles.wordpress.org/crmv/">Camila Rayza Mendoza Vargas</a> · <a href="https://profiles.wordpress.org/cbravobernal/">Carlos Bravo</a> · <a href="https://profiles.wordpress.org/poena/">Carolina Nymark</a> · <a href="https://profiles.wordpress.org/catthetech/">CAT the Tech</a> · <a href="https://profiles.wordpress.org/cbirdsong/">cbirdsong</a> · <a href="https://profiles.wordpress.org/ccprog/">ccprog</a> · <a href="https://profiles.wordpress.org/cgastrell/">cgastrell</a> · <a href="https://profiles.wordpress.org/shireling/">Chad Chadbourne</a> · <a href="https://profiles.wordpress.org/cpapazoglou/">Charalampos Papazoglou</a> · <a href="https://profiles.wordpress.org/chillifish/">Chillifish</a> · <a href="https://profiles.wordpress.org/chouby/">Chouby</a> · <a href="https://profiles.wordpress.org/chrisdavidmiles/">Chris David Miles</a> · <a href="https://profiles.wordpress.org/chrisgresh/">Chris Gresham-Britt</a> · <a href="https://profiles.wordpress.org/extrachill/">Chris Huber</a> · <a href="https://profiles.wordpress.org/xristos3490/">Chris Lilitsas</a> · <a href="https://profiles.wordpress.org/csmcneill/">Chris M. - a11n</a> · <a href="https://profiles.wordpress.org/czarate/">Chris Zarate</a> · <a href="https://profiles.wordpress.org/chriscct7/">chriscct7</a> · <a href="https://profiles.wordpress.org/apermo/">Christoph Daum</a> · <a href="https://profiles.wordpress.org/cagrimmett/">Chuck Grimmett</a> · <a href="https://profiles.wordpress.org/jack960330/">Chunhui Ouyang</a> · <a href="https://profiles.wordpress.org/butterflymedia/">Ciprian Popescu</a> · <a href="https://profiles.wordpress.org/clementpolito/">Clément Polito</a> · <a href="https://profiles.wordpress.org/codeamp/">Code Amp</a> · <a href="https://profiles.wordpress.org/codesmith32/">codesmith32</a> · <a href="https://profiles.wordpress.org/angelulz/">Cody</a> · <a href="https://profiles.wordpress.org/cogdesign/">cogdesign</a> · <a href="https://profiles.wordpress.org/colind/">ColinD</a> · <a href="https://profiles.wordpress.org/collinr3/">collinr3</a> · <a href="https://profiles.wordpress.org/coreyw/">Corey Worrell</a> · <a href="https://profiles.wordpress.org/courane01/">Courtney Robertson</a> · <a href="https://profiles.wordpress.org/cbusquets1989/">Cris Busquets</a> · <a href="https://profiles.wordpress.org/csabarakasz/">csabarakasz</a> · <a href="https://profiles.wordpress.org/cweiske/">cweiske</a> · <a href="https://profiles.wordpress.org/dugi-digitaly/">Dagan</a> · <a href="https://profiles.wordpress.org/acketon/">Dakota Chichester</a> · <a href="https://profiles.wordpress.org/drwpcom/">Damianne P (a11n)</a> · <a href="https://profiles.wordpress.org/colorful-tones/">Damon Cook</a> · <a href="https://profiles.wordpress.org/danluu/">Dan Luu</a> · <a href="https://profiles.wordpress.org/alexodiy/">Dan Zakirov</a> · <a href="https://profiles.wordpress.org/daniguardiola/">Dani Guardiola</a> · <a href="https://profiles.wordpress.org/danielbachhuber/">Daniel Bachhuber</a> · <a href="https://profiles.wordpress.org/talldanwp/">Daniel Richards</a> · <a href="https://profiles.wordpress.org/villanovachile/">Daniel Rodriguez</a> · <a href="https://profiles.wordpress.org/dannyreaktiv/">dannyreaktiv</a> · <a href="https://profiles.wordpress.org/dkotter/">Darin Kotter</a> · <a href="https://profiles.wordpress.org/nerrad/">Darren Ethier (nerrad)</a> · <a href="https://profiles.wordpress.org/darshitrajyaguru97/">Darshit Rajyaguru</a> · <a href="https://profiles.wordpress.org/drw158/">Dave Whitley</a> · <a href="https://profiles.wordpress.org/davilera/">David Aguilera</a> · <a href="https://profiles.wordpress.org/darerodz/">David Arenas</a> · <a href="https://profiles.wordpress.org/davidbaumwald/">David Baumwald</a> · <a href="https://profiles.wordpress.org/davidbinda/">David Biňovec</a> · <a href="https://profiles.wordpress.org/davidabowman/">David Bowman</a> · <a href="https://profiles.wordpress.org/dcavins/">David Cavins</a> · <a href="https://profiles.wordpress.org/justlevine/">David Levine</a> · <a href="https://profiles.wordpress.org/dshanske/">David Shanske</a> · <a href="https://profiles.wordpress.org/get_dave/">David Smith</a> · <a href="https://profiles.wordpress.org/superdav42/">David Stone</a> · <a href="https://profiles.wordpress.org/dsas/">Dean Sas</a> · <a href="https://profiles.wordpress.org/iamchitti/">Deepak Kumar</a> · <a href="https://profiles.wordpress.org/deepakprajapati/">Deepak Prajapati</a> · <a href="https://profiles.wordpress.org/deepakrohilla/">Deepak Rohilla</a> · <a href="https://profiles.wordpress.org/dingo_d/">Denis Žoljom</a> · <a href="https://profiles.wordpress.org/dennisheiden/">Dennis Heiden</a> · <a href="https://profiles.wordpress.org/realloc/">Dennis Ploetner</a> · <a href="https://profiles.wordpress.org/dmsnell/">Dennis Snell</a> · <a href="https://profiles.wordpress.org/deoladev/">deoladev</a> · <a href="https://profiles.wordpress.org/deryck/">Deryck</a> · <a href="https://profiles.wordpress.org/devanshijoshi/">Devanshi Joshi</a> · <a href="https://profiles.wordpress.org/devasheeshkaul/">Devasheesh Kaul</a> · <a href="https://profiles.wordpress.org/dharm1025/">Dharmesh Patel</a> · <a href="https://profiles.wordpress.org/dhavalkapadane/">Dhaval Kapadane</a> · <a href="https://profiles.wordpress.org/dhrumilk/">Dhrumil Kumbhani</a> · <a href="https://profiles.wordpress.org/dhruvang21/">Dhruvang21</a> · <a href="https://profiles.wordpress.org/dhruvik18/">Dhruvik Malaviya</a> · <a href="https://profiles.wordpress.org/diegogarciarodrigues/">diegogarciarodrigues</a> · <a href="https://profiles.wordpress.org/dd32/">Dion Hulse</a> · <a href="https://profiles.wordpress.org/dlind1/">dlind1</a> · <a href="https://profiles.wordpress.org/ocean90/">Dominik Schilling</a> · <a href="https://profiles.wordpress.org/thehenridev/">Douglas Henri</a> · <a href="https://profiles.wordpress.org/drewapicture/">Drew Jaynes</a> · <a href="https://profiles.wordpress.org/drivingralle/">Drivingralle</a> · <a href="https://profiles.wordpress.org/davidszabo/">Dávid Szabó</a> · <a href="https://profiles.wordpress.org/eclev91/">eclev91</a> · <a href="https://profiles.wordpress.org/terragirl/">Edith Allison</a> · <a href="https://profiles.wordpress.org/efc/">efc</a> · <a href="https://profiles.wordpress.org/ehtis/">Ehtisham Siddiqui</a> · <a href="https://profiles.wordpress.org/eishanoor/">eishanoor</a> · <a href="https://profiles.wordpress.org/ekaterina92/">ekaterina92</a> · <a href="https://profiles.wordpress.org/elfu98/">elfu98</a> · <a href="https://profiles.wordpress.org/miyarakira/">Eliot Akira</a> · <a href="https://profiles.wordpress.org/elizaan36/">elizaan36</a> · <a href="https://profiles.wordpress.org/ellatrix/">Ella van Durpe</a> · <a href="https://profiles.wordpress.org/elmastudio/">Ellen Bauer</a> · <a href="https://profiles.wordpress.org/eatse/">Emmanuel Atsé</a> · <a href="https://profiles.wordpress.org/enej/">Enej Bajgorić</a> · <a href="https://profiles.wordpress.org/wpeoin/">Eoin Savage</a> · <a href="https://profiles.wordpress.org/wwahammy/">Eric</a> · <a href="https://profiles.wordpress.org/ytfeldrawkcab/">Eric Michel</a> · <a href="https://profiles.wordpress.org/r1k0/">Erick Wambua</a> · <a href="https://profiles.wordpress.org/im3dabasia1/">Eshaan Dabasiya</a> · <a href="https://profiles.wordpress.org/ecairol/">Esteban Cairol</a> · <a href="https://profiles.wordpress.org/estelaris/">Estela Rueda</a> · <a href="https://profiles.wordpress.org/eurello/">eurello</a> · <a href="https://profiles.wordpress.org/eherman24/">Evan Herman</a> · <a href="https://profiles.wordpress.org/fabiankaegy/">Fabian Kaegy</a> · <a href="https://profiles.wordpress.org/fahimmurshed/">FahimMurshed</a> · <a href="https://profiles.wordpress.org/faisalahammad/">Faisal Ahammad</a> · <a href="https://profiles.wordpress.org/fakhriaz/">Fakhri Azzouz</a> · <a href="https://profiles.wordpress.org/felipevelzani/">Felipe Velzani</a> · <a href="https://profiles.wordpress.org/flixos90/">Felix Arntz</a> · <a href="https://profiles.wordpress.org/feperrella/">Fernando Perrella</a> · <a href="https://profiles.wordpress.org/fernandot/">Fernando Tellado</a> · <a href="https://profiles.wordpress.org/fditrapani/">Filippo Di Trapani</a> · <a href="https://profiles.wordpress.org/fiocavallari/">fiocavallari</a> · <a href="https://profiles.wordpress.org/firdaus666/">firdaus666</a> · <a href="https://profiles.wordpress.org/fandevelop/">Florence ANDROLUS</a> · <a href="https://profiles.wordpress.org/chiscoleiton/">Francisco Leiton</a> · <a href="https://profiles.wordpress.org/fcoveram/">Francisco Vera</a> · <a href="https://profiles.wordpress.org/gasatrya/">Ga Satrya</a> · <a href="https://profiles.wordpress.org/lunule/">Gabor Lippert</a> · <a href="https://profiles.wordpress.org/gajendrasingh/">Gajendra Singh</a> · <a href="https://profiles.wordpress.org/galaxor/">galaxor</a> · <a href="https://profiles.wordpress.org/galois44/">galois44</a> · <a href="https://profiles.wordpress.org/garethelwell/">Gareth Elwell</a> · <a href="https://profiles.wordpress.org/garrett-eclipse/">Garrett Hyder</a> · <a href="https://profiles.wordpress.org/garyj/">Gary Jones</a> · <a href="https://profiles.wordpress.org/pento/">Gary Pendergast</a> · <a href="https://profiles.wordpress.org/gaurangsondagar/">Gaurang Sondagar</a> · <a href="https://profiles.wordpress.org/gautammkgarg/">Gautam Garg</a> · <a href="https://profiles.wordpress.org/gautam23/">Gautam Mehta</a> · <a href="https://profiles.wordpress.org/gaelbonithon/">Gaël Bonithon</a> · <a href="https://profiles.wordpress.org/generosus/">Generosus</a> · <a href="https://profiles.wordpress.org/mamaduka/">George Mamadashvili</a> · <a href="https://profiles.wordpress.org/poseidonas/">George Vasiliades</a> · <a href="https://profiles.wordpress.org/germanfrelo/">Germán</a> · <a href="https://profiles.wordpress.org/gierand/">gierand</a> · <a href="https://profiles.wordpress.org/gilmoursa/">gilmoursa</a> · <a href="https://profiles.wordpress.org/glendaviesnz/">Glen Davies</a> · <a href="https://profiles.wordpress.org/ingeniumed/">Gopal Krishnan</a> · <a href="https://profiles.wordpress.org/gziolo/">Greg Ziółkowski</a> · <a href="https://profiles.wordpress.org/gregbenz/">gregbenz</a> · <a href="https://profiles.wordpress.org/griffithchen/">griffithchen</a> · <a href="https://profiles.wordpress.org/gschoppe/">gschoppe</a> · <a href="https://profiles.wordpress.org/odkdn1/">gubser</a> · <a href="https://profiles.wordpress.org/g4ll4is/">Guillaume G.</a> · <a href="https://profiles.wordpress.org/gulamdastgir04/">Gulamdastgir Momin</a> · <a href="https://profiles.wordpress.org/gusgomezpg/">gusgomezpg</a> · <a href="https://profiles.wordpress.org/gustavohappyeng/">Gustavo Hilario</a> · <a href="https://profiles.wordpress.org/adrock42/">H. Adam Lenz</a> · <a href="https://profiles.wordpress.org/habiburdev/">Habibur Rahman</a> · <a href="https://profiles.wordpress.org/hanneslsm/">hanneslsm</a> · <a href="https://profiles.wordpress.org/hage/">Hans-Gerd Gerhards</a> · <a href="https://profiles.wordpress.org/hareesh-pillai/">Hareesh S</a> · <a href="https://profiles.wordpress.org/harishtewari/">Harish Tewari</a> · <a href="https://profiles.wordpress.org/harshbhonsle08/">harshbhonsle08</a> · <a href="https://profiles.wordpress.org/meet_hasmukh/">Hasmukh Khemchandbhai Mistry</a> · <a href="https://profiles.wordpress.org/hasnainashfaq/">Hasnain Ashfaq</a> · <a href="https://profiles.wordpress.org/hazdiego/">Haz</a> · <a href="https://profiles.wordpress.org/iamarinoh/">Henrique Iamarino</a> · <a href="https://profiles.wordpress.org/kurudrive/">Hidekazu Ishikawa</a> · <a href="https://profiles.wordpress.org/hilayt24/">Hilay Trivedi</a> · <a href="https://profiles.wordpress.org/abcd95/">Himanshu Pathak</a> · <a href="https://profiles.wordpress.org/hbhalodia/">Hit Bhalodia</a> · <a href="https://profiles.wordpress.org/hrohh/">Hrohh</a> · <a href="https://profiles.wordpress.org/hugod/">Hugo</a> · <a href="https://profiles.wordpress.org/humanify/">humanify</a> · <a href="https://profiles.wordpress.org/huzaifaalmesbah/">Huzaifa Al Mesbah</a> · <a href="https://profiles.wordpress.org/priethor/">Héctor Prieto</a> · <a href="https://profiles.wordpress.org/iamchughmayank/">iamchughmayank</a> · <a href="https://profiles.wordpress.org/iamraju/">iamraju</a> · <a href="https://profiles.wordpress.org/ianmjones/">ianmjones</a> · <a href="https://profiles.wordpress.org/ibrahimriaz/">Ibrahim Riaz</a> · <a href="https://profiles.wordpress.org/iflairwebtechnologies/">iflairwebtechnologies</a> · <a href="https://profiles.wordpress.org/indirabiswas27/">Indira Biswas</a> · <a href="https://profiles.wordpress.org/irozum/">irozum</a> · <a href="https://profiles.wordpress.org/isabel_brison/">Isabel Brison</a> · <a href="https://profiles.wordpress.org/ishikaatxecurify/">Ishika Bansal</a> · <a href="https://profiles.wordpress.org/ishitaj34/">Ishita</a> · <a href="https://profiles.wordpress.org/itsdavidmorgan/">itsdavidmorgan</a> · <a href="https://profiles.wordpress.org/smithjw1/">Jacob Smith</a> · <a href="https://profiles.wordpress.org/tresorama/">Jacopo Marrone (@tresorama)</a> · <a href="https://profiles.wordpress.org/whyisjake/">Jake Spurlock</a> · <a href="https://profiles.wordpress.org/jakeparis/">jakeparis</a> · <a href="https://profiles.wordpress.org/jakub300/">jakub300</a> · <a href="https://profiles.wordpress.org/jamesbregenzer/">James</a> · <a href="https://profiles.wordpress.org/jamesgiroux/">James Giroux</a> · <a href="https://profiles.wordpress.org/jameskoster/">James Koster</a> · <a href="https://profiles.wordpress.org/isotropic/">James LePage</a> · <a href="https://profiles.wordpress.org/jhmonroe/">James Monroe</a> · <a href="https://profiles.wordpress.org/jamieburchell/">Jamie Burchell</a> · <a href="https://profiles.wordpress.org/jdab/">Jamie Dąbrowiecki</a> · <a href="https://profiles.wordpress.org/janpaulkleijn/">janpaulkleijn</a> · <a href="https://profiles.wordpress.org/jsnajdr/">Jarda Snajdr</a> · <a href="https://profiles.wordpress.org/jarekmorawski/">jarekmorawski</a> · <a href="https://profiles.wordpress.org/jarodortegaaraya/">jarodortegaaraya</a> · <a href="https://profiles.wordpress.org/jason_the_adams/">Jason Adams</a> · <a href="https://profiles.wordpress.org/jasonkenison/">Jason Kenison</a> · <a href="https://profiles.wordpress.org/jasonkytros/">Jason Kytros</a> · <a href="https://profiles.wordpress.org/madtownlems/">Jason LeMahieu (MadtownLems)</a> · <a href="https://profiles.wordpress.org/javiarce/">Javier Arce</a> · <a href="https://profiles.wordpress.org/javiercasares/">Javier Casares</a> · <a href="https://profiles.wordpress.org/javorszky/">javorszky</a> · <a href="https://profiles.wordpress.org/jonmcpartland/">Jay McPartland</a> · <a href="https://profiles.wordpress.org/jdahir0789/">Jaydip</a> · <a href="https://profiles.wordpress.org/audrasjb/">Jean-Baptiste Audras</a> · <a href="https://profiles.wordpress.org/jsmansart/">Jean-Sébastien Mansart</a> · <a href="https://profiles.wordpress.org/krokodok/">Jeff Chi</a> · <a href="https://profiles.wordpress.org/phpbits/">Jeffrey Carandang</a> · <a href="https://profiles.wordpress.org/cheffheid/">Jeffrey de Wit</a> · <a href="https://profiles.wordpress.org/jeffpaul/">Jeffrey Paul</a> · <a href="https://profiles.wordpress.org/jeflopodev/">jeflopo</a> · <a href="https://profiles.wordpress.org/jdy68/">Jenny Dupuy</a> · <a href="https://profiles.wordpress.org/jeremyfelt/">Jeremy Felt</a> · <a href="https://profiles.wordpress.org/jeherve/">Jeremy Herve</a> · <a href="https://profiles.wordpress.org/jmichaelward/">Jeremy Ward</a> · <a href="https://profiles.wordpress.org/jeryj/">jeryj</a> · <a href="https://profiles.wordpress.org/luminuu/">Jessica Lyschik</a> · <a href="https://profiles.wordpress.org/jigangz/">jigangz</a> · <a href="https://profiles.wordpress.org/jigar-bhanushali/">Jigar Bhanushali</a> · <a href="https://profiles.wordpress.org/jigarkahar/">Jigar Kahar</a> · <a href="https://profiles.wordpress.org/jigar9998/">Jigar Panchal</a> · <a href="https://profiles.wordpress.org/bejignesh/">Jignesh Bhavani</a> · <a href="https://profiles.wordpress.org/jillq/">jillq</a> · <a href="https://profiles.wordpress.org/jimgrey/">jimgrey</a> · <a href="https://profiles.wordpress.org/jns141191/">Jina Parekh</a> · <a href="https://profiles.wordpress.org/jivedig/">JiveDig</a> · <a href="https://profiles.wordpress.org/kimjiwoon/">Jiwoon Kim</a> · <a href="https://profiles.wordpress.org/jjlmoya/">jjlmoya</a> · <a href="https://profiles.wordpress.org/jnbg/">jnbg</a> · <a href="https://profiles.wordpress.org/jobthomas/">Job</a> · <a href="https://profiles.wordpress.org/joedolson/">Joe Dolson</a> · <a href="https://profiles.wordpress.org/joefusco/">Joe Fusco</a> · <a href="https://profiles.wordpress.org/joehoyle/">Joe Hoyle</a> · <a href="https://profiles.wordpress.org/joemaller/">Joe Maller</a> · <a href="https://profiles.wordpress.org/joemcgill/">Joe McGill</a> · <a href="https://profiles.wordpress.org/joen/">Joen Asmussen</a> · <a href="https://profiles.wordpress.org/timse201/">Johannes Jülg</a> · <a href="https://profiles.wordpress.org/m13v/">John</a> · <a href="https://profiles.wordpress.org/johnbillion/">John Blackbourn</a> · <a href="https://profiles.wordpress.org/bitmachina/">John Hooks</a> · <a href="https://profiles.wordpress.org/johnjamesjacoby/">John James Jacoby</a> · <a href="https://profiles.wordpress.org/mindctrl/">John Parris</a> · <a href="https://profiles.wordpress.org/johnwatkins0/">John Watkins</a> · <a href="https://profiles.wordpress.org/jonsurrell/">Jon Surrell</a> · <a href="https://profiles.wordpress.org/psykro/">Jonathan Bossenger</a> · <a href="https://profiles.wordpress.org/desrosj/">Jonathan Desrosiers</a> · <a href="https://profiles.wordpress.org/spacedmonkey/">Jonny Harris</a> · <a href="https://profiles.wordpress.org/joostdevalk/">Joost de Valk</a> · <a href="https://profiles.wordpress.org/jordesign/">jordesign</a> · <a href="https://profiles.wordpress.org/jorgefilipecosta/">Jorge Costa</a> · <a href="https://profiles.wordpress.org/josvelasco/">Jos Velasco</a> · <a href="https://profiles.wordpress.org/josevarghese/">Jose Varghese</a> · <a href="https://profiles.wordpress.org/josephscott/">Joseph Scott</a> · <a href="https://profiles.wordpress.org/jmccallweb/">Josh</a> · <a href="https://profiles.wordpress.org/jdwire/">Joshua Dwire</a> · <a href="https://profiles.wordpress.org/joshuawold/">Joshua Wold</a> · <a href="https://profiles.wordpress.org/joshualipstone/">joshualipstone</a> · <a href="https://profiles.wordpress.org/juanfra/">Juanfra Aldasoro</a> · <a href="https://profiles.wordpress.org/juanmaguitar/">JuanMa Garrido</a> · <a href="https://profiles.wordpress.org/juliemoynat/">Julie Moynat</a> · <a href="https://profiles.wordpress.org/jrf/">Juliette Reinders Folmer</a> · <a href="https://profiles.wordpress.org/greenshady/">Justin Tadlock</a> · <a href="https://profiles.wordpress.org/kadamwhite/">K. Adam White</a> · <a href="https://profiles.wordpress.org/ekamran/">Kamran Abdul Aziz</a> · <a href="https://profiles.wordpress.org/bosskhj/">Kamrul Hasan</a> · <a href="https://profiles.wordpress.org/kannanravi/">kannanravi</a> · <a href="https://profiles.wordpress.org/kapilpaul/">Kapil Paul</a> · <a href="https://profiles.wordpress.org/makanikaran/">Karan Makani</a> · <a href="https://profiles.wordpress.org/karinchristen/">Karin Christen</a> · <a href="https://profiles.wordpress.org/karthickmurugan/">Karthick</a> · <a href="https://profiles.wordpress.org/karthikeya01/">Karthikeya Bethu</a> · <a href="https://profiles.wordpress.org/katag9k/">katag9k</a> · <a href="https://profiles.wordpress.org/zoonini/">Kathryn Presner</a> · <a href="https://profiles.wordpress.org/kausaralm/">Kausar Alam</a> · <a href="https://profiles.wordpress.org/khushdoms/">Kaushik Domadiya</a> · <a href="https://profiles.wordpress.org/trivedikavit/">Kavit Trivedi</a> · <a href="https://profiles.wordpress.org/properlypurple/">Kavya Gokul</a> · <a href="https://profiles.wordpress.org/ryelle/">Kelly Choyce-Dwan</a> · <a href="https://profiles.wordpress.org/kellychoffman/">Kelly Hoffman</a> · <a href="https://profiles.wordpress.org/keoshi/">keoshi</a> · <a href="https://profiles.wordpress.org/gwwar/">Kerry Liu</a> · <a href="https://profiles.wordpress.org/kevinfodness/">Kevin Fodness</a> · <a href="https://profiles.wordpress.org/kevinrobles/">Kevin Robles Gamboa</a> · <a href="https://profiles.wordpress.org/itzmekhokan/">Khokan Sardar</a> · <a href="https://profiles.wordpress.org/khokansardar/">Khokan Sardar</a> · <a href="https://profiles.wordpress.org/khushalsains/">Khushal Sain S</a> · <a href="https://profiles.wordpress.org/khushipatel15/">Khushi Patel</a> · <a href="https://profiles.wordpress.org/kimannwall/">Kim Coleman</a> · <a href="https://profiles.wordpress.org/kirasong/">Kira Schroder</a> · <a href="https://profiles.wordpress.org/kjroelke/">KJ Roelke</a> · <a href="https://profiles.wordpress.org/kjellr/">Kjell Reigstad</a> · <a href="https://profiles.wordpress.org/kleisauke/">Kleis Auke Wolthuizen</a> · <a href="https://profiles.wordpress.org/knutsp/">Knut Sparhell</a> · <a href="https://profiles.wordpress.org/vdwijngaert/">Koen Van den Wijngaert</a> · <a href="https://profiles.wordpress.org/kokkieh/">KokkieH</a> · <a href="https://profiles.wordpress.org/obenland/">Konstantin Obenland</a> · <a href="https://profiles.wordpress.org/kosvrouvas/">Kostas Vrouvas</a> · <a href="https://profiles.wordpress.org/krupajnanda/">Krupa Nanda</a> · <a href="https://profiles.wordpress.org/krysek76/">Krystian</a> · <a href="https://profiles.wordpress.org/kuber8821/">kuber</a> · <a href="https://profiles.wordpress.org/kubiq/">kubiq</a> · <a href="https://profiles.wordpress.org/kush123/">Kushagra Goyal</a> · <a href="https://profiles.wordpress.org/mywp459/">Kyle Mott</a> · <a href="https://profiles.wordpress.org/l1onofjudah/">l1onofjudah</a> · <a href="https://profiles.wordpress.org/lakshyajeet/">Lakshyajeet Singh Goyal</a> · <a href="https://profiles.wordpress.org/lancewillett/">Lance Willett</a> · <a href="https://profiles.wordpress.org/landwire/">landwire</a> · <a href="https://profiles.wordpress.org/leemon/">leemon</a> · <a href="https://profiles.wordpress.org/0mirka00/">Lena Morita</a> · <a href="https://profiles.wordpress.org/levinmedia/">levinmedia</a> · <a href="https://profiles.wordpress.org/liaison/">Liaison</a> · <a href="https://profiles.wordpress.org/lisacee/">Lisa Canini</a> · <a href="https://profiles.wordpress.org/lschuyler/">Lisa Schuyler</a> · <a href="https://profiles.wordpress.org/looswebstudio/">LOOS</a> · <a href="https://profiles.wordpress.org/louiswol94/">Louis Wolmarans</a> · <a href="https://profiles.wordpress.org/lucasmdo/">Lucas Mendes</a> · <a href="https://profiles.wordpress.org/lucasbustamante/">lucasbustamante</a> · <a href="https://profiles.wordpress.org/rlucian/">Lucian R.</a> · <a href="https://profiles.wordpress.org/ludwigyou/">Ludwig You</a> · <a href="https://profiles.wordpress.org/gigitux/">Luigi Teschio</a> · <a href="https://profiles.wordpress.org/lmartins/">Luis Martins</a> · <a href="https://profiles.wordpress.org/luisdavid01/">luisdavid01</a> · <a href="https://profiles.wordpress.org/luisherranz/">luisherranz</a> · <a href="https://profiles.wordpress.org/luismulinari/">luismulinari</a> · <a href="https://profiles.wordpress.org/lukecarbis/">Luke Carbis</a> · <a href="https://profiles.wordpress.org/luksusspokoju/">luksusspokoju</a> · <a href="https://profiles.wordpress.org/madhavishah01/">Madhavi Shah</a> · <a href="https://profiles.wordpress.org/madhazelnut/">madhazelnut</a> · <a href="https://profiles.wordpress.org/madhudollu/">Madhu Dollu</a> · <a href="https://profiles.wordpress.org/onemaggie/">Maggie Cabrera</a> · <a href="https://profiles.wordpress.org/dervishov/">Mahammad Darvishov</a> · <a href="https://profiles.wordpress.org/mahdiali/">MahdiAli Khanusiya</a> · <a href="https://profiles.wordpress.org/maheshpatel/">Mahesh Patel</a> · <a href="https://profiles.wordpress.org/shamimmoeen/">Mainul Hassan</a> · <a href="https://profiles.wordpress.org/aion11/">Mainul Kabir Aion</a> · <a href="https://profiles.wordpress.org/mkrndmane/">Makarand Mane</a> · <a href="https://profiles.wordpress.org/maksymmamontov/">maksymmamontov</a> · <a href="https://profiles.wordpress.org/malayladu/">Malay Ladu</a> · <a href="https://profiles.wordpress.org/manfcarlo/">manfcarlo</a> · <a href="https://profiles.wordpress.org/manhar/">Manhar Barot</a> · <a href="https://profiles.wordpress.org/manishxdp/">Manish Dhorepatil</a> · <a href="https://profiles.wordpress.org/sirlouen/">Manuel Camargo</a> · <a href="https://profiles.wordpress.org/manzoorwanijk/">Manzoor Wani</a> · <a href="https://profiles.wordpress.org/mdxfr/">Marc</a> · <a href="https://profiles.wordpress.org/marcs0h/">Marc Montpas</a> · <a href="https://profiles.wordpress.org/myththrazz/">Marcin Dudek</a> · <a href="https://profiles.wordpress.org/mciampini/">Marco Ciampini</a> · <a href="https://profiles.wordpress.org/power2009/">Marcus</a> · <a href="https://profiles.wordpress.org/mkaz/">Marcus Kazmierczak</a> · <a href="https://profiles.wordpress.org/tyxla/">Marin Atanasov</a> · <a href="https://profiles.wordpress.org/santosguillamot/">Mario Santos</a> · <a href="https://profiles.wordpress.org/clorith/">Marius L. J.</a> · <a href="https://profiles.wordpress.org/markhowellsmead/">Mark Howells-Mead</a> · <a href="https://profiles.wordpress.org/mapk/">Mark Uraine</a> · <a href="https://profiles.wordpress.org/markoserb/">Marko Ivanovic</a> · <a href="https://profiles.wordpress.org/martinkrcho/">martin.krcho</a> · <a href="https://profiles.wordpress.org/m-e-h/">Marty Helmick</a> · <a href="https://profiles.wordpress.org/4thhubbard/">Mary Hubbard</a> · <a href="https://profiles.wordpress.org/muryam/">Maryam Sultana</a> · <a href="https://profiles.wordpress.org/wetah/">Mateus Machado Luna</a> · <a href="https://profiles.wordpress.org/mathijsvdbeek/">mathijsvdbeek</a> · <a href="https://profiles.wordpress.org/mmaattiiaass/">Matias Benedetto</a> · <a href="https://profiles.wordpress.org/matveb/">Matias Ventura</a> · <a href="https://profiles.wordpress.org/mattgaldino/">Matt Galdino</a> · <a href="https://profiles.wordpress.org/matt/">Matt Mullenweg</a> · <a href="https://profiles.wordpress.org/mattshaw/">Matt Shaw</a> · <a href="https://profiles.wordpress.org/mattbolt/">mattbolt</a> · <a href="https://profiles.wordpress.org/mboynes/">Matthew Boynes</a> · <a href="https://profiles.wordpress.org/maxschmeling/">Max Schmeling</a> · <a href="https://profiles.wordpress.org/maximebj/">maximebj</a> · <a href="https://profiles.wordpress.org/mayanktripathi32/">Mayank Tripathi</a> · <a href="https://profiles.wordpress.org/hmbashar/">Md Abul Bashar</a> · <a href="https://profiles.wordpress.org/ismail0071/">MD ISMAIL</a> · <a href="https://profiles.wordpress.org/mdridipu/">Md Rashedul Islam Chowdhury (Ric)</a> · <a href="https://profiles.wordpress.org/wpdevsxyz/">Md. Aminul Islam</a> · <a href="https://profiles.wordpress.org/mdviralsampat/">mdviralsampat</a> · <a href="https://profiles.wordpress.org/mehrazmorshed/">Mehraz Morshed</a> · <a href="https://profiles.wordpress.org/mehtadev/">mehtadev</a> · <a href="https://profiles.wordpress.org/mehul0810/">Mehul Gohil</a> · <a href="https://profiles.wordpress.org/mgol/">mgol</a> · <a href="https://profiles.wordpress.org/michaldudak/">Micha? Dudak</a> · <a href="https://profiles.wordpress.org/mgyura/">Michael</a> · <a href="https://profiles.wordpress.org/mdawaffe/">Michael Adams (mdawaffe)</a> · <a href="https://profiles.wordpress.org/micahele/">Michael Etokakpan</a> · <a href="https://profiles.wordpress.org/iseardmedia/">Michael Iseard</a> · <a href="https://profiles.wordpress.org/hrkhal/">Michael James Ilett</a> · <a href="https://profiles.wordpress.org/mcliwanow/">Michal Iwanow</a> · <a href="https://profiles.wordpress.org/mcsf/">Miguel Fonseca</a> · <a href="https://profiles.wordpress.org/migueluy/">Miguel Lezama</a> · <a href="https://profiles.wordpress.org/mmtr86/">Miguel Torres</a> · <a href="https://profiles.wordpress.org/simison/">Mikael Korpela</a> · <a href="https://profiles.wordpress.org/mikejolley/">Mike Jolley</a> · <a href="https://profiles.wordpress.org/mikeselander/">Mike Selander</a> · <a href="https://profiles.wordpress.org/mikeybinns/">Mikey Binns</a> · <a href="https://profiles.wordpress.org/mikinc860/">Mikin Chauhan</a> · <a href="https://profiles.wordpress.org/milana_cap/">Milana Cap</a> · <a href="https://profiles.wordpress.org/milindmore22/">Milind More</a> · <a href="https://profiles.wordpress.org/mimitips/">mimi</a> · <a href="https://profiles.wordpress.org/multidots1896/">Minal Diwan</a> · <a href="https://profiles.wordpress.org/mirmpro/">Mir Monoarul Alam</a> · <a href="https://profiles.wordpress.org/369work/">Miroku</a> · <a href="https://profiles.wordpress.org/presstoke/">Mitchell Austin</a> · <a href="https://profiles.wordpress.org/batmoo/">Mohammad Jangda</a> · <a href="https://profiles.wordpress.org/hmrisad/">Mohammad Risad</a> · <a href="https://profiles.wordpress.org/opurockey/">Mohammad Rockeybul Alam</a> · <a href="https://profiles.wordpress.org/mohkatz/">Mohammed Kateregga</a> · <a href="https://profiles.wordpress.org/mohamedahamed/">Mohammed Noumaan Ahamed</a> · <a href="https://profiles.wordpress.org/salmanshafiq8630/">Mohd Salman</a> · <a href="https://profiles.wordpress.org/mohitbsf/">Mohit Sharma</a> · <a href="https://profiles.wordpress.org/mokshasharmila13/">Moksha Shah</a> · <a href="https://profiles.wordpress.org/monzuralam/">Monzur Alam</a> · <a href="https://profiles.wordpress.org/mosescursor/">Moses Cursor Ssebunya</a> · <a href="https://profiles.wordpress.org/mabdelbari/">Mostafa Abdelbari</a> · <a href="https://profiles.wordpress.org/mrkenobi/">mrkenobi</a> · <a href="https://profiles.wordpress.org/mrwweb/">mrwweb</a> · <a href="https://profiles.wordpress.org/mukesh27/">Mukesh Panchal</a> · <a href="https://profiles.wordpress.org/mukeshparihar/">Mukesh Parihar</a> · <a href="https://profiles.wordpress.org/mustafabharmal/">Mustafa Bharmal</a> · <a href="https://profiles.wordpress.org/mutuajose/">mutuajose</a> · <a href="https://profiles.wordpress.org/trickster301/">Nabhishek Singh</a> · <a href="https://profiles.wordpress.org/nadabulija/">nadabulija</a> · <a href="https://profiles.wordpress.org/namankhare/">Naman Khare</a> · <a href="https://profiles.wordpress.org/nanisamireddy/">NANI SAMIREDDY</a> · <a href="https://profiles.wordpress.org/nareshbheda/">Naresh Bheda</a> · <a href="https://profiles.wordpress.org/n8finch/">Nate Finch</a> · <a href="https://profiles.wordpress.org/nathanrbsf/">Nathan Rodrigues</a> · <a href="https://profiles.wordpress.org/nkpathan/">Nawazkhan Pathan</a> · <a href="https://profiles.wordpress.org/nazmulasif/">Nazmul Asif</a> · <a href="https://profiles.wordpress.org/nazmul111/">Nazmul Hosen</a> · <a href="https://profiles.wordpress.org/nebojsajurcic/">Nebojša Jurčić</a> · <a href="https://profiles.wordpress.org/greatislander/">Ned Zimmerman</a> · <a href="https://profiles.wordpress.org/nendeb55/">nendeb</a> · <a href="https://profiles.wordpress.org/ndiego/">Nick Diego</a> · <a href="https://profiles.wordpress.org/celloexpressions/">Nick Halsey</a> · <a href="https://profiles.wordpress.org/nickfmc/">Nick Murray</a> · <a href="https://profiles.wordpress.org/nickpagz/">nickpagz</a> · <a href="https://profiles.wordpress.org/nickthegeek/">nickthegeek</a> · <a href="https://profiles.wordpress.org/nicolasalarconrapela/">nicolasalarconrapela</a> · <a href="https://profiles.wordpress.org/nicsevic/">nicsevic</a> · <a href="https://profiles.wordpress.org/ntsekouras/">Nik Tsekouras</a> · <a href="https://profiles.wordpress.org/valani9099/">Nikul Valani</a> · <a href="https://profiles.wordpress.org/nikunj8866/">Nikunj Hatkar</a> · <a href="https://profiles.wordpress.org/nilambar/">Nilambar Sharma</a> · <a href="https://profiles.wordpress.org/snilesh/">Nilesh Shiragave</a> · <a href="https://profiles.wordpress.org/dhrupo/">Niluthpal Purkayastha</a> · <a href="https://profiles.wordpress.org/nimeshatxecurify/">Nimesh</a> · <a href="https://profiles.wordpress.org/niravsherasiya7707/">Nirav Sherasiya</a> · <a href="https://profiles.wordpress.org/noahtallen/">Noah Allen</a> · <a href="https://profiles.wordpress.org/noellesteegs/">Noelle Ackermann</a> · <a href="https://profiles.wordpress.org/noruzzaman/">Noruzzaman</a> · <a href="https://profiles.wordpress.org/notnownikki/">notnownikki</a> · <a href="https://profiles.wordpress.org/obliviousharmony/">obliviousharmony</a> · <a href="https://profiles.wordpress.org/oldenwilde/">oldenwilde</a> · <a href="https://profiles.wordpress.org/oglekler/">Olga Gleckler</a> · <a href="https://profiles.wordpress.org/olliejones/">OllieJones</a> · <a href="https://profiles.wordpress.org/alshakero/">Omar Alshaker</a> · <a href="https://profiles.wordpress.org/onetrev/">onetrev</a> · <a href="https://profiles.wordpress.org/ov3rfly/">Ov3rfly</a> · <a href="https://profiles.wordpress.org/ozgursar/">Ozgur Sar</a> · <a href="https://profiles.wordpress.org/paaljoachim/">Paal Joachim Romdahl</a> · <a href="https://profiles.wordpress.org/pablohoneyhoney/">Pablo Honey</a> · <a href="https://profiles.wordpress.org/pamprn/">Pamela Ribeiro</a> · <a href="https://profiles.wordpress.org/pankajsakaria/">pankaj.sakaria</a> · <a href="https://profiles.wordpress.org/parinpanjari/">Parin Panjari</a> · <a href="https://profiles.wordpress.org/parthjoginyusoft/">Parth Jogi</a> · <a href="https://profiles.wordpress.org/parthvataliya/">Parth vataliya</a> · <a href="https://profiles.wordpress.org/swissspidy/">Pascal Birchler</a> · <a href="https://profiles.wordpress.org/lumiblog/">Patrick Lumumba</a> · <a href="https://profiles.wordpress.org/patrickwclanden/">patrickwclanden</a> · <a href="https://profiles.wordpress.org/pbearne/">Paul Bearne</a> · <a href="https://profiles.wordpress.org/pbiron/">Paul Biron</a> · <a href="https://profiles.wordpress.org/paulkevan/">Paul Kevan</a> · <a href="https://profiles.wordpress.org/paulgibbs/">paulgibbs</a> · <a href="https://profiles.wordpress.org/paulopmt1/">Paulo Trentin</a> · <a href="https://profiles.wordpress.org/pavanpatil1/">Pavan Patil</a> · <a href="https://profiles.wordpress.org/pavelevap/">pavelevap</a> · <a href="https://profiles.wordpress.org/pavloborysenko/">pavloborysenko</a> · <a href="https://profiles.wordpress.org/pedrofigueroa1989/">Pedro Figueroa</a> · <a href="https://profiles.wordpress.org/peterwilsoncc/">Peter Wilson</a> · <a href="https://profiles.wordpress.org/cadeyrn/">petermolnar</a> · <a href="https://profiles.wordpress.org/petitphp/">petitphp</a> · <a href="https://profiles.wordpress.org/johnstonphilip/">Phil Johnston</a> · <a href="https://profiles.wordpress.org/philhoyt/">philhoyt</a> · <a href="https://profiles.wordpress.org/physalis/">physalis</a> · <a href="https://profiles.wordpress.org/nekojonez/">Pieterjan Deneys</a> · <a href="https://profiles.wordpress.org/piyushpatel123/">Piyush Patel</a> · <a href="https://profiles.wordpress.org/poligilad/">poligilad</a> · <a href="https://profiles.wordpress.org/pontocinza/">pontocinza</a> · <a href="https://profiles.wordpress.org/pooja-n/">Pooja Kakkad</a> · <a href="https://profiles.wordpress.org/porg/">porg</a> · <a href="https://profiles.wordpress.org/postphotos/">postphotos</a> · <a href="https://profiles.wordpress.org/prachigarg19/">Prachi Garg</a> · <a href="https://profiles.wordpress.org/gaisma22/">Pradeep Pasam</a> · <a href="https://profiles.wordpress.org/praful2111/">Praful Patel</a> · <a href="https://profiles.wordpress.org/prajapatvishnu/">prajapatvishnu</a> · <a href="https://profiles.wordpress.org/pranjalpratapsingh/">Pranjal Pratap Singh</a> · <a href="https://profiles.wordpress.org/pranjal4804/">pranjal4804</a> · <a href="https://profiles.wordpress.org/prasadkarmalkar/">Prasad Karmalkar</a> · <a href="https://profiles.wordpress.org/pmbaldha/">Prashant Baldha</a> · <a href="https://profiles.wordpress.org/prathameshbhagat1511/">Prathamesh Bhagat</a> · <a href="https://profiles.wordpress.org/pratik-jain/">Pratik Jain</a> · <a href="https://profiles.wordpress.org/pratiknawkar94/">Pratik Nawkar</a> · <a href="https://profiles.wordpress.org/pravin1996/">Pravin Karmur</a> · <a href="https://profiles.wordpress.org/freewebmentor/">Prem Tiwari</a> · <a href="https://profiles.wordpress.org/presskopp/">Presskopp</a> · <a href="https://profiles.wordpress.org/priyankagusani/">Priyanka Gusani</a> · <a href="https://profiles.wordpress.org/projektisle/">ProjektIsle</a> · <a href="https://profiles.wordpress.org/itsjonq/">Q</a> · <a href="https://profiles.wordpress.org/rachelmcr/">Rachel</a> · <a href="https://profiles.wordpress.org/rafaeldella/">Rafael Della</a> · <a href="https://profiles.wordpress.org/rafaelfunchal/">Rafael Funchal</a> · <a href="https://profiles.wordpress.org/gazipress/">Rafał Gazda</a> · <a href="https://profiles.wordpress.org/rafiem/">Rafie Muhammad</a> · <a href="https://profiles.wordpress.org/ekla/">Rahul Kumar</a> · <a href="https://profiles.wordpress.org/rahultank/">Rahul Tank</a> · <a href="https://profiles.wordpress.org/rajdiptank111/">Rajdip Tank</a> · <a href="https://profiles.wordpress.org/rajeshcp/">Rajesh C</a> · <a href="https://profiles.wordpress.org/rajinsharwar/">Rajin Sharwar</a> · <a href="https://profiles.wordpress.org/rakeshfalke/">Rakeesh Falke</a> · <a href="https://profiles.wordpress.org/ramiy/">Rami Yushuvaev</a> · <a href="https://profiles.wordpress.org/rcorrales/">Ramon Corrales</a> · <a href="https://profiles.wordpress.org/ramonopoly/">Ramon James</a> · <a href="https://profiles.wordpress.org/wprashed/">Rashed Hossain</a> · <a href="https://profiles.wordpress.org/ravichudasama01/">Ravi Chudasama</a> · <a href="https://profiles.wordpress.org/ravigadhiyawp/">Ravi Gadhiya</a> · <a href="https://profiles.wordpress.org/ravikhadka/">Ravi Khadka</a> · <a href="https://profiles.wordpress.org/rejaulalomkhan/">Rejaul Alom Khan</a> · <a href="https://profiles.wordpress.org/renathoc/">Renatho</a> · <a href="https://profiles.wordpress.org/reneyap/">reneyap</a> · <a href="https://profiles.wordpress.org/ressl/">Ressl</a> · <a href="https://profiles.wordpress.org/retrofox/">retrofox</a> · <a href="https://profiles.wordpress.org/rezwanshiblu1952/">Rezwan Shiblu</a> · <a href="https://profiles.wordpress.org/youknowriad/">Riad Benguella</a> · <a href="https://profiles.wordpress.org/rianrietveld/">Rian Rietveld</a> · <a href="https://profiles.wordpress.org/richtabor/">Rich Tabor</a> · <a href="https://profiles.wordpress.org/rinkalpagdar/">Rinkal Pagdar</a> · <a href="https://profiles.wordpress.org/rishabhwp/">Rishabh Gupta</a> · <a href="https://profiles.wordpress.org/rishit30g/">Rishit Gupta</a> · <a href="https://profiles.wordpress.org/ritheshsatheesh/">RITHESH S</a> · <a href="https://profiles.wordpress.org/devrito/">Ritoban</a> · <a href="https://profiles.wordpress.org/mazharulrobeen/">Robeen</a> · <a href="https://profiles.wordpress.org/noisysocks/">Robert Anderson</a> · <a href="https://profiles.wordpress.org/iamjolly/">Robert Jolly</a> · <a href="https://profiles.wordpress.org/robert681/">robertabela</a> · <a href="https://profiles.wordpress.org/robertghetau/">robertg(a11n)</a> · <a href="https://profiles.wordpress.org/epeicher/">Roberto Aranda</a> · <a href="https://profiles.wordpress.org/rodrigosprimo/">Rodrigo Primo</a> · <a href="https://profiles.wordpress.org/rohitmathur7/">Rohit Mathur</a> · <a href="https://profiles.wordpress.org/ravanh/">Rolf Allard van Hagen</a> · <a href="https://profiles.wordpress.org/rolle/">Rolle Laukkarinen</a> · <a href="https://profiles.wordpress.org/rollybueno/">Rolly Bueno</a> · <a href="https://profiles.wordpress.org/ronakganatra9/">ronakganatra9</a> · <a href="https://profiles.wordpress.org/roshniahuja14/">Roshni Ahuja</a> · <a href="https://profiles.wordpress.org/rfaile313/">Rudy Faile</a> · <a href="https://profiles.wordpress.org/rushikeshmore/">Rushikesh More</a> · <a href="https://profiles.wordpress.org/rutviksavsani/">Rutvik Savsani</a> · <a href="https://profiles.wordpress.org/ruba1956/">Ruud</a> · <a href="https://profiles.wordpress.org/ryanmoyer/">Ryan</a> · <a href="https://profiles.wordpress.org/welcher/">Ryan Welcher</a> · <a href="https://profiles.wordpress.org/saadtajik/">Saad Ur Rehman</a> · <a href="https://profiles.wordpress.org/sabbir1991/">Sabbir Ahmed</a> · <a href="https://profiles.wordpress.org/devsabbirhossain/">Sabbir Hossain</a> · <a href="https://profiles.wordpress.org/sachinrajcp123/">SACHINRAJ CP</a> · <a href="https://profiles.wordpress.org/sagardeshmukh/">Sagar Deshmukh</a> · <a href="https://profiles.wordpress.org/sagarjadhav/">Sagar Jadhav</a> · <a href="https://profiles.wordpress.org/lonesahilnazir/">SAHIL NAZIR</a> · <a href="https://profiles.wordpress.org/saiful09/">Saiful Islam</a> · <a href="https://profiles.wordpress.org/sainathpoojary/">Sainath Poojary</a> · <a href="https://profiles.wordpress.org/sajjad67/">Sajjad Hossain Sagor</a> · <a href="https://profiles.wordpress.org/sakshamsharma5/">Saksham Sharma</a> · <a href="https://profiles.wordpress.org/samvaidya/">Sam</a> · <a href="https://profiles.wordpress.org/viralsampat/">Sampat Viral</a> · <a href="https://profiles.wordpress.org/sanayasir/">Sana Yasir</a> · <a href="https://profiles.wordpress.org/sandipsinh007/">Sandip Sinh</a> · <a href="https://profiles.wordpress.org/sandipmaurya2611/">sandipmaurya2611</a> · <a href="https://profiles.wordpress.org/andrewssanya/">SAndrew</a> · <a href="https://profiles.wordpress.org/jadavsanjay/">Sanjay Jadav</a> · <a href="https://profiles.wordpress.org/sanketparmar/">Sanket Parmar</a> · <a href="https://profiles.wordpress.org/codexdemon/">Sanyogg Shelar</a> · <a href="https://profiles.wordpress.org/mikachan/">Sarah Norris</a> · <a href="https://profiles.wordpress.org/saratheonline/">Sarath E</a> · <a href="https://profiles.wordpress.org/saroshaga/">Sarosh Aga</a> · <a href="https://profiles.wordpress.org/sarthaknagoshe2002/">Sarthak Nagoshe</a> · <a href="https://profiles.wordpress.org/sfougnier/">Saul Fougnier</a> · <a href="https://profiles.wordpress.org/saulirajala/">saulirajala</a> · <a href="https://profiles.wordpress.org/sauliusv/">Saulius Vikerta</a> · <a href="https://profiles.wordpress.org/spadilha/">Saulo Padilha</a> · <a href="https://profiles.wordpress.org/saxonafletcher/">Saxon Fletcher</a> · <a href="https://profiles.wordpress.org/sc0ttkclark/">Scott Kingsley Clark</a> · <a href="https://profiles.wordpress.org/coffee2code/">Scott Reilly</a> · <a href="https://profiles.wordpress.org/sergeybiryukov/">Sergey Biryukov</a> · <a href="https://profiles.wordpress.org/smrubenstein/">Seth Rubenstein</a> · <a href="https://profiles.wordpress.org/shailu25/">Shail Mehta</a> · <a href="https://profiles.wordpress.org/shailesh7714/">Shailesh Gajare</a> · <a href="https://profiles.wordpress.org/shameemreza/">Shameem - a11n</a> · <a href="https://profiles.wordpress.org/shanemuir/">Shane Muirhead</a> · <a href="https://profiles.wordpress.org/shekh0109/">Shashank Shekhar</a> · <a href="https://profiles.wordpress.org/shatrumyatra/">Shatrughan Myatra</a> · <a href="https://profiles.wordpress.org/shaunandrews/">shaunandrews</a> · <a href="https://profiles.wordpress.org/sajib1223/">Shazzad Hossain Khan</a> · <a href="https://profiles.wordpress.org/shekharnwagh/">shekharnwagh</a> · <a href="https://profiles.wordpress.org/designsimply/">Sheri Grey</a> · <a href="https://profiles.wordpress.org/shreya0shrivastava/">Shreya Shrivastava</a> · <a href="https://profiles.wordpress.org/shreyasikhar26/">Shreyas Ikhar</a> · <a href="https://profiles.wordpress.org/sidhanttomar/">Sidhant Tomar</a> · <a href="https://profiles.wordpress.org/siliconforks/">siliconforks</a> · <a href="https://profiles.wordpress.org/simondud/">Simon Duduica</a> · <a href="https://profiles.wordpress.org/simonwammerfors/">Simon Wämmerfors</a> · <a href="https://profiles.wordpress.org/simonhammes/">simonhammes</a> · <a href="https://profiles.wordpress.org/slackticus/">slackticus</a> · <a href="https://profiles.wordpress.org/slaffik/">Slava Abakumov</a> · <a href="https://profiles.wordpress.org/slywy/">slywy</a> · <a href="https://profiles.wordpress.org/smerriman/">smerriman</a> · <a href="https://profiles.wordpress.org/snehapatil02/">Sneha Patil</a> · <a href="https://profiles.wordpress.org/snehal5774/">Snehal Kashid</a> · <a href="https://profiles.wordpress.org/sohampate1/">Soham Patel</a> · <a href="https://profiles.wordpress.org/sonaliprajapati/">Sonali Prajapati</a> · <a href="https://profiles.wordpress.org/sdnunca/">Sorin</a> · <a href="https://profiles.wordpress.org/sourav08/">Sourav Pahwa</a> · <a href="https://profiles.wordpress.org/soyebsalar01/">Soyeb Salar</a> · <a href="https://profiles.wordpress.org/jeffgreendesign/">spacergif</a> · <a href="https://profiles.wordpress.org/speedwheel/">speedwheel</a> · <a href="https://profiles.wordpress.org/emptyopssphere/">Sphere Plugins</a> · <a href="https://profiles.wordpress.org/sruthi89/">sruthi89</a> · <a href="https://profiles.wordpress.org/steelwagstaff/">SteelWagstaff</a> · <a href="https://profiles.wordpress.org/hubersen/">Stefan Pasch</a> · <a href="https://profiles.wordpress.org/stefanvelthuys/">Stefan Velthuys</a> · <a href="https://profiles.wordpress.org/pypwalters/">Stephanie Walters</a> · <a href="https://profiles.wordpress.org/sabernhardt/">Stephen Bernhardt</a> · <a href="https://profiles.wordpress.org/dufresnesteven/">Steve Dufresne</a> · <a href="https://profiles.wordpress.org/stevejonesdev/">Steve Jones</a> · <a href="https://profiles.wordpress.org/stevenlinx/">Steven Lin</a> · <a href="https://profiles.wordpress.org/tfserwin/">Steven Ryan</a> · <a href="https://profiles.wordpress.org/strarsis/">strarsis</a> · <a href="https://profiles.wordpress.org/styankov/">styankov</a> · <a href="https://profiles.wordpress.org/sukhendu2002/">Sukhendu Sekhar Guria</a> · <a href="https://profiles.wordpress.org/sumitbagthariya16/">Sumit Bagthariya</a> · <a href="https://profiles.wordpress.org/sumitsingh/">Sumit Singh</a> · <a href="https://profiles.wordpress.org/suryakantupadhyay/">Suryakant Upadhyay</a> · <a href="https://profiles.wordpress.org/swanandm/">Swanand M</a> · <a href="https://profiles.wordpress.org/swapnil1010/">swapnil1010</a> · <a href="https://profiles.wordpress.org/cybr/">Sybre Waaijer</a> · <a href="https://profiles.wordpress.org/synchro/">Synchro</a> · <a href="https://profiles.wordpress.org/szandman/">szandman</a> · <a href="https://profiles.wordpress.org/sergiomdgomes/">Sérgio Gomes</a> · <a href="https://profiles.wordpress.org/soean/">Sören Wünsch</a> · <a href="https://profiles.wordpress.org/tacoverdo/">Taco Verdonschot</a> · <a href="https://profiles.wordpress.org/tainacan/">tainacan</a> · <a href="https://profiles.wordpress.org/taisa1984/">Taisa - Raquel García Arévalo</a> · <a href="https://profiles.wordpress.org/iamtakashi/">Takashi Irie</a> · <a href="https://profiles.wordpress.org/inc2734/">Takashi Kitajima</a> · <a href="https://profiles.wordpress.org/takshil/">Takshil Kunadia</a> · <a href="https://profiles.wordpress.org/karmatosed/">Tammie Lister</a> · <a href="https://profiles.wordpress.org/tbclark3/">tbclark3</a> · <a href="https://profiles.wordpress.org/edent/">Terence Eden</a> · <a href="https://profiles.wordpress.org/s56bouya/">Tetsuya Imamura</a> · <a href="https://profiles.wordpress.org/thelmachido/">thelmachido a11n</a> · <a href="https://profiles.wordpress.org/thinkaquamarine/">thinkaquamarine</a> · <a href="https://profiles.wordpress.org/thisismyurl/">This Is My URL</a> · <a href="https://profiles.wordpress.org/threadi/">threadi</a> · <a href="https://profiles.wordpress.org/thriveteam/">Thrive Engine</a> · <a href="https://profiles.wordpress.org/tibibuzdugan/">tibi.buzdugan</a> · <a href="https://profiles.wordpress.org/timnicholson/">Tim Nicholson</a> · <a href="https://profiles.wordpress.org/sippis/">Timi Wahalahti</a> · <a href="https://profiles.wordpress.org/timothyblynjacobs/">Timothy Jacobs</a> · <a href="https://profiles.wordpress.org/tobiasbg/">Tobias Bäthge</a> · <a href="https://profiles.wordpress.org/tz-media/">Tobias Zimpel</a> · <a href="https://profiles.wordpress.org/tobifjellner/">tobifjellner (Tor-Bjorn “Tobi” Fjellner)</a> · <a href="https://profiles.wordpress.org/tommusrhodus/">Tom Rhodes</a> · <a href="https://profiles.wordpress.org/shimotomoki/">Tomoki Shimomura</a> · <a href="https://profiles.wordpress.org/hellofromtonya/">Tonya Mork</a> · <a href="https://profiles.wordpress.org/toro_unit/">Toro_Unit (Hiroshi Urabe)</a> · <a href="https://profiles.wordpress.org/torontodigits/">TorontoDigits</a> · <a href="https://profiles.wordpress.org/tpaw/">tpaw</a> · <a href="https://profiles.wordpress.org/tratnikm/">tratnikm</a> · <a href="https://profiles.wordpress.org/areziaal/">Troy Chaplin</a> · <a href="https://profiles.wordpress.org/dinhtungdu/">Tung Du</a> · <a href="https://profiles.wordpress.org/tusharbharti/">Tushar Bharti</a> · <a href="https://profiles.wordpress.org/tusharaddweb/">Tushar Patel</a> · <a href="https://profiles.wordpress.org/ugyensupport/">Ugyen Dorji</a> · <a href="https://profiles.wordpress.org/umeshnevase/">Umesh Nevase</a> · <a href="https://profiles.wordpress.org/up1512001/">up1512001</a> · <a href="https://profiles.wordpress.org/upadalavipul/">upadalavipul</a> · <a href="https://profiles.wordpress.org/utsavladani/">Utsav Ladani</a> · <a href="https://profiles.wordpress.org/rajanarahul93/">Vara Rahul Rajana</a> · <a href="https://profiles.wordpress.org/sheldorofazeroth/">Vedansh Mishra</a> · <a href="https://profiles.wordpress.org/vedantere/">Vedant Ere</a> · <a href="https://profiles.wordpress.org/vedantgandhi28/">Vedant Gandhi</a> · <a href="https://profiles.wordpress.org/supernovia/">Velda</a> · <a href="https://profiles.wordpress.org/vgnavada/">vgnavada</a> · <a href="https://profiles.wordpress.org/vcanales/">Vicente Canales</a> · <a href="https://profiles.wordpress.org/szepeviktor/">Viktor Szépe</a> · <a href="https://profiles.wordpress.org/vincentbdrt/">Vincent Bodart</a> · <a href="https://profiles.wordpress.org/vineet2003/">Vinit</a> · <a href="https://profiles.wordpress.org/vishitshah/">Vishit Shah</a> · <a href="https://profiles.wordpress.org/vishnuprajapat/">vishnu prajapat</a> · <a href="https://profiles.wordpress.org/vivekawsm/">vivekawsm</a> · <a href="https://profiles.wordpress.org/vortfu/">vortfu</a> · <a href="https://profiles.wordpress.org/vrajadas/">Vraja Das</a> · <a href="https://profiles.wordpress.org/vrishabhsk/">Vrishabh Jasani</a> · <a href="https://profiles.wordpress.org/w3bdsgn/">w3bdsgn</a> · <a href="https://profiles.wordpress.org/webmandesign/">WebMan Design | Oliver Juhas</a> · <a href="https://profiles.wordpress.org/webverts/">webVerts</a> · <a href="https://profiles.wordpress.org/westonruter/">Weston Ruter</a> · <a href="https://profiles.wordpress.org/whaze/">whaze</a> · <a href="https://profiles.wordpress.org/skorasaurus/">Will Skora</a> · <a href="https://profiles.wordpress.org/williampatton/">williampatton</a> · <a href="https://profiles.wordpress.org/wolf45/">wolf45</a> · <a href="https://profiles.wordpress.org/wongjn/">wongjn</a> · <a href="https://profiles.wordpress.org/iqbal1hossain/">WP Shark</a> · <a href="https://profiles.wordpress.org/wpexplorer/">WPExplorer</a> · <a href="https://profiles.wordpress.org/motylanogha/">WPPoland (Mariusz Szatkowski)</a> · <a href="https://profiles.wordpress.org/wpsoul/">wpsoul</a> · <a href="https://profiles.wordpress.org/xate/">xate</a> · <a href="https://profiles.wordpress.org/xibe/">Xavier Borderie</a> · <a href="https://profiles.wordpress.org/xavilc/">xavilc</a> · <a href="https://profiles.wordpress.org/xerpa43/">xerpa43</a> · <a href="https://profiles.wordpress.org/tikifez/">Xristopher Anderton</a> · <a href="https://profiles.wordpress.org/yankiara/">Yan</a> · <a href="https://profiles.wordpress.org/yashjawale/">Yash Jawale</a> · <a href="https://profiles.wordpress.org/yogeshbhutkar/">Yogesh Bhutkar</a> · <a href="https://profiles.wordpress.org/fierevere/">Yui</a> · <a href="https://profiles.wordpress.org/yuliyan/">Yuliyan Slavchev</a> · <a href="https://profiles.wordpress.org/yusufmudagal/">Yusuf Mudagal</a> · <a href="https://profiles.wordpress.org/zebulan/">Zebulan Stanphill</a> · <a href="https://profiles.wordpress.org/znuff/">Znuff</a></p></p>
+
+
+
+<p class="wp-block-paragraph">More than <a href="https://translate.wordpress.org/stats/">20 locales have fully translated WordPress 7.1</a> into their language making this one of the most translated releases ever on day one. Community translators are working hard to ensure more translations are on their way. Thank you to everyone who helps make WordPress available in 200+ languages.</p>
+
+
+
+<p class="wp-block-paragraph">Last but not least, thanks to the volunteers who contribute to the <a href="https://wordpress.org/support/forums/">support</a> forums by answering questions from WordPress users worldwide.</p>
+
+
+
+<h2 class="wp-block-heading">Get involved</h2>
+
+
+
+<p class="wp-block-paragraph">Participation in WordPress goes far beyond coding. And learning more and getting involved is easy. Discover the teams that come together to <a href="https://make.wordpress.org/">Make WordPress</a> and use <a href="https://make.wordpress.org/contribute/">this interactive tool</a> to help you decide which is right for you.</p>
+
+
+
+<p class="wp-block-paragraph"></p>
+]]></content:encoded>
+					
+		
+		
+		<post-id xmlns="com-wordpress:feed-additions:1">21420</post-id>	</item>
+		<item>
+		<title>WordPress 7.0.4 Release</title>
+		<link>https://wordpress.org/news/2026/08/wordpress-7-0-4-release/</link>
+		
+		<dc:creator><![CDATA[John Blackbourn]]></dc:creator>
+		<pubDate>Wed, 12 Aug 2026 14:45:53 +0000</pubDate>
+				<category><![CDATA[Releases]]></category>
+		<category><![CDATA[Security]]></category>
+		<category><![CDATA[minor-releases]]></category>
+		<category><![CDATA[releases]]></category>
+		<guid isPermaLink="false">https://wordpress.org/news/?p=21371</guid>
+
+					<description><![CDATA[WordPress 7.0.4 is now available WordPress 7.0.4 is now available which features a security fix. Because this is a security release, it is recommended that you update your sites immediately. You can update to WordPress 7.0.4 by downloading it from WordPress.org, or visiting your site&#8217;s Dashboard → Updates and clicking Update Now. Sites that support [&#8230;]]]></description>
+										<content:encoded><![CDATA[
+<h1 class="wp-block-heading">WordPress 7.0.4 is now available</h1>
+
+
+
+<p class="wp-block-paragraph">WordPress 7.0.4 is now available which features a security fix. Because this is a security release, it is recommended that you update your sites immediately.</p>
+
+
+
+<p class="wp-block-paragraph">You can update to WordPress 7.0.4 by <a href="https://wordpress.org/wordpress-7.0.4.zip">downloading it from WordPress.org</a>, or visiting your site&#8217;s Dashboard → Updates and clicking <strong>Update Now</strong>. Sites that support automatic background updates will begin updating shortly.</p>
+
+
+
+<p class="wp-block-paragraph">For more information, please visit the <a href="https://wordpress.org/documentation/wordpress-version/version-7-0-4/">WordPress 7.0.4 HelpHub site</a>.</p>
+
+
+
+<h2 class="wp-block-heading">Security update included in this release</h2>
+
+
+
+<p class="wp-block-paragraph">The security team would like to thank the team at <a href="https://pwn.ai/">pwn.ai</a> for responsibly reporting the following vulnerability and allowing it to be fixed in this release:</p>
+
+
+
+<ul class="wp-block-list">
+<li>Authenticated Author+ remote code execution via malicious file upload on sites that use Imagick and Ghostscript.</li>
+</ul>
+
+
+
+<h2 class="wp-block-heading">Backports</h2>
+
+
+
+<p class="wp-block-paragraph">As a courtesy, these fixes are being backported through to the 4.7 branch and the 7.1 RC3 release that&#8217;s due later today. As a reminder, <strong>only the most recent version of WordPress is actively supported</strong>. The backports are in progress and will ship as they become ready.</p>
+
+
+
+<h2 class="wp-block-heading">CVE and GHSA references</h2>
+
+
+
+<p class="wp-block-paragraph">Further details can be found in the advisory: <a href="https://github.com/WordPress/wordpress-develop/security/advisories/GHSA-8vr3-7mxf-gx8w">CVE-2026-65640 / GHSA-8vr3-7mxf-gx8w</a>.</p>
+
+
+
+<h2 class="wp-block-heading">Thank you to these WordPress contributors</h2>
+
+
+
+<p class="wp-block-paragraph">This release was led by John Blackbourn, with significant input from Dennis Snell and Jeremy Felt. In addition, WordPress 7.0.4 and its backports would not have been possible without the valuable contributions of the following people:</p>
+
+
+
+<p class="wp-block-paragraph"><a href="https://profiles.wordpress.org/aaroncampbell">Aaron D. Campbell</a>, <a href="https://profiles.wordpress.org/jorbin">Aaron Jorbin</a>, <a href="https://profiles.wordpress.org/adamsilverstein">Adam Silverstein</a>, <a href="https://profiles.wordpress.org/wildworks">Aki Hamano</a>, <a href="https://profiles.wordpress.org/xknown">Alex Concha</a>, <a href="https://profiles.wordpress.org/barry">Barry</a>, <a href="https://profiles.wordpress.org/dmsnell">Dennis Snell</a>, <a href="https://profiles.wordpress.org/ehtis">Ehtisham Siddiqui</a>, <a href="https://profiles.wordpress.org/jeremyfelt">Jeremy Felt</a>, <a href="https://profiles.wordpress.org/johnbillion">John Blackbourn</a>, <a href="https://profiles.wordpress.org/jonsurrell/">Jon Surrell</a>, <a href="https://profiles.wordpress.org/desrosj">Jonathan Desrosiers</a>, <a href="https://profiles.wordpress.org/lancewillett">Lance Willett</a>, <a href="https://profiles.wordpress.org/tyxla">Marin Atanasov</a>, <a href="https://profiles.wordpress.org/batmoo">Mohammad Jangda</a>, <a href="https://profiles.wordpress.org/sergeybiryukov">Sergey Biryukov</a>, <a href="https://profiles.wordpress.org/vortfu">vortfu</a>, <a href="https://profiles.wordpress.org/westonruter">Weston Ruter</a>, and representatives from WP Engine.</p>
+
+
+
+<p class="wp-block-paragraph"></p>
+]]></content:encoded>
+					
+		
+		
+		<post-id xmlns="com-wordpress:feed-additions:1">21371</post-id>	</item>
+		<item>
+		<title>WordPress 7.0.3 release</title>
+		<link>https://wordpress.org/news/2026/08/wordpress-7-0-3-release/</link>
+		
+		<dc:creator><![CDATA[John Blackbourn]]></dc:creator>
+		<pubDate>Thu, 06 Aug 2026 18:55:30 +0000</pubDate>
+				<category><![CDATA[Releases]]></category>
+		<category><![CDATA[Security]]></category>
+		<category><![CDATA[minor-releases]]></category>
+		<category><![CDATA[releases]]></category>
+		<guid isPermaLink="false">https://wordpress.org/news/?p=21327</guid>
+
+					<description><![CDATA[WordPress 7.0.3 is now available WordPress 7.0.3 is now available which features several security fixes. Because this is a security release, it is recommended that you update your sites immediately. You can update to WordPress 7.0.3 by downloading it from WordPress.org, or visiting your site&#8217;s Dashboard → Updates and clicking Update Now. Sites that support [&#8230;]]]></description>
+										<content:encoded><![CDATA[
+<h1 class="wp-block-heading">WordPress 7.0.3 is now available</h1>
+
+
+
+<p class="wp-block-paragraph">WordPress 7.0.3 is now available which features several security fixes. Because this is a security release, it is recommended that you update your sites immediately.</p>
+
+
+
+<p class="wp-block-paragraph">You can update to WordPress 7.0.3 by <a href="https://wordpress.org/wordpress-7.0.3.zip">downloading it from WordPress.org</a>, or visiting your site&#8217;s Dashboard → Updates and clicking <strong>Update Now</strong>. Sites that support automatic background updates will begin updating shortly.</p>
+
+
+
+<p class="wp-block-paragraph">For more information, please visit the <a href="https://wordpress.org/documentation/wordpress-version/version-7-0-3/">WordPress 7.0.3 HelpHub site</a>.</p>
+
+
+
+<h2 class="wp-block-heading">Security updates included in this release</h2>
+
+
+
+<p class="wp-block-paragraph">The security team would like to thank the following people for responsibly reporting vulnerabilities and allowing them to be fixed in this release:</p>
+
+
+
+<ul class="wp-block-list">
+<li>Pre-auth reflected cross-site scripting (XSS) on the login screen with potential to lead to PHP code execution reported by the team at <a href="https://pwn.ai/">pwn.ai</a>.</li>
+
+
+
+<li>Contributor+ stored cross-site scripting (XSS) in posts via the emoji settings element reported by Asaf Mozes (<a href="https://hackerone.com/amosec?type=user">amosec</a>)</li>
+
+
+
+<li>Contributor+ stored cross-site scripting (XSS) in the Post Content block reported by <a href="https://hackerone.com/n05ec">N05ec@LZU</a></li>
+
+
+
+<li>Contributor+ stored cross-site scripting (XSS) in Quick Edit on sites with a large number of users reported by <a href="https://www.linkedin.com/in/naveens72/">Naveen S</a> and <a href="https://www.linkedin.com/in/ajmalmoochingal/">Ajmal Moochingal</a></li>
+
+
+
+<li>Contributor+ stored cross-site scripting (XSS) in the Post Date block reported by <a href="https://profiles.wordpress.org/xknown/">Alex Concha</a> of the WordPress Security Team</li>
+
+
+
+<li>A privilege escalation issue on multisite networks with user registration enabled, allowing a user to create a new site reported by <a href="https://aikido.dev/">Aikido Security</a></li>
+
+
+
+<li>An information disclosure issue in the Latest Comments block exposing comments on password-protected posts reported by <a href="https://profiles.wordpress.org/ehtis/">Ehtisham Siddiqui</a> of the WordPress Security Team</li>
+
+
+
+<li>Enumeration of post slugs reported by <a href="https://hdwsec.fr/">HDWSec</a></li>
+
+
+
+<li>Disclosure of notes in comment feeds reported by <a href="https://profiles.wordpress.org/odkdn1/">Elio Gubser</a></li>
+
+
+
+<li>Author+ CSS injection via a bypass of the safe CSS attribute filter reported by Anthropic</li>
+
+
+
+<li>Bypass of the email address confirmation flow reported by <a href="https://www.linkedin.com/in/omr-h/">Omar Hasan</a></li>
+
+
+
+<li>A server-side request forgery (SSRF) issue in URL validation allowing requests to link-local ranges reported by <a href="https://hackerone.com/andrewmohawk?type=user">Andrew Mohawk</a> and multiple independent reporters</li>
+</ul>
+
+
+
+<h2 class="wp-block-heading">Backports</h2>
+
+
+
+<p class="wp-block-paragraph">As a courtesy, these fixes are being backported, where necessary, to all branches eligible to receive security fixes (currently through 4.7). As a reminder, <strong>only the most recent version of WordPress is actively supported</strong>. The backports are in progress and will ship as they become ready.</p>
+
+
+
+<p class="wp-block-paragraph">WordPress 7.1 RC2 has also been released, containing all applicable fixes.</p>
+
+
+
+<h2 class="wp-block-heading">CVE and GHSA references</h2>
+
+
+
+<p class="wp-block-paragraph">Details of the login screen XSS vulnerability can be found in the advisory: <a href="https://github.com/WordPress/wordpress-develop/security/advisories/GHSA-52p2-r8wf-jcrf">CVE-2026-64638 / GHSA-52p2-r8wf-jcrf</a>.</p>
+
+
+
+<h2 class="wp-block-heading">Thank you to these WordPress contributors</h2>
+
+
+
+<p class="wp-block-paragraph">This release was led by <a href="https://profiles.wordpress.org/johnbillion/">John Blackbourn</a>. In addition to the security researchers mentioned above, WordPress 7.0.3 and its backports would not have been possible without the significant contributions of the following people:<br><a href="https://profiles.wordpress.org/aaroncampbell">Aaron D. Campbell</a>, <a href="https://profiles.wordpress.org/jorbin">Aaron Jorbin</a>, <a href="https://profiles.wordpress.org/adamsilverstein">Adam Silverstein</a>, <a href="https://profiles.wordpress.org/adrianmoldovanwp">adrianmoldovanwp</a>, <a href="https://profiles.wordpress.org/wildworks">Aki Hamano</a>, <a href="https://profiles.wordpress.org/xknown">Alex Concha</a>, <a href="https://profiles.wordpress.org/aduth">Andrew Duthie</a>, <a href="https://profiles.wordpress.org/andrewserong">Andrew Serong</a>, <a href="https://profiles.wordpress.org/annezazu">annezazu</a>, <a href="https://profiles.wordpress.org/barry">Barry</a>, <a href="https://profiles.wordpress.org/bernhard-reiter">Bernie Reiter</a>, <a href="https://profiles.wordpress.org/villanovachile">Daniel</a>, <a href="https://profiles.wordpress.org/talldanwp">Daniel Richards</a>, <a href="https://profiles.wordpress.org/davidbinda">David Biňovec</a>, <a href="https://profiles.wordpress.org/dmsnell">Dennis Snell</a>, <a href="https://profiles.wordpress.org/ehtis">Ehtisham Siddiqui</a>, <a href="https://profiles.wordpress.org/erwanlr">Erwan Le Rousseau</a>, <a href="https://profiles.wordpress.org/fabiankaegy/">Fabian Kaegy</a>, <a href="https://profiles.wordpress.org/fiocavallari">fiocavallari</a>, <a href="https://profiles.wordpress.org/mamaduka">George Mamadashvili</a>, <a href="https://profiles.wordpress.org/odkdn1">gubser</a>, <a href="https://profiles.wordpress.org/isabel_brison">Isabel Brison</a>, <a href="https://profiles.wordpress.org/jsnajdr">Jarda Snajdr</a>, <a href="https://profiles.wordpress.org/audrasjb">Jb Audras</a>, <a href="https://profiles.wordpress.org/jeremyfelt">Jeremy Felt</a>, <a href="https://profiles.wordpress.org/joedolson">Joe Dolson</a>, <a href="https://profiles.wordpress.org/joehoyle">Joe Hoyle</a>, <a href="https://profiles.wordpress.org/johnbillion">John Blackbourn</a>, <a href="https://profiles.wordpress.org/jonsurrell">Jon Surrell</a>, <a href="https://profiles.wordpress.org/desrosj">Jonathan Desrosiers</a>, <a href="https://profiles.wordpress.org/khokansardar">Khokan Sardar</a>, <a href="https://profiles.wordpress.org/lancewillett">Lance Willett</a>, <a href="https://profiles.wordpress.org/lucasbustamante">lucasbustamante</a>, <a href="https://profiles.wordpress.org/lucatume">lucatume</a>, <a href="https://profiles.wordpress.org/mciampini/">Marco Ciampini</a>, <a href="https://profiles.wordpress.org/tyxla">Marin Atanasov</a>, <a href="https://profiles.wordpress.org/batmoo">Mohammad Jangda</a>, <a href="https://profiles.wordpress.org/mukesh27">Mukesh Panchal</a>, <a href="https://profiles.wordpress.org/paulkevan">Paul Kevan</a>, <a href="https://profiles.wordpress.org/peterwilsoncc">Peter Wilson</a>, <a href="https://profiles.wordpress.org/ramonopoly">ramonopoly</a>, <a href="https://profiles.wordpress.org/sergeybiryukov">SergeyBiryukov</a>, <a href="https://profiles.wordpress.org/vortfu">vortfu</a>, <a href="https://profiles.wordpress.org/westonruter">Weston Ruter</a></p>
+
+
+
+<div class="wp-block-group is-layout-constrained wp-block-group-is-layout-constrained">
+<figure class="wp-block-image size-large has-custom-border"><a href="https://us.wordcamp.org/2026/" target="_blank" rel=" noopener"><img data-recalc-dims="1" loading="lazy" decoding="async" width="1024" height="321" src="https://i0.wp.com/wordpress.org/news/files/2026/06/wcus-2026-teaser.png?resize=1024%2C321&#038;ssl=1" alt="WordCamp US: Powered by WordPress, Driven by Community, August 16-19, 2026" class="wp-image-20859" style="border-style:none;border-width:0px;border-top-left-radius:2px;border-top-right-radius:2px;border-bottom-left-radius:2px;border-bottom-right-radius:2px;box-shadow:var(--wp--preset--shadow--natural)" srcset="https://i0.wp.com/wordpress.org/news/files/2026/06/wcus-2026-teaser-scaled.png?resize=1024%2C321&amp;ssl=1 1024w, https://i0.wp.com/wordpress.org/news/files/2026/06/wcus-2026-teaser-scaled.png?resize=300%2C94&amp;ssl=1 300w, https://i0.wp.com/wordpress.org/news/files/2026/06/wcus-2026-teaser-scaled.png?resize=768%2C241&amp;ssl=1 768w, https://i0.wp.com/wordpress.org/news/files/2026/06/wcus-2026-teaser-scaled.png?resize=1536%2C482&amp;ssl=1 1536w, https://i0.wp.com/wordpress.org/news/files/2026/06/wcus-2026-teaser-scaled.png?resize=2048%2C643&amp;ssl=1 2048w" sizes="auto, (max-width: 1000px) 100vw, 1000px" /></a><figcaption class="wp-element-caption">Join us for the launch of WordPress 7.1 at <a href="https://us.wordcamp.org/2026/">WordCamp US 2026</a>, August 16–19.</figcaption></figure>
+</div>
+]]></content:encoded>
+					
+		
+		
+		<post-id xmlns="com-wordpress:feed-additions:1">21327</post-id>	</item>
+	</channel>
+</rss>
