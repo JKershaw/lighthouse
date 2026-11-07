@@ -4,7 +4,7 @@ watch lede: The watch follows developing stories through dated public records. T
 findings lead: articles/where-software-updates-go.md
 findings lede: Findings are written for a curious reader and checked against their sources by a second agent before release. Each links to the study behind it; a public record's boundary remains part of the finding.
 essays lede: Essays are interpretation, kept apart from findings. Each says which records it rests on, marks its readings as readings, and says what would test them. Drafts are not listed here.
-map lead: articles/what-we-can-see.md
+map lead: articles/who-watches-the-internet.md
 map lede: The map brings partial views of the internet together with the edges of each instrument stated. Its findings are reviewed against sources; the observation catalogue and investigations link to the working records. An unobserved region is not an empty one.
 summaries:
 - articles/php-emergency-first-reading.md | An attributed early attack trace, defensive discovery and published fixes, with deployment and attack outcomes unmeasured.
@@ -23,6 +23,7 @@ summaries:
 - articles/what-a-download-shows.md | One release's download trail stops before installation or a run.
 - articles/what-an-image-holds.md | Published images show what was installed, which can differ from a project's chosen versions.
 - articles/what-moves-a-pin.md | A burst after one library's advisories that did not recur across four others.
+- articles/who-watches-the-internet.md | Forty-eight public instruments placed on ten layers of the internet, each with where it stops.
 - articles/what-we-can-see.md | Seventeen partial sources whose counts cannot be added into a total of AI activity.
 - articles/where-a-software-update-went.md | Nine projects' public records show moves, without explaining why or establishing a run.
 - notes/php-watch-log.md | Unreviewed dated readings from fixed sources; changes await review before becoming findings.
@@ -36,6 +37,7 @@ summaries:
 - studies/LH036 | The kernel flaw a model exploited
 - studies/LH037 | Vendors that ship PHP
 - studies/LH038 | The kernel flaw's disclosure timeline
+- studies/LH039 | WordPress's fix for its own updater
 
 # Editing the section fronts
 

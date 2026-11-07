@@ -95,6 +95,14 @@ Agreed and not yet started: the next run takes these after the started lane (sch
 
 Each proposal: kind (watch, deepening, repair, new question, new investigation), priority (urgent with its deadline, high, normal, lead), status (backlog, started, waiting, agreed, declined, parked, expired, done), the investigation it belongs to, where it came from with dates read, why it is worth asking, a rough cost, and the next step. Declined and expired proposals stay at the end with the reason, so they are not proposed again unchanged.
 
+### P-0020 Widen the map of instruments on its thin layers: names and the IPv6 address space
+
+- Kind: deepening. Priority: normal. Status: backlog (added by the scheduled run 2026-11-07T1413Z, for the next sweep to gate). Investigation: none; the map (studies/LH035).
+- Source: studies/LH035/LH035.md, Next items 2 and 3, and the checkpoint of 7 November 2026 in programme.md, after the map page was released.
+- Why: the released map's thinnest layers are certificates, names and running services, and no free instrument read covers IPv6 broadly; the record names unread leads (OpenINTEL, IPv6 hitlists, iGDB, ICANN's public data page, crt.sh) that could change what the map says no one watches.
+- Cost: small; reading documentation, as LH035 did, under a short amendment.
+- Next step: an amendment to LH035's brief fixing which leads are read and the same inclusion test, then the reads and a dated notice on the map page if a row changes what it says.
+
 ### P-0012 GitHub blocks `pull_request_target` by default in public repositories: what breaks, what changes
 
 - Kind: watch. Priority: normal (the gate found nothing is lost by waiting: workflow history is kept in git and brownout failures stay on record). Status: backlog. Investigation: none yet; fits P-0014 if agreed, else software updates.
