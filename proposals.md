@@ -257,7 +257,7 @@ From the [editor's visit of 7 November 2026](notes/editor/2026-11-07T0956Z.md):
 - L-0029 The week-one chart's labels are too small at phone width.
 - L-0030 The front page and the Investigations page list two investigations while the keeper agreed a third today; the next run opening P-0014 resolves it.
 - L-0031 The model-found-bugs investigation's first report date sits at the bottom of its page; a reader looked for it first.
-- L-0032 The About page does not name the keeper and mentions "Astra" without explanation (the keeper's decision).
+- L-0032 The About page does not name the keeper and mentions "Astra" without explanation. Keeper, 2026-11-07: happy to be named, in a line the keeper approves rather than one an agent writes about them; Astra is the OpenAI model the keeper uses as an outside reviewer (About now says so).
 
 ## Declined, parked and expired
 
