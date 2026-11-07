@@ -305,6 +305,22 @@ function namedPath(text, from) {
 
 const link = (p) => (p ? { title: p.title, url: p.url, path: p.path } : null);
 
+// The watches read in the last week, newest first: each study whose latest
+// checkpoint is at most seven days before the build, under the short label
+// site/sections.md gives its directory (summaries: "studies/LH030 | label"),
+// else its id.
+export function onWatch(studies, labels, now = new Date(), days = 7) {
+  const since = new Date(now.getTime() - days * 86400000).toISOString().slice(0, 10);
+  const short = new Intl.DateTimeFormat("en-GB", { day: "numeric", month: "short", timeZone: "UTC" });
+  return studies
+    .filter((s) => s.checkpoints && s.checkpoints.length && s.checkpoints[0].key.slice(0, 10) >= since)
+    .map((s) => {
+      const c = s.checkpoints[0];
+      return { id: s.id, label: labels[s.dir] || labels[`${s.dir}/`] || s.id, url: c.url, key: c.key, day: short.format(new Date(`${c.key.slice(0, 10)}T00:00:00Z`)) };
+    })
+    .sort((a, b) => b.key.localeCompare(a.key) || a.id.localeCompare(b.id, "en", { numeric: true }));
+}
+
 // When a checkpoint was written: the date and time in its file name
 // (2026-11-05.md, 2026-11-02T1530Z.md, interim-2026-10-30.md), else the day
 // the file last changed. `key` sorts them.
@@ -629,6 +645,7 @@ export function scanRepo(root, { siteFile = path.join(root, "site", "site.json")
     repoUrl: REPO_URL,
     buildDate: formatDate(buildDate),
     buildIso: buildDate.toISOString(),
+    onWatch: onWatch(studies, front.labels || {}, buildDate),
   };
   repo.feeds = feedCatalog(repo);
   return repo;

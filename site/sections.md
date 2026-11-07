@@ -28,7 +28,15 @@ summaries:
 - notes/php-watch-log.md | Unreviewed dated readings from fixed sources; changes await review before becoming findings.
 - observations.md | Every reading so far, linked to its record and the instruments it relied on.
 - investigations/software-updates.md | The question, current account and studies behind the software-update investigation.
+- studies/LH030 | PHP's mitigation advice in public notices
+- studies/LH031 | PHP flaws in CISA's exploited list
+- studies/LH032 | PHP fixes in products, by the Dutch NCSC
+- studies/LH033 | PHP's fix on internet-facing servers
+- studies/LH034 | Node.js's fix in downloads
+- studies/LH036 | The kernel flaw a model exploited
+- studies/LH037 | Vendors that ship PHP
+- studies/LH038 | The kernel flaw's disclosure timeline
 
 # Editing the section fronts
 
-Leads name repository paths and are optional. A draft cannot lead or enter a released list. Summaries are short editorial signposts, not replacements for a piece's complete summary and limits. The home page retains its full earlier text in its background disclosure. New released pieces enter the findings list from the scan; a short summary can be added here without changing the piece's prose.
+Leads name repository paths and are optional. A draft cannot lead or enter a released list. Summaries are short editorial signposts, not replacements for a piece's complete summary and limits. The home page retains its full earlier text in its background disclosure. New released pieces enter the findings list from the scan; a short summary can be added here without changing the piece's prose. A line for a study's directory (`studies/LH030 | label`) gives the short label the front page's Now box shows for that watch; the editor's visit keeps these current.

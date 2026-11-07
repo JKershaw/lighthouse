@@ -493,6 +493,25 @@ td:last-child, th:last-child { padding-right: 0; }
   margin: 0 0 1.2rem;
 }
 .watch-strip .tag { margin-right: 0.35em; }
+
+/* The front page's Now box: the watch's working material, unreviewed. */
+.now-box {
+  font-family: var(--sans);
+  font-variant-numeric: tabular-nums;
+  font-size: 0.88rem;
+  line-height: 1.5;
+  color: var(--muted);
+  background: var(--tint);
+  border: 1px solid var(--rule);
+  border-radius: 3px;
+  padding: 0.55rem 0.75rem;
+  margin: 0 0 1.2rem;
+}
+.now-box p { margin: 0 0 0.4rem; }
+.now-box p:last-child { margin-bottom: 0; }
+.now-box strong { color: var(--ink); font-weight: 600; }
+.now-box .tag { margin-right: 0.35em; }
+.now-head { color: var(--muted); }
 .watch-flag { color: var(--ink); }
 
 /* Essays: a column, not a report. An italic opening, more air, and an

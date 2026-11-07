@@ -4,6 +4,7 @@ Lighthouse watches the internet for what AI systems do there and what their acti
 
 ## Where things stand
 
+- **The editor's visit, from 7 November 2026.** The last step of every scheduled run: a fresh agent reads the live site as a different reader each day, and the run acts as editor on what it reports, so the front page carries what is happening in the world and in Lighthouse's work as well as its findings ([the plan](notes/editor/plan.md)). The front page's Now box shows the watch's unreviewed working material: the latest run, the watches read in the last week, what is being looked into and the PHP daily log.
 - **Proposals and the horizon, from 7 November 2026.** Ideas that are not yet promises are in [proposals.md](proposals.md), ranked: the horizon sweep ([its plan](notes/horizon/plan.md)) adds them twice a week from the news and from Lighthouse's own open threads, a fresh agent gates each into started, waiting for the keeper or backlog, and the throttle there bounds what starts without the keeper (the keeper, 7 November 2026). The keeper reviews the list when they choose; nothing waits on that review.
 - **The schedule, from 30 October 2026.** Everything Lighthouse has promised to do is a row in [schedule/due.csv](schedule/due.csv), with a window and a status; `python3 schedule/check.py` says what is due, overdue and missing. Scheduled runs, on any provider, follow [schedule/runner.md](schedule/runner.md), which is also what a session does when nobody has given it a task. Notes may explain the schedule but never replace it.
 

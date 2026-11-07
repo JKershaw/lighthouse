@@ -8,7 +8,7 @@ import os from "node:os";
 import path from "node:path";
 import { fileURLToPath } from "node:url";
 import { execFileSync } from "node:child_process";
-import { scanRepo, bylineDate, longDate, parseRevision, noticeDates, pieceInfo, watchLog } from "../lib/repo.js";
+import { scanRepo, bylineDate, longDate, parseRevision, noticeDates, pieceInfo, watchLog, onWatch } from "../lib/repo.js";
 import { atomFeed, feedEntries, escapeXml } from "../lib/feed.js";
 import { parseHeader } from "../lib/header.js";
 import { markNotices, arrangeOpening, arrangePiece, noticeKind } from "../lib/html.js";
@@ -407,4 +407,15 @@ test("a study lists its checkpoints newest first, and a checkpoint moves its las
   assert.equal(study.checkpoints[0].url, "/studies/LH001/checkpoints/2026-09-24T1530Z/");
   assert.equal(study.changed, "24 September 2026");
   assert.equal(scanCopy().studies.find((s) => s.id === "LH001").checkpoints.length, 0);
+});
+
+test("on watch: studies read in the last week, newest first, under their short labels", () => {
+  const studies = [
+    { id: "LH030", dir: "studies/LH030", checkpoints: [{ key: "2026-11-05T", url: "/a/" }] },
+    { id: "LH037", dir: "studies/LH037", checkpoints: [{ key: "2026-11-05T14:14", url: "/b/" }] },
+    { id: "LH019", dir: "studies/LH019", checkpoints: [{ key: "2026-10-28T", url: "/c/" }] },
+    { id: "LH001", dir: "studies/LH001", checkpoints: [] },
+  ];
+  const w = onWatch(studies, { "studies/LH030": "PHP's mitigation advice" }, new Date("2026-11-07T09:00:00Z"));
+  assert.deepEqual(w.map((x) => [x.id, x.label, x.day]), [["LH037", "LH037", "5 Nov"], ["LH030", "PHP's mitigation advice", "5 Nov"]]);
 });

@@ -6,7 +6,7 @@ import assert from "node:assert/strict";
 import fs from "node:fs";
 import os from "node:os";
 import path from "node:path";
-import { buildSchedule, refParts, dayOf, latestRun } from "../lib/schedule.js";
+import { buildSchedule, refParts, dayOf, latestRun, proposalsNow } from "../lib/schedule.js";
 
 const HEAD = "id,study,task,earliest,latest,status,updated,by,ref,note";
 
@@ -127,5 +127,15 @@ test("a run that finished no row shows its own line; four items show, the rest a
     assert.equal(run.count, 0);
     assert.equal(run.did, "nothing due");
     assert.equal(latestRun({ started: "2026-11-06T1416Z", did: "" }, [{ status: "done", by: "run 2026-11-06T1416Z", refs: [], href: "/x/", id: "Is it so?" }], root).stop, "");
+  });
+});
+
+test("being looked into: the proposals under the started and agreed headings, linked to their anchors", () => {
+  withRepo({
+    "proposals.md": "title: Proposals\n\n# Proposals\n\n## Started without review\n\n### P-0015 How far the *poisoned* release travelled\n\n- Kind: deepening.\n\n## Agreed by the keeper\n\n### P-0014 A new investigation: what AI activity costs\n\n## Waiting for the keeper\n\n- (none)\n\n## Backlog\n\n### P-0001 Not this one\n",
+  }, (root) => {
+    const p = proposalsNow(root);
+    assert.deepEqual(p.started, [{ id: "P-0015", title: "How far the poisoned release travelled", href: "/proposals/#p-0015-how-far-the-poisoned-release-travelled" }]);
+    assert.deepEqual(p.agreed.map((x) => x.id), ["P-0014"]);
   });
 });

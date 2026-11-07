@@ -5,6 +5,7 @@
 import fs from "node:fs";
 import path from "node:path";
 import { REPO_URL, formatDate, isIgnored, pageUrl, plainText, sourceUrl } from "./repo.js";
+import { slugify } from "./markdown.js";
 
 export const SCHEDULE_TABLE = "schedule/due.csv";
 
@@ -126,6 +127,24 @@ export function latestRun(run, rows, root, shown = 4) {
   return { started: run.started, iso: t.iso, when: t.words, by: run.by, did: run.did, done: done.slice(0, shown), more, count: done.length, stop };
 }
 
+// What proposals.md says is being looked into: the proposals under its
+// "Started without review" and "Agreed by the keeper" headings.
+export const PROPOSALS = "proposals.md";
+export function proposalsNow(root) {
+  const file = path.join(root, PROPOSALS);
+  if (!fs.existsSync(file)) return null;
+  const text = fs.readFileSync(file, "utf8").replace(/\r\n?/g, "\n");
+  const section = (name) => {
+    const m = text.match(new RegExp(`^## ${name}\\s*$([\\s\\S]*?)(?=^## |(?![\\s\\S]))`, "m"));
+    if (!m) return [];
+    return [...m[1].matchAll(/^### (P-\d+) (.+)$/gm)].map((h) => {
+      const heading = `${h[1]} ${h[2].trim()}`;
+      return { id: h[1], title: plainText(h[2].trim()), href: `${pageUrl(PROPOSALS)}#${slugify(plainText(heading))}` };
+    });
+  };
+  return { started: section("Started without review"), agreed: section("Agreed by the keeper"), url: pageUrl(PROPOSALS) };
+}
+
 export function buildSchedule(root, now = new Date()) {
   const file = path.join(root, SCHEDULE_TABLE);
   if (!fs.existsSync(file)) return null;
@@ -171,6 +190,7 @@ export function buildSchedule(root, now = new Date()) {
     range: { first, last },
     lastRun: runs[0] || null,
     latestRun: latestRun(runs[0], rows, root),
+    proposals: proposalsNow(root),
     runs: runs.slice(0, 8).map((r) => ({ ...r, commitUrl: /^[0-9a-f]{7,40}$/.test(r.commit || "") ? `${REPO_URL}/commit/${r.commit}` : "" })),
   };
 }

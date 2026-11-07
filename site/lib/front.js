@@ -101,7 +101,7 @@ export function frontInfo({ source = '', config = '', byPath, bodies, images, pi
   ];
   for (const section of sections) section.entries = section.entries.filter((p) => p.path !== section.lead?.path);
 
-  return { lead, latest, investigations: investigationCards, sections };
+  return { lead, latest, investigations: investigationCards, sections, labels: Object.fromEntries(summaries) };
 }
 
 // Rendered Markdown without its leading h1, for a layout that sets the title itself.
