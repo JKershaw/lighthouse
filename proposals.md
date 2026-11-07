@@ -19,11 +19,11 @@ Everything Lighthouse might look into, ranked: events worth watching, follow-ups
 
 Set by the keeper (7 November 2026); only the keeper changes it.
 
-- **Active investigations:** at most three. Opening one always waits for the keeper. Active now: [Where does a software update go?](investigations/software-updates.md) and [When a model finds the bug](investigations/model-found-bugs.md).
+- **Active investigations:** at most three. Opening one always waits for the keeper. Agreed on 7 November and to be opened: P-0014. Active now: [Where does a software update go?](investigations/software-updates.md) and [When a model finds the bug](investigations/model-found-bugs.md).
 - **Started without review:** at most two new studies in any seven days, urgent watches included. Deepenings and repairs of a study already running do not count.
 - **Urgent watches:** at most two at once, each ending 14 days after its first read unless the keeper extends it.
 - **Every recurring read** has an end date or a stop condition in its brief, so promises cannot pile up for ever.
-- **Spend:** no envelope for now (the keeper, 30 October 2026). "For the next review" gives the spend of the runs since the last review.
+- **Spend:** no envelope, and not a reason to hold work back for now (the keeper, 30 October and 7 November 2026). "For the next review" gives the spend of the runs since the last review.
 
 ## From the keeper
 
@@ -36,7 +36,7 @@ Directions, blind spots and things to look at. The sweep reads this first and tr
 Written by the sweep of 7 November 2026 (08:53 UTC), the first, run as a test.
 
 - **Started without review:** P-0015, how far the poisoned LiteLLM 1.107.0 travelled before it was pulled, under the gate's conditions. The throttle stands at 1 of 2 new studies this week, 0 of 2 urgent watches; the gate kept the second slot free for what the sweeps of 10 and 13 November find.
-- **Waiting for you:** P-0014, a third investigation (what AI activity costs the shared internet, and whether any of it sustains itself), and P-0013, the closing web, which would open under it. Recommendation: yes to both, with the gate's conditions on P-0013 (Lighthouse's own requests labelled and time-limited).
+- **Decided by the keeper, 7 November 2026:** yes to P-0014 and P-0013, and the free slot to L-0014, drawn up as P-0017 and started. The earlier text: **waiting for you:** P-0014, a third investigation (what AI activity costs the shared internet, and whether any of it sustains itself), and P-0013, the closing web, which would open under it. Recommendation: yes to both, with the gate's conditions on P-0013 (Lighthouse's own requests labelled and time-limited).
 - **The gate overruled the driving session** on P-0012 (GitHub's trigger change): not urgent, since nothing is lost by waiting, and overstated as a switch-off. It went to the backlog, as did P-0016 (Brotli).
 - **Leads the gate judged more urgent than some proposals:** L-0014 (WordPress core's version shares, which change daily and keep no history) and L-0011 (compute prices, whose free history rolls over). Either could take the free slot; recommendation: L-0014, which fits the software-updates instruments.
 - **Spend since the last review:** the sweep's seven scouts about $7.7 (six Sonnet 5.5 scouts unpriced, about $5 at Sonnet 5's rates; the Opus wildcard $2.68), the gate as in the commit.
@@ -53,27 +53,43 @@ Written by the sweep of 7 November 2026 (08:53 UTC), the first, run as a test.
 - Gate's conditions (notes/horizon/2026-11-07T0853Z.md, Gate): brief committed before any count is read; upload and removal times from a registry or OSV record, else labelled as reported (PyPI's JSON for 1.107.0 answered 404 at 09:22 UTC); the "second compromise of 2026" checked or dropped; a download is a fetch, not an install or an infection; aggregate figures only, naming no repository that pinned it; the malice attributed to Cloudsmith, Aikido and PyPI; public data only.
 
 
-## Waiting for the keeper
+### P-0017 WordPress core CVE-2026-119977: how fast sites move to the fixed release
+
+- Kind: watch. Priority: urgent (WordPress.org's version shares change daily and keep no history, so each unread day is lost). Status: started (the keeper, 7 November 2026, on the gate's recommendation; the throttle's second slot this week, 2 of 2). Investigation: software updates.
+- Source: lead L-0014, [scout 2](notes/horizon/2026-11-07T0853Z/scout-2-security.md): fixed in WordPress 7.1.4 on 28 October, in CISA's catalogue from 3 November; Wordfence reports about 13,000 blocked attacks a day. All reported; WordPress.org's release notes and statistics to be read raw before a brief.
+- Why: the first case in Lighthouse's panels of a fix reaching standing servers that update themselves, beside PHP's (servers that do not) and Python's (fetches); the daily share is public now and gone tomorrow.
+- Cost: small; a daily read of WordPress.org's public version statistics, with an end date.
+- Next step: a brief fixed today or tomorrow, then daily reads; until the brief, keep one raw read a day of the statistics endpoint with its time, so the days are not lost.
+- Keeper, 2026-11-07: agree.
+
+## Agreed by the keeper
+
+Agreed and not yet started: the next run takes these after the started lane (schedule/runner.md, step 5).
 
 ### P-0014 A new investigation: what AI activity costs the shared internet, and whether any of it sustains itself
 
-- Kind: new investigation. Priority: high. Status: waiting for the keeper (opening an investigation always does; the gate agreed). Investigation: new.
+- Kind: new investigation. Priority: high. Status: agreed (the keeper, 7 November 2026). Investigation: new.
 - Source: the sweep's first two themes ([sweep file](notes/horizon/2026-11-07T0853Z.md)): Anthropic's self-replication post of 12 October and a May paper on models copying themselves onto hacked hosts (scouts 1 and 5); the token-stealing registry worm lineage since May (scout 3); exposed inference endpoints and agent control panels, last counted in February (scouts 5 and 7); the UK AI Security Institute's evaluation agents taking 19 unsanctioned real-world actions (scout 6); operators closing anonymous access (P-0013); compute prices and forge load (scouts 7 and 1).
 - Why: the charter's question asked directly. The software-updates investigation learned the craft on ordinary roads; this one would watch the two things the charter names, AI activity that sustains or spreads itself and the cost it lays on shared infrastructure, each through public traces and with no claim of harm made in Lighthouse's voice.
 - Cost: an investigation page, then studies taken one at a time under the throttle; the first candidates are P-0013 and P-0012, a dated count of exposed inference endpoints and agent panels from published scanner counts (no scanning by Lighthouse), a timeline of the registry worm waves from public malware data, and a check of GH Archive for the evaluation agents' July events.
 - Model disclosure: Lighthouse runs on Anthropic's models, and Anthropic's post is among the sources; it is to be read as one company's claim.
 - Next step: the keeper's yes or no. If yes, an investigation page with its questions, and the throttle's third slot.
 - Gate's note: the sweep's grouping put lab evaluations, a human-run malware lineage, counts of exposed services and a report that found no real-world harm under one heading; the investigation's questions must keep them apart.
+- Keeper, 2026-11-07: agree.
 
 ### P-0013 The closing web: shared infrastructure withdrawing anonymous access
 
-- Kind: watch, then a study. Priority: urgent (a baseline is worth more now than later). Status: waiting for the keeper (gate: it would open work under P-0014; Lighthouse's own requests would add to the load on operators who say they are overwhelmed). Investigation: P-0014 if agreed.
+- Kind: watch, then a study. Priority: urgent (a baseline is worth more now than later). Status: agreed (the keeper, 7 November 2026), with the gate's conditions. Investigation: P-0014 if agreed.
 - Source: [scout 7](notes/horizon/2026-11-07T0853Z/scout-7-wildcard.md): kernel.org (29 August) reports about 6 million random-commit requests a day with legitimate traffic near 2 per cent, a proof-of-work wall in front and anonymous features to go; Wikimedia's API rate limits rolling out through 2026; CBC (5 November) on academic libraries knocked offline; COAR (June) on repositories blocking its checker and OAI-PMH. All reported, read through a fetch tool.
 - Why: operators report withdrawing anonymous access under automated load (kernel.org names scrapers, not AI); if it holds, it is the charter's degradation in its plainest form, and it decides what observers such as Lighthouse can still see.
 - Cost: one study; a weekly one-or-two-request check of a fixed panel (kernel.org, Wikimedia, Project Gutenberg, the forges, a random draw of OAI-PMH endpoints) recording status and any challenge page, the Wayback Machine to date each wall, and HTTP Archive's counts of challenge services.
 - Next step: a brief with the panel drawn by a rule before any status is read, and a baseline read.
 - Gate's notes: label Lighthouse's own presence in the panel and give it an end date; access is unproven (Wikimedia answered 429 and the Wayback Machine reset the connection from the container).
+- Keeper, 2026-11-07: agree.
 
+## Waiting for the keeper
+
+- (none)
 
 ## Backlog
 
@@ -204,7 +220,7 @@ From [2026-11-07T0853Z](notes/horizon/2026-11-07T0853Z.md):
 - L-0011 Daily compute-market prices (H100 rental index, DDR5 spot, Chinese GPU rental indices), whose free history rolls over (scout 7). Time-sensitive.
 - L-0012 IETF 127 from 14 November: a dated census of agent, discovery, bot-authentication and AI-preference drafts (scout 6). Time-sensitive.
 - L-0013 A robots.txt AI-token baseline on a fixed site sample before any standard or crawler honours one (scouts 6 and 7).
-- L-0014 WordPress core CVE-2026-119977, listed 3 November: version-share uptake (scout 2). Time-sensitive.
+- L-0014 WordPress core CVE-2026-119977, listed 3 November: version-share uptake (scout 2). Drawn up as P-0017, started.
 - L-0015 EPSS and catalogue lag as a daily archive; AI credit strings in CVE and OSV records (scout 2).
 - L-0016 Lighthouse's own refused requests as an instrument: a dated tally by source (scout 7). Repair.
 - L-0017 An audit of Lighthouse's own fetches against the finding that a fifth of HTTP 200 answers lack the page (scout 5). Repair.
