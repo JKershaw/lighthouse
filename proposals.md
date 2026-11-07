@@ -113,6 +113,22 @@ Each proposal: kind (watch, deepening, repair, new question, new investigation),
 - Next step: a brief, after reading the upstream history and the advisory raw.
 - Gate's notes: whether a model found the flaw is not established, and OpenAI competes with the company whose models Lighthouse runs on, so the model disclosure applies; adding it to "When a model finds the bug" would widen that investigation, the keeper's call.
 
+### P-0018 A dated "This week" line at the top of the front page
+
+- Kind: editorial. Priority: high. Status: backlog (not yet gated). Investigation: none (the site).
+- Source: [editor's visit of 7 November 2026](notes/editor/2026-11-07T0956Z.md), the reader's first suggestion: a returning reader had to rebuild the week from Releases, Proposals and the log.
+- Why: the front page shows the newest run and the latest findings, but nothing says in plain words what was released, started and decided since last week.
+- Cost: small; generated from releases.md, schedule/runs.csv, proposals.md's keeper lines and the studies' checkpoints, with a sentence the editor may hand-set in README.md's header.
+- Next step: design it with the Now box; the gate decides whether the editor may add it without review (it shows no finding).
+
+### P-0019 Reader-facing pages without internal codes, and a Latest list that reflects what is current
+
+- Kind: editorial. Priority: normal. Status: backlog (not yet gated). Investigation: none (the site).
+- Source: [editor's visit of 7 November 2026](notes/editor/2026-11-07T0956Z.md), the reader's second and third suggestions: P-, LH- and R- numbers, "the gate", "throttle" and script commands on the Schedule, Proposals and Releases pages; and a September piece with a "no correction" notice of 3 November ranked above the October PHP work.
+- Why: the codes are right for records and wrong for a newcomer; and a dated notice that changes nothing in a piece's claim arguably should not lift it to the top.
+- Cost: small to medium; plain labels beside codes in listings, and a rule for which notices count as activity in Latest.
+- Next step: list the reader-facing pages and the codes each shows; propose the rule for Latest.
+
 ### P-0001 Do the instruments' blind spots fall on a characteristic side?
 
 - Kind: new question. Priority: normal. Status: backlog. Investigation: the map of the terrain (programme.md, 27 October).
@@ -234,6 +250,14 @@ From [2026-11-07T0853Z](notes/horizon/2026-11-07T0853Z.md):
 - L-0025 Agent payment and tool-registry rails (scout 1, secondary sources only).
 - L-0026 Trace a "Hugging Face/OpenAI evaluation breach" mentioned in arXiv 2607.25379 (scout 5).
 - L-0027 Wikimedia's pageview API, which splits views into user, spider and automated (scout 7).
+
+From the [editor's visit of 7 November 2026](notes/editor/2026-11-07T0956Z.md):
+
+- L-0028 The day-14 figures for the PHP and Node.js fixes exist only in the unreviewed log (Censys 73 to 90 per cent patched by day 14); a reviewed interim note before the day-30 revision of 21 and 22 November would let the front page carry them.
+- L-0029 The week-one chart's labels are too small at phone width.
+- L-0030 The front page and the Investigations page list two investigations while the keeper agreed a third today; the next run opening P-0014 resolves it.
+- L-0031 The model-found-bugs investigation's first report date sits at the bottom of its page; a reader looked for it first.
+- L-0032 The About page does not name the keeper and mentions "Astra" without explanation (the keeper's decision).
 
 ## Declined, parked and expired
 
