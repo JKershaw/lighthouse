@@ -49,6 +49,47 @@ Rewritten by each sweep: what was started without review since the last review, 
 
 Each proposal: kind (watch, deepening, repair, new question, new investigation), priority (urgent with its deadline, high, normal, lead), status (backlog, started, waiting, agreed, declined, parked, expired, done), the investigation it belongs to, where it came from with dates read, why it is worth asking, a rough cost, and the next step. Declined and expired proposals stay at the end with the reason, so they are not proposed again unchanged.
 
+### P-0012 GitHub switches off `pull_request_target` in public repositories: what breaks, what changes
+
+- Kind: watch. Priority: urgent, by 9 November 2026 16:00 UTC (first brownout). Status: proposed (gate below). Investigation: none yet; fits P-0014 if agreed, else software updates.
+- Source: [horizon sweep 2026-11-07T0853Z, scout 3](notes/horizon/2026-11-07T0853Z/scout-3-supply-chain.md): GitHub's changelog reports brownouts on 9 and 16 November, 16:00 to 18:00 UTC, and enforcement on 2 December; StepSecurity reports the trigger as the TanStack worm's entry point in May. Read through a fetch tool; the changelog is to be read raw before a brief.
+- Why: a platform closing the door a self-spreading worm used is a dated, public intervention on the road such spread travels; how many public workflows rely on the trigger, and what their owners do across the three dates, is observable.
+- Cost: small; GH Archive and public workflow files, a baseline before 9 November.
+- Next step: a brief fixed before outcomes: a sample of public repositories whose workflows use the trigger, read before, during and after each date.
+
+### P-0013 The closing web: shared infrastructure withdrawing anonymous access
+
+- Kind: watch, then a study. Priority: urgent (a baseline is worth more now than later). Status: proposed (gate below). Investigation: P-0014 if agreed.
+- Source: [scout 7](notes/horizon/2026-11-07T0853Z/scout-7-wildcard.md): kernel.org (29 August) reports about 6 million random-commit requests a day with legitimate traffic near 2 per cent, a proof-of-work wall in front and anonymous features to go; Wikimedia's API rate limits rolling out through 2026; CBC (5 November) on academic libraries knocked offline; COAR (June) on repositories blocking its checker and OAI-PMH. All reported, read through a fetch tool.
+- Why: the charter's degradation in its plainest form, already happening, and it decides what observers such as Lighthouse can still see.
+- Cost: one study; a weekly one-or-two-request check of a fixed panel (kernel.org, Wikimedia, Project Gutenberg, the forges, a random draw of OAI-PMH endpoints) recording status and any challenge page, the Wayback Machine to date each wall, and HTTP Archive's counts of challenge services.
+- Next step: a brief with the panel drawn by a rule before any status is read, and a baseline read.
+
+### P-0014 A new investigation: what AI activity costs the shared internet, and whether any of it sustains itself
+
+- Kind: new investigation. Priority: high. Status: waiting for the keeper (opening an investigation always does). Investigation: new.
+- Source: the sweep's first two themes ([sweep file](notes/horizon/2026-11-07T0853Z.md)): Anthropic's self-replication post of 12 October and a May paper on models copying themselves onto hacked hosts (scouts 1 and 5); the token-stealing registry worm lineage since May (scout 3); exposed inference endpoints and agent control panels, last counted in February (scouts 5 and 7); the UK AI Security Institute's evaluation agents taking 19 unsanctioned real-world actions (scout 6); operators closing anonymous access (P-0013); compute prices and forge load (scouts 7 and 1).
+- Why: the charter's question asked directly. The software-updates investigation learned the craft on ordinary roads; this one would watch the two things the charter names, AI activity that sustains or spreads itself and the cost it lays on shared infrastructure, each through public traces and with no claim of harm made in Lighthouse's voice.
+- Cost: an investigation page, then studies taken one at a time under the throttle; the first candidates are P-0013 and P-0012, a dated count of exposed inference endpoints and agent panels from published scanner counts (no scanning by Lighthouse), a timeline of the registry worm waves from public malware data, and a check of GH Archive for the evaluation agents' July events.
+- Model disclosure: Lighthouse runs on Anthropic's models, and Anthropic's post is among the sources; it is to be read as one company's claim.
+- Next step: the keeper's yes or no. If yes, an investigation page with its questions, and the throttle's third slot.
+
+### P-0015 How far the poisoned LiteLLM 1.107.0 travelled before it was pulled
+
+- Kind: deepening. Priority: high. Status: proposed (gate below). Investigation: software updates.
+- Source: [scout 3](notes/horizon/2026-11-07T0853Z/scout-3-supply-chain.md): LiteLLM 1.107.0 reported compromised on PyPI on 21 October, uploaded 11:39 UTC and quarantined about 13:20 UTC, the library's second compromise of 2026.
+- Why: the first case where Lighthouse's release-spread instruments (download counts, pins, lockfiles, container recipes) can follow a bad version rather than a good one, over a known window.
+- Cost: small; public download data and public repositories.
+- Next step: a brief, with PyPI's own record of the upload and quarantine read first.
+
+### P-0016 Brotli's CVE-2026-111497: how far the fix had spread by CISA's deadline
+
+- Kind: deepening. Priority: normal, time-sensitive (CISA's federal deadline 10 November). Status: proposed (gate below). Investigation: software updates.
+- Source: [scout 2](notes/horizon/2026-11-07T0853Z/scout-2-security.md): disclosed 21 October, found by OpenAI's security researchers, root cause fixed upstream in February without a release, in CISA's catalogue from 27 October; PyPI's brotli 1.2.1 uploaded 22 October. Lighthouse met it only as the reason for PHP's Windows rebuilds of 26 October.
+- Why: a library fix with an unusually long gap between the upstream commit and a release, and a regulatory deadline, read with the instruments Lighthouse already has.
+- Cost: small to one study.
+- Next step: a brief, after reading the upstream history and the advisory raw.
+
 ### P-0001 Do the instruments' blind spots fall on a characteristic side?
 
 - Kind: new question. Priority: normal. Status: backlog. Investigation: the map of the terrain (programme.md, 27 October).
@@ -136,6 +177,40 @@ Each proposal: kind (watch, deepening, repair, new question, new investigation),
 - Why: the early pieces never had the review that later changed what claims meant.
 - Cost: one review per piece, about $1 to $3 each.
 - Next step: list the pieces and dispatch one at a time.
+
+## Leads from sweeps
+
+One line per lead not drawn up as a full proposal, with the scout's file for its sources. A sweep may draw any of them up later; the keeper may pick one by writing a line under it.
+
+From [2026-11-07T0853Z](notes/horizon/2026-11-07T0853Z.md):
+
+- L-0001 Exposed devices a small self-replicating model could use (unauthenticated ADB, Kimwolf-class counts), a baseline before the end of 2026 (scout 1). Time-sensitive. Part of P-0014.
+- L-0002 Exposed inference endpoints (Ollama and others): the IMC 2026 census ends in February; extend it from published scan counts (scout 5). Part of P-0014.
+- L-0003 Exposed agent control panels (OpenClaw), counted at 21,000 to 135,000 in January and February; no count since (scout 7). Part of P-0014.
+- L-0004 The token-stealing registry worm lineage since May: a wave timeline from OSV and OpenSSF data, with the residue reported (scout 3). Part of P-0014.
+- L-0005 The UK AI Security Institute's evaluation agents' 19 unsanctioned actions: check GH Archive for the 25 to 28 July events (scout 6). Part of P-0014.
+- L-0006 DIVD's attribution of a two-zero-day chain in Zammad to an autonomous agent; read DIVD's own page (scout 2).
+- L-0007 Anthropic's September threat report on persistent, scheduled, self-repairing agent operations (scout 1).
+- L-0008 Agent-to-agent carrier channels (memory, shared artefacts, skills) and the MCP-Eco dataset: where such channels exist publicly, without claiming spread (scout 5).
+- L-0009 Agent-authored pull-request load on forges, with a validated census method from arXiv 2606.24429 (scouts 1 and 5).
+- L-0010 Cloudflare's personal-agent controls and its bot classes and verified-bot directory: snapshots (scout 1). Weeks.
+- L-0011 Daily compute-market prices (H100 rental index, DDR5 spot, Chinese GPU rental indices), whose free history rolls over (scout 7). Time-sensitive.
+- L-0012 IETF 127 from 14 November: a dated census of agent, discovery, bot-authentication and AI-preference drafts (scout 6). Time-sensitive.
+- L-0013 A robots.txt AI-token baseline on a fixed site sample before any standard or crawler honours one (scouts 6 and 7).
+- L-0014 WordPress core CVE-2026-119977, listed 3 November: version-share uptake (scout 2). Time-sensitive.
+- L-0015 EPSS and catalogue lag as a daily archive; AI credit strings in CVE and OSV records (scout 2).
+- L-0016 Lighthouse's own refused requests as an instrument: a dated tally by source (scout 7). Repair.
+- L-0017 An audit of Lighthouse's own fetches against the finding that a fifth of HTTP 200 answers lack the page (scout 5). Repair.
+- L-0018 ModelScope beside Hugging Face, and the Chinese package mirrors: the half of the network Lighthouse does not mark (scout 7).
+- L-0019 Epoch AI's data-centre log, which keeps only recent entries: a recurring snapshot (scout 4).
+- L-0020 Automation-caused routing incidents (Cloudflare, January and February), checkable in RIS and RouteViews (scout 4).
+- L-0021 Agents with broad credentials deleting infrastructure, and a dated table of such incidents (scout 4).
+- L-0022 Japan's disclosed intrusions as a long non-English series (scout 7).
+- L-0023 Hugging Face agent-lure re-uploads (scout 3) and a tampered Claude Code extension on another editor's marketplace (scout 3).
+- L-0024 Courts treating an agent as a tool (Amazon v. Perplexity), and the EU AI Act's marking date, whose sources disagree (scout 6).
+- L-0025 Agent payment and tool-registry rails (scout 1, secondary sources only).
+- L-0026 Trace a "Hugging Face/OpenAI evaluation breach" mentioned in arXiv 2607.25379 (scout 5).
+- L-0027 Wikimedia's pageview API, which splits views into user, spider and automated (scout 7).
 
 ## Declined, parked and expired
 
