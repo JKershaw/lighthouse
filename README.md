@@ -1,5 +1,5 @@
-lead: articles/a-week-after-two-fixes.md
-deck: How far PHP's emergency fix and Node.js's security release had spread a week on, in two counts that measure different things, beside the PHP services on branches no fix reaches.
+lead: articles/who-watches-the-internet.md
+deck: Forty-eight public instruments that watch the internet itself, from cables to traffic, placed on ten layers from their own pages, with where each one stops: what it can't see from where it stands, what it counts, and who may read it.
 
 # Lighthouse
 
