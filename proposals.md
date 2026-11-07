@@ -33,62 +33,69 @@ Directions, blind spots and things to look at. The sweep reads this first and tr
 
 ## For the next review
 
-Rewritten by each sweep: what was started without review since the last review, what waits for the keeper, the top of the backlog with a recommendation for each, and the spend.
+Written by the sweep of 7 November 2026 (08:53 UTC), the first, run as a test.
 
-- The first sweep runs from 7 November 2026 (row horizon-2026-11-07). Until then, the backlog below is the candidates already written in programme.md, the open issues and the records' Next sections, gathered on 7 November and not yet gated.
+- **Started without review:** P-0015, how far the poisoned LiteLLM 1.107.0 travelled before it was pulled, under the gate's conditions. The throttle stands at 1 of 2 new studies this week, 0 of 2 urgent watches; the gate kept the second slot free for what the sweeps of 10 and 13 November find.
+- **Waiting for you:** P-0014, a third investigation (what AI activity costs the shared internet, and whether any of it sustains itself), and P-0013, the closing web, which would open under it. Recommendation: yes to both, with the gate's conditions on P-0013 (Lighthouse's own requests labelled and time-limited).
+- **The gate overruled the driving session** on P-0012 (GitHub's trigger change): not urgent, since nothing is lost by waiting, and overstated as a switch-off. It went to the backlog, as did P-0016 (Brotli).
+- **Leads the gate judged more urgent than some proposals:** L-0014 (WordPress core's version shares, which change daily and keep no history) and L-0011 (compute prices, whose free history rolls over). Either could take the free slot; recommendation: L-0014, which fits the software-updates instruments.
+- **Spend since the last review:** the sweep's seven scouts about $7.7 (six Sonnet 5.5 scouts unpriced, about $5 at Sonnet 5's rates; the Opus wildcard $2.68), the gate as in the commit.
 
 ## Started without review
 
-- (none yet)
+### P-0015 How far the poisoned LiteLLM 1.107.0 travelled before it was pulled
+
+- Kind: deepening. Priority: high. Status: started (gate, 7 November 2026: within the throttle, 1 of 2 this week). Investigation: software updates.
+- Source: [scout 3](notes/horizon/2026-11-07T0853Z/scout-3-supply-chain.md): LiteLLM 1.107.0 reported compromised on PyPI on 21 October, uploaded 11:39 UTC and quarantined about 13:20 UTC, the library's second compromise of 2026.
+- Why: the first case where Lighthouse's release-spread instruments (download counts, pins, lockfiles, container recipes) can follow a bad version rather than a good one, over a known window.
+- Cost: small; public download data and public repositories.
+- Next step: a brief, with PyPI's own record of the upload and quarantine read first.
+- Gate's conditions (notes/horizon/2026-11-07T0853Z.md, Gate): brief committed before any count is read; upload and removal times from a registry or OSV record, else labelled as reported (PyPI's JSON for 1.107.0 answered 404 at 09:22 UTC); the "second compromise of 2026" checked or dropped; a download is a fetch, not an install or an infection; aggregate figures only, naming no repository that pinned it; the malice attributed to Cloudsmith, Aikido and PyPI; public data only.
+
 
 ## Waiting for the keeper
 
-- (none yet)
-
-## Backlog
-
-Each proposal: kind (watch, deepening, repair, new question, new investigation), priority (urgent with its deadline, high, normal, lead), status (backlog, started, waiting, agreed, declined, parked, expired, done), the investigation it belongs to, where it came from with dates read, why it is worth asking, a rough cost, and the next step. Declined and expired proposals stay at the end with the reason, so they are not proposed again unchanged.
-
-### P-0012 GitHub switches off `pull_request_target` in public repositories: what breaks, what changes
-
-- Kind: watch. Priority: urgent, by 9 November 2026 16:00 UTC (first brownout). Status: proposed (gate below). Investigation: none yet; fits P-0014 if agreed, else software updates.
-- Source: [horizon sweep 2026-11-07T0853Z, scout 3](notes/horizon/2026-11-07T0853Z/scout-3-supply-chain.md): GitHub's changelog reports brownouts on 9 and 16 November, 16:00 to 18:00 UTC, and enforcement on 2 December; StepSecurity reports the trigger as the TanStack worm's entry point in May. Read through a fetch tool; the changelog is to be read raw before a brief.
-- Why: a platform closing the door a self-spreading worm used is a dated, public intervention on the road such spread travels; how many public workflows rely on the trigger, and what their owners do across the three dates, is observable.
-- Cost: small; GH Archive and public workflow files, a baseline before 9 November.
-- Next step: a brief fixed before outcomes: a sample of public repositories whose workflows use the trigger, read before, during and after each date.
-
-### P-0013 The closing web: shared infrastructure withdrawing anonymous access
-
-- Kind: watch, then a study. Priority: urgent (a baseline is worth more now than later). Status: proposed (gate below). Investigation: P-0014 if agreed.
-- Source: [scout 7](notes/horizon/2026-11-07T0853Z/scout-7-wildcard.md): kernel.org (29 August) reports about 6 million random-commit requests a day with legitimate traffic near 2 per cent, a proof-of-work wall in front and anonymous features to go; Wikimedia's API rate limits rolling out through 2026; CBC (5 November) on academic libraries knocked offline; COAR (June) on repositories blocking its checker and OAI-PMH. All reported, read through a fetch tool.
-- Why: the charter's degradation in its plainest form, already happening, and it decides what observers such as Lighthouse can still see.
-- Cost: one study; a weekly one-or-two-request check of a fixed panel (kernel.org, Wikimedia, Project Gutenberg, the forges, a random draw of OAI-PMH endpoints) recording status and any challenge page, the Wayback Machine to date each wall, and HTTP Archive's counts of challenge services.
-- Next step: a brief with the panel drawn by a rule before any status is read, and a baseline read.
-
 ### P-0014 A new investigation: what AI activity costs the shared internet, and whether any of it sustains itself
 
-- Kind: new investigation. Priority: high. Status: waiting for the keeper (opening an investigation always does). Investigation: new.
+- Kind: new investigation. Priority: high. Status: waiting for the keeper (opening an investigation always does; the gate agreed). Investigation: new.
 - Source: the sweep's first two themes ([sweep file](notes/horizon/2026-11-07T0853Z.md)): Anthropic's self-replication post of 12 October and a May paper on models copying themselves onto hacked hosts (scouts 1 and 5); the token-stealing registry worm lineage since May (scout 3); exposed inference endpoints and agent control panels, last counted in February (scouts 5 and 7); the UK AI Security Institute's evaluation agents taking 19 unsanctioned real-world actions (scout 6); operators closing anonymous access (P-0013); compute prices and forge load (scouts 7 and 1).
 - Why: the charter's question asked directly. The software-updates investigation learned the craft on ordinary roads; this one would watch the two things the charter names, AI activity that sustains or spreads itself and the cost it lays on shared infrastructure, each through public traces and with no claim of harm made in Lighthouse's voice.
 - Cost: an investigation page, then studies taken one at a time under the throttle; the first candidates are P-0013 and P-0012, a dated count of exposed inference endpoints and agent panels from published scanner counts (no scanning by Lighthouse), a timeline of the registry worm waves from public malware data, and a check of GH Archive for the evaluation agents' July events.
 - Model disclosure: Lighthouse runs on Anthropic's models, and Anthropic's post is among the sources; it is to be read as one company's claim.
 - Next step: the keeper's yes or no. If yes, an investigation page with its questions, and the throttle's third slot.
+- Gate's note: the sweep's grouping put lab evaluations, a human-run malware lineage, counts of exposed services and a report that found no real-world harm under one heading; the investigation's questions must keep them apart.
 
-### P-0015 How far the poisoned LiteLLM 1.107.0 travelled before it was pulled
+### P-0013 The closing web: shared infrastructure withdrawing anonymous access
 
-- Kind: deepening. Priority: high. Status: proposed (gate below). Investigation: software updates.
-- Source: [scout 3](notes/horizon/2026-11-07T0853Z/scout-3-supply-chain.md): LiteLLM 1.107.0 reported compromised on PyPI on 21 October, uploaded 11:39 UTC and quarantined about 13:20 UTC, the library's second compromise of 2026.
-- Why: the first case where Lighthouse's release-spread instruments (download counts, pins, lockfiles, container recipes) can follow a bad version rather than a good one, over a known window.
-- Cost: small; public download data and public repositories.
-- Next step: a brief, with PyPI's own record of the upload and quarantine read first.
+- Kind: watch, then a study. Priority: urgent (a baseline is worth more now than later). Status: waiting for the keeper (gate: it would open work under P-0014; Lighthouse's own requests would add to the load on operators who say they are overwhelmed). Investigation: P-0014 if agreed.
+- Source: [scout 7](notes/horizon/2026-11-07T0853Z/scout-7-wildcard.md): kernel.org (29 August) reports about 6 million random-commit requests a day with legitimate traffic near 2 per cent, a proof-of-work wall in front and anonymous features to go; Wikimedia's API rate limits rolling out through 2026; CBC (5 November) on academic libraries knocked offline; COAR (June) on repositories blocking its checker and OAI-PMH. All reported, read through a fetch tool.
+- Why: operators report withdrawing anonymous access under automated load (kernel.org names scrapers, not AI); if it holds, it is the charter's degradation in its plainest form, and it decides what observers such as Lighthouse can still see.
+- Cost: one study; a weekly one-or-two-request check of a fixed panel (kernel.org, Wikimedia, Project Gutenberg, the forges, a random draw of OAI-PMH endpoints) recording status and any challenge page, the Wayback Machine to date each wall, and HTTP Archive's counts of challenge services.
+- Next step: a brief with the panel drawn by a rule before any status is read, and a baseline read.
+- Gate's notes: label Lighthouse's own presence in the panel and give it an end date; access is unproven (Wikimedia answered 429 and the Wayback Machine reset the connection from the container).
+
+
+## Backlog
+
+Each proposal: kind (watch, deepening, repair, new question, new investigation), priority (urgent with its deadline, high, normal, lead), status (backlog, started, waiting, agreed, declined, parked, expired, done), the investigation it belongs to, where it came from with dates read, why it is worth asking, a rough cost, and the next step. Declined and expired proposals stay at the end with the reason, so they are not proposed again unchanged.
+
+### P-0012 GitHub blocks `pull_request_target` by default in public repositories: what breaks, what changes
+
+- Kind: watch. Priority: normal (the gate found nothing is lost by waiting: workflow history is kept in git and brownout failures stay on record). Status: backlog. Investigation: none yet; fits P-0014 if agreed, else software updates.
+- Source: [horizon sweep 2026-11-07T0853Z, scout 3](notes/horizon/2026-11-07T0853Z/scout-3-supply-chain.md): GitHub's changelog reports brownouts on 9 and 16 November, 16:00 to 18:00 UTC, and enforcement on 2 December; StepSecurity reports the trigger as the TanStack worm's entry point in May. Read through a fetch tool; the changelog is to be read raw before a brief.
+- Why: a platform closing the door a self-spreading worm used is a dated, public intervention on the road such spread travels; how many public workflows rely on the trigger, and what their owners do across the three dates, is observable.
+- Cost: small; GH Archive and public workflow files, a baseline before 9 November.
+- Next step: a brief fixed before outcomes: a sample of public repositories whose workflows use the trigger, read before, during and after each date.
+- Gate's notes (GitHub's changelog read raw, 09:22 UTC): blocked by default, re-enabled by a repository's event policy, so not "switched off"; enforcement already moved once, from 2 November; the trigger is one reported worm entry point among several; no sampling frame for affected repositories is named yet.
 
 ### P-0016 Brotli's CVE-2026-111497: how far the fix had spread by CISA's deadline
 
-- Kind: deepening. Priority: normal, time-sensitive (CISA's federal deadline 10 November). Status: proposed (gate below). Investigation: software updates.
+- Kind: deepening. Priority: normal, time-sensitive (CISA's federal deadline 10 November). Status: backlog. Investigation: software updates.
 - Source: [scout 2](notes/horizon/2026-11-07T0853Z/scout-2-security.md): disclosed 21 October, found by OpenAI's security researchers, root cause fixed upstream in February without a release, in CISA's catalogue from 27 October; PyPI's brotli 1.2.1 uploaded 22 October. Lighthouse met it only as the reason for PHP's Windows rebuilds of 26 October.
 - Why: a library fix with an unusually long gap between the upstream commit and a release, and a regulatory deadline, read with the instruments Lighthouse already has.
 - Cost: small to one study.
 - Next step: a brief, after reading the upstream history and the advisory raw.
+- Gate's notes: whether a model found the flaw is not established, and OpenAI competes with the company whose models Lighthouse runs on, so the model disclosure applies; adding it to "When a model finds the bug" would widen that investigation, the keeper's call.
 
 ### P-0001 Do the instruments' blind spots fall on a characteristic side?
 
