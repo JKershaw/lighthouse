@@ -4,7 +4,7 @@
 
 import fs from "node:fs";
 import path from "node:path";
-import { REPO_URL, isIgnored, pageUrl, sourceUrl } from "./repo.js";
+import { REPO_URL, formatDate, isIgnored, pageUrl, plainText, sourceUrl } from "./repo.js";
 
 export const SCHEDULE_TABLE = "schedule/due.csv";
 
@@ -85,6 +85,47 @@ export function dayOf(row) {
   return ["done", "missed", "running"].includes(row.status) ? (row.updated || "").slice(0, 10) : "";
 }
 
+// A page's title as a reader sees it: its header's title, else its first heading.
+function titleOf(root, rel) {
+  try {
+    const text = fs.readFileSync(path.join(root, rel), "utf8");
+    const m = text.match(/^title:\s*(.+)$/m) || text.match(/^#\s+(.+)$/m);
+    return m ? plainText(m[1].trim()) : rel;
+  } catch {
+    return rel;
+  }
+}
+
+// "2026-11-06T1416Z" as a time and as words.
+function runTime(label) {
+  const m = String(label || "").match(/^(\d{4}-\d{2}-\d{2})T(\d{2})(\d{2})Z$/);
+  if (!m) return { iso: "", words: label || "" };
+  return { iso: `${m[1]}T${m[2]}:${m[3]}Z`, words: `${formatDate(new Date(`${m[1]}T00:00:00Z`))}, ${m[2]}:${m[3]} UTC` };
+}
+
+// The front page's view of the newest run: when it started and what it
+// finished, each linked to what it produced, newest work being unreviewed.
+export function latestRun(run, rows, root, shown = 4) {
+  if (!run) return null;
+  const seen = new Set();
+  const done = [];
+  for (const r of rows) {
+    if (!["done", "missed"].includes(r.status) || !run.started || !(r.by || "").includes(run.started)) continue;
+    const made = r.refs.find((p) => p.page);
+    const href = made ? made.href : r.href;
+    if (href && seen.has(href)) continue;
+    if (href) seen.add(href);
+    const rel = made ? made.text.replace(/^\/+/, "") : "";
+    done.push({ text: r.status === "missed" ? `${r.id} (missed)` : rel ? titleOf(root, rel) : r.id, href });
+  }
+  const t = runTime(run.started);
+  const more = Math.max(0, done.length - shown);
+  const last = more ? "" : (done.length ? done[Math.min(done.length, shown) - 1].text : run.did || "");
+  // The sentence's full stop, unless the last title already ends one.
+  const stop = /[.?!]$/.test(last) ? "" : ".";
+  return { started: run.started, iso: t.iso, when: t.words, by: run.by, did: run.did, done: done.slice(0, shown), more, count: done.length, stop };
+}
+
 export function buildSchedule(root, now = new Date()) {
   const file = path.join(root, SCHEDULE_TABLE);
   if (!fs.existsSync(file)) return null;
@@ -129,6 +170,7 @@ export function buildSchedule(root, now = new Date()) {
     recent: rows.filter((r) => ["done", "missed"].includes(r.state)).sort((a, b) => (b.updated || "").localeCompare(a.updated || "")).slice(0, 12),
     range: { first, last },
     lastRun: runs[0] || null,
+    latestRun: latestRun(runs[0], rows, root),
     runs: runs.slice(0, 8).map((r) => ({ ...r, commitUrl: /^[0-9a-f]{7,40}$/.test(r.commit || "") ? `${REPO_URL}/commit/${r.commit}` : "" })),
   };
 }

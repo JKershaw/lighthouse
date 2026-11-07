@@ -21,8 +21,9 @@
 </section>
 {% else %}<h1>Lighthouse</h1>{% endif %}
 
-{% if repo.watch or repo.front.latest.length %}<section class="front-section" aria-labelledby="latest-title">
+{% if repo.watch or repo.front.latest.length or schedule.latestRun %}<section class="front-section" aria-labelledby="latest-title">
   <h2 id="latest-title">Latest</h2>
+  {% if schedule.latestRun %}{% include "home-run.njk" %}{% endif %}
   {% if repo.watch %}{% include "home-watch.njk" %}{% endif %}
   {% if repo.front.latest.length %}<ol class="compact-entries">
     {% for p in repo.front.latest %}{% include "compact-entry.njk" %}{% endfor %}

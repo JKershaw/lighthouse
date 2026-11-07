@@ -6,7 +6,7 @@ import assert from "node:assert/strict";
 import fs from "node:fs";
 import os from "node:os";
 import path from "node:path";
-import { buildSchedule, refParts, dayOf } from "../lib/schedule.js";
+import { buildSchedule, refParts, dayOf, latestRun } from "../lib/schedule.js";
 
 const HEAD = "id,study,task,earliest,latest,status,updated,by,ref,note";
 
@@ -74,5 +74,58 @@ test("a finished row's chip leads to what it produced; an unfinished one to its 
     assert.equal(s.recent[0].id, "LH001-raw");
     assert.equal(s.runs[0].commitUrl, "https://github.com/JKershaw/lighthouse/commit/0d10641");
     assert.equal(s.runs[1].commitUrl, "");
+  });
+});
+
+test("the latest run lists what it finished, each linked to what it produced, without repeats", () => {
+  const table = [
+    HEAD,
+    "LH001-2026-11-05,LH001,Thursday read,2026-11-05,2026-11-06,done,2026-11-05,\"scheduled run 2026-11-05T1414Z (Claude Code, Anthropic cloud)\",studies/LH001/checkpoints/2026-11-05.md,",
+    "LH002-2026-11-05,LH002,Thursday read,2026-11-05,2026-11-06,done,2026-11-05,\"scheduled run 2026-11-05T1414Z (Claude Code, Anthropic cloud)\",studies/LH002/LH002.md,",
+    "log-2026-11-05,log,The day's log,2026-11-05,2026-11-06,done,2026-11-05,\"scheduled run 2026-11-05T1414Z (Claude Code, Anthropic cloud)\",notes/log.md (5 November),",
+    "log-again,log,The day's log again,2026-11-05,2026-11-06,done,2026-11-05,\"scheduled run 2026-11-05T1414Z (Claude Code, Anthropic cloud)\",notes/log.md,",
+    "LH003-old,LH003,An older read,2026-11-02,2026-11-03,done,2026-11-02,\"scheduled run 2026-11-02T1524Z (Claude Code, Anthropic cloud)\",studies/LH003/LH003.md,",
+    "LH001-next,LH001,Monday read,2026-11-09,2026-11-10,open,2026-11-05,\"scheduled run 2026-11-05T1414Z (Claude Code, Anthropic cloud)\",,",
+  ].join("\r\n") + "\r\n";
+  withRepo({
+    "schedule/due.csv": table,
+    "schedule/runs.csv": "started,by,did,commit\n2026-11-02T1524Z,scheduled run,older,\n2026-11-05T1414Z,scheduled run (Claude Code; Anthropic cloud),\"reads done, log\",7d15779\n",
+    "studies/LH001/checkpoints/2026-11-05.md": "# LH001 reads: 5 November 2026\n",
+    "studies/LH002/LH002.md": "title: LH002: Does *the* fix travel?\nkind: study\n\n# Ignored heading\n",
+    "notes/log.md": "# The watch log\n",
+  }, (root) => {
+    const run = buildSchedule(root, new Date("2026-11-07T08:00:00Z")).latestRun;
+    assert.equal(run.iso, "2026-11-05T14:14Z");
+    assert.equal(run.when, "5 November 2026, 14:14 UTC");
+    assert.equal(run.count, 3);
+    assert.deepEqual(run.done, [
+      { text: "LH001 reads: 5 November 2026", href: "/studies/LH001/checkpoints/2026-11-05/" },
+      { text: "LH002: Does the fix travel?", href: "/studies/LH002/LH002/" },
+      { text: "The watch log", href: "/notes/log/" },
+    ]);
+    assert.equal(run.more, 0);
+    assert.equal(run.stop, ".");
+  });
+});
+
+test("a run that finished no row shows its own line; four items show, the rest are counted", () => {
+  withRepo({
+    "schedule/due.csv": HEAD + "\n" + ["a", "b", "c", "d", "e", "f"].map((x) => `${x},LH00${x},Read,2026-11-05,2026-11-06,done,2026-11-05,run 2026-11-05T1414Z,,`).join("\n") + "\n",
+    "schedule/runs.csv": "started,by,did,commit\n2026-11-05T1414Z,run,six reads,\n",
+  }, (root) => {
+    const run = buildSchedule(root, new Date("2026-11-07T08:00:00Z")).latestRun;
+    assert.equal(run.count, 6);
+    assert.equal(run.done.length, 4);
+    assert.equal(run.more, 2);
+    assert.equal(run.stop, ".");
+  });
+  withRepo({
+    "schedule/due.csv": HEAD + "\n",
+    "schedule/runs.csv": "started,by,did,commit\n2026-11-04T1414Z,run,nothing due,\n",
+  }, (root) => {
+    const run = buildSchedule(root, new Date("2026-11-07T08:00:00Z")).latestRun;
+    assert.equal(run.count, 0);
+    assert.equal(run.did, "nothing due");
+    assert.equal(latestRun({ started: "2026-11-06T1416Z", did: "" }, [{ status: "done", by: "run 2026-11-06T1416Z", refs: [], href: "/x/", id: "Is it so?" }], root).stop, "");
   });
 });
