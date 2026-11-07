@@ -1,5 +1,7 @@
 # LH038: When was CVE-2026-98432 reported, fixed, numbered, shipped and described, and how do those dates sit beside the disclosure policies each party states?
 
+**In short** (added 7 November 2026; not part of the protocol). When an AI model finds a serious flaw, how do the dates of its public life line up with the disclosure rules the parties say they follow? For the same kernel flaw, we'll build a dated timeline from public sources (report, fix, CVE, distribution advisories, Anthropic's post) and set it beside six published disclosure policies. One read from 17 November; the record by 30 November.
+
 **Protocol 0.1, fixed 4 November 2026, before this study read any source about the timeline of CVE-2026-98432.** Writer: a scheduled run (Claude Code, Claude Opus 5.5), from row `disclosure-timeline-brief`, question 2 of the investigation [When a model finds the bug](../../investigations/model-found-bugs.md). The disclosure policies the comparison uses were read first, on 4 November between 14:15 and 14:17 UTC, and are kept under [data/](data/) with their [read script](scripts/policies.py) and [list](policies.json); they say nothing about this CVE. The frame, the [panel](panel.json) of fixed URLs and the [collector](scripts/collect.py) are committed with this brief.
 
 ## Question

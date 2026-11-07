@@ -8,7 +8,7 @@ import os from "node:os";
 import path from "node:path";
 import { fileURLToPath } from "node:url";
 import { execFileSync } from "node:child_process";
-import { scanRepo, bylineDate, longDate, parseRevision, noticeDates, pieceInfo, watchLog, onWatch } from "../lib/repo.js";
+import { scanRepo, bylineDate, longDate, parseRevision, noticeDates, pieceInfo, watchLog, onWatch, inShortOf } from "../lib/repo.js";
 import { atomFeed, feedEntries, escapeXml } from "../lib/feed.js";
 import { parseHeader } from "../lib/header.js";
 import { markNotices, arrangeOpening, arrangePiece, noticeKind } from "../lib/html.js";
@@ -418,4 +418,13 @@ test("on watch: studies read in the last week, newest first, under their short l
   ];
   const w = onWatch(studies, { "studies/LH030": "PHP's mitigation advice" }, new Date("2026-11-07T09:00:00Z"));
   assert.deepEqual(w.map((x) => [x.id, x.label, x.day]), [["LH037", "LH037", "5 Nov"], ["LH030", "PHP's mitigation advice", "5 Nov"]]);
+});
+
+test("in short: a document's plain opening, else its answer or question", () => {
+  assert.deepEqual(inShortOf("# T\n\n**Study:** x.\n\n**In short.** A plain *summary* with a [link](a.md).\n\n## Answer\n\nDense."), { inShort: "A plain summary with a link.", inShortFrom: "in short" });
+  assert.equal(inShortOf("# T\n\nIntro.\n\nIn short: no KEV listing.\n\nMore.").inShort, "no KEV listing.");
+  assert.deepEqual(inShortOf("# T\n\n## Answer\n\nThe answer so far.\n\nMore."), { inShort: "The answer so far.", inShortFrom: "answer" });
+  assert.equal(inShortOf("# T\n\n## Question\n\nWhat moves?\n").inShortFrom, "question");
+  assert.equal(inShortOf("# T\n\n## Answer\n\n| a | b |\n").inShort, "");
+  assert.deepEqual(inShortOf("# T\n\n**In short** (added 7 November 2026; not part of the protocol). Plain words.\n\n## Question\n\nDense."), { inShort: "Plain words.", inShortFrom: "in short" });
 });

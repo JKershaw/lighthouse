@@ -512,6 +512,11 @@ td:last-child, th:last-child { padding-right: 0; }
 .now-box strong { color: var(--ink); font-weight: 600; }
 .now-box .tag { margin-right: 0.35em; }
 .now-head { color: var(--muted); }
+
+/* A study page opens with its plain summary, then its latest read. */
+.in-short { font-size: 1.02rem; line-height: 1.55; margin: 0.6rem 0 0.9rem; max-width: 42rem; }
+.in-short-latest { font-size: 0.92rem; color: var(--muted); }
+.in-short-latest strong, .in-short strong { color: var(--ink); }
 .watch-flag { color: var(--ink); }
 
 /* Essays: a column, not a report. An italic opening, more air, and an

@@ -1,5 +1,7 @@
 # LH036: How do the public signals about CVE-2026-98432 move, from its fix on 15 October 2026 through Anthropic's account of an exploit on 27 October, and where has the fix landed?
 
+**In short** (added 7 November 2026; not part of the protocol). Anthropic said on 27 October that its model wrote a working exploit for CVE-2026-98432, a serious Linux kernel flaw fixed on 15 October. We watch the public signals defenders rely on: CISA's list of exploited flaws, the EPSS exploit-prediction score, how the official record is scored and enriched, and fixes from Debian, Ubuntu, Red Hat and SUSE. Reads are twice a week, until 13 January 2027 or 14 days after a CISA listing. The exploit and the post are Anthropic's, and Lighthouse runs on Anthropic's models.
+
 **Protocol 0.1, fixed 1 November 2026, before this study's first read of any panel URL under it and before any EPSS history for this CVE was read.** Writer: a Claude Code driving session (Claude Opus 5.5), at the keeper's request. The core watch of the investigation [When a model finds the bug](../../investigations/model-found-bugs.md). The frame, measures, schedule and [collector](scripts/collect.py) are committed together; [panel.json](panel.json) fixes every URL.
 
 ## Question

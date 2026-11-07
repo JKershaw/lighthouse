@@ -316,9 +316,25 @@ export function onWatch(studies, labels, now = new Date(), days = 7) {
     .filter((s) => s.checkpoints && s.checkpoints.length && s.checkpoints[0].key.slice(0, 10) >= since)
     .map((s) => {
       const c = s.checkpoints[0];
-      return { id: s.id, label: labels[s.dir] || labels[`${s.dir}/`] || s.id, url: c.url, key: c.key, day: short.format(new Date(`${c.key.slice(0, 10)}T00:00:00Z`)) };
+      return { id: s.id, label: labels[s.dir] || labels[`${s.dir}/`] || s.id, url: s.url, checkpointUrl: c.url, key: c.key, day: short.format(new Date(`${c.key.slice(0, 10)}T00:00:00Z`)) };
     })
     .sort((a, b) => b.key.localeCompare(a.key) || a.id.localeCompare(b.id, "en", { numeric: true }));
+}
+
+// A working document's opening for people (AGENTS.md, Writing): a paragraph
+// beginning "In short" among its first few, else the first paragraph of its
+// "Answer" section (a record) or "Question" section (a brief).
+export function inShortOf(body) {
+  const text = String(body || "").replace(/\r\n?/g, "\n");
+  const paras = text.split(/\n\s*\n/).map((p) => p.trim()).filter((p) => p && !p.startsWith("#"));
+  const OPEN = /^(?:\*\*)?In short(?:[.:](?:\*\*)?|(?:\*\*)?(?: \([^)]*\))?[.:])\s+/;
+  const lead = paras.slice(0, 6).find((p) => OPEN.test(p));
+  if (lead) return { inShort: plainText(lead.replace(OPEN, "")), inShortFrom: "in short" };
+  for (const [name, from] of [["Answer", "answer"], ["Question", "question"]]) {
+    const m = text.match(new RegExp(`^##\\s+${name}\\b[^\\n]*\\n+([\\s\\S]*?)(?:\\n\\s*\\n|$)`, "m"));
+    if (m && m[1].trim() && !m[1].trim().startsWith("|")) return { inShort: plainText(m[1].trim()), inShortFrom: from };
+  }
+  return { inShort: "", inShortFrom: "" };
 }
 
 // When a checkpoint was written: the date and time in its file name
@@ -419,6 +435,7 @@ export function scanRepo(root, { siteFile = path.join(root, "site", "site.json")
       version: header ? header.version : "",
       docDate: header ? formatDate(headerDate(header.date)) : "",
       ownH1: (!header || isPiece) && startsWithH1,
+      ...inShortOf(body),
       summary: "",
       time,
       added: added.get(rel) || time,
@@ -555,10 +572,10 @@ export function scanRepo(root, { siteFile = path.join(root, "site", "site.json")
       const below = pages.filter((p) => p.path.startsWith(`${d}/`));
       const checkpoints = below
         .filter((p) => path.posix.dirname(p.path) === `${d}/checkpoints`)
-        .map((p) => ({ ...link(p), ...checkpointWhen(p) }))
+        .map((p) => ({ ...link(p), ...checkpointWhen(p), inShort: p.inShortFrom === "in short" ? p.inShort : "" }))
         .sort((a, b) => b.key.localeCompare(a.key) || b.path.localeCompare(a.path));
       const time = Math.max(0, ...below.map((p) => p.time));
-      return { id, dir: d, url: `/${d}/`, source: sourceUrl(d, true), writeup, lead, others, checkpoints, time, changed: formatDate(time) };
+      return { id, dir: d, url: `/${d}/`, source: sourceUrl(d, true), writeup, lead, others, checkpoints, time, changed: formatDate(time), inShort: lead ? lead.inShort : "", inShortFrom: lead ? lead.inShortFrom : "" };
     })
     .filter((s) => s.lead)
     .sort((a, b) => b.id.localeCompare(a.id, "en", { numeric: true }));

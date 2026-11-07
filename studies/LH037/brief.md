@@ -1,5 +1,7 @@
 # LH037: Which of the most-exploited vendors say their products carry the PHP flaws of 21 October 2026, on which PHP branch, and when do their fixes appear?
 
+**In short** (added 7 November 2026; not part of the protocol). Many vendors ship their own copy of PHP inside products such as firewalls and appliances, and fix it on their own clocks. Twice a week we read what the 20 vendors with most entries in CISA's list of exploited flaws say about the October PHP flaws. At the 5 November read (unreviewed checkpoint), 6 of the 20 had a statement naming the flaws, 7 had none we could find, 5 could not be read and 2 have no channel to read; Google, on 2 November, was the first to say which PHP branches some of its products carry.
+
 **Protocol 0.1, fixed 1 November 2026, before this study opened any vendor advisory, feed or listing.** The panel rule was committed first and alone (commit `f0eae21`, "LH037 panel rule fixed before it is run"), and [selection.json](selection.json) was computed from it afterwards; this commit adds the frame, measures, schedule, [panel.json](panel.json) with every route, and the [collector](scripts/collect.py). Writer: a scheduled run (Claude Code, Claude Opus 5.5), from row `appliance-panel-brief` (notes/R-0044-php-compromise-reader.md, recommendation 3; notes/php-discovery-2026-10-23/ledger.md, candidate (c)). Part of the PHP watch in [Software updates](../../investigations/software-updates.md).
 
 ## Question

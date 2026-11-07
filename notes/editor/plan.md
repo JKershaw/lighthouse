@@ -36,6 +36,7 @@ It keeps screenshots only in the scratchpad, not the repository. It is told not 
 
 The run that dispatched the reader then acts as editor, reading the reader's answers beside what the run itself knows:
 
+- **Check the plain openings.** Every study on the front page should open with an "In short" paragraph that a newcomer can follow (AGENTS.md, Writing). Write a missing one from the document's own text, or rewrite one that reads stiffly or has drifted from its record.
 - **Fix small things now:** a broken link, a stale date, a layout fault, a missing label in site/sections.md (each study on watch has a short label there, "studies/LH0xx | label"). AGENTS.md: fix small things without filing them.
 - **Keep the front page current,** which is ordinary work: README.md's lead and deck among released findings, its introduction when the investigations change, the investigation pages. A released piece's prose is never changed here; that goes through its reviews.
 - **Coverage of what is happening.** If a watch, the daily log or a sweep turned up something a reader should see today and the front page does not show it, the editor says so. Unreviewed material is shown only in the Now box, labelled; anything stated as a finding needs a piece and its reviews, so the editor adds a proposal (kind: piece) for a reviewed note, urgent where the news is time-bound. Lighthouse's own claim of harm or compromise still waits for the keeper.
