@@ -122,6 +122,7 @@ Each proposal: kind (watch, deepening, repair, new question, new investigation),
 - Cost: small to start: a classification column for the map's rows and for every source a study recorded as unread, refused, withheld or dropped since September, from the records' own fetch logs; then a short essay or note if the pattern earns one.
 - Next step: the next horizon sweep reads this first (From the keeper) and decides the form; a natural first step is a table of tonight's refusals and walls by class, from the fetch logs of LH041 to LH046.
 - The keeper's route (the keeper, 8 November 2026): where an agent's limit is a request, a rule it complies with or a wall, the keeper, as the human researcher, can sometimes help: a subscription, a script run on the keeper's own machine, an account a task then names. The same warnings apply as to agents too keen to answer a question (essays/it-was-only-a-test.md; notes/incidents/2026-11-08-robots-partial-read/). So: an ask to the keeper is a proposal in this file, saying what the data would answer, which class kept it out, what the study does without it, and that "no" is an acceptable answer; the keeper's help never extends to a route Lighthouse does not consider (re-identifying what a source anonymised, getting round a wall, breaking a source's terms), since a person doing it on an agent's behalf is the same act; and data obtained that way says so in its record (who obtained it, how, under what terms, when), so a reader can tell it from what any reader could fetch.
+
 ### P-0021 A price for compute that Lighthouse may keep
 
 - Kind: repair of an instrument for an active investigation. Priority: normal. Status: backlog (the keeper, 8 November 2026: wait; no publisher is contacted). Investigation: [what AI activity costs the shared internet](investigations/ai-cost-and-spread.md).
@@ -130,6 +131,14 @@ Each proposal: kind (watch, deepening, repair, new question, new investigation),
 - Cost: small once permitted.
 - Next step: the keeper's choice between two routes, both outside what a session may do alone: ask one publisher (Silicon Data's public index is the closest fit) for written consent to keep and publish its daily index with attribution, which is contacting a third party; or look further for an openly licensed price series (none found in a bounded check of five sources, 8 November 2026). Until then no series is kept, and a single attributed figure may be quoted in a dated sentence.
 - Keeper, 2026-11-08: agreed, we wait. A sweep or study that finds an openly licensed daily price series draws this up again; no publisher is asked.
+
+### P-0023 One shared fetcher for every collector and ad hoc read
+
+- Kind: repair of method. Priority: high. Status: backlog (proposed by LH047, 8 November 2026, for the next sweep to gate). Investigation: none; every study that reads other people's sites.
+- Source: [studies/LH047/LH047.md](studies/LH047/LH047.md) (record 0.1, unreviewed), Findings F5 to F12, and its [for-driver note](studies/LH047/for-driver.md): collectors that read no robots.txt (96 of the 97 robots.txt breaches the audit counted), an unreachable robots.txt treated as permission where RFC 9309 says assume complete disallow, robots.txt cut at 64 KiB against the standard's floor of 500 KiB, a reviewer that did not name Lighthouse, Crawl-delay not honoured, 51 requests in no repository log, and whole pages kept where a Content-Signal `use=reference` asks for excerpts.
+- Why: each fault was a collector doing its own fetching; one fetcher would make the keeper's robots.txt rule (AGENTS.md, Rules that matter) hold everywhere by construction rather than by each study's care.
+- Cost: small to medium: one module under scripts/, then each collector moved onto it by a dated amendment in its brief.
+- Next step: scripts/robots_gate.py now exists, and row robots-sweep-1 (open, 9 to 16 November) brings every collector under it; this proposal widens that to a fetcher that reads robots.txt whole (at least 500 KiB), follows its redirects, obeys the token rule from scripts/robots_tokens.json, treats unreachable as disallow, honours Crawl-delay, sends the Lighthouse User-Agent, logs every request into the study's folder, and refuses when any of that fails. LH047's scripts/robots9309.py and scripts/fetch.py are a starting point but do not yet honour Crawl-delay.
 
 ### P-0020 Widen the map of instruments on its thin layers: names and the IPv6 address space
 
@@ -315,6 +324,9 @@ From the studies and site work of 8 November 2026:
 - L-0042 A test of the essay's post hoc reading that fetch counts of a newly pinned package track its pinning repositories' CI activity rather than new adopters ([the essay's notes](notes/what-the-watch-would-see-draft-notes.md)). Low priority.
 - L-0043 When did GH Archive's non-push event types thin, and did any reach zero? LH046's 16 reference hours show pull request events per hour falling from 11,989 (1 January 12:00) to 95 (15 August 12:00) while pushes rose; bears on LH043's July hour (425 pull request events) and on any 2026 reading. Repair; small, the same collector on more hours ([LH046](studies/LH046/LH046.md), finding 8).
 - L-0044 No tag or repository creation appeared in any of 1,808,380 CreateEvents in the 2026 GH Archive files LH046 read, though GitHub's docs list both; whether that holds for 2025 is unread ([LH046](studies/LH046/LH046.md), finding 9).
+- L-0045 User-triggered fetchers and robots.txt: how many robots.txt files that disallow an AI company's training crawler also disallow its user-triggered fetcher (ChatGPT-User, Claude-User, Perplexity-User), and does that change over time? The closing web's 161 kept files are a baseline; overlaps L-0013 and L-0039 ([LH047](studies/LH047/LH047.md)).
+- L-0046 TollBit's figure 4.3 (per-bot bypass rates, including Anthropic's bots) was not read, because of LH047's three-request cap per host; a later read could add it.
+- L-0047 Kim et al., IMC 2025, "Scrapers selectively respect robots.txt directives", was not read: arXiv is an audited host in LH047 and the ACM copy answered with a challenge.
 
 ## Declined, parked and expired
 

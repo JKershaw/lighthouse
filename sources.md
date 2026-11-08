@@ -282,3 +282,52 @@ https://github.blog/changelog/2026-10-15-email-notifications-for-repository-push
 GitHub's status page's incident feed: the last 50 incidents, 31 August to 8 November 2026, when LH046 read it on 8 November 2026. No incident names the public events API.
 
 https://www.githubstatus.com/api/v2/incidents.json
+
+### S46 RFC 9309, the Robots Exclusion Protocol
+
+The IETF standard for robots.txt (Koster, Illyes, Zeller and Sassman, September 2022): groups by product token, longest-match rules, "complete disallow" when robots.txt is unreachable, a parsing floor of 500 KiB, and "these rules are not a form of access authorization". Read 8 November 2026 (studies/LH047/data/reads/catalogue-1/001.body).
+
+https://www.rfc-editor.org/rfc/rfc9309.txt
+
+### S47 Cloudflare's Content Signals Policy and managed robots.txt
+
+Cloudflare's documentation of the `Content-Signal` line (search, ai-input, ai-train, and the experimental use= field), its default, and the policy text's claim to be a condition of access and an Article 4 reservation. Page last updated 2 November 2026; read 8 November 2026 (studies/LH047/data/reads/catalogue-2/003.body).
+
+https://developers.cloudflare.com/bots/additional-configurations/managed-robots-txt/
+
+### S48 IETF AI Preferences drafts (vocabulary and attachment)
+
+draft-ietf-aipref-vocab and draft-ietf-aipref-attach, editor's copies dated 14 September 2026 (revisions 08 and 05 in LH045's census): the train-ai, ai-use and search categories, the Content-Usage header and robots.txt rule, and the statement that the vocabulary does not ensure preferences are followed. Read 8 November 2026 (studies/LH047/data/reads/catalogue-2/004.body, 005.body).
+
+https://ietf-wg-aipref.github.io/drafts/draft-ietf-aipref-vocab.txt
+https://ietf-wg-aipref.github.io/drafts/draft-ietf-aipref-attach.txt
+
+### S49 ai.robots.txt
+
+A community list of 204 AI crawler and agent tokens with operators' stated purposes and robots.txt policies, and ready-made robots.txt and server block files. Read 8 November 2026 through the jsDelivr mirror of its repository (studies/LH047/data/reads/catalogue-2/013.body to 015.body).
+
+https://cdn.jsdelivr.net/gh/ai-robots-txt/ai.robots.txt@main/robots.json
+
+### S50 Anthropic, "Does Anthropic crawl data from the web, and how can site owners block the crawler?"
+
+Anthropic's description of ClaudeBot, Claude-User and Claude-SearchBot, its statements that they honour robots.txt and Crawl-delay and do not bypass CAPTCHAs, and its recognition from 30 October 2026 of a "no AI training" signal. Lighthouse runs on Anthropic's models. Read 8 November 2026 (studies/LH047/data/reads/catalogue-2/018.txt).
+
+https://support.claude.com/en/articles/8896518-does-anthropic-crawl-data-from-the-web-and-how-can-site-owners-block-the-crawler
+
+### S51 TollBit, State of the Bots reports
+
+A publisher-tools company's quarterly reports from its customers' logs: the share of AI scrapes that fetched pages the publisher disallowed to that bot by name (3.3% in Q4 2024, 12.9% by March 2025, 13.26% in Q2 2025, about 15% in H1 2026), with per-bot figures. TollBit sells licensing and paywall services. Read 8 November 2026 (studies/LH047/data/reads/evidence-1/001.body, 002.body).
+
+https://tollbit.com/bots/24q4/
+
+### S52 Liu et al., "Somesite I Used To Crawl", ACM IMC 2025
+
+UC San Diego and University of Chicago researchers' test sites, September 2024 to March 2025: seven of nine AI crawlers that visited respected robots.txt, ClaudeBot among them; most third-party assistant fetchers did not. Read 8 November 2026 from the authors' copy (studies/LH047/data/reads/evidence-1/007.body).
+
+https://www.sysnet.ucsd.edu/~voelker/pubs/robots-imc25.pdf
+
+### S53 Cloudflare, "Perplexity is using stealth, undeclared crawlers to evade website no-crawl directives"
+
+Cloudflare's account (4 August 2025) of a test with new domains, of an undeclared crawler it attributes to Perplexity, and of ChatGPT-User stopping at robots.txt in the same test; Perplexity disputes it (its reply unread: a challenge). Read 8 November 2026 (studies/LH047/data/reads/evidence-1/004.txt).
+
+https://blog.cloudflare.com/perplexity-is-using-stealth-undeclared-crawlers-to-evade-website-no-crawl-directives/
