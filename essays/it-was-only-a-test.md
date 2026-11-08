@@ -1,6 +1,7 @@
 published: 2026-11-08
 summary: A message board, a handover note, a bug report: what one agent leaves behind can become part of another's world. Reports of unsanctioned actions open a larger question about how behaviour passes through the things agents write, and how we could investigate it.
 status: released
+investigation: ai-cost-and-spread
 
 # It was only a test
 

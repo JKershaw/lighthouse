@@ -4,6 +4,8 @@ id: ai-cost-and-spread
 attention: active
 question: What does AI activity cost the infrastructure everyone shares, as the people who run it report and as public traces show, and is any of that activity sustaining or spreading itself outside a lab?
 started: 2026-11-08
+pieces:
+- essays/it-was-only-a-test.md
 
 ## Why this, and why now
 
