@@ -181,20 +181,16 @@ for d in sorted({day(first[l]) for l in sets["wholeday"]}):
             P(f"    {f['label']}: push minutes {sum(1 for m in ms if m[2])}/60, longest run without push "
               f"{first[f['label']]['longest_zero_push_run_min']} min; per minute: " + " ".join(str(m[2]) for m in ms))
 
-P("  Within partial push hours: events of other types per minute, in minutes with PushEvents against minutes without")
-ratios = []
-for f in frows:
-    if f["set"] == "reread" or not f.get("partial_push_hour"):
-        continue
-    ms = mins[(f["label"], f["set"])]
-    on = [e - p for _, e, p, _ in ms if p > 0]
-    off = [e - p for _, e, p, _ in ms if p == 0]
+P("  Control types (PR, issues, issue comments, stars) per file on whole days with both kinds of hour:")
+P("  files with no PushEvent against files with PushEvents and no minute without one (per-minute DeleteEvents were not kept,")
+P("  so a per-minute comparison of the other types would mix them in; this compares whole files of the same day)")
+for d in sorted({day(first[l]) for l in sets["wholeday"]}):
+    fs = [FF.get(f"{d}-{h}") for h in range(24)]
+    fs = [f for f in fs if f and f.get("events") is not None]
+    on = [f["control"] for f in fs if f["PushEvent"] > 0 and not f["partial_push_hour"]]
+    off = [f["control"] for f in fs if f["PushEvent"] == 0]
     if on and off:
-        a, b = st.mean(on), st.mean(off)
-        ratios.append(a / b if b else float("inf"))
-        P(f"    {f['label']}: {len(on)} minutes with pushes, mean {a:,.0f} other events/min; {len(off)} without, mean {b:,.0f}; ratio {a/b if b else float('inf'):.1f}")
-if ratios:
-    P(f"    median ratio over {len(ratios)} partial push hours: {st.median(ratios):.1f} (range {min(ratios):.1f}-{max(ratios):.1f})")
+        P(f"    {d}: no pushes n={len(off)}, control median {st.median(off):,.0f}; pushes all hour n={len(on)}, control median {st.median(on):,.0f}")
 P("  Where in the hour pushes stop: minute of the last PushEvent in partial push hours whose pushes start at minute 0")
 stops = []
 for f in frows:
