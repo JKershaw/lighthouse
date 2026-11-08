@@ -26,8 +26,15 @@ for key, url in POLICIES.items():
     if args.only and key not in args.only:
         continue
     row = {'name': key, 'url': url, 'start_utc': datetime.now(timezone.utc).isoformat()}
+    ok, rinfo = GATE.check(url)
+    row['robots'] = rinfo
+    if not ok:
+        row['error'] = 'not fetched: ' + rinfo['reason']
+        rows.append(row)
+        print(json.dumps({k: row.get(k) for k in ('name', 'status', 'bytes', 'error')}), flush=True)
+        continue
     try:
-        request = Request(url, headers={'User-Agent': 'Mozilla/5.0 (compatible; Lighthouse research observation)'})
+        request = Request(url, headers={'User-Agent': UA})
         try:
             response = urlopen(request, timeout=40)
         except HTTPError as error:
@@ -39,7 +46,7 @@ for key, url in POLICIES.items():
                        last_modified=response.headers.get('Last-Modified', ''), bytes=len(body),
                        sha256=sha256(body).hexdigest())
             if len(body) <= CEILING:
-                (OUT / (key + '.raw.gz')).write_bytes(gzip.compress(body, mtime=0))
+                (OUT / (key + '.raw.gz')).write_bytes(gzip.compress(redact_bytes(body)[0], mtime=0))
                 row['file'] = key + '.raw.gz'
     except Exception as error:
         row.update(finish_utc=datetime.now(timezone.utc).isoformat(), error=type(error).__name__ + ': ' + str(error))

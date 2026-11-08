@@ -12,6 +12,14 @@ from urllib.request import Request, urlopen
 import argparse
 import gzip
 import json
+import sys
+
+sys.path.insert(0, str(Path(__file__).resolve().parents[3] / 'scripts'))
+from robots_gate import RobotsGate  # noqa: E402  the keeper's robots.txt rule, 8 November 2026
+from redact_emails import redact_bytes  # noqa: E402  email addresses withheld
+
+UA = 'Mozilla/5.0 (compatible; Lighthouse-research/1.0; +https://lighthouse.harbour.cat)'
+GATE = RobotsGate(UA)
 
 ROOT = Path(__file__).resolve().parents[1]
 PANEL = json.loads((ROOT / 'panel.json').read_text())
@@ -32,8 +40,15 @@ assert len(targets) <= 80, 'over the ceiling of 80 GETs'
 rows = []
 for group, key, url in targets:
     row = {'group': group, 'name': key, 'url': url, 'start_utc': datetime.now(timezone.utc).isoformat()}
+    ok, rinfo = GATE.check(url)
+    row['robots'] = rinfo
+    if not ok:
+        row['error'] = 'not fetched: ' + rinfo['reason']
+        rows.append(row)
+        print(json.dumps({k: row.get(k) for k in ('name', 'status', 'bytes', 'error')}), flush=True)
+        continue
     try:
-        request = Request(url, headers={'User-Agent': 'Mozilla/5.0 (compatible; Lighthouse research observation)'})
+        request = Request(url, headers={'User-Agent': UA})
         try:
             response = urlopen(request, timeout=40)
         except HTTPError as error:
@@ -45,7 +60,7 @@ for group, key, url in targets:
                        last_modified=response.headers.get('Last-Modified', ''), bytes=len(body),
                        sha256=sha256(body).hexdigest())
             if len(body) <= CEILING:
-                (OUT / (key + '.raw.gz')).write_bytes(gzip.compress(body, mtime=0))
+                (OUT / (key + '.raw.gz')).write_bytes(gzip.compress(redact_bytes(body)[0], mtime=0))
                 row['file'] = key + '.raw.gz'
             else:
                 row['error'] = 'over the 4 MiB ceiling; no body retained'
