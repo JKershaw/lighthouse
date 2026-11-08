@@ -1,0 +1,1636 @@
+<?xml version="1.0" encoding="UTF-8"?><?xml-stylesheet type="text/xsl" href="rss.xsl"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>The Python Package Index Blog</title><description>The official blog of the Python Package Index</description><link>https://blog.pypi.org/</link><atom:link href="https://blog.pypi.org/feed_rss_created.xml" rel="self" type="application/rss+xml" /><docs>https://github.com/pypi/warehouse</docs><language>en</language><pubDate>Fri, 06 Nov 2026 22:48:34 +0000</pubDate><lastBuildDate>Fri, 06 Nov 2026 22:48:34 +0000</lastBuildDate><ttl>1440</ttl><generator>Zensical RSS</generator><image><url>https://blog.pypi.org/assets/logo.png</url><title>The Python Package Index Blog</title><link>https://blog.pypi.org/</link></image><item><title>PyPI&apos;s redesigned project pages with clearer security signals are now live</title><author>Nicole Harris</author><category>security</category><category>user-interface</category><description>&lt;p&gt;In July, we &lt;a href=&quot;../2026-07-22-ui-updates/&quot;&gt;announced a series of planned updates&lt;/a&gt; to the PyPI user interface. Shaped by &lt;a href=&quot;https://github.com/pypi/warehouse/issues/20111&quot;&gt;user research with members of the Python community&lt;/a&gt;, the updates aim to improve how we surface security signals and display package details.&lt;/p&gt;
+&lt;p&gt;We&apos;re pleased to share that this work is now complete and live on &lt;a href=&quot;https://pypi.org/&quot;&gt;PyPI&lt;/a&gt;.&lt;/p&gt;
+&lt;!-- more --&gt;
+
+&lt;h2 id=&quot;context&quot;&gt;Context&lt;/h2&gt;
+&lt;p&gt;With the rapid growth of the Python ecosystem, PyPI has become an increasingly attractive target for malicious actors. In response, the PyPI team has &lt;a href=&quot;https://docs.pypi.org/about/security-and-internals/#pypi-security-features&quot;&gt;delivered many security features&lt;/a&gt; while taking a more active role in helping PyPI users assess and understand package security.&lt;/p&gt;
+&lt;p&gt;&lt;a href=&quot;../2024-11-14-pypi-now-supports-digital-attestations/&quot;&gt;Digital attestations&lt;/a&gt;, introduced in 2024, are an example of this effort, providing a verifiable record of a release file&apos;s &lt;em&gt;provenance&lt;/em&gt; (where it came from). However, provenance and attestations are still unfamiliar concepts for many PyPI users, and PyPI&apos;s interface did little to communicate their meaning, importance, or limitations.&lt;/p&gt;
+&lt;p&gt;To address this, PyPI partnered with &lt;a href=&quot;https://kabucreative.com/&quot;&gt;Kabu Creative&lt;/a&gt; to bring clearer security signals to the PyPI UI, implementing the recommendations developed in the &lt;a href=&quot;https://repos.openssf.org/attestations-style-guide&quot;&gt;OpenSSF Attestations Style Guide&lt;/a&gt;.&lt;/p&gt;
+&lt;p&gt;Here&apos;s a look at what&apos;s changed, what it means for you, and what actions you can take.&lt;/p&gt;
+&lt;h2 id=&quot;the-new-security-tab&quot;&gt;The New Security Tab&lt;/h2&gt;
+&lt;p&gt;The new &lt;strong&gt;security tab&lt;/strong&gt; communicates release provenance states and displays per-file attestations, giving you a dedicated place to verify where the release files came from.&lt;/p&gt;
+&lt;figure&gt;
+&lt;p&gt;&lt;img alt=&quot;Project detail page tabs: Description, Release files, Security (selected), and Release history&quot; src=&quot;../../assets/2026-11-06-ui-updates-complete/security-tab.png&quot; /&gt;
+  &lt;/p&gt;
+&lt;figcaption&gt;The new security tab on a PyPI project detail page&lt;/figcaption&gt;
+&lt;/figure&gt;
+&lt;h3 id=&quot;provenance-states&quot;&gt;Provenance States&lt;/h3&gt;
+&lt;p&gt;PyPI calculates each release&apos;s provenance state by checking whether each release file has an attestation. Typically, a release will be in one of two states:&lt;/p&gt;
+&lt;h4 id=&quot;full-provenance&quot;&gt;Full Provenance&lt;/h4&gt;
+&lt;p&gt;This means that 100% of the release files have attestations, carrying either or both of the supported attestation types:&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;&lt;a href=&quot;https://docs.pypi.org/attestations/publish/v1/&quot;&gt;PyPI Publish&lt;/a&gt; attestations&lt;/strong&gt; confirm the file was published by a &lt;a href=&quot;https://docs.pypi.org/trusted-publishers/&quot;&gt;PyPI Trusted Publisher&lt;/a&gt;:&lt;/p&gt;
+&lt;figure&gt;
+&lt;p&gt;&lt;img alt=&quot;A PyPI Publish attestation on PyPI&quot; src=&quot;../../assets/2026-11-06-ui-updates-complete/pypi-attestation.png&quot; /&gt;
+  &lt;/p&gt;
+&lt;figcaption&gt;A &lt;a href=&quot;https://docs.pypi.org/attestations/publish/v1/&quot;&gt;PyPI Publish attestation&lt;/a&gt; on PyPI&lt;/figcaption&gt;
+&lt;/figure&gt;
+&lt;p&gt;&lt;strong&gt;&lt;a href=&quot;https://slsa.dev/spec/v1.2/build-provenance&quot;&gt;SLSA Build Provenance&lt;/a&gt; attestations&lt;/strong&gt; link the file back to its exact source commit, build platform, and instructions:&lt;/p&gt;
+&lt;figure&gt;
+&lt;p&gt;&lt;img alt=&quot;A SLSA Build Provenance attestation on PyPI&quot; src=&quot;../../assets/2026-11-06-ui-updates-complete/slsa-attestation.png&quot; /&gt;
+  &lt;/p&gt;
+&lt;figcaption&gt;A &lt;a href=&quot;https://slsa.dev/spec/v1.2/build-provenance&quot;&gt;SLSA Build Provenance attestation&lt;/a&gt; on PyPI&lt;/figcaption&gt;
+&lt;/figure&gt;
+&lt;p&gt;You can review attestation metadata directly in the UI, or click on the transparency log link for more information.&lt;/p&gt;
+&lt;h4 id=&quot;no-provenance&quot;&gt;No Provenance&lt;/h4&gt;
+&lt;p&gt;&quot;No provenance&quot; simply means that no file in the release has an attestation. This is typical for older releases or projects that have not yet configured Trusted Publishing. &lt;strong&gt;No provenance does not necessarily indicate that a release or release file is malicious; it instead means that the file &lt;em&gt;origin&lt;/em&gt; cannot be cryptographically verified&lt;/strong&gt;.&lt;/p&gt;
+&lt;p&gt;When there is no provenance, you should rely on surrounding trust signals to assess security, such as maintainer history, release patterns, and repository activity. If you maintain the package, consider using &lt;a href=&quot;https://docs.pypi.org/trusted-publishers/&quot;&gt;Trusted Publishing&lt;/a&gt; with a &lt;a href=&quot;https://docs.pypi.org/attestations/producing-attestations/&quot;&gt;publisher that generates attestations&lt;/a&gt; for your next release.&lt;/p&gt;
+&lt;h3 id=&quot;provenance-warnings&quot;&gt;Provenance Warnings&lt;/h3&gt;
+&lt;p&gt;Provenance warnings are designed to help you identify when a file may not have come from the project&apos;s maintainers, for example, if an attacker has taken over an account or a publishing workflow.&lt;/p&gt;
+&lt;p&gt;When provenance metadata looks unusual or conflicts with a project&apos;s history, PyPI surfaces a prominent warning. Many warnings have legitimate explanations, but each one is worth checking before you install.&lt;/p&gt;
+&lt;h4 id=&quot;incomplete-provenance&quot;&gt;&lt;a href=&quot;https://docs.pypi.org/using-pypi/package-security/provenance/#incomplete-provenance&quot;&gt;Incomplete Provenance&lt;/a&gt;&lt;/h4&gt;
+&lt;p&gt;This means that some files carry attestations while others do not (e.g., wheels were published via Trusted Publishing, but the source tarball was uploaded using an API token).&lt;/p&gt;
+&lt;p&gt;Exercise caution if you see this warning. Check release notes for build issues or ask in the project&apos;s issue tracker before installing.&lt;/p&gt;
+&lt;h4 id=&quot;inconsistent-provenance&quot;&gt;&lt;a href=&quot;https://docs.pypi.org/using-pypi/package-security/provenance/#inconsistent-provenance&quot;&gt;Inconsistent Provenance&lt;/a&gt;&lt;/h4&gt;
+&lt;p&gt;This warning indicates that files within the same release originate from different build systems or source repositories.&lt;/p&gt;
+&lt;p&gt;Check the attestation metadata to confirm whether all files came from sources controlled by the maintainers.&lt;/p&gt;
+&lt;h4 id=&quot;change-of-provenance&quot;&gt;&lt;a href=&quot;https://docs.pypi.org/using-pypi/package-security/provenance/#change-of-provenance&quot;&gt;Change of Provenance&lt;/a&gt;&lt;/h4&gt;
+&lt;p&gt;This warning tells you that the release files originated from a different repository or workflow than a previous release. While often legitimate (such as an organization name change or repository migration), it can also indicate a compromised pipeline or account takeover.&lt;/p&gt;
+&lt;p&gt;If you see this warning, check the project release notes or official channels to confirm that an infrastructure migration was planned.&lt;/p&gt;
+&lt;h4 id=&quot;loss-of-provenance&quot;&gt;&lt;a href=&quot;https://docs.pypi.org/using-pypi/package-security/provenance/#loss-of-provenance&quot;&gt;Loss of Provenance&lt;/a&gt;&lt;/h4&gt;
+&lt;p&gt;This means that a project that previously published with attestations has changed to uploading release files without them.&lt;/p&gt;
+&lt;p&gt;Check whether the maintainers intentionally changed their publishing process, for example by switching back to API tokens, or by changing their publishing configuration so that it no longer generates attestations. If this is unexpected, treat the release with skepticism until verified.&lt;/p&gt;
+&lt;p&gt;To learn more about provenance and attestations, including provenance warnings, see our &lt;a href=&quot;https://docs.pypi.org/using-pypi/package-security/provenance/&quot;&gt;user documentation&lt;/a&gt;.&lt;/p&gt;
+&lt;figure&gt;
+&lt;p&gt;&lt;img alt=&quot;An example project detail page with an Incomplete provenance banner at the top, and the security tab open showing an Incomplete provenance warning: 2 of 5 files were uploaded without provenance metadata&quot; src=&quot;../../assets/2026-11-06-ui-updates-complete/provenance-warning.png&quot; /&gt;
+  &lt;/p&gt;
+&lt;figcaption&gt;An example provenance warning on PyPI, showing a release with &lt;a href=&quot;https://docs.pypi.org/using-pypi/package-security/provenance/#incomplete-provenance&quot;&gt;incomplete provenance&lt;/a&gt;&lt;/figcaption&gt;
+&lt;/figure&gt;
+&lt;h2 id=&quot;redesigned-project-detail-page&quot;&gt;Redesigned Project Detail Page&lt;/h2&gt;
+&lt;p&gt;To support these changes, the project detail page has also been updated:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Provenance warnings now appear at the top of the page, alongside status banners for yanked releases, archived projects, and pre-releases. If a project or release is &lt;a href=&quot;https://docs.pypi.org/using-pypi/pypi-basics/#quarantined-project-or-release&quot;&gt;quarantined&lt;/a&gt;, only the quarantine banner is shown, as it takes precedence over all other warnings and banners.&lt;/li&gt;
+&lt;li&gt;When a release has full provenance or provenance warnings, its provenance state is displayed in the sidebar, linking through to the security tab for more information.&lt;/li&gt;
+&lt;li&gt;Metadata is now ordered by utility and labeled as &quot;PyPI data&quot; or &quot;Data verified by PyPI&quot;, replacing the old design where data was grouped and ordered by verification status.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;figure&gt;
+&lt;p&gt;&lt;img alt=&quot;Project detail page sidebar with Project links, Key dates, Maintainers, Credits, GitHub Statistics, and a Provenance panel showing Full provenance, each labeled &amp;quot;PyPI data&amp;quot; or &amp;quot;Data verified by PyPI&amp;quot;&quot; src=&quot;../../assets/2026-11-06-ui-updates-complete/sidebar-metadata.png&quot; width=&quot;300&quot; /&gt;
+  &lt;/p&gt;
+&lt;figcaption&gt;The redesigned metadata sidebar, with information ordered by utility&lt;/figcaption&gt;
+&lt;/figure&gt;
+&lt;h2 id=&quot;release-files-and-release-history&quot;&gt;Release Files and Release History&lt;/h2&gt;
+&lt;p&gt;The redesigned &lt;strong&gt;release files tab&lt;/strong&gt; helps you find the right file by searching and filtering long lists. You can also view the provenance state of each file within the table, and quickly identify late files, which are marked with an orange warning icon.&lt;/p&gt;
+&lt;p&gt;Late file warnings are shown when one or more files were uploaded more than 14 days after the initial release timestamp. These warnings only appear on releases prior to July 2026, when a policy was introduced to &lt;a href=&quot;../2026-07-22-releases-now-reject-new-files-after-14-days/&quot;&gt;reject new files after 14 days&lt;/a&gt;.&lt;/p&gt;
+&lt;p&gt;The &lt;strong&gt;release history tab&lt;/strong&gt; now also provides more details about each release, exposing file count, provenance state, and release status (i.e., quarantined, yanked, archived, or pre-release).&lt;/p&gt;
+&lt;figure&gt;
+&lt;p&gt;&lt;img alt=&quot;Release history timeline listing five releases, each with its date, release file count, and Full provenance state; one is labeled Pre-release, and another is labeled Yanked with the reason given by its maintainers&quot; src=&quot;../../assets/2026-11-06-ui-updates-complete/release-history.png&quot; /&gt;
+  &lt;/p&gt;
+&lt;figcaption&gt;The redesigned release history tab, with release status, file count, and provenance state&lt;/figcaption&gt;
+&lt;/figure&gt;
+&lt;h2 id=&quot;getting-help&quot;&gt;Getting Help&lt;/h2&gt;
+&lt;p&gt;Alongside the interface updates, &lt;a href=&quot;https://docs.pypi.org/&quot;&gt;PyPI&apos;s user documentation&lt;/a&gt; has been extended to help you better navigate package security. Read our &lt;a href=&quot;https://docs.pypi.org/using-pypi/package-security/introduction/&quot;&gt;package security guide&lt;/a&gt; to learn about:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&quot;https://docs.pypi.org/using-pypi/package-security/source-code-security/&quot;&gt;Assessing source code security&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;https://docs.pypi.org/using-pypi/package-security/provenance/&quot;&gt;Checking provenance (where a package came from)&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;https://docs.pypi.org/using-pypi/package-security/package-integrity/&quot;&gt;Verifying package integrity&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;https://docs.pypi.org/using-pypi/package-security/common-attacks/&quot;&gt;Protecting yourself from common security attacks&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;https://docs.pypi.org/using-pypi/package-security/reporting-issues/&quot;&gt;Reporting security issues&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 id=&quot;looking-ahead-acknowledgments&quot;&gt;Looking Ahead &amp;amp; Acknowledgments&lt;/h2&gt;
+&lt;p&gt;The new security tab gives PyPI a dedicated home for future attestation types and security notices. To help the wider open source ecosystem benefit from this work, we&apos;ve also &lt;a href=&quot;https://repos.openssf.org/attestations-style-guide/pypi-case-study&quot;&gt;published a case study in the OpenSSF Attestations Style Guide&lt;/a&gt; detailing the design patterns and error models developed during this project.&lt;/p&gt;
+&lt;p&gt;This initiative was funded by the &lt;a href=&quot;https://openssf.org/&quot;&gt;Open Source Security Foundation&lt;/a&gt; and implemented by &lt;a href=&quot;https://kabucreative.com/&quot;&gt;Kabu Creative&lt;/a&gt;. We would like to thank &lt;a href=&quot;https://github.com/di&quot;&gt;Dustin Ingram&lt;/a&gt;, &lt;a href=&quot;https://github.com/steiza&quot;&gt;Zach Steindler&lt;/a&gt;, and the members of the &lt;a href=&quot;https://repos.openssf.org/&quot;&gt;OpenSSF Securing Software Repositories Working Group&lt;/a&gt; for championing this effort. Special thanks to &lt;a href=&quot;https://github.com/miketheman&quot;&gt;Mike Fiedler&lt;/a&gt;, &lt;a href=&quot;https://github.com/JacobCoffee&quot;&gt;Jacob Coffee&lt;/a&gt;, and members of the PyPI team for their thoughtful design feedback and code reviews, &lt;a href=&quot;https://github.com/cofiem&quot;&gt;@cofiem&lt;/a&gt; for their contributions to the new release files tab, and our &lt;a href=&quot;https://github.com/pypi/warehouse/issues/20111&quot;&gt;user interview participants&lt;/a&gt; and community testers for helping shape the final design.&lt;/p&gt;
+&lt;p&gt;Finally, we would like to thank the OpenSSF for its funding and continued partnership in securing the Python packaging ecosystem.&lt;/p&gt;</description><link>https://blog.pypi.org/posts/2026-11-06-ui-updates-complete/</link><source url="https://blog.pypi.org/feed_rss_created.xml">The Python Package Index Blog</source><pubDate>Fri, 06 Nov 2026 06:09:00 +0000</pubDate><guid isPermaLink="true">https://blog.pypi.org/posts/2026-11-06-ui-updates-complete/</guid></item><item><title>Higher limits for organization projects</title><author>Jacob Coffee</author><author>Maria Ashna</author><category>organizations</category><description>&lt;p&gt;Projects owned by a &lt;a href=&quot;https://docs.pypi.org/organization-accounts/&quot;&gt;PyPI organization&lt;/a&gt; now get higher limits by default:&lt;/p&gt;
+&lt;table&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th&gt;&lt;/th&gt;
+&lt;th&gt;Personal projects&lt;/th&gt;
+&lt;th&gt;Organization projects&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td&gt;Largest file you can upload&lt;/td&gt;
+&lt;td&gt;100 MB&lt;/td&gt;
+&lt;td&gt;&lt;strong&gt;200 MB&lt;/strong&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;Total size of a project&lt;/td&gt;
+&lt;td&gt;10 GB&lt;/td&gt;
+&lt;td&gt;&lt;strong&gt;20 GB&lt;/strong&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+&lt;!-- more --&gt;
+
+&lt;p&gt;There&apos;s nothing to turn on.
+Every project owned by either a company or community organization gets the new limits automatically,
+including projects you move into an organization later.
+A project that leaves an organization goes back to the personal limits.&lt;/p&gt;
+&lt;h2 id=&quot;creating-new-projects&quot;&gt;Creating new projects&lt;/h2&gt;
+&lt;p&gt;Organizations can also create up to &lt;strong&gt;10 new projects per day&lt;/strong&gt;,
+more than a personal account can.
+This isn&apos;t new, but we want to make sure organizations know about it.&lt;/p&gt;
+&lt;h2 id=&quot;need-more&quot;&gt;Need more?&lt;/h2&gt;
+&lt;p&gt;Personal and organization projects can both still &lt;a href=&quot;https://docs.pypi.org/project-management/storage-limits/&quot;&gt;request an increase&lt;/a&gt;
+through the regular support channels.
+Any increase you already have stays in place:
+your project always gets whichever limit is higher.&lt;/p&gt;</description><link>https://blog.pypi.org/posts/2026-10-26-higher-limits-for-organization-projects/</link><source url="https://blog.pypi.org/feed_rss_created.xml">The Python Package Index Blog</source><pubDate>Mon, 26 Oct 2026 06:09:00 +0000</pubDate><guid isPermaLink="true">https://blog.pypi.org/posts/2026-10-26-higher-limits-for-organization-projects/</guid></item><item><title>PyPI now limits versions to 128 characters</title><author>Jacob Coffee</author><category>user-interface</category><description>&lt;p&gt;PyPI now rejects new uploads whose version is longer than &lt;strong&gt;128 characters&lt;/strong&gt;.&lt;/p&gt;
+&lt;p&gt;This affects almost no one: across the roughly 9.9 million releases on PyPI,
+only 2 have a version that long. Releases that are already on PyPI stay
+exactly as they are, and installing them works the same as before.&lt;/p&gt;
+&lt;!-- more --&gt;
+
+&lt;h2 id=&quot;why-add-a-limit&quot;&gt;Why add a limit?&lt;/h2&gt;
+&lt;p&gt;The rules for Python version numbers have never set a maximum length.
+Nearly every project uses short, ordinary versions. Half of all releases on
+PyPI have a version of 5 characters or fewer, like &lt;code&gt;1.4.2&lt;/code&gt;, and 99% have 20
+characters or fewer. The longest one on PyPI today is 217 characters.&lt;/p&gt;
+&lt;p&gt;Versions that long don&apos;t help anyone install or understand a project.
+They make project pages harder to read, they&apos;re hard to fit anywhere a
+version is shown, and they&apos;re especially hard to follow for people who use
+screen readers or zoom in to read. Very long versions have come up on PyPI&apos;s
+issue tracker before (&lt;a href=&quot;https://github.com/pypi/warehouse/issues/12483&quot;&gt;#12483&lt;/a&gt;, &lt;a href=&quot;https://github.com/pypi/warehouse/issues/14965&quot;&gt;#14965&lt;/a&gt;).&lt;/p&gt;
+&lt;p&gt;128 characters is well above anything a real project needs, while still
+keeping PyPI&apos;s pages readable, although version lengths of less than 20 characters
+are recommended.&lt;/p&gt;
+&lt;h2 id=&quot;how-is-the-length-counted&quot;&gt;How is the length counted?&lt;/h2&gt;
+&lt;p&gt;PyPI counts the version in its normalized, standard form, which is the same
+form it shows on project pages. Python&apos;s packaging tools already
+&lt;a href=&quot;https://packaging.python.org/en/latest/specifications/version-specifiers/#normalization&quot;&gt;normalize versions&lt;/a&gt; this way: &lt;code&gt;1.00&lt;/code&gt; becomes &lt;code&gt;1.0&lt;/code&gt;, and &lt;code&gt;1.0-RC1&lt;/code&gt; becomes
+&lt;code&gt;1.0rc1&lt;/code&gt;. The meaning doesn&apos;t change, only how it&apos;s written.&lt;/p&gt;
+&lt;h2 id=&quot;what-happens-if-my-upload-is-rejected&quot;&gt;What happens if my upload is rejected?&lt;/h2&gt;
+&lt;p&gt;You&apos;ll see an error like this when you upload:&lt;/p&gt;
+&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;HTTPError: 400 Bad Request from https://upload.pypi.org/legacy/
+The version must be 128 characters or less after normalization, but is 140 characters.
+See https://docs.pypi.org/project_metadata/#version-length-limit for more information.
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;Pick a shorter version and upload again. Details like build dates or commit
+IDs are better kept in your changelog or project description than in the
+version itself. The &lt;a href=&quot;https://docs.pypi.org/project_metadata/#version-length-limit&quot;&gt;version length limit&lt;/a&gt; documentation has more details.&lt;/p&gt;
+&lt;h2 id=&quot;is-this-a-new-packaging-standard&quot;&gt;Is this a new packaging standard?&lt;/h2&gt;
+&lt;p&gt;No. We &lt;a href=&quot;https://discuss.python.org/t/amend-pep440-to-limit-version-identifiers/109629&quot;&gt;discussed&lt;/a&gt; adding a limit to the shared rules for Python versions,
+and the consensus was that each package index can set its own limit.
+This is a PyPI policy. Tools like pip and uv don&apos;t need to change, and other
+package indexes are free to make their own choice.&lt;/p&gt;</description><link>https://blog.pypi.org/posts/2026-10-23-version-length-limit/</link><source url="https://blog.pypi.org/feed_rss_created.xml">The Python Package Index Blog</source><pubDate>Fri, 23 Oct 2026 06:09:00 +0000</pubDate><guid isPermaLink="true">https://blog.pypi.org/posts/2026-10-23-version-length-limit/</guid></item><item><title>Checking email reputation, and allowing Outlook again</title><author>Mike Fiedler</author><category>security</category><category>transparency</category><description>&lt;p&gt;PyPI improves on checks for the reputation of an email address
+when used to register an account or add to an existing account,
+and rejects addresses identified as disposable.&lt;/p&gt;
+&lt;p&gt;With the new check in place,
+&lt;code&gt;outlook.com&lt;/code&gt; and &lt;code&gt;hotmail.com&lt;/code&gt; addresses can once again be used on PyPI.&lt;/p&gt;
+&lt;!-- more --&gt;
+
+&lt;h2 id=&quot;background&quot;&gt;Background&lt;/h2&gt;
+&lt;p&gt;In June 2024 we &lt;a href=&quot;../2024-06-16-prohibiting-msn-emails/&quot;&gt;prohibited Outlook email domains&lt;/a&gt;
+after a malware campaign registered accounts in bulk
+with &lt;code&gt;outlook.com&lt;/code&gt; and &lt;code&gt;hotmail.com&lt;/code&gt; addresses.&lt;/p&gt;
+&lt;p&gt;Until now, PyPI has blocked disposable email addresses with two lists:
+the public &lt;a href=&quot;https://github.com/disposable-email-domains/disposable-email-domains&quot;&gt;disposable-email-domains&lt;/a&gt; list,
+and our own internal list of prohibited domains.
+Both are static domain lists, and neither can tell a throwaway address
+apart from a real one on a large provider like Outlook.&lt;/p&gt;
+&lt;p&gt;The downside of this approach was that we had to apply a broad prohibition to entire domains,
+blocking new account creation from legitimate users on those domains.
+This also relied heavily on investigation and decisioning from staff
+or volunteer administrators, which led to slower remediation times.&lt;/p&gt;
+&lt;h2 id=&quot;checking-email-reputation&quot;&gt;Checking email reputation&lt;/h2&gt;
+&lt;p&gt;When an email address passes the existing domain checks,
+PyPI now asks an email reputation service whether the address is disposable.
+This covers disposable providers that register new domains
+faster than any list can track,
+as well as throwaway aliases on public email providers.&lt;/p&gt;
+&lt;p&gt;When the service reports that a whole domain is a disposable provider,
+PyPI adds that domain to its prohibited list,
+so the next attempt is rejected without another lookup.&lt;/p&gt;
+&lt;p&gt;This process happens automatically, and no longer requires any volunteer
+or staff time to add to the internal prohibited list.
+This is more important in the new age of autonomous exploits,
+as the time to react is critical.&lt;/p&gt;
+&lt;p&gt;As of today, &lt;code&gt;outlook.com&lt;/code&gt; and &lt;code&gt;hotmail.com&lt;/code&gt; addresses
+can once again be used to register a PyPI account
+or added to an existing account.&lt;/p&gt;
+&lt;h2 id=&quot;results-so-far&quot;&gt;Results so far&lt;/h2&gt;
+&lt;p&gt;Over the past month since I added email reputation checking,
+the overwhelming volume of results are positive, which is a good signal.&lt;/p&gt;
+&lt;p&gt;&lt;img alt=&quot;EmailReputationChecks_full&quot; src=&quot;../../assets/2026-10-16-email-reputation/EmailReputationChecks_full.png&quot; /&gt;&lt;/p&gt;
+&lt;p&gt;Removing the Valid responses shows a more detailed picture:&lt;/p&gt;
+&lt;p&gt;&lt;img alt=&quot;EmailReputationChecks_disposable&quot; src=&quot;../../assets/2026-10-16-email-reputation/EmailReputationChecks_disposable.png&quot; /&gt;&lt;/p&gt;
+&lt;p&gt;We have since blocked disposable 62 domains from being used to register for user accounts on PyPI,
+and disallowed over 120 attempts at using a disposable address from an otherwise valid domain.&lt;/p&gt;
+&lt;p&gt;If you run into problems registering or adding an email address,
+please open an issue on the &lt;a href=&quot;https://github.com/pypi/support&quot;&gt;support tracker&lt;/a&gt;.
+If none of the Issue categories match, email support at pypi dot org with complete details.&lt;/p&gt;
+&lt;h2 id=&quot;thanks&quot;&gt;Thanks&lt;/h2&gt;
+&lt;p&gt;Thanks to &lt;a href=&quot;https://www.usercheck.com/&quot;&gt;UserCheck&lt;/a&gt; for their donation of the service to aid with defending the Python ecosystem.
+Find them, and our other sponsors, on the &lt;a href=&quot;https://pypi.org/sponsors/&quot;&gt;PyPI Sponsors page&lt;/a&gt;.&lt;/p&gt;
+&lt;p&gt;&lt;em&gt;Mike&apos;s work on PyPI is thanks to continued support from &lt;a href=&quot;https://alpha-omega.dev/&quot;&gt;Alpha-Omega&lt;/a&gt;.&lt;/em&gt;&lt;/p&gt;</description><link>https://blog.pypi.org/posts/2026-10-16-email-reputation-and-outlook/</link><source url="https://blog.pypi.org/feed_rss_created.xml">The Python Package Index Blog</source><pubDate>Fri, 16 Oct 2026 06:09:00 +0000</pubDate><guid isPermaLink="true">https://blog.pypi.org/posts/2026-10-16-email-reputation-and-outlook/</guid></item><item><title>PyPI&apos;s developer documentation has moved to dev.pypi.org</title><author>Jacob Coffee</author><category>infrastructure</category><category>meta</category><description>&lt;p&gt;The developer documentation for &lt;a href=&quot;https://github.com/pypi/warehouse&quot;&gt;Warehouse&lt;/a&gt;, the codebase that powers PyPI,
+has moved from &lt;code&gt;warehouse.pypa.io&lt;/code&gt; to &lt;strong&gt;&lt;a href=&quot;https://dev.pypi.org/&quot;&gt;dev.pypi.org&lt;/a&gt;&lt;/strong&gt;.&lt;/p&gt;
+&lt;p&gt;Existing links to &lt;code&gt;warehouse.pypa.io&lt;/code&gt; will keep working:
+every page now redirects to the same page on &lt;code&gt;dev.pypi.org&lt;/code&gt;.&lt;/p&gt;
+&lt;!-- more --&gt;
+
+&lt;h2 id=&quot;why-the-move&quot;&gt;Why the move?&lt;/h2&gt;
+&lt;p&gt;PyPI&apos;s other sites already live under &lt;code&gt;pypi.org&lt;/code&gt;:
+user documentation at &lt;a href=&quot;https://docs.pypi.org/&quot;&gt;docs.pypi.org&lt;/a&gt;, and this blog at &lt;a href=&quot;https://blog.pypi.org/&quot;&gt;blog.pypi.org&lt;/a&gt;.
+The developer documentation was the odd one out.
+Moving it to &lt;code&gt;dev.pypi.org&lt;/code&gt; puts all of PyPI&apos;s sites under one domain.&lt;/p&gt;
+&lt;h2 id=&quot;whats-on-devpypiorg&quot;&gt;What&apos;s on dev.pypi.org?&lt;/h2&gt;
+&lt;p&gt;The same content that was on &lt;code&gt;warehouse.pypa.io&lt;/code&gt;, aimed at people working
+on warehouse, the codebase behind PyPI itself:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;The &lt;a href=&quot;https://dev.pypi.org/development/getting-started/&quot;&gt;getting started guide&lt;/a&gt; for setting up a local development environment&lt;/li&gt;
+&lt;li&gt;An &lt;a href=&quot;https://dev.pypi.org/application/&quot;&gt;architectural overview&lt;/a&gt; of how Warehouse fits together&lt;/li&gt;
+&lt;li&gt;Reference material, such as the &lt;a href=&quot;https://dev.pypi.org/api-reference/xml-rpc/&quot;&gt;XML-RPC API&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;If you&apos;re looking for help &lt;em&gt;using&lt;/em&gt; PyPI, such as publishing packages,
+Trusted Publishing, or the JSON API, that&apos;s still at &lt;a href=&quot;https://docs.pypi.org/&quot;&gt;docs.pypi.org&lt;/a&gt;.&lt;/p&gt;
+&lt;h2 id=&quot;do-i-need-to-do-anything&quot;&gt;Do I need to do anything?&lt;/h2&gt;
+&lt;p&gt;&lt;strong&gt;No.&lt;/strong&gt; Old links redirect automatically.&lt;/p&gt;
+&lt;p&gt;If you have bookmarks, or link to the developer documentation from your
+own project, we&apos;d appreciate it if you updated them to &lt;code&gt;dev.pypi.org&lt;/code&gt;,
+but existing links will still work and just redirect!&lt;/p&gt;</description><link>https://blog.pypi.org/posts/2026-10-14-dev-docs-move-to-dev-pypi-org/</link><source url="https://blog.pypi.org/feed_rss_created.xml">The Python Package Index Blog</source><pubDate>Wed, 14 Oct 2026 06:09:00 +0000</pubDate><guid isPermaLink="true">https://blog.pypi.org/posts/2026-10-14-dev-docs-move-to-dev-pypi-org/</guid></item><item><title>Incident Report: File Hosting Errors</title><author>Mike Fiedler</author><category>infrastructure</category><category>transparency</category><description>&lt;h2 id=&quot;executive-summary&quot;&gt;Executive summary&lt;/h2&gt;
+&lt;p&gt;For about two weeks in August 2026,
+some PyPI users hit intermittent 502 and 503 errors
+downloading files from &lt;code&gt;files.pythonhosted.org&lt;/code&gt;,
+triggering failures during installation from PyPI.
+Thanks to our users filing reports in the &lt;a href=&quot;https://github.com/pypi/support&quot;&gt;support tracker&lt;/a&gt;;
+one report in particular narrowed the problem to a single cache node.&lt;/p&gt;
+&lt;p&gt;Two separate problems were uncovered.
+A canary deployment inside Fastly&apos;s network
+had triggered a misconfiguration at one cache node,
+causing Fastly&apos;s routing layer to return 502 responses
+for traffic reaching the affected cache node.
+Separately, I found and fixed several bugs in our own Fastly configuration
+around origin fallback and range request behavior.
+Those had been there for a while,
+and only surfaced while digging into these reports.&lt;/p&gt;
+&lt;p&gt;Both intermittent problems are now fixed,
+and downloads are back to full function since August 28.&lt;/p&gt;
+&lt;!-- more --&gt;
+
+&lt;h2 id=&quot;background-how-pypis-file-hosting-cache-works&quot;&gt;Background: How PyPI&apos;s file hosting cache works &lt;sup id=&quot;fnref:well&quot;&gt;&lt;a class=&quot;footnote-ref&quot; href=&quot;#fn:well&quot;&gt;1&lt;/a&gt;&lt;/sup&gt;&lt;/h2&gt;
+&lt;p&gt;Most people run &lt;code&gt;pip install&lt;/code&gt; (or your installer of choice) and it just works:
+a request goes out, the desired file comes back.
+Behind the scenes, &lt;code&gt;files.pythonhosted.org&lt;/code&gt; is a Fastly CDN service
+in front of three origins (aka &apos;backends&apos;).&lt;/p&gt;
+&lt;p&gt;When a file is uploaded, PyPI writes it to Amazon S3 first
+as the main, durable copy.
+A background job syncs it to Backblaze B2, because Fastly and Backblaze have a
+&lt;a href=&quot;https://www.fastly.com/documentation/guides/integrations/non-fastly-services/data-transfer-with-backblaze-b2/&quot;&gt;zero-cost egress agreement&lt;/a&gt;:
+serving files out of B2 through Fastly doesn&apos;t cost anything beyond storage fees.&lt;/p&gt;
+&lt;p&gt;On the reader (installer) path, Fastly tries B2 first.
+If B2 doesn&apos;t answer, or answers with something we don&apos;t expect,
+Fastly falls back to S3.
+PyPI uses the &lt;a href=&quot;https://aws.amazon.com/s3/storage-classes/glacier/instant-retrieval/&quot;&gt;Amazon S3 Glacier Instant Retrieval storage class&lt;/a&gt;
+to balance storage and retrieval costs.
+When Fastly calls S3 as a fallback, this costs more than from B2,
+but will continue to work for consumers as a stop-gap.&lt;/p&gt;
+&lt;p&gt;Once cached, Fastly no longer has to check B2 or S3 - the file should never change,
+and the &lt;a href=&quot;https://developer.mozilla.org/en-US/docs/Web/HTTP/Reference/Headers/Cache-Control&quot;&gt;&lt;code&gt;Cache-Control&lt;/code&gt; header&lt;/a&gt;
+sets &lt;code&gt;max-age=365000000, immutable, public&lt;/code&gt; - about 11.5 years.&lt;/p&gt;
+&lt;p&gt;A third backend named Conveyor handles everything that isn&apos;t a package file request,
+like &lt;a href=&quot;https://docs.pypi.org/api/#predictable-urls&quot;&gt;predictable URLs&lt;/a&gt;,
+plus a handful of legacy redirects.&lt;/p&gt;
+&lt;pre class=&quot;mermaid&quot;&gt;&lt;code&gt;flowchart TD
+    Client([Client request]) --&amp;gt; Edge{Fastly edge}
+    Edge --&amp;gt;|package file| B2[(B2: egress-free cache)]
+    Edge --&amp;gt;|everything else| Conveyor[Conveyor]
+    B2 --&amp;gt;|200 or 206| Response([Response to client])
+    B2 -.-&amp;gt;|404, timeout, or 5xx| Archive[(S3: origin, fallback)]
+    Archive --&amp;gt; Response
+    Conveyor --&amp;gt; Response&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;That fallback path only works if the edge notices B2 has failed.
+One of the bugs I fixed was that it didn&apos;t always notice correctly,
+which added to the &quot;normal&quot; error noise.&lt;/p&gt;
+&lt;h2 id=&quot;timeline&quot;&gt;Timeline&lt;/h2&gt;
+&lt;h3 id=&quot;august-15&quot;&gt;August 15&lt;/h3&gt;
+&lt;p&gt;Fastly&apos;s report places the start of the problem on this Saturday,
+at a single Seattle-area cache node.
+This is corroborated by &lt;a href=&quot;https://github.com/pypi/support/issues/11876&quot;&gt;#11876&lt;/a&gt;.&lt;/p&gt;
+&lt;h3 id=&quot;august-17&quot;&gt;August 17&lt;/h3&gt;
+&lt;p&gt;The first two reports of persistent 502s from &lt;code&gt;files.pythonhosted.org&lt;/code&gt; are opened,
+&lt;a href=&quot;https://github.com/pypi/support/issues/11895&quot;&gt;#11895&lt;/a&gt;/&lt;a href=&quot;https://github.com/pypi/support/issues/11897&quot;&gt;#11897&lt;/a&gt;.&lt;/p&gt;
+&lt;h3 id=&quot;august-18&quot;&gt;August 18&lt;/h3&gt;
+&lt;p&gt;&lt;a href=&quot;https://github.com/pypi/support/issues/11908&quot;&gt;#11908&lt;/a&gt;
+adds a detailed reproduction, showing
+88 recorded 502s over six hours,
+across 32 unrelated packages,
+including the small &lt;code&gt;.whl.metadata&lt;/code&gt; range requests installers use to read &lt;a href=&quot;https://peps.python.org/pep-0658/&quot;&gt;PEP 658 metadata&lt;/a&gt;.
+With three open network reports,
+I go digging in Datadog Logs for the corresponding PyPI Files errors
+and find nothing of consequence.
+&lt;a href=&quot;https://github.com/pypi/infra/pull/237&quot;&gt;infra#237&lt;/a&gt; merges,
+fixing the B2-to-archive failover
+for the case where B2 doesn&apos;t respond at all,
+rather than responding with an error.&lt;/p&gt;
+&lt;h3 id=&quot;august-19&quot;&gt;August 19&lt;/h3&gt;
+&lt;p&gt;&lt;a href=&quot;https://github.com/pypi/support/issues/11925&quot;&gt;#11925&lt;/a&gt;
+isolates the problem to one Fastly cache node, &lt;code&gt;cache-pae2080020&lt;/code&gt;:
+502 for every request routed to it, for over 19 hours,
+confirmed by &lt;code&gt;x-served-by&lt;/code&gt; headers on the failing responses.
+Fastly&apos;s network operations removes a routing override
+sending a slice of our traffic to the affected point of presence.
+&lt;a href=&quot;https://github.com/pypi/infra/pull/238&quot;&gt;infra#238&lt;/a&gt; merges,
+improving the logging configuration for the file hosting service.
+&lt;a href=&quot;https://github.com/pypi/infra/pull/239&quot;&gt;infra#239&lt;/a&gt; merges,
+rejecting HTTP methods that have no business hitting a file host.&lt;/p&gt;
+&lt;h3 id=&quot;august-20&quot;&gt;August 20&lt;/h3&gt;
+&lt;p&gt;Fastly observes recovery at the affected point of presence,
+and later confirms the elevated error rate has stopped.&lt;/p&gt;
+&lt;h3 id=&quot;august-21&quot;&gt;August 21&lt;/h3&gt;
+&lt;p&gt;&lt;a href=&quot;https://github.com/pypi/infra/pull/241&quot;&gt;infra#241&lt;/a&gt; merges,
+exempting suffix and multi-range requests from segmented caching,
+after a morning spike traced to a single client sending logically invalid ranges.&lt;/p&gt;
+&lt;h3 id=&quot;august-24&quot;&gt;August 24&lt;/h3&gt;
+&lt;p&gt;&lt;a href=&quot;https://github.com/pypi/infra/pull/243&quot;&gt;infra#243&lt;/a&gt; merges,
+after two broken parallel downloaders generated 41,315 more of the same class of error in a single day.&lt;/p&gt;
+&lt;h3 id=&quot;august-28&quot;&gt;August 28&lt;/h3&gt;
+&lt;p&gt;Fastly patches the underlying canary configuration bug on their side,
+and excludes all PSF traffic, including PyPI, from their canary cohort.
+&lt;a href=&quot;https://github.com/pypi/infra/pull/245&quot;&gt;infra#245&lt;/a&gt; merges,
+fixing a URL-normalization ordering bug
+that let a bad segmented-caching response get cached
+and served to every subsequent request for the same file.&lt;/p&gt;
+&lt;h2 id=&quot;contributing-factors&quot;&gt;Contributing factors&lt;/h2&gt;
+&lt;h3 id=&quot;pop-goes-the-canary&quot;&gt;POP goes the canary &lt;sup id=&quot;fnref:or&quot;&gt;&lt;a class=&quot;footnote-ref&quot; href=&quot;#fn:or&quot;&gt;2&lt;/a&gt;&lt;/sup&gt;&lt;/h3&gt;
+&lt;p&gt;Fastly runs a canary cohort,
+a subset of their fleet running caching and routing software ahead of a full rollout.
+PyPI&apos;s traffic had been part of that cohort for a number of years,
+helping Fastly engineering validate changes.&lt;/p&gt;
+&lt;p&gt;A partial rollback during a canary deployment
+left the caching configuration on one Seattle point of presence (POP) reverted
+while the routing configuration in front of it was not.
+The mismatch caused that routing layer to return 502s.&lt;/p&gt;
+&lt;p&gt;Fastly has since removed all PSF traffic, including PyPI, from the canary program.
+We&apos;d like to get back to participating eventually,
+once clearer controls and notifications exist around this traffic.
+It&apos;s a reasonable way to help Fastly validate infrastructure changes before they hit everyone,
+and it hasn&apos;t cost us much before now.&lt;/p&gt;
+&lt;h3 id=&quot;bugs-at-home&quot;&gt;Bugs at home&lt;/h3&gt;
+&lt;p&gt;While that was going on,
+I found unrelated bugs in our own configuration that produced the same symptom:
+elevated 502s, and in a few cases 501s that looked like 502s from outside.&lt;/p&gt;
+&lt;p&gt;The archive fallback in the diagram above
+only ran when B2 answered with an error status.
+If B2 didn&apos;t answer at all (a timeout, a refused connection, a TLS failure),
+Fastly synthesized its own 503
+and skipped straight past the code that would have tried the archive.
+Package files are immutable,
+so there was never a &quot;try the archive&quot; path for that case
+until &lt;a href=&quot;https://github.com/pypi/infra/pull/237&quot;&gt;infra#237&lt;/a&gt; added one.&lt;/p&gt;
+&lt;p&gt;Separately, we use &lt;a href=&quot;https://www.fastly.com/documentation/guides/full-site-delivery/caching/segmented-caching/&quot;&gt;segmented caching&lt;/a&gt;
+to avoid pulling a full gigabyte-sized wheel into cache
+only to serve a &lt;code&gt;Range&lt;/code&gt; request for partial content.
+That feature has narrower support for range syntax than HTTP does in general:
+it can&apos;t answer a suffix range (&lt;code&gt;bytes=-1024&lt;/code&gt;, read the last N bytes)
+or a request with the start of the range past the end,
+and returns a synthetic 501 for either.
+Some installers use exactly this kind of suffix range
+to read wheel metadata without downloading the whole file,
+so those reads were failing outright until I started exempting them:&lt;/p&gt;
+&lt;pre class=&quot;mermaid&quot;&gt;&lt;code&gt;flowchart LR
+    subgraph Before[&quot;Before infra#241 and infra#243&quot;]
+        direction TB
+        C1([Client: suffix or inverted range]) --&amp;gt; E1{Fastly edge}
+        E1 --&amp;gt; S1[Segmented caching]
+        S1 --&amp;gt; R1([501 Not Implemented])
+    end
+    subgraph After[&quot;After&quot;]
+        direction TB
+        C2([Client: suffix or inverted range]) --&amp;gt; E2{Fastly edge}
+        E2 --&amp;gt;|range shape not supported| N2[Segmented caching skipped]
+        N2 --&amp;gt; R2([Normal range handling: 206 or 416])
+    end
+    Before ~~~ After&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;A 501 for a malformed client request is the wrong status class.
+I&apos;ve opened a support ticket with Fastly about the segmented-caching range handling.
+Once fixed, my handling code can probably be reverted.&lt;/p&gt;
+&lt;p&gt;Another bug: an existing segmented caching exemption check
+ran before the request URL was normalized,
+so a &lt;code&gt;.metadata&lt;/code&gt; request with a query string still on it didn&apos;t match,
+kept segmented caching enabled,
+and got a 501 back from the archive backend for what should have been a normal fetch:&lt;/p&gt;
+&lt;pre class=&quot;mermaid&quot;&gt;&lt;code&gt;flowchart LR
+    subgraph Before[&quot;Before infra#245&quot;]
+        direction TB
+        C3([Client: &amp;lt;code&amp;gt;GET name.whl.metadata&amp;lt;b&amp;gt;?token=x&amp;lt;/b&amp;gt;&amp;lt;/code&amp;gt;]) --&amp;gt; E3{Fastly edge}
+        E3 --&amp;gt;|exemption checked before URL is normalized| S3[Segmented caching stays on]
+        S3 --&amp;gt; B23[(B2)]
+        B23 --&amp;gt;|501 for the 1MiB segment, cached at the edge| R3([Every later request: 501])
+    end
+    subgraph After2[&quot;After&quot;]
+        direction TB
+        C4([Client: &amp;lt;code&amp;gt;GET name.whl.metadata&amp;lt;b&amp;gt;?token=x&amp;lt;/b&amp;gt;&amp;lt;/code&amp;gt;]) --&amp;gt; E4{Fastly edge}
+        E4 --&amp;gt;|URL normalized first| X4[Exemption matches: segmented caching off]
+        X4 --&amp;gt; B24[(B2)]
+        B24 --&amp;gt; R4([Normal response, cached correctly])
+    end
+    Before ~~~ After2&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;&lt;a href=&quot;https://github.com/pypi/infra/pull/245&quot;&gt;infra#245&lt;/a&gt;
+moved the exemption check after URL normalization to close that hole.&lt;/p&gt;
+&lt;p&gt;None of these were new bugs.
+They&apos;d been in the configuration already,
+and it took real traffic on large files with range requests
+to trigger investigation and resolution.&lt;/p&gt;
+&lt;h2 id=&quot;5xx-volume-over-time&quot;&gt;5xx volume over time&lt;/h2&gt;
+&lt;p&gt;Fastly&apos;s own real-time analytics for the file hosting service
+show B2 errors (blue) climbing from August 15 onward
+while the S3 archive backend (pink) stays flat at zero,
+because the fallback that should have been routing failures there wasn&apos;t firing yet:&lt;/p&gt;
+&lt;p&gt;&lt;img alt=&quot;5xx responses by backend, Aug 13-31&quot; src=&quot;../../assets/2026-08-31-fastly-5xx-origins.png&quot; /&gt;&lt;/p&gt;
+&lt;p&gt;Our own Datadog metric shows a fuller story,
+from before the incident to past the end of it:&lt;/p&gt;
+&lt;p&gt;&lt;img alt=&quot;5xx count for PyPI file hosting, Aug 13 - Sep 1&quot; src=&quot;../../assets/2026-09-08-5xx-metric-daily.png&quot; /&gt;&lt;/p&gt;
+&lt;p&gt;Note the log scale.
+The baseline was already noisy before any of this started,
+thousands to tens of thousands of 5xx responses,
+which is why the increase starting August 15 is easy to miss.
+The August 21 spike is the one that isn&apos;t:
+a single client sending logically invalid ranges,
+pushing the count to close to a million.&lt;/p&gt;
+&lt;p&gt;The cliff immediately after it is
+&lt;a href=&quot;https://github.com/pypi/infra/pull/241&quot;&gt;infra#241&lt;/a&gt;.
+Traffic past that point sits two to three orders of magnitude below the pre-incident baseline,
+tens to hundreds of errors rather than thousands.
+Some of what we&apos;d been treating as background noise was this bug running the whole time.&lt;/p&gt;
+&lt;h2 id=&quot;going-forward&quot;&gt;Going forward&lt;/h2&gt;
+&lt;p&gt;The Python Software Foundation is hiring an infrastructure engineer
+to add to the engineering staff of four.
+Part of their remit will be PyPI,
+which should help us catch conditions like this earlier and prevent rather than react.
+The continued financial support from our community - individuals and companies alike - makes that possible.&lt;/p&gt;
+&lt;p&gt;A lot of the traffic hitting &lt;code&gt;files.pythonhosted.org&lt;/code&gt;
+is CI jobs installing the same dependencies they installed last run,
+and a large share of that can be traced back to GitHub Actions runs.
+If you&apos;re not already caching those downloads, it&apos;s worth turning on:
+&lt;code&gt;setup-python&lt;/code&gt;&apos;s
+&lt;a href=&quot;https://github.com/actions/setup-python/blob/main/docs/advanced-usage.md#caching-packages&quot;&gt;pip, pipenv, and poetry caching&lt;/a&gt;
+is opt-in via the &lt;code&gt;cache&lt;/code&gt; input, off by default,
+and &lt;code&gt;setup-uv&lt;/code&gt;&apos;s
+&lt;a href=&quot;https://github.com/astral-sh/setup-uv/blob/e105c8fb1d7b13074b851babdaef4185243c6a07/docs/caching.md&quot;&gt;caching&lt;/a&gt;
+defaults to on for most GitHub-hosted runner events, but is worth checking.
+An unchanged dependency that&apos;s cached doesn&apos;t touch us on the next run at all,
+which means fewer requests for us to serve,
+and one less thing that can break your build if we or Fastly have a rough day.&lt;/p&gt;
+&lt;h2 id=&quot;thanks&quot;&gt;Thanks&lt;/h2&gt;
+&lt;p&gt;Thanks to everyone who took the time to file an issue and capture the details
+instead of just working around the problem.&lt;/p&gt;
+&lt;p&gt;If you run into file-hosting issues in the future,
+&lt;a href=&quot;https://github.com/pypi/support/issues&quot;&gt;pypi/support&lt;/a&gt; is still the right place,
+and the more detail you can include (especially &lt;code&gt;x-served-by&lt;/code&gt; headers and timestamps),
+the faster we can act on it.&lt;/p&gt;
+&lt;p&gt;This work would not be possible without generous donations, please consider
+&lt;a href=&quot;https://www.python.org/psf/&quot;&gt;supporting the PSF&lt;/a&gt; to keep this kind of
+infrastructure running.
+Thanks to &lt;a href=&quot;https://alpha-omega.dev/&quot;&gt;Alpha-Omega&lt;/a&gt;, which sponsors my role.&lt;/p&gt;
+&lt;div class=&quot;footnote&quot;&gt;
+&lt;hr /&gt;
+&lt;ol&gt;
+&lt;li id=&quot;fn:well&quot;&gt;
+&lt;p&gt;or, how it&apos;s &lt;em&gt;supposed&lt;/em&gt; to work&amp;#160;&lt;a class=&quot;footnote-backref&quot; href=&quot;#fnref:well&quot; title=&quot;Jump back to footnote 1 in the text&quot;&gt;&amp;#8617;&lt;/a&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;li id=&quot;fn:or&quot;&gt;
+&lt;p&gt;while not perfectly accurate, I couldn&apos;t resist.&amp;#160;&lt;a class=&quot;footnote-backref&quot; href=&quot;#fnref:or&quot; title=&quot;Jump back to footnote 2 in the text&quot;&gt;&amp;#8617;&lt;/a&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ol&gt;
+&lt;/div&gt;</description><link>https://blog.pypi.org/posts/2026-09-08-file-hosting-errors/</link><source url="https://blog.pypi.org/feed_rss_created.xml">The Python Package Index Blog</source><pubDate>Tue, 08 Sep 2026 06:09:00 +0000</pubDate><guid isPermaLink="true">https://blog.pypi.org/posts/2026-09-08-file-hosting-errors/</guid></item><item><title>Metadata requests no longer tracked in PyPI download counts</title><author>Mike Fiedler</author><category>infrastructure</category><category>transparency</category><description>&lt;p&gt;On 2026-08-24 I &lt;a href=&quot;https://github.com/pypi/infra/pull/242&quot;&gt;shipped a change to the configuration that emits PyPI&apos;s download logs&lt;/a&gt;
+so that only requests for actual distribution artifacts are counted.
+A request has to end in &lt;code&gt;.whl&lt;/code&gt;, &lt;code&gt;.tar.gz&lt;/code&gt;, or &lt;code&gt;.zip&lt;/code&gt; to produce a download record.&lt;/p&gt;
+&lt;p&gt;The counts are more accurate now,
+and existing systems based on &lt;a href=&quot;https://docs.pypi.org/api/bigquery/&quot;&gt;PyPI&apos;s BigQuery dataset&lt;/a&gt;,
+like &lt;a href=&quot;https://pypistats.org/&quot;&gt;pypistats.org&lt;/a&gt;
+will display a different shape going forward.&lt;/p&gt;
+&lt;!-- more --&gt;
+
+&lt;p&gt;If you maintain something that reads these numbers from the public dataset,
+the discontinuity at 2026-08-24 is expected and permanent.&lt;/p&gt;
+&lt;p&gt;This effort would not be possible without the continued support from &lt;a href=&quot;https://alpha-omega.dev/&quot;&gt;Alpha-Omega&lt;/a&gt;.&lt;/p&gt;
+&lt;h2 id=&quot;background&quot;&gt;Background&lt;/h2&gt;
+&lt;p&gt;The logs are generated by Fastly&apos;s Edge, shipped to an AWS S3 bucket,
+parsed and anonymized by our &lt;a href=&quot;https://github.com/pypi/linehaul-cloud-function&quot;&gt;&lt;code&gt;linehaul&lt;/code&gt;&lt;/a&gt; functions in Google Cloud,
+and published to a Google-managed &lt;a href=&quot;https://docs.cloud.google.com/bigquery/public-data&quot;&gt;public BigQuery dataset&lt;/a&gt;.&lt;/p&gt;
+&lt;h2 id=&quot;other-objects&quot;&gt;Other objects&lt;/h2&gt;
+&lt;p&gt;Everything PyPI serves for a release lives under the same &lt;code&gt;/packages/&amp;lt;xx&amp;gt;/&amp;lt;yy&amp;gt;/&amp;lt;hash&amp;gt;/&lt;/code&gt; prefix.
+Matching on that prefix alone counted a fetch of any part of a release
+as a download of the distribution itself.&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&quot;https://peps.python.org/pep-0658/&quot;&gt;PEP 658&lt;/a&gt; &lt;code&gt;.metadata&lt;/code&gt; sidecars. (estimated at 40%)
+  Installers may fetch these to read a wheel&apos;s metadata &lt;em&gt;without&lt;/em&gt; downloading the wheel.
+  Every metadata fetch was being logged as a distribution download.&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;.asc&lt;/code&gt; GPG signatures. PyPI &lt;a href=&quot;../2023-05-23-removing-pgp/&quot;&gt;stopped accepting these in 2023&lt;/a&gt;,
+  but the ones uploaded before then are still served, and no longer counted.&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;.egg&lt;/code&gt; uploads were separately &lt;a href=&quot;../2023-06-26-deprecate-egg-uploads/&quot;&gt;deprecated in 2023&lt;/a&gt;.
+  All of these remain downloadable, and none of them are counted.&lt;/li&gt;
+&lt;li&gt;Formats frozen for upload since 2016 under &lt;a href=&quot;https://peps.python.org/pep-0527/&quot;&gt;PEP 527&lt;/a&gt;,
+  such as &lt;code&gt;.exe&lt;/code&gt;, &lt;code&gt;.msi&lt;/code&gt;, and &lt;code&gt;.rpm&lt;/code&gt;, are about 0.2% of the files on PyPI, and are no longer counted.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 id=&quot;the-correction&quot;&gt;The correction&lt;/h2&gt;
+&lt;p&gt;&lt;img alt=&quot;Daily downloads across all of PyPI, 60 days&quot; src=&quot;../../assets/2026-08-31-pypistats_all_60d.png&quot; /&gt;
+&lt;em&gt;Daily download quantity across all of PyPI, 60-day window ending 2026-08-31, from &lt;a href=&quot;https://pypistats.org/&quot;&gt;pypistats.org&lt;/a&gt;.&lt;/em&gt;&lt;/p&gt;
+&lt;p&gt;Before the change, daily totals cycled between roughly 4.5 billion on weekends
+and a little over 7 billion midweek.
+The curve steps down after 2026-08-24.
+The last few days of that window were still settling when the chart was captured,
+so read the shape of the change rather than the final data point.&lt;/p&gt;
+&lt;h2 id=&quot;impact-on-existing-data&quot;&gt;Impact on existing data&lt;/h2&gt;
+&lt;p&gt;If you compare download counts across 2026-08-24, the numbers will not line up.
+The counts after that date are lower and more accurate.
+Nothing was lost from the historical record - the older rows in BigQuery are unchanged,
+they were just measuring something broader than &quot;someone downloaded this package&quot; -
+they measured &quot;someone downloaded a given file from PyPI&quot;.
+Most consumers of this dataset today do not filter specific to filename extensions,
+leading to inflated download counts for a given package.&lt;/p&gt;
+&lt;p&gt;However, if you wanted to query the dataset yourself, you can write your own SQL queries
+to be able to distinguish a single project&apos;s distribution file downloads
+from others with a BigQuery statement that looks a bit like this:&lt;/p&gt;
+&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;&lt;span class=&quot;k&quot;&gt;SELECT&lt;/span&gt;
+&lt;span class=&quot;w&quot;&gt;  &lt;/span&gt;&lt;span class=&quot;nb&quot;&gt;DATE&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;k&quot;&gt;timestamp&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;k&quot;&gt;AS&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;n&quot;&gt;download_date&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;
+&lt;span class=&quot;w&quot;&gt;  &lt;/span&gt;&lt;span class=&quot;k&quot;&gt;COUNT&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;*&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;k&quot;&gt;AS&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;n&quot;&gt;all_objects&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;
+&lt;span class=&quot;w&quot;&gt;  &lt;/span&gt;&lt;span class=&quot;n&quot;&gt;COUNTIF&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;REGEXP_CONTAINS&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;file&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;filename&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;n&quot;&gt;r&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;&apos;\.(whl|tar\.gz|zip)$&apos;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;))&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;k&quot;&gt;AS&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;n&quot;&gt;distributions_only&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;
+&lt;span class=&quot;w&quot;&gt;  &lt;/span&gt;&lt;span class=&quot;k&quot;&gt;COUNT&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;*&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;o&quot;&gt;-&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;n&quot;&gt;COUNTIF&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;REGEXP_CONTAINS&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;file&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;filename&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;n&quot;&gt;r&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;&apos;\.(whl|tar\.gz|zip)$&apos;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;))&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;k&quot;&gt;AS&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;n&quot;&gt;others&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;
+&lt;span class=&quot;w&quot;&gt;  &lt;/span&gt;&lt;span class=&quot;n&quot;&gt;ROUND&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;100&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;o&quot;&gt;*&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;k&quot;&gt;COUNT&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;*&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;o&quot;&gt;-&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;n&quot;&gt;COUNTIF&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;REGEXP_CONTAINS&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;file&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;filename&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;n&quot;&gt;r&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;&apos;\.(whl|tar\.gz|zip)$&apos;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)))&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;o&quot;&gt;/&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;k&quot;&gt;COUNT&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;*&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;),&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;1&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;k&quot;&gt;AS&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;n&quot;&gt;others_pct&lt;/span&gt;
+&lt;span class=&quot;k&quot;&gt;FROM&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;o&quot;&gt;`&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;bigquery&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;-&lt;/span&gt;&lt;span class=&quot;k&quot;&gt;public&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;-&lt;/span&gt;&lt;span class=&quot;k&quot;&gt;data&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;pypi&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;file_downloads&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;`&lt;/span&gt;
+&lt;span class=&quot;k&quot;&gt;WHERE&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;n&quot;&gt;project&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;&apos;urllib3&apos;&lt;/span&gt;
+&lt;span class=&quot;w&quot;&gt;  &lt;/span&gt;&lt;span class=&quot;k&quot;&gt;AND&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;k&quot;&gt;timestamp&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;o&quot;&gt;&amp;gt;=&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;k&quot;&gt;TIMESTAMP&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;&apos;2026-08-18&apos;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+&lt;span class=&quot;w&quot;&gt;  &lt;/span&gt;&lt;span class=&quot;k&quot;&gt;AND&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;k&quot;&gt;timestamp&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;o&quot;&gt;&amp;lt;&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;  &lt;/span&gt;&lt;span class=&quot;k&quot;&gt;TIMESTAMP&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;&apos;2026-08-26&apos;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+&lt;span class=&quot;k&quot;&gt;GROUP&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;k&quot;&gt;BY&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;n&quot;&gt;download_date&lt;/span&gt;
+&lt;span class=&quot;k&quot;&gt;ORDER&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;k&quot;&gt;BY&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;n&quot;&gt;download_date&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;Results:&lt;/p&gt;
+&lt;table&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th&gt;download_date&lt;/th&gt;
+&lt;th&gt;all_objects&lt;/th&gt;
+&lt;th&gt;distributions_only&lt;/th&gt;
+&lt;th&gt;others&lt;/th&gt;
+&lt;th&gt;others_pct&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td&gt;2026-08-18&lt;/td&gt;
+&lt;td&gt;77477790&lt;/td&gt;
+&lt;td&gt;47268787&lt;/td&gt;
+&lt;td&gt;30209003&lt;/td&gt;
+&lt;td&gt;39.0&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;2026-08-19&lt;/td&gt;
+&lt;td&gt;74742551&lt;/td&gt;
+&lt;td&gt;45808710&lt;/td&gt;
+&lt;td&gt;28933841&lt;/td&gt;
+&lt;td&gt;38.7&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;2026-08-20&lt;/td&gt;
+&lt;td&gt;73495894&lt;/td&gt;
+&lt;td&gt;45011207&lt;/td&gt;
+&lt;td&gt;28484687&lt;/td&gt;
+&lt;td&gt;38.8&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;2026-08-21&lt;/td&gt;
+&lt;td&gt;69652309&lt;/td&gt;
+&lt;td&gt;42467783&lt;/td&gt;
+&lt;td&gt;27184526&lt;/td&gt;
+&lt;td&gt;39.0&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;2026-08-22&lt;/td&gt;
+&lt;td&gt;49665300&lt;/td&gt;
+&lt;td&gt;30080582&lt;/td&gt;
+&lt;td&gt;19584718&lt;/td&gt;
+&lt;td&gt;39.4&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;2026-08-23&lt;/td&gt;
+&lt;td&gt;50965479&lt;/td&gt;
+&lt;td&gt;30344490&lt;/td&gt;
+&lt;td&gt;20620989&lt;/td&gt;
+&lt;td&gt;40.5&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;2026-08-24&lt;/td&gt;
+&lt;td&gt;64241532&lt;/td&gt;
+&lt;td&gt;44012651&lt;/td&gt;
+&lt;td&gt;20228881&lt;/td&gt;
+&lt;td&gt;31.5&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;2026-08-25&lt;/td&gt;
+&lt;td&gt;46619401&lt;/td&gt;
+&lt;td&gt;46619401&lt;/td&gt;
+&lt;td&gt;0&lt;/td&gt;
+&lt;td&gt;0.0&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+&lt;p&gt;For this particular query and time range, ~39% of the download counts are
+not the actual distribution files.&lt;/p&gt;
+&lt;h2 id=&quot;downloads-are-not-a-popularity-metric&quot;&gt;Downloads are not a popularity metric&lt;/h2&gt;
+&lt;p&gt;Download counts are tricky to get right,
+and should not be used as a proxy for criticality or popularity.
+Volumes are often driven by misconfiguration of proxies or caches, CI systems running wild,
+or any variety of problems that occur with software.
+There&apos;s even folks out there who drive these numbers up artificially.&lt;/p&gt;
+&lt;p&gt;This change removes one source of potential confusion and misinterpretation,
+but does not mean download counts are an accurate measure of how many people use a package.&lt;/p&gt;
+&lt;h2 id=&quot;future-work-range-requests&quot;&gt;Future work: range requests&lt;/h2&gt;
+&lt;p&gt;An HTTP response code &lt;code&gt;206 Partial Content&lt;/code&gt; counts exactly the same as a &lt;code&gt;200 OK&lt;/code&gt; right now.
+Reading two bytes out of a wheel to inspect its ZIP central directory
+is recorded as a download of the whole wheel,
+alongside a client that pulled all 30 MB.&lt;/p&gt;
+&lt;p&gt;We want to record the request type and the bytes actually transferred,
+so that analysis can distinguish bytes served from downloads counted.
+That work is not scheduled yet.
+Follow &lt;a href=&quot;https://github.com/pypi/linehaul-cloud-function/issues/232&quot;&gt;https://github.com/pypi/linehaul-cloud-function/issues/232&lt;/a&gt;
+and &lt;a href=&quot;https://github.com/pypi/linehaul-cloud-function/issues/252&quot;&gt;https://github.com/pypi/linehaul-cloud-function/issues/252&lt;/a&gt;
+for that.&lt;/p&gt;</description><link>https://blog.pypi.org/posts/2026-08-31-download-counts/</link><source url="https://blog.pypi.org/feed_rss_created.xml">The Python Package Index Blog</source><pubDate>Mon, 31 Aug 2026 06:09:00 +0000</pubDate><guid isPermaLink="true">https://blog.pypi.org/posts/2026-08-31-download-counts/</guid></item><item><title>How AWS Powers PyPI and the PSF</title><author>Jacob Coffee</author><category>infrastructure</category><category>sustainability</category><description>&lt;p&gt;Working on infrastructure at the Python Software Foundation (PSF) as the Director of Engineering is a broad job with many hats. Python turns up everywhere. It&apos;s in healthcare systems and government agencies, in research labs and classrooms, in one-person side projects and in infrastructure at companies with six-figure headcounts. Somebody is using it to analyze a genome right now and somebody else is using it to automate a spreadsheet they hate arranging by hand. That range has always been the interesting part of the PSF&apos;s work, and it&apos;s only broadened in the last couple of years as AI continues to pull people from many disciplines into writing Python.&lt;/p&gt;
+&lt;!-- more --&gt;
+
+&lt;p&gt;At the PSF we support and maintain the infrastructure behind PyPI, Python.org, PyCon US, CPython, and a growing number of community services. The majority of the PSF&apos;s infrastructure runs on &lt;a href=&quot;https://aws.amazon.com/opensource/&quot;&gt;AWS&lt;/a&gt;, and nearly all of that bill is covered by credits from the &lt;a href=&quot;https://aws.amazon.com/blogs/opensource/aws-cloud-credits-for-open-source-projects-affirming-our-commitment/&quot;&gt;AWS Open Source Credits Program&lt;/a&gt;.&lt;/p&gt;
+&lt;h2 id=&quot;the-shape-of-it&quot;&gt;The shape of it&lt;/h2&gt;
+&lt;p&gt;PyPI takes over six billion requests a day and about thirteen billion counting file downloads. Package egress runs around 10 petabytes a day.&lt;/p&gt;
+&lt;p&gt;Almost none of that reaches AWS. Fastly serves it at the edge through their Fast Forward program at a hit ratio just under 99%, so only about one request in seventy makes it to origin. That caching is the core reason our AWS bill is not measured in the millions of dollars a year.&lt;/p&gt;
+&lt;p&gt;What does reach us is the part that is not cached, including things like user uploads, logins, and account management. That work runs on:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;Amazon EC2&lt;/strong&gt; for the application fleet, almost entirely Graviton at this point. We&apos;re &lt;a href=&quot;https://newsroom.arm.com/blog/how-the-python-software-foundation-future-proofed-its-infrastructure-with-arm&quot;&gt;huge fans of Arm-based hardware&lt;/a&gt; at the PSF!&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Amazon RDS&lt;/strong&gt; for the Postgres database behind Warehouse, which is the application you&apos;re looking at when you&apos;re on pypi.org.&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Amazon OpenSearch Service&lt;/strong&gt; for project search.&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Amazon S3&lt;/strong&gt; holds ~100 TB of package archives, plus the release history (that nobody ever wants to need).&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Amazon EKS&lt;/strong&gt;, newly stood up, as the target for migrating the whole fleet.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 id=&quot;what-changed-this-year&quot;&gt;What changed this year&lt;/h2&gt;
+&lt;p&gt;Our AWS spend is up about 69% comparing July 2026 to July 2025, and 40% across the trailing twelve months. That&apos;s new.&lt;/p&gt;
+&lt;p&gt;For context on how new: last October, Ee Durbin, our former Director of Infrastructure, noted that &lt;a href=&quot;https://pyfound.blogspot.com/2025/10/open-infrastructure-is-not-free-pypi.html&quot;&gt;PSF&apos;s AWS credit usage had grown 25% over eight years&lt;/a&gt; while daily requests went from millions to billions. Eight years of holding that line. 2026 is the first year it broke.&lt;/p&gt;
+&lt;p&gt;Some of it is simply more of everything. Compute, search, and load balancing all climbed from 30% to 80%, which is the profile of more people and machines using the service. There are certainly more of both. A lot more Python being written, a lot more agents installing packages on someone&apos;s behalf, and a lot more CI runs from all the projects those people and agents are creating. Package repositories were designed around the assumption that a human decides to run pip install some number of times a day. That assumption is well past its expiration.&lt;/p&gt;
+&lt;h2 id=&quot;what-we-do-about-it&quot;&gt;What we do about it&lt;/h2&gt;
+&lt;p&gt;At the PSF, we take the credits seriously, which means spending real engineering time on utilizing what we have in an optimal way so our usage doesn&apos;t increase. Being frugal with the credits entrusted to us is vital.&lt;/p&gt;
+&lt;p&gt;When a widely used GitHub Action makes requests it doesn&apos;t need to make, fixing the Action beats anything we can do on our side. A popular Action can quietly turn a cache hit into a fresh download from PyPI on every run, and that adds up fast across thousands of CI pipelines. &lt;code&gt;astral-sh/setup-uv&lt;/code&gt; &lt;a href=&quot;https://github.com/astral-sh/setup-uv/pull/967&quot;&gt;shipped exactly that kind of fix&lt;/a&gt;.&lt;/p&gt;
+&lt;p&gt;On the PSF side, the EKS migration is the big one. Once we&apos;re there, autoscaling lets capacity track demand instead of sitting provisioned for peak at 3 AM (San Francisco time) on a Sunday.&lt;/p&gt;
+&lt;p&gt;There&apos;s just one little (read: major) constraint: Ee left the PSF earlier this year, and I&apos;m currently the only person here working full time on infrastructure. Every item on that list is real and every one is slower than it should be. &lt;a href=&quot;https://jobs.pyfound.org/&quot;&gt;The PSF is hiring&lt;/a&gt;, and that hiring is possible in part because we aren&apos;t spending the same money on servers.&lt;/p&gt;
+&lt;p&gt;That said, hiring has a ceiling set by funding, and the growing gap between the demand placed on PyPI relative to staff operating and securing the service represents a risk to Python packaging. There is a very large amount of the software industry that sits on top of our services. Feature development, a rising volume of security reports, and day to day maintenance are currently being carried by one and a half full-time employees and one full-time employee on PyPI support requests. If your company installs from PyPI, ask internally about what your organization would be willing to fund. That question can be worth much more coming from inside a company than from the PSF. If you are interested in securing a service agreement with PyPI, please &lt;a href=&quot;https://www.surveymonkey.com/r/H53HHSS&quot;&gt;fill out our survey&lt;/a&gt;.&lt;/p&gt;
+&lt;h2 id=&quot;what-the-funding-actually-bought&quot;&gt;What the funding actually bought&lt;/h2&gt;
+&lt;p&gt;AWS has backed PyPI two different ways, and both are worth outlining.&lt;/p&gt;
+&lt;p&gt;A very exciting investment was made in 2023, when AWS became &lt;a href=&quot;https://blog.pypi.org/posts/2023-05-09-announcing-pypi-safety-and-security-engr-role/&quot;&gt;PyPI&apos;s inaugural Security Sponsor&lt;/a&gt;, putting $144,000 into creating the PyPI Safety &amp;amp; Security Engineer role. That role is now funded by &lt;a href=&quot;http://alpha-omega.dev/&quot;&gt;Alpha-Omega&lt;/a&gt;, and it&apos;s the reason malware comes down off PyPI in hours instead of whenever a volunteer has a spare moment. This investment also followed a pattern AWS had already established, having helped fund the rewrite, internationalization, and 2FA support for PyPI.&lt;/p&gt;
+&lt;p&gt;The credits do something quieter. They hold the infrastructure bill near zero, which means the PSF&apos;s general fund goes to employees, PyCon US, and other operational costs instead of servers. That&apos;s what pays for support staff handling the account recovery and project ownership requests that arrive every single day, and what makes it possible to ship things like Trusted Publishing, digital attestations, and organization accounts--instead of just keeping the lights on.&lt;/p&gt;
+&lt;p&gt;PyPI is free to use and will stay free to use at reasonable levels. Core publishing and installing stay free, permanently. What we are doing is building out real benefits for Organization accounts, and looking at sensible rate limits for the heaviest consumers at the top of the curve.&lt;/p&gt;
+&lt;p&gt;Which is exactly why in-kind support isn&apos;t just a line item to us. A sponsor choosing not to renew would mean an emergency migration or tens of thousands of dollars a month, either of which comes straight out of the work above. AWS has renewed every year since 2018, and the predictability of that is worth as much as the amount. The same goes for Fastly, Google Cloud, Datadog, Sentry, Depot, and PagerDuty, who carry other parts of this mountain of infrastructure.&lt;/p&gt;
+&lt;h2 id=&quot;how-you-can-help&quot;&gt;How you can help&lt;/h2&gt;
+&lt;p&gt;Four things, in order of how much they matter:&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;Cache your installs.&lt;/strong&gt; If your CI pulls from PyPI on every run with a cold cache, you&apos;re a meaningful part of the graph. The PSF uses Docker cache mounts and pip&apos;s cache on our own builds, and npm and apt caching too, because it&apos;s faster for us and cheaper for everyone. &lt;a href=&quot;https://pyfound.blogspot.com/2025/10/open-infrastructure-is-not-free-pypi.html&quot;&gt;Free package repositories aren&apos;t a limitless resource&lt;/a&gt;, and the fix is usually about six lines of config.&lt;/p&gt;
+&lt;p&gt;&lt;a href=&quot;https://pypi.org/manage/organizations/&quot;&gt;&lt;strong&gt;Sign up for a PyPI Organization&lt;/strong&gt;&lt;/a&gt; if your company publishes to PyPI. Recurring revenue from Organizations is the most sustainable funding base we have, and Community organizations remain free. Look forward to announcements about future features for PyPI organization accounts soon.&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;Interested in a PyPI service agreement?&lt;/strong&gt; Enhanced options like annual bulk seat purchases, higher project size limits, and prioritized support are available. The revenue helps fund the broader PyPI ecosystem while giving your organization benefits at scale. Fill out &lt;a href=&quot;https://www.surveymonkey.com/r/H53HHSS&quot;&gt;our service agreement interest survey&lt;/a&gt; and we&apos;ll follow up.&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;Ask your infrastructure vendors for multi-year commitments with open source foundations.&lt;/strong&gt; Annual renewal cycles carry real risk for projects like ours. The five-year agreement the PSF signed with Fastly in 2024 is a sustainable model, and we&apos;d like more of them.&lt;/p&gt;
+&lt;p&gt;The &lt;a href=&quot;https://openssf.org/blog/2025/09/23/open-infrastructure-is-not-free-a-joint-statement-on-sustainable-stewardship/&quot;&gt;open letter the PSF co-signed last year&lt;/a&gt; called this a critical inflection point rather than a crisis. A year on, with our first real break in eight years of flat infrastructure costs, that still reads about right.&lt;/p&gt;
+&lt;p&gt;A big thanks to Mila Zhou and the AWS Open Source team, who have made the credits process about as painless as an annual funding renewal can be, and to everyone at AWS who&apos;s kept this program going for so long. PyPI would look very different without it.&lt;/p&gt;
+&lt;p&gt;&lt;em&gt;This blog was recently edited to more accurately reflect numbers presented and work done.&lt;/em&gt;&lt;/p&gt;</description><link>https://blog.pypi.org/posts/2026-08-14-how-aws-powers-pypi-and-the-psf/</link><source url="https://blog.pypi.org/feed_rss_created.xml">The Python Package Index Blog</source><pubDate>Fri, 14 Aug 2026 06:09:00 +0000</pubDate><guid isPermaLink="true">https://blog.pypi.org/posts/2026-08-14-how-aws-powers-pypi-and-the-psf/</guid></item><item><title>The HTML representation of the index API is now frozen</title><author>William Woodruff</author><category>apis</category><category>integrations</category><description>&lt;p&gt;PyPI has adopted &lt;a href=&quot;https://peps.python.org/pep-0833/&quot;&gt;PEP 833&lt;/a&gt;, which &quot;freezes&quot; the
+&lt;a href=&quot;https://packaging.python.org/en/latest/specifications/simple-repository-api/#html-serialization&quot;&gt;HTML representation&lt;/a&gt; of the &lt;a href=&quot;https://docs.pypi.org/api/index-api/&quot;&gt;index API&lt;/a&gt;, which is also
+sometimes called the &quot;simple API&quot; or the &quot;simple repository API.&quot;&lt;/p&gt;
+&lt;p&gt;New packages and releases will continue to appear in the HTML
+representation, meaning this has &lt;strong&gt;no breaking implications&lt;/strong&gt;
+for downstream index consumers.&lt;/p&gt;
+&lt;p&gt;However, future standardization and development efforts will focus
+on the JSON representation, and downstreams that consume only the HTML
+representation are &lt;strong&gt;strongly encouraged&lt;/strong&gt; to transition to the JSON
+representation to ensure access to the latest and greatest index features.&lt;/p&gt;
+&lt;!-- more --&gt;
+
+&lt;h2 id=&quot;background&quot;&gt;Background&lt;/h2&gt;
+&lt;p&gt;As the name suggests, PyPI&apos;s primary responsibility is serving a
+&lt;em&gt;package index&lt;/em&gt;. Installers (like pip and uv) consume this
+index as part of resolving and installing dependencies.&lt;/p&gt;
+&lt;p&gt;For historical reasons, there are two different standard &lt;em&gt;representations&lt;/em&gt;
+of a Python packaging index:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;
+&lt;p&gt;The HTML representation, which predates standardization, and was
+  retroactively standardized with &lt;a href=&quot;https://peps.python.org/pep-0503/&quot;&gt;PEP 503&lt;/a&gt;.&lt;/p&gt;
+&lt;p&gt;The HTML index is &lt;em&gt;essentially&lt;/em&gt; a bare-bones version of the
+human-readable index that PyPI once served, back before PyPI
+was a resource that installers automatically retrieved packages
+from. It&apos;s that old!&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;The JSON representation, which was standardized with &lt;a href=&quot;https://peps.python.org/pep-0691/&quot;&gt;PEP 691&lt;/a&gt;.&lt;/p&gt;
+&lt;p&gt;Unlike the HTML representation, the JSON representation was designed
+from the ground-up to be useful to machine clients, rather than
+humans.&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;The two representations are more or less&lt;sup id=&quot;fnref:moreorless&quot;&gt;&lt;a class=&quot;footnote-ref&quot; href=&quot;#fn:moreorless&quot;&gt;1&lt;/a&gt;&lt;/sup&gt; coextensive in terms of
+serving the information that installers care about. This is intentional:
+efforts to extend the simple index over the years have worked hard
+to put that state into both representations.&lt;/p&gt;
+&lt;p&gt;Doing so with the HTML representation is often unwieldy, as
+metadata that naturally fits JSON&apos;s object model needs to be
+shoehorned into nooks and crannies (mainly HTML attributes and new &lt;code&gt;&amp;lt;meta&amp;gt;&lt;/code&gt; tags)
+that won&apos;t interfere with pre-existing assumptions about the
+HTML&apos;s shape.&lt;/p&gt;
+&lt;p&gt;Unfortunately, that shoehorning process is has become harder over time:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;
+&lt;p&gt;Many consumers have made suboptimal, unsound assumptions about
+  the shape of shape of PyPI&apos;s HTML representation. More
+  precisely: they go beyond assuming the basic shape of the HTML,
+  and actually make assumptions about semantically irrelevant
+  aspects like whitespace, attribute order, &amp;amp;c.&lt;/p&gt;
+&lt;p&gt;This makes even &quot;shape preserving&quot; changes to the HTML representation
+fraught.&lt;/p&gt;
+&lt;p&gt;By contrast, consumers of the JSON representation don&apos;t generally
+encounter these issues. Some of that is probably a function of
+the JSON representation being newer, but a large part is
+likely because, unlike HTML, users don&apos;t find themselves open-coding
+a JSON parser in high-level languages.&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;Because the fundamental shape of the HTML representation can&apos;t be changed,
+  adding new pieces of metadata to it becomes an exercise in creative
+  munging: things that are natural to express as object members in
+  JSON need to be shoehorned into new, flat &lt;code&gt;&amp;lt;meta&amp;gt;&lt;/code&gt; tags or HTML
+  attributes in the HTML representation.&lt;/p&gt;
+&lt;p&gt;&lt;a href=&quot;https://peps.python.org/pep-0792/&quot;&gt;PEP 792&lt;/a&gt; is a good example of this. Compare the JSON representation:&lt;/p&gt;
+&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;&lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+&lt;span class=&quot;w&quot;&gt;    &lt;/span&gt;&lt;span class=&quot;nt&quot;&gt;&quot;meta&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+&lt;span class=&quot;w&quot;&gt;        &lt;/span&gt;&lt;span class=&quot;nt&quot;&gt;&quot;api-version&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;1.4&quot;&lt;/span&gt;
+&lt;span class=&quot;w&quot;&gt;    &lt;/span&gt;&lt;span class=&quot;p&quot;&gt;},&lt;/span&gt;
+&lt;span class=&quot;w&quot;&gt;    &lt;/span&gt;&lt;span class=&quot;nt&quot;&gt;&quot;project-status&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+&lt;span class=&quot;w&quot;&gt;        &lt;/span&gt;&lt;span class=&quot;nt&quot;&gt;&quot;status&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;quarantined&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;
+&lt;span class=&quot;w&quot;&gt;        &lt;/span&gt;&lt;span class=&quot;nt&quot;&gt;&quot;reason&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;the project is haunted&quot;&lt;/span&gt;
+&lt;span class=&quot;w&quot;&gt;    &lt;/span&gt;&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
+&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;...to the HTML one:&lt;/p&gt;
+&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;&lt;span class=&quot;p&quot;&gt;&amp;lt;&lt;/span&gt;&lt;span class=&quot;nt&quot;&gt;meta&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;name&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;pypi:repository-version&quot;&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;content&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;1.4&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;&amp;gt;&lt;/span&gt;
+&lt;span class=&quot;p&quot;&gt;&amp;lt;&lt;/span&gt;&lt;span class=&quot;nt&quot;&gt;meta&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;name&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;pypi:project-status&quot;&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;content&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;quarantined&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;&amp;gt;&lt;/span&gt;
+&lt;span class=&quot;p&quot;&gt;&amp;lt;&lt;/span&gt;&lt;span class=&quot;nt&quot;&gt;meta&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;name&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;pypi:project-status-reason&quot;&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;content&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;the project is haunted&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;&amp;gt;&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;This may not seem so bad in isolation, but keep in mind that this
+flattening and munging needs to happen for every single
+new addition to the index.&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;Even when we &lt;em&gt;do&lt;/em&gt; successfully shoehorn features into the
+  HTML representation (on paper, and on PyPI), it often
+  &lt;strong&gt;doesn&apos;t matter to users&lt;/strong&gt;: users are bifurcated between adoption
+  of the JSON representation (which doesn&apos;t have these issues)
+  and third-party (often private) indices that only
+  implement the absolute bare minimum required in &lt;a href=&quot;https://peps.python.org/pep-0503/&quot;&gt;PEP 503&lt;/a&gt;.&lt;/p&gt;
+&lt;p&gt;As a result, even when we &lt;em&gt;do&lt;/em&gt; update the HTML representation,
+users rarely benefit from it.&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;&quot;Freezing&quot; the HTML representation is our way of acknowledging this
+situation. It&apos;s our way of saying that we can&apos;t&lt;sup id=&quot;fnref:yet&quot;&gt;&lt;a class=&quot;footnote-ref&quot; href=&quot;#fn:yet&quot;&gt;2&lt;/a&gt;&lt;/sup&gt; deprecate the
+HTML representation, but that we don&apos;t want to keep &lt;em&gt;extending&lt;/em&gt; it
+given how lopsided the tradeoffs are.&lt;/p&gt;
+&lt;h2 id=&quot;do-i-have-to-do-anything&quot;&gt;Do I have to do anything?&lt;/h2&gt;
+&lt;p&gt;&lt;strong&gt;No!&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;The HTML representation is &lt;strong&gt;not going away&lt;/strong&gt;, and will not
+go &quot;stale&quot; in terms of &lt;em&gt;content&lt;/em&gt; updates. &quot;Freezing&quot; means that
+Python packaging as a whole has made a &lt;em&gt;policy&lt;/em&gt; decision
+to not continue to munge features into its &lt;em&gt;structure&lt;/em&gt;.&lt;/p&gt;
+&lt;p&gt;In other words: the HTML representation will continue to be served by PyPI
+for the foreseeable future, but Python packaging as a whole
+will no longer prioritize attempting to shoe-horn new pieces
+of metadata into its relatively inflexible HTML structure.&lt;/p&gt;
+&lt;p&gt;The longer answers:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;
+&lt;p&gt;If you&apos;re an &quot;individual&quot; downstream package consumer (e.g., a
+  user who installs packages from PyPI through a tool like pip or uv):
+  this will have &lt;strong&gt;no impact on you&lt;/strong&gt;.&lt;/p&gt;
+&lt;p&gt;This is for two reasons: first, nothing is actually changing about
+the HTML representation from your (your tool&apos;s) perspective.
+Second, your tool is &lt;em&gt;probably&lt;/em&gt; already preferring the JSON
+representation: pip has supported the JSON representation since
+&lt;a href=&quot;https://pip.pypa.io/en/latest/news/#v22-2&quot;&gt;22.2&lt;/a&gt;, and uv has always supported it.&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;If you&apos;re a &quot;bulk&quot; index consumer (e.g., someone who mirrors
+  all of PyPI into a public or private) copy: you &lt;em&gt;also&lt;/em&gt; won&apos;t
+  be affected by this.&lt;/p&gt;
+&lt;p&gt;However, we &lt;strong&gt;strongly recommend&lt;/strong&gt; that you consider switching
+to the JSON representation as your primary consumption format:
+you can still serve the HTML representation in your mirror
+by reconstructing it from the JSON representation, &lt;em&gt;plus&lt;/em&gt;
+you&apos;ll get access to fields and better structured metadata
+that the HTML can&apos;t offer.&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;div class=&quot;footnote&quot;&gt;
+&lt;hr /&gt;
+&lt;ol&gt;
+&lt;li id=&quot;fn:moreorless&quot;&gt;
+&lt;p&gt;There are some notable gaps. For example, &lt;a href=&quot;https://peps.python.org/pep-0700/&quot;&gt;PEP 700&lt;/a&gt; added
+           &lt;code&gt;upload-time&lt;/code&gt; to the JSON representation only, under the
+           assumption that it wouldn&apos;t be useful to package installers
+           writ large. Years later, it turns out that &lt;a href=&quot;https://blog.yossarian.net/2025/11/21/We-should-all-be-using-dependency-cooldowns&quot;&gt;cooldowns&lt;/a&gt;
+           need this field, but that wasn&apos;t obvious in 2022!&amp;#160;&lt;a class=&quot;footnote-backref&quot; href=&quot;#fnref:moreorless&quot; title=&quot;Jump back to footnote 1 in the text&quot;&gt;&amp;#8617;&lt;/a&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;li id=&quot;fn:yet&quot;&gt;
+&lt;p&gt;Yet.&amp;#160;&lt;a class=&quot;footnote-backref&quot; href=&quot;#fnref:yet&quot; title=&quot;Jump back to footnote 2 in the text&quot;&gt;&amp;#8617;&lt;/a&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ol&gt;
+&lt;/div&gt;</description><link>https://blog.pypi.org/posts/2026-08-11-html-index-is-frozen/</link><source url="https://blog.pypi.org/feed_rss_created.xml">The Python Package Index Blog</source><pubDate>Tue, 11 Aug 2026 06:09:00 +0000</pubDate><guid isPermaLink="true">https://blog.pypi.org/posts/2026-08-11-html-index-is-frozen/</guid></item><item><title>Releases now reject new files after 14 days</title><author>Seth Larson</author><category>security</category><description>&lt;p&gt;The Python Package Index (PyPI) now rejects new files being uploaded to releases
+that are older than 14 days. This restriction was &lt;a href=&quot;https://github.com/pypi/warehouse/pull/19727&quot;&gt;put in place&lt;/a&gt; to prevent
+old and long-stable releases from being poisoned in case publishing tokens or workflows
+of PyPI projects were compromised. As far as we
+are aware this has not yet been abused, but there is no technical reason
+beyond that attackers weren&apos;t aware it was possible.&lt;/p&gt;
+&lt;!-- more --&gt;
+
+&lt;p&gt;Users should not yet rely on this behavior as there are no defined semantics
+for &quot;releases no longer accepting new files&quot; or APIs available to confirm
+the state of the release. Instead, these semantics will be defined once
+&quot;Upload 2.0 API&quot; and &quot;Staged Previews&quot; have been standardized by
+&lt;a href=&quot;https://peps.python.org/pep-0694/&quot;&gt;PEP 694&lt;/a&gt;.&lt;/p&gt;
+&lt;p&gt;The &lt;a href=&quot;https://discuss.python.org/t/restricting-open-ended-releases-on-pypi/43566&quot;&gt;discussion of this behavior began&lt;/a&gt; during PEP 740 (Digital Attestations) back
+in January 2024. The discussion was &lt;a href=&quot;https://discuss.python.org/t/restricting-open-ended-releases-on-pypi/43566/34&quot;&gt;restarted in March 2026&lt;/a&gt; after the popular packages &lt;a href=&quot;https://blog.pypi.org/posts/2026-04-02-incident-report-litellm-telnyx-supply-chain-attack/&quot;&gt;LiteLLM and Telnyx
+were compromised&lt;/a&gt;.
+These packages were compromised due to a &quot;&lt;a href=&quot;https://mikael.barbero.tech/blog/post/2026-03-24-stop-trusting-mutable-references/&quot;&gt;mutable reference&lt;/a&gt;&quot; in these projects&apos;
+usage of the Trivy GitHub Action.&lt;/p&gt;
+&lt;p&gt;Originally the discussion stalled due to some projects depending on
+this behavior to add support for new Python versions to already-published releases.
+To quantify how disruptive this change would be to existing workflows,
+the PyPI database was queried for &lt;a href=&quot;https://discuss.python.org/t/restricting-open-ended-releases-on-pypi/43566/48&quot;&gt;projects that have published
+new files to old releases&lt;/a&gt; (bucketed by number of days since the release).
+Later, specifically &lt;code&gt;cp314&lt;/code&gt; wheels were queried for the top 15,000 packages, revealing
+that &lt;a href=&quot;https://discuss.python.org/t/restricting-open-ended-releases-on-pypi/43566/63&quot;&gt;only 56 projects of 15,000&lt;/a&gt; had published a 3.14-compatible wheel
+more than 14 days after a release was available.&lt;/p&gt;
+&lt;p&gt;This topic was brought to the &lt;a href=&quot;https://hackmd.io/k0C-RAIVRnu-YXoDFgABvA&quot;&gt;Packaging Summit at PyCon US 2026&lt;/a&gt; by PyPI Safety &amp;amp; Security
+Engineer, Mike Fiedler. The rough consensus of the discussion was that the summit attendees thought
+it was &quot;acceptable to require users to bump to the next version&quot; to support
+new Python versions. With the data and consensus in hand, Seth &lt;a href=&quot;https://github.com/pypi/warehouse/pull/19727&quot;&gt;moved forward with
+a patch&lt;/a&gt; to reject new files on
+old releases which was merged July 8th, 2026.&lt;/p&gt;
+&lt;p&gt;This change will protect Python users and reduce the amount of &quot;cleanup&quot;
+work associated with project compromises for PyPI admins. This restriction
+also means that compromises don&apos;t put releases into an indeterminate and
+confusing state of both &quot;compromised&quot; and &quot;not compromised&quot;, where only a subset
+of files could be poisoned with malware. Stay tuned for the future where
+Upload 2.0 API provides semantics for releases that are &quot;closed&quot; instead
+of &quot;open&quot;.&lt;/p&gt;
+&lt;p&gt;Seth Larson and Mike Fiedler&apos;s work at the Python Software Foundation is
+supported by &lt;a href=&quot;https://alpha-omega.dev/&quot;&gt;Alpha-Omega&lt;/a&gt;.&lt;/p&gt;</description><link>https://blog.pypi.org/posts/2026-07-22-releases-now-reject-new-files-after-14-days/</link><source url="https://blog.pypi.org/feed_rss_created.xml">The Python Package Index Blog</source><pubDate>Wed, 22 Jul 2026 12:00:00 +0000</pubDate><guid isPermaLink="true">https://blog.pypi.org/posts/2026-07-22-releases-now-reject-new-files-after-14-days/</guid></item><item><title>Planned Updates to the PyPI User Interface</title><author>Nicole Harris</author><category>security</category><category>user-interface</category><description>&lt;p&gt;Over the next few months, we will be rolling out changes to the PyPI user interface, improving how we surface security signals and updating the pages where users view package details.&lt;/p&gt;
+&lt;p&gt;Updates will be staged to &lt;a href=&quot;https://test.pypi.org/&quot;&gt;TestPyPI&lt;/a&gt; and deployed to production in phases. This approach allows our team to thoroughly test the UI with production-like data, while providing the community with an opportunity to share feedback.&lt;/p&gt;
+&lt;p&gt;The first phase of changes is now staged on &lt;a href=&quot;https://test.pypi.org/&quot;&gt;TestPyPI&lt;/a&gt; and ready for users to review!&lt;/p&gt;
+&lt;!-- more --&gt;
+
+&lt;h2 id=&quot;context-ui-history-user-research-and-attestations-style-guide&quot;&gt;Context: UI History, User Research and Attestations Style Guide&lt;/h2&gt;
+&lt;p&gt;The PyPI user interface has remained largely unchanged since its 2018 launch. Over the intervening years, both PyPI and the Python ecosystem have grown significantly, while also attracting a higher volume of malicious activity. As a result, PyPI is taking a more active role in helping users assess and understand package security.&lt;/p&gt;
+&lt;p&gt;In 2024, PyPI &lt;a href=&quot;../2024-11-14-pypi-now-supports-digital-attestations/&quot;&gt;introduced support for digital attestations&lt;/a&gt;. Uploaded by project maintainers when making a new release, attestations serve as a signed record of a release&apos;s build or publishing &lt;em&gt;provenance&lt;/em&gt;, providing a verifiable way for users to see exactly where the release files came from.&lt;/p&gt;
+&lt;p&gt;While this was a significant milestone, the initial release did not include the necessary UI updates to make those attestations easily understandable or consumable for the average PyPI user.&lt;/p&gt;
+&lt;p&gt;This isn&apos;t a PyPI-specific problem; communicating attestations clearly to end users is a challenge across the open source ecosystem. To address this, the &lt;a href=&quot;https://repos.openssf.org/&quot;&gt;OpenSSF Securing Software Repositories Working Group&lt;/a&gt; partnered with &lt;a href=&quot;https://superbloom.design/&quot;&gt;Superbloom&lt;/a&gt; and &lt;a href=&quot;https://kabucreative.com/&quot;&gt;Kabu&amp;nbsp;Creative&lt;/a&gt; in 2025 to research and develop a standardized &lt;a href=&quot;https://repos.openssf.org/attestations-style-guide&quot;&gt;style guide for displaying attestations on software repositories&lt;/a&gt;. This work included extensive user interviews with package consumers (including PyPI users) to understand how they evaluate package security and trustworthiness.&lt;/p&gt;
+&lt;p&gt;As a next step, PyPI is adopting the &lt;a href=&quot;https://repos.openssf.org/attestations-style-guide/level-aaa&quot;&gt;highest-level recommendations&lt;/a&gt; from the style guide, becoming the first package repository to do so. Most notably, this involves adding a new &quot;Security&quot; tab and improving PyPI&apos;s user documentation.&lt;/p&gt;
+&lt;p&gt;We are also using this opportunity to deliver incremental improvements to the project detail pages, fine-tuning our 2018 design to improve information hierarchy and utility.&lt;/p&gt;
+&lt;h2 id=&quot;whats-changing&quot;&gt;What&apos;s Changing?&lt;/h2&gt;
+&lt;p&gt;Key changes to the user interface include:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;strong&gt;Dedicated Security Tab:&lt;/strong&gt; We are introducing a new Security tab to the project page to centralize provenance and attestation metadata, and to provide clear indicators when provenance is missing or has changed.&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;strong&gt;Navigation Moved to Horizontal Tabs:&lt;/strong&gt; We are moving internal navigation out of the sidebar and into a horizontal tab structure. This allows us to reserve the sidebar exclusively for project- and release-related metadata.&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;strong&gt;Metadata Sidebar Moved to the Right:&lt;/strong&gt; We are shifting the sidebar to the right to place critical content (the package description/readme) on the left, aligning with a natural left-to-right reading pattern and mirroring the structure of other major platforms like GitHub and npm.&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;strong&gt;Labeling Trust Levels:&lt;/strong&gt; We are explicitly labeling project data intrinsic to PyPI (like release timestamps) and data provided by a maintainer and verified by PyPI (like upstream source repositories). This will help users weigh the trustworthiness of data according to its source.&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;strong&gt;Optimized Sidebar Hierarchy:&lt;/strong&gt; We are reordering sidebar metadata by utility, prioritizing project links and &quot;freshness&quot; signals (like release dates) at the top, while shifting classification data to the bottom.&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;strong&gt;Clearer Status Labeling:&lt;/strong&gt; We are introducing bolder colors and improved labels for quarantined, yanked, archived, and pre-release states to help users more easily distinguish between these conditions.&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;These updates are entirely visual and will not require action from project maintainers; existing and future digital attestations will map to the new UI automatically.&lt;/p&gt;
+&lt;h2 id=&quot;our-rollout-plan&quot;&gt;Our Rollout Plan&lt;/h2&gt;
+&lt;p&gt;We are rolling out these changes in four phases. You can follow our progress, view the design prototypes, and participate in the discussion on our &lt;a href=&quot;https://github.com/pypi/warehouse/issues/19950&quot;&gt;main tracking issue (#19950)&lt;/a&gt;.&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;Phase 1: Project Details&lt;/strong&gt; (prototypes and discussion at &lt;a href=&quot;https://github.com/pypi/warehouse/issues/19951&quot;&gt;#19951&lt;/a&gt;, now live on &lt;a href=&quot;https://test.pypi.org/&quot;&gt;TestPyPI&lt;/a&gt;) – Main page redesign, including updates to the sidebar order and positioning.&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Phase 2: Files and Release History&lt;/strong&gt; (prototypes and discussion at &lt;a href=&quot;https://github.com/pypi/warehouse/issues/20185&quot;&gt;#20185&lt;/a&gt;) – Streamlining the file and release history tabs, adding attestation metadata where appropriate.&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Phase 3: Security Tab&lt;/strong&gt; (prototypes and discussion at &lt;a href=&quot;https://github.com/pypi/warehouse/issues/20069&quot;&gt;#20069&lt;/a&gt;) – Building a dedicated space for surfacing provenance and attestation data, raising warnings where appropriate.&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Phase 4: Documentation Refresh&lt;/strong&gt; – Refreshing PyPI&apos;s documentation to support the new UI, including adding security guidance.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 id=&quot;we-want-your-feedback&quot;&gt;We Want Your Feedback&lt;/h2&gt;
+&lt;p&gt;We invite you to test these changes on &lt;a href=&quot;https://test.pypi.org/&quot;&gt;TestPyPI&lt;/a&gt;.&lt;/p&gt;
+&lt;p&gt;If you have feedback, please share it on &lt;a href=&quot;https://github.com/pypi/warehouse/issues/20267&quot;&gt;this GitHub issue&lt;/a&gt;.&lt;/p&gt;
+&lt;p&gt;If you find a bug or defect, please open a ticket on &lt;a href=&quot;https://github.com/pypi/warehouse/issues&quot;&gt;our issue tracker&lt;/a&gt;. Please ensure you include browser and device details. This helps our team reproduce and fix the problem quickly.&lt;/p&gt;
+&lt;h2 id=&quot;acknowledgments&quot;&gt;Acknowledgments&lt;/h2&gt;
+&lt;p&gt;We would like to thank the &lt;a href=&quot;https://openssf.org/&quot;&gt;Open&amp;nbsp;Source&amp;nbsp;Security&amp;nbsp;Foundation&lt;/a&gt; for providing the funding for this initiative. We are also deeply grateful to Dustin Ingram, Zach Steindler, and the members of the &lt;a href=&quot;https://repos.openssf.org/&quot;&gt;OpenSSF Securing Software Repos WG&lt;/a&gt; for proposing this project for funding, and championing the larger effort to introduce attestations.&lt;/p&gt;
+&lt;p&gt;We also want to extend a sincere thank you to the members of the Python community who participated in our most recent round of &lt;a href=&quot;https://github.com/pypi/warehouse/issues/20111&quot;&gt;user interviews&lt;/a&gt;; your insights were instrumental in shaping the rationale and execution of these designs. Volunteers included:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Maciej Kopeć&lt;/li&gt;
+&lt;li&gt;Yngve Moe&lt;/li&gt;
+&lt;li&gt;Nyaosi Mogaka&lt;/li&gt;
+&lt;li&gt;Joachim Jablon&lt;/li&gt;
+&lt;li&gt;Samuel Mbote&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;Finally, thank you to the 777 people who participated in our recent &lt;a href=&quot;https://github.com/pypi/warehouse/issues/20058&quot;&gt;user survey&lt;/a&gt;. Your feedback has been invaluable in shaping the design and ordering of the package metadata sidebar.&lt;/p&gt;</description><link>https://blog.pypi.org/posts/2026-07-22-ui-updates/</link><source url="https://blog.pypi.org/feed_rss_created.xml">The Python Package Index Blog</source><pubDate>Wed, 22 Jul 2026 06:09:00 +0000</pubDate><guid isPermaLink="true">https://blog.pypi.org/posts/2026-07-22-ui-updates/</guid></item><item><title>PyPI has completed its second audit</title><author>Mike Fiedler</author><category>security</category><category>transparency</category><description>&lt;p&gt;In 2023 &lt;a href=&quot;.././2023-11-14-1-pypi-completes-first-security-audit/&quot;&gt;PyPI completed its first security audit&lt;/a&gt;,
+and I am proud to announce that we have now completed our second external security audit.&lt;/p&gt;
+&lt;p&gt;This work was funded by the &lt;a href=&quot;https://www.sovereign.tech/&quot;&gt;Sovereign Tech Agency&lt;/a&gt;,
+a supporter of Open Source security-related improvements,
+partnering with &lt;a href=&quot;https://www.trailofbits.com/&quot;&gt;Trail of Bits&lt;/a&gt; to perform the audit.
+Thanks to ongoing support from &lt;a href=&quot;https://alpha-omega.dev/&quot;&gt;Alpha-Omega&lt;/a&gt;,
+my role at the PSF enabled me to focus on rapid remediation of the findings.&lt;/p&gt;
+&lt;p&gt;This time around, there&apos;s no three-part series, as the scope was narrower,
+focused only on PyPI&apos;s codebase and behaviors.
+Read on for a summary of issues identified, their resolutions,
+and more details about the audit process.&lt;/p&gt;
+&lt;!-- more --&gt;
+
+&lt;p&gt;The full audit report can be found on the &lt;a href=&quot;https://github.com/trailofbits/publications/blob/master/reviews/2026-04-pypi-warehouse-securityreview.pdf&quot;&gt;Trail of Bits publication page&lt;/a&gt;.
+I highly recommend reading that for the fullest context first.&lt;/p&gt;
+&lt;h2 id=&quot;findings&quot;&gt;Findings&lt;/h2&gt;
+&lt;p&gt;Here&apos;s a table of the findings, status,
+and links to the relevant pull requests where applicable:&lt;/p&gt;
+&lt;table&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th style=&quot;text-align: left;&quot;&gt;ID&lt;/th&gt;
+&lt;th style=&quot;text-align: left;&quot;&gt;Title&lt;/th&gt;
+&lt;th style=&quot;text-align: left;&quot;&gt;Severity&lt;/th&gt;
+&lt;th style=&quot;text-align: left;&quot;&gt;Difficulty&lt;/th&gt;
+&lt;th style=&quot;text-align: left;&quot;&gt;Status&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td style=&quot;text-align: left;&quot;&gt;&lt;a href=&quot;#tob-pypi26-1-oidc-jti-anti-replay-lock-expires-before-jwt-leeway-window-closes&quot;&gt;TOB-PYPI26-1&lt;/a&gt;&lt;/td&gt;
+&lt;td style=&quot;text-align: left;&quot;&gt;OIDC JTI anti-replay lock expires before JWT leeway window closes&lt;/td&gt;
+&lt;td style=&quot;text-align: left;&quot;&gt;Medium&lt;/td&gt;
+&lt;td style=&quot;text-align: left;&quot;&gt;High&lt;/td&gt;
+&lt;td style=&quot;text-align: left;&quot;&gt;&lt;a href=&quot;https://github.com/pypi/warehouse/pull/19627&quot;&gt;Remediated&lt;/a&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style=&quot;text-align: left;&quot;&gt;TOB-PYPI26-2&lt;/td&gt;
+&lt;td style=&quot;text-align: left;&quot;&gt;OIDC token minting is vulnerable to a TOCTOU race in JTI anti-replay&lt;/td&gt;
+&lt;td style=&quot;text-align: left;&quot;&gt;Low&lt;/td&gt;
+&lt;td style=&quot;text-align: left;&quot;&gt;High&lt;/td&gt;
+&lt;td style=&quot;text-align: left;&quot;&gt;&lt;a href=&quot;https://github.com/pypi/warehouse/pull/19625&quot;&gt;Remediated&lt;/a&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style=&quot;text-align: left;&quot;&gt;TOB-PYPI26-3&lt;/td&gt;
+&lt;td style=&quot;text-align: left;&quot;&gt;Verification badge bypass on the home page and download URLs&lt;/td&gt;
+&lt;td style=&quot;text-align: left;&quot;&gt;Low&lt;/td&gt;
+&lt;td style=&quot;text-align: left;&quot;&gt;Low&lt;/td&gt;
+&lt;td style=&quot;text-align: left;&quot;&gt;&lt;a href=&quot;https://github.com/pypi/warehouse/pull/19628&quot;&gt;Remediated&lt;/a&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style=&quot;text-align: left;&quot;&gt;TOB-PYPI26-4&lt;/td&gt;
+&lt;td style=&quot;text-align: left;&quot;&gt;Project-level token deletion audit events silently dropped due to data structure mismatch&lt;/td&gt;
+&lt;td style=&quot;text-align: left;&quot;&gt;Low&lt;/td&gt;
+&lt;td style=&quot;text-align: left;&quot;&gt;Low&lt;/td&gt;
+&lt;td style=&quot;text-align: left;&quot;&gt;&lt;a href=&quot;https://github.com/pypi/warehouse/pull/19652&quot;&gt;Remediated&lt;/a&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style=&quot;text-align: left;&quot;&gt;TOB-PYPI26-5&lt;/td&gt;
+&lt;td style=&quot;text-align: left;&quot;&gt;Password reset leaks privileged account status&lt;/td&gt;
+&lt;td style=&quot;text-align: left;&quot;&gt;Low&lt;/td&gt;
+&lt;td style=&quot;text-align: left;&quot;&gt;High&lt;/td&gt;
+&lt;td style=&quot;text-align: left;&quot;&gt;&lt;a href=&quot;https://github.com/pypi/warehouse/pull/19653&quot;&gt;Remediated&lt;/a&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style=&quot;text-align: left;&quot;&gt;&lt;a href=&quot;#tob-pypi26-6-ip-ban-bypass-via-macaroon-api-token-authentication&quot;&gt;TOB-PYPI26-6&lt;/a&gt;&lt;/td&gt;
+&lt;td style=&quot;text-align: left;&quot;&gt;IP ban bypass via macaroon API token authentication&lt;/td&gt;
+&lt;td style=&quot;text-align: left;&quot;&gt;Informational&lt;/td&gt;
+&lt;td style=&quot;text-align: left;&quot;&gt;High&lt;/td&gt;
+&lt;td style=&quot;text-align: left;&quot;&gt;Accepted&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style=&quot;text-align: left;&quot;&gt;TOB-PYPI26-7&lt;/td&gt;
+&lt;td style=&quot;text-align: left;&quot;&gt;Moderators can modify organization applications due to a missing write permission check&lt;/td&gt;
+&lt;td style=&quot;text-align: left;&quot;&gt;Low&lt;/td&gt;
+&lt;td style=&quot;text-align: left;&quot;&gt;High&lt;/td&gt;
+&lt;td style=&quot;text-align: left;&quot;&gt;&lt;a href=&quot;https://github.com/pypi/warehouse/pull/19619&quot;&gt;Remediated&lt;/a&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style=&quot;text-align: left;&quot;&gt;&lt;a href=&quot;#tob-pypi26-8-organization-members-can-invite-new-owners-due-to-a-missing-manage-permission-check&quot;&gt;TOB-PYPI26-8&lt;/a&gt;&lt;/td&gt;
+&lt;td style=&quot;text-align: left;&quot;&gt;Organization members can invite new owners due to a missing manage permission check&lt;/td&gt;
+&lt;td style=&quot;text-align: left;&quot;&gt;High&lt;/td&gt;
+&lt;td style=&quot;text-align: left;&quot;&gt;Medium&lt;/td&gt;
+&lt;td style=&quot;text-align: left;&quot;&gt;&lt;a href=&quot;https://github.com/pypi/warehouse/pull/19610&quot;&gt;Remediated&lt;/a&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style=&quot;text-align: left;&quot;&gt;TOB-PYPI26-9&lt;/td&gt;
+&lt;td style=&quot;text-align: left;&quot;&gt;TOTP replay prevention bypass via space normalization mismatch between validation and storage&lt;/td&gt;
+&lt;td style=&quot;text-align: left;&quot;&gt;Informational&lt;/td&gt;
+&lt;td style=&quot;text-align: left;&quot;&gt;High&lt;/td&gt;
+&lt;td style=&quot;text-align: left;&quot;&gt;&lt;a href=&quot;https://github.com/pypi/warehouse/pull/19668&quot;&gt;Remediated&lt;/a&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style=&quot;text-align: left;&quot;&gt;&lt;a href=&quot;#tob-pypi26-10-wheel-metadata-is-served-to-installers-without-validation-against-upload-metadata&quot;&gt;TOB-PYPI26-10&lt;/a&gt;&lt;/td&gt;
+&lt;td style=&quot;text-align: left;&quot;&gt;Wheel METADATA is served to installers without validation against upload metadata&lt;/td&gt;
+&lt;td style=&quot;text-align: left;&quot;&gt;Low&lt;/td&gt;
+&lt;td style=&quot;text-align: left;&quot;&gt;Low&lt;/td&gt;
+&lt;td style=&quot;text-align: left;&quot;&gt;Accepted&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style=&quot;text-align: left;&quot;&gt;TOB-PYPI26-11&lt;/td&gt;
+&lt;td style=&quot;text-align: left;&quot;&gt;IDOR in API Token Deletion Allows Any Authenticated User to Delete Other Users&apos; Macaroons&lt;/td&gt;
+&lt;td style=&quot;text-align: left;&quot;&gt;Low&lt;/td&gt;
+&lt;td style=&quot;text-align: left;&quot;&gt;High&lt;/td&gt;
+&lt;td style=&quot;text-align: left;&quot;&gt;&lt;a href=&quot;https://github.com/pypi/warehouse/pull/19669&quot;&gt;Remediated&lt;/a&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style=&quot;text-align: left;&quot;&gt;TOB-PYPI26-12&lt;/td&gt;
+&lt;td style=&quot;text-align: left;&quot;&gt;GitHub OIDC publisher lookup lacks issuer URL isolation for custom GHES issuers&lt;/td&gt;
+&lt;td style=&quot;text-align: left;&quot;&gt;Informational&lt;/td&gt;
+&lt;td style=&quot;text-align: left;&quot;&gt;High&lt;/td&gt;
+&lt;td style=&quot;text-align: left;&quot;&gt;&lt;a href=&quot;https://github.com/pypi/warehouse/pull/19661&quot;&gt;Remediated&lt;/a&gt; &lt;a href=&quot;https://github.com/pypi/warehouse/pull/19661&quot;&gt;1&lt;/a&gt;, &lt;a href=&quot;https://github.com/pypi/warehouse/pull/19718&quot;&gt;2&lt;/a&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style=&quot;text-align: left;&quot;&gt;&lt;a href=&quot;#tob-pypi26-13-organization-scoped-project-associations-persist-after-project-transfer-or-removal&quot;&gt;TOB-PYPI26-13&lt;/a&gt;&lt;/td&gt;
+&lt;td style=&quot;text-align: left;&quot;&gt;Organization-scoped project associations persist after project transfer or removal&lt;/td&gt;
+&lt;td style=&quot;text-align: left;&quot;&gt;High&lt;/td&gt;
+&lt;td style=&quot;text-align: left;&quot;&gt;High&lt;/td&gt;
+&lt;td style=&quot;text-align: left;&quot;&gt;&lt;a href=&quot;https://github.com/pypi/warehouse/pull/19749&quot;&gt;Remediated&lt;/a&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style=&quot;text-align: left;&quot;&gt;TOB-PYPI26-14&lt;/td&gt;
+&lt;td style=&quot;text-align: left;&quot;&gt;Admin flag changes lack audit logging&lt;/td&gt;
+&lt;td style=&quot;text-align: left;&quot;&gt;Informational&lt;/td&gt;
+&lt;td style=&quot;text-align: left;&quot;&gt;High&lt;/td&gt;
+&lt;td style=&quot;text-align: left;&quot;&gt;&lt;a href=&quot;https://github.com/pypi/warehouse/pull/19751&quot;&gt;Remediated&lt;/a&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+&lt;p&gt;Of the 14 findings, I used a combination of Severity and Difficulty
+to determine which ones to work on first, and which ones to accept for now.&lt;/p&gt;
+&lt;p&gt;There were 2 High, 1 Medium, 7 Low, and 4 Informational severity findings.&lt;/p&gt;
+&lt;p&gt;All but 2 findings have been remediated, and the remaining 2 are accepted for now.
+More details on the accepted findings below, but in general these were accepted
+because they require significant effort to remediate, and the risk they pose is relatively low.&lt;/p&gt;
+&lt;p&gt;To reiterate, the &lt;a href=&quot;https://github.com/trailofbits/publications/blob/master/reviews/2026-04-pypi-warehouse-securityreview.pdf&quot;&gt;published report PDF&lt;/a&gt; goes into deeper detail about each finding,
+so I recommend reading that for the fullest context first.&lt;/p&gt;
+&lt;h2 id=&quot;details&quot;&gt;Details&lt;/h2&gt;
+&lt;p&gt;For some of the Remediated entries and all the Accepted ones, I&apos;ll go into more detail below.&lt;/p&gt;
+&lt;h3 id=&quot;tob-pypi26-1-oidc-jti-anti-replay-lock-expires-before-jwt-leeway-window-closes&quot;&gt;TOB-PYPI26-1: OIDC JTI anti-replay lock expires before JWT leeway window closes&lt;/h3&gt;
+&lt;p&gt;PyPI&apos;s &lt;a href=&quot;https://docs.pypi.org/trusted-publishers/&quot;&gt;Trusted Publishing&lt;/a&gt; flow
+uses OIDC JWTs issued by CI providers to mint short-lived upload tokens.
+Each JWT contains a &lt;code&gt;jti&lt;/code&gt; (JWT Token Identifier) claim that should be single-use.
+To enforce this, we store each &lt;code&gt;jti&lt;/code&gt; in cache (Redis) with an expiration of &lt;code&gt;exp + 5&lt;/code&gt; seconds,
+and check whether it already exists before accepting a new token.&lt;/p&gt;
+&lt;p&gt;The problem: &lt;code&gt;PyJWT&lt;/code&gt; is configured with &lt;code&gt;leeway=30&lt;/code&gt;,
+meaning it accepts tokens up to 30 seconds past their &lt;code&gt;exp&lt;/code&gt; claim.
+This created a 25-second window (from &lt;code&gt;exp + 5&lt;/code&gt; to &lt;code&gt;exp + 30&lt;/code&gt;)
+where the cache key had already been evicted, but the JWT still passed signature verification.
+During that window, a replayed token would pass both the signature check and the &lt;code&gt;jti&lt;/code&gt; uniqueness check.&lt;/p&gt;
+&lt;p&gt;The fix was straightforward --
+align the cache TTL to outlive the full leeway window
+by &lt;a href=&quot;https://github.com/pypi/warehouse/pull/19627/changes#diff-b6993869ec628f626827f05a87938a08f1ced03e52b68a49000100910d9d46f2R288&quot;&gt;setting the expiration to &lt;code&gt;exp + leeway + margin&lt;/code&gt;&lt;/a&gt;.
+I also took the opportunity to centralize these time-window constants
+so they&apos;re derived from a shared configuration,
+preventing future drift when one value is updated without the other.&lt;/p&gt;
+&lt;h3 id=&quot;tob-pypi26-6-ip-ban-bypass-via-macaroon-api-token-authentication&quot;&gt;TOB-PYPI26-6: IP ban bypass via macaroon API token authentication&lt;/h3&gt;
+&lt;p&gt;&lt;strong&gt;Accepted for now.&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;PyPI administrators can ban IP addresses through the admin dashboard.
+The session authentication policy enforces this by checking the IP against the ban list
+before returning an identity.
+However, the macaroon (API token) authentication policy doesn&apos;t perform this same check.
+This means a user with a valid API token could continue uploading packages
+from a banned IP address.&lt;/p&gt;
+&lt;p&gt;I&apos;ve accepted this finding for now. IP bans are a relatively blunt tool that we use sparingly,
+&lt;a href=&quot;https://github.com/pypi/warehouse/pull/19213&quot;&gt;introduced late last year&lt;/a&gt;
+to mitigate a specific wave of abuse.
+The practical risk here is low - if we&apos;ve identified a malicious actor,
+we have other mechanisms to disable their account entirely.
+That said, it&apos;s a gap worth closing, and we&apos;ll likely address it as part of broader work
+on making security controls consistent across all authentication methods.&lt;/p&gt;
+&lt;h3 id=&quot;tob-pypi26-8-organization-members-can-invite-new-owners-due-to-a-missing-manage-permission-check&quot;&gt;TOB-PYPI26-8: Organization members can invite new owners due to a missing manage permission check&lt;/h3&gt;
+&lt;p&gt;This was the highest-severity finding in the audit, and one I prioritized immediately.&lt;/p&gt;
+&lt;p&gt;The &lt;code&gt;manage_organization_roles&lt;/code&gt; view handled both &lt;code&gt;GET&lt;/code&gt; (viewing the people page)
+and &lt;code&gt;POST&lt;/code&gt; (sending invitations) under a single &lt;code&gt;@view_config&lt;/code&gt; decorator
+that only required &lt;code&gt;OrganizationsRead&lt;/code&gt; permission.
+This meant any organization member could send invitations with &lt;em&gt;any&lt;/em&gt; role -
+including Owner - to any PyPI user.&lt;/p&gt;
+&lt;p&gt;The irony is that we already had the correct pattern elsewhere in the codebase.
+Views like &lt;code&gt;resend_organization_invitation&lt;/code&gt; and &lt;code&gt;change_organization_role&lt;/code&gt;
+correctly use separate &lt;code&gt;@view_config&lt;/code&gt; decorators for &lt;code&gt;GET&lt;/code&gt; and &lt;code&gt;POST&lt;/code&gt;
+with distinct permission requirements.
+This one was simply missed.&lt;/p&gt;
+&lt;p&gt;The &lt;a href=&quot;https://github.com/pypi/warehouse/pull/19610&quot;&gt;fix was to split the view configuration&lt;/a&gt;:
+&lt;code&gt;GET&lt;/code&gt; requires &lt;code&gt;OrganizationsRead&lt;/code&gt;, &lt;code&gt;POST&lt;/code&gt; requires &lt;code&gt;OrganizationsManage&lt;/code&gt;.
+As part of the audit, Trail of Bits also developed a custom CodeQL query
+to detect this class of issue - views that handle state-changing &lt;code&gt;POST&lt;/code&gt; requests
+under a read-only permission check.
+I&apos;ll integrate that into our CI to catch this pattern going forward.&lt;/p&gt;
+&lt;h3 id=&quot;tob-pypi26-10-wheel-metadata-is-served-to-installers-without-validation-against-upload-metadata&quot;&gt;TOB-PYPI26-10: Wheel METADATA is served to installers without validation against upload metadata&lt;/h3&gt;
+&lt;p&gt;&lt;strong&gt;Accepted for now.&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;This is a nuanced one. When a wheel is uploaded to PyPI,
+we store two independent sources of metadata:
+the form-declared metadata from the upload request (which populates the database and the JSON API),
+and the embedded &lt;code&gt;.dist-info/METADATA&lt;/code&gt; file extracted from the wheel itself
+(which is served via &lt;a href=&quot;https://peps.python.org/pep-0658/&quot;&gt;PEP 658&lt;/a&gt; to &lt;code&gt;pip&lt;/code&gt; for dependency resolution).&lt;/p&gt;
+&lt;p&gt;These two sources are never compared.
+In theory, an attacker could embed hidden dependencies in the wheel&apos;s &lt;code&gt;METADATA&lt;/code&gt;
+that &lt;code&gt;pip&lt;/code&gt; would install, but that security tools querying the JSON API would never see.&lt;/p&gt;
+&lt;p&gt;We&apos;ve accepted this for now because the fix is non-trivial.
+Properly validating embedded metadata against upload metadata
+touches a core part of how we handle uploads,
+and requires careful consideration of edge cases across the ecosystem.
+This is something we want to get right rather than rush,
+and &lt;a href=&quot;https://github.com/pypi/warehouse/issues/8090&quot;&gt;involves a fair amount of database changes, including data backfills&lt;/a&gt;.&lt;/p&gt;
+&lt;h3 id=&quot;tob-pypi26-13-organization-scoped-project-associations-persist-after-project-transfer-or-removal&quot;&gt;TOB-PYPI26-13: Organization-scoped project associations persist after project transfer or removal&lt;/h3&gt;
+&lt;p&gt;This was the other High-severity finding, and a subtle one.&lt;/p&gt;
+&lt;p&gt;When a project is transferred between organizations,
+the &lt;code&gt;OrganizationProject&lt;/code&gt; junction record is correctly deleted and recreated.
+However, the &lt;code&gt;TeamProjectRole&lt;/code&gt; records - which grant a team&apos;s members
+access to specific projects - were &lt;em&gt;not&lt;/em&gt; cleaned up during the transfer.&lt;/p&gt;
+&lt;p&gt;This meant that if LexCorp Organization had a &quot;release-engineers&quot; team
+with Owner-level access to a project,
+and that project was transferred to Organization OsCorp,
+the LexCorp team&apos;s members would silently retain full access to the project.
+Worse, the receiving organization had no visibility into these stale associations -
+team-granted permissions are resolved at ACL evaluation time
+and don&apos;t appear as individual collaborator entries in the UI.&lt;/p&gt;
+&lt;p&gt;The fix in &lt;a href=&quot;https://github.com/pypi/warehouse/pull/19749&quot;&gt;pypi/warehouse#19749&lt;/a&gt;
+ensures that &lt;code&gt;TeamProjectRole&lt;/code&gt; records belonging to the departing organization
+are cleaned up when a project is transferred.
+Auditing database records proved that this has not happened in the past,
+so I am confident there have been no such transfers with dangling permissions.
+I also added defensive filters in the project&apos;s ACL computation
+to verify that a team&apos;s organization matches the project&apos;s current organization
+before granting permissions,
+so stale records can&apos;t grant access regardless of how they&apos;re orphaned.&lt;/p&gt;
+&lt;h2 id=&quot;summary&quot;&gt;Summary&lt;/h2&gt;
+&lt;p&gt;Working with &lt;a href=&quot;https://www.trailofbits.com/&quot;&gt;Trail of Bits&lt;/a&gt; was again a pleasure.
+The team were thorough, communicative, and clearly understood
+the nuances of a system like PyPI - where the threat model spans everything
+from CI/CD token replay to metadata integrity for millions of downstream users.&lt;/p&gt;
+&lt;p&gt;Beyond the 14 findings, the audit also produced proposal reviews
+for features I&apos;m considering (per-org Trusted Publishers, TOTP hardening, and more),
+as well as custom CodeQL queries to integrate into our CI/CD pipeline.&lt;/p&gt;
+&lt;p&gt;This audit was funded in partnership with
+the &lt;a href=&quot;https://www.sovereign.tech/&quot;&gt;Sovereign Tech Agency&lt;/a&gt;,
+which continues to support security improvements across the Open Source ecosystem.&lt;/p&gt;
+&lt;p&gt;My work at the Python Software Foundation is supported by &lt;a href=&quot;https://alpha-omega.dev/&quot;&gt;Alpha-Omega&lt;/a&gt;.&lt;/p&gt;</description><link>https://blog.pypi.org/posts/2026-04-16-pypi-completes-second-audit/</link><source url="https://blog.pypi.org/feed_rss_created.xml">The Python Package Index Blog</source><pubDate>Thu, 16 Apr 2026 14:00:00 +0000</pubDate><guid isPermaLink="true">https://blog.pypi.org/posts/2026-04-16-pypi-completes-second-audit/</guid></item><item><title>Incident Report: LiteLLM/Telnyx supply-chain attacks, with guidance</title><author>Seth Larson</author><author>Mike Fiedler</author><category>security</category><category>transparency</category><description>&lt;p&gt;This post will drill deeper into two recent supply chain exploits, targeting users of popular PyPI packages - &lt;code&gt;litellm&lt;/code&gt; &amp;amp; &lt;code&gt;telnyx&lt;/code&gt;.
+We also provide Python developers and maintainers with guidance on what they can do to prepare
+and protect themselves from future incidents.&lt;/p&gt;
+&lt;!-- more --&gt;
+
+&lt;h2 id=&quot;what-happened-with-litellm-and-telnyx&quot;&gt;What happened with LiteLLM and telnyx?&lt;/h2&gt;
+&lt;p&gt;After an API token exposure from an &lt;a href=&quot;https://www.aquasec.com/blog/trivy-supply-chain-attack-what-you-need-to-know/&quot;&gt;exploited Trivy dependency&lt;/a&gt;
+releases of the packages &lt;a href=&quot;https://pypi.org/project/litellm/&quot;&gt;&lt;code&gt;litellm&lt;/code&gt;&lt;/a&gt; and &lt;a href=&quot;https://pypi.org/project/telnyx/&quot;&gt;&lt;code&gt;telnyx&lt;/code&gt;&lt;/a&gt;
+were published to PyPI containing credential harvesting malware.&lt;/p&gt;
+&lt;p&gt;The malware ran on install, harvesting sensitive credentials and files, and exfiltrating to a remote API. More details published in &lt;a href=&quot;https://osv.dev/vulnerability/PYSEC-2026-2&quot;&gt;the advisory for LiteLLM (PYSEC-2026-2)&lt;/a&gt;, the &lt;a href=&quot;https://docs.litellm.ai/blog/security-update-march-2026&quot;&gt;LiteLLM blog post&lt;/a&gt; about the incident,
+&lt;a href=&quot;https://osv.dev/vulnerability/PYSEC-2026-3&quot;&gt;the advisory for telnyx (PYSEC-2026-3)&lt;/a&gt; and the &lt;a href=&quot;https://telnyx.com/resources/telnyx-python-sdk-supply-chain-security-notice-march-2026&quot;&gt;telnyx notice&lt;/a&gt;.&lt;/p&gt;
+&lt;p&gt;After contacting the &lt;code&gt;litellm&lt;/code&gt; and &lt;code&gt;telnyx&lt;/code&gt; maintainers, Mike and Seth collaborated with each team on steps forward, including token rotation, release removals, and recommendations around further security practices like using &lt;a href=&quot;https://docs.pypi.org/trusted-publishers/&quot;&gt;Trusted Publishers&lt;/a&gt; which both projects have since adopted.&lt;/p&gt;
+&lt;h2 id=&quot;why-is-this-malware-different&quot;&gt;Why is this malware different?&lt;/h2&gt;
+&lt;p&gt;This class of malware is different from most malware published to PyPI, which are mostly published as &lt;strong&gt;new packages&lt;/strong&gt;, either as typosquats or with a plan to share the package with others and hope they install it. This malware is &quot;injected&quot; into open source packages that are &lt;strong&gt;already in widespread use&lt;/strong&gt;. The malware injection occurs one of two ways:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Targeting open source projects with insecure repositories, release workflows, or authentication&lt;/li&gt;
+&lt;li&gt;Targeting developers installing the latest versions of open source projects and exfiltrating API tokens and keys&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;Using the API tokens and keys gathered from developer machines, the malware authors are able to further compromise other open source packages if API tokens for PyPI or GitHub are exfiltrated. This cycle continues as long as it is effective in exfiltrating more credentials. &lt;/p&gt;
+&lt;h2 id=&quot;what-is-pypi-doing-to-mitigate-malware&quot;&gt;What is PyPI doing to mitigate malware?&lt;/h2&gt;
+&lt;p&gt;With daily volume of &lt;strong&gt;~700-800 new projects&lt;/strong&gt; created daily on PyPI, this poses a scaling challenge.
+PyPI partners with security researchers from our community who regularly scan and report malware through elevated channels to facilitate quicker remediation times.&lt;/p&gt;
+&lt;p&gt;Below see the timeline of events.&lt;/p&gt;
+&lt;p&gt;&lt;img alt=&quot;LiteLLM download timeline with reports and quarantine&quot; src=&quot;../../assets/2026-04-02-incident-report-litellm-telnyx-supply-chain-attack/litellm_downloads_timeline.png&quot; /&gt;&lt;/p&gt;
+&lt;p&gt;During the window of attack, the exploited versions of &lt;code&gt;litellm&lt;/code&gt; were downloaded over 119k times.&lt;/p&gt;
+&lt;p&gt;PyPI received 13 inbound reports from concerned users, leveraging the &lt;a href=&quot;.././2024-03-06-malware-reporting-evolved/&quot;&gt;&quot;Report project as malware&quot; feature&lt;/a&gt;, added back in 2024, accelerating the review/action.&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;From upload to first report: 1h 19m&lt;/li&gt;
+&lt;li&gt;First report to quarantine: 1h 12m&lt;/li&gt;
+&lt;li&gt;From upload to quarantine (total exposure time): &lt;strong&gt;2h 32m&lt;/strong&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;LiteLLM is typically installed &lt;a href=&quot;https://pepy.tech/projects/litellm?timeRange=threeMonths&amp;amp;category=version&amp;amp;includeCIDownloads=true&amp;amp;granularity=weekly&amp;amp;viewType=line&amp;amp;versions=*&quot;&gt;~15-20 million times per week&lt;/a&gt;. Averaging this out to an &quot;installs per minute&quot; rate nets a value between &lt;strong&gt;~1700 installs per minute&lt;/strong&gt;.
+This means between &lt;strong&gt;~40-50% of all installs&lt;/strong&gt; of LiteLLM were unpinned and fetching the latest version on each install invocation.&lt;/p&gt;
+&lt;p&gt;Because these systems are pulling latest, this leaves very little time for researchers and PyPI admins to report, triage, and quarantine malware when published to a popular package. Read on for information on &quot;&lt;a href=&quot;#dependency-cooldowns&quot;&gt;dependency cooldowns&lt;/a&gt;&quot;&lt;/p&gt;
+&lt;p&gt;&lt;img alt=&quot;Telnyx download timeline with reports and quarantine&quot; src=&quot;../../assets/2026-04-02-incident-report-litellm-telnyx-supply-chain-attack/telnyx_downloads_timeline.png&quot; /&gt;&lt;/p&gt;
+&lt;p&gt;PyPI&apos;s remediation response to &lt;code&gt;telnyx&lt;/code&gt; was autonomously taken thanks to our pool of trusted reporters.
+These reporters add weight to any given report, triggering an automated quarantine feature.
+Subscribe to the PyPI blog for a future update about our automatic quarantining system.&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;From upload to first report: 1h 45m&lt;/li&gt;
+&lt;li&gt;First report to quarantine: 1h 57m&lt;/li&gt;
+&lt;li&gt;Form upload to quarantine (total exposure time): 3h 42m&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;Below are a few methods to make your usage of Python packages from PyPI more secure and to avoid installing malware.&lt;/p&gt;
+&lt;h2 id=&quot;protecting-yourself-as-a-developer&quot;&gt;Protecting yourself as a developer&lt;/h2&gt;
+&lt;h3 id=&quot;dependency-cooldowns&quot;&gt;Dependency Cooldowns&lt;/h3&gt;
+&lt;p&gt;One method to avoid &quot;drinking from the firehose&quot; and allow time for malware to be detected and remediated is using &quot;Dependency Cooldowns&quot;.
+Dependency cooldowns is a strategy for package installers (like &lt;code&gt;pip&lt;/code&gt;, &lt;code&gt;uv&lt;/code&gt;, etc) to avoid installing packages that have very recently been published to PyPI. By doing so, this allows for human operators like security researchers and PyPI admins a chance to respond to reports of malware.&lt;/p&gt;
+&lt;p&gt;Dependency cooldowns work best when they are configured &quot;globally&quot; on a developer machine and then passively protect developers from compromises on every invocation of pip or uv.
+Setting a relative value like &quot;3 days&quot; (&quot;&lt;code&gt;P3D&lt;/code&gt;&quot; per RFC 3339) means packages that are newer than 3 days will not be installed.&lt;/p&gt;
+&lt;p&gt;uv already supports &lt;a href=&quot;https://docs.astral.sh/uv/concepts/resolution/#dependency-cooldowns&quot;&gt;setting relative dependency cooldown&lt;/a&gt; via &lt;code&gt;--exclude-newer&lt;/code&gt;. You can &lt;a href=&quot;https://docs.astral.sh/uv/concepts/configuration-files/&quot;&gt;configure the option globally&lt;/a&gt; (in &lt;code&gt;~/.config/uv/uv.toml&lt;/code&gt;) or per-project in your &lt;code&gt;pyproject.toml&lt;/code&gt;:&lt;/p&gt;
+&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;&lt;span class=&quot;k&quot;&gt;[tool.uv]&lt;/span&gt;
+&lt;span class=&quot;n&quot;&gt;exclude-newer&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;P3D&quot;&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;  &lt;/span&gt;&lt;span class=&quot;c1&quot;&gt;# &quot;3 days&quot; in RFC 3339 format&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;Relative dependency cooldowns are coming soon to pip v26.1 which &lt;a href=&quot;https://pip.pypa.io/en/stable/development/release-process/&quot;&gt;should be available in April&lt;/a&gt; of this year. Once they are available you can set the option in &lt;a href=&quot;https://pip.pypa.io/en/stable/topics/configuration/&quot;&gt;your &lt;code&gt;pip.conf&lt;/code&gt; file&lt;/a&gt; (&lt;code&gt;~/.config/pip/pip.conf&lt;/code&gt;):&lt;/p&gt;
+&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;&lt;span class=&quot;k&quot;&gt;[install]&lt;/span&gt;
+&lt;span class=&quot;na&quot;&gt;uploaded-prior-to&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;s&quot;&gt;P3D&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;&lt;a href=&quot;https://ichard26.github.io/blog/2026/01/whats-new-in-pip-26.0/#excluding-distributions-by-upload-time&quot;&gt;Starting in pip v26.0&lt;/a&gt; you can set absolute dependency cooldowns with pip from the command-line, likely paired with another tool like &lt;code&gt;date&lt;/code&gt; to calculate an absolute date from a relative offset like &quot;&lt;code&gt;3 days&lt;/code&gt;&quot;:&lt;/p&gt;
+&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;python&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;-m&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;pip&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;install&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;se&quot;&gt;\&lt;/span&gt;
+&lt;span class=&quot;w&quot;&gt;  &lt;/span&gt;--uploaded-prior-to&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;k&quot;&gt;$(&lt;/span&gt;date&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;-d&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;&apos;-3days&apos;&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;-Idate&lt;span class=&quot;k&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;se&quot;&gt;\&lt;/span&gt;
+&lt;span class=&quot;w&quot;&gt;  &lt;/span&gt;simplepackage
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;Applying dependency cooldowns everywhere isn&apos;t a silver bullet, though!
+There are certain situations where you &lt;em&gt;do&lt;/em&gt; want the latest version of a package as soon as possible, like when applying patches for vulnerabilities.
+Dependency cooldowns should be paired with a vulnerability scanning strategy so security updates for your application&apos;s dependencies aren&apos;t waiting to be deployed. For example, Dependabot and Renovate both bypass dependency cooldowns by default for security updates.&lt;/p&gt;
+&lt;p&gt;You can manually bypass a dependency cooldown in pip and uv by setting a value of &quot;the current day&quot; to get the actual latest release:&lt;/p&gt;
+&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;python&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;-m&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;pip&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;install&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;se&quot;&gt;\&lt;/span&gt;
+&lt;span class=&quot;w&quot;&gt;  &lt;/span&gt;--uploaded-prior-to&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;P0D&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;se&quot;&gt;\&lt;/span&gt;
+&lt;span class=&quot;w&quot;&gt;  &lt;/span&gt;&lt;span class=&quot;nv&quot;&gt;simplepackage&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;==&lt;/span&gt;&lt;span class=&quot;m&quot;&gt;26&lt;/span&gt;.3.31
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;h3 id=&quot;locking-dependencies&quot;&gt;Locking Dependencies&lt;/h3&gt;
+&lt;p&gt;Installing a package from PyPI without a &quot;lock&quot; means that it&apos;s possible to receive new code &lt;em&gt;every time you run pip install&lt;/em&gt;.
+This leaves the door open for a compromise of a package to immediately get installed and execute malware on the installing systems.&lt;/p&gt;
+&lt;p&gt;If you&apos;re a developer of an application using PyPI packages you should be using lock files both for security and reproducibility of your application.
+Some examples of tools which produce lock files for applications are:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;code&gt;uv lock&lt;/code&gt;&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;pip-compile --generate-hashes&lt;/code&gt;&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;pipenv&lt;/code&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;Note that &lt;code&gt;pip freeze&lt;/code&gt; doesn&apos;t create a lock file: a lock file must include checksums / hashes of the package archives to be secure and reproducible.
+&lt;code&gt;pip freeze&lt;/code&gt; only records packages and their versions. pip is working on experimental support for the &lt;code&gt;pylock.toml&lt;/code&gt; standard through the
+&lt;a href=&quot;https://pip.pypa.io/en/stable/cli/pip_lock&quot;&gt;&lt;code&gt;pip lock&lt;/code&gt; sub-command&lt;/a&gt;.&lt;/p&gt;
+&lt;h2 id=&quot;protecting-your-project-as-an-open-source-maintainer&quot;&gt;Protecting your project as an open source maintainer&lt;/h2&gt;
+&lt;p&gt;If you are a maintainer of an open source project on PyPI, you can do your part to protect your users from compromises.
+There are three approaches we recommend: &lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;securing your release workflows&lt;/li&gt;
+&lt;li&gt;using Trusted Publishers&lt;/li&gt;
+&lt;li&gt;adding 2FA to all accounts associated with open source development&lt;/li&gt;
+&lt;/ol&gt;
+&lt;h3 id=&quot;securing-release-workflows&quot;&gt;Securing release workflows&lt;/h3&gt;
+&lt;p&gt;If you&apos;re using a continuous deployment system to publish packages to Python: these workflows are targets for attackers. You can prevent most of the danger by applying a handful of security recommendations:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;Avoid insecure triggers.&lt;/strong&gt; Workflows that can be triggered by an attacker, especially with inputs they control (such as PR titles, branch titles) have been used in the past to inject commands. The trigger &lt;code&gt;pull_request_target&lt;/code&gt; from GitHub Actions in particular is difficult to use securely and should be avoided.&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Sanitize parameters and inputs.&lt;/strong&gt; Any workflow parameter or input that can expand into an executed command carries potential to be used by attackers. Sanitize values by passing them as environment variables to commands to avoid template injection attacks.&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Avoid mutable references.&lt;/strong&gt; Lock or pin your dependencies in workflows. Favor using Git commit SHAs instead of Git tags, as tags are writeable. Maintain a lock file for PyPI dependencies used in workflows.&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Use reviewable deployments.&lt;/strong&gt; Trusted Publishers for GitHub supports &quot;GitHub Environments&quot; as a required step. This makes publishing your package to PyPI require a review from your GitHub account, meaning a higher bar for an attacker to compromise.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;If you are using GitHub Actions as your continuous deployment provider, we highly recommend the tool &quot;&lt;a href=&quot;https://github.com/zizmorcore/zizmor/&quot;&gt;Zizmor&lt;/a&gt;&quot; for detecting and fixing insecure workflows.&lt;/p&gt;
+&lt;h3 id=&quot;trusted-publishers-over-api-tokens&quot;&gt;Trusted Publishers over API tokens&lt;/h3&gt;
+&lt;p&gt;If the platform you use to publish to PyPI supports &lt;a href=&quot;https://docs.pypi.org/trusted-publishers/&quot;&gt;Trusted Publishers&lt;/a&gt; (GitHub, GitLab, Google Cloud Build, ActiveState) then you should use Trusted Publishers instead of API tokens.&lt;/p&gt;
+&lt;p&gt;PyPI API tokens are &quot;long-lived&quot;, meaning if they are exfiltrated by an attacker that attacker can use the token at a much later date even if you don&apos;t detect the initial compromise. Trusted Publishers comparatively uses short-lived tokens, meaning they need to be used immediately and don&apos;t require manual &quot;rotating&quot; in the case of compromise.&lt;/p&gt;
+&lt;p&gt;Trusted Publishers also provides a valuable signal to downstream users through &lt;a href=&quot;https://docs.pypi.org/attestations/&quot;&gt;Digital Attestations&lt;/a&gt;. This means users can detect when a release &lt;em&gt;hasn&apos;t&lt;/em&gt; been published using the typical release workflow, likely drawing more scrutiny.&lt;/p&gt;
+&lt;h3 id=&quot;adding-2fa-to-open-source-development-accounts&quot;&gt;Adding 2FA to open source development accounts&lt;/h3&gt;
+&lt;p&gt;We may be starting to sound like a broken record, but 2FA should be used for all accounts associated with open source development: not just PyPI.
+Think about accounts like version control / software forges
+(GitHub, GitLab, Codeberg, Forgejo) and your email provider.
+&lt;a href=&quot;.././2024-01-01-2fa-enforced/&quot;&gt;PyPI has required 2FA to be enabled to publish packages&lt;/a&gt; since the beginning of 2024,
+but enabling phishing-resistant 2FA like a hardware key can protect you further.&lt;/p&gt;
+&lt;h2 id=&quot;how-can-you-support-this-kind-of-work&quot;&gt;How can you support this kind of work?&lt;/h2&gt;
+&lt;p&gt;Security work isn&apos;t free. You can support security work on the Python Package Index by supporting the Python Software Foundation (PSF). If you or your organization is interested in sponsoring or donating to the PSF so we can continue supporting Python, PyPI, and its community, check out the &lt;a href=&quot;https://www.python.org/sponsors/application/&quot;&gt;PSF&apos;s sponsorship program&lt;/a&gt;, &lt;a href=&quot;https://www.python.org/psf/donations/&quot;&gt;donate directly&lt;/a&gt;, or contact our team at &lt;a href=&quot;mailto:sponsors@python.org&quot;&gt;sponsors@python.org&lt;/a&gt;!&lt;/p&gt;
+&lt;p&gt;Mike Fiedler and Seth Larson&apos;s roles as &lt;a href=&quot;https://www.python.org/psf/developersinresidence/&quot;&gt;PyPI Safety &amp;amp; Security Engineer and Security Developer-in-Residence&lt;/a&gt; at the Python Software Foundation are supported by &lt;a href=&quot;https://alpha-omega.dev&quot;&gt;Alpha Omega&lt;/a&gt;.&lt;/p&gt;</description><link>https://blog.pypi.org/posts/2026-04-02-incident-report-litellm-telnyx-supply-chain-attack/</link><source url="https://blog.pypi.org/feed_rss_created.xml">The Python Package Index Blog</source><pubDate>Thu, 02 Apr 2026 06:09:00 +0000</pubDate><guid isPermaLink="true">https://blog.pypi.org/posts/2026-04-02-incident-report-litellm-telnyx-supply-chain-attack/</guid></item><item><title>Dispatch from PyPI Land: A Year (and a Half!) as the Inaugural PyPI Support Specialist</title><author>Maria Ashna</author><category>support</category><description>&lt;p&gt;Hello there! I am Maria, the inaugural PyPI Support Specialist. 
+I go by &quot;Thespi-Brain&quot; on GitHub. 
+I wanted to provide a dispatch of how this past year (and a half!) 
+has been regarding my role and PyPI. PyPI has now reached over a million users and has over 700,000 projects. 
+It is, without a doubt, a critical part of the Python ecosystem. 
+As the inaugural PyPI Support Specialist, there were numerous challenges that needed to be tackled regarding PyPI support, 
+such as the ever growing backlog of account recovery and PEP 541 issues. &lt;/p&gt;
+&lt;!-- more --&gt;
+
+&lt;p&gt;Prior to stepping into this role, the account recovery backlog was four months behind. 
+The PEP 541 backlog was a year and four months behind. 
+There was also a lack of documentation around PyPI Support procedures. 
+I started my role at PSF in July 2024. I am happy to report some highlights of my tenure so far:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Account Recovery backlog is now current with average triage time of 1.5 days&lt;sup id=&quot;fnref:1&quot;&gt;&lt;a class=&quot;footnote-ref&quot; href=&quot;#fn:1&quot;&gt;1&lt;/a&gt;&lt;/sup&gt;&lt;/li&gt;
+&lt;li&gt;PEP 541 backlog is current as of December 2025, with an average first triage/issue response time of 1 week&lt;sup id=&quot;fnref2:1&quot;&gt;&lt;a class=&quot;footnote-ref&quot; href=&quot;#fn:1&quot;&gt;1&lt;/a&gt;&lt;/sup&gt;&lt;/li&gt;
+&lt;li&gt;Between July 2024 and December 2024, &lt;strong&gt;725&lt;/strong&gt; of account recovery issues were resolved&lt;/li&gt;
+&lt;li&gt;Between Jan 2025 and December 2025, &lt;strong&gt;2221&lt;/strong&gt; account recovery issues were resolved&lt;/li&gt;
+&lt;li&gt;Between Jan 2025 and December 2025, over &lt;strong&gt;~500&lt;/strong&gt; PEP 541 issues were resolved&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;Since there was no documentation prior to this role, support processes and procedures have been internally documented with an end user friendly version coming out soon! &lt;/p&gt;
+&lt;p&gt;With account recovery and PEP 541 backlog under control, this also provided an opportunity to focus on getting PyPI Orgs back up again after its introduction in 2023. 
+As of today, over 8000 applications have been approved with both community and company organizations combined. &lt;/p&gt;
+&lt;p&gt;In addition to the above, I have also created several feature requests for the Warehouse side of things to facilitate better workflow and tooling, particularly with PyPI Org application processing as well as feature suggestions to better process PEP 541 issues that are related to ultranormalized names. &lt;/p&gt;
+&lt;p&gt;A lot has been accomplished in the first year (and a half!), but of course, there is always more work to be done to ensure that PyPI is running smoothly. 
+Here’s to another year (and a half!) of more exciting things to come!&lt;/p&gt;
+&lt;div class=&quot;footnote&quot;&gt;
+&lt;hr /&gt;
+&lt;ol&gt;
+&lt;li id=&quot;fn:1&quot;&gt;
+&lt;p&gt;Exceptions to this occur during holidays, conference times and other times staff may be out.&amp;#160;&lt;a class=&quot;footnote-backref&quot; href=&quot;#fnref:1&quot; title=&quot;Jump back to footnote 1 in the text&quot;&gt;&amp;#8617;&lt;/a&gt;&lt;a class=&quot;footnote-backref&quot; href=&quot;#fnref2:1&quot; title=&quot;Jump back to footnote 1 in the text&quot;&gt;&amp;#8617;&lt;/a&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ol&gt;
+&lt;/div&gt;</description><link>https://blog.pypi.org/posts/2026-01-26-a-year-and-a-half-as-inaugural-pypi-support-specialist/</link><source url="https://blog.pypi.org/feed_rss_created.xml">The Python Package Index Blog</source><pubDate>Mon, 26 Jan 2026 06:09:00 +0000</pubDate><guid isPermaLink="true">https://blog.pypi.org/posts/2026-01-26-a-year-and-a-half-as-inaugural-pypi-support-specialist/</guid></item><item><title>PyPI in 2025: A Year in Review</title><author>Dustin Ingram</author><category>new features</category><category>organizations</category><category>security</category><description>&lt;p&gt;As 2025 comes to a close, it&apos;s time to look back at another busy year for the Python Package Index. This year, we&apos;ve focused on delivering critical security enhancements, rolling out powerful new features for organizations, improving the overall user experience for the millions of developers who rely on PyPI every day, and responding to a number of security incidents with transparency.&lt;/p&gt;
+&lt;!-- more --&gt;
+
+&lt;p&gt;But first, let&apos;s look at some numbers that illustrate the sheer scale of PyPI in 2025:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;More than &lt;strong&gt;3.9 million&lt;/strong&gt; new files published&lt;/li&gt;
+&lt;li&gt;More than &lt;strong&gt;130,000&lt;/strong&gt; new projects created&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;1.92 exabytes&lt;/strong&gt; of total data transferred&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;2.56 trillion&lt;/strong&gt; total requests served&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;81,000&lt;/strong&gt; requests per second on average&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;These numbers are a testament to the continued growth and vibrancy of the Python community.&lt;/p&gt;
+&lt;p&gt;Let&apos;s dive into some of the key improvements we&apos;ve made to PyPI this year.&lt;/p&gt;
+&lt;h2 id=&quot;security-first-security-always&quot;&gt;Security First, Security Always&lt;/h2&gt;
+&lt;p&gt;Security is our top priority, and in 2025 we&apos;ve shipped a number of features to make PyPI more secure than ever.&lt;/p&gt;
+&lt;h3 id=&quot;enhanced-two-factor-authentication-2fa-for-phishing-resistance&quot;&gt;Enhanced Two-Factor Authentication (2FA) for Phishing Resistance&lt;/h3&gt;
+&lt;p&gt;We&apos;ve made significant improvements to our 2FA implementation, starting with &lt;strong&gt;&lt;a href=&quot;../2025-11-14-login-verification/&quot;&gt;email verification for TOTP-based logins&lt;/a&gt;&lt;/strong&gt;. This adds an extra layer of security to your account by requiring you to confirm your login from a trusted device, when using a phishable 2FA method like TOTP.&lt;/p&gt;
+&lt;p&gt;Since rolling out these changes, we&apos;ve seen:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;more than &lt;strong&gt;52%&lt;/strong&gt; of active users with non-phishable 2FA enabled&lt;/li&gt;
+&lt;li&gt;more than &lt;strong&gt;45,000&lt;/strong&gt; total unique verified logins&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3 id=&quot;trusted-publishing-and-attestations&quot;&gt;Trusted Publishing and Attestations&lt;/h3&gt;
+&lt;p&gt;&lt;strong&gt;&lt;a href=&quot;../2025-11-10-trusted-publishers-coming-to-orgs/&quot;&gt;Trusted publishing&lt;/a&gt;&lt;/strong&gt; continues to be a cornerstone of our security strategy. This year, we&apos;ve expanded support to include &lt;strong&gt;GitLab Self-Managed instances&lt;/strong&gt;, allowing maintainers to automate their release process without needing to manage long-lived API tokens. We&apos;ve also introduced support for &lt;strong&gt;custom OIDC issuers for organizations&lt;/strong&gt;, giving companies more control over their publishing pipelines.&lt;/p&gt;
+&lt;p&gt;Adoption of trusted publishing has been fantastic:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;more than &lt;strong&gt;50,000&lt;/strong&gt; projects are now using trusted publishing&lt;/li&gt;
+&lt;li&gt;more than &lt;strong&gt;20%&lt;/strong&gt; of all file uploads to PyPI in the last year were done via trusted publishers&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;We&apos;ve also been hard at work on &lt;strong&gt;attestations&lt;/strong&gt;, a security feature that allows publishers to make verifiable claims about their software. We&apos;ve added support for attestations from all Trusted Publishing providers, and we&apos;re excited to see how the community uses this feature to improve the security of the software supply chain.&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;17%&lt;/strong&gt; of all uploads to PyPI in the last year included an attestation.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3 id=&quot;proactive-security-measures&quot;&gt;Proactive Security Measures&lt;/h3&gt;
+&lt;p&gt;Beyond user-facing features, we&apos;ve also implemented a number of proactive security measures to protect the registry from attack. These include:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;Phishing Protection:&lt;/strong&gt; To combat the ongoing threat of phishing attacks, PyPI now &lt;a href=&quot;../2025-07-28-pypi-phishing-attack/&quot;&gt;detects and warns users about untrusted domains&lt;/a&gt;.&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Improved ZIP file security:&lt;/strong&gt; We&apos;ve hardened our upload pipeline to &lt;a href=&quot;../2025-08-07-wheel-archive-confusion-attacks/&quot;&gt;prevent a class of attacks involving malicious ZIP files&lt;/a&gt;.&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Typosquatting detection:&lt;/strong&gt; PyPI now automatically detects and flags potential typosquatting attempts during project creation.&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Domain Resurrection Prevention:&lt;/strong&gt; We now periodically check for expired domains to &lt;a href=&quot;../2025-08-18-preventing-domain-resurrections/&quot;&gt;prevent domain resurrection attacks&lt;/a&gt;.&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Spam Prevention&lt;/strong&gt;: We&apos;ve taken action against spam campaigns, including &lt;a href=&quot;../2025-06-15-prohibiting-inbox-ru-emails/&quot;&gt;prohibiting registrations from specific domains&lt;/a&gt; that were a source of abuse.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 id=&quot;transparency-and-incident-response&quot;&gt;Transparency and Incident Response&lt;/h2&gt;
+&lt;p&gt;This year, we&apos;ve also focused on providing transparent and timely information about security incidents affecting PyPI. We&apos;ve published detailed incident reports on a number of events, including:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;An issue with &lt;a href=&quot;../2025-04-14-incident-report-organization-team-privileges/&quot;&gt;privileges persisting in organization teams&lt;/a&gt;.&lt;/li&gt;
+&lt;li&gt;A widespread &lt;a href=&quot;../2025-07-31-incident-report-phishing-attack/&quot;&gt;phishing attack targeting PyPI users&lt;/a&gt;.&lt;/li&gt;
+&lt;li&gt;A &lt;a href=&quot;../2025-09-16-github-actions-token-exfiltration/&quot;&gt;token exfiltration campaign via GitHub Actions workflows&lt;/a&gt;.&lt;/li&gt;
+&lt;li&gt;The potential implications of the &lt;a href=&quot;../2025-11-26-pypi-and-shai-hulud/&quot;&gt;&quot;Shai-Hulud&quot; attack on the npm ecosystem&lt;/a&gt;.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;We believe that transparency is key to building and maintaining trust with our community, and we&apos;ll continue to provide these reports as needed.&lt;/p&gt;
+&lt;h2 id=&quot;safety-and-support-requests&quot;&gt;Safety and Support Requests&lt;/h2&gt;
+&lt;p&gt;This year, our safety &amp;amp; support team and administrators have been working diligently to address user requests and combat malware to maintain a healthy ecosystem. We&apos;re proud to report significant progress in handling various types of support inquiries and improving our malware response.&lt;/p&gt;
+&lt;h3 id=&quot;malware-response&quot;&gt;Malware Response&lt;/h3&gt;
+&lt;p&gt;We&apos;ve continued to improve our malware detection and response capabilities. This year, we&apos;ve processed &lt;strong&gt;more than 2000 malware reports&lt;/strong&gt;. This is a testament to the vigilance of our community and the dedication of our administrators.&lt;/p&gt;
+&lt;p&gt;Our goal is to reduce the time it takes to remove malware from PyPI, and we&apos;re happy to report that we&apos;re making significant progress: in the last year, 66% of all reports were handled within 4 hours, climbing to 92% within 24 hours, with only a few more complex issues reaching the maximum of 4 days to remediate.&lt;/p&gt;
+&lt;h3 id=&quot;support-requests&quot;&gt;Support Requests&lt;/h3&gt;
+&lt;p&gt;Our support team has also been hard at work making sure our users can continue to be effective on PyPI. This year, we&apos;ve successfully resolved &lt;strong&gt;2221&lt;/strong&gt; individual account recovery requests.&lt;/p&gt;
+&lt;p&gt;We&apos;ve also handled more than 500 project name retention requests (PEP 541). This includes an average first triage time of less than 1 week. This is a significant improvement compared to the previous 9-month backlog, and we&apos;re happy to report that the backlog is current for the month of December.&lt;/p&gt;
+&lt;h2 id=&quot;organizations-growth&quot;&gt;Organizations Growth&lt;/h2&gt;
+&lt;p&gt;One of our biggest announcements in previous years was the general availability of &lt;strong&gt;organizations&lt;/strong&gt; on PyPI. Organizations provide a way for companies and community projects to manage their packages, teams, and billing in a centralized location.&lt;/p&gt;
+&lt;p&gt;We have continued to see growing usage of organizations:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;7,742&lt;/strong&gt; organizations have been created on PyPI&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;9,059&lt;/strong&gt; projects are now managed by organizations&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;We&apos;ve been hard at work adding new features to organizations, including team management, project transfers, and a comprehensive admin interface. We&apos;re excited to see organizations use these features to use PyPI more effectively.&lt;/p&gt;
+&lt;h2 id=&quot;a-better-pypi-for-everyone&quot;&gt;A Better PyPI for Everyone&lt;/h2&gt;
+&lt;p&gt;Finally, we&apos;ve made a number of improvements to the overall maintainer experience on PyPI. These include:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;Project Lifecycle Management:&lt;/strong&gt; You can now &lt;a href=&quot;../2025-01-30-archival/&quot;&gt;archive your projects&lt;/a&gt; to signal that they are no longer actively maintained. This is part of a larger effort to standardize &lt;a href=&quot;../2025-08-14-project-status-markers/&quot;&gt;project status markers as proposed in PEP 792&lt;/a&gt;.&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;New Terms of Service:&lt;/strong&gt; We&apos;ve introduced a new &lt;a href=&quot;../2025-02-25-terms-of-service/&quot;&gt;Terms of Service&lt;/a&gt; to formalize our policies and enable new features like organizations.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 id=&quot;looking-ahead-to-2026&quot;&gt;Looking Ahead to 2026&lt;/h2&gt;
+&lt;p&gt;We&apos;re proud of the progress we&apos;ve made in 2025, but we know there&apos;s always more to do. In 2026, we&apos;ll continue to focus on improving the security, stability, and usability of PyPI for the entire Python community.&lt;/p&gt;
+&lt;h2 id=&quot;acknowledgements&quot;&gt;Acknowledgements&lt;/h2&gt;
+&lt;p&gt;As always, a huge thanks to our &lt;a href=&quot;https://pypi.org/sponsors/&quot;&gt;sponsors&lt;/a&gt; who make the scale and reliability of PyPI possible, and a special shout-out to Fastly for being a critical infrastructure donor.&lt;/p&gt;
+&lt;p&gt;We&apos;d also like to extend a special thank you to a few individuals who made significant contributions to PyPI this year. Thank you to &lt;strong&gt;William Woodruff&lt;/strong&gt;, &lt;strong&gt;Facundo Tuesca&lt;/strong&gt;, and &lt;strong&gt;Seth Michael Larson&lt;/strong&gt; for your work on trusted publishing, attestations, project archival, zipfile mitigation, and other security features.&lt;/p&gt;
+&lt;p&gt;Finally, PyPI wouldn&apos;t be what it is today without the countless hours of work from our community. A huge thank you to everyone who contributed code, opened an issue, or provided feedback this year. As always, we&apos;re grateful for the contributions of our community, whether it&apos;s through code, documentation, or feedback. PyPI wouldn&apos;t be what it is today without you.&lt;/p&gt;
+&lt;p&gt;Here&apos;s to a great 2026!&lt;/p&gt;
+&lt;p&gt;-- &lt;em&gt;Dustin Ingram, on behalf of the PyPI team.&lt;/em&gt;&lt;/p&gt;</description><link>https://blog.pypi.org/posts/2025-12-31-pypi-2025-in-review/</link><source url="https://blog.pypi.org/feed_rss_created.xml">The Python Package Index Blog</source><pubDate>Wed, 31 Dec 2025 06:09:00 +0000</pubDate><guid isPermaLink="true">https://blog.pypi.org/posts/2025-12-31-pypi-2025-in-review/</guid></item><item><title>PyPI and Shai-Hulud: Staying Secure Amid Emerging Threats</title><author>Mike Fiedler</author><category>publishing</category><category>security</category><description>&lt;p&gt;An attack on the npm ecosystem continues to evolve, exploiting compromised accounts to publish malicious packages.
+This campaign, dubbed &lt;em&gt;Shai-Hulud&lt;/em&gt;, has targeted large volumes of packages in the JavaScript ecosystem,
+exfiltrating credentials to further propagate itself.&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;PyPI has not been exploited&lt;/strong&gt;, however some PyPI credentials were found exposed in compromised repositories.
+We&apos;ve revoked these tokens as a precaution, there&apos;s no evidence they have been used maliciously.
+This post raises awareness about the attack and encourages proactive steps to secure your accounts,
+especially if you&apos;re using build platforms to publish packages to PyPI.&lt;/p&gt;
+&lt;!-- more --&gt;
+
+&lt;h2 id=&quot;how-does-this-relate-to-pypi&quot;&gt;How does this relate to PyPI?&lt;/h2&gt;
+&lt;p&gt;This week, a security researcher disclosed long-lived PyPI credentials exposed as part of the Shai-Hulud campaign.
+The credentials were found in GitHub repositories (stored as repository secrets), and were still valid.
+We saw an attack with insecure workflow settings for &lt;a href=&quot;../2024-12-11-ultralytics-attack-analysis/&quot;&gt;Ultralytics in 2024&lt;/a&gt;.&lt;/p&gt;
+&lt;p&gt;While the campaign primarily targets npm, some projects use &lt;a href=&quot;https://en.wikipedia.org/wiki/Monorepo&quot;&gt;monorepo&lt;/a&gt; setups,
+publishing both JavaScript packages to npmjs.com and Python packages to PyPI from the same repository.
+When attackers compromise these repositories, they can extract credentials for multiple platforms.&lt;/p&gt;
+&lt;p&gt;We investigated the reported credentials and found they were associated with accounts that hadn&apos;t published recently.
+We&apos;ve revoked these credentials and reached out to affected users to advise them to rotate any remaining tokens.&lt;/p&gt;
+&lt;h2 id=&quot;what-can-i-do-to-protect-my-pypi-account&quot;&gt;What can I do to protect my PyPI account?&lt;/h2&gt;
+&lt;p&gt;Here are security practices to protect your PyPI account:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;strong&gt;Use Trusted Publishing:&lt;/strong&gt; If you are using a build platform to publish packages to PyPI,
+    consider using a &lt;a href=&quot;https://docs.pypi.org/trusted-publishers/&quot;&gt;Trusted Publisher&lt;/a&gt;.
+    This eliminates the need to manage long-lived authentication tokens, reducing the risk of credential exposure.
+    Trusted Publishing uses short-lived, scoped tokens for each build, minimizing the impact of any potential compromise.
+    This approach has &lt;a href=&quot;../2025-11-10-trusted-publishers-coming-to-orgs/&quot;&gt;risen in popularity&lt;/a&gt;,
+    with other registries like &lt;a href=&quot;https://crates.io/docs/trusted-publishing&quot;&gt;Crates.io&lt;/a&gt;,
+    &lt;a href=&quot;https://guides.rubygems.org/trusted-publishing/&quot;&gt;RubyGems&lt;/a&gt;,
+    and &lt;a href=&quot;https://docs.npmjs.com/trusted-publishers&quot;&gt;npmjs.com&lt;/a&gt; adopting similar models.&lt;/p&gt;
+&lt;p&gt;When using GitHub Actions, consider layering in additional security measures,
+like requiring human approval via &lt;a href=&quot;https://docs.github.com/en/actions/how-tos/deploy/configure-and-manage-deployments/manage-environments&quot;&gt;GitHub Environments&lt;/a&gt; before publishing.
+&lt;a href=&quot;https://www.pyopensci.org/blog/python-packaging-security-publish-pypi.html&quot;&gt;This blog post from pyOpenSci&lt;/a&gt;
+has detailed guidance on adding manual review steps to GitHub Actions workflows.&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;strong&gt;Audit your workflows for misconfiguration:&lt;/strong&gt; Review your GitHub Actions workflows for any potential security issues.
+    Tools like &lt;a href=&quot;https://docs.zizmor.sh/&quot;&gt;zizmor&lt;/a&gt; and &lt;a href=&quot;https://codeql.github.com/&quot;&gt;CodeQL&lt;/a&gt;
+    can help identify vulnerabilities in your CI/CD pipelines.
+    Adopt scanning as automated actions for the repository to catch future issues.&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;strong&gt;Review your account activity:&lt;/strong&gt; Regularly check your PyPI account activity for any unauthorized actions.
+    If you notice any suspicious activity, &lt;a href=&quot;https://pypi.org/security/&quot;&gt;report it to the PyPI security team&lt;/a&gt; immediately.&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;Taking any of these steps helps mitigate the risk of compromise and keeps packages secure.&lt;/p&gt;
+&lt;h2 id=&quot;references&quot;&gt;References&lt;/h2&gt;
+&lt;p&gt;Some blog posts covering the attack behaviors and mitigation steps:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&quot;https://www.aikido.dev/blog/shai-hulud-strikes-again-hitting-zapier-ensdomains&quot;&gt;Aikido&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;https://www.cisa.gov/news-events/alerts/2025/09/23/widespread-supply-chain-compromise-impacting-npm-ecosystem&quot;&gt;CISA&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;https://securitylabs.datadoghq.com/articles/shai-hulud-2.0-npm-worm/&quot;&gt;Datadog&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;https://helixguard.ai/blog/malicious-sha1hulud-2025-11-24&quot;&gt;HelixGuard&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;https://www.reversinglabs.com/blog/shai-hulud-worm-npm&quot;&gt;ReversingLabs&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;https://socket.dev/blog/shai-hulud-strikes-again-v2&quot;&gt;Socket&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;https://www.stepsecurity.io/blog/sha1-hulud-the-second-coming-zapier-ens-domains-and-other-prominent-npm-packages-compromised&quot;&gt;StepSecurity&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;https://www.wiz.io/blog/shai-hulud-2-0-ongoing-supply-chain-attack&quot;&gt;Wiz&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;</description><link>https://blog.pypi.org/posts/2025-11-26-pypi-and-shai-hulud/</link><source url="https://blog.pypi.org/feed_rss_created.xml">The Python Package Index Blog</source><pubDate>Wed, 26 Nov 2025 06:09:00 +0000</pubDate><guid isPermaLink="true">https://blog.pypi.org/posts/2025-11-26-pypi-and-shai-hulud/</guid></item><item><title>New Login Verification for TOTP-based Logins</title><author>Dustin Ingram</author><category>2fa</category><category>security</category><description>&lt;p&gt;We&apos;ve implemented a new security feature designed to protect PyPI users from phishing attacks: &lt;strong&gt;email verification for TOTP-based logins from new devices.&lt;/strong&gt;&lt;/p&gt;
+&lt;!-- more --&gt;
+
+&lt;h3 id=&quot;whats-changing&quot;&gt;What&apos;s Changing?&lt;/h3&gt;
+&lt;p&gt;Previously, when logging in with a Time-based One-Time Password (TOTP) authenticator, a successful TOTP code was sufficient. Now, if you log in from a device or browser that PyPI doesn&apos;t recognize, we will send a verification email to the email address associated with your PyPI account with the subject &quot;Unrecognized login to your PyPI account&quot;. You will need to click a link in this email to confirm the login attempt before you can proceed, after which the current device will be trusted for future logins.&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;Users who have enabled WebAuthn (security keys) or passkeys for 2FA will not see any changes&lt;/strong&gt;, as these methods are inherently phishing-resistant. They cryptographically bind the authentication to the specific website (origin), meaning an attacker cannot trick you into authenticating on a fake site, unlike TOTP codes which can be phished.&lt;/p&gt;
+&lt;h3 id=&quot;why-this-change&quot;&gt;Why This Change?&lt;/h3&gt;
+&lt;p&gt;This extra step significantly enhances PyPI user account security by mitigating the risk of phishing. As we&apos;ve discussed in previous posts, such as &lt;a href=&quot;https://blog.pypi.org/posts/2025-09-23-plenty-of-phish-in-the-sea/&quot;&gt;&quot;Phishing attacks with new domains likely to continue&quot;&lt;/a&gt;, recent phishing campaigns have targeted PyPI users. This new feature is a direct response to these ongoing threats. Even if an attacker manages to steal your username, password, and a TOTP code, they won&apos;t be able to access your account from a new device without also gaining access to your email. This makes it much harder for malicious actors to compromise your account.&lt;/p&gt;
+&lt;h3 id=&quot;what-you-need-to-do&quot;&gt;What You Need To Do&lt;/h3&gt;
+&lt;p&gt;Most users will only encounter this verification when using TOTP-based 2FA when logging in from a new device. If you receive a verification email and you &lt;em&gt;did not&lt;/em&gt; attempt to log in to PyPI, please do not click the link. Instead, change your password immediately and review your account for any suspicious activity.&lt;/p&gt;
+&lt;p&gt;While this new feature improves the security of TOTP, we continue to recommend migrating to stronger second-factor authentication methods such as &lt;strong&gt;passkeys&lt;/strong&gt; or &lt;strong&gt;WebAuthn (security keys)&lt;/strong&gt;. These methods offer superior protection against phishing and other sophisticated attacks. If you haven&apos;t already, please consider upgrading your 2FA method for the best possible account security on PyPI.&lt;/p&gt;
+&lt;p&gt;We believe this change will make PyPI an even safer place for the Python community. Thank you for your continued trust and support!&lt;/p&gt;</description><link>https://blog.pypi.org/posts/2025-11-14-login-verification/</link><source url="https://blog.pypi.org/feed_rss_created.xml">The Python Package Index Blog</source><pubDate>Fri, 14 Nov 2025 06:09:00 +0000</pubDate><guid isPermaLink="true">https://blog.pypi.org/posts/2025-11-14-login-verification/</guid></item><item><title>Trusted Publishing is popular, now for GitLab Self-Managed and Organizations</title><author>Mike Fiedler</author><category>oidc</category><category>organizations</category><category>publishing</category><category>security</category><description>&lt;p&gt;Trusted Publishing has proven popular since &lt;a href=&quot;../2023-04-20-introducing-trusted-publishers/&quot;&gt;its launch in 2023&lt;/a&gt;.&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;Recap:&lt;/strong&gt; Trusted Publishing enables software build platforms to publish packages to PyPI on your behalf,
+eliminating the need to manage long-lived authentication tokens.
+After a one-time setup where you delegate publishing authority to your platform, 
+it automatically obtains short-lived, scoped tokens for each build—no manual token management required.&lt;/p&gt;
+&lt;p&gt;Read the &lt;a href=&quot;https://docs.pypi.org/trusted-publishers/security-model/&quot;&gt;Security Model&lt;/a&gt;
+for a deeper understanding of how Trusted Publishing works.&lt;/p&gt;
+&lt;!-- more --&gt;
+
+&lt;h2 id=&quot;growing-adoption-and-impact&quot;&gt;Growing Adoption and Impact&lt;/h2&gt;
+&lt;p&gt;Since its inception, Trusted Publishing has been adopted by communities and companies alike,
+with ~45,000 projects configured for Trusted Publishing on PyPI so far.
+In early 2024 we added the ability to track whether each file upload was done via a Trusted Publisher,
+enabling us to analyze its impact over time.
+Also in 2024, more platforms were added as detailed in our &lt;a href=&quot;../2024-04-17-expanding-trusted-publisher-support/&quot;&gt;April 2024 blog post&lt;/a&gt;.&lt;/p&gt;
+&lt;p&gt;Here&apos;s a chart displaying the overall count of files uploaded to PyPI each month,
+broken down by whether they were uploaded via Trusted Publishers or not:&lt;/p&gt;
+&lt;p&gt;&lt;img alt=&quot;Monthly File Uploads to PyPI via Trusted Publishers vs Non-Trusted Publishers&quot; src=&quot;../../assets/2025-11-10-trusted-publishers-for-orgs/files_added_to_pypi.svg&quot; /&gt;&lt;/p&gt;
+&lt;p&gt;A couple of numbers for comparison:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;February 2024 - 241k files added&lt;/li&gt;
+&lt;li&gt;October 2025 - 377k files added&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;As this chart shows, the overall scale of files uploaded to PyPI has grown
+(as detailed in &lt;a href=&quot;https://pyfound.blogspot.com/2025/10/open-infrastructure-is-not-free-pypi.html&quot;&gt;this blog from the PSF Director of Infrastructure on open infrastructure growth&lt;/a&gt;)
+but what is great to see is that the proportional rate of Trusted Publishing use has grown as well.
+This can be seen by charting the percentage of files uploaded for each method over time:&lt;/p&gt;
+&lt;p&gt;&lt;img alt=&quot;Monthly File Uploads to PyPI via Trusted Publishers vs Non-Trusted Publishers, stacked&quot; src=&quot;../../assets/2025-11-10-trusted-publishers-for-orgs/files_added_to_pypi_pct.svg&quot; /&gt;&lt;/p&gt;
+&lt;p&gt;Here we can see that back in February 2024, only about 10% of files were uploaded via Trusted Publishers.
+By October 2025, that number has grown to &lt;strong&gt;over 25% of all files uploaded to PyPI&lt;/strong&gt; in a given month.&lt;/p&gt;
+&lt;p&gt;Hopefully posts like this and increased visibility in how to adopt Trusted Publishing
+will help continue this growth trend.
+Having folks like &lt;a href=&quot;https://github.com/webknjaz&quot;&gt;Sviatoslav Sydorenko&lt;/a&gt; and other contributors voluntarily maintain
+the &lt;a href=&quot;https://github.com/marketplace/actions/pypi-publish&quot;&gt;widely-used GitHub Actions workflow for Trusted Publishing&lt;/a&gt;
+that makes everything that much easier has been a huge help, support them as well if you can!
+Using that action adds &lt;a href=&quot;../2024-11-14-pypi-now-supports-digital-attestations/&quot;&gt;Digital Attestations&lt;/a&gt; automatically. &lt;img alt=&quot;🔒&quot; class=&quot;twemoji&quot; src=&quot;https://cdn.jsdelivr.net/gh/jdecked/twemoji@16.0.1/assets/svg/1f512.svg&quot; title=&quot;:lock:&quot; /&gt;&lt;/p&gt;
+&lt;p&gt;I hope that when we examine these stats next year, we&apos;ll see even more growth
+as more organizations adopt Trusted Publishing for their package publishing workflows.&lt;/p&gt;
+&lt;p&gt;Which brings me to...&lt;/p&gt;
+&lt;h2 id=&quot;expansion-of-trusted-publishing-to-gitlab-self-managed-beta&quot;&gt;Expansion of Trusted Publishing to GitLab Self-Managed Beta&lt;/h2&gt;
+&lt;p&gt;Since folks have been loving Trusted Publishing,
+I&apos;m excited to share that it&apos;s now available in beta for GitLab Self-Managed instances.
+This means organizations running their own GitLab can now use Trusted Publishers
+to publish packages more securely, without dealing with long-lived tokens.&lt;/p&gt;
+&lt;p&gt;As a reminder, trusted publishing support for the public GitLab.com instance
+has been available since early 2024.&lt;/p&gt;
+&lt;p&gt;Since GitLab itself can be self-hosted,
+we&apos;re initially launching this feature as a beta to gather feedback and ensure a smooth experience.
+Organizations&apos; self-hosted instances must be manually onboarded by PyPI staff during this beta phase,
+while we learn more about the various configurations and setups in use.&lt;/p&gt;
+&lt;p&gt;In this scenario, the trust relationship is established between your GitLab Self-Managed instance
+and PyPI, allowing GitLab CI/CD pipelines to publish packages on behalf of your organization
+without the need for long-lived tokens.&lt;/p&gt;
+&lt;p&gt;If your organization runs your own GitLab Self-Managed instances and wish to publish packages to PyPI using Trusted Publishing,
+we encourage you to try out Trusted Publishing and provide feedback during this beta phase.
+Email &lt;a href=&quot;mailto:support+orgs@pypi.org&quot;&gt;support+orgs@pypi.org&lt;/a&gt;
+(or click &lt;a href=&quot;mailto:support+orgs@pypi.org?subject=PyPI%20GitLab%20Self-Managed%20Interest&amp;amp;body=Hi%20PyPI%20Support%2C%0A%0AOur%20organization%20%3CREPLACE%20WITH%20PyPI%20ORG%20NAME%3E%20is%20interested%20in%20the%20Trusted%20Publisher%20beta%20for%20GitLab%20Self-Managed%20Instances.%0A%0AOur%20GitLab%20Instance%27s%20URL%20is%3A%20https%3A%2F%2F%3CYOUR%20INSTANCE%20URL%3E%0AWe%20have%20confirmed%20that%20these%20endpoints%20are%20accessible%3A%0A%20%20*%20https%3A%2F%2F%3CYOUR%20INSTANCE%20URL%3E%2F.well-known%2Fopenid-configuration%0A%20%20*%20https%3A%2F%2F%3CYOUR%20INSTANCE%20URL%3E%2Foauth%2Fdiscovery%2Fkeys%0A%0ALooking%20forward%20to%20hearing%20back%20from%20you%20soon.&quot;&gt;this link for a pre-filled email&lt;/a&gt; that you can update with your details).&lt;/p&gt;
+&lt;h2 id=&quot;pending-trusted-publishers-for-organizations-feature&quot;&gt;Pending Trusted Publishers for Organizations Feature&lt;/h2&gt;
+&lt;p&gt;Oh, and one more thing - an important feature of PyPI Organizations is now available:&lt;/p&gt;
+&lt;p&gt;You can now create a &lt;strong&gt;pending&lt;/strong&gt; Trusted Publisher at the Organization level.&lt;/p&gt;
+&lt;p&gt;Why does this matter? Previously, a PyPI user account creating a Pending Trusted Publisher (for a project that does not yet exist)
+would become the Owner of the project once it&apos;s been uploaded by the Trusted Publisher.
+This made sense for individual users, but for Organizations, it meant that the user who &lt;strong&gt;created&lt;/strong&gt; the Pending Trusted Publisher
+would become the Owner of the project once it was published,
+and may overlook transferring ownership back to the Organization, which is less than ideal.&lt;/p&gt;
+&lt;p&gt;With this new feature, when creating a Pending Trusted Publisher at the Organization level,
+the project will be owned by the Organization itself once it&apos;s published,
+regardless of which user created the Pending Trusted Publisher.&lt;/p&gt;
+&lt;p&gt;This makes managing projects in Organizations way easier,
+making sure projects belong to the Organization itself and not just whoever set things up.&lt;/p&gt;
+&lt;p&gt;If you have a PyPI Organization and wish to create a Pending Trusted Publisher,
+check it out on your Organization&apos;s Trusted Publishers page, by following:&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;Navigate to your PyPI Organization&apos;s page (e.g., &lt;code&gt;https://pypi.org/organizations/&amp;lt;your-org-name&amp;gt;/&lt;/code&gt;)&lt;/li&gt;
+&lt;li&gt;Click on the &quot;Publishing&quot; tab on the sidebar.&lt;/li&gt;
+&lt;li&gt;See the forms to create a Pending Trusted Publisher for your Organization.&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;All other behaviors of Pending Trusted Publishers remain the same,
+see the &lt;a href=&quot;https://docs.pypi.org/trusted-publishers/creating-a-project-through-oidc/&quot;&gt;Trusted Publishers documentation&lt;/a&gt;
+for more details.&lt;/p&gt;
+&lt;h2 id=&quot;whats-next&quot;&gt;What&apos;s next?&lt;/h2&gt;
+&lt;p&gt;We&apos;re continuing to work on making PyPI publishing safer and more secure,
+so we&apos;ll keep watching how Trusted Publishing adoption grows.
+During the GitLab Self-Managed beta, we&apos;d love to hear your feedback
+so we can improve things based on how you actually use it.&lt;/p&gt;
+&lt;p&gt;Some next step ideas we have, and would love your feedback on:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Adding support for &lt;a href=&quot;https://github.com/pypi/warehouse/issues/18970&quot;&gt;GitHub Enterprise Server instances&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;Adding support for &lt;a href=&quot;https://github.com/pypi/warehouse/issues/11096&quot;&gt;GitHub Actions Reusable Workflows&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;Adding support for &lt;a href=&quot;https://github.com/pypi/warehouse/issues/18889&quot;&gt;other publishing platforms&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;For any of these, feel free to visit the related GitHub issue
+and add your &lt;img alt=&quot;👍&quot; class=&quot;twemoji&quot; src=&quot;https://cdn.jsdelivr.net/gh/jdecked/twemoji@16.0.1/assets/svg/1f44d.svg&quot; title=&quot;:thumbsup:&quot; /&gt; reaction to the main issue to help us sort them by interest.&lt;/p&gt;
+&lt;p&gt;Live long, and publish! &lt;img alt=&quot;🖖&quot; class=&quot;twemoji&quot; src=&quot;https://cdn.jsdelivr.net/gh/jdecked/twemoji@16.0.1/assets/svg/1f596.svg&quot; title=&quot;:vulcan:&quot; /&gt;&lt;/p&gt;</description><link>https://blog.pypi.org/posts/2025-11-10-trusted-publishers-coming-to-orgs/</link><source url="https://blog.pypi.org/feed_rss_created.xml">The Python Package Index Blog</source><pubDate>Mon, 10 Nov 2025 06:09:00 +0000</pubDate><guid isPermaLink="true">https://blog.pypi.org/posts/2025-11-10-trusted-publishers-coming-to-orgs/</guid></item><item><title>Phishing attacks with new domains likely to continue</title><author>Seth Larson</author><category>security</category><category>transparency</category><description>&lt;p&gt;Unfortunately the string of phishing attacks using domain-confusion
+and legitimate-looking emails continues. This is the &lt;a href=&quot;../2025-07-28-pypi-phishing-attack/&quot;&gt;same attack PyPI saw a few months ago&lt;/a&gt;
+and targeting many other open source repositories
+but with a different domain name. Judging from this, we believe this type of campaign will continue
+with new domains in the future.&lt;/p&gt;
+&lt;!-- more --&gt;
+
+&lt;p&gt;In short, there&apos;s a new phishing campaign
+targeting PyPI users occurring right now. The email asks you to &quot;verify their email address&quot;
+for &quot;account maintenance and security procedures&quot; with a note that your account may be suspended.
+This email is fake, and the link goes to &lt;code&gt;pypi-mirror.org&lt;/code&gt; which is a domain not owned by PyPI or the PSF.&lt;/p&gt;
+&lt;p&gt;If you have already clicked on the link and provided your credentials, we recommend changing your
+password on PyPI immediately. Inspect your account&apos;s Security History for anything unexpected.
+Report suspicious activity, such as potential phishing campaigns against PyPI, to &lt;a href=&quot;mailto:security@pypi.org&quot;&gt;&lt;code&gt;security@pypi.org&lt;/code&gt;&lt;/a&gt;.&lt;/p&gt;
+&lt;h2 id=&quot;what-is-pypi-doing-to-protect-users&quot;&gt;What is PyPI doing to protect users?&lt;/h2&gt;
+&lt;p&gt;There&apos;s no quick-and-easy method for PyPI maintainers to completely
+halt this sort of attack short of requiring phishing-resistant 2FA (such as hardware tokens).
+Below are the following steps we&apos;re taking to keep users safe:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Contacting the registrars and CDN of the malicious domains to have them taken down.&lt;/li&gt;
+&lt;li&gt;Submitting phishing domains to lists of known-malicious URLs. This makes browsers show a warning
+  before visiting the website, hopefully triggering alarm bells for users.&lt;/li&gt;
+&lt;li&gt;Collaborating with other open source package managers to share strategies for quicker domain take-downs.&lt;/li&gt;
+&lt;li&gt;Exploring methods to make authenticating using TOTP-based 2FA more resistant to phishing.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 id=&quot;what-can-you-do-as-a-maintainer&quot;&gt;What can you do as a maintainer?&lt;/h2&gt;
+&lt;p&gt;If you are a maintainer of a package on PyPI, you can help protect your users by adopting the following practices:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Don&apos;t trust or click on links in emails that you didn&apos;t trigger yourself.&lt;/li&gt;
+&lt;li&gt;Use a password manager that auto-fills based on domain name and exclusively using this feature.
+  If auto-fill isn&apos;t working when it usually does, that is a warning sign!&lt;/li&gt;
+&lt;li&gt;Adopt a phishing-resistant 2FA method such as hardware keys.&lt;/li&gt;
+&lt;li&gt;When in doubt, ask for help before taking action. There is no shame in being cautious, share fishy-looking emails with others.&lt;/li&gt;
+&lt;li&gt;Share this warning within your own communities. PyPI is not the first or last open source service that will be targeted with phishing attacks.&lt;/li&gt;
+&lt;/ul&gt;</description><link>https://blog.pypi.org/posts/2025-09-23-plenty-of-phish-in-the-sea/</link><source url="https://blog.pypi.org/feed_rss_created.xml">The Python Package Index Blog</source><pubDate>Tue, 23 Sep 2025 06:09:00 +0000</pubDate><guid isPermaLink="true">https://blog.pypi.org/posts/2025-09-23-plenty-of-phish-in-the-sea/</guid></item><item><title>Token Exfiltration Campaign via GitHub Actions Workflows</title><author>Mike Fiedler</author><category>security</category><category>transparency</category><description>&lt;h2 id=&quot;summary&quot;&gt;Summary&lt;/h2&gt;
+&lt;p&gt;I recently responded to an attack campaign where malicious actors injected code into GitHub Actions workflows 
+attempting to steal PyPI publishing tokens.
+PyPI was not compromised, and no PyPI packages were published by the attackers.&lt;/p&gt;
+&lt;p&gt;Attackers targeted a wide variety of repositories, many of which had PyPI tokens stored as GitHub secrets,
+modifying their workflows to send those tokens to external servers.
+While the attackers successfully exfiltrated some tokens, they do not appear to have used them on PyPI.&lt;/p&gt;
+&lt;p&gt;I&apos;ve invalidated all affected tokens and notified the impacted project maintainers.
+If you&apos;re one of them, I have emailed you from &lt;a href=&quot;&amp;#109;&amp;#97;&amp;#105;&amp;#108;&amp;#116;&amp;#111;&amp;#58;&amp;#115;&amp;#101;&amp;#99;&amp;#117;&amp;#114;&amp;#105;&amp;#116;&amp;#121;&amp;#64;&amp;#112;&amp;#121;&amp;#112;&amp;#105;&amp;#46;&amp;#111;&amp;#114;&amp;#103;&quot;&gt;&amp;#115;&amp;#101;&amp;#99;&amp;#117;&amp;#114;&amp;#105;&amp;#116;&amp;#121;&amp;#64;&amp;#112;&amp;#121;&amp;#112;&amp;#105;&amp;#46;&amp;#111;&amp;#114;&amp;#103;&lt;/a&gt;.&lt;/p&gt;
+&lt;!-- more --&gt;
+
+&lt;p&gt;You can read more about the details of the attack on &lt;a href=&quot;https://blog.gitguardian.com/ghostaction-campaign-3-325-secrets-stolen/&quot;&gt;GitGuardian&apos;s blog&lt;/a&gt;.&lt;/p&gt;
+&lt;h2 id=&quot;timeline-and-response&quot;&gt;Timeline and Response&lt;/h2&gt;
+&lt;p&gt;On September 5th, a GitGuardian employee used the &lt;a href=&quot;.././2024-03-06-malware-reporting-evolved/&quot;&gt;PyPI &quot;Report as malware&quot; button&lt;/a&gt;
+to submit their findings for a project named &lt;code&gt;fastuuid&lt;/code&gt; - namely they found a malicious GitHub Actions workflow 
+attempting to exfiltrate PyPI tokens to a remote server.
+No compromise on PyPI was found, tokens relating to the user accounts were invalidated,
+and I reached out to the project owners to notify and help secure the account and project.&lt;/p&gt;
+&lt;p&gt;Later on September 5th, another researcher from GitGuardian emailed PyPI Security 
+directly about their current findings, effectively an expansion of the previous attack.
+Due to some of the contents in that email, it ended up in our inbound Spam folder,
+delaying response until September 10th when I became aware of the attack via other channels,
+and found the original email in the Spam folder.
+I may follow up with our support system provider to see about improving spam filtering rules.&lt;/p&gt;
+&lt;p&gt;After triaging the situation, I discovered another Indicator of Compromise (IoC) in the form of a URL,
+which I shared with GitGuardian to assist with their ongoing investigation.&lt;/p&gt;
+&lt;p&gt;Over the course of the following few days, I reviewed the findings from the researchers.
+I observed that many of the project maintainers responded to notifications from the researchers on their open source issue trackers,
+either reverting the changes to their actions workflows,
+or removing the affected workflows entirely from history via force-push of the repository.
+Many of the maintainers also proactively rotated their PyPI tokens.&lt;/p&gt;
+&lt;p&gt;After confirming that no PyPI accounts had been compromised,
+on September 15th I reached out to the maintainers of the affected projects to notify them of the situation,
+to let them know that their tokens had been invalidated,
+and recommend using &lt;a href=&quot;https://docs.pypi.org/trusted-publishers/&quot;&gt;Trusted Publishers&lt;/a&gt; 
+with GitHub Actions to help protect their projects in the future.&lt;/p&gt;
+&lt;h2 id=&quot;what-you-can-do&quot;&gt;What You Can Do&lt;/h2&gt;
+&lt;p&gt;If you use GitHub Actions to publish to PyPI, I recommend the following steps to protect your projects:&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;Replace long-lived tokens with &lt;a href=&quot;https://docs.pypi.org/trusted-publishers/&quot;&gt;Trusted Publishers&lt;/a&gt;.
+   This is the most effective way to protect your projects from this type of attack.
+   GitHub Trusted Publishers use short-lived tokens that are scoped to a specific repository,
+   and expire after a short period of time.&lt;/li&gt;
+&lt;li&gt;Log into your account and review your security history for any suspicious activity.
+   You can do this by going to your &lt;a href=&quot;https://pypi.org/manage/account/&quot;&gt;Account Settings&lt;/a&gt;
+   and scrolling to the &lt;a href=&quot;https://pypi.org/manage/account/#account-events&quot;&gt;&quot;Security History&quot; section&lt;/a&gt;.&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;While Trusted Publisher tokens can still be exfiltrated,
+using Trusted Publishers significantly reduces the risk of compromise.&lt;/p&gt;
+&lt;h2 id=&quot;acknowledgements&quot;&gt;Acknowledgements&lt;/h2&gt;
+&lt;p&gt;Thanks to Charles Brossollet, Guillaume Valadon, and Gaëtan Ferry
+of &lt;a href=&quot;https://www.gitguardian.com/&quot;&gt;GitGuardian&lt;/a&gt; for their collaboration on this issue.&lt;/p&gt;
+&lt;p&gt;This investigation and incident response is made possible by the generosity of individuals and corporations
+supporting critical security efforts to better secure the Python community,
+with thanks to &lt;a href=&quot;https://alpha-omega.dev/&quot;&gt;Alpha-Omega&lt;/a&gt;.&lt;/p&gt;
+&lt;p&gt;Support these efforts and more here: &lt;a href=&quot;https://www.python.org/sponsors/application/&quot;&gt;https://www.python.org/sponsors/application/&lt;/a&gt;&lt;/p&gt;</description><link>https://blog.pypi.org/posts/2025-09-16-github-actions-token-exfiltration/</link><source url="https://blog.pypi.org/feed_rss_created.xml">The Python Package Index Blog</source><pubDate>Tue, 16 Sep 2025 06:09:00 +0000</pubDate><guid isPermaLink="true">https://blog.pypi.org/posts/2025-09-16-github-actions-token-exfiltration/</guid></item></channel></rss>

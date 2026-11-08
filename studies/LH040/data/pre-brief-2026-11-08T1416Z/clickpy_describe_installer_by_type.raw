@@ -1,0 +1,7 @@
+name	type	default_type	default_expression	comment	codec_expression	ttl_expression
+project	String					
+version	String					
+date	Date					
+installer	String					
+type	LowCardinality(String)					
+count	Int64					

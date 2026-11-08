@@ -1,0 +1,8 @@
+name,url,utc_start,status,content_type,size,sha256,method,request_body
+litellm_incident_oct21,https://docs.litellm.ai/blog/security-incident-oct-21-2026,2026-11-08T14:15:44Z,200,text/html; charset=utf-8,51821,0cad94325694f18065f393b4d764490388adedaaa37c7f04b8d86f35a5a33870,GET,
+litellm_incident_oct21_attack_chain,https://docs.litellm.ai/blog/security-incident-oct-21-2026-attack-chain,2026-11-08T14:15:44Z,200,text/html; charset=utf-8,62343,1792a4204e57b7af02ca2982783a7650f22e68005aeb2ed14110bbe28d015bb7,GET,
+litellm_changes_after_oct21,https://docs.litellm.ai/blog/security-changes-after-oct-21-2026,2026-11-08T14:15:45Z,200,text/html; charset=utf-8,49355,340bbd1364e25c07da9f7f46b7a4f80a8bf8b0fe925cf484921689a5eca09b54,GET,
+litellm_update_march2026,https://docs.litellm.ai/blog/security-update-march-2026,2026-11-08T14:15:45Z,200,text/html; charset=utf-8,303708,b42ac96f53accead17fc56b714fb75aad9b56fac63d303e610129b9c028cab30,GET,
+pypi_incident_report_march2026,https://blog.pypi.org/posts/2026-04-02-incident-report-litellm-telnyx-supply-chain-attack/,2026-11-08T14:15:45Z,200,text/html; charset=utf-8,59053,b3a0c93e8480aace2eb34c6cf28418a3dc542704bb7d3ef2c88c60e2d6c5d0e5,GET,
+pypi_docs_quarantine,https://docs.pypi.org/using-pypi/pypi-basics/,2026-11-08T14:15:45Z,200,text/html; charset=utf-8,63692,d04f8438d346483e81b3d61cd59a59a8a0bd814f9b2f51ce14a31079f8632779,GET,
+osv_query_all_litellm,https://api.osv.dev/v1/query,2026-11-08T14:15:46Z,200,application/json,698331,04f74b2356e164b54ca4baf8a5506699a35c6beb7e844f5dc153568fe1ee567e,POST,"{""package"": {""name"": ""litellm"", ""ecosystem"": ""PyPI""}}"

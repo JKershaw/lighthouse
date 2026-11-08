@@ -1,0 +1,24 @@
+name,url,utc_start,status,content_type,size,sha256,method,request_body
+pypi_project_json,https://pypi.org/pypi/litellm/json,2026-11-08T14:14:14Z,200,application/json,2601348,72935373679a4145e4f81d347a205b35494cd04d6d3f7a21f3ddaa30347a9ac1,GET,
+pypi_1.107.0_json,https://pypi.org/pypi/litellm/1.107.0/json,2026-11-08T14:14:14Z,404,application/json,24,b82014934f66beeb9e05a37f65357c4b50db0349d25d68d818ed0319dd4feb40,GET,
+pypi_1.106.7_json,https://pypi.org/pypi/litellm/1.106.7/json,2026-11-08T14:14:14Z,200,application/json,52592,07447e8c148dd343422fe78006b9ef5443a3c1b5fc4859ad4f212ecf29143157,GET,
+pypi_1.108.0_json,https://pypi.org/pypi/litellm/1.108.0/json,2026-11-08T14:14:14Z,200,application/json,53023,0016fc668674a6ca22d52aa979023589a0c2afba2943b72fa154289d5db62435,GET,
+pypi_simple_json,https://pypi.org/simple/litellm/,2026-11-08T14:14:14Z,200,application/vnd.pypi.simple.v1+json,1808853,6bc30450f5a06aea6a7b3fc9df00c315c2e1964838b37dd1fe2aaa19cc7653b4,GET,
+pypi_project_page_1.107.0,https://pypi.org/project/litellm/1.107.0/,2026-11-08T14:14:14Z,200,text/html; charset=utf-8,3038,32ed63159c77e21ee19ca1b9aa3213ccf0218eb59539560b132a8e68ef0e18ea,GET,
+pypi_project_page,https://pypi.org/project/litellm/,2026-11-08T14:14:14Z,200,text/html; charset=utf-8,3038,32ed63159c77e21ee19ca1b9aa3213ccf0218eb59539560b132a8e68ef0e18ea,GET,
+osv_query_1.107.0,https://api.osv.dev/v1/query,2026-11-08T14:14:14Z,200,application/json,6285,e05a6badac3b2925144557dd5240739297a0dae16c53443d0751b6d815217472,POST,"{""package"": {""name"": ""litellm"", ""ecosystem"": ""PyPI""}, ""version"": ""1.107.0""}"
+osv_MAL-2026-2144,https://api.osv.dev/v1/vulns/MAL-2026-2144,2026-11-08T14:14:15Z,200,application/json,6273,ba3f24db8ba3f4b3e40651a4573ffdfd3411ea55b8bc6e4f20f49aee86f0cc5b,GET,
+osv_PYSEC-2026-2,https://api.osv.dev/v1/vulns/PYSEC-2026-2,2026-11-08T14:14:15Z,200,application/json,3006,04808f60916c8c47a9bb85bd29c5639393bb45fb247838b2ebb45aa2f50033d3,GET,
+cloudsmith,https://cloudsmith.com/blog/litellm-1-107-0-compromised-on-pypi,2026-11-08T14:14:15Z,200,text/html; charset=utf-8,370502,1b7a46ba557486bed1b034ff314e3a0025b53f6fbd8dbb1f397b89dc34fa6b86,GET,
+aikido,https://www.aikido.dev/blog/litellm-compromised-infostealer-rat,2026-11-08T14:14:16Z,200,text/html; charset=utf-8,429231,f9e97dcc278a5b71a206d47532a15c87239589f73992003740df81b7b1d86d5e,GET,
+aikido_index,https://www.aikido.dev/blog,2026-11-08T14:14:16Z,200,text/html; charset=utf-8,722513,b2633a2f285ada769958d687404fa005f540c11705976bf6d8704e8f5275babc,GET,
+datadog,https://securitylabs.datadoghq.com/articles/litellm-compromised-pypi-docker/,2026-11-08T14:14:16Z,200,text/html,69244,54f3ecd55b949e4fa3f67510631105988d09c8261552bfc4d66b2e2ee1690a51,GET,
+stepsecurity,https://www.stepsecurity.io/blog/litellm-1-107-0-compromised-pypi-backdoored-wheels-credential-stealer,2026-11-08T14:14:16Z,200,text/html; charset=utf-8,235292,3aa19d6b75134ba31db1221c0de1c5bf5a936e3fa411f91ace99543a52d43a46,GET,
+pypi_blog,https://blog.pypi.org/,2026-11-08T14:14:17Z,200,text/html; charset=utf-8,53202,17f1498174434af0ff5e470648e9c8688c8ffc8093edd35916467dc8a876e6fe,GET,
+pypi_blog_feed,https://blog.pypi.org/feed_rss_created.xml,2026-11-08T14:14:17Z,200,text/xml; charset=utf-8,189303,3e42ec0cb0baa9d49b96dc69e20a15603c7225a81d459d5958431b2cf5ad9ea6,GET,
+python_status_history,https://status.python.org/history.rss,2026-11-08T14:14:17Z,200,application/rss+xml; charset=utf-8,35524,bfdb3d3602cef674e872f325cf623a7bd674abc478e5a16c4e708f6cae5a81eb,GET,
+litellm_docs_blog,https://docs.litellm.ai/blog,2026-11-08T14:14:17Z,200,text/html; charset=utf-8,116279,5a7ed6860f81957dc30763034fb68fb373c295ddc31060b61445aed4c28ce0fb,GET,
+clickpy_tables,https://sql-clickhouse.clickhouse.com/?user=demo&default_format=TabSeparatedWithNames,2026-11-08T14:14:18Z,200,text/tab-separated-values; charset=UTF-8,1360,c335da325d17e4c1a39e01cf6f557c47a589e562ff48deb1e102068d82cdd5d4,POST,SHOW TABLES FROM pypi
+clickpy_describe_per_day_by_version,https://sql-clickhouse.clickhouse.com/?user=demo&default_format=TabSeparatedWithNames,2026-11-08T14:14:18Z,200,text/tab-separated-values; charset=UTF-8,154,cacfbc7e2b112dc1b8c1d1a06019293622c0f420518c069103da95d158e7c102,POST,DESCRIBE TABLE pypi.pypi_downloads_per_day_by_version
+clickpy_describe_pypi,https://sql-clickhouse.clickhouse.com/?user=demo&default_format=TabSeparatedWithNames,2026-11-08T14:14:18Z,200,text/tab-separated-values; charset=UTF-8,541,8a68eaa558c3af101a4d83d187c6b512a20a181ad07e356a1cdc6b6cfe4b7ace,POST,DESCRIBE TABLE pypi.pypi
+clickpy_last_day_requests,https://sql-clickhouse.clickhouse.com/?user=demo&default_format=TabSeparatedWithNames,2026-11-08T14:14:19Z,200,text/tab-separated-values; charset=UTF-8,20,a087f5e9ceb527b9711b591561d9c4475c21e62b95b644d9ea48cb04669d0ab3,POST,SELECT max(date) AS last_day FROM pypi.pypi_downloads_per_day_by_version WHERE project = 'requests'

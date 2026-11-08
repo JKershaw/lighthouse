@@ -1,0 +1,12 @@
+name	type	default_type	default_expression	comment	codec_expression	ttl_expression
+date	Date					
+country_code	LowCardinality(String)					
+project	String					
+type	LowCardinality(String)					
+installer	LowCardinality(String)					
+python_minor	LowCardinality(String)					
+system	LowCardinality(String)					
+version	String					
+libc	Tuple(\n    lib LowCardinality(String),\n    version LowCardinality(String))	DEFAULT	(\'\', \'\')			
+ci	Enum8(\'false\' = 0, \'true\' = 1, \'unknown\' = 2)	DEFAULT	\'unknown\'			
+filename	String	DEFAULT	\'\'			

@@ -1,0 +1,1692 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+        <meta name="description" content="Python Package Index shares insights and provides guidance following LiteLLM/Telnyx supply-chain attacks">
+      
+      
+      
+        <link rel="canonical" href="https://blog.pypi.org/posts/2026-04-02-incident-report-litellm-telnyx-supply-chain-attack/">
+      
+      
+      
+        <link rel="prev" href="../2026-01-26-a-year-and-a-half-as-inaugural-pypi-support-specialist/">
+      
+      
+        <link rel="next" href="../2026-04-16-pypi-completes-second-audit/">
+      
+      
+        
+      
+      
+      <link rel="icon" href="../../assets/favicon.ico">
+      <meta name="generator" content="zensical-0.0.73">
+    
+    
+      
+        <title>Incident Report: LiteLLM/Telnyx supply-chain attacks, with guidance - The Python Package Index Blog</title>
+      
+    
+    
+      
+        
+      
+      <link rel="stylesheet" href="../../assets/stylesheets/classic/main.94dd801d.min.css">
+      
+        
+          
+        
+        <link rel="stylesheet" href="../../assets/stylesheets/classic/palette.813d4b3f.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,500,500i,700,700i%7CRoboto+Mono:400,400i,700,700i&amp;display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+      <link rel="stylesheet" href="../../pypi.css">
+    
+    <script>__md_scope=new URL("../..",location),__md_scope.pathname.endsWith("/")||(__md_scope=new URL(__md_scope.pathname+"/",location)),__md_hash=e=>[...e].reduce(((e,t)=>(e<<5)-e+t.charCodeAt(0)),0),__md_get=(e,t=localStorage,_=__md_scope)=>JSON.parse(t.getItem(_.pathname+"."+e)),__md_set=(e,t,_=localStorage,a=__md_scope)=>{try{_.setItem(a.pathname+"."+e,JSON.stringify(t))}catch(e){}},document.documentElement.setAttribute("data-platform",navigator.platform)</script>
+    
+      
+  
+
+
+  <script defer
+        data-domain="blog.pypi.org"
+        src="https://analytics.python.org/js/script.outbound-links.js"></script>
+  
+    <script>"undefined"!=typeof __md_analytics&&__md_analytics()</script>
+  
+
+    
+    
+  
+  
+    <link rel="alternate"
+          type="application/rss+xml"
+          title="RSS feed"
+          href="../../feed_rss_created.xml" />
+    <link rel="alternate"
+          type="application/rss+xml"
+          title="RSS feed of updated content"
+          href="../../feed_rss_updated.xml" />
+    <link rel="alternate"
+          type="application/feed+json"
+          title="JSON feed"
+          href="../../feed_json_created.json" />
+    <link rel="alternate"
+          type="application/feed+json"
+          title="JSON feed of updated content"
+          href="../../feed_json_updated.json" />
+  
+
+  <meta property="og:type" content="website" />
+<meta property="og:title" content="Incident Report: LiteLLM/Telnyx supply-chain attacks, with guidance - The Python Package Index Blog" />
+<meta property="og:description" content="Python Package Index shares insights and provides guidance following LiteLLM/Telnyx supply-chain attacks" />
+<meta property="og:image" content="https://blog.pypi.org/assets/images/social/posts/2026-04-02-incident-report-litellm-telnyx-supply-chain-attack.png" />
+<meta property="og:image:type" content="image/png" />
+<meta property="og:image:width" content="1200" />
+<meta property="og:image:height" content="630" />
+<meta property="og:url" content="https://blog.pypi.org/posts/2026-04-02-incident-report-litellm-telnyx-supply-chain-attack/" />
+<meta property="twitter:card" content="summary_large_image" />
+<meta property="twitter:title" content="Incident Report: LiteLLM/Telnyx supply-chain attacks, with guidance - The Python Package Index Blog" />
+<meta property="twitter:description" content="Python Package Index shares insights and provides guidance following LiteLLM/Telnyx supply-chain attacks" />
+<meta property="twitter:image" content="https://blog.pypi.org/assets/images/social/posts/2026-04-02-incident-report-litellm-telnyx-supply-chain-attack.png" />
+<script async type="text/javascript" src="/_/static/javascript/readthedocs-addons.js"></script><meta name="readthedocs-project-slug" content="blogpypiorg" /><meta name="readthedocs-version-slug" content="latest" /><meta name="readthedocs-resolver-filename" content="/posts/2026-04-02-incident-report-litellm-telnyx-supply-chain-attack/" /><meta name="readthedocs-http-status" content="200" /></head>
+  
+  
+    
+    
+      
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="indigo" data-md-color-accent="indigo">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer" aria-hidden="true"></label>
+    <div data-md-component="skip">
+      <a href="#__skip" class="md-skip">
+        Skip to content
+      </a>
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+  
+  
+  <nav class="pypi-switcher" aria-label="PyPI sites">
+    <ul class="pypi-switcher__list md-grid">
+      
+        <li class="pypi-switcher__item">
+          <a href="https://pypi.org/"
+             class="pypi-switcher__link"
+             >PyPI.org</a>
+        </li>
+      
+        <li class="pypi-switcher__item">
+          <a href="https://blog.pypi.org/"
+             class="pypi-switcher__link pypi-switcher__link--active"
+             aria-current="true">PyPI blog</a>
+        </li>
+      
+        <li class="pypi-switcher__item">
+          <a href="https://docs.pypi.org/"
+             class="pypi-switcher__link"
+             >User documentation</a>
+        </li>
+      
+        <li class="pypi-switcher__item">
+          <a href="https://dev.pypi.org/"
+             class="pypi-switcher__link"
+             >Developer documentation</a>
+        </li>
+      
+    </ul>
+  </nav>
+  
+      
+
+  
+
+<header class="md-header md-header--shadow" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href="https://pypi.org" title="The Python Package Index Blog" class="md-header__button md-logo" aria-label="The Python Package Index Blog" data-md-component="logo">
+      
+  <img src="../../assets/logo.png" alt="The Python Package Index Blog">
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+      <span class="md-visually-hidden">Navigation</span>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            The Python Package Index Blog
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              Incident Report: LiteLLM/Telnyx supply-chain attacks, with guidance
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+        <form class="md-header__option" data-md-component="palette">
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="(prefers-color-scheme)" data-md-color-scheme="default" data-md-color-primary="indigo" data-md-color-accent="indigo"  aria-label="Switch to light mode"  type="radio" name="__palette" id="__palette_0">
+    
+      <label class="md-header__button md-icon" title="Switch to light mode" for="__palette_1" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="m14.3 16-.7-2h-3.2l-.7 2H7.8L11 7h2l3.2 9zM20 8.69V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12zm-9.15 3.96h2.3L12 9z"/></svg>
+      </label>
+    
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="(prefers-color-scheme: light)" data-md-color-scheme="default" data-md-color-primary="indigo" data-md-color-accent="indigo"  aria-label="Switch to dark mode"  type="radio" name="__palette" id="__palette_1">
+    
+      <label class="md-header__button md-icon" title="Switch to dark mode" for="__palette_2" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a4 4 0 0 0-4 4 4 4 0 0 0 4 4 4 4 0 0 0 4-4 4 4 0 0 0-4-4m0 10a6 6 0 0 1-6-6 6 6 0 0 1 6-6 6 6 0 0 1 6 6 6 6 0 0 1-6 6m8-9.31V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12z"/></svg>
+      </label>
+    
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="(prefers-color-scheme: dark)" data-md-color-scheme="slate" data-md-color-primary="indigo" data-md-color-accent="indigo"  aria-label="Switch to system preference"  type="radio" name="__palette" id="__palette_2">
+    
+      <label class="md-header__button md-icon" title="Switch to system preference" for="__palette_0" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 18c-.89 0-1.74-.2-2.5-.55C11.56 16.5 13 14.42 13 12s-1.44-4.5-3.5-5.45C10.26 6.2 11.11 6 12 6a6 6 0 0 1 6 6 6 6 0 0 1-6 6m8-9.31V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12z"/></svg>
+      </label>
+    
+  
+</form>
+      
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&palette.color){if("(prefers-color-scheme)"===palette.color.media){var media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']");palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent")}for(var[key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+    
+    
+    
+      
+      
+        <label class="md-header__button md-icon" for="__search">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+          <span class="md-visually-hidden">Search</span>
+        </label>
+        <div class="md-search" data-md-component="search" role="dialog" aria-label="Search">
+  <button type="button" class="md-search__button">
+    Search
+  </button>
+</div>
+      
+    
+    <div class="md-header__source">
+      
+        <a href="https://github.com/pypi/warehouse" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 7.3.1 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2026 Fonticons, Inc.--><path fill="currentColor" d="M439.6 236.1 244 40.5c-5.4-5.5-12.8-8.5-20.4-8.5s-15 3-20.4 8.4L162.5 81l51.5 51.5c27.1-9.1 52.7 16.8 43.4 43.7l49.7 49.7c34.2-11.8 61.2 31 35.5 56.7-26.5 26.5-70.2-2.9-56-37.3L240.3 199v121.9c25.3 12.5 22.3 41.8 9.1 55-6.4 6.4-15.2 10.1-24.3 10.1s-17.8-3.6-24.3-10.1c-17.6-17.6-11.1-46.9 11.2-56v-123c-20.8-8.5-24.6-30.7-18.6-45L142.6 101 8.5 235.1C3 240.6 0 247.9 0 255.5s3 15 8.5 20.4l195.6 195.7c5.4 5.4 12.7 8.4 20.4 8.4s15-3 20.4-8.4l194.7-194.7c5.4-5.4 8.4-12.8 8.4-20.4s-3-15-8.4-20.4"/></svg>
+  </div>
+  <div class="md-source__repository">
+    GitHub
+  </div>
+</a>
+      
+    </div>
+  </nav>
+  
+</header>
+    
+
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+                
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" hidden>
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+
+<nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="https://pypi.org" title="The Python Package Index Blog" class="md-nav__button md-logo" aria-label="The Python Package Index Blog" data-md-component="logo">
+      
+  <img src="../../assets/logo.png" alt="The Python Package Index Blog">
+
+    </a>
+    The Python Package Index Blog
+  </label>
+  
+    <div class="md-nav__source">
+      <a href="https://github.com/pypi/warehouse" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 7.3.1 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2026 Fonticons, Inc.--><path fill="currentColor" d="M439.6 236.1 244 40.5c-5.4-5.5-12.8-8.5-20.4-8.5s-15 3-20.4 8.4L162.5 81l51.5 51.5c27.1-9.1 52.7 16.8 43.4 43.7l49.7 49.7c34.2-11.8 61.2 31 35.5 56.7-26.5 26.5-70.2-2.9-56-37.3L240.3 199v121.9c25.3 12.5 22.3 41.8 9.1 55-6.4 6.4-15.2 10.1-24.3 10.1s-17.8-3.6-24.3-10.1c-17.6-17.6-11.1-46.9 11.2-56v-123c-20.8-8.5-24.6-30.7-18.6-45L142.6 101 8.5 235.1C3 240.6 0 247.9 0 255.5s3 15 8.5 20.4l195.6 195.7c5.4 5.4 12.7 8.4 20.4 8.4s15-3 20.4-8.4l194.7-194.7c5.4-5.4 8.4-12.8 8.4-20.4s-3-15-8.4-20.4"/></svg>
+  </div>
+  <div class="md-source__repository">
+    GitHub
+  </div>
+</a>
+    </div>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      
+        <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+  <span class="md-ellipsis">
+    
+  
+  The PyPI Blog
+
+    
+  </span>
+  
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="../.." class="md-nav__link md-nav__link--active">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+  The PyPI Blog
+
+    
+  </span>
+  
+  
+
+      </a>
+      
+        
+
+
+<nav class="md-nav md-nav--secondary" aria-label="On this page">
+  
+  
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      On this page
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#what-happened-with-litellm-and-telnyx" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        What happened with LiteLLM and telnyx?
+      </span>
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#why-is-this-malware-different" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        Why is this malware different?
+      </span>
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#what-is-pypi-doing-to-mitigate-malware" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        What is PyPI doing to mitigate malware?
+      </span>
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#protecting-yourself-as-a-developer" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        Protecting yourself as a developer
+      </span>
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Protecting yourself as a developer">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#dependency-cooldowns" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        Dependency Cooldowns
+      </span>
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#locking-dependencies" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        Locking Dependencies
+      </span>
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#protecting-your-project-as-an-open-source-maintainer" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        Protecting your project as an open source maintainer
+      </span>
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Protecting your project as an open source maintainer">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#securing-release-workflows" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        Securing release workflows
+      </span>
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#trusted-publishers-over-api-tokens" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        Trusted Publishers over API tokens
+      </span>
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#adding-2fa-to-open-source-development-accounts" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        Adding 2FA to open source development accounts
+      </span>
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#how-can-you-support-this-kind-of-work" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        How can you support this kind of work?
+      </span>
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_2" >
+        
+          
+          <label class="md-nav__link" for="__nav_2" id="__nav_2_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+  Archive
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        
+          <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="false">
+            <label class="md-nav__title" for="__nav_2">
+              <span class="md-nav__icon md-icon"></span>
+              
+  
+  Archive
+
+            </label>
+            <ul class="md-nav__list" data-md-scrollfix>
+              
+                
+                  
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../archive/2026/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+  2026
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+                
+              
+                
+                  
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../archive/2025/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+  2025
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+                
+              
+                
+                  
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../archive/2024/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+  2024
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+                
+              
+                
+                  
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../archive/2023/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+  2023
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+                
+              
+            </ul>
+          </nav>
+        
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_3" >
+        
+          
+          <label class="md-nav__link" for="__nav_3" id="__nav_3_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+  Authors
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        
+          <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="false">
+            <label class="md-nav__title" for="__nav_3">
+              <span class="md-nav__icon md-icon"></span>
+              
+  
+  Authors
+
+            </label>
+            <ul class="md-nav__list" data-md-scrollfix>
+              
+                
+                  
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../author/nlh/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+  Nicole Harris
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+                
+              
+                
+                  
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../author/jacobcoffee/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+  Jacob Coffee
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+                
+              
+                
+                  
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../author/Thespi-Brain/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+  Maria Ashna
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+                
+              
+                
+                  
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../author/miketheman/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+  Mike Fiedler
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+                
+              
+                
+                  
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../author/woodruffw/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+  William Woodruff
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+                
+              
+                
+                  
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../author/sethmlarson/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+  Seth Larson
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+                
+              
+                
+                  
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../author/di/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+  Dustin Ingram
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+                
+              
+                
+                  
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../author/ewdurbin/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+  Ee Durbin
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+                
+              
+                
+                  
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../author/facutuesca/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+  Facundo Tuesca
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+                
+              
+                
+                  
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../author/eximious/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+  Deb Nicholson
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+                
+              
+                
+                  
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../author/s-mm/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+  Shamika Monahan
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+                
+              
+                
+                  
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../author/dstufft/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+  Donald Stufft
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+                
+              
+            </ul>
+          </nav>
+        
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../tags/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+  Tags
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+                
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  
+                  <div class="md-sidebar__inner">
+                    
+
+
+<nav class="md-nav md-nav--secondary" aria-label="On this page">
+  
+  
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      On this page
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#what-happened-with-litellm-and-telnyx" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        What happened with LiteLLM and telnyx?
+      </span>
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#why-is-this-malware-different" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        Why is this malware different?
+      </span>
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#what-is-pypi-doing-to-mitigate-malware" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        What is PyPI doing to mitigate malware?
+      </span>
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#protecting-yourself-as-a-developer" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        Protecting yourself as a developer
+      </span>
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Protecting yourself as a developer">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#dependency-cooldowns" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        Dependency Cooldowns
+      </span>
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#locking-dependencies" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        Locking Dependencies
+      </span>
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#protecting-your-project-as-an-open-source-maintainer" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        Protecting your project as an open source maintainer
+      </span>
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Protecting your project as an open source maintainer">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#securing-release-workflows" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        Securing release workflows
+      </span>
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#trusted-publishers-over-api-tokens" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        Trusted Publishers over API tokens
+      </span>
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#adding-2fa-to-open-source-development-accounts" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        Adding 2FA to open source development accounts
+      </span>
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#how-can-you-support-this-kind-of-work" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        How can you support this kind of work?
+      </span>
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+  <div class="md-content md-content--post" data-md-component="content">
+    <div class="md-sidebar md-sidebar--post" data-md-component="sidebar" data-md-type="navigation">
+      <div class="md-sidebar__scrollwrap">
+        <div class="md-sidebar__inner md-post">
+          <nav class="md-nav md-nav--primary">
+            <div class="md-post__back">
+              <div class="md-nav__title md-nav__container">
+                <a href="../.." class="md-nav__link">
+                  
+                  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+                  <span class="md-ellipsis">
+                    Back to index
+                  </span>
+                </a>
+              </div>
+            </div>
+            
+              <div class="md-post__authors md-typeset">
+                
+                  <div class="md-profile md-post__profile">
+                    <span class="md-author md-author--long">
+                      <img src="https://github.com/sethmlarson.png" alt="Seth Larson">
+                    </span>
+                    <span class="md-profile__description">
+                      <strong>
+                        
+                          <a href="../../author/sethmlarson/">Seth Larson</a>
+                        
+                      </strong>
+                      <br>
+                      Security Developer-in-Residence, Python Software Foundation (PSF)
+                    </span>
+                  </div>
+                
+                  <div class="md-profile md-post__profile">
+                    <span class="md-author md-author--long">
+                      <img src="https://github.com/miketheman.png" alt="Mike Fiedler">
+                    </span>
+                    <span class="md-profile__description">
+                      <strong>
+                        
+                          <a href="../../author/miketheman/">Mike Fiedler</a>
+                        
+                      </strong>
+                      <br>
+                      PyPI Admin, Safety & Security Engineer (PSF)
+                    </span>
+                  </div>
+                
+              </div>
+            
+            <ul class="md-post__meta md-nav__list">
+              <li class="md-nav__item md-nav__item--section">
+                <div class="md-post__title">
+                  <span class="md-ellipsis">
+                    Metadata
+                  </span>
+                </div>
+                <nav class="md-nav">
+                  <ul class="md-nav__list">
+                    <li class="md-nav__item">
+                      <div class="md-nav__link">
+                        
+                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 19H5V8h14m-3-7v2H8V1H6v2H5c-1.11 0-2 .89-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V5a2 2 0 0 0-2-2h-1V1m-1 11h-5v5h5z"/></svg>
+                        <time datetime="2026-04-02 00:00:00+00:00" class="md-ellipsis">April 2, 2026</time>
+                      </div>
+                    </li>
+                    
+                    
+                    
+                      
+                      <li class="md-nav__item">
+                        <div class="md-nav__link">
+                          
+                          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 20a8 8 0 0 0 8-8 8 8 0 0 0-8-8 8 8 0 0 0-8 8 8 8 0 0 0 8 8m0-18a10 10 0 0 1 10 10 10 10 0 0 1-10 10C6.47 22 2 17.5 2 12A10 10 0 0 1 12 2m.5 5v5.25l4.5 2.67-.75 1.23L11 13V7z"/></svg>
+                          <span class="md-ellipsis">
+                            
+                              7 min read
+                            
+                          </span>
+                        </div>
+                      </li>
+                    
+                  </ul>
+                </nav>
+              </li>
+            </ul>
+            
+          </nav>
+          
+        </div>
+      </div>
+    </div>
+    <article class="md-content__inner md-typeset">
+      <a id="__skip" tabindex="-1"></a>
+      
+        
+
+  
+  
+
+
+  <h1>Incident Report: LiteLLM/Telnyx supply-chain attacks, with guidance</h1>
+
+<p>This post will drill deeper into two recent supply chain exploits, targeting users of popular PyPI packages - <code>litellm</code> &amp; <code>telnyx</code>.
+We also provide Python developers and maintainers with guidance on what they can do to prepare
+and protect themselves from future incidents.</p>
+<!-- more -->
+
+<h2 id="what-happened-with-litellm-and-telnyx">What happened with LiteLLM and telnyx?<a class="headerlink" href="#what-happened-with-litellm-and-telnyx" title="Permanent link">&para;</a></h2>
+<p>After an API token exposure from an <a href="https://www.aquasec.com/blog/trivy-supply-chain-attack-what-you-need-to-know/">exploited Trivy dependency</a>
+releases of the packages <a href="https://pypi.org/project/litellm/"><code>litellm</code></a> and <a href="https://pypi.org/project/telnyx/"><code>telnyx</code></a>
+were published to PyPI containing credential harvesting malware.</p>
+<p>The malware ran on install, harvesting sensitive credentials and files, and exfiltrating to a remote API. More details published in <a href="https://osv.dev/vulnerability/PYSEC-2026-2">the advisory for LiteLLM (PYSEC-2026-2)</a>, the <a href="https://docs.litellm.ai/blog/security-update-march-2026">LiteLLM blog post</a> about the incident,
+<a href="https://osv.dev/vulnerability/PYSEC-2026-3">the advisory for telnyx (PYSEC-2026-3)</a> and the <a href="https://telnyx.com/resources/telnyx-python-sdk-supply-chain-security-notice-march-2026">telnyx notice</a>.</p>
+<p>After contacting the <code>litellm</code> and <code>telnyx</code> maintainers, Mike and Seth collaborated with each team on steps forward, including token rotation, release removals, and recommendations around further security practices like using <a href="https://docs.pypi.org/trusted-publishers/">Trusted Publishers</a> which both projects have since adopted.</p>
+<h2 id="why-is-this-malware-different">Why is this malware different?<a class="headerlink" href="#why-is-this-malware-different" title="Permanent link">&para;</a></h2>
+<p>This class of malware is different from most malware published to PyPI, which are mostly published as <strong>new packages</strong>, either as typosquats or with a plan to share the package with others and hope they install it. This malware is "injected" into open source packages that are <strong>already in widespread use</strong>. The malware injection occurs one of two ways:</p>
+<ul>
+<li>Targeting open source projects with insecure repositories, release workflows, or authentication</li>
+<li>Targeting developers installing the latest versions of open source projects and exfiltrating API tokens and keys</li>
+</ul>
+<p>Using the API tokens and keys gathered from developer machines, the malware authors are able to further compromise other open source packages if API tokens for PyPI or GitHub are exfiltrated. This cycle continues as long as it is effective in exfiltrating more credentials. </p>
+<h2 id="what-is-pypi-doing-to-mitigate-malware">What is PyPI doing to mitigate malware?<a class="headerlink" href="#what-is-pypi-doing-to-mitigate-malware" title="Permanent link">&para;</a></h2>
+<p>With daily volume of <strong>~700-800 new projects</strong> created daily on PyPI, this poses a scaling challenge.
+PyPI partners with security researchers from our community who regularly scan and report malware through elevated channels to facilitate quicker remediation times.</p>
+<p>Below see the timeline of events.</p>
+<p><img alt="LiteLLM download timeline with reports and quarantine" src="../../assets/2026-04-02-incident-report-litellm-telnyx-supply-chain-attack/litellm_downloads_timeline.png" /></p>
+<p>During the window of attack, the exploited versions of <code>litellm</code> were downloaded over 119k times.</p>
+<p>PyPI received 13 inbound reports from concerned users, leveraging the <a href=".././2024-03-06-malware-reporting-evolved/">"Report project as malware" feature</a>, added back in 2024, accelerating the review/action.</p>
+<ul>
+<li>From upload to first report: 1h 19m</li>
+<li>First report to quarantine: 1h 12m</li>
+<li>From upload to quarantine (total exposure time): <strong>2h 32m</strong></li>
+</ul>
+<p>LiteLLM is typically installed <a href="https://pepy.tech/projects/litellm?timeRange=threeMonths&amp;category=version&amp;includeCIDownloads=true&amp;granularity=weekly&amp;viewType=line&amp;versions=*">~15-20 million times per week</a>. Averaging this out to an "installs per minute" rate nets a value between <strong>~1700 installs per minute</strong>.
+This means between <strong>~40-50% of all installs</strong> of LiteLLM were unpinned and fetching the latest version on each install invocation.</p>
+<p>Because these systems are pulling latest, this leaves very little time for researchers and PyPI admins to report, triage, and quarantine malware when published to a popular package. Read on for information on "<a href="#dependency-cooldowns">dependency cooldowns</a>"</p>
+<p><img alt="Telnyx download timeline with reports and quarantine" src="../../assets/2026-04-02-incident-report-litellm-telnyx-supply-chain-attack/telnyx_downloads_timeline.png" /></p>
+<p>PyPI's remediation response to <code>telnyx</code> was autonomously taken thanks to our pool of trusted reporters.
+These reporters add weight to any given report, triggering an automated quarantine feature.
+Subscribe to the PyPI blog for a future update about our automatic quarantining system.</p>
+<ul>
+<li>From upload to first report: 1h 45m</li>
+<li>First report to quarantine: 1h 57m</li>
+<li>Form upload to quarantine (total exposure time): 3h 42m</li>
+</ul>
+<p>Below are a few methods to make your usage of Python packages from PyPI more secure and to avoid installing malware.</p>
+<h2 id="protecting-yourself-as-a-developer">Protecting yourself as a developer<a class="headerlink" href="#protecting-yourself-as-a-developer" title="Permanent link">&para;</a></h2>
+<h3 id="dependency-cooldowns">Dependency Cooldowns<a class="headerlink" href="#dependency-cooldowns" title="Permanent link">&para;</a></h3>
+<p>One method to avoid "drinking from the firehose" and allow time for malware to be detected and remediated is using "Dependency Cooldowns".
+Dependency cooldowns is a strategy for package installers (like <code>pip</code>, <code>uv</code>, etc) to avoid installing packages that have very recently been published to PyPI. By doing so, this allows for human operators like security researchers and PyPI admins a chance to respond to reports of malware.</p>
+<p>Dependency cooldowns work best when they are configured "globally" on a developer machine and then passively protect developers from compromises on every invocation of pip or uv.
+Setting a relative value like "3 days" ("<code>P3D</code>" per RFC 3339) means packages that are newer than 3 days will not be installed.</p>
+<p>uv already supports <a href="https://docs.astral.sh/uv/concepts/resolution/#dependency-cooldowns">setting relative dependency cooldown</a> via <code>--exclude-newer</code>. You can <a href="https://docs.astral.sh/uv/concepts/configuration-files/">configure the option globally</a> (in <code>~/.config/uv/uv.toml</code>) or per-project in your <code>pyproject.toml</code>:</p>
+<div class="highlight"><pre><span></span><code><span class="k">[tool.uv]</span>
+<span class="n">exclude-newer</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">"P3D"</span><span class="w">  </span><span class="c1"># "3 days" in RFC 3339 format</span>
+</code></pre></div>
+<p>Relative dependency cooldowns are coming soon to pip v26.1 which <a href="https://pip.pypa.io/en/stable/development/release-process/">should be available in April</a> of this year. Once they are available you can set the option in <a href="https://pip.pypa.io/en/stable/topics/configuration/">your <code>pip.conf</code> file</a> (<code>~/.config/pip/pip.conf</code>):</p>
+<div class="highlight"><pre><span></span><code><span class="k">[install]</span>
+<span class="na">uploaded-prior-to</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">P3D</span>
+</code></pre></div>
+<p><a href="https://ichard26.github.io/blog/2026/01/whats-new-in-pip-26.0/#excluding-distributions-by-upload-time">Starting in pip v26.0</a> you can set absolute dependency cooldowns with pip from the command-line, likely paired with another tool like <code>date</code> to calculate an absolute date from a relative offset like "<code>3 days</code>":</p>
+<div class="highlight"><pre><span></span><code>python<span class="w"> </span>-m<span class="w"> </span>pip<span class="w"> </span>install<span class="w"> </span><span class="se">\</span>
+<span class="w">  </span>--uploaded-prior-to<span class="o">=</span><span class="k">$(</span>date<span class="w"> </span>-d<span class="w"> </span><span class="s1">'-3days'</span><span class="w"> </span>-Idate<span class="k">)</span><span class="w"> </span><span class="se">\</span>
+<span class="w">  </span>simplepackage
+</code></pre></div>
+<p>Applying dependency cooldowns everywhere isn't a silver bullet, though!
+There are certain situations where you <em>do</em> want the latest version of a package as soon as possible, like when applying patches for vulnerabilities.
+Dependency cooldowns should be paired with a vulnerability scanning strategy so security updates for your application's dependencies aren't waiting to be deployed. For example, Dependabot and Renovate both bypass dependency cooldowns by default for security updates.</p>
+<p>You can manually bypass a dependency cooldown in pip and uv by setting a value of "the current day" to get the actual latest release:</p>
+<div class="highlight"><pre><span></span><code>python<span class="w"> </span>-m<span class="w"> </span>pip<span class="w"> </span>install<span class="w"> </span><span class="se">\</span>
+<span class="w">  </span>--uploaded-prior-to<span class="o">=</span>P0D<span class="w"> </span><span class="se">\</span>
+<span class="w">  </span><span class="nv">simplepackage</span><span class="o">==</span><span class="m">26</span>.3.31
+</code></pre></div>
+<h3 id="locking-dependencies">Locking Dependencies<a class="headerlink" href="#locking-dependencies" title="Permanent link">&para;</a></h3>
+<p>Installing a package from PyPI without a "lock" means that it's possible to receive new code <em>every time you run pip install</em>.
+This leaves the door open for a compromise of a package to immediately get installed and execute malware on the installing systems.</p>
+<p>If you're a developer of an application using PyPI packages you should be using lock files both for security and reproducibility of your application.
+Some examples of tools which produce lock files for applications are:</p>
+<ul>
+<li><code>uv lock</code></li>
+<li><code>pip-compile --generate-hashes</code></li>
+<li><code>pipenv</code></li>
+</ul>
+<p>Note that <code>pip freeze</code> doesn't create a lock file: a lock file must include checksums / hashes of the package archives to be secure and reproducible.
+<code>pip freeze</code> only records packages and their versions. pip is working on experimental support for the <code>pylock.toml</code> standard through the
+<a href="https://pip.pypa.io/en/stable/cli/pip_lock"><code>pip lock</code> sub-command</a>.</p>
+<h2 id="protecting-your-project-as-an-open-source-maintainer">Protecting your project as an open source maintainer<a class="headerlink" href="#protecting-your-project-as-an-open-source-maintainer" title="Permanent link">&para;</a></h2>
+<p>If you are a maintainer of an open source project on PyPI, you can do your part to protect your users from compromises.
+There are three approaches we recommend: </p>
+<ol>
+<li>securing your release workflows</li>
+<li>using Trusted Publishers</li>
+<li>adding 2FA to all accounts associated with open source development</li>
+</ol>
+<h3 id="securing-release-workflows">Securing release workflows<a class="headerlink" href="#securing-release-workflows" title="Permanent link">&para;</a></h3>
+<p>If you're using a continuous deployment system to publish packages to Python: these workflows are targets for attackers. You can prevent most of the danger by applying a handful of security recommendations:</p>
+<ul>
+<li><strong>Avoid insecure triggers.</strong> Workflows that can be triggered by an attacker, especially with inputs they control (such as PR titles, branch titles) have been used in the past to inject commands. The trigger <code>pull_request_target</code> from GitHub Actions in particular is difficult to use securely and should be avoided.</li>
+<li><strong>Sanitize parameters and inputs.</strong> Any workflow parameter or input that can expand into an executed command carries potential to be used by attackers. Sanitize values by passing them as environment variables to commands to avoid template injection attacks.</li>
+<li><strong>Avoid mutable references.</strong> Lock or pin your dependencies in workflows. Favor using Git commit SHAs instead of Git tags, as tags are writeable. Maintain a lock file for PyPI dependencies used in workflows.</li>
+<li><strong>Use reviewable deployments.</strong> Trusted Publishers for GitHub supports "GitHub Environments" as a required step. This makes publishing your package to PyPI require a review from your GitHub account, meaning a higher bar for an attacker to compromise.</li>
+</ul>
+<p>If you are using GitHub Actions as your continuous deployment provider, we highly recommend the tool "<a href="https://github.com/zizmorcore/zizmor/">Zizmor</a>" for detecting and fixing insecure workflows.</p>
+<h3 id="trusted-publishers-over-api-tokens">Trusted Publishers over API tokens<a class="headerlink" href="#trusted-publishers-over-api-tokens" title="Permanent link">&para;</a></h3>
+<p>If the platform you use to publish to PyPI supports <a href="https://docs.pypi.org/trusted-publishers/">Trusted Publishers</a> (GitHub, GitLab, Google Cloud Build, ActiveState) then you should use Trusted Publishers instead of API tokens.</p>
+<p>PyPI API tokens are "long-lived", meaning if they are exfiltrated by an attacker that attacker can use the token at a much later date even if you don't detect the initial compromise. Trusted Publishers comparatively uses short-lived tokens, meaning they need to be used immediately and don't require manual "rotating" in the case of compromise.</p>
+<p>Trusted Publishers also provides a valuable signal to downstream users through <a href="https://docs.pypi.org/attestations/">Digital Attestations</a>. This means users can detect when a release <em>hasn't</em> been published using the typical release workflow, likely drawing more scrutiny.</p>
+<h3 id="adding-2fa-to-open-source-development-accounts">Adding 2FA to open source development accounts<a class="headerlink" href="#adding-2fa-to-open-source-development-accounts" title="Permanent link">&para;</a></h3>
+<p>We may be starting to sound like a broken record, but 2FA should be used for all accounts associated with open source development: not just PyPI.
+Think about accounts like version control / software forges
+(GitHub, GitLab, Codeberg, Forgejo) and your email provider.
+<a href=".././2024-01-01-2fa-enforced/">PyPI has required 2FA to be enabled to publish packages</a> since the beginning of 2024,
+but enabling phishing-resistant 2FA like a hardware key can protect you further.</p>
+<h2 id="how-can-you-support-this-kind-of-work">How can you support this kind of work?<a class="headerlink" href="#how-can-you-support-this-kind-of-work" title="Permanent link">&para;</a></h2>
+<p>Security work isn't free. You can support security work on the Python Package Index by supporting the Python Software Foundation (PSF). If you or your organization is interested in sponsoring or donating to the PSF so we can continue supporting Python, PyPI, and its community, check out the <a href="https://www.python.org/sponsors/application/">PSF's sponsorship program</a>, <a href="https://www.python.org/psf/donations/">donate directly</a>, or contact our team at <a href="mailto:sponsors@python.org">sponsors@python.org</a>!</p>
+<p>Mike Fiedler and Seth Larson's roles as <a href="https://www.python.org/psf/developersinresidence/">PyPI Safety &amp; Security Engineer and Security Developer-in-Residence</a> at the Python Software Foundation are supported by <a href="https://alpha-omega.dev">Alpha Omega</a>.</p>
+
+  
+
+
+  <nav class="md-tags" >
+    
+      
+      
+      
+      
+        <a href="../../tags/#tag:security" class="md-tag">security</a>
+      
+    
+      
+      
+      
+      
+        <a href="../../tags/#tag:transparency" class="md-tag">transparency</a>
+      
+    
+  </nav>
+
+
+
+
+
+
+
+
+  
+  
+
+
+
+  
+
+
+  
+
+
+
+      
+    </article>
+  </div>
+
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+          <button type="button" class="md-top md-icon" data-md-component="top" hidden>
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8z"/></svg>
+  Back to top
+</button>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+    
+      
+        
+      
+      <nav class="md-footer__inner md-grid" aria-label="Footer" >
+        
+          
+          <a href="../2026-01-26-a-year-and-a-half-as-inaugural-pypi-support-specialist/" class="md-footer__link md-footer__link--prev" aria-label="Previous: Dispatch from PyPI Land: A Year (and a Half!) as the Inaugural PyPI Support Specialist">
+            <div class="md-footer__button md-icon">
+              
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+            </div>
+            <div class="md-footer__title">
+              <span class="md-footer__direction">
+                Previous
+              </span>
+              <div class="md-ellipsis">
+                Dispatch from PyPI Land: A Year (and a Half!) as the Inaugural PyPI Support Specialist
+              </div>
+            </div>
+          </a>
+        
+        
+          
+          <a href="../2026-04-16-pypi-completes-second-audit/" class="md-footer__link md-footer__link--next" aria-label="Next: PyPI has completed its second audit">
+            <div class="md-footer__title">
+              <span class="md-footer__direction">
+                Next
+              </span>
+              <div class="md-ellipsis">
+                PyPI has completed its second audit
+              </div>
+            </div>
+            <div class="md-footer__button md-icon">
+              
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M4 11v2h12l-5.5 5.5 1.42 1.42L19.84 12l-7.92-7.92L10.5 5.5 16 11z"/></svg>
+            </div>
+          </a>
+        
+      </nav>
+    
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+  
+    Made with
+    <a href="https://zensical.org/" target="_blank" rel="noopener">
+      Zensical
+    </a>
+  
+</div>
+      
+        
+<div class="md-social">
+  
+    
+    
+    
+    
+      
+      
+    
+    <a href="https://github.com/pypi" target="_blank" rel="noopener" title="github.com" class="md-social__link">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><!--! Font Awesome Free 7.3.1 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2026 Fonticons, Inc.--><path fill="currentColor" d="M216.5 362.5c-66-8-112.5-55.5-112.5-117 0-25 9-52 24-70-6.5-16.5-5.5-51.5 2-66 20-2.5 47 8 63 22.5 19-6 39-9 63.5-9s44.5 3 62.5 8.5c15.5-14 43-24.5 63-22 7 13.5 8 48.5 1.5 65.5 16 19 24.5 44.5 24.5 70.5 0 61.5-46.5 108-113.5 116.5 17 11 28.5 35 28.5 62.5v52c0 15 12.5 23.5 27.5 17.5C441 459.5 512 369 512 257 512 115.5 397 0 255.5 0S0 115.5 0 257c0 111 70.5 203 165.5 237.5 13.5 5 26.5-4 26.5-17.5v-40c-7 3-16 5-24 5-33 0-52.5-18-66.5-51.5-5.5-13.5-11.5-21.5-23-23-6-.5-8-3-8-6 0-6 10-10.5 20-10.5 14.5 0 27 9 40 27.5 10 14.5 20.5 21 33 21s20.5-4.5 32-16c8.5-8.5 15-16 21-21"/></svg>
+    </a>
+  
+    
+    
+    
+    
+      
+      
+    
+    <a href="https://discuss.python.org/c/packaging/14" target="_blank" rel="noopener" title="discuss.python.org" class="md-social__link">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 7.3.1 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2026 Fonticons, Inc.--><path fill="currentColor" d="M225.9 32C103.3 32 0 130.5 0 252.1 0 256 .1 480 .1 480l225.8-.2c122.7 0 222.1-102.3 222.1-223.9S348.6 32 225.9 32M224 384c-19.4 0-37.9-4.3-54.4-12.1L88.5 392l22.9-75c-9.8-18.1-15.4-38.9-15.4-61 0-70.7 57.3-128 128-128s128 57.3 128 128-57.3 128-128 128"/></svg>
+    </a>
+  
+    
+    
+      
+    
+    
+    
+      
+      
+    
+    <a href="https://fosstodon.org/@pypi" target="_blank" rel="noopener me" title="fosstodon.org" class="md-social__link">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 7.3.1 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2026 Fonticons, Inc.--><path fill="currentColor" d="M433 179.1c0-97.2-63.7-125.7-63.7-125.7-62.5-28.7-228.6-28.4-290.5 0 0 0-63.7 28.5-63.7 125.7 0 115.7-6.6 259.4 105.6 289.1 40.5 10.7 75.3 13 103.3 11.4 50.8-2.8 79.3-18.1 79.3-18.1l-1.7-36.9s-36.3 11.4-77.1 10.1c-40.4-1.4-83-4.4-89.6-54-.6-4.6-.9-9.3-.9-13.9 85.6 20.9 158.7 9.1 178.7 6.7 56.1-6.7 105-41.3 111.2-72.9 9.8-49.8 9-121.5 9-121.5zm-75.1 125.2h-46.6V190.1c0-49.7-64-51.6-64 6.9v62.5H201V197c0-58.5-64-56.6-64-6.9v114.2H90.3c0-122.1-5.2-147.9 18.4-175 25.9-28.9 79.8-30.8 103.8 6.1l11.6 19.5 11.6-19.5c24.1-37.1 78.1-34.8 103.8-6.1 23.7 27.3 18.4 53 18.4 175"/></svg>
+    </a>
+  
+    
+    
+    
+    
+      
+      
+    
+    <a href="https://bsky.app/profile/pypi.org" target="_blank" rel="noopener" title="bsky.app" class="md-social__link">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 576 512"><!--! Font Awesome Free 7.3.1 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2026 Fonticons, Inc.--><path fill="currentColor" d="M407.8 294.7c-3.3-.4-6.7-.8-10-1.3 3.4.4 6.7.9 10 1.3M288 227.1c-26.1-50.7-97.1-145.2-163.1-191.8C61.6-9.4 37.5-1.7 21.6 5.5 3.3 13.8 0 41.9 0 58.4S9.1 194 15 213.9c19.5 65.7 89.1 87.9 153.2 80.7 3.3-.5 6.6-.9 10-1.4-3.3.5-6.6 1-10 1.4-93.9 14-177.3 48.2-67.9 169.9C220.6 589.1 265.1 437.8 288 361.1c22.9 76.7 49.2 222.5 185.6 103.4 102.4-103.4 28.1-156-65.8-169.9-3.3-.4-6.7-.8-10-1.3 3.4.4 6.7.9 10 1.3 64.1 7.1 133.6-15.1 153.2-80.7C566.9 194 576 75 576 58.4s-3.3-44.7-21.6-52.9c-15.8-7.1-40-14.9-103.2 29.8C385.1 81.9 314.1 176.4 288 227.1"/></svg>
+    </a>
+  
+    
+    
+    
+    
+      
+      
+    
+    <a href="https://twitter.com/pypi" target="_blank" rel="noopener" title="twitter.com" class="md-social__link">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><!--! Font Awesome Free 7.3.1 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2026 Fonticons, Inc.--><path fill="currentColor" d="M459.4 151.7c.3 4.5.3 9.1.3 13.6 0 138.7-105.6 298.6-298.6 298.6-59.5 0-114.7-17.2-161.1-47.1 8.4 1 16.6 1.3 25.3 1.3 49.1 0 94.2-16.6 130.3-44.8-46.1-1-84.8-31.2-98.1-72.8 6.5 1 13 1.6 19.8 1.6 9.4 0 18.8-1.3 27.6-3.6-48.1-9.7-84.1-52-84.1-103v-1.3c14 7.8 30.2 12.7 47.4 13.3-28.3-18.8-46.8-51-46.8-87.4 0-19.5 5.2-37.4 14.3-53C87.4 130.8 165 172.4 252.1 176.9c-1.6-7.8-2.6-15.9-2.6-24C249.5 95.1 296.3 48 354.4 48c30.2 0 57.5 12.7 76.7 33.1 23.7-4.5 46.5-13.3 66.6-25.3-7.8 24.4-24.4 44.8-46.1 57.8 21.1-2.3 41.6-8.1 60.4-16.2-14.3 20.8-32.2 39.3-52.6 54.3"/></svg>
+    </a>
+  
+    
+    
+    
+    
+      
+      
+    
+    <a href="https://blog.pypi.org/feed_rss_created.xml" target="_blank" rel="noopener" title="blog.pypi.org" class="md-social__link">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M6.18 15.64a2.18 2.18 0 0 1 2.18 2.18C8.36 19 7.38 20 6.18 20 5 20 4 19 4 17.82a2.18 2.18 0 0 1 2.18-2.18M4 4.44A15.56 15.56 0 0 1 19.56 20h-2.83A12.73 12.73 0 0 0 4 7.27zm0 5.66a9.9 9.9 0 0 1 9.9 9.9h-2.83A7.07 7.07 0 0 0 4 12.93z"/></svg>
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog" role="status" aria-atomic="true">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    
+      
+      
+      
+      
+        
+        
+      <script id="__config" type="application/json">{"annotate":null,"base":"../..","features":["navigation.expand","navigation.top","navigation.footer"],"redirect":null,"search":"../../assets/javascripts/workers/search.c47bb847.min.js","tags":null,"translations":{"clipboard.copied":"Copied to clipboard","clipboard.copy":"Copy to clipboard","clipboard.error":"Could not copy to clipboard","search.result.more.one":"1 more on this page","search.result.more.other":"# more on this page","search.result.none":"No matching documents","search.result.one":"1 matching document","search.result.other":"# matching documents","search.result.placeholder":"Type to start searching","search.result.term.missing":"Missing","select.version":"Select version"},"version":null}</script>
+    
+    
+      <script src="../../assets/javascripts/bundle.77dd0ce9.min.js"></script>
+      
+    
+  </body>
+</html>
