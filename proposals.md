@@ -266,6 +266,10 @@ From the [editor's visit of 7 November 2026](notes/editor/2026-11-07T0956Z.md):
 - L-0030 The front page and the Investigations page list two investigations while the keeper agreed a third today; the next run opening P-0014 resolves it.
 - L-0031 The model-found-bugs investigation's first report date sits at the bottom of its page; a reader looked for it first.
 - L-0032 The About page does not name the keeper and mentions "Astra" without explanation. Keeper, 2026-11-07: happy to be named, in the third person, precise but not formal (About now names the keeper); Astra is the OpenAI model the keeper uses as an outside reviewer (About now says so).
+- L-0033 The map piece does not say which investigation it belongs to; a phone reader looked for it (editor's visit, 8 November).
+- L-0034 The Now box shows the week's two outside events (WordPress's flaw listed as exploited on 3 November; the poisoned LiteLLM release) only as study-question link titles, with no plain sentence of what happened; this is P-0018's case, now with two examples (editor's visit, 8 November).
+- L-0035 A run line counting "4 due rows" when one of them waited reads as four finished tasks on the front page; run lines could say done and waiting apart (editor's visit, 8 November).
+- L-0030 resolved 8 November: the third investigation is open and listed.
 
 ## Declined, parked and expired
 

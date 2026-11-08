@@ -3,7 +3,7 @@ kind: working note (study LH039, proposals.md P-0017), before any brief is fixed
 date: 2026-11-07
 authors: the driving session of the scheduled run 2026-11-07T1413Z (Claude Code, Opus 5.5)
 
-**In short.** WordPress fixed a flaw in its own update process on 28 October 2026, in 7.1.4 and in a release on every branch back to 4.7, and we want to know how fast sites moved to the fixed releases. Before writing a brief we read the sources' metadata, and found that WordPress.org's public version statistics count branches (7.1, 7.0), not releases (7.1.4), so they cannot by themselves tell a fixed site from an unfixed one. The brief, still to be written, has to choose between sources that see releases, each counting something different; today's raw reads are kept so the day is not lost.
+**In short.** WordPress fixed a flaw in its own update process on 28 October 2026, in 7.1.4 and in a release on every branch back to 4.7, and we want to know how fast sites moved to the fixed releases. Before writing a brief we read the sources' metadata, and found that WordPress.org's public version statistics count branches (7.1, 7.0), not releases (7.1.4), so they cannot by themselves tell a fixed site from an unfixed one. The brief had to choose between sources that see releases, each counting something different; it was fixed on 8 November as [brief.md](brief.md), with W3Techs's survey of websites and Packagist's developer downloads, and the raw reads from 7 November on are its first days.
 
 ## What was read, 7 November 2026, from 14:18 UTC
 
