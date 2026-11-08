@@ -160,13 +160,100 @@ https://docs.github.com/en/packages/working-with-a-github-packages-registry/work
 
 ### S26 OSV
 
-The Open Source Vulnerabilities database, run by Google's open source security team: advisories gathered from GitHub's advisory database, the Python Packaging Authority's and others, queryable anonymously by package and version, each with its aliases, severity, affected and fixed versions, and the time it was published and last modified. Its publication time is when the advisory entered the source it came from, not when the flaw was found or fixed. LH007 read it for `mcp` 1.28.0 and found GHSA-vj7q-gjh5-988w, published 16 July 2026, fixed in 1.28.1 (studies/LH007/sources.md, S9). Read 26 September 2026.
+The Open Source Vulnerabilities database, run by Google's open source security team: advisories gathered from GitHub's advisory database, the Python Packaging Authority's and others, queryable anonymously by package and version, each with its aliases, severity, affected and fixed versions, and the time it was published and last modified. Its publication time is when the advisory entered the source it came from, not when the flaw was found or fixed. LH007 read it for `mcp` 1.28.0 and found GHSA-vj7q-gjh5-988w, published 16 July 2026, fixed in 1.28.1 (studies/LH007/sources.md, S9). Read 26 September 2026. Its exports at osv-vulnerabilities.storage.googleapis.com/<ecosystem>/all.zip carry a storage generation per version; LH041 read the npm and PyPI exports on 8 November 2026 (223,208 and 12,013 malicious-package records, MAL- ids). Some MAL- records carry a `published` time at bare midnight, so their precision is a date.
 
 https://osv.dev/
 https://google.github.io/osv.dev/api/
+https://osv-vulnerabilities.storage.googleapis.com/
 
 ### S27 Amazon ECR Public
 
 Amazon's public container registry at public.ecr.aws, readable anonymously through the OCI distribution API with a token from its own token endpoint. It answered 429 to unpaced anonymous requests on 26 September 2026 and served when they were paced to about one a second; its documentation on anonymous limits was not read. Like the other registries, it keeps no history of what a tag named before. Read 26 September 2026.
 
 https://gallery.ecr.aws/
+
+### S28 OpenA2A Exposure Prevalence Index
+
+OpenA2A Research's public monthly index of internet-facing AI services from Shodan index analysis: 207 queries in ten categories, each category the sum of its queries, one point per month (the latest sweep that month), dated by the UTC day of the sweep, with the number and range of sweeps where a month held several. Its methodology page says the reports are written by OpenA2A's autonomous research system, ARIA, with a named human editor; that from 18 June 2026 totals exclude credential categories; and that the index sees what Shodan indexes. Its robots.txt allows its pages to every agent. LH042 read it on 8 November 2026 (latest sweep 1 November 2026, first listed 14 March 2026).
+
+https://research.opena2a.org/indices/exposure-prevalence
+https://research.opena2a.org/methodology
+
+### S29 Ollama in the Wild
+
+Zuyao Xu, Xiang Li, Yuqi Qiu and Lu Sun, Ollama in the Wild: A Longitudinal Measurement of Exposed Ollama LLM Endpoints at Internet Scale, IMC 2026 (arXiv 2609.07115, 7 September 2026). Daily sweeps of the IPv4 space on Ollama's default port from 14 February 2025 to 13 February 2026 (362 observed days); it states an aggregate data release whose location LH042 did not find. Read 8 November 2026.
+
+https://arxiv.org/abs/2609.07115
+
+### S30 SecurityScorecard DECLAWED
+
+SecurityScorecard STRIKE's live dashboard of OpenClaw instances ("favicon hash and HTTP title fingerprinting" from its internet-wide scans). Its figures load from a path its robots.txt disallows to every agent, beside a block list naming AI agents' fetchers, so Lighthouse does not read its counts (LH042, Amendment 1, which records the requests made to that path before the whole robots.txt had been read). Page read 8 November 2026.
+
+https://declawed.io/
+
+### S31 Registered OAI-PMH base URLs (historical dump)
+
+The Open Archives Initiative's static dump, dated 8 October 2025, of the 7,103 base URLs (5,246 hosts) registered with the OAI-PMH registry, whose registration and validation services were discontinued on 18 July 2025. Entries were never re-checked for being alive; in LH044's draw of 40, 5 answered 404 or 410 and 5 had no DNS. Read 8 November 2026 (19:09 UTC).
+
+https://www.openarchives.org/pmh/registry/ListFriends_HISTORICAL_2025-10-08.xml
+
+### S32 Debian mirror list
+
+Debian's page of official mirrors by country, 387 `/debian/` URLs on 351 hosts when read, the page last modified 29 October 2025 by its own footer; most mirrors serve plain HTTP. LH044 draws part of its panel from it. Read 8 November 2026 (19:04 UTC).
+
+https://www.debian.org/mirror/list
+
+### S33 HTTP Archive tech report API
+
+The API behind HTTP Archive's Technology Report, at the address its report page uses (found in the page's script on 8 November 2026). `/v1/adoption` gives monthly counts per detected technology from January 2024 (September 2026 the latest when read); the documentation (HTTPArchive/tech-report-apis, apps/report-api/README.md) gives the schema but not the unit. Its rules detect Cloudflare Bot Management, Turnstile, DataDome, PerimeterX, Kasada, Akamai Bot Manager and captchas, not Anubis. Read by LH044 on 8 November 2026.
+
+https://cdn.httparchive.org/v1/technologies?onlyname
+
+### S34 The Wayback Machine (CDX and capture endpoints)
+
+The Internet Archive's index of captures by URL and its raw captures (`id_`). From the cloud container on 8 November 2026 every connection to web.archive.org was reset (four attempts, 19:04 to 19:30 UTC), and archive.org's availability API answered 200 with no capture for example.com and then 429. Unread from there (LH044).
+
+https://web.archive.org/cdx/search/cdx
+
+### S35 ARIN RDAP
+
+The American Registry for Internet Numbers' registration data service, used once by LH044 to find who holds the address the container's requests leave from: 160.79.104.0/21, Anthropic, PBC. Read 8 November 2026 (19:06 UTC).
+
+https://rdap.arin.net/registry/ip/
+
+### S36 Operators' statements on automated load
+
+The operators' own accounts that LH044 codes in studies/LH044/statements/coded.csv: kernel.org, "creepy-crawlies" (29 August 2026); Wikimedia, its API rate-limits page (2026) and "How crawlers impact the operations of the Wikimedia projects" (1 April 2025); Read the Docs, "AI crawlers need to be more respectful" (25 July 2024); GitHub's changelog, "Updated rate limits for unauthenticated requests" (8 May 2025); COAR's Dealing With Bots resource and its June 2026 slides. Each is the operator's account. Read 8 November 2026, 19:29 to 19:30 UTC.
+
+https://people.kernel.org/monsieuricon/creepy-crawlies
+https://www.mediawiki.org/wiki/Wikimedia_APIs/Rate_limits
+https://diff.wikimedia.org/
+
+### S37 Epoch AI, AI data centers
+
+Epoch AI's hub of estimated AI data-centre construction, power, compute (H100 equivalents), cost and chips, drawn by Epoch from satellite imagery, permits and public documents, with an update log and CSV and ZIP downloads. CC BY 4.0: "free to use, distribute, and reproduce provided the source and authors are credited"; credit Epoch AI, 'AI data centers', published online at epoch.ai. On 8 November 2026 the hub covered 96 sites, the downloads were stamped 6 November 2026, and the log page's data carried entries from 14 March 2026; earlier versions of the CSVs are not offered. robots.txt allows the data paths and disallows /assets/. LH045 keeps it weekly to 3 January 2027 (studies/LH045/brief.md). Read 8 November 2026.
+
+https://epoch.ai/data/data-centers
+https://epoch.ai/data/ai-data-centers/updates
+
+### S38 IETF Datatracker API
+
+The IETF's read-only API over Datatracker's database (Internet-Drafts, groups, states, authors, meetings), anonymous and in JSON, described at datatracker.ietf.org/api/. A draft is filed under a working group only once the group adopts it; until then it is an individual draft whose name may carry the target group's acronym. Author records carry affiliations as authors state them, and email addresses, which LH045 does not keep. robots.txt disallows only /doc/pdf/. Internet-Drafts are governed by the IETF Trust Legal Provisions (5.0). IETF 127 runs 14 to 20 November 2026, with the draft cutoff 13 days before. LH045 takes a census from it (studies/LH045/brief.md). Read 8 November 2026.
+
+https://datatracker.ietf.org/api/
+
+### S39 Compute and memory price pages whose terms forbid keeping their figures
+
+Recorded so later sessions need not re-read them: Silicon Data's GPU rental indices (silicondata.com; terms forbid storing site contents "in a database or retrieval system" or reproducing them without written consent; about 30 days public, full history paid), DRAMeXchange's DRAM and NAND spot prices (TrendForce; terms forbid reproducing or publishing any materials without written consent; current session only), Shanghai Metals Market's computing-power indices (metal.com; its notice forbids copying "single prices" for any purpose without written consent), Vast.ai's GPU marketplace (terms forbid automated retrieval and any index or benchmark built from it) and Microsoft's Azure Retail Prices API (the Microsoft APIs Terms of Use forbid building databases or copies of API data). A single attributed figure may be quoted in a dated sentence; no series may be kept. Read 8 November 2026 (studies/LH045/brief.md, Part A).
+
+### S40 OpenSSF malicious-packages
+
+OpenSSF's repository of malicious-package reports in OSV format (MAL- ids), merged from sources such as GitHub's malware advisories (`ghsa-malware`), Amazon Inspector, Google's open source security team, kam193, ReversingLabs and OpenSSF Package Analysis; each record names its origins and import times; OSV serves the same records in its exports (S26). Records are one per package, so a package compromised twice holds both episodes' versions. LH041 read the README, contributing guide, schema additions and configuration on 8 November 2026 (raw files via raw.githubusercontent.com) and spot-checked 20 records, all matching OSV's copies.
+
+https://github.com/ossf/malicious-packages
+
+### S41 The npm registry's package documents
+
+registry.npmjs.org/<package>: per-version publish times (`time`), which LH041 found kept for many removed malicious versions, the current maintainers, dist-tags and surviving version documents. Read anonymously; deleted packages answer 404. LH041 read 2,198 on 8 November 2026 (84 answered 404).
+
+https://registry.npmjs.org/

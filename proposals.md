@@ -83,11 +83,12 @@ Agreed and not yet started: the next run takes these after the started lane (sch
 
 ### P-0013 The closing web: shared infrastructure withdrawing anonymous access
 
-- Kind: watch, then a study. Priority: urgent (a baseline is worth more now than later). Status: agreed (the keeper, 7 November 2026), with the gate's conditions. Investigation: P-0014 if agreed.
+- Kind: watch, then a study. Priority: urgent (a baseline is worth more now than later). Status: started 8 November 2026 as LH044 (agreed by the keeper, 7 November 2026, with the gate's conditions). Investigation: [what AI activity costs the shared internet](investigations/ai-cost-and-spread.md).
 - Source: [scout 7](notes/horizon/2026-11-07T0853Z/scout-7-wildcard.md): kernel.org (29 August) reports about 6 million random-commit requests a day with legitimate traffic near 2 per cent, a proof-of-work wall in front and anonymous features to go; Wikimedia's API rate limits rolling out through 2026; CBC (5 November) on academic libraries knocked offline; COAR (June) on repositories blocking its checker and OAI-PMH. All reported, read through a fetch tool.
 - Why: operators report withdrawing anonymous access under automated load (kernel.org names scrapers, not AI); if it holds, it is the charter's degradation in its plainest form, and it decides what observers such as Lighthouse can still see.
 - Cost: one study; a weekly one-or-two-request check of a fixed panel (kernel.org, Wikimedia, Project Gutenberg, the forges, a random draw of OAI-PMH endpoints) recording status and any challenge page, the Wayback Machine to date each wall, and HTTP Archive's counts of challenge services.
-- Next step: a brief with the panel drawn by a rule before any status is read, and a baseline read.
+- Next step: done, 8 November: the brief is fixed as [studies/LH044/brief.md](studies/LH044/brief.md) (protocol 0.1, committed before any panel status was read; 101 named services and 60 drawn by rule), and the baseline was read the same evening ([checkpoint](studies/LH044/checkpoints/2026-11-08.md), unreviewed). Amendment 3 follows robots.txt redirects, up to five, from read 1. Weekly reads to 7 February 2027, the record by 28 February; no wall is dated yet, because web.archive.org has not answered the container.
+- Correction to the gate's note, 8 November 2026 (LH044): kernel.org's post names "AI crawlers" and training data as well as scrapers (studies/LH044/statements/coded.csv), so "names scrapers, not AI" under Why is wrong; the operator's attribution is still its own account.
 - Gate's notes: label Lighthouse's own presence in the panel and give it an end date; access is unproven (Wikimedia answered 429 and the Wayback Machine reset the connection from the container).
 - Keeper, 2026-11-07: agree.
 
@@ -101,6 +102,14 @@ Agreed and not yet started: the next run takes these after the started lane (sch
 - Cost: one day of the public table; the account is the decision.
 - Next step: the brief is already a row; the read waits for the keeper to name an account, or to decline.
 - Keeper, 2026-11-08: later. The brief (row LH013-installer-brief) goes ahead; it should say whether a free public source, such as ClickPy's SQL, carries the installer's version before any account is named.
+
+### P-0021 A price for compute that Lighthouse may keep
+
+- Kind: repair of an instrument for an active investigation. Priority: normal. Status: waiting for the keeper (8 November 2026: one route is contacting a third party). Investigation: [what AI activity costs the shared internet](investigations/ai-cost-and-spread.md).
+- Source: [studies/LH045/brief.md](studies/LH045/brief.md), Part A, and its [for-driver note](studies/LH045/for-driver.md); lead L-0011; sources.md S39.
+- Why: the charter names "the compute behind them", and price is the one daily public trace of it the sweep found; the cost strand has no price instrument because every free daily series checked forbids keeping it.
+- Cost: small once permitted.
+- Next step: the keeper's choice between two routes, both outside what a session may do alone: ask one publisher (Silicon Data's public index is the closest fit) for written consent to keep and publish its daily index with attribution, which is contacting a third party; or look further for an openly licensed price series (none found in a bounded check of five sources, 8 November 2026). Until then no series is kept, and a single attributed figure may be quoted in a dated sentence.
 
 ## Backlog
 
@@ -134,7 +143,7 @@ Each proposal: kind (watch, deepening, repair, new question, new investigation),
 
 ### P-0018 A dated "This week" line at the top of the front page
 
-- Kind: editorial. Priority: high. Status: backlog (not yet gated). Investigation: none (the site).
+- Kind: editorial. Priority: high. Status: done 8 November 2026 (the keeper's direction of 8 November): a dated "This week" block on the front page, read from site/this-week.md, which the scheduled run keeps at its editor's step; items labelled Reported or Lighthouse; hidden when more than eight days stale. Investigation: none (the site). The runner instruction for keeping it is proposed in site/for-driver.md and waits for the keeper, since it changes schedule/runner.md.
 - Source: [editor's visit of 7 November 2026](notes/editor/2026-11-07T0956Z.md), the reader's first suggestion: a returning reader had to rebuild the week from Releases, Proposals and the log.
 - Why: the front page shows the newest run and the latest findings, but nothing says in plain words what was released, started and decided since last week.
 - Cost: small; generated from releases.md, schedule/runs.csv, proposals.md's keeper lines and the studies' checkpoints, with a sentence the editor may hand-set in README.md's header.
@@ -142,7 +151,7 @@ Each proposal: kind (watch, deepening, repair, new question, new investigation),
 
 ### P-0019 Reader-facing pages without internal codes, and a Latest list that reflects what is current
 
-- Kind: editorial. Priority: normal. Status: backlog (not yet gated). Investigation: none (the site).
+- Kind: editorial. Priority: normal. Status: partly done 8 November 2026: the Now box, study pages and investigation pages show plain names in place of row ids, study codes and proposal numbers (codes kept in title attributes, breadcrumbs and addresses); Latest is ordered newest first by publication or correction and says so. Left: the Schedule, Proposals and Releases pages, and older study pages whose opening falls back to an Answer that cites codes (L-0036). Investigation: none (the site).
 - Source: [editor's visit of 7 November 2026](notes/editor/2026-11-07T0956Z.md), the reader's second and third suggestions: P-, LH- and R- numbers, "the gate", "throttle" and script commands on the Schedule, Proposals and Releases pages; and a September piece with a "no correction" notice of 3 November ranked above the October PHP work.
 - Why: the codes are right for records and wrong for a newcomer; and a dated notice that changes nothing in a piece's claim arguably should not lift it to the top.
 - Cost: small to medium; plain labels beside codes in listings, and a rule for which notices count as activity in Latest.
@@ -234,25 +243,25 @@ One line per lead not drawn up as a full proposal, with the scout's file for its
 
 From [2026-11-07T0853Z](notes/horizon/2026-11-07T0853Z.md):
 
-- L-0001 Exposed devices a small self-replicating model could use (unauthenticated ADB, Kimwolf-class counts), a baseline before the end of 2026 (scout 1). Time-sensitive. Part of P-0014.
-- L-0002 Exposed inference endpoints (Ollama and others): the IMC 2026 census ends in February; extend it from published scan counts (scout 5). Part of P-0014.
-- L-0003 Exposed agent control panels (OpenClaw), counted at 21,000 to 135,000 in January and February; no count since (scout 7). Part of P-0014.
-- L-0004 The token-stealing registry worm lineage since May: a wave timeline from OSV and OpenSSF data, with the residue reported (scout 3). Part of P-0014.
-- L-0005 The UK AI Security Institute's evaluation agents' 19 unsanctioned actions: check GH Archive for the 25 to 28 July events (scout 6). Part of P-0014.
+- L-0001 Exposed devices a small self-replicating model could use (unauthenticated ADB, Kimwolf-class counts), a baseline before the end of 2026 (scout 1). Time-sensitive. Part of P-0014. Drawn into LH042, 8 November 2026: no internet-wide count of exposed Android debug ports was read.
+- L-0002 Exposed inference endpoints (Ollama and others): the IMC 2026 census ends in February; extend it from published scan counts (scout 5). Part of P-0014. Drawn into LH042, 8 November 2026 ([record](studies/LH042/LH042.md) 0.1, unreviewed).
+- L-0003 Exposed agent control panels (OpenClaw), counted at 21,000 to 135,000 in January and February; no count since (scout 7). Part of P-0014. Drawn into LH042, 8 November 2026: later counts exist, by publishers counting different things ([record](studies/LH042/LH042.md) 0.1, unreviewed).
+- L-0004 The token-stealing registry worm lineage since May: a wave timeline from OSV and OpenSSF data, with the residue reported (scout 3). Part of P-0014. Drawn into LH041, 8 November 2026 ([record](studies/LH041/LH041.md) 0.1, interim and unreviewed).
+- L-0005 The UK AI Security Institute's evaluation agents' 19 unsanctioned actions: check GH Archive for the 25 to 28 July events (scout 6). Part of P-0014. Drawn into LH043, 8 November 2026, and closed at version 0.1: every account read anonymises what the agents touched, and Lighthouse does not try to re-identify it ([record](studies/LH043/LH043.md)).
 - L-0006 DIVD's attribution of a two-zero-day chain in Zammad to an autonomous agent; read DIVD's own page (scout 2).
 - L-0007 Anthropic's September threat report on persistent, scheduled, self-repairing agent operations (scout 1).
 - L-0008 Agent-to-agent carrier channels (memory, shared artefacts, skills) and the MCP-Eco dataset: where such channels exist publicly, without claiming spread (scout 5).
 - L-0009 Agent-authored pull-request load on forges, with a validated census method from arXiv 2606.24429 (scouts 1 and 5).
 - L-0010 Cloudflare's personal-agent controls and its bot classes and verified-bot directory: snapshots (scout 1). Weeks.
-- L-0011 Daily compute-market prices (H100 rental index, DDR5 spot, Chinese GPU rental indices), whose free history rolls over (scout 7). Time-sensitive.
-- L-0012 IETF 127 from 14 November: a dated census of agent, discovery, bot-authentication and AI-preference drafts (scout 6). Time-sensitive.
+- L-0011 Daily compute-market prices (H100 rental index, DDR5 spot, Chinese GPU rental indices), whose free history rolls over (scout 7). Time-sensitive. Taken up 8 November 2026 as LH045 (studies/LH045/brief.md), started under the keeper's assignment at the review. Dropped on its sources' terms: none of the five read permits keeping a series (sources.md S39); see P-0021.
+- L-0012 IETF 127 from 14 November: a dated census of agent, discovery, bot-authentication and AI-preference drafts (scout 6). Time-sensitive. Taken up 8 November 2026 as LH045 (studies/LH045/brief.md), started under the keeper's assignment at the review. Being kept: censuses on 8 November, before IETF 127 and once between 23 and 27 November.
 - L-0013 A robots.txt AI-token baseline on a fixed site sample before any standard or crawler honours one (scouts 6 and 7).
 - L-0014 WordPress core CVE-2026-119977, listed 3 November: version-share uptake (scout 2). Drawn up as P-0017, started.
 - L-0015 EPSS and catalogue lag as a daily archive; AI credit strings in CVE and OSV records (scout 2).
 - L-0016 Lighthouse's own refused requests as an instrument: a dated tally by source (scout 7). Repair.
 - L-0017 An audit of Lighthouse's own fetches against the finding that a fifth of HTTP 200 answers lack the page (scout 5). Repair.
 - L-0018 ModelScope beside Hugging Face, and the Chinese package mirrors: the half of the network Lighthouse does not mark (scout 7).
-- L-0019 Epoch AI's data-centre log, which keeps only recent entries: a recurring snapshot (scout 4).
+- L-0019 Epoch AI's data-centre log, which keeps only recent entries: a recurring snapshot (scout 4). Taken up 8 November 2026 as LH045 (studies/LH045/brief.md), started under the keeper's assignment at the review. Being kept weekly to 3 January 2027.
 - L-0020 Automation-caused routing incidents (Cloudflare, January and February), checkable in RIS and RouteViews (scout 4).
 - L-0021 Agents with broad credentials deleting infrastructure, and a dated table of such incidents (scout 4).
 - L-0022 Japan's disclosed intrusions as a long non-English series (scout 7).
@@ -273,6 +282,19 @@ From the [editor's visit of 7 November 2026](notes/editor/2026-11-07T0956Z.md):
 - L-0034 The Now box shows the week's two outside events (WordPress's flaw listed as exploited on 3 November; the poisoned LiteLLM release) only as study-question link titles, with no plain sentence of what happened; this is P-0018's case, now with two examples (editor's visit, 8 November).
 - L-0035 A run line counting "4 due rows" when one of them waited reads as four finished tasks on the front page; run lines could say done and waiting apart (editor's visit, 8 November).
 - L-0030 resolved 8 November: the third investigation is open and listed.
+- L-0033 resolved 8 November: the map piece says it is part of the map, in no investigation.
+- L-0034 resolved 8 November by P-0018's This week block.
+- L-0035 resolved 8 November: the run line counts done and waiting apart; runs.csv's did format proposed in site/for-driver.md.
+
+From the studies and site work of 8 November 2026:
+
+- L-0036 Twelve older study records have no **In short.** opening, so their site pages lead with an Answer or Question that cites other studies' codes: LH003, LH004, LH005, LH008, LH009, LH013, LH015, LH016, LH017, LH019, LH020 and LH025; LH000's title and LH042's search log start with a code, and LH039's lead file's kind line carries codes. Adding the openings (AGENTS.md, Writing) would finish P-0019 on study pages; the site was not made to rewrite record text ([site/for-driver.md](site/for-driver.md)).
+- L-0037 GH Archive's coverage on hours unrelated to any incident ([studies/LH043/for-driver.md](studies/LH043/for-driver.md)). Taken up 8 November 2026 as LH046, a repair ([brief](studies/LH046/brief.md)), after a reviewer's scan found no push events in 16 of 24 noon hours from 15 October; under way.
+- L-0038 A Wayback route for the closing web: its measure 5 (dating each wall) needs a machine that reaches web.archive.org, which the cloud container never has; the brief provides for running `collect.py --wayback <label>` there with the same code and caps, given a task that names the machine ([studies/LH044/for-driver.md](studies/LH044/for-driver.md)).
+- L-0039 Declared walls over time: 11 robots.txt files in the closing web's panel allow every crawler but disallow named AI crawler tokens, and one redirects to the ai.robots.txt project's list; the Wayback, when readable, holds robots.txt history that would date these declarations with no request to the operators (LH044).
+- L-0040 The container as a sensor: the cloud container's own policy answers for github.com and api.github.com with a 403 of its own, and its address block is Anthropic's (sources.md S35), so a study reading github.com from there reads the sandbox, not GitHub. LH044 suggests a line in CLAUDE.md's note on github.com, which waits for the keeper.
+- L-0041 The registry worms' public exfiltration repositories as a dated count: how many public repositories carry each wave's published description (the phrases the vendors print), by creation date, in aggregate only, naming no account and identifying no victim (the keeper's caution of 8 November 2026). Would date the worms' reach on developer machines and CI, which the registry records cannot see ([LH041](studies/LH041/LH041.md), Next).
+- L-0042 A test of the essay's post hoc reading that fetch counts of a newly pinned package track its pinning repositories' CI activity rather than new adopters ([the essay's notes](notes/what-the-watch-would-see-draft-notes.md)). Low priority.
 
 ## Declined, parked and expired
 
