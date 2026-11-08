@@ -709,3 +709,12 @@ a.chip:hover { background: var(--tint); }
   .sched-day { min-height: 3.2em; padding: 0.2em; }
   .sched-day .chip { font-size: 0.66rem; padding: 0 0.3em; }
 }
+
+/* These portrait diagrams are reading-column cards, including on wide screens. */
+.prose > figure:has(img[src*="/essays/it-was-only-a-test/"]) {
+  width: 100%;
+  max-width: 32rem;
+  position: static;
+  transform: none;
+  margin-inline: auto;
+}
