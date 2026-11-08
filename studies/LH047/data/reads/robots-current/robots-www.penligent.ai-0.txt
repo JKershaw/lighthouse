@@ -1,0 +1,28 @@
+User-Agent: *
+Allow: /
+
+User-Agent: OAI-SearchBot
+User-Agent: ChatGPT-User
+User-Agent: Claude-SearchBot
+User-Agent: Claude-User
+User-Agent: PerplexityBot
+User-Agent: Perplexity-User
+User-Agent: MistralAI-User
+Allow: /
+
+User-Agent: GPTBot
+User-Agent: ClaudeBot
+User-Agent: Claude-Web
+User-Agent: anthropic-ai
+User-Agent: Google-Extended
+User-Agent: CCBot
+User-Agent: Bytespider
+User-Agent: MistralAI-Training
+User-Agent: Applebot-Extended
+User-Agent: Amazonbot
+User-Agent: meta-externalagent
+Disallow: /
+
+Host: https://www.penligent.ai
+Sitemap: https://www.penligent.ai/sitemap.xml
+Sitemap: https://www.penligent.ai/hackinglabs/sitemaps.xml

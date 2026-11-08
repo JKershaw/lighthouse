@@ -1,0 +1,82 @@
+{
+ "requests": 3497,
+ "by_source": {
+  "transcript": 51,
+  "log": 3446
+ },
+ "reached": {
+  "yes": 3473,
+  "no (refused by the container)": 10,
+  "no (no answer)": 11,
+  "status not recorded": 3
+ },
+ "overall_A": {
+  "complies": 3301,
+  "unknown": 11,
+  "does not comply": 185
+ },
+ "overall_B": {
+  "complies": 3282,
+  "unknown": 11,
+  "does not comply": 204
+ },
+ "overall_B_agent": {
+  "complies": 3296,
+  "unknown": 11,
+  "does not comply": 190
+ },
+ "R1": {
+  "complies": 3389,
+  "unknown": 11,
+  "does not comply": 97
+ },
+ "R2": {
+  "complies": 3365,
+  "unknown": 11,
+  "does not comply": 121
+ },
+ "R2_agent": {
+  "complies": 3383,
+  "unknown": 11,
+  "does not comply": 103
+ },
+ "R4": {
+  "not applicable": 3480,
+  "complies": 12,
+  "does not comply": 5
+ },
+ "R5": {
+  "complies": 3473,
+  "does not comply": 24
+ },
+ "R5_excl_robots": {
+  "complies": 3491,
+  "does not comply": 6
+ },
+ "R6": {
+  "complies": 3497
+ },
+ "R7": {
+  "terms not read": 3466,
+  "complies": 31
+ },
+ "R8": {
+  "complies (unlabelled)": 4,
+  "complies": 3431,
+  "unknown": 1,
+  "does not comply": 61
+ },
+ "robots_prov": {
+  "current re-read (not the file in force at the time)": 184,
+  "retained, other study": 2379,
+  "retained, same study, read after the request": 20,
+  "retained, same study": 890,
+  "none": 23,
+  "collector's own note at the time": 1
+ },
+ "use": {
+  "script": 3092,
+  "agent-read": 203,
+  "robots": 202
+ }
+}

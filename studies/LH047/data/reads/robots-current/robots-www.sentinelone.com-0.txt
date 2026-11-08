@@ -1,0 +1,23 @@
+User-Agent: *
+Allow: /
+Allow: /resources/?*
+Disallow: /api/
+Disallow: /*?*
+Disallow: *.pdf$
+Disallow: /static/lp/s1-value-app-2024/
+
+User-Agent: Googlebot-News
+Allow: /press/
+Allow: /blog/
+Disallow: /
+
+Sitemap: https://www.sentinelone.com/sitemap-index.xml
+Sitemap: https://www.sentinelone.com/de/sitemap-index.xml
+Sitemap: https://www.sentinelone.com/fr/sitemap-index.xml
+Sitemap: https://www.sentinelone.com/es/sitemap-index.xml
+Sitemap: https://www.sentinelone.com/it/sitemap-index.xml
+Sitemap: https://www.sentinelone.com/ja/sitemap-index.xml
+Sitemap: https://www.sentinelone.com/ko/sitemap-index.xml
+Sitemap: https://www.sentinelone.com/nl/sitemap-index.xml
+Sitemap: https://www.sentinelone.com/tw/sitemap-index.xml
+Sitemap: https://www.sentinelone.com/cve-sitemaps/index.xml

@@ -1,0 +1,8 @@
+Sitemap: https://socket.dev/sitemap.xml
+Sitemap: https://socket.dev/blog/security-news-sitemap.xml
+
+# don't do multiple user-agents, this bot doesn't support it
+User-agent: Bytespider
+Disallow: /
+
+User-agent: *

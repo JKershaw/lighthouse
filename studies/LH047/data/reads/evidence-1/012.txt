@@ -1,0 +1,42 @@
+New Robots.txt tab for tracking crawler compliance · Changelog Skip to content 
+ Docs Directory API SDKs Changelog 
+ Search Ctrl K 
+ Log in Dashboard 
+ Changelog
+ New updates and improvements at Cloudflare.
+ View RSS feeds
+ Subscribe to RSS
+ Back to all posts October 21, 2025 New Robots.txt tab for tracking crawler compliance
+ AI Crawl Control 
+ Copy as Markdown | View as Markdown | Agent setup 
+ AI Crawl Control now includes a Robots.txt tab that provides insights into how AI crawlers interact with your robots.txt files.
+ What's new
+ The Robots.txt tab allows you to:
+ Monitor the health status of robots.txt files across all your hostnames, including HTTP status codes, and identify hostnames that need a robots.txt file.
+ Track the total number of requests to each robots.txt file, with breakdowns of successful versus unsuccessful requests.
+ Check whether your robots.txt files contain Content Signals ↗︎ directives for AI training, search, and AI input.
+ Identify crawlers that request paths explicitly disallowed by your robots.txt directives, including the crawler name, operator, violated path, specific directive, and violation count.
+ Filter robots.txt request data by crawler, operator, category, and custom time ranges.
+ Take action
+ When you identify non-compliant crawlers, you can:
+ Block the crawler in the Crawlers tab 
+ Create custom WAF rules for path-specific security
+ Use Redirect Rules to guide crawlers to appropriate areas of your site
+ To get started, go to AI Crawl Control > Robots.txt in the Cloudflare dashboard. Learn more in the Track robots.txt documentation .
+ Getting started 
+ Plans Contact sales Partners Find a partner Startups Under attack? Domain name search 
+ Company 
+ About Careers Investors Press Press kit Global network 
+ Public interest 
+ Project Galileo Athenian Project Cloudflare for Campaigns Project Fairshot Impact/ESG 
+ Compliance 
+ Compliance resources Trust Hub Data Protection Responsible AI Transparency report Report abuse 
+ Resources 
+ App innovation report Cloudflare Radar Case studies Status Support Events Blog 
+ Developers 
+ Documentation Learning center Community 
+ Solutions 
+ SSE and SASE platform Cloudflare AI Cloud AI Security Frontend Development Platform Multi-Tenant Platform Development Web Security Platform 
+ Start Building Log In 
+ © 2026 Cloudflare, Inc. Privacy policy | Report security issues | Terms of use | Trademark 
+ | Your privacy choices

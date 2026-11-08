@@ -80,7 +80,7 @@ def rows_of(path, fmt):
         with open(p, newline='') as f:
             for r in csv.DictReader(f):
                 yield dict(url=r['url'], utc=r['utc'], status=r['status'] or r['error'],
-                           note='%s %s ua=%s' % (r['service'], r['kind'], r['ua']), sent='yes')
+                           note='%s %s ua=%s' % (r['service'], r['kind'], r['ua']), sent='yes', truncated=r['truncated'])
     elif fmt == 'csv_lh045_pre':
         with open(p, newline='') as f:
             for r in csv.DictReader(f):
@@ -111,14 +111,31 @@ def rows_of(path, fmt):
 def main():
     out = []
     for path, study, fmt in LOGS:
+        expanded = []
         for r in rows_of(path, fmt):
-            u = urlsplit(r['url'].strip())
-            out.append(dict(log=path, study=study, url=r['url'].strip(), scheme=u.scheme, host=u.hostname or '',
+            if '<day>' in r['url']:
+                # the reader review logged its 38-hour scan as one templated row; one request per day
+                import datetime as _d
+                for i in range(38):
+                    day = (_d.date(2026, 10, 1) + _d.timedelta(i)).isoformat()
+                    expanded.append(dict(r, url='https://data.gharchive.org/%s-12.json.gz' % day, utc='2026-11-08T19:28:06Z',
+                                         status='200', note=r['note'] + ' (expanded from a templated row; time from the transcript)'))
+            else:
+                expanded.append(r)
+        for r in expanded:
+            raw = r['url'].strip()
+            method = 'GET'
+            first = raw.split(' ', 1)[0]
+            if first in ('POST', 'GET', 'HEAD', 'PUT'):
+                method, raw = first, raw.split(' ', 2)[1]
+                r['note'] = (r['note'] + ' ' + r['url'].strip().split(' ', 2)[2] if r['url'].count(' ') >= 2 else r['note']).strip()
+            u = urlsplit(raw)
+            out.append(dict(log=path, study=study, method=method, url=raw, scheme=u.scheme, host=u.hostname or '',
                             path=(u.path or '/') + (('?' + u.query) if u.query else ''),
-                            utc=r['utc'], status=r['status'], sent=r['sent'], note=r['note']))
+                            utc=r['utc'], status=r['status'], sent=r['sent'], note=r['note'], truncated=r.get('truncated', '')))
     os.makedirs(os.path.dirname(OUT), exist_ok=True)
     with open(OUT, 'w', newline='') as f:
-        w = csv.DictWriter(f, fieldnames=['log', 'study', 'url', 'scheme', 'host', 'path', 'utc', 'status', 'sent', 'note'])
+        w = csv.DictWriter(f, fieldnames=['log', 'study', 'method', 'url', 'scheme', 'host', 'path', 'utc', 'status', 'sent', 'note', 'truncated'])
         w.writeheader()
         w.writerows(out)
     print('rows', len(out), 'sent', sum(1 for r in out if r['sent'] == 'yes'))

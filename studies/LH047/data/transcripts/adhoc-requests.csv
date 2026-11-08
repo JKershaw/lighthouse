@@ -1,0 +1,107 @@
+transcript,line,utc,method,url,ua,status,note
+2942f8fb (driving session),139,2026-11-08T18:57:03Z,HEAD,https://api.osv.dev/v1/query,curl-default,405,reachability check
+2942f8fb (driving session),139,2026-11-08T18:57:03Z,HEAD,https://data.gharchive.org/2026-07-25-12.json.gz,curl-default,200,reachability check
+2942f8fb (driving session),139,2026-11-08T18:57:03Z,HEAD,https://datatracker.ietf.org/api/v1/,curl-default,200,reachability check
+2942f8fb (driving session),139,2026-11-08T18:57:03Z,HEAD,https://epoch.ai/,curl-default,200,reachability check
+2942f8fb (driving session),540,2026-11-08T19:30:57Z,GET,https://data.gharchive.org/2026-10-10-12.json.gz,lighthouse,200,count check; body discarded
+2942f8fb (driving session),540,2026-11-08T19:30:57Z,GET,https://data.gharchive.org/2026-10-20-12.json.gz,lighthouse,200,count check; body discarded
+2942f8fb (driving session),540,2026-11-08T19:30:57Z,GET,https://data.gharchive.org/2026-11-05-12.json.gz,lighthouse,200,count check; body discarded
+2942f8fb (driving session),540,2026-11-08T19:30:57Z,GET,https://data.gharchive.org/2026-11-05-03.json.gz,lighthouse,,count check; zero events parsed; status not shown
+a00dfd6c (essay recheck),73,2026-11-08T20:24:44Z,GET,https://api.github.com/repos/BerriAI/litellm/issues/47826,lighthouse,403,container GitHub policy text not shown
+a2c27c1f (LH046 evidence review),81,2026-11-08T20:13:39Z,GET,https://data.gharchive.org/robots.txt,lighthouse,200,robots
+a2c27c1f (LH046 evidence review),81,2026-11-08T20:13:41Z,GET,https://data.gharchive.org/robots.txt,lighthouse,200,robots
+a335ac9d (LH044 evidence review),203,2026-11-08T20:21:56Z,GET,https://lighthouse.harbour.cat/studies/LH044/,lighthouse,404,Lighthouse's own site
+a5a2873d (essay claims check),79,2026-11-08T19:14:48Z,GET,https://api.github.com/repos/ossf/malicious-packages/commits?path=osv/malicious/pypi/litellm/MAL-2026-2144.json&per_page=20,lighthouse,403,container GitHub policy refusal (message shown)
+a6843267 (LH042 research),91,2026-11-08T19:01:06Z,GET,https://dashboard.shadowserver.org/,lighthouse,reset,page requested before its robots.txt
+a6843267 (LH042 research),91,2026-11-08T19:01:07Z,GET,https://dashboard.shadowserver.org/robots.txt,lighthouse,reset,robots
+a6843267 (LH042 research),91,2026-11-08T19:01:08Z,GET,https://declawed.io/,lighthouse,200,page requested before its robots.txt
+a6843267 (LH042 research),91,2026-11-08T19:01:09Z,GET,https://declawed.io/robots.txt,lighthouse,200,robots
+a6843267 (LH042 research),91,2026-11-08T19:01:10Z,GET,https://leakix.net/robots.txt,lighthouse,404,robots
+a6843267 (LH042 research),94,2026-11-08T19:01:36Z,GET,https://declawed.io/robots.txt,lighthouse,200,robots; output cut at line 60 (the incident)
+a6843267 (LH042 research),97,2026-11-08T19:01:46Z,GET,https://declawed.io/,lighthouse,200,page saved to scratchpad
+a6843267 (LH042 research),100,2026-11-08T19:01:52Z,GET,https://declawed.io/script.js?v=20260520z208,lighthouse,200,script read for its API paths
+a6843267 (LH042 research),103,2026-11-08T19:02:05Z,GET,https://declawed.io/api/stats,lighthouse,200,the known overstep (incident note)
+a6843267 (LH042 research),103,2026-11-08T19:02:06Z,GET,https://declawed.io/api/embargo/check,lighthouse,405,the known overstep (incident note)
+a6843267 (LH042 research),145,2026-11-08T19:04:41Z,GET,https://www.anthropic.com/research/self-replicating-ai,webfetch,,WebFetch tool; returns a model-written extract
+a6843267 (LH042 research),189,2026-11-08T19:09:48Z,GET,https://declawed.io/robots.txt,lighthouse,200,robots; whole file read
+a6843267 (LH042 research),394,2026-11-08T19:25:49Z,GET,https://research.opena2a.org/robots.txt,lighthouse,200,robots
+a77ffb52 (essay drafting),106,2026-11-08T19:02:11Z,GET,https://www.anthropic.com/news/investigating-incidents-cybersecurity-evals,lighthouse,200,scratchpad readlog only
+a77ffb52 (essay drafting),106,2026-11-08T19:02:11Z,GET,https://www.aisi.gov.uk/blog/incident-report-unsanctioned-agent-behaviour-during-cyber-testing,lighthouse,200,scratchpad readlog only
+a77ffb52 (essay drafting),106,2026-11-08T19:02:11Z,GET,https://metr.org/blog/2026-08-26-openai-hugging-face-incident-investigation/,lighthouse,200,scratchpad readlog only
+a77ffb52 (essay drafting),106,2026-11-08T19:02:12Z,GET,https://www.stepsecurity.io/blog/mini-shai-hulud-is-back-a-self-spreading-supply-chain-attack-hits-the-npm-ecosystem,lighthouse,200,scratchpad readlog only
+a77ffb52 (essay drafting),106,2026-11-08T19:02:13Z,GET,https://www.techzine.eu/news/security/144866/shai-hulud-worm-burrows-into-ai-platform-tensorlakes-npm-sdk/,lighthouse,403,scratchpad readlog only
+a77ffb52 (essay drafting),106,2026-11-08T19:02:13Z,GET,https://www.bleepingcomputer.com/news/security/massive-chaindrop-npm-supply-chain-attack-infects-hundreds-of-packages/,lighthouse,200,scratchpad readlog only
+a77ffb52 (essay drafting),106,2026-11-08T19:02:14Z,GET,https://labs.cloudsecurityalliance.org/research/csa-research-note-model-hub-reupload-agent-lures-20261031-cs/,lighthouse,200,scratchpad readlog only
+a77ffb52 (essay drafting),106,2026-11-08T19:02:14Z,GET,https://www.anthropic.com/research/self-replicating-ai,lighthouse,200,scratchpad readlog only
+a77ffb52 (essay drafting),106,2026-11-08T19:02:15Z,GET,https://api.osv.dev/v1/vulns/MAL-2026-2144,lighthouse,200,scratchpad readlog only
+a77ffb52 (essay drafting),138,2026-11-08T19:03:40Z,POST,https://api.osv.dev/v1/query,lighthouse,200,scratchpad readlog only
+a77ffb52 (essay drafting),138,2026-11-08T19:03:41Z,GET,https://pypi.org/pypi/litellm/1.107.0/json,lighthouse,404,scratchpad readlog only
+a8addcc8 (essay reader review),131,2026-11-08T19:26:50Z,GET,https://api.github.com/repos/BerriAI/litellm/issues/47826,research-reader,403,
+a8addcc8 (essay reader review),131,2026-11-08T19:26:50Z,GET,https://raw.githubusercontent.com/ossf/malicious-packages/main/osv/malicious/pypi/litellm/MAL-2026-2144.json,research-reader,200,
+a8addcc8 (essay reader review),134,2026-11-08T19:27:01Z,GET,https://data.gharchive.org/2026-11-07-12.json.gz,research-reader,200,
+a8addcc8 (essay reader review),139,2026-11-08T19:27:21Z,GET,https://data.gharchive.org/2026-11-07-00.json.gz,research-reader,404,
+a8addcc8 (essay reader review),139,2026-11-08T19:27:23Z,GET,https://data.gharchive.org/2026-10-01-12.json.gz,research-reader,200,
+a8addcc8 (essay reader review),139,2026-11-08T19:27:24Z,GET,https://data.gharchive.org/2026-08-01-12.json.gz,research-reader,200,
+a8addcc8 (essay reader review),142,2026-11-08T19:27:34Z,GET,https://data.gharchive.org/2026-11-07-0.json.gz,research-reader,200,
+a8addcc8 (essay reader review),142,2026-11-08T19:27:34Z,GET,https://data.gharchive.org/2026-11-06-12.json.gz,research-reader,200,
+a8addcc8 (essay reader review),142,2026-11-08T19:27:35Z,GET,https://data.gharchive.org/2026-11-01-12.json.gz,research-reader,200,
+a8addcc8 (essay reader review),145,2026-11-08T19:27:48Z,GET,https://data.gharchive.org/2026-10-08-12.json.gz,research-reader,200,
+a8addcc8 (essay reader review),145,2026-11-08T19:27:50Z,GET,https://data.gharchive.org/2026-10-15-12.json.gz,research-reader,200,
+a8addcc8 (essay reader review),145,2026-11-08T19:27:52Z,GET,https://data.gharchive.org/2026-10-22-12.json.gz,research-reader,200,
+a8addcc8 (essay reader review),145,2026-11-08T19:27:54Z,GET,https://data.gharchive.org/2026-10-29-12.json.gz,research-reader,200,
+a95ec693 (LH041 research),38,2026-11-08T19:00:36Z,GET,https://api.osv.dev/v1/vulns/MAL-2023-1,lighthouse,200,structure check
+a95ec693 (LH041 research),38,2026-11-08T19:00:37Z,GET,https://osv-vulnerabilities.storage.googleapis.com/ecosystems.txt,lighthouse,206,range request
+a95ec693 (LH041 research),38,2026-11-08T19:00:37Z,GET,https://raw.githubusercontent.com/ossf/malicious-packages/main/README.md,lighthouse,206,range request
+a95ec693 (LH041 research),38,2026-11-08T19:00:37Z,GET,https://registry.npmjs.org/left-pad,lighthouse,206,range request
+a95ec693 (LH041 research),38,2026-11-08T19:00:38Z,GET,https://codeload.github.com/ossf/malicious-packages/tar.gz/refs/heads/main,lighthouse,403,refused (container GitHub policy likely; body not shown)
+a95ec693 (LH041 research),38,2026-11-08T19:00:38Z,HEAD,https://osv-vulnerabilities.storage.googleapis.com/npm/all.zip,lighthouse,200,
+a95ec693 (LH041 research),41,2026-11-08T19:00:43Z,GET,https://raw.githubusercontent.com/ossf/malicious-packages/main/README.md,lighthouse,200,kept as data/prebrief/ossf-README.md
+a95ec693 (LH041 research),41,2026-11-08T19:00:44Z,GET,https://raw.githubusercontent.com/ossf/malicious-packages/main/docs/schema.md,lighthouse,404,
+a95ec693 (LH041 research),44,2026-11-08T19:00:49Z,GET,https://raw.githubusercontent.com/ossf/malicious-packages/main/CONTRIBUTING.md,lighthouse,200,
+a95ec693 (LH041 research),44,2026-11-08T19:00:50Z,GET,https://api.osv.dev/v1/vulns/MAL-2023-1,lighthouse,200,
+a95ec693 (LH041 research),46,2026-11-08T19:00:55Z,GET,https://raw.githubusercontent.com/ossf/malicious-packages/main/docs/schema_additions.md,lighthouse,200,kept
+a95ec693 (LH041 research),46,2026-11-08T19:00:56Z,GET,https://raw.githubusercontent.com/ossf/malicious-packages/main/config/config.yaml,lighthouse,200,kept
+a95ec693 (LH041 research),156,2026-11-08T19:10:53Z,HEAD,https://osv-vulnerabilities.storage.googleapis.com/npm/all.zip,lighthouse,200,
+a95ec693 (LH041 research),156,2026-11-08T19:10:53Z,HEAD,https://osv-vulnerabilities.storage.googleapis.com/PyPI/all.zip,lighthouse,200,
+ac33f7b7 (LH043 research),84,2026-11-08T19:02:23Z,HEAD,https://data.gharchive.org/2026-07-01-12.json.gz,lighthouse,200,format check
+ac33f7b7 (LH043 research),84,2026-11-08T19:02:23Z,GET,https://data.gharchive.org/2026-07-01-12.json.gz,lighthouse,200,format check
+af0f7073 (LH041 evidence review),151,2026-11-08T20:21:57Z,GET,https://osv-vulnerabilities.storage.googleapis.com/npm/all.zip,lighthouse,200,220 MB re-read
+af0f7073 (LH041 evidence review),151,2026-11-08T20:22:08Z,GET,https://osv-vulnerabilities.storage.googleapis.com/PyPI/all.zip,lighthouse,200,38 MB re-read
+a8addcc8 (essay reader review),148,2026-11-08T19:28:06Z,GET,https://data.gharchive.org/2026-10-01-12.json.gz,research-reader,,38-hour scan; body counted and discarded
+a8addcc8 (essay reader review),148,2026-11-08T19:28:06Z,GET,https://data.gharchive.org/2026-10-02-12.json.gz,research-reader,,38-hour scan; body counted and discarded
+a8addcc8 (essay reader review),148,2026-11-08T19:28:06Z,GET,https://data.gharchive.org/2026-10-03-12.json.gz,research-reader,,38-hour scan; body counted and discarded
+a8addcc8 (essay reader review),148,2026-11-08T19:28:06Z,GET,https://data.gharchive.org/2026-10-04-12.json.gz,research-reader,,38-hour scan; body counted and discarded
+a8addcc8 (essay reader review),148,2026-11-08T19:28:06Z,GET,https://data.gharchive.org/2026-10-05-12.json.gz,research-reader,,38-hour scan; body counted and discarded
+a8addcc8 (essay reader review),148,2026-11-08T19:28:06Z,GET,https://data.gharchive.org/2026-10-06-12.json.gz,research-reader,,38-hour scan; body counted and discarded
+a8addcc8 (essay reader review),148,2026-11-08T19:28:06Z,GET,https://data.gharchive.org/2026-10-07-12.json.gz,research-reader,,38-hour scan; body counted and discarded
+a8addcc8 (essay reader review),148,2026-11-08T19:28:06Z,GET,https://data.gharchive.org/2026-10-08-12.json.gz,research-reader,,38-hour scan; body counted and discarded
+a8addcc8 (essay reader review),148,2026-11-08T19:28:06Z,GET,https://data.gharchive.org/2026-10-09-12.json.gz,research-reader,,38-hour scan; body counted and discarded
+a8addcc8 (essay reader review),148,2026-11-08T19:28:06Z,GET,https://data.gharchive.org/2026-10-10-12.json.gz,research-reader,,38-hour scan; body counted and discarded
+a8addcc8 (essay reader review),148,2026-11-08T19:28:06Z,GET,https://data.gharchive.org/2026-10-11-12.json.gz,research-reader,,38-hour scan; body counted and discarded
+a8addcc8 (essay reader review),148,2026-11-08T19:28:06Z,GET,https://data.gharchive.org/2026-10-12-12.json.gz,research-reader,,38-hour scan; body counted and discarded
+a8addcc8 (essay reader review),148,2026-11-08T19:28:06Z,GET,https://data.gharchive.org/2026-10-13-12.json.gz,research-reader,,38-hour scan; body counted and discarded
+a8addcc8 (essay reader review),148,2026-11-08T19:28:06Z,GET,https://data.gharchive.org/2026-10-14-12.json.gz,research-reader,,38-hour scan; body counted and discarded
+a8addcc8 (essay reader review),148,2026-11-08T19:28:06Z,GET,https://data.gharchive.org/2026-10-15-12.json.gz,research-reader,,38-hour scan; body counted and discarded
+a8addcc8 (essay reader review),148,2026-11-08T19:28:06Z,GET,https://data.gharchive.org/2026-10-16-12.json.gz,research-reader,,38-hour scan; body counted and discarded
+a8addcc8 (essay reader review),148,2026-11-08T19:28:06Z,GET,https://data.gharchive.org/2026-10-17-12.json.gz,research-reader,,38-hour scan; body counted and discarded
+a8addcc8 (essay reader review),148,2026-11-08T19:28:06Z,GET,https://data.gharchive.org/2026-10-18-12.json.gz,research-reader,,38-hour scan; body counted and discarded
+a8addcc8 (essay reader review),148,2026-11-08T19:28:06Z,GET,https://data.gharchive.org/2026-10-19-12.json.gz,research-reader,,38-hour scan; body counted and discarded
+a8addcc8 (essay reader review),148,2026-11-08T19:28:06Z,GET,https://data.gharchive.org/2026-10-20-12.json.gz,research-reader,,38-hour scan; body counted and discarded
+a8addcc8 (essay reader review),148,2026-11-08T19:28:06Z,GET,https://data.gharchive.org/2026-10-21-12.json.gz,research-reader,,38-hour scan; body counted and discarded
+a8addcc8 (essay reader review),148,2026-11-08T19:28:06Z,GET,https://data.gharchive.org/2026-10-22-12.json.gz,research-reader,,38-hour scan; body counted and discarded
+a8addcc8 (essay reader review),148,2026-11-08T19:28:06Z,GET,https://data.gharchive.org/2026-10-23-12.json.gz,research-reader,,38-hour scan; body counted and discarded
+a8addcc8 (essay reader review),148,2026-11-08T19:28:06Z,GET,https://data.gharchive.org/2026-10-24-12.json.gz,research-reader,,38-hour scan; body counted and discarded
+a8addcc8 (essay reader review),148,2026-11-08T19:28:06Z,GET,https://data.gharchive.org/2026-10-25-12.json.gz,research-reader,,38-hour scan; body counted and discarded
+a8addcc8 (essay reader review),148,2026-11-08T19:28:06Z,GET,https://data.gharchive.org/2026-10-26-12.json.gz,research-reader,,38-hour scan; body counted and discarded
+a8addcc8 (essay reader review),148,2026-11-08T19:28:06Z,GET,https://data.gharchive.org/2026-10-27-12.json.gz,research-reader,,38-hour scan; body counted and discarded
+a8addcc8 (essay reader review),148,2026-11-08T19:28:06Z,GET,https://data.gharchive.org/2026-10-28-12.json.gz,research-reader,,38-hour scan; body counted and discarded
+a8addcc8 (essay reader review),148,2026-11-08T19:28:06Z,GET,https://data.gharchive.org/2026-10-29-12.json.gz,research-reader,,38-hour scan; body counted and discarded
+a8addcc8 (essay reader review),148,2026-11-08T19:28:06Z,GET,https://data.gharchive.org/2026-10-30-12.json.gz,research-reader,,38-hour scan; body counted and discarded
+a8addcc8 (essay reader review),148,2026-11-08T19:28:06Z,GET,https://data.gharchive.org/2026-10-31-12.json.gz,research-reader,,38-hour scan; body counted and discarded
+a8addcc8 (essay reader review),148,2026-11-08T19:28:06Z,GET,https://data.gharchive.org/2026-11-01-12.json.gz,research-reader,,38-hour scan; body counted and discarded
+a8addcc8 (essay reader review),148,2026-11-08T19:28:06Z,GET,https://data.gharchive.org/2026-11-02-12.json.gz,research-reader,,38-hour scan; body counted and discarded
+a8addcc8 (essay reader review),148,2026-11-08T19:28:06Z,GET,https://data.gharchive.org/2026-11-03-12.json.gz,research-reader,,38-hour scan; body counted and discarded
+a8addcc8 (essay reader review),148,2026-11-08T19:28:06Z,GET,https://data.gharchive.org/2026-11-04-12.json.gz,research-reader,,38-hour scan; body counted and discarded
+a8addcc8 (essay reader review),148,2026-11-08T19:28:06Z,GET,https://data.gharchive.org/2026-11-05-12.json.gz,research-reader,,38-hour scan; body counted and discarded
+a8addcc8 (essay reader review),148,2026-11-08T19:28:06Z,GET,https://data.gharchive.org/2026-11-06-12.json.gz,research-reader,,38-hour scan; body counted and discarded
+a8addcc8 (essay reader review),148,2026-11-08T19:28:06Z,GET,https://data.gharchive.org/2026-11-07-12.json.gz,research-reader,,38-hour scan; body counted and discarded

@@ -1,0 +1,119 @@
+## **Section 4: Robots.txt and the Bypassing Problem**
+
+<UserStory>
+  - Robots.txt is not protecting European publishers: ~15% of AI scrapes on
+  European sites in H1 2026 ignored an active disallow instruction. - The median
+  amount of bypassed scrapes for a European site is 2.8x that of a North
+  American site. - For the major training crawlers, European sites disallow more
+  than North American sites — CCBot 63% vs 46%, GPTBot 60% vs 41%, ClaudeBot 53%
+  vs 43%. - ChatGPT-User, Bytespider, and Youbot bypass robots.txt instructions
+  on nearly 50% of all European sites that have explicitly disallowed them.
+</UserStory>
+
+### 4.1 Disallow Adoption
+
+<InfoBox title="Robots.txt & Bypass Definitions">
+
+**Robots Exclusion Protocol (robots.txt)** — a voluntary handshake agreement,
+in place since the early days of the Internet, by which a website uses a
+robots.txt file to signal which automated user agents are permitted to
+access it. It has no enforcement mechanism and depends entirely on the
+goodwill of those operating the bots.
+
+**Disallow** — an instruction in a publisher's robots.txt file naming a
+specific user agent that the publisher does not permit to access its
+content. AI developers note it may take 24-72 hours for disallow to be
+logged and reflected by their bots.
+
+**Bypass** — when an AI bot scrapes a publisher's content despite that
+publisher having explicitly disallowed that bot in its robots.txt file.
+
+</InfoBox>
+
+Disallowing a bot in robots.txt only matters if the bot obeys the guidance,
+but a measurable share of AI bots do not. Across European and North American
+sites in the first half of 2026, ~15% of AI scrapes bypassed a disallow
+instruction.
+
+European publishers have disallowed the following bots on robots.txt at a
+higher rate than North American sites. 63% of European sites disallow CCBot,
+against 46% in North America. The same holds for GPTBot (60% vs 41%),
+ClaudeBot (53% vs 43%), PerplexityBot (50% vs 40%), and OAI-SearchBot (46% vs
+34%).
+
+For the newer real-time user agents, the ones that fetch pages live to
+answer a prompt, European disallow adoption drops off and North America
+moves ahead, often by more than double. Only 9% of European sites disallow
+Claude-User, compared to 26% in North America. Perplexity-User is 13% versus
+26%. Most of the newest agents sit in the single digits in Europe.
+ChatGPT-User is the exception among the AI user agents, and is blocked at a
+rate closer to the established crawlers, most likely because it is the most
+widely recognized.
+
+**Figure 4.1: Disallow adoption by AI bot and region | Q2 2026**
+
+<Image
+  src="/state-of-the-bots/q1-q2-2026/fig-4-1-disallow-adoption-by-bot-region.svg"
+  alt="Disallow adoption by AI bot and region"
+/>
+
+### 4.2 The Bypass Problem
+
+For the median (typical) European site, bypassed scrapes are 2.8x times a
+typical North American site. These bypasses represent the website being
+accessed against the publisher's stated wishes, consuming server resources
+in the process, and, for AI bots, rarely returning a human visitor in
+exchange.
+
+Given that European publishers are scraped at a 4x higher rate by AI bots
+than North American sites, it's not too surprising that their median
+bypassed scrapes would appear higher.
+
+**Figure 4.2: Median bypassed scrapes per site by region | H1 2026**
+
+<Image
+  src="/state-of-the-bots/q1-q2-2026/fig-4-2-median-bypassed-scrapes-by-region.svg"
+  alt="Median bypassed scrapes per site by region"
+/>
+
+### 4.3 Bypass by AI Bot
+
+This brings us to another metric: the bypass rate, which is the percentage of
+all scrapes that ignored explicit robots.txt guidelines and successfully
+scraped content anyway.
+
+ChatGPT-User had the highest bypass rate, ignoring explicit robots.txt
+instructions on 54% of all its scrapes. It is followed by Bytespider with a
+bypass rate of 48% and PerplexityBot with a bypass rate of 42%.
+
+**Figure 4.3: Share of sites where disallowed bots bypassed robots.txt, all European sites | H1 2026**
+
+<Image
+  src="/state-of-the-bots/q1-q2-2026/fig-4-3-bypass-share-by-bot-europe.svg"
+  alt="Share of sites where disallowed bots bypassed robots.txt"
+/>
+
+For the AI bots that have a smaller bypass rate, there often appears to be an
+interesting trend of the bypass rate increasing between Q1 & Q2. For example,
+the data shows GPTBot, CCBot, and DuckAssistBot all bypassing more often than
+in Q1, an early sign that bypassing behaviors may be spreading beyond the
+handful of agents that dominate it today.
+
+**Figure 4.3.1: Bypass rate by AI bot, Europe Cohort | Q1 vs Q2 2026**
+
+<Image
+  src="/state-of-the-bots/q1-q2-2026/fig-4-3-1-bypass-rate-by-bot-europe-q1-q2.svg"
+  alt="Bypass rate by AI bot, Europe Cohort"
+/>
+
+Robots.txt files were designed for an era when honoring it cost a crawler
+little, and defying it gained it little and cost the site little. As AI
+tools and traffic explode, that balance no longer holds. AI bots take
+publisher content, cost the sites yet serve them, yet send back very few
+human visitors in return.
+
+Because the robots.txt protocol is not active enforcement and rests on the
+goodwill of the operator, European publishers who rely on it alone today are
+protected only if AI developers choose to cooperate, and for the bots doing
+the most scraping, abidance of robots.txt remains thin.
+

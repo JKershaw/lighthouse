@@ -1,0 +1,26 @@
+User-agent: *
+Disallow: /wp-admin/
+Allow: /wp-admin/admin-ajax.php
+
+Disallow: /wp-includes/
+Disallow: /wp-content/plugins/
+Disallow: /wp-content/cache/
+Disallow: /wp-content/uploads/protected-docs/
+
+Disallow: /xmlrpc.php
+Disallow: /*.php$
+Disallow: /feed/$
+Disallow: /trackback/$
+Disallow: /comment-page-*/
+Disallow: /*/page/*/
+Disallow: /?
+Disallow: /search/
+Disallow: /author/
+Disallow: /tag/
+Disallow: /category/
+Disallow: https://www.flashpoint.io/legal-us-privacy-laws
+Disallow: https://www.flashpoint.io/legal-subscription-agreement
+Disallow: https://www.flashpoint.io/legal-DPA
+Disallow: https://flashpoint.io/echosec-toc/
+
+sitemap: https://flashpoint.io/sitemap_index.xml

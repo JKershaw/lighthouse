@@ -1,0 +1,46 @@
+Sitemap: https://dl.acm.org/sitemap-index-1.txt
+User-agent: *
+Disallow: /action/
+Disallow: /topic/
+Disallow: /keyword/
+Disallow: /author/
+Disallow: /search/
+Disallow: /web/
+Disallow: /pb/widgets/
+Disallow: /servlet/linkout
+Disallow: /na101/
+Disallow: /na101v1/
+Disallow: /na102/
+Disallow: /*.cfm
+Disallow: /doi/metrics/
+Disallow: /authored-by/
+Disallow: /history/
+Allow: /action/showBmPdf
+Allow: /action/showFmPdf
+Allow: /action/showAltPdf
+Allow: /action/showFmHtml
+Allow: /action/showBmHtml
+Crawl-delay: 1
+
+User-agent: facebookexternalhit
+User-agent: LinkedInBot
+User-agent: Twitterbot
+Allow: /
+Crawl-delay: 1
+
+User-agent: GPTBot
+Disallow: /
+Crawl-delay: 1
+
+User-agent: ChatGPT-User
+Disallow: /
+Crawl-delay: 1
+
+User-agent: CCBot
+Disallow: /
+Crawl-delay: 1
+
+User-agent: Google-Extended
+Disallow: /
+Crawl-delay: 1
+

@@ -97,12 +97,14 @@ def main(label, urlfile):
             log.writerow(['n', 'url', 'utc', 'robots_verdict', 'status', 'bytes', 'sha256_received', 'final_url', 'content_type', 'note'])
         for n, url in enumerate(urls, 1):
             u = urlsplit(url)
-            if u.hostname in aud:
+            if u.hostname in aud and not (u.path == '/robots.txt' and not u.query):
                 log.writerow([n, url, now(), 'not sent: audited host', '', '', '', '', '', '']); continue
             sh = '%s://%s' % (u.scheme, u.netloc)
             if sh not in cache:
                 cache[sh] = robots_for(sh, outdir, log)
             state, text = cache[sh]
+            if u.path == '/robots.txt' and not u.query:
+                continue  # robots.txt itself: the read above is the request
             path = (u.path or '/') + ('?' + u.query if u.query else '')
             verdict = 'allowed'
             if state == 'disallow-all':

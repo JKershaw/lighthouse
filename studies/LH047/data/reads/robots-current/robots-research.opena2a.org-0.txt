@@ -1,0 +1,101 @@
+User-Agent: *
+Allow: /
+Disallow: /api/
+Disallow: /_next/
+
+User-Agent: Googlebot
+Allow: /
+Disallow: /api/
+
+User-Agent: Bingbot
+Allow: /
+Disallow: /api/
+
+User-Agent: GPTBot
+Allow: /
+Disallow: /api/
+
+User-Agent: ChatGPT-User
+Allow: /
+Disallow: /api/
+
+User-Agent: OAI-SearchBot
+Allow: /
+Disallow: /api/
+
+User-Agent: ClaudeBot
+Allow: /
+Disallow: /api/
+
+User-Agent: Claude-User
+Allow: /
+Disallow: /api/
+
+User-Agent: Claude-SearchBot
+Allow: /
+Disallow: /api/
+
+User-Agent: anthropic-ai
+Allow: /
+Disallow: /api/
+
+User-Agent: Google-Extended
+Allow: /
+Disallow: /api/
+
+User-Agent: PerplexityBot
+Allow: /
+Disallow: /api/
+
+User-Agent: Perplexity-User
+Allow: /
+Disallow: /api/
+
+User-Agent: CCBot
+Allow: /
+Disallow: /api/
+
+User-Agent: Applebot-Extended
+Allow: /
+Disallow: /api/
+
+User-Agent: Bytespider
+Allow: /
+Disallow: /api/
+
+User-Agent: Amazonbot
+Allow: /
+Disallow: /api/
+
+User-Agent: cohere-ai
+Allow: /
+Disallow: /api/
+
+User-Agent: YouBot
+Allow: /
+Disallow: /api/
+
+User-Agent: Diffbot
+Allow: /
+Disallow: /api/
+
+User-Agent: meta-externalagent
+Allow: /
+Disallow: /api/
+
+User-Agent: MistralAI-User
+Allow: /
+Disallow: /api/
+
+User-Agent: DuckAssistBot
+Allow: /
+Disallow: /api/
+
+User-Agent: AhrefsBot
+Crawl-delay: 2
+
+User-Agent: SemrushBot
+Crawl-delay: 2
+
+Host: https://research.opena2a.org
+Sitemap: https://research.opena2a.org/sitemap.xml

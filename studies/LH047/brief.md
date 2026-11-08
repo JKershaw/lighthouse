@@ -86,3 +86,7 @@ One robots.txt re-read per audited host that has no retained copy (at most 248 r
 ## 11. What would leave it inconclusive
 
 If most requests' robots.txt cannot be read for the time, part C would say what was compliant on current files only. If the transcripts are incomplete, the unlogged count is a floor. If part B finds no measurement with a stated method, it says so rather than citing claims.
+
+## Note, 8 November 2026, after the brief was committed and before part C was tabulated
+
+The keeper has decided the question section 5 left open (AGENTS.md, Rules that matter; proposals.md, From the keeper): Lighthouse obeys the robots.txt groups that name its own token or an agent token of the provider, harness or model running the session (Anthropic's agent tokens for Claude Code on Anthropic's models; OpenAI's under Codex), else `*`, and where several apply the strictest wins. Tonight's requests were made before the decision. Both readings stay tabulated as fixed above; the record also says plainly which requests would break the rule as it now stands. Reading B's seven tokens include ClaudeBot and anthropic-ai, which Anthropic describes as training crawlers rather than agents; so that the rule as it now stands can be read whichever tokens the shared list (scripts/robots_tokens.json, being written by another agent and not used here) settles on, reading B is also broken down by token. No rule, unit or source above changes.

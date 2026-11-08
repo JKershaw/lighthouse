@@ -1,0 +1,10 @@
+# robots.txt — PRODUCTION (https://www.knostic.ai).
+#
+# A staging deploy must never be indexed (it mirrors this content, so it would
+# compete with the real site as duplicate content). For staging, swap the block
+# below to `Disallow: /` and drop the Sitemap line.
+
+User-agent: *
+Allow: /
+
+Sitemap: https://www.knostic.ai/sitemap-index.xml

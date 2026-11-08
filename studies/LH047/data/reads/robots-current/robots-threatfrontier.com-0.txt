@@ -1,0 +1,29 @@
+User-Agent: *
+Allow: /
+Disallow: /api/contact
+Disallow: /api/newsletter
+Disallow: /api/analytics
+Disallow: /content/
+
+User-Agent: GPTBot
+User-Agent: OAI-SearchBot
+User-Agent: ChatGPT-User
+User-Agent: ClaudeBot
+User-Agent: Claude-SearchBot
+User-Agent: PerplexityBot
+User-Agent: Google-Extended
+Allow: /
+Disallow: /api/contact
+Disallow: /api/newsletter
+Disallow: /api/analytics
+Disallow: /content/
+
+User-Agent: CCBot
+Allow: /
+Disallow: /api/contact
+Disallow: /api/newsletter
+Disallow: /api/analytics
+Disallow: /content/
+
+Sitemap: https://threatfrontier.com/sitemap.xml
+Sitemap: https://threatfrontier.com/news-sitemap.xml
