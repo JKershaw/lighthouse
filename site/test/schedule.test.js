@@ -132,10 +132,11 @@ test("a run that finished no row shows its own line; four items show, the rest a
 
 test("being looked into: the proposals under the started and agreed headings, linked to their anchors", () => {
   withRepo({
-    "proposals.md": "title: Proposals\n\n# Proposals\n\n## Started without review\n\n### P-0015 How far the *poisoned* release travelled\n\n- Kind: deepening.\n\n## Agreed by the keeper\n\n### P-0014 A new investigation: what AI activity costs\n\n## Waiting for the keeper\n\n- (none)\n\n## Backlog\n\n### P-0001 Not this one\n",
+    "proposals.md": "title: Proposals\n\n# Proposals\n\n## Started without review\n\n### P-0015 How far the *poisoned* release travelled\n\n- Kind: deepening.\n\n## Agreed by the keeper\n\n### P-0014 A new investigation: what AI activity costs\n\n## Waiting for the keeper\n\n- (none)\n\n## Backlog\n\n### P-0001 Not this one\n\n- Kind: x. Status: backlog.\n\n### P-0002 An account to name\n\n- Kind: deepening. Status: waiting for the keeper (an account).\n",
   }, (root) => {
     const p = proposalsNow(root);
     assert.deepEqual(p.started, [{ id: "P-0015", title: "How far the poisoned release travelled", href: "/proposals/#p-0015-how-far-the-poisoned-release-travelled" }]);
     assert.deepEqual(p.agreed.map((x) => x.id), ["P-0014"]);
+    assert.deepEqual(p.waiting, [{ id: "P-0002", title: "An account to name", href: "/proposals/#p-0002-an-account-to-name" }]);
   });
 });

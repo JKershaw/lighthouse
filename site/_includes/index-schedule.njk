@@ -13,6 +13,9 @@ layout: base.njk
 
   <ul class="sched-counts">{% for c in s.counts %}<li><span class="chip chip-{{ c.state }}">{{ c.label }}</span> {{ c.n }}</li>{% endfor %}</ul>
 
+  {% set pw = s.proposals.waiting if s.proposals else [] %}<h2 id="keeper">Waiting for the keeper</h2>
+  {% if pw.length or s.keeperRows.length %}<ul class="sched-list">{% for p in pw %}<li><a href="{{ p.href }}">{{ p.id }} {{ p.title | escape }}</a> <span class="sched-note">(proposals)</span></li>{% endfor %}{% for r in s.keeperRows %}{{ line(r) }}{% endfor %}</ul>{% else %}<p class="sched-note">Nothing. Decisions that only the keeper can make are collected here from <a href="/proposals/">the proposals</a> (any proposal whose status is "waiting for the keeper") and from this table's rows marked keeper.</p>{% endif %}
+
   {% if s.attention.length %}<h2>Needs attention</h2>
   <ul class="sched-list">{% for r in s.attention %}{{ line(r) }}{% endfor %}</ul>{% endif %}
 

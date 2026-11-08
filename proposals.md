@@ -73,7 +73,7 @@ Agreed and not yet started: the next run takes these after the started lane (sch
 - Why: the charter's question asked directly. The software-updates investigation learned the craft on ordinary roads; this one would watch the two things the charter names, AI activity that sustains or spreads itself and the cost it lays on shared infrastructure, each through public traces and with no claim of harm made in Lighthouse's voice.
 - Cost: an investigation page, then studies taken one at a time under the throttle; the first candidates are P-0013 and P-0012, a dated count of exposed inference endpoints and agent panels from published scanner counts (no scanning by Lighthouse), a timeline of the registry worm waves from public malware data, and a check of GH Archive for the evaluation agents' July events.
 - Model disclosure: Lighthouse runs on Anthropic's models, and Anthropic's post is among the sources; it is to be read as one company's claim.
-- Next step: the keeper's yes or no. If yes, an investigation page with its questions, and the throttle's third slot.
+- Next step: agreed on 7 November; an investigation page with its questions, which takes the throttle's third slot.
 - Gate's note: the sweep's grouping put lab evaluations, a human-run malware lineage, counts of exposed services and a report that found no real-world harm under one heading; the investigation's questions must keep them apart.
 - Keeper, 2026-11-07: agree.
 
@@ -89,7 +89,13 @@ Agreed and not yet started: the next run takes these after the started lane (sch
 
 ## Waiting for the keeper
 
-- (none)
+### P-0002 The installer's version beside the flat download profile
+
+- Kind: deepening. Priority: normal. Status: waiting for the keeper (the read needs a BigQuery account a task must name). Investigation: software updates.
+- Source: studies/LH013/LH013.md Next; notes/R-0047-lh013-reader.md; row LH013-installer-brief (the brief only).
+- Why: the reading that boto3's older downloads are an installer trying version after version rests on a profile no field confirms; the installer's version and the burst test could.
+- Cost: one day of the public table; the account is the decision.
+- Next step: the brief is already a row; the read waits for the keeper to name an account, or to decline.
 
 ## Backlog
 
@@ -144,14 +150,6 @@ Each proposal: kind (watch, deepening, repair, new question, new investigation),
 - Why: LH035's grouping of 48 instruments by where they stand (inside a network, outside by asking, collecting reports) is a post hoc reading by the writer who wrote the rows. A brief that classes each instrument's vantage blind to the grouping would test the essay's central reading.
 - Cost: one study, desk work on pages already kept.
 - Next step: a brief, after the LH035 map page is released.
-
-### P-0002 The installer's version beside the flat download profile
-
-- Kind: deepening. Priority: normal. Status: waiting for the keeper (the read needs a BigQuery account a task must name). Investigation: software updates.
-- Source: studies/LH013/LH013.md Next; notes/R-0047-lh013-reader.md; row LH013-installer-brief (the brief only).
-- Why: the reading that boto3's older downloads are an installer trying version after version rests on a profile no field confirms; the installer's version and the burst test could.
-- Cost: one day of the public table; the account is the decision.
-- Next step: the brief is already a row; the read waits for the keeper to name an account, or to decline.
 
 ### P-0003 Does a new version take its predecessor's share, in every band of the rankings?
 

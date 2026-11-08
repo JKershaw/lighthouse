@@ -142,7 +142,11 @@ export function proposalsNow(root) {
       return { id: h[1], title: plainText(h[2].trim()), href: `${pageUrl(PROPOSALS)}#${slugify(plainText(heading))}` };
     });
   };
-  return { started: section("Started without review"), agreed: section("Agreed by the keeper"), url: pageUrl(PROPOSALS) };
+  // Waiting for the keeper: every proposal whose status says so, wherever it sits.
+  const waiting = [...text.matchAll(/^### (P-\d+) (.+)$([\s\S]*?)(?=^### |^## |(?![\s\S]))/gm)]
+    .filter((m) => /Status:\s*waiting for the keeper/i.test(m[3]))
+    .map((m) => ({ id: m[1], title: plainText(m[2].trim()), href: `${pageUrl(PROPOSALS)}#${slugify(plainText(`${m[1]} ${m[2].trim()}`))}` }));
+  return { started: section("Started without review"), agreed: section("Agreed by the keeper"), waiting, url: pageUrl(PROPOSALS) };
 }
 
 export function buildSchedule(root, now = new Date()) {
@@ -183,6 +187,7 @@ export function buildSchedule(root, now = new Date()) {
     counts: Object.entries(LABELS).filter(([k]) => counts[k]).map(([k, label]) => ({ state: k, label, n: counts[k] })),
     weeks,
     attention: pick(["overdue", "keeper", "blocked", "running"]),
+    keeperRows: pick(["keeper"]),
     due: pick(["due"]).filter((r) => r.latest),
     openEnded: rows.filter((r) => !r.latest && ["due", "upcoming", "running", "keeper", "blocked"].includes(r.state)),
     beyond: rows.filter((r) => r.latest && r.earliest > last && r.state === "upcoming"),
