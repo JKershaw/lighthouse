@@ -61,7 +61,7 @@ Written by the sweep of 7 November 2026 (08:53 UTC), the first, run as a test.
 - Source: lead L-0014, [scout 2](notes/horizon/2026-11-07T0853Z/scout-2-security.md): fixed in WordPress 7.1.4 on 28 October, in CISA's catalogue from 3 November; Wordfence reports about 13,000 blocked attacks a day. All reported; WordPress.org's release notes and statistics to be read raw before a brief.
 - Why: the first case in Lighthouse's panels of a fix reaching standing servers that update themselves, beside PHP's (servers that do not) and Python's (fetches); the daily share is public now and gone tomorrow.
 - Cost: small; a daily read of WordPress.org's public version statistics, with an end date.
-- Next step: a brief fixed today or tomorrow, then daily reads; until the brief, keep one raw read a day of the statistics endpoint with its time, so the days are not lost.
+- Next step: done, 8 November: the brief is fixed as [studies/LH039/brief.md](studies/LH039/brief.md) (W3Techs's patch-level shares and Packagist's per-version downloads, WordPress.org's branch figures as context), with daily reads to 21 November.
 - Keeper, 2026-11-07: agree.
 
 ## Agreed by the keeper

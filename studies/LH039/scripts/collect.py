@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""Raw daily read for LH039 (WordPress core CVE-2026-119977), before the brief.
+"""Daily read for LH039 (WordPress core CVE-2026-119977), under brief.md (0.1 from 8 November 2026).
 
 One GET per URL, bodies kept as fetched under data/raw-<label>/ with readlog.csv
 (url, UTC start, status, content type, size, SHA-256). Skips a label already held.
@@ -19,6 +19,18 @@ URLS = [
     ("cand-4", "https://w3techs.com/technologies/details/cm-wordpress/7"),
     ("cand-5", "https://packagist.org/packages/roots/wordpress/stats.json"),
     ("cand-6", "https://packagist.org/packages/johnpbloch/wordpress-core/stats.json"),
+    # Added by brief 0.1 (8 November 2026): W3Techs's patch-level pages and monthly
+    # history for the three branches with the most sites among those offered a fix,
+    # and WordPress.org's per-branch download counters.
+    ("w3-71", "https://w3techs.com/technologies/details/cm-wordpress/7.1"),
+    ("w3-70", "https://w3techs.com/technologies/details/cm-wordpress/7.0"),
+    ("w3-69", "https://w3techs.com/technologies/details/cm-wordpress/6.9"),
+    ("w3h-71", "https://w3techs.com/technologies/history_details/cm-wordpress/7.1"),
+    ("w3h-70", "https://w3techs.com/technologies/history_details/cm-wordpress/7.0"),
+    ("w3h-69", "https://w3techs.com/technologies/history_details/cm-wordpress/6.9"),
+    ("dl-71", "https://wordpress.org/wp-json/wporg/v1/core-downloads/7.1"),
+    ("dl-70", "https://wordpress.org/wp-json/wporg/v1/core-downloads/7.0"),
+    ("dl-69", "https://wordpress.org/wp-json/wporg/v1/core-downloads/6.9"),
 ]
 
 def main():

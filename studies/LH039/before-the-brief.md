@@ -22,4 +22,4 @@ All with curl (User-Agent "Lighthouse-research/1.0"), kept in data/raw-2026-11-0
 
 ## Until the brief
 
-A raw read of the same endpoints each day, with its UTC start, so the days before the brief are not lost (rows LH039-raw-2026-11-08 to LH039-raw-2026-11-14, by scripts/collect.py). The brief decides which of these sources carry its question and says what was read before it was fixed.
+A raw read of the same endpoints each day, with its UTC start, so the days before the brief are not lost (rows LH039-raw-2026-11-08 to LH039-raw-2026-11-14, by scripts/collect.py). The brief decides which of these sources carry its question and says what was read before it was fixed. It was fixed on 8 November as [brief.md](brief.md).
