@@ -1,0 +1,38 @@
+F01 git.kernel.org               star_root=False blocked=17 
+F02 lore.kernel.org              star_root=False blocked=17 
+F06 codeberg.org                 star_root=True blocked=14 
+F07 git.sr.ht                    star_root=True blocked=8 
+F10 gitlab.freedesktop.org       star_root=False blocked=17 
+F12 src.fedoraproject.org        star_root=False blocked=17 
+F14 git.savannah.gnu.org         star_root=False blocked=17 
+F16 gitea.com                    star_root=True blocked=7 
+R06 repo1.maven.org              star_root=True blocked=11 
+R07 central.sonatype.com         star_root=True blocked=11 
+R11 fastapi.metacpan.org         star_root=False blocked=17 
+M09 dl.fedoraproject.org         star_root=False blocked=17 
+D11 runescape.wiki               star_root=True blocked=9 
+D15 wiki.gentoo.org              star_root=True blocked=17 
+A04 export.arxiv.org             star_root=False blocked=17 
+A07 openlibrary.org              star_root=True blocked=0 NAMED-BUT-ALLOWED=['ClaudeBot', 'anthropic-ai', 'meta-externalagent']
+A12 eutils.ncbi.nlm.nih.gov      star_root=False blocked=17 
+A16 www.biorxiv.org              star_root=True blocked=7 
+O05 data.gov.au                  star_root=False blocked=17 
+O06 www.data.gouv.fr             star_root=True blocked=0 NAMED-BUT-ALLOWED=['ChatGPT-User', 'GPTBot']
+P18 jurnal.itg.ac.id             star_root=True blocked=11 
+Q01 debian.anexia.at             star_root=False blocked=17 
+Q02 debian.lagis.at              star_root=False blocked=17 
+Q04 debian.mirror.lrz.de         star_root=False blocked=17 
+Q06 ftp.br.debian.org            star_root=False blocked=17 
+Q07 ftp.eq.uc.pt                 star_root=True blocked=17 
+Q13 mirror.braindrainlan.nu      star_root=True blocked=1 
+Q18 mirror.tzulo.com             star_root=False blocked=17 
+
+probes sent where the kept robots.txt disallows an Anthropic token at the probe path:
+   F06 codeberg.org             class=open             disallowed for ['ClaudeBot', 'anthropic-ai']
+   F07 git.sr.ht                class=server_error     disallowed for ['ClaudeBot']
+   R06 repo1.maven.org          class=rate_limited     disallowed for ['ClaudeBot', 'anthropic-ai']
+   R07 central.sonatype.com     class=rate_limited     disallowed for ['ClaudeBot', 'anthropic-ai']
+   D11 runescape.wiki           class=open             disallowed for ['ClaudeBot', 'Claude-SearchBot']
+   D15 wiki.gentoo.org          class=open             disallowed for ['ClaudeBot', 'Claude-User', 'Claude-SearchBot', 'anthropic-ai']
+   P18 jurnal.itg.ac.id         class=open             disallowed for ['ClaudeBot', 'anthropic-ai']
+   Q07 ftp.eq.uc.pt             class=open             disallowed for ['ClaudeBot', 'Claude-User', 'Claude-SearchBot', 'anthropic-ai', 'Claude-Code']

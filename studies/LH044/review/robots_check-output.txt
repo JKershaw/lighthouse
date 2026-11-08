@@ -1,0 +1,91 @@
+F01 git.kernel.org                   allowed=False group=*         truncated=False rule=Disallow /
+F02 lore.kernel.org                  allowed=False group=*         truncated=False rule=Disallow /
+F05 gitlab.com                       allowed=True  group=*         truncated=False rule=(none)
+F06 codeberg.org                     allowed=True  group=*         truncated=False rule=(none)
+F07 git.sr.ht                        allowed=True  group=*         truncated=False rule=(none)
+F08 api.bitbucket.org                allowed=True  group=*         truncated=False rule=(none)
+F09 gitlab.gnome.org                 allowed=True  group=*         truncated=False rule=(none)
+F10 gitlab.freedesktop.org           allowed=False group=*         truncated=False rule=Disallow /
+F11 salsa.debian.org                 allowed=True  group=*         truncated=False rule=(none)
+F12 src.fedoraproject.org            allowed=False group=*         truncated=False rule=Disallow /
+F13 invent.kde.org                   allowed=True  group=*         truncated=False rule=(none)
+F14 git.savannah.gnu.org             allowed=False group=*         truncated=False rule=Disallow /
+F15 sourceforge.net                  allowed=True  group=*         truncated=False rule=(none)
+F16 gitea.com                        allowed=False group=*         truncated=False rule=Disallow /api/*
+F19 sourceware.org                   allowed=False group=*         truncated=False rule=Disallow /git/
+R01 pypi.org                         allowed=False group=*         truncated=False rule=Disallow /pypi/*/json
+R03 registry.npmjs.org               allowed=True  group=*         truncated=False rule=(none)
+R04 crates.io                        allowed=True  group=*         truncated=False rule=(none)
+R05 rubygems.org                     allowed=True  group=*         truncated=False rule=(none)
+R06 repo1.maven.org                  allowed=True  group=*         truncated=False rule=Allow /
+R07 central.sonatype.com             allowed=True  group=*         truncated=False rule=Allow /
+R08 packagist.org                    allowed=True  group=*         truncated=False rule=(none)
+R10 metacpan.org                     allowed=True  group=*         truncated=False rule=(none)
+R11 fastapi.metacpan.org             allowed=False group=*         truncated=False rule=Disallow /
+R12 cran.r-project.org               allowed=False group=*         truncated=True  rule=Disallow /web/pac   last kept line: 'Disallow: /web/pac'
+R14 www.nuget.org                    allowed=True  group=*         truncated=False rule=(none)
+R16 pkg.go.dev                       allowed=True  group=*         truncated=False rule=(none)
+R17 proxy.golang.org                 allowed=False group=*         truncated=False rule=Disallow /
+R18 hex.pm                           allowed=True  group=*         truncated=False rule=(none)
+R19 pub.dev                          allowed=True  group=*         truncated=False rule=(none)
+R20 anaconda.org                     allowed=True  group=*         truncated=False rule=(none)
+R21 hub.docker.com                   allowed=True  group=*         truncated=False rule=(none)
+M03 ftp.gnu.org                      allowed=True  group=*         truncated=False rule=Allow /
+M07 www.ctan.org                     allowed=True  group=*         truncated=False rule=(none)
+M08 www.cpan.org                     allowed=True  group=*         truncated=False rule=(none)
+M09 dl.fedoraproject.org             allowed=False group=*         truncated=False rule=Disallow /
+D01 en.wikipedia.org                 allowed=True  group=*         truncated=False rule=(none)
+D03 www.wikidata.org                 allowed=True  group=*         truncated=False rule=Allow /wiki/Special:EntityData/*.
+D04 developer.mozilla.org            allowed=True  group=*         truncated=False rule=(none)
+D05 docs.python.org                  allowed=True  group=*         truncated=False rule=(none)
+D06 wiki.archlinux.org               allowed=True  group=*         truncated=False rule=(none)
+D07 pip.pypa.io                      allowed=True  group=*         truncated=False rule=(none)
+D11 runescape.wiki                   allowed=True  group=*         truncated=False rule=(none)
+D12 man7.org                         allowed=True  group=*         truncated=False rule=(none)
+D13 wiki.debian.org                  allowed=True  group=*         truncated=False rule=(none)
+D15 wiki.gentoo.org                  allowed=True  group=*         truncated=False rule=(none)
+A01 archive.org                      allowed=True  group=*         truncated=False rule=(none)
+A02 www.gutenberg.org                allowed=True  group=*         truncated=False rule=(none)
+A03 arxiv.org                        allowed=True  group=*         truncated=False rule=Allow /abs
+A04 export.arxiv.org                 allowed=False group=*         truncated=False rule=Disallow /
+A05 archive.softwareheritage.org     allowed=False group=*         truncated=False rule=Disallow /api/
+A06 zenodo.org                       allowed=False group=*         truncated=False rule=Disallow /api
+A07 openlibrary.org                  allowed=True  group=*         truncated=False rule=(none)
+A10 www.loc.gov                      allowed=False group=*         truncated=False rule=Disallow /search
+A11 pubmed.ncbi.nlm.nih.gov          allowed=True  group=*         truncated=False rule=(none)
+A12 eutils.ncbi.nlm.nih.gov          allowed=False group=*         truncated=False rule=Disallow /
+A14 api.openalex.org                 allowed=True  group=*         truncated=False rule=Allow /
+A16 www.biorxiv.org                  allowed=False group=*         truncated=False rule=Disallow /search/
+A18 api.archives-ouvertes.fr         allowed=False group=*         truncated=False rule=Disallow /search/
+A19 doaj.org                         allowed=True  group=*         truncated=False rule=Allow /
+A21 www.ebi.ac.uk                    allowed=True  group=*         truncated=False rule=(none)
+A22 core.ac.uk                       allowed=False group=*         truncated=False rule=Disallow /search
+O01 catalog.data.gov                 allowed=True  group=*         truncated=False rule=(none)
+O03 data.europa.eu                   allowed=False group=*         truncated=False rule=Disallow /*search?*
+O04 open.canada.ca                   allowed=True  group=*         truncated=False rule=(none)
+O05 data.gov.au                      allowed=False group=*         truncated=False rule=Disallow /
+O06 www.data.gouv.fr                 allowed=True  group=*         truncated=False rule=(none)
+O08 www.openstreetmap.org            allowed=True  group=*         truncated=False rule=(none)
+O10 nominatim.openstreetmap.org      allowed=False group=*         truncated=False rule=Disallow /search
+O12 ec.europa.eu                     allowed=True  group=*         truncated=False rule=(none)
+P03 ambiente-sustentabilidad.org     allowed=True  group=*         truncated=False rule=(none)
+P04 balimedicaljournal.org           allowed=True  group=*         truncated=False rule=(none)
+P07 bibdigital.sid.inpe.br           allowed=False group=*         truncated=False rule=Disallow /col/iconet.com.br/banon/2003/11.21.21.08
+P08 ctujs.ctu.edu.vn                 allowed=True  group=*         truncated=False rule=(none)
+P10 discourse.elpub.ru               allowed=True  group=*         truncated=False rule=(none)
+P14 irl.umsl.edu                     allowed=False group=*         truncated=False rule=Disallow /do/
+P15 journal.ldubgd.edu.ua            allowed=True  group=*         truncated=False rule=(none)
+P18 jurnal.itg.ac.id                 allowed=True  group=*         truncated=False rule=Allow /
+P26 pbsi-upr.id                      allowed=True  group=*         truncated=False rule=(none)
+P27 presentpasts.info                allowed=True  group=*         truncated=False rule=(none)
+P29 revistaaen.es                    allowed=False group=*         truncated=False rule=Disallow /index.ph
+P33 scholarworks.wm.edu              allowed=True  group=*         truncated=False rule=(none)
+P38 www.jmolbiochem.com              allowed=True  group=*         truncated=False rule=(none)
+P40 www.msjonline.org                allowed=True  group=*         truncated=False rule=(none)
+Q01 debian.anexia.at                 allowed=False group=*         truncated=False rule=Disallow /
+Q02 debian.lagis.at                  allowed=False group=*         truncated=False rule=Disallow *
+Q04 debian.mirror.lrz.de             allowed=False group=*         truncated=False rule=Disallow /
+Q06 ftp.br.debian.org                allowed=False group=*         truncated=False rule=Disallow /
+Q07 ftp.eq.uc.pt                     allowed=True  group=*         truncated=False rule=(none)
+Q13 mirror.braindrainlan.nu          allowed=False group=*         truncated=False rule=Disallow /debian
+Q18 mirror.tzulo.com                 allowed=False group=*         truncated=False rule=Disallow /

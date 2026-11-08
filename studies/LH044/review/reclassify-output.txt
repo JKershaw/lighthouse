@@ -1,0 +1,22 @@
+classifier 0.2: 161 services, 0 differ from classes.csv
+classifier 0.1: 161 services, 3 differ from classes.csv
+   F03 classes.csv=unread_proxy re-derived=login
+   F04 classes.csv=unread_proxy re-derived=api_closed
+   D08 classes.csv=robots_redirect re-derived=wall_at_robots
+
+(c) kept responses not called walls that carry wall-like text:
+   F05 probe n=8 status=200 class=open hits=['captcha', 'rate_limit']
+   F09 probe n=16 status=200 class=open hits=['captcha']
+   R08 probe n=44 status=200 class=open hits=['captcha']
+   M03 probe n=72 status=200 class=open hits=['anubis']
+   D01 probe n=88 status=200 class=open hits=['captcha']
+   D08 robots n=100 status=307 class=robots_redirect hits=['challenge']
+   D11 probe n=106 status=200 class=open hits=['challenge']
+   D12 probe n=108 status=200 class=open hits=['blocked']
+   A02 probe n=117 status=200 class=open hits=['blocked']
+   A11 probe n=129 status=200 class=open hits=['captcha']
+   A17 probe n=137 status=200 class=open hits=['blocked']
+   P04 robots n=169 status=202 class=open_unconfirmed hits=['captcha', 'http-equiv="refresh']
+   P04 probe n=170 status=202 class=open_unconfirmed hits=['captcha', 'http-equiv="refresh']
+
+(d) 2xx probes whose challenge or captcha signature was overridden by the marker:

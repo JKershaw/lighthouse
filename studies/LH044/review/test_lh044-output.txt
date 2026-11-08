@@ -1,0 +1,15 @@
+ok   baseline reclassified offline matches committed classes.csv (161 services)
+ok   D02 retained redirect followed once to a parsed robots.txt
+ok   rules of the final robots.txt apply to the probe host
+ok   hops logged with their own kind
+ok   D14 relative Location resolved against the robots.txt URL
+ok   R13 cross-site hop to a container refusal is robots_unreachable, so no probe
+ok   at most five redirects followed (six requests)
+ok   a chain still redirecting after five hops reads as robots_redirect
+ok   host cap stops the robots.txt request
+ok   host cap stops a probe
+ok   one service uses at most HOST_CAP requests on one host (6 robots + 1 probe)
+ok   own product-token group replaces *
+ok   wildcard honoured for others
+
+0 failed
