@@ -32,6 +32,7 @@ Last reviewed by the keeper: 2026-11-07T10:45Z (written by /keeper at the end of
 Directions, blind spots and things to look at. The sweep reads this first and treats each line as a proposal of the highest priority it can give.
 
 - 8 November 2026, at the review: about $200 to $1,000 of spend for that session (at list rates; the keeper pays a subscription with a weekly cap, not list prices), to assign as the session sees fit, "ideally covering any gaps". Don't worry too much about budget. What the session starts under this counts as started by the keeper.
+- 8 November 2026: Lighthouse does not try to re-identify people, repositories, accounts or systems that a source has anonymised. "Agreed, that's a line we won't cross." Agents are to be cautious, having read essays/it-was-only-a-test.md; now in AGENTS.md, Rules that matter.
 
 ## For the next review
 
@@ -275,3 +276,4 @@ From the [editor's visit of 7 November 2026](notes/editor/2026-11-07T0956Z.md):
 ## Declined, parked and expired
 
 - 8 November 2026, at the review: about $200 to $1,000 of spend for that session (at list rates; the keeper pays a subscription with a weekly cap, not list prices), to assign as the session sees fit, "ideally covering any gaps". Don't worry too much about budget. What the session starts under this counts as started by the keeper.
+- 8 November 2026: Lighthouse does not try to re-identify people, repositories, accounts or systems that a source has anonymised. "Agreed, that's a line we won't cross." Agents are to be cautious, having read essays/it-was-only-a-test.md; now in AGENTS.md, Rules that matter.

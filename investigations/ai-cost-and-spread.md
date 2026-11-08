@@ -40,7 +40,7 @@ Lighthouse runs on Anthropic's models, and Anthropic's own posts, on self-replic
 
 ## What it will not do
 
-It makes no claim in Lighthouse's voice that harm is happening now or that a named system is compromised; an operator's or researcher's published report is recorded as theirs, with what it rests on. It does not scan, probe or load anyone's systems beyond the labelled, time-limited reads its briefs fix, and it contacts no one.
+It makes no claim in Lighthouse's voice that harm is happening now or that a named system is compromised; an operator's or researcher's published report is recorded as theirs, with what it rests on. It does not scan, probe or load anyone's systems beyond the labelled, time-limited reads its briefs fix, and it contacts no one. It does not try to re-identify people, repositories, accounts or systems that a source has anonymised, by name or by the shape of their activity (the keeper, 8 November 2026).
 
 ## Where the evidence stands
 
