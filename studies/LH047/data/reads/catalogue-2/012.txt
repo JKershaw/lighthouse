@@ -1,0 +1,48 @@
+Adding RSL to robots.txt | RSL: Really Simple Licensing 
+ Skip to content 
+ Search K 
+ Main Navigation Guide RSL 1.0 Specification RSL Certification Validate Press About 
+ Menu Return to top 
+ Sidebar Navigation 
+ Guides
+ What is RSL?
+ Getting Started
+ Standard Licenses
+ License Servers
+ RSL 1.0 Specification
+ Introduction
+ RSL Documents
+ RSL Associations
+ Robots.txt
+ HTTP
+ HTML
+ RSS
+ Files
+ License Server API
+ Acquire License
+ Validate License
+ Retrieve Key
+ Crawler Authentication
+ Content Encryption
+ On this page
+ Adding RSL to robots.txt ​ 
+ RSL extends the limited Allow and Disallow directives of the Robot Exclusion Protocol ( robots.txt ) with granular controls that define machine-readable usage restrictions and licensing terms.
+ RSL-compliant robots.txt files must include one or more License directives that link to an RSL license file that define permitted use and licensing requirements for the website's content. The License directive is global (not tied to any specific user agent) and crawlers must retrieve and comply with the defined terms before accessing or processing the site’s content.
+ Usage: Add a License directive to robots.txt ​ 
+ yaml License : [ absoluteURL ] 
+ 1 
+ [absoluteURL] must point to the location of a valid RSL license file or feed. It must be a fully qualified URL, including the protocol and host, and does not need to be URL-encoded. The URL may be on a different host than the robots.txt file.
+ Example robots.txt file ​ 
+ yaml License : https://example.com/license.xml 
+ User-agent : Googlebot 
+ Allow : / 
+ 1 
+ 2 
+ 3 
+ 4 
+ Pager 
+ Next page What is RSL? 
+ Terms of Service . Privacy .
+ Copyright © 2026 Internet Licensing Collective. All Rights Reserved.
+ Guide RSL 1.0 Specification RSL Certification Validate Press About 
+ Terms of Service . Privacy . Analytics settings . Copyright © 2026 Internet Licensing Collective. All Rights Reserved.
