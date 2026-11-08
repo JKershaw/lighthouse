@@ -12,16 +12,17 @@ W, H = 720, 612
 TITLE = 'Where a self-copying pattern would leave public traces'
 DESC = ('A scenario, not an observation. Six steps of an invented pattern in which agents publish copies of a '
         'package that leads other agents to publish more. Steps with a public record are drawn solid, with the '
-        'record and how soon it could register: the registry listing within minutes, the public event archive '
-        'within the hour, download logs within a day, a malware record only if someone reports it. Two steps are '
-        'drawn dashed and hatched because no public instrument records them: the model computing behind each '
+        'record and how soon it could register: the registry listing once the release is up, the dependency graph '
+        'within about an hour for popular packages, the public event archive within the hour, download logs from '
+        'streaming to daily, a malware record only if someone reports it. Two steps are '
+        'drawn dashed and hatched because no public instrument we know of records them: the model computing behind each '
         'decision, and another agent reading the package and deciding to act, which is the link that would make '
-        'the copies a pattern. Running the copies is also unrecorded.')
+        'the copies a pattern. Running the copies is in no public record we know of either.')
 
 steps = [
     # (label, layer, public?, record line 1, record line 2)
     ('An agent decides to publish', 'activity', False, 'No public record', 'the model runs at a provider'),
-    ('A package appears on a registry', 'residue', True, 'Registry listing: once it is up', 'dependency graph: about an hour'),
+    ('A package appears on a registry', 'residue', True, 'Registry listing: once it is up', 'dependency graph: about an hour if popular'),
     ('Other machines fetch it', 'residue', True, 'Download logs: streaming to daily', 'a fetch, not an install; not who'),
     ('Another agent reads it and acts', 'propagation', False, 'No public record', 'the link that makes it a pattern'),
     ('A commit or a new copy is published', 'residue', True, 'Public event archive: hourly', 'public GitHub only; not who'),
@@ -35,7 +36,7 @@ out.append('<defs><pattern id="hatch" width="8" height="8" patternUnits="userSpa
            '<path d="M0 0L7 4L0 8" fill="none" stroke="var(--muted)" stroke-width="1.5"/></marker></defs>')
 out.append(f'<rect width="{W}" height="{H}" fill="var(--bg)"/>')
 out.append(f'<text class="head" x="24" y="34">{escape(TITLE)}</text>')
-out.append('<text class="sub" x="24" y="56">A scenario, not an observation. Solid: a public record exists. Hatched: none does.</text>')
+out.append('<text class="sub" x="24" y="56">A scenario, not an observation. Solid: a public record exists. Hatched: none we know of.</text>')
 out.append('<text class="ann" x="64" y="88">Step in the pattern</text>')
 out.append('<text class="ann" x="404" y="88">What could register it, and how soon</text>')
 
@@ -70,8 +71,8 @@ out.append(f'<text class="ann" transform="translate(32 {(y2 + y5) / 2}) rotate(-
 y6 = top + 5 * (box_h + gap)
 out.append(f'<path d="M{x0 + 120} {y5 + box_h / 2 + 2}V{y6 - 3}" stroke="var(--muted)" stroke-width="1.5" '
            f'stroke-dasharray="2 3" fill="none" marker-end="url(#arr)"/>')
-out.append(f'<text class="note" x="24" y="{H - 26}">Running the copies leaves no public record at all. Delays are from the instruments\u2019 own pages;</text>')
-out.append(f'<text class="note" x="24" y="{H - 10}">the eight days are one case: a poisoned release and OSV\u2019s record of it, October 2026.</text>')
+out.append(f'<text class="note" x="24" y="{H - 26}">Running the copies is in no public record we know of. Delays are from the instruments\u2019 own pages;</text>')
+out.append(f'<text class="note" x="24" y="{H - 10}">the eight days are one case: a release OSV records as malicious, October 2026.</text>')
 out.append('</svg>\n')
 Path(__file__).with_name('traces.svg').write_text('\n'.join(out))
 print('wrote traces.svg')

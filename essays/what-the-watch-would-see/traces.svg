@@ -1,6 +1,6 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 720 612" width="720" height="612" role="img" aria-labelledby="chart-title chart-desc">
 <title id="chart-title">Where a self-copying pattern would leave public traces</title>
-<desc id="chart-desc">A scenario, not an observation. Six steps of an invented pattern in which agents publish copies of a package that leads other agents to publish more. Steps with a public record are drawn solid, with the record and how soon it could register: the registry listing within minutes, the public event archive within the hour, download logs within a day, a malware record only if someone reports it. Two steps are drawn dashed and hatched because no public instrument records them: the model computing behind each decision, and another agent reading the package and deciding to act, which is the link that would make the copies a pattern. Running the copies is also unrecorded.</desc>
+<desc id="chart-desc">A scenario, not an observation. Six steps of an invented pattern in which agents publish copies of a package that leads other agents to publish more. Steps with a public record are drawn solid, with the record and how soon it could register: the registry listing once the release is up, the dependency graph within about an hour for popular packages, the public event archive within the hour, download logs from streaming to daily, a malware record only if someone reports it. Two steps are drawn dashed and hatched because no public instrument we know of records them: the model computing behind each decision, and another agent reading the package and deciding to act, which is the link that would make the copies a pattern. Running the copies is in no public record we know of either.</desc>
 <style>
 svg { --bg:#fbfaf7; --ink:#1f1f1f; --muted:#5d5850; --grid:#e3ddd1; --teal:#1f6576; --amber:#93600c; --purple:#78549b; --blue:#2866ab; --neutral:#74716a; color-scheme:light dark; }
 @media (prefers-color-scheme: dark) { svg { --bg:#15191b; --ink:#e6e2d9; --muted:#aaa498; --grid:#2f3538; --teal:#8ec4d4; --amber:#e0a650; --purple:#c6a7df; --blue:#8bb9ed; --neutral:#aaa498; } }
@@ -17,7 +17,7 @@ text { font-family:"Source Sans 3", "Source Sans Pro", system-ui, -apple-system,
 <defs><pattern id="hatch" width="8" height="8" patternUnits="userSpaceOnUse" patternTransform="rotate(45)"><line x1="0" y1="0" x2="0" y2="8" stroke="var(--grid)" stroke-width="3"/></pattern><marker id="arr" markerWidth="9" markerHeight="9" refX="7" refY="4" orient="auto"><path d="M0 0L7 4L0 8" fill="none" stroke="var(--muted)" stroke-width="1.5"/></marker></defs>
 <rect width="720" height="612" fill="var(--bg)"/>
 <text class="head" x="24" y="34">Where a self-copying pattern would leave public traces</text>
-<text class="sub" x="24" y="56">A scenario, not an observation. Solid: a public record exists. Hatched: none does.</text>
+<text class="sub" x="24" y="56">A scenario, not an observation. Solid: a public record exists. Hatched: none we know of.</text>
 <text class="ann" x="64" y="88">Step in the pattern</text>
 <text class="ann" x="404" y="88">What could register it, and how soon</text>
 <rect x="64" y="100" width="310" height="62" rx="8" fill="url(#hatch)" stroke="var(--amber)" stroke-width="2" stroke-dasharray="7 4"/>
@@ -31,7 +31,7 @@ text { font-family:"Source Sans 3", "Source Sans Pro", system-ui, -apple-system,
 <text class="sec" x="78" y="207">A package appears on a registry</text>
 <text class="ann" x="78" y="227">residue</text>
 <text class="nm" x="404" y="207">Registry listing: once it is up</text>
-<text class="ann" x="404" y="226">dependency graph: about an hour</text>
+<text class="ann" x="404" y="226">dependency graph: about an hour if popular</text>
 <line x1="374" y1="211.0" x2="394" y2="211.0" class="axis" stroke-dasharray="2 3"/>
 <path d="M104 244V257" stroke="var(--muted)" stroke-width="1.5" fill="none" marker-end="url(#arr)"/>
 <rect x="64" y="260" width="310" height="62" rx="8" fill="var(--bg)" stroke="var(--teal)" stroke-width="2"/>
@@ -63,6 +63,6 @@ text { font-family:"Source Sans 3", "Source Sans Pro", system-ui, -apple-system,
 <path d="M64 451.0H40V211.0H60" stroke="var(--muted)" stroke-width="1.5" fill="none" stroke-dasharray="6 4" marker-end="url(#arr)"/>
 <text class="ann" transform="translate(32 331.0) rotate(-90)" text-anchor="middle">each copy starts the loop again</text>
 <path d="M184 484.0V497" stroke="var(--muted)" stroke-width="1.5" stroke-dasharray="2 3" fill="none" marker-end="url(#arr)"/>
-<text class="note" x="24" y="586">Running the copies leaves no public record at all. Delays are from the instruments’ own pages;</text>
-<text class="note" x="24" y="602">the eight days are one case: a poisoned release and OSV’s record of it, October 2026.</text>
+<text class="note" x="24" y="586">Running the copies is in no public record we know of. Delays are from the instruments’ own pages;</text>
+<text class="note" x="24" y="602">the eight days are one case: a release OSV records as malicious, October 2026.</text>
 </svg>
