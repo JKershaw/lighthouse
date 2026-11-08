@@ -17,15 +17,17 @@ Everything Lighthouse might look into, ranked: events worth watching, follow-ups
 
 ## The throttle
 
-Set by the keeper (7 November 2026); only the keeper changes it.
+Set by the keeper (7 November 2026) and flexible: when a limit bites, a run says so in a line and suggests a change, rather than working around it or debating it; the keeper changes it.
 
 - **Active investigations:** at most three. Opening one always waits for the keeper. Agreed on 7 November and to be opened: P-0014. Active now: [Where does a software update go?](investigations/software-updates.md) and [When a model finds the bug](investigations/model-found-bugs.md).
-- **Started without review:** at most two new studies in any seven days, urgent watches included. Deepenings and repairs of a study already running do not count.
+- **Started without review:** at most two new studies in any seven days, urgent watches included. Deepenings and repairs of a study already running do not count, nor does anything the keeper starts or agrees.
 - **Urgent watches:** at most two at once, each ending 14 days after its first read unless the keeper extends it.
 - **Every recurring read** has an end date or a stop condition in its brief, so promises cannot pile up for ever.
 - **Spend:** no envelope, and not a reason to hold work back for now (the keeper, 30 October and 7 November 2026). "For the next review" gives the spend of the runs since the last review.
 
 ## From the keeper
+
+Last reviewed by the keeper: 2026-11-07T10:45Z (written by /keeper at the end of each review).
 
 Directions, blind spots and things to look at. The sweep reads this first and treats each line as a proposal of the highest priority it can give.
 
@@ -55,7 +57,7 @@ Written by the sweep of 7 November 2026 (08:53 UTC), the first, run as a test.
 
 ### P-0017 WordPress core CVE-2026-119977: how fast sites move to the fixed release
 
-- Kind: watch. Priority: urgent (WordPress.org's version shares change daily and keep no history, so each unread day is lost). Status: started (the keeper, 7 November 2026, on the gate's recommendation; the throttle's second slot this week, 2 of 2). Investigation: software updates.
+- Kind: watch. Priority: urgent (WordPress.org's version shares change daily and keep no history, so each unread day is lost). Status: started (the keeper, 7 November 2026, on the gate's recommendation; started by the keeper, so outside the unreviewed count). Investigation: software updates.
 - Source: lead L-0014, [scout 2](notes/horizon/2026-11-07T0853Z/scout-2-security.md): fixed in WordPress 7.1.4 on 28 October, in CISA's catalogue from 3 November; Wordfence reports about 13,000 blocked attacks a day. All reported; WordPress.org's release notes and statistics to be read raw before a brief.
 - Why: the first case in Lighthouse's panels of a fix reaching standing servers that update themselves, beside PHP's (servers that do not) and Python's (fetches); the daily share is public now and gone tomorrow.
 - Cost: small; a daily read of WordPress.org's public version statistics, with an end date.
