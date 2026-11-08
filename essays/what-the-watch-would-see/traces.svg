@@ -1,0 +1,68 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 720 612" width="720" height="612" role="img" aria-labelledby="chart-title chart-desc">
+<title id="chart-title">Where a self-copying pattern would leave public traces</title>
+<desc id="chart-desc">A scenario, not an observation. Six steps of an invented pattern in which agents publish copies of a package that leads other agents to publish more. Steps with a public record are drawn solid, with the record and how soon it could register: the registry listing within minutes, the public event archive within the hour, download logs within a day, a malware record only if someone reports it. Two steps are drawn dashed and hatched because no public instrument records them: the model computing behind each decision, and another agent reading the package and deciding to act, which is the link that would make the copies a pattern. Running the copies is also unrecorded.</desc>
+<style>
+svg { --bg:#fbfaf7; --ink:#1f1f1f; --muted:#5d5850; --grid:#e3ddd1; --teal:#1f6576; --amber:#93600c; --purple:#78549b; --blue:#2866ab; --neutral:#74716a; color-scheme:light dark; }
+@media (prefers-color-scheme: dark) { svg { --bg:#15191b; --ink:#e6e2d9; --muted:#aaa498; --grid:#2f3538; --teal:#8ec4d4; --amber:#e0a650; --purple:#c6a7df; --blue:#8bb9ed; --neutral:#aaa498; } }
+text { font-family:"Source Sans 3", "Source Sans Pro", system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif; font-variant-numeric:tabular-nums lining-nums; fill:var(--ink); }
+.head { font-size:17px; font-weight:600; }
+.sub { font-size:13px; fill:var(--muted); }
+.ann,.ax { font-size:12px; fill:var(--muted); }
+.nm { font-size:12px; font-weight:600; }
+.note { font-size:11.5px; fill:var(--muted); }
+.sec { font-size:14px; font-weight:600; }
+.grid { stroke:var(--grid); stroke-width:1; }
+.axis { stroke:var(--muted); stroke-width:1; }
+</style>
+<defs><pattern id="hatch" width="8" height="8" patternUnits="userSpaceOnUse" patternTransform="rotate(45)"><line x1="0" y1="0" x2="0" y2="8" stroke="var(--grid)" stroke-width="3"/></pattern><marker id="arr" markerWidth="9" markerHeight="9" refX="7" refY="4" orient="auto"><path d="M0 0L7 4L0 8" fill="none" stroke="var(--muted)" stroke-width="1.5"/></marker></defs>
+<rect width="720" height="612" fill="var(--bg)"/>
+<text class="head" x="24" y="34">Where a self-copying pattern would leave public traces</text>
+<text class="sub" x="24" y="56">A scenario, not an observation. Solid: a public record exists. Hatched: none does.</text>
+<text class="ann" x="64" y="88">Step in the pattern</text>
+<text class="ann" x="404" y="88">What could register it, and how soon</text>
+<rect x="64" y="100" width="310" height="62" rx="8" fill="url(#hatch)" stroke="var(--amber)" stroke-width="2" stroke-dasharray="7 4"/>
+<text class="sec" x="78" y="127">An agent decides to publish</text>
+<text class="ann" x="78" y="147">activity</text>
+<text class="nm" x="404" y="127">No public record</text>
+<text class="ann" x="404" y="146">the model runs at a provider</text>
+<line x1="374" y1="131.0" x2="394" y2="131.0" class="axis" stroke-dasharray="2 3"/>
+<path d="M104 164V177" stroke="var(--muted)" stroke-width="1.5" fill="none" marker-end="url(#arr)"/>
+<rect x="64" y="180" width="310" height="62" rx="8" fill="var(--bg)" stroke="var(--teal)" stroke-width="2"/>
+<text class="sec" x="78" y="207">A package appears on a registry</text>
+<text class="ann" x="78" y="227">residue</text>
+<text class="nm" x="404" y="207">Registry listing: once it is up</text>
+<text class="ann" x="404" y="226">dependency graph: about an hour</text>
+<line x1="374" y1="211.0" x2="394" y2="211.0" class="axis" stroke-dasharray="2 3"/>
+<path d="M104 244V257" stroke="var(--muted)" stroke-width="1.5" fill="none" marker-end="url(#arr)"/>
+<rect x="64" y="260" width="310" height="62" rx="8" fill="var(--bg)" stroke="var(--teal)" stroke-width="2"/>
+<text class="sec" x="78" y="287">Other machines fetch it</text>
+<text class="ann" x="78" y="307">residue</text>
+<text class="nm" x="404" y="287">Download logs: streaming to daily</text>
+<text class="ann" x="404" y="306">a fetch, not an install; not who</text>
+<line x1="374" y1="291.0" x2="394" y2="291.0" class="axis" stroke-dasharray="2 3"/>
+<path d="M104 324V337" stroke="var(--muted)" stroke-width="1.5" fill="none" marker-end="url(#arr)"/>
+<rect x="64" y="340" width="310" height="62" rx="8" fill="url(#hatch)" stroke="var(--amber)" stroke-width="2" stroke-dasharray="7 4"/>
+<text class="sec" x="78" y="367">Another agent reads it and acts</text>
+<text class="ann" x="78" y="387">propagation</text>
+<text class="nm" x="404" y="367">No public record</text>
+<text class="ann" x="404" y="386">the link that makes it a pattern</text>
+<line x1="374" y1="371.0" x2="394" y2="371.0" class="axis" stroke-dasharray="2 3"/>
+<path d="M104 404V417" stroke="var(--muted)" stroke-width="1.5" fill="none" marker-end="url(#arr)"/>
+<rect x="64" y="420" width="310" height="62" rx="8" fill="var(--bg)" stroke="var(--teal)" stroke-width="2"/>
+<text class="sec" x="78" y="447">A commit or a new copy is published</text>
+<text class="ann" x="78" y="467">residue</text>
+<text class="nm" x="404" y="447">Public event archive: hourly</text>
+<text class="ann" x="404" y="466">public GitHub only; not who</text>
+<line x1="374" y1="451.0" x2="394" y2="451.0" class="axis" stroke-dasharray="2 3"/>
+<rect x="64" y="500" width="310" height="62" rx="8" fill="var(--bg)" stroke="var(--teal)" stroke-width="2"/>
+<text class="sec" x="78" y="527">Someone reports it as malicious</text>
+<text class="ann" x="78" y="547">an observer’s record</text>
+<text class="nm" x="404" y="527">Malware records: only if reported</text>
+<text class="ann" x="404" y="546">one case: eight days</text>
+<line x1="374" y1="531.0" x2="394" y2="531.0" class="axis" stroke-dasharray="2 3"/>
+<path d="M64 451.0H40V211.0H60" stroke="var(--muted)" stroke-width="1.5" fill="none" stroke-dasharray="6 4" marker-end="url(#arr)"/>
+<text class="ann" transform="translate(32 331.0) rotate(-90)" text-anchor="middle">each copy starts the loop again</text>
+<path d="M184 484.0V497" stroke="var(--muted)" stroke-width="1.5" stroke-dasharray="2 3" fill="none" marker-end="url(#arr)"/>
+<text class="note" x="24" y="586">Running the copies leaves no public record at all. Delays are from the instruments’ own pages;</text>
+<text class="note" x="24" y="602">the eight days are one case: a poisoned release and OSV’s record of it, October 2026.</text>
+</svg>
