@@ -1,0 +1,27 @@
+n,url,utc,status,error,content_type,bytes,truncated,sha256,file
+1,https://www.openarchives.org/Register/BrowseSites,2026-11-08T19:04:50Z,200,,text/html; charset=utf-8,1538,False,db907d3f3e0580ad1898dbbe272e3089ea9d00afdf6931f65a869c801ca4557e,p01.body
+2,https://www.debian.org/mirror/list,2026-11-08T19:04:53Z,200,,text/html,110159,False,742f526546d1462e3e33787f085ce931fc618a59f9aa871f050e637a30543080,p02.body
+3,https://web.archive.org/cdx/search/cdx?url=example.com&limit=3&output=json,2026-11-08T19:04:55Z,,reset,,0,False,e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855,p03.body
+4,https://archive.org/wayback/available?url=example.com&timestamp=20250101,2026-11-08T19:05:07Z,200,,application/json,73,False,d20e10f5faf30475b7bddd169d5a2a8ea04bce6473da5cf2304464720fea27ce,p04.body
+5,https://har.fyi/sitemap-index.xml,2026-11-08T19:05:15Z,301,,,0,False,e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855,p05.body
+6,https://www.openarchives.org/Register/ListFriends,2026-11-08T19:05:31Z,301,,text/html; charset=iso-8859-1,261,False,99af4ba97022e6b92354d0ce44ec3e7264715c363a7de7910b54f21234d78f73,p06.body
+7,https://archive.org/wayback/available?url=www.w3.org&timestamp=20250101,2026-11-08T19:05:34Z,429,,text/html; charset=utf-8,117,False,ae138caf8767f7be2fe6f47f1663b0e2e28d903264707aa9b6f73bb7b223902c,p07.body
+8,https://web.archive.org/web/20250101000000id_/https://www.w3.org/,2026-11-08T19:05:36Z,,reset,,0,False,e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855,p08.body
+9,https://web.archive.org/cdx/search/cdx?url=www.w3.org&from=2025&to=2025&limit=3&output=json,2026-11-08T19:05:48Z,,reset,,0,False,e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855,p09.body
+10,https://httparchive.org/docs/sitemap-index.xml,2026-11-08T19:06:01Z,404,,text/html; charset=utf-8,10420,False,0fa001c38a085626cfafe8ff70463b9f03ee5623aaec32f5783532cf78e03bfe,p10.body
+11,https://rdap.arin.net/registry/ip/160.79.106.30,2026-11-08T19:06:22Z,200,,application/rdap+json,5801,False,345efe980bafafe4052173080d6b1096a643bbffd5b58b4678ad4e812c8ecc84,p11.body
+12,https://index.commoncrawl.org/collinfo.json,2026-11-08T19:06:24Z,,reset,,0,False,e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855,p12.body
+13,https://prod-gw-2vzgiib6.ue.gateway.dev/v1/technologies?technology=WordPress,2026-11-08T19:06:28Z,404,,text/html; charset=UTF-8,272,False,6b43b396ba4708e5ffe9da06909bc2059e55b300f2434bc4181ca3a842d83bd6,p13.body
+14,https://prod-gw-2vzgiib6.ue.gateway.dev/v1/adoption?technology=WordPress&geo=ALL&rank=ALL&start=latest,2026-11-08T19:06:31Z,404,,text/html; charset=UTF-8,272,False,6b43b396ba4708e5ffe9da06909bc2059e55b300f2434bc4181ca3a842d83bd6,p14.body
+15,https://raw.githubusercontent.com/HTTPArchive/wappalyzer/main/src/technologies/a.json,2026-11-08T19:06:33Z,200,,text/plain; charset=utf-8,148112,False,f46f755f85eb385a8696c74fabd194235f9ca52470f206480a17cad6d0c0104e,p15.body
+16,https://raw.githubusercontent.com/HTTPArchive/tech-report-apis/main/README.md,2026-11-08T19:07:01Z,200,,text/plain; charset=utf-8,2584,False,88bd84ad382cabbf885846bb4ecb8bb2cc6ae2f2e5b8ec660e40faf71cbfdae9,p16.body
+17,https://raw.githubusercontent.com/HTTPArchive/tech-report-apis/main/apps/report-api/README.md,2026-11-08T19:07:08Z,200,,text/plain; charset=utf-8,17639,False,42035d08f20f5c872b02c3d6260e854d5f425d326d7c6c31192d75bcb7c654c7,p17.body
+18,https://raw.githubusercontent.com/HTTPArchive/httparchive.org/main/config/reports.json,2026-11-08T19:07:22Z,200,,text/plain; charset=utf-8,42755,False,0e42f0566a9f37c04cae0e08fa99caa529c9ea30aaba02ba6781aeecc30eb091,p18.body
+19,https://httparchive.org/reports/techreport/tech,2026-11-08T19:08:12Z,200,,text/html; charset=utf-8,103154,False,1826ed94e8b4e91ef6fae333b5e94227c8e34345bbdccb401a077371227d51d0,p19.body
+20,https://httparchive.org/_astro/TechReportLayout.astro_astro_type_script_index_0_lang.sR8T6x9X.js,2026-11-08T19:08:23Z,200,,text/javascript; charset=utf-8,38,False,a2ee436112d61898cd8bd498ac2a1109e1f9faad6978cb5dcc14e3707a5ca399,p20.body
+21,https://httparchive.org/_astro/TechReportLayout.astro_astro_type_script_index_1_lang.CxmOcETA.js,2026-11-08T19:08:25Z,200,,text/javascript; charset=utf-8,71864,False,291dfbf42e18b8d9b77a6cfacc0f919def4ca2c86a0f9f6dc7d9ed6bff079c7c,p21.body
+22,https://httparchive.org/_astro/constants.C1noILWJ.js,2026-11-08T19:08:38Z,200,,text/javascript; charset=utf-8,64,False,7a2d0cb24e9ef95b56b64282f8e99909c8e1bbfa7393b13d1f98e9ff6516a02f,p22.body
+23,https://cdn.httparchive.org/v1/technologies?onlyname,2026-11-08T19:08:49Z,200,,application/json,48190,False,951d22fe3e0ca8b6b5b5392c22bd1ad1c858428d695f630073c925e5351ab018,p23.body
+24,https://www.openarchives.org/pmh/registry/ListFriends,2026-11-08T19:09:01Z,200,,text/html; charset=ISO-8859-1,761,False,de52f9fca08d274740f35eaaf946ecb06486698bc2933b304f3023abe53522a7,p24.body
+25,https://www.openarchives.org/pmh/registry/ListFriends_HISTORICAL_2025-10-08.xml,2026-11-08T19:09:09Z,200,,text/xml,642983,False,8f28d8a843dd87e684bd7f79f2d86b5d3482c84caf1cae883e14488f5fc32050,p25.body
+26,http://example.com/,2026-11-08T19:09:25Z,200,,text/html; charset=utf-8,577,False,25ddf2c883e0d1958ea971d279a7e4f0fd446724ee3db7db19dadabd4a62e484,p26.body
