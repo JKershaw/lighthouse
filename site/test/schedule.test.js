@@ -6,7 +6,7 @@ import assert from "node:assert/strict";
 import fs from "node:fs";
 import os from "node:os";
 import path from "node:path";
-import { buildSchedule, refParts, dayOf, latestRun, proposalsNow } from "../lib/schedule.js";
+import { buildSchedule, refParts, dayOf, latestRun, proposalsNow, plainTask, withoutCode } from "../lib/schedule.js";
 
 const HEAD = "id,study,task,earliest,latest,status,updated,by,ref,note";
 
@@ -86,6 +86,8 @@ test("the latest run lists what it finished, each linked to what it produced, wi
     "log-again,log,The day's log again,2026-11-05,2026-11-06,done,2026-11-05,\"scheduled run 2026-11-05T1414Z (Claude Code, Anthropic cloud)\",notes/log.md,",
     "LH003-old,LH003,An older read,2026-11-02,2026-11-03,done,2026-11-02,\"scheduled run 2026-11-02T1524Z (Claude Code, Anthropic cloud)\",studies/LH003/LH003.md,",
     "LH001-next,LH001,Monday read,2026-11-09,2026-11-10,open,2026-11-05,\"scheduled run 2026-11-05T1414Z (Claude Code, Anthropic cloud)\",,",
+    "LH002-record,LH002,Record after the last read,2026-11-04,2026-11-30,open,2026-11-05,\"scheduled run 2026-11-05T1414Z (Claude Code, Anthropic cloud)\",,waits for a release",
+    "LH003-record,LH003,Record,2026-11-04,2026-11-30,open,2026-11-05,\"scheduled run 2026-11-02T1524Z (Claude Code, Anthropic cloud)\",,another run's",
   ].join("\r\n") + "\r\n";
   withRepo({
     "schedule/due.csv": table,
@@ -99,12 +101,16 @@ test("the latest run lists what it finished, each linked to what it produced, wi
     assert.equal(run.when, "5 November 2026, 14:14 UTC");
     assert.equal(run.count, 3);
     assert.deepEqual(run.done, [
-      { text: "LH001 reads: 5 November 2026", href: "/studies/LH001/checkpoints/2026-11-05/" },
-      { text: "LH002: Does the fix travel?", href: "/studies/LH002/LH002/" },
-      { text: "The watch log", href: "/notes/log/" },
+      { text: "LH001 reads: 5 November 2026", href: "/studies/LH001/checkpoints/2026-11-05/", id: "LH001-2026-11-05" },
+      { text: "the record for “Does the fix travel?”", href: "/studies/LH002/LH002/", id: "LH002-2026-11-05" },
+      { text: "The watch log", href: "/notes/log/", id: "log-2026-11-05" },
     ]);
     assert.equal(run.more, 0);
     assert.equal(run.stop, ".");
+    // Due at the run and still open: waiting, counted apart; a row added for later is neither.
+    assert.equal(run.waitingCount, 1);
+    assert.deepEqual(run.waiting, [{ text: "the record for “Does the fix travel?”", href: "/studies/LH002/", id: "LH002-record" }]);
+    assert.equal(run.waitStop, "");
   });
 });
 
@@ -138,5 +144,28 @@ test("being looked into: the proposals under the started and agreed headings, li
     assert.deepEqual(p.started, [{ id: "P-0015", title: "How far the poisoned release travelled", href: "/proposals/#p-0015-how-far-the-poisoned-release-travelled" }]);
     assert.deepEqual(p.agreed.map((x) => x.id), ["P-0014"]);
     assert.deepEqual(p.waiting, [{ id: "P-0002", title: "An account to name", href: "/proposals/#p-0002-an-account-to-name" }]);
+  });
+});
+
+test("a row reads in plain words: the study's short label and the kind of work, never its id", () => {
+  withRepo({
+    "site/sections.md": "title: S\nsummaries:\n- studies/LH039 | WordPress's fix for its own updater\n- studies/LH040 | The poisoned LiteLLM release\n\n# Notes\n",
+    "proposals.md": "# Proposals\n\n### P-0013 The closing web: shared infrastructure withdrawing anonymous access\n",
+    "studies/LH039/brief.md": "# LH039: After WordPress fixed it, how fast?\n",
+    "studies/LH040/brief.md": "# LH040: How far?\n",
+    "investigations/costs.md": "title: What AI activity costs\nkind: investigation\n\n# x\n",
+    "notes/horizon/2026-11-07T0853Z.md": "# The horizon sweep of 7 November\n",
+  }, (root) => {
+    const row = (id, study, ref = "") => ({ id, study, task: "Do it: a command", refs: refParts(ref, root) });
+    assert.equal(plainTask(row("P-0017-brief", "P-0017", "studies/LH039/brief.md (protocol 0.1)"), root), "the brief for WordPress's fix for its own updater");
+    assert.equal(plainTask(row("P-0015-brief", "P-0015", "studies/LH040/brief.md"), root), "the brief for the poisoned LiteLLM release");
+    assert.equal(plainTask(row("LH039-raw-2026-11-08", "LH039", "studies/LH039/data/raw-2026-11-08T1411Z"), root), "a read for WordPress's fix for its own updater");
+    assert.equal(plainTask(row("LH040-checkpoint", "LH040"), root), "a checkpoint for the poisoned LiteLLM release");
+    assert.equal(plainTask(row("P-0013-brief", "P-0013"), root), "the brief for the closing web: shared infrastructure withdrawing anonymous access");
+    assert.equal(plainTask(row("P-0014-page", "P-0014", "investigations/costs.md"), root), "the investigation page for What AI activity costs");
+    assert.equal(plainTask(row("horizon-2026-11-07", "horizon", "notes/horizon/2026-11-07T0853Z.md"), root), "The horizon sweep of 7 November");
+    assert.equal(plainTask(row("horizon-2026-11-10", "horizon"), root), "a read for the horizon sweep");
+    assert.equal(withoutCode("LH039: After it"), "After it");
+    assert.equal(withoutCode("LH042 search log"), "LH042 search log");
   });
 });

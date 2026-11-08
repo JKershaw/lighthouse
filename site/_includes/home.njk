@@ -1,4 +1,5 @@
-{# The front page: README.md's first paragraph as an introduction, the lead
+{# The front page: README.md's first paragraph as an introduction, the dated
+   "This week" block from site/this-week.md, the lead
    finding, the latest findings and essays, the investigations, and the rest
    of README.md behind a disclosure. #}
 {% set home = content | homeContent %}
@@ -7,6 +8,8 @@
   {{ home.intro | safe }}
   {% if about %}<a class="section-link" href="{{ about.url }}">About Lighthouse <span aria-hidden="true">→</span></a>{% endif %}
 </div>{% endif %}
+
+{% if repo.thisWeek %}{% include "home-this-week.njk" %}{% endif %}
 
 {% if repo.front.lead %}{% set p = repo.front.lead %}
 <section class="front-lead" aria-labelledby="lead-title">
@@ -24,7 +27,8 @@
 {% if repo.watch or repo.front.latest.length or schedule.latestRun or repo.onWatch.length %}<section class="front-section" aria-labelledby="latest-title">
   <h2 id="latest-title">Latest</h2>
   {% include "home-now.njk" %}
-  {% if repo.front.latest.length %}<ol class="compact-entries">
+  {% if repo.front.latest.length %}<p class="latest-order">{{ repo.front.latestOrder }}</p>
+  <ol class="compact-entries">
     {% for p in repo.front.latest %}{% include "compact-entry.njk" %}{% endfor %}
   </ol>{% endif %}
   <p class="section-links">

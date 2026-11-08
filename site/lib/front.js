@@ -15,8 +15,12 @@ function parseSummaries(items = []) {
   }));
 }
 
-// A piece's most recent activity: its publication, revision or dated notice.
-const lastActivity = (p) => Math.max(p.pubTime || 0, p.revisedTime || 0);
+// How current a piece is, for the Latest list: the later of its publication
+// and its latest dated Correction, which changes what the piece said. A Later
+// evidence notice or a `revised` item is shown beside the piece but does not
+// lift it, so a confirming notice on an old piece does not sit above new work.
+export const LATEST_ORDER = 'Newest first, by the date each was published or last corrected; other later notices are shown beside each.';
+export const currentAt = (p) => Math.max(p.pubTime || 0, ...(p.revisionHistory || []).filter((r) => r.kind === 'correction').map((r) => r.time || 0));
 
 // The lead's illustration: the first image in its body, if the image is in the
 // repository, with the italic caption that follows it.
@@ -64,11 +68,12 @@ export function frontInfo({ source = '', config = '', byPath, bodies, images, pi
     figure: leadFigure(leadPath, bodies.get(leadPath) || '', images),
   } : null;
 
-  // Latest: released findings and essays by their most recent activity,
-  // leaving out the lead so that nothing on the page appears twice.
+  // Latest: released findings and essays, newest first by publication or
+  // correction (LATEST_ORDER says so on the page), leaving out the lead so
+  // that nothing on the page appears twice.
   const latest = [...pieces, ...essays]
     .filter((p) => eligible(p) && p.path !== lead?.path)
-    .sort((a, b) => lastActivity(b) - lastActivity(a) || a.path.localeCompare(b.path))
+    .sort((a, b) => currentAt(b) - currentAt(a) || (b.pubTime || 0) - (a.pubTime || 0) || a.path.localeCompare(b.path))
     .slice(0, LATEST_COUNT)
     .map(entry);
 
@@ -101,7 +106,7 @@ export function frontInfo({ source = '', config = '', byPath, bodies, images, pi
   ];
   for (const section of sections) section.entries = section.entries.filter((p) => p.path !== section.lead?.path);
 
-  return { lead, latest, investigations: investigationCards, sections, labels: Object.fromEntries(summaries) };
+  return { lead, latest, latestOrder: LATEST_ORDER, investigations: investigationCards, sections, labels: Object.fromEntries(summaries) };
 }
 
 // Rendered Markdown without its leading h1, for a layout that sets the title itself.
@@ -116,4 +121,42 @@ export function homeContent(html = '') {
   const body = withoutTitle(html);
   const first = body.match(/^\s*(<p[\s>][\s\S]*?<\/p>)\s*/);
   return first ? { intro: first[1], background: body.slice(first[0].length) } : { intro: '', background: body };
+}
+
+// The front page's "This week" block, from site/this-week.md: a comment, then
+// a header with `week` (the first and last day, YYYY-MM-DD to YYYY-MM-DD),
+// `updated` (YYYY-MM-DD) and `items`, each "YYYY-MM-DD | reported or
+// lighthouse | one plain sentence in Markdown". The block is left out when the
+// file is missing, has no items in the week, or was last updated more than `staleDays`
+// before the build, so a missed update shows nothing rather than an old week.
+const ITEM_LABELS = { reported: 'Reported', lighthouse: 'Lighthouse' };
+export function thisWeek(source = '', now = new Date(), staleDays = 8) {
+  const text = String(source || '').replace(/^\uFEFF/, '').replace(/^\s*<!--[\s\S]*?-->\s*/, '');
+  const header = parseHeader(text);
+  if (!header) return null;
+  const value = (name) => headerField(header.fields, name)?.value || '';
+  const day = (iso) => {
+    const d = /^\d{4}-\d{2}-\d{2}$/.test(iso) ? new Date(`${iso}T00:00:00Z`) : null;
+    return d && !Number.isNaN(d.getTime()) ? d : null;
+  };
+  const updated = day(value('updated'));
+  if (!updated || now.getTime() - updated.getTime() > staleDays * 86400000) return null;
+  const long = new Intl.DateTimeFormat('en-GB', { day: 'numeric', month: 'long', year: 'numeric', timeZone: 'UTC' });
+  const short = new Intl.DateTimeFormat('en-GB', { day: 'numeric', month: 'short', timeZone: 'UTC' });
+  const items = (headerField(header.fields, 'items')?.items || []).map((item) => {
+    const m = item.match(/^([^|]*)\|([^|]*)\|([\s\S]*)$/) || [];
+    const [when, kind, sentence] = [m[1], m[2], m[3]].map((x) => (x || '').trim());
+    const date = day(when);
+    const label = ITEM_LABELS[kind.toLowerCase()];
+    return date && label && sentence ? { iso: when, day: short.format(date), kind: kind.toLowerCase(), label, sentence } : null;
+  }).filter(Boolean);
+  const [from, to] = value('week').split(/\s+to\s+/).map(day);
+  // Items from before the week are left out, whatever the file still holds.
+  const current = from ? items.filter((item) => item.iso >= value('week').slice(0, 10)) : items;
+  if (!current.length) return null;
+  const span = from && to
+    ? (from.getUTCMonth() === to.getUTCMonth() && from.getUTCFullYear() === to.getUTCFullYear()
+      ? `${from.getUTCDate()} to ${long.format(to)}` : `${long.format(from).replace(/ \d{4}$/, from.getUTCFullYear() === to.getUTCFullYear() ? '' : '$&')} to ${long.format(to)}`)
+    : '';
+  return { span, fromIso: from ? value('week').slice(0, 10) : '', toIso: to ? value('week').slice(-10) : '', updated: long.format(updated), updatedIso: value('updated'), items: current };
 }

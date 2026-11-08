@@ -15,7 +15,7 @@ import { arrangePiece, markNotices } from "./lib/html.js";
 import { atomFeed, relevantFeeds } from "./lib/feed.js";
 import { writeOfflineFiles } from "./lib/offline.js";
 import sideNotes from "./lib/side-notes.js";
-import { buildSchedule } from "./lib/schedule.js";
+import { buildSchedule, withoutCode } from "./lib/schedule.js";
 import { homeContent, withoutTitle } from "./lib/front.js";
 
 const siteDir = path.dirname(fileURLToPath(import.meta.url));
@@ -93,6 +93,10 @@ export default function (eleventyConfig) {
   eleventyConfig.addFilter("mdInline", (value, page) => (md ? md.renderInline(String(value || ""), { page }) : value));
 
   eleventyConfig.addFilter("homeContent", homeContent);
+  // A reader meets a study's plain title; its code stays in the kicker, the URL and a title attribute.
+  eleventyConfig.addFilter("withoutCode", withoutCode);
+  // "working note (study LH039)" reads "Working note (study LH039)": the first letter only.
+  eleventyConfig.addFilter("firstUpper", (value) => { const t = String(value || ""); return t.charAt(0).toUpperCase() + t.slice(1); });
   eleventyConfig.addFilter("withoutTitle", withoutTitle);
   eleventyConfig.addFilter("sectionById", (sections, id) => sections.find((section) => section.id === id));
 
@@ -179,7 +183,7 @@ export default function (eleventyConfig) {
     layout: "index-study.njk",
     section: "studies",
     pagination: { data: "repo.studies", size: 1, alias: "study" },
-    eleventyComputed: { title: (data) => (data.study ? `${data.study.id}: ${data.study.lead.title}` : "Study") },
+    eleventyComputed: { title: (data) => (data.study ? `${data.study.id}: ${withoutCode(data.study.lead.title)}` : "Study") },
     permalink: (data) => `/studies/${data.study.id}/`,
   });
 

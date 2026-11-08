@@ -6,7 +6,7 @@ import fs from "node:fs";
 import path from "node:path";
 import { execFileSync } from "node:child_process";
 import { parseHeader, headerField } from "./header.js";
-import { frontInfo } from "./front.js";
+import { frontInfo, thisWeek } from "./front.js";
 import { buildStories } from "./stories.js";
 import { datedNotices } from "./updates.js";
 import { feedCatalog } from "./feed.js";
@@ -18,6 +18,7 @@ export const REPO_BRANCH = "main";
 // Paths the site never reads, relative to the repository root.
 export const IGNORED_DIRS = ["harbour", "site", "node_modules", ".claude", ".github", ".git"];
 export const IGNORED_FILES = ["CLAUDE.md"];
+export const THIS_WEEK = "site/this-week.md";
 export const IMAGE_EXT = [".svg", ".png", ".jpg", ".jpeg", ".gif", ".webp", ".avif"];
 
 // Directories that get an index page of their own.
@@ -627,6 +628,13 @@ export function scanRepo(root, { siteFile = path.join(root, "site", "site.json")
     config: fs.existsSync(path.join(root, "site/sections.md")) ? fs.readFileSync(path.join(root, "site/sections.md"), "utf8") : "",
     byPath, bodies, images, pieces: fulls, essays: releasedEssays, investigations, watch });
   for (const section of front.sections) siteDirs.add(section.url.replace(/^\/|\/$/g, ""));
+  // A piece in no investigation that leads a section front says it belongs
+  // there, so a reader can tell where the map piece, for one, sits.
+  for (const p of pieces) {
+    if (!p.context || p.context.investigation) continue;
+    const home = front.sections.find((section) => section.lead && (section.lead.path === p.path || (twinOf.get(p.path) && section.lead.path === twinOf.get(p.path).path)));
+    if (home) p.context.section = { title: home.title, url: home.url };
+  }
   const watchSection = front.sections.find(section => section.id === "watch");
   watchSection.entries.unshift(...stories.map(story => ({ title: story.title, url: story.url, path: story.path, compactSummary: "Reviewed notices and unreviewed daily logs in one dated thread.", entryKind: "Developing story", entryDate: story.account.revised || story.account.published })));
 
@@ -663,6 +671,8 @@ export function scanRepo(root, { siteFile = path.join(root, "site", "site.json")
     buildDate: formatDate(buildDate),
     buildIso: buildDate.toISOString(),
     onWatch: onWatch(studies, front.labels || {}, buildDate),
+    // The front page's dated "This week" block, kept in one file the scheduled run updates.
+    thisWeek: thisWeek(fs.existsSync(path.join(root, THIS_WEEK)) ? fs.readFileSync(path.join(root, THIS_WEEK), "utf8") : "", buildDate),
   };
   repo.feeds = feedCatalog(repo);
   return repo;

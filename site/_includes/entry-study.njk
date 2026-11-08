@@ -1,4 +1,4 @@
-<p class="when">{% if study.writeup %}{% if study.writeup.kind %}{{ study.writeup.kind | capitalize }}{% else %}Write-up{% endif %}{% if study.writeup.version %}, version {{ study.writeup.version }}{% endif %}{% if study.writeup.docDate %}, {{ study.writeup.docDate }}{% endif %}{% else %}No write-up yet{% endif %} <span class="path">{{ study.lead.path }}</span></p>
+<p class="when">{% if study.writeup %}{% if study.writeup.kind %}{{ study.writeup.kind | firstUpper }}{% else %}Write-up{% endif %}{% if study.writeup.version %}, version {{ study.writeup.version }}{% endif %}{% if study.writeup.docDate %}, {{ study.writeup.docDate }}{% endif %}{% else %}No write-up yet{% endif %} <span class="path">{{ study.lead.path }}</span></p>
 {% if study.checkpoints.length and not studyPage %}{% set c = study.checkpoints[0] %}<p class="when">Latest checkpoint, unreviewed: <a href="{{ c.url }}">{{ c.date }}{% if c.time %}, {{ c.time }}{% endif %}</a>{% if study.checkpoints.length > 1 %} (one of {{ study.checkpoints.length }}){% endif %}</p>
 {% endif %}{% if study.others.length %}
 <ul class="files">

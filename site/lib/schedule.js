@@ -6,6 +6,7 @@ import fs from "node:fs";
 import path from "node:path";
 import { REPO_URL, formatDate, isIgnored, pageUrl, plainText, sourceUrl } from "./repo.js";
 import { slugify } from "./markdown.js";
+import { parseHeader, headerField } from "./header.js";
 
 export const SCHEDULE_TABLE = "schedule/due.csv";
 
@@ -104,27 +105,110 @@ function runTime(label) {
   return { iso: `${m[1]}T${m[2]}:${m[3]}Z`, words: `${formatDate(new Date(`${m[1]}T00:00:00Z`))}, ${m[2]}:${m[3]} UTC` };
 }
 
-// The front page's view of the newest run: when it started and what it
-// finished, each linked to what it produced, newest work being unreviewed.
+// A study's or proposal's title with its internal code taken off the front:
+// "LH039: After WordPress fixed..." reads "After WordPress fixed...".
+export function withoutCode(title) {
+  return String(title || "").replace(/^(?:LH\d+[a-z]?|P-\d+)\s*[:.]\s+/, "");
+}
+
+// The plain names a reader meets in place of internal codes: the short label
+// site/sections.md gives a study's directory, a proposal's title, or the work
+// a schedule label stands for.
+const NAMED = { horizon: "the horizon sweep", media: "the PHP media sweep", log: "the PHP watch log", articles: "a piece", essays: "an essay" };
+export function plainNames(root) {
+  const names = new Map();
+  try {
+    const config = parseHeader(fs.readFileSync(path.join(root, "site/sections.md"), "utf8"));
+    for (const item of headerField(config?.fields, "summaries")?.items || []) {
+      const at = item.indexOf("|");
+      const m = at > 0 && item.slice(0, at).trim().match(/^studies\/(LH\d+)\/?$/);
+      if (m) names.set(m[1], plainText(item.slice(at + 1).trim()));
+    }
+  } catch {
+    // No sections.md: studies fall back to their titles below.
+  }
+  try {
+    const text = fs.readFileSync(path.join(root, PROPOSALS), "utf8");
+    for (const m of text.matchAll(/^### (P-\d+) (.+)$/gm)) if (!names.has(m[1])) names.set(m[1], plainText(m[2].trim()));
+  } catch {
+    // No proposals.md.
+  }
+  return names;
+}
+
+// What kind of work a schedule row is, from its id and what it produced.
+export function taskKind(row, made = "") {
+  const id = String(row.id || "");
+  const file = path.posix.basename(made || "");
+  if (/brief/i.test(id) || file === "brief.md") return "brief";
+  if (/checkpoint/i.test(id)) return "checkpoint";
+  if (/record|write-?up/i.test(id) || /^LH\d+\.md$/.test(file)) return "record";
+  if (/review/i.test(id)) return "review";
+  if (/-raw-|read|-\d{4}-\d{2}-\d{2}$/i.test(id) || /\/checkpoints\//.test(made || "")) return "read";
+  if (/page|piece/i.test(id)) return "page";
+  return "";
+}
+const KIND_WORDS = { brief: "the brief", checkpoint: "a checkpoint", record: "the record", review: "a review", read: "a read", page: "the page" };
+
+// A row as a reader can follow it: "the brief for WordPress's fix for its own
+// updater" in place of "P-0017-brief". The id stays with it for agents.
+export function plainTask(row, root, names = plainNames(root)) {
+  const made = (row.refs || []).find((p) => p.page);
+  const rel = made ? made.text.replace(/^\/+/, "") : "";
+  // The study the work belongs to: the one its page lives in, else its label.
+  const study = (rel.match(/^studies\/(LH\d+)\//) || [])[1] || (/^(LH\d+|P-\d+)$/.test(row.study) ? row.study : "");
+  let name = names.get(study) || NAMED[row.study] || "";
+  if (!name && /^LH\d+$/.test(study)) {
+    const dir = path.join(root, "studies", study);
+    const lead = [`${study}.md`, "brief.md"].find((f) => fs.existsSync(path.join(dir, f)));
+    if (lead) name = withoutCode(titleOf(root, `studies/${study}/${lead}`));
+    // A study titled by its question is quoted, so the sentence still reads.
+    if (/\?$/.test(name)) name = `“${name}”`;
+  }
+  if (rel && (NAMED[row.study] || !study)) return withoutCode(titleOf(root, rel));
+  if (rel && /^investigations\//.test(rel)) return `the investigation page for ${lowerArticle(titleOf(root, rel))}`;
+  if (!name) return rel ? withoutCode(titleOf(root, rel)) : row.task ? plainText(row.task).split(/[:;(]/)[0].trim() || row.id : row.id;
+  const kind = taskKind(row, rel);
+  return kind ? `${KIND_WORDS[kind]} for ${lowerArticle(name)}` : lowerArticle(name);
+}
+// "The poisoned LiteLLM release" reads "the poisoned LiteLLM release" mid-sentence.
+const lowerArticle = (text) => String(text).replace(/^(The|A|An) /, (m) => m.toLowerCase());
+
+// The front page's view of the newest run: when it started, what it finished,
+// each linked to what it produced, and, apart, what was due at the run and
+// still waits. A row waits when it names the run, is still open and its
+// window had opened by the run's day; rows the run added for later are neither.
 export function latestRun(run, rows, root, shown = 4) {
   if (!run) return null;
+  const names = plainNames(root);
+  const ran = (r) => run.started && (r.by || "").includes(run.started);
+  const runDay = String(run.started || "").slice(0, 10);
   const seen = new Set();
   const done = [];
   for (const r of rows) {
-    if (!["done", "missed"].includes(r.status) || !run.started || !(r.by || "").includes(run.started)) continue;
+    if (!["done", "missed"].includes(r.status) || !ran(r)) continue;
     const made = r.refs.find((p) => p.page);
     const href = made ? made.href : r.href;
     if (href && seen.has(href)) continue;
     if (href) seen.add(href);
-    const rel = made ? made.text.replace(/^\/+/, "") : "";
-    done.push({ text: r.status === "missed" ? `${r.id} (missed)` : rel ? titleOf(root, rel) : r.id, href });
+    const text = plainTask(r, root, names);
+    done.push({ text: r.status === "missed" ? `${text} (missed)` : text, href, id: r.id });
   }
+  const waiting = rows
+    .filter((r) => ["open", "running", "blocked", "keeper"].includes(r.status) && ran(r) && r.earliest && r.earliest <= runDay)
+    .map((r) => ({ text: plainTask(r, root, names), href: r.href, id: r.id }));
   const t = runTime(run.started);
   const more = Math.max(0, done.length - shown);
-  const last = more ? "" : (done.length ? done[Math.min(done.length, shown) - 1].text : run.did || "");
-  // The sentence's full stop, unless the last title already ends one.
-  const stop = /[.?!]$/.test(last) ? "" : ".";
-  return { started: run.started, iso: t.iso, when: t.words, by: run.by, did: run.did, done: done.slice(0, shown), more, count: done.length, stop };
+  const moreWaiting = Math.max(0, waiting.length - shown);
+  // Each sentence's full stop, unless its last title already ends one.
+  const stopAfter = (items, extra) => (!extra && items.length && /[.?!]["”’)]?$/.test(items[Math.min(items.length, shown) - 1].text) ? "" : ".");
+  const stop = done.length ? stopAfter(done, more) : /[.?!]$/.test(run.plain || run.did || "") ? "" : ".";
+  const waitStop = stopAfter(waiting, moreWaiting);
+  return {
+    started: run.started, iso: t.iso, when: t.words, by: run.by, did: run.did, plain: run.plain || "",
+    done: done.slice(0, shown), more, count: done.length,
+    waiting: waiting.slice(0, shown), moreWaiting, waitingCount: waiting.length, stop, waitStop,
+  };
 }
 
 // What proposals.md says is being looked into: the proposals under its
@@ -187,7 +271,7 @@ export function buildSchedule(root, now = new Date()) {
     counts: Object.entries(LABELS).filter(([k]) => counts[k]).map(([k, label]) => ({ state: k, label, n: counts[k] })),
     weeks,
     attention: pick(["overdue", "keeper", "blocked", "running"]),
-    keeperRows: pick(["keeper"]),
+    keeperRows: pick(["keeper"]).map((r) => ({ ...r, plain: plainTask(r, root) })),
     due: pick(["due"]).filter((r) => r.latest),
     openEnded: rows.filter((r) => !r.latest && ["due", "upcoming", "running", "keeper", "blocked"].includes(r.state)),
     beyond: rows.filter((r) => r.latest && r.earliest > last && r.state === "upcoming"),

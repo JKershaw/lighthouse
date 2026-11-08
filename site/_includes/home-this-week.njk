@@ -1,0 +1,10 @@
+{# This week: a dated block from site/this-week.md, which the scheduled run keeps (its header says how). Left out when the file is missing or stale (lib/front.js, thisWeek). Not a finding: "Reported" items are others' accounts, linked; "Lighthouse" items are its own work. #}
+{% set w = repo.thisWeek %}
+<section class="this-week" aria-labelledby="this-week-title">
+  <h2 id="this-week-title">This week{% if w.span %} <span class="this-week-span">{{ w.span }}</span>{% endif %}</h2>
+  <ul>
+    {% for item in w.items %}<li class="this-week-{{ item.kind }}"><span class="tag">{{ item.label }}</span> <time class="this-week-day" datetime="{{ item.iso }}">{{ item.day }}</time> {{ item.sentence | mdInline(page) | safe }}</li>
+    {% endfor %}
+  </ul>
+  <p class="this-week-note">Written from the records, updated <time datetime="{{ w.updatedIso }}">{{ w.updated }}</time>. Reported items are others' accounts; none of this is a finding.</p>
+</section>

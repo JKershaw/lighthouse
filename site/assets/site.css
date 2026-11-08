@@ -600,6 +600,17 @@ td:last-child, th:last-child { padding-right: 0; }
 .front-intro p { font-size: 1.08em; line-height: 1.55; margin: 0; }
 .front-intro .section-link { margin-top: .2rem; }
 .front-lead { margin-bottom: 2.4rem; }
+/* This week: a dated block from site/this-week.md, above the lead. */
+.this-week { font-family: var(--sans); font-size: .92rem; line-height: 1.5; margin: -.8rem 0 2rem; padding-bottom: .9rem; border-bottom: 1px solid var(--rule); }
+.this-week h2 { font-family: var(--sans); font-size: 1rem; margin: 0 0 .5rem; }
+.this-week-span { font-weight: 400; color: var(--muted); }
+.this-week ul { list-style: none; padding: 0; margin: 0; }
+.this-week li { margin: 0 0 .45rem; }
+.this-week .tag { vertical-align: .1em; margin-right: .3em; }
+.this-week-reported .tag { border-style: dashed; }
+.this-week-day { color: var(--muted); font-variant-numeric: tabular-nums; margin-right: .25em; white-space: nowrap; }
+.this-week-note { color: var(--muted); font-size: .8rem; margin: .5rem 0 0; }
+.latest-order { font-family: var(--sans); font-size: .8rem; color: var(--muted); margin: 0 0 .6rem; }
 .front-lead h1 a { color: var(--ink); text-decoration: none; }
 .front-lead .lead-deck { font-size: 1.08em; line-height: 1.5; }
 .front-lead figure { margin: 1.1rem 0 0; }

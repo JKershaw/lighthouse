@@ -3,7 +3,7 @@ layout: base.njk
 ---
 <article class="index">
   <p class="kicker"><a href="/studies/">Studies</a> <span aria-hidden="true">/</span> {{ study.id }}</p>
-  <h1><a href="{{ study.lead.url }}">{{ study.lead.title }}</a></h1>
+  <h1><a href="{{ study.lead.url }}" title="{{ study.lead.title }}">{{ study.lead.title | withoutCode }}</a></h1>
   {% if study.inShort %}<p class="in-short">{% if study.inShortFrom == "in short" %}<strong>In short.</strong> {% elif study.inShortFrom == "question" %}<strong>The question.</strong> {% else %}<strong>The answer so far.</strong> {% endif %}{{ study.inShort | escape }}</p>{% endif %}
   {% if study.checkpoints.length %}{% set c = study.checkpoints[0] %}<p class="in-short in-short-latest"><strong>Latest read, {{ c.date }}{% if c.time %}, {{ c.time }}{% endif %}</strong> (unreviewed working note){% if c.inShort %}: {{ c.inShort | escape }}{% else %}.{% endif %} <a href="{{ c.url }}">Read the note</a></p>{% endif %}
   {% set studyPage = true %}{% include "entry-study.njk" %}

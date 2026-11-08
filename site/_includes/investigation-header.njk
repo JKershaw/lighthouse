@@ -19,6 +19,6 @@
   </div>{% endif %}
   {% if inv.studies.length %}<div>
     <dt>Studies</dt>
-    <dd><ol>{% for s in inv.studies %}<li>{% if s.study %}{{ s.study }}: {% endif %}<a href="{{ s.url }}">{{ s.title }}</a></li>{% endfor %}</ol></dd>
+    <dd><ol>{% for s in inv.studies %}<li><a href="{{ s.url }}"{% if s.study %} title="{{ s.study }}"{% endif %}>{{ s.title | withoutCode }}</a></li>{% endfor %}</ol></dd>
   </div>{% endif %}
 </dl>
