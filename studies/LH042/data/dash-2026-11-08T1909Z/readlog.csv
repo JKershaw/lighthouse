@@ -1,0 +1,4 @@
+n,url,start_utc,robots,http_status,bytes,sha256_as_fetched,sha256_saved,final_url,content_type,ipv4_redacted,error
+1,https://declawed.io/,2026-11-08T19:09:17Z,allowed,200,245686,76f5ec4b76f0a7f34edc4f3dfa68cee8daf74dfcc6c2b5292b06a0ae6f3422ae,aeb2cb384ccfb40ec0ef6dcbeb5567fa9d7be10a2929e93714262a719ec19f5f,https://declawed.io/,text/html,6,
+2,https://declawed.io/api/stats,2026-11-08T19:09:20Z,disallowed,,,,,,,,not fetched: robots.txt disallows
+3,https://dashboard.shadowserver.org/,2026-11-08T19:09:20Z,robots unreadable (URLError),,0,,,,,0,URLError: <urlopen error [Errno 104] Connection reset by peer>
