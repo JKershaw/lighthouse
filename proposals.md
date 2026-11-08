@@ -27,7 +27,7 @@ Set by the keeper (7 November 2026) and flexible: when a limit bites, a run says
 
 ## From the keeper
 
-Last reviewed by the keeper: 2026-11-07T10:45Z (written by /keeper at the end of each review).
+Last reviewed by the keeper: 2026-11-08T21:10Z (written by /keeper at the end of each review).
 
 Directions, blind spots and things to look at. The sweep reads this first and treats each line as a proposal of the highest priority it can give.
 
@@ -41,13 +41,14 @@ Directions, blind spots and things to look at. The sweep reads this first and tr
 
 ## For the next review
 
-Written by the sweep of 7 November 2026 (08:53 UTC), the first, run as a test.
+Written by the keeper's review of 8 November 2026 (18:30 to 21:10 UTC), which the keeper turned into a working session with a spend allowance.
 
-- **Started without review:** P-0015, how far the poisoned LiteLLM 1.107.0 travelled before it was pulled, under the gate's conditions. The throttle stands at 1 of 2 new studies this week, 0 of 2 urgent watches; the gate kept the second slot free for what the sweeps of 10 and 13 November find.
-- **Decided by the keeper, 7 November 2026:** yes to P-0014 and P-0013, and the free slot to L-0014, drawn up as P-0017 and started. The earlier text: **waiting for you:** P-0014, a third investigation (what AI activity costs the shared internet, and whether any of it sustains itself), and P-0013, the closing web, which would open under it. Recommendation: yes to both, with the gate's conditions on P-0013 (Lighthouse's own requests labelled and time-limited).
-- **The gate overruled the driving session** on P-0012 (GitHub's trigger change): not urgent, since nothing is lost by waiting, and overstated as a switch-off. It went to the backlog, as did P-0016 (Brotli).
-- **Leads the gate judged more urgent than some proposals:** L-0014 (WordPress core's version shares, which change daily and keep no history) and L-0011 (compute prices, whose free history rolls over). Either could take the free slot; recommendation: L-0014, which fits the software-updates instruments.
-- **Spend since the last review:** the sweep's seven scouts about $7.7 (six Sonnet 5.5 scouts unpriced, about $5 at Sonnet 5's rates; the Opus wildcard $2.68), the gate as in the commit.
+- **Decided by the keeper, 8 November:** P-0002 later; reviews of LH041, LH042 and LH044 yes; This week kept by the run (runner.md step 7); P-0021 (a compute price) waits, no publisher asked; robots.txt followed to its redirects (LH044); and four rules now in AGENTS.md: no re-identifying what a source anonymised ("a line we won't cross"), agents briefed to be cautious, email addresses withheld, and robots.txt obeyed as Lighthouse and as whatever runs it (the strictest applicable group). The keeper's thread on classes of data and access, and on the keeper's own route to data agents cannot reach, is P-0022, started as LH047 with a paper to follow.
+- **Started under the keeper's allowance:** LH041 (registry worms, record 0.2 after evidence review), LH042 (exposed AI services, 0.2), LH043 (agents in public, closed: the accounts name nothing a reader could look up), LH044 (the closing web, brief with five amendments and a reviewed baseline; weekly reads from 15 November to 7 February), LH045 (records that roll over: Epoch's log and an IETF census; prices dropped for their terms), LH046 (GH Archive coverage, 0.2 after evidence review: pushes, branch creations and deletions missing from 15 per cent of sampled hours before 15 October and 67 per cent after), LH047 (the rules of the road, 0.1). Reader reviews of LH041, LH042 and LH046 and the evidence review of LH047 are rows by 16 November.
+- **Released:** the essay What the watch would see of a pattern that copies itself (claims check, reader review, recheck). An independent reproduction of LH011's pace result matched every figure (notes/reproduction-2026-11-08/), the programme's first done condition for one result. Site: This week, plainer run line, codes off reader surfaces.
+- **Faults found and kept:** an agent read half a robots.txt and made two disallowed requests (notes/incidents/2026-11-08-robots-partial-read/, which the keeper called "a very mild version" of the essay's question); LH047's audit of the evening's 3,497 requests counts 185 breaches under Lighthouse's own token (204 under the keeper's rule), mostly collectors that never read robots.txt; rows robots-sweep-1 and use-reference-1 repair them this week, and P-0023 proposes one shared fetcher. Two slips of the driving session's own (a too-broad replacement in this file; a commit loop) were fixed.
+- **Waiting for you:** whether PyPI's documented JSON API counts as permission despite its robots.txt (recommendation: no; stop using it); and, when the reviews are in, the "Later evidence" notices on the map and What we can see (row LH046-notices).
+- **Spend since the last review:** the two scheduled runs about $14 (7 November $8.5, 8 November $5.7); the /keeper trials $4.1; the essay's Claude claims check $3.1; this session about $115 at list rates (19 subagents about $92 priced, one, the essay writer, unpriced at an estimated $8; the driver about $16). The Codex sessions that wrote It was only a test are not priced.
 
 ## Started without review
 
