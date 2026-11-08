@@ -31,7 +31,7 @@ Last reviewed by the keeper: 2026-11-07T10:45Z (written by /keeper at the end of
 
 Directions, blind spots and things to look at. The sweep reads this first and treats each line as a proposal of the highest priority it can give.
 
-- (none yet)
+- 8 November 2026, at the review: about $200 to $1,000 of spend for that session (at list rates; the keeper pays a subscription with a weekly cap, not list prices), to assign as the session sees fit, "ideally covering any gaps". Don't worry too much about budget. What the session starts under this counts as started by the keeper.
 
 ## For the next review
 
@@ -93,11 +93,12 @@ Agreed and not yet started: the next run takes these after the started lane (sch
 
 ### P-0002 The installer's version beside the flat download profile
 
-- Kind: deepening. Priority: normal. Status: waiting for the keeper (the read needs a BigQuery account a task must name). Investigation: software updates.
+- Kind: deepening. Priority: normal. Status: waiting for the keeper (later, 8 November 2026; the read needs a BigQuery account a task must name). Investigation: software updates.
 - Source: studies/LH013/LH013.md Next; notes/R-0047-lh013-reader.md; row LH013-installer-brief (the brief only).
 - Why: the reading that boto3's older downloads are an installer trying version after version rests on a profile no field confirms; the installer's version and the burst test could.
 - Cost: one day of the public table; the account is the decision.
 - Next step: the brief is already a row; the read waits for the keeper to name an account, or to decline.
+- Keeper, 2026-11-08: later. The brief (row LH013-installer-brief) goes ahead; it should say whether a free public source, such as ClickPy's SQL, carries the installer's version before any account is named.
 
 ## Backlog
 
@@ -273,4 +274,4 @@ From the [editor's visit of 7 November 2026](notes/editor/2026-11-07T0956Z.md):
 
 ## Declined, parked and expired
 
-- (none yet)
+- 8 November 2026, at the review: about $200 to $1,000 of spend for that session (at list rates; the keeper pays a subscription with a weekly cap, not list prices), to assign as the session sees fit, "ideally covering any gaps". Don't worry too much about budget. What the session starts under this counts as started by the keeper.
