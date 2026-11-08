@@ -9,7 +9,7 @@ The person running this is the keeper. Put them back in the driver's seat in a f
 
 ## 1. Read, quietly
 
-Start from `origin/main` (fetch it; work on the session's branch). If the branch carries commits not yet on main, say so: the scheduled run reads main. The keeper's last review is the time on the line "Last reviewed by the keeper:" in proposals.md. Since then:
+Start from `origin/main` (fetch it; work on the session's branch). If the branch carries commits not yet on main, say so and offer to push them: the scheduled run reads main, so work left on a branch is work the watch cannot see. The keeper's last review is the time on the line "Last reviewed by the keeper:" in proposals.md. Since then:
 
 - `git log origin/main --since=<last review>` and the lines of schedule/runs.csv since then: what ran.
 - releases.md: what was published.
