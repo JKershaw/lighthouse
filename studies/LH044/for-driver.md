@@ -56,6 +56,7 @@ Proposed as new entries (next free S numbers; the driving session assigns them).
 
 ## Leads and proposals
 
+- **Amendment 4 made** (after R-0059, 8 November 2026, post hoc, from read 1): robots.txt read to 512 KiB with no cut-off line applied; echoed addresses and route recorded, tallies within route; a refresh-to-captcha signature (classifier 0.3). Still open for the keeper: whether to honour robots.txt groups for Anthropic's agent tokens (brief, Amendments, open question; eight baseline probes went to hosts disallowing one at the probe path). The study page must be on main before read 1 (R-0059, Found 5).
 - **Amendment 3 made** (the driving session's decision, 8 November 2026): robots.txt redirects are followed, up to five, from read 1; at most seven requests to any host in a read; brief, Amendments. Not retroactive.
 - **A Wayback route.** Measure 5 needs a machine that reaches web.archive.org. Running `collect.py --wayback <label>` there, with the same code and caps, is the brief's provision; it needs a task that names the machine.
 - **Correction to the gate's note on P-0013** (proposals.md, and notes/horizon/2026-11-07T0853Z.md): kernel.org's post names "AI crawlers" and training data as well as scrapers (statements/coded.csv, S01). Worth a line where the gate's reading is quoted.

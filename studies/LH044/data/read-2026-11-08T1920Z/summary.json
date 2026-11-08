@@ -35,5 +35,68 @@
   "direct": 4,
   "direct-http": 61
  },
- "egress_ip_echoed": []
+ "by_stratum_route": {
+  "named|egress-proxy": {
+   "robots_disallowed": 21,
+   "unread_proxy": 2,
+   "open": 49,
+   "server_error": 1,
+   "challenge": 3,
+   "refused": 1,
+   "robots_redirect": 8,
+   "wall_at_robots": 6,
+   "rate_limited": 3,
+   "robots_unreachable": 1,
+   "redirect_other": 1,
+   "gone": 1
+  },
+  "named|direct": {
+   "robots_disallowed": 2,
+   "open": 1
+  },
+  "named|direct-http": {
+   "open": 1
+  },
+  "drawn|direct-http": {
+   "robots_unreachable": 8,
+   "open_unconfirmed": 1,
+   "robots_redirect": 13,
+   "robots_disallowed": 8,
+   "client_error_other": 1,
+   "gone": 2,
+   "open": 11
+  },
+  "drawn|egress-proxy": {
+   "gone": 3,
+   "open": 6,
+   "robots_unreachable": 3,
+   "robots_disallowed": 1,
+   "robots_redirect": 1,
+   "open_unconfirmed": 1,
+   "wall_at_robots": 1
+  }
+ },
+ "egress_ip_echoed": {
+  "egress-proxy": [
+   "160.79.106.130",
+   "160.79.106.131",
+   "160.79.106.141",
+   "160.79.106.143",
+   "160.79.106.16",
+   "160.79.106.30"
+  ],
+  "direct-http": [
+   "34.136.29.35",
+   "34.172.54.233"
+  ]
+ },
+ "echoed_blocks_16": {
+  "egress-proxy": [
+   "160.79.0.0/16"
+  ],
+  "direct-http": [
+   "34.136.0.0/16",
+   "34.172.0.0/16"
+  ]
+ }
 }

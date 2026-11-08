@@ -37,7 +37,8 @@ from lh044lib import fetch, header, UA_PLAIN, UA_COMPAT, ROBOTS_TOKEN, utcnow  #
 sys.path.insert(0, str(Path(__file__).resolve().parents[3] / 'scripts'))
 from redact_emails import redact_bytes  # noqa: E402  (the keeper, 8 November 2026: addresses withheld)
 from classify import (classify, parse_robots, robots_allowed, AI_TOKENS, WALL_CLASSES,  # noqa: E402
-                      CLASSIFIER_VERSION)
+                      CLASSIFIER_VERSION, version_for, complete_lines)
+import re  # noqa: E402
 
 ROOT = Path(__file__).resolve().parents[1]
 END = datetime(2027, 2, 9, 23, 59, 59, tzinfo=timezone.utc)
@@ -48,6 +49,17 @@ PAUSE = 1.5
 # 1 probe for a single service), enforced across all services.
 ROBOTS_MAX_REDIRECTS = 5
 HOST_CAP = 7
+# Amendment 4 (8 November 2026, post hoc, from read 1): robots.txt is read up to 512 KiB (RFC 9309
+# section 2.5 asks for at least 500 KiB); a file still cut at that size is robots_unreachable for
+# the read (no probe), and its cut-off last line is never applied, even to measure 4.
+ROBOTS_CAP = 512 * 1024
+# Headers and body patterns that echo the client's address back (amendment 4, measure of route).
+ECHO_HEADERS = re.compile(r'(?i)^(x-ip|x-client-ip|x-ratelimit-ip|x-real-ip|x-forwarded-for|x-originating-ip|'
+                          r'cf-connecting-ip|true-client-ip|x-remote-addr|x-remote-ip|remote-addr|x-your-ip|'
+                          r'x-client-address|x-visitor-ip)$')
+IPV4 = r'(?<![\d.])(?:\d{1,3}\.){3}\d{1,3}(?![\d.])'
+ECHO_BODY = re.compile(r'(?i)(?:\bipr?\b|client[_ -]?ip|remote[_ -]?addr(?:ess)?|your ip(?: address)?(?: is)?|'
+                       r'ip[_ -]?address)["\'=:\s>/]{1,6}(' + IPV4 + r')')
 ACCEPT = {
     'page': 'text/html,application/xhtml+xml;q=0.9,*/*;q=0.8',
     'api': 'application/json, application/xml;q=0.9, */*;q=0.5',
@@ -94,6 +106,7 @@ class Recorder:
         self.dir.mkdir(parents=True)
         self.n = 0
         self.host_counts = {}
+        self.v03 = True   # set False only when re-creating a pre-amendment-4 read
         self.f = open(self.dir / 'readlog.csv', 'w', newline='')
         self.w = csv.DictWriter(self.f, fieldnames=LOG_FIELDS)
         self.w.writeheader()
@@ -168,7 +181,7 @@ def fetch_robots(rec, sid, url):
         if host_full(rec, cur):
             return r, chain, 'host_cap'
         r = rec.get(sid, 'robots' if hop == 0 else 'robots-redirect-%d' % hop, cur, UA_PLAIN,
-                    'text/plain, */*;q=0.5')
+                    'text/plain, */*;q=0.5', cap=ROBOTS_CAP if rec.v03 else 65536)
         chain.append(r['n'])
         if r['error'] or not r['status'] or not (300 <= r['status'] < 400):
             break
@@ -182,18 +195,21 @@ def fetch_robots(rec, sid, url):
     return r, chain, ''
 
 
-def robots_outcome(res):
+def robots_outcome(res, version=CLASSIFIER_VERSION):
     """What a robots.txt response allows. Returns (state, groups, class, detail)."""
     if res['error']:
         return 'unreachable', None, 'robots_unreachable', res['error']
     st = res['status']
-    cls, det = classify(st, None, res['headers'], res['body'], 'file', '', res['url'])
+    cls, det = classify(st, None, res['headers'], res['body'], 'file', '', res['url'], version=version)
     if cls == 'unread_proxy':
         # this container's own refusal, e.g. a redirect onto github.com: not the origin's answer
         return 'unreachable', None, 'robots_unreachable', det
     if cls in ('challenge', 'rate_limited'):
         return 'wall', None, 'wall_at_robots', cls + ':' + det
     if 200 <= st < 300:
+        truncated = str(res.get('truncated', False)) == 'True'
+        if version >= '0.3' and truncated:
+            return 'truncated', None, 'robots_unreachable', 'robots.txt longer than %d bytes' % ROBOTS_CAP
         return 'parsed', parse_robots(res['body'].decode('utf-8', 'replace')), '', ''
     if 300 <= st < 400:
         return 'redirect', None, 'robots_redirect', header(res, 'location')[:120]
@@ -209,7 +225,9 @@ def do_read(label):
         sys.exit('read %s already held' % label)
     panel = load_panel()
     holds = previous_holds(label)
+    version = version_for(label)
     rec = Recorder(out)
+    rec.v03 = version >= '0.3'
     services = []
     t0 = utcnow()
     for s in panel:
@@ -231,7 +249,7 @@ def do_read(label):
                         'pre_class': 'robots_unreachable', 'pre_detail': 'host cap reached'})
             services.append(row)
             continue
-        state, groups, pcls, pdet = robots_outcome(rr)
+        state, groups, pcls, pdet = robots_outcome(rr, version)
         row['robots_n'], row['robots_state'] = rr['n'], state
         if pcls:
             row.update({'pre_class': pcls, 'pre_detail': pdet})
@@ -267,10 +285,30 @@ def _load_resp(d, n):
             'body': (d / ('%04d.b' % int(n))).read_bytes()}
 
 
+def scan_echoes(headers, body):
+    """Addresses a response echoes back: named headers, any header whose whole value is an IPv4
+    address, and addresses that follow an address-like key in the kept body."""
+    out = []
+    for k, v in headers:
+        if ECHO_HEADERS.match(k.strip()) or re.fullmatch(IPV4, v.strip() or 'x'):
+            for a in re.findall(IPV4, v):
+                out.append(('header', k.strip().lower(), a))
+    text = body.decode('utf-8', 'replace') if isinstance(body, bytes) else body
+    for m in ECHO_BODY.finditer(text):
+        out.append(('body', m.group(0).split(m.group(1))[0].strip()[:30], m.group(1)))
+    seen, uniq = set(), []
+    for x in out:
+        if x not in seen:
+            seen.add(x)
+            uniq.append(x)
+    return uniq
+
+
 def do_classify(label):
     d = ROOT / 'data' / ('read-' + label)
     meta = json.load(open(d / 'services.json'))
     log = {r['n']: r for r in csv.DictReader(open(d / 'readlog.csv'))}
+    version = version_for(label)
     rows, robots_rows = [], []
     for s in meta['services']:
         cls, det, status, ra = s['pre_class'], s['pre_detail'], '', ''
@@ -279,8 +317,8 @@ def do_classify(label):
             # re-read the kept robots.txt response with the current classifier
             rl = log[str(s['robots_n'])]
             rresp = _load_resp(d, s['robots_n'])
-            rresp.update({'error': rl['error'] or None, 'url': rl['url']})
-            state, _, pcls, pdet = robots_outcome(rresp)
+            rresp.update({'error': rl['error'] or None, 'url': rl['url'], 'truncated': rl['truncated']})
+            state, _, pcls, pdet = robots_outcome(rresp, version)
             if pcls:
                 cls, det = pcls, pdet
             else:
@@ -290,7 +328,7 @@ def do_classify(label):
             resp = _load_resp(d, s['probe_n'])
             err = lr['error'] or None
             cls, det = classify(resp['status'] or 0, err, resp['headers'], resp['body'],
-                                s['surface'], s['marker'], s['url'])
+                                s['surface'], s['marker'], s['url'], version=version)
             status = lr['status']
             if cls in ('rate_limited',):
                 u = retry_after_until({'headers': resp['headers'], 'utc': lr['utc']})
@@ -299,9 +337,13 @@ def do_classify(label):
                      'surface': s['surface'], 'prior': s['prior'], 'robots_state': s['robots_state'],
                      'status': status, 'class': cls, 'detail': det,
                      'wall': 'yes' if cls in WALL_CLASSES else 'no', 'retry_after_until': ra,
-                     'classifier': CLASSIFIER_VERSION})
+                     'classifier': version,
+                     'route': log[str(s['probe_n'] or s['robots_n'])]['route'] if (s['probe_n'] or s['robots_n']) else ''})
         if s['robots_n'] and s['robots_state'] == 'parsed':
-            g = parse_robots(_load_resp(d, s['robots_n'])['body'].decode('utf-8', 'replace'))
+            rtext = _load_resp(d, s['robots_n'])['body'].decode('utf-8', 'replace')
+            if version >= '0.3':
+                rtext = complete_lines(rtext, log[str(s['robots_n'])]['truncated'] == 'True')
+            g = parse_robots(rtext)
             root = '%s://%s/' % (urlsplit(s['url']).scheme, urlsplit(s['url']).netloc)
             rr = {'id': s['id'], 'host': s['host'],
                   'lighthouse_probe_allowed': robots_allowed(g, ROBOTS_TOKEN, s['url']),
@@ -320,7 +362,7 @@ def do_classify(label):
             w.writeheader()
             w.writerows(robots_rows)
     # summary
-    summ = {'label': label, 'classifier': CLASSIFIER_VERSION, 'requests': len(log),
+    summ = {'label': label, 'classifier': version, 'requests': len(log),
             'bytes_retained': sum(int(r['bytes']) for r in log.values()), 'by_stratum': {}}
     for r in rows:
         summ['by_stratum'].setdefault(r['stratum'], {}).setdefault(r['class'], 0)
@@ -333,13 +375,30 @@ def do_classify(label):
     summ['routes'] = {}
     for r in log.values():
         summ['routes'][r['route']] = summ['routes'].get(r['route'], 0) + 1
-    xip = set()
-    for n, r in log.items():
+    # tallies within route (amendment 4): the strata were read partly over different routes
+    summ['by_stratum_route'] = {}
+    for r in rows:
+        k = '%s|%s' % (r['stratum'], r['route'] or 'none')
+        summ['by_stratum_route'].setdefault(k, {}).setdefault(r['class'], 0)
+        summ['by_stratum_route'][k][r['class']] += 1
+    # addresses echoed back by responses, per route (amendment 4)
+    echoes = []
+    for n, r in sorted(log.items(), key=lambda kv: int(kv[0])):
         resp = _load_resp(d, n)
-        for k, v in resp['headers']:
-            if k.lower() == 'x-ip':
-                xip.add(v)
-    summ['egress_ip_echoed'] = sorted(xip)
+        for where, name, addr in scan_echoes(resp['headers'], resp['body']):
+            echoes.append({'n': n, 'service': r['service'], 'route': r['route'], 'where': where,
+                           'name': name, 'address': addr})
+    with open(d / 'echoes.csv', 'w', newline='') as f:
+        w = csv.DictWriter(f, fieldnames=['n', 'service', 'route', 'where', 'name', 'address'])
+        w.writeheader()
+        w.writerows(echoes)
+    summ['egress_ip_echoed'] = {}
+    summ['echoed_blocks_16'] = {}
+    for e in echoes:
+        summ['egress_ip_echoed'].setdefault(e['route'], set()).add(e['address'])
+    for rt, addrs in list(summ['egress_ip_echoed'].items()):
+        summ['egress_ip_echoed'][rt] = sorted(addrs)
+        summ['echoed_blocks_16'][rt] = sorted({'.'.join(a.split('.')[:2]) + '.0.0/16' for a in addrs})
     with open(d / 'summary.json', 'w') as f:
         json.dump(summ, f, indent=1)
     print(json.dumps(summ, indent=1))

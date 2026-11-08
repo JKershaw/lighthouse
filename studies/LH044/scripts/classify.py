@@ -14,7 +14,15 @@ final robots.txt to the probe host; matching here is unchanged.
 import re
 from urllib.parse import urlsplit, quote, unquote
 
-CLASSIFIER_VERSION = '0.2'
+CLASSIFIER_VERSION = '0.3'
+# Amendment 4 (8 November 2026, post hoc, from read 1): reads labelled before AMENDMENT4_FROM are
+# classified as version 0.2, so the baseline stays as read; later reads as 0.3.
+AMENDMENT4_FROM = '2026-11-09'
+
+
+def version_for(label):
+    return '0.3' if label >= AMENDMENT4_FROM else '0.2'
+
 
 WALL_CLASSES = ('challenge', 'login', 'rate_limited', 'refused', 'api_closed', 'wall_at_robots')
 
@@ -35,6 +43,13 @@ CHALLENGE_SIGS = [
     ('sucuri', 'b', r'sucuri_cloudproxy_js'),
     ('vercel', 'h:x-vercel-mitigated', r'challenge'),
     ('kasada', 'b', r'KPSDK'),
+]
+# 0.3 (amendment 4, post hoc, after the baseline's P04): a page that sends the client at once to a
+# captcha path, by meta refresh or a script, as the `/.well-known/sgcaptcha/` pages did.
+CHALLENGE_SIGS_03 = [
+    ('captcha-refresh', 'b', r'(?is)http-equiv=["\']?refresh["\']?[^>]*url=[^"\'>]*captcha'
+                             r'|/\.well-known/sgcaptcha/'
+                             r'|location(?:\.href)?\s*=\s*["\'][^"\']*captcha'),
 ]
 # Captcha widgets count as a challenge only when the expected content marker is absent.
 CAPTCHA_SIGS = [
@@ -79,8 +94,9 @@ CONTAINER_SIGS = [
 ]
 
 
-def classify(status, error, headers, body, surface, marker, url=''):
-    """Return (class, detail). surface is 'page', 'api' or 'file'; marker may be ''."""
+def classify(status, error, headers, body, surface, marker, url='', version=CLASSIFIER_VERSION):
+    """Return (class, detail). surface is 'page', 'api' or 'file'; marker may be ''. version '0.2'
+    reproduces the baseline's classifier; '0.3' adds CHALLENGE_SIGS_03."""
     if error:
         if error == 'proxy_refused':
             return 'unread_proxy', error
@@ -91,6 +107,8 @@ def classify(status, error, headers, body, surface, marker, url=''):
         return 'unread_proxy', own
     marker_found = bool(marker) and marker in text
     vendor = _match(CHALLENGE_SIGS, headers, text)
+    if not vendor and version >= '0.3':
+        vendor = _match(CHALLENGE_SIGS_03, headers, text)
     if vendor and not (200 <= status < 300 and marker_found):
         return 'challenge', vendor
     if status == 429:
@@ -164,6 +182,14 @@ def parse_robots(text):
     if agents or rules:
         groups.append((agents, rules))
     return groups
+
+
+def complete_lines(text, truncated):
+    """Amendment 4: never apply a cut-off last line. If the body was cut at the read limit, drop
+    everything after the last newline."""
+    if truncated and '\n' in text:
+        return text[:text.rindex('\n') + 1]
+    return '' if truncated else text
 
 
 def _rules_for(groups, token):
