@@ -22,7 +22,7 @@ Every row is a publisher's own count, admitted under the brief. Rows of differen
 | C16 | 2026-03-14 to 2026-03-20 | 224,551 | Shodan port detections | Ollama | OpenA2A Research (March sweep report) | Shodan index totals, port-based (default port only) | snapshot | S13 | scan window | round3-2026-11-08/001 |
 | C13 | 2026-03-27 | over 5,200 | Ollama APIs | Ollama | Intruder | own scan of about 2 million hosts drawn from certificate-transparency names with AI-like subdomains (a slice, by Intruder's account) | snapshot | S10 | publication | round2-2026-11-08/003 |
 | C15 | 2026-04-11 | 25,036 | hosts | Ollama | OpenA2A Research (April sweep report) | Shodan index totals, product classification for Ollama | snapshot | S12 | scan | round2-2026-11-08/001 |
-| C14 | 2026-04 | over 25,000 | hosts | Ollama | insecurestack (independent writer) | a Shodan product-classification query, April 2026 | snapshot | S11 | scan | round1-2026-11-08/015 |
+| C14 | 2026-04 | over 25,000 | hosts | Ollama | insecurestack (independent writer) | re-ran Cisco Talos's September 2025 Shodan query, which the page does not give | snapshot | S11 | scan | round1-2026-11-08/015 |
 | C17 | 2026-05-11 | 25,488 | hosts | Ollama | CyberDesserts | Shodan structured product classification, queried 11 May 2026 | snapshot | S14 | scan | round1-2026-11-08/008 |
 | C18 | 2026-05-11 | about 30,000 | hosts | Ollama | CyberDesserts | Censys index query, 11 May 2026 | snapshot | S15 | scan | round1-2026-11-08/008 |
 | C19 | 2026-05-11 | roughly 1,165 | hosts | Ollama | CyberDesserts | Shodan banner search, 11 May 2026 | snapshot | S16 | scan | round1-2026-11-08/008 |

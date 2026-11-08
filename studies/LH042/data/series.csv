@@ -9,7 +9,7 @@ S07,1,Ollama,LeakIX,LeakIX's own continuous internet scanning (its Ollama plugin
 S08,1,Ollama,TrendAI (Trend Micro),"Shodan index data, beginning of September to mid-December 2025",cumulative,servers hosting Ollama at some point in the window,1,1,2025-12-15,"nearly 230,000",2025-12-15,"nearly 230,000"
 S09,1,Ollama,TrendAI (Trend Micro),"as C11, keeping servers that answered basic status queries as expected",cumulative,confirmed Ollama instances in the window,1,1,2025-12-15,"over 113,000",2025-12-15,"over 113,000"
 S10,1,Ollama,Intruder,"own scan of about 2 million hosts drawn from certificate-transparency names with AI-like subdomains (a slice, by Intruder's account)",snapshot,Ollama APIs,1,1,2026-03-27,"over 5,200",2026-03-27,"over 5,200"
-S11,1,Ollama,insecurestack (independent writer),"a Shodan product-classification query, April 2026",snapshot,hosts,1,1,2026-04,"over 25,000",2026-04,"over 25,000"
+S11,1,Ollama,insecurestack (independent writer),"re-ran Cisco Talos's September 2025 Shodan query, which the page does not give",snapshot,hosts,1,1,2026-04,"over 25,000",2026-04,"over 25,000"
 S12,1,Ollama,OpenA2A Research (April sweep report),"Shodan index totals, product classification for Ollama",snapshot,hosts,1,1,2026-04-11,"25,036",2026-04-11,"25,036"
 S13,1,Ollama,OpenA2A Research (March sweep report),"Shodan index totals, port-based (default port only)",snapshot,Shodan port detections,1,1,2026-03-20,"224,551",2026-03-20,"224,551"
 S14,1,Ollama,CyberDesserts,"Shodan structured product classification, queried 11 May 2026",snapshot,hosts,1,1,2026-05-11,"25,488",2026-05-11,"25,488"

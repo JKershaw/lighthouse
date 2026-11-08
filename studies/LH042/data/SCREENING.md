@@ -53,3 +53,7 @@ studies/LH042/data/round4-2026-11-08/001.body	8 replaced	sha256 before bb7523698
 studies/LH042/data/round4-2026-11-08/002.body	8 replaced	sha256 before 52da5659a9c7df0a4347434aca91351a05e03eebc817b41014df9d51e9537468	after b4f3e07fa377970929d04333fd9a5a8592c73492c8148860d24d7dfb59b2093a
 studies/LH042/data/round5-2026-11-08/001.body	1 replaced	sha256 before 8b16655fa1bc56a469d150c2cb785cf7318537b88ba95ddcaa869037572e1a42	after bbc6cab04c311d51a50e437c98f44d6aaa5bf4f939609a18c23fd44152a75275
 ```
+
+## A second copy of the quoted key (8 November 2026, after the evidence review)
+
+The evidence review (notes/R-0058-lh042-evidence.md) found the same API-key string still present in round1-2026-11-08/034.body in URL-encoded form, inside a code block's copy attribute. The driving session replaced its value with `%5Bredacted-by-Lighthouse%5D` at about 20:45 UTC. SHA-256 before 94fbdac02c105f7fe942f74078e0f35f8beda75ddea9fa57a383ffea123ea451, after e54471ee7b3b371e0a991b2ed71bcbc8ca423e91899ecb2298b48f19e3dcb834. Earlier commits (from 3d1ec7a) still hold it; history is not rewritten. The key appears in the publisher's own public write-up of a proxy SDK it analysed. The other key-like strings the review's grep flags are sites' own public client tokens embedded in their pages (analytics and widget keys marked public), left as received.
