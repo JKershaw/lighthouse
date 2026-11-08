@@ -196,6 +196,7 @@ Each proposal: kind (watch, deepening, repair, new question, new investigation),
 - Why: several readings lean on GH Archive; its completeness was never measured.
 - Cost: small.
 - Next step: a cohort and a window chosen before reading.
+- LH046 (8 November 2026, record 0.1, unreviewed) measured the whole feed hour by hour: from September many hours hold no pushes, and in January to August the non-push types thinned. A cohort study would have to choose hours where the relevant types are present; LH046's data/files.csv says which sampled hours those are.
 
 ### P-0007 What stays behind in the projects below the top fifty
 
@@ -289,12 +290,14 @@ From the [editor's visit of 7 November 2026](notes/editor/2026-11-07T0956Z.md):
 From the studies and site work of 8 November 2026:
 
 - L-0036 Twelve older study records have no **In short.** opening, so their site pages lead with an Answer or Question that cites other studies' codes: LH003, LH004, LH005, LH008, LH009, LH013, LH015, LH016, LH017, LH019, LH020 and LH025; LH000's title and LH042's search log start with a code, and LH039's lead file's kind line carries codes. Adding the openings (AGENTS.md, Writing) would finish P-0019 on study pages; the site was not made to rewrite record text ([site/for-driver.md](site/for-driver.md)).
-- L-0037 GH Archive's coverage on hours unrelated to any incident ([studies/LH043/for-driver.md](studies/LH043/for-driver.md)). Taken up 8 November 2026 as LH046, a repair ([brief](studies/LH046/brief.md)), after a reviewer's scan found no push events in 16 of 24 noon hours from 15 October; under way.
+- L-0037 GH Archive's coverage on hours unrelated to any incident ([studies/LH043/for-driver.md](studies/LH043/for-driver.md)). Taken up 8 November 2026 as LH046, a repair ([brief](studies/LH046/brief.md)), after a reviewer's scan found no push events in 16 of 24 noon hours from 15 October; [record](studies/LH046/LH046.md) 0.1, unreviewed, the same evening: every file present, but pushes, new branches and deletions absent from 26 of 176 sampled hours from 1 September to 14 October and 64 of 96 from 15 October; cause unknown.
 - L-0038 A Wayback route for the closing web: its measure 5 (dating each wall) needs a machine that reaches web.archive.org, which the cloud container never has; the brief provides for running `collect.py --wayback <label>` there with the same code and caps, given a task that names the machine ([studies/LH044/for-driver.md](studies/LH044/for-driver.md)).
 - L-0039 Declared walls over time: 11 robots.txt files in the closing web's panel allow every crawler but disallow named AI crawler tokens, and one redirects to the ai.robots.txt project's list; the Wayback, when readable, holds robots.txt history that would date these declarations with no request to the operators (LH044).
 - L-0040 The container as a sensor: the cloud container's own policy answers for github.com and api.github.com with a 403 of its own, and its address block is Anthropic's (sources.md S35), so a study reading github.com from there reads the sandbox, not GitHub. LH044 suggests a line in CLAUDE.md's note on github.com, which waits for the keeper.
 - L-0041 The registry worms' public exfiltration repositories as a dated count: how many public repositories carry each wave's published description (the phrases the vendors print), by creation date, in aggregate only, naming no account and identifying no victim (the keeper's caution of 8 November 2026). Would date the worms' reach on developer machines and CI, which the registry records cannot see ([LH041](studies/LH041/LH041.md), Next).
 - L-0042 A test of the essay's post hoc reading that fetch counts of a newly pinned package track its pinning repositories' CI activity rather than new adopters ([the essay's notes](notes/what-the-watch-would-see-draft-notes.md)). Low priority.
+- L-0043 When did GH Archive's non-push event types thin, and did any reach zero? LH046's 16 reference hours show pull request events per hour falling from 11,989 (1 January 12:00) to 95 (15 August 12:00) while pushes rose; bears on LH043's July hour (425 pull request events) and on any 2026 reading. Repair; small, the same collector on more hours ([LH046](studies/LH046/LH046.md), finding 8).
+- L-0044 No tag or repository creation appeared in any of 1,808,380 CreateEvents in the 2026 GH Archive files LH046 read, though GitHub's docs list both; whether that holds for 2025 is unread ([LH046](studies/LH046/LH046.md), finding 9).
 
 ## Declined, parked and expired
 

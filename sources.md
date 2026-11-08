@@ -257,3 +257,28 @@ https://github.com/ossf/malicious-packages
 registry.npmjs.org/<package>: per-version publish times (`time`), which LH041 found kept for many removed malicious versions, the current maintainers, dist-tags and surviving version documents. Read anonymously; deleted packages answer 404. LH041 read 2,198 on 8 November 2026 (84 answered 404).
 
 https://registry.npmjs.org/
+
+### S42 GitHub REST API documentation: events and event types
+
+GitHub's pages on the public events API and its event types (undated; API version 2026-03-10 in the examples). Public events' latency is "anywhere from 30s to 6h"; a PushEvent payload carries no commits; CreateEvent's ref types are branch, tag and repository. No change notice for October or November 2026. LH046 read them on 8 November 2026 and keeps them in studies/LH046/data/sources/.
+
+https://docs.github.com/en/rest/activity/events
+https://docs.github.com/en/rest/using-the-rest-api/github-event-types
+
+### S43 GitHub changelog, "Upcoming changes to GitHub Events API payloads"
+
+Published 8 August 2025: push events lose commit summaries and counts from 7 October 2025, which explains the PushEvent payload LH002 and LH046 saw. Read 8 November 2026.
+
+https://github.blog/changelog/2025-08-08-upcoming-changes-to-github-events-api-payloads/
+
+### S44 GitHub changelog, "Email notifications for repository push events have been retired"
+
+Published 15 October 2026. A different feature from the events API; recorded by LH046 because of its date, with no link to the archive's gaps stated. Read 8 November 2026.
+
+https://github.blog/changelog/2026-10-15-email-notifications-for-repository-push-events-have-been-retired
+
+### S45 GitHub status incidents API
+
+GitHub's status page's incident feed: the last 50 incidents, 31 August to 8 November 2026, when LH046 read it on 8 November 2026. No incident names the public events API.
+
+https://www.githubstatus.com/api/v2/incidents.json

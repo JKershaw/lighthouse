@@ -83,6 +83,8 @@ Attention says where we are looking; this says how firm the findings are. That a
 - [The PHP official-image publisher chain](../studies/LH020/LH020.md), 21 October 2026: a selected public issue, two linked PRs and a successful official-images CI rerun precede the registry observations. The records separate communication, review, CI and image publication; intermediate production builds and consumer use remain unmeasured.
 - [A first consumer CI feasibility slice](../studies/LH021/LH021.md), 21 October 2026: selected public image projects show base-image instructions and runs at sampled commits, but neither resolved base digests nor deployments. The small deterministic file cap misses Nextcloud's main recipes; it cannot produce an uptake rate.
 
+- GH Archive, the hourly record of public GitHub activity that we read for one hour of April 2026, held every event type in that hour, but from September many of its hourly files hold no pushes, and earlier in 2026 its other event types thinned sharply ([the record](../studies/LH046/LH046.md), version 0.1, unreviewed). The April hour is unchanged; any further reading of the archive here should first count what each hour holds.
+
 - [The xz backdoor sat in public for nearly five weeks until a slow login gave it away](../articles/the-xz-backdoor.md): a historical case of a compromise travelling the same kind of distribution roads, unseen by the public sources we surveyed.
 - [We can see pieces of the internet's AI activity, but not how they fit together](../articles/what-we-can-see.md): the survey of public sources whose edges this investigation keeps meeting.
 
