@@ -94,6 +94,14 @@ if PROPOSALS.exists():
         if re.search(r'Status:\s*waiting for the keeper', m.group(3), re.I):
             proposals_waiting.append(f'{m.group(1)}  {m.group(2).strip()}')
 
+# Proposals the keeper agreed that no row of the table names yet.
+agreed_unrowed = []
+if PROPOSALS.exists():
+    m = re.search(r'^## Agreed by the keeper\s*$([\s\S]*?)(?=^## |\Z)', PROPOSALS.read_text(), re.M)
+    for h in re.finditer(r'^### (P-\d+) (.+)$', m.group(1) if m else '', re.M):
+        if not any(r['id'] == h.group(1) or r['id'].startswith(h.group(1) + '-') for r in rows):
+            agreed_unrowed.append(f'{h.group(1)}  {h.group(2).strip()}')
+
 def show(title, items, fmt=lambda r: f'  {r["id"]}  [{r["earliest"]} to {r["latest"] or "open-ended"}]  {r["task"]}'):
     print(f'\n{title}: {len(items)}')
     for r in items:
@@ -106,6 +114,7 @@ show('Overdue (window closed, still open: do it if the brief allows, or mark mis
 show('Stale claims (running for more than six hours: treat as open)', stale)
 show('Waiting on the keeper or blocked', waiting, lambda r: f'  {r["id"]}  {r["status"]}: {r["note"]}')
 show('Proposals waiting for the keeper (proposals.md)', proposals_waiting)
+show('Proposals agreed by the keeper with no row yet (proposals.md)', agreed_unrowed)
 show('Next seven days', upcoming)
 show('Gaps', gaps)
 sys.exit(1 if problems else 0)

@@ -9,7 +9,7 @@ The person running this is the keeper. Put them back in the driver's seat in a f
 
 ## 1. Read, quietly
 
-Start from `origin/main` (fetch it; work on the session's branch). The keeper's last review is the time on the line "Last reviewed by the keeper:" in proposals.md. Since then:
+Start from `origin/main` (fetch it; work on the session's branch). If the branch carries commits not yet on main, say so: the scheduled run reads main. The keeper's last review is the time on the line "Last reviewed by the keeper:" in proposals.md. Since then:
 
 - `git log origin/main --since=<last review>` and the lines of schedule/runs.csv since then: what ran.
 - releases.md: what was published.
@@ -17,12 +17,12 @@ Start from `origin/main` (fetch it; work on the session's branch). The keeper's 
 - the newest notes/horizon/ sweep file, if it is newer than the last review: what the sweep found.
 - notes/php-watch-log.md and any checkpoint that says "flagged for review".
 - proposals.md: the started, agreed and waiting sections and every proposal whose Status says "waiting for the keeper", wherever it sits; the throttle; "From the keeper".
-- `python3 schedule/check.py`: what is due, overdue or stale, keeper rows and proposals waiting, the next seven days.
-- Spend: runs.csv lines and commit messages since then.
+- `python3 schedule/check.py`: what is due, overdue or stale, keeper rows, proposals waiting and agreed proposals with no row yet, the next seven days.
+- Spend: runs.csv lines and commit messages since then; where they differ, the larger whole-run figure, saying so. Price the keeper's own sessions since then with `harbour/hb drivercost --since <last review>` where the transcript is on this machine, else say they are not priced.
 
 Trust statuses over summaries: "For the next review" and row notes can be older than the keeper's last decisions.
 
-## 2. Brief, in under about 350 words
+## 2. Brief, in about 400 words or fewer
 
 Plain and warm, precise, no ceremony (AGENTS.md, Writing). Say what an internal code means the first time it appears, or leave it out. Link files by path. In this order:
 
