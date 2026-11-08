@@ -6,7 +6,7 @@
 
 ## Evidence and method
 
-[Claims and primary-source pinpoints](claims-table.md), [essay design](essay-plan.md), and [revision decisions](review-notes.md). The external sources were read on 8 November 2026. Institutional reports remain attributed accounts, not independent reproductions of private logs. The keeper’s recurring experience is reported and unmeasured. No experiment was launched.
+[Claims and primary-source pinpoints](claims-table.md), [essay design](essay-plan.md), and [revision decisions](review-notes.md). The external sources were read on 8 November 2026. Institutional reports remain attributed accounts, not independent reproductions of private logs. The keeper’s recurring experience is reported and unmeasured. No experiment was launched. The [session record](session-record.md), added on 8 November 2026 after release, sets out the requests, stop-hook messages, pushes and reverts behind the essay's own case, from the Claude Code session's transcript. A [second claims check](claims-check-claude.md), by a fresh Claude agent after release, found no unsupported claim, three to tighten, and seven resting on an OpenAI page it could not reach; its corrections await the keeper.
 
 ## Reviews
 
