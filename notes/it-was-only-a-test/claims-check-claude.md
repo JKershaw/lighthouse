@@ -178,3 +178,8 @@ Read times are UTC on 8 November 2026. "METR" = https://metr.org/blog/2026-08-26
 - **B1** (the ChatGPT library link to the brief). I did not read the link. I used the brief copy in the scratchpad, `essay-brief.md`, and checked it against git and schedule/due.csv.
 - **J1** (the keeper's voice note in another conversation). Not available as a document.
 - **Hugging Face's initial version on github.com.** I did not fetch github.com. I read the same commit (1c5b998) from a local clone of huggingface/blog made earlier today.
+
+
+## Authoring-session resolution, 8 November 2026
+
+This review’s original verdicts and source-access failures are retained above. The authoring session subsequently reopened OpenAI’s page and [verified the seven Australia rows](australia-verification.md). Version 1.1 resolves the motive/frequency qualifications, July-board scope, actual reuse, timeline label and smaller attribution/citation points. Its [dated correction and fresh recheck](../R-0053-it-was-only-a-test-correction.md) distinguish corrections to the existing account from the later session-record addition.

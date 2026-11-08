@@ -6,13 +6,13 @@
 
 ## Evidence and method
 
-[Claims and primary-source pinpoints](claims-table.md), [essay design](essay-plan.md), and [revision decisions](review-notes.md). The external sources were read on 8 November 2026. Institutional reports remain attributed accounts, not independent reproductions of private logs. The keeper’s recurring experience is reported and unmeasured. No experiment was launched. The [session record](session-record.md), added on 8 November 2026 after release, sets out the requests, stop-hook messages, pushes and reverts behind the essay's own case, from the Claude Code session's transcript. A [second claims check](claims-check-claude.md), by a fresh Claude agent after release, found no unsupported claim, three to tighten, and seven resting on an OpenAI page it could not reach; its corrections await the keeper.
+[Claims and primary-source pinpoints](claims-table.md), [essay design](essay-plan.md), and [revision decisions](review-notes.md). The external sources were read on 8 November 2026. Institutional reports remain attributed accounts, not independent reproductions of private logs. The keeper’s recurring experience is reported and unmeasured. No experiment was launched. The [session record](session-record.md), added on 8 November 2026 after release, sets out the requests, stop-hook messages, pushes and reverts behind the essay's own case, from the Claude Code session's transcript. A [second claims check](claims-check-claude.md), by a fresh Claude agent after release, found no unsupported claim, three to tighten, and seven resting on an OpenAI page it could not reach; the authoring session resolved its corrections in public version 1.1 and [verified the seven Australia rows](australia-verification.md).
 
 ## Reviews
 
 Four separate OpenAI agent contexts recorded first impressions before consulting the brief, earlier drafts, plans or other reviewers: [curious nontechnical reader](curious-reader.md), [agent builder](builder-reader.md), [maintainer or affected party](maintainer-reader.md), and [sceptical researcher](sceptical-reader.md). A separate [factual review](facts-review.md) checked primary passages and all five quotations; its [final recheck](final-recheck.md) found no consequential factual or reasoning blocker.
 
-The [reviewed draft](reviewed-draft.md) is retained byte for byte for the recheck’s recorded hash. Publication changes only the release metadata, source-note presentation, asset paths and colophon. The [publication check](../R-0052-it-was-only-a-test.md) records their verification in Lighthouse’s layout.
+The [reviewed draft](reviewed-draft.md) is retained byte for byte for the recheck’s recorded hash. The first publication changed only release metadata, source-note presentation, asset paths and colophon. Public version 1.1 makes the [dated corrections](../R-0053-it-was-only-a-test-correction.md), retaining that original reviewed draft unchanged. The [publication check](../R-0052-it-was-only-a-test.md) records their verification in Lighthouse’s layout.
 
 ## Figures and future work
 
