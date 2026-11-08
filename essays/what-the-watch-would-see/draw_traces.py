@@ -14,9 +14,9 @@ DESC = ('A scenario, not an observation. Six steps of an invented pattern in whi
         'package that leads other agents to publish more. Steps with a public record are drawn solid, with the '
         'record and how soon it could register: the registry listing once the release is up (our reading), the '
         'dependency graph within about an hour for popular packages, download logs from streaming to daily, a malware '
-        'record only if someone reports it. The public event archive is drawn with a dotted outline: its stated '
-        'cadence is hourly, but in a reviewer\'s scan most noon hours from 15 October to 7 November 2026 held no push '
-        'events. In the one malware record read, its own clock began eight days after the upload. Two steps are '
+        'record only if someone reports it. The public event archive is drawn with a dotted outline: its hourly '
+        'files were all present, but in our unreviewed study 64 of 96 sampled from 15 October to 7 November 2026 held '
+        'no push events. In the one malware record read, its own clock began eight days after the upload. Two steps are '
         'drawn dashed and hatched because no public instrument we know of records them: the model computing behind each '
         'decision, and another agent reading the package and deciding to act, which is the link that would make '
         'the copies a pattern. Running the copies is in no public record we know of either.')
@@ -27,7 +27,7 @@ steps = [
     ('A package appears on a registry', 'residue', True, 'Registry listing: once it is up (our reading)', 'dependency graph: about an hour if popular'),
     ('Other machines fetch it', 'residue', True, 'Download logs: streaming to daily', 'a fetch, not an install; not who'),
     ('Another agent reads it and acts', 'propagation', False, 'No public record', 'the link that makes it a pattern'),
-    ('A commit or a new copy is published', 'residue', 'gaps', 'Event archive: stated hourly, with gaps', 'no pushes in 16 of 24 noon hours since 15 Oct'),
+    ('A commit or a new copy is published', 'residue', 'gaps', 'Event archive: hourly files, with gaps', 'no pushes in 64 of 96 sampled hours since 15 Oct'),
     ('Someone reports it as malicious', 'an observer\u2019s record', True, 'Malware records: only if reported', 'one record\u2019s clock began 8 days on'),
 ]
 
@@ -76,8 +76,8 @@ out.append(f'<text class="ann" transform="translate(32 {(y2 + y5) / 2}) rotate(-
 y6 = top + 5 * (box_h + gap)
 out.append(f'<path d="M{x0 + 120} {y5 + box_h / 2 + 2}V{y6 - 3}" stroke="var(--muted)" stroke-width="1.5" '
            f'stroke-dasharray="2 3" fill="none" marker-end="url(#arr)"/>')
-out.append(f'<text class="note" x="24" y="{H - 26}">Running the copies is in no public record we know of. Delays: the instruments\u2019 own pages, a reviewer\u2019s</text>')
-out.append(f'<text class="note" x="24" y="{H - 10}">scan of the event archive\u2019s noon hours (1 Oct to 7 Nov 2026), and one OSV record (October 2026).</text>')
+out.append(f'<text class="note" x="24" y="{H - 26}">Running the copies is in no public record we know of. Delays: the instruments\u2019 own pages, our unreviewed</text>')
+out.append(f'<text class="note" x="24" y="{H - 10}">study of the event archive\u2019s hourly files (Sep to Nov 2026), and one OSV record (October 2026).</text>')
 out.append('</svg>\n')
 Path(__file__).with_name('traces.svg').write_text('\n'.join(out))
 print('wrote traces.svg')
