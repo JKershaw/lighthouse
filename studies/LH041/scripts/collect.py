@@ -29,6 +29,12 @@ from datetime import datetime, timezone
 HERE = os.path.dirname(os.path.abspath(__file__))
 sys.path.insert(0, HERE)
 import waves  # noqa: E402
+sys.path.insert(0, os.path.join(HERE, "..", "..", "..", "scripts"))
+from redact_emails import redact_bytes  # noqa: E402  (added 8 Nov 2026 after read 1's collection began: the keeper's rule that retained data withholds email addresses)
+
+
+def red(text):
+    return redact_bytes(text.encode("utf-8"))[0].decode("utf-8")
 
 UA = "Lighthouse-research/1.0 (+https://lighthouse.harbour.cat)"
 EXPORTS = {"npm": "https://osv-vulnerabilities.storage.googleapis.com/npm/all.zip",
@@ -137,6 +143,9 @@ def main():
                                     "sha256": hashlib.sha256(body).hexdigest(),
                                     "last_modified": hd.get("Last-Modified"), "etag": hd.get("ETag"),
                                     "generation": hd.get("x-goog-generation"), "read_utc": now()}
+            json.dump(meta["exports"], open(os.path.join(out, "exports.json"), "w"), indent=1)
+    if a.skip_download and os.path.exists(os.path.join(out, "exports.json")):
+        meta["exports"] = json.load(open(os.path.join(out, "exports.json")))
 
     # 2-3. index and selection
     idx = gzip.open(os.path.join(out, "osv-mal-index.csv.gz"), "wt", newline="")
@@ -152,10 +161,10 @@ def main():
                 continue
             raw = z.read(nm).decode("utf-8", "replace")
             rec = json.loads(raw)
-            aff = rec.get("affected", [{}])
+            aff = rec.get("affected") or [{}]
             pkg = aff[0].get("package", {}).get("name", "") if aff else ""
             vers = sorted({v for x in aff for v in x.get("versions", [])})
-            origins = rec.get("database_specific", {}).get("malicious-packages-origins", [])
+            origins = (rec.get("database_specific") or {}).get("malicious-packages-origins") or []
             imps = sorted(o.get("import_time", "") for o in origins if o.get("import_time"))
             iw.writerow([rec["id"], eco, pkg, rec.get("published", ""), rec.get("modified", ""),
                          rec.get("withdrawn", ""), len(vers), int(any(x.get("ranges") for x in aff)),
@@ -163,7 +172,7 @@ def main():
             h = matches(raw)
             seed = is_seed(eco, pkg)
             if h["lineage"] or h["specific"] or h["shared"] or seed:
-                sel.write(json.dumps({"ecosystem": eco, "file": nm, "match": h, "seed": seed, "raw": raw}) + "\n")
+                sel.write(json.dumps({"ecosystem": eco, "file": nm, "match": h, "seed": seed, "raw": red(raw)}) + "\n")
                 selected.append((eco, pkg, vers))
     idx.close(); sel.close()
     meta["selected_records"] = len(selected)
@@ -237,7 +246,7 @@ def main():
             sc.write(json.dumps({"id": rec["id"], "source": src, "status": "no source path"}) + "\n"); continue
         url = "https://raw.githubusercontent.com/ossf/malicious-packages/" + m.group(1)
         st, body, hd = get(url, log, note="OpenSSF spot check")
-        sc.write(json.dumps({"id": rec["id"], "url": url, "status": st, "raw": body.decode("utf-8", "replace")}) + "\n")
+        sc.write(json.dumps({"id": rec["id"], "url": url, "status": st, "raw": red(body.decode("utf-8", "replace"))}) + "\n")
         time.sleep(PACE)
     sc.close()
     meta["ended"] = now()

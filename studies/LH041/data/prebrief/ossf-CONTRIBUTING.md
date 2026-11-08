@@ -25,7 +25,7 @@ Required steps:
 1. Clone the repository, e.g:
 
   ```shell
-  git clone git@github.com:ossf/malicious-packages.git
+  git clone [email withheld by Lighthouse]:ossf/malicious-packages.git
   cd malicious-packages
   ```
 

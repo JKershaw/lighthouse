@@ -1,0 +1,155 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 720 790" width="720" height="790" role="img" aria-labelledby="chart-title chart-desc">
+<title id="chart-title">Maintainer clusters reached after each wave&#x27;s first malicious publish</title>
+<desc id="chart-desc">Six small step charts, one per worm wave. Each shows how many separate groups of npm maintainer accounts had published a malicious version, counting up from the wave&#x27;s first publish by the registry&#x27;s clock. Shai-Hulud 2.0 reached 88 clusters in under 15 hours; ChainDrop 13 of its 14 in under 4 hours; Shai-Hulud 17 in 71 hours; the TanStack wave 13 in 30 hours; Miasma 8 in 87 hours; the AntV wave stayed mostly in one cluster of 316 packages, with 2 others. Post hoc view, unreviewed. Source: OSV malicious-package records and npm registry metadata read 8 November 2026.</desc>
+<style>
+svg { --bg:#fbfaf7; --ink:#1f1f1f; --muted:#5d5850; --grid:#e3ddd1; --teal:#1f6576; --amber:#93600c; --purple:#78549b; --blue:#2866ab; --neutral:#74716a; color-scheme:light dark; }
+@media (prefers-color-scheme: dark) { svg { --bg:#15191b; --ink:#e6e2d9; --muted:#aaa498; --grid:#2f3538; --teal:#8ec4d4; --amber:#e0a650; --purple:#c6a7df; --blue:#8bb9ed; --neutral:#aaa498; } }
+text { font-family:"Source Sans 3", "Source Sans Pro", system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif; font-variant-numeric:tabular-nums lining-nums; fill:var(--ink); }
+.head { font-size:17px; font-weight:600; }
+.sub { font-size:13px; fill:var(--muted); }
+.ann,.ax { font-size:12px; fill:var(--muted); }
+.nm { font-size:12px; font-weight:600; }
+.note { font-size:11.5px; fill:var(--muted); }
+.sec { font-size:14px; font-weight:600; }
+.grid { stroke:var(--grid); stroke-width:1; }
+.axis { stroke:var(--muted); stroke-width:1; }
+</style>
+<rect width="720" height="790" fill="var(--bg)"/>
+<text class="head" x="24" y="34">How many maintainer groups each wave reached, hour by hour</text>
+<text class="sub" x="24" y="56">Clusters of npm maintainer accounts with a malicious version, counted from the</text>
+<text class="sub" x="24" y="74">wave's first malicious publish (registry clock). Each panel has its own scales.</text>
+<text class="nm" x="70" y="113">Shai-Hulud, Sep 2025</text>
+<line class="grid" x1="70" x2="370" y1="275.0" y2="275.0"/>
+<text class="ax" x="62" y="279.0" text-anchor="end">0</text>
+<line class="grid" x1="70" x2="370" y1="200.0" y2="200.0"/>
+<text class="ax" x="62" y="204.0" text-anchor="end">10</text>
+<line class="grid" x1="70" x2="370" y1="125.0" y2="125.0"/>
+<text class="ax" x="62" y="129.0" text-anchor="end">20</text>
+<line class="axis" x1="70" x2="370" y1="275.0" y2="275.0"/>
+<line class="axis" x1="70.0" x2="70.0" y1="275.0" y2="279.0"/>
+<text class="ax" x="70.0" y="292.0" text-anchor="middle">0</text>
+<line class="axis" x1="170.0" x2="170.0" y1="275.0" y2="279.0"/>
+<text class="ax" x="170.0" y="292.0" text-anchor="middle">24</text>
+<line class="axis" x1="270.0" x2="270.0" y1="275.0" y2="279.0"/>
+<text class="ax" x="270.0" y="292.0" text-anchor="middle">48</text>
+<line class="axis" x1="370.0" x2="370.0" y1="275.0" y2="279.0"/>
+<text class="ax" x="370.0" y="292.0" text-anchor="middle">72</text>
+<text class="ax" x="370" y="307.0" text-anchor="end">hours after first publish</text>
+<path d="M70.0,275.0 H70.0 V267.5 H72.5 V260.0 H80.5 V252.5 H80.6 V245.0 H81.6 V237.5 H100.1 V230.0 H115.5 V222.5 H117.4 V215.0 H127.2 V207.5 H129.9 V200.0 H130.4 V192.5 H133.8 V185.0 H137.4 V177.5 H177.9 V170.0 H189.2 V162.5 H200.2 V155.0 H365.1 V147.5 H365.1" fill="none" stroke="var(--teal)" stroke-width="2.5"/>
+<text class="ann" x="370" y="245" text-anchor="end">17 clusters, last new at 70.8 h</text>
+<text class="ann" x="370" y="261" text-anchor="end">203 npm packages, 589 versions</text>
+<text class="nm" x="410" y="113">Shai-Hulud 2.0, Nov 2025</text>
+<line class="grid" x1="410" x2="710" y1="275.0" y2="275.0"/>
+<text class="ax" x="402" y="279.0" text-anchor="end">0</text>
+<line class="grid" x1="410" x2="710" y1="225.0" y2="225.0"/>
+<text class="ax" x="402" y="229.0" text-anchor="end">30</text>
+<line class="grid" x1="410" x2="710" y1="175.0" y2="175.0"/>
+<text class="ax" x="402" y="179.0" text-anchor="end">60</text>
+<line class="grid" x1="410" x2="710" y1="125.0" y2="125.0"/>
+<text class="ax" x="402" y="129.0" text-anchor="end">90</text>
+<line class="axis" x1="410" x2="710" y1="275.0" y2="275.0"/>
+<line class="axis" x1="410.0" x2="410.0" y1="275.0" y2="279.0"/>
+<text class="ax" x="410.0" y="292.0" text-anchor="middle">0</text>
+<line class="axis" x1="485.0" x2="485.0" y1="275.0" y2="279.0"/>
+<text class="ax" x="485.0" y="292.0" text-anchor="middle">4</text>
+<line class="axis" x1="560.0" x2="560.0" y1="275.0" y2="279.0"/>
+<text class="ax" x="560.0" y="292.0" text-anchor="middle">8</text>
+<line class="axis" x1="635.0" x2="635.0" y1="275.0" y2="279.0"/>
+<text class="ax" x="635.0" y="292.0" text-anchor="middle">12</text>
+<line class="axis" x1="710.0" x2="710.0" y1="275.0" y2="279.0"/>
+<text class="ax" x="710.0" y="292.0" text-anchor="middle">16</text>
+<text class="ax" x="710" y="307.0" text-anchor="end">hours after first publish</text>
+<path d="M410.0,275.0 H410.0 V273.3 H410.0 V271.7 H415.1 V270.0 H427.1 V268.3 H428.4 V266.7 H433.6 V265.0 H433.6 V263.3 H442.8 V261.7 H445.8 V260.0 H446.8 V258.3 H449.8 V256.7 H451.1 V255.0 H455.2 V253.3 H457.8 V251.7 H459.5 V250.0 H460.2 V248.3 H467.6 V246.7 H469.2 V245.0 H469.4 V243.3 H469.4 V241.7 H476.6 V240.0 H477.5 V238.3 H480.7 V236.7 H483.5 V235.0 H491.9 V233.3 H492.1 V231.7 H492.1 V230.0 H494.8 V228.3 H495.7 V226.7 H495.9 V225.0 H497.8 V223.3 H510.1 V221.7 H514.1 V220.0 H518.6 V218.3 H521.0 V216.7 H523.2 V215.0 H523.4 V213.3 H523.4 V211.7 H524.4 V210.0 H526.4 V208.3 H527.0 V206.7 H538.6 V205.0 H539.6 V203.3 H542.0 V201.7 H542.6 V200.0 H542.8 V198.3 H546.5 V196.7 H551.4 V195.0 H553.6 V193.3 H554.2 V191.7 H554.2 V190.0 H560.2 V188.3 H560.4 V186.7 H560.9 V185.0 H562.2 V183.3 H562.6 V181.7 H562.6 V180.0 H562.6 V178.3 H564.7 V176.7 H565.4 V175.0 H567.1 V173.3 H573.1 V171.7 H578.4 V170.0 H588.9 V168.3 H592.1 V166.7 H593.2 V165.0 H596.4 V163.3 H603.5 V161.7 H605.9 V160.0 H613.4 V158.3 H631.6 V156.7 H641.2 V155.0 H642.1 V153.3 H646.2 V151.7 H647.2 V150.0 H648.5 V148.3 H652.1 V146.7 H659.0 V145.0 H659.8 V143.3 H661.4 V141.7 H663.5 V140.0 H664.4 V138.3 H664.4 V136.7 H666.7 V135.0 H667.4 V133.3 H673.8 V131.7 H682.1 V130.0 H686.4 V128.3 H686.4" fill="none" stroke="var(--teal)" stroke-width="2.5"/>
+<text class="ann" x="710" y="245" text-anchor="end">88 clusters, last new at 14.7 h</text>
+<text class="ann" x="710" y="261" text-anchor="end">791 npm packages, 1089 versions</text>
+<text class="nm" x="70" y="333">TanStack wave, May 2026</text>
+<line class="grid" x1="70" x2="370" y1="495.0" y2="495.0"/>
+<text class="ax" x="62" y="499.0" text-anchor="end">0</text>
+<line class="grid" x1="70" x2="370" y1="445.0" y2="445.0"/>
+<text class="ax" x="62" y="449.0" text-anchor="end">5</text>
+<line class="grid" x1="70" x2="370" y1="395.0" y2="395.0"/>
+<text class="ax" x="62" y="399.0" text-anchor="end">10</text>
+<line class="grid" x1="70" x2="370" y1="345.0" y2="345.0"/>
+<text class="ax" x="62" y="349.0" text-anchor="end">15</text>
+<line class="axis" x1="70" x2="370" y1="495.0" y2="495.0"/>
+<line class="axis" x1="70.0" x2="70.0" y1="495.0" y2="499.0"/>
+<text class="ax" x="70.0" y="512.0" text-anchor="middle">0</text>
+<line class="axis" x1="145.0" x2="145.0" y1="495.0" y2="499.0"/>
+<text class="ax" x="145.0" y="512.0" text-anchor="middle">8</text>
+<line class="axis" x1="220.0" x2="220.0" y1="495.0" y2="499.0"/>
+<text class="ax" x="220.0" y="512.0" text-anchor="middle">16</text>
+<line class="axis" x1="295.0" x2="295.0" y1="495.0" y2="499.0"/>
+<text class="ax" x="295.0" y="512.0" text-anchor="middle">24</text>
+<line class="axis" x1="370.0" x2="370.0" y1="495.0" y2="499.0"/>
+<text class="ax" x="370.0" y="512.0" text-anchor="middle">32</text>
+<text class="ax" x="370" y="527.0" text-anchor="end">hours after first publish</text>
+<path d="M70.0,495.0 H70.0 V485.0 H113.6 V475.0 H115.0 V465.0 H115.4 V455.0 H119.6 V445.0 H122.9 V435.0 H129.2 V425.0 H135.7 V415.0 H141.2 V405.0 H145.5 V395.0 H145.7 V385.0 H161.9 V375.0 H351.4 V365.0 H351.4" fill="none" stroke="var(--teal)" stroke-width="2.5"/>
+<text class="ann" x="370" y="465" text-anchor="end">13 clusters, last new at 30.0 h</text>
+<text class="ann" x="370" y="481" text-anchor="end">183 npm packages, 451 versions</text>
+<text class="nm" x="410" y="333">AntV wave, May 2026</text>
+<line class="grid" x1="410" x2="710" y1="495.0" y2="495.0"/>
+<text class="ax" x="402" y="499.0" text-anchor="end">0</text>
+<line class="grid" x1="410" x2="710" y1="345.0" y2="345.0"/>
+<text class="ax" x="402" y="349.0" text-anchor="end">5</text>
+<line class="axis" x1="410" x2="710" y1="495.0" y2="495.0"/>
+<line class="axis" x1="410.0" x2="410.0" y1="495.0" y2="499.0"/>
+<text class="ax" x="410.0" y="512.0" text-anchor="middle">0</text>
+<line class="axis" x1="495.7" x2="495.7" y1="495.0" y2="499.0"/>
+<text class="ax" x="495.7" y="512.0" text-anchor="middle">48</text>
+<line class="axis" x1="581.4" x2="581.4" y1="495.0" y2="499.0"/>
+<text class="ax" x="581.4" y="512.0" text-anchor="middle">96</text>
+<line class="axis" x1="667.1" x2="667.1" y1="495.0" y2="499.0"/>
+<text class="ax" x="667.1" y="512.0" text-anchor="middle">144</text>
+<text class="ax" x="710" y="527.0" text-anchor="end">hours after first publish</text>
+<path d="M410.0,495.0 H410.0 V465.0 H412.2 V435.0 H704.3 V405.0 H704.3" fill="none" stroke="var(--teal)" stroke-width="2.5"/>
+<text class="ann" x="710" y="465" text-anchor="end">3 clusters; one holds 316 packages</text>
+<text class="ann" x="710" y="481" text-anchor="end">359 npm packages, 685 versions</text>
+<text class="nm" x="70" y="553">Miasma, Jun 2026</text>
+<line class="grid" x1="70" x2="370" y1="715.0" y2="715.0"/>
+<text class="ax" x="62" y="719.0" text-anchor="end">0</text>
+<line class="grid" x1="70" x2="370" y1="640.0" y2="640.0"/>
+<text class="ax" x="62" y="644.0" text-anchor="end">5</text>
+<line class="grid" x1="70" x2="370" y1="565.0" y2="565.0"/>
+<text class="ax" x="62" y="569.0" text-anchor="end">10</text>
+<line class="axis" x1="70" x2="370" y1="715.0" y2="715.0"/>
+<line class="axis" x1="70.0" x2="70.0" y1="715.0" y2="719.0"/>
+<text class="ax" x="70.0" y="732.0" text-anchor="middle">0</text>
+<line class="axis" x1="145.0" x2="145.0" y1="715.0" y2="719.0"/>
+<text class="ax" x="145.0" y="732.0" text-anchor="middle">24</text>
+<line class="axis" x1="220.0" x2="220.0" y1="715.0" y2="719.0"/>
+<text class="ax" x="220.0" y="732.0" text-anchor="middle">48</text>
+<line class="axis" x1="295.0" x2="295.0" y1="715.0" y2="719.0"/>
+<text class="ax" x="295.0" y="732.0" text-anchor="middle">72</text>
+<line class="axis" x1="370.0" x2="370.0" y1="715.0" y2="719.0"/>
+<text class="ax" x="370.0" y="732.0" text-anchor="middle">96</text>
+<text class="ax" x="370" y="747.0" text-anchor="end">hours after first publish</text>
+<path d="M70.0,715.0 H70.0 V700.0 H259.2 V685.0 H262.2 V670.0 H324.4 V655.0 H324.6 V640.0 H324.8 V625.0 H325.0 V610.0 H341.3 V595.0 H341.3" fill="none" stroke="var(--teal)" stroke-width="2.5"/>
+<text class="ann" x="78" y="579" text-anchor="start">8 clusters, last new at 86.8 h</text>
+<text class="ann" x="78" y="595" text-anchor="start">106 npm packages, 412 versions</text>
+<text class="nm" x="410" y="553">ChainDrop, Aug 2026</text>
+<line class="grid" x1="410" x2="710" y1="715.0" y2="715.0"/>
+<text class="ax" x="402" y="719.0" text-anchor="end">0</text>
+<line class="grid" x1="410" x2="710" y1="665.0" y2="665.0"/>
+<text class="ax" x="402" y="669.0" text-anchor="end">5</text>
+<line class="grid" x1="410" x2="710" y1="615.0" y2="615.0"/>
+<text class="ax" x="402" y="619.0" text-anchor="end">10</text>
+<line class="grid" x1="410" x2="710" y1="565.0" y2="565.0"/>
+<text class="ax" x="402" y="569.0" text-anchor="end">15</text>
+<line class="axis" x1="410" x2="710" y1="715.0" y2="715.0"/>
+<line class="axis" x1="410.0" x2="410.0" y1="715.0" y2="719.0"/>
+<text class="ax" x="410.0" y="732.0" text-anchor="middle">0</text>
+<line class="axis" x1="474.3" x2="474.3" y1="715.0" y2="719.0"/>
+<text class="ax" x="474.3" y="732.0" text-anchor="middle">12</text>
+<line class="axis" x1="538.6" x2="538.6" y1="715.0" y2="719.0"/>
+<text class="ax" x="538.6" y="732.0" text-anchor="middle">24</text>
+<line class="axis" x1="602.9" x2="602.9" y1="715.0" y2="719.0"/>
+<text class="ax" x="602.9" y="732.0" text-anchor="middle">36</text>
+<line class="axis" x1="667.1" x2="667.1" y1="715.0" y2="719.0"/>
+<text class="ax" x="667.1" y="732.0" text-anchor="middle">48</text>
+<text class="ax" x="710" y="747.0" text-anchor="end">hours after first publish</text>
+<path d="M410.0,715.0 H410.0 V705.0 H410.3 V695.0 H414.0 V685.0 H415.1 V675.0 H415.2 V665.0 H415.6 V655.0 H415.7 V645.0 H415.7 V635.0 H415.9 V625.0 H415.9 V615.0 H416.4 V605.0 H417.7 V595.0 H429.9 V585.0 H684.2 V575.0 H684.2" fill="none" stroke="var(--teal)" stroke-width="2.5"/>
+<text class="ann" x="710" y="685" text-anchor="end">14 clusters, last new at 51.2 h</text>
+<text class="ann" x="710" y="701" text-anchor="end">445 npm packages, 2237 versions</text>
+<text class="note" x="24" y="768">Post hoc view, unreviewed: versions outside each wave's dated window left out. A later cluster is not proof the worm, not a</text>
+<text class="note" x="24" y="783">person, published there. Sources: OSV export and npm registry, read 8 Nov 2026 (Lighthouse LH041).</text>
+</svg>
