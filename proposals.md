@@ -37,6 +37,7 @@ Directions, blind spots and things to look at. The sweep reads this first and tr
 - 8 November 2026, on what tonight's studies ran into: "There's now classes of data and access, from rules we voluntary follow, routes we don't consider, paid information, licensed information, etc. not to mention private, or ephemeral." Drawn up as P-0022.
 - 8 November 2026, following on: "There's many ways we can get what we need, but we're finding where agents' limits are (both by request, by compliance, or a wall), and this is where the human researcher (me, hello) can help; subscriptions, scripts, etc. this also must follow the warnings we learned from agents too keen to answer questions." Added to P-0022.
 - 8 November 2026, on P-0022: "Good idea, perhaps a simple paper to document. In a sense we're following the rules of the road, checking for agents who might not heed requests. Documenting those rules is a useful map. Especially if we can see how effectively each is working (eg we overstepped earlier)." P-0022 started as LH047.
+- 8 November 2026, on robots.txt groups addressed to Anthropic's agents: "Lighthouse should obey the rules, and is both it's own agent, currently using this harness, model, etc. when we use OpenAI we'll follow those relevant rules, etc." Now in AGENTS.md, Rules that matter; collectors carry it from scripts/robots_tokens.json.
 
 ## For the next review
 
