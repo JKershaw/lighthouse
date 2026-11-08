@@ -72,6 +72,10 @@ Each answer says what its record's current Answer says, at the same certainty as
 
 ## Next
 
+### Opened, 8 November 2026: what AI activity costs the shared internet
+
+The keeper agreed on 7 November to open a third investigation (proposals.md P-0014), and the scheduled run of 8 November wrote [its page](investigations/ai-cost-and-spread.md). It asks the charter's question directly: what AI activity costs shared infrastructure, as operators report and public traces show, and whether any of it sustains or spreads itself outside a lab. The page keeps five strands apart, as the gate asked: load, exposure, spread run by people, capability in a lab, and activity on the open internet, the last being the charter's own question and the one with least evidence. Its questions, each to become a study under the throttle: the closing web (P-0013, agreed, first), published counts of exposed AI services, a dated timeline of the registry worms, and whether GH Archive shows the evaluation agents' July actions. No literature search was run for the page: it fixes no brief and tests no explanation; each brief will read its own primary sources first.
+
 ### Decision, 7 November 2026: proposals, a horizon sweep and a throttle
 
 The keeper asked for Lighthouse to widen and deepen what it watches without a person acting as its clock, while keeping a person able to steer. Ideas that are not yet promises now live in [proposals.md](proposals.md), ranked; a horizon sweep twice a week ([its plan](notes/horizon/plan.md), rows `horizon-<date>`) adds them from the news and from Lighthouse's own open threads; a fresh agent gates each into started, waiting for the keeper or backlog; and a throttle set by the keeper bounds what starts unreviewed (three active investigations at most, two new studies a week, urgent watches of 14 days unless extended). The keeper reviews the list when they choose and adds directions of their own; nothing waits on that review. The candidates listed under "Questions after these" and the open question issues were copied into proposals.md as its first backlog, not yet gated.

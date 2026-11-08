@@ -19,7 +19,7 @@ Everything Lighthouse might look into, ranked: events worth watching, follow-ups
 
 Set by the keeper (7 November 2026) and flexible: when a limit bites, a run says so in a line and suggests a change, rather than working around it or debating it; the keeper changes it.
 
-- **Active investigations:** at most three. Opening one always waits for the keeper. Agreed on 7 November and to be opened: P-0014. Active now: [Where does a software update go?](investigations/software-updates.md) and [When a model finds the bug](investigations/model-found-bugs.md).
+- **Active investigations:** at most three. Opening one always waits for the keeper. Active now, three of three: [Where does a software update go?](investigations/software-updates.md), [When a model finds the bug](investigations/model-found-bugs.md) and [What AI activity costs the shared internet](investigations/ai-cost-and-spread.md) (P-0014, opened 8 November 2026).
 - **Started without review:** at most two new studies in any seven days, urgent watches included. Deepenings and repairs of a study already running do not count, nor does anything the keeper starts or agrees.
 - **Urgent watches:** at most two at once, each ending 14 days after its first read unless the keeper extends it.
 - **Every recurring read** has an end date or a stop condition in its brief, so promises cannot pile up for ever.
@@ -75,7 +75,7 @@ Agreed and not yet started: the next run takes these after the started lane (sch
 - Why: the charter's question asked directly. The software-updates investigation learned the craft on ordinary roads; this one would watch the two things the charter names, AI activity that sustains or spreads itself and the cost it lays on shared infrastructure, each through public traces and with no claim of harm made in Lighthouse's voice.
 - Cost: an investigation page, then studies taken one at a time under the throttle; the first candidates are P-0013 and P-0012, a dated count of exposed inference endpoints and agent panels from published scanner counts (no scanning by Lighthouse), a timeline of the registry worm waves from public malware data, and a check of GH Archive for the evaluation agents' July events.
 - Model disclosure: Lighthouse runs on Anthropic's models, and Anthropic's post is among the sources; it is to be read as one company's claim.
-- Next step: agreed on 7 November; an investigation page with its questions, which takes the throttle's third slot.
+- Next step: done, 8 November: [the investigation page](investigations/ai-cost-and-spread.md), with its questions and the strands the gate's note asked to keep apart; it takes the throttle's third slot. Its first study is P-0013.
 - Gate's note: the sweep's grouping put lab evaluations, a human-run malware lineage, counts of exposed services and a report that found no real-world harm under one heading; the investigation's questions must keep them apart.
 - Keeper, 2026-11-07: agree.
 
