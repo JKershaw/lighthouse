@@ -298,6 +298,4 @@ From the studies and site work of 8 November 2026:
 
 ## Declined, parked and expired
 
-- 8 November 2026, at the review: about $200 to $1,000 of spend for that session (at list rates; the keeper pays a subscription with a weekly cap, not list prices), to assign as the session sees fit, "ideally covering any gaps". Don't worry too much about budget. What the session starts under this counts as started by the keeper.
-- 8 November 2026: Lighthouse does not try to re-identify people, repositories, accounts or systems that a source has anonymised. "Agreed, that's a line we won't cross." Agents are to be cautious, having read essays/it-was-only-a-test.md; now in AGENTS.md, Rules that matter.
-- 8 November 2026: on the exposed-services agent's partial read of a robots.txt (notes/incidents/2026-11-08-robots-partial-read/): "That's a very interesting fault, especially given our essay, a very mild version in a sense." On email addresses already in git history: "The email is fine." On following robots.txt redirects in the closing web: "Always happy to follow the standards."
+- (none yet)
