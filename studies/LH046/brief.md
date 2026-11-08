@@ -78,3 +78,11 @@ The study stops when the sample is read (or the ceiling is reached) and version 
 - A September baseline that itself has PushEvent gaps in more than 10 per cent of its files: then comparison 1 has no clean reference and is reported as description against the January to August references only.
 - Files that change between reads in ways that alter counts: the record then describes the archive as of each read time and says the comparison is not stable.
 - Any count above says what the files held, not what happened on GitHub: a file without pushes does not show that nobody pushed. Whether GitHub's public feed, GH Archive's collector or something else lost the events is outside these measures; only a statement by GH Archive or GitHub could settle it.
+
+## Amendment 1, 8 November 2026, about 19:44 UTC (made after outcomes were seen)
+
+The brief's opening line gives "about 19:45 UTC" as the time it was fixed; it was committed at 19:38:28 UTC (commit 52a44b0), before the first GH Archive request at 19:39:21. The earlier time stands.
+
+The byte ceiling of 9 GB was set from the scan's October file sizes (about 3 to 20 MB). The first 45 files read (1 to 12 September) averaged about 36 MB, up to 92 MB, so at that rate the sample would need about 15 to 17 GB and the run would stop inside the panel, leaving the whole days, references and re-reads unread. This was seen in the collector's progress output, which includes events and PushEvents per file, so the amendment is made after outcomes were seen; it changes only the resource ceiling, not the sample, measures, definitions or comparisons. **The byte ceiling is raised to 20 GB**; the request ceiling (520) and pacing are unchanged. The run was stopped at 19:42 after 45 requests and restarted with the new ceiling; the file being counted when it stopped (2026-09-12-0) was fetched again on restart, and both requests are in data/fetch-log.tsv.
+
+Also seen in that output, and recorded here so that nothing is decided silently: many September panel files hold no PushEvent (from 2026-09-01-12), so the September baseline will likely fail the brief's own clean-reference test. The brief already says what happens then (comparison 1 is described against the January to August references only); nothing about that rule is changed.
