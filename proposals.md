@@ -51,7 +51,7 @@ Written by the sweep of 7 November 2026 (08:53 UTC), the first, run as a test.
 - Source: [scout 3](notes/horizon/2026-11-07T0853Z/scout-3-supply-chain.md): LiteLLM 1.107.0 reported compromised on PyPI on 21 October, uploaded 11:39 UTC and quarantined about 13:20 UTC, the library's second compromise of 2026.
 - Why: the first case where Lighthouse's release-spread instruments (download counts, pins, lockfiles, container recipes) can follow a bad version rather than a good one, over a known window.
 - Cost: small; public download data and public repositories.
-- Next step: a brief, with PyPI's own record of the upload and quarantine read first.
+- Next step: done, 8 November: the brief is fixed as [studies/LH040/brief.md](studies/LH040/brief.md), with the event's records read and kept first (upload 11:39:51 UTC by OSV and LiteLLM; removal by 13:23 UTC as LiteLLM reports, no registry record of it; the second malicious episode in OSV's litellm records, after March's). Reads from 9 November, record by 4 December.
 - Gate's conditions (notes/horizon/2026-11-07T0853Z.md, Gate): brief committed before any count is read; upload and removal times from a registry or OSV record, else labelled as reported (PyPI's JSON for 1.107.0 answered 404 at 09:22 UTC); the "second compromise of 2026" checked or dropped; a download is a fetch, not an install or an infection; aggregate figures only, naming no repository that pinned it; the malice attributed to Cloudsmith, Aikido and PyPI; public data only.
 
 
