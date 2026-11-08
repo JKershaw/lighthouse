@@ -1,0 +1,1068 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>OpenClaw: 63,070 Live Instances Confirmed in March</title>
+
+    <link rel="stylesheet" href="https://blog.cyberdesserts.com/assets/built/screen.css?v=MbfamtXGITr0JHjG">
+
+    <meta name="description" content="63,070 live OpenClaw instances confirmed on 31 March. What the numbers mean, the China deployment gap, and why a clean scan is not enough.">
+    <link rel="icon" href="https://storage.ghost.io/c/35/11/3511c934-5ff5-4c52-bd35-1fa0ecc19415/content/images/size/w256h256/2026/08/FINAL-favicon-96-1.png" type="image/png">
+    <link rel="canonical" href="https://blog.cyberdesserts.com/openclaw-exposure-numbers-explained/">
+    <link rel="alternate" type="text/markdown" href="https://blog.cyberdesserts.com/openclaw-exposure-numbers-explained.md">
+    <meta name="referrer" content="no-referrer-when-downgrade">
+    
+    <meta property="og:site_name" content="CyberDesserts">
+    <meta property="og:type" content="article">
+    <meta property="og:title" content="OpenClaw: 63,070 Live Instances Confirmed in March">
+    <meta property="og:description" content="63,070 live OpenClaw instances confirmed on 31 March. What the numbers mean, the China deployment gap, and why a clean scan is not enough.">
+    <meta property="og:url" content="https://blog.cyberdesserts.com/openclaw-exposure-numbers-explained/">
+    <meta property="og:image" content="https://images.unsplash.com/photo-1709547228697-fa1f424a3f39?crop&#x3D;entropy&amp;cs&#x3D;tinysrgb&amp;fit&#x3D;max&amp;fm&#x3D;jpg&amp;ixid&#x3D;M3wxMTc3M3wwfDF8c2VhcmNofDEwNXx8Y29kaW5nfGVufDB8fHx8MTc3NTAwMDMwMnww&amp;ixlib&#x3D;rb-4.1.0&amp;q&#x3D;80&amp;w&#x3D;2000">
+    <meta property="article:published_time" content="2026-03-31T21:00:00.000Z">
+    <meta property="article:modified_time" content="2026-04-07T11:48:20.000Z">
+    <meta property="article:tag" content="AI Security">
+    <meta property="article:tag" content="Threat Intelligence &amp; Security News">
+    
+    <meta property="article:publisher" content="https://www.facebook.com/CyberDesserts/">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="OpenClaw: 63,070 Live Instances Confirmed in March">
+    <meta name="twitter:description" content="63,070 live OpenClaw instances confirmed on 31 March. What the numbers mean, the China deployment gap, and why a clean scan is not enough.">
+    <meta name="twitter:url" content="https://blog.cyberdesserts.com/openclaw-exposure-numbers-explained/">
+    <meta name="twitter:image" content="https://images.unsplash.com/photo-1709547228697-fa1f424a3f39?crop&#x3D;entropy&amp;cs&#x3D;tinysrgb&amp;fit&#x3D;max&amp;fm&#x3D;jpg&amp;ixid&#x3D;M3wxMTc3M3wwfDF8c2VhcmNofDEwNXx8Y29kaW5nfGVufDB8fHx8MTc3NTAwMDMwMnww&amp;ixlib&#x3D;rb-4.1.0&amp;q&#x3D;80&amp;w&#x3D;2000">
+    <meta name="twitter:label1" content="Written by">
+    <meta name="twitter:data1" content="Shakel Ahmed">
+    <meta name="twitter:label2" content="Filed under">
+    <meta name="twitter:data2" content="AI Security, Threat Intelligence &amp; Security News">
+    <meta property="og:image:width" content="1200">
+    <meta property="og:image:height" content="800">
+    
+    <script type="application/ld+json">
+{
+    "@context": "https://schema.org",
+    "@type": "Article",
+    "publisher": {
+        "@type": "Organization",
+        "name": "CyberDesserts",
+        "url": "https://blog.cyberdesserts.com/",
+        "logo": {
+            "@type": "ImageObject",
+            "url": "https://storage.ghost.io/c/35/11/3511c934-5ff5-4c52-bd35-1fa0ecc19415/content/images/2026/08/shield-1024-1.png",
+            "width": 60,
+            "height": 60
+        }
+    },
+    "author": {
+        "@type": "Person",
+        "name": "Shakel Ahmed",
+        "image": {
+            "@type": "ImageObject",
+            "url": "https://storage.ghost.io/c/35/11/3511c934-5ff5-4c52-bd35-1fa0ecc19415/content/images/2026/08/shakel-ahmed.jpg",
+            "width": 800,
+            "height": 774
+        },
+        "url": "https://blog.cyberdesserts.com/author/shakel-ahmed/",
+        "sameAs": [
+            "https://cyberdesserts.com/about/shakel-ahmed/",
+            "https://www.linkedin.com/in/shaka"
+        ]
+    },
+    "headline": "OpenClaw: 63,070 Live Instances Confirmed in March",
+    "url": "https://blog.cyberdesserts.com/openclaw-exposure-numbers-explained/",
+    "datePublished": "2026-03-31T21:00:00.000Z",
+    "dateModified": "2026-04-07T11:48:20.000Z",
+    "image": {
+        "@type": "ImageObject",
+        "url": "https://images.unsplash.com/photo-1709547228697-fa1f424a3f39?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3wxMTc3M3wwfDF8c2VhcmNofDEwNXx8Y29kaW5nfGVufDB8fHx8MTc3NTAwMDMwMnww&ixlib=rb-4.1.0&q=80&w=2000",
+        "width": 1200,
+        "height": 800
+    },
+    "keywords": "AI Security, Threat Intelligence & Security News",
+    "description": "31st March 2026\n\nOpenClaw's internet-facing exposure has fallen sharply since the February 2026 peak. Public scrutiny, repeated security warnings, and operational changes by some operators appear to have had a real effect. That is good news, and it is worth saying clearly before anything else.\n\nIt is also roughly half the story.\n\nCensys application-layer fingerprinting confirmed 63,070 live OpenClaw instances on 31 March 2026, with scan times verified on the day. Those hosts responded to active ",
+    "mainEntityOfPage": "https://blog.cyberdesserts.com/openclaw-exposure-numbers-explained/"
+}
+    </script>
+
+    <meta name="generator" content="Ghost 6.75">
+    <link rel="alternate" type="application/rss+xml" title="CyberDesserts" href="https://blog.cyberdesserts.com/rss/">
+    <script defer src="https://cdn.jsdelivr.net/ghost/portal@~2.72/umd/portal.min.js" data-i18n="true" data-ghost="https://blog.cyberdesserts.com/" data-key="b9e2f32c778f38500196c93c82" data-api="https://cyberdesserts.ghost.io/ghost/api/content/" data-locale="en" crossorigin="anonymous"></script><style id="gh-members-styles">.gh-post-upgrade-cta-content,
+.gh-post-upgrade-cta {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+    text-align: center;
+    width: 100%;
+    color: #ffffff;
+    font-size: 16px;
+}
+
+.gh-post-upgrade-cta-content {
+    border-radius: 8px;
+    padding: 40px 4vw;
+}
+
+.gh-post-upgrade-cta h2 {
+    color: #ffffff;
+    font-size: 28px;
+    letter-spacing: -0.2px;
+    margin: 0;
+    padding: 0;
+}
+
+.gh-post-upgrade-cta p {
+    margin: 20px 0 0;
+    padding: 0;
+}
+
+.gh-post-upgrade-cta small {
+    font-size: 16px;
+    letter-spacing: -0.2px;
+}
+
+.gh-post-upgrade-cta a {
+    color: #ffffff;
+    cursor: pointer;
+    font-weight: 500;
+    box-shadow: none;
+    text-decoration: underline;
+}
+
+.gh-post-upgrade-cta a:hover {
+    color: #ffffff;
+    opacity: 0.8;
+    box-shadow: none;
+    text-decoration: underline;
+}
+
+.gh-post-upgrade-cta a.gh-btn {
+    display: block;
+    background: #ffffff;
+    text-decoration: none;
+    margin: 28px 0 0;
+    padding: 8px 18px;
+    border-radius: 4px;
+    font-size: 16px;
+    font-weight: 600;
+}
+
+.gh-post-upgrade-cta a.gh-btn:hover {
+    opacity: 0.92;
+}</style>
+    <script defer src="https://cdn.jsdelivr.net/ghost/sodo-search@~1.9/umd/sodo-search.min.js" data-key="b9e2f32c778f38500196c93c82" data-styles="https://cdn.jsdelivr.net/ghost/sodo-search@~1.9/umd/main.css" data-sodo-search="https://cyberdesserts.ghost.io/" data-locale="en" crossorigin="anonymous"></script>
+    
+    <link href="https://blog.cyberdesserts.com/webmentions/receive/" rel="webmention">
+    <script defer src="/public/cards.min.js?v=mLGdiz8Ij-Hk3ydN"></script>
+    <link rel="stylesheet" type="text/css" href="/public/cards.min.css?v=WwnU9jw5ancNC8Gc">
+    <script defer src="/public/comment-counts.min.js?v=oFYkaGLdiMqB8VN9" data-ghost-comments-counts-api="https://blog.cyberdesserts.com/members/api/comments/counts/"></script>
+    <script defer src="/public/member-attribution.min.js?v=AKG4hWena9j3yX3I"></script>
+    <script defer src="/public/ghost-stats.min.js?v=GjA0fyDfVPF71jEZ" data-stringify-payload="false" data-datasource="analytics_events" data-storage="localStorage" data-host="https://blog.cyberdesserts.com/.ghost/analytics/api/v1/page_hit"  tb_site_uuid="3511c934-5ff5-4c52-bd35-1fa0ecc19415" tb_post_uuid="82263a93-6293-4e5f-9b3e-f1349a3630a1" tb_post_type="post" tb_member_uuid="undefined" tb_member_status="undefined" tb_gift_link=""></script><style>:root {--ghost-accent-color: #000000;}</style>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-ZZYQDMRBDN"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-ZZYQDMRBDN');
+</script>
+
+<meta name="robots" content="max-image-preview:large">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+
+
+<style>
+/* Reserve space for share buttons before they load */
+.cyber-share-container {
+    min-height: 52px;
+}
+
+/* Prevent portal button causing layout shift */
+div[data-ghost-portal] {
+    position: fixed !important;
+}
+
+/* Reserve space for comment counts */
+.feed-comments {
+    min-height: 20px;
+    display: inline-block;
+}
+
+/* Prevent font swap shift */
+@font-face {
+    font-family: 'Inter';
+    font-display: optional;
+}
+</style>
+
+
+<style>
+/* --- New Custom Footer (v3) --- */
+
+/* 1. Hide the default Ghost footer */
+.site-footer, .gh-foot {
+    display: none !important;
+}
+
+/* 2. Style footer container */
+.custom-site-footer {
+    box-sizing: border-box;
+    padding: 35px 4vw; /* padding (height) */
+    border-top: 1px solid #e9e9e9;
+    background: #fff;
+    color: #555;
+    
+    /* Using 15px  */
+    font-size: 15px; 
+}
+
+/* 3. Create the two-column (copyright + nav) layout */
+.custom-footer-content {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    align-items: center;
+    max-width: 1120px; /* Matches the blog's content width */
+    margin: 0 auto;
+}
+
+/* 4. Style the copyright text */
+.custom-footer-copyright {
+    margin: 0;
+    padding: 5px 0;
+    text-align: left;
+}
+
+/* 5. Style the navigation links */
+.custom-footer-nav {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: flex-end; /* Aligns links to the right */
+    align-items: center;
+}
+
+.custom-footer-nav a {
+    color: #555;
+    text-decoration: none;
+    font-weight: 500;
+    margin: 5px 12px; /* Space between links */
+}
+
+.custom-footer-nav a:last-of-type {
+    margin-right: 0;
+}
+
+.custom-footer-nav a:hover {
+    text-decoration: underline;
+    color: #111;
+}
+
+/* 6. Make it responsive for mobile */
+@media (max-width: 767px) {
+    .custom-footer-content {
+        flex-direction: column; /* Stack vertically on mobile */
+    }
+    
+    .custom-footer-copyright {
+        text-align: center;
+        margin-bottom: 15px;
+        order: 2; /* Show copyright *below* links on mobile */
+    }
+    
+    .custom-footer-nav {
+        order: 1; /* Show links *above* copyright on mobile */
+        justify-content: center;
+        margin-bottom: 10px;
+    }
+
+    .custom-footer-nav a {
+        margin: 5px 10px;
+    }
+}
+</style>
+
+<style>
+/* Base table styling - desktop */
+.gh-content table,
+.post-content table,
+.article-content table {
+  width: 100% !important;
+  max-width: 100% !important;
+  border-collapse: collapse !important;
+  margin: 20px 0 !important;
+  display: table !important;
+  table-layout: fixed !important;
+}
+
+/* Theme scroll wrappers only */
+.gh-content .table-wrapper,
+.post-content .table-wrapper {
+  overflow: visible !important;
+  max-width: 100% !important;
+  width: 100% !important;
+}
+
+/* Mobile: table becomes its own scroll container */
+@media (max-width: 768px) {
+  .gh-content table,
+  .post-content table,
+  .article-content table {
+    display: block !important;
+    overflow-x: auto !important;
+    -webkit-overflow-scrolling: touch !important;
+    table-layout: auto !important;
+    width: max-content !important;
+    max-width: 100% !important;
+  }
+
+  /* Hide scroll hints on mobile only when table fits */
+  .scroll-hint {
+    display: block !important;
+  }
+}
+
+/* Hide scroll hint on desktop */
+.scroll-hint {
+  display: none;
+  font-size: 12px;
+  color: #888;
+  margin: 0 0 6px 0;
+}
+
+/* Header styling */
+.gh-content table th,
+.post-content table th {
+  background: #2d2d2d !important;
+  color: #fff !important;
+  font-weight: 600 !important;
+  padding: 10px !important;
+  border: 1px solid #444 !important;
+  text-align: left !important;
+  word-wrap: break-word !important;
+  overflow-wrap: break-word !important;
+  white-space: nowrap !important;
+}
+
+/* Cell styling */
+.gh-content table td,
+.post-content table td {
+  padding: 10px !important;
+  border: 1px solid #ddd !important;
+  text-align: left !important;
+  word-wrap: break-word !important;
+  overflow-wrap: break-word !important;
+  white-space: normal !important;
+  vertical-align: top !important;
+  min-width: 120px !important;
+}
+</style>
+
+
+<style>
+.cyber-share-container {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 12px;
+    margin: 24px 0 32px 0;
+}
+
+.cyber-share-btn {
+    cursor: pointer;
+    text-decoration: none !important;
+    background-color: #ffffff;
+    color: #000000 !important;
+    border: 1px solid #e0e0e0;
+    padding: 8px 16px;
+    border-radius: 6px;
+    font-weight: 500;
+    font-size: 14px;
+    display: flex;
+    align-items: center;
+    transition: all 0.2s ease;
+}
+
+.cyber-share-btn:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(0,0,0,0.05);
+    border-color: #000000;
+}
+
+.cyber-share-btn svg {
+    fill: #000000;
+    margin-right: 10px;
+}
+
+/* Success state for Copy Button */
+.copy-success {
+    background-color: #000000 !important;
+    color: #ffffff !important;
+    border-color: #000000 !important;
+}
+.copy-success svg {
+    fill: #ffffff !important;
+}
+</style>
+</head>
+
+<body class="post-template tag-ai-security tag-news is-head-left-logo is-head-brand">
+<div class="site">
+
+    <header id="gh-head" class="gh-head gh-outer">
+        <div class="gh-head-inner">
+            <div class="gh-head-brand">
+                <div class="gh-head-brand-wrapper">
+                    <a class="gh-head-logo" href="https://blog.cyberdesserts.com">
+                            <img src="https://storage.ghost.io/c/35/11/3511c934-5ff5-4c52-bd35-1fa0ecc19415/content/images/2026/08/shield-1024-1.png" alt="CyberDesserts">
+                    </a>
+                </div>
+                <button class="gh-search gh-icon-btn" aria-label="Search this site" data-ghost-search><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2" width="20" height="20"><path stroke-linecap="round" stroke-linejoin="round" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"></path></svg></button>
+                <button class="gh-burger" aria-label="Toggle menu"></button>
+            </div>
+
+            <nav class="gh-head-menu">
+                <ul class="nav">
+    <li class="nav-blog"><a href="https://blog.cyberdesserts.com/">Blog </a></li>
+    <li class="nav-free-career-guide"><a href="https://blog.cyberdesserts.com/cybersecurity-career-guide-2026/">Free Career Guide</a></li>
+    <li class="nav-members-hub"><a href="https://blog.cyberdesserts.com/cybersecurity-career-resources/">Members Hub</a></li>
+    <li class="nav-cyberdesserts-com"><a href="https://cyberdesserts.com/">CyberDesserts.com</a></li>
+    <li class="nav-ai-security"><a href="https://blog.cyberdesserts.com/ai-security/">AI Security</a></li>
+</ul>
+
+            </nav>
+
+            <div class="gh-head-actions">
+                    <button class="gh-search gh-icon-btn" aria-label="Search this site" data-ghost-search><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2" width="20" height="20"><path stroke-linecap="round" stroke-linejoin="round" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"></path></svg></button>
+                    <div class="gh-head-members">
+                                <a class="gh-head-link" href="#/portal/signin" data-portal="signin">Sign in</a>
+                                <a class="gh-head-btn gh-btn gh-primary-btn" href="#/portal/signup" data-portal="signup">Subscribe</a>
+                    </div>
+            </div>
+        </div>
+    </header>
+
+
+    <div class="site-content">
+        
+<main class="site-main">
+
+        <article class="single post tag-ai-security tag-news">
+
+        <header class="single-header gh-canvas">
+            <div class="single-meta">
+                <span class="single-meta-item single-meta-date">
+                    <time datetime="2026-03-31">
+                        31 Mar 2026
+                    </time>
+                </span>
+                <span class="single-meta-item single-meta-length">
+                    9 min read
+                </span>
+                    <span class="single-meta-item single-meta-tag">
+                        <a class="post-tag post-tag-ai-security" href="/tag/ai-security/">AI Security</a>
+                    </span>
+            </div>
+
+            <h1 class="single-title">What Censys&#x27;s OpenClaw Count Reveals That February&#x27;s Headlines Did Not</h1>
+
+
+            <div class="author-name" style="display: none;"><a href="/author/shakel-ahmed/">Shakel Ahmed</a></div>
+
+                <figure class="single-media kg-width-narrow">
+                    <img srcset="https://images.unsplash.com/photo-1709547228697-fa1f424a3f39?crop&#x3D;entropy&amp;cs&#x3D;tinysrgb&amp;fit&#x3D;max&amp;fm&#x3D;jpg&amp;ixid&#x3D;M3wxMTc3M3wwfDF8c2VhcmNofDEwNXx8Y29kaW5nfGVufDB8fHx8MTc3NTAwMDMwMnww&amp;ixlib&#x3D;rb-4.1.0&amp;q&#x3D;80&amp;w&#x3D;400 400w,
+https://images.unsplash.com/photo-1709547228697-fa1f424a3f39?crop&#x3D;entropy&amp;cs&#x3D;tinysrgb&amp;fit&#x3D;max&amp;fm&#x3D;jpg&amp;ixid&#x3D;M3wxMTc3M3wwfDF8c2VhcmNofDEwNXx8Y29kaW5nfGVufDB8fHx8MTc3NTAwMDMwMnww&amp;ixlib&#x3D;rb-4.1.0&amp;q&#x3D;80&amp;w&#x3D;750 750w,
+https://images.unsplash.com/photo-1709547228697-fa1f424a3f39?crop&#x3D;entropy&amp;cs&#x3D;tinysrgb&amp;fit&#x3D;max&amp;fm&#x3D;jpg&amp;ixid&#x3D;M3wxMTc3M3wwfDF8c2VhcmNofDEwNXx8Y29kaW5nfGVufDB8fHx8MTc3NTAwMDMwMnww&amp;ixlib&#x3D;rb-4.1.0&amp;q&#x3D;80&amp;w&#x3D;960 960w,
+https://images.unsplash.com/photo-1709547228697-fa1f424a3f39?crop&#x3D;entropy&amp;cs&#x3D;tinysrgb&amp;fit&#x3D;max&amp;fm&#x3D;jpg&amp;ixid&#x3D;M3wxMTc3M3wwfDF8c2VhcmNofDEwNXx8Y29kaW5nfGVufDB8fHx8MTc3NTAwMDMwMnww&amp;ixlib&#x3D;rb-4.1.0&amp;q&#x3D;80&amp;w&#x3D;1140 1140w" sizes="(min-width: 1023px) 920px, calc(90vw)" src="https://images.unsplash.com/photo-1709547228697-fa1f424a3f39?crop&#x3D;entropy&amp;cs&#x3D;tinysrgb&amp;fit&#x3D;max&amp;fm&#x3D;jpg&amp;ixid&#x3D;M3wxMTc3M3wwfDF8c2VhcmNofDEwNXx8Y29kaW5nfGVufDB8fHx8MTc3NTAwMDMwMnww&amp;ixlib&#x3D;rb-4.1.0&amp;q&#x3D;80&amp;w&#x3D;960" alt="A ginger cat viewed from behind, sitting in front of a blurred monitor displaying code">
+                        <figcaption><span style="white-space:pre-wrap">Autonomous agents that can read your files, run commands, and install third-party skills deserve more scrutiny than most teams are giving them. - Photo by </span><a href="https://unsplash.com/@vladimir_d?utm_source=ghost&amp;utm_medium=referral&amp;utm_campaign=api-credit"><span style="white-space:pre-wrap">Volodymyr Dobrovolskyy</span></a><span style="white-space:pre-wrap"> / </span><a href="https://unsplash.com/?utm_source=ghost&amp;utm_medium=referral&amp;utm_campaign=api-credit"><span style="white-space:pre-wrap">Unsplash</span></a></figcaption>
+                </figure>
+        </header>
+
+    <div class="single-content gh-content gh-canvas">
+        <p>31st March 2026</p><hr><p>OpenClaw's internet-facing exposure has fallen sharply since the February 2026 peak. Public scrutiny, repeated security warnings, and operational changes by some operators appear to have had a real effect. That is good news, and it is worth saying clearly before anything else.</p><p>It is also roughly half the story.</p><p>Censys application-layer fingerprinting confirmed 63,070 live OpenClaw instances on 31 March 2026, with scan times verified on the day. Those hosts responded to active probes. They are live. Across those machines, SSH is open on the majority of hosts, web servers on roughly half, and database services including MySQL, PostgreSQL, and Redis on thousands more. An operator who closed port 18789 removed their instance from the headline count. They might not have removed OpenClaw from a machine sitting alongside a production database.</p><p>That is the gap between "cleaned up" and "secured", and it is an important distinction to note post-incident.</p><p>Closing a port removes an instance from an internet scan. It does not change what OpenClaw can do once it is running, what permissions it holds, or what sits on the same machine. A security team that scans, finds nothing, and marks the risk resolved is measuring visibility. Visibility and safety are not the same thing, and for AI agents with broad system access the gap between them is wider than it is for most software.</p><p>If your organisation has evaluated its <a href="https://blog.cyberdesserts.com/openclaw-malicious-skills-security/" rel="noreferrer">OpenClaw exposure</a> and drawn a conclusion, the question worth asking is: what exactly was measured?</p><hr><h2 id="the-exposure-has-fallen-what-that-does-and-does-not-mean">The Exposure Has Fallen. What That Does and Does Not Mean.</h2><p>The February SecurityScorecard figure of 135,000 exposed instances represented the peak of public internet exposure. By 31 March 2026, Censys application-layer fingerprinting confirmed 63,070 live instances, a reduction of roughly 53% over six weeks when comparing the two methodologies directly. That drop is consistent with real behaviour change: patching, localhost rebinding, firewall updates, and operators choosing safer configurations after seeing the vendor and research coverage.</p><p>Exposure at scale rarely falls this fast without something changing operationally.</p><p>What changed is visibility, not architecture. The hosts that dropped out of the count mostly stopped advertising themselves to the public internet. The permission model that gives any loaded OpenClaw skill system-level access is unchanged. The ClawHub trust problem is unchanged. The prompt injection risk that Snyk found in 36% of all available skills is unchanged (Snyk, 2026).</p><p>Closing a port is not the same as fixing the thing behind it.</p><p>The Censys data makes the co-located picture concrete. One instance in Malaysia runs on a Synology NAS alongside RDP and a PPTP VPN. One in China runs OpenClaw on the same machine as OpenVPN, L2TP, and PPTP. An operator who closed port 18789 removed their instance from the headline count.</p><p>The Censys data cannot tell us exactly what data sits alongside OpenClaw on those machines, but it does show database services co-located on thousands of the confirmed hosts. Whether those databases are empty test instances or carry live data is unknown. The point is that the exposure count and the actual risk profile are different measurements.</p><hr><h2 id="why-no-two-sources-report-the-same-openclaw-number">Why No Two Sources Report the Same OpenClaw Number</h2><p>SecurityScorecard reported 135,000 in February. Censys confirmed 63,070 on 31 March 2026. Both figures are methodologically sound. They are measuring different things, at different times, using approaches that are closer to each other than either is to a raw port scan.</p><p>Censys uses application-layer fingerprinting: HTTP headers, TLS certificate patterns, and response signatures that identify the application regardless of whether it self-identifies in its banner. Censys was founded on the ZMap research project at the University of Michigan and its scanning data is used across government security research and enterprise security teams as primary research. When Censys published its own OpenClaw exposure analysis in January 2026, it became the reference source for the early count trajectory.</p><p>SecurityScorecard's STRIKE team uses a comparable methodology with their own continuous scanning infrastructure, which is why their February figure and the March Censys figure sit in the same order of magnitude.</p><p>For comparison, Shodan's banner-matching query against the same ports returns a fraction of either figure. Banner matching only finds hosts that explicitly identify the software in their service response, a conservative method that understates real exposure. It is a useful corroboration check rather than a primary measurement tool for this type of research.</p><p>The table below shows the three-source picture:</p>
+<!--kg-card-begin: html-->
+<table>
+<thead>
+<tr>
+<th>Tool</th>
+<th>Method</th>
+<th>Result</th>
+<th>Date</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Censys</td>
+<td>Application-layer fingerprint, confirmed scan_time</td>
+<td>63,070</td>
+<td>31 March 2026</td>
+</tr>
+<tr>
+<td>SecurityScorecard</td>
+<td>Application-layer fingerprint (peak)</td>
+<td>135,000</td>
+<td>February 2026</td>
+</tr>
+<tr>
+<td>GreyNoise</td>
+<td>Active probe traffic, port 18789</td>
+<td>9,993 scanning IPs</td>
+<td>31 March 2026</td>
+</tr>
+</tbody>
+</table>
+<!--kg-card-end: html-->
+<p>The GreyNoise figure adds a dimension that exposure counts alone cannot capture. Port 18789 continues to be actively probed by malicious infrastructure. Port 18789 is not OpenClaw-exclusive, so this is not evidence of targeted hunting. But it tells you that an operator who rebinds to localhost disappears from the Censys count. They don't disappear from the attacker's sweep.</p><p>When your security team reports the scan came back clean, the follow-up is: which tool, which query, and did the scan cover infrastructure outside your registered IP ranges? The Censys data includes OpenClaw instances on DigitalOcean, Hetzner, Oracle Cloud, and Google Cloud. Those providers host everything from potential enterprise shadow IT deployments to individual developers running side experiments.</p><p>The security implication is the same in either case: if someone is running OpenClaw on a personal or unregistered cloud account that has access to work credentials, APIs, or data, a corporate scan of your registered address space will not find it. Whether that is deliberate shadow IT or a developer testing something on their own account, the exposure is real and the scan will miss it.</p><hr><h2 id="what-the-geographic-breakdown-reveals-about-the-remaining-exposure">What the Geographic Breakdown Reveals About the Remaining Exposure</h2><p>The geographic breakdown in the Censys data is the finding that has not been updated since the February peak. Early reporting, including Censys's own blog post and SecurityScorecard's disclosure, noted Chinese concentration at that time, with Alibaba Cloud hosting a significant share. The 31 March scan provides a current picture.</p><p>Approximately half of the 63,070 confirmed live instances sit on Chinese hyperscaler infrastructure: Tencent (14,000 hosts), Alibaba (approximately 12,000), and Baidu (5,400). The remainder is distributed across European and US cloud providers, with smaller concentrations in Singapore, Japan, and Germany.</p><p>On 11 March 2026, Chinese authorities issued restrictions preventing state-run enterprises and government agencies from installing OpenClaw on office devices (Bloomberg, March 2026). Bank employees were directed to declare existing installations for security review. The restrictions extended to personal phones connected to company networks.</p><p>The Censys data covers a different population. The hosts in the Tencent, Alibaba, and Baidu ranges are cloud VMs, developer deployments, and startup infrastructure, not government or state enterprise systems. SecurityScorecard noted that China's OpenClaw usage is almost double that of the US.</p><p>Reports from early March described mass install events outside Tencent's headquarters in Shenzhen, with local governments in Shenzhen and Wuxi actively subsidising companies building on OpenClaw (Fast Company, Tom's Hardware, March 2026).</p><p>For practitioners tracking exposure, the geographic concentration has a specific security implication. OpenClaw security coverage in Chinese-language media has not reached the depth of the English-language disclosure from SecurityScorecard, Antiy CERT, and Snyk. The configuration changes and hardening guidance that followed that coverage reached operators who encountered it. The data suggests many operators on Chinese cloud infrastructure have not.</p><hr><h2 id="why-this-case-keeps-getting-cited">Why This Case Keeps Getting Cited</h2><p>The exposure spike is being cleaned up. The underlying problem has not been solved. The reason the industry has not moved on from OpenClaw as a reference case is that these two things are easy to confuse, and the confusion has real consequences for how teams assess their own risk.</p><p>NemoClaw, NVIDIA's enterprise security layer announced at GTC 2026, addresses this directly. Its architecture tackles sandboxing, policy enforcement, and network egress at the infrastructure level rather than patching individual CVEs. The implication is explicit: the CVE-by-CVE approach does not fix the trust model. That is a significant concession, and one the industry needed to make out loud.</p><p>OpenClaw keeps getting cited because it compresses several unresolved questions of agentic AI into one concrete example: what happens when a system with broad permissions, a community registry with no meaningful vetting, and a design philosophy that prioritises capability over containment encounters an adversary who understands all three. The exposure count falling does not answer that question.</p><p>For the broader MCP and AI agent risk landscape, the <a href="https://blog.cyberdesserts.com/ai-agent-security-risks/">AI agent security risks guide</a> covers the structural issues that OpenClaw made visible but did not invent.</p><hr><div class="kg-card kg-button-card kg-align-center"><a href="#/portal/signup" class="kg-btn kg-btn-accent">Subscribe for Updates</a></div><h2 id="faq">FAQ</h2><p><strong>How many live OpenClaw instances are currently confirmed on the internet?</strong></p><p>Censys application-layer fingerprinting, with scan times confirmed on 31 March 2026, identified 63,070 live OpenClaw instances. This is the most methodologically current public figure available. SecurityScorecard's February figure of 135,000 used a comparable approach and represents the population before six weeks of patching, localhost rebinding, and firewall changes reduced the visible footprint. The two figures are comparable because both use application-layer fingerprinting rather than banner matching.</p><p><strong>Why do different security tools report such different OpenClaw exposure numbers?</strong></p><p>Tools that use application-layer fingerprinting, including Censys and SecurityScorecard, identify OpenClaw through HTTP headers, TLS certificate patterns, and response signatures regardless of whether the service self-identifies. Tools that use banner matching only find hosts that explicitly name the software in their response. Running both methods on the same day can return figures that differ by a factor of 1,000 for the same underlying question. Neither is wrong. They are precise answers to different questions, and understanding the difference is the most useful thing a security team can take from this analysis.</p><p><strong>Did public disclosure reduce OpenClaw's attack surface?</strong></p><p>The confirmed live count fell from approximately 135,000 in February to 63,070 on 31 March 2026, a reduction of roughly 53% over six weeks. This is consistent with patching, localhost rebinding, firewall changes, and operators avoiding public exposure after seeing the security coverage. Whether the reduction reflects genuine security hardening or configuration changes that leave the underlying trust model intact is a separate question. The visible footprint has shrunk. The architectural risk has not changed.</p><p><strong>What does the geographic concentration of exposed OpenClaw instances reveal?</strong></p><p>Approximately half of the confirmed instances in the 31 March data are on Chinese hyperscaler infrastructure: Tencent, Alibaba, and Baidu. Early February reporting noted Chinese concentration at the peak, but no post-restriction analysis had examined whether commercial deployment continued. The 31 March Censys data shows it has. The Chinese government's March 11 restriction targeted state institutions specifically. The commercial and consumer deployment layer, which is what the Censys data captures, is a different population and has not slowed.</p><hr><p><strong>Research note: 31 March 2026</strong></p><p><strong>Primary research: Censys</strong></p><p>Base query run against ports 18789, 18791, 18792, and 18793:</p><p><code>host.services: (port: 18789 and software.product: "openclaw" and endpoints.scan_time&gt;"2026-03-30")</code></p>
+<!--kg-card-begin: html-->
+<table class="min-w-full border-collapse text-sm leading-[1.7] whitespace-normal"><thead class="text-left"><tr><th scope="col" class="text-text-100 border-b-0.5 border-border-300/60 py-2 pr-4 align-top font-bold">Port</th><th scope="col" class="text-text-100 border-b-0.5 border-border-300/60 py-2 pr-4 align-top font-bold">Confirmed live instances</th></tr></thead><tbody><tr><td class="border-b-0.5 border-border-300/30 py-2 pr-4 align-top">18789</td><td class="border-b-0.5 border-border-300/30 py-2 pr-4 align-top">63,005</td></tr><tr><td class="border-b-0.5 border-border-300/30 py-2 pr-4 align-top">18791</td><td class="border-b-0.5 border-border-300/30 py-2 pr-4 align-top">37</td></tr><tr><td class="border-b-0.5 border-border-300/30 py-2 pr-4 align-top">18792</td><td class="border-b-0.5 border-border-300/30 py-2 pr-4 align-top">8</td></tr><tr><td class="border-b-0.5 border-border-300/30 py-2 pr-4 align-top">18793</td><td class="border-b-0.5 border-border-300/30 py-2 pr-4 align-top">20</td></tr><tr><td class="border-b-0.5 border-border-300/30 py-2 pr-4 align-top"><strong>Total</strong></td><td class="border-b-0.5 border-border-300/30 py-2 pr-4 align-top"><strong>63,070</strong></td></tr></tbody></table>
+<!--kg-card-end: html-->
+<p><strong>Primary research: GreyNoise</strong></p><p>Query: <code>port:18789</code>. Result: 9,993 scanning IPs on 31 March 2026, of which 3,282 classified malicious.</p><p><strong>Sources cited</strong></p><ul><li>SecurityScorecard STRIKE team, OpenClaw internet exposure analysis (February 2026)</li><li>Censys, OpenClaw in the Wild: Mapping the Public Exposure of a Viral AI Assistant (January 2026)</li><li>Bloomberg, China Moves to Limit Use of OpenClaw AI at Banks, Government Agencies (March 11, 2026)</li><li>Fast Company, China went crazy for OpenClaw. Now it's working to ban it (March 2026)</li><li>NBC News, In China, a rush to raise lobsters quickly leads to second thoughts (March 2026)</li></ul>
+<!--kg-card-begin: html-->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "How many live OpenClaw instances are currently confirmed on the internet?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Censys application-layer fingerprinting, with scan times confirmed on 31 March 2026, identified 63,070 live OpenClaw instances. This is the most methodologically current public figure available. SecurityScorecard's February figure of 135,000 used a comparable approach and represents the population before six weeks of patching, localhost rebinding, and firewall changes reduced the visible footprint. The two figures are comparable because both use application-layer fingerprinting rather than banner matching."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Why do different security tools report such different OpenClaw exposure numbers?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Tools that use application-layer fingerprinting, including Censys and SecurityScorecard, identify OpenClaw through HTTP headers, TLS certificate patterns, and response signatures regardless of whether the service self-identifies. Tools that use banner matching only find hosts that explicitly name the software in their response. Running both methods on the same day can return figures that differ by a factor of 1,000 for the same underlying question. Neither is wrong. They are precise answers to different questions, and understanding the difference is the most useful thing a security team can take from this analysis."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Did public disclosure reduce OpenClaw's attack surface?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "The confirmed live count fell from approximately 135,000 in February to 63,070 on 31 March 2026, a reduction of roughly 53% over six weeks. This is consistent with patching, localhost rebinding, firewall changes, and operators avoiding public exposure after seeing the security coverage. Whether the reduction reflects genuine security hardening or configuration changes that leave the underlying trust model intact is a separate question. The visible footprint has shrunk. The architectural risk has not changed."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "What does the geographic concentration of exposed OpenClaw instances reveal?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Approximately half of the confirmed instances in the 31 March data are on Chinese hyperscaler infrastructure: Tencent, Alibaba, and Baidu. Early February reporting noted Chinese concentration at the peak, but no post-restriction analysis had examined whether commercial deployment continued. The 31 March Censys data shows it has. The Chinese government's March 11 restriction targeted state institutions specifically. The commercial and consumer deployment layer, which is what the Censys data captures, is a different population and has not slowed."
+      }
+    }
+  ]
+}
+</script>
+<!--kg-card-end: html-->
+
+    </div>
+
+    <div class="gh-canvas">
+    <footer class="single-footer">
+
+        <div class="single-footer-left">
+            <div class="navigation navigation-previous">
+                <a class="navigation-link" href="/cybersecurity-books/" aria-label="Previous post">
+                    <span class="navigation-icon"><svg class="icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32">
+    <path d="M26.667 14.667v2.667h-16L18 24.667l-1.893 1.893L5.547 16l10.56-10.56L18 7.333l-7.333 7.333h16z"></path>
+</svg></span>
+                </a>
+            </div>
+        </div>
+
+        <div class="single-footer-middle">
+            <div class="single-footer-top">
+                <h3 class="single-footer-title">Published by:</h3>
+                <div class="author-list">
+                        <div class="author-image-placeholder u-placeholder square">
+                            <a href="/author/shakel-ahmed/" title="Shakel Ahmed">
+                                    <img class="author-image u-object-fit" src="https://storage.ghost.io/c/35/11/3511c934-5ff5-4c52-bd35-1fa0ecc19415/content/images/size/w150/2026/08/shakel-ahmed.jpg" alt="Shakel Ahmed" loading="lazy">
+                            </a>
+                        </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="single-footer-right">
+            <div class="navigation navigation-next">
+                <a class="navigation-link" href="/cybersecurity-career-report-april-2026/" aria-label="Next post">
+                    <span class="navigation-icon"><svg class="icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32">
+    <path d="M5.333 14.667v2.667h16L14 24.667l1.893 1.893L26.453 16 15.893 5.44 14 7.333l7.333 7.333h-16z"></path>
+</svg></span>
+                </a>
+            </div>
+        </div>
+
+    </footer>
+    </div>
+
+</article>
+                <section class="related-wrapper gh-canvas">
+        <h3 class="related-title">You might also like...</h3>
+        <div class="post-feed related-feed">
+                <article class="feed post" data-month="October 2026">
+
+    <div class="feed-calendar">
+        <div class="feed-calendar-day">
+            04
+        </div>
+        <div class="feed-calendar-month">
+            Oct
+        </div>
+    </div>
+
+        <div class="feed-image u-placeholder rectangle">
+                <img
+                    class="u-object-fit"
+                    srcset="https://images.unsplash.com/photo-1667372335937-d03be6fb0a9c?crop&#x3D;entropy&amp;cs&#x3D;tinysrgb&amp;fit&#x3D;max&amp;fm&#x3D;jpg&amp;ixid&#x3D;M3wxMTc3M3wwfDF8c2VhcmNofDUxfHxjb250aW51b3VzJTIwaW50ZWdyYXRpb258ZW58MHx8fHwxNzkxMTI1Mjg0fDA&amp;ixlib&#x3D;rb-4.1.0&amp;q&#x3D;80&amp;w&#x3D;400 400w,
+https://images.unsplash.com/photo-1667372335937-d03be6fb0a9c?crop&#x3D;entropy&amp;cs&#x3D;tinysrgb&amp;fit&#x3D;max&amp;fm&#x3D;jpg&amp;ixid&#x3D;M3wxMTc3M3wwfDF8c2VhcmNofDUxfHxjb250aW51b3VzJTIwaW50ZWdyYXRpb258ZW58MHx8fHwxNzkxMTI1Mjg0fDA&amp;ixlib&#x3D;rb-4.1.0&amp;q&#x3D;80&amp;w&#x3D;750 750w,
+https://images.unsplash.com/photo-1667372335937-d03be6fb0a9c?crop&#x3D;entropy&amp;cs&#x3D;tinysrgb&amp;fit&#x3D;max&amp;fm&#x3D;jpg&amp;ixid&#x3D;M3wxMTc3M3wwfDF8c2VhcmNofDUxfHxjb250aW51b3VzJTIwaW50ZWdyYXRpb258ZW58MHx8fHwxNzkxMTI1Mjg0fDA&amp;ixlib&#x3D;rb-4.1.0&amp;q&#x3D;80&amp;w&#x3D;960 960w,
+https://images.unsplash.com/photo-1667372335937-d03be6fb0a9c?crop&#x3D;entropy&amp;cs&#x3D;tinysrgb&amp;fit&#x3D;max&amp;fm&#x3D;jpg&amp;ixid&#x3D;M3wxMTc3M3wwfDF8c2VhcmNofDUxfHxjb250aW51b3VzJTIwaW50ZWdyYXRpb258ZW58MHx8fHwxNzkxMTI1Mjg0fDA&amp;ixlib&#x3D;rb-4.1.0&amp;q&#x3D;80&amp;w&#x3D;1140 1140w"
+                    sizes="(min-width: 576px) 160px, 90vw"
+                    src="https://images.unsplash.com/photo-1667372335937-d03be6fb0a9c?crop&#x3D;entropy&amp;cs&#x3D;tinysrgb&amp;fit&#x3D;max&amp;fm&#x3D;jpg&amp;ixid&#x3D;M3wxMTc3M3wwfDF8c2VhcmNofDUxfHxjb250aW51b3VzJTIwaW50ZWdyYXRpb258ZW58MHx8fHwxNzkxMTI1Mjg0fDA&amp;ixlib&#x3D;rb-4.1.0&amp;q&#x3D;80&amp;w&#x3D;750"
+                    alt="What Is AppSec and Why It Matters Now"
+                    loading="lazy"
+                >
+        </div>
+
+    <div class="feed-wrapper">
+        <h2 class="feed-title">What Is AppSec and Why It Matters Now</h2>
+            <div class="feed-excerpt">October 2026
+
+Application security, or AppSec, is the work of making sure software can be trusted: when it is designed,</div>
+        <div class="feed-right">
+            <time class="feed-date" datetime="2026-10-04">
+                04 Oct 2026
+            </time>
+            <div class="feed-visibility feed-visibility-public">
+                <svg class="icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32">
+    <path d="M16 23.027L24.24 28l-2.187-9.373 7.28-6.307-9.587-.827-3.747-8.827-3.747 8.827-9.587.827 7.267 6.307L7.759 28l8.24-4.973z"></path>
+</svg>            </div>
+                <div class="feed-length">
+                    4 min read
+                </div>
+                <script
+    data-ghost-comment-count="6ac26499bb71bb0001d505ff"
+    data-ghost-comment-count-empty=""
+    data-ghost-comment-count-singular="comment"
+    data-ghost-comment-count-plural="comments"
+    data-ghost-comment-count-tag="div"
+    data-ghost-comment-count-class-name="feed-comments"
+    data-ghost-comment-count-autowrap="true"
+>
+</script>
+            <div class="feed-icon">
+                <svg class="icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32">
+    <path d="M11.453 22.107L17.56 16l-6.107-6.12L13.333 8l8 8-8 8-1.88-1.893z"></path>
+</svg>            </div>
+        </div>
+    </div>
+
+    <a class="u-permalink" href="/what-is-appsec/" aria-label="What Is AppSec and Why It Matters Now"></a>
+
+</article>                <article class="feed post" data-month="August 2026">
+
+    <div class="feed-calendar">
+        <div class="feed-calendar-day">
+            18
+        </div>
+        <div class="feed-calendar-month">
+            Aug
+        </div>
+    </div>
+
+        <div class="feed-image u-placeholder rectangle">
+                <img
+                    class="u-object-fit"
+                    srcset="https://images.unsplash.com/photo-1664447973006-ac31f9fdfac2?crop&#x3D;entropy&amp;cs&#x3D;tinysrgb&amp;fit&#x3D;max&amp;fm&#x3D;jpg&amp;ixid&#x3D;M3wxMTc3M3wwfDF8c2VhcmNofDU2fHxhaXxlbnwwfHx8fDE3ODcwNDM0NTZ8MA&amp;ixlib&#x3D;rb-4.1.0&amp;q&#x3D;80&amp;w&#x3D;400 400w,
+https://images.unsplash.com/photo-1664447973006-ac31f9fdfac2?crop&#x3D;entropy&amp;cs&#x3D;tinysrgb&amp;fit&#x3D;max&amp;fm&#x3D;jpg&amp;ixid&#x3D;M3wxMTc3M3wwfDF8c2VhcmNofDU2fHxhaXxlbnwwfHx8fDE3ODcwNDM0NTZ8MA&amp;ixlib&#x3D;rb-4.1.0&amp;q&#x3D;80&amp;w&#x3D;750 750w,
+https://images.unsplash.com/photo-1664447973006-ac31f9fdfac2?crop&#x3D;entropy&amp;cs&#x3D;tinysrgb&amp;fit&#x3D;max&amp;fm&#x3D;jpg&amp;ixid&#x3D;M3wxMTc3M3wwfDF8c2VhcmNofDU2fHxhaXxlbnwwfHx8fDE3ODcwNDM0NTZ8MA&amp;ixlib&#x3D;rb-4.1.0&amp;q&#x3D;80&amp;w&#x3D;960 960w,
+https://images.unsplash.com/photo-1664447973006-ac31f9fdfac2?crop&#x3D;entropy&amp;cs&#x3D;tinysrgb&amp;fit&#x3D;max&amp;fm&#x3D;jpg&amp;ixid&#x3D;M3wxMTc3M3wwfDF8c2VhcmNofDU2fHxhaXxlbnwwfHx8fDE3ODcwNDM0NTZ8MA&amp;ixlib&#x3D;rb-4.1.0&amp;q&#x3D;80&amp;w&#x3D;1140 1140w"
+                    sizes="(min-width: 576px) 160px, 90vw"
+                    src="https://images.unsplash.com/photo-1664447973006-ac31f9fdfac2?crop&#x3D;entropy&amp;cs&#x3D;tinysrgb&amp;fit&#x3D;max&amp;fm&#x3D;jpg&amp;ixid&#x3D;M3wxMTc3M3wwfDF8c2VhcmNofDU2fHxhaXxlbnwwfHx8fDE3ODcwNDM0NTZ8MA&amp;ixlib&#x3D;rb-4.1.0&amp;q&#x3D;80&amp;w&#x3D;750"
+                    alt="MCP Security Best Practices: Check Your Own Server First"
+                    loading="lazy"
+                >
+        </div>
+
+    <div class="feed-wrapper">
+        <h2 class="feed-title">MCP Security Best Practices: Check Your Own Server First</h2>
+            <div class="feed-excerpt">19 August 2026. Checked against MCP specification 2026-07-28.
+
+Most MCP security best practice do not go far enough.</div>
+        <div class="feed-right">
+            <time class="feed-date" datetime="2026-08-18">
+                18 Aug 2026
+            </time>
+            <div class="feed-visibility feed-visibility-public">
+                <svg class="icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32">
+    <path d="M16 23.027L24.24 28l-2.187-9.373 7.28-6.307-9.587-.827-3.747-8.827-3.747 8.827-9.587.827 7.267 6.307L7.759 28l8.24-4.973z"></path>
+</svg>            </div>
+                <div class="feed-length">
+                    10 min read
+                </div>
+                <script
+    data-ghost-comment-count="6a841319dea8c000012de124"
+    data-ghost-comment-count-empty=""
+    data-ghost-comment-count-singular="comment"
+    data-ghost-comment-count-plural="comments"
+    data-ghost-comment-count-tag="div"
+    data-ghost-comment-count-class-name="feed-comments"
+    data-ghost-comment-count-autowrap="true"
+>
+</script>
+            <div class="feed-icon">
+                <svg class="icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32">
+    <path d="M11.453 22.107L17.56 16l-6.107-6.12L13.333 8l8 8-8 8-1.88-1.893z"></path>
+</svg>            </div>
+        </div>
+    </div>
+
+    <a class="u-permalink" href="/mcp-security-best-practices/" aria-label="MCP Security Best Practices: Check Your Own Server First"></a>
+
+</article>                <article class="feed post" data-month="July 2026">
+
+    <div class="feed-calendar">
+        <div class="feed-calendar-day">
+            20
+        </div>
+        <div class="feed-calendar-month">
+            Jul
+        </div>
+    </div>
+
+        <div class="feed-image u-placeholder rectangle">
+                <img
+                    class="u-object-fit"
+                    srcset="https://images.unsplash.com/photo-1677442136019-21780ecad995?crop&#x3D;entropy&amp;cs&#x3D;tinysrgb&amp;fit&#x3D;max&amp;fm&#x3D;jpg&amp;ixid&#x3D;M3wxMTc3M3wwfDF8c2VhcmNofDZ8fGFpfGVufDB8fHx8MTc4NDU4MjcwNXww&amp;ixlib&#x3D;rb-4.1.0&amp;q&#x3D;80&amp;w&#x3D;400 400w,
+https://images.unsplash.com/photo-1677442136019-21780ecad995?crop&#x3D;entropy&amp;cs&#x3D;tinysrgb&amp;fit&#x3D;max&amp;fm&#x3D;jpg&amp;ixid&#x3D;M3wxMTc3M3wwfDF8c2VhcmNofDZ8fGFpfGVufDB8fHx8MTc4NDU4MjcwNXww&amp;ixlib&#x3D;rb-4.1.0&amp;q&#x3D;80&amp;w&#x3D;750 750w,
+https://images.unsplash.com/photo-1677442136019-21780ecad995?crop&#x3D;entropy&amp;cs&#x3D;tinysrgb&amp;fit&#x3D;max&amp;fm&#x3D;jpg&amp;ixid&#x3D;M3wxMTc3M3wwfDF8c2VhcmNofDZ8fGFpfGVufDB8fHx8MTc4NDU4MjcwNXww&amp;ixlib&#x3D;rb-4.1.0&amp;q&#x3D;80&amp;w&#x3D;960 960w,
+https://images.unsplash.com/photo-1677442136019-21780ecad995?crop&#x3D;entropy&amp;cs&#x3D;tinysrgb&amp;fit&#x3D;max&amp;fm&#x3D;jpg&amp;ixid&#x3D;M3wxMTc3M3wwfDF8c2VhcmNofDZ8fGFpfGVufDB8fHx8MTc4NDU4MjcwNXww&amp;ixlib&#x3D;rb-4.1.0&amp;q&#x3D;80&amp;w&#x3D;1140 1140w"
+                    sizes="(min-width: 576px) 160px, 90vw"
+                    src="https://images.unsplash.com/photo-1677442136019-21780ecad995?crop&#x3D;entropy&amp;cs&#x3D;tinysrgb&amp;fit&#x3D;max&amp;fm&#x3D;jpg&amp;ixid&#x3D;M3wxMTc3M3wwfDF8c2VhcmNofDZ8fGFpfGVufDB8fHx8MTc4NDU4MjcwNXww&amp;ixlib&#x3D;rb-4.1.0&amp;q&#x3D;80&amp;w&#x3D;750"
+                    alt="Hugging Face&#x27;s AI breach needed AI to investigate it. The models refused."
+                    loading="lazy"
+                >
+        </div>
+
+    <div class="feed-wrapper">
+        <h2 class="feed-title">Hugging Face&#x27;s AI breach needed AI to investigate it. The models refused.</h2>
+            <div class="feed-excerpt">Updated 21 August 2026: rewritten to cover all four evaluation disclosures. An earlier version said hosted models refuse forensic work</div>
+        <div class="feed-right">
+            <time class="feed-date" datetime="2026-07-20">
+                20 Jul 2026
+            </time>
+            <div class="feed-visibility feed-visibility-public">
+                <svg class="icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32">
+    <path d="M16 23.027L24.24 28l-2.187-9.373 7.28-6.307-9.587-.827-3.747-8.827-3.747 8.827-9.587.827 7.267 6.307L7.759 28l8.24-4.973z"></path>
+</svg>            </div>
+                <div class="feed-length">
+                    10 min read
+                </div>
+                <script
+    data-ghost-comment-count="6a5e91ac015ccd0001d67896"
+    data-ghost-comment-count-empty=""
+    data-ghost-comment-count-singular="comment"
+    data-ghost-comment-count-plural="comments"
+    data-ghost-comment-count-tag="div"
+    data-ghost-comment-count-class-name="feed-comments"
+    data-ghost-comment-count-autowrap="true"
+>
+</script>
+            <div class="feed-icon">
+                <svg class="icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32">
+    <path d="M11.453 22.107L17.56 16l-6.107-6.12L13.333 8l8 8-8 8-1.88-1.893z"></path>
+</svg>            </div>
+        </div>
+    </div>
+
+    <a class="u-permalink" href="/ai-incident-response/" aria-label="Hugging Face&#x27;s AI breach needed AI to investigate it. The models refused."></a>
+
+</article>                <article class="feed post" data-month="July 2026">
+
+    <div class="feed-calendar">
+        <div class="feed-calendar-day">
+            09
+        </div>
+        <div class="feed-calendar-month">
+            Jul
+        </div>
+    </div>
+
+        <div class="feed-image u-placeholder rectangle">
+                <img
+                    class="u-object-fit"
+                    srcset="https://images.unsplash.com/photo-1571171637578-41bc2dd41cd2?crop&#x3D;entropy&amp;cs&#x3D;tinysrgb&amp;fit&#x3D;max&amp;fm&#x3D;jpg&amp;ixid&#x3D;M3wxMTc3M3wwfDF8c2VhcmNofDd8fHNvZnR3YXJlfGVufDB8fHx8MTc4MzYyNDAxMnww&amp;ixlib&#x3D;rb-4.1.0&amp;q&#x3D;80&amp;w&#x3D;400 400w,
+https://images.unsplash.com/photo-1571171637578-41bc2dd41cd2?crop&#x3D;entropy&amp;cs&#x3D;tinysrgb&amp;fit&#x3D;max&amp;fm&#x3D;jpg&amp;ixid&#x3D;M3wxMTc3M3wwfDF8c2VhcmNofDd8fHNvZnR3YXJlfGVufDB8fHx8MTc4MzYyNDAxMnww&amp;ixlib&#x3D;rb-4.1.0&amp;q&#x3D;80&amp;w&#x3D;750 750w,
+https://images.unsplash.com/photo-1571171637578-41bc2dd41cd2?crop&#x3D;entropy&amp;cs&#x3D;tinysrgb&amp;fit&#x3D;max&amp;fm&#x3D;jpg&amp;ixid&#x3D;M3wxMTc3M3wwfDF8c2VhcmNofDd8fHNvZnR3YXJlfGVufDB8fHx8MTc4MzYyNDAxMnww&amp;ixlib&#x3D;rb-4.1.0&amp;q&#x3D;80&amp;w&#x3D;960 960w,
+https://images.unsplash.com/photo-1571171637578-41bc2dd41cd2?crop&#x3D;entropy&amp;cs&#x3D;tinysrgb&amp;fit&#x3D;max&amp;fm&#x3D;jpg&amp;ixid&#x3D;M3wxMTc3M3wwfDF8c2VhcmNofDd8fHNvZnR3YXJlfGVufDB8fHx8MTc4MzYyNDAxMnww&amp;ixlib&#x3D;rb-4.1.0&amp;q&#x3D;80&amp;w&#x3D;1140 1140w"
+                    sizes="(min-width: 576px) 160px, 90vw"
+                    src="https://images.unsplash.com/photo-1571171637578-41bc2dd41cd2?crop&#x3D;entropy&amp;cs&#x3D;tinysrgb&amp;fit&#x3D;max&amp;fm&#x3D;jpg&amp;ixid&#x3D;M3wxMTc3M3wwfDF8c2VhcmNofDd8fHNvZnR3YXJlfGVufDB8fHx8MTc4MzYyNDAxMnww&amp;ixlib&#x3D;rb-4.1.0&amp;q&#x3D;80&amp;w&#x3D;750"
+                    alt="The Vulnerabilities That Never Get a CVE"
+                    loading="lazy"
+                >
+        </div>
+
+    <div class="feed-wrapper">
+        <h2 class="feed-title">The Vulnerabilities That Never Get a CVE</h2>
+            <div class="feed-excerpt">July 2026
+
+Most vulnerability programmes run on a simple assumption: if a flaw matters, it gets a CVE, and if</div>
+        <div class="feed-right">
+            <time class="feed-date" datetime="2026-07-09">
+                09 Jul 2026
+            </time>
+            <div class="feed-visibility feed-visibility-public">
+                <svg class="icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32">
+    <path d="M16 23.027L24.24 28l-2.187-9.373 7.28-6.307-9.587-.827-3.747-8.827-3.747 8.827-9.587.827 7.267 6.307L7.759 28l8.24-4.973z"></path>
+</svg>            </div>
+                <div class="feed-length">
+                    9 min read
+                </div>
+                <script
+    data-ghost-comment-count="6a4feeaea0cdd200015c05b4"
+    data-ghost-comment-count-empty=""
+    data-ghost-comment-count-singular="comment"
+    data-ghost-comment-count-plural="comments"
+    data-ghost-comment-count-tag="div"
+    data-ghost-comment-count-class-name="feed-comments"
+    data-ghost-comment-count-autowrap="true"
+>
+</script>
+            <div class="feed-icon">
+                <svg class="icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32">
+    <path d="M11.453 22.107L17.56 16l-6.107-6.12L13.333 8l8 8-8 8-1.88-1.893z"></path>
+</svg>            </div>
+        </div>
+    </div>
+
+    <a class="u-permalink" href="/silent-patching/" aria-label="The Vulnerabilities That Never Get a CVE"></a>
+
+</article>                <article class="feed post" data-month="July 2026">
+
+    <div class="feed-calendar">
+        <div class="feed-calendar-day">
+            05
+        </div>
+        <div class="feed-calendar-month">
+            Jul
+        </div>
+    </div>
+
+        <div class="feed-image u-placeholder rectangle">
+                <img
+                    class="u-object-fit"
+                    srcset="https://images.unsplash.com/photo-1683639651000-11dd8702312e?crop&#x3D;entropy&amp;cs&#x3D;tinysrgb&amp;fit&#x3D;max&amp;fm&#x3D;jpg&amp;ixid&#x3D;M3wxMTc3M3wwfDF8c2VhcmNofDE1fHx2YXVsdHxlbnwwfHx8fDE3ODMyNzA2NDV8MA&amp;ixlib&#x3D;rb-4.1.0&amp;q&#x3D;80&amp;w&#x3D;400 400w,
+https://images.unsplash.com/photo-1683639651000-11dd8702312e?crop&#x3D;entropy&amp;cs&#x3D;tinysrgb&amp;fit&#x3D;max&amp;fm&#x3D;jpg&amp;ixid&#x3D;M3wxMTc3M3wwfDF8c2VhcmNofDE1fHx2YXVsdHxlbnwwfHx8fDE3ODMyNzA2NDV8MA&amp;ixlib&#x3D;rb-4.1.0&amp;q&#x3D;80&amp;w&#x3D;750 750w,
+https://images.unsplash.com/photo-1683639651000-11dd8702312e?crop&#x3D;entropy&amp;cs&#x3D;tinysrgb&amp;fit&#x3D;max&amp;fm&#x3D;jpg&amp;ixid&#x3D;M3wxMTc3M3wwfDF8c2VhcmNofDE1fHx2YXVsdHxlbnwwfHx8fDE3ODMyNzA2NDV8MA&amp;ixlib&#x3D;rb-4.1.0&amp;q&#x3D;80&amp;w&#x3D;960 960w,
+https://images.unsplash.com/photo-1683639651000-11dd8702312e?crop&#x3D;entropy&amp;cs&#x3D;tinysrgb&amp;fit&#x3D;max&amp;fm&#x3D;jpg&amp;ixid&#x3D;M3wxMTc3M3wwfDF8c2VhcmNofDE1fHx2YXVsdHxlbnwwfHx8fDE3ODMyNzA2NDV8MA&amp;ixlib&#x3D;rb-4.1.0&amp;q&#x3D;80&amp;w&#x3D;1140 1140w"
+                    sizes="(min-width: 576px) 160px, 90vw"
+                    src="https://images.unsplash.com/photo-1683639651000-11dd8702312e?crop&#x3D;entropy&amp;cs&#x3D;tinysrgb&amp;fit&#x3D;max&amp;fm&#x3D;jpg&amp;ixid&#x3D;M3wxMTc3M3wwfDF8c2VhcmNofDE1fHx2YXVsdHxlbnwwfHx8fDE3ODMyNzA2NDV8MA&amp;ixlib&#x3D;rb-4.1.0&amp;q&#x3D;80&amp;w&#x3D;750"
+                    alt="LiteLLM Security: Your AI Gateway Is a Secrets Manager. Benchmark It Like One"
+                    loading="lazy"
+                >
+        </div>
+
+    <div class="feed-wrapper">
+        <h2 class="feed-title">LiteLLM Security: Your AI Gateway Is a Secrets Manager. Benchmark It Like One</h2>
+            <div class="feed-excerpt">July 2026
+
+An AI gateway is a secrets manager wearing a router&#39;s clothes. LiteLLM, the most widely adopted</div>
+        <div class="feed-right">
+            <time class="feed-date" datetime="2026-07-05">
+                05 Jul 2026
+            </time>
+            <div class="feed-visibility feed-visibility-public">
+                <svg class="icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32">
+    <path d="M16 23.027L24.24 28l-2.187-9.373 7.28-6.307-9.587-.827-3.747-8.827-3.747 8.827-9.587.827 7.267 6.307L7.759 28l8.24-4.973z"></path>
+</svg>            </div>
+                <div class="feed-length">
+                    7 min read
+                </div>
+                <script
+    data-ghost-comment-count="6a4a8bcc11dddb0001a88dc4"
+    data-ghost-comment-count-empty=""
+    data-ghost-comment-count-singular="comment"
+    data-ghost-comment-count-plural="comments"
+    data-ghost-comment-count-tag="div"
+    data-ghost-comment-count-class-name="feed-comments"
+    data-ghost-comment-count-autowrap="true"
+>
+</script>
+            <div class="feed-icon">
+                <svg class="icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32">
+    <path d="M11.453 22.107L17.56 16l-6.107-6.12L13.333 8l8 8-8 8-1.88-1.893z"></path>
+</svg>            </div>
+        </div>
+    </div>
+
+    <a class="u-permalink" href="/litellm-security-secrets-manager/" aria-label="LiteLLM Security: Your AI Gateway Is a Secrets Manager. Benchmark It Like One"></a>
+
+</article>        </div>
+    </section>
+
+                <section class="gh-comments gh-canvas">
+        <header class="gh-comments-header">
+            <h3 class="gh-comments-title related-title">Member discussion</h3>
+            <script
+    data-ghost-comment-count="69cc4aa3319024000120f697"
+    data-ghost-comment-count-empty=""
+    data-ghost-comment-count-singular="comment"
+    data-ghost-comment-count-plural="comments"
+    data-ghost-comment-count-tag="span"
+    data-ghost-comment-count-class-name="gh-comments-count"
+    data-ghost-comment-count-autowrap="true"
+>
+</script>
+        </header>
+        
+        <script defer src="https://cdn.jsdelivr.net/ghost/comments-ui@~1.6/umd/comments-ui.min.js" data-locale="en" data-ghost-comments="https://blog.cyberdesserts.com/" data-api="https://cyberdesserts.ghost.io/ghost/api/content/" data-admin="https://cyberdesserts.ghost.io/ghost/" data-key="b9e2f32c778f38500196c93c82" data-title="" data-count="false" data-post-id="69cc4aa3319024000120f697" data-color-scheme="auto" data-avatar-saturation="60" data-accent-color="#000000" data-comments-enabled="all" data-publication="CyberDesserts" crossorigin="anonymous"></script>
+    
+    </section>
+
+</main>
+    </div>
+
+    <footer class="gh-foot gh-outer">
+        <div class="gh-foot-inner gh-inner">
+            <div class="gh-copyright">
+                CyberDesserts © 2026
+            </div>
+                <nav class="gh-foot-menu">
+                    <ul class="nav">
+    <li class="nav-sign-up"><a href="#/portal/">Sign up</a></li>
+</ul>
+
+                </nav>
+            <div class="gh-powered-by">
+                <a href="https://ghost.org/" target="_blank" rel="noopener">Powered by Ghost</a>
+            </div>
+        </div>
+    </footer>
+
+</div>
+
+    <div class="pswp" tabindex="-1" role="dialog" aria-hidden="true">
+    <div class="pswp__bg"></div>
+
+    <div class="pswp__scroll-wrap">
+        <div class="pswp__container">
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+        </div>
+
+        <div class="pswp__ui pswp__ui--hidden">
+            <div class="pswp__top-bar">
+                <div class="pswp__counter"></div>
+
+                <button class="pswp__button pswp__button--close" title="Close (Esc)"></button>
+                <button class="pswp__button pswp__button--share" title="Share"></button>
+                <button class="pswp__button pswp__button--fs" title="Toggle fullscreen"></button>
+                <button class="pswp__button pswp__button--zoom" title="Zoom in/out"></button>
+
+                <div class="pswp__preloader">
+                    <div class="pswp__preloader__icn">
+                        <div class="pswp__preloader__cut">
+                            <div class="pswp__preloader__donut"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="pswp__share-modal pswp__share-modal--hidden pswp__single-tap">
+                <div class="pswp__share-tooltip"></div>
+            </div>
+
+            <button class="pswp__button pswp__button--arrow--left" title="Previous (arrow left)"></button>
+            <button class="pswp__button pswp__button--arrow--right" title="Next (arrow right)"></button>
+
+            <div class="pswp__caption">
+                <div class="pswp__caption__center"></div>
+            </div>
+        </div>
+    </div>
+</div>
+<script>
+    if (document.body.classList.contains('with-full-cover') && (/Android|webOS|iPhone|iPad|iPod|BlackBerry/i.test(navigator.platform))) {
+        document.getElementsByClassName('cover')[0].style.height = window.innerHeight + 'px';
+    }
+</script>
+
+<script src="https://blog.cyberdesserts.com/assets/built/main.min.js?v=2TMHKzwU3AY3IYVp"></script>
+
+<footer class="custom-site-footer">
+    <div class="custom-footer-content">
+        
+        <div class="custom-footer-copyright">
+            © 2026 CyberDesserts. All rights reserved.
+        </div>
+
+        <nav class="custom-footer-nav">
+            <a href="https://blog.cyberdesserts.com/rss" target="_blank" rel="noopener">RSS</a>
+            <a href="https://cyberdesserts.com/about/">About CyberDesserts</a>
+            <a href="https://cyberdesserts.com/privacy-policy.html">Privacy Policy</a>
+            <a href="https://cyberdesserts.com/terms-of-service.html">Terms of Service</a>
+            
+        </nav>
+
+    </div>
+</footer>
+
+<script>
+  document.querySelectorAll('a[href^="http"]').forEach(link => {
+    try {
+      const url = new URL(link.href);
+      const host = url.hostname.toLowerCase();
+      
+      // 1. Handles blog.lab. and resources.cyberdesserts.com
+      const isInternal = host === 'cyberdesserts.com' || host.endsWith('.cyberdesserts.com');
+      
+      // 2. Handles all Amazon/amzn.to links
+      const isAmazon = host.includes('amazon.') || host.includes('amzn.to');
+
+      if (!isInternal) {
+        link.setAttribute('target', '_blank');
+        let relValues = ['noopener', 'noreferrer'];
+
+        if (isAmazon) {
+          relValues.push('sponsored');
+        } else {
+          relValues.push('nofollow');
+        }
+
+        link.setAttribute('rel', relValues.join(' '));
+      }
+    } catch (e) {
+      // Safe exit for malformed links
+    }
+  });
+</script>
+
+<script src="https://analytics.ahrefs.com/analytics.js" data-key="TTYTqz81MCIc0SrYCL7tYQ" async></script>
+
+<!-- Meta Pixel Code -->
+<script>
+!function(f,b,e,v,n,t,s)
+{if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+n.callMethod.apply(n,arguments):n.queue.push(arguments)};
+if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
+n.queue=[];t=b.createElement(e);t.async=!0;
+t.src=v;s=b.getElementsByTagName(e)[0];
+s.parentNode.insertBefore(t,s)}(window, document,'script',
+'https://connect.facebook.net/en_US/fbevents.js');
+fbq('init', '823786743738101');
+fbq('track', 'PageView');
+</script>
+<noscript><img height="1" width="1" style="display:none"
+src="https://www.facebook.com/tr?id=823786743738101&ev=PageView&noscript=1"
+/></noscript>
+<!-- End Meta Pixel Code -->
+
+</body>
+</html>

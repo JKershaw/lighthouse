@@ -1,0 +1,46 @@
+index rows parsed: 9
+  2026-03-14 {'Total': 294277, 'MCP': 889, 'LLM': 23086, 'OpenClaw': 242379, 'A2A': 6}
+  2026-04-11 {'Total': 321929, 'MCP': 1134, 'LLM': 25128, 'OpenClaw': 267172, 'A2A': 8}
+  2026-05-12 {'Total': 297723, 'MCP': 1322, 'LLM': 25803, 'OpenClaw': 231482, 'A2A': 22}
+  2026-06-26 {'Total': 245111, 'MCP': 1807, 'LLM': 47369, 'OpenClaw': 153638, 'A2A': 25}
+  2026-07-22 {'Total': 204866, 'MCP': 1694, 'LLM': 5126, 'OpenClaw': 171036, 'A2A': 24}
+  2026-08-01 {'Total': 221215, 'MCP': 1775, 'LLM': 8447, 'OpenClaw': 183737, 'A2A': 30}
+  2026-09-01 {'Total': 243615, 'MCP': 1997, 'LLM': 20026, 'OpenClaw': 192492, 'A2A': 32}
+  2026-10-19 {'Total': 255582, 'MCP': 2495, 'LLM': 17090, 'OpenClaw': 205638, 'A2A': 37}
+  2026-11-01 {'Total': 257625, 'MCP': 2734, 'LLM': 16079, 'OpenClaw': 205872, 'A2A': 43}
+index rows in counts.csv checked: 36; mismatches: 0
+A2A column (not admitted in the record): [6, 8, 22, 25, 24, 30, 32, 37, 43]
+
+my groups: 56 record series: 57
+one group, several record series: {'S45', 'S57'} ('OpenA2A Research (Exposure Prevalence Index)', 'OpenA2A Exposure Prevalence Index: Shodan index analysis, 207 queries in ten categories, each category the sum of its queries; one point per month, the latest sweep that month, as listed on 8 November 2026')
+publishers (name before any parenthesis): 19
+   Authors of arXiv 2505.02502
+   Authors of arXiv 2608.00150
+   Censys ARC
+   Cisco
+   CyberDesserts
+   Hunt.io
+   Intruder
+   Knostic
+   LeakIX
+   Malware Patrol
+   Mysterium VPN
+   OpenA2A Research
+   Pluto Security
+   SecurityScorecard STRIKE
+   Synthient
+   TrendAI
+   Xu, Li, Qiu and Sun
+   chlebda.de
+   insecurestack
+
+S01: 4 dates 2025-02-14..2026-02-13; values [10473, 16821, 11500, 16059]; first 10,473 last 16,059 lowest 10,473 (2025-02-14) highest 16,821 (2025-04-25); up 2 down 1
+S42: 9 dates 2026-03-14..2026-11-01; values [242379, 267172, 231482, 153638, 171036, 183737, 192492, 205638, 205872]; first 242,379 last 205,872 lowest 153,638 (2026-06-26) highest 267,172 (2026-04-11); up 6 down 2
+S43: 9 dates 2026-03-14..2026-11-01; values [23086, 25128, 25803, 47369, 5126, 8447, 20026, 17090, 16079]; first 23,086 last 16,079 lowest 5,126 (2026-07-22) highest 47,369 (2026-06-26); up 5 down 3
+S44: 9 dates 2026-03-14..2026-11-01; values [889, 1134, 1322, 1807, 1694, 1775, 1997, 2495, 2734]; first 889 last 2,734 lowest 889 (2026-03-14) highest 2,734 (2026-11-01); up 7 down 1
+S45: 3 dates 2026-03-14..2026-05-12; values [294277, 321929, 297723]; first 294,277 last 297,723 lowest 294,277 (2026-03-14) highest 321,929 (2026-04-11); up 1 down 1
+S57: 6 dates 2026-06-26..2026-11-01; values [245111, 204866, 221215, 243615, 255582, 257625]; first 245,111 last 257,625 lowest 204,866 (2026-07-22) highest 257,625 (2026-11-01); up 4 down 1
+series with two or more dates: 6
+
+OpenClaw-family (index): 2026-04-11 = 267,172 ; 2026-06-26 = 153,638 ; 2026-11-01 = 205,872 ; max = 267,172 on 2026-04-11 ; min = 153,638 on 2026-06-26
+record figures 267,172 / 153,638 / 205,872 reproduced: True
