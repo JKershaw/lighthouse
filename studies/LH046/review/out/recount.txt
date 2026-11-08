@@ -1,0 +1,57 @@
+distinct files: 452 ; rows incl. re-reads: 458 ; panel: 272
+HTTP statuses (first reads): ['200']
+panel 1 Sep-14 Oct: no PushEvent 26/176 = 14.8%
+   hour  0: 8/44
+   hour  6: 5/44
+   hour 12: 5/44
+   hour 18: 8/44
+panel 15 Oct-7 Nov: no PushEvent 64/96 = 66.7%
+   hour  0: 17/24
+   hour  6: 15/24
+   hour 12: 16/24
+   hour 18: 16/24
+panel overall no push: 90 / 272
+  month 2026-09 19 / 120
+  month 2026-10 49 / 124
+  month 2026-11 22 / 28
+files where Push/Create/Delete are not all present or all absent: []
+CreateEvents in first reads: 1808380 ; by ref_type branch: 1808380 other: {}
+CreateEvents incl. re-reads: 1821094
+push payload key sets (keys, every push carries each): {(('before', 'head', 'push_id', 'ref', 'repository_id'), True): 278} ; push_with_commits total: 0
+min minutes_with_events over first reads: 57
+events outside hour: 0 ; json errors: 0 ; empty: []
+
+Reference hours (12:00 on 1st and 15th, Jan-Aug) and LH002's hour:
+   2026-01-01-12: events  154722 push  115695 create   9118 delete  3505 PR  11989 issues  2288 comments  3619 stars  3607 control  21503 push share 0.748
+   2026-01-15-12: events  153766 push  116240 create  11024 delete  4373 PR   7714 issues  2823 comments  3661 stars  2510 control  16708 push share 0.756
+   2026-02-01-12: events  159234 push  117135 create  11714 delete  3584 PR  10918 issues  2801 comments  3754 stars  3654 control  21127 push share 0.736
+   2026-02-15-12: events  153474 push  114528 create  10358 delete  3783 PR   9303 issues  2869 comments  3627 stars  3264 control  19063 push share 0.746
+   2026-03-01-12: events  160422 push  121103 create  11781 delete  4925 PR   9770 issues  2033 comments  3474 stars  3017 control  18294 push share 0.755
+   2026-03-15-12: events  164927 push  131472 create  12046 delete  4146 PR   5771 issues  2058 comments  2337 stars  2689 control  12855 push share 0.797
+   2026-04-01-12: events  155959 push  121708 create  15708 delete  5735 PR   3232 issues  4778 comments  1186 stars  1226 control  10422 push share 0.780
+   2026-04-02-14: events  153261 push  111213 create  13515 delete  5457 PR   7597 issues  4085 comments  3065 stars  2864 control  17611 push share 0.726
+   2026-04-15-12: events  156006 push  127008 create  15418 delete  6227 PR   2585 issues  1014 comments  1026 stars   872 control   5497 push share 0.814
+   2026-05-01-12: events  153453 push  120844 create  14559 delete  5826 PR   4659 issues  1653 comments  1816 stars  1319 control   9447 push share 0.787
+   2026-05-15-12: events   87307 push   72852 create   8406 delete  3625 PR    954 issues   246 comments   377 stars   257 control   1834 push share 0.834
+   2026-06-01-12: events  158152 push  135957 create  14921 delete  5865 PR    442 issues   186 comments   220 stars   150 control    998 push share 0.860
+   2026-06-15-12: events  162822 push  138311 create  16058 delete  7269 PR    494 issues   127 comments   184 stars   119 control    924 push share 0.849
+   2026-07-01-12: events  161121 push  138335 create  14784 delete  6885 PR    425 issues   140 comments   204 stars   113 control    882 push share 0.859
+   2026-07-15-12: events  169372 push  155445 create   8619 delete  4692 PR    218 issues    67 comments    98 stars    41 control    424 push share 0.918
+   2026-08-01-12: events  169487 push  165377 create   2818 delete  1021 PR    118 issues    31 comments    42 stars    21 control    212 push share 0.976
+   2026-08-15-12: events  170586 push  166990 create   2348 delete  1004 PR     95 issues    31 comments    39 stars    24 control    189 push share 0.979
+reference median control: 7472.0 ; median push: 124358.0 ; median events: 158693.0
+
+1 Sep-14 Oct: no-push files events n=26 median 5,628 range 1,328-81,070; control n=26 median 4,259 range 1,070-64,843
+1 Sep-14 Oct: push files PushEvent n=150 median 61,826 range 7,303-124,687; events n=150 median 83,422 range 25,758-137,844; control n=150 median 3,922 range 429-64,000
+1 Sep-14 Oct: control/ref-median ratio, no-push median 0.57, push median 0.52
+
+15 Oct-7 Nov: no-push files events n=64 median 3,956 range 2,085-11,345; control n=64 median 3,150 range 1,436-8,958
+15 Oct-7 Nov: push files PushEvent n=32 median 35,700 range 3,421-68,518; events n=32 median 47,088 range 8,614-85,759; control n=32 median 2,600 range 1,698-6,151
+15 Oct-7 Nov: control/ref-median ratio, no-push median 0.42, push median 0.35
+
+panel no-push files lacking a type: none
+largest no-push panel files: [('2026-09-05-0', 81070, 64843), ('2026-09-04-18', 79884, 61596), ('2026-09-05-6', 75042, 58838), ('2026-09-04-6', 61372, 48061), ('2026-09-04-0', 45663, 35929)]
+
+runs of panel/latest files without pushes: [('2026-09-01-12', '2026-09-05-6', 16), ('2026-09-09-18', '2026-09-10-0', 2), ('2026-09-21-18', '2026-09-21-18', 1), ('2026-10-07-0', '2026-10-08-0', 5), ('2026-10-09-18', '2026-10-10-0', 2), ('2026-10-15-0', '2026-10-18-6', 14), ('2026-10-22-18', '2026-10-24-0', 6), ('2026-10-26-12', '2026-11-02-12', 29), ('2026-11-03-0', '2026-11-04-18', 8), ('2026-11-06-0', '2026-11-06-0', 1), ('2026-11-06-12', '2026-11-08-6', 8)]
+Last-Modified minus end of hour, minutes: min (5.033333333333333, '2026-09-02-0') max (5.383333333333334, '2026-09-05-0')
+files with pushes and a >=5 minute run without: 37

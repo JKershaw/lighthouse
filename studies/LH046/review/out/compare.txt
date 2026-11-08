@@ -1,0 +1,55 @@
+== Re-read files against data/hours.csv (sha256, bytes, events, all 16 types, other types, push keys, ref types, minute profile)
+   2026-09-07-18 (resample): all match; sha256 c52faa2faa6577d6; events 107442; PushEvent 98247; read 2026-11-08T20:13:45Z
+   2026-09-08-12 (resample): all match; sha256 a793da7c8557944a; events 112694; PushEvent 106391; read 2026-11-08T20:13:49Z
+   2026-09-09-12 (resample): all match; sha256 f3cec67bba127958; events 48611; PushEvent 40787; read 2026-11-08T20:13:52Z
+    2026-09-12-6 (resample): all match; sha256 aa917268be3b9c2c; events 68683; PushEvent 14715; read 2026-11-08T20:13:55Z
+    2026-09-20-0 (resample): all match; sha256 fe557ae89c69ae6e; events 106182; PushEvent 94270; read 2026-11-08T20:13:59Z
+    2026-09-21-6 (resample): all match; sha256 908a2a4268930832; events 128275; PushEvent 114406; read 2026-11-08T20:14:03Z
+    2026-09-23-6 (resample): all match; sha256 55dd6f21db4ca9f2; events 107625; PushEvent 85751; read 2026-11-08T20:14:06Z
+   2026-09-25-18 (resample): all match; sha256 50bb7c0e6b7d9a10; events 89144; PushEvent 73497; read 2026-11-08T20:14:09Z
+   2026-09-26-12 (resample): all match; sha256 c218dcfa12d6ace1; events 98392; PushEvent 80857; read 2026-11-08T20:14:12Z
+    2026-10-05-6 (resample): all match; sha256 3e25916f5803cdfa; events 84561; PushEvent 63794; read 2026-11-08T20:14:16Z
+    2026-10-07-0 (resample): all match; sha256 f555fa8d9b2210fb; events 7715; PushEvent 0; read 2026-11-08T20:14:19Z
+   2026-10-07-18 (resample): all match; sha256 9f5d0194f2ae987f; events 5171; PushEvent 0; read 2026-11-08T20:14:22Z
+   2026-10-08-12 (resample): all match; sha256 dcae51ce4d78cce2; events 47278; PushEvent 35750; read 2026-11-08T20:14:24Z
+   2026-10-14-10 (resample): all match; sha256 bc9e98abe1b1858b; events 89727; PushEvent 72854; read 2026-11-08T20:14:27Z
+   2026-10-14-18 (resample): all match; sha256 2282e097b96730e7; events 25758; PushEvent 15397; read 2026-11-08T20:14:30Z
+    2026-10-14-5 (resample): all match; sha256 1a77ea989addb173; events 86616; PushEvent 68719; read 2026-11-08T20:14:32Z
+    2026-10-25-0 (resample): all match; sha256 72ea7cab1409e706; events 34719; PushEvent 26687; read 2026-11-08T20:14:36Z
+   2026-10-26-20 (resample): all match; sha256 45ace3d497fbe78a; events 4505; PushEvent 0; read 2026-11-08T20:14:38Z
+    2026-10-27-0 (resample): all match; sha256 27579e2fb13d8def; events 3203; PushEvent 0; read 2026-11-08T20:14:41Z
+    2026-11-01-0 (resample): all match; sha256 b825d1bb55aecf56; events 4860; PushEvent 0; read 2026-11-08T20:14:43Z
+   2026-11-01-12 (resample): all match; sha256 3c1a83572959dfa3; events 4720; PushEvent 0; read 2026-11-08T20:14:46Z
+   2026-11-05-19 (resample): all match; sha256 2ef31436f2617a2e; events 20156; PushEvent 14211; read 2026-11-08T20:14:48Z
+   2026-11-07-11 (resample): all match; sha256 b452c741cf313f5f; events 4053; PushEvent 0; read 2026-11-08T20:14:51Z
+    2026-11-07-4 (resample): all match; sha256 489c145f66f544f4; events 4249; PushEvent 0; read 2026-11-08T20:14:53Z
+   2026-06-01-12 (chosen): all match; sha256 2fbe4038013f486a; events 158152; PushEvent 135957; read 2026-11-08T20:15:55Z
+   2026-08-15-12 (chosen): all match; sha256 8bd24ae3888cb4e8; events 170586; PushEvent 166990; read 2026-11-08T20:15:59Z
+  26 match on every field, 0 differ
+
+== Unread hours (not in LH046's sample), against predictions written before fetching
+    2026-09-03-3: predicted none   got none   ok; events 2528, push 0, create 0, delete 0, control 2068; three together: True; minutes with events 60; empty False
+    2026-09-03-9: predicted none   got none   ok; events 2503, push 0, create 0, delete 0, control 1945; three together: True; minutes with events 60; empty False
+   2026-09-03-15: predicted none   got none   ok; events 2149, push 0, create 0, delete 0, control 1706; three together: True; minutes with events 60; empty False
+   2026-09-03-21: predicted none   got none   ok; events 27505, push 0, create 0, delete 0, control 20990; three together: True; minutes with events 60; empty False
+    2026-09-19-3: predicted pushes got pushes ok; events 111334, push 97756, create 7726, delete 3132, control 2230; three together: True; minutes with events 60; empty False; push minutes 60, first 0, last 59, longest run without 0
+    2026-09-19-9: predicted pushes got pushes ok; events 115213, push 100464, create 8809, delete 3520, control 1912; three together: True; minutes with events 60; empty False; push minutes 60, first 0, last 59, longest run without 0
+   2026-09-19-15: predicted pushes got pushes ok; events 120341, push 105605, create 9957, delete 3033, control 1398; three together: True; minutes with events 60; empty False; push minutes 60, first 0, last 59, longest run without 0
+   2026-09-19-21: predicted pushes got pushes ok; events 124165, push 112588, create 6928, delete 2821, control 1450; three together: True; minutes with events 60; empty False; push minutes 60, first 0, last 59, longest run without 0
+    2026-10-05-3: predicted pushes got pushes ok; events 85272, push 66248, create 10416, delete 3113, control 4455; three together: True; minutes with events 60; empty False; push minutes 60, first 0, last 59, longest run without 0
+    2026-10-05-9: predicted pushes got pushes ok; events 89052, push 68755, create 12375, delete 4542, control 2669; three together: True; minutes with events 60; empty False; push minutes 60, first 0, last 59, longest run without 0
+   2026-10-05-15: predicted pushes got pushes ok; events 85392, push 67306, create 10800, delete 3985, control 2587; three together: True; minutes with events 60; empty False; push minutes 60, first 0, last 59, longest run without 0
+   2026-10-05-21: predicted pushes got pushes ok; events 79886, push 62909, create 8468, delete 4093, control 3478; three together: True; minutes with events 60; empty False; push minutes 60, first 0, last 59, longest run without 0
+    2026-10-21-3: predicted pushes got pushes ok; events 49103, push 37880, create 4625, delete 2078, control 3580; three together: True; minutes with events 60; empty False; push minutes 60, first 0, last 59, longest run without 0
+    2026-10-21-9: predicted pushes got pushes ok; events 55301, push 43317, create 6063, delete 2930, control 2264; three together: True; minutes with events 60; empty False; push minutes 60, first 0, last 59, longest run without 0
+   2026-10-21-15: predicted pushes got pushes ok; events 61207, push 47285, create 6646, delete 3900, control 2525; three together: True; minutes with events 60; empty False; push minutes 60, first 0, last 59, longest run without 0
+   2026-10-21-21: predicted pushes got pushes ok; events 53401, push 41785, create 5496, delete 2816, control 2485; three together: True; minutes with events 60; empty False; push minutes 60, first 0, last 59, longest run without 0
+    2026-11-06-3: predicted either got none   ok; events 3768, push 0, create 0, delete 0, control 3083; three together: True; minutes with events 60; empty False
+    2026-11-06-9: predicted either got pushes ok; events 8297, push 4146, create 571, delete 287, control 2609; three together: True; minutes with events 60; empty False; push minutes 19, first 0, last 18, longest run without 41
+   2026-11-06-15: predicted none   got none   ok; events 3146, push 0, create 0, delete 0, control 2501; three together: True; minutes with events 60; empty False
+   2026-11-06-21: predicted none   got none   ok; events 4086, push 0, create 0, delete 0, control 3192; three together: True; minutes with events 60; empty False
+  tally (predicted, got): {('none', 'none'): 6, ('pushes', 'pushes'): 12, ('either', 'none'): 1, ('either', 'pushes'): 1}
+
+== Payload shape in every re-read file
+  PushEvent key sets: {'before,head,push_id,ref,repository_id': 2165324} ; with commits: 0 ; CreateEvent ref_type: {'branch': 218055}
+  outside-hour events: 0 ; JSON errors: 0 ; HTTP statuses: {'200': 46} ; bytes received: 605909024
