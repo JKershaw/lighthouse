@@ -12,14 +12,16 @@ disallows. Python's urllib.robotparser is not used: it ignores wildcards.
 import re
 from urllib.parse import urlsplit, quote, unquote
 
-CLASSIFIER_VERSION = '0.1'
+CLASSIFIER_VERSION = '0.2'
 
 WALL_CLASSES = ('challenge', 'login', 'rate_limited', 'refused', 'api_closed', 'wall_at_robots')
 
 # (vendor, where, pattern); where is 'h:<header>' (regex on that header's value) or 'b' (body).
 CHALLENGE_SIGS = [
     ('cloudflare', 'h:cf-mitigated', r'challenge'),
-    ('cloudflare', 'b', r'challenges\.cloudflare\.com|/cdn-cgi/challenge-platform|_cf_chl_opt|cf-chl-'),
+    # 0.2 (amendment 2, 8 November 2026, post hoc): '/cdn-cgi/challenge-platform' dropped; Cloudflare
+    # injects that bot-detection script into ordinary pages too, so it is not by itself a challenge.
+    ('cloudflare', 'b', r'challenges\.cloudflare\.com|_cf_chl_opt|cf-chl-'),
     ('cloudflare-turnstile', 'b', r'cf-turnstile'),
     ('anubis', 'b', r'within\.website/x/cmd/anubis|anubis_challenge|Making sure you(?:&#39;|\'|&rsquo;|’)re not a bot'),
     ('go-away', 'b', r'go-away/challenge|git\.gammaspectra\.live/git/go-away'),
@@ -68,6 +70,13 @@ def _match(sigs, headers, text):
     return ''
 
 
+# 0.2 (amendment 2, 8 November 2026, post hoc): refusals written by this container's own egress
+# policy, not by the origin. They are unread, never walls.
+CONTAINER_SIGS = [
+    ('container-github-policy', 'b', r'access to this repository is not enabled for this session'),
+]
+
+
 def classify(status, error, headers, body, surface, marker, url=''):
     """Return (class, detail). surface is 'page', 'api' or 'file'; marker may be ''."""
     if error:
@@ -75,6 +84,9 @@ def classify(status, error, headers, body, surface, marker, url=''):
             return 'unread_proxy', error
         return 'unreachable', error
     text = body.decode('utf-8', 'replace') if isinstance(body, bytes) else (body or '')
+    own = _match(CONTAINER_SIGS, headers, text)
+    if own:
+        return 'unread_proxy', own
     marker_found = bool(marker) and marker in text
     vendor = _match(CHALLENGE_SIGS, headers, text)
     if vendor and not (200 <= status < 300 and marker_found):

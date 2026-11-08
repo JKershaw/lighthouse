@@ -1,0 +1,39 @@
+{
+ "label": "2026-11-08T1920Z",
+ "classifier": "0.2",
+ "requests": 249,
+ "bytes_retained": 2257016,
+ "by_stratum": {
+  "named": {
+   "robots_disallowed": 23,
+   "unread_proxy": 2,
+   "open": 51,
+   "server_error": 1,
+   "challenge": 3,
+   "refused": 1,
+   "robots_redirect": 8,
+   "wall_at_robots": 6,
+   "rate_limited": 3,
+   "robots_unreachable": 1,
+   "redirect_other": 1,
+   "gone": 1
+  },
+  "drawn": {
+   "robots_unreachable": 11,
+   "gone": 5,
+   "open_unconfirmed": 2,
+   "robots_redirect": 14,
+   "robots_disallowed": 9,
+   "open": 17,
+   "client_error_other": 1,
+   "wall_at_robots": 1
+  }
+ },
+ "max_requests_to_one_host": 2,
+ "routes": {
+  "egress-proxy": 184,
+  "direct": 4,
+  "direct-http": 61
+ },
+ "egress_ip_echoed": []
+}

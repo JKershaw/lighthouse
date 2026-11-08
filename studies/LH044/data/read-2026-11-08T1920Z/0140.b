@@ -1,0 +1,1 @@
+{"total": 0, "page": 1, "pageSize": 10, "timestamp": "2026-11-08T19:23:17.128215Z", "query": "lighthouse", "results": [], "last": "https://doaj.org/api/v4/search/journals/lighthouse?page=1&pageSize=10"}

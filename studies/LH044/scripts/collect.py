@@ -10,7 +10,9 @@ row. Stops working after END: the study's requests end on a fixed date.
   --httparchive LABEL  one request for HTTP Archive's monthly adoption counts (context, measure 6).
   --statements LABEL FILE   fetch operator statement pages listed in FILE (id,operator,url).
 
-Everything is kept under data/<kind>-<LABEL>/: readlog.csv (one row per request), each response's
+Email addresses in kept headers and text bodies are replaced with a placeholder before saving
+(scripts/redact_emails.py, the keeper, 8 November 2026); readlog.csv's sha256 is of the bytes
+received. Everything is kept under data/<kind>-<LABEL>/: readlog.csv (one row per request), each response's
 headers (<n>.h) and first 64 KiB of body (<n>.b), and the derived tables. LABEL is a UTC time,
 for example 2026-11-08T2000Z. A label already held is refused, never overwritten (except
 --classify, which only rewrites derived tables).
@@ -31,6 +33,8 @@ import time
 
 sys.path.insert(0, str(Path(__file__).resolve().parent))
 from lh044lib import fetch, header, UA_PLAIN, UA_COMPAT, ROBOTS_TOKEN, utcnow  # noqa: E402
+sys.path.insert(0, str(Path(__file__).resolve().parents[3] / 'scripts'))
+from redact_emails import redact_bytes  # noqa: E402  (the keeper, 8 November 2026: addresses withheld)
 from classify import (classify, parse_robots, robots_allowed, AI_TOKENS, WALL_CLASSES,  # noqa: E402
                       CLASSIFIER_VERSION)
 
@@ -89,9 +93,12 @@ class Recorder:
     def get(self, service, kind, url, ua, accept, cap=65536):
         self.n += 1
         r = fetch(url, ua=ua, accept=accept, cap=cap)
-        (self.dir / ('%04d.h' % self.n)).write_text(
-            'HTTP %s\n' % r['status'] + ''.join('%s: %s\n' % kv for kv in r['headers']))
-        (self.dir / ('%04d.b' % self.n)).write_bytes(r['body'])
+        # Email addresses are withheld from what is kept (the keeper, 8 November 2026); the
+        # readlog's sha256 stays the hash of the bytes received. Classification reads the kept bytes.
+        htext = 'HTTP %s\n' % r['status'] + ''.join('%s: %s\n' % kv for kv in r['headers'])
+        (self.dir / ('%04d.h' % self.n)).write_bytes(redact_bytes(htext.encode('utf-8', 'replace'))[0])
+        body = r['body'] if b'\x00' in r['body'][:4096] else redact_bytes(r['body'])[0]
+        (self.dir / ('%04d.b' % self.n)).write_bytes(body)
         self.w.writerow({'n': self.n, 'service': service, 'kind': kind, 'url': url, 'utc': r['utc'],
                          'status': r['status'] if r['status'] is not None else '', 'error': r['error'] or '',
                          'error_detail': r['error_detail'], 'content_type': header(r, 'content-type'),
@@ -215,6 +222,16 @@ def do_classify(label):
     rows, robots_rows = [], []
     for s in meta['services']:
         cls, det, status, ra = s['pre_class'], s['pre_detail'], '', ''
+        if s['robots_n'] and not s['probe_n'] and cls != 'robots_disallowed':
+            # re-read the kept robots.txt response with the current classifier
+            rl = log[str(s['robots_n'])]
+            rresp = _load_resp(d, s['robots_n'])
+            rresp.update({'error': rl['error'] or None, 'url': rl['url']})
+            state, _, pcls, pdet = robots_outcome(rresp)
+            if pcls:
+                cls, det = pcls, pdet
+            else:
+                cls, det = 'unprobed', 'robots.txt now reads as %s; no probe was sent at the read' % state
         if s['probe_n']:
             lr = log[str(s['probe_n'])]
             resp = _load_resp(d, s['probe_n'])

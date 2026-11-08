@@ -1,0 +1,1 @@
+Moved Permanently. Redirecting to https://opendata.swiss/de/robots.txt

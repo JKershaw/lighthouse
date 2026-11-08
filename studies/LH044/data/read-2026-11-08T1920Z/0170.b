@@ -1,0 +1,1 @@
+<html><head><link rel="icon" href="data:;"><meta http-equiv="refresh" content="0;/.well-known/sgcaptcha/?r=%2Findex.php%2Fbmj%2Foai%3Fverb%3DIdentify&y=ipr:34.136.29.35:1794165853.666"></meta></head></html>

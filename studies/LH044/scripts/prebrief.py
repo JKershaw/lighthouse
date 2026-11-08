@@ -30,7 +30,7 @@ def main():
         for i, u in enumerate(urls, start=n0 + 1):
             r = fetch(u, ua=UA_PLAIN, cap=4 * 1024 * 1024)
             name = 'p%02d.body' % i
-            (out / name).write_bytes(r['body'])
+            (out / name).write_bytes(r['body'])  # kept bodies were redacted afterwards by scripts/redact_emails.py
             (out / ('p%02d.headers' % i)).write_text('\n'.join('%s: %s' % kv for kv in r['headers']) + '\n')
             ct = dict((k.lower(), v) for k, v in r['headers']).get('content-type', '')
             w.writerow([i, u, r['utc'], r['status'], r['error'] or '', ct, len(r['body']), r['truncated'], r['sha256'], name])

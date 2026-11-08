@@ -1,0 +1,13 @@
+HTTP 200
+accept-ranges: bytes
+content-security-policy: object-src 'none'; base-uri 'none'; script-src 'unsafe-inline' 'strict-dynamic' https: http: 'sha256-DVdvl49HC0iGx/YKQq/kVNATnEdzGfExbJVTHqT95l8=' 'sha256-CoGrkqEM1Kjjf5b1bpcnDLl8ZZLAsVX+BoAzZ5+AOmc=' 'sha256-BsQe1u7Z3VQYCzlgwD/5tfhFoqVHDlGJh2ZNZxBHP8I=' 'sha256-karKh1IrXOF1g+uoSxK+k9BuciCwYY/ytGuQVUiRzcM=' 'sha256-mxm3e8M0u3nPPBmLIBgGuMvGUIL5LGv+HzV3bLAIBgw=' 'sha256-+iS8jRq15Ez/Kzz0/G+SNc0geLNvTyf2NZC7MyJgpRE=' 'sha256-UiVwSVJIK9udADqG5GZe+nRUXWK9wEot2vrxL4D2pQs=' 'sha256-cB+y/oSfWGFf7lHk8KX+ZX2CZQz/dPamIICuPvHcB6w=' 'sha256-7mi5SPcD1cogj2+ju8J/+/qJG99F6Qo+3pO4xQkRf6Q=' 'sha256-rEbn/zvLCsDDvDrVWQuUkKGEQsjQjFvIvJK4NVIMqZ4='
+content-type: text/plain; charset=utf-8
+x-content-type-options: nosniff
+x-frame-options: deny
+x-cloud-trace-context: d8b17167f2f1c6bc618cd2489b8cd5ec
+date: Sun, 08 Nov 2026 19:20:44 GMT
+server: Google Frontend
+Content-Length: 99
+Via: 1.1 google
+Alt-Svc: h3=":443"; ma=2592000
+Connection: close
