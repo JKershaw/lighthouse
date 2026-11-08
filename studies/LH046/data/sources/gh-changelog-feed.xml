@@ -1,0 +1,573 @@
+<?xml version="1.0" encoding="UTF-8"?><rss version="2.0"
+	xmlns:content="http://purl.org/rss/1.0/modules/content/"
+	xmlns:wfw="http://wellformedweb.org/CommentAPI/"
+	xmlns:dc="http://purl.org/dc/elements/1.1/"
+	xmlns:atom="http://www.w3.org/2005/Atom"
+	xmlns:sy="http://purl.org/rss/1.0/modules/syndication/"
+	xmlns:slash="http://purl.org/rss/1.0/modules/slash/"
+	>
+
+<channel>
+	<title>Archive: 2026 - GitHub Changelog</title>
+	<atom:link href="https://github.blog/changelog/feed/" rel="self" type="application/rss+xml" />
+	<link>https://github.blog/changelog/</link>
+	<description>Updates, ideas, and inspiration from GitHub to help developers build and design software.</description>
+	<lastBuildDate>Sat, 07 Nov 2026 00:30:57 +0000</lastBuildDate>
+	<language>en-US</language>
+	<sy:updatePeriod>
+	hourly	</sy:updatePeriod>
+	<sy:updateFrequency>
+	1	</sy:updateFrequency>
+	<generator>https://wordpress.org/?v=7.1.4</generator>
+
+<image>
+	<url>https://github.blog/wp-content/uploads/2019/01/cropped-github-favicon-512.png?fit=32%2C32</url>
+	<title>Archive: 2026 - GitHub Changelog</title>
+	<link>https://github.blog/changelog/</link>
+	<width>32</width>
+	<height>32</height>
+</image> 
+<site xmlns="com-wordpress:feed-additions:1">153214340</site>	<item>
+		<title>Copilot code review: API management and review overview updates</title>
+		<link>https://github.blog/changelog/2026-11-06-copilot-code-review-api-management-and-review-overview-updates</link>
+		
+		<dc:creator><![CDATA[Allison]]></dc:creator>
+		<pubDate>Sat, 07 Nov 2026 00:27:19 +0000</pubDate>
+				<guid isPermaLink="false">https://github.blog/changelog/2026-11-06-copilot-code-review-api-management-and-review-overview-updates</guid>
+
+					<description><![CDATA[<p>You can now manage GitHub Copilot code review settings through the REST and GraphQL APIs, from enterprise policy down to individual repositories. Copilot&#8217;s review overview comment is now more compact,&#8230;</p>
+<p>The post <a href="https://github.blog/changelog/2026-11-06-copilot-code-review-api-management-and-review-overview-updates">Copilot code review: API management and review overview updates</a> appeared first on <a href="https://github.blog">The GitHub Blog</a>.</p>
+]]></description>
+										<content:encoded><![CDATA[<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN" "http://www.w3.org/TR/REC-html40/loose.dtd">
+<html><body><p>You can now manage GitHub Copilot code review settings through the REST and GraphQL APIs, from enterprise policy down to individual repositories. Copilot&rsquo;s review overview comment is now more compact, and this update includes fixes for billing, automatic reviews, and reliability.</p>
+<p>These updates are available to Copilot Pro, Pro+, Max, Business, and Enterprise plans.</p>
+<h2 id="%f0%9f%94%8c-manage-settings-and-identify-copilots-output-through-the-api" id="%f0%9f%94%8c-manage-settings-and-identify-copilots-output-through-the-api" ><a class="heading-link" href="#%f0%9f%94%8c-manage-settings-and-identify-copilots-output-through-the-api">&#128268; Manage settings and identify Copilot&rsquo;s output through the API<span class="heading-hash pl-2 text-italic text-bold" aria-hidden="true"></span></a></h2>
+<p>You can already request reviews, choose their effort level, and get information back through the REST API. You can now also:</p>
+<ul>
+<li>Identify Copilot&rsquo;s reviews and comments through explicit attribution fields.</li>
+<li>See the review effort a review used, when that metadata is available.</li>
+<li>See which skills, MCP servers, and custom instructions Copilot reported as sources for a comment. </li>
+</ul>
+<p>Depending on your role, you can also read and update code review settings:</p>
+<ul>
+<li>Enterprise administrators can enable or disable code review for all organizations, or leave the choice to organization administrators.</li>
+<li>Organization administrators can manage code review enablement, the default review effort, and the runner configuration. Settings your enterprise manages can&rsquo;t be overridden.</li>
+<li>Repository administrators can manage review effort and whether reviews use custom instructions and MCP tools.</li>
+</ul>
+<p>The REST API accepts the same review effort levels as the web interface, and organization and repository settings responses list the levels available to you.</p>
+<p>&#9888;&#65039; The enterprise and organization settings endpoints, including the organization runner endpoint, don&rsquo;t support GitHub Apps or fine-grained personal access tokens. The repository settings endpoints support both, with <code>Administration: read</code> permission to read settings and <code>Administration: write</code> permission to update them. Classic personal access tokens need repository administrator access.</p>
+<p>To get started, see <a href="https://docs.github.com/copilot/how-tos/copilot-on-github/set-up-copilot/configure-code-review#configuring-copilot-code-review-with-the-api">Configuring Copilot code review with the API</a>.</p>
+<h2 id="%f0%9f%93%8b-a-more-compact-review-overview" id="%f0%9f%93%8b-a-more-compact-review-overview" ><a class="heading-link" href="#%f0%9f%93%8b-a-more-compact-review-overview">&#128203; A more compact review overview<span class="heading-hash pl-2 text-italic text-bold" aria-hidden="true"></span></a></h2>
+<p>New review overviews keep your findings together at the top:</p>
+<ul>
+<li>The review effort used and any surveys move into a compact footer.</li>
+<li>Skipped and content-excluded files share one &ldquo;Files not reviewed&rdquo; section, with filenames and linked exclusion reasons.</li>
+<li>Empty sections are left out, and long lists show an overflow count.</li>
+</ul>
+<p>You can also tell us what&rsquo;s wrong with an overview. After you give it a &#128078;, choose <strong>Add a reason</strong> and pick the main problem, such as an approval assessment you disagree with, a comment that&rsquo;s too verbose, or findings that are incorrect or nitpicky. We use this feedback to improve Copilot&rsquo;s findings.</p>
+<p><img decoding="async" src="https://github.com/user-attachments/assets/37df4887-33be-491b-8748-2f7953562403" alt="Screenshot of Copilot approval comment containing dropdown with feedback reasons for thumbs down"></p>
+<h2 id="%e2%9c%a8-other-improvements" id="%e2%9c%a8-other-improvements" ><a class="heading-link" href="#%e2%9c%a8-other-improvements">&#10024; Other improvements<span class="heading-hash pl-2 text-italic text-bold" aria-hidden="true"></span></a></h2>
+<p><img decoding="async" src="https://github.com/user-attachments/assets/efc3400d-3553-4eae-8eff-ecb8e41f147c" alt="screenshot of AI credits being displayed in Copilot code review agent session"></p>
+<ul>
+<li>Copilot code review agent sessions now show the AI credits consumed in a review.</li>
+<li>The <strong>Automatically request Copilot code review</strong> repository rule now supports the bypass list, so exempt actors in the list will not receive an automatic review from Copilot.</li>
+<li>Copilot code review organization and repository settings pages have clearer wording and layout.</li>
+<li>On later reviews of the same pull request, findings unrelated to your recent changes are collapsed and then hidden.</li>
+<li>Balanced effort reviews now use three reviewer models, with another model combining their findings.</li>
+</ul>
+<h2 id="%f0%9f%90%9b-bug-fixes" id="%f0%9f%90%9b-bug-fixes" ><a class="heading-link" href="#%f0%9f%90%9b-bug-fixes">&#128027; Bug fixes<span class="heading-hash pl-2 text-italic text-bold" aria-hidden="true"></span></a></h2>
+<ul>
+<li>Billing and preview settings are now preserved when you turn code review off and on again.</li>
+<li>Failed or timed-out reviews are retried once automatically, and Copilot can switch to another eligible model when the preferred one is unavailable.</li>
+<li>GitHub Actions, Dependabot, and apps your organization or enterprise owns can request reviews on bot-authored pull requests again when <strong>Block reviews requested with an external Copilot license</strong> is on, as long as your organization pays for the review.</li>
+<li>Reviews no longer report a false failure just after starting and discard their results.</li>
+<li>Reviews in progress during a service update now get more time to finish.</li>
+<li>Review surveys no longer appear when your organization has opted out of feedback collection.</li>
+</ul>
+</body></html>
+<p>The post <a href="https://github.blog/changelog/2026-11-06-copilot-code-review-api-management-and-review-overview-updates">Copilot code review: API management and review overview updates</a> appeared first on <a href="https://github.blog">The GitHub Blog</a>.</p>
+]]></content:encoded>
+					
+		
+		
+		<category domain="changelog-type"><![CDATA[Improvement]]></category>
+<category domain="changelog-label"><![CDATA[copilot]]></category>
+<post-id xmlns="com-wordpress:feed-additions:1">100061</post-id>	</item>
+		<item>
+		<title>Copilot impact dashboard adds chat and VS Code agent usage</title>
+		<link>https://github.blog/changelog/2026-11-06-copilot-impact-dashboard-adds-chat-and-vs-code-agent-usage</link>
+		
+		<dc:creator><![CDATA[Allison]]></dc:creator>
+		<pubDate>Fri, 06 Nov 2026 22:17:28 +0000</pubDate>
+				<guid isPermaLink="false">https://github.blog/changelog/2026-11-06-copilot-impact-dashboard-adds-chat-and-vs-code-agent-usage</guid>
+
+					<description><![CDATA[<p>The Agent adoption chart in the Copilot impact dashboard now includes Copilot Chat and the VS Code Agents window, so you can see engagement across nine Copilot experiences. The adoption&#8230;</p>
+<p>The post <a href="https://github.blog/changelog/2026-11-06-copilot-impact-dashboard-adds-chat-and-vs-code-agent-usage">Copilot impact dashboard adds chat and VS Code agent usage</a> appeared first on <a href="https://github.blog">The GitHub Blog</a>.</p>
+]]></description>
+										<content:encoded><![CDATA[<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN" "http://www.w3.org/TR/REC-html40/loose.dtd">
+<html><body><p>The Agent adoption chart in the Copilot impact dashboard now includes Copilot Chat and the VS Code Agents window, so you can see engagement across nine Copilot experiences. The adoption cohort called &ldquo;Passive users&rdquo; is now &ldquo;Chat-first users&rdquo;, which better describes who is in it. The enterprise and organization 28-day usage metrics reports include the same two features. This builds on <a href="https://github.blog/changelog/2026-09-17-copilot-impact-dashboard-now-shows-feature-engagement/">feature engagement in the Copilot impact dashboard</a>.</p>
+<h3 id="whats-new" id="whats-new" ><a class="heading-link" href="#whats-new">What&rsquo;s new<span class="heading-hash pl-2 text-italic text-bold" aria-hidden="true"></span></a></h3>
+<ul>
+<li><strong>Agent adoption chart:</strong> Adds Copilot Chat and the VS Code Agents window, for nine features in total.</li>
+<li><strong>Chat-first users:</strong> Replaces the &ldquo;Passive users&rdquo; cohort name. These users are active in Copilot but haven&rsquo;t used a qualifying feature on at least two days in the 28-day period, so they don&rsquo;t qualify for an adoption phase.</li>
+<li><strong><code>copilot_feature_engagement.totals_by_feature</code></strong>: Adds <code>chat</code> and <code>vscode_agent</code> entries to enterprise and organization 28-day reports.</li>
+</ul>
+<h3 id="why-this-matters" id="why-this-matters" ><a class="heading-link" href="#why-this-matters">Why this matters<span class="heading-hash pl-2 text-italic text-bold" aria-hidden="true"></span></a></h3>
+<p>Chat is a core Copilot experience, but the dashboard didn&rsquo;t show it, and users who mainly use chat were labeled passive. Showing Copilot Chat and VS Code Agents window engagement and naming the cohort for what it represents gives a more complete picture of how developers use Copilot.</p>
+<h3 id="important-notes" id="important-notes" ><a class="heading-link" href="#important-notes">Important notes<span class="heading-hash pl-2 text-italic text-bold" aria-hidden="true"></span></a></h3>
+<ul>
+<li><strong>Adoption phases are unchanged:</strong> Chat and the VS Code Agents window are reported as feature engagement but don&rsquo;t count toward adoption phases. Chat-first users are still the <code>No Cohort</code> value in the API, and cohort sizes don&rsquo;t change.</li>
+<li><strong>Engagement rule:</strong> As with the other features, a user is engaged when they used the feature on at least two days in the 28-day period. A user can be counted under more than one feature. Chat covers Copilot Chat use captured by usage metrics, including agent mode, so users who make agent edits are also counted under chat.</li>
+<li><strong>Scope:</strong> Like the other seven features, chat and the VS Code Agents window are only reported in enterprise and organization 28-day reports. Reports for periods before this change only include the original seven features.</li>
+<li><strong>Access:</strong> The data is available to enterprise owners and billing managers, organization owners, and anyone with a custom organization or enterprise role that grants the <code>View Copilot Metrics</code> permission. The Copilot usage metrics policy must be enabled.</li>
+</ul>
+<p>Visit the <a href="https://docs.github.com/copilot/how-tos/administer-copilot/view-impact-dashboard">Copilot impact dashboard documentation</a> and the <a href="https://docs.github.com/rest/copilot/copilot-usage-metrics">Copilot usage metrics API documentation</a> to get started.</p>
+</body></html>
+<p>The post <a href="https://github.blog/changelog/2026-11-06-copilot-impact-dashboard-adds-chat-and-vs-code-agent-usage">Copilot impact dashboard adds chat and VS Code agent usage</a> appeared first on <a href="https://github.blog">The GitHub Blog</a>.</p>
+]]></content:encoded>
+					
+		
+		
+		<category domain="changelog-type"><![CDATA[Improvement]]></category>
+<category domain="changelog-label"><![CDATA[account management]]></category>
+<category domain="changelog-label"><![CDATA[copilot]]></category>
+<category domain="changelog-label"><![CDATA[enterprise management tools]]></category>
+<post-id xmlns="com-wordpress:feed-additions:1">100052</post-id>	</item>
+		<item>
+		<title>GitHub Copilot weekly releases — November 2</title>
+		<link>https://github.blog/changelog/2026-11-06-github-copilot-weekly-releases-november-2</link>
+		
+		<dc:creator><![CDATA[Allison]]></dc:creator>
+		<pubDate>Fri, 06 Nov 2026 21:00:26 +0000</pubDate>
+				<guid isPermaLink="false">https://github.blog/changelog/2026-11-06-github-copilot-weekly-releases-november-2</guid>
+
+					<description><![CDATA[<p>This week, Copilot comes to JetBrains Air and Xcode&#8217;s coding assistant, with updates to help you manage pull requests, settings, and agent sessions. GitHub Copilot app Set up Agent Merge&#8230;</p>
+<p>The post <a href="https://github.blog/changelog/2026-11-06-github-copilot-weekly-releases-november-2">GitHub Copilot weekly releases — November 2</a> appeared first on <a href="https://github.blog">The GitHub Blog</a>.</p>
+]]></description>
+										<content:encoded><![CDATA[<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN" "http://www.w3.org/TR/REC-html40/loose.dtd">
+<html><body><p>This week, Copilot comes to JetBrains Air and Xcode&rsquo;s coding assistant, with updates to help you manage pull requests, settings, and agent sessions.</p>
+<h3 id="github-copilot-app" id="github-copilot-app" ><a class="heading-link" href="#github-copilot-app">GitHub Copilot app<span class="heading-hash pl-2 text-italic text-bold" aria-hidden="true"></span></a></h3>
+<ul>
+<li>Set up Agent Merge directly from a pull request to have Copilot merge it when it&rsquo;s ready. It now stays enabled while required checks or rules are pending. You can also check reviewer status, request additional reviews, and select comment text to quote it or discuss it with Copilot.</li>
+<li>Keep working when a conversation reaches its context limit. Compact the conversation or review what&rsquo;s using the available space directly from the error.</li>
+<li>Start a session by dropping files on &ldquo;New&rdquo; in the sidebar. CSV and TSV files now open as tables with sticky headers and an option to view the source.</li>
+<li>Manage sessions in fewer steps. Archive pinned sessions whose pull requests have merged or closed, pin or unpin multiple sessions, and separate nested chats without losing the conversation. My Work now supports more than ten saved custom views.</li>
+<li>Give Copilot guidance on which tool requests to approve without asking you. Personal instructions for assisted approval are opt-in and apply to local sessions.</li>
+</ul>
+<p>Install the <a href="https://gh.io/app">GitHub Copilot app</a>.</p>
+<h3 id="github-copilot-cli" id="github-copilot-cli" ><a class="heading-link" href="#github-copilot-cli">GitHub Copilot CLI<span class="heading-hash pl-2 text-italic text-bold" aria-hidden="true"></span></a></h3>
+<p>Manage your whole setup in one place. <code>/settings</code> now opens a unified dashboard for your plugins, MCP servers, and more, and you can search across all of your settings.</p>
+<p><video loop controls autoplay muted width="100%" aria-label="Searching and changing settings in the Copilot CLI /settings dashboard" src="https://github.com/user-attachments/assets/15b79c23-aac2-4a58-83c5-eed8f53c5625"><br>
+</video></p>
+<p>Install <a href="https://github.com/features/copilot/cli?utm_source=install-cli-09-07&amp;utm_medium=changelog&amp;utm_campaign=weekly-copilot-launches-aug-2026">Copilot CLI</a>.</p>
+<h3 id="github-copilot-in-jetbrains" id="github-copilot-in-jetbrains" ><a class="heading-link" href="#github-copilot-in-jetbrains">GitHub Copilot in JetBrains<span class="heading-hash pl-2 text-italic text-bold" aria-hidden="true"></span></a></h3>
+<p>Introducing a new way to use GitHub Copilot in JetBrains IDEs, with Copilot now available in JetBrains Air. Track multiple agent sessions and run tasks locally in your JetBrains IDE or in the cloud through Air Teams, using your existing Copilot subscription.</p>
+<p>Get started with <a href="https://github.blog/changelog/2026-11-03-github-copilot-is-now-available-in-jetbrains-air/">Copilot in JetBrains Air</a>.</p>
+<h3 id="github-copilot-in-xcode" id="github-copilot-in-xcode" ><a class="heading-link" href="#github-copilot-in-xcode">GitHub Copilot in Xcode<span class="heading-hash pl-2 text-italic text-bold" aria-hidden="true"></span></a></h3>
+<p>You can now work with GitHub Copilot directly in Xcode&rsquo;s built-in coding assistant, bringing Copilot into your native Xcode workflow. The integration is now in public preview, available starting with Xcode 27.3 beta.</p>
+<p>Get started with <a href="https://github.blog/changelog/2026-11-04-github-copilot-is-now-available-in-xcodes-coding-assistant/">Copilot in Xcode</a>.</p>
+<h3 id="github-copilot-in-vs-code-1-145-release" id="github-copilot-in-vs-code-1-145-release" ><a class="heading-link" href="#github-copilot-in-vs-code-1-145-release">GitHub Copilot in VS Code (1.145 release)<span class="heading-hash pl-2 text-italic text-bold" aria-hidden="true"></span></a></h3>
+<ul>
+<li>Follow the conversation without the clutter or, alternatively, choose to inspect every step. Experimental chat view modes let you collapse or expand reasoning and tool calls without starting a new conversation.</li>
+</ul>
+<p><video loop controls autoplay muted width="100%" aria-label="VS Code Conversation, Verbose, and Compact chat views side by side" src="https://github.com/user-attachments/assets/5c8d704b-a308-49d1-9613-e1f2edecc7e7"><br>
+</video></p>
+<ul>
+<li>Check an agent&rsquo;s work on another machine without leaving VS Code. Preview remote apps and use interactive canvases in the Agents window, now in preview. Enable remote browser support in settings, plus canvases to use that feature.<br>
+<img decoding="async" src="https://github.com/user-attachments/assets/383a4f6c-9d55-4282-b586-006e9e02b985" alt="Browser conected to a remote host"></li>
+<li>Run recurring tasks on a schedule that fits your workflow. Local automations now support cron expressions and custom agents from your workspace.<br>
+<img decoding="async" src="https://github.com/user-attachments/assets/20e33f0a-b958-4553-89dc-bd956937fef9" alt="cron job running in vs code"></li>
+<li>Bring screenshots, mockups, and other files into chat without moving them into your workspace. Choose them with <strong>Add Context</strong> &gt; <strong>Files</strong>. Cloud sessions only support images.</li>
+<li>Get back into long Copilot chats more smoothly. Past terminal output now renders as you expand or reveal it instead of loading all at once.</li>
+</ul>
+<p>Explore everything that&rsquo;s new in the <a href="https://code.visualstudio.com/updates/v1_145">full release notes</a>.</p>
+</body></html>
+<p>The post <a href="https://github.blog/changelog/2026-11-06-github-copilot-weekly-releases-november-2">GitHub Copilot weekly releases — November 2</a> appeared first on <a href="https://github.blog">The GitHub Blog</a>.</p>
+]]></content:encoded>
+					
+		
+		
+		<category domain="changelog-type"><![CDATA[Release]]></category>
+<category domain="changelog-label"><![CDATA[copilot]]></category>
+<post-id xmlns="com-wordpress:feed-additions:1">100042</post-id>	</item>
+		<item>
+		<title>@GitHub in Slack and Teams is generally available and more</title>
+		<link>https://github.blog/changelog/2026-11-06-github-copilot-in-slack-and-teams-is-generally-available</link>
+		
+		<dc:creator><![CDATA[Allison]]></dc:creator>
+		<pubDate>Fri, 06 Nov 2026 20:31:08 +0000</pubDate>
+				<guid isPermaLink="false">https://github.blog/changelog/2026-11-06-github-copilot-in-slack-and-teams-is-generally-available</guid>
+
+					<description><![CDATA[<p>Turn conversations into code with @GitHub in Slack and Teams! Investigate bugs, create issues, implement changes, and open pull requests&#8212;all without leaving your conversation. What&#8217;s new Build and review together&#8230;</p>
+<p>The post <a href="https://github.blog/changelog/2026-11-06-github-copilot-in-slack-and-teams-is-generally-available">@GitHub in Slack and Teams is generally available and more</a> appeared first on <a href="https://github.blog">The GitHub Blog</a>.</p>
+]]></description>
+										<content:encoded><![CDATA[<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN" "http://www.w3.org/TR/REC-html40/loose.dtd">
+<html><body><p>Turn conversations into code with <code>@GitHub</code> in Slack and Teams! Investigate bugs, create issues, implement changes, and open pull requests&mdash;all without leaving your conversation.</p>
+<h2 id="whats-new" id="whats-new" ><a class="heading-link" href="#whats-new">What&rsquo;s new<span class="heading-hash pl-2 text-italic text-bold" aria-hidden="true"></span></a></h2>
+<h3 id="build-and-review-together-with-canvas-in-teams" id="build-and-review-together-with-canvas-in-teams" ><a class="heading-link" href="#build-and-review-together-with-canvas-in-teams">Build and review together with Canvas in Teams<span class="heading-hash pl-2 text-italic text-bold" aria-hidden="true"></span></a></h3>
+<p><video loop controls autoplay muted width="100%" src="https://github.com/user-attachments/assets/5091b76b-7aad-47be-b49d-212e13f455e6"></video></p>
+<p>Turn team discussions into working code. With <strong>Canvas</strong>, you can review implementation plans, code changes, and previews alongside your conversation. Continue the discussion with teammates, share feedback, and refine the implementation together&mdash;all without leaving Teams.</p>
+<h3 id="additional-improvements" id="additional-improvements" ><a class="heading-link" href="#additional-improvements">Additional improvements<span class="heading-hash pl-2 text-italic text-bold" aria-hidden="true"></span></a></h3>
+<ul>
+<li><strong>Faster onboarding:</strong> Go from request to coding session with fewer steps. <code>@GitHub</code> now identifies the repository from your message and launches your session without requiring you to select it again. Getting started is also easier when you&rsquo;re not signed in, don&rsquo;t have a default repository, want to switch repositories, or need app access.
+</li>
+<li>
+<p><strong>More reliable conversations:</strong> Fixed an issue that could prevent responses to follow-up messages, helping you keep work moving.</p>
+</li>
+<li>
+<p><strong>Clearer attribution:</strong> Issues and pull requests created by <code>@GitHub</code> now include &ldquo;Created from a Slack/Teams conversation with @username&rdquo; in their description.</p>
+</li>
+</ul>
+<h2 id="get-started" id="get-started" ><a class="heading-link" href="#get-started">Get started<span class="heading-hash pl-2 text-italic text-bold" aria-hidden="true"></span></a></h2>
+<p>Try <code>@GitHub</code> in <a href="https://slack.github.com">Slack</a> or <a href="https://teams.github.com">Teams</a>.</p>
+<p>Join the discussion in the <a href="https://github.com/orgs/community/discussions/212301">GitHub Community</a>.</p>
+</body></html>
+<p>The post <a href="https://github.blog/changelog/2026-11-06-github-copilot-in-slack-and-teams-is-generally-available">@GitHub in Slack and Teams is generally available and more</a> appeared first on <a href="https://github.blog">The GitHub Blog</a>.</p>
+]]></content:encoded>
+					
+		
+		
+		<category domain="changelog-type"><![CDATA[Release]]></category>
+<category domain="changelog-label"><![CDATA[client apps]]></category>
+<category domain="changelog-label"><![CDATA[copilot]]></category>
+<post-id xmlns="com-wordpress:feed-additions:1">100034</post-id>	</item>
+		<item>
+		<title>Usage metrics API adds code review details and addressed rate</title>
+		<link>https://github.blog/changelog/2026-11-05-usage-metrics-api-adds-code-review-details-and-addressed-rate</link>
+		
+		<dc:creator><![CDATA[Allison]]></dc:creator>
+		<pubDate>Fri, 06 Nov 2026 00:19:07 +0000</pubDate>
+				<guid isPermaLink="false">https://github.blog/changelog/2026-11-05-usage-metrics-api-adds-code-review-details-and-addressed-rate</guid>
+
+					<description><![CDATA[<p>The enterprise and organization repository-level Copilot usage metrics reports now show what happens to Copilot code review feedback. A new copilot_code_review object on each repos-1-day row reports how many Copilot-reviewed&#8230;</p>
+<p>The post <a href="https://github.blog/changelog/2026-11-05-usage-metrics-api-adds-code-review-details-and-addressed-rate">Usage metrics API adds code review details and addressed rate</a> appeared first on <a href="https://github.blog">The GitHub Blog</a>.</p>
+]]></description>
+										<content:encoded><![CDATA[<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN" "http://www.w3.org/TR/REC-html40/loose.dtd">
+<html><body><p>The enterprise and organization <a href="https://github.blog/changelog/2026-07-17-repository-level-github-copilot-usage-metrics-generally-available/">repository-level Copilot usage metrics</a> reports now show what happens to Copilot code review feedback. A new <code>copilot_code_review</code> object on each <code>repos-1-day</code> row reports how many Copilot-reviewed pull requests merged without a later change request from a person and how many Copilot code review comments developers acted on. With these you can track an addressed rate per repository.</p>
+<h3 id="whats-new" id="whats-new" ><a class="heading-link" href="#whats-new">What&rsquo;s new<span class="heading-hash pl-2 text-italic text-bold" aria-hidden="true"></span></a></h3>
+<ul>
+<li><strong><code>total_comments_evaluated</code></strong>: The number of Copilot code review comments checked to see whether the developer acted on them.</li>
+<li><strong><code>total_comments_addressed</code></strong>: The number of evaluated comments the developer acted on, whether by applying the suggestion, asking Copilot to make the fix, editing the code, or replying that the fix will come in a later pull request. Divide by <code>total_comments_evaluated</code> for the addressed rate.</li>
+<li><strong><code>review_comments_by_severity</code>, <code>review_comments_by_review_tier</code>, <code>review_comments_by_comment_type</code>, and <code>review_comments_by_customization</code></strong>: Both counts broken down by severity (e.g., <code>high</code>, <code>medium</code>, <code>low</code>), review tier (e.g., <code>lite</code>, <code>balanced</code>, <code>max</code>), comment type (e.g., <code>bug</code>, <code>security</code>, or <code>custom</code> for your repository&rsquo;s own coding guidelines), and customization (e.g., custom instructions, skills, MCP servers, or none).</li>
+<li><strong><code>total_merged_no_human_change_request_after_review</code></strong>: The number of merged pull requests that Copilot code review reviewed where no person requested changes after Copilot&rsquo;s first review.</li>
+</ul>
+<h3 id="why-this-matters" id="why-this-matters" ><a class="heading-link" href="#why-this-matters">Why this matters<span class="heading-hash pl-2 text-italic text-bold" aria-hidden="true"></span></a></h3>
+<p>The existing <code>pull_requests</code> fields show how often Copilot code review runs and how often someone clicks to apply a suggestion, but developers act on most feedback in other ways. These fields show whether developers act on Copilot code review feedback in each repository, which kinds of comments land, whether custom instructions, skills, and MCP servers make a difference, and whether reviewers still request changes after Copilot reviews.</p>
+<h3 id="important-notes" id="important-notes" ><a class="heading-link" href="#important-notes">Important notes<span class="heading-hash pl-2 text-italic text-bold" aria-hidden="true"></span></a></h3>
+<ul>
+<li><strong>Scope:</strong> Present on every row of the enterprise and organization <code>repos-1-day</code> reports. Counts are <code>0</code> and arrays are empty when a repository had no Copilot code review activity that day.</li>
+<li><strong>Counted on merge:</strong> Comments are evaluated when their pull request merges, so they count on the merge day, not the day Copilot posted them.</li>
+<li><strong>Bot pull requests:</strong> Copilot usually doesn&rsquo;t evaluate comments on pull requests opened by bots, such as Copilot cloud agent. <code>total_merged_no_human_change_request_after_review</code> still includes those pull requests.</li>
+<li><strong>Different from suggestion counts:</strong> <code>pull_requests.total_copilot_applied_suggestions</code> counts only ready-to-apply suggestions that someone applied. The new counts include every evaluated comment and count them as addressed however the developer acted on them.</li>
+<li><strong>Access:</strong> Enterprise owners, enterprise billing managers, organization owners, and anyone with a custom organization or enterprise role that grants the <code>View Copilot Metrics</code> permission can access these reports. The Copilot usage metrics policy must be enabled.</li>
+</ul>
+<p>Visit the <a href="https://docs.github.com/rest/copilot/copilot-usage-metrics">Copilot usage metrics API documentation</a> to get started.</p>
+</body></html>
+<p>The post <a href="https://github.blog/changelog/2026-11-05-usage-metrics-api-adds-code-review-details-and-addressed-rate">Usage metrics API adds code review details and addressed rate</a> appeared first on <a href="https://github.blog">The GitHub Blog</a>.</p>
+]]></content:encoded>
+					
+		
+		
+		<category domain="changelog-type"><![CDATA[Improvement]]></category>
+<category domain="changelog-label"><![CDATA[account management]]></category>
+<category domain="changelog-label"><![CDATA[copilot]]></category>
+<category domain="changelog-label"><![CDATA[enterprise management tools]]></category>
+<post-id xmlns="com-wordpress:feed-additions:1">100028</post-id>	</item>
+		<item>
+		<title>Usage metrics API flags telemetry and version gaps</title>
+		<link>https://github.blog/changelog/2026-11-05-usage-metrics-api-flags-telemetry-and-version-gaps</link>
+		
+		<dc:creator><![CDATA[Allison]]></dc:creator>
+		<pubDate>Fri, 06 Nov 2026 00:08:31 +0000</pubDate>
+				<guid isPermaLink="false">https://github.blog/changelog/2026-11-05-usage-metrics-api-flags-telemetry-and-version-gaps</guid>
+
+					<description><![CDATA[<p>The Copilot usage metrics API now shows which users are missing client telemetry or are running IDE or extension versions below the usage metrics minimums. New per-user fields appear in&#8230;</p>
+<p>The post <a href="https://github.blog/changelog/2026-11-05-usage-metrics-api-flags-telemetry-and-version-gaps">Usage metrics API flags telemetry and version gaps</a> appeared first on <a href="https://github.blog">The GitHub Blog</a>.</p>
+]]></description>
+										<content:encoded><![CDATA[<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN" "http://www.w3.org/TR/REC-html40/loose.dtd">
+<html><body><p>The Copilot usage metrics API now shows which users are missing client telemetry or are running IDE or extension versions below the usage metrics minimums. New per-user fields appear in enterprise and organization user reports, and daily affected-user counts appear in enterprise and organization reports.</p>
+<h3 id="whats-new" id="whats-new" ><a class="heading-link" href="#whats-new">What&rsquo;s new<span class="heading-hash pl-2 text-italic text-bold" aria-hidden="true"></span></a></h3>
+<ul>
+<li><strong><code>client_telemetry_present</code></strong>: Whether client telemetry was received for the user that day. <code>false</code> means Copilot saw the user&rsquo;s activity, but no usage events arrived from their editor.</li>
+<li><strong><code>usage_metrics_requirements</code></strong>: Lists each of the user&rsquo;s IDEs and Copilot extensions as <code>met</code>, <code>unmet</code>, or <code>unknown</code> against the <a href="https://docs.github.com/copilot/concepts/billing-and-usage/copilot-usage-metrics/copilot-metrics#supported-ides">minimum supported versions</a>.</li>
+<li><strong><code>missing_client_telemetry_user_count</code></strong>: The number of users that day with <code>client_telemetry_present</code> set to <code>false</code>.</li>
+<li><strong><code>below_usage_metrics_minimum_user_count</code></strong>: The number of users that day with at least one IDE or extension below the minimum version.</li>
+</ul>
+<h3 id="why-this-matters" id="why-this-matters" ><a class="heading-link" href="#why-this-matters">Why this matters<span class="heading-hash pl-2 text-italic text-bold" aria-hidden="true"></span></a></h3>
+<p>Users without client telemetry still count as active, but their reports lack detail such as lines of code, feature breakdowns, and model breakdowns. Common causes include outdated editors or extensions, disabled IDE telemetry, and proxies or firewalls that block events. These fields show how many users are affected and who to follow up with. This way you can close gaps without opening a support ticket.</p>
+<h3 id="important-notes" id="important-notes" ><a class="heading-link" href="#important-notes">Important notes<span class="heading-hash pl-2 text-italic text-bold" aria-hidden="true"></span></a></h3>
+<ul>
+<li><strong>Scope:</strong> User fields appear in enterprise and organization user reports (1-day and 28-day). Counts appear in enterprise and organization 1-day reports and in each <code>day_totals</code> entry of 28-day reports.</li>
+<li><strong>Access:</strong> These fields are available to enterprise owners, enterprise billing managers, organization owners, and anyone with a custom organization or enterprise role that grants the <code>View Copilot Metrics</code> permission. The Copilot usage metrics policy must be enabled.</li>
+<li><strong>Daily counts:</strong> Each count covers a single day. A user can be counted in both <code>missing_client_telemetry_user_count</code> and <code>below_usage_metrics_minimum_user_count</code>, so don&rsquo;t add the two counts together. Don&rsquo;t add counts across days to count unique users.</li>
+<li><strong>Independent signals:</strong> A user can meet every version minimum and still be missing telemetry (e.g., they&rsquo;re behind a proxy).</li>
+<li><strong>Unavailable values:</strong> Null or omitted values mean the data is unavailable, not <code>false</code> or zero. Days before this release have no values.</li>
+</ul>
+<p>Visit the <a href="https://docs.github.com/rest/copilot/copilot-usage-metrics">Copilot usage metrics API documentation</a> to get started.</p>
+</body></html>
+<p>The post <a href="https://github.blog/changelog/2026-11-05-usage-metrics-api-flags-telemetry-and-version-gaps">Usage metrics API flags telemetry and version gaps</a> appeared first on <a href="https://github.blog">The GitHub Blog</a>.</p>
+]]></content:encoded>
+					
+		
+		
+		<category domain="changelog-type"><![CDATA[Improvement]]></category>
+<category domain="changelog-label"><![CDATA[account management]]></category>
+<category domain="changelog-label"><![CDATA[copilot]]></category>
+<category domain="changelog-label"><![CDATA[enterprise management tools]]></category>
+<post-id xmlns="com-wordpress:feed-additions:1">100025</post-id>	</item>
+		<item>
+		<title>Secret scanning upgrades detectors, adds SpaceX as partner</title>
+		<link>https://github.blog/changelog/2026-11-05-secret-scanning-upgrades-detectors-adds-spacex-as-partner</link>
+		
+		<dc:creator><![CDATA[Allison]]></dc:creator>
+		<pubDate>Thu, 05 Nov 2026 15:48:50 +0000</pubDate>
+				<guid isPermaLink="false">https://github.blog/changelog/2026-11-05-secret-scanning-upgrades-detectors-adds-spacex-as-partner</guid>
+
+					<description><![CDATA[<p>This update expands secret scanning&#8217;s detection coverage: New partner: SpaceX is now a secret scanning partner. New detector: GitHub now detects starlink_public_api_v2_secret. Upgraded detectors: Alibaba, AWS, Google, OpenVSX, Pydantic Services,&#8230;</p>
+<p>The post <a href="https://github.blog/changelog/2026-11-05-secret-scanning-upgrades-detectors-adds-spacex-as-partner">Secret scanning upgrades detectors, adds SpaceX as partner</a> appeared first on <a href="https://github.blog">The GitHub Blog</a>.</p>
+]]></description>
+										<content:encoded><![CDATA[<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN" "http://www.w3.org/TR/REC-html40/loose.dtd">
+<html><body><p>This update expands secret scanning&rsquo;s detection coverage:</p>
+<ul>
+<li>New partner: SpaceX is now a secret scanning partner.</li>
+<li>New detector: GitHub now detects <code>starlink_public_api_v2_secret</code>.</li>
+<li>Upgraded detectors: Alibaba, AWS, Google, OpenVSX, Pydantic Services, and Tencent detectors include additional false-positive filtering.</li>
+</ul>
+<h2 id="new-secret-scanning-partners" id="new-secret-scanning-partners" ><a class="heading-link" href="#new-secret-scanning-partners">New secret scanning partners<span class="heading-hash pl-2 text-italic text-bold" aria-hidden="true"></span></a></h2>
+<p>The following provider joined the secret scanning partnership program. When one of their secrets is found in a public repository, GitHub forwards it to the partner so they can revoke or rotate the credential before it can be abused.</p>
+<div data-target="content-table-wrap.container" class="content-table-wrap"><content-table-wrap><table>
+<thead>
+<tr>
+<th>Provider</th>
+<th>Secret type</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>SpaceX</td>
+<td><code>starlink_public_api_v2_secret</code></td>
+</tr>
+</tbody>
+</table></content-table-wrap></div>
+<h2 id="detectors-added" id="detectors-added" ><a class="heading-link" href="#detectors-added">Detectors added<span class="heading-hash pl-2 text-italic text-bold" aria-hidden="true"></span></a></h2>
+<p>Secret scanning now automatically detects the following new secret type in your repositories.</p>
+<div data-target="content-table-wrap.container" class="content-table-wrap"><content-table-wrap><table>
+<thead>
+<tr>
+<th>Provider</th>
+<th>Secret type</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>SpaceX</td>
+<td><code>starlink_public_api_v2_secret</code></td>
+</tr>
+</tbody>
+</table></content-table-wrap></div>
+<p><code>Partner</code> secrets are automatically reported to the secret issuer when found in public repositories through the <a href="https://docs.github.com/code-security/secret-scanning/secret-scanning-partnership-program/secret-scanning-partner-program">secret scanning partnership program</a>. <code>User</code> secrets generate secret scanning alerts when found in public or private repositories.</p>
+<h2 id="false-positives-reduced" id="false-positives-reduced" ><a class="heading-link" href="#false-positives-reduced">False positives reduced<span class="heading-hash pl-2 text-italic text-bold" aria-hidden="true"></span></a></h2>
+<p>The following detector improvements reduce false-positive matches for supported secrets.</p>
+<div data-target="content-table-wrap.container" class="content-table-wrap"><content-table-wrap><table>
+<thead>
+<tr>
+<th>Provider</th>
+<th>Secret type</th>
+<th>Improvement</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Alibaba</td>
+<td><code>alibaba_cloud_access_key_id</code></td>
+<td>Suppress unpaired matches when dictionary filtering removes all qualifying companion secrets.</td>
+</tr>
+<tr>
+<td>AWS</td>
+<td><code>aws_access_key_id</code></td>
+<td>Suppress unpaired matches when dictionary filtering removes all qualifying companion secrets.</td>
+</tr>
+<tr>
+<td>AWS</td>
+<td><code>aws_session_token</code></td>
+<td>Suppress unpaired matches when dictionary filtering removes all qualifying companion secrets.</td>
+</tr>
+<tr>
+<td>AWS</td>
+<td><code>aws_temporary_access_key_id</code></td>
+<td>Suppress unpaired matches when dictionary filtering removes all qualifying companion secrets.</td>
+</tr>
+<tr>
+<td>Google</td>
+<td><code>google_cloud_storage_access_key_secret</code></td>
+<td>Suppress unpaired matches when dictionary filtering removes all qualifying companion key identifiers.</td>
+</tr>
+<tr>
+<td>Google</td>
+<td><code>google_cloud_storage_service_account_access_key_id</code></td>
+<td>Suppress unpaired matches when dictionary filtering removes all qualifying companion secrets.</td>
+</tr>
+<tr>
+<td>Google</td>
+<td><code>google_cloud_storage_user_access_key_id</code></td>
+<td>Suppress unpaired matches when dictionary filtering removes all qualifying companion secrets.</td>
+</tr>
+<tr>
+<td>OpenVSX</td>
+<td><code>openvsx_access_token</code></td>
+<td>Tighten context matching for legacy tokens to avoid treating unrelated UUIDs as credentials.</td>
+</tr>
+<tr>
+<td>Pydantic Services Inc.</td>
+<td><code>logfire_token</code></td>
+<td>Match the documented token length and character set to exclude placeholder values and public browser tokens.</td>
+</tr>
+<tr>
+<td>Tencent</td>
+<td><code>tencent_cloud_secret_id</code></td>
+<td>Require both letters and digits after the token prefix to exclude alphabetic identifiers such as function names.</td>
+</tr>
+</tbody>
+</table></content-table-wrap></div>
+<h2 id="learn-more" id="learn-more" ><a class="heading-link" href="#learn-more">Learn more<span class="heading-hash pl-2 text-italic text-bold" aria-hidden="true"></span></a></h2>
+<p>Learn more about <a href="https://docs.github.com/code-security/secret-scanning/introduction/about-secret-scanning">secret scanning</a> and see the <a href="https://docs.github.com/code-security/secret-scanning/introduction/supported-secret-scanning-patterns">full list of supported secrets</a> in our documentation. Let us know what you think in the <a href="https://gh.io/community-secret-scanning">community discussion</a>.</p>
+</body></html>
+<p>The post <a href="https://github.blog/changelog/2026-11-05-secret-scanning-upgrades-detectors-adds-spacex-as-partner">Secret scanning upgrades detectors, adds SpaceX as partner</a> appeared first on <a href="https://github.blog">The GitHub Blog</a>.</p>
+]]></content:encoded>
+					
+		
+		
+		<category domain="changelog-type"><![CDATA[Improvement]]></category>
+<category domain="changelog-label"><![CDATA[application security]]></category>
+<post-id xmlns="com-wordpress:feed-additions:1">99994</post-id>	</item>
+		<item>
+		<title>New pull request overview page in public preview</title>
+		<link>https://github.blog/changelog/2026-11-05-new-pull-request-overview-page-in-public-preview</link>
+		
+		<dc:creator><![CDATA[Allison]]></dc:creator>
+		<pubDate>Thu, 05 Nov 2026 08:00:00 +0000</pubDate>
+				<guid isPermaLink="false">https://github.blog/changelog/2026-12-05-new-pull-request-overview-page-in-public-preview</guid>
+
+					<description><![CDATA[<p>On a long pull request, checking what&#8217;s blocking often means scrolling past dozens of comments and timeline events just to reach the merge box. And once you&#8217;re there, you still&#8230;</p>
+<p>The post <a href="https://github.blog/changelog/2026-11-05-new-pull-request-overview-page-in-public-preview">New pull request overview page in public preview</a> appeared first on <a href="https://github.blog">The GitHub Blog</a>.</p>
+]]></description>
+										<content:encoded><![CDATA[<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN" "http://www.w3.org/TR/REC-html40/loose.dtd">
+<html><body><p>On a long pull request, checking what&rsquo;s blocking often means scrolling past dozens of comments and timeline events just to reach the merge box. And once you&rsquo;re there, you still need to work out what to do next. As people need to review more and more pull requests, time spent scrolling adds up. So we&rsquo;ve begun to rethink the entire experience, beginning with addressing a familiar challenge: finding what&rsquo;s blocking progress and determining what to do next.</p>
+<p>Today, we&rsquo;re introducing the Overview page as an opt-in public preview, with rollout continuing through the weekend. It brings merge status and next available actions to the top of the page in a compact readiness summary. It&rsquo;s the first step toward making pull requests easier to follow as code, conversations, and reviews evolve.</p>
+<p><img decoding="async" src="https://github.com/user-attachments/assets/35becfa5-7fe4-4ab3-8c80-df8348fa41f7" alt="Pull request overview with merge readiness, checks, comments, approvals, and recent activity at the top of the page"></p>
+<h2 id="the-merge-box-distilled" id="the-merge-box-distilled" ><a class="heading-link" href="#the-merge-box-distilled">The merge box, distilled<span class="heading-hash pl-2 text-italic text-bold" aria-hidden="true"></span></a></h2>
+<p>We&rsquo;re starting with the merge box, the place developers go to see whether a pull request can move forward. Rather than just moving it higher, we&rsquo;ve also redesigned it to show the same information in less than half the space.</p>
+<ol>
+<li><strong>Explore the supporting signals:</strong> A compact view of checks, comments, and approvals keeps the context nearby without making every detail compete for attention.</li>
+<li><strong>Address what&rsquo;s blocking:</strong> Take action to move the pull request forward, such as updating your branch.</li>
+<li><strong>See if it&rsquo;s ready to merge:</strong> Check merge readiness and merge when requirements are met.</li>
+</ol>
+<p>Start with the summary, then follow the detail that matters to your next step (e.g., get to failing checks, see who still needs to approve, or open the relevant comments).</p>
+<p><img decoding="async" src="https://github.com/user-attachments/assets/f52c7ce3-3e0e-444d-abf5-49037440e799" alt="Comparison of the classic merge box and the compact readiness summary, highlighting checks and next available actions"></p>
+<h2 id="keep-your-place-focus-your-attention" id="keep-your-place-focus-your-attention" ><a class="heading-link" href="#keep-your-place-focus-your-attention">Keep your place. Focus your attention.<span class="heading-hash pl-2 text-italic text-bold" aria-hidden="true"></span></a></h2>
+<p>This first preview also introduces more ways to catch up on activity and focus the conversation so you can spend less time finding your place.</p>
+<ol>
+<li><strong>Narrow the conversation:</strong> Filter for unresolved conversations or comments you wrote to find open questions or follow up on your feedback.</li>
+<li><strong>Read the latest comments first:</strong> Sort comments from newest to oldest instead of starting with the earliest discussion.</li>
+<li><strong>Catch up on activity:</strong> Use the summary in the upper-right to find review comments, review requests, and other updates.</li>
+</ol>
+<p>You can also mark a draft ready for review or close a pull request from the header, with available actions depending on your permissions.</p>
+<p><img decoding="async" src="https://github.com/user-attachments/assets/955432ff-5cec-4987-8d8e-48a2dab0119c" alt="Pull request comments with All, Unresolved, and Mine filters, newest-first sorting, and a summary of recent activity"></p>
+<h2 id="try-the-new-overview" id="try-the-new-overview" ><a class="heading-link" href="#try-the-new-overview">Try the new overview<span class="heading-hash pl-2 text-italic text-bold" aria-hidden="true"></span></a></h2>
+<p>To join, select the <strong>&#10024; Try the Overview page</strong> button in the header. We&rsquo;re opening this preview early so you can try the new direction on your own pull requests and help shape what comes next. You can use the same menu to return to the classic overview during the preview.</p>
+<h2 id="help-shape-what-comes-next" id="help-shape-what-comes-next" ><a class="heading-link" href="#help-shape-what-comes-next">Help shape what comes next<span class="heading-hash pl-2 text-italic text-bold" aria-hidden="true"></span></a></h2>
+<p>This preview is very much a starting point, not the finished pull request experience. Try it on your next pull request. What is easier to find? Where do you still lose context? What sends you back to the classic overview?</p>
+<p>Share your feedback and report issues in <a href="https://github.com/orgs/community/discussions/212186">the overview preview feedback discussion</a>.</p>
+</body></html>
+<p>The post <a href="https://github.blog/changelog/2026-11-05-new-pull-request-overview-page-in-public-preview">New pull request overview page in public preview</a> appeared first on <a href="https://github.blog">The GitHub Blog</a>.</p>
+]]></content:encoded>
+					
+		
+		
+		<category domain="changelog-type"><![CDATA[Release]]></category>
+<category domain="changelog-label"><![CDATA[collaboration tools]]></category>
+<post-id xmlns="com-wordpress:feed-additions:1">100007</post-id>	</item>
+		<item>
+		<title>CodeQL 2.27.4 improves accuracy and query metadata</title>
+		<link>https://github.blog/changelog/2026-11-04-codeql-2-27-4-improves-accuracy-and-query-metadata</link>
+		
+		<dc:creator><![CDATA[Allison]]></dc:creator>
+		<pubDate>Wed, 04 Nov 2026 20:04:52 +0000</pubDate>
+				<guid isPermaLink="false">https://github.blog/changelog/2026-11-04-codeql-2-27-4-improves-accuracy-and-query-metadata</guid>
+
+					<description><![CDATA[<p>CodeQL is the static analysis engine behind GitHub code scanning, which finds and remediates security issues in your code. We&#8217;ve recently released CodeQL 2.27.4 with query accuracy improvements across several&#8230;</p>
+<p>The post <a href="https://github.blog/changelog/2026-11-04-codeql-2-27-4-improves-accuracy-and-query-metadata">CodeQL 2.27.4 improves accuracy and query metadata</a> appeared first on <a href="https://github.blog">The GitHub Blog</a>.</p>
+]]></description>
+										<content:encoded><![CDATA[<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN" "http://www.w3.org/TR/REC-html40/loose.dtd">
+<html><body><p>CodeQL is the static analysis engine behind GitHub code scanning, which finds and remediates security issues in your code. We&rsquo;ve recently released <a href="https://codeql.github.com/docs/codeql-overview/codeql-changelog/codeql-cli-2.27.4/">CodeQL 2.27.4</a> with query accuracy improvements across several languages, stronger security checks when you bundle or publish a pack, and corrections to query metadata.</p>
+<h2 id="query-changes" id="query-changes" ><a class="heading-link" href="#query-changes">Query changes<span class="heading-hash pl-2 text-italic text-bold" aria-hidden="true"></span></a></h2>
+<p><strong>Java/Kotlin</strong></p>
+<ul>
+<li>The <code>java/log-injection</code> query now recognizes additional sanitizers and sanitizer guards from the JDK, Apache Commons Lang and Text, Guava, OWASP Java Encoder, and Spring Framework.</li>
+<li>Path-injection queries now recognize additional substring guards and string replacement and removal operations from Apache Commons Lang and Guava.</li>
+</ul>
+<p><strong>Rust</strong></p>
+<ul>
+<li>We have reduced false positives in the <code>rust/uncontrolled-allocation-size</code>, <code>rust/log-injection</code>, and <code>rust/cleartext-logging</code> queries.</li>
+</ul>
+<p><strong>C/C++</strong></p>
+<ul>
+<li>The <code>cpp/suspicious-pointer-scaling</code> query no longer reports intentional pointer arithmetic on <code>std::byte*</code> buffers.</li>
+<li>The <code>cpp/unused-local-variable</code> and <code>cpp/unused-static-variable</code> queries no longer report variables marked with <code>[[maybe_unused]]</code>.</li>
+</ul>
+<p><strong>CWE metadata changes</strong></p>
+<p>CodeQL no longer applies the CWE-730 tag to the following queries:</p>
+<ul>
+<li><strong>C#</strong>: <code>cs/redos</code> and <code>cs/regex-injection</code>.</li>
+<li><strong>Java/Kotlin</strong>: <code>java/redos</code>, <code>java/polynomial-redos</code>, and <code>java/regex-injection</code>.</li>
+<li><strong>JavaScript/TypeScript</strong>: <code>js/redos</code>, <code>js/polynomial-redos</code>, <code>js/regex-injection</code>, <code>js/regex-injection-more-sources</code>, <code>js/server-crash</code>, and <code>js/loop-bound-injection</code>.</li>
+<li><strong>Python</strong>: <code>py/redos</code>, <code>py/polynomial-redos</code>, and <code>py/regex-injection</code>.</li>
+<li><strong>Ruby</strong>: <code>rb/redos</code>, <code>rb/polynomial-redos</code>, and <code>rb/regexp-injection</code>.</li>
+<li><strong>Swift</strong>: <code>swift/redos</code> and <code>swift/regex-injection</code>.</li>
+</ul>
+<p>This was initially reported in <a href="https://github.com/github/codeql/issues/22318">CodeQL issue #22318</a>; thank you to <code>@wiggin15</code> for the feedback.</p>
+<h2 id="codeql-cli" id="codeql-cli" ><a class="heading-link" href="#codeql-cli">CodeQL CLI<span class="heading-hash pl-2 text-italic text-bold" aria-hidden="true"></span></a></h2>
+<ul>
+<li>The CLI now writes Java virtual machine warnings and initialization errors to standard error, so they won&rsquo;t interfere with JSON or other machine-readable output.</li>
+<li>When you bundle or publish a pack, the CLI checks whether each file remains inside the pack root after resolving symbolic links. It omits files that resolve outside the root and displays a warning.</li>
+</ul>
+<p>For full details, see the <a href="https://codeql.github.com/docs/codeql-overview/codeql-changelog/codeql-cli-2.27.4/">CodeQL 2.27.4 changelog</a>. GitHub automatically deploys every new CodeQL version to users of GitHub code scanning on github.com. The new functionality in CodeQL 2.27.4 will also be included in the GitHub Enterprise Server (GHES) <code>3.24</code> release. If you use an older version of GHES, you can <a href="https://docs.github.com/enterprise-server@3.20/admin/managing-code-security/managing-github-advanced-security-for-your-enterprise/configuring-code-scanning-for-your-appliance#configuring-codeql-analysis-on-a-server-without-internet-access">manually upgrade your CodeQL version</a>.</p>
+</body></html>
+<p>The post <a href="https://github.blog/changelog/2026-11-04-codeql-2-27-4-improves-accuracy-and-query-metadata">CodeQL 2.27.4 improves accuracy and query metadata</a> appeared first on <a href="https://github.blog">The GitHub Blog</a>.</p>
+]]></content:encoded>
+					
+		
+		
+		<category domain="changelog-type"><![CDATA[Improvement]]></category>
+<category domain="changelog-label"><![CDATA[application security]]></category>
+<post-id xmlns="com-wordpress:feed-additions:1">99990</post-id>	</item>
+		<item>
+		<title>GitHub Copilot is now available in Xcode&#8217;s coding assistant</title>
+		<link>https://github.blog/changelog/2026-11-04-github-copilot-is-now-available-in-xcodes-coding-assistant</link>
+		
+		<dc:creator><![CDATA[Allison]]></dc:creator>
+		<pubDate>Wed, 04 Nov 2026 19:10:40 +0000</pubDate>
+				<guid isPermaLink="false">https://github.blog/changelog/2026-11-04-github-copilot-is-now-available-in-xcodes-coding-assistant</guid>
+
+					<description><![CDATA[<p>You can now work with GitHub Copilot directly in Xcode&#8217;s built-in coding assistant, bringing Copilot into your native Xcode workflow. The integration is now in public preview, available starting with&#8230;</p>
+<p>The post <a href="https://github.blog/changelog/2026-11-04-github-copilot-is-now-available-in-xcodes-coding-assistant">GitHub Copilot is now available in Xcode&#8217;s coding assistant</a> appeared first on <a href="https://github.blog">The GitHub Blog</a>.</p>
+]]></description>
+										<content:encoded><![CDATA[<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN" "http://www.w3.org/TR/REC-html40/loose.dtd">
+<html><body><p>You can now work with GitHub Copilot directly in <a href="https://developer.apple.com/xcode/">Xcode&rsquo;s built-in coding assistant</a>, bringing Copilot into your native Xcode workflow. The integration is now in public preview, available starting with Xcode 27.3 beta.</p>
+<p>This gives you another way to use Copilot in Xcode. The existing GitHub Copilot for Xcode extension remains a separate option, so you can choose the workflow that works best for you.</p>
+<h2 id="get-started" id="get-started" ><a class="heading-link" href="#get-started">Get started<span class="heading-hash pl-2 text-italic text-bold" aria-hidden="true"></span></a></h2>
+<p>Download Xcode 27.3 beta from <a href="https://developer.apple.com/download/">Apple Developer Downloads</a>. You&rsquo;ll need a Mac running macOS Tahoe 26.6 or later.</p>
+<p>In Xcode, open <strong>Xcode &gt; Settings &gt; Intelligence</strong> to set up GitHub Copilot in the coding assistant. For more information, see <a href="https://developer.apple.com/documentation/xcode/setting-up-coding-intelligence">Setting up coding intelligence</a> and the <a href="https://developer.apple.com/documentation/xcode-release-notes/xcode-27_3-release-notes">Xcode 27.3 beta release notes</a>. All Copilot plans are supported.</p>
+<h2 id="share-your-feedback" id="share-your-feedback" ><a class="heading-link" href="#share-your-feedback">Share your feedback<span class="heading-hash pl-2 text-italic text-bold" aria-hidden="true"></span></a></h2>
+<p>Help us improve the experience by sharing your feedback in the <a href="https://github.com/github/CopilotForXcode">GitHub Copilot for Xcode repository</a> or through <a href="https://feedbackassistant.apple.com/">Apple Feedback Assistant</a>.</p>
+</body></html>
+<p>The post <a href="https://github.blog/changelog/2026-11-04-github-copilot-is-now-available-in-xcodes-coding-assistant">GitHub Copilot is now available in Xcode&#8217;s coding assistant</a> appeared first on <a href="https://github.blog">The GitHub Blog</a>.</p>
+]]></content:encoded>
+					
+		
+		
+		<category domain="changelog-type"><![CDATA[Release]]></category>
+<category domain="changelog-label"><![CDATA[copilot]]></category>
+<post-id xmlns="com-wordpress:feed-additions:1">99988</post-id>	</item>
+	</channel>
+</rss>

@@ -1,0 +1,1616 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <!-- force IE browsers in compatibility mode to use their most aggressive rendering engine -->
+
+    <meta charset="utf-8">
+    <title>GitHub Status - Incident History</title>
+    <meta name="description" content="GitHub&#39;s Incident and Scheduled Maintenance History">
+
+    <!-- Mobile viewport optimization -->
+    <meta name="HandheldFriendly" content="True">
+    <meta name="MobileOptimized" content="320">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0">
+
+    <!-- Time this page was rendered - http://purl.org/dc/terms/issued -->
+    <meta name="issued" content="1794165963">
+
+    <!-- Mobile IE allows us to activate ClearType technology for smoothing fonts for easy reading -->
+    <meta http-equiv="cleartype" content="on">
+
+      <!-- Atlassian Sans & Mono Fonts -->
+<link
+  rel="preconnect"
+  href="https://ds-cdn.prod-east.frontend.public.atl-paas.net" />
+<link
+  rel="preload"
+  href="https://ds-cdn.prod-east.frontend.public.atl-paas.net/assets/fonts/atlassian-sans/v3/AtlassianSans-latin.woff2"
+  as="font" type="font/woff2" crossorigin />
+<link
+  rel="preload"
+  href="https://ds-cdn.prod-east.frontend.public.atl-paas.net/assets/font-rules/v5/atlassian-fonts.css"
+  as="style" crossorigin />
+
+    <style>
+  /* Dynamic Font Stack based on Feature Flag */
+    /* Using Atlassian Sans & Mono */
+    :root {
+      --font-stack-a: "Atlassian Sans", "Helvetica Neue", Helvetica, Arial, Sans-Serif;
+      --font-stack-b: "Atlassian Mono", "SFMono-Medium", "SF Mono", "Segoe UI Mono", "Roboto Mono", "Ubuntu Mono", Menlo, Consolas, Courier, monospace;
+    }
+</style>
+
+
+      <link rel="icon" type="image/x-icon" href="//dka575ofm4ao0.cloudfront.net/pages-favicon_logos/original/36420/akacZEQQfOBdc7ftyxJt" />
+
+    <link rel="shortcut icon" href='//dka575ofm4ao0.cloudfront.net/pages-favicon_logos/original/36420/akacZEQQfOBdc7ftyxJt'>
+
+    <link rel="alternate" type="application/atom+xml" href="https://www.githubstatus.com/history.atom" title="GitHub Status History - Atom Feed">
+    <link rel="alternate" type="application/rss+xml" href="https://www.githubstatus.com/history.rss" title="GitHub Status History - RSS Feed">
+
+      <!-- Canonical Link to ensure that only the custom domain is indexed when present -->
+      <link rel="canonical" href="https://www.githubstatus.com/history">
+
+    <meta name="_globalsign-domain-verification" content="y_VzfckMy4iePo5oDJNivyYIjh8LffYa4jzUndm_bZ"/>
+
+
+    <link rel="alternate" type="application/atom+xml" title="ATOM" href="https://www.githubstatus.com/history.atom" />
+
+    <!-- Le styles -->
+    <link rel="stylesheet" href="https://dka575ofm4ao0.cloudfront.net/packs/0.616b452dfc41077f3d42.css" media="screen" /><link rel="stylesheet" href="https://dka575ofm4ao0.cloudfront.net/packs/191.616b452dfc41077f3d42.css" media="screen" /><link rel="stylesheet" href="https://dka575ofm4ao0.cloudfront.net/packs/155.616b452dfc41077f3d42.css" media="screen" />
+    <link rel="stylesheet" href="https://dka575ofm4ao0.cloudfront.net/assets/status/status_manifest-bacce514623b1bcc6a34b048b079d9c748ed56fe60243e73a9493e7ffcbc7cdf.css" media="all" />
+
+    <script src="https://dka575ofm4ao0.cloudfront.net/assets/jquery-3.5.1.min-729e416557a365062a8a20f0562f18aa171da57298005d392312670c706c68de.js"></script>
+
+    <script>
+      window.pageColorData = {"blue":"#0366d6","border":"#e1e4e8","body_background":"#ffffff","font":"#24292e","graph":"#0366d6","green":"#28a745","light_font":"#6a737d","link":"#0366d6","orange":"#e36209","red":"#dc3545","yellow":"#dbab09","no_data":"#b3bac5"};
+    </script>
+    <style>
+  /* BODY BACKGROUND */ /* BODY BACKGROUND */ /* BODY BACKGROUND */ /* BODY BACKGROUND */ /* BODY BACKGROUND */
+  body,
+  .layout-content.status.status-api .section .example-container .example-opener .color-secondary,
+  .grouped-items-selector,
+  .layout-content.status.status-full-history .history-nav a.current,
+  div[id^="subscribe-modal"] .modal-footer,
+  div[id^="subscribe-modal"],
+  div[id^="updates-dropdown"] .updates-dropdown-section,
+  #uptime-tooltip .tooltip-box {
+    background-color:#ffffff;
+  }
+
+  #uptime-tooltip .pointer-container .pointer-smaller {
+    border-bottom-color:#ffffff;
+  }
+
+
+
+
+  /* PRIMARY FONT COLOR */ /* PRIMARY FONT COLOR */ /* PRIMARY FONT COLOR */ /* PRIMARY FONT COLOR */
+  body.status,
+  .color-primary,
+  .color-primary:hover,
+  .layout-content.status-index .status-day .update-title.impact-none a,
+  .layout-content.status-index .status-day .update-title.impact-none a:hover,
+  .layout-content.status-index .timeframes-container .timeframe.active,
+  .layout-content.status-full-history .month .incident-container .impact-none,
+  .layout-content.status.status-index .incidents-list .incident-title.impact-none a,
+  .incident-history .impact-none,
+  .layout-content.status .grouped-items-selector.inline .grouped-item.active,
+  .layout-content.status.status-full-history .history-nav a.current,
+  .layout-content.status.status-full-history .history-nav a:not(.current):hover,
+  div[id^="subscribe-modal"] .modal-header .close,
+  .grouped-item-label,
+  #uptime-tooltip .tooltip-box .tooltip-content .related-events .related-event a.related-event-link {
+    color:#24292e;
+  }
+
+  .layout-content.status.status-index .components-statuses .component-container .name {
+    color:#24292e;
+    color:rgba(36,41,46,.8);
+  }
+
+
+
+
+  /* SECONDARY FONT COLOR */ /* SECONDARY FONT COLOR */ /* SECONDARY FONT COLOR */ /* SECONDARY FONT COLOR */
+  small,
+  .layout-content.status .table-row .date,
+  .color-secondary,
+  .layout-content.status .grouped-items-selector.inline .grouped-item,
+  .layout-content.status.status-full-history .history-footer .pagination a.disabled,
+  .layout-content.status.status-full-history .history-nav a,
+  #uptime-tooltip .tooltip-box .tooltip-content .related-events #related-event-header {
+    color:#6a737d;
+  }
+
+
+
+
+  /* BORDER COLOR */  /* BORDER COLOR */  /* BORDER COLOR */  /* BORDER COLOR */  /* BORDER COLOR */  /* BORDER COLOR */
+  body.status .layout-content.status .border-color,
+  hr,
+  .tooltip-base,
+  .markdown-display table,
+  div[id^="subscribe-modal"],
+  #uptime-tooltip .tooltip-box {
+    border-color:#e1e4e8;
+  }
+
+  div[id^="subscribe-modal"] .modal-footer,
+  .markdown-display table td {
+    border-top-color:#e1e4e8;
+  }
+
+  .markdown-display table td + td, .markdown-display table th + th {
+    border-left-color:#e1e4e8;
+  }
+
+  div[id^="subscribe-modal"] .modal-header,
+  #uptime-tooltip .pointer-container .pointer-larger {
+    border-bottom-color:#e1e4e8;
+  }
+
+  #uptime-tooltip .tooltip-box .outage-field {
+    /*
+      Generate the background-color for the outage-field from the css_body_background_color and css_border_color.
+
+      For the default background (#ffffff) and default css_border_color (#e0e0e0), use the luminosity of the default background with a magic number to arrive at
+      the original outage-field background color (#f4f5f7). I used the formula Target Color = Color * alpha + Background * (1 - alpha) to find the magic number of ~0.08.
+
+      For darker css_body_background_color, luminosity values are lower so alpha trends toward becoming transparent (thus outage-field background becomes same as css_body_background_color).
+    */
+    background-color: rgba(225,228,232,0.31);
+
+    /*
+      outage-field border-color alpha is inverse to the luminosity of css_body_background_color.
+      That is to say, with a default white background this border is transparent, but on a black background, it's opaque css_border_color.
+    */
+    border-color: rgba(225,228,232,0.0);
+  }
+
+
+
+
+  /* CSS REDS */ /* CSS REDS */ /* CSS REDS */ /* CSS REDS */ /* CSS REDS */ /* CSS REDS */ /* CSS REDS */
+  .layout-content.status.status-index .status-day .update-title.impact-critical a,
+  .layout-content.status.status-index .status-day .update-title.impact-critical a:hover,
+  .layout-content.status.status-index .page-status.status-critical,
+  .layout-content.status.status-index .unresolved-incident.impact-critical .incident-title,
+  .flat-button.background-red {
+    background-color:#dc3545;
+  }
+
+  .layout-content.status-index .components-statuses .component-container.status-red:after,
+  .layout-content.status-full-history .month .incident-container .impact-critical,
+  .layout-content.status-incident .incident-name.impact-critical,
+  .layout-content.status.status-index .incidents-list .incident-title.impact-critical a,
+  .status-red .icon-indicator,
+  .incident-history .impact-critical,
+  .components-container .component-inner-container.status-red .component-status,
+  .components-container .component-inner-container.status-red .icon-indicator {
+    color:#dc3545;
+  }
+
+  .layout-content.status.status-index .unresolved-incident.impact-critical .updates {
+    border-color:#dc3545;
+  }
+
+
+
+
+  /* CSS ORANGES */ /* CSS ORANGES */ /* CSS ORANGES */ /* CSS ORANGES */ /* CSS ORANGES */ /* CSS ORANGES */
+  .layout-content.status.status-index .status-day .update-title.impact-major a,
+  .layout-content.status.status-index .status-day .update-title.impact-major a:hover,
+  .layout-content.status.status-index .page-status.status-major,
+  .layout-content.status.status-index .unresolved-incident.impact-major .incident-title {
+    background-color:#e36209;
+  }
+
+  .layout-content.status-index .components-statuses .component-container.status-orange:after,
+  .layout-content.status-full-history .month .incident-container .impact-major,
+  .layout-content.status-incident .incident-name.impact-major,
+  .layout-content.status.status-index .incidents-list .incident-title.impact-major a,
+  .status-orange .icon-indicator,
+  .incident-history .impact-major,
+  .components-container .component-inner-container.status-orange .component-status,
+  .components-container .component-inner-container.status-orange .icon-indicator {
+    color:#e36209;
+  }
+
+  .layout-content.status.status-index .unresolved-incident.impact-major .updates {
+    border-color:#e36209;
+  }
+
+
+
+
+  /* CSS YELLOWS */ /* CSS YELLOWS */ /* CSS YELLOWS */ /* CSS YELLOWS */ /* CSS YELLOWS */ /* CSS YELLOWS */
+  .layout-content.status.status-index .status-day .update-title.impact-minor a,
+  .layout-content.status.status-index .status-day .update-title.impact-minor a:hover,
+  .layout-content.status.status-index .page-status.status-minor,
+  .layout-content.status.status-index .unresolved-incident.impact-minor .incident-title,
+  .layout-content.status.status-index .scheduled-incidents-container .tab {
+    background-color:#dbab09;
+  }
+
+  .layout-content.status-index .components-statuses .component-container.status-yellow:after,
+  .layout-content.status-full-history .month .incident-container .impact-minor,
+  .layout-content.status-incident .incident-name.impact-minor,
+  .layout-content.status.status-index .incidents-list .incident-title.impact-minor a,
+  .status-yellow .icon-indicator,
+  .incident-history .impact-minor,
+  .components-container .component-inner-container.status-yellow .component-status,
+  .components-container .component-inner-container.status-yellow .icon-indicator,
+  .layout-content.status.manage-subscriptions .confirmation-infobox .fa {
+    color:#dbab09;
+  }
+
+  .layout-content.status.status-index .unresolved-incident.impact-minor .updates,
+  .layout-content.status.status-index .scheduled-incidents-container {
+    border-color:#dbab09;
+  }
+
+
+
+
+  /* CSS BLUES */ /* CSS BLUES */ /* CSS BLUES */ /* CSS BLUES */ /* CSS BLUES */ /* CSS BLUES */
+  .layout-content.status.status-index .status-day .update-title.impact-maintenance a,
+  .layout-content.status.status-index .status-day .update-title.impact-maintenance a:hover,
+  .layout-content.status.status-index .page-status.status-maintenance,
+  .layout-content.status.status-index .unresolved-incident.impact-maintenance .incident-title,
+  .layout-content.status.status-index .scheduled-incidents-container .tab {
+    background-color:#0366d6;
+  }
+
+  .layout-content.status-index .components-statuses .component-container.status-blue:after,
+  .layout-content.status-full-history .month .incident-container .impact-maintenance,
+  .layout-content.status-incident .incident-name.impact-maintenance,
+  .layout-content.status.status-index .incidents-list .incident-title.impact-maintenance a,
+  .status-blue .icon-indicator,
+  .incident-history .impact-maintenance,
+  .components-container .component-inner-container.status-blue .component-status,
+  .components-container .component-inner-container.status-blue .icon-indicator {
+    color:#0366d6;
+  }
+
+  .layout-content.status.status-index .unresolved-incident.impact-maintenance .updates,
+  .layout-content.status.status-index .scheduled-incidents-container {
+    border-color:#0366d6;
+  }
+
+
+
+
+  /* CSS GREENS */ /* CSS GREENS */ /* CSS GREENS */ /* CSS GREENS */ /* CSS GREENS */ /* CSS GREENS */ /* CSS GREENS */
+  .layout-content.status.status-index .page-status.status-none {
+    background-color:#28a745;
+  }
+  .layout-content.status-index .components-statuses .component-container.status-green:after,
+  .status-green .icon-indicator,
+  .components-container .component-inner-container.status-green .component-status,
+  .components-container .component-inner-container.status-green .icon-indicator {
+    color:#28a745;
+  }
+
+
+
+
+  /* CSS LINK COLOR */  /* CSS LINK COLOR */  /* CSS LINK COLOR */  /* CSS LINK COLOR */  /* CSS LINK COLOR */  /* CSS LINK COLOR */
+  a,
+  a:hover,
+  .layout-content.status-index .page-footer span a:hover,
+  .layout-content.status-index .timeframes-container .timeframe:not(.active):hover,
+  .layout-content.status-incident .subheader a:hover {
+    color:#0366d6;
+  }
+
+  .flat-button,
+  .masthead .updates-dropdown-container .show-updates-dropdown,
+  .layout-content.status-full-history .show-filter.open  {
+    background-color:#0366d6;
+  }
+
+
+
+
+  /* CUSTOM COLOR OVERRIDES FOR UPTIME SHOWCASE */
+  .components-section .components-uptime-link {
+    color: #6a737d;
+  }
+
+  .layout-content.status .shared-partial.uptime-90-days-wrapper .legend .legend-item {
+    color: #6a737d;
+    opacity: 1;
+  }
+  .layout-content.status .shared-partial.uptime-90-days-wrapper .legend .legend-item.light {
+    color: #6a737d;
+    opacity: 1;
+  }
+  .layout-content.status .shared-partial.uptime-90-days-wrapper .legend .spacer {
+    background: #6a737d;
+    opacity: 1;
+  }
+</style>
+
+
+    <!-- custom css -->
+        <link rel="stylesheet" type="text/css" href="//dka575ofm4ao0.cloudfront.net/page_display_customizations-custom_css_externals/36313/external20260821-27171-l4y3j7.css">
+
+      <!-- polyfills -->
+        <script crossorigin="anonymous" src="https://cdnjs.cloudflare.com/polyfill/v3/polyfill.js"></script>
+
+    <!-- Le HTML5 shim -->
+    <!--[if lt IE 9]>
+      <script src="//html5shim.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+
+    <!-- injection for static -->
+
+
+    
+  </head>
+
+
+  <body class="status history status-none sp-a11y-status-focus-visibility a11y-focus-indicators">
+
+    
+<div class="layout-content status status-full-history starter">
+
+    <div class="custom-header-container">
+    <script>
+  var meta = document.createElement('meta');
+  meta.setAttribute('name', 'ha-url');
+  meta.setAttribute('content', 'https://collector.githubapp.com/statuspage-views/collect');
+  document.head.appendChild(meta);
+</script>
+<script async onload="initAnalytics()" src="https://analytics.githubassets.com/hydro-client.min.js"></script>
+<script>
+  function initAnalytics() {
+    if (!window._ha) {
+      return
+    }
+
+    // Send general pageview
+    window._ha.sendPageView()
+
+    // If on homepage, send index page view only if not a page refresh
+    if (window.location.pathname === '/' &&
+      document.referrer !== (document.location.origin + document.location.pathname)) {
+      let indexHa = Object.create(window._ha);
+      indexHa.options = { ...window._ha.options }
+      indexHa.options.collectorUrl = 'https://collector.githubapp.com/statuspage/collect';
+      indexHa.sendPageView();
+    }
+  }
+</script>
+
+<script>
+  document.addEventListener("DOMContentLoaded", function () {
+    // Select the Twitter button
+    var twitterBtn = document.getElementById("updates-dropdown-twitter-btn");
+
+    if (twitterBtn) {
+      twitterBtn.innerHTML = `
+  <span class="icon-container x" style="height: 100%; display: flex; align-items: center; justify-content: center;">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" class="d-block" height="20" width="20" role="img">
+      <title>Subscribe via X</title>
+      <path fill="currentColor" d="M14.28 10.38L23.2 0h-2.1L13.8 9.02L7.14 0H0l10.13 14.7L0 25.5h2.1l7.64-9.38l6.9 9.38H23.2L12.72 10.38zM3.06 1.62h2.76L20.94 23.9h-2.76L3.06 1.62z"/>
+    </svg>
+  </span>
+`;
+    }
+  });
+</script>
+
+<div
+  class="header d-md-flex flex-md-justify-between flex-md-items-center px-4 py-3 text-center text-md-left bg-white box-shadow-large">
+  <a href="/" aria-label="GitHub Octicon logo" style="height: 32px;">
+    <svg viewBox="0 0 98 96" fill="none" xmlns="http://www.w3.org/2000/svg" width="32" height="32">
+      <title>GitHub Octicon logo</title>
+      <g clip-path="url(#clip0_730_27126)">
+        <path
+          d="M41.4395 69.3848C28.8066 67.8535 19.9062 58.7617 19.9062 46.9902C19.9062 42.2051 21.6289 37.0371 24.5 33.5918C23.2559 30.4336 23.4473 23.7344 24.8828 20.959C28.7109 20.4805 33.8789 22.4902 36.9414 25.2656C40.5781 24.1172 44.4062 23.543 49.0957 23.543C53.7852 23.543 57.6133 24.1172 61.0586 25.1699C64.0254 22.4902 69.2891 20.4805 73.1172 20.959C74.457 23.543 74.6484 30.2422 73.4043 33.4961C76.4668 37.1328 78.0937 42.0137 78.0937 46.9902C78.0937 58.7617 69.1934 67.6621 56.3691 69.2891C59.623 71.3945 61.8242 75.9883 61.8242 81.252L61.8242 91.2051C61.8242 94.0762 64.2168 95.7031 67.0879 94.5547C84.4102 87.9512 98 70.6289 98 49.1914C98 22.1074 75.9883 6.69539e-07 48.9043 4.309e-07C21.8203 1.92261e-07 -1.9479e-07 22.1074 -4.3343e-07 49.1914C-6.20631e-07 70.4375 13.4941 88.0469 31.6777 94.6504C34.2617 95.6074 36.75 93.8848 36.75 91.3008L36.75 83.6445C35.4102 84.2188 33.6875 84.6016 32.1562 84.6016C25.8398 84.6016 22.1074 81.1563 19.4277 74.7441C18.375 72.1602 17.2266 70.6289 15.0254 70.3418C13.877 70.2461 13.4941 69.7676 13.4941 69.1934C13.4941 68.0449 15.4082 67.1836 17.3223 67.1836C20.0977 67.1836 22.4902 68.9063 24.9785 72.4473C26.8926 75.2227 28.9023 76.4668 31.2949 76.4668C33.6875 76.4668 35.2187 75.6055 37.4199 73.4043C39.0469 71.7773 40.291 70.3418 41.4395 69.3848Z"
+          fill="#24292e"></path>
+      </g>
+      <defs>
+        <clipPath id="clip0_730_27126">
+          <rect width="98" height="96" fill="white"></rect>
+        </clipPath>
+      </defs>
+    </svg>
+  </a>
+
+  <nav class="f4 list-style-none py-2 mt-2 mt-md-0">
+    <a class="mr-3 mr-lg-4 py-2" href="https://help.github.com">Help</a>
+    <a class="mr-3 mr-lg-4 py-2" href="https://github.community">Community</a>
+    <a class="mr-3 py-2 text-gray " href="/">Status</a>
+  </nav>
+
+  <nav class="f4 list-style-none py-2 text-md-right">
+    <a class="py-2" href="https://github.com">GitHub.com</a>
+    <div class="d-inline py-2 ml-3 ml-lg-4">
+      <div id="replace-with-subscribe"></div>
+    </div>
+  </nav>
+</div>
+
+<img src="https://user-images.githubusercontent.com/19292210/60553863-044dd200-9cea-11e9-987e-7db84449f215.png"
+  class="illo-desktop-header" style="display: none;" alt="GitHub header">
+
+<img src="https://user-images.githubusercontent.com/19292210/60553865-044dd200-9cea-11e9-859c-d6f266e2f01f.png"
+  class="illo-mobile-header" alt="GitHub header">
+      
+  <div class="updates-dropdown-container" data-js-hook="updates-dropdown-container">
+    <a href="#" data-js-hook="show-updates-dropdown" id="show-updates-dropdown" class="show-updates-dropdown" aria-label="Subscribe to updates" aria-expanded="false" aria-haspopup="dialog" role="button">
+      <span class="subscribe-text-full">Subscribe to Updates</span><span class="subscribe-text-short">Subscribe</span>
+    </a>
+
+<!--    Accessibility guidelines for tabs: https://www.w3.org/TR/wai-aria-practices-1.1/examples/tabs/tabs-1/tabs.html -->
+    <div class="updates-dropdown" data-js-hook="updates-dropdown" id="updates-dropdown" style="display:none" role="dialog" aria-modal="false" aria-label="Subscribe to updates">
+      <div class="updates-dropdown-nav nav-items-7" role="tablist" aria-label="Subscribe to updates">
+          <a href="#updates-dropdown-email" aria-controls="updates-dropdown-email" aria-label="Subscribe via email" role="tab" aria-selected="true" id="updates-dropdown-email-btn">
+            <span class="icon-container email">
+          </a>
+          <a href="#updates-dropdown-sms" aria-controls="updates-dropdown-sms" aria-label="Subscribe via SMS" role="tab" id="updates-dropdown-sms-btn">
+            <span class="icon-container sms">
+          </a>
+          <a href="#updates-dropdown-slack" aria-controls="updates-dropdown-slack" aria-label="Subscribe via slack" role="tab" id="updates-dropdown-slack-btn">
+            <span class="icon-container slack">
+          </a>
+          <a href="#updates-dropdown-webhook" aria-controls="updates-dropdown-webhook" aria-label="Subscribe via webhook" role="tab" id="updates-dropdown-webhook-btn">
+            <span class="icon-container webhook">
+          </a>
+          <a href="#updates-dropdown-support" aria-controls="updates-dropdown-support" aria-label="Contact support" role="tab" id="updates-dropdown-support-btn">
+            <span class="icon-container support">
+          </a>
+          <a href="#updates-dropdown-atom" aria-controls="updates-dropdown-atom" aria-label="Subscribe via RSS" role="tab" id="updates-dropdown-atom-btn">
+            <span class="icon-container rss">
+          </a>
+        <button data-js-hook="updates-dropdown-close" aria-label="Close subscribe form" id="updates-dropdown-close-btn">
+          x
+        </button>
+      </div>
+      <div class="updates-dropdown-sections-container">
+          <div class="updates-dropdown-section email" id="updates-dropdown-email" style="display:none" role="tabpanel" aria-labelledby="updates-dropdown-email-btn">
+            <div class="directions">
+              Get email notifications whenever GitHub <strong>creates</strong>,  <strong>updates</strong> or <strong>resolves</strong> an incident.
+            </div>
+            <form id="subscribe-form-email" action="/subscriptions/new-email" accept-charset="UTF-8" data-remote="true" method="post"><input type="hidden" name="authenticity_token" value="pxCmW0tswHAkgly-AesRlaY_2dsY0jBmYyVLH5X38dnVQY0F0o2h9kx_kSln-_pFDx_Jaxr47PWpa-9JohvXig" autocomplete="off" />
+              <input type="hidden" name="email_otp_verify_flow" id="email_otp_verify_flow" value="false" autocomplete="off" />
+                <!-- make sure not to put cookie values in here since this gets cached -->
+                <label for="email">Email address:</label>
+                <input name="email" id="email" type="text" class="full-width" data-js-hook="email-notification-field" autocomplete="email">
+                <input name="email_otp_auth_token" type='hidden' id="email-otp-token-field">
+                <div class="opt-container-section" id="email-otp-container", style="display:none" >
+                  <label for="email-otp">Enter OTP:</label>
+                  <input name="otp" id="email-otp" type="text" value="" class="prepend full-width">
+                  <p id="email-otp-timer">Resend OTP in: <span id="email-otp-countdown"></span> seconds </p>
+                  <p id="resend-email-otp">
+                    Didn't receive the OTP?
+                    <a href="#" id="resend-email-otp-btn" >Resend OTP </a>
+                  </p>
+                </div>
+                  <input type="hidden" name="captcha_error" id="captcha_error" value="false" autocomplete="off" />
+                  <input type="submit" value="Subscribe via Email" class="flat-button full-width g-recaptcha" id="subscribe-btn-email" data-disabled-text="Subscribing..." data-sitekey=6LdTS8AUAAAAAOIbCKoCAP4LQku1olYGrywPTaZz data-callback="submitNewEmailSubscriber" data-error-callback="emailSubscriberCaptchaError" >
+                  <div class="terms_and_privacy_information bottom small"><div class="privacy_policy_information small">By subscribing you agree to our <a target="_blank" rel="noopener" class="accessible-link" href="https://help.github.com/articles/github-privacy-statement/">Privacy Policy</a>.</div> This site is protected by reCAPTCHA and the Google <a target="_blank" rel="noopener" class="accessible-link" href="https://policies.google.com/privacy">Privacy Policy</a> and <a target="_blank" rel="noopener" class="accessible-link" data-js-hook="captcha-terms-of-service-link" href="https://policies.google.com/terms">Terms of Service</a> apply.</div>
+</form>          </div>
+
+          <div class="updates-dropdown-section phone" id="updates-dropdown-sms" style="display:none" role="tabpanel" aria-labelledby="updates-dropdown-sms-btn">
+            <div class="directions">
+                Get text message notifications whenever GitHub <strong>creates</strong> or <strong>resolves</strong> an incident.
+            </div>
+            <form id="subscribe-form-sms" action="/subscriptions/new-sms" accept-charset="UTF-8" data-remote="true" method="post"><input type="hidden" name="authenticity_token" value="fARDj3BbQztDOpAxtxChUnCJb0VQKMUnckQa7FzXf1gOVWjR6boivSvHXabRAEqC2al_9VICGbS4Cr66aztZCw" autocomplete="off" />
+              <input type="hidden" name="otp_verify_flow" id="otp_verify_flow" value="false" autocomplete="off" />
+              <input type="hidden" name="subscriber_code" id="subscriber_code" value="" autocomplete="off" />
+              <div class="control-group">
+                <div class="controls externalities-sms-container">
+                  <!-- make sure not to put cookie values in here since this gets cached -->
+                  <label for="phone-country">Country code:</label>
+                  <div id="phone-number-country-code" class="phone-country-wrapper"
+                      data-otp-enabled="false">
+                      <select name="phone_country" id="phone-country" data-js-hook="phone-country" class="phone-country"><option value="af" data-otp-enabled="false" >Afghanistan (+93)</option>
+<option value="al" data-otp-enabled="false" >Albania (+355)</option>
+<option value="dz" data-otp-enabled="false" >Algeria (+213)</option>
+<option value="as" data-otp-enabled="false" >American Samoa (+1)</option>
+<option value="ad" data-otp-enabled="false" >Andorra (+376)</option>
+<option value="ao" data-otp-enabled="false" >Angola (+244)</option>
+<option value="ai" data-otp-enabled="false" >Anguilla (+1)</option>
+<option value="ag" data-otp-enabled="false" >Antigua and Barbuda (+1)</option>
+<option value="ar" data-otp-enabled="false" >Argentina (+54)</option>
+<option value="am" data-otp-enabled="false" >Armenia (+374)</option>
+<option value="aw" data-otp-enabled="false" >Aruba (+297)</option>
+<option value="au" data-otp-enabled="false" >Australia/Cocos/Christmas Island (+61)</option>
+<option value="at" data-otp-enabled="false" >Austria (+43)</option>
+<option value="az" data-otp-enabled="false" >Azerbaijan (+994)</option>
+<option value="bs" data-otp-enabled="false" >Bahamas (+1)</option>
+<option value="bh" data-otp-enabled="false" >Bahrain (+973)</option>
+<option value="bd" data-otp-enabled="false" >Bangladesh (+880)</option>
+<option value="bb" data-otp-enabled="false" >Barbados (+1)</option>
+<option value="by" data-otp-enabled="false" >Belarus (+375)</option>
+<option value="be" data-otp-enabled="false" >Belgium (+32)</option>
+<option value="bz" data-otp-enabled="false" >Belize (+501)</option>
+<option value="bj" data-otp-enabled="false" >Benin (+229)</option>
+<option value="bm" data-otp-enabled="false" >Bermuda (+1)</option>
+<option value="bo" data-otp-enabled="false" >Bolivia (+591)</option>
+<option value="ba" data-otp-enabled="false" >Bosnia and Herzegovina (+387)</option>
+<option value="bw" data-otp-enabled="false" >Botswana (+267)</option>
+<option value="br" data-otp-enabled="false" >Brazil (+55)</option>
+<option value="bn" data-otp-enabled="false" >Brunei (+673)</option>
+<option value="bg" data-otp-enabled="false" >Bulgaria (+359)</option>
+<option value="bf" data-otp-enabled="false" >Burkina Faso (+226)</option>
+<option value="bi" data-otp-enabled="false" >Burundi (+257)</option>
+<option value="kh" data-otp-enabled="false" >Cambodia (+855)</option>
+<option value="cm" data-otp-enabled="false" >Cameroon (+237)</option>
+<option value="ca" data-otp-enabled="false" >Canada (+1)</option>
+<option value="cv" data-otp-enabled="false" >Cape Verde (+238)</option>
+<option value="ky" data-otp-enabled="false" >Cayman Islands (+1)</option>
+<option value="cf" data-otp-enabled="false" >Central Africa (+236)</option>
+<option value="td" data-otp-enabled="false" >Chad (+235)</option>
+<option value="cl" data-otp-enabled="false" >Chile (+56)</option>
+<option value="cn" data-otp-enabled="false" >China (+86)</option>
+<option value="co" data-otp-enabled="false" >Colombia (+57)</option>
+<option value="km" data-otp-enabled="false" >Comoros (+269)</option>
+<option value="cg" data-otp-enabled="false" >Congo (+242)</option>
+<option value="cd" data-otp-enabled="false" >Congo, Dem Rep (+243)</option>
+<option value="cr" data-otp-enabled="false" >Costa Rica (+506)</option>
+<option value="hr" data-otp-enabled="false" >Croatia (+385)</option>
+<option value="cy" data-otp-enabled="false" >Cyprus (+357)</option>
+<option value="cz" data-otp-enabled="false" >Czech Republic (+420)</option>
+<option value="dk" data-otp-enabled="false" >Denmark (+45)</option>
+<option value="dj" data-otp-enabled="false" >Djibouti (+253)</option>
+<option value="dm" data-otp-enabled="false" >Dominica (+1)</option>
+<option value="do" data-otp-enabled="false" >Dominican Republic (+1)</option>
+<option value="eg" data-otp-enabled="false" >Egypt (+20)</option>
+<option value="sv" data-otp-enabled="false" >El Salvador (+503)</option>
+<option value="gq" data-otp-enabled="false" >Equatorial Guinea (+240)</option>
+<option value="ee" data-otp-enabled="false" >Estonia (+372)</option>
+<option value="et" data-otp-enabled="false" >Ethiopia (+251)</option>
+<option value="fo" data-otp-enabled="false" >Faroe Islands (+298)</option>
+<option value="fj" data-otp-enabled="false" >Fiji (+679)</option>
+<option value="fi" data-otp-enabled="false" >Finland/Aland Islands (+358)</option>
+<option value="fr" data-otp-enabled="false" >France (+33)</option>
+<option value="gf" data-otp-enabled="false" >French Guiana (+594)</option>
+<option value="pf" data-otp-enabled="false" >French Polynesia (+689)</option>
+<option value="ga" data-otp-enabled="false" >Gabon (+241)</option>
+<option value="gm" data-otp-enabled="false" >Gambia (+220)</option>
+<option value="ge" data-otp-enabled="false" >Georgia (+995)</option>
+<option value="de" data-otp-enabled="false" >Germany (+49)</option>
+<option value="gh" data-otp-enabled="false" >Ghana (+233)</option>
+<option value="gi" data-otp-enabled="false" >Gibraltar (+350)</option>
+<option value="gr" data-otp-enabled="false" >Greece (+30)</option>
+<option value="gl" data-otp-enabled="false" >Greenland (+299)</option>
+<option value="gd" data-otp-enabled="false" >Grenada (+1)</option>
+<option value="gp" data-otp-enabled="false" >Guadeloupe (+590)</option>
+<option value="gu" data-otp-enabled="false" >Guam (+1)</option>
+<option value="gt" data-otp-enabled="false" >Guatemala (+502)</option>
+<option value="gn" data-otp-enabled="false" >Guinea (+224)</option>
+<option value="gy" data-otp-enabled="false" >Guyana (+592)</option>
+<option value="ht" data-otp-enabled="false" >Haiti (+509)</option>
+<option value="hn" data-otp-enabled="false" >Honduras (+504)</option>
+<option value="hk" data-otp-enabled="false" >Hong Kong (+852)</option>
+<option value="hu" data-otp-enabled="false" >Hungary (+36)</option>
+<option value="is" data-otp-enabled="false" >Iceland (+354)</option>
+<option value="in" data-otp-enabled="false" >India (+91)</option>
+<option value="id" data-otp-enabled="false" >Indonesia (+62)</option>
+<option value="iq" data-otp-enabled="false" >Iraq (+964)</option>
+<option value="ie" data-otp-enabled="false" >Ireland (+353)</option>
+<option value="il" data-otp-enabled="false" >Israel (+972)</option>
+<option value="it" data-otp-enabled="false" >Italy (+39)</option>
+<option value="jm" data-otp-enabled="false" >Jamaica (+1)</option>
+<option value="jp" data-otp-enabled="false" >Japan (+81)</option>
+<option value="jo" data-otp-enabled="false" >Jordan (+962)</option>
+<option value="ke" data-otp-enabled="false" >Kenya (+254)</option>
+<option value="kr" data-otp-enabled="false" >Korea, Republic of (+82)</option>
+<option value="xk" data-otp-enabled="false" >Kosovo (+383)</option>
+<option value="kw" data-otp-enabled="false" >Kuwait (+965)</option>
+<option value="kg" data-otp-enabled="false" >Kyrgyzstan (+996)</option>
+<option value="la" data-otp-enabled="false" >Laos (+856)</option>
+<option value="lv" data-otp-enabled="false" >Latvia (+371)</option>
+<option value="lb" data-otp-enabled="false" >Lebanon (+961)</option>
+<option value="ls" data-otp-enabled="false" >Lesotho (+266)</option>
+<option value="lr" data-otp-enabled="false" >Liberia (+231)</option>
+<option value="ly" data-otp-enabled="false" >Libya (+218)</option>
+<option value="li" data-otp-enabled="false" >Liechtenstein (+423)</option>
+<option value="lt" data-otp-enabled="false" >Lithuania (+370)</option>
+<option value="lu" data-otp-enabled="false" >Luxembourg (+352)</option>
+<option value="mo" data-otp-enabled="false" >Macao (+853)</option>
+<option value="mk" data-otp-enabled="false" >Macedonia (+389)</option>
+<option value="mg" data-otp-enabled="false" >Madagascar (+261)</option>
+<option value="mw" data-otp-enabled="false" >Malawi (+265)</option>
+<option value="my" data-otp-enabled="false" >Malaysia (+60)</option>
+<option value="mv" data-otp-enabled="false" >Maldives (+960)</option>
+<option value="ml" data-otp-enabled="false" >Mali (+223)</option>
+<option value="mt" data-otp-enabled="false" >Malta (+356)</option>
+<option value="mq" data-otp-enabled="false" >Martinique (+596)</option>
+<option value="mr" data-otp-enabled="false" >Mauritania (+222)</option>
+<option value="mu" data-otp-enabled="false" >Mauritius (+230)</option>
+<option value="mx" data-otp-enabled="false" >Mexico (+52)</option>
+<option value="mc" data-otp-enabled="false" >Monaco (+377)</option>
+<option value="mn" data-otp-enabled="false" >Mongolia (+976)</option>
+<option value="me" data-otp-enabled="false" >Montenegro (+382)</option>
+<option value="ms" data-otp-enabled="false" >Montserrat (+1)</option>
+<option value="ma" data-otp-enabled="false" >Morocco/Western Sahara (+212)</option>
+<option value="mz" data-otp-enabled="false" >Mozambique (+258)</option>
+<option value="na" data-otp-enabled="false" >Namibia (+264)</option>
+<option value="np" data-otp-enabled="false" >Nepal (+977)</option>
+<option value="nl" data-otp-enabled="false" >Netherlands (+31)</option>
+<option value="nz" data-otp-enabled="false" >New Zealand (+64)</option>
+<option value="ni" data-otp-enabled="false" >Nicaragua (+505)</option>
+<option value="ne" data-otp-enabled="false" >Niger (+227)</option>
+<option value="ng" data-otp-enabled="false" >Nigeria (+234)</option>
+<option value="no" data-otp-enabled="false" >Norway (+47)</option>
+<option value="om" data-otp-enabled="false" >Oman (+968)</option>
+<option value="pk" data-otp-enabled="false" >Pakistan (+92)</option>
+<option value="ps" data-otp-enabled="false" >Palestinian Territory (+970)</option>
+<option value="pa" data-otp-enabled="false" >Panama (+507)</option>
+<option value="py" data-otp-enabled="false" >Paraguay (+595)</option>
+<option value="pe" data-otp-enabled="false" >Peru (+51)</option>
+<option value="ph" data-otp-enabled="false" >Philippines (+63)</option>
+<option value="pl" data-otp-enabled="false" >Poland (+48)</option>
+<option value="pt" data-otp-enabled="false" >Portugal (+351)</option>
+<option value="pr" data-otp-enabled="false" >Puerto Rico (+1)</option>
+<option value="qa" data-otp-enabled="false" >Qatar (+974)</option>
+<option value="re" data-otp-enabled="false" >Reunion/Mayotte (+262)</option>
+<option value="ro" data-otp-enabled="false" >Romania (+40)</option>
+<option value="ru" data-otp-enabled="false" >Russia/Kazakhstan (+7)</option>
+<option value="rw" data-otp-enabled="false" >Rwanda (+250)</option>
+<option value="ws" data-otp-enabled="false" >Samoa (+685)</option>
+<option value="sm" data-otp-enabled="false" >San Marino (+378)</option>
+<option value="sa" data-otp-enabled="false" >Saudi Arabia (+966)</option>
+<option value="sn" data-otp-enabled="false" >Senegal (+221)</option>
+<option value="rs" data-otp-enabled="false" >Serbia (+381)</option>
+<option value="sc" data-otp-enabled="false" >Seychelles (+248)</option>
+<option value="sl" data-otp-enabled="false" >Sierra Leone (+232)</option>
+<option value="sg" data-otp-enabled="false" >Singapore (+65)</option>
+<option value="sk" data-otp-enabled="false" >Slovakia (+421)</option>
+<option value="si" data-otp-enabled="false" >Slovenia (+386)</option>
+<option value="za" data-otp-enabled="false" >South Africa (+27)</option>
+<option value="es" data-otp-enabled="false" >Spain (+34)</option>
+<option value="lk" data-otp-enabled="false" >Sri Lanka (+94)</option>
+<option value="kn" data-otp-enabled="false" >St Kitts and Nevis (+1)</option>
+<option value="lc" data-otp-enabled="false" >St Lucia (+1)</option>
+<option value="vc" data-otp-enabled="false" >St Vincent Grenadines (+1)</option>
+<option value="sd" data-otp-enabled="false" >Sudan (+249)</option>
+<option value="sr" data-otp-enabled="false" >Suriname (+597)</option>
+<option value="sz" data-otp-enabled="false" >Swaziland (+268)</option>
+<option value="se" data-otp-enabled="false" >Sweden (+46)</option>
+<option value="ch" data-otp-enabled="false" >Switzerland (+41)</option>
+<option value="tw" data-otp-enabled="false" >Taiwan (+886)</option>
+<option value="tj" data-otp-enabled="false" >Tajikistan (+992)</option>
+<option value="tz" data-otp-enabled="false" >Tanzania (+255)</option>
+<option value="th" data-otp-enabled="false" >Thailand (+66)</option>
+<option value="tg" data-otp-enabled="false" >Togo (+228)</option>
+<option value="to" data-otp-enabled="false" >Tonga (+676)</option>
+<option value="tt" data-otp-enabled="false" >Trinidad and Tobago (+1)</option>
+<option value="tn" data-otp-enabled="false" >Tunisia (+216)</option>
+<option value="tr" data-otp-enabled="false" >Turkey (+90)</option>
+<option value="tc" data-otp-enabled="false" >Turks and Caicos Islands (+1)</option>
+<option value="ug" data-otp-enabled="false" >Uganda (+256)</option>
+<option value="ua" data-otp-enabled="false" >Ukraine (+380)</option>
+<option value="ae" data-otp-enabled="false" >United Arab Emirates (+971)</option>
+<option value="gb" data-otp-enabled="false" >United Kingdom (+44)</option>
+<option value="us" data-otp-enabled="false" selected>United States (+1)</option>
+<option value="uy" data-otp-enabled="false" >Uruguay (+598)</option>
+<option value="uz" data-otp-enabled="false" >Uzbekistan (+998)</option>
+<option value="ve" data-otp-enabled="false" >Venezuela (+58)</option>
+<option value="vn" data-otp-enabled="false" >Vietnam (+84)</option>
+<option value="vg" data-otp-enabled="false" >Virgin Islands, British (+1)</option>
+<option value="vi" data-otp-enabled="false" >Virgin Islands, U.S. (+1)</option>
+<option value="ye" data-otp-enabled="false" >Yemen (+967)</option>
+<option value="zm" data-otp-enabled="false" >Zambia (+260)</option>
+<option value="zw" data-otp-enabled="false" >Zimbabwe (+263)</option></select>
+                  </div>
+                  <label for="phone-number">Phone number:</label>
+                  <input name="phone_number" id="phone-number" type="text" class="prepend full-width" data-js-hook="sms-notification-field">
+                  <div class="sms-atl-error" id="sms-atl-error"></div>
+                  <div class="clearfix"></div>
+                  <div class="opt-container-section" id="otp-container" style="display:none">
+                    <a href="#" id="btn-subcriber-change-number">Change number</a>
+                    <label for="otp">Enter OTP:</label>
+                    <input name="otp" id="otp" type="text" class="prepend full-width">
+                    <p id="timer">Resend OTP in: <span id="countdown">30</span> seconds </p>
+                    <p id="resend">
+                      Didn't receive the OTP?
+                      <a href="#" id="resend-otp-btn" >Resend OTP </a>
+                    </p>
+                    </div>
+                </div>
+              </div>
+
+                <input type="hidden" name="captcha_error" id="captcha_error" value="false" autocomplete="off" />
+                <input type="submit" value="Subscribe via Text Message" class="flat-button full-width g-recaptcha" id="subscribe-btn-sms" data-disabled-text="Subscribing..." data-sitekey=6LcH-b0UAAAAACVQtMb14LBhflMA9y0Nmu7l_W6d data-callback="submitNewSmsSubscriber" data-error-callback="smsSubscriberCaptchaError">
+              <div class="terms_and_privacy_information bottom small">Message and data rates may apply. By subscribing you agree to our <a target="_blank" rel="noopener" class="accessible-link" href="https://help.github.com/articles/github-privacy-statement/">Privacy Policy</a>, the Atlassian <a target="_blank" rel="noopener" class="accessible-link" href="https://www.atlassian.com/legal/product-specific-terms#statuspage-specific-terms">Terms of Service</a>, and the Atlassian <a target="_blank" rel="noopener" class="accessible-link" href="https://www.atlassian.com/legal/privacy-policy">Privacy Policy</a>. This site is protected by reCAPTCHA and the Google <a target="_blank" rel="noopener" class="accessible-link" href="https://policies.google.com/privacy">Privacy Policy</a> and <a target="_blank" rel="noopener" class="accessible-link" data-js-hook="captcha-terms-of-service-link" href="https://policies.google.com/terms">Terms of Service</a> apply.</div>
+</form>          </div>
+
+          <div class="updates-dropdown-section slack" id="updates-dropdown-slack" style="display:none" role="tabpanel" aria-labelledby="updates-dropdown-slack-btn">
+            <div class="directions">
+              Get incident updates and maintenance status messages in Slack.
+            </div>
+            <a value="Subscribe via Slack" class="flat-button full-width" id="subscribe-btn-slack" data-disabled-text="Subscribing..." data-revert-on-success="true" style="margin-top:.75rem" href="https://subscriptions.statuspage.io/slack_authentication/kickoff?page_code=kctbh9vrtdwd">Subscribe via Slack</a>
+            <div class="terms_and_privacy_information bottom small">By subscribing you acknowledge our <a target="_blank" rel="noopener" class="accessible-link" href="https://help.github.com/articles/github-privacy-statement/">Privacy Policy</a>. In addition, you agree to the Atlassian <a target="_blank" rel="noopener" class="accessible-link" href="https://www.atlassian.com/legal/cloud-terms-of-service">Cloud Terms of Service</a> and acknowledge Atlassian's <a target="_blank" rel="noopener" class="accessible-link" href="https://www.atlassian.com/legal/privacy-policy">Privacy Policy</a>.</div>
+          </div>
+
+
+          <div class="updates-dropdown-section webhook" id="updates-dropdown-webhook" style="display:none" role="tabpanel" aria-labelledby="updates-dropdown-webhook-btn">
+            <div class="directions">
+              Get webhook notifications whenever GitHub <strong>creates</strong> an incident, <strong>updates</strong> an incident, <strong>resolves</strong> an incident or <strong>changes</strong> a component status.
+            </div>
+            <form id="subscribe-form-webhook" action="/subscriptions/webhook.json" accept-charset="UTF-8" data-remote="true" method="post"><input type="hidden" name="authenticity_token" value="3m3jIqIZkVp8Ao2HK9ZepA1FMogMjYLrZCDXcru9AQCsPMh8O_jw3BT_QBBNxrV0pGUiOA6nXniubnMkjFEnUw" autocomplete="off" />
+              <div class="control-group">
+                <div class="controls">
+                  <label for="endpoint-webhooks">Webhook URL:</label>
+                  <input type="text" name="endpoint" id="endpoint-webhooks" data-js-hook="endpoint" class="full-width" aria-describedby="url-help-block" />
+                  <p class="help-block" id="url-help-block">The URL we should send the webhooks to</p>
+                </div>
+              </div>
+
+              <div class="control-group">
+                <div class="controls">
+                  <label for="email-webhooks">Email address:</label>
+                  <input type="text" name="email" id="email-webhooks" data-js-hook="email" class="full-width" aria-describedby="email-help-block" />
+                  <p class="help-block" id="email-help-block">We'll send you email if your endpoint fails</p>
+                </div>
+              </div>
+
+                <input type="hidden" name="captcha_error" id="captcha_error" value="false" autocomplete="off" />
+                <input type="submit" value=Subscribe To Notifications class="flat-button full-width g-recaptcha" id="subscribe-btn-webhook" data-disabled-text="Subscribing..." data-sitekey=6LcQ-b0UAAAAAJjfdwO_-ozGC-CzWDj4Pm1kJ2Ah data-callback="submitNewWebhookSubscriber" data-error-callback="webhookSubscriberCaptchaError">
+                <div class="terms_and_privacy_information bottom small"><div class="privacy_policy_information small">By subscribing you agree to our <a target="_blank" rel="noopener" class="accessible-link" href="https://help.github.com/articles/github-privacy-statement/">Privacy Policy</a>.</div> This site is protected by reCAPTCHA and the Google <a target="_blank" rel="noopener" class="accessible-link" href="https://policies.google.com/privacy">Privacy Policy</a> and <a target="_blank" rel="noopener" class="accessible-link" data-js-hook="captcha-terms-of-service-link" href="https://policies.google.com/terms">Terms of Service</a> apply.</div>
+
+</form>          </div>
+
+
+          <div class="updates-dropdown-section support" id="updates-dropdown-support" style="display:none" role="tabpanel" aria-labelledby="updates-dropdown-support-btn">
+            Visit our <a href="https://github.com/support">support site</a>.
+          </div>
+
+          <div class="updates-dropdown-section atom" id="updates-dropdown-atom" role="tabpanel" aria-labelledby="updates-dropdown-atom-btn">
+            Get the <a href="https://www.githubstatus.com/history.atom" target="_blank">Atom Feed</a> or <a href="https://www.githubstatus.com/history.rss" target="_blank">RSS Feed</a>.
+          </div>
+      </div>
+    </div>
+  </div>
+
+<script>
+  $(function () {
+    const phoneNumberInput = $('#phone-number');
+    const errorDiv = $('#sms-atl-error')
+    if(errorDiv.length){
+      function checkSelectedCountry() {
+        const selectedCountry = $('#phone-country').val();
+        const isOtpEnabled = $('#phone-number-country-code').attr('data-otp-enabled') === 'true';
+        const form = document.getElementById('subscribe-form-sms');
+        form.action = '/subscriptions/new-sms';
+        const isOtpFlow = document.getElementById('otp_verify_flow');
+        document.getElementById('otp-container').style.display = "none";
+        if(false && selectedCountry === 'sg') { // Replace 'SG' with the actual value representing Singapore in your select tag
+          phoneNumberInput.prop('disabled', true);
+          errorDiv.html(`Due to new Singapore government regulations, we're currently not supporting text subscriptions in Singapore.<a href="https://community.atlassian.com/t5/Statuspage-articles/Attention-SMS-notifications-will-be-disabled-on-August-1st-2023/ba-p/2424398" target="_blank"> Learn more.</a> <br> Select another method to subscribe.`);
+        } else {
+          phoneNumberInput.prop('readonly', false);
+          errorDiv.html('');
+          if(false){
+            if(isOtpEnabled){
+              document.getElementById('subscribe-btn-sms').value = "Send OTP";
+            }
+            else {
+              isOtpFlow.value = false;
+              document.getElementById('subscribe-btn-sms').value = "Subscribe via Text Message";
+            }
+          }
+        }
+      }
+
+      $('#phone-country').on('change', checkSelectedCountry);
+      checkSelectedCountry();
+    }
+  });
+
+  document.addEventListener('DOMContentLoaded', function() {
+    const dropdown = document.querySelector('#phone-number-country-code .phone-country');
+    if (dropdown){
+      const wrapperDiv = document.getElementById('phone-number-country-code');
+      const selectedOption = dropdown.options[dropdown.selectedIndex];
+      const otpEnabled = selectedOption.getAttribute('data-otp-enabled');
+
+      wrapperDiv.setAttribute('data-otp-enabled', otpEnabled);
+
+      dropdown.addEventListener('change', function() {
+        const selectedOption = dropdown.options[dropdown.selectedIndex];
+        const otpEnabled = selectedOption.getAttribute('data-otp-enabled');
+
+        wrapperDiv.setAttribute('data-otp-enabled', otpEnabled);
+      });
+    }
+  });
+
+  var countdownTimer;
+  var resendBtn = document.getElementById('resend');
+  var timer = document.getElementById('timer');
+  var form = document.getElementById('subscribe-form-sms');
+  var RESEND_TIMER = 30;
+  $(function() {
+    $('#subscribe-form-sms').on('ajax:success', function(e, data, status, xhr){
+      const form = this;
+      const action = form.getAttribute('action');
+      if (data.type === 'success' && data.otp_flow === true) {
+        document.getElementById('subscriber_code').value = data.subscriber_code
+        document.getElementById('otp-container').style.display = "block";
+        $('#phone-number').prop('readonly', true);
+        var display = document.getElementById('countdown');
+        disableResend();
+        startTimer(RESEND_TIMER, display)
+        document.getElementById('subscribe-btn-sms').value = "Verify OTP and Subscribe";
+        document.getElementById('otp_verify_flow').value = true;
+        form.action = '/subscriptions/verify-otp';
+      } else if (data.type === 'success' && action.includes('verify')){
+        document.getElementById('otp-container').style.display = "none";
+        $('#phone-number').val('').prop('readonly', false);
+        $('#otp').val('');
+        document.getElementById('subscribe-btn-sms').value = "Send OTP";
+        document.getElementById('otp_verify_flow').value = false;
+        form.action = '/subscriptions/new-sms';
+        SP.currentPage.updatesDropdown.hide();
+      }
+    });
+    $("#btn-subcriber-change-number").on('click', () => {
+      document.getElementById('otp-container').style.display = "none";
+      $('#phone-number').prop('readonly', false);
+      document.getElementById('subscribe-btn-sms').value = "Send OTP";
+      form.action = '/subscriptions/new-sms';
+      return false
+    })
+    $('#resend-otp-btn').on('click', function(e) {
+      e.preventDefault();
+      let phoneNumber = $('#phone-number').val();
+      let countryCode = $('.phone-country').val();
+      $.ajax({
+        type: 'POST',
+        url: "/subscriptions/new-sms",
+        data: {
+          phone_number: phoneNumber,
+          phone_country: countryCode,
+          type: 'resend'
+        },
+      }).done(function(data) {
+        var messageOptions = (data.type !== undefined && data.type !== null) ? { cssClass: data.type } : {};
+        HRB.utils.notify(data.text, messageOptions);
+        var display = document.getElementById('countdown');
+        disableResend();
+        timer.style.display = "none"
+        if (data.type === 'success') {
+          startTimer(RESEND_TIMER, display);
+        }
+      })
+    });
+  })
+
+  function startTimer(duration, display){
+    var timer = duration, seconds;
+    clearInterval(countdownTimer);
+    countdownTimer = setInterval(function () {
+      seconds = parseInt(timer % 60, 10);
+      display.textContent = seconds;
+      if(--timer < 0){
+        enableResend();
+        clearInterval(countdownTimer);
+      }
+    }, 1000);
+    disableResend();
+  }
+  function enableResend(){
+    resendBtn.style.display = "block";
+    timer.style.display = "none"
+  }
+  function disableResend(){
+    resendBtn.style.display = "none";
+    timer.style.display = "block"
+  }
+
+  $(function() {
+    $('#subscribe-form-email').on('submit', function() {
+      var tokenField = document.getElementById('email-otp-token-field');
+      if (!tokenField) {
+        return;
+      }
+      let page_code = "kctbh9vrtdwd"
+      let key = keyForEmailOtpToken($('#email').val(), page_code);
+      tokenField.value = localStorage.getItem(key);
+    });
+  });
+
+  var emailOtpCountdownTimer;
+  var emailOtpResendBtn = document.getElementById('resend-email-otp');
+  var emailOtpTimer = document.getElementById('email-otp-timer');
+  var emailOtpForm = document.getElementById('subscribe-form-email');
+  var EMAIL_OTP_RESEND_TIMER = 600;
+  $(function() {
+    $('#subscribe-form-email').on('ajax:success', function(e, data, status, xhr){
+      const form = this;
+      const action = form.getAttribute('action');
+      if (data.type === 'success' && data.email_otp_verify_flow === true) {
+        document.getElementById('email-otp-container').style.display = "block";
+        var display = document.getElementById('email-otp-countdown');
+        display.textContent = EMAIL_OTP_RESEND_TIMER;
+        disableEmailOtpResend();
+        startEmailOtpTimer(EMAIL_OTP_RESEND_TIMER, display)
+        document.getElementById('subscribe-btn-email').value = "Verify OTP and Subscribe";
+        document.getElementById('email_otp_verify_flow').value = true;
+        form.action = '/subscriptions/verify-email-otp';
+      } else if (data.type === 'success' && action.includes('verify')){
+        let email =  $('#email')
+        let page_code = "kctbh9vrtdwd"
+        let key = keyForEmailOtpToken(email.val(), page_code);
+        localStorage.setItem(key, data.email_otp_auth_token);
+
+        document.getElementById('email-otp-container').style.display = "none";
+        email.val('').prop('readonly', false);
+        $('#email-otp').val('');
+        document.getElementById('subscribe-btn-email').value = "Send OTP";
+        document.getElementById('email_otp_verify_flow').value = false;
+        form.action = '/subscriptions/new-email';
+        SP.currentPage.updatesDropdown.hide();
+      }
+    });
+    $('#resend-email-otp-btn').on('click', function(e) {
+      e.preventDefault();
+      let email = $('#email').val();
+      $.ajax({
+        type: 'POST',
+        url: "/subscriptions/new-email",
+        data: {
+          email: email
+        },
+      }).done(function(data) {
+        var messageOptions = (data.type !== undefined && data.type !== null) ? { cssClass: data.type } : {};
+        HRB.utils.notify(data.text, messageOptions);
+        if (data.type === 'success') {
+          var display = document.getElementById('email-otp-countdown');
+          display.textContent = EMAIL_OTP_RESEND_TIMER;
+          disableEmailOtpResend();
+          emailOtpTimer.style.display = "none"
+          startEmailOtpTimer(EMAIL_OTP_RESEND_TIMER, display);
+        }
+      })
+    });
+  })
+
+  function startEmailOtpTimer(duration, display){
+    var timer = duration, seconds;
+    clearInterval(emailOtpCountdownTimer);
+    emailOtpCountdownTimer = setInterval(function () {
+      seconds = parseInt(timer, 10);
+      display.textContent = seconds;
+      if(--timer < 0){
+        enableEmailOtpResend();
+        clearInterval(emailOtpCountdownTimer);
+      }
+    }, 1000);
+    disableEmailOtpResend();
+  }
+
+  function enableEmailOtpResend(){
+    emailOtpResendBtn.style.display = "block";
+    emailOtpTimer.style.display = "none"
+  }
+  function disableEmailOtpResend(){
+    emailOtpResendBtn.style.display = "none";
+    emailOtpTimer.style.display = "block"
+  }
+  function keyForEmailOtpToken(email, pageCode) {
+    return email + '|' + pageCode+ '|SUBSCRIBE_VIA_EMAIL';
+  }
+</script>
+
+  </div>
+
+
+  <div class="container">
+      <div class="history-nav border-color">
+  <ul>
+    <li>
+      <a class="button current border-color"  href="https://www.githubstatus.com/history" aria-label="Incidents" aria-current=page>Incidents</a>
+    </li>
+    <li>
+      <a class="button border-color" href="https://www.githubstatus.com/uptime" aria-label="Uptime" >Uptime</a>
+    </li>
+  </ul>
+</div>
+
+
+    <div data-react-class="HistoryIndex" data-react-props="{&quot;page_status&quot;:{&quot;page&quot;:{&quot;name&quot;:&quot;GitHub&quot;,&quot;subdomain&quot;:&quot;github3&quot;,&quot;domain&quot;:&quot;www.githubstatus.com&quot;,&quot;created_at&quot;:&quot;2017-01-31T20:01:46.612Z&quot;,&quot;updated_at&quot;:&quot;2026-11-08T17:14:42.136Z&quot;,&quot;url&quot;:&quot;https://github.com&quot;,&quot;hidden_from_search&quot;:false,&quot;css_body_background_color&quot;:&quot;ffffff&quot;,&quot;css_font_color&quot;:&quot;24292e&quot;,&quot;css_light_font_color&quot;:&quot;6a737d&quot;,&quot;css_greens&quot;:&quot;28a745&quot;,&quot;css_yellows&quot;:&quot;dbab09&quot;,&quot;css_oranges&quot;:&quot;e36209&quot;,&quot;css_reds&quot;:&quot;dc3545&quot;,&quot;allow_page_subscribers&quot;:true,&quot;allow_incident_subscribers&quot;:true,&quot;notifications_from_email&quot;:&quot;GitHub Status \[email withheld by Lighthouse]\u003e&quot;,&quot;allow_email_subscribers&quot;:true,&quot;allow_sms_subscribers&quot;:true,&quot;twitter_username&quot;:null,&quot;branding&quot;:&quot;basic&quot;,&quot;support_url&quot;:&quot;https://github.com/support&quot;,&quot;allow_webhook_subscribers&quot;:true,&quot;css_border_color&quot;:&quot;e1e4e8&quot;,&quot;css_graph_color&quot;:&quot;0366d6&quot;,&quot;css_link_color&quot;:&quot;0366d6&quot;,&quot;page_description&quot;:&quot;Check GitHub Enterprise Cloud status by region:\r\n- Australia: \u003ca href=\&quot;https://au.githubstatus.com\&quot;\u003eau.githubstatus.com\u003c/a\u003e\r\n- EU: \u003ca href=\&quot;https://eu.githubstatus.com\&quot;\u003eeu.githubstatus.com\u003c/a\u003e\r\n- Japan: \u003ca href=\&quot;https://jp.githubstatus.com\&quot;\u003ejp.githubstatus.com\u003c/a\u003e\r\n- US: \u003ca href=\&quot;https://us.githubstatus.com/\&quot;\u003eus.githubstatus.com\u003c/a\u003e&quot;,&quot;activity_score&quot;:4039,&quot;headline&quot;:null,&quot;viewers_must_be_team_members&quot;:false,&quot;ip_filters&quot;:null,&quot;css_blues&quot;:&quot;0366d6&quot;,&quot;time_zone&quot;:&quot;UTC&quot;,&quot;notifications_reply_to_email&quot;:null,&quot;notifications_email_footer&quot;:&quot;You received this email because you are subscribed to GitHub&#39;s service status notifications.&quot;,&quot;allow_rss_atom_feeds&quot;:true,&quot;black_hole&quot;:null,&quot;over_allocations_cohort&quot;:null,&quot;over_allocations_resolved_at&quot;:null,&quot;custom_components_limit&quot;:null,&quot;allow_slack_subscribers&quot;:true,&quot;css_no_data&quot;:&quot;b3bac5&quot;,&quot;deleted_at&quot;:null,&quot;allow_teams_subscription&quot;:false,&quot;max_maintenance_automation_allowed&quot;:null,&quot;custom_email_template&quot;:false,&quot;hero_cover&quot;:{&quot;updated_at&quot;:null,&quot;original_url&quot;:&quot;&quot;,&quot;size&quot;:null,&quot;normal_url&quot;:&quot;&quot;,&quot;retina_url&quot;:&quot;&quot;},&quot;transactional_logo&quot;:{&quot;updated_at&quot;:&quot;2018-02-05T16:24:16.000+00:00&quot;,&quot;original_url&quot;:&quot;//dka575ofm4ao0.cloudfront.net/pages-transactional_logos/original/36420/hTgCmUjbT7WMYBbAnxDp&quot;,&quot;size&quot;:7056,&quot;normal_url&quot;:&quot;//dka575ofm4ao0.cloudfront.net/pages-transactional_logos/normal/36420/hTgCmUjbT7WMYBbAnxDp&quot;,&quot;retina_url&quot;:&quot;//dka575ofm4ao0.cloudfront.net/pages-transactional_logos/retina/36420/hTgCmUjbT7WMYBbAnxDp&quot;},&quot;favicon_logo&quot;:{&quot;updated_at&quot;:&quot;2018-01-17T23:38:34.000+00:00&quot;,&quot;size&quot;:6518,&quot;url&quot;:&quot;//dka575ofm4ao0.cloudfront.net/pages-favicon_logos/original/36420/akacZEQQfOBdc7ftyxJt&quot;},&quot;email_logo&quot;:{&quot;updated_at&quot;:null,&quot;original_url&quot;:&quot;&quot;,&quot;size&quot;:null,&quot;normal_url&quot;:&quot;&quot;,&quot;retina_url&quot;:&quot;&quot;},&quot;twitter_logo&quot;:{&quot;updated_at&quot;:&quot;2019-01-10T19:02:40.000+00:00&quot;,&quot;size&quot;:4268,&quot;url&quot;:&quot;//dka575ofm4ao0.cloudfront.net/pages-twitter_logos/original/36420/GitHub-Mark-120px-plus.png&quot;},&quot;id&quot;:&quot;kctbh9vrtdwd&quot;,&quot;organization_id&quot;:&quot;30gcnw2xxnb0&quot;}},&quot;components&quot;:[{&quot;status&quot;:&quot;operational&quot;,&quot;name&quot;:&quot;Git Operations&quot;,&quot;created_at&quot;:&quot;2017-01-31T20:05:05.370Z&quot;,&quot;updated_at&quot;:&quot;2026-11-04T11:30:42.148Z&quot;,&quot;position&quot;:1,&quot;description&quot;:&quot;Performance of git clones, pulls, pushes, and associated operations&quot;,&quot;showcase&quot;:true,&quot;start_date&quot;:null,&quot;id&quot;:&quot;8l4ygp009s5s&quot;,&quot;group_id&quot;:null,&quot;page_id&quot;:&quot;kctbh9vrtdwd&quot;,&quot;group&quot;:false,&quot;only_show_if_degraded&quot;:false},{&quot;status&quot;:&quot;operational&quot;,&quot;name&quot;:&quot;Webhooks&quot;,&quot;created_at&quot;:&quot;2019-11-13T18:00:24.256Z&quot;,&quot;updated_at&quot;:&quot;2026-11-04T16:45:48.169Z&quot;,&quot;position&quot;:2,&quot;description&quot;:&quot;Real time HTTP callbacks of user-generated and system events&quot;,&quot;showcase&quot;:true,&quot;start_date&quot;:null,&quot;id&quot;:&quot;4230lsnqdsld&quot;,&quot;group_id&quot;:null,&quot;page_id&quot;:&quot;kctbh9vrtdwd&quot;,&quot;group&quot;:false,&quot;only_show_if_degraded&quot;:false},{&quot;status&quot;:&quot;operational&quot;,&quot;name&quot;:&quot;Visit www.githubstatus.com for more information&quot;,&quot;created_at&quot;:&quot;2018-12-05T19:39:40.838Z&quot;,&quot;updated_at&quot;:&quot;2025-03-19T05:00:21.309Z&quot;,&quot;position&quot;:3,&quot;description&quot;:null,&quot;showcase&quot;:false,&quot;start_date&quot;:null,&quot;id&quot;:&quot;0l2p9nhqnxpd&quot;,&quot;group_id&quot;:null,&quot;page_id&quot;:&quot;kctbh9vrtdwd&quot;,&quot;group&quot;:false,&quot;only_show_if_degraded&quot;:false},{&quot;status&quot;:&quot;operational&quot;,&quot;name&quot;:&quot;API Requests&quot;,&quot;created_at&quot;:&quot;2017-01-31T20:01:46.621Z&quot;,&quot;updated_at&quot;:&quot;2026-11-08T11:56:20.652Z&quot;,&quot;position&quot;:4,&quot;description&quot;:&quot;Requests for GitHub APIs&quot;,&quot;showcase&quot;:true,&quot;start_date&quot;:null,&quot;id&quot;:&quot;brv1bkgrwx7q&quot;,&quot;group_id&quot;:null,&quot;page_id&quot;:&quot;kctbh9vrtdwd&quot;,&quot;group&quot;:false,&quot;only_show_if_degraded&quot;:false},{&quot;status&quot;:&quot;operational&quot;,&quot;name&quot;:&quot;Issues&quot;,&quot;created_at&quot;:&quot;2017-01-31T20:01:46.638Z&quot;,&quot;updated_at&quot;:&quot;2026-11-06T00:06:11.679Z&quot;,&quot;position&quot;:5,&quot;description&quot;:&quot;Requests for Issues on GitHub.com&quot;,&quot;showcase&quot;:true,&quot;start_date&quot;:null,&quot;id&quot;:&quot;kr09ddfgbfsf&quot;,&quot;group_id&quot;:null,&quot;page_id&quot;:&quot;kctbh9vrtdwd&quot;,&quot;group&quot;:false,&quot;only_show_if_degraded&quot;:false},{&quot;status&quot;:&quot;operational&quot;,&quot;name&quot;:&quot;Pull Requests&quot;,&quot;created_at&quot;:&quot;2020-09-02T15:39:06.329Z&quot;,&quot;updated_at&quot;:&quot;2026-11-04T11:30:42.240Z&quot;,&quot;position&quot;:6,&quot;description&quot;:&quot;Requests for Pull Requests on GitHub.com&quot;,&quot;showcase&quot;:true,&quot;start_date&quot;:null,&quot;id&quot;:&quot;hhtssxt0f5v2&quot;,&quot;group_id&quot;:null,&quot;page_id&quot;:&quot;kctbh9vrtdwd&quot;,&quot;group&quot;:false,&quot;only_show_if_degraded&quot;:false},{&quot;status&quot;:&quot;operational&quot;,&quot;name&quot;:&quot;Actions&quot;,&quot;created_at&quot;:&quot;2019-11-13T18:02:19.432Z&quot;,&quot;updated_at&quot;:&quot;2026-11-06T00:06:11.709Z&quot;,&quot;position&quot;:7,&quot;description&quot;:&quot;Workflows, Compute and Orchestration for GitHub Actions&quot;,&quot;showcase&quot;:true,&quot;start_date&quot;:null,&quot;id&quot;:&quot;br0l2tvcx85d&quot;,&quot;group_id&quot;:null,&quot;page_id&quot;:&quot;kctbh9vrtdwd&quot;,&quot;group&quot;:false,&quot;only_show_if_degraded&quot;:false},{&quot;status&quot;:&quot;operational&quot;,&quot;name&quot;:&quot;Packages&quot;,&quot;created_at&quot;:&quot;2019-11-13T18:02:40.064Z&quot;,&quot;updated_at&quot;:&quot;2026-10-22T17:41:38.649Z&quot;,&quot;position&quot;:8,&quot;description&quot;:&quot;API requests and webhook delivery for GitHub Packages&quot;,&quot;showcase&quot;:true,&quot;start_date&quot;:null,&quot;id&quot;:&quot;st3j38cctv9l&quot;,&quot;group_id&quot;:null,&quot;page_id&quot;:&quot;kctbh9vrtdwd&quot;,&quot;group&quot;:false,&quot;only_show_if_degraded&quot;:false},{&quot;status&quot;:&quot;operational&quot;,&quot;name&quot;:&quot;Pages&quot;,&quot;created_at&quot;:&quot;2017-01-31T20:04:33.923Z&quot;,&quot;updated_at&quot;:&quot;2026-11-06T00:06:11.736Z&quot;,&quot;position&quot;:9,&quot;description&quot;:&quot;Frontend application and API servers for Pages builds&quot;,&quot;showcase&quot;:true,&quot;start_date&quot;:null,&quot;id&quot;:&quot;vg70hn9s2tyj&quot;,&quot;group_id&quot;:null,&quot;page_id&quot;:&quot;kctbh9vrtdwd&quot;,&quot;group&quot;:false,&quot;only_show_if_degraded&quot;:false},{&quot;status&quot;:&quot;operational&quot;,&quot;name&quot;:&quot;Copilot&quot;,&quot;created_at&quot;:&quot;2022-06-21T16:04:33.017Z&quot;,&quot;updated_at&quot;:&quot;2026-11-03T13:51:46.173Z&quot;,&quot;position&quot;:10,&quot;description&quot;:null,&quot;showcase&quot;:true,&quot;start_date&quot;:&quot;2022-06-21T00:00:00.000Z&quot;,&quot;id&quot;:&quot;pjmpxvq2cmr2&quot;,&quot;group_id&quot;:null,&quot;page_id&quot;:&quot;kctbh9vrtdwd&quot;,&quot;group&quot;:false,&quot;only_show_if_degraded&quot;:false},{&quot;status&quot;:&quot;operational&quot;,&quot;name&quot;:&quot;Codespaces&quot;,&quot;created_at&quot;:&quot;2021-08-11T16:02:09.505Z&quot;,&quot;updated_at&quot;:&quot;2026-07-14T09:51:08.862Z&quot;,&quot;position&quot;:11,&quot;description&quot;:&quot;Orchestration and Compute for GitHub Codespaces&quot;,&quot;showcase&quot;:true,&quot;start_date&quot;:&quot;2021-08-11T00:00:00.000Z&quot;,&quot;id&quot;:&quot;h2ftsgbw7kmk&quot;,&quot;group_id&quot;:null,&quot;page_id&quot;:&quot;kctbh9vrtdwd&quot;,&quot;group&quot;:false,&quot;only_show_if_degraded&quot;:false},{&quot;status&quot;:&quot;operational&quot;,&quot;name&quot;:&quot;Copilot AI Model Providers&quot;,&quot;created_at&quot;:&quot;2026-04-17T12:33:08.827Z&quot;,&quot;updated_at&quot;:&quot;2026-11-02T18:10:34.849Z&quot;,&quot;position&quot;:12,&quot;description&quot;:null,&quot;showcase&quot;:true,&quot;start_date&quot;:&quot;2026-04-17T00:00:00.000Z&quot;,&quot;id&quot;:&quot;cnnb39dkkk82&quot;,&quot;group_id&quot;:null,&quot;page_id&quot;:&quot;kctbh9vrtdwd&quot;,&quot;group&quot;:false,&quot;only_show_if_degraded&quot;:false}],&quot;months&quot;:[{&quot;name&quot;:&quot;November&quot;,&quot;year&quot;:2026,&quot;starts_on&quot;:0,&quot;days&quot;:30,&quot;incidents&quot;:[{&quot;code&quot;:&quot;pyynvrm1vskw&quot;,&quot;name&quot;:&quot;Increase in timeouts for some unauthenticated users&quot;,&quot;message&quot;:&quot;This incident has been resolved. Thank you for your patience and understanding as we addressed this issue. A detailed root cause analysis will be shared as soon as it is available.&quot;,&quot;impact&quot;:&quot;minor&quot;,&quot;timestamp&quot;:&quot;Nov \u003cvar data-var=&#39;date&#39;\u003e8\u003c/var\u003e, \u003cvar data-var=&#39;time&#39;\u003e10:36\u003c/var\u003e - \u003cvar data-var=&#39;time&#39;\u003e12:32\u003c/var\u003e UTC&quot;},{&quot;code&quot;:&quot;pfbmpxxfq1cy&quot;,&quot;name&quot;:&quot;Degraded performance for multiple GitHub services&quot;,&quot;message&quot;:&quot;This incident has been resolved. Thank you for your patience and understanding as we addressed this issue. A detailed root cause analysis will be shared as soon as it is available.&quot;,&quot;impact&quot;:&quot;minor&quot;,&quot;timestamp&quot;:&quot;Nov \u003cvar data-var=&#39;date&#39;\u003e5\u003c/var\u003e, \u003cvar data-var=&#39;time&#39;\u003e23:36\u003c/var\u003e - Nov \u003cvar data-var=&#39;date&#39;\u003e6\u003c/var\u003e, \u003cvar data-var=&#39;time&#39;\u003e00:20\u003c/var\u003e UTC&quot;},{&quot;code&quot;:&quot;t89g2q1800fr&quot;,&quot;name&quot;:&quot;Incident with Actions&quot;,&quot;message&quot;:&quot;This incident has been resolved. Thank you for your patience and understanding as we addressed this issue. A detailed root cause analysis will be shared as soon as it is available.&quot;,&quot;impact&quot;:&quot;minor&quot;,&quot;timestamp&quot;:&quot;Nov \u003cvar data-var=&#39;date&#39;\u003e5\u003c/var\u003e, \u003cvar data-var=&#39;time&#39;\u003e16:50\u003c/var\u003e - \u003cvar data-var=&#39;time&#39;\u003e17:42\u003c/var\u003e UTC&quot;},{&quot;code&quot;:&quot;h02n9572mx9y&quot;,&quot;name&quot;:&quot;Incident with Actions&quot;,&quot;message&quot;:&quot;Please refer to the combined summary in this related incident: https://www.githubstatus.com/incidents/xr3myzj7ms51&quot;,&quot;impact&quot;:&quot;major&quot;,&quot;timestamp&quot;:&quot;Nov \u003cvar data-var=&#39;date&#39;\u003e4\u003c/var\u003e, \u003cvar data-var=&#39;time&#39;\u003e17:40\u003c/var\u003e - \u003cvar data-var=&#39;time&#39;\u003e18:16\u003c/var\u003e UTC&quot;},{&quot;code&quot;:&quot;xr3myzj7ms51&quot;,&quot;name&quot;:&quot;Incident with Actions and Pages&quot;,&quot;message&quot;:&quot;On November 4, 2026, between 15:49 UTC and 16:48 UTC, and again between 17:20 UTC and 17:55 UTC, GitHub Actions, Pages, Webhooks, Code Scanning, and Copilot coding agent experienced delays. During this time, Actions workflow runs and job status updates were delayed by up to 25 minutes. Pages deployments dropped to about 4% of normal volume, webhook deliveries dropped to about 58% of normal volume, and Code Scanning analyses and Copilot coding agent sessions were delayed. Delayed events were processed after mitigation. \u003cbr\u003e\u003cbr\u003eThis incident was caused by a configuration change to an internal event-routing service that unexpectedly paused delivery of several event streams. The change depended on feature flags that were not set up as intended, which the service did not handle gracefully. We mitigated the first period by rolling back the configuration change at 16:14 UTC. The code change itself was not reverted by the rollback, so a subsequent deployment reintroduced it. We mitigated the second period at 17:40 UTC by rolling back again, then processed queued events and cleared backlogs. \u003cbr\u003e\u003cbr\u003eWe are taking several steps to prevent a repeat. The routing service will keep its existing behavior when a feature toggle is missing, so a misconfigured flag can no longer pause delivery. We are adding a pre-deploy check that each routing flag exists and is registered under the correct owning service, and we are making flag ownership less error-prone to set. We are also improving alerting so we detect paused event delivery sooner.&quot;,&quot;impact&quot;:&quot;major&quot;,&quot;timestamp&quot;:&quot;Nov \u003cvar data-var=&#39;date&#39;\u003e4\u003c/var\u003e, \u003cvar data-var=&#39;time&#39;\u003e16:05\u003c/var\u003e - \u003cvar data-var=&#39;time&#39;\u003e17:01\u003c/var\u003e UTC&quot;},{&quot;code&quot;:&quot;smtdswd1h2w4&quot;,&quot;name&quot;:&quot;Incident with Pull Requests, Git Operations and Issues&quot;,&quot;message&quot;:&quot;This incident has been resolved. Thank you for your patience and understanding as we addressed this issue. A detailed root cause analysis will be shared as soon as it is available.&quot;,&quot;impact&quot;:&quot;major&quot;,&quot;timestamp&quot;:&quot;Nov \u003cvar data-var=&#39;date&#39;\u003e4\u003c/var\u003e, \u003cvar data-var=&#39;time&#39;\u003e09:49\u003c/var\u003e - \u003cvar data-var=&#39;time&#39;\u003e11:50\u003c/var\u003e UTC&quot;},{&quot;code&quot;:&quot;tc28c0wzrnpz&quot;,&quot;name&quot;:&quot;Increased task-related errors for Copilot Mission Control&quot;,&quot;message&quot;:&quot;This incident has been resolved. Thank you for your patience and understanding as we addressed this issue. A detailed root cause analysis will be shared as soon as it is available.&quot;,&quot;impact&quot;:&quot;minor&quot;,&quot;timestamp&quot;:&quot;Nov \u003cvar data-var=&#39;date&#39;\u003e4\u003c/var\u003e, \u003cvar data-var=&#39;time&#39;\u003e08:45\u003c/var\u003e - \u003cvar data-var=&#39;time&#39;\u003e10:01\u003c/var\u003e UTC&quot;},{&quot;code&quot;:&quot;13b6lyl8d7bz&quot;,&quot;name&quot;:&quot;Incident with Git Operations&quot;,&quot;message&quot;:&quot;On November 3, 2026, between 15:00 UTC and 22:37 UTC, Git operations over HTTPS on GitHub.com were degraded. Clones, fetches, and pushes over HTTPS were slow, and some failed. For about half of Git HTTPS traffic, median response time rose from under 100 milliseconds to as high as 5 seconds. On average, the error rate was 0.65% and peaked at 1.29% of requests to the service. Git operations over SSH were not affected. \u003cbr\u003e\u003cbr\u003eThis was due to a buildup of excess connections on the hosts that serve Git HTTPS traffic, which saturated their network capacity and caused slow and failed responses for all clients served by those hosts. \u003cbr\u003e\u003cbr\u003eWe mitigated the incident by blocking a client traffic pattern at our load balancers and reloading them, which released the excess connections. The block also prevented some users of one third-party integration from performing Git operations over HTTPS until we removed it on November 4 at 13:26 UTC. \u003cbr\u003e\u003cbr\u003eWe are working to alert on sustained Git HTTPS latency sooner and make load balancer mitigations take effect on existing connections immediately.&quot;,&quot;impact&quot;:&quot;minor&quot;,&quot;timestamp&quot;:&quot;Nov \u003cvar data-var=&#39;date&#39;\u003e3\u003c/var\u003e, \u003cvar data-var=&#39;time&#39;\u003e20:57\u003c/var\u003e - \u003cvar data-var=&#39;time&#39;\u003e22:41\u003c/var\u003e UTC&quot;},{&quot;code&quot;:&quot;rxlj89wpk7px&quot;,&quot;name&quot;:&quot;Incident with API, Git, and Copilot requests&quot;,&quot;message&quot;:&quot;This incident has been resolved. Thank you for your patience and understanding as we addressed this issue. A detailed root cause analysis will be shared as soon as it is available.&quot;,&quot;impact&quot;:&quot;minor&quot;,&quot;timestamp&quot;:&quot;Nov \u003cvar data-var=&#39;date&#39;\u003e3\u003c/var\u003e, \u003cvar data-var=&#39;time&#39;\u003e13:25\u003c/var\u003e - \u003cvar data-var=&#39;time&#39;\u003e13:56\u003c/var\u003e UTC&quot;},{&quot;code&quot;:&quot;db4x8hh362t8&quot;,&quot;name&quot;:&quot;Elevated errors on GPT-5.4 Nano&quot;,&quot;message&quot;:&quot;This incident has been resolved. Thank you for your patience and understanding as we addressed this issue. A detailed root cause analysis will be shared as soon as it is available.&quot;,&quot;impact&quot;:&quot;minor&quot;,&quot;timestamp&quot;:&quot;Nov \u003cvar data-var=&#39;date&#39;\u003e2\u003c/var\u003e, \u003cvar data-var=&#39;time&#39;\u003e17:46\u003c/var\u003e - \u003cvar data-var=&#39;time&#39;\u003e18:24\u003c/var\u003e UTC&quot;}]},{&quot;name&quot;:&quot;October&quot;,&quot;year&quot;:2026,&quot;starts_on&quot;:4,&quot;days&quot;:31,&quot;incidents&quot;:[{&quot;code&quot;:&quot;lyyfm7j4pkgl&quot;,&quot;name&quot;:&quot;Incident with Dependabot&quot;,&quot;message&quot;:&quot;On October 30, 2026, between 20:15 and 21:56 UTC, an advisory-publication-driven fan-out caused an unexpected saturation of network connections to the Dependabot alerts datastore. During this period we observed a high rate of write failures on this datastore; users saw elevated failure rates when dismissing or resolving Dependabot alerts, as well as failures when linking Dependabot update pull requests to Dependabot security alerts.  We also observed delays in creating and updating security alerts that extended through November 2, 2026.\u003cbr\u003e\u003cbr\u003eThe unexpected fan-out was caused by a missing job queue throttle after the queues for the fan-out work were migrated as part of system maintenance. We have restored the fan-out throttle and further isolated and throttled these processes to guard against further disruptions.&quot;,&quot;impact&quot;:&quot;minor&quot;,&quot;timestamp&quot;:&quot;Oct \u003cvar data-var=&#39;date&#39;\u003e30\u003c/var\u003e, \u003cvar data-var=&#39;time&#39;\u003e20:59\u003c/var\u003e - \u003cvar data-var=&#39;time&#39;\u003e23:29\u003c/var\u003e UTC&quot;},{&quot;code&quot;:&quot;pwxsjgnvrk6b&quot;,&quot;name&quot;:&quot;Incident with Actions, Pages, and Webhooks&quot;,&quot;message&quot;:&quot;On October 30, 2026, from 17:50 to 18:32 UTC, Actions, Pages, and Webhooks experienced degraded performance. Actions workflow processing, Pages deployments, and webhook deliveries were delayed, and code search and live updates returned errors. Some Actions queues took additional time to drain after mitigation, and the incident was resolved at 19:23 UTC. \u003cbr\u003e\u003cbr\u003eThe impact was triggered by maintenance on a cloud network gateway connecting an Actions service in the GitHub data center to Redis clusters in the Central US Azure region. The service&#39;s Redis client retried aggressively and redialed those connections. That produced a connection storm that saturated the gateway, with about 90% of connection attempts failing. Other services sharing the same network path were degraded as well. \u003cbr\u003e\u003cbr\u003eWe mitigated the incident by removing the affected resources from rotation, which ended the connection storm and allowed the gateway to recover. We have already reduced the number of connection retries in the impacted service and are further improving retry behavior with jittered backoff, shorter connect timeouts, and retry budgets. We are also working with our infrastructure team to make GitHub more resilient to gateway maintenance.&quot;,&quot;impact&quot;:&quot;major&quot;,&quot;timestamp&quot;:&quot;Oct \u003cvar data-var=&#39;date&#39;\u003e30\u003c/var\u003e, \u003cvar data-var=&#39;time&#39;\u003e17:50\u003c/var\u003e - \u003cvar data-var=&#39;time&#39;\u003e19:23\u003c/var\u003e UTC&quot;},{&quot;code&quot;:&quot;nxy2l0ssxm10&quot;,&quot;name&quot;:&quot;Disruption with GitHub services&quot;,&quot;message&quot;:&quot;This incident has been resolved. Thank you for your patience and understanding as we addressed this issue. A detailed root cause analysis will be shared as soon as it is available.&quot;,&quot;impact&quot;:&quot;critical&quot;,&quot;timestamp&quot;:&quot;Oct \u003cvar data-var=&#39;date&#39;\u003e30\u003c/var\u003e, \u003cvar data-var=&#39;time&#39;\u003e14:31\u003c/var\u003e - \u003cvar data-var=&#39;time&#39;\u003e15:02\u003c/var\u003e UTC&quot;},{&quot;code&quot;:&quot;rn76zdy367m2&quot;,&quot;name&quot;:&quot;Disruption with Copilot Cloud services&quot;,&quot;message&quot;:&quot;On October 29, 2026, between 05:50 UTC and 12:40 UTC, Copilot agent sessions on GitHub.com and in VS Code were degraded. Live session updates often failed to load, and on average 2.14% of requests to the agent sessions service failed, with a peak of 8.61%. For about 10 minutes around 09:20 UTC, up to 40% of requests to list or create agent sessions failed. Copilot Chat on GitHub.com showed degraded agent session features during this time. The issue occurred when a large increase in task-list requests from a client experiment overloaded the cache that supports the agent sessions service. We mitigated the impact by increasing cache capacity, reducing nonessential load on the cache, and disabling the client experiment. We are moving rate limiting to separate infrastructure, reducing client polling, and improving our alerting so we can detect and respond to this type of overload faster.&quot;,&quot;impact&quot;:&quot;minor&quot;,&quot;timestamp&quot;:&quot;Oct \u003cvar data-var=&#39;date&#39;\u003e29\u003c/var\u003e, \u003cvar data-var=&#39;time&#39;\u003e10:19\u003c/var\u003e - \u003cvar data-var=&#39;time&#39;\u003e12:49\u003c/var\u003e UTC&quot;},{&quot;code&quot;:&quot;l7ycmglmykgg&quot;,&quot;name&quot;:&quot;Disruption with some Copilot services&quot;,&quot;message&quot;:&quot;On October 28, 2026, between 13:52 and 15:24 UTC, Copilot users saw errors when using several GPT-family models and the MAI Code 1.1 Flash model. Affected experiences included Copilot Chat in IDEs and on GitHub.com, the Copilot CLI, Copilot Code Review, the Copilot Coding Agent, Code Scanning Autofix, and Code Quality. About 9.73% of requests to the affected models failed, with a peak of about 36.97% at the start of the incident.\u003cbr\u003e\u003cbr\u003eThe errors happened because a credential that we use to authenticate with an upstream model provider became invalid. We mitigated the incident by replacing the credential and redeploying the service. We are strengthening how we manage credentials for upstream providers to prevent this type of failure, returning retryable errors when an upstream provider rejects a request, and improving our monitoring so that we detect and mitigate this type of problem faster in the future.&quot;,&quot;impact&quot;:&quot;critical&quot;,&quot;timestamp&quot;:&quot;Oct \u003cvar data-var=&#39;date&#39;\u003e28\u003c/var\u003e, \u003cvar data-var=&#39;time&#39;\u003e14:12\u003c/var\u003e - \u003cvar data-var=&#39;time&#39;\u003e15:28\u003c/var\u003e UTC&quot;},{&quot;code&quot;:&quot;dnslv7xdl4fj&quot;,&quot;name&quot;:&quot;Elevated 404s for GitHub App s2s tokens in git/API&quot;,&quot;message&quot;:&quot;Between 0655 and 0801 UTC on 10/27, customers experienced increased failure rates for API and git requests authenticated with server-to-server tokens for GitHub Apps (excluding Actions tokens). During this window, authenticated git operations mistakenly returned 404 for 1.24% (2.6x) of requests on average and 2.49% (5.3x) at peak.\n\nThese failures were caused by a scheduled maintenance event where GitHub migrated 7 tables between two MySQL clusters in our IAD and Azure Central US datacenters. One of the affected tables stores installation records for GitHub App server-to-server tokens (excluding Actions). We&#39;ve successfully completed several of these migrations in recent months without notable customer impact. However, in this case, the migration coincided with a scheduled cleanup job on the installation records table, which deleted approximately 59 million records from 0444-0617 UTC. As a result, the gh-ost tooling used in the migration experienced inter-cluster replication delays (up to 1 hour at peak).\n\nAt 0655 UTC, we begin transitioning reads of the target tables to the new MySQL cluster, with 100% of reads cutover at 0721 UTC. Customer impact began, but was not detected, throughout the read cutover and persisted until completion of the write cutover at 0801 UTC. We are updating our processes and automation to prevent a repeat of this incident, including disabling overlapping cleanup jobs prior to these migrations and blocking the cutover of reads when replication delays are high.&quot;,&quot;impact&quot;:&quot;none&quot;,&quot;timestamp&quot;:&quot;Oct \u003cvar data-var=&#39;date&#39;\u003e27\u003c/var\u003e, \u003cvar data-var=&#39;time&#39;\u003e08:00\u003c/var\u003e - \u003cvar data-var=&#39;time&#39;\u003e08:00\u003c/var\u003e UTC&quot;},{&quot;code&quot;:&quot;f1vvv30224wd&quot;,&quot;name&quot;:&quot;Incident with Actions, Issues, API Requests and Pull Requests&quot;,&quot;message&quot;:&quot;This incident has been resolved. Thank you for your patience and understanding as we addressed this issue. A detailed root cause analysis will be shared as soon as it is available.&quot;,&quot;impact&quot;:&quot;minor&quot;,&quot;timestamp&quot;:&quot;Oct \u003cvar data-var=&#39;date&#39;\u003e26\u003c/var\u003e, \u003cvar data-var=&#39;time&#39;\u003e18:48\u003c/var\u003e - \u003cvar data-var=&#39;time&#39;\u003e18:57\u003c/var\u003e UTC&quot;},{&quot;code&quot;:&quot;khv5nj9qy2kk&quot;,&quot;name&quot;:&quot;Grok 4.6 and Grok 4.7 Service Issues&quot;,&quot;message&quot;:&quot;Between 23:28 and 00:23 UTC on October 27, 2026, GitHub Copilot experienced degradation affecting Grok 4.6 and Grok 4.7 models. Users encountered elevated error rates when using these models.\u003cbr\u003e\u003cbr\u003eThe degradation was caused by an issue with an upstream model provider. GitHub engineers detected the issue through automated monitoring and coordinated with the provider. Our automated model-warning system activated in-product warnings for affected models during the incident. Service returned to normal after the provider implemented a mitigation.&quot;,&quot;impact&quot;:&quot;minor&quot;,&quot;timestamp&quot;:&quot;Oct \u003cvar data-var=&#39;date&#39;\u003e23\u003c/var\u003e, \u003cvar data-var=&#39;time&#39;\u003e23:41\u003c/var\u003e - Oct \u003cvar data-var=&#39;date&#39;\u003e24\u003c/var\u003e, \u003cvar data-var=&#39;time&#39;\u003e00:23\u003c/var\u003e UTC&quot;},{&quot;code&quot;:&quot;71y513kjvbzh&quot;,&quot;name&quot;:&quot;Disruption with Dependabot Alerts&quot;,&quot;message&quot;:&quot;We identified that an advisory-publication driven fan-out was overwhelming Dependabot alert processing on repositories by saturating the queue with its own events, delaying processing of events related to repository pushes.\u003cbr\u003e\u003cbr\u003eWe have now isolated this fan-out and applied a throttle so it runs at a fixed rate and cannot delay other events. This remediation has successfully prevented a new fan-out process impacting users.&quot;,&quot;impact&quot;:&quot;minor&quot;,&quot;timestamp&quot;:&quot;Oct \u003cvar data-var=&#39;date&#39;\u003e23\u003c/var\u003e, \u003cvar data-var=&#39;time&#39;\u003e14:58\u003c/var\u003e - \u003cvar data-var=&#39;time&#39;\u003e18:51\u003c/var\u003e UTC&quot;},{&quot;code&quot;:&quot;ntrfd2jqldn6&quot;,&quot;name&quot;:&quot;Delayed Actions status check results&quot;,&quot;message&quot;:&quot;On October 23, 2026, between 07:06 UTC and 07:27 UTC, GitHub Actions workflow run results were delayed. Job status, check run updates, and logs in the GitHub UI and API updated with an average delay of about 2 minutes, and some updates were delayed by up to about 7 minutes.  \u003cbr\u003e\u003cbr\u003eDuring this window, a storage dependency that Actions uses to process workflow logs and artifacts throttled our requests. This slowed result processing, causing updates to queue up. The queue was fully processed by 07:27 UTC, shortly after the throttling stopped. \u003cbr\u003e\u003cbr\u003eTo reduce the risk of recurrence, we have added several storage accounts to increase capacity, and we are working on additional steps to continue to scale. We are also working with our storage provider to understand why the throttling occurred, and improving how result processing handles storage throttling and how quickly we detect it.&quot;,&quot;impact&quot;:&quot;minor&quot;,&quot;timestamp&quot;:&quot;Oct \u003cvar data-var=&#39;date&#39;\u003e23\u003c/var\u003e, \u003cvar data-var=&#39;time&#39;\u003e07:29\u003c/var\u003e - \u003cvar data-var=&#39;time&#39;\u003e08:05\u003c/var\u003e UTC&quot;},{&quot;code&quot;:&quot;wq8305lppdc2&quot;,&quot;name&quot;:&quot;Project updates delayed&quot;,&quot;message&quot;:&quot;This incident has been resolved. Thank you for your patience and understanding as we addressed this issue. A detailed root cause analysis will be shared as soon as it is available.&quot;,&quot;impact&quot;:&quot;minor&quot;,&quot;timestamp&quot;:&quot;Oct \u003cvar data-var=&#39;date&#39;\u003e22\u003c/var\u003e, \u003cvar data-var=&#39;time&#39;\u003e15:28\u003c/var\u003e - Oct \u003cvar data-var=&#39;date&#39;\u003e23\u003c/var\u003e, \u003cvar data-var=&#39;time&#39;\u003e02:30\u003c/var\u003e UTC&quot;},{&quot;code&quot;:&quot;q29p76qtnkyk&quot;,&quot;name&quot;:&quot;Incident with Actions&quot;,&quot;message&quot;:&quot;On October 22, 2026, from 13:05 to 15:20 UTC, our event streaming platform was degraded resulting in elevated job processing latency spikes of 19-35 seconds and elevated job processing times of 4m – this resulted in delayed Actions workflow and step results (up to 13m), notifications (20m) and repository push events (12m).  Recovery for repositories began at 14:32, with Actions recovery beginning at 14:59. The issue reoccurred at 16:26 again impacting Actions runs, repo push events, and notifications. Recovery began at 17:16 and completed at 2:07.  \u003cbr\u003e\u003cbr\u003eThe incident was caused by a significant increase in load coupled with client connection storms during a deployment overloading our Kafka event streaming brokers. \u003cbr\u003e\u003cbr\u003eTo prevent future recurrence, we have expanded the affected cluster, shifted traffic to less loaded clusters, and implemented tunable client reconnect backoff.&quot;,&quot;impact&quot;:&quot;minor&quot;,&quot;timestamp&quot;:&quot;Oct \u003cvar data-var=&#39;date&#39;\u003e22\u003c/var\u003e, \u003cvar data-var=&#39;time&#39;\u003e14:18\u003c/var\u003e - \u003cvar data-var=&#39;time&#39;\u003e15:18\u003c/var\u003e UTC&quot;},{&quot;code&quot;:&quot;nms1dpzmh9d9&quot;,&quot;name&quot;:&quot;Delays for Pull Requests and Webhook deliveries&quot;,&quot;message&quot;:&quot;This incident has been resolved. Thank you for your patience and understanding as we addressed this issue. A detailed root cause analysis will be shared as soon as it is available.&quot;,&quot;impact&quot;:&quot;critical&quot;,&quot;timestamp&quot;:&quot;Oct \u003cvar data-var=&#39;date&#39;\u003e21\u003c/var\u003e, \u003cvar data-var=&#39;time&#39;\u003e14:52\u003c/var\u003e - \u003cvar data-var=&#39;time&#39;\u003e19:22\u003c/var\u003e UTC&quot;},{&quot;code&quot;:&quot;8tzbpcnl75jp&quot;,&quot;name&quot;:&quot;Degraded availability for GitHub Actions, GitHub Pages and Webhooks&quot;,&quot;message&quot;:&quot;On October 19, 2026, between 15:24 and 16:52 UTC, GitHub Actions, GitHub Pages, and webhooks generated by Actions were degraded. Live updates on GitHub.com and code search were also degraded for part of this time. No data was lost. \u003cbr\u003e\u003cbr\u003eImpact \u003cbr\u003e\u003cbr\u003e - Workflow status updates, logs, and checks were delayed. \u003cbr\u003e - 5.13% of jobs on GitHub-hosted runners were delayed in starting, and 0.02% of workflow runs failed. \u003cbr\u003e - During the first 30 minutes, 8.47% of requests to the Actions jobs REST API returned errors. \u003cbr\u003e\u003cbr\u003ePages deployments and webhooks generated by Actions runs were delayed. \u003cbr\u003e\u003cbr\u003eAn internal Actions service that stores logs and run status lost connections to some of its cache servers in one cloud region and immediately retried them from every server at once. The resulting surge of new connections overloaded a shared network link between our data center and that region, which also disrupted other services that use the same link. We mitigated the incident by moving the Actions service off the affected cache servers and reducing connections from other services on the link. We then processed the delayed Actions work. We are continuing to investigate the cause of the initial connection timeouts. \u003cbr\u003e\u003cbr\u003eWe were already in the process of rolling out a limit on how quickly this service can open new connections, but it was still in shadow mode (logging only, not enforcing) at the time of the incident. We have since fully enforced it and capped the service&#39;s concurrent connection attempts. We are extending these limits to other Actions services, adding backoff to retries, limiting how much shared network capacity a single service can use, and improving alerting so we can find the source of connection surges faster.&quot;,&quot;impact&quot;:&quot;critical&quot;,&quot;timestamp&quot;:&quot;Oct \u003cvar data-var=&#39;date&#39;\u003e19\u003c/var\u003e, \u003cvar data-var=&#39;time&#39;\u003e15:49\u003c/var\u003e - \u003cvar data-var=&#39;time&#39;\u003e16:56\u003c/var\u003e UTC&quot;},{&quot;code&quot;:&quot;vlxrztp88101&quot;,&quot;name&quot;:&quot;CCA Automations are delayed when starting an Automation&quot;,&quot;message&quot;:&quot;We suspected that CCA Automations were experiencing delays when users start an Automation, but further investigation found that there was no delay or impact to CCA Automations.\u003cbr\u003e&quot;,&quot;impact&quot;:&quot;minor&quot;,&quot;timestamp&quot;:&quot;Oct \u003cvar data-var=&#39;date&#39;\u003e15\u003c/var\u003e, \u003cvar data-var=&#39;time&#39;\u003e18:31\u003c/var\u003e - \u003cvar data-var=&#39;time&#39;\u003e18:56\u003c/var\u003e UTC&quot;},{&quot;code&quot;:&quot;6yk962mhlr3h&quot;,&quot;name&quot;:&quot;[Retroactive] Actions workflow run logs delayed&quot;,&quot;message&quot;:&quot;On October 13, around 20:42 UTC, an infrastructure failure caused GitHub Actions to have delays showing logs for workflow runs. No logs were lost and the issue has now been resolved and log processing has caught up.\n\nThe actual workflows producing the logs were not impacted and ran normally and no run delays or check delays occurred.&quot;,&quot;impact&quot;:&quot;minor&quot;,&quot;timestamp&quot;:&quot;Oct \u003cvar data-var=&#39;date&#39;\u003e13\u003c/var\u003e, \u003cvar data-var=&#39;time&#39;\u003e20:30\u003c/var\u003e - \u003cvar data-var=&#39;time&#39;\u003e20:30\u003c/var\u003e UTC&quot;},{&quot;code&quot;:&quot;93njd414rpbx&quot;,&quot;name&quot;:&quot;Incident with Actions, Pull Requests and Issues&quot;,&quot;message&quot;:&quot;On October 12th 2026 11:51 UTC GitHub experienced elevated 500 responses across several application pages. This caused failures on Issues and Pull Requests as well as Projects and Actions. Customers also experienced delayed notifications in their web inbox and via email. \u003cbr\u003e\u003cbr\u003eThe immediate impact to Issues, Pull Requests, Projects, and Actions was mitigated by 12:41 UTC on October 12th. Notifications deliveries to the web inbox and via email were recovering at 15:27 UTC and fully mitigated by 20:16 UTC. \u003cbr\u003e\u003cbr\u003eThe incident was triggered through a latent condition in our notifications delivery pipeline that put a high volume of an expensive query on our sharded database replicas. This reduced available database capacity to serve requests for Issues, Pull Requests, Projects, and Actions.\u003cbr\u003e\u003cbr\u003eWe have fixed the notifications pipeline’s code path that issued the expensive query. We are also improving resilience of the database layer to reduce the likelihood and impact of similar incidents.&quot;,&quot;impact&quot;:&quot;minor&quot;,&quot;timestamp&quot;:&quot;Oct \u003cvar data-var=&#39;date&#39;\u003e12\u003c/var\u003e, \u003cvar data-var=&#39;time&#39;\u003e12:21\u003c/var\u003e - \u003cvar data-var=&#39;time&#39;\u003e20:16\u003c/var\u003e UTC&quot;},{&quot;code&quot;:&quot;qpfv5p86dmrl&quot;,&quot;name&quot;:&quot;Incident with Git Operations, Issues, Actions and Pull Requests&quot;,&quot;message&quot;:&quot;On October 7, 2026, from 16:52 to 17:01 UTC, GitHub experienced a recurrence of the write-operation outage from earlier that day. Both outages shared the same root cause. Please refer to the combined summary covering both incidents, their impact, and our prevention measures: https://www.githubstatus.com/incidents/djlmxz2zd0j7&quot;,&quot;impact&quot;:&quot;critical&quot;,&quot;timestamp&quot;:&quot;Oct \u003cvar data-var=&#39;date&#39;\u003e7\u003c/var\u003e, \u003cvar data-var=&#39;time&#39;\u003e17:17\u003c/var\u003e - \u003cvar data-var=&#39;time&#39;\u003e18:04\u003c/var\u003e UTC&quot;},{&quot;code&quot;:&quot;djlmxz2zd0j7&quot;,&quot;name&quot;:&quot;Incident with Git Operations, Pull Requests and Actions&quot;,&quot;message&quot;:&quot;On October 7, 2026, GitHub had two outages of write operations with the same cause, totaling about 19 minutes. The first ran from 15:06 to 15:16 UTC (about 10 minutes) and the second from 16:52 to 17:01 UTC (about 9 minutes). In both windows, actions that save or change data failed across Git operations, pull requests, issues, GitHub Actions, the API, webhooks, sign-in and authentication, GitHub Apps and OAuth, code scanning, Codespaces, and Copilot. Reading data was largely unaffected.\n\nIn the first outage, 5.6% of all web and API requests failed, peaking at 8.9%, and more than 12,000 organizations saw failed requests. Up to 26% of Git authentication requests failed, and 17% of Actions workflow runs failed with infrastructure errors. In the second outage, 6.2% of web and API requests failed, peaking at 9.3%, and more than 11,000 organizations were affected. Up to 25% of Git authentication requests failed, and 19% of Actions workflow runs failed. No databases experienced data loss, and operations retried after recovery succeeded.\n\nGitHub relies on an internal service that keeps track of which database servers should receive new and updated data. While replacing machines that run this service as part of regular maintenance, one of the new machines started with an outdated copy of its records, which still listed database servers we had already retired. When this node came online, it incorrectly modified routing configuration with the outdated records, routing write requests to non-existent database servers.\n\nEach outage ended when one of our established machines with correct configuration became the leader of the quorum and sent the correct configuration. After the first outage, we identified the new machine as the source and paused automated maintenance to stop it from being leader again. At 16:52 UTC, an automated maintenance task that did not honor the pause put it back in charge, and the outage happened again. We shut that machine down at 17:02 UTC and have since removed it, and the automation now honors the pause, which was a new regression due to an update of our puppet infrastructure.\n\nTo prevent recurrence, we are clearing retired database servers from the service&#39;s records before any new machine is added, and we are keeping new machines from being elected leader until their records have been checked. We are also changing our systems to reject configuration that point to servers that don&#39;t exist and to keep using the last known-good settings instead. Finally, we are giving responders a faster way to take a misbehaving machine out of service, and adding alerts so changes like this are spotted within seconds.\n\nWe will share a more detailed write-up of these incidents in our monthly availability report, along with the status of the repairs we are making to prevent issues like these in the future.&quot;,&quot;impact&quot;:&quot;critical&quot;,&quot;timestamp&quot;:&quot;Oct \u003cvar data-var=&#39;date&#39;\u003e7\u003c/var\u003e, \u003cvar data-var=&#39;time&#39;\u003e15:14\u003c/var\u003e - \u003cvar data-var=&#39;time&#39;\u003e16:25\u003c/var\u003e UTC&quot;},{&quot;code&quot;:&quot;cjwszcf57bff&quot;,&quot;name&quot;:&quot;Several services are degraded&quot;,&quot;message&quot;:&quot;On October 6, 2026, from 19:44 to 19:50 UTC, GitHub experienced a service outage with elevated error rates peaking at 1.30% of all requests, totaling approximately 1.16 million failed requests. This impacted 12 services across GitHub, including Pull Requests, Webhooks, Repos, OAuth, Git over SSH, Codespaces, and Gists. The incident was triggered by GitHub Enterprise Importer (GEI) making multiple, long duration queries which saturated a database connection pool. Recovery was seen at approximately 19:50 UTC once the migration&#39;s calls stopped; GEI migrations were reenabled at 23:32 UTC after a code fix was merged.\u003cbr\u003e\u003cbr\u003eWe have completed a detailed root-cause review and are implementing improved database-health safeguards. We will continue to review and add additional safeguards to prevent future recurrence.&quot;,&quot;impact&quot;:&quot;critical&quot;,&quot;timestamp&quot;:&quot;Oct \u003cvar data-var=&#39;date&#39;\u003e6\u003c/var\u003e, \u003cvar data-var=&#39;time&#39;\u003e19:57\u003c/var\u003e - \u003cvar data-var=&#39;time&#39;\u003e23:40\u003c/var\u003e UTC&quot;},{&quot;code&quot;:&quot;2kxnqcxcrr7f&quot;,&quot;name&quot;:&quot;Disruption with some GitHub services&quot;,&quot;message&quot;:&quot;On October 5, 2026, between 23:05 UTC and 00:11 UTC on October 6, some users experienced slow page loads, timeouts, and errors when accessing organization and enterprise billing, licensing, and settings pages. On average, the error rate was 1.9% and peaked at 13.8% of requests to the service that powers these pages.\u003cbr\u003e\u003cbr\u003eThis was caused by a networking failure, which disrupted connectivity between one of our on-premises datacenter regions and a subset of cloud-hosted regional database services. We mitigated the incident by shifting the database traffic to a healthy region.\u003cbr\u003e\u003cbr\u003eWe are working to make regional database failover faster and more complete, reduce timeouts so these pages fail fast instead of hanging, and add latency-based alerting to reduce our time to detection and mitigation of issues like this one in the future. We continue to partner with our cloud provider to understand the underlying network failure.&quot;,&quot;impact&quot;:&quot;major&quot;,&quot;timestamp&quot;:&quot;Oct \u003cvar data-var=&#39;date&#39;\u003e5\u003c/var\u003e, \u003cvar data-var=&#39;time&#39;\u003e23:47\u003c/var\u003e - Oct \u003cvar data-var=&#39;date&#39;\u003e6\u003c/var\u003e, \u003cvar data-var=&#39;time&#39;\u003e01:32\u003c/var\u003e UTC&quot;},{&quot;code&quot;:&quot;3q1yb5m7ltvb&quot;,&quot;name&quot;:&quot;Incident with Actions&quot;,&quot;message&quot;:&quot;On October 5, 2026, between 18:48 and 22:49 UTC, GitHub Actions and Hosted Runners experienced degraded performance. Over the full incident, 14.3% of workflow runs using GitHub-hosted runners and 26.5% of individual GitHub-hosted jobs did not start within five minutes. \u003cbr\u003e\u003cbr\u003e \u003cbr\u003eDuring the roughly 90-minute period of highest impact, 47.0% of workflow runs using GitHub-hosted runners failed and 71.9% of GitHub-hosted jobs did not start within five minutes, while existing Pages sites continued to serve normally. A portion of customers also encountered intermittent errors in repository lists, licensing and billing pages, and some Copilot features. Self-hosted runners were not affected. \u003cbr\u003e\u003cbr\u003e\u003cbr\u003eThe incident was caused by a partial networking failure that disrupted connectivity between one of our on-premises datacenter regions and a subset of cloud-hosted regional database and storage services. \u003cbr\u003e\u003cbr\u003e\u003cbr\u003eWe mitigated the incident by shifting database and storage traffic to healthy regions and endpoints and increasing capacity for affected compute services. GitHub Actions and Hosted Runners recovered by 21:54 UTC, and all affected services recovered by 22:49 UTC. \u003cbr\u003e\u003cbr\u003e  \u003cbr\u003eWe are partnering with our cloud provider to understand the network failure and identify improvements to network-path resilience, detection, and recovery for similar incidents.&quot;,&quot;impact&quot;:&quot;critical&quot;,&quot;timestamp&quot;:&quot;Oct \u003cvar data-var=&#39;date&#39;\u003e5\u003c/var\u003e, \u003cvar data-var=&#39;time&#39;\u003e19:11\u003c/var\u003e - \u003cvar data-var=&#39;time&#39;\u003e22:49\u003c/var\u003e UTC&quot;},{&quot;code&quot;:&quot;2dpbcq5j165n&quot;,&quot;name&quot;:&quot;Actions Job Delays&quot;,&quot;message&quot;:&quot;On October 1, 2026, GitHub Actions experienced two periods of delayed and failed job starts on GitHub-hosted runners, beginning at approximately 14:15 UTC. Across the 14:15–17:56 UTC incident-response window, approximately 0.68% of workflow runs experienced start delays, and 0.196% of jobs failed to start. \u003cbr\u003e\u003cbr\u003eA routing change at our cloud provider concentrated API traffic on a single backend, causing an increase in rate-limit errors. Incorrect retry behavior in the provider’s inventory service added load to the affected APIs, compounding the rate limiting. This disrupted runner provisioning and reduced available capacity in affected regions. The resulting increase in demand in unaffected regions exposed a concurrency limit in our job-assignment system, delaying jobs even where runners were available. \u003cbr\u003e\u003cbr\u003eDuring the response, we increased job-assignment concurrency, scaled runner capacity, and worked with our cloud provider to reduce API load by excluding our runner subscriptions from its inventory service. By approximately 16:15 UTC, jobs were starting and executing as expected. We continued mitigation and monitoring until the incident was resolved at 17:56 UTC. \u003cbr\u003e\u003cbr\u003eOur cloud provider has since increased resource-management API rate limits for our workloads. To reduce the likelihood and impact of similar incidents, we are also adding more granular rate-limiting alerts and updating our job-assignment system to handle increased demand across fewer available regions.&quot;,&quot;impact&quot;:&quot;minor&quot;,&quot;timestamp&quot;:&quot;Oct \u003cvar data-var=&#39;date&#39;\u003e1\u003c/var\u003e, \u003cvar data-var=&#39;time&#39;\u003e14:47\u003c/var\u003e - \u003cvar data-var=&#39;time&#39;\u003e17:56\u003c/var\u003e UTC&quot;},{&quot;code&quot;:&quot;c8466lzvnmsv&quot;,&quot;name&quot;:&quot;Elevated request latency&quot;,&quot;message&quot;:&quot;On October 1, 2026, between 13:04 UTC and 13:34 UTC, users experienced two periods of slow page loads and intermittent request failures on GitHub.com. On average, the error rate was 0.52% and peaked at 6.13%. An unusually high volume of incoming traffic placed additional load on our traffic-handling infrastructure, delaying requests before they reached our application servers. Performance returned to normal as the traffic subsided, and we have since applied additional traffic filtering to protect against similar traffic. We are improving alerting for delays in our traffic-handling infrastructure and strengthening our automated traffic protections to reduce our time to detection and mitigation.&quot;,&quot;impact&quot;:&quot;minor&quot;,&quot;timestamp&quot;:&quot;Oct \u003cvar data-var=&#39;date&#39;\u003e1\u003c/var\u003e, \u003cvar data-var=&#39;time&#39;\u003e13:37\u003c/var\u003e - \u003cvar data-var=&#39;time&#39;\u003e13:57\u003c/var\u003e UTC&quot;},{&quot;code&quot;:&quot;dqn46wtvbdzv&quot;,&quot;name&quot;:&quot;[Retroactive] Actions workflow run failures after deployment gate approvals&quot;,&quot;message&quot;:&quot;On October 1, around 02:00 UTC, an isolated infrastructure failure caused GitHub Actions to lose execution state for a small number of existing workflow runs. Affected runs may remain stuck, fail deployment approvals, or return errors when cancelled. Service connectivity has recovered, but the lost state cannot be restored by retrying an approval.\n\n\nIf you&#39;re affected, you can trigger a new run or contact GitHub Support with links to your stuck runs so we can unblock them. Once cleared, select \&quot;Re-run all jobs.\&quot; This preserves the workflow run ID but starts a new attempt, rebuilds artifacts, and requires fresh deployment approvals. Before rerunning, check whether any deployment steps already completed to avoid repeating changes.&quot;,&quot;impact&quot;:&quot;minor&quot;,&quot;timestamp&quot;:&quot;Oct \u003cvar data-var=&#39;date&#39;\u003e1\u003c/var\u003e, \u003cvar data-var=&#39;time&#39;\u003e02:00\u003c/var\u003e - \u003cvar data-var=&#39;time&#39;\u003e02:00\u003c/var\u003e UTC&quot;}]},{&quot;name&quot;:&quot;September&quot;,&quot;year&quot;:2026,&quot;starts_on&quot;:2,&quot;days&quot;:30,&quot;incidents&quot;:[{&quot;code&quot;:&quot;169pg72gg9jr&quot;,&quot;name&quot;:&quot;Copilot Code Review is unable to complete reviews&quot;,&quot;message&quot;:&quot;On September 28, 2026, between 19:23 UTC and 22:08 UTC the Copilot Code Review service was degraded and pull request reviews did not complete in all environments. On average, approximately 70% of requested reviews did not complete. Reviews requested during this window were not automatically retried, and users needed to re-request a review from their pull request. This was due to a change in a dependent service that stopped delivering data Copilot Code Review needs to complete a review. Review completion is an inherently delayed signal, because each review job takes time to start and finish, so it took longer to detect the impact.\u003cbr\u003e\u003cbr\u003eWe mitigated the incident by reverting the change.\u003cbr\u003e\u003cbr\u003eWe are working to add a faster signal for reviews that fail to complete, add deployment validation that confirms a Copilot Code Review completes end to end, improve how we track internal dependencies between services, and make our deployment pipeline more reliable to reduce our time to detection and mitigation of issues like this one in the future.&quot;,&quot;impact&quot;:&quot;critical&quot;,&quot;timestamp&quot;:&quot;Sep \u003cvar data-var=&#39;date&#39;\u003e28\u003c/var\u003e, \u003cvar data-var=&#39;time&#39;\u003e21:16\u003c/var\u003e - \u003cvar data-var=&#39;time&#39;\u003e22:08\u003c/var\u003e UTC&quot;},{&quot;code&quot;:&quot;1dk955gg3bvz&quot;,&quot;name&quot;:&quot;Disruption with billing information updates&quot;,&quot;message&quot;:&quot;Beginning on September 22, 2026 at 11:51 UTC, approximately 1,700 users experienced delays and errors when adding or updating billing address information because requests to the address validation service timed out or failed. Within the affected address validation flow, requests failed at an average rate of 69.3%, reaching 100% at peak. \u003cbr\u003e\u003cbr\u003eAn operating system upgrade exposed a compatibility issue in an adapter used by our HTTP client library, causing requests to stall. A subsequent change to shorten request timeouts caused stalled requests to return connection errors and increased the failure rate. \u003cbr\u003e\u003cbr\u003eWe mitigated the incident on September 24, 2026 at 20:24 UTC by changing the HTTP client used for address validation. We have added alerting to detect similar issues sooner and are extending the fix to other integrations.&quot;,&quot;impact&quot;:&quot;minor&quot;,&quot;timestamp&quot;:&quot;Sep \u003cvar data-var=&#39;date&#39;\u003e24\u003c/var\u003e, \u003cvar data-var=&#39;time&#39;\u003e16:51\u003c/var\u003e - \u003cvar data-var=&#39;time&#39;\u003e20:41\u003c/var\u003e UTC&quot;},{&quot;code&quot;:&quot;8zc63m64hy36&quot;,&quot;name&quot;:&quot;Incident across several services&quot;,&quot;message&quot;:&quot;Starting at 07:57 UTC on September 23, GitHub experienced elevated 500 and 404 responses across several application pages. This caused failures when installing GitHub Apps, creating organizations, and making some organization membership changes. Customers also experienced delayed label updates and stale search results in Projects. \u003cbr\u003e\u003cbr\u003eThe infrastructure failure was isolated to our Azure Central US region. The API errors were mitigated by 10:58 UTC on September 23. Projects&#39; processing continued to recover while an accumulated backlog was drained, and full service was restored at 04:55 UTC on September 24. \u003cbr\u003e\u003cbr\u003eThe incident was caused by a failed planned maintenance operation on a primary database. Automated recovery initiated an emergency database failover, after which several replicas in the affected region were unable to resume replication correctly. This reduced available database capacity and caused the API errors and downstream Projects processing delays. \u003cbr\u003e\u003cbr\u003eWe have mitigated the immediate failure mode. We are also improving maintenance safety checks, database failover handling, post-failover replica validation, and downstream processing resilience to reduce the likelihood and impact of similar incidents.&quot;,&quot;impact&quot;:&quot;minor&quot;,&quot;timestamp&quot;:&quot;Sep \u003cvar data-var=&#39;date&#39;\u003e23\u003c/var\u003e, \u003cvar data-var=&#39;time&#39;\u003e10:11\u003c/var\u003e - Sep \u003cvar data-var=&#39;date&#39;\u003e24\u003c/var\u003e, \u003cvar data-var=&#39;time&#39;\u003e04:55\u003c/var\u003e UTC&quot;},{&quot;code&quot;:&quot;f6yrxnz5f7bs&quot;,&quot;name&quot;:&quot;Incident with Pull Requests&quot;,&quot;message&quot;:&quot;On September 20, 2026, between 21:46 and 22:24 UTC the Pull Requests service was degraded and pull request merge and test-merge commits were created late, with delays reaching approximately four minutes at peak. Merge commits were delayed rather than lost. Because some Actions workflow runs start only after a pull request&#39;s merge commit is created, a subset of workflow runs for pull request events were also delayed. \u003cbr\u003e\u003cbr\u003eThis was due to a routine repository maintenance job for an unusually large repository consuming nearly all of the memory on a single Git storage server, which left that server unable to serve the Git operations used to create merge commits. \u003cbr\u003e\u003cbr\u003eWe mitigated the incident by removing the affected server from service at 22:18 UTC, after which the queued merge commits were created within six minutes. \u003cbr\u003e\u003cbr\u003eWe have capped the memory a single repository maintenance job may consume so that one repository cannot exhaust a server, and we have improved monitoring and alerting on storage server health to reduce our time to detection and mitigation of issues like this one in the future.&quot;,&quot;impact&quot;:&quot;minor&quot;,&quot;timestamp&quot;:&quot;Sep \u003cvar data-var=&#39;date&#39;\u003e20\u003c/var\u003e, \u003cvar data-var=&#39;time&#39;\u003e22:13\u003c/var\u003e - \u003cvar data-var=&#39;time&#39;\u003e23:22\u003c/var\u003e UTC&quot;},{&quot;code&quot;:&quot;nvy2q96mcmyg&quot;,&quot;name&quot;:&quot;Elevated rate of errors for OpenAI models provided by Copilot&quot;,&quot;message&quot;:&quot;Between 20:26 and 21:17 UTC on September 17, 2026, GitHub Copilot experienced degradation affecting several GPT models, including GPT-5.6 Luna, GPT-5.6 Terra, GPT-5.6 Sol, GPT-5.3-Codex, and GPT-6 Astra. Users encountered elevated error rates when using these models.\u003cbr\u003e\u003cbr\u003eThe degradation was caused by an issue with an upstream model provider. GitHub engineers detected the issue through automated monitoring and coordinated with the provider. Our automated model-warning system activated in-product warnings for affected models during the incident. Service returned to normal after the provider implemented a mitigation.&quot;,&quot;impact&quot;:&quot;minor&quot;,&quot;timestamp&quot;:&quot;Sep \u003cvar data-var=&#39;date&#39;\u003e17\u003c/var\u003e, \u003cvar data-var=&#39;time&#39;\u003e20:59\u003c/var\u003e - \u003cvar data-var=&#39;time&#39;\u003e21:49\u003c/var\u003e UTC&quot;},{&quot;code&quot;:&quot;nlxnbqnkdzdl&quot;,&quot;name&quot;:&quot;Degradation with Gemini 3.8 Flash&quot;,&quot;message&quot;:&quot;On September 16, 2026, between 04:40 and 11:45 UTC, the Gemini 3.8 Flash model in GitHub Copilot experienced degraded availability. Requests to this model failed at an average rate of 6.4%, and the impact was highest during peak traffic hours. Other Copilot models were not affected. Users could continue to work with a different model or with &#39;Auto&#39;.\u003cbr\u003e\u003cbr\u003eThe degradation was caused due to a capacity issue with an upstream model provider. Failure rates returned to normal as the daily traffic peak passed. We monitored the model until it was healthy and resolved the incident at 17:48 UTC. We are working to make our systems resilient to cover peak demand for all the Copilot models.&quot;,&quot;impact&quot;:&quot;major&quot;,&quot;timestamp&quot;:&quot;Sep \u003cvar data-var=&#39;date&#39;\u003e16\u003c/var\u003e, \u003cvar data-var=&#39;time&#39;\u003e07:21\u003c/var\u003e - \u003cvar data-var=&#39;time&#39;\u003e17:48\u003c/var\u003e UTC&quot;},{&quot;code&quot;:&quot;bk7zgdcq7s9t&quot;,&quot;name&quot;:&quot;Disruption with some GitHub services&quot;,&quot;message&quot;:&quot;On September 15, 2026 between 15:30 and 20:00 UTC, some Copilot code reviews on pull requests failed to complete. The cause was increased latency in an internal caching service that GitHub Copilot Code Review relies on to coordinate its review jobs. This caused a timeout in lock acquisition, which interrupted the job. We reverted the change to the internal caching service and restored normal operation by 20:00 UTC.\u003cbr\u003e\u003cbr\u003eWe sincerely apologize for the disruption.&quot;,&quot;impact&quot;:&quot;minor&quot;,&quot;timestamp&quot;:&quot;Sep \u003cvar data-var=&#39;date&#39;\u003e15\u003c/var\u003e, \u003cvar data-var=&#39;time&#39;\u003e19:11\u003c/var\u003e - \u003cvar data-var=&#39;time&#39;\u003e20:00\u003c/var\u003e UTC&quot;},{&quot;code&quot;:&quot;qwdwmtqghpk5&quot;,&quot;name&quot;:&quot;Disruption with some GitHub services&quot;,&quot;message&quot;:&quot;On September 15, 2026, between 05:45 and 09:50 UTC, the Claude Fable 5.1 model in GitHub Copilot experienced intermittently degraded availability, with an average error rate of 2.8%. During brief recurring 15 minute periods that recurred every ~45 minutes, availability for Claude Fable 5.1 dropped to a maximum of ~40% before recovering completely. Other Copilot models were not affected. Users could continue to work with a different model or with &#39;Auto&#39;.\u003cbr\u003e\u003cbr\u003eThe cause was an issue with an upstream model provider that intermittently rejected requests while overloaded. GitHub worked with the provider, who acknowledged and then resolved the underlying issue at 9:50 UTC, after which the model returned to constant normal availability. Once recovery was guaranteed, we resolved the incident at 11:17 UTC.\u003cbr\u003e\u003cbr\u003eTo reduce the chance of recurrence and customer impact, GitHub is reviewing per-model availability alerting and automatic in-product fallback so that requests to a degraded model can shift to a healthy alternative more quickly.&quot;,&quot;impact&quot;:&quot;minor&quot;,&quot;timestamp&quot;:&quot;Sep \u003cvar data-var=&#39;date&#39;\u003e15\u003c/var\u003e, \u003cvar data-var=&#39;time&#39;\u003e09:47\u003c/var\u003e - \u003cvar data-var=&#39;time&#39;\u003e11:17\u003c/var\u003e UTC&quot;},{&quot;code&quot;:&quot;kzh5j0mt7qwc&quot;,&quot;name&quot;:&quot;Actions Larger Runner Jobs for some customers may be slow to start&quot;,&quot;message&quot;:&quot;On September 14, 2026, between 16:10 and 19:01 UTC, some customers using GitHub Actions larger runners experienced longer-than-normal wait times for jobs to start. During this period, \u003cb\u003e5.7%\u003c/b\u003e of larger-runner jobs were affected. \u003cbr\u003e\u003cbr\u003eA routine expansion of our compute capacity exposed a bug in how our provisioning system handled capacity records when selecting where to create runner virtual machines. This slowed the creation of new runners, leaving insufficient runner capacity to start affected jobs promptly. \u003cbr\u003e\u003cbr\u003eWe restored normal provisioning by correcting the affected capacity records. We have fixed the underlying capacity-selection bug to prevent this failure from recurring. We have also added alerts for VM-record creation failures associated with this capacity issue.&quot;,&quot;impact&quot;:&quot;minor&quot;,&quot;timestamp&quot;:&quot;Sep \u003cvar data-var=&#39;date&#39;\u003e14\u003c/var\u003e, \u003cvar data-var=&#39;time&#39;\u003e18:40\u003c/var\u003e - \u003cvar data-var=&#39;time&#39;\u003e19:35\u003c/var\u003e UTC&quot;},{&quot;code&quot;:&quot;0rn90wk115q9&quot;,&quot;name&quot;:&quot;Incident with several GitHub Services&quot;,&quot;message&quot;:&quot;On September 13, 2026, between 08:43 and 10:44 UTC, GitHub experienced degraded availability across approximately 28 services, including Issues, Pull Requests, Actions, Codespaces, Pages, Notifications, Code Scanning, Git LFS, and new account signup.  At peak, 8.8% of requests to create GitHub App installation access tokens failed. Token issuance for Actions workflows was also affected, impacting approximately 4% of workflows during the incident time frame. Creating issues through the web interface failed for about 96% of attempts, and signup failures were above 90%.  \u003cbr\u003e \u003cbr\u003eThe cause was an internal data-cleanup job that began writing to a shared database cluster at 07:33 UTC. That cluster stores permission data read on nearly every authenticated request. The safeguard that was pacing the background job watched only one health signal — how far the database replicas were lagging — and that signal stayed low the whole time. It did not account for the load building on the primary itself, so the job kept writing while the primary quietly ran toward its limit. \u003cbr\u003e\u003cbr\u003eWhen the primary ran out of available connections, requests that needed it could not complete. First, there was no quick timeout on these database calls, so request handlers waited on the stalled database instead of failing fast, and the shared request-handling capacity degraded into site-wide errors. Second, a retry loop around token creation kept re-sending the writes that were already failing, which held the database saturated rather than letting it recover. \u003cbr\u003e\u003cbr\u003eMonitoring declared the incident at 08:50 UTC, but due to the broad impact and amplification from token creation, it took time to identify the source of the load. First responders mitigated by shedding internal load and pausing the job, and all services recovered by 10:44 UTC. \u003cbr\u003e\u003cbr\u003eTo prevent recurrence, we are rate-limiting background jobs against shared, customer-serving databases by default, and adding automatic pausing and paging on primary-server load rather than replication lag alone. We are also surfacing running background work directly alongside database health signals so responders can see and pause it without leaving those dashboards, bounding retries in the token-issuing path, and adding request-level timeouts so one unhealthy database cannot consume shared web server capacity. In addition, we are breaking apart this database cluster to remove the single point of failure. We will be moving various service-specific data, including the authorization data, out of this shared cluster in the next two weeks.&quot;,&quot;impact&quot;:&quot;critical&quot;,&quot;timestamp&quot;:&quot;Sep \u003cvar data-var=&#39;date&#39;\u003e13\u003c/var\u003e, \u003cvar data-var=&#39;time&#39;\u003e09:16\u003c/var\u003e - \u003cvar data-var=&#39;time&#39;\u003e10:44\u003c/var\u003e UTC&quot;},{&quot;code&quot;:&quot;zw1hbx2yyhvr&quot;,&quot;name&quot;:&quot;Disruption with Copilot Code Review&quot;,&quot;message&quot;:&quot;On September 4, 2026, between 20:04 and 22:26 UTC, GitHub Copilot code review experienced an increased failure rate. Affected pull request reviews failed to complete or post review comments.\u003cbr\u003e\u003cbr\u003eThe incident was caused by a change to the service’s authentication permissions that prevented it from submitting affected reviews to the GitHub API. We reverted the change and restored normal operation by 22:26 UTC.\u003cbr\u003e\u003cbr\u003eWe apologize for the disruption.&quot;,&quot;impact&quot;:&quot;major&quot;,&quot;timestamp&quot;:&quot;Sep \u003cvar data-var=&#39;date&#39;\u003e4\u003c/var\u003e, \u003cvar data-var=&#39;time&#39;\u003e20:39\u003c/var\u003e - \u003cvar data-var=&#39;time&#39;\u003e22:26\u003c/var\u003e UTC&quot;},{&quot;code&quot;:&quot;r05vk75c594j&quot;,&quot;name&quot;:&quot;Degradation in repos contents API&quot;,&quot;message&quot;:&quot;On September 4, 2026, between approximately 21:45 and 22:07 UTC, some users experienced errors and elevated latency for repository operations. The incident was fully resolved at 22:23 UTC.\u003cbr\u003e\u003cbr\u003eThe cause was a capacity change that spread one of our clusters across additional availability zones; our zone-aware traffic routing kept sending requests to the original zone for performance, overloading a small set of servers while the new capacity sat idle. We resolved the incident by reverting the change and letting traffic rebalance.\u003cbr\u003e\u003cbr\u003eWe are improving per-zone capacity guarantees, cross-zone load-shedding, and pre-production testing of multi-zone changes to prevent recurrence.&quot;,&quot;impact&quot;:&quot;minor&quot;,&quot;timestamp&quot;:&quot;Sep \u003cvar data-var=&#39;date&#39;\u003e4\u003c/var\u003e, \u003cvar data-var=&#39;time&#39;\u003e22:02\u003c/var\u003e - \u003cvar data-var=&#39;time&#39;\u003e22:23\u003c/var\u003e UTC&quot;},{&quot;code&quot;:&quot;ktdr5t0xwnhp&quot;,&quot;name&quot;:&quot;Incident with Grok Copilot AI Model Provider&quot;,&quot;message&quot;:&quot;Between 13:22 and 17:11 UTC on September 03, 2026, GitHub Copilot experienced degradation affecting several Grok models, including Grok 4.5 and Grok 4.6. Users encountered elevated error rates, but other models were not affected. The degradation was caused by an issue with an upstream model provider. GitHub engineers detected the issue through automated monitoring, displayed in-product warnings for the affected models, and coordinated with the provider. Service returned to normal after the provider implemented a mitigation.&quot;,&quot;impact&quot;:&quot;minor&quot;,&quot;timestamp&quot;:&quot;Sep \u003cvar data-var=&#39;date&#39;\u003e3\u003c/var\u003e, \u003cvar data-var=&#39;time&#39;\u003e14:17\u003c/var\u003e - \u003cvar data-var=&#39;time&#39;\u003e17:11\u003c/var\u003e UTC&quot;},{&quot;code&quot;:&quot;jk2dy5h9yp3m&quot;,&quot;name&quot;:&quot;Delays in commit processing&quot;,&quot;message&quot;:&quot;On September 1, 2026, between approximately 14:01 and 16:01 UTC, updates in response to pushes were delayed, temporarily showing stale diffs. The median time to refresh a diff after a push rose from the normal level of about 3 seconds to over 2 minutes at the peak, and more than 140,000 customer accounts had at least one delayed refresh during the most affected 75 minutes. Pushing commits and opening pull requests continued to work normally. The incident was caused by a sharp, concentrated surge in push volume that saturated worker pools and job queueing infrastructure. Autoscaling did not increase capacity as intended, so the backlog did not clear on its own. \u003cbr\u003e\u003cbr\u003eThe incident was mitigated by manually scaling the affected worker pools and increasing push-processing capacity. This allowed the system to process the backlog, after which refresh times returned to normal. To reduce the likelihood and impact of similar incidents, we are adding quotas and throttling earlier in the push path so a single concentrated source of load cannot saturate shared capacity, improving worker-pool autoscaling so capacity is added automatically, and improving monitors for background job processing so on-call is paged before customers experience delayed pull request updates.&quot;,&quot;impact&quot;:&quot;minor&quot;,&quot;timestamp&quot;:&quot;Sep \u003cvar data-var=&#39;date&#39;\u003e1\u003c/var\u003e, \u003cvar data-var=&#39;time&#39;\u003e15:00\u003c/var\u003e - \u003cvar data-var=&#39;time&#39;\u003e16:01\u003c/var\u003e UTC&quot;}]}],&quot;show_component_filter&quot;:false,&quot;show_uptime_calendar&quot;:true,&quot;component_filter&quot;:null,&quot;start_time&quot;:&quot;2026-09-01T00:00:00Z&quot;,&quot;end_time&quot;:&quot;2026-11-30T23:59:59Z&quot;,&quot;a11yHeadings&quot;:true,&quot;a11yRolesErb&quot;:false}"></div>
+
+    <div class="page-footer border-color font-small">
+  <a href="/" aria-label="Back to current status">
+    <span class="current-status-arrow">&larr;</span> Current Status
+  </a>
+  <span class="color-secondary powered-by"><a class="color-secondary" target="_blank" rel="noopener noreferrer nofollow" href="https://www.atlassian.com/software/statuspage?utm_campaign=www.githubstatus.com&amp;utm_content=SP-notifications&amp;utm_medium=powered-by&amp;utm_source=inapp">Powered by Atlassian Statuspage</a></span>
+</div>
+
+  </div>
+
+
+  
+</div>
+
+
+    <script src="https://dka575ofm4ao0.cloudfront.net/assets/status_manifest-b790849ccb41192b3f7d9c14d5a4a6d5142add81fc8522649ca5c82f6a1fbb0e.js"></script>
+    <div id="cpt-notification-container" role="status" aria-live="polite" aria-atomic="true"></div>
+    
+
+
+
+
+    <!-- all of the content_for stuff -->
+      <script src="https://dka575ofm4ao0.cloudfront.net/assets/register_subscription_form-589b657fec607087fc5c740c568270907310bc4f6aaa20256e70f01b103025ca.js"></script>
+
+  <script type="text/javascript">
+      $(function() {
+          SP.currentPage.registerSubscriptionForm('email');
+
+          SP.currentPage.registerSubscriptionForm('sms');
+
+          SP.currentPage.registerSubscriptionForm('webhook');
+
+      });
+
+
+
+
+
+  </script>
+    <script src="https://dka575ofm4ao0.cloudfront.net/assets/status_common-36e1f93264b3b3c01ece0f57482daed320c8c89a71ce969a9b85f0a483eb2cfc.js"></script>
+      <div class="custom-footer-container">
+    <div class="footer mt-6 border-top" role="contentinfo">
+  <img src="https://user-images.githubusercontent.com/19292210/60553864-044dd200-9cea-11e9-996a-a7a316ec3a35.png"
+    class="illo-mobile-footer" alt="GitHub footer">
+
+  <div class="container-lg p-responsive">
+    <div class="d-flex flex-wrap py-5 mb-5">
+      <section class="col-12 col-lg-4 mb-5">
+        <a href="https://github.com/" data-ga-click="Footer, go to GitHub, text:GitHub" class="text-gray-dark"
+          aria-label="GitHub text logo">
+          <svg class="octicon octicon-logo-github" width="90" height="32" viewBox="0 0 416 95" fill="none"
+            xmlns="http://www.w3.org/2000/svg">
+            <g clip-path="url(#clip0_730_27128)">
+              <path
+                d="M41.6394 69.3848C29.0066 67.8535 20.1062 58.7617 20.1062 46.9902C20.1062 42.2051 21.8289 37.0371 24.7 33.5918C23.4558 30.4336 23.6472 23.7344 25.0828 20.959C28.9109 20.4805 34.0789 22.4902 37.1414 25.2656C40.7781 24.1172 44.6062 23.543 49.2957 23.543C53.9851 23.543 57.8132 24.1172 61.2585 25.1699C64.2253 22.4902 69.489 20.4805 73.3171 20.959C74.657 23.543 74.8484 30.2422 73.6042 33.4961C76.6667 37.1328 78.2937 42.0137 78.2937 46.9902C78.2937 58.7617 69.3933 67.6621 56.5691 69.2891C59.823 71.3945 62.0242 75.9883 62.0242 81.252L62.0242 91.2051C62.0242 94.0762 64.4167 95.7031 67.2878 94.5547C84.6101 87.9512 98.2 70.6289 98.2 49.1914C98.2 22.1074 76.1882 6.69539e-07 49.1042 4.309e-07C22.0203 1.92261e-07 0.199951 22.1074 0.199951 49.1914C0.199951 70.4375 13.6941 88.0469 31.8777 94.6504C34.4617 95.6074 36.95 93.8848 36.95 91.3008L36.95 83.6445C35.6101 84.2188 33.8875 84.6016 32.3562 84.6016C26.0398 84.6016 22.3074 81.1563 19.6277 74.7441C18.575 72.1602 17.4265 70.6289 15.2253 70.3418C14.0769 70.2461 13.6941 69.7676 13.6941 69.1934C13.6941 68.0449 15.6082 67.1836 17.5222 67.1836C20.2976 67.1836 22.6902 68.9063 25.1785 72.4473C27.0925 75.2227 29.1023 76.4668 31.4949 76.4668C33.8875 76.4668 35.4187 75.6055 37.6199 73.4043C39.2468 71.7773 40.491 70.3418 41.6394 69.3848Z"
+                fill="#24292e" />
+              <g clip-path="url(#clip1_730_27128)">
+                <path
+                  d="M188.937 83.0045L188.937 33.2827L202.915 33.2827L202.915 83.0045L188.937 83.0045ZM230.016 83.0045C220.727 83.0045 217.099 79.0232 217.099 70.6183L217.099 44.9611L208.252 44.9611L208.252 33.2827L217.099 33.2827L217.099 23.3737L231.078 20.1002L231.078 33.2827L241.429 33.2827L241.429 44.9611L231.078 44.9611L231.078 67.5217C231.078 70.2644 232.317 71.3261 235.059 71.3261L241.429 71.3261L241.429 83.0045L230.016 83.0045ZM327.47 83.8892C316.588 83.8892 310.66 77.8731 310.66 66.9024L310.66 33.2827L324.728 33.2827L324.728 63.1866C324.728 69.2912 327.47 72.6532 332.69 72.6532C338.706 72.6532 343.307 67.0794 343.307 59.4707L343.307 33.2827L357.374 33.2827L357.374 83.0045L343.307 83.0045L343.307 74.5996C340.653 79.9964 334.283 83.8892 327.47 83.8892ZM394.613 83.8892C387.832 83.8892 381.639 79.9964 378.687 74.4226L378.687 83.0045L364.709 83.0045L364.709 13.6417L378.776 13.6417L378.776 42.3954C381.639 36.3792 388.098 32.1325 394.613 32.1325C408.181 32.1325 415.348 41.5107 414.873 58.0551C415.348 74.4226 407.916 83.8892 394.613 83.8892ZM389.658 72.1223C396.945 72.1223 400.926 66.7255 400.452 58.0551C400.926 49.2963 396.945 43.8994 389.658 43.8994C383.851 43.8994 379.251 49.5617 378.776 57.3473L378.776 58.1436C379.251 66.1946 383.851 72.1223 389.658 72.1223ZM288.734 13.6417L288.734 41.7761L262.369 41.7761L262.369 13.6417L247.329 13.6417L247.329 83.0045L262.369 83.0045L262.369 55.224L288.734 55.224L288.734 83.0045L303.775 83.0045L303.775 13.6417L288.734 13.6417ZM150.628 84.3316C130.102 84.3316 117.185 70.2644 117.185 48.2346C117.185 26.2048 130.368 12.3146 151.247 12.3146C168.234 12.3146 178.497 19.5693 181.77 31.7786L166.553 35.406C164.695 28.7705 159.387 25.1431 151.247 25.1431C139.126 25.1431 132.579 33.1057 132.579 48.2346C132.579 63.3635 138.949 71.503 150.893 71.503C161.864 71.503 168.411 64.7791 168.411 53.366L168.411 50.7119L172.304 56.1087L149.655 56.1087L149.655 43.3686L183.628 43.3686L183.628 51.4196C183.628 72.5647 171.331 84.3316 150.628 84.3316ZM195.926 28.5936C200.615 28.5936 204.243 24.9662 204.243 20.2771C204.243 15.5881 200.615 11.9607 195.926 11.9607C191.237 11.9607 187.61 15.5881 187.61 20.2771C187.61 24.9662 191.237 28.5936 195.926 28.5936Z"
+                  fill="#24292e" />
+              </g>
+            </g>
+            <defs>
+              <clipPath id="clip0_730_27128">
+                <rect width="416" height="95" fill="white" />
+              </clipPath>
+              <clipPath id="clip1_730_27128">
+                <rect width="298.068" height="75.9408" fill="white" transform="translate(117.185 9.49258)" />
+              </clipPath>
+            </defs>
+          </svg>
+        </a>
+
+        <h3 class="h5 mt-4 mb-0" id="subscribe-to-newsletter">Subscribe to our developer newsletter</h3>
+        <p class="f5 color-fg-muted mb-3">Get tips, technical guides, and best practices. Twice a month. Right in your
+          inbox.</p>
+        <a href="https://resources.github.com/newsletter/" class="btn btn-muted mb-4">Subscribe</a>
+      </section>
+
+      <nav class="col-6 col-sm-3 col-lg-2 mb-6 mb-md-2 pr-3 pr-lg-0 pl-lg-4" aria-labelledby="footer-title-product">
+        <h3 class="h5 mb-3 text-mono color-fg-muted text-normal" id="footer-title-product">Product</h3>
+        <ul class="list-style-none color-fg-muted f5">
+          <li class="lh-condensed mb-3"><a href="https://github.com/features"
+              data-ga-click="Footer, go to features, text:features" class="link-gray">Features</a></li>
+          <li class="lh-condensed mb-3"><a href="https://github.com/enterprise"
+              data-ga-click="Footer, go to enterprise, text:enterprise" class="link-gray">Enterprise</a></li>
+          <li class="lh-condensed mb-3"><a href="https://github.com/features/copilot"
+              data-ga-click="Footer, go to copilot, text:copilot" class="link-gray">Copilot</a></li>
+          <li class="lh-condensed mb-3"><a href="https://github.com/security"
+              data-ga-click="Footer, go to security, text:security" class="link-gray">Security</a></li>
+          <li class="lh-condensed mb-3"><a href="https://github.com/pricing"
+              data-ga-click="Footer, go to pricing, text:pricing" class="link-gray">Pricing</a></li>
+          <li class="lh-condensed mb-3"><a href="https://github.com/team" data-ga-click="Footer, go to team, text:team"
+              class="link-gray">Team</a></li>
+          <li class="lh-condensed mb-3"><a href="https://resources.github.com"
+              data-ga-click="Footer, go to resources, text:resources" class="link-gray">Resources</a></li>
+          <li class="lh-condensed mb-3"><a href="https://github.com/github/roadmap"
+              data-ga-click="Footer, go to roadmap, text:roadmap" class="link-gray">Roadmap</a></li>
+          <li class="lh-condensed mb-3"><a href="https://github.com/resources/articles/devops-tools-comparison"
+              data-ga-click="Footer, go to compare, text:compare" class="link-gray">Compare GitHub</a></li>
+        </ul>
+      </nav>
+
+      <nav class="col-6 col-sm-3 col-lg-2 mb-6 mb-md-2 pr-3 pr-md-0 pl-md-4" aria-labelledby="footer-title-platform">
+        <h3 class="h5 mb-3 text-mono color-fg-muted text-normal" id="footer-title-platform">Platform</h3>
+        <ul class="list-style-none f5">
+          <li class="lh-condensed mb-3"><a
+              href="https://docs.github.com/get-started/exploring-integrations/about-building-integrations"
+              data-ga-click="Footer, go to api, text:api" class="link-gray">Developer API</a></li>
+          <li class="lh-condensed mb-3"><a href="https://partner.github.com"
+              data-ga-click="Footer, go to partners, text:partners" class="link-gray">Partners</a></li>
+          <li class="lh-condensed mb-3"><a href="https://github.com/edu"
+              data-ga-click="Footer, go to education, text:education" class="link-gray">Education</a></li>
+          <li class="lh-condensed mb-3"><a href="https://cli.github.com"
+              data-ga-click="Footer, go to github cli, text:cli" class="link-gray">GitHub CLI</a></li>
+          <li class="lh-condensed mb-3"><a href="https://desktop.github.com"
+              data-ga-click="Footer, go to github desktop, text:desktop" class="link-gray">GitHub Desktop</a></li>
+          <li class="lh-condensed mb-3"><a href="https://github.com/mobile"
+              data-ga-click="Footer, go to github mobile, text:mobile" class="link-gray">GitHub Mobile</a></li>
+        </ul>
+      </nav>
+
+      <nav class="col-6 col-sm-3 col-lg-2 mb-6 mb-md-2 pr-3 pr-md-0 pl-md-4" aria-labelledby="footer-title-support">
+        <h3 class="h5 mb-3 text-mono color-fg-muted text-normal" id="footer-title-support">Support</h3>
+        <ul class="list-style-none f5">
+          <li class="lh-condensed mb-3"><a href="https://docs.github.com" data-ga-click="Footer, go to docs, text:docs"
+              class="link-gray">Docs</a></li>
+          <li class="lh-condensed mb-3"><a href="https://github.community"
+              data-ga-click="Footer, go to community, text:community" class="link-gray">Community Forum</a></li>
+          <li class="lh-condensed mb-3"><a href="https://services.github.com"
+              data-ga-click="Footer, go to services, text:services" class="link-gray">Professional Services</a></li>
+          <li class="lh-condensed mb-3"><a href="https://skills.github.com"
+              data-ga-click="Footer, go to skills, text:skills" class="link-gray">Skills</a></li>
+          <li class="lh-condensed mb-3"><a href="https://support.github.com?tags=dotcom-footer"
+              data-ga-click="Footer, go to support, text:support" class="link-gray">Contact GitHub</a></li>
+        </ul>
+      </nav>
+
+      <nav class="col-6 col-sm-3 col-lg-2 mb-6 mb-md-2 pr-3 pr-md-0 pl-md-4" aria-labelledby="footer-title-company">
+        <h3 class="h5 mb-3 text-mono color-fg-muted text-normal" id="footer-title-company">Company</h3>
+        <ul class="list-style-none f5">
+          <li class="lh-condensed mb-3"><a href="https://github.com/about/"
+              data-ga-click="Footer, go to support, text:support" class="link-gray">About</a></li>
+          <li class="lh-condensed mb-3"><a href="https://github.com/customer-stories?type=enterprise"
+              data-ga-click="Footer, go to customer-stories, text:customer-stories" class="link-gray">Customer
+              stories</a></li>
+          <li class="lh-condensed mb-3"><a href="https://github.blog/" data-ga-click="Footer, go to blog, text:blog"
+              class="link-gray">Blog</a></li>
+          <li class="lh-condensed mb-3"><a href="https://github.com/readme"
+              data-ga-click="Footer, go to readme, text:readme" class="link-gray">The ReadME Project</a></li>
+          <li class="lh-condensed mb-3"><a href="https://github.careers/"
+              data-ga-click="Footer, go to careers, text:careers" class="link-gray">Careers</a></li>
+          <li class="lh-condensed mb-3"><a href="https://github.com/newsroom"
+              data-ga-click="Footer, go to newsroom, text:newsroom" class="link-gray">Newsroom</a></li>
+          <li class="lh-condensed mb-3"><a href="https://github.com/about/diversity"
+              data-ga-click="Footer, go to diversity, text:diversity" class="link-gray">Inclusion</a></li>
+          <li class="lh-condensed mb-3"><a href="https://socialimpact.github.com/"
+              data-ga-click="Footer, go to socialimpact, text:socialimpact" class="link-gray">Social Impact</a></li>
+          <li class="lh-condensed mb-3"><a href="https://shop.github.com/" data-ga-click="Footer, go to shop, text:shop"
+              class="link-gray">Shop</a></li>
+        </ul>
+      </nav>
+    </div>
+  </div>
+
+  <div class="color-bg-subtle">
+    <div class="container-lg p-responsive f6 py-4 d-md-flex flex-justify-between flex-items-center">
+      <nav aria-label="Legal and Resource Links">
+        <ul class="list-style-none d-flex flex-wrap text-gray">
+          <li class="mr-3">&copy;
+            <script>document.write(new Date().getFullYear());</script> GitHub, Inc.
+          </li>
+          <li class="mr-3"><a href="https://docs.github.com/site-policy/github-terms/github-terms-of-service/"
+              data-ga-click="Footer, go to terms, text:terms" class="link-gray">Terms</a></li>
+          <li class="mr-3"><a href="https://help.github.com/articles/github-privacy-statement/"
+              data-ga-click="Footer, go to privacy, text:privacy" class="link-gray">Privacy</a> (<a
+              href="https://github.com/github/site-policy/pull/582" class="link-gray">Updated <time
+                datetime="2022-08">08/2022</time></a>)</li>
+        </ul>
+      </nav>
+
+      <nav aria-label="GitHub's Social Media Links" class="mt-3 mt-md-0">
+        <ul class="list-style-none d-flex flex-wrap">
+          <li class="mr-3"><a href="https://x.com/github" data-ga-click="Footer, go to Twitter, text:twitter"
+              aria-label="GitHub X" style="color: #959da5;">
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" class="d-block" height="20" width="20"
+                role="img">
+                <title>GitHub X</title>
+                <path fill="currentColor"
+                  d="M14.28 10.38L23.2 0h-2.1L13.8 9.02L7.14 0H0l10.13 14.7L0 25.5h2.1l7.64-9.38l6.9 9.38H23.2L12.72 10.38zM3.06 1.62h2.76L20.94 23.9h-2.76L3.06 1.62z" />
+              </svg>
+            </a></li>
+          <li class="mr-3"><a href="https://www.facebook.com/GitHub"
+              data-ga-click="Footer, go to Facebook, text:facebook" aria-label="GitHub Facebook"
+              style="color: #959da5;">
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" class="d-block" height="20" width="20"
+                role="img">
+                <title>GitHub Facebook</title>
+                <path fill="currentColor"
+                  d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z" />
+              </svg>
+            </a></li>
+          <li class="mr-3"><a href="https://www.linkedin.com/company/github"
+              data-ga-click="Footer, go to Linkedin, text:linkedin" aria-label="GitHub LinkedIn"
+              style="color: #959da5;">
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" class="d-block" height="20" width="20"
+                role="img">
+                <title>GitHub LinkedIn</title>
+                <path fill="currentColor"
+                  d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z" />
+              </svg>
+            </a></li>
+          <li class="mr-3"><a href="https://www.youtube.com/github" data-ga-click="Footer, go to YouTube, text:youtube"
+              aria-label="GitHub YouTube" style="color: #959da5;">
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" class="d-block" height="20" width="20"
+                role="img">
+                <title>GitHub YouTube</title>
+                <path fill="currentColor"
+                  d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z" />
+              </svg>
+            </a></li>
+          <li class="mr-3"><a href="https://www.twitch.tv/github" data-ga-click="Footer, go to Twitch, text:twitch"
+              aria-label="Twitch" style="color: #959da5;">
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" class="d-block" height="20" width="20"
+                role="img">
+                <title>Twitch</title>
+                <path fill="currentColor"
+                  d="M11.571 4.714h1.715v5.143H11.57zm4.715 0H18v5.143h-1.714zM6 0L1.714 4.286v15.428h5.143V24l4.286-4.286h3.428L22.286 12V0zm14.571 11.143l-3.428 3.428h-3.429l-3 3v-3H6.857V1.714h13.714z" />
+              </svg>
+            </a></li>
+          <li class="mr-3"><a href="https://www.tiktok.com/@github" data-ga-click="Footer, go to TikTok, text:tiktok"
+              aria-label="TikTok" style="color: #959da5;">
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" class="d-block" height="20" width="20"
+                role="img">
+                <title>TikTok</title>
+                <path fill="currentColor"
+                  d="M12.525.02c1.31-.02 2.61-.01 3.91-.02.08 1.53.63 3.09 1.75 4.17 1.12 1.11 2.7 1.62 4.24 1.79v4.03c-1.44-.05-2.89-.35-4.2-.97-.57-.26-1.1-.59-1.62-.93-.01 2.92.01 5.84-.02 8.75-.08 1.4-.54 2.79-1.35 3.94-1.31 1.92-3.58 3.17-5.91 3.21-1.43.08-2.86-.31-4.08-1.03-2.02-1.19-3.44-3.37-3.65-5.71-.02-.5-.03-1-.01-1.49.18-1.9 1.12-3.72 2.58-4.96 1.66-1.44 3.98-2.13 6.15-1.72.02 1.48-.04 2.96-.04 4.44-.99-.32-2.15-.23-3.02.37-.63.41-1.11 1.04-1.36 1.75-.21.51-.15 1.07-.14 1.61.24 1.64 1.82 3.02 3.5 2.87 1.12-.01 2.19-.66 2.77-1.61.19-.33.4-.67.41-1.06.1-1.79.06-3.57.07-5.36.01-4.03-.01-8.05.02-12.07z" />
+              </svg>
+            </a></li>
+          <li class="mr-3"><a href="https://github.com/github" data-ga-click="Footer, go to github's org, text:github"
+              aria-label="GitHub.com" style="color: #959da5;">
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" class="d-block" height="20" width="20"
+                role="img">
+                <title>GitHub.com</title>
+                <path fill="currentColor"
+                  d="M12 .297c-6.63 0-12 5.373-12 12 0 5.303 3.438 9.8 8.205 11.385.6.113.82-.258.82-.577 0-.285-.01-1.04-.015-2.04-3.338.724-4.042-1.61-4.042-1.61C4.422 18.07 3.633 17.7 3.633 17.7c-1.087-.744.084-.729.084-.729 1.205.084 1.838 1.236 1.838 1.236 1.07 1.835 2.809 1.305 3.495.998.108-.776.417-1.305.76-1.605-2.665-.3-5.466-1.332-5.466-5.93 0-1.31.465-2.38 1.235-3.22-.135-.303-.54-1.523.105-3.176 0 0 1.005-.322 3.3 1.23.96-.267 1.98-.399 3-.405 1.02.006 2.04.138 3 .405 2.28-1.552 3.285-1.23 3.285-1.23.645 1.653.24 2.873.12 3.176.765.84 1.23 1.91 1.23 3.22 0 4.61-2.805 5.625-5.475 5.92.42.36.81 1.096.81 2.22 0 1.606-.015 2.896-.015 3.286 0 .315.21.69.825.57C20.565 22.092 24 17.592 24 12.297c0-6.627-5.373-12-12-12" />
+              </svg>
+            </a></li>
+        </ul>
+      </nav>
+    </div>
+  </div>
+</div>
+
+<script>
+  $('.components-container').toggleClass('one-column').toggleClass('two-columns')
+  $(document).ready(function () {
+    if ($('body').hasClass('status-none')) {
+      $('link[rel="shortcut icon"]').attr("href", "https://github.githubassets.com/favicons/favicon-success.png")
+    } else {
+      $('link[rel="shortcut icon"]').attr("href", "https://github.githubassets.com/favicons/favicon-pending.png")
+    }
+
+    // Move "about this page" text section after the Incident History link
+    var $statusParagraph = $('div.text-section > p').detach();
+    // NOTE: We lookup last of this class for cases where there are multiple of them. We do not
+    // want to insert the text muliple times on the page. For ex. when you have the 90 day history
+    // enabled for components.
+    $statusParagraph.insertAfter($('.history-footer-link').last());
+    $('div.text-section').hide(); // hide the now-empty "About This Site" section
+
+    // Hide the "Visit www.githubstatus.com..." component from the grid
+    $('span.name:contains("Visit www.githubstatus.com")').closest('.component-container').hide();
+
+    $('div.status-green span.component-status').html("")
+    $('div.status-yellow span.component-status').html("")
+    $('div.status-orange span.component-status').html("")
+    $('div.status-red span.component-status').html("")
+    $('.outage-field .label .major_outage').parent().html("Incident")
+
+    var otherParent = $('span.name:contains("Other")').parent()
+    if (otherParent.hasClass('status-green')) {
+      otherParent.parent().hide()
+    }
+    $('.page-status.status-major span.status, .page-status.status-minor span.status').html('Some services are degraded')
+    $('.outage-field .label .partial_outage').parent().html("Degradation")
+
+    $('.incidents-list').remove()
+    $('.component-statuses-legend').remove()
+
+    $('div.status-green').append("<span class='status-msg'>Normal</span>")
+    $('div.status-yellow').append("<span class='status-msg'>Degraded</span>")
+    $('div.status-orange').append("<span class='status-msg'>Degraded</span>")
+    $('div.status-red').append("<span class='status-msg'>Incident</span>")
+    $('div.status-blue').append("<span class='status-msg'>Maintenance</span>")
+  });
+</script>
+  </div>
+
+
+
+      <script>
+  /** INITIALIZATION **/
+  var recaptchaIds = {}
+
+  // Unfortunately there's no unique selectors on the parent divs that recaptcha adds. The first unique selector
+  // is the iframe rendered 2 levels deep. So this waits until the iframes are added to the page, then finds
+  // the parent div and sets the z index so that it'll render above our modals & dropdowns from the start.
+  function setZIndex(captchaCount, startTime) {
+    // bail after 10s just in case so we don't do this forever if something whaky happens
+    if (new Date() - startTime > 10000) {
+      return;
+    }
+
+    var iframes = document.querySelectorAll('iframe[title="recaptcha challenge"]');
+    if (iframes.length != captchaCount) {
+      setTimeout(function() {
+        setZIndex(captchaCount, startTime);
+      }, 500);
+    }
+
+    for (var i = 0; i < iframes.length; i++) {
+      // incident subscribe modal is 1050, so this has to be above that
+      iframes[i].parentElement.parentElement.style.zIndex = "1100";
+    }
+  }
+
+  function updateCaptchaIframeTitle(captchaCount, startTime, updates=0) {
+
+    if (new Date() - startTime > 10000 || captchaCount === updates) {
+      return;
+    }
+    var iframesWithTitle = document.querySelectorAll('iframe[title="recaptcha challenge expires in two minutes"]');
+
+    if (iframesWithTitle.length != captchaCount) {
+      setTimeout(function() {
+        updateCaptchaIframeTitle(captchaCount, startTime, iframesWithTitle.length + updates);
+      }, 500);
+    }
+
+    for (var i = 0; i < iframesWithTitle.length; i++) {
+      iframesWithTitle[i].title = "recaptcha";
+    }
+  }
+
+  function addIncidentCaptcha() {
+    var incidentCaptcha = document.createElement('div');
+    incidentCaptcha.setAttribute('id', 'subscribe-incident-recaptcha');
+    incidentCaptcha.setAttribute('class', 'g-recaptcha');
+    incidentCaptcha.setAttribute('data-sitekey', '6LcZ-b0UAAAAAENi956aWzynTT2ZJ80dGU3F80Op');
+    incidentCaptcha.setAttribute('data-callback', 'submitIncidentSubscriberSuccess');
+    incidentCaptcha.setAttribute('data-error-callback', 'submitIncidentSubscriberError');
+    incidentCaptcha.setAttribute('data-size', 'invisible');
+    document.body.appendChild(incidentCaptcha);
+    var incidentCode = document.createElement('input');
+    incidentCode.setAttribute('type', 'hidden');
+    incidentCode.setAttribute('id', 'submit_incident_code');
+    document.body.appendChild(incidentCode);
+  }
+
+  var onloadCallback = function() {
+    // if there is an incident, then add incident captcha element
+    if (document.getElementsByClassName('modal-open-incident-subscribe').length > 0) {
+      addIncidentCaptcha();
+    }
+
+    var captchas = document.getElementsByClassName("g-recaptcha");
+
+    for(var i = 0; i < captchas.length; i++) {
+      var elId = captchas[i].id;
+      recaptchaIds[elId] = grecaptcha.enterprise.render(elId);
+    }
+
+    setZIndex(captchas.length, new Date());
+    updateCaptchaIframeTitle(captchas.length, new Date());
+  }
+
+
+  /** SUBSCRIBE DROPDOWN */
+
+  // callbacks for captcha success
+  function submitNewSubscriber(type, error) {
+    if (error) document.querySelector('#subscribe-form-' + type + ' #captcha_error').value = 'true';
+
+    document.getElementById('subscribe-form-' + type).dispatchEvent(new Event('submit', {bubbles: true, cancelable: true}));
+    grecaptcha.enterprise.reset(recaptchaIds['subscribe-btn-' + type]);
+  }
+  function submitNewEmailSubscriber(token) {
+    submitNewSubscriber('email');
+  }
+  function submitNewSmsSubscriber(token) {
+    submitNewSubscriber('sms');
+  }
+  function submitNewWebhookSubscriber(token) {
+    submitNewSubscriber('webhook');
+  }
+  function submitIncidentSubscriber(token, error, incidentCodeOverride) {
+    var incidentCode = incidentCodeOverride;
+    if (!incidentCode) {
+      var incidentCodeEl = document.getElementById('submit_incident_code');
+      incidentCode = incidentCodeEl && incidentCodeEl.value;
+    }
+    var incidentForm = incidentCode && document.getElementById('subscribe-form-' + incidentCode);
+    if (!incidentForm) {
+      return;
+    }
+
+    var captchaError = incidentForm.querySelector('input[name="captcha_error"]');
+    var recaptchaResponse = incidentForm.querySelector('input[name="g-recaptcha-response"]');
+    if (captchaError) {
+      captchaError.value = error;
+    }
+    if (recaptchaResponse) {
+      recaptchaResponse.value = token;
+    }
+    incidentForm.dispatchEvent(new Event('submit', {bubbles: true, cancelable: true}));
+    if (window.grecaptcha && grecaptcha.enterprise && recaptchaIds['subscribe-incident-recaptcha'] != null) {
+      grecaptcha.enterprise.reset(recaptchaIds['subscribe-incident-recaptcha']);
+    }
+  }
+  function submitIncidentSubscriberSuccess(token) {
+    submitIncidentSubscriber(token, 'false');
+  }
+
+  // callbacks if we get captcha network errors
+  function emailSubscriberCaptchaError(token) {
+    submitNewSubscriber('email', true);
+  }
+  function smsSubscriberCaptchaError(token) {
+    submitNewSubscriber('sms', true);
+  }
+  function webhookSubscriberCaptchaError(token) {
+    submitNewSubscriber('webhook', true);
+  }
+  function submitIncidentSubscriberError(token) {
+    submitIncidentSubscriber(token, 'true');
+  }
+
+  // tracking clicks
+  ['email', 'sms', 'webhook'].forEach(function(type) {
+    var el = document.getElementById('subscribe-btn-' + type);
+    el && el.addEventListener("click", function() {
+      $.ajax({
+        type: "POST",
+        url: "/subscriptions/track_attempt",
+        data: {
+          type: type
+        }
+      })
+    })
+  })
+
+  // form submission success callbacks
+  $('#subscribe-form-email').on('ajax:success', function(e, data, status, xhr){
+    if (data.type === 'success') {
+      SP.currentPage.updatesDropdown.hide();
+      var emailField = document.getElementById('email');
+      if (emailField) {
+        emailField.value = '';
+      }
+    }
+  });
+  $('#subscribe-form-sms').on('ajax:success', function(e, data, status, xhr){
+    if (data.type === 'success' && data.otp_flow !== true) {
+      SP.currentPage.updatesDropdown.hide();
+      var phoneField = document.getElementById('phone-number');
+      if (phoneField) {
+        phoneField.value = '';
+      }
+    }
+  });
+  $('#subscribe-form-webhook').on('ajax:success', function(e, data, status, xhr){
+    if (data.type === 'success') {
+      SP.currentPage.updatesDropdown.hide();
+      document.getElementById('endpoint-webhooks').value = '';
+      document.getElementById('email-webhooks').value = '';
+    }
+  });
+
+  $('a.subscribe').on('click', function() {
+    document.body.style.overflow = "hidden";
+    document.body.style.height = "100vh";
+  });
+
+  $('div.modal-open-incident-subscribe').on('hidden', function(){
+    document.body.style.overflow = "";
+    document.body.style.height = "";
+  });
+
+  function submitCaptchaIncidentSubscribe(event) {
+    var incidentCode = event.target.id.split('-')[2];
+    event.preventDefault();
+
+    $.ajax({
+      type: "POST",
+      url: "/subscriptions/track_attempt",
+      data: {
+        type: 'incident'
+      }
+    })
+
+    var incidentCodeField = document.getElementById('submit_incident_code');
+    if (incidentCodeField) {
+      incidentCodeField.value = incidentCode;
+    }
+
+    // Recaptcha's onloadCallback is what creates #submit_incident_code and the
+    // widget id. If the enterprise.js script is blocked (ad blockers, CI url
+    // blacklist), execute() and .value on a null node throw and the subscribe
+    // click never reaches the server.
+    var recaptchaId = recaptchaIds['subscribe-incident-recaptcha'];
+    if (window.grecaptcha && grecaptcha.enterprise && typeof grecaptcha.enterprise.execute === 'function' && recaptchaId != null) {
+      grecaptcha.enterprise.execute(recaptchaId);
+    } else {
+      submitIncidentSubscriber('', 'true', incidentCode);
+    }
+  }
+</script>
+
+<script src='https://www.recaptcha.net/recaptcha/enterprise.js?onload=onloadCallback&render=explicit' async defer></script>
+
+
+    
+  <script src="https://dka575ofm4ao0.cloudfront.net/packs/common-fcc0f5aa50f98f46d4fe.chunk.js"></script>
+  <script src="https://dka575ofm4ao0.cloudfront.net/packs/globals-de6ed25e0ff3f31b6a30.chunk.js"></script>
+
+    <script src="https://dka575ofm4ao0.cloudfront.net/packs/runtime-5d06b94702fb0cbe4b3c.js"></script>
+    
+    
+    <script src="https://dka575ofm4ao0.cloudfront.net/packs/status-1bd94be84429badf1cdb.chunk.js"></script>
+    <script src="https://dka575ofm4ao0.cloudfront.net/packs/components-a83be20438e1b752ad26.chunk.js"></script>
+
+
+    <script>
+  window.addEventListener('load', function () {
+    const urlParams = new URLSearchParams(window.location.search);
+    const messageToken = urlParams.get('slack_message_token');
+    const channelName = escape(urlParams.get('channel_name'));
+
+    if(!!messageToken) {
+      switch(messageToken) {
+        case 'slack_auth_error':
+          HRB.utils.notify('The Slack authorization attempt was unsuccessful. Try again.', {cssClass:'error'});
+          break;
+        case 'subscribers_disabled_error':
+          HRB.utils.notify('Slack subscriptions are not enabled on this page.', {cssClass:'error'});
+          break;
+        case 'direct_message_channel_error':
+          HRB.utils.notify('Subscriptions aren’t supported in direct messages. Try subscribing again and choose a channel instead.', {cssClass:'error'});
+          break
+        case 'duplicate_error':
+          HRB.utils.notify("You're already subscribed to get Slack notifications in that channel.", {cssClass:'error'});
+          break;
+        case 'duplicate_private_channel_error':
+          HRB.utils.notify(`You're already subscribed to get Slack notifications in #${channelName}. Invite the @Statuspage app to that channel to start getting status updates.`, {cssClass: 'error'});
+          break;
+        case 'default_success':
+          HRB.utils.notify("You're now subscribed to get Statuspage updates in Slack!", {cssClass:'success'});
+          break;
+        case 'private_channel_success':
+          HRB.utils.notify(`IMPORTANT: Invite the @Statuspage app to your Slack channel #${channelName} to start getting status updates.`, {cssClass:'success'});
+          break;
+      }
+    }
+  });
+</script>
+
+    
+<!-- FOR FLASH NOTICES -->
+
+<!-- FOR ERROR -->
+
+
+    <script>
+  $(function() {
+    var $link = $('<span class="color-secondary powered-by"><a class="color-secondary" target="_blank" rel="noopener noreferrer nofollow" href="https://www.atlassian.com/software/statuspage?utm_campaign=www.githubstatus.com&amp;utm_content=SP-notifications&amp;utm_medium=powered-by&amp;utm_source=inapp">Powered by Atlassian Statuspage</a></span>');
+
+  	var setPoweredByStyles = function() {
+  		if (!$('.powered-by').length) {
+  			$link.appendTo($('.page-footer'))
+  		}
+  		$('.powered-by').attr('style', 'display: inline !important; visibility:visible !important; opacity: 1 !important; position:static !important; text-indent:0px !important; transform:scale(1) !important');
+  	}
+
+  	setInterval(setPoweredByStyles, 1000);
+  });
+</script>
+
+
+
+
+
+  </body>
+</html>

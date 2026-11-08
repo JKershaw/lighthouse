@@ -1,0 +1,82 @@
+GH Archive
+GH Archive
+Star
+Tweet
+Open-source developers all over the world are working on millions of projects: writing code & documentation, fixing & submitting bugs, and so forth. GH Archive is a project to record the public GitHub timeline, archive it , and make it easily accessible for further analysis.
+GitHub provides 15+ event types , which range from new commits and fork events, to opening new tickets, commenting, and adding members to a project. These events are aggregated into hourly archives, which you can access with any HTTP client:
+Query
+Command
+Activity for 1/1/2015 @ 3PM UTC
+wget https://data.gharchive.org/2015-01-01-15.json.gz
+Activity for 1/1/2015
+wget https://data.gharchive.org/2015-01-01-{0..23}.json.gz
+Activity for all of January 2015
+wget https://data.gharchive.org/2015-01-{01..31}-{0..23}.json.gz
+Each archive contains JSON encoded events as reported by the GitHub API. You can download the raw data and apply own processing to it - e.g. write a custom aggregation script, import it into a database, and so on! An example Ruby script to download and iterate over a single archive:
+Activity archives are available starting 2/12/2011.
+Activity archives for dates between 2/12/2011-12/31/2014 was recorded from the (now deprecated) Timeline API.
+Activity archives for dates starting 1/1/2015 is recorded from the Events API.
+For the curious, check out The Changelog episode #144 for an in-depth interview about the history of GH Archive, integration with BigQuery, where the project is heading, and more.
+Analyzing event data with BigQuery
+The entire GH Archive is also available as a public dataset on Google BigQuery : the dataset is automatically updated every hour and enables you to run arbitrary SQL-like queries over the entire dataset in seconds. To get started:
+If you don't already have a Google project...
+Login into the Google Developer Console
+Create a project and activate the BigQuery API
+Go to BigQuery , and select your newly created project from the dropdown in the header bar.
+Execute your first query against the public "githubarchive" dataset. You can just copy and paste the query below and run, once you've selected your project. You can also look through the public dataset itself , but you will not have permission to execute queries on behalf of the project.
+For convenience, note that there are multiple tables that you can use for your analysis:
+year dataset: 2011 ,
+2012 ,
+2013 ,
+2014 , and
+2015 tables contain all activities for each respective year.
+month dataset: contains activity for each respective month - e.g. 201501 .
+day dataset: contains activity for each day - e.g. 20150101 .
+The schema of above datasets contains distinct columns for common activity fields (see same response format ), a "payload" string field which contains the JSON encoded activity description, and "other" string field containing all other fields.
+The content of the "payload" field is different for each event type and may be updated by GitHub at any point, hence it is kept as a serialized JSON string value in BigQuery. Use the provided JSON functions (e.g. see query example above with JSON_EXTRACT() ) to extract and access data in this field.
+The content of the "other" field is a JSON string which contains all other data provided but GitHub that does not match the predefined BigQuery schema - e.g. if GitHub adds a new field, it will show up in "other" until and unless the schema is extended to support it.
+Note that you get 1 TB of data processed per month free of charge . In order to make best use of it, you can restrict your queries to relevant time ranges to minimize the amount of scanned data. To scan multiple tables at once, you can use table wildcards :
+Daily reports
+Changelog Nightly is the new and improved version of the daily email reports powered by the GH Archive data. These reports ship each day at 10pm CT and unearth the hottest new repos on GitHub. Alternatively, if you want something curated and less frequent, subscribe to Changelog Weekly .
+Research, visualizations, talks...
+GFI-Bot is an ML-powered bot for finding and labeling good first issues in GitHub projects. GFI-Bot is available at WebApp , where you can browse through existing good first issue recommendations or register your own repository for recommendation .
+Technical Debt Classification in Issue Trackers using Natural Language Processing based on Transformers - machine learning model that can be used to classify GitHub issues as technical debt or not. All source code is freely available on Zenodo .
+GitHub DevTrends is a freely available dynamic report for the developer community based on trends identified from GitHub data.
+Open Source Contributor Index (OSCI) - a tool that ranks the top open source contributors by commercial organizations.
+Analysing commits on github by @.gouv.fr authors - how French public servants publish and contribute to open source projects on GitHub
+How to Automate Tasks on GitHub With Machine Learning for Fun and Profit
+How to detect Github trending repo API, using GH Archive, Heroku, MongoDB and Github API ? Demo - Medium blog post .
+Semantic code search with deep learning: Medium blog post .
+How to use deep learning to extract features from Github data, an end-to-end example: Medium blog post . An interactive demo of this model: https://gh-demo.kubeflow.org .
+GitHub Data Challenge: 2012 , 2013 , and 2014 winners .
+Analyzing Millions of GitHub Commits (O'Reilly Strata talk)
+GitHut is an attempt to visualize and explore the complexity of the universe of programming languages.
+Who speaks what on GitHub? Three visualizations provide insight into the language skills of users on GitHub.
+GitHub in 2013 is a brief visual overview of GitHub event types in 2013.
+Exploring Expressions of Emotions in GitHub Commit Messages
+The Top 11 Hottest GitHub Projects Right Now
+GitLogs - Github Daily Newsletter curated with a peak detection algorithm. Also a sexy interface to search topics and trends on Github
+Subscribe to Changelog Nightly (the new and improved GH Archive daily email reports). It ships every night at 10pm CT — and unearths the hottest new repos on GitHub before they blow up. It's nerd to the core and in your inbox each night.
+GitHub Analytics - search latest GitHub timeline
+GitHop - see your contributions from a year ago.
+GitMostWanted - Advanced explorer of github.com.
+OpenSourceContributo.rs - Search engine for contributions to GitHub
+GitLive - View what's happening on GitHub at real time - Made at Dragon Hacks 2016 Hackathon
+ArchiveObserver - Build users open source report cards, refreshed hourly!
+Open Source Monthly - An activity dashboard for Open Source Organizations.
+GrapHub - Github connections as a D3 graph. Find your GH Erdős number from other GH users by co-contributions.
+Octomender - Get repo recommendation based on your GitHub star history.
+GitHub Trending Repos - Stay notified about new trending repositories in your favorite programming language via GitHub notifications.
+DevStats - CNCF-created tool for analyzing and graphing developer contributions
+GH Explorer - GitHub insights on ClickHouse (structured dataset for download + interactive queries)
+TicketTagger - Automatic github issue classification.
+GitHub Insights - A closer look into GitHub repositories.(Charts for GitHub repos stargazers, tell you more about your repo stargazers.)
+OSS Insight - Open Source Software Insights - analysis, comparison, trends, rankings of open source software, based on TiDB Cloud
+GH Archive is available on Snowflake Marketplace
+Open Source Heroes - a list of top opensource contributors by number of stargazers
+Datasets Guide: How to get the Complete GH Archive Dataset quickly.
+GH Elephant creates a relational Postgres database from GH Archive's JSONs for faster queries in SQL.
+Master's thesis analyzing developers' intentions to make open-source software GDPR compliant
+Have a cool project that should be on this list? Send a pull request !
+igrigorik/gharchive.org
+Star

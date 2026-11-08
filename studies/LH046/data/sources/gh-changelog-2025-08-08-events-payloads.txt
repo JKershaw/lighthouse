@@ -1,0 +1,172 @@
+Upcoming changes to GitHub Events API payloads - GitHub Changelog
+Skip to content
+Skip to sidebar
+/
+Blog
+Changelog
+Docs
+Customer stories
+Try GitHub Copilot app
+See what's new
+Search
+Changelog
+Docs
+Customer stories
+See what's new
+Try GitHub Copilot app
+Back to changelog
+Retired
+August 8, 2025 •
+2 minute read
+Upcoming changes to GitHub Events API payloads
+Table of Contents
+Summary
+What's changing
+Why these changes matter
+Timeline
+What you should do
+Rollout and feedback
+Learn more
+Menu. Currently selected: Summary
+Summary
+What's changing
+Why these changes matter
+Timeline
+What you should do
+Rollout and feedback
+Learn more
+Summary
+We’re introducing improvements to the GitHub Activity Events API to provide a fresher, more scalable experience for everyone using GitHub event data. By reducing the size of data payloads, we’re improving performance, reducing latency, and making our systems more efficient and responsive for all users.
+What’s changing
+Discussion events: You’ll be able to query events from discussion activity, similar to how you can currently query Pull Request and other event types.
+Smaller payloads: We’ll be trimming unnecessary fields from several event types, most notably pull request and push events. While some detailed information will no longer be included directly in GitHub Activity Events API responses, we’ll continue to provide the necessary identifiers (such as relevant ID numbers) so you can retrieve those details through the standard REST API.
+Pull request events: Removing fields that are slow to generate and require costly database calls, resulting in much smaller and faster payloads.
+Push events: Removing commit summaries and counts that require slow external calls.
+Author association fields: The author_association field will be removed from multiple event types ( Pull Request , Pull Request Review , Pull Request Review Comment , Issue , Issue Comment , Commit Comment , and Discussion ) to improve response times.
+Why these changes matter
+Fresher, more timely results: Previously, events could take up to eight hours to appear in the API. With these changes, events will be available almost immediately. In many cases, you may notice endpoints responding faster as well.
+Better scalability: Smaller payloads and fewer database calls mean more reliability and room to grow as usage increases.
+No loss of data: All removed fields are still available through the main REST API if you need them for detailed queries.
+Timeline
+On September 8, 2025, we’ll perform an initial brownout test.
+On October 7, 2025, we’ll officially implement the above changes.
+What you should do
+Most users won’t need to take any action. If your application relies on a field that’s no longer included in the Activity Events API payload, you can retrieve it using the REST API endpoints. We recommend reviewing your integrations to see if you depend on any of the removed fields.
+Rollout and feedback
+We’ll be rolling these changes out behind a feature flag for an extended period. If you have feedback or find any missing data you rely on, let us know. Your feedback will help us ensure a smooth transition.
+Learn more
+For more information, check out our REST API documentation .
+These changes are part of our ongoing commitment to make GitHub’s APIs faster, more scalable, and easier to use for everyone.
+Join the discussion within GitHub Community .
+Table of Contents
+Summary
+What's changing
+Why these changes matter
+Timeline
+What you should do
+Rollout and feedback
+Learn more
+Menu. Currently selected: Summary
+Summary
+What's changing
+Why these changes matter
+Timeline
+What you should do
+Rollout and feedback
+Learn more
+ecosystem & accessibility
+Share
+Copied
+Shared
+Back to changelog
+Related Posts
+Oct.29 Improvement
+Webhook IP ranges added to the Meta API
+ecosystem & accessibility
+Oct.23 Improvement
+Enterprise installations for GitHub Apps generally available
+ecosystem & accessibility
+enterprise management tools
+...
++1
+Oct.08 Improvement
+Screen readers can navigate timelines as lists
+ecosystem & accessibility
+projects & issues
+...
++1
+Oct.02 Improvement
+Stateless GitHub App installation tokens rolled out
+actions
+ecosystem & accessibility
+...
++1
+Oct.02 Improvement
+New fields for SecurityAdvisory GraphQL API
+ecosystem & accessibility
+supply chain security
+...
++1
+Oct.02 Release
+Repository security advisory comments API in public preview
+ecosystem & accessibility
+supply chain security
+...
++1
+Oct.01 Improvement
+Accessibility statements highlighted on repository overview
+ecosystem & accessibility
+Sep.30 Retired
+X25519-only TLS ends for GHE.com on October 7
+application security
+ecosystem & accessibility
+enterprise management tools
+...
++2
+Sep.15 Retired
+SHA-1 in HTTPS on GitHub sunset
+ecosystem & accessibility
+Subscribe to our developer newsletter
+Discover tips, technical guides, and best practices in our biweekly newsletter just for devs.
+Enter your email *
+Subscribe
+By submitting, I agree to let GitHub and its affiliates use my information for personalized communications, targeted advertising, and campaign effectiveness. See the GitHub Privacy Statement for more details.
+Back to top
+Site-wide Links
+Product
+Features
+Security
+Enterprise
+Customer Stories
+Pricing
+Resources
+Platform
+Developer API
+Partners
+Atom
+Electron
+GitHub Desktop
+Support
+Docs
+Community Forum
+Training
+Status
+Contact
+Company
+About
+Blog
+Careers
+Press
+Shop
+© 2026 GitHub, Inc.
+Terms
+Privacy
+Manage Cookies
+Do not share my personal information
+GitHub on LinkedIn
+GitHub on Instagram
+GitHub on YouTube
+GitHub on X
+GitHub on TikTok
+GitHub on Twitch
+GitHub’s organization on GitHub

@@ -1,0 +1,124 @@
+Push attribution for commits in limited public preview - GitHub Changelog
+Skip to content
+Skip to sidebar
+/
+Blog
+Changelog
+Docs
+Customer stories
+Try GitHub Copilot app
+See what's new
+Search
+Changelog
+Docs
+Customer stories
+See what's new
+Try GitHub Copilot app
+Back to changelog
+Release
+October 12, 2026 •
+1 minute read
+Push attribution for commits in limited public preview
+GitHub now durably records the authenticated user who pushed each commit and surfaces that pusher identity in the UI and API alongside the existing author and committer fields.
+Commit author and committer fields are just strings that the pushing client supplies, so anyone with write access to a repository can set them to any name and email they choose. That makes it possible for an attacker who compromises a low-privilege account to forge commits that appear to come from a trusted maintainer, evading review policies and confusing audit trails. GitHub already authenticates pushes. This release adds durable, per-commit pusher attribution alongside the author and committer metadata.
+With this release:
+Every commit pushed to a repository now has a durable, authenticated pusher identity attached to it, independent of whatever the author and committer metadata claims.
+A new repository rule condition, Committer must match pusher , blocks pushes where the committer metadata doesn’t match any verified email address of the authenticated pusher. This closes a path for commit identity spoofing.
+You can use the pusher identity to spot-check suspicious activity or speed up security investigations instead of relying on unverified metadata. You can do this because the pusher identity is now visible wherever commits are shown instead. To enforce stricter identity requirements on a repository, add the new Committer must match pusher rule to a ruleset.
+Push attribution is available now as a limited public preview for GitHub Enterprise customers. If you are interested in joining the preview, please contact your account team and request access.
+Learn more about configuring push rulesets .
+application security
+platform governance
+Share
+Copied
+Shared
+Back to changelog
+Related Posts
+Nov.05 Improvement
+Secret scanning upgrades detectors, adds SpaceX as partner
+application security
+Nov.04 Improvement
+CodeQL 2.27.4 improves accuracy and query metadata
+application security
+Nov.03 Improvement
+CodeQL 2.27.3 adds Python 3.15 features and JSON data extensions
+application security
+Nov.02 Improvement
+GitHub Desktop adds short-lived authentication tokens
+account management
+application security
+client apps
+...
++2
+Nov.02 Improvement
+Security risk assessments include repository protection status
+application security
+Nov.02 Retired
+pull_request_target blocked by default December 2
+actions
+application security
+...
++1
+Oct.28 Release
+Security extension for the GitHub Copilot app
+application security
+copilot
+universe26
+...
++2
+Oct.28 Release
+AI Scan for repositories in public preview
+application security
+universe26
+...
++1
+Oct.28 Release
+Code scanning for AI applications in public preview
+application security
+universe26
+...
++1
+Subscribe to our developer newsletter
+Discover tips, technical guides, and best practices in our biweekly newsletter just for devs.
+Enter your email *
+Subscribe
+By submitting, I agree to let GitHub and its affiliates use my information for personalized communications, targeted advertising, and campaign effectiveness. See the GitHub Privacy Statement for more details.
+Back to top
+Site-wide Links
+Product
+Features
+Security
+Enterprise
+Customer Stories
+Pricing
+Resources
+Platform
+Developer API
+Partners
+Atom
+Electron
+GitHub Desktop
+Support
+Docs
+Community Forum
+Training
+Status
+Contact
+Company
+About
+Blog
+Careers
+Press
+Shop
+© 2026 GitHub, Inc.
+Terms
+Privacy
+Manage Cookies
+Do not share my personal information
+GitHub on LinkedIn
+GitHub on Instagram
+GitHub on YouTube
+GitHub on X
+GitHub on TikTok
+GitHub on Twitch
+GitHub’s organization on GitHub

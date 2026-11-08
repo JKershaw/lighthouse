@@ -1,0 +1,1152 @@
+REST API endpoints for events - GitHub Docs Skip to main content
+Skip to content
+GitHub Docs
+Search or ask Copilot /
+Menu
+Collapse sidebar
+Expand sidebar
+Home
+REST API
+Activity
+Events
+REST API
+API Version: 2022-11-28
+Quickstart
+About the REST API
+About the REST API
+Comparing GitHub's APIs
+API Versions
+Breaking changes
+OpenAPI description
+Using the REST API
+Getting started
+Rate limits
+Pagination
+Libraries
+Best practices
+Troubleshooting
+Timezones
+CORS and JSONP
+Issue event types
+GitHub event types
+Authentication
+Authenticating
+Keeping API credentials secure
+Endpoints for GitHub App installation tokens
+Endpoints for GitHub App user tokens
+Endpoints for fine-grained PATs
+Permissions for GitHub Apps
+Permissions for fine-grained PATs
+Guides
+Script with JavaScript
+Script with Ruby
+Discover resources for a user
+Delivering deployments
+Rendering data as graphs
+Working with comments
+Building a CI server
+Get started - Git database
+Get started - Checks
+Encrypt secrets
+Actions
+Artifacts
+Cache
+Actions concurrency groups
+GitHub-hosted runners
+OIDC
+Permissions
+Actions policies
+Secrets
+Self-hosted runner groups
+Self-hosted runners
+Variables
+Workflow jobs
+Workflow runs
+Workflows
+Activity
+Events
+About GitHub events
+List public events
+List public events for a network of repositories
+List public organization events
+List repository events
+List events for the authenticated user
+List organization events for the authenticated user
+List public events for a user
+List events received by the authenticated user
+List public events received by a user
+Feeds
+Notifications
+Starring
+Watching
+Agent automations
+Agent automations
+Agent tasks
+Agent tasks
+Agents
+Secrets
+Variables
+Apps
+GitHub Apps
+Installations
+Marketplace
+OAuth authorizations
+Webhooks
+Billing
+Budgets
+Billing usage
+Branches
+Branches
+Protected branches
+Campaigns
+Security campaigns
+Checks
+Check runs
+Check suites
+Classroom
+Classroom
+Code quality
+Code quality
+Code scanning
+Code scanning
+Code security settings
+Configurations
+Codes of conduct
+Codes of conduct
+Codespaces
+Codespaces
+Organizations
+Organization secrets
+Machines
+Repository secrets
+User secrets
+Collaborators
+Collaborators
+Invitations
+Commits
+Commits
+Commit comments
+Commit statuses
+Copilot
+Cloud agent repository management
+Copilot cloud agent management
+Copilot content exclusion management
+Copilot team customizations
+Copilot usage metrics
+Copilot user management
+Copilot Spaces
+Collaborators
+Copilot Spaces
+Resources
+Credentials
+Revocation
+Dependabot
+Alerts
+Repository access
+Runner settings
+Secrets
+Dependency graph
+Dependency review
+Dependency submission
+Software bill of materials (SBOM)
+Deploy keys
+Deploy keys
+Deployments
+Deployment branch policies
+Deployments
+Environments
+Protection rules
+Deployment statuses
+Emojis
+Emojis
+Gists
+Gists
+Comments
+Git database
+Blobs
+Commits
+References
+Tags
+Trees
+Gitignore
+Gitignore
+Interactions
+Organization
+Repository
+User
+Issues
+Artifacts
+Assignees
+Comments
+Events
+Issue dependencies
+Issue field values
+Issues
+Labels
+Milestones
+Sub-issues
+Timeline
+Licenses
+Licenses
+Markdown
+Markdown
+Meta
+Meta
+Metrics
+Community
+Statistics
+Traffic
+Migrations
+Organizations
+Source endpoints
+Users
+Organizations
+API Insights
+Artifact metadata
+Artifact attestations
+Blocking users
+Custom properties
+Issue fields
+Issue types
+Members
+Network configurations
+Organization roles
+Organizations
+Outside collaborators
+Personal access tokens
+Rule suites
+Rules
+Security managers
+Webhooks
+Packages
+Packages
+Pages
+Pages
+Private registries
+Organization configurations
+Projects
+Draft Project items
+Project fields
+Project items
+Projects
+Project views
+Pull requests
+Agent Merge
+Review comments
+Pull requests
+Review requests
+Reviews
+Stacked pull requests
+Rate limit
+Rate limit
+Reactions
+Reactions
+Releases
+Releases
+Release assets
+Repositories
+Attestations
+Autolinks
+Contents
+Custom properties
+Forks
+Issue types
+Repositories
+Rule suites
+Rules
+Webhooks
+Search
+Search
+Secret scanning
+Custom patterns
+Push protection
+Secret scanning
+Security advisories
+Global security advisories
+Repository security advisories
+Teams
+Members
+Teams
+Users
+Attestations
+Blocking users
+Emails
+Followers
+GPG keys
+Git SSH keys
+Social accounts
+SSH signing keys
+Users
+In this article
+The REST API is now versioned. For more information, see " About API versioning ."
+REST API endpoints for events
+Use the REST API to interact with GitHub events.
+About GitHub events
+GitHub events power the various activity streams on the site.
+You can use the REST API to return different types of events triggered by activity on GitHub. For more information about the specific events that you can receive, see GitHub event types . Endpoints for repository issues are also available. For more information, see REST API endpoints for issue events .
+Events are optimized for polling with the "ETag" header. If no new events have been triggered, you will see a "304 Not Modified" response, and your current rate limit will be untouched. There is also an "X-Poll-Interval" header that specifies how often (in seconds) you are allowed to poll. In times of high server load, the time may increase. Please obey the header.
+$ curl -I https://api.github.com/users/tater/events
+> HTTP/2 200
+> X-Poll-Interval: 60
+> ETag: "a18c3bded88eb5dbb5c849a489412bf3"
+# The quotes around the ETag value are important
+$ curl -I https://api.github.com/users/tater/events \
+$ -H 'If-None-Match: "a18c3bded88eb5dbb5c849a489412bf3"'
+> HTTP/2 304
+> X-Poll-Interval: 60
+The timeline will include up to 300 events. Only events created within the past 30 days will be included. Events older than 30 days will not be included (even if the total number of events in the timeline is less than 300).
+List public events
+Note
+This API is not built to serve real-time use cases. Depending on the time of day, event latency can be anywhere from 30s to 6h.
+Fine-grained access tokens for "List public events"
+This endpoint works with the following fine-grained token types :
+GitHub App user access tokens
+GitHub App installation access tokens
+Fine-grained personal access tokens
+The fine-grained token does not require any permissions.
+Parameters for "List public events"
+Headers Name, Type, Description accept string
+Setting to application/vnd.github+json is recommended.
+Query parameters Name, Type, Description per_page integer
+The number of results per page (max 100). For more information, see " Using pagination in the REST API ."
+Default : 15
+page integer
+The page number of the results to fetch. For more information, see " Using pagination in the REST API ."
+Default : 1
+HTTP response status codes for "List public events"
+Status code Description 200 OK
+304 Not modified
+403 Forbidden
+503 Service unavailable
+Code samples for "List public events"
+Request example
+get /events
+cURL
+JavaScript
+GitHub CLI
+Copy to clipboard curl request example
+curl -L \
+-H "Accept: application/vnd.github+json" \
+-H "X-GitHub-Api-Version: 2026-03-10" \
+https://api.github.com/events
+Response
+Example response
+Response schema
+Status: 200
+[
+{
+"id": "22249084947",
+"type": "WatchEvent",
+"actor": {
+"id": 583231,
+"login": "octocat",
+"display_login": "octocat",
+"gravatar_id": "",
+"url": "https://api.github.com/users/octocat",
+"avatar_url": "https://avatars.githubusercontent.com/u/583231?v=4"
+},
+"repo": {
+"id": 1296269,
+"name": "octocat/Hello-World",
+"url": "https://api.github.com/repos/octocat/Hello-World"
+},
+"payload": {
+"action": "started"
+},
+"public": true,
+"created_at": "2022-06-09T12:47:28Z"
+},
+{
+"id": "22249084964",
+"type": "PushEvent",
+"actor": {
+"id": 583231,
+"login": "octocat",
+"display_login": "octocat",
+"gravatar_id": "",
+"url": "https://api.github.com/users/octocat",
+"avatar_url": "https://avatars.githubusercontent.com/u/583231?v=4"
+},
+"repo": {
+"id": 1296269,
+"name": "octocat/Hello-World",
+"url": "https://api.github.com/repos/octocat/Hello-World"
+},
+"payload": {
+"repository_id": 1296269,
+"push_id": 10115855396,
+"ref": "refs/heads/master",
+"head": "7a8f3ac80e2ad2f6842cb86f576d4bfe2c03e300",
+"before": "883efe034920928c47fe18598c01249d1a9fdabd"
+},
+"public": true,
+"created_at": "2022-06-07T07:50:26Z"
+}
+]
+List public events for a network of repositories
+Note
+This API is not built to serve real-time use cases. Depending on the time of day, event latency can be anywhere from 30s to 6h.
+Fine-grained access tokens for "List public events for a network of repositories"
+This endpoint works with the following fine-grained token types :
+GitHub App user access tokens
+GitHub App installation access tokens
+Fine-grained personal access tokens
+The fine-grained token does not require any permissions.
+Parameters for "List public events for a network of repositories"
+Headers Name, Type, Description accept string
+Setting to application/vnd.github+json is recommended.
+Path parameters Name, Type, Description owner string Required
+The account owner of the repository. The name is not case sensitive.
+repo string Required
+The name of the repository without the .git extension. The name is not case sensitive.
+Query parameters Name, Type, Description per_page integer
+The number of results per page (max 100). For more information, see " Using pagination in the REST API ."
+Default : 30
+page integer
+The page number of the results to fetch. For more information, see " Using pagination in the REST API ."
+Default : 1
+HTTP response status codes for "List public events for a network of repositories"
+Status code Description 200 OK
+301 Moved permanently
+304 Not modified
+403 Forbidden
+404 Resource not found
+Code samples for "List public events for a network of repositories"
+Request example
+get /networks /{owner} /{repo} /events
+cURL
+JavaScript
+GitHub CLI
+Copy to clipboard curl request example
+curl -L \
+-H "Accept: application/vnd.github+json" \
+-H "X-GitHub-Api-Version: 2026-03-10" \
+https://api.github.com/networks/OWNER/REPO/events
+Response
+Example response
+Response schema
+Status: 200
+[
+{
+"id": "22249084964",
+"type": "PushEvent",
+"actor": {
+"id": 583231,
+"login": "octocat",
+"display_login": "octocat",
+"gravatar_id": "",
+"url": "https://api.github.com/users/octocat",
+"avatar_url": "https://avatars.githubusercontent.com/u/583231?v=4"
+},
+"repo": {
+"id": 1296269,
+"name": "octocat/Hello-World",
+"url": "https://api.github.com/repos/octocat/Hello-World"
+},
+"payload": {
+"repository_id": 1296269,
+"push_id": 10115855396,
+"ref": "refs/heads/master",
+"head": "7a8f3ac80e2ad2f6842cb86f576d4bfe2c03e300",
+"before": "883efe034920928c47fe18598c01249d1a9fdabd"
+},
+"public": true,
+"created_at": "2022-06-09T12:47:28Z"
+},
+{
+"id": "22237752260",
+"type": "WatchEvent",
+"actor": {
+"id": 583231,
+"login": "octocat",
+"display_login": "octocat",
+"gravatar_id": "",
+"url": "https://api.github.com/users/octocat",
+"avatar_url": "https://avatars.githubusercontent.com/u/583231?v=4"
+},
+"repo": {
+"id": 1296269,
+"name": "octocat/Hello-World",
+"url": "https://api.github.com/repos/octocat/Hello-World"
+},
+"payload": {
+"action": "started"
+},
+"public": true,
+"created_at": "2022-06-08T23:29:25Z"
+}
+]
+List public organization events
+Note
+This API is not built to serve real-time use cases. Depending on the time of day, event latency can be anywhere from 30s to 6h.
+Fine-grained access tokens for "List public organization events"
+This endpoint works with the following fine-grained token types :
+GitHub App user access tokens
+GitHub App installation access tokens
+Fine-grained personal access tokens
+The fine-grained token does not require any permissions.
+Parameters for "List public organization events"
+Headers Name, Type, Description accept string
+Setting to application/vnd.github+json is recommended.
+Path parameters Name, Type, Description org string Required
+The organization name. The name is not case sensitive.
+Query parameters Name, Type, Description per_page integer
+The number of results per page (max 100). For more information, see " Using pagination in the REST API ."
+Default : 30
+page integer
+The page number of the results to fetch. For more information, see " Using pagination in the REST API ."
+Default : 1
+HTTP response status codes for "List public organization events"
+Status code Description 200 OK
+Code samples for "List public organization events"
+Request example
+get /orgs/{org}/events
+cURL
+JavaScript
+GitHub CLI
+Copy to clipboard curl request example
+curl -L \
+-H "Accept: application/vnd.github+json" \
+-H "X-GitHub-Api-Version: 2026-03-10" \
+https://api.github.com/orgs/ORG/events
+Response
+Example response
+Response schema
+Status: 200
+[
+{
+"id": "22237752260",
+"type": "WatchEvent",
+"actor": {
+"id": 583231,
+"login": "octocat",
+"display_login": "octocat",
+"gravatar_id": "",
+"url": "https://api.github.com/users/octocat",
+"avatar_url": "https://avatars.githubusercontent.com/u/583231?v=4"
+},
+"repo": {
+"id": 1296269,
+"name": "octo-org/octo-repo",
+"url": "https://api.github.com/repos/octo-org/octo-repo"
+},
+"payload": {
+"action": "started"
+},
+"public": true,
+"created_at": "2022-06-08T23:29:25Z",
+"org": {
+"id": 9919,
+"login": "octo-org",
+"gravatar_id": "",
+"url": "https://api.github.com/orgs/octo-org",
+"avatar_url": "https://avatars.githubusercontent.com/u/9919?"
+}
+},
+{
+"id": "22249084964",
+"type": "PushEvent",
+"actor": {
+"id": 583231,
+"login": "octocat",
+"display_login": "octocat",
+"gravatar_id": "",
+"url": "https://api.github.com/users/octocat",
+"avatar_url": "https://avatars.githubusercontent.com/u/583231?v=4"
+},
+"repo": {
+"id": 1296269,
+"name": "octo-org/octo-repo",
+"url": "https://api.github.com/repos/octo-org/octo-repo"
+},
+"payload": {
+"repository_id": 1296269,
+"push_id": 10115855396,
+"ref": "refs/heads/master",
+"head": "7a8f3ac80e2ad2f6842cb86f576d4bfe2c03e300",
+"before": "883efe034920928c47fe18598c01249d1a9fdabd"
+},
+"public": true,
+"created_at": "2022-06-09T12:47:28Z",
+"org": {
+"id": 9919,
+"login": "octo-org",
+"gravatar_id": "",
+"url": "https://api.github.com/orgs/octo-org",
+"avatar_url": "https://avatars.githubusercontent.com/u/9919?"
+}
+}
+]
+List repository events
+Note
+This API is not built to serve real-time use cases. Depending on the time of day, event latency can be anywhere from 30s to 6h.
+Fine-grained access tokens for "List repository events"
+This endpoint works with the following fine-grained token types :
+GitHub App user access tokens
+GitHub App installation access tokens
+Fine-grained personal access tokens
+The fine-grained token must have the following permission set:
+"Metadata" repository permissions (read)
+This endpoint can be used without authentication or the aforementioned permissions if only public resources are requested.
+Parameters for "List repository events"
+Headers Name, Type, Description accept string
+Setting to application/vnd.github+json is recommended.
+Path parameters Name, Type, Description owner string Required
+The account owner of the repository. The name is not case sensitive.
+repo string Required
+The name of the repository without the .git extension. The name is not case sensitive.
+Query parameters Name, Type, Description per_page integer
+The number of results per page (max 100). For more information, see " Using pagination in the REST API ."
+Default : 30
+page integer
+The page number of the results to fetch. For more information, see " Using pagination in the REST API ."
+Default : 1
+HTTP response status codes for "List repository events"
+Status code Description 200 OK
+Code samples for "List repository events"
+Request example
+get /repos /{owner} /{repo} /events
+cURL
+JavaScript
+GitHub CLI
+Copy to clipboard curl request example
+curl -L \
+-H "Accept: application/vnd.github+json" \
+-H "Authorization: Bearer <YOUR-TOKEN>" \
+-H "X-GitHub-Api-Version: 2026-03-10" \
+https://api.github.com/repos/OWNER/REPO/events
+Response
+Example response
+Response schema
+Status: 200
+[
+{
+"id": "22249084964",
+"type": "PushEvent",
+"actor": {
+"id": 583231,
+"login": "octocat",
+"display_login": "octocat",
+"gravatar_id": "",
+"url": "https://api.github.com/users/octocat",
+"avatar_url": "https://avatars.githubusercontent.com/u/583231?v=4"
+},
+"repo": {
+"id": 1296269,
+"name": "octocat/Hello-World",
+"url": "https://api.github.com/repos/octocat/Hello-World"
+},
+"payload": {
+"repository_id": 1296269,
+"push_id": 10115855396,
+"ref": "refs/heads/master",
+"head": "7a8f3ac80e2ad2f6842cb86f576d4bfe2c03e300",
+"before": "883efe034920928c47fe18598c01249d1a9fdabd"
+},
+"public": true,
+"created_at": "2022-06-09T12:47:28Z"
+},
+{
+"id": "22237752260",
+"type": "WatchEvent",
+"actor": {
+"id": 583231,
+"login": "octocat",
+"display_login": "octocat",
+"gravatar_id": "",
+"url": "https://api.github.com/users/octocat",
+"avatar_url": "https://avatars.githubusercontent.com/u/583231?v=4"
+},
+"repo": {
+"id": 1296269,
+"name": "octocat/Hello-World",
+"url": "https://api.github.com/repos/octocat/Hello-World"
+},
+"payload": {
+"action": "started"
+},
+"public": true,
+"created_at": "2022-06-08T23:29:25Z"
+}
+]
+List events for the authenticated user
+If you are authenticated as the given user, you will see your private events. Otherwise, you'll only see public events. Optional : use the fine-grained token with following permission set to view private events: "Events" user permissions (read).
+Note
+This API is not built to serve real-time use cases. Depending on the time of day, event latency can be anywhere from 30s to 6h.
+Fine-grained access tokens for "List events for the authenticated user"
+This endpoint works with the following fine-grained token types :
+GitHub App user access tokens
+GitHub App installation access tokens
+Fine-grained personal access tokens
+The fine-grained token does not require any permissions.
+Parameters for "List events for the authenticated user"
+Headers Name, Type, Description accept string
+Setting to application/vnd.github+json is recommended.
+Path parameters Name, Type, Description username string Required
+The handle for the GitHub user account.
+Query parameters Name, Type, Description per_page integer
+The number of results per page (max 100). For more information, see " Using pagination in the REST API ."
+Default : 30
+page integer
+The page number of the results to fetch. For more information, see " Using pagination in the REST API ."
+Default : 1
+HTTP response status codes for "List events for the authenticated user"
+Status code Description 200 OK
+Code samples for "List events for the authenticated user"
+Request example
+get /users/{username}/events
+cURL
+JavaScript
+GitHub CLI
+Copy to clipboard curl request example
+curl -L \
+-H "Accept: application/vnd.github+json" \
+-H "X-GitHub-Api-Version: 2026-03-10" \
+https://api.github.com/users/USERNAME/events
+Response
+Example response
+Response schema
+Status: 200
+[
+{
+"id": "22249084947",
+"type": "WatchEvent",
+"actor": {
+"id": 583231,
+"login": "octocat",
+"display_login": "octocat",
+"gravatar_id": "",
+"url": "https://api.github.com/users/octocat",
+"avatar_url": "https://avatars.githubusercontent.com/u/583231?v=4"
+},
+"repo": {
+"id": 1296269,
+"name": "octocat/Hello-World",
+"url": "https://api.github.com/repos/octocat/Hello-World"
+},
+"payload": {
+"action": "started"
+},
+"public": true,
+"created_at": "2022-06-09T12:47:28Z"
+},
+{
+"id": "22249084964",
+"type": "PushEvent",
+"actor": {
+"id": 583231,
+"login": "octocat",
+"display_login": "octocat",
+"gravatar_id": "",
+"url": "https://api.github.com/users/octocat",
+"avatar_url": "https://avatars.githubusercontent.com/u/583231?v=4"
+},
+"repo": {
+"id": 1296269,
+"name": "octocat/Hello-World",
+"url": "https://api.github.com/repos/octocat/Hello-World"
+},
+"payload": {
+"repository_id": 1296269,
+"push_id": 10115855396,
+"ref": "refs/heads/master",
+"head": "7a8f3ac80e2ad2f6842cb86f576d4bfe2c03e300",
+"before": "883efe034920928c47fe18598c01249d1a9fdabd"
+},
+"public": false,
+"created_at": "2022-06-07T07:50:26Z"
+}
+]
+List organization events for the authenticated user
+This is the user's organization dashboard. You must be authenticated as the user to view this.
+Note
+This API is not built to serve real-time use cases. Depending on the time of day, event latency can be anywhere from 30s to 6h.
+Fine-grained access tokens for "List organization events for the authenticated user"
+This endpoint works with the following fine-grained token types :
+GitHub App user access tokens
+Fine-grained personal access tokens
+The fine-grained token must have the following permission set:
+"Events" organization permissions (read)
+Parameters for "List organization events for the authenticated user"
+Headers Name, Type, Description accept string
+Setting to application/vnd.github+json is recommended.
+Path parameters Name, Type, Description username string Required
+The handle for the GitHub user account.
+org string Required
+The organization name. The name is not case sensitive.
+Query parameters Name, Type, Description per_page integer
+The number of results per page (max 100). For more information, see " Using pagination in the REST API ."
+Default : 30
+page integer
+The page number of the results to fetch. For more information, see " Using pagination in the REST API ."
+Default : 1
+HTTP response status codes for "List organization events for the authenticated user"
+Status code Description 200 OK
+Code samples for "List organization events for the authenticated user"
+Request example
+get /users /{username} /events /orgs /{org}
+cURL
+JavaScript
+GitHub CLI
+Copy to clipboard curl request example
+curl -L \
+-H "Accept: application/vnd.github+json" \
+-H "Authorization: Bearer <YOUR-TOKEN>" \
+-H "X-GitHub-Api-Version: 2026-03-10" \
+https://api.github.com/users/USERNAME/events/orgs/ORG
+Response
+Example response
+Response schema
+Status: 200
+[
+{
+"id": "22249084964",
+"type": "PushEvent",
+"actor": {
+"id": 583231,
+"login": "octocat",
+"display_login": "octocat",
+"gravatar_id": "",
+"url": "https://api.github.com/users/octocat",
+"avatar_url": "https://avatars.githubusercontent.com/u/583231?v=4"
+},
+"repo": {
+"id": 1296269,
+"name": "octo-org/octo-repo",
+"url": "https://api.github.com/repos/octo-org/octo-repo"
+},
+"payload": {
+"repository_id": 1296269,
+"push_id": 10115855396,
+"ref": "refs/heads/master",
+"head": "7a8f3ac80e2ad2f6842cb86f576d4bfe2c03e300",
+"before": "883efe034920928c47fe18598c01249d1a9fdabd"
+},
+"public": false,
+"created_at": "2022-06-09T12:47:28Z",
+"org": {
+"id": 9919,
+"login": "octo-org",
+"gravatar_id": "",
+"url": "https://api.github.com/orgs/octo-org",
+"avatar_url": "https://avatars.githubusercontent.com/u/9919?"
+}
+},
+{
+"id": "22196946742",
+"type": "CreateEvent",
+"actor": {
+"id": 583231,
+"login": "octocat",
+"display_login": "octocat",
+"gravatar_id": "",
+"url": "https://api.github.com/users/octocat",
+"avatar_url": "https://avatars.githubusercontent.com/u/583231?v=4"
+},
+"repo": {
+"id": 1296269,
+"name": "octo-org/octo-repo",
+"url": "https://api.github.com/repos/octo-org/octo-repo"
+},
+"payload": {
+"ref": "master",
+"ref_type": "repository",
+"full_ref": "refs/heads/master",
+"master_branch": "master",
+"description": null,
+"pusher_type": "user"
+},
+"public": false,
+"created_at": "2022-06-07T07:50:26Z",
+"org": {
+"id": 9919,
+"login": "octo-org",
+"gravatar_id": "",
+"url": "https://api.github.com/orgs/octo-org",
+"avatar_url": "https://avatars.githubusercontent.com/u/9919?"
+}
+}
+]
+List public events for a user
+Note
+This API is not built to serve real-time use cases. Depending on the time of day, event latency can be anywhere from 30s to 6h.
+Fine-grained access tokens for "List public events for a user"
+This endpoint works with the following fine-grained token types :
+GitHub App user access tokens
+GitHub App installation access tokens
+Fine-grained personal access tokens
+The fine-grained token does not require any permissions.
+Parameters for "List public events for a user"
+Headers Name, Type, Description accept string
+Setting to application/vnd.github+json is recommended.
+Path parameters Name, Type, Description username string Required
+The handle for the GitHub user account.
+Query parameters Name, Type, Description per_page integer
+The number of results per page (max 100). For more information, see " Using pagination in the REST API ."
+Default : 30
+page integer
+The page number of the results to fetch. For more information, see " Using pagination in the REST API ."
+Default : 1
+HTTP response status codes for "List public events for a user"
+Status code Description 200 OK
+Code samples for "List public events for a user"
+Request example
+get /users /{username} /events /public
+cURL
+JavaScript
+GitHub CLI
+Copy to clipboard curl request example
+curl -L \
+-H "Accept: application/vnd.github+json" \
+-H "X-GitHub-Api-Version: 2026-03-10" \
+https://api.github.com/users/USERNAME/events/public
+Response
+Example response
+Response schema
+Status: 200
+[
+{
+"id": "22249084947",
+"type": "WatchEvent",
+"actor": {
+"id": 583231,
+"login": "octocat",
+"display_login": "octocat",
+"gravatar_id": "",
+"url": "https://api.github.com/users/octocat",
+"avatar_url": "https://avatars.githubusercontent.com/u/583231?v=4"
+},
+"repo": {
+"id": 1296269,
+"name": "octocat/Hello-World",
+"url": "https://api.github.com/repos/octocat/Hello-World"
+},
+"payload": {
+"action": "started"
+},
+"public": true,
+"created_at": "2022-06-09T12:47:28Z"
+},
+{
+"id": "22249084964",
+"type": "PushEvent",
+"actor": {
+"id": 583231,
+"login": "octocat",
+"display_login": "octocat",
+"gravatar_id": "",
+"url": "https://api.github.com/users/octocat",
+"avatar_url": "https://avatars.githubusercontent.com/u/583231?v=4"
+},
+"repo": {
+"id": 1296269,
+"name": "octocat/Hello-World",
+"url": "https://api.github.com/repos/octocat/Hello-World"
+},
+"payload": {
+"repository_id": 1296269,
+"push_id": 10115855396,
+"ref": "refs/heads/master",
+"head": "7a8f3ac80e2ad2f6842cb86f576d4bfe2c03e300",
+"before": "883efe034920928c47fe18598c01249d1a9fdabd"
+},
+"public": true,
+"created_at": "2022-06-08T23:29:25Z"
+}
+]
+List events received by the authenticated user
+These are events that you've received by watching repositories and following users. If you are authenticated as the
+given user, you will see private events. Otherwise, you'll only see public events.
+Note
+This API is not built to serve real-time use cases. Depending on the time of day, event latency can be anywhere from 30s to 6h.
+Fine-grained access tokens for "List events received by the authenticated user"
+This endpoint works with the following fine-grained token types :
+GitHub App user access tokens
+GitHub App installation access tokens
+Fine-grained personal access tokens
+The fine-grained token does not require any permissions.
+Parameters for "List events received by the authenticated user"
+Headers Name, Type, Description accept string
+Setting to application/vnd.github+json is recommended.
+Path parameters Name, Type, Description username string Required
+The handle for the GitHub user account.
+Query parameters Name, Type, Description per_page integer
+The number of results per page (max 100). For more information, see " Using pagination in the REST API ."
+Default : 30
+page integer
+The page number of the results to fetch. For more information, see " Using pagination in the REST API ."
+Default : 1
+HTTP response status codes for "List events received by the authenticated user"
+Status code Description 200 OK
+Code samples for "List events received by the authenticated user"
+Request example
+get /users /{username} /received_ events
+cURL
+JavaScript
+GitHub CLI
+Copy to clipboard curl request example
+curl -L \
+-H "Accept: application/vnd.github+json" \
+-H "X-GitHub-Api-Version: 2026-03-10" \
+https://api.github.com/users/USERNAME/received_events
+Response
+Example response
+Response schema
+Status: 200
+[
+{
+"id": "22249084964",
+"type": "PushEvent",
+"actor": {
+"id": 583231,
+"login": "octocat",
+"display_login": "octocat",
+"gravatar_id": "",
+"url": "https://api.github.com/users/octocat",
+"avatar_url": "https://avatars.githubusercontent.com/u/583231?v=4"
+},
+"repo": {
+"id": 1296269,
+"name": "octocat/Hello-World",
+"url": "https://api.github.com/repos/octocat/Hello-World"
+},
+"payload": {
+"repository_id": 1296269,
+"push_id": 10115855396,
+"ref": "refs/heads/master",
+"head": "7a8f3ac80e2ad2f6842cb86f576d4bfe2c03e300",
+"before": "883efe034920928c47fe18598c01249d1a9fdabd"
+},
+"public": true,
+"created_at": "2022-06-09T12:47:28Z"
+},
+{
+"id": "22196946742",
+"type": "CreateEvent",
+"actor": {
+"id": 583231,
+"login": "octocat",
+"display_login": "octocat",
+"gravatar_id": "",
+"url": "https://api.github.com/users/octocat",
+"avatar_url": "https://avatars.githubusercontent.com/u/583231?v=4"
+},
+"repo": {
+"id": 1296269,
+"name": "octocat/Hello-World",
+"url": "https://api.github.com/repos/octocat/Hello-World"
+},
+"payload": {
+"ref": "master",
+"ref_type": "repository",
+"full_ref": "refs/heads/master",
+"master_branch": "master",
+"description": null,
+"pusher_type": "user"
+},
+"public": false,
+"created_at": "2022-06-07T07:50:26Z"
+}
+]
+List public events received by a user
+Note
+This API is not built to serve real-time use cases. Depending on the time of day, event latency can be anywhere from 30s to 6h.
+Fine-grained access tokens for "List public events received by a user"
+This endpoint works with the following fine-grained token types :
+GitHub App user access tokens
+GitHub App installation access tokens
+Fine-grained personal access tokens
+The fine-grained token does not require any permissions.
+Parameters for "List public events received by a user"
+Headers Name, Type, Description accept string
+Setting to application/vnd.github+json is recommended.
+Path parameters Name, Type, Description username string Required
+The handle for the GitHub user account.
+Query parameters Name, Type, Description per_page integer
+The number of results per page (max 100). For more information, see " Using pagination in the REST API ."
+Default : 30
+page integer
+The page number of the results to fetch. For more information, see " Using pagination in the REST API ."
+Default : 1
+HTTP response status codes for "List public events received by a user"
+Status code Description 200 OK
+Code samples for "List public events received by a user"
+Request example
+get /users /{username} /received_ events /public
+cURL
+JavaScript
+GitHub CLI
+Copy to clipboard curl request example
+curl -L \
+-H "Accept: application/vnd.github+json" \
+-H "X-GitHub-Api-Version: 2026-03-10" \
+https://api.github.com/users/USERNAME/received_events/public
+Response
+Example response
+Response schema
+Status: 200
+[
+{
+"id": "22249084964",
+"type": "PushEvent",
+"actor": {
+"id": 583231,
+"login": "octocat",
+"display_login": "octocat",
+"gravatar_id": "",
+"url": "https://api.github.com/users/octocat",
+"avatar_url": "https://avatars.githubusercontent.com/u/583231?v=4"
+},
+"repo": {
+"id": 1296269,
+"name": "octocat/Hello-World",
+"url": "https://api.github.com/repos/octocat/Hello-World"
+},
+"payload": {
+"repository_id": 1296269,
+"push_id": 10115855396,
+"ref": "refs/heads/master",
+"head": "7a8f3ac80e2ad2f6842cb86f576d4bfe2c03e300",
+"before": "883efe034920928c47fe18598c01249d1a9fdabd"
+},
+"public": true,
+"created_at": "2022-06-09T12:47:28Z"
+},
+{
+"id": "22196946742",
+"type": "CreateEvent",
+"actor": {
+"id": 583231,
+"login": "octocat",
+"display_login": "octocat",
+"gravatar_id": "",
+"url": "https://api.github.com/users/octocat",
+"avatar_url": "https://avatars.githubusercontent.com/u/583231?v=4"
+},
+"repo": {
+"id": 1296269,
+"name": "octocat/Hello-World",
+"url": "https://api.github.com/repos/octocat/Hello-World"
+},
+"payload": {
+"ref": "master",
+"ref_type": "repository",
+"full_ref": "refs/heads/master",
+"master_branch": "master",
+"description": null,
+"pusher_type": "user"
+},
+"public": false,
+"created_at": "2022-06-07T07:50:26Z"
+}
+]
+Back to top
+Help and support
+Was this Doc helpful?
+Yes No
+Help us make GitHub Docs great!
+All Docs are open source. See something that's wrong or unclear? Submit a pull request.
+Make a contribution
+Still need help?
+Ask the GitHub community Contact support Expert services Blog
+GitHub Inc. © 2026 Terms Privacy Status Pricing
