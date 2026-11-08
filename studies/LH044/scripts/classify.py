@@ -7,7 +7,9 @@ re-run of classify over every retained read (python3 -I scripts/collect.py --cla
 
 robots_allowed() implements RFC 9309 matching (product-token group, else '*'; longest match wins;
 Allow wins a tie; '*' and '$' in patterns), so that no request goes to a path a robots.txt
-disallows. Python's urllib.robotparser is not used: it ignores wildcards.
+disallows. Python's urllib.robotparser is not used: it ignores wildcards. From read 1
+(amendment 3), the collector follows up to five robots.txt redirects and applies the rules of the
+final robots.txt to the probe host; matching here is unchanged.
 """
 import re
 from urllib.parse import urlsplit, quote, unquote

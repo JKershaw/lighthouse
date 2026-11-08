@@ -2,9 +2,10 @@
 """LH044 collector, as fixed in studies/LH044/brief.md (protocol 0.1). Run only under a schedule
 row. Stops working after END: the study's requests end on a fixed date.
 
-  --read LABEL         the weekly panel read: for each service, its host's robots.txt, then at
-                       most one probe if robots.txt allows it. Never more than two requests to a
-                       panel host in a read; no retries; redirects recorded, not followed.
+  --read LABEL         the weekly panel read: for each service, its host's robots.txt (with up to
+                       five redirects followed, amendment 3), then at most one probe if robots.txt
+                       allows it. At most HOST_CAP (7) requests to any host in a read; no retries;
+                       a probe's redirect is recorded, not followed.
   --classify LABEL     (offline) re-run the classifier over a read's retained responses.
   --wayback LABEL      Wayback Machine checks for that read's walled services (brief, measure 5).
   --httparchive LABEL  one request for HTTP Archive's monthly adoption counts (context, measure 6).
@@ -23,7 +24,7 @@ cookies, sends no credentials, submits no form, and does not retry a refused req
 from datetime import datetime, timezone, timedelta
 from email.utils import parsedate_to_datetime
 from pathlib import Path
-from urllib.parse import urlsplit, quote
+from urllib.parse import urlsplit, quote, urljoin
 from urllib.request import getproxies, proxy_bypass_environment
 import argparse
 import csv
@@ -41,6 +42,12 @@ from classify import (classify, parse_robots, robots_allowed, AI_TOKENS, WALL_CL
 ROOT = Path(__file__).resolve().parents[1]
 END = datetime(2027, 2, 9, 23, 59, 59, tzinfo=timezone.utc)
 PAUSE = 1.5
+# Amendment 3 (8 November 2026, post hoc, from read 1): robots.txt redirects are followed, up to
+# ROBOTS_MAX_REDIRECTS hops, same-site or cross-site, each hop a logged request; probes still
+# follow none. No host gets more than HOST_CAP requests in a read (1 robots.txt + 5 redirects +
+# 1 probe for a single service), enforced across all services.
+ROBOTS_MAX_REDIRECTS = 5
+HOST_CAP = 7
 ACCEPT = {
     'page': 'text/html,application/xhtml+xml;q=0.9,*/*;q=0.8',
     'api': 'application/json, application/xml;q=0.9, */*;q=0.5',
@@ -86,12 +93,15 @@ class Recorder:
         self.dir = outdir
         self.dir.mkdir(parents=True)
         self.n = 0
+        self.host_counts = {}
         self.f = open(self.dir / 'readlog.csv', 'w', newline='')
         self.w = csv.DictWriter(self.f, fieldnames=LOG_FIELDS)
         self.w.writeheader()
 
     def get(self, service, kind, url, ua, accept, cap=65536):
         self.n += 1
+        h = (urlsplit(url).hostname or '').lower()
+        self.host_counts[h] = self.host_counts.get(h, 0) + 1
         r = fetch(url, ua=ua, accept=accept, cap=cap)
         # Email addresses are withheld from what is kept (the keeper, 8 November 2026); the
         # readlog's sha256 stays the hash of the bytes received. Classification reads the kept bytes.
@@ -144,12 +154,43 @@ def previous_holds(label):
     return out
 
 
+def host_full(rec, url):
+    return rec.host_counts.get((urlsplit(url).hostname or '').lower(), 0) >= HOST_CAP
+
+
+def fetch_robots(rec, sid, url):
+    """robots.txt with its redirects followed (amendment 3): at most ROBOTS_MAX_REDIRECTS hops,
+    each logged as kind robots-redirect-<k>. Returns (final response or None, chain of request
+    numbers, cut) where cut is '' or 'host_cap'. A chain that is still redirecting after the
+    last allowed hop ends on that redirect, which robots_outcome reads as robots_redirect."""
+    chain, cur, r = [], url, None
+    for hop in range(ROBOTS_MAX_REDIRECTS + 1):
+        if host_full(rec, cur):
+            return r, chain, 'host_cap'
+        r = rec.get(sid, 'robots' if hop == 0 else 'robots-redirect-%d' % hop, cur, UA_PLAIN,
+                    'text/plain, */*;q=0.5')
+        chain.append(r['n'])
+        if r['error'] or not r['status'] or not (300 <= r['status'] < 400):
+            break
+        loc = header(r, 'location').strip()
+        nxt = urljoin(cur, loc) if loc else ''
+        if urlsplit(nxt).scheme not in ('http', 'https'):
+            break
+        if hop == ROBOTS_MAX_REDIRECTS:
+            break
+        cur = nxt
+    return r, chain, ''
+
+
 def robots_outcome(res):
     """What a robots.txt response allows. Returns (state, groups, class, detail)."""
     if res['error']:
         return 'unreachable', None, 'robots_unreachable', res['error']
     st = res['status']
     cls, det = classify(st, None, res['headers'], res['body'], 'file', '', res['url'])
+    if cls == 'unread_proxy':
+        # this container's own refusal, e.g. a redirect onto github.com: not the origin's answer
+        return 'unreachable', None, 'robots_unreachable', det
     if cls in ('challenge', 'rate_limited'):
         return 'wall', None, 'wall_at_robots', cls + ':' + det
     if 200 <= st < 300:
@@ -174,7 +215,8 @@ def do_read(label):
     for s in panel:
         sid = s['id']
         row = dict(s)
-        row.update({'robots_n': '', 'robots_state': '', 'probe_n': '', 'pre_class': '', 'pre_detail': ''})
+        row.update({'robots_n': '', 'robots_chain': [], 'robots_state': '', 'probe_n': '', 'pre_class': '',
+                    'pre_detail': ''})
         hold = holds.get(sid)
         if hold and hold > utcnow():
             row.update({'pre_class': 'skipped_retry_after', 'pre_detail': hold.isoformat()})
@@ -182,7 +224,13 @@ def do_read(label):
             continue
         u = urlsplit(s['url'])
         robots_url = '%s://%s/robots.txt' % (u.scheme, u.netloc)
-        rr = rec.get(sid, 'robots', robots_url, UA_PLAIN, 'text/plain, */*;q=0.5')
+        rr, chain, cut = fetch_robots(rec, sid, robots_url)
+        row['robots_chain'] = chain
+        if rr is None or cut:
+            row.update({'robots_n': chain[-1] if chain else '', 'robots_state': 'host_cap',
+                        'pre_class': 'robots_unreachable', 'pre_detail': 'host cap reached'})
+            services.append(row)
+            continue
         state, groups, pcls, pdet = robots_outcome(rr)
         row['robots_n'], row['robots_state'] = rr['n'], state
         if pcls:
@@ -191,6 +239,10 @@ def do_read(label):
             continue
         if not robots_allowed(groups, ROBOTS_TOKEN, s['url']):
             row.update({'pre_class': 'robots_disallowed', 'pre_detail': ''})
+            services.append(row)
+            continue
+        if host_full(rec, s['url']):
+            row.update({'pre_class': 'not_probed_host_cap', 'pre_detail': ''})
             services.append(row)
             continue
         ua = UA_COMPAT if s['surface'] == 'page' else UA_PLAIN
@@ -222,7 +274,8 @@ def do_classify(label):
     rows, robots_rows = [], []
     for s in meta['services']:
         cls, det, status, ra = s['pre_class'], s['pre_detail'], '', ''
-        if s['robots_n'] and not s['probe_n'] and cls != 'robots_disallowed':
+        if s['robots_n'] and not s['probe_n'] and cls not in ('robots_disallowed', 'not_probed_host_cap') \
+                and s['robots_state'] != 'host_cap':
             # re-read the kept robots.txt response with the current classifier
             rl = log[str(s['robots_n'])]
             rresp = _load_resp(d, s['robots_n'])
@@ -422,8 +475,8 @@ def do_httparchive(label):
     if out.exists():
         sys.exit('httparchive %s already held' % label)
     rec = Recorder(out)
-    rb = rec.get('-', 'robots', 'https://cdn.httparchive.org/robots.txt', UA_PLAIN, 'text/plain')
-    state, groups, pcls, _ = robots_outcome(rb)
+    rb, _, cut = fetch_robots(rec, '-', 'https://cdn.httparchive.org/robots.txt')
+    state, groups, pcls, _ = robots_outcome(rb) if rb and not cut else ('unreachable', None, 'host_cap', '')
     url = ('https://cdn.httparchive.org/v1/adoption?technology=%s&geo=ALL&rank=ALL&start=2024-01-01'
            % quote(','.join(HA_TECH), safe=','))
     if state in ('parsed', 'unavailable') and robots_allowed(groups, ROBOTS_TOKEN, url):
@@ -444,8 +497,8 @@ def do_statements(label, listfile):
         u = urlsplit(row['url'])
         key = (u.scheme, u.netloc)
         if key not in robots:
-            rb = rec.get(row['id'], 'robots', '%s://%s/robots.txt' % key, UA_PLAIN, 'text/plain')
-            robots[key] = robots_outcome(rb)
+            rb, _, cut = fetch_robots(rec, row['id'], '%s://%s/robots.txt' % key)
+            robots[key] = robots_outcome(rb) if rb and not cut else ('unreachable', None, 'host_cap', '')
         state, groups, pcls, _ = robots[key]
         if state not in ('parsed', 'unavailable') or not robots_allowed(groups, ROBOTS_TOKEN, row['url']):
             print('not read (robots %s %s): %s' % (state, pcls, row['url']))
@@ -476,4 +529,5 @@ def main():
         ap.print_help()
 
 
-main()
+if __name__ == '__main__':
+    main()
