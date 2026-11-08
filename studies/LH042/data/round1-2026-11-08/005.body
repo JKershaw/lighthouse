@@ -1,0 +1,132 @@
+<!doctype html><html lang=en><head><meta charset=utf-8><meta name=viewport content="width=device-width,initial-scale=1"><title>12,000 Ollama Instances Exposed: When 'Local-First' Meets the Real World |LeakIX blog</title><link rel=canonical href=https://blog.leakix.net/2026/02/ollama-exposed/><link rel=icon type=image/x-icon href=https://blog.leakix.net/favicon.ico><link rel=icon type=image/png sizes=32x32 href=https://blog.leakix.net/favicon-32x32.png><link rel=icon type=image/png sizes=16x16 href=https://blog.leakix.net/favicon-16x16.png><link rel=apple-touch-icon sizes=180x180 href=https://blog.leakix.net/images/logo.png><meta name=description content="Ollama refuses to add authentication. We found 12,269 instances wide open on the internet with models, compute, and data exposed to anyone."><meta name=author content="Valentin Lobstein"><meta property="og:type" content="
+    article
+  "><meta property="og:url" content="https://blog.leakix.net/2026/02/ollama-exposed/"><meta property="og:title" content="12,000 Ollama Instances Exposed: When 'Local-First' Meets the Real World"><meta property="og:description" content="Ollama refuses to add authentication. We found 12,269 instances wide open on the internet with models, compute, and data exposed to anyone."><meta property="og:image" content="https://blog.leakix.net/cover.png"><meta property="twitter:card" content="summary_large_image"><meta property="twitter:url" content="https://blog.leakix.net/2026/02/ollama-exposed/"><meta property="twitter:title" content="12,000 Ollama Instances Exposed: When 'Local-First' Meets the Real World"><meta property="twitter:description" content="Ollama refuses to add authentication. We found 12,269 instances wide open on the internet with models, compute, and data exposed to anyone."><meta property="twitter:image" content="https://blog.leakix.net/cover.png"><meta name=twitter:image:width content="1200"><meta name=twitter:image:height content="630"><meta name=twitter:site content="https://twitter.com/leak_ix"><meta property="article:published_time" content="2026-02-23T09:00:00Z"><meta property="article:modified_time" content="2026-02-23T09:00:00Z"><meta property="article:author" content="Valentin Lobstein"><meta property="article:section" content="
+      research
+    "><meta property="article:tag" content="ollama"><meta property="article:tag" content="AI"><meta property="article:tag" content="research"><meta property="article:tag" content="LeakIX"><meta property="article:tag" content="security"><meta name=robots content="index, follow"><meta name=language content="en"><meta name=author content="Valentin Lobstein"><link rel=author href=https://blog.leakix.net/><script type=application/ld+json>{"@context":"https://schema.org","@type":"BlogPosting","headline":"12,000 Ollama Instances Exposed: When \u0027Local-First\u0027 Meets the Real World","description":"Ollama refuses to add authentication. We found 12,269 instances wide open on the internet with models, compute, and data exposed to anyone.","author":{"@type":"Person","name":"Valentin Lobstein","url":"https:\/\/blog.leakix.net\/"},"datePublished":"2026-02-23T09:00:00Z","dateModified":"2026-02-23T09:00:00Z","image":{"@type":"ImageObject","url":"https:\/\/blog.leakix.net\/cover.png","width":1200,"height":630},"publisher":{"@type":"Organization","name":"LeakIX","url":"https:\/\/blog.leakix.net\/","logo":{"@type":"ImageObject","url":"https:\/\/blog.leakix.net\/images\/logo.png","width":512,"height":512}},"mainEntityOfPage":{"@type":"WebPage","@id":"https:\/\/blog.leakix.net\/2026\/02\/ollama-exposed\/"},"articleSection":"research","keywords":"ollama, AI, research, LeakIX, security"}</script><style>:root{}</style><link href=https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css rel=stylesheet><link href="https://fonts.googleapis.com/css2?family=Roboto+Mono:wght@300;400;500;700&display=swap" rel=stylesheet><link rel=stylesheet href=https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css integrity="sha512-DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeAIftl+Vegovlnee1c9QX4TctnWMn13TZye+giMm8e2LwA==" crossorigin=anonymous referrerpolicy=no-referrer><link rel=stylesheet href=/scss/base.min.e7e3e47fcdd901c3832bf8e330b9f0706fe2cbeaf6a02fcfd7657b286c5fa29c.css></head><body><nav class="navbar navbar-expand-lg navbar-dark"><div class=container-fluid><a class="navbar-brand d-flex align-items-center p-2" href=https://blog.leakix.net/><img src=https://blog.leakix.net/images/logo.png alt=LeakIX class=navbar-logo>
+</a><button class=navbar-toggler type=button data-bs-toggle=collapse data-bs-target=#navbarNav>
+<span class=navbar-toggler-icon></span></button><div class="collapse navbar-collapse justify-content-end" id=navbarNav><ul class=navbar-nav><li class=nav-item><a class=nav-link href=/>Home</a></li><li class="nav-item dropdown"><a class="nav-link dropdown-toggle" href=# role=button data-bs-toggle=dropdown>Blog</a><ul class="dropdown-menu dropdown-menu-dark"><li><a class=dropdown-item href=/posts/>Posts</a></li><li><hr class=dropdown-divider></li><li><a class=dropdown-item href=/tags/>Tags</a></li></ul></li><li class=nav-item><a class=nav-link href=https://leakix.net target=_blank>LeakIX
+<i class="fas fa-external-link-alt ms-1 small"></i></a></li></ul><form class="d-flex ms-3 search-form" action=/search/ method=get><div class=input-group><input class=form-control type=search name=q placeholder=Search...>
+<button class="btn btn-search" type=submit>
+<i class="fas fa-search"></i></button></div></form></div></div></nav><main><article class=post-single><div class="hero-gradient py-5"><div class=container><div class="container-content mx-auto"><h1 class="display-4 mb-3">12,000 Ollama Instances Exposed: When 'Local-First' Meets the Real World</h1><div class="post-meta d-flex flex-wrap align-items-center gap-3 text-light"><span class=meta-item><i class="far fa-calendar-alt me-1"></i>
+February 23, 2026
+</span><span class=meta-item><i class="far fa-user me-1"></i>
+Valentin Lobstein
+</span><span class=meta-item><i class="far fa-clock me-1"></i>
+7 min read</span></div><div class="post-tags mt-3"><a href=/categories/research class="badge badge-category me-2">research
+</a><a href=/categories/leakix class="badge badge-category me-2">LeakIX
+</a><a href=/tags/ollama class="badge badge-tag me-2">#ollama
+</a><a href=/tags/ai class="badge badge-tag me-2">#AI
+</a><a href=/tags/research class="badge badge-tag me-2">#research
+</a><a href=/tags/leakix class="badge badge-tag me-2">#LeakIX
+</a><a href=/tags/security class="badge badge-tag me-2">#security</a></div></div></div></div><div class="container py-5"><div class=row><div class="col-lg-8 mx-auto"><div class=post-content><img src=/2026/02/ollama-exposed/cover.png alt="12,000 Ollama Instances Exposed: When 'Local-First' Meets the Real World" class="post-featured-image mb-4"><div class=content-wrapper><p>Ollama is one of the most popular tools for running large language models locally.
+100,000+ stars on GitHub, millions of downloads, the default choice for anyone
+who wants to self-host an LLM. There&rsquo;s just one problem: it ships with no
+authentication, and the maintainers have made it clear they don&rsquo;t plan to add
+any.</p><p>We found <strong>12,269 Ollama instances</strong> exposed on the public internet with zero
+authentication. Anyone can list models, run inference, and in some cases
+exfiltrate proprietary fine-tuned weights.</p><h2 id=the-numbers>The Numbers</h2><p>Our <a href="https://leakix.net/search?scope=leak&amp;q=%2Bplugin%3AOllamaPlugin">OllamaPlugin</a>
+continuously scans the internet for exposed Ollama instances. Here&rsquo;s what we&rsquo;re
+seeing right now:</p><table><thead><tr><th>Country</th><th>Exposed Instances</th></tr></thead><tbody><tr><td>United States</td><td>1,829</td></tr><tr><td>China</td><td>1,712</td></tr><tr><td>France</td><td>1,425</td></tr><tr><td>Germany</td><td>1,364</td></tr><tr><td>South Korea</td><td>453</td></tr><tr><td>India</td><td>414</td></tr><tr><td>Russia</td><td>393</td></tr><tr><td>Hong Kong</td><td>329</td></tr><tr><td>Finland</td><td>312</td></tr><tr><td>Canada</td><td>256</td></tr></tbody></table><p>The top networks hosting exposed instances are AWS (1,686 combined), Hetzner
+(1,004), OVH (773), and Contabo (634). These aren&rsquo;t hobbyist setups on home
+networks. These are cloud deployments, often running expensive GPU instances
+with production models loaded.</p><p>Among the exposed instances, we find everything from <code>llama3.3:latest</code> running
+on 42 GB of VRAM to proprietary fine-tuned models that represent months of
+training work. Some instances have 30+ models loaded, representing hundreds of
+gigabytes of weights sitting on the open internet.</p><h2 id=whats-exposed>What&rsquo;s Exposed</h2><p>Every exposed Ollama instance gives an unauthenticated attacker access to:</p><ul><li><strong>Model enumeration</strong>: <code>/api/tags</code> lists every model with exact sizes</li><li><strong>Free compute</strong>: <code>/api/generate</code> and <code>/api/chat</code> let anyone run inference at
+the owner&rsquo;s expense</li><li><strong>Model theft</strong>: <code>/api/pull</code> and <code>/api/push</code> can exfiltrate model weights,
+including proprietary fine-tuned models</li><li><strong>Proven RCE chain</strong>:
+<a href=https://nvd.nist.gov/vuln/detail/CVE-2024-37032>CVE-2024-37032</a>
+(&ldquo;Probllama&rdquo;) is a path traversal in Ollama&rsquo;s model pull mechanism that
+chains into unauthenticated RCE as root. The OCI manifest digest field
+accepts arbitrary path traversal sequences instead of enforcing
+<code>sha256:&lt;hex></code>, allowing a rogue registry to write arbitrary files on the
+server. The exploit writes a shared library payload via <code>ld.so.preload</code> and
+triggers it through a model chat request. The
+<a href=https://github.com/rapid7/metasploit-framework/pull/21006>Metasploit module</a>
+delivers a full Meterpreter session as root in seconds. Among the 12,269
+exposed instances, roughly 1,000 are running vulnerable versions. And since
+most people deploy Ollama through Docker with default settings, the process
+runs as <strong>root</strong>. Exploitation gives immediate root-level access to the
+container, and often to the host through mounted volumes or privileged mode.</li></ul><p>For an attacker, these instances are free GPU time. For a competitor, free
+access to proprietary models. For a red teamer, initial access into cloud
+environments where the Ollama instance often runs as root with broad network
+access to internal services.</p><p>And here&rsquo;s the part that should worry everyone: <strong>the absence of authentication
+makes every future Ollama CVE automatically unauthenticated.</strong> Every single
+vulnerability that will be found in Ollama, whether it&rsquo;s a path traversal, a
+buffer overflow, or any memory corruption bug in the C++ llama.cpp engine, will
+be exploitable by anyone on the internet with zero credentials. No auth means no
+barrier between a remote attacker and whatever bug comes next. And bugs will
+come. Ollama is a large C++ project that parses complex binary formats (GGUF
+models, OCI manifests, safetensors). The attack surface is massive. The moment
+you get any form of file write on a system running as root, you write a shared
+library, you write to <code>ld.so.preload</code>, and the next process that spawns loads
+your code. Ollama&rsquo;s llama.cpp runner forks processes constantly, so the trigger
+is immediate. Full system compromise, every time, without exception.</p><p>Authentication would not prevent these bugs from existing. But it would prevent
+random people on the internet from reaching them. Right now, every exposed
+Ollama instance is one CVE away from a root shell. And there are 12,269 of them.</p><h2 id=ollamas-position-use-a-proxy>Ollama&rsquo;s Position: &ldquo;Use a Proxy&rdquo;</h2><p>The community has been asking for built-in authentication since <strong>October 2023</strong>.
+Here&rsquo;s the timeline:</p><ul><li><strong>Oct 2023</strong>: <a href=https://github.com/ollama/ollama/issues/849>Issue #849</a>.
+&ldquo;How to secure the API with api key.&rdquo; Response: use nginx.</li><li><strong>Nov 2023</strong>: <a href=https://github.com/ollama/ollama/issues/1053>Issue #1053</a>.
+&ldquo;Requesting support for basic auth or API key authentication.&rdquo; 25+ comments.
+Closed.</li><li><strong>Sep 2024</strong>: <a href=https://github.com/ollama/ollama/pull/6223>PR #6223</a>.
+A contributor implemented basic auth using gin&rsquo;s built-in middleware. Working
+code, ready to merge. <strong>Rejected</strong> by jmorganca (Ollama founder): &ldquo;we suggest
+doing this with a proxy in front of Ollama for the time being.&rdquo;</li><li><strong>Jan 2025</strong>: <a href=https://github.com/ollama/ollama/issues/8536>Issue #8536</a>.
+&ldquo;Support for API_KEY based authentication.&rdquo; Closed again. Collaborator
+response: &ldquo;ollama is an LLM inference engine. Other functionality is added by
+external projects.&rdquo; (6 thumbs down.)</li><li><strong>Feb 2025</strong>: Multiple additional PRs (#5415, #8321, #9131) adding
+authentication. All stalled or rejected.</li></ul><p>The official position from jmorganca (December 2024):</p><blockquote><p>&ldquo;Given the different auth configurations, we try to keep Ollama focused on
+serving an http API that can be fronted by a number of proxy servers such as
+nginx, caddy and more.&rdquo;</p></blockquote><p>The problem isn&rsquo;t that proxy-based auth doesn&rsquo;t work. It does. The problem is
+that <strong>nobody does it</strong>. 12,269 instances prove that telling users to &ldquo;just add
+nginx&rdquo; is not a security strategy.</p><h2 id=secure-by-design-is-not-optional>Secure by Design Is Not Optional</h2><p>Let&rsquo;s be real. You <strong>have</strong> to assume users will mess up deployments. Not
+everyone is a sysadmin. Not everyone understands networking. Most people running
+Ollama are developers, researchers, or hobbyists who just want to run an LLM.
+They follow the quickstart, set <code>OLLAMA_HOST=x.x.x.x</code> because they need access
+from another machine, and move on with their lives. They are not going to set up
+nginx with bearer token auth. They are not going to write a Caddyfile. They are
+not going to configure TLS certificates. They want it to work, and that&rsquo;s it.</p><p>And that is completely normal. That is how normal people use software. Blaming
+users for not adding a reverse proxy in front of every service they deploy is
+absurd. It is the maintainers&rsquo; job to ship secure defaults. Period.</p><p>It&rsquo;s 2026. We&rsquo;ve been through this exact disaster with Redis, MongoDB,
+Elasticsearch, Memcached, and a dozen other projects. The playbook is written.
+The lessons are documented. Secure defaults are not a luxury, not a nice to
+have, not a &ldquo;community integration.&rdquo; They are a <strong>baseline expectation</strong> for any
+software that listens on a network socket.</p><p>Ollama does none of this. No authentication. No protected mode. No warning when
+binding to 0.0.0.0. Nothing. And the community has asked for it <strong>dozens of
+times</strong>. Working code has been submitted. Multiple PRs, multiple approaches. All
+rejected. The maintainers are not unaware of the problem. They have made a
+conscious, deliberate decision to leave their users exposed.</p><p>That is not &ldquo;staying focused on core functionality.&rdquo; That is negligence.</p><h2 id=weve-seen-this-before>We&rsquo;ve Seen This Before</h2><p>This exact pattern has played out multiple times:</p><p><strong>Redis</strong> shipped binding to all interfaces with no authentication. Thousands of
+instances were compromised. Redis eventually added <code>protected-mode</code> in 3.2
+(2016) that refuses external connections unless explicitly configured.</p><p><strong>MongoDB</strong> defaulted to no authentication and binding to 0.0.0.0. In January
+2017, over 27,000 databases were <a href=https://www.bleepingcomputer.com/news/security/mongodb-apocalypse-is-here-as-ransom-attacks-hit-10-000-servers/>wiped and held for
+ransom</a>.
+MongoDB eventually changed the defaults.</p><p><strong>Elasticsearch</strong> went through the same cycle. Thousands of exposed clusters,
+data breaches, and ransom attacks before Elastic added security as a default
+feature in 8.0.</p><p>Every single one of these projects started with the same argument: &ldquo;it&rsquo;s
+designed for trusted networks.&rdquo; Every single one eventually added authentication
+after enough damage forced their hand.</p><p>Ollama is at the denial stage of this cycle. With 12,269 instances already
+exposed, the question isn&rsquo;t whether incidents will happen. It&rsquo;s when they&rsquo;ll be
+large enough to force a response.</p><h2 id=what-you-should-do>What You Should Do</h2><p>If you&rsquo;re running Ollama and it needs to be accessible over the network:</p><ol><li><strong>Check if you&rsquo;re exposed right now</strong>: search for your IP or domain on
+<a href=https://leakix.net>LeakIX</a></li><li><strong>Bind to localhost</strong>: set <code>OLLAMA_HOST=x.x.x.x</code> (not <code>x.x.x.x</code>)</li><li><strong>Put a reverse proxy in front</strong>: nginx or Caddy with bearer token auth.
+Example configs are available in the
+<a href=https://github.com/ollama/ollama/issues/1053>Ollama issue thread</a></li><li><strong>Firewall rules</strong>: restrict port 11434 to trusted IPs only</li><li><strong>Monitor access</strong>: Ollama doesn&rsquo;t log requests by default, so your proxy
+should handle access logging</li></ol><p>If you&rsquo;re the Ollama team reading this: a single <code>OLLAMA_API_KEY</code> environment
+variable and a 20-line middleware check is all it takes. The community already
+wrote the code. Multiple times. You keep rejecting it.</p><p>12,269 exposed instances say the &ldquo;use a proxy&rdquo; approach isn&rsquo;t working. At some
+point you have to stop blaming users and start taking responsibility for the
+software you ship.</p><hr><p>All results are searchable on <a href=https://leakix.net>LeakIX</a>. Asset owners can
+request removal through our <a href=https://leakix.net/legal>take-down process</a>.</p><p>If you&rsquo;re running an exposed Ollama instance, you can check your exposure and
+configure alerts at <a href=https://leakix.net>leakix.net</a>.</p></div></div><div class="social-share mt-5 pt-4" style="border-top:1px solid #2a3138"><h5 class=mb-3 style=color:#fab741>Share this post</h5><div class="d-flex gap-3"><a href="https://twitter.com/intent/tweet?url=https%3a%2f%2fblog.leakix.net%2f2026%2f02%2follama-exposed%2f&text=12%2c000%20Ollama%20Instances%20Exposed%3a%20When%20%27Local-First%27%20Meets%20the%20Real%20World" target=_blank class="btn btn-outline-primary btn-sm"><i class="fab fa-twitter me-2"></i>
+Twitter
+</a><a href="https://www.linkedin.com/sharing/share-offsite/?url=https%3a%2f%2fblog.leakix.net%2f2026%2f02%2follama-exposed%2f" target=_blank class="btn btn-outline-primary btn-sm"><i class="fab fa-linkedin me-2"></i>
+LinkedIn
+</a><a href="https://www.reddit.com/submit?url=https%3a%2f%2fblog.leakix.net%2f2026%2f02%2follama-exposed%2f&title=12%2c000%20Ollama%20Instances%20Exposed%3a%20When%20%27Local-First%27%20Meets%20the%20Real%20World" target=_blank class="btn btn-outline-primary btn-sm"><i class="fab fa-reddit me-2"></i>
+Reddit
+</a><button onclick='copyToClipboard("https://blog.leakix.net/2026/02/ollama-exposed/")' class="btn btn-outline-primary btn-sm">
+<i class="fas fa-link me-2"></i>
+Copy Link</button></div></div><script>function copyToClipboard(e){navigator.clipboard.writeText(e).then(function(){alert("Link copied to clipboard!")})}</script><div class="author-bio mt-5 p-4" style="background-color:#1f2731;border:1px solid #2a3138;border-radius:16px"><div class="d-flex align-items-start"><div class="author-avatar me-3"><div class="avatar-placeholder d-flex align-items-center justify-content-center" style=width:80px;height:80px;background-color:#fab741;border-radius:50%;color:#090e15;font-weight:700;font-size:1.5rem>V</div></div><div class="author-info flex-grow-1"><h5 class=mb-2 style=color:#fab741>Valentin Lobstein</h5><p class="text-light mb-3">Security researcher and technical writer.</p><a href=https://twitter.com/Chocapikk_ target=_blank class="btn btn-outline btn-sm"><i class="fas fa-external-link-alt me-2"></i>
+View Profile</a></div></div></div><div class="related-posts mt-5"><h5 class=mb-4 style=color:#fab741>Related Posts</h5><div class=row><div class=col-md-4><article class=post-card><a href=https://blog.leakix.net/2026/02/seleniumgreed-rce/ class=card-img-wrapper><img src=/2026/02/seleniumgreed-rce/cover.png class=card-img-top alt="SeleniumGreed: The RCE That Was Always There" style=height:120px></a><div class="card-body p-3"><h6 class="card-title mb-1 fs-6"><a href=https://blog.leakix.net/2026/02/seleniumgreed-rce/ class=stretched-link>SeleniumGreed: The RCE That Was Always There</a></h6><div class="card-meta mb-2"><time datetime=2026-02-21 class="meta-item small">Feb 21, 2026</time></div><p class="card-text small mb-0"><h2 id=tldr>TL;DR</h2><p>Every Selenium Grid instance deployed with Firefox nodes is vulnerable to unauthenticated …</p></p></div></article></div><div class=col-md-4><article class=post-card><a href=https://blog.leakix.net/2026/02/appscan-coverage-2026/ class=card-img-wrapper><img src=/2026/02/appscan-coverage-2026/cover.png class=card-img-top alt="What We Found Scanning the Internet in 2026" style=height:120px></a><div class="card-body p-3"><h6 class="card-title mb-1 fs-6"><a href=https://blog.leakix.net/2026/02/appscan-coverage-2026/ class=stretched-link>What We Found Scanning the Internet in 2026</a></h6><div class="card-meta mb-2"><time datetime=2026-02-09 class="meta-item small">Feb 9, 2026</time></div><p class="card-text small mb-0"><p>One of our scans recently picked up an open vector database. Inside: <strong>over a
+hundred pages of …</strong></p></p></div></article></div><div class=col-md-4><article class=post-card><a href=https://blog.leakix.net/2024/01/vinchin-backup-rce-chain/ class=card-img-wrapper><img src=/2024/01/vinchin-backup-rce-chain/cover.png class=card-img-top alt="Vinchin Backup & Recovery: CVE-2024-22899 to CVE-2024-22903" style=height:120px></a><div class="card-body p-3"><h6 class="card-title mb-1 fs-6"><a href=https://blog.leakix.net/2024/01/vinchin-backup-rce-chain/ class=stretched-link>Vinchin Backup & Recovery: CVE-2024-22899 to CVE-2024-22903</a></h6><div class="card-meta mb-2"><time datetime=2024-01-25 class="meta-item small">Jan 25, 2024</time></div><p class="card-text small mb-0"><h2 id=table-of-contents>Table of Contents:</h2><ul><li><a href=#default-ssh-root-credentials-cve-2024-22902>Default SSH Root Credentials (CVE-2024-22902)</a></li><li><a href=#hardcoded-database-credentials-and-configuration-flaw-cve-2024-22901>Hardcoded Database Credentials and …</a></li></ul></p></div></article></div></div></div><nav class="post-navigation mt-5"><div class=row><div class=col-6><a href=https://blog.leakix.net/2026/02/seleniumgreed-rce/ class=nav-link-prev><span class=nav-label>Previous Post</span>
+<span class=nav-title>SeleniumGreed: The RCE That Was Always There</span></a></div><div class="col-6 text-end"></div></div></nav></div><div class="col-lg-3 offset-lg-1 d-none d-lg-block"><aside class="toc-sidebar sticky-top"><h5 class=toc-title>Table of Contents</h5><nav class=toc-nav><nav id=TableOfContents><ul><li><a href=#the-numbers>The Numbers</a></li><li><a href=#whats-exposed>What&rsquo;s Exposed</a></li><li><a href=#ollamas-position-use-a-proxy>Ollama&rsquo;s Position: &ldquo;Use a Proxy&rdquo;</a></li><li><a href=#secure-by-design-is-not-optional>Secure by Design Is Not Optional</a></li><li><a href=#weve-seen-this-before>We&rsquo;ve Seen This Before</a></li><li><a href=#what-you-should-do>What You Should Do</a></li></ul></nav></nav></aside></div></div></div></article></main><footer><div class="container-fluid py-4"><div class="row justify-content-center"><div class=col-auto><div class="social-links d-flex gap-3"><a href=https://twitter.com/leak_ix target=_blank class=social-link><i class="fab fa-twitter"></i>
+</a><a href=https://github.com/LeakIX target=_blank class=social-link><i class="fab fa-github"></i>
+</a><a href=https://www.linkedin.com/company/leakix target=_blank class=social-link><i class="fab fa-linkedin"></i>
+</a><a href=/index.xml class=social-link><i class="fas fa-rss"></i></a></div></div></div></div></footer><script src=https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js></script></body></html>

@@ -1,0 +1,621 @@
+<!DOCTYPE html>
+<html lang="en-US" class="no-js">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1.0,maximum-scale=1" />
+    <meta name="format-detection" content="telephone=no" />
+    <meta name="theme-color" content="#FFFF78">
+    <script charset="utf-8" type="text/javascript" src="//js-eu1.hsforms.net/forms/embed/v2.js" defer></script>
+    <script type="text/javascript" src="https://unpkg.com/@lottiefiles/lottie-player@2.0.12/dist/lottie-player.js" defer></script>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@12/swiper-bundle.min.css" />
+    
+    <link rel="preconnect" href="https://fonts.googleapis.com" crossorigin>
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="preload" as="style" href=https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@500&family=Poppins:wght@300;400;500;600;700;800;900&family=Unbounded:wght@200..900&display=swap />
+    <link rel="stylesheet" media="print" onload="this.onload=null;this.removeAttribute('media');" href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@500&family=Poppins:wght@300;400;500;600;700;800;900&family=Unbounded:wght@200..900&display=swap" />
+
+        <meta name='robots' content='max-image-preview:large' />
+
+	<title>Wide Open: 147 Unauthenticated MCP Servers Exposed | Pluto Security</title>
+	<meta name="description" content="Pluto Research found 179 exposed MCP servers, including 147 with no authentication. See what attackers could access and how security teams can fix it." />
+	<link rel="canonical" href="https://pluto.security/blog/wide-open-hundreds-of-mcps-exposing-root-shells-production-data-and-citizen-records-one-call-away/" />
+	<meta property="og:locale" content="en_US" />
+	<meta property="og:type" content="article" />
+	<meta property="og:title" content="Wide Open: 147 Unauthenticated MCP Servers Exposed | Pluto Security" />
+	<meta property="og:description" content="Pluto Research found 179 exposed MCP servers, including 147 with no authentication. See what attackers could access and how security teams can fix it." />
+	<meta property="og:url" content="https://pluto.security/blog/wide-open-hundreds-of-mcps-exposing-root-shells-production-data-and-citizen-records-one-call-away/" />
+	<meta property="og:site_name" content="Pluto Security" />
+	<meta property="article:published_time" content="2026-09-24T13:34:06+00:00" />
+	<meta property="article:modified_time" content="2026-09-30T11:03:22+00:00" />
+	<meta property="og:image" content="https://pluto.security/wp-content/uploads/2026/09/dossier07-1024x738.png" />
+	<meta property="og:image:width" content="1024" />
+	<meta property="og:image:height" content="738" />
+	<meta property="og:image:type" content="image/png" />
+	<meta name="author" content="Avishai Gonen, Ehud Melzer" />
+	<meta name="twitter:card" content="summary_large_image" />
+	<meta name="twitter:creator" content="@pluto_security" />
+	<meta name="twitter:site" content="@pluto_security" />
+	<meta name="twitter:label1" content="Written by" />
+	<meta name="twitter:data1" content="Avishai Gonen, Ehud Melzer" />
+	<meta name="twitter:label2" content="Est. reading time" />
+	<meta name="twitter:data2" content="13 minutes" />
+	<script type="application/ld+json" class="yoast-schema-graph">{"@context":"https:\/\/schema.org","@graph":[{"@type":"Article","@id":"https:\/\/pluto.security\/blog\/wide-open-hundreds-of-mcps-exposing-root-shells-production-data-and-citizen-records-one-call-away\/#article","isPartOf":{"@id":"https:\/\/pluto.security\/blog\/wide-open-hundreds-of-mcps-exposing-root-shells-production-data-and-citizen-records-one-call-away\/"},"author":[{"@id":"https:\/\/pluto.security\/#\/schema\/person\/385e28fef2418cea4821822b4eeae4d3"},{"@id":"https:\/\/pluto.security\/#\/schema\/person\/80c08dacab49e6cd0bde9e5e061e1e6b"}],"headline":"Wide Open: Hundreds of MCPs Exposing Root Shells, Production Data, and Citizen Records One Call Away","datePublished":"2026-09-24T13:34:06+00:00","dateModified":"2026-09-30T11:03:22+00:00","mainEntityOfPage":{"@id":"https:\/\/pluto.security\/blog\/wide-open-hundreds-of-mcps-exposing-root-shells-production-data-and-citizen-records-one-call-away\/"},"wordCount":2305,"publisher":{"@id":"https:\/\/pluto.security\/#organization"},"image":{"@id":"https:\/\/pluto.security\/blog\/wide-open-hundreds-of-mcps-exposing-root-shells-production-data-and-citizen-records-one-call-away\/#primaryimage"},"thumbnailUrl":"https:\/\/pluto.security\/wp-content\/uploads\/2026\/09\/dossier07.png","keywords":["AI Security","AI Supply Chain Security","MCP Security","MCP Servers","Model Context Protocol","Operation:MCP"],"articleSection":["Tech"],"inLanguage":"en-US"},{"@type":"WebPage","@id":"https:\/\/pluto.security\/blog\/wide-open-hundreds-of-mcps-exposing-root-shells-production-data-and-citizen-records-one-call-away\/","url":"https:\/\/pluto.security\/blog\/wide-open-hundreds-of-mcps-exposing-root-shells-production-data-and-citizen-records-one-call-away\/","name":"Wide Open: 147 Unauthenticated MCP Servers Exposed | Pluto Security","isPartOf":{"@id":"https:\/\/pluto.security\/#website"},"primaryImageOfPage":{"@id":"https:\/\/pluto.security\/blog\/wide-open-hundreds-of-mcps-exposing-root-shells-production-data-and-citizen-records-one-call-away\/#primaryimage"},"image":{"@id":"https:\/\/pluto.security\/blog\/wide-open-hundreds-of-mcps-exposing-root-shells-production-data-and-citizen-records-one-call-away\/#primaryimage"},"thumbnailUrl":"https:\/\/pluto.security\/wp-content\/uploads\/2026\/09\/dossier07.png","datePublished":"2026-09-24T13:34:06+00:00","dateModified":"2026-09-30T11:03:22+00:00","description":"Pluto Research found 179 exposed MCP servers, including 147 with no authentication. See what attackers could access and how security teams can fix it.","breadcrumb":{"@id":"https:\/\/pluto.security\/blog\/wide-open-hundreds-of-mcps-exposing-root-shells-production-data-and-citizen-records-one-call-away\/#breadcrumb"},"inLanguage":"en-US","potentialAction":[{"@type":"ReadAction","target":["https:\/\/pluto.security\/blog\/wide-open-hundreds-of-mcps-exposing-root-shells-production-data-and-citizen-records-one-call-away\/"]}]},{"@type":"ImageObject","inLanguage":"en-US","@id":"https:\/\/pluto.security\/blog\/wide-open-hundreds-of-mcps-exposing-root-shells-production-data-and-citizen-records-one-call-away\/#primaryimage","url":"https:\/\/pluto.security\/wp-content\/uploads\/2026\/09\/dossier07.png","contentUrl":"https:\/\/pluto.security\/wp-content\/uploads\/2026\/09\/dossier07.png","width":1477,"height":1065},{"@type":"BreadcrumbList","@id":"https:\/\/pluto.security\/blog\/wide-open-hundreds-of-mcps-exposing-root-shells-production-data-and-citizen-records-one-call-away\/#breadcrumb","itemListElement":[{"@type":"ListItem","position":1,"name":"Home","item":"https:\/\/pluto.security\/"},{"@type":"ListItem","position":2,"name":"Blog","item":"https:\/\/pluto.security\/blog\/"},{"@type":"ListItem","position":3,"name":"Wide Open: Hundreds of MCPs Exposing Root Shells, Production Data, and Citizen Records One Call Away"}]},{"@type":"WebSite","@id":"https:\/\/pluto.security\/#website","url":"https:\/\/pluto.security\/","name":"Pluto Security","description":"Let Your People Build","publisher":{"@id":"https:\/\/pluto.security\/#organization"},"potentialAction":[{"@type":"SearchAction","target":{"@type":"EntryPoint","urlTemplate":"https:\/\/pluto.security\/?s={search_term_string}"},"query-input":{"@type":"PropertyValueSpecification","valueRequired":true,"valueName":"search_term_string"}}],"inLanguage":"en-US"},{"@type":"Organization","@id":"https:\/\/pluto.security\/#organization","name":"Pluto Security","url":"https:\/\/pluto.security\/","logo":{"@type":"ImageObject","inLanguage":"en-US","@id":"https:\/\/pluto.security\/#\/schema\/logo\/image\/","url":"https:\/\/pluto.security\/wp-content\/uploads\/2026\/01\/social-logo.jpg","contentUrl":"https:\/\/pluto.security\/wp-content\/uploads\/2026\/01\/social-logo.jpg","width":696,"height":696,"caption":"Pluto Security"},"image":{"@id":"https:\/\/pluto.security\/#\/schema\/logo\/image\/"},"sameAs":["https:\/\/x.com\/pluto_security"]},{"@type":"Person","@id":"https:\/\/pluto.security\/#\/schema\/person\/385e28fef2418cea4821822b4eeae4d3","name":"Avishai Gonen","image":{"@type":"ImageObject","inLanguage":"en-US","@id":"https:\/\/pluto.security\/wp-content\/uploads\/2026\/07\/img-avishai-gonen-96x96.jpg83d7829b476df77082347c696e098042","url":"https:\/\/pluto.security\/wp-content\/uploads\/2026\/07\/img-avishai-gonen-96x96.jpg","contentUrl":"https:\/\/pluto.security\/wp-content\/uploads\/2026\/07\/img-avishai-gonen-96x96.jpg","caption":"Avishai Gonen"},"sameAs":["https:\/\/pluto.security\/"],"url":"https:\/\/pluto.security\/blog\/author\/avishai-gonen\/"},{"@type":"Person","@id":"https:\/\/pluto.security\/#\/schema\/person\/80c08dacab49e6cd0bde9e5e061e1e6b","name":"Ehud Melzer","image":{"@type":"ImageObject","inLanguage":"en-US","@id":"https:\/\/pluto.security\/wp-content\/uploads\/2026\/05\/img-ehud-melzer-96x96.jpgeb7b0e82c3c83fd151fd5b45e65b1df4","url":"https:\/\/pluto.security\/wp-content\/uploads\/2026\/05\/img-ehud-melzer-96x96.jpg","contentUrl":"https:\/\/pluto.security\/wp-content\/uploads\/2026\/05\/img-ehud-melzer-96x96.jpg","caption":"Ehud Melzer"},"url":"https:\/\/pluto.security\/blog\/author\/ehud-melzer\/"}]}</script>
+
+
+
+<link rel='stylesheet' id='wp-rock-style-css' href='https://pluto.security/wp-content/themes/pluto/style.css?v=1769508471' media='all' />
+<link rel='stylesheet' id='wp-rock-frontend-css' href='https://pluto.security/wp-content/themes/pluto/assets/public/css/frontend.css?v=1793973089' media='all' />
+<link rel='stylesheet' id='icw-splide-css' href='https://pluto.security/wp-content/themes/pluto/assets/css/splide.css?v=1769508490' media='all' />
+<link rel='stylesheet' id='icw-wow-css' href='https://pluto.security/wp-content/themes/pluto/assets/css/animate.css?v=1769508490' media='all' />
+<link rel='stylesheet' id='icw-glightbox-css' href='https://pluto.security/wp-content/themes/pluto/assets/css/glightbox.css?v=1769508490' media='all' />
+<link rel='stylesheet' id='icw-main-css' href='https://pluto.security/wp-content/themes/pluto/assets/public/css/main.css?v=1793977207' media='all' />
+<link rel='stylesheet' id='site-footer-css' href='https://pluto.security/wp-content/themes/pluto/assets/public/css/site-footer.css?v=1792391356' media='all' />
+<link rel='stylesheet' id='icw-blog-css' href='https://pluto.security/wp-content/themes/pluto/assets/public/css/blog.css?v=1792391356' media='all' />
+<link rel='stylesheet' id='enlighterjs-css' href='https://pluto.security/wp-content/plugins/enlighter/cache/enlighterjs.min.css' media='all' />
+<link rel="https://api.w.org/" href="https://pluto.security/wp-json/" /><link rel="alternate" title="JSON" type="application/json" href="https://pluto.security/wp-json/wp/v2/posts/2215" /><script>(function(html){html.className = html.className.replace(/\bno-js\b/,'js')})(document.documentElement);</script>
+<link rel="icon" href="https://pluto.security/wp-content/uploads/2026/04/favicon-new-200x200.jpg" sizes="32x32" />
+<link rel="icon" href="https://pluto.security/wp-content/uploads/2026/04/favicon-new-200x200.jpg" sizes="192x192" />
+<link rel="apple-touch-icon" href="https://pluto.security/wp-content/uploads/2026/04/favicon-new-200x200.jpg" />
+<meta name="msapplication-TileImage" content="https://pluto.security/wp-content/uploads/2026/04/favicon-new.jpg" />
+<!-- Start of HubSpot Embed Code -->
+<script type="text/javascript" id="hs-script-loader" async defer src="//js-eu1.hs-scripts.com/147429201.js"></script>
+<!-- End of HubSpot Embed Code -->
+
+<!-- Google Tag Manager -->
+<script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+})(window,document,'script','dataLayer','GTM-TFZLRJ53');</script>
+<!-- End Google Tag Manager -->
+<!-- script src="https://cdn.cookiehub.eu/c2/09fa68d0.js"></script>
+<script type="text/javascript">
+document.addEventListener("DOMContentLoaded", function(event) {
+var cpm = {};
+window.cookiehub.load(cpm);
+});
+</script -->
+<script>
+  (function () {
+    var w = window;
+    var swan = (w.swan = w.swan || []);
+    if (swan.isLoaded) return;
+    swan.isLoaded = true;
+    swan.pk = 'cmm1v8c6f00050jjzozsd9wqt';
+    var script = document.createElement('script');
+    script.type = 'text/javascript';
+    script.async = true;
+    script.src = 'https://script.getswan.com?pk=cmm1v8c6f00050jjzozsd9wqt';
+    var head = document.getElementsByTagName('head')[0];
+    head.appendChild(script);
+  })();
+</script>
+<style>body .ch2-theme-bar .ch2-dialog.ch2-dialog-bottom { border-top: 2px solid #000000; background: #FDF2D4; justify-content: center; padding: 15px !important;}
+body .ch2-dialog #ch2-dialog-title {font-size: 18px;font-weight: 600;font-family: var(--font-family-heading); margin-bottom: 3px;}
+body .ch2-style-compact .ch2-dialog-content p {color: #111013; font-size: 12px;line-height: 16px;}
+body .ch2-theme-bar .ch2-dialog-actions button,
+body .ch2-settings-content .ch2-settings-tab-container>button,
+body .ch2-style-compact .ch2-btn-primary {min-width: auto;padding: 12px 18px;border-radius: 50px; font-size: 12px;letter-spacing: 1px; font-weight: 700; text-transform: uppercase; transition: transform .2s cubic-bezier(.5, 2.5, .7, .7), box-shadow .2s cubic-bezier(.5, 2.5, .7, .7), all .2s ease-in-out;}
+body .ch2-theme-bar .ch2-dialog-actions button:hover, 
+body .ch2-theme-bar .ch2-dialog-actions button:focus,
+body .ch2-settings-content .ch2-settings-tab-container>button:hover,
+body .ch2-style-compact .ch2-btn-primary:hover {border-bottom: 0 !important;background-color: #39bf97;box-shadow: 0 4px 0 0 #000;transform: translateY(-.25rem);}
+body .ch2-theme-bar .ch2-dialog-actions button.ch2-btn-transparent { background: #FDF2D4;color: #111013;border: 1px solid #111013;}
+body .ch2-theme-bar .ch2-dialog-content {background: url(https://pluto.security/wp-content/uploads/2026/04/img-cookies.svg) left top no-repeat; background-size: 50px;padding-left: 70px; max-width: 630px; min-height: 55px; width: auto;}
+body .ch2-theme-bar .ch2-dialog-close a {margin-top: -10px; background: transparent;}
+body .ch2-theme-bar .ch2-dialog-close a:after, body .ch2-theme-bar .ch2-dialog-close a:before {width: 14px;}
+@media (min-width: 992px) {
+body .ch2-theme-bar .ch2-dialog.ch2-dialog-bottom { gap: 100px;}
+}
+
+.site-header.scroll-header li.menu-cta>a:focus,.site-header.scroll-header li.menu-cta>a:hover{box-shadow:0 4px 0 0 rgba(250,103,58,.9)!important}
+.site-header .main-menu__list li.menu-cta>a{align-items:center;background-color:#fdf2d4;border-bottom:0!important;border-radius:50px;box-shadow:0 4px 0 0 transparent;color:var(--text-black);display:inline-flex;font-family:Poppins,sans-serif;font-size:16px;gap:4px;height:38px;padding:10px 20px;text-shadow:none!important;transform:translateY(0);transition:all .2s ease-in-out;transition:transform .2s cubic-bezier(.5,2.5,.7,.7),box-shadow .2s cubic-bezier(.5,2.5,.7,.7),all .2s ease-in-out}.site-header .main-menu__list li.menu-cta>a svg{flex:none;height:14px;width:14px}@media(max-width:992px){.site-header .main-menu__list li.menu-cta>a{gap:6px;height:54px;padding:10px 30px}.site-header .main-menu__list li.menu-cta>a svg{height:22px;width:22px}}.site-header .main-menu__list li.menu-cta>a:focus,.site-header .main-menu__list li.menu-cta>a:hover{background-color:#fdf2d4;border-bottom:0!important;box-shadow:0 4px 0 0 rgba(0,0,0,.7);color:var(--text-black);text-shadow:none!important;transform:translateY(-.25rem)}
+
+.post-card .post-category,
+.single-header .blog-header-title .post-content-detail .post-meta-info .post-category {text-transform: none !important;}
+
+.icw-tooltip {position: relative;cursor: pointer;}
+.icw-tooltip::after {content: attr(data-title);position: absolute;bottom: -30px;left: 50%;transform: translateX(-50%);
+background: #000;color: #fff;padding: 1px 5px;font-size: 8.5px;letter-spacing: -.25px;border-radius: 6px;white-space: nowrap;opacity: 0;pointer-events: none;transition: 0.3s;}
+.icw-tooltip:hover::after {opacity: 1;}
+.icw-tooltip::before {content: "";position: absolute;bottom: -8px;left: 50%;transform: translateX(-50%);border-width: 5px;border-style: solid;border-color: transparent transparent #000 transparent;opacity: 0;transition: 0.3s;}
+.icw-tooltip:hover::before {opacity: 1;}
+</style>
+<script>
+document.addEventListener("DOMContentLoaded", function () {document.querySelectorAll('.menu-cta a[rel]').forEach(function (el) {const text = el.getAttribute('rel');if (text) {el.setAttribute('data-title', text);el.classList.add('icw-tooltip');el.removeAttribute('rel');}});});
+</script>
+<script>!function(key) {if (window.reb2b) return;window.reb2b = {loaded: true};var s = document.createElement("script");s.async = true;s.src = "https://ddwl4m2hdecbv.cloudfront.net/b/" + key + "/" + key + ".js.gz";document.getElementsByTagName("script")[0].parentNode.insertBefore(s, document.getElementsByTagName("script")[0]);}("W6Z57HD249OX");</script>    </head>
+<body class="post-template-default single single-post postid-2215 single-format-standard theme__color-red   unknown">
+<!-- Google Tag Manager (noscript) -->
+<noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-TFZLRJ53"
+height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+<!-- End Google Tag Manager (noscript) --><div id="wrapper" class="wrapper">
+        <header id="site-header" class="site-header js-site-header">
+    <div class="container h-100">
+        <div class="row justify-content-between align-items-center h-100">
+                             <div class="col col-6 col-lg-3">
+                     <a href="https://pluto.security/" title="Pluto Security" rel="home" class="site-header__logo">
+                         <img src="https://pluto.security/wp-content/uploads/2025/11/footer-logo.svg" class="responsive-media" alt="" decoding="async" />                     </a>
+                 </div>
+                        <div
+                class="site-header__main-menu col col-6 col-lg-9 d-flex align-items-center justify-content-end text-left pl-0">
+                 <nav class="site-header__menu d-none d-lg-flex"><ul id="menu-main-menu" class="main-menu__list list-reset d-flex justify-content-between align-items-center js-menu-wrapper"><li id="menu-item-73" class="hash-item menu-item menu-item-type-custom menu-item-object-custom menu-item-73"><a href="/#problem">The problem</a></li>
+<li id="menu-item-1932" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-has-children menu-item-1932"><a href="#">About Us</a>
+<ul class="sub-menu">
+	<li id="menu-item-1933" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-1933"><a href="https://pluto.security/contact-us/">Contact Us</a></li>
+	<li id="menu-item-217" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-217"><a href="https://pluto.security/about-us/">Pluto&#8217;s Story</a></li>
+	<li id="menu-item-1934" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-1934"><a href="https://pluto.security/partnership/">Partnership</a></li>
+	<li id="menu-item-2505" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-2505"><a href="https://pluto.security/careers/">Careers</a></li>
+</ul>
+</li>
+<li id="menu-item-216" class="menu-item menu-item-type-post_type menu-item-object-page current_page_parent menu-item-216"><a href="https://pluto.security/blog/">Blog</a></li>
+<li id="menu-item-1419" class="menu-cta menu-item menu-item-type-custom menu-item-object-custom menu-item-1419"><a target="_blank" rel="The free security hub for the AI ecosystem" href="https://plutonium.pluto.security/"><svg width="15" height="14" viewBox="0 0 15 14" fill="none" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" clip-rule="evenodd" d="M7.3195 13.782C7.20516 14.0703 7.00995 14.0731 6.88725 13.7875L5.09407 9.63298C4.97136 9.34741 4.63113 9.01516 4.3411 8.89709L0.222084 7.21934C-0.0707365 7.10126 -0.0735192 6.89533 0.210935 6.76078L4.29926 4.85512C4.58372 4.72332 4.92674 4.38283 5.05782 4.1L6.87608 0.209063C7.00715 -0.0737647 7.21353 -0.0682733 7.33623 0.2173L9.06248 4.31967C9.1824 4.60799 9.51984 4.94024 9.80987 5.05832L14.007 6.78274C14.297 6.90356 14.2942 7.09303 14.0014 7.20286L9.76247 8.81745C9.46686 8.93003 9.13221 9.2568 9.01787 9.54786L7.32509 13.782H7.3195Z" fill="black"/></svg> Plutonium</a></li>
+</ul></nav>                					                    <a href="/book-a-demo/" class="btn btn-secondary_black" target="_self" rel="noopener">
+                         Book a demo                    </a>
+                                                </div>
+            <button class="navbar-toggler" type="button"><span></span><span></span><span></span></button>
+        </div>
+    </div>
+</header>        <div id="main-wrapper"><section class="theme-section page-header single-header">
+	<div class="theme-container">
+		<nav class="breadcrumb-nav" aria-label="breadcrumb">
+			<ol class="breadcrumb">
+				<li class="breadcrumb-item"><a href="https://pluto.security/blog/">Blog</a></li>
+				<li class="breadcrumb-item active" aria-current="page">Wide Open: Hundreds of MCPs Exposing Root Shells, Production Data, and Citizen Records One Call Away</li>
+			</ol>
+		</nav>
+		<div class="blog-header-title">
+			<div class="post-content-detail">
+				<div class="post-meta-info mb-2">
+										<a href="https://pluto.security/blog/?cat=tech" class="post-category">Tech</a>
+				</div>
+				<h1 class="post-title h3">Wide Open: Hundreds of MCPs Exposing Root Shells, Production Data, and Citizen Records One Call Away</h1>
+					<div class="sort-info">Pluto Research found 179 exposed MCP server deployments across the internet. 147 accepted unauthenticated requests, exposing everything from root access and production credentials to financial data and municipal citizen workflows.</div>				<div class="post-info">
+					<div class="user-info-wrap"><div class="user-info"><div class="user-img"><img src="https://pluto.security/wp-content/uploads/2026/07/img-avishai-gonen-72x72.jpg" width="36" height="36" alt="Avishai Gonen"></div><div class="name">Avishai Gonen</div></div><a class="user-info position-relative" style="z-index:2" href="https://pluto.security/blog/author/ehud-melzer/"><div class="user-img"><img src="https://pluto.security/wp-content/uploads/2026/05/img-ehud-melzer-72x72.jpg" width="36" height="36" alt="Ehud Melzer"></div><div class="name">Ehud Melzer</div></a></div>					<div class="date-time"><span>Sep 24, 2026</span><span>・</span>
+						<span>
+							8 min read						</span>
+					</div>
+				</div>
+			</div>
+							<div class="post-image icw-ratio ratio-4x3">
+					<img src="https://pluto.security/wp-content/uploads/2026/09/dossier07-1024x738.png" alt="Wide Open: Hundreds of MCPs Exposing Root Shells, Production Data, and Citizen Records One Call Away">
+				</div>
+					</div>
+	</div>
+</section>
+<section class="theme-section blog-content-section with-top-curve pt-0 wow slideInUpFix">
+	<div class="theme-container">
+		<div class="row-blog-content">
+			<div class="col-sidebar">
+				<div class="post-sidebar position-sticky">
+					
+<div class="share-socials">
+<!-- <div class="share-title">Share this article</div> -->
+<ul class="social-links">
+	<li><a href="#!" title="Share on Twitter" class="t-top t-xs" data-tooltip="Share on Twitter" onClick="window.open('http://twitter.com/share?url=https%3A%2F%2Fpluto.security%2Fblog%2Fwide-open-hundreds-of-mcps-exposing-root-shells-production-data-and-citizen-records-one-call-away%2F&amp;text=Wide%20Open:%20Hundreds%20of%20MCPs%20Exposing%20Root%20Shells,%20Production%20Data,%20and%20Citizen%20Records%20One%20Call%20Away','Twitter share','width=600,height=300,left='+(screen.availWidth/2-300)+',top='+(screen.availHeight/2-150)+''); return false;" href="http://twitter.com/share?url=https%3A%2F%2Fpluto.security%2Fblog%2Fwide-open-hundreds-of-mcps-exposing-root-shells-production-data-and-citizen-records-one-call-away%2F&amp;text=Wide%20Open:%20Hundreds%20of%20MCPs%20Exposing%20Root%20Shells,%20Production%20Data,%20and%20Citizen%20Records%20One%20Call%20Away"><svg width="18" height="16" viewBox="0 0 18 16" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M13.8935 0H16.589L10.6707 6.73875L17.5852 15.88H12.159L7.9107 10.3249L3.04708 15.88H0.351587L6.62155 8.67247L0 0H5.56093L9.39909 5.07457L13.8935 0ZM12.9501 14.2979H14.4444L4.77572 1.52354H3.17014L12.9501 14.2979Z" fill="#111013"/></svg></a></li>
+	<li><a href="https://www.instagram.com/?url=https%3A%2F%2Fpluto.security%2Fblog%2Fwide-open-hundreds-of-mcps-exposing-root-shells-production-data-and-citizen-records-one-call-away%2F&#038;caption=Check%2Bout%2Bthis%2Bpost%253A%2BWide%2BOpen%253A%2BHundreds%2Bof%2BMCPs%2BExposing%2BRoot%2BShells%252C%2BProduction%2BData%252C%2Band%2BCitizen%2BRecords%2BOne%2BCall%2BAway" onClick="window.open('https://www.instagram.com/?url=https%3A%2F%2Fpluto.security%2Fblog%2Fwide-open-hundreds-of-mcps-exposing-root-shells-production-data-and-citizen-records-one-call-away%2F&#038;caption=Check%2Bout%2Bthis%2Bpost%253A%2BWide%2BOpen%253A%2BHundreds%2Bof%2BMCPs%2BExposing%2BRoot%2BShells%252C%2BProduction%2BData%252C%2Band%2BCitizen%2BRecords%2BOne%2BCall%2BAway','Instagram share','width=600,height=300,left='+(screen.availWidth/2-300)+',top='+(screen.availHeight/2-150)+''); return false;" title="Share on Instagram" class="t-top t-xs" data-tooltip="Share on Instagram"><svg width="19" height="19" viewBox="0 0 19 19" fill="none" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" clip-rule="evenodd" d="M5.56269 0.0567884C6.57197 0.0103252 6.89377 0 9.46474 0C12.0357 0 12.3575 0.0111856 13.3659 0.0567884C14.3744 0.102391 15.0627 0.263292 15.665 0.496469C16.2957 0.734808 16.8679 1.10737 17.3411 1.58922C17.823 2.06159 18.1947 2.63292 18.4322 3.26448C18.6662 3.86678 18.8262 4.55512 18.8727 5.56183C18.9192 6.57283 18.9295 6.89464 18.9295 9.46474C18.9295 12.0357 18.9183 12.3575 18.8727 13.3668C18.8271 14.3735 18.6662 15.0618 18.4322 15.6641C18.1947 16.2958 17.8223 16.8681 17.3411 17.3411C16.8679 17.823 16.2957 18.1947 15.665 18.4322C15.0627 18.6662 14.3744 18.8262 13.3677 18.8727C12.3575 18.9192 12.0357 18.9295 9.46474 18.9295C6.89377 18.9295 6.57197 18.9183 5.56269 18.8727C4.55598 18.8271 3.86764 18.6662 3.26534 18.4322C2.63371 18.1946 2.06144 17.8223 1.58836 17.3411C1.10684 16.8685 0.734218 16.2965 0.496469 15.665C0.263292 15.0627 0.103252 14.3744 0.0567884 13.3677C0.0103252 12.3567 0 12.0349 0 9.46474C0 6.89377 0.0111856 6.57197 0.0567884 5.56355C0.102391 4.55512 0.263292 3.86678 0.496469 3.26448C0.73457 2.63299 1.10748 2.061 1.58922 1.58836C2.06163 1.10695 2.63333 0.734329 3.26448 0.496469C3.86678 0.263292 4.55598 0.103252 5.56269 0.0567884ZM13.2894 1.76044C12.2913 1.71484 11.9918 1.70537 9.46474 1.70537C6.93766 1.70537 6.63823 1.71484 5.64013 1.76044C4.71688 1.8026 4.21611 1.95662 3.88227 2.08655C3.44086 2.25863 3.12509 2.46255 2.79382 2.79382C2.4798 3.09932 2.23814 3.47122 2.08655 3.88227C1.95662 4.21611 1.8026 4.71688 1.76044 5.64013C1.71484 6.63823 1.70537 6.93766 1.70537 9.46474C1.70537 11.9918 1.71484 12.2913 1.76044 13.2894C1.8026 14.2126 1.95662 14.7134 2.08655 15.0472C2.23798 15.4576 2.47976 15.8302 2.79382 16.1357C3.09927 16.4497 3.47184 16.6915 3.88227 16.8429C4.21611 16.9729 4.71688 17.1269 5.64013 17.169C6.63823 17.2146 6.9368 17.2241 9.46474 17.2241C11.9927 17.2241 12.2913 17.2146 13.2894 17.169C14.2126 17.1269 14.7134 16.9729 15.0472 16.8429C15.4886 16.6709 15.8044 16.4669 16.1357 16.1357C16.4497 15.8302 16.6915 15.4576 16.8429 15.0472C16.9729 14.7134 17.1269 14.2126 17.169 13.2894C17.2146 12.2913 17.2241 11.9918 17.2241 9.46474C17.2241 6.93766 17.2146 6.63823 17.169 5.64013C17.1269 4.71688 16.9729 4.21611 16.8429 3.88227C16.6709 3.44086 16.4669 3.12509 16.1357 2.79382C15.8301 2.47982 15.4582 2.23816 15.0472 2.08655C14.7134 1.95662 14.2126 1.8026 13.2894 1.76044ZM8.25584 12.3825C8.93098 12.6635 9.68276 12.7014 10.3828 12.4898C11.0828 12.2781 11.6876 11.83 12.0939 11.222C12.5002 10.6139 12.6828 9.88366 12.6105 9.15594C12.5382 8.42822 12.2155 7.74816 11.6976 7.23192C11.3674 6.90193 10.9681 6.64925 10.5285 6.49208C10.0889 6.33491 9.61999 6.27715 9.15541 6.32298C8.69084 6.3688 8.2422 6.51706 7.8418 6.75708C7.4414 6.9971 7.0992 7.32291 6.83983 7.71106C6.58046 8.0992 6.41037 8.54003 6.34182 9.0018C6.27327 9.46357 6.30795 9.93479 6.44337 10.3815C6.57879 10.8283 6.81159 11.2395 7.12499 11.5855C7.43839 11.9315 7.82461 12.2037 8.25584 12.3825ZM6.02474 6.02474C6.47649 5.57299 7.01279 5.21465 7.60303 4.97016C8.19326 4.72568 8.82587 4.59984 9.46474 4.59984C10.1036 4.59984 10.7362 4.72568 11.3265 4.97016C11.9167 5.21464 12.453 5.57299 12.9047 6.02474C13.3565 6.47649 13.7148 7.01279 13.9593 7.60303C14.2038 8.19326 14.3296 8.82588 14.3296 9.46474C14.3296 10.1036 14.2038 10.7362 13.9593 11.3265C13.7148 11.9167 13.3565 12.453 12.9047 12.9047C11.9924 13.8171 10.755 14.3296 9.46474 14.3296C8.17449 14.3296 6.93708 13.8171 6.02474 12.9047C5.11239 11.9924 4.59984 10.755 4.59984 9.46474C4.59984 8.17449 5.11239 6.93708 6.02474 6.02474ZM15.4086 5.32435C15.5205 5.21875 15.6102 5.09176 15.6722 4.9509C15.7341 4.81004 15.7672 4.65817 15.7695 4.5043C15.7717 4.35042 15.7431 4.19765 15.6852 4.05505C15.6274 3.91244 15.5415 3.78289 15.4327 3.67407C15.3238 3.56525 15.1943 3.47937 15.0517 3.42152C14.9091 3.36366 14.7563 3.33501 14.6024 3.33725C14.4486 3.3395 14.2967 3.37259 14.1558 3.43458C14.015 3.49657 13.888 3.58619 13.7824 3.69813C13.577 3.91585 13.4646 4.20503 13.4689 4.5043C13.4733 4.80356 13.5941 5.08935 13.8058 5.30098C14.0174 5.51262 14.3032 5.63344 14.6024 5.6378C14.9017 5.64216 15.1909 5.52972 15.4086 5.32435Z" fill="#111013"/></svg></a></li>
+	<li><a href="#!" title="Share on Facebook" class="t-top t-xs" data-tooltip="Share on Facebook" onClick="window.open('http://www.facebook.com/sharer.php?u=https%3A%2F%2Fpluto.security%2Fblog%2Fwide-open-hundreds-of-mcps-exposing-root-shells-production-data-and-citizen-records-one-call-away%2F','Facebook','width=600,height=300,left='+(screen.availWidth/2-300)+',top='+(screen.availHeight/2-150)+''); return false;" href="http://www.facebook.com/sharer.php?u=https%3A%2F%2Fpluto.security%2Fblog%2Fwide-open-hundreds-of-mcps-exposing-root-shells-production-data-and-citizen-records-one-call-away%2F"><svg width="12" height="21" viewBox="0 0 12 21" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M10.3349 11.6152L10.9085 7.87811H7.32248V5.45298C7.32248 4.43079 7.82325 3.43377 9.42946 3.43377H11.0596V0.252321C11.0596 0.252321 9.58047 0 8.16592 0C5.21292 0 3.28276 1.79013 3.28276 5.0303V7.87875H0V11.6158H3.28276V20.6503H7.32248V11.6158L10.3349 11.6152Z" fill="#111013"/></svg></a></li>
+</ul>
+</div>					<nav class="single-nav">
+						<div class="nav-title">Table of contents</div>
+						<div class="navbar-list">
+							<nav class="nav-item">
+								<a class="nav-link " href="#post-item-1">TL;DR</a><a class="nav-link " href="#post-item-2">No Exploit Needed, Just a Search</a><a class="nav-link " href="#post-item-3">No Login Screen, Straight to Root</a><a class="nav-link " href="#post-item-4">A Nine-Figure Company, Wide Open</a><a class="nav-link " href="#post-item-5">A Government Citizen Registry, Open to Anyone Who Asked</a><a class="nav-link " href="#post-item-6">The Numbers Behind All of It</a><a class="nav-link " href="#post-item-7">Why This Keeps Happening</a><a class="nav-link " href="#post-item-8">What Security Teams Can Actually Do About It</a><a class="nav-link " href="#post-item-9">Conclusion</a>	
+							</nav>
+						</div>
+
+						<div class="post-form">
+							<div class="post-icon"><svg width="32" height="32" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M17.8462 7C17.0769 7 16.3846 7.38462 16 8C15.6154 7.38462 14.9231 7 14.1538 7C12.9231 7 12 8 12 9.23077C12 11.3846 16 14.6923 16 14.6923C16 14.6923 20 11.3846 20 9.23077C20 8 19.0769 7 17.8462 7Z" stroke="#111013" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/><path d="M6 11L1 13.9V31H31V13.9L26 11" stroke="#111013" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/><path d="M6 16.7V1H26V16.6" stroke="#111013" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/><path d="M1 13.8999L31 30.9999" stroke="#111013" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/><path d="M31.0001 13.8999L15.6001 22.1999" stroke="#111013" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+							</div>
+							<p class="post-form__title">Subscribe to get the latest updates, insights, and product news from Pluto.</p>
+							<div class="form">
+								<script charset="utf-8" type="text/javascript" src="//js-eu1.hsforms.net/forms/embed/v2.js"></script>
+								<script>
+									hbspt.forms.create({
+									portalId: "147429201",
+									formId: "a0e36adf-e7e9-45fc-80fc-c001e7516133",
+									translations: { en: { submitText: "Subscribe" } },
+
+									onFormReady: function ($form) {
+										const formEl = $form[0]; // 🔥 FIX: get DOM element
+
+										const submitWrap = formEl.querySelector('.hs_submit');
+										if (!submitWrap || formEl.querySelector('.post-form__info')) return;
+
+										const info = document.createElement('p');
+										info.className = 'post-form__info';
+										info.innerHTML =
+										'By subscribing, you accept our <a href="/privacy-policy/">Privacy Policy.</a>';
+
+										submitWrap.parentNode.insertBefore(info, submitWrap);
+									}
+									});
+									</script>
+									<style>
+										.post-form .hs-form .hs-richtext {display: none !important;}
+									</style>
+							</div>
+							<!-- <p class="post-form__info">By subscribing, you accept our <a href="/privacy-policy/">Privacy Policy.</a></p> -->
+						</div>
+					</nav>
+				</div>
+			</div>
+			<div class="col-content">
+				<div class="single-content">
+					<div class="pluto-post">
+<style>.pluto-post{max-width:980px;box-sizing:border-box}.pluto-post *,.pluto-post *::before,.pluto-post *::after{box-sizing:border-box}.pluto-post p,.pluto-post li{overflow-wrap:break-word}.pluto-post a{color:#ff5f3f;font-weight:700;text-decoration:underline;text-underline-offset:3px}.pluto-post code{padding:2px 6px;border:1px solid rgba(17,17,17,.18);border-radius:6px;background:#fff;color:#111;font-size:.85em;overflow-wrap:anywhere;word-break:break-word}.pluto-post-fig{margin:30px 0 34px;border:1px solid #111;border-radius:14px;overflow:hidden;background:#fff4d6;box-shadow:6px 6px 0 #111}.pluto-post-fig img,.pluto-post-fig video{display:block;width:100%;height:auto;background:#ffe7dc}.pluto-post-fig figcaption{display:block;padding:13px 16px;border-top:1px solid #111;background:#fff8e6;color:#111;font-size:13px;line-height:1.5}.pluto-post-tablewrap{display:block;width:100%;max-width:100%;overflow-x:auto;margin:28px 0 36px;border:1px solid #111;border-radius:14px;background:#fff4d6;box-shadow:6px 6px 0 #111}.pluto-post-tablewrap table{width:100%;border-collapse:separate;border-spacing:0;font-size:14px;margin:0}.pluto-post-tablewrap th{padding:13px 15px;background:#111;color:#fff4d6;font-weight:800;text-align:left}.pluto-post-tablewrap td{padding:11px 14px;border-bottom:1px solid rgba(17,17,17,.16);vertical-align:top;background:#fff8e6}.pluto-post-tablewrap tr:nth-child(even) td{background:#ffe7dc}.pluto-post-tablewrap tr:last-child td{border-bottom:0}.pluto-post-callout{margin:26px 0 36px;padding:6px 26px 16px;border:1px solid #111;border-radius:14px;background:#fff4d6;box-shadow:6px 6px 0 #111}.pluto-post-callout h2{margin:16px 0 6px}.pluto-post-callout ul{margin:0 0 6px;padding-left:20px}.pluto-chart{padding:22px 24px 20px;background:#fff8e6}.pluto-chart-title{margin:0 0 18px;font-size:20px;font-weight:800;line-height:1.3}.pluto-chart-row{display:grid;grid-template-columns:minmax(150px,220px) minmax(0,1fr) 46px;gap:12px;align-items:center;margin:12px 0}.pluto-chart-label{font-size:14px;font-weight:700;line-height:1.25}.pluto-chart-track{height:24px;border:1px solid #111;border-radius:5px;background:#fff;overflow:hidden}.pluto-chart-bar{display:block;height:100%;min-width:4px;border-right:1px solid #111;background:#ff5f3f}.pluto-chart-bar.is-high{background:#ff9d75}.pluto-chart-bar.is-medium{background:#72d9ec}.pluto-chart-bar.is-low{background:#f4ce58}.pluto-chart-value{font-weight:800;text-align:right}.pluto-chart-summary{display:flex;flex-wrap:wrap;gap:10px;margin-top:20px;padding-top:16px;border-top:1px solid rgba(17,17,17,.3)}.pluto-chart-chip{padding:7px 10px;border:1px solid #111;border-radius:6px;background:#fff;font-size:13px;font-weight:800}@media(max-width:600px){.pluto-post-fig,.pluto-post-tablewrap,.pluto-post-callout{box-shadow:4px 4px 0 #111}.pluto-chart{padding:18px 16px}.pluto-chart-row{grid-template-columns:minmax(105px,145px) minmax(0,1fr) 34px;gap:8px}.pluto-chart-label{font-size:12px}}</style>
+<p>Over the past few weeks we&#8217;ve been running <strong>Operation:MCP</strong> &#8211; sharing pieces of research on how MCP is being adopted, disclosing critical vulnerabilities we&#8217;ve found in popular MCP servers, and introducing <strong>&#8216;</strong><strong>MCP Inspector&#8217;</strong> &#8211; a free community tool that scans an MCP server for risks before it is being installed.</p>
+<p>MCP keeps improving how teams work, and prior posts in this series covered what a serious vulnerability in a local MCP server can cost its user, from a <a href="https://pluto.security/blog/apify-mcp-prompt-injection/">malicious webpage hijacking an agent&#8217;s own authenticated calls</a> to a <a href="https://pluto.security/blog/notebook-backdoor-jupyter-mcp-server/">silent takeover that reads or rewrites a data scientist&#8217;s notebook</a>. But <strong>what happens when an MCP server stops running for one employee and starts running remotely, wired into a whole team&#8217;s internal systems?</strong></p>
+<p>Too often, they go up without the access controls that deployment deserves. <strong>Dozens of them are sitting wide open on the internet right now, easy to find with ordinary network-scanning tools, wired into internal company systems and reachable by anyone who looks.</strong> In plenty of cases, that means unauthenticated read and write access to highly sensitive systems.</p>
+<div class="pluto-post-callout">
+<h2 id="post-item-1">TL;DR</h2>
+<ul>
+<li>Unauthenticated MCP servers are not a corner case. <strong>We confirmed 147 of them wide open on the internet</strong>, answering any caller with no login, token, or session check at all.</li>
+<li>What follows walks through the levels of exposure we found in the wild: a single machine, a large company&#8217;s production stack, a government one, and more. <strong>The blast radius scales at every step. The mistake behind it never changes.</strong></li>
+<li>Sitting in the open were <strong>private details of residents, a company&#8217;s internal financial statements, its subscriber base, and root on production servers with payment and cloud credentials in plaintext</strong>. None of it needed a sophisticated 0-day. Ordinary browsing led us straight to all of it, and <strong>if we could get there, so can an attacker</strong>.</li>
+<li>Every finding here has the same root cause: a server that never checked who was asking. MCP&#8217;s own discovery step, <code>tools/list</code>, doesn&#8217;t require it to.</li>
+<li>The details, and the three controls that stop this, are below.</li>
+</ul>
+</div>
+<p>Every confirmed finding is plotted below, by location and severity.</p>
+<figure class="pluto-post-fig"><img decoding="async" src="https://pluto.security/wp-content/uploads/2026/09/01-mcp-radar.gif" alt="MCP Radar, an interactive 3D globe visualization plotting findings by location and severity, with filter and corpus panels"><figcaption>MCP Radar. <a href="https://claude.ai/code/artifact/7b38ba2c-22d3-47e4-bb7b-2d9c2537d4ff" target="_blank" rel="noopener noreferrer nofollow">Explore it live here.</a></figcaption></figure>
+<h2 id="post-item-2">No Exploit Needed, Just a Search</h2>
+<p>MCP gives an AI client a way to ask a server what it can do before deciding whether to use it. That discovery call, <code>tools/list</code>, is unauthenticated by design in most implementations. In practice, that means a server&#8217;s entire tool catalog sits exposed to anyone who finds the port: no login wall, no 404, just a plain-English inventory of everything the assistant behind it is allowed to touch.</p>
+<p>So we started wondering how easily that could be turned into a list. If a server will tell anyone who asks what it can do, then finding the interesting ones stops being an exploitation problem and becomes a search problem. We went and checked.</p>
+<figure class="pluto-post-fig"><img decoding="async" src="https://pluto.security/wp-content/uploads/2026/09/02-shodan-results.png" alt="Shodan search results for MCP servers, showing total results, top countries, ports, and organizations"><figcaption>One Shodan facet search for MCP servers, IPs and organization names redacted.</figcaption></figure>
+<h2 id="post-item-3">No Login Screen, Straight to Root</h2>
+<p>The most severe pattern in the corpus was also the most common one, and it needs no exploit at all. Plenty of the servers we found listed the same tool in their catalog: <code>exec</code>, described in plain English as running a shell command on the server. On its own, that is a perfectly reasonable thing to build. An admin who wants their assistant to tail a log, restart a stuck process or reload nginx needs exactly that tool, and it makes sense that they should be able to call it. <strong>The question is whether they are the only one who can.</strong></p>
+<p>So we checked what stands between the open internet and that tool. <strong>Spoiler: nothing.</strong></p>
+<p>Here&#8217;s what one of them handed back the moment we asked, no credentials attached:</p>
+<div class="pluto-post-tablewrap">
+<table>
+<thead>
+<tr>
+<th>Tool</th>
+<th>What it says it does</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>exec</code></td>
+<td>Run a shell command on the server. Use for system operations, file ops, package management, logs, etc.</td>
+</tr>
+<tr>
+<td><code>system_info</code></td>
+<td>Get system info: uptime, load, memory, disk usage, network stats.</td>
+</tr>
+<tr>
+<td><code>pm2_status</code></td>
+<td>List all PM2 processes with their status, CPU, and memory usage.</td>
+</tr>
+<tr>
+<td><code>nginx_reload</code></td>
+<td>Reload nginx configuration. Use after making config changes.</td>
+</tr>
+<tr>
+<td><code>nginx_logs</code></td>
+<td>View recent nginx access logs. Use for debugging, traffic analysis, error investigation.</td>
+</tr>
+<tr>
+<td><code>pm2_logs</code></td>
+<td>View recent PM2 logs for a specific process.</td>
+</tr>
+</tbody>
+</table>
+</div>
+<figure class="pluto-post-fig"><img decoding="async" src="https://pluto.security/wp-content/uploads/2026/09/03-request-tools.png" alt="Terminal screenshot: the tools/list response, host redacted"><figcaption>The full <code>tools/list</code> response. No login, no scopes, nothing hidden.</figcaption></figure>
+<p>We started with benign commands, just to see whether the tool did what its description claimed. It did. <strong>Calling <code>exec</code> with <code>id</code> came back as <code>uid=0(root)</code></strong>, and on five servers across three unrelated operators, the answer was the same.</p>
+<figure class="pluto-post-fig"><img decoding="async" src="https://pluto.security/wp-content/uploads/2026/09/04-command-id.png" alt="Terminal screenshot: exec('id') returning uid=0(root), host redacted"><figcaption>The <code>exec('id')</code> response.</figcaption></figure>
+<p>Then we had to rule out the boring explanation. <strong>Some of what looks like a live MCP server on the wire is a honeypot</strong>, built specifically to pass a shallow probe, and a honeypot can print &#8220;root&#8221; as easily as a real shell can. So we pointed the same <code>exec</code> tool at a fresh, unique webhook URL and watched our own inbox. <strong>The request landed within seconds.</strong> It was a real machine.</p>
+<figure class="pluto-post-fig"><img decoding="async" src="https://pluto.security/wp-content/uploads/2026/09/05-webhook-req.png" alt="Terminal screenshot next to a webhook.site inbox showing a real inbound GET request, host redacted"><figcaption>A real inbound request, seconds later, geolocated to the target&#8217;s own country.</figcaption></figure>
+<p><strong>That box was running eleven production services under one root user</strong>, and its environment files were sitting there in plaintext: a <code>stripe_secret_key</code>, a <code>github_token</code>, AWS access keys, a domain-registrar credential, <strong>all one <code>exec</code> call away</strong>.</p>
+<p>This is what root on a shared box actually means in practice: <strong>control over every process running as that user, every client site behind it, and every third-party account whose keys happened to be sitting in that environment.</strong> It&#8217;s the same decision, made independently by different operators: wrap a shell in an MCP server because the assistant needs to restart something or read a log, then never revisit whether the endpoint should be public once it&#8217;s bound to <code>x.x.x.x</code>.</p>
+<h2 id="post-item-4">A Nine-Figure Company, Wide Open</h2>
+<p>One of the exposed servers we found belonged to a digital media company doing an estimated nine figures in annual revenue. Its tool catalog, thirty tools deep, answered without a single credential.</p>
+<p>The server&#8217;s own <code>whoami</code> tool, callable with no session and no credentials, confirmed it wasn&#8217;t a demo: a named production environment, a private storage bucket, a live report domain, and confirmation that the company&#8217;s paid Gemini and ChatGPT integrations were connected and reachable through the same unauthenticated path.</p>
+<figure class="pluto-post-fig"><img decoding="async" src="https://pluto.security/wp-content/uploads/2026/09/06-media-company-banner.png" alt="Browser view of the exposed MCP server's root JSON banner, with the host and company name redacted"><figcaption>The endpoint accepted the connection and returned its own banner with no authentication at all. Host and company name redacted.</figcaption></figure>
+<p>A few of the thirty tools stood out:</p>
+<div class="pluto-post-tablewrap">
+<table>
+<thead>
+<tr>
+<th>Tool</th>
+<th>What it could do</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>list_reports</code></td>
+<td>Enumerate an entire private report bucket, zero arguments needed</td>
+</tr>
+<tr>
+<td><code>download_report</code></td>
+<td>Pull any file out of that bucket, full body, not a metadata stub</td>
+</tr>
+<tr>
+<td><code>execute_sql</code></td>
+<td>Run SQL directly against production data</td>
+</tr>
+<tr>
+<td><code>create_email_list</code></td>
+<td>Build a bulk email list straight from a data-warehouse query</td>
+</tr>
+<tr>
+<td><code>update_cms_content</code></td>
+<td>Write live content and paywall flags to the public site</td>
+</tr>
+</tbody>
+</table>
+</div>
+<p><strong>Calling <code>list_reports</code> alone returned every object in the bucket</strong>: financial statements, ad-sales snapshots, subscriber analytics, podcast metrics, organized into folders that read like an org chart. <code>download_report</code> on one of them came back as a full document, <strong>proving the read path all the way through</strong>. Anyone who found this endpoint could have <strong>pulled the company&#8217;s complete financial and audience data, rewritten its public site, or exported its subscriber base to a mailing list, without ever authenticating.</strong></p>
+<p>We stopped at read-only calls, enough to prove the impact without touching anything write-shaped. <strong>The write-shaped tools were sitting right there in the same unauthenticated catalog</strong>: SQL against production, live CMS and paywall edits, a bulk email list built off a warehouse query. The finding was reported to the company. Their CISO&#8217;s response is below.</p>
+<figure class="pluto-post-fig"><img decoding="async" src="https://pluto.security/wp-content/uploads/2026/09/07-email-company-reply.png" alt="Email reply from the affected company thanking the researcher and scheduling a remediation call, names redacted"><figcaption>The company&#8217;s response after disclosure, names redacted.</figcaption></figure>
+<h2 id="post-item-5">A Government Citizen Registry, Open to Anyone Who Asked</h2>
+<p>Another server we found belonged to a Swiss municipality, running an AI agent built to automate citizen-administration processes: <strong>residence certificates, ID card and passport applications, address changes, move-in and move-out registration.</strong> It called itself <code>ags-daemon</code>, and its own banner said as much outright: built to be wired into a Claude Desktop connector, not opened in a browser.</p>
+<p><strong>Nothing in front of it asked who was calling.</strong> <code>initialize</code> returned a live session with zero credentials attached. <code>tools/list</code> came back with four tools, also unauthenticated, one of which dumps the agent&#8217;s entire process catalog: eight administrative processes, six of them citizen-facing and two of them internal to the municipality&#8217;s own operations.</p>
+<div class="pluto-post-tablewrap">
+<table>
+<thead>
+<tr>
+<th>Process</th>
+<th>Who can trigger it</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Passport application</td>
+<td>citizen or staff</td>
+</tr>
+<tr>
+<td>ID card application</td>
+<td>citizen or staff</td>
+</tr>
+<tr>
+<td>Residence certificate</td>
+<td>citizen or staff</td>
+</tr>
+<tr>
+<td>Move-in registration</td>
+<td>citizen or staff</td>
+</tr>
+<tr>
+<td>Move-out registration</td>
+<td>citizen or staff</td>
+</tr>
+<tr>
+<td>Address change</td>
+<td>citizen or staff</td>
+</tr>
+<tr>
+<td>Council-meeting prep</td>
+<td>staff only</td>
+</tr>
+<tr>
+<td>Council minutes processing</td>
+<td>staff only</td>
+</tr>
+</tbody>
+</table>
+</div>
+<p><strong>The same unauthenticated endpoint that processes a passport application also reaches into the town&#8217;s internal governance workflow.</strong></p>
+<p>The tool that actually does the work, <code>ags_anliegen</code>, <strong>takes a resident&#8217;s AHV number, Switzerland&#8217;s national social-insurance ID, as a direct lookup key</strong> (or an internal person ID). Its own description <strong>instructs the calling model to act on it immediately</strong>, for every process in that table, <strong>without asking the user to confirm anything first.</strong></p>
+<figure class="pluto-post-fig"><img decoding="async" src="https://pluto.security/wp-content/uploads/2026/09/08-ags-anliegen.png" alt="Calling ags_anliegen with the text 'I need a proof of residence' and a person key, with no authentication, returning a real orchestration response"><figcaption>Calling <code>ags_anliegen</code> unauthenticated: a plain-language request routed straight into the residence-certificate process. Person key redacted.</figcaption></figure>
+<p>The call was accepted, classified with 0.99 confidence, and routed straight into the residence-certificate process. <strong>Reachable with no credential of any kind: the citizen-administration workflow itself, keyed on the national social-insurance number a Swiss resident&#8217;s records hang off</strong>, on a system whose other six processes issue passports and ID cards. This is the most severe class of exposure in the corpus, and it is a municipal government service.</p>
+<p>This finding was disclosed to Switzerland&#8217;s National Cyber Security Centre (NCSC), and the case is now closed.</p>
+<figure class="pluto-post-fig"><img decoding="async" src="https://pluto.security/wp-content/uploads/2026/09/09-vuln-nscs.png" alt="Email from NCSC's Vulnerability Management Team confirming they reviewed the reported endpoint"><figcaption>NCSC&#8217;s response after we reported the finding.</figcaption></figure>
+<h2 id="post-item-6">The Numbers Behind All of It</h2>
+<p>These anonymized cases are only a few examples from the hundreds of publicly reachable MCP endpoints we identified over a matter of weeks. Attackers can find the same servers just as easily with ordinary internet search and scanning tools.</p>
+<p>Across every pass so far, our tracked corpus stands at 179 confirmed findings, the same 179 plotted on MCP Radar above. 147 of them, 82%, checked out as genuinely unauthenticated once we tested the tools directly, not just at first scan.</p>
+<p>Severity, after manual verification, breaks down as 26 critical, 19 high, 24 medium, 110 low. 140 are still live and reachable right now. 39 have gone dark since we first found them.</p>
+<figure class="pluto-post-fig">
+<div class="pluto-chart" role="img" aria-label="Severity across 179 confirmed findings: 26 critical, 19 high, 24 medium, and 110 low">
+<div class="pluto-chart-title">Severity across the 179 confirmed findings</div>
+<div class="pluto-chart-row"><span class="pluto-chart-label">Critical</span><span class="pluto-chart-value">26</span></div>
+<div class="pluto-chart-row"><span class="pluto-chart-label">High</span><span class="pluto-chart-value">19</span></div>
+<div class="pluto-chart-row"><span class="pluto-chart-label">Medium</span><span class="pluto-chart-value">24</span></div>
+<div class="pluto-chart-row"><span class="pluto-chart-label">Low</span><span class="pluto-chart-value">110</span></div>
+<div class="pluto-chart-summary"><span class="pluto-chart-chip">140 still live</span><span class="pluto-chart-chip">39 gone dark</span></div>
+</div><figcaption>Manual severity assessment across all 179 confirmed findings.</figcaption></figure>
+<p>Geography tells its own story. Across the full 179-finding corpus, the US leads with 89, Germany is next at 22, then China (11), Canada (10), and Japan (8).</p>
+<p>Severity is our judgment of how bad an exposure would be if somebody used it. It says nothing about what an unauthenticated caller could actually <em>do</em> on the other end, so we classified that separately: for every finding, what the exposed tools would have let a stranger touch.</p>
+<figure class="pluto-post-fig">
+<div class="pluto-chart" role="img" aria-label="Exposed capabilities across 166 findings: 57 write or state-changing, 43 read-only, 36 unclear or other, 23 financial or commerce actions, and 7 full code execution">
+<div class="pluto-chart-title">What an unauthenticated caller could actually do</div>
+<div class="pluto-chart-row"><span class="pluto-chart-label">Write / state-changing</span><span class="pluto-chart-value">57</span></div>
+<div class="pluto-chart-row"><span class="pluto-chart-label">Read-only</span><span class="pluto-chart-value">43</span></div>
+<div class="pluto-chart-row"><span class="pluto-chart-label">Unclear / other</span><span class="pluto-chart-value">36</span></div>
+<div class="pluto-chart-row"><span class="pluto-chart-label">Financial / commerce</span><span class="pluto-chart-value">23</span></div>
+<div class="pluto-chart-row"><span class="pluto-chart-label">Full code execution</span><span class="pluto-chart-value">7</span></div>
+</div><figcaption>Across the 166 of 179 findings where we had full tool visibility.</figcaption></figure>
+<h2 id="post-item-7">Why This Keeps Happening</h2>
+<p>Every finding here traces back to one omission: nobody checked who was calling before letting them call. MCP makes that easy to miss, because a <code>tools/list</code> response reads like documentation, not an attack surface, right up until someone scans the port it&#8217;s listening on. A shell tool bound to <code>x.x.x.x</code>, a <code>tools/call</code> endpoint left open because &#8220;it&#8217;s only for our internal assistant,&#8221; a tool description that tells the model to act without confirmation: none of these are exotic mistakes. They&#8217;re the same shortcut, taken independently, at every scale we tested, personal machine, company, and government service alike. Some of it isn&#8217;t even a standing decision: someone opens a port for a quick test or a local demo, moves on, and the server just keeps listening, unauthenticated, long after anyone remembers it&#8217;s there.</p>
+<figure class="pluto-post-fig"><img decoding="async" src="https://pluto.security/wp-content/uploads/2026/09/10-email-how-exposed.png" alt="Email reply from an affected operator explaining the exposed MCP server was left public during testing and calling it an oversight, name redacted"><figcaption>One operator&#8217;s own explanation after disclosure: left public during testing, then never revisited.</figcaption></figure>
+<h2 id="post-item-8">What Security Teams Can Actually Do About It</h2>
+<ul>
+<li><strong>Authenticate <code>tools/call</code>, not just the transport.</strong> Discovery can reasonably stay open. Execution and data retrieval shouldn&#8217;t.</li>
+<li><strong>Scan your own external attack surface for MCP fingerprints.</strong> If a server is reachable from the outside, you want to be the one who finds it first.</li>
+<li><strong>Authorize per tool, not per server.</strong> Reading a public index is not the same privilege as executing a shell command or writing to a citizen registry, and the authorization model should say so explicitly.</li>
+</ul>
+<p>None of this is theoretical. Any organization can have a server like these live right now, quietly bridging internal systems to the open internet, stood up by someone who just needed their assistant to reach one more thing. By the time a server like that shows up on a search engine like Shodan, it&#8217;s already too late.</p>
+<p>Instead, this is exactly the kind of gap Pluto&#8217;s AI Workspace Security Platform, already protecting 1,000,000+ endpoints, is built to close. It gives you <strong>visibility into every MCP server running across your environment</strong>: who built it, what it can reach, and whether it&#8217;s actually authenticated, so you catch it before anyone else does. Curious what&#8217;s running in yours? <a href="https://pluto.security/book-a-demo/">Talk to us</a>.</p>
+<h2 id="post-item-9">Conclusion</h2>
+<p>None of this came from a novel exploit. We asked servers what they could do, then checked whether anything was gating the answer, and almost every time nothing was. We found hundreds of publicly reachable MCP endpoints in only a few weeks, and attackers can run the same searches continuously. Once an MCP server can reach a shell, a data warehouse, a CMS or a citizen registry, it is a privileged production interface, and it needs the identity, authorization and logging every other privileged interface gets. The mistake is cheap to make and cheap to fix. The expensive part is not knowing the server is there until somebody else finds it first.</p>
+</div>
+	
+				</div>
+				<div class="post-navigation">
+					
+<div class="share-socials">
+<!-- <div class="share-title">Share this article</div> -->
+<ul class="social-links">
+	<li><a href="#!" title="Share on Twitter" class="t-top t-xs" data-tooltip="Share on Twitter" onClick="window.open('http://twitter.com/share?url=https%3A%2F%2Fpluto.security%2Fblog%2Fwide-open-hundreds-of-mcps-exposing-root-shells-production-data-and-citizen-records-one-call-away%2F&amp;text=Wide%20Open:%20Hundreds%20of%20MCPs%20Exposing%20Root%20Shells,%20Production%20Data,%20and%20Citizen%20Records%20One%20Call%20Away','Twitter share','width=600,height=300,left='+(screen.availWidth/2-300)+',top='+(screen.availHeight/2-150)+''); return false;" href="http://twitter.com/share?url=https%3A%2F%2Fpluto.security%2Fblog%2Fwide-open-hundreds-of-mcps-exposing-root-shells-production-data-and-citizen-records-one-call-away%2F&amp;text=Wide%20Open:%20Hundreds%20of%20MCPs%20Exposing%20Root%20Shells,%20Production%20Data,%20and%20Citizen%20Records%20One%20Call%20Away"><svg width="18" height="16" viewBox="0 0 18 16" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M13.8935 0H16.589L10.6707 6.73875L17.5852 15.88H12.159L7.9107 10.3249L3.04708 15.88H0.351587L6.62155 8.67247L0 0H5.56093L9.39909 5.07457L13.8935 0ZM12.9501 14.2979H14.4444L4.77572 1.52354H3.17014L12.9501 14.2979Z" fill="#111013"/></svg></a></li>
+	<li><a href="https://www.instagram.com/?url=https%3A%2F%2Fpluto.security%2Fblog%2Fwide-open-hundreds-of-mcps-exposing-root-shells-production-data-and-citizen-records-one-call-away%2F&#038;caption=Check%2Bout%2Bthis%2Bpost%253A%2BWide%2BOpen%253A%2BHundreds%2Bof%2BMCPs%2BExposing%2BRoot%2BShells%252C%2BProduction%2BData%252C%2Band%2BCitizen%2BRecords%2BOne%2BCall%2BAway" onClick="window.open('https://www.instagram.com/?url=https%3A%2F%2Fpluto.security%2Fblog%2Fwide-open-hundreds-of-mcps-exposing-root-shells-production-data-and-citizen-records-one-call-away%2F&#038;caption=Check%2Bout%2Bthis%2Bpost%253A%2BWide%2BOpen%253A%2BHundreds%2Bof%2BMCPs%2BExposing%2BRoot%2BShells%252C%2BProduction%2BData%252C%2Band%2BCitizen%2BRecords%2BOne%2BCall%2BAway','Instagram share','width=600,height=300,left='+(screen.availWidth/2-300)+',top='+(screen.availHeight/2-150)+''); return false;" title="Share on Instagram" class="t-top t-xs" data-tooltip="Share on Instagram"><svg width="19" height="19" viewBox="0 0 19 19" fill="none" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" clip-rule="evenodd" d="M5.56269 0.0567884C6.57197 0.0103252 6.89377 0 9.46474 0C12.0357 0 12.3575 0.0111856 13.3659 0.0567884C14.3744 0.102391 15.0627 0.263292 15.665 0.496469C16.2957 0.734808 16.8679 1.10737 17.3411 1.58922C17.823 2.06159 18.1947 2.63292 18.4322 3.26448C18.6662 3.86678 18.8262 4.55512 18.8727 5.56183C18.9192 6.57283 18.9295 6.89464 18.9295 9.46474C18.9295 12.0357 18.9183 12.3575 18.8727 13.3668C18.8271 14.3735 18.6662 15.0618 18.4322 15.6641C18.1947 16.2958 17.8223 16.8681 17.3411 17.3411C16.8679 17.823 16.2957 18.1947 15.665 18.4322C15.0627 18.6662 14.3744 18.8262 13.3677 18.8727C12.3575 18.9192 12.0357 18.9295 9.46474 18.9295C6.89377 18.9295 6.57197 18.9183 5.56269 18.8727C4.55598 18.8271 3.86764 18.6662 3.26534 18.4322C2.63371 18.1946 2.06144 17.8223 1.58836 17.3411C1.10684 16.8685 0.734218 16.2965 0.496469 15.665C0.263292 15.0627 0.103252 14.3744 0.0567884 13.3677C0.0103252 12.3567 0 12.0349 0 9.46474C0 6.89377 0.0111856 6.57197 0.0567884 5.56355C0.102391 4.55512 0.263292 3.86678 0.496469 3.26448C0.73457 2.63299 1.10748 2.061 1.58922 1.58836C2.06163 1.10695 2.63333 0.734329 3.26448 0.496469C3.86678 0.263292 4.55598 0.103252 5.56269 0.0567884ZM13.2894 1.76044C12.2913 1.71484 11.9918 1.70537 9.46474 1.70537C6.93766 1.70537 6.63823 1.71484 5.64013 1.76044C4.71688 1.8026 4.21611 1.95662 3.88227 2.08655C3.44086 2.25863 3.12509 2.46255 2.79382 2.79382C2.4798 3.09932 2.23814 3.47122 2.08655 3.88227C1.95662 4.21611 1.8026 4.71688 1.76044 5.64013C1.71484 6.63823 1.70537 6.93766 1.70537 9.46474C1.70537 11.9918 1.71484 12.2913 1.76044 13.2894C1.8026 14.2126 1.95662 14.7134 2.08655 15.0472C2.23798 15.4576 2.47976 15.8302 2.79382 16.1357C3.09927 16.4497 3.47184 16.6915 3.88227 16.8429C4.21611 16.9729 4.71688 17.1269 5.64013 17.169C6.63823 17.2146 6.9368 17.2241 9.46474 17.2241C11.9927 17.2241 12.2913 17.2146 13.2894 17.169C14.2126 17.1269 14.7134 16.9729 15.0472 16.8429C15.4886 16.6709 15.8044 16.4669 16.1357 16.1357C16.4497 15.8302 16.6915 15.4576 16.8429 15.0472C16.9729 14.7134 17.1269 14.2126 17.169 13.2894C17.2146 12.2913 17.2241 11.9918 17.2241 9.46474C17.2241 6.93766 17.2146 6.63823 17.169 5.64013C17.1269 4.71688 16.9729 4.21611 16.8429 3.88227C16.6709 3.44086 16.4669 3.12509 16.1357 2.79382C15.8301 2.47982 15.4582 2.23816 15.0472 2.08655C14.7134 1.95662 14.2126 1.8026 13.2894 1.76044ZM8.25584 12.3825C8.93098 12.6635 9.68276 12.7014 10.3828 12.4898C11.0828 12.2781 11.6876 11.83 12.0939 11.222C12.5002 10.6139 12.6828 9.88366 12.6105 9.15594C12.5382 8.42822 12.2155 7.74816 11.6976 7.23192C11.3674 6.90193 10.9681 6.64925 10.5285 6.49208C10.0889 6.33491 9.61999 6.27715 9.15541 6.32298C8.69084 6.3688 8.2422 6.51706 7.8418 6.75708C7.4414 6.9971 7.0992 7.32291 6.83983 7.71106C6.58046 8.0992 6.41037 8.54003 6.34182 9.0018C6.27327 9.46357 6.30795 9.93479 6.44337 10.3815C6.57879 10.8283 6.81159 11.2395 7.12499 11.5855C7.43839 11.9315 7.82461 12.2037 8.25584 12.3825ZM6.02474 6.02474C6.47649 5.57299 7.01279 5.21465 7.60303 4.97016C8.19326 4.72568 8.82587 4.59984 9.46474 4.59984C10.1036 4.59984 10.7362 4.72568 11.3265 4.97016C11.9167 5.21464 12.453 5.57299 12.9047 6.02474C13.3565 6.47649 13.7148 7.01279 13.9593 7.60303C14.2038 8.19326 14.3296 8.82588 14.3296 9.46474C14.3296 10.1036 14.2038 10.7362 13.9593 11.3265C13.7148 11.9167 13.3565 12.453 12.9047 12.9047C11.9924 13.8171 10.755 14.3296 9.46474 14.3296C8.17449 14.3296 6.93708 13.8171 6.02474 12.9047C5.11239 11.9924 4.59984 10.755 4.59984 9.46474C4.59984 8.17449 5.11239 6.93708 6.02474 6.02474ZM15.4086 5.32435C15.5205 5.21875 15.6102 5.09176 15.6722 4.9509C15.7341 4.81004 15.7672 4.65817 15.7695 4.5043C15.7717 4.35042 15.7431 4.19765 15.6852 4.05505C15.6274 3.91244 15.5415 3.78289 15.4327 3.67407C15.3238 3.56525 15.1943 3.47937 15.0517 3.42152C14.9091 3.36366 14.7563 3.33501 14.6024 3.33725C14.4486 3.3395 14.2967 3.37259 14.1558 3.43458C14.015 3.49657 13.888 3.58619 13.7824 3.69813C13.577 3.91585 13.4646 4.20503 13.4689 4.5043C13.4733 4.80356 13.5941 5.08935 13.8058 5.30098C14.0174 5.51262 14.3032 5.63344 14.6024 5.6378C14.9017 5.64216 15.1909 5.52972 15.4086 5.32435Z" fill="#111013"/></svg></a></li>
+	<li><a href="#!" title="Share on Facebook" class="t-top t-xs" data-tooltip="Share on Facebook" onClick="window.open('http://www.facebook.com/sharer.php?u=https%3A%2F%2Fpluto.security%2Fblog%2Fwide-open-hundreds-of-mcps-exposing-root-shells-production-data-and-citizen-records-one-call-away%2F','Facebook','width=600,height=300,left='+(screen.availWidth/2-300)+',top='+(screen.availHeight/2-150)+''); return false;" href="http://www.facebook.com/sharer.php?u=https%3A%2F%2Fpluto.security%2Fblog%2Fwide-open-hundreds-of-mcps-exposing-root-shells-production-data-and-citizen-records-one-call-away%2F"><svg width="12" height="21" viewBox="0 0 12 21" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M10.3349 11.6152L10.9085 7.87811H7.32248V5.45298C7.32248 4.43079 7.82325 3.43377 9.42946 3.43377H11.0596V0.252321C11.0596 0.252321 9.58047 0 8.16592 0C5.21292 0 3.28276 1.79013 3.28276 5.0303V7.87875H0V11.6158H3.28276V20.6503H7.32248V11.6158L10.3349 11.6152Z" fill="#111013"/></svg></a></li>
+</ul>
+</div>				</div>
+			</div>
+		</div>
+	</div>
+</section>
+
+<section class="theme-section related-posts-section with-top-reverse-curve bg-white">
+			<div class="theme-container-lg wow slideInUpFix">
+				<div class="section-title text-center">
+					<h2>Related Posts</h2>
+				</div><ul class="post-classic-slide"><li class="classic-slide"><article class="post-card" data-post-id="2641">
+    <div class="card-img">
+        <a href="/blog/?cat=tech" class="post-category">Tech</a>        <div class="icw-ratio ratio-fix-post">
+            <img src="https://pluto.security/wp-content/uploads/2026/11/img-post-zero-trust-ai-agents-1024x768.jpg" alt="Zero Trust for AI Agents: Why Perimeter Controls Were Not Built for This">
+        </div>
+    </div>
+    <div class="card-body">
+        <div class="post-meta">
+            <span class="post-date">Nov 04, 2026 </span><span>|</span><span
+                class="post-read-time">6 min read</span>
+        </div>
+        <h2 class="card-title">Zero Trust for AI Agents: Why Perimeter Controls Were Not Built for This</h2>
+        <div class="card-info">AI agents are reshaping enterprise computing’s security model. Traditional applications execute predefined logic. Human users make decisions, and applications enforce them. AI agents introduce a&hellip;</div>    </div>
+    <div class="card-action">
+        <div class="user-info-wrap"><a class="user-info position-relative" style="z-index:2" href="https://pluto.security/blog/author/pluto-security/"><div class="user-img"><img src="https://pluto.security/wp-content/uploads/2026/01/img-author.png" width="36" height="36" alt="Pluto Team"></div><div class="name">Pluto Team</div></a></div>        <a href="https://pluto.security/blog/zero-trust-ai-agents/">Read More</a>
+    </div>
+</article></li><li class="classic-slide"><article class="post-card" data-post-id="1855">
+    <div class="card-img">
+        <a href="/blog/?cat=security" class="post-category">Security</a>        <div class="icw-ratio ratio-fix-post">
+            <img src="https://pluto.security/wp-content/uploads/2026/08/post-top-mcp-security-risks-1-1024x730.jpg" alt="Top MCP Security Risks Enterprises Need to Address">
+        </div>
+    </div>
+    <div class="card-body">
+        <div class="post-meta">
+            <span class="post-date">Oct 30, 2026 </span><span>|</span><span
+                class="post-read-time">9 min read</span>
+        </div>
+        <h2 class="card-title">Top MCP Security Risks Enterprises Need to Address</h2>
+        <div class="card-info">At the center of the rapid evolution of agentic AI is the Model Context Protocol (MCP). MCP is an emerging open standard that enables AI&hellip;</div>    </div>
+    <div class="card-action">
+        <div class="user-info-wrap"><div class="user-info"><div class="user-img"><img src="https://pluto.security/wp-content/uploads/2026/01/img-author.png" width="36" height="36" alt="Eitan Chassid"></div><div class="name">Eitan Chassid</div></div></div>        <a href="https://pluto.security/blog/top-mcp-security-risks/">Read More</a>
+    </div>
+</article></li><li class="classic-slide"><article class="post-card" data-post-id="2588">
+    <div class="card-img">
+        <a href="/blog/?cat=security" class="post-category">Security</a>        <div class="icw-ratio ratio-fix-post">
+            <img src="https://pluto.security/wp-content/uploads/2026/10/cosmos-hidden-capsule-network-2-1024x512.png" alt="Load/Mine: A Hugging Face Malware Campaign Returns After Takedown">
+        </div>
+    </div>
+    <div class="card-body">
+        <div class="post-meta">
+            <span class="post-date">Oct 29, 2026 </span><span>|</span><span
+                class="post-read-time">20 min read</span>
+        </div>
+        <h2 class="card-title">Load/Mine: A Hugging Face Malware Campaign Returns After Takedown</h2>
+        <div class="card-info">Pluto Research tracked a cryptomining and backdoor campaign across Hugging Face model repositories. The investigation follows related accounts, analyzes the payload, and documents the campaign’s&hellip;</div>    </div>
+    <div class="card-action">
+        <div class="user-info-wrap"><div class="user-info"><div class="user-img"><img src="https://pluto.security/wp-content/uploads/2026/01/img-author.png" width="36" height="36" alt="Shaked Chen"></div><div class="name">Shaked Chen</div></div><div class="user-info"><div class="user-img"><img src="https://pluto.security/wp-content/uploads/2026/01/img-author.png" width="36" height="36" alt="Eitan Chassid"></div><div class="name">Eitan Chassid</div></div><a class="user-info position-relative" style="z-index:2" href="https://pluto.security/blog/author/yotam-perkal/"><div class="user-img"><img src="https://pluto.security/wp-content/uploads/2026/04/cropped-img-yotam-perkal-72x72.jpg" width="36" height="36" alt="Yotam Perkal"></div><div class="name">Yotam Perkal</div></a></div>        <a href="https://pluto.security/blog/hugging-face-malware-campaign-load-mine/">Read More</a>
+    </div>
+</article></li></ul>
+			<div class="action pt-md text-center"><a href="https://pluto.security/blog/" class="theme-btn btn-dark">View all posts</a></div>
+			</div></div></section>
+</div><!-- end of <main> -->
+<footer id="site-footer" class="site-footer">
+        <div class="footer-cta-block">
+        <div class="footer-cta__content">
+            <div class="text-center">
+                 					                    <a class="btn btn-big btn-secondary_black" href="/book-a-demo/" target="">Book a demo</a>
+                            </div>
+        </div>
+        <div class="footer-flag">
+            <img src="https://pluto.security/wp-content/themes/pluto/assets/public/images/site-footer/footer-flag.webp?v=1792391356" alt="" width="662" height="484" loading="lazy" decoding="async">
+        </div>
+        <div class="footer-cta__monkey">
+            <lottie-player src="https://pluto.security/wp-content/themes/pluto/assets/images/footer-monkey.json" background="transparent" loop autoplay></lottie-player>
+        </div>
+    </div>
+    <div class="site-footer__color-yellow">
+        <div class="container site-footer__container">
+            <div class="site-footer__wrapper">
+                <div class="site-footer__top-wrapper">
+                    <div class="site-footer__info">
+                        <div class="site-footer__logo wow fadeInUp" data-wow-delay="0.2s">
+                                                            <a href="https://pluto.security/" title="Pluto Security" rel="home">
+                                    <img src="https://pluto.security/wp-content/uploads/2025/11/footer-logo.svg" class="attachment-full size-full" alt="Pluto Security" decoding="async" loading="lazy" />                                </a>
+                                                    </div>
+                                                    <div class="site-footer__socials">
+                                                            <a href="https://x.com/pluto_security" class="site-footer__social-link t-top" target="_blank" rel="noopener" data-tooltip="X"><img src="https://pluto.security/wp-content/uploads/2025/12/x.svg" alt="X" /></a>
+                                                            <a href="https://www.linkedin.com/company/plutosecurity/" class="site-footer__social-link t-top" target="_blank" rel="noopener" data-tooltip="Linkedin"><img src="https://pluto.security/wp-content/uploads/2025/12/linkedin.svg" alt="Linkedin" /></a>
+                                                            <a href="https://www.instagram.com/to.pluto.n.beyond/" class="site-footer__social-link t-top" target="_blank" rel="noopener" data-tooltip="Instagram"><img src="https://pluto.security/wp-content/uploads/2026/10/instagram.svg" alt="Instagram" /></a>
+                            </div>
+                                            </div>
+
+                    <div class="site-footer__menu">
+                        <ul id="footer-menu" class="footer-menu"><li id="menu-item-7" class="hash-item menu-item menu-item-type-custom menu-item-object-custom menu-item-7"><a href="/#problem">The problem</a></li>
+<li id="menu-item-215" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-215"><a href="https://pluto.security/about-us/">About Us</a></li>
+<li id="menu-item-214" class="menu-item menu-item-type-post_type menu-item-object-page current_page_parent menu-item-214"><a href="https://pluto.security/blog/">Blog</a></li>
+<li id="menu-item-455" class="menu-item menu-item-type-post_type_archive menu-item-object-glossary menu-item-455"><a href="https://pluto.security/glossary/">Glossary</a></li>
+<li id="menu-item-467" class="menu-item menu-item-type-post_type_archive menu-item-object-question_answer menu-item-467"><a href="https://pluto.security/question/">FAQs</a></li>
+<li id="menu-item-1012" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-1012"><a target="_blank" href="https://plutonium.pluto.security/">Plutonium</a></li>
+<li id="menu-item-461" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-461"><a href="https://pluto.security/contact-us/">Contact Us</a></li>
+<li id="menu-item-287" class="btn btn-secondary_yellow menu-item menu-item-type-post_type menu-item-object-page menu-item-287"><a href="https://pluto.security/book-a-demo/">Book a Demo</a></li>
+</ul>                    </div>
+                </div>
+
+                <div class="site-footer__bottom-wrapper">
+                    <div class="site-footer__copyright">
+                        <div class="copyright-text">Copyright © 2026 Pluto Security. All rights reserved.</div> 
+                    </div>
+                    
+                    <div class="site-footer__sec-logos">
+                        <img src="https://pluto.security/wp-content/themes/pluto/assets/images/sec-badges.webp" alt="SOC2 TYPE 2 / ISO27001">
+                    </div>
+                    
+                    <div class="site-footer__policies">
+                        <ul id="footer-policies-menu" class="footer-policies-menu"><li id="menu-item-1489" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-1489"><a target="_blank" href="http://trust.pluto.security/">Trust Center</a></li>
+<li id="menu-item-177" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-177"><a href="https://pluto.security/cookies-notice/">Cookies Notice</a></li>
+<li id="menu-item-170" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-170"><a href="https://pluto.security/terms-of-use/">Terms of Use</a></li>
+<li id="menu-item-166" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-privacy-policy menu-item-166"><a rel="privacy-policy" href="https://pluto.security/privacy-policy/">Privacy Policy</a></li>
+</ul>                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</footer></div><!-- .wrapper -->
+<script id="jquery-core-js" src="https://pluto.security/wp-includes/js/jquery/jquery.min.js"></script>
+<script id="icw-splide-js" src="https://pluto.security/wp-content/themes/pluto/assets/js/splide.min.js?v=1769508473"></script>
+<script id="icw-wow-js" src="https://pluto.security/wp-content/themes/pluto/assets/js/wow.min.js?v=1769508473"></script>
+<script id="icw-glightbox-js" src="https://pluto.security/wp-content/themes/pluto/assets/js/glightbox.min.js?v=1769508473"></script>
+<script id="frontend-js-js-extra">
+var var_from_php = {"ajax_url":"https://pluto.security/wp-admin/admin-ajax.php","theme_path":"https://pluto.security/wp-content/themes/pluto","site_url":"https://pluto.security"};
+//# sourceURL=frontend-js-js-extra
+</script>
+<script id="frontend-js-js" src="https://pluto.security/wp-content/themes/pluto/assets/public/js/frontend.js?v=1792391356"></script>
+<script id="icw-main-js" src="https://pluto.security/wp-content/themes/pluto/assets/js/main.js?v=1769689641"></script>
+<script id="post-single-js" src="https://pluto.security/wp-content/themes/pluto/assets/js/post-single.js?v=1769508473"></script>
+<script id="page-links-to-js" src="https://pluto.security/wp-content/plugins/page-links-to/dist/new-tab.js"></script>
+<script id="enlighterjs-js" src="https://pluto.security/wp-content/plugins/enlighter/cache/enlighterjs.min.js"></script>
+<script id="enlighterjs-js-after">
+!function(e,n){if("undefined"!=typeof EnlighterJS){var o={"selectors":{"block":"pre.EnlighterJSRAW","inline":"code.EnlighterJSRAW"},"options":{"indent":4,"ampersandCleanup":true,"linehover":true,"rawcodeDbclick":false,"textOverflow":"break","linenumbers":true,"theme":"monokai","language":"python","retainCssClasses":false,"collapse":false,"toolbarOuter":"","toolbarTop":"{BTN_RAW}{BTN_COPY}{BTN_WINDOW}{BTN_WEBSITE}","toolbarBottom":""}};(e.EnlighterJSINIT=function(){EnlighterJS.init(o.selectors.block,o.selectors.inline,o.options)})()}else{(n&&(n.error||n.log)||function(){})("Error: EnlighterJS resources not loaded yet!")}}(window,console);
+!function(e){"undefined"!=typeof jQuery&&jQuery(document).on("ajaxComplete",function(){"undefined"!=typeof EnlighterJSINIT&&e.setTimeout(function(){EnlighterJSINIT.apply(e)},180)})}(window);
+//# sourceURL=enlighterjs-js-after
+</script>
+<script type="speculationrules">
+{"prefetch":[{"source":"document","where":{"and":[{"href_matches":"/*"},{"not":{"href_matches":["/wp-*.php","/wp-admin/*","/wp-content/uploads/*","/wp-content/*","/wp-content/plugins/*","/wp-content/themes/pluto/*","/*\\?(.+)"]}},{"not":{"selector_matches":"a[rel~=\"nofollow\"]"}},{"not":{"selector_matches":".no-prefetch, .no-prefetch a"}}]},"eagerness":"conservative"}]}
+</script>
+<style>
+body.blog .post-card .card-img img {object-position: top;}
+.post-card .card-img img, .single-header .blog-header-title .post-image, .single-header .blog-header-title .post-image img {image-rendering: auto;}
+body.single-post .single-content :where(p, li) code {font-family: monospace, monospace;font-size: 90%;background: #e9daad;padding: 0px 8px;display: inline-block;border-radius: 8px;}
+.enlighter-t-monokai {background-color: #272822; border-radius: 12px; padding: 12px;}
+@media (max-width: 800px) {body .ch2-icon {bottom: 100px;}}
+
+@media (min-width: 768px) {body.blog .posts-archive-categories ul.nav-filter li a {font-size: 1.15rem;} .posts-archive-categories ul.nav-filter {flex-wrap: wrap !important;}}
+@media (max-width: 768px) and (min-width: 606px) {.posts-archive-categories ul.nav-filter {justify-content: flex-start;}}
+</style>
+<style>
+/* author page cache issue css */
+body.author .author-single-content{padding-bottom:6rem;padding-top:0}@media(max-width:767px){body.author .author-single-content{padding-bottom:4rem}}body.author .blog-section .posts-archive-list .post-card-col:first-child{grid-column:unset}body.author .blog-section .section-title h2{font-size:clamp(1.75rem,4.5vw,3.438rem)}body.author #site-footer{background-color:var(--light-yellow)!important}.author-page-header:after,.author-page-header:before{content:none}.author-page-header .element{animation:block_author_header_floating_l 6s linear .3s infinite;background-position:50%;background-repeat:no-repeat;background-size:contain;display:inline-block;position:absolute}.author-page-header .element.element-1{background-image:url(data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIyOTQiIGhlaWdodD0iMjI4IiBmaWxsPSJub25lIiB2aWV3Qm94PSIwIDAgMjk0IDIyOCI+PHBhdGggc3Ryb2tlPSIjMDAwIiBkPSJNMTU5Ljc5MyA2NC4yMThjMzYuNzE2IDkuODM4IDY4LjQzNyAyNC4zMzIgOTAuMDQxIDM5Ljc5NSAxMC44MDMgNy43MzIgMTkuMDU0IDE1LjY5IDI0LjE0MSAyMy40MSA1LjA4OCA3LjcyIDYuOTc5IDE1LjE0OSA1LjE3OSAyMS44NjhzLTcuMTUzIDEyLjIwNS0xNS40MTkgMTYuMzQ3Yy04LjI2NSA0LjE0Mi0xOS4zOSA2LjkxLTMyLjYxMiA4LjIwNC0yNi40NDEgMi41OS02MS4xNTktLjcxOS05Ny44NzUtMTAuNTU4LTM2LjcxNy05LjgzOC02OC40MzgtMjQuMzMxLTkwLjA0Mi0zOS43OTQtMTAuODAzLTcuNzMyLTE5LjA1NC0xNS42OTItMjQuMTQxLTIzLjQxMS01LjA4OC03LjcyLTYuOTgtMTUuMTQ4LTUuMTgtMjEuODY3IDEuOC02LjcxOCA3LjE1NC0xMi4yMDYgMTUuNDItMTYuMzQ4czE5LjM5LTYuOTA5IDMyLjYxMi04LjIwM2MyNi40NC0yLjU5IDYxLjE1OS43MTggOTcuODc2IDEwLjU1N1oiLz48cGF0aCBzdHJva2U9IiMwMDAiIGQ9Ik0xMjAuODcxIDY5LjM0YzMyLjkyLTE5LjAwNyA2NS41OTgtMzEuMTg3IDkxLjgwOC0zNS41MyAxMy4xMDctMi4xNzEgMjQuNTY5LTIuMzc4IDMzLjYyNC0uNTE3IDkuMDU3IDEuODYyIDE1LjY0NyA1Ljc3NyAxOS4xMjUgMTEuOHMzLjU3MyAxMy42OS42NTcgMjIuNDYzLTguODI1IDE4LjU5Ny0xNy4yNTkgMjguODYyYy0xNi44NjYgMjAuNTI3LTQzLjc1NSA0Mi43MzYtNzYuNjc0IDYxLjc0MnMtNjUuNTk4IDMxLjE4OC05MS44MDggMzUuNTMxYy0xMy4xMDcgMi4xNzEtMjQuNTY5IDIuMzc3LTMzLjYyNS41MTYtOS4wNTYtMS44NjItMTUuNjQ2LTUuNzc3LTE5LjEyNC0xMS44cy0zLjU3My0xMy42ODktLjY1Ny0yMi40NjNjMi45MTUtOC43NzMgOC44MjYtMTguNTk2IDE3LjI2LTI4Ljg2MSAxNi44NjUtMjAuNTI3IDQzLjc1NC00Mi43MzggNzYuNjczLTYxLjc0NFoiLz48Y2lyY2xlIGN4PSIxNDYuNTM1IiBjeT0iMTEzLjA0NyIgcj0iMTguNzczIiBmaWxsPSIjMzliZjk3IiBzdHJva2U9IiMwMDAiLz48L3N2Zz4=);height:228px;left:0;top:25%;width:236px}@media(max-width:992px){.author-page-header .element.element-1{height:130px;top:35%;width:135px}}@media(max-width:767px){.author-page-header .element.element-1{height:80px;left:-5%;top:25%;width:110px}}.author-page-header .element.element-2{background-image:url(data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSI0MDciIGhlaWdodD0iNDA3IiBmaWxsPSJub25lIiB2aWV3Qm94PSIwIDAgNDA3IDQwNyI+PGNpcmNsZSBjeD0iMjAzLjQzIiBjeT0iMjAzLjQzIiByPSIxNDguNTEiIGZpbGw9IiNmZmZmNzgiIHN0cm9rZT0iIzAwMCIvPjxjaXJjbGUgY3g9IjIwMy40MTIiIGN5PSIyMDMuMTYyIiByPSIxNDguNTEiIGZpbGw9IiNmZmZmNzgiIHN0cm9rZT0iIzAwMCIgdHJhbnNmb3JtPSJyb3RhdGUoLTEwLjcxIDIwMy40MTIgMjAzLjE2MikiLz48cGF0aCBmaWxsPSIjMDAwIiBkPSJNNjIuOTA0IDI1MS40NDdjNDEuNzYgNjUuMDYzIDExOS45NCAxMDEuOTAxIDIwMC41MzkgODcuMzI3YTE0OS41IDE0OS41IDAgMCAxLTMyLjE2MiA5LjkyYy03My40NjIgMTMuODk0LTE0NC41MTctMjguNzA0LTE2OC4zNzctOTcuMjQ3Ii8+PGNpcmNsZSBjeD0iMjAzLjQxMiIgY3k9IjIwMy4xNjIiIHI9IjE0OC41MSIgc3Ryb2tlPSIjMDAwIiB0cmFuc2Zvcm09InJvdGF0ZSgtMTAuNzEgMjAzLjQxMiAyMDMuMTYyKSIvPjxwYXRoIGZpbGw9IiMwMDAiIGQ9Ik0zMjguNjQzIDEyNS41NjZjMzAuNzQxLTEuOTIgNTEuMjU3IDIuNDU5IDU1LjI4NCAxMy43ODFsLjEwMS4yOTdjOC4zMDcgMjUuNDMyLTY4LjQ2NCA3NS42OS0xNzIuMDEyIDExMi41MTctMTAzLjU0OSAzNi44MjYtMTk0LjgxNSA0Ni4zMy0yMDQuNDMyIDIxLjM2NGwtLjExLS4yOTVjLTQuNzctMTMuNDEyIDE0LjU1Ny0zMy44OCA0OS4yMjctNTUuNjU5bC41ODcgMi40MzlhMzM3IDMzNyAwIDAgMC00LjkxNSAzLjE2M2MtMTUuNDcgMTAuMTUzLTI3LjI4NiAxOS44NTMtMzQuNjUgMjguNDgzLTcuNDk1IDguNzg1LTkuNzk1IDE1Ljc1Mi04LjAwOCAyMC43NzdzNy45NyA4Ljk3NSAxOS4zMyAxMS4wNTRjMTEuMTYgMi4wNDIgMjYuNDQ2IDIuMTA0IDQ0Ljg1Mi4yMDggMzYuNzc3LTMuNzg4IDg1LjQ2OS0xNS4zMzIgMTM3LjMyMi0zMy43NzQgNTEuODUyLTE4LjQ0MSA5Ni45MDEtNDAuMjM1IDEyNy44MS02MC41MTkgMTUuNDcxLTEwLjE1MiAyNy4yODYtMTkuODUzIDM0LjY0OS0yOC40ODIgNy40OTUtOC43ODUgOS43OTYtMTUuNzUyIDguMDEtMjAuNzc3LTEuNzg3LTUuMDI1LTcuOTcyLTguOTc1LTE5LjMzMS0xMS4wNTUtOC41MTQtMS41NTgtMTkuNDI5LTEuOTYyLTMyLjI5OS0xLjIyNWwtMS4zOTEtMi4yOTF6Ii8+PC9zdmc+);height:405px;right:-150px;top:0;width:405px}@media(max-width:992px){.author-page-header .element.element-2{height:220px;right:-80px;width:220px}}@media(max-width:767px){.author-page-header .element.element-2{height:120px;right:-50px;width:120px}}.author-page-header .element.element-3{background-image:url(data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSI2OSIgaGVpZ2h0PSI2OSIgZmlsbD0ibm9uZSIgdmlld0JveD0iMCAwIDY5IDY5Ij48cGF0aCBzdHJva2U9IiMwMDAiIGQ9Ik0zMi4wNCA0MS4xMjdjLTQuMDQ4IDEwLjgzLTYuNjUgMjkuMzY2IDEwLjcwMiAyNi42MjdhMjQuOTcgMjQuOTcgMCAwIDAgMTMuNzQ2LTcuMDVjMTIuMzQzLTEyLjQ5MS00LjI0Ni0yMS4xODQtMTUuNDAzLTI0LjIxNm0tOS4wNDUgNC42MzlDMjguOTQgNTIuNTMgMTkuOTI2IDY5LjYxMyA2Ljk4NiA1NS42NjVNMzIuMDQgNDEuMTI3YTUyIDUyIDAgMCAwLTEuNDYyIDQuNTQxbTEuNDYyLTQuNTQxYTUzIDUzIDAgMCAxLTEuNDYyIDQuNTQxbTEwLjUwNy05LjE4YzExLjQwNCAzLjEgMjguNDg2IDEyLjExNCAxNC41MzggMjUuMDUzYTI0LjQgMjQuNCAwIDAgMS0xMS42OTYgNS45OTljLTE2LjI4MyAzLjMtMTYuMzQ4LTEwLjg1Ny0xMy4zNS0yMS44NzJtMTAuNTA4LTkuMThjMTEuMDcgNC4xMzcgMzAuMTkzIDYuNzYzIDI2LjQxMy0xMS44ODgtLjg4My00LjM1Ny0zLjE4NC04LjQ4LTYuMjA4LTExLjczOEM0OS45OTMuNjg0IDQxLjY4OCAxMi4xNiAzNy43IDIyLjg1OE02Ljk4NiA1NS42NjVBMjQuNCAyNC40IDAgMCAxIC45ODggNDMuOTY5Qy0yLjc5MiAyNS4zMTggMTYuMzMgMjcuOTQ1IDI3LjQgMzIuMDgyYy0xMS40MDUtMy4xLTI4LjQ4Ni0xMi4xMTQtMTQuNTM4LTI1LjA1NCAzLjI1OC0zLjAyMyA3LjEzLTUuMTU4IDExLjQ4Ni02LjA0IDE2LjI4NC0zLjMwMSAxNi4zNDkgMTAuODU2IDEzLjM1IDIxLjg3TTYuOTg2IDU1LjY2NWMxMS4yOTggMTIuMTc4IDE5LjYwMy43MDIgMjMuNTkyLTkuOTk3bTcuMTIxLTIyLjgxYTUyIDUyIDAgMCAxLTEuNDYyIDQuNTQyIDUzIDUzIDAgMCAxIDEuNDYyLTQuNTQyWiIvPjwvc3ZnPg==);height:70px;left:10%;top:15%;width:70px}@media(max-width:992px){.author-page-header .element.element-3{height:50px;width:50px}}@media(max-width:767px){.author-page-header .element.element-3{display:none}}.author-page-header .author-info-block{text-align:center}.author-page-header .author-info-block .author-img{aspect-ratio:1/1;border-radius:50%;line-height:.7;margin:0 auto;max-width:160px;overflow:hidden}@media(max-width:767px){.author-page-header .author-info-block .author-img{max-width:140px}}.author-page-header .author-info-block .author-info{margin-top:30px}.author-page-header .author-info-block .author-info h1{font-size:clamp(1.75rem,4.5vw,2.438rem)}.author-page-header .author-info-block .author-info .designation{font-size:20px;padding:10px 0}.author-page-header .author-info-block .author-info .author-share-btns{align-items:center;display:flex;gap:15px}.author-page-header .author-info-block .author-info .author-share-btns .social-btn{display:inline-block;line-height:.7;transition:all .3s ease-in-out}.author-page-header .author-info-block .author-info .author-share-btns .social-btn svg{height:20px;width:20px}.author-page-header .author-info-block .author-info .author-share-btns .social-btn:focus,.author-page-header .author-info-block .author-info .author-share-btns .social-btn:hover{color:#3cc098}@keyframes block_author_header_floating_l{0%{transform:translateY(0)}25%{transform:translate(-1%,8%)}50%{transform:translate(-8%,1%)}75%{transform:translate(-1%,8%)}to{transform:translateY(0)}}@media(max-width:767px){.icw-pager .btn{font-size:.875rem;min-height:2.375rem;min-width:5.25rem;padding:.5rem 1rem}}.icw-pager .btn[disabled]{background:transparent;border:none;color:#ffb89f;cursor:not-allowed;font-size:1rem;font-size:13px;font-weight:600;height:auto;min-height:auto;opacity:.5;padding:0;pointer-events:none}.icw-pager .btn[disabled]:focus,.icw-pager .btn[disabled]:hover{color:#ffb89f;text-decoration:none}.enlighter-t-monokai{background-color:#272822;border-radius:12px;overflow:hidden;padding:12px}
+a.user-info {background:none !important;}
+</style></body>
+</html>
+<!-- Performance optimized by Redis Object Cache. Learn more: https://wprediscache.com -->
+
+<!-- Dynamic page generated in 0.124 seconds. -->
+<!-- Cached page generated by WP-Super-Cache on 2026-11-08 19:01:35 -->
+
+<!-- super cache -->

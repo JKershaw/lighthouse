@@ -1,0 +1,2649 @@
+<!doctype html>
+<html lang="en-US">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<link rel="profile" href="https://gmpg.org/xfn/11">
+	<title>Over 220,000 OpenClaw Instances Exposed to the Internet, Why Agent Runtimes “Go Naked” at Scale</title>
+<meta name="dc.title" content="Over 220,000 OpenClaw Instances Exposed to the Internet, Why Agent Runtimes “Go Naked” at Scale">
+<meta name="dc.description" content="A fact-checked, engineering-first analysis of the OpenClaw internet exposure wave—why reported counts range from 40K to 220K+, what “publicly exposed” actually means, the highest-impact CVEs and real attack paths, and a practical hardening playbook with commands, configs, monitoring, and incident response steps.">
+<meta name="dc.relation" content="https://www.penligent.ai/hackinglabs/over-220000-openclaw-instances-exposed-to-the-internet-why-agent-runtimes-go-naked-at-scale/">
+<meta name="dc.source" content="https://www.penligent.ai/hackinglabs/">
+<meta name="dc.language" content="en_US">
+<meta name="description" content="A fact-checked, engineering-first analysis of the OpenClaw internet exposure wave—why reported counts range from 40K to 220K+, what “publicly exposed” actually means, the highest-impact CVEs and real attack paths, and a practical hardening playbook with commands, configs, monitoring, and incident response steps.">
+<meta name="robots" content="index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1">
+<link rel="canonical" href="https://www.penligent.ai/hackinglabs/over-220000-openclaw-instances-exposed-to-the-internet-why-agent-runtimes-go-naked-at-scale/">
+<meta property="og:url" content="https://www.penligent.ai/hackinglabs/over-220000-openclaw-instances-exposed-to-the-internet-why-agent-runtimes-go-naked-at-scale/">
+<meta property="og:site_name" content="Penligent Security Blog – AI-Driven Hacking Tutorials, Exploit PoCs &amp; Cybersecurity Research">
+<meta property="og:locale" content="en_US">
+<meta property="og:type" content="article">
+<meta property="article:author" content="">
+<meta property="article:publisher" content="">
+<meta property="article:section" content="Hot topics">
+<meta property="og:title" content="Over 220,000 OpenClaw Instances Exposed to the Internet, Why Agent Runtimes “Go Naked” at Scale">
+<meta property="og:description" content="A fact-checked, engineering-first analysis of the OpenClaw internet exposure wave—why reported counts range from 40K to 220K+, what “publicly exposed” actually means, the highest-impact CVEs and real attack paths, and a practical hardening playbook with commands, configs, monitoring, and incident response steps.">
+<meta property="og:image" content="https://www.penligent.ai/hackinglabs/wp-content/uploads/2026/03/Over-220000-OpenClaw-Instances-Exposed-to-the-Internet-Why-Agent-Runtimes-Go-Naked-at-Scale.png">
+<meta property="og:image:secure_url" content="https://www.penligent.ai/hackinglabs/wp-content/uploads/2026/03/Over-220000-OpenClaw-Instances-Exposed-to-the-Internet-Why-Agent-Runtimes-Go-Naked-at-Scale.png">
+<meta property="og:image:width" content="940">
+<meta property="og:image:height" content="788">
+<meta property="og:image:alt" content="Over 220,000 OpenClaw Instances Exposed to the Internet, Why Agent Runtimes “Go Naked” at Scale">
+<meta property="fb:pages" content="">
+<meta property="fb:admins" content="">
+<meta property="fb:app_id" content="">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:site" content="">
+<meta name="twitter:creator" content="">
+<meta name="twitter:title" content="Over 220,000 OpenClaw Instances Exposed to the Internet, Why Agent Runtimes “Go Naked” at Scale">
+<meta name="twitter:description" content="A fact-checked, engineering-first analysis of the OpenClaw internet exposure wave—why reported counts range from 40K to 220K+, what “publicly exposed” actually means, the highest-impact CVEs and real attack paths, and a practical hardening playbook with commands, configs, monitoring, and incident response steps.">
+<meta name="twitter:image" content="https://www.penligent.ai/hackinglabs/wp-content/uploads/2026/03/Over-220000-OpenClaw-Instances-Exposed-to-the-Internet-Why-Agent-Runtimes-Go-Naked-at-Scale.png">
+<link rel='dns-prefetch' href='//www.googletagmanager.com' />
+<link rel="alternate" type="application/rss+xml" title="Penligent Security Blog – AI-Driven Hacking Tutorials, Exploit PoCs &amp; Cybersecurity Research &raquo; Feed" href="https://www.penligent.ai/hackinglabs/feed/" />
+<link rel="alternate" type="application/rss+xml" title="Penligent Security Blog – AI-Driven Hacking Tutorials, Exploit PoCs &amp; Cybersecurity Research &raquo; Comments Feed" href="https://www.penligent.ai/hackinglabs/comments/feed/" />
+<link rel="alternate" type="application/rss+xml" title="Penligent Security Blog – AI-Driven Hacking Tutorials, Exploit PoCs &amp; Cybersecurity Research &raquo; Over 220,000 OpenClaw Instances Exposed to the Internet, Why Agent Runtimes “Go Naked” at Scale Comments Feed" href="https://www.penligent.ai/hackinglabs/over-220000-openclaw-instances-exposed-to-the-internet-why-agent-runtimes-go-naked-at-scale/feed/" />
+<link rel="alternate" title="oEmbed (JSON)" type="application/json+oembed" href="https://www.penligent.ai/hackinglabs/wp-json/oembed/1.0/embed?url=https%3A%2F%2Fwww.penligent.ai%2Fhackinglabs%2Fover-220000-openclaw-instances-exposed-to-the-internet-why-agent-runtimes-go-naked-at-scale%2F" />
+<link rel="alternate" title="oEmbed (XML)" type="text/xml+oembed" href="https://www.penligent.ai/hackinglabs/wp-json/oembed/1.0/embed?url=https%3A%2F%2Fwww.penligent.ai%2Fhackinglabs%2Fover-220000-openclaw-instances-exposed-to-the-internet-why-agent-runtimes-go-naked-at-scale%2F&#038;format=xml" />
+<style id="wp-img-auto-sizes-contain-inline-css">
+img:is([sizes=auto i],[sizes^="auto," i]){contain-intrinsic-size:3000px 1500px}
+/*# sourceURL=wp-img-auto-sizes-contain-inline-css */
+</style>
+<style id="wp-emoji-styles-inline-css">
+
+	img.wp-smiley, img.emoji {
+		display: inline !important;
+		border: none !important;
+		box-shadow: none !important;
+		height: 1em !important;
+		width: 1em !important;
+		margin: 0 0.07em !important;
+		vertical-align: -0.1em !important;
+		background: none !important;
+		padding: 0 !important;
+	}
+/*# sourceURL=wp-emoji-styles-inline-css */
+</style>
+<style id="wp-block-library-inline-css">
+:root{--wp-block-synced-color:#7a00df;--wp-block-synced-color--rgb:122,0,223;--wp-bound-block-color:var(--wp-block-synced-color);--wp-editor-canvas-background:#ddd;--wp-admin-theme-color:#007cba;--wp-admin-theme-color--rgb:0,124,186;--wp-admin-theme-color-darker-10:#006ba1;--wp-admin-theme-color-darker-10--rgb:0,107,160.5;--wp-admin-theme-color-darker-20:#005a87;--wp-admin-theme-color-darker-20--rgb:0,90,135;--wp-admin-border-width-focus:2px}@media (min-resolution:192dpi){:root{--wp-admin-border-width-focus:1.5px}}.wp-element-button{cursor:pointer}:root .has-very-light-gray-background-color{background-color:#eee}:root .has-very-dark-gray-background-color{background-color:#313131}:root .has-very-light-gray-color{color:#eee}:root .has-very-dark-gray-color{color:#313131}:root .has-vivid-green-cyan-to-vivid-cyan-blue-gradient-background{background:linear-gradient(135deg,#00d084,#0693e3)}:root .has-purple-crush-gradient-background{background:linear-gradient(135deg,#34e2e4,#4721fb 50%,#ab1dfe)}:root .has-hazy-dawn-gradient-background{background:linear-gradient(135deg,#faaca8,#dad0ec)}:root .has-subdued-olive-gradient-background{background:linear-gradient(135deg,#fafae1,#67a671)}:root .has-atomic-cream-gradient-background{background:linear-gradient(135deg,#fdd79a,#004a59)}:root .has-nightshade-gradient-background{background:linear-gradient(135deg,#330968,#31cdcf)}:root .has-midnight-gradient-background{background:linear-gradient(135deg,#020381,#2874fc)}:root{--wp--preset--font-size--normal:16px;--wp--preset--font-size--huge:42px}.has-regular-font-size{font-size:1em}.has-larger-font-size{font-size:2.625em}.has-normal-font-size{font-size:var(--wp--preset--font-size--normal)}.has-huge-font-size{font-size:var(--wp--preset--font-size--huge)}:root .has-text-align-center{text-align:center}:root .has-text-align-left{text-align:left}:root .has-text-align-right{text-align:right}.has-fit-text{white-space:nowrap!important}#end-resizable-editor-section{display:none}.aligncenter{clear:both}.items-justified-left{justify-content:flex-start}.items-justified-center{justify-content:center}.items-justified-right{justify-content:flex-end}.items-justified-space-between{justify-content:space-between}.screen-reader-text{word-wrap:normal!important;border:0;clip-path:inset(50%);height:1px;margin:-1px;overflow:hidden;padding:0;position:absolute;width:1px;word-break:normal!important}.screen-reader-text:focus{background-color:#ddd;clip-path:none;color:#444;display:block;font-size:1em;height:auto;left:5px;line-height:normal;padding:15px 23px 14px;text-decoration:none;top:5px;width:auto;z-index:100000}html :where(.has-border-color){border-style:solid}html :where([style^=border-color],[style*=";border-color"],[style*="; border-color"]){border-style:solid}html :where([style^=border-top-color],[style*=";border-top-color"],[style*="; border-top-color"]){border-top-style:solid}html :where([style^=border-right-color],[style*=";border-right-color"],[style*="; border-right-color"]){border-right-style:solid}html :where([style^=border-bottom-color],[style*=";border-bottom-color"],[style*="; border-bottom-color"]){border-bottom-style:solid}html :where([style^=border-left-color],[style*=";border-left-color"],[style*="; border-left-color"]){border-left-style:solid}html :where([style^=border-width],[style*=";border-width"],[style*="; border-width"]){border-style:solid}html :where([style^=border-top-width],[style*=";border-top-width"],[style*="; border-top-width"]){border-top-style:solid}html :where([style^=border-right-width],[style*=";border-right-width"],[style*="; border-right-width"]){border-right-style:solid}html :where([style^=border-bottom-width],[style*=";border-bottom-width"],[style*="; border-bottom-width"]){border-bottom-style:solid}html :where([style^=border-left-width],[style*=";border-left-width"],[style*="; border-left-width"]){border-left-style:solid}html :where(img[class*=wp-image-]){height:auto;max-width:100%}:where(figure){margin:0 0 1em}html :where(.is-position-sticky){--wp-admin--admin-bar--position-offset:var(--wp-admin--admin-bar--height,0px)}@media screen and (max-width:600px){html :where(.is-position-sticky){--wp-admin--admin-bar--position-offset:0px}}
+
+/*# sourceURL=/wp-includes/css/dist/block-library/common.min.css */
+</style>
+<style id="wp-block-button-inline-css">
+.wp-block-button__link{align-content:center;box-sizing:border-box;cursor:pointer;display:inline-block;height:100%;text-align:center;word-break:break-word}.wp-block-button__link.aligncenter{text-align:center}.wp-block-button__link.alignright{text-align:right}:where(.wp-block-button__link){border-radius:9999px;box-shadow:none;padding:calc(.667em + 2px) calc(1.333em + 2px);text-decoration:none}.wp-block-button[style*=text-decoration] .wp-block-button__link{text-decoration:inherit}.wp-block-buttons>.wp-block-button.has-custom-width{max-width:none}.wp-block-buttons>.wp-block-button.has-custom-width .wp-block-button__link{width:100%}.wp-block-buttons>.wp-block-button.has-custom-font-size .wp-block-button__link{font-size:inherit}.wp-block-buttons>.wp-block-button[class*=wp-block-button__width]{width:calc(var(--wp--block-button--width)*1% - var(--wp--style--block-gap, .5em)*(1 - var(--wp--block-button--width)/100))}.wp-block-buttons>.wp-block-button.wp-block-button__width-25{width:calc(25% - var(--wp--style--block-gap, .5em)*.75)}.wp-block-buttons>.wp-block-button.wp-block-button__width-50{width:calc(50% - var(--wp--style--block-gap, .5em)*.5)}.wp-block-buttons>.wp-block-button.wp-block-button__width-75{width:calc(75% - var(--wp--style--block-gap, .5em)*.25)}.wp-block-buttons>.wp-block-button.wp-block-button__width-100{flex-basis:100%;width:100%}.wp-block-buttons.is-vertical>.wp-block-button[class*=wp-block-button__width]{width:calc(var(--wp--block-button--width)*1%)}.wp-block-buttons.is-vertical>.wp-block-button.wp-block-button__width-25{width:25%}.wp-block-buttons.is-vertical>.wp-block-button.wp-block-button__width-50{width:50%}.wp-block-buttons.is-vertical>.wp-block-button.wp-block-button__width-75{width:75%}.wp-block-button.is-style-squared,.wp-block-button__link.wp-block-button.is-style-squared{border-radius:0}.wp-block-button.no-border-radius,.wp-block-button__link.no-border-radius{border-radius:0!important}:root :where(.wp-block-button .wp-block-button__link.is-style-outline),:root :where(.wp-block-button.is-style-outline>.wp-block-button__link){border:2px solid;padding:.667em 1.333em}:root :where(.wp-block-button .wp-block-button__link.is-style-outline:not(.has-text-color)),:root :where(.wp-block-button.is-style-outline>.wp-block-button__link:not(.has-text-color)){color:currentColor}:root :where(.wp-block-button .wp-block-button__link.is-style-outline:not(.has-background)),:root :where(.wp-block-button.is-style-outline>.wp-block-button__link:not(.has-background)){background-color:transparent;background-image:none}
+/*# sourceURL=https://www.penligent.ai/hackinglabs/wp-includes/blocks/button/style.min.css */
+</style>
+<style id="wp-block-heading-inline-css">
+h1:where(.wp-block-heading).has-background,h2:where(.wp-block-heading).has-background,h3:where(.wp-block-heading).has-background,h4:where(.wp-block-heading).has-background,h5:where(.wp-block-heading).has-background,h6:where(.wp-block-heading).has-background{padding:1.25em 2.375em}h1.has-text-align-left[style*=writing-mode]:where([style*=vertical-lr]),h1.has-text-align-right[style*=writing-mode]:where([style*=vertical-rl]),h2.has-text-align-left[style*=writing-mode]:where([style*=vertical-lr]),h2.has-text-align-right[style*=writing-mode]:where([style*=vertical-rl]),h3.has-text-align-left[style*=writing-mode]:where([style*=vertical-lr]),h3.has-text-align-right[style*=writing-mode]:where([style*=vertical-rl]),h4.has-text-align-left[style*=writing-mode]:where([style*=vertical-lr]),h4.has-text-align-right[style*=writing-mode]:where([style*=vertical-rl]),h5.has-text-align-left[style*=writing-mode]:where([style*=vertical-lr]),h5.has-text-align-right[style*=writing-mode]:where([style*=vertical-rl]),h6.has-text-align-left[style*=writing-mode]:where([style*=vertical-lr]),h6.has-text-align-right[style*=writing-mode]:where([style*=vertical-rl]){rotate:180deg}
+/*# sourceURL=https://www.penligent.ai/hackinglabs/wp-includes/blocks/heading/style.min.css */
+</style>
+<style id="wp-block-image-inline-css">
+.wp-block-image>a,.wp-block-image>figure>a{display:inline-block}.wp-block-image img{box-sizing:border-box;height:auto;max-width:100%;vertical-align:bottom}@media not (prefers-reduced-motion){.wp-block-image img.hide{visibility:hidden}.wp-block-image img.show{animation:show-content-image .4s}}.wp-block-image[style*=border-radius] img,.wp-block-image[style*=border-radius]>a{border-radius:inherit}.wp-block-image.has-custom-border img{box-sizing:border-box}.wp-block-image.aligncenter{text-align:center}.wp-block-image.alignfull>a,.wp-block-image.alignwide>a{width:100%}.wp-block-image.alignfull img,.wp-block-image.alignwide img{height:auto;width:100%}.wp-block-image .aligncenter,.wp-block-image .alignleft,.wp-block-image .alignright,.wp-block-image.aligncenter,.wp-block-image.alignleft,.wp-block-image.alignright{display:table}.wp-block-image .aligncenter>figcaption,.wp-block-image .alignleft>figcaption,.wp-block-image .alignright>figcaption,.wp-block-image.aligncenter>figcaption,.wp-block-image.alignleft>figcaption,.wp-block-image.alignright>figcaption{caption-side:bottom;display:table-caption}.wp-block-image .alignleft{float:left;margin:.5em 1em .5em 0}.wp-block-image .alignright{float:right;margin:.5em 0 .5em 1em}.wp-block-image .aligncenter{margin-left:auto;margin-right:auto}.wp-block-image :where(figcaption){margin-bottom:1em;margin-top:.5em}.wp-block-image.is-style-circle-mask img{border-radius:9999px}@supports ((-webkit-mask-image:none) or (mask-image:none)) or (-webkit-mask-image:none){.wp-block-image.is-style-circle-mask img{border-radius:0;-webkit-mask-image:url('data:image/svg+xml;utf8,<svg viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg"><circle cx="50" cy="50" r="50"/></svg>');mask-image:url('data:image/svg+xml;utf8,<svg viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg"><circle cx="50" cy="50" r="50"/></svg>');mask-mode:alpha;-webkit-mask-position:center;mask-position:center;-webkit-mask-repeat:no-repeat;mask-repeat:no-repeat;-webkit-mask-size:contain;mask-size:contain}}:root :where(.wp-block-image.is-style-rounded img,.wp-block-image .is-style-rounded img){border-radius:9999px}.wp-block-image figure{margin:0}.wp-lightbox-container{display:flex;flex-direction:column;position:relative}.wp-lightbox-container img{cursor:zoom-in}.wp-lightbox-container img:hover+button{opacity:1}.wp-lightbox-container button{align-items:center;backdrop-filter:blur(16px) saturate(180%);background-color:rgba(90,90,90,.25);border:none;border-radius:4px;cursor:zoom-in;display:flex;height:20px;justify-content:center;opacity:0;padding:0;position:absolute;right:16px;text-align:center;top:16px;width:20px;z-index:100}@media not (prefers-reduced-motion){.wp-lightbox-container button{transition:opacity .2s ease}}.wp-lightbox-container button:focus-visible{outline:3px auto rgba(90,90,90,.25);outline:3px auto -webkit-focus-ring-color;outline-offset:3px}.wp-lightbox-container button:hover{cursor:pointer;opacity:1}.wp-lightbox-container button:focus{opacity:1}.wp-lightbox-container button:focus,.wp-lightbox-container button:hover,.wp-lightbox-container button:not(:hover):not(:active):not(.has-background){background-color:rgba(90,90,90,.25);border:none}.wp-lightbox-overlay{box-sizing:border-box;cursor:zoom-out;height:100vh;left:0;overflow:hidden;position:fixed;top:0;visibility:hidden;width:100%;z-index:100000}.wp-lightbox-overlay .wp-lightbox-close-button{align-items:center;cursor:pointer;display:flex;font-family:inherit;gap:8px;justify-content:center;line-height:1;min-height:40px;min-width:40px;padding:0 4px;position:absolute;right:calc(env(safe-area-inset-right) + 16px);top:calc(env(safe-area-inset-top) + 16px);z-index:5000000}.wp-lightbox-overlay .wp-lightbox-close-button:focus,.wp-lightbox-overlay .wp-lightbox-close-button:hover,.wp-lightbox-overlay .wp-lightbox-close-button:not(:hover):not(:active):not(.has-background){background:none;border:none}.wp-lightbox-overlay .wp-lightbox-close-button:has(.wp-lightbox-close-text:not([hidden])) .wp-lightbox-close-icon svg{height:1em;width:1em}.wp-lightbox-overlay .wp-lightbox-close-icon svg{display:block}.wp-lightbox-overlay .wp-lightbox-navigation-button-next,.wp-lightbox-overlay .wp-lightbox-navigation-button-prev{align-items:center;bottom:16px;cursor:pointer;display:flex;font-family:inherit;gap:4px;justify-content:center;line-height:1;min-height:40px;min-width:40px;padding:0 8px;position:absolute;z-index:2000002}.wp-lightbox-overlay .wp-lightbox-navigation-button-next[hidden],.wp-lightbox-overlay .wp-lightbox-navigation-button-prev[hidden]{display:none}@media (min-width:960px){.wp-lightbox-overlay .wp-lightbox-navigation-button-next,.wp-lightbox-overlay .wp-lightbox-navigation-button-prev{bottom:50%;transform:translateY(-50%)}}.wp-lightbox-overlay .wp-lightbox-navigation-button-next:focus,.wp-lightbox-overlay .wp-lightbox-navigation-button-next:hover,.wp-lightbox-overlay .wp-lightbox-navigation-button-next:not(:hover):not(:active):not(.has-background),.wp-lightbox-overlay .wp-lightbox-navigation-button-prev:focus,.wp-lightbox-overlay .wp-lightbox-navigation-button-prev:hover,.wp-lightbox-overlay .wp-lightbox-navigation-button-prev:not(:hover):not(:active):not(.has-background){background:none;border:none;padding:0 8px}.wp-lightbox-overlay .wp-lightbox-navigation-button-next:has(.wp-lightbox-navigation-text:not([hidden])) .wp-lightbox-navigation-icon svg,.wp-lightbox-overlay .wp-lightbox-navigation-button-prev:has(.wp-lightbox-navigation-text:not([hidden])) .wp-lightbox-navigation-icon svg{display:block;height:1.5em;width:1.5em}.wp-lightbox-overlay .wp-lightbox-navigation-button-prev{left:calc(env(safe-area-inset-left) + 16px)}.wp-lightbox-overlay .wp-lightbox-navigation-button-next{right:calc(env(safe-area-inset-right) + 16px)}.wp-lightbox-overlay .wp-lightbox-navigation-icon svg{vertical-align:middle}.wp-lightbox-overlay .lightbox-image-container{height:var(--wp--lightbox-container-height);left:50%;overflow:hidden;position:absolute;top:50%;transform:translate(-50%,-50%);transform-origin:top left;width:var(--wp--lightbox-container-width);z-index:2000001}.wp-lightbox-overlay .wp-block-image{align-items:center;box-sizing:border-box;display:flex;height:100%;justify-content:center;margin:0;position:relative;transform-origin:0 0;width:100%;z-index:3000000}.wp-lightbox-overlay .wp-block-image img{height:var(--wp--lightbox-image-height);min-height:var(--wp--lightbox-image-height);min-width:var(--wp--lightbox-image-width);width:var(--wp--lightbox-image-width)}.wp-lightbox-overlay .wp-block-image figcaption{display:none}.wp-lightbox-overlay button{background:none;border:none}.wp-lightbox-overlay .scrim{background-color:#fff;height:100%;opacity:.9;position:absolute;width:100%;z-index:2000000}.wp-lightbox-overlay.active{visibility:visible}@media not (prefers-reduced-motion){.wp-lightbox-overlay.active{animation:turn-on-visibility .25s both}.wp-lightbox-overlay.active img{animation:turn-on-visibility .35s both}.wp-lightbox-overlay.show-closing-animation:not(.active){animation:turn-off-visibility .35s both}.wp-lightbox-overlay.show-closing-animation:not(.active) img{animation:turn-off-visibility .25s both}.wp-lightbox-overlay.zoom.active{animation:none;opacity:1;visibility:visible}.wp-lightbox-overlay.zoom.active .lightbox-image-container{animation:lightbox-zoom-in .4s}.wp-lightbox-overlay.zoom.active .lightbox-image-container img{animation:none}.wp-lightbox-overlay.zoom.active .scrim{animation:turn-on-visibility .4s forwards}.wp-lightbox-overlay.zoom.show-closing-animation:not(.active){animation:none}.wp-lightbox-overlay.zoom.show-closing-animation:not(.active) .lightbox-image-container{animation:lightbox-zoom-out .4s}.wp-lightbox-overlay.zoom.show-closing-animation:not(.active) .lightbox-image-container img{animation:none}.wp-lightbox-overlay.zoom.show-closing-animation:not(.active) .scrim{animation:turn-off-visibility .4s forwards}}@keyframes show-content-image{0%{visibility:hidden}99%{visibility:hidden}to{visibility:visible}}@keyframes turn-on-visibility{0%{opacity:0}to{opacity:1}}@keyframes turn-off-visibility{0%{opacity:1;visibility:visible}99%{opacity:0;visibility:visible}to{opacity:0;visibility:hidden}}@keyframes lightbox-zoom-in{0%{transform:translate(calc((-100vw + var(--wp--lightbox-scrollbar-width))/2 + var(--wp--lightbox-initial-left-position)),calc(-50vh + var(--wp--lightbox-initial-top-position))) scale(var(--wp--lightbox-scale))}to{transform:translate(-50%,-50%) scale(1)}}@keyframes lightbox-zoom-out{0%{transform:translate(-50%,-50%) scale(1);visibility:visible}99%{visibility:visible}to{transform:translate(calc((-100vw + var(--wp--lightbox-scrollbar-width))/2 + var(--wp--lightbox-initial-left-position)),calc(-50vh + var(--wp--lightbox-initial-top-position))) scale(var(--wp--lightbox-scale));visibility:hidden}}
+/*# sourceURL=https://www.penligent.ai/hackinglabs/wp-includes/blocks/image/style.min.css */
+</style>
+<style id="wp-block-list-inline-css">
+ol,ul{box-sizing:border-box}:root :where(.wp-block-list.has-background){padding:1.25em 2.375em}
+/*# sourceURL=https://www.penligent.ai/hackinglabs/wp-includes/blocks/list/style.min.css */
+</style>
+<style id="wp-block-paragraph-inline-css">
+.is-small-text{font-size:.875em}.is-regular-text{font-size:1em}.is-large-text{font-size:2.25em}.is-larger-text{font-size:3em}.has-drop-cap:not(:focus):first-letter{float:left;font-size:8.4em;font-style:normal;font-weight:100;line-height:.68;margin:.05em .1em 0 0;text-transform:uppercase}body.rtl .has-drop-cap:not(:focus):first-letter{float:none;margin-left:.1em}p.has-drop-cap.has-background{overflow:hidden}:root :where(p.has-background){padding:1.25em 2.375em}:where(p.has-text-color:not(.has-link-color)) a{color:inherit}p.has-text-align-left[style*="writing-mode:vertical-lr"],p.has-text-align-right[style*="writing-mode:vertical-rl"]{rotate:180deg}
+/*# sourceURL=https://www.penligent.ai/hackinglabs/wp-includes/blocks/paragraph/style.min.css */
+</style>
+<style id="wp-block-buttons-inline-css">
+.wp-block-buttons{box-sizing:border-box}.wp-block-buttons.is-vertical{flex-direction:column}.wp-block-buttons.is-vertical>.wp-block-button:last-child{margin-bottom:0}.wp-block-buttons>.wp-block-button{display:inline-block;margin:0}.wp-block-buttons.is-content-justification-left{justify-content:flex-start}.wp-block-buttons.is-content-justification-left.is-vertical{align-items:flex-start}.wp-block-buttons.is-content-justification-center{justify-content:center}.wp-block-buttons.is-content-justification-center.is-vertical{align-items:center}.wp-block-buttons.is-content-justification-right{justify-content:flex-end}.wp-block-buttons.is-content-justification-right.is-vertical{align-items:flex-end}.wp-block-buttons.is-content-justification-space-between{justify-content:space-between}.wp-block-buttons.aligncenter{text-align:center}.wp-block-buttons:not(.is-content-justification-space-between,.is-content-justification-right,.is-content-justification-left,.is-content-justification-center) .wp-block-button.aligncenter{margin-left:auto;margin-right:auto;width:100%}.wp-block-buttons[style*=text-decoration] .wp-block-button,.wp-block-buttons[style*=text-decoration] .wp-block-button__link{text-decoration:inherit}.wp-block-buttons.has-custom-font-size .wp-block-button__link{font-size:inherit}.wp-block-buttons .wp-block-button__link{width:100%}.wp-block-button.aligncenter{text-align:center}
+/*# sourceURL=https://www.penligent.ai/hackinglabs/wp-includes/blocks/buttons/style.min.css */
+</style>
+<style id="wp-block-code-inline-css">
+.wp-block-code{box-sizing:border-box}.wp-block-code code{direction:ltr;display:block;font-family:inherit;overflow-wrap:break-word;text-align:initial;white-space:break-spaces}
+/*# sourceURL=https://www.penligent.ai/hackinglabs/wp-includes/blocks/code/style.min.css */
+</style>
+<style id="wp-block-embed-inline-css">
+.wp-block-embed.alignleft,.wp-block-embed.alignright,.wp-block[data-align=left]>[data-type="core/embed"],.wp-block[data-align=right]>[data-type="core/embed"]{max-width:360px;width:100%}.wp-block-embed.alignleft .wp-block-embed__wrapper,.wp-block-embed.alignright .wp-block-embed__wrapper,.wp-block[data-align=left]>[data-type="core/embed"] .wp-block-embed__wrapper,.wp-block[data-align=right]>[data-type="core/embed"] .wp-block-embed__wrapper{min-width:280px}.wp-block-cover .wp-block-embed{min-height:240px;min-width:320px}.wp-block-group.is-layout-flex .wp-block-embed{flex:1 1 0%;min-width:0}.wp-block-embed{overflow-wrap:break-word}.wp-block-embed :where(figcaption){margin-bottom:1em;margin-top:.5em}.wp-block-embed iframe{max-width:100%}.wp-block-embed__wrapper{position:relative}.wp-embed-responsive .wp-has-aspect-ratio .wp-block-embed__wrapper:before{content:"";display:block;padding-top:50%}.wp-embed-responsive .wp-has-aspect-ratio iframe{bottom:0;height:100%;left:0;position:absolute;right:0;top:0;width:100%}.wp-embed-responsive .wp-embed-aspect-21-9 .wp-block-embed__wrapper:before{padding-top:42.85%}.wp-embed-responsive .wp-embed-aspect-18-9 .wp-block-embed__wrapper:before{padding-top:50%}.wp-embed-responsive .wp-embed-aspect-16-9 .wp-block-embed__wrapper:before{padding-top:56.25%}.wp-embed-responsive .wp-embed-aspect-4-3 .wp-block-embed__wrapper:before{padding-top:75%}.wp-embed-responsive .wp-embed-aspect-1-1 .wp-block-embed__wrapper:before{padding-top:100%}.wp-embed-responsive .wp-embed-aspect-9-16 .wp-block-embed__wrapper:before{padding-top:177.77%}.wp-embed-responsive .wp-embed-aspect-1-2 .wp-block-embed__wrapper:before{padding-top:200%}
+/*# sourceURL=https://www.penligent.ai/hackinglabs/wp-includes/blocks/embed/style.min.css */
+</style>
+<style id="wp-block-table-inline-css">
+.wp-block-table{overflow-x:auto}.wp-block-table table{border-collapse:collapse;width:100%}.wp-block-table thead{border-bottom:3px solid}.wp-block-table tfoot{border-top:3px solid}.wp-block-table td,.wp-block-table th{border:1px solid;padding:.5em}.wp-block-table .has-fixed-layout{table-layout:fixed;width:100%}.wp-block-table .has-fixed-layout td,.wp-block-table .has-fixed-layout th{word-break:break-word}.wp-block-table.aligncenter,.wp-block-table.alignleft,.wp-block-table.alignright{display:table;width:auto}.wp-block-table.aligncenter td,.wp-block-table.aligncenter th,.wp-block-table.alignleft td,.wp-block-table.alignleft th,.wp-block-table.alignright td,.wp-block-table.alignright th{word-break:break-word}.wp-block-table .has-subtle-light-gray-background-color{background-color:#f3f4f5}.wp-block-table .has-subtle-pale-green-background-color{background-color:#e9fbe5}.wp-block-table .has-subtle-pale-blue-background-color{background-color:#e7f5fe}.wp-block-table .has-subtle-pale-pink-background-color{background-color:#fcf0ef}.wp-block-table.is-style-stripes{background-color:transparent;border-collapse:inherit;border-spacing:0}.wp-block-table.is-style-stripes tbody tr:nth-child(odd){background-color:#f0f0f0}.wp-block-table.is-style-stripes.has-subtle-light-gray-background-color tbody tr:nth-child(odd){background-color:#f3f4f5}.wp-block-table.is-style-stripes.has-subtle-pale-green-background-color tbody tr:nth-child(odd){background-color:#e9fbe5}.wp-block-table.is-style-stripes.has-subtle-pale-blue-background-color tbody tr:nth-child(odd){background-color:#e7f5fe}.wp-block-table.is-style-stripes.has-subtle-pale-pink-background-color tbody tr:nth-child(odd){background-color:#fcf0ef}.wp-block-table.is-style-stripes td,.wp-block-table.is-style-stripes th{border-color:transparent}.wp-block-table.is-style-stripes{border-bottom:1px solid #f0f0f0}.wp-block-table .has-border-color td,.wp-block-table .has-border-color th,.wp-block-table .has-border-color tr,.wp-block-table .has-border-color>*{border-color:inherit}.wp-block-table table[style*=border-top-color] tr:first-child,.wp-block-table table[style*=border-top-color] tr:first-child td,.wp-block-table table[style*=border-top-color] tr:first-child th,.wp-block-table table[style*=border-top-color]>*,.wp-block-table table[style*=border-top-color]>* td,.wp-block-table table[style*=border-top-color]>* th{border-top-color:inherit}.wp-block-table table[style*=border-top-color] tr:not(:first-child){border-top-color:currentColor}.wp-block-table table[style*=border-right-color] td:last-child,.wp-block-table table[style*=border-right-color] th,.wp-block-table table[style*=border-right-color] tr,.wp-block-table table[style*=border-right-color]>*{border-right-color:inherit}.wp-block-table table[style*=border-bottom-color] tr:last-child,.wp-block-table table[style*=border-bottom-color] tr:last-child td,.wp-block-table table[style*=border-bottom-color] tr:last-child th,.wp-block-table table[style*=border-bottom-color]>*,.wp-block-table table[style*=border-bottom-color]>* td,.wp-block-table table[style*=border-bottom-color]>* th{border-bottom-color:inherit}.wp-block-table table[style*=border-bottom-color] tr:not(:last-child){border-bottom-color:currentColor}.wp-block-table table[style*=border-left-color] td:first-child,.wp-block-table table[style*=border-left-color] th,.wp-block-table table[style*=border-left-color] tr,.wp-block-table table[style*=border-left-color]>*{border-left-color:inherit}.wp-block-table table[style*=border-style] td,.wp-block-table table[style*=border-style] th,.wp-block-table table[style*=border-style] tr,.wp-block-table table[style*=border-style]>*{border-style:inherit}.wp-block-table table[style*=border-width] td,.wp-block-table table[style*=border-width] th,.wp-block-table table[style*=border-width] tr,.wp-block-table table[style*=border-width]>*{border-style:inherit;border-width:inherit}
+/*# sourceURL=https://www.penligent.ai/hackinglabs/wp-includes/blocks/table/style.min.css */
+</style>
+
+
+<style id="global-styles-inline-css">
+:root{--wp--preset--aspect-ratio--square: 1;--wp--preset--aspect-ratio--4-3: 4/3;--wp--preset--aspect-ratio--3-4: 3/4;--wp--preset--aspect-ratio--3-2: 3/2;--wp--preset--aspect-ratio--2-3: 2/3;--wp--preset--aspect-ratio--16-9: 16/9;--wp--preset--aspect-ratio--9-16: 9/16;--wp--preset--color--black: #000000;--wp--preset--color--cyan-bluish-gray: #abb8c3;--wp--preset--color--white: #ffffff;--wp--preset--color--pale-pink: #f78da7;--wp--preset--color--vivid-red: #cf2e2e;--wp--preset--color--luminous-vivid-orange: #ff6900;--wp--preset--color--luminous-vivid-amber: #fcb900;--wp--preset--color--light-green-cyan: #7bdcb5;--wp--preset--color--vivid-green-cyan: #00d084;--wp--preset--color--pale-cyan-blue: #8ed1fc;--wp--preset--color--vivid-cyan-blue: #0693e3;--wp--preset--color--vivid-purple: #9b51e0;--wp--preset--gradient--vivid-cyan-blue-to-vivid-purple: linear-gradient(135deg,rgb(6,147,227) 0%,rgb(155,81,224) 100%);--wp--preset--gradient--light-green-cyan-to-vivid-green-cyan: linear-gradient(135deg,rgb(122,220,180) 0%,rgb(0,208,130) 100%);--wp--preset--gradient--luminous-vivid-amber-to-luminous-vivid-orange: linear-gradient(135deg,rgb(252,185,0) 0%,rgb(255,105,0) 100%);--wp--preset--gradient--luminous-vivid-orange-to-vivid-red: linear-gradient(135deg,rgb(255,105,0) 0%,rgb(207,46,46) 100%);--wp--preset--gradient--very-light-gray-to-cyan-bluish-gray: linear-gradient(135deg,rgb(238,238,238) 0%,rgb(169,184,195) 100%);--wp--preset--gradient--cool-to-warm-spectrum: linear-gradient(135deg,rgb(74,234,220) 0%,rgb(151,120,209) 20%,rgb(207,42,186) 40%,rgb(238,44,130) 60%,rgb(251,105,98) 80%,rgb(254,248,76) 100%);--wp--preset--gradient--blush-light-purple: linear-gradient(135deg,rgb(255,206,236) 0%,rgb(152,150,240) 100%);--wp--preset--gradient--blush-bordeaux: linear-gradient(135deg,rgb(254,205,165) 0%,rgb(254,45,45) 50%,rgb(107,0,62) 100%);--wp--preset--gradient--luminous-dusk: linear-gradient(135deg,rgb(255,203,112) 0%,rgb(199,81,192) 50%,rgb(65,88,208) 100%);--wp--preset--gradient--pale-ocean: linear-gradient(135deg,rgb(255,245,203) 0%,rgb(182,227,212) 50%,rgb(51,167,181) 100%);--wp--preset--gradient--electric-grass: linear-gradient(135deg,rgb(202,248,128) 0%,rgb(113,206,126) 100%);--wp--preset--gradient--midnight: linear-gradient(135deg,rgb(2,3,129) 0%,rgb(40,116,252) 100%);--wp--preset--font-size--small: 13px;--wp--preset--font-size--medium: 20px;--wp--preset--font-size--large: 36px;--wp--preset--font-size--x-large: 42px;--wp--preset--spacing--20: 0.44rem;--wp--preset--spacing--30: 0.67rem;--wp--preset--spacing--40: 1rem;--wp--preset--spacing--50: 1.5rem;--wp--preset--spacing--60: 2.25rem;--wp--preset--spacing--70: 3.38rem;--wp--preset--spacing--80: 5.06rem;--wp--preset--shadow--natural: 6px 6px 9px rgba(0, 0, 0, 0.2);--wp--preset--shadow--deep: 12px 12px 50px rgba(0, 0, 0, 0.4);--wp--preset--shadow--sharp: 6px 6px 0px rgba(0, 0, 0, 0.2);--wp--preset--shadow--outlined: 6px 6px 0px -3px rgb(255, 255, 255), 6px 6px rgb(0, 0, 0);--wp--preset--shadow--crisp: 6px 6px 0px rgb(0, 0, 0);}.wp-block-button{--wp--preset--dimension--25: 25%;--wp--preset--dimension--50: 50%;--wp--preset--dimension--75: 75%;--wp--preset--dimension--100: 100%;}:root { --wp--style--global--content-size: 800px;--wp--style--global--wide-size: 1200px; }:where(body) { margin: 0; }.wp-site-blocks > .alignleft { float: left; margin-right: 2em; }.wp-site-blocks > .alignright { float: right; margin-left: 2em; }.wp-site-blocks > .aligncenter { justify-content: center; margin-left: auto; margin-right: auto; }:where(.wp-site-blocks) > * { margin-block-start: 24px; margin-block-end: 0; }:where(.wp-site-blocks) > :first-child { margin-block-start: 0; }:where(.wp-site-blocks) > :last-child { margin-block-end: 0; }:root { --wp--style--block-gap: 24px; }:root :where(.is-layout-flow) > :first-child{margin-block-start: 0;}:root :where(.is-layout-flow) > :last-child{margin-block-end: 0;}:root :where(.is-layout-flow) > *{margin-block-start: 24px;margin-block-end: 0;}:root :where(.is-layout-constrained) > :first-child{margin-block-start: 0;}:root :where(.is-layout-constrained) > :last-child{margin-block-end: 0;}:root :where(.is-layout-constrained) > *{margin-block-start: 24px;margin-block-end: 0;}:root :where(.is-layout-flex){gap: 24px;}:root :where(.is-layout-grid){gap: 24px;}.is-layout-flow > .alignleft{float: left;margin-inline-start: 0;margin-inline-end: 2em;}.is-layout-flow > .alignright{float: right;margin-inline-start: 2em;margin-inline-end: 0;}.is-layout-flow > .aligncenter{margin-left: auto !important;margin-right: auto !important;}.is-layout-constrained > .alignleft{float: left;margin-inline-start: 0;margin-inline-end: 2em;}.is-layout-constrained > .alignright{float: right;margin-inline-start: 2em;margin-inline-end: 0;}.is-layout-constrained > .aligncenter{margin-left: auto !important;margin-right: auto !important;}.is-layout-constrained > :where(:not(.alignleft):not(.alignright):not(.alignfull)){max-width: var(--wp--style--global--content-size);margin-left: auto !important;margin-right: auto !important;}.is-layout-constrained > .alignwide{max-width: var(--wp--style--global--wide-size);}body .is-layout-flex{display: flex;}.is-layout-flex{flex-wrap: wrap;align-items: center;}.is-layout-flex > :is(*, div){margin: 0;}body .is-layout-grid{display: grid;}.is-layout-grid > :is(*, div){margin: 0;}body{padding-top: 0px;padding-right: 0px;padding-bottom: 0px;padding-left: 0px;}:root :where(.wp-element-button, .wp-block-button__link){background-color: #32373c;border-width: 0;color: #fff;font-family: inherit;font-size: inherit;font-style: inherit;font-weight: inherit;letter-spacing: inherit;line-height: inherit;padding-top: calc(0.667em + 2px);padding-right: calc(1.333em + 2px);padding-bottom: calc(0.667em + 2px);padding-left: calc(1.333em + 2px);text-decoration: none;text-transform: inherit;}.has-black-color{color: var(--wp--preset--color--black) !important;}.has-cyan-bluish-gray-color{color: var(--wp--preset--color--cyan-bluish-gray) !important;}.has-white-color{color: var(--wp--preset--color--white) !important;}.has-pale-pink-color{color: var(--wp--preset--color--pale-pink) !important;}.has-vivid-red-color{color: var(--wp--preset--color--vivid-red) !important;}.has-luminous-vivid-orange-color{color: var(--wp--preset--color--luminous-vivid-orange) !important;}.has-luminous-vivid-amber-color{color: var(--wp--preset--color--luminous-vivid-amber) !important;}.has-light-green-cyan-color{color: var(--wp--preset--color--light-green-cyan) !important;}.has-vivid-green-cyan-color{color: var(--wp--preset--color--vivid-green-cyan) !important;}.has-pale-cyan-blue-color{color: var(--wp--preset--color--pale-cyan-blue) !important;}.has-vivid-cyan-blue-color{color: var(--wp--preset--color--vivid-cyan-blue) !important;}.has-vivid-purple-color{color: var(--wp--preset--color--vivid-purple) !important;}.has-black-background-color{background-color: var(--wp--preset--color--black) !important;}.has-cyan-bluish-gray-background-color{background-color: var(--wp--preset--color--cyan-bluish-gray) !important;}.has-white-background-color{background-color: var(--wp--preset--color--white) !important;}.has-pale-pink-background-color{background-color: var(--wp--preset--color--pale-pink) !important;}.has-vivid-red-background-color{background-color: var(--wp--preset--color--vivid-red) !important;}.has-luminous-vivid-orange-background-color{background-color: var(--wp--preset--color--luminous-vivid-orange) !important;}.has-luminous-vivid-amber-background-color{background-color: var(--wp--preset--color--luminous-vivid-amber) !important;}.has-light-green-cyan-background-color{background-color: var(--wp--preset--color--light-green-cyan) !important;}.has-vivid-green-cyan-background-color{background-color: var(--wp--preset--color--vivid-green-cyan) !important;}.has-pale-cyan-blue-background-color{background-color: var(--wp--preset--color--pale-cyan-blue) !important;}.has-vivid-cyan-blue-background-color{background-color: var(--wp--preset--color--vivid-cyan-blue) !important;}.has-vivid-purple-background-color{background-color: var(--wp--preset--color--vivid-purple) !important;}.has-black-border-color{border-color: var(--wp--preset--color--black) !important;}.has-cyan-bluish-gray-border-color{border-color: var(--wp--preset--color--cyan-bluish-gray) !important;}.has-white-border-color{border-color: var(--wp--preset--color--white) !important;}.has-pale-pink-border-color{border-color: var(--wp--preset--color--pale-pink) !important;}.has-vivid-red-border-color{border-color: var(--wp--preset--color--vivid-red) !important;}.has-luminous-vivid-orange-border-color{border-color: var(--wp--preset--color--luminous-vivid-orange) !important;}.has-luminous-vivid-amber-border-color{border-color: var(--wp--preset--color--luminous-vivid-amber) !important;}.has-light-green-cyan-border-color{border-color: var(--wp--preset--color--light-green-cyan) !important;}.has-vivid-green-cyan-border-color{border-color: var(--wp--preset--color--vivid-green-cyan) !important;}.has-pale-cyan-blue-border-color{border-color: var(--wp--preset--color--pale-cyan-blue) !important;}.has-vivid-cyan-blue-border-color{border-color: var(--wp--preset--color--vivid-cyan-blue) !important;}.has-vivid-purple-border-color{border-color: var(--wp--preset--color--vivid-purple) !important;}.has-vivid-cyan-blue-to-vivid-purple-gradient-background{background: var(--wp--preset--gradient--vivid-cyan-blue-to-vivid-purple) !important;}.has-light-green-cyan-to-vivid-green-cyan-gradient-background{background: var(--wp--preset--gradient--light-green-cyan-to-vivid-green-cyan) !important;}.has-luminous-vivid-amber-to-luminous-vivid-orange-gradient-background{background: var(--wp--preset--gradient--luminous-vivid-amber-to-luminous-vivid-orange) !important;}.has-luminous-vivid-orange-to-vivid-red-gradient-background{background: var(--wp--preset--gradient--luminous-vivid-orange-to-vivid-red) !important;}.has-very-light-gray-to-cyan-bluish-gray-gradient-background{background: var(--wp--preset--gradient--very-light-gray-to-cyan-bluish-gray) !important;}.has-cool-to-warm-spectrum-gradient-background{background: var(--wp--preset--gradient--cool-to-warm-spectrum) !important;}.has-blush-light-purple-gradient-background{background: var(--wp--preset--gradient--blush-light-purple) !important;}.has-blush-bordeaux-gradient-background{background: var(--wp--preset--gradient--blush-bordeaux) !important;}.has-luminous-dusk-gradient-background{background: var(--wp--preset--gradient--luminous-dusk) !important;}.has-pale-ocean-gradient-background{background: var(--wp--preset--gradient--pale-ocean) !important;}.has-electric-grass-gradient-background{background: var(--wp--preset--gradient--electric-grass) !important;}.has-midnight-gradient-background{background: var(--wp--preset--gradient--midnight) !important;}.has-small-font-size{font-size: var(--wp--preset--font-size--small) !important;}.has-medium-font-size{font-size: var(--wp--preset--font-size--medium) !important;}.has-large-font-size{font-size: var(--wp--preset--font-size--large) !important;}.has-x-large-font-size{font-size: var(--wp--preset--font-size--x-large) !important;}
+/*# sourceURL=global-styles-inline-css */
+</style>
+
+<link rel='stylesheet' id='trp-floater-language-switcher-style-css' href='https://www.penligent.ai/hackinglabs/wp-content/plugins/translatepress-multilingual/assets/css/trp-floater-language-switcher.css?ver=2.10.4' media='all' />
+<link rel='stylesheet' id='trp-language-switcher-style-css' href='https://www.penligent.ai/hackinglabs/wp-content/plugins/translatepress-multilingual/assets/css/trp-language-switcher.css?ver=2.10.4' media='all' />
+<link rel='stylesheet' id='hello-elementor-css' href='https://www.penligent.ai/hackinglabs/wp-content/themes/hello-elementor/assets/css/reset.css?ver=3.4.7' media='all' />
+<link rel='stylesheet' id='hello-elementor-theme-style-css' href='https://www.penligent.ai/hackinglabs/wp-content/themes/hello-elementor/assets/css/theme.css?ver=3.4.7' media='all' />
+<link rel='stylesheet' id='hello-elementor-header-footer-css' href='https://www.penligent.ai/hackinglabs/wp-content/themes/hello-elementor/assets/css/header-footer.css?ver=3.4.7' media='all' />
+<link rel='stylesheet' id='elementor-frontend-css' href='https://www.penligent.ai/hackinglabs/wp-content/plugins/elementor/assets/css/frontend.min.css?ver=3.32.2' media='all' />
+<link rel='stylesheet' id='elementor-post-10-css' href='https://www.penligent.ai/hackinglabs/wp-content/uploads/elementor/css/post-10.css?ver=1794129173' media='all' />
+<link rel='stylesheet' id='widget-heading-css' href='https://www.penligent.ai/hackinglabs/wp-content/plugins/elementor/assets/css/widget-heading.min.css?ver=3.32.2' media='all' />
+<link rel='stylesheet' id='widget-post-info-css' href='https://www.penligent.ai/hackinglabs/wp-content/plugins/elementor-pro/assets/css/widget-post-info.min.css?ver=3.28.3' media='all' />
+<link rel='stylesheet' id='widget-icon-list-css' href='https://www.penligent.ai/hackinglabs/wp-content/plugins/elementor/assets/css/widget-icon-list.min.css?ver=3.32.2' media='all' />
+<link rel='stylesheet' id='widget-post-navigation-css' href='https://www.penligent.ai/hackinglabs/wp-content/plugins/elementor-pro/assets/css/widget-post-navigation.min.css?ver=3.28.3' media='all' />
+<link rel='stylesheet' id='widget-share-buttons-css' href='https://www.penligent.ai/hackinglabs/wp-content/plugins/elementor-pro/assets/css/widget-share-buttons.min.css?ver=3.28.3' media='all' />
+<link rel='stylesheet' id='e-apple-webkit-css' href='https://www.penligent.ai/hackinglabs/wp-content/plugins/elementor/assets/css/conditionals/apple-webkit.min.css?ver=3.32.2' media='all' />
+<link rel='stylesheet' id='widget-posts-css' href='https://www.penligent.ai/hackinglabs/wp-content/plugins/elementor-pro/assets/css/widget-posts.min.css?ver=3.28.3' media='all' />
+<link rel='stylesheet' id='elementor-post-29-css' href='https://www.penligent.ai/hackinglabs/wp-content/uploads/elementor/css/post-29.css?ver=1794129173' media='all' />
+<link rel='stylesheet' id='elementor-post-38-css' href='https://www.penligent.ai/hackinglabs/wp-content/uploads/elementor/css/post-38.css?ver=1794129173' media='all' />
+<link rel='stylesheet' id='elementor-post-31-css' href='https://www.penligent.ai/hackinglabs/wp-content/uploads/elementor/css/post-31.css?ver=1794129173' media='all' />
+<link rel='stylesheet' id='elementor-gf-roboto-css' href='https://fonts.googleapis.com/css?family=Roboto:100,100italic,200,200italic,300,300italic,400,400italic,500,500italic,600,600italic,700,700italic,800,800italic,900,900italic&#038;display=swap' media='all' />
+<link rel='stylesheet' id='elementor-gf-robotoslab-css' href='https://fonts.googleapis.com/css?family=Roboto+Slab:100,100italic,200,200italic,300,300italic,400,400italic,500,500italic,600,600italic,700,700italic,800,800italic,900,900italic&#038;display=swap' media='all' />
+<link rel='stylesheet' id='elementor-gf-poppins-css' href='https://fonts.googleapis.com/css?family=Poppins:100,100italic,200,200italic,300,300italic,400,400italic,500,500italic,600,600italic,700,700italic,800,800italic,900,900italic&#038;display=swap' media='all' />
+<script id="jquery-core-js" src="https://www.penligent.ai/hackinglabs/wp-includes/js/jquery/jquery.min.js?ver=3.7.1"></script>
+<script id="jquery-migrate-js" src="https://www.penligent.ai/hackinglabs/wp-includes/js/jquery/jquery-migrate.min.js?ver=3.4.1"></script>
+
+<!-- Google tag (gtag.js) snippet added by Site Kit -->
+<!-- Google Analytics snippet added by Site Kit -->
+<!-- Google Ads snippet added by Site Kit -->
+<script id="google_gtagjs-js" src="https://www.googletagmanager.com/gtag/js?id=GT-PJ4NM3BP" async></script>
+<script id="google_gtagjs-js-after">
+window.dataLayer = window.dataLayer || [];function gtag(){dataLayer.push(arguments);}
+gtag("set","linker",{"domains":["www.penligent.ai"]});
+gtag("js", new Date());
+gtag("set", "developer_id.dZTNiMT", true);
+gtag("config", "GT-PJ4NM3BP");
+gtag("config", "AW-17975976334");
+ window._googlesitekit = window._googlesitekit || {}; window._googlesitekit.throttledEvents = []; window._googlesitekit.gtagEvent = (name, data) => { var key = JSON.stringify( { name, data } ); if ( !! window._googlesitekit.throttledEvents[ key ] ) { return; } window._googlesitekit.throttledEvents[ key ] = true; setTimeout( () => { delete window._googlesitekit.throttledEvents[ key ]; }, 5 ); gtag( "event", name, { ...data, event_source: "site-kit" } ); }; 
+//# sourceURL=google_gtagjs-js-after
+</script>
+<link rel="https://api.w.org/" href="https://www.penligent.ai/hackinglabs/wp-json/" /><link rel="alternate" title="JSON" type="application/json" href="https://www.penligent.ai/hackinglabs/wp-json/wp/v2/posts/3207" /><link rel="EditURI" type="application/rsd+xml" title="RSD" href="https://www.penligent.ai/hackinglabs/xmlrpc.php?rsd" />
+<meta name="generator" content="WordPress 7.1.4" />
+<link rel='shortlink' href='https://www.penligent.ai/hackinglabs/?p=3207' />
+<meta name="generator" content="Site Kit by Google 1.175.0" /><link rel="alternate" hreflang="en-US" href="https://www.penligent.ai/hackinglabs/over-220000-openclaw-instances-exposed-to-the-internet-why-agent-runtimes-go-naked-at-scale/"/>
+<link rel="alternate" hreflang="de-DE" href="https://www.penligent.ai/hackinglabs/de/over-220000-openclaw-instances-exposed-to-the-internet-why-agent-runtimes-go-naked-at-scale/"/>
+<link rel="alternate" hreflang="fr-FR" href="https://www.penligent.ai/hackinglabs/fr/over-220000-openclaw-instances-exposed-to-the-internet-why-agent-runtimes-go-naked-at-scale/"/>
+<link rel="alternate" hreflang="es-ES" href="https://www.penligent.ai/hackinglabs/es/over-220000-openclaw-instances-exposed-to-the-internet-why-agent-runtimes-go-naked-at-scale/"/>
+<link rel="alternate" hreflang="pt-BR" href="https://www.penligent.ai/hackinglabs/pt/over-220000-openclaw-instances-exposed-to-the-internet-why-agent-runtimes-go-naked-at-scale/"/>
+<link rel="alternate" hreflang="ja" href="https://www.penligent.ai/hackinglabs/ja/over-220000-openclaw-instances-exposed-to-the-internet-why-agent-runtimes-go-naked-at-scale/"/>
+<link rel="alternate" hreflang="ko-KR" href="https://www.penligent.ai/hackinglabs/ko/over-220000-openclaw-instances-exposed-to-the-internet-why-agent-runtimes-go-naked-at-scale/"/>
+<link rel="alternate" hreflang="hi-IN" href="https://www.penligent.ai/hackinglabs/hi/over-220000-openclaw-instances-exposed-to-the-internet-why-agent-runtimes-go-naked-at-scale/"/>
+<link rel="alternate" hreflang="ar" href="https://www.penligent.ai/hackinglabs/ar/over-220000-openclaw-instances-exposed-to-the-internet-why-agent-runtimes-go-naked-at-scale/"/>
+<link rel="alternate" hreflang="tr-TR" href="https://www.penligent.ai/hackinglabs/tr/over-220000-openclaw-instances-exposed-to-the-internet-why-agent-runtimes-go-naked-at-scale/"/>
+<link rel="alternate" hreflang="he-IL" href="https://www.penligent.ai/hackinglabs/he/over-220000-openclaw-instances-exposed-to-the-internet-why-agent-runtimes-go-naked-at-scale/"/>
+<link rel="alternate" hreflang="en" href="https://www.penligent.ai/hackinglabs/over-220000-openclaw-instances-exposed-to-the-internet-why-agent-runtimes-go-naked-at-scale/"/>
+<link rel="alternate" hreflang="de" href="https://www.penligent.ai/hackinglabs/de/over-220000-openclaw-instances-exposed-to-the-internet-why-agent-runtimes-go-naked-at-scale/"/>
+<link rel="alternate" hreflang="fr" href="https://www.penligent.ai/hackinglabs/fr/over-220000-openclaw-instances-exposed-to-the-internet-why-agent-runtimes-go-naked-at-scale/"/>
+<link rel="alternate" hreflang="es" href="https://www.penligent.ai/hackinglabs/es/over-220000-openclaw-instances-exposed-to-the-internet-why-agent-runtimes-go-naked-at-scale/"/>
+<link rel="alternate" hreflang="pt" href="https://www.penligent.ai/hackinglabs/pt/over-220000-openclaw-instances-exposed-to-the-internet-why-agent-runtimes-go-naked-at-scale/"/>
+<link rel="alternate" hreflang="ko" href="https://www.penligent.ai/hackinglabs/ko/over-220000-openclaw-instances-exposed-to-the-internet-why-agent-runtimes-go-naked-at-scale/"/>
+<link rel="alternate" hreflang="hi" href="https://www.penligent.ai/hackinglabs/hi/over-220000-openclaw-instances-exposed-to-the-internet-why-agent-runtimes-go-naked-at-scale/"/>
+<link rel="alternate" hreflang="tr" href="https://www.penligent.ai/hackinglabs/tr/over-220000-openclaw-instances-exposed-to-the-internet-why-agent-runtimes-go-naked-at-scale/"/>
+<link rel="alternate" hreflang="he" href="https://www.penligent.ai/hackinglabs/he/over-220000-openclaw-instances-exposed-to-the-internet-why-agent-runtimes-go-naked-at-scale/"/>
+<meta name="google-site-verification" content="nBAORHQ8kZF-oF_v7r1mqpXq6lnnlS9bsR_8EbQ9cYY"><meta name="generator" content="Elementor 3.32.2; features: e_font_icon_svg, additional_custom_breakpoints; settings: css_print_method-external, google_font-enabled, font_display-swap">
+
+<?php echo date( 'Y' ); ?>
+<script>
+;(function () {
+  var config = window.DownloadPopupConfig || {};
+  var popupId = config.popupId || "global-popup";
+  var delay = typeof config.delay === "number" ? config.delay : 20000;
+  var title = config.title || "Download Penligent";
+  var subtitle =
+    config.subtitle || "Download and Start for Free";
+  var ctaText = config.ctaText || "Download";
+  var closeText = config.closeText || "\u00d7";
+  var downloadEntry = config.downloadEntry || "download_popup";
+  var popupTimer = null;
+  var options = Array.isArray(config.options) && config.options.length
+    ? config.options
+    : [
+        {
+          title: "Kali Linux",
+          subtitle: "For Kali Linux",
+          architecture: "AMD64",
+          href: "https://s3.ap-southeast-1.amazonaws.com/yanfa/penligent.kali_amd64_3.0.2.deb"
+        },
+        {
+          title: "Kali Linux",
+          subtitle: "For Kali Linux",
+          architecture: "ARM64",
+          href: "https://s3.ap-southeast-1.amazonaws.com/yanfa/penligent.kali_arm64_3.0.2.deb"
+        },
+        {
+          title: "macOS",
+          subtitle: "For macOS",
+          architecture: "ARM64",
+          href: "https://s3.ap-southeast-1.amazonaws.com/yanfa/penligent.mac_arm64_3.0.2.dmg"
+        },
+        {
+          title: "Windows",
+          subtitle: "For Windows",
+          architecture: "X64",
+          href: "https://s3.ap-southeast-1.amazonaws.com/yanfa/penligent.windows_3.0.2.exe"
+        }
+      ];
+
+  if (document.getElementById(popupId)) {
+    return;
+  }
+
+  function escapeHtml(value) {
+    return String(value)
+      .replace(/&/g, "&amp;")
+      .replace(/</g, "&lt;")
+      .replace(/>/g, "&gt;")
+      .replace(/"/g, "&quot;")
+      .replace(/'/g, "&#39;");
+  }
+
+  function buildOptionHtml(option) {
+    return [
+      '<a class="download-popup__item" href="',
+      escapeHtml(option.href),
+      '" target="_blank" rel="noopener noreferrer" data-download-url="',
+      escapeHtml(option.href),
+      '" data-download-entry="',
+      escapeHtml(downloadEntry),
+      '">',
+      '<div class="download-popup__item-main">',
+      '<div class="download-popup__item-title-row">',
+      '<span class="download-popup__item-title">',
+      escapeHtml(option.title),
+      "</span>",
+      '<span class="download-popup__badge">',
+      escapeHtml(option.architecture || ""),
+      "</span>",
+      "</div>",
+      '<p class="download-popup__item-subtitle">',
+      escapeHtml(option.subtitle || ""),
+      "</p>",
+      "</div>",
+      '<span class="download-popup__item-cta">',
+      escapeHtml(ctaText),
+      "</span>",
+      "</a>"
+    ].join("");
+  }
+
+  function injectStyles() {
+    if (document.getElementById("download-popup-styles")) {
+      return;
+    }
+
+    var style = document.createElement("style");
+    style.id = "download-popup-styles";
+    style.textContent = [
+      "#" + popupId + "{",
+      "display:none;",
+      "position:fixed;",
+      "inset:0;",
+      "z-index:99999;",
+      "align-items:center;",
+      "justify-content:center;",
+      "padding:16px;",
+      "background:rgba(17,24,39,0.45);",
+      "box-sizing:border-box;",
+      "}",
+      "#" + popupId + ".is-visible{display:flex;}",
+      "#" + popupId + " .download-popup__panel{",
+      "position:relative;",
+      "width:min(520px, 100%);",
+      "max-height:calc(100vh - 32px);",
+      "overflow:auto;",
+      "border-radius:24px;",
+      "border:1px solid #e7e3da;",
+      "background:#fcfbf8;",
+      "box-shadow:0 20px 60px rgba(38,37,30,0.18);",
+      "padding:24px;",
+      "font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,Arial,sans-serif;",
+      "color:#1e2024;",
+      "box-sizing:border-box;",
+      "}",
+      "#" + popupId + " .download-popup__close{",
+      "position:absolute;",
+      "top:14px;",
+      "right:14px;",
+      "display:flex;",
+      "align-items:center;",
+      "justify-content:center;",
+      "width:36px;",
+      "height:36px;",
+      "padding:0;",
+      "border:0;",
+      "border-radius:999px;",
+      "background:#f1eee7;",
+      "color:#26251e;",
+      "font-size:20px;",
+      "line-height:1;",
+      "font-family:inherit;",
+      "cursor:pointer;",
+      "}",
+      "#" + popupId + " .download-popup__title{",
+      "margin:0;",
+      "padding-right:44px;",
+      "font-size:24px;",
+      "font-weight:700;",
+      "}",
+      "#" + popupId + " .download-popup__subtitle{",
+      "margin:8px 0 0;",
+      "font-size:14px;",
+      "line-height:1.6;",
+      "color:#6d7482;",
+      "}",
+      "#" + popupId + " .download-popup__list{",
+      "margin-top:20px;",
+      "display:flex;",
+      "flex-direction:column;",
+      "gap:12px;",
+      "}",
+      "#" + popupId + " .download-popup__item{",
+      "display:flex;",
+      "align-items:center;",
+      "justify-content:space-between;",
+      "gap:12px;",
+      "padding:16px;",
+      "border:1px solid #e7e3da;",
+      "border-radius:18px;",
+      "background:#ffffff;",
+      "text-decoration:none;",
+      "color:inherit;",
+      "transition:transform .18s ease, box-shadow .18s ease, border-color .18s ease;",
+      "box-sizing:border-box;",
+      "}",
+      "#" + popupId + " .download-popup__item:hover{",
+      "transform:translateY(-1px);",
+      "border-color:#d9d3c8;",
+      "box-shadow:0 12px 30px rgba(38,37,30,0.08);",
+      "}",
+      "#" + popupId + " .download-popup__item-main{",
+      "min-width:0;",
+      "flex:1;",
+      "}",
+      "#" + popupId + " .download-popup__item-title-row{",
+      "display:flex;",
+      "align-items:center;",
+      "gap:8px;",
+      "flex-wrap:wrap;",
+      "}",
+      "#" + popupId + " .download-popup__item-title{",
+      "font-size:16px;",
+      "font-weight:700;",
+      "}",
+      "#" + popupId + " .download-popup__badge{",
+      "display:inline-flex;",
+      "align-items:center;",
+      "justify-content:center;",
+      "padding:4px 8px;",
+      "border-radius:999px;",
+      "background:#f1eee7;",
+      "font-size:11px;",
+      "font-weight:700;",
+      "letter-spacing:.08em;",
+      "color:#5d6470;",
+      "text-transform:uppercase;",
+      "}",
+      "#" + popupId + " .download-popup__item-subtitle{",
+      "margin:6px 0 0;",
+      "font-size:13px;",
+      "color:#6d7482;",
+      "}",
+      "#" + popupId + " .download-popup__item-cta{",
+      "display:inline-flex;",
+      "align-items:center;",
+      "justify-content:center;",
+      "height:40px;",
+      "padding:0 16px;",
+      "border-radius:999px;",
+      "background:#26251e;",
+      "color:#ffffff;",
+      "font-size:13px;",
+      "font-weight:700;",
+      "white-space:nowrap;",
+      "}",
+      "@media (max-width: 640px){",
+      "#" + popupId + " .download-popup__panel{padding:20px 16px 16px;}",
+      "#" + popupId + " .download-popup__title{font-size:20px;}",
+      "#" + popupId + " .download-popup__item{align-items:flex-start;flex-direction:column;}",
+      "#" + popupId + " .download-popup__item-cta{width:100%;}",
+      "}"
+    ].join("");
+
+    document.head.appendChild(style);
+  }
+
+  function getDownloadMetadata(downloadUrl) {
+    var cleanUrl = String(downloadUrl || "").split("#")[0].split("?")[0];
+    var fileName = cleanUrl.split("/").pop() || "";
+    var normalizedName = fileName.replace(/^penligent\./, "").replace(/\.[^.]+$/, "");
+    var segments = normalizedName.split("_").filter(Boolean);
+    var lastSegment = segments[segments.length - 1];
+    var version = /^\d+(?:\.\d+)+(?:[-._a-zA-Z0-9]+)?$/.test(lastSegment || "") ? lastSegment : "";
+    var os = segments[0] || "";
+    var architecture = "";
+
+    if (segments.length >= 3 && version) {
+      architecture = segments[1];
+    } else if (os === "windows" && /\.exe$/i.test(fileName)) {
+      architecture = "x64";
+    }
+
+    return {
+      fileName: fileName,
+      version: version,
+      os: os,
+      architecture: architecture
+    };
+  }
+
+  function getPersistentUUID() {
+    var persistentKey = "penligent-persistent-uuid";
+    var uuid = localStorage.getItem(persistentKey);
+
+    if (!uuid) {
+      uuid = "xxxxxxxx-xxxx-4xxx-yxxx-xxxxxxxxxxxx".replace(/[xy]/g, function(c) {
+        var r = Math.random() * 16 | 0;
+        var v = c === "x" ? r : (r & 0x3 | 0x8);
+        return v.toString(16);
+      });
+      localStorage.setItem(persistentKey, uuid);
+    }
+
+    return uuid;
+  }
+
+  function getStoredUser() {
+    try {
+      var rawUser = localStorage.getItem("user");
+      return rawUser ? JSON.parse(rawUser) : null;
+    } catch (error) {
+      return null;
+    }
+  }
+
+  function trackDownload(optionElement) {
+    if (!optionElement || typeof window.gtag !== "function") {
+      return;
+    }
+
+    var downloadUrl = optionElement.getAttribute("data-download-url") || optionElement.href || "";
+    var entry = optionElement.getAttribute("data-download-entry") || downloadEntry;
+    var metadata = getDownloadMetadata(downloadUrl);
+    var userAgentData = navigator.userAgentData || {};
+    var storedUser = getStoredUser();
+    var payload = {
+      event_label: entry + ":" + (metadata.fileName || downloadUrl),
+      download_entry: entry,
+      download_url: downloadUrl,
+      download_file_name: metadata.fileName || downloadUrl,
+      download_version: metadata.version || "",
+      download_os: metadata.os || "",
+      download_architecture: metadata.architecture || "",
+      visitor_id: getPersistentUUID(),
+      source_path: window.location.pathname,
+      device_model: userAgentData.model || navigator.platform || "unknown",
+      device_platform: userAgentData.platform || navigator.platform || "unknown",
+      device_type: userAgentData.mobile ? "mobile" : "desktop",
+      device_user_agent: navigator.userAgent || "unknown"
+    };
+
+    if (storedUser && storedUser.id) {
+      payload.user_id = String(storedUser.id);
+    }
+
+    if (storedUser && storedUser.email) {
+      payload.user_email = storedUser.email;
+    }
+
+    window.gtag("event", "download", payload);
+  }
+
+  function createPopup() {
+    var popup = document.createElement("div");
+    popup.id = popupId;
+    popup.setAttribute("aria-hidden", "true");
+
+    popup.innerHTML = [
+      '<div class="download-popup__panel" role="dialog" aria-modal="true" aria-labelledby="' + popupId + '-title">',
+      '<button class="download-popup__close" type="button" aria-label="Close popup">',
+      closeText,
+      "</button>",
+      '<h2 class="download-popup__title" id="' + popupId + '-title">',
+      escapeHtml(title),
+      "</h2>",
+      '<p class="download-popup__subtitle">',
+      escapeHtml(subtitle),
+      "</p>",
+      '<div class="download-popup__list">',
+      options.map(buildOptionHtml).join(""),
+      "</div>",
+      "</div>"
+    ].join("");
+
+    document.body.appendChild(popup);
+
+    popup.addEventListener("click", function (event) {
+      var option = event.target.closest(".download-popup__item");
+      if (option) {
+        trackDownload(option);
+        return;
+      }
+
+      if (
+        event.target === popup ||
+        event.target.classList.contains("download-popup__close")
+      ) {
+        hidePopup();
+      }
+    });
+
+    document.addEventListener("keydown", function (event) {
+      if (event.key === "Escape" && popup.classList.contains("is-visible")) {
+        hidePopup();
+      }
+    });
+
+    return popup;
+  }
+
+  function schedulePopup() {
+    if (popupTimer) {
+      clearTimeout(popupTimer);
+    }
+
+    popupTimer = setTimeout(function () {
+      showPopup();
+    }, delay);
+  }
+
+  function showPopup() {
+    var popup = document.getElementById(popupId);
+    if (!popup) {
+      return;
+    }
+
+    if (popupTimer) {
+      clearTimeout(popupTimer);
+      popupTimer = null;
+    }
+
+    popup.classList.add("is-visible");
+    popup.setAttribute("aria-hidden", "false");
+  }
+
+  function hidePopup() {
+    var popup = document.getElementById(popupId);
+    if (!popup) {
+      return;
+    }
+
+    popup.classList.remove("is-visible");
+    popup.setAttribute("aria-hidden", "true");
+  }
+
+  function init() {
+    injectStyles();
+    createPopup();
+    schedulePopup();
+  }
+
+  if (document.readyState === "loading") {
+    document.addEventListener("DOMContentLoaded", init);
+  } else {
+    init();
+  }
+})();
+
+
+</script>
+			<style>
+				.e-con.e-parent:nth-of-type(n+4):not(.e-lazyloaded):not(.e-no-lazyload),
+				.e-con.e-parent:nth-of-type(n+4):not(.e-lazyloaded):not(.e-no-lazyload) * {
+					background-image: none !important;
+				}
+				@media screen and (max-height: 1024px) {
+					.e-con.e-parent:nth-of-type(n+3):not(.e-lazyloaded):not(.e-no-lazyload),
+					.e-con.e-parent:nth-of-type(n+3):not(.e-lazyloaded):not(.e-no-lazyload) * {
+						background-image: none !important;
+					}
+				}
+				@media screen and (max-height: 640px) {
+					.e-con.e-parent:nth-of-type(n+2):not(.e-lazyloaded):not(.e-no-lazyload),
+					.e-con.e-parent:nth-of-type(n+2):not(.e-lazyloaded):not(.e-no-lazyload) * {
+						background-image: none !important;
+					}
+				}
+			</style>
+			<link rel="icon" href="https://www.penligent.ai/hackinglabs/wp-content/uploads/2025/12/cropped-penligent1-scaled-1-32x32.png" sizes="32x32" />
+<link rel="icon" href="https://www.penligent.ai/hackinglabs/wp-content/uploads/2025/12/cropped-penligent1-scaled-1-192x192.png" sizes="192x192" />
+<link rel="apple-touch-icon" href="https://www.penligent.ai/hackinglabs/wp-content/uploads/2025/12/cropped-penligent1-scaled-1-180x180.png" />
+<meta name="msapplication-TileImage" content="https://www.penligent.ai/hackinglabs/wp-content/uploads/2025/12/cropped-penligent1-scaled-1-270x270.png" />
+<style id="wp-custom-css">
+/* 针对 Elementor 博客正文 */
+.elementor-widget-theme-post-content p {
+    font-size: 18px !important;
+    color: #000000 !important; /* 改成黑色 */
+    font-weight: 400 !important;
+    line-height: 1.8 !important;
+}
+</style>
+<style id="core-block-supports-inline-css">
+.wp-container-core-buttons-is-layout-3e41869c{justify-content:center;}
+/*# sourceURL=core-block-supports-inline-css */
+</style>
+
+</head>
+<body class="wp-singular post-template-default single single-post postid-3207 single-format-standard wp-custom-logo wp-embed-responsive wp-theme-hello-elementor translatepress-en_US hello-elementor-default elementor-default elementor-kit-10 elementor-page-31">
+
+
+<a class="skip-link screen-reader-text" href="#content">Skip to content</a>
+
+		<div data-elementor-type="header" data-elementor-id="29" class="elementor elementor-29 elementor-location-header" data-elementor-post-type="elementor_library">
+			<div class="elementor-element elementor-element-df4c17d e-flex e-con-boxed e-con e-parent" data-id="df4c17d" data-element_type="container">
+					<div class="e-con-inner">
+				<div class="elementor-element elementor-element-3bba0c7 elementor-widget elementor-widget-html" data-id="3bba0c7" data-element_type="widget" data-widget_type="html.default">
+					<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Penligent Header</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            background-color: #141212;
+            color: #FFFFFF;
+        }
+
+        .header {
+            position: sticky;
+            top: 0;
+            z-index: 1001;
+            width: 100%;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+            background: rgba(20, 18, 18, 0.95);
+            backdrop-filter: blur(16px);
+        }
+
+        .header-container {
+            max-width: 100%;
+            margin: 0 auto;
+            display: flex;
+            height: 64px;
+            align-items: center;
+            justify-content: space-between;
+            padding: 0 16px;
+            position: relative;
+        }
+
+        @media (min-width: 768px) {
+            .header-container {
+                max-width: 85%;
+                margin: 0 auto;
+            }
+        }
+
+        .logo-section {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            margin-right: 16px;
+            color: #FFFFFF;
+        }
+
+        .logo {
+            width: 120px;
+            height: 40px;
+            object-fit: contain;
+            filter: brightness(0) invert(1);
+        }
+
+        .logo-text {
+            font-size: 18px;
+            font-weight: 600;
+            color: #FFFFFF;
+            text-decoration: none;
+        }
+
+        .mobile-menu {
+            display: none;
+        }
+
+        .mobile-menu-button {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            background: none;
+            border: none;
+            cursor: pointer;
+            padding: 8px;
+            color: #FFFFFF;
+        }
+
+        .mobile-menu-icon {
+            width: 20px;
+            height: 20px;
+        }
+
+        .mobile-dropdown {
+            position: absolute;
+            top: 100%;
+            left: 0;
+            right: 0;
+            background: #1e1b1b;
+            border: 1px solid rgba(255, 255, 255, 0.16);
+            border-radius: 8px;
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.35);
+            z-index: 99999;
+            display: none;
+        }
+
+        .mobile-dropdown.show {
+            display: block;
+        }
+
+        .mobile-dropdown-item {
+            display: block;
+            width: 100%;
+            padding: 12px 16px;
+            text-decoration: none;
+            color: #d6d6d2;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.16);
+        }
+
+        .mobile-dropdown-item:hover {
+            background-color: #2b2727;
+            color: #FFFFFF;
+        }
+
+        .mobile-dropdown-section {
+            padding: 8px 16px;
+            font-size: 14px;
+            font-weight: 600;
+            color: #FFFFFF;
+            background-color: #2b2727;
+        }
+
+        .desktop-nav {
+            display: none;
+            position: absolute;
+            left: 50%;
+            transform: translateX(-50%);
+        }
+
+        .nav-list {
+            display: flex;
+            list-style: none;
+            gap: 8px;
+        }
+
+        .nav-item {
+            position: relative;
+        }
+
+        .nav-link {
+            display: block;
+            padding: 8px 16px;
+            text-decoration: none;
+            color: #d6d6d2;
+            border-radius: 6px;
+            transition: background-color 0.2s, color 0.2s;
+        }
+
+        .nav-link:hover {
+            color: #FFFFFF;
+            background-color: rgba(255, 255, 255, 0.05);
+        }
+
+        .nav-link.active {
+            color: #FFFFFF;
+            background-color: rgba(255, 255, 255, 0.1);
+        }
+
+        .dropdown-trigger {
+            display: flex;
+            align-items: center;
+            gap: 4px;
+            background: none;
+            border: none;
+            padding: 8px 16px;
+            cursor: pointer;
+            color: #d6d6d2;
+            border-radius: 6px;
+            transition: background-color 0.2s, color 0.2s;
+        }
+
+        .dropdown-trigger:hover {
+            color: #FFFFFF;
+            background-color: rgba(255, 255, 255, 0.05);
+        }
+
+        .dropdown-arrow {
+            width: 16px;
+            height: 16px;
+        }
+
+        .dropdown-content {
+            position: absolute;
+            top: 100%;
+            left: 0;
+            background: #1e1b1b;
+            border: 1px solid rgba(255, 255, 255, 0.16);
+            border-radius: 8px;
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.35);
+            z-index: 50;
+            display: none;
+            min-width: 400px;
+        }
+
+        .dropdown-content.show {
+            display: block;
+        }
+
+        .dropdown-grid {
+            display: grid;
+            gap: 12px;
+            padding: 16px;
+            grid-template-columns: 1fr 1fr;
+        }
+
+        .dropdown-item {
+            display: block;
+            padding: 12px;
+            text-decoration: none;
+            color: #FFFFFF;
+            border-radius: 6px;
+            transition: background-color 0.2s;
+        }
+
+        .dropdown-item:hover {
+            background-color: #2b2727;
+        }
+
+        .dropdown-item-title {
+            font-size: 14px;
+            font-weight: 500;
+            margin-bottom: 4px;
+            color: #FFFFFF;
+        }
+
+        .dropdown-item-desc {
+            font-size: 12px;
+            color: #c6c6c1;
+            line-height: 1.4;
+        }
+
+        .spacer {
+            flex-grow: 1;
+        }
+
+        .header-actions {
+            display: flex;
+            gap: 12px;
+            align-items: center;
+        }
+
+        .login-button {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            padding: 8px 16px;
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            border-radius: 9999px;
+            color: #FFFFFF;
+            background-color: transparent;
+            font-size: 14px;
+            text-decoration: none;
+            white-space: nowrap;
+            transition: background-color 0.2s;
+        }
+
+        .login-button:hover {
+            background-color: rgba(255, 255, 255, 0.1);
+        }
+
+        .download-button {
+            background-color: #FFFFFF;
+            color: #141212;
+            border: none;
+            padding: 8px 16px;
+            border-radius: 9999px;
+            cursor: pointer;
+            font-size: 14px;
+            transition: background-color 0.2s, opacity 0.2s;
+        }
+
+        .download-button:hover {
+            background-color: #e7e7e4;
+            opacity: 1;
+        }
+
+        .download-dropdown {
+            position: absolute;
+            top: 100%;
+            right: 0;
+            background: #1e1b1b;
+            border: 1px solid rgba(255, 255, 255, 0.16);
+            border-radius: 8px;
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.35);
+            z-index: 99999;
+            display: none;
+            min-width: 224px;
+        }
+
+        .download-dropdown.show {
+            display: block;
+        }
+
+        .download-item {
+            display: flex;
+            flex-direction: column;
+            align-items: flex-start;
+            padding: 8px;
+            text-decoration: none;
+            color: #FFFFFF;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.16);
+        }
+
+        .download-item:hover {
+            background-color: #2b2727;
+        }
+
+        .download-item:last-child {
+            border-bottom: none;
+        }
+
+        .download-item.disabled {
+            opacity: 0.5;
+            cursor: not-allowed;
+        }
+
+        .download-item-title {
+            font-size: 14px;
+            font-weight: 500;
+            color: #FFFFFF;
+        }
+
+        .download-item-subtitle {
+            font-size: 12px;
+            color: #c6c6c1;
+        }
+
+        @media (min-width: 1024px) {
+            .mobile-menu {
+                display: none;
+            }
+            
+            .desktop-nav {
+                display: flex;
+            }
+        }
+
+        @media (max-width: 1023px) {
+            .desktop-logo {
+                display: none;
+            }
+
+            .mobile-menu {
+                display: block;
+            }
+            
+            .desktop-nav {
+                display: none;
+            }
+        }
+
+        @media (max-width: 400px) {
+            .mobile-menu-button {
+                gap: 4px;
+                padding: 4px;
+            }
+
+            .mobile-menu .logo {
+                width: 84px;
+            }
+
+            .header-actions {
+                gap: 6px;
+            }
+
+            .login-button,
+            .download-button {
+                padding: 8px;
+                font-size: 12px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header class="header">
+        <div class="header-container">
+            <a href="/?utm_source=seo" class="logo-section desktop-logo" data-no-translation-href>
+                <img src="/logo-wordmark.png" alt="Penligent Logo" class="logo">
+            </a>
+            
+            <div class="mobile-menu">
+                <button class="mobile-menu-button" onclick="toggleMobileMenu()">
+                    <img src="/logo-wordmark.png" alt="Penligent Logo" class="logo">
+                    <svg class="mobile-menu-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path>
+                    </svg>
+                </button>
+                <div class="mobile-dropdown" id="mobileDropdown">
+                    <a href="/?utm_source=seo" class="mobile-dropdown-item" data-no-translation-href>Home</a>
+                    <a href="/pricing?utm_source=seo" class="mobile-dropdown-item" data-no-translation-href>Pricing</a>
+                    <a href="/docs?utm_source=seo" class="mobile-dropdown-item" data-no-translation-href>Doc</a>
+</div>
+            </div>
+
+            <nav class="desktop-nav">
+                <ul class="nav-list">
+                    <li class="nav-item">
+                        <a href="/pricing?utm_source=seo" class="nav-link" data-no-translation-href>Pricing</a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="/docs?utm_source=seo" class="nav-link" data-no-translation-href>Docs</a>
+                    </li>
+                    <li class="nav-item">
+</li>
+                </ul>
+            </nav>
+
+            <div class="spacer"></div>
+
+            <div class="header-actions">
+                <a href="https://www.penligent.ai/" class="login-button" data-no-translation-href>Sign In</a>
+                <div style="position: relative;">
+                    <a class="download-button" href="https://www.penligent.ai/" data-no-translation-href style="display:inline-block;text-decoration:none">Start for Free</a>
+                    <div class="download-dropdown" id="downloadDropdown">
+                        <a href="https://s3.ap-southeast-1.amazonaws.com/yanfa/penligent.kali_amd64_3.0.2.deb" class="download-item" onclick="handleDownload('kali')" data-no-translation-href>
+                            <div class="download-item-title">Kali</div>
+                            <div class="download-item-subtitle">for AMD64</div>
+                        </a>
+                        <a href="https://s3.ap-southeast-1.amazonaws.com/yanfa/penligent.kali_arm64_3.0.2.deb" class="download-item" onclick="handleDownload('kali_arm')" data-no-translation-href>
+                            <div class="download-item-title">Kali</div>
+                            <div class="download-item-subtitle">for ARM64</div>
+                        </a>
+                        <a href="https://s3.ap-southeast-1.amazonaws.com/yanfa/penligent.mac_arm64_3.0.2.dmg" class="download-item" onclick="handleDownload('mac')" data-no-translation-href>
+                            <div class="download-item-title">Mac</div>
+                            <div class="download-item-subtitle">for ARM64</div>
+                        </a>
+                        <a href="https://s3.ap-southeast-1.amazonaws.com/yanfa/penligent.windows_3.0.2.exe" class="download-item" onclick="handleDownload('windows')" data-no-translation-href>
+                            <div class="download-item-title">Windows</div>
+                            <div class="download-item-subtitle">for x64</div>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <script>
+        function getPersistentUUID() {
+            const persistentKey = 'penligent_uuid';
+            let uuid = localStorage.getItem(persistentKey);
+            
+            if (!uuid) {
+                uuid = 'xxxxxxxx-xxxx-4xxx-yxxx-xxxxxxxxxxxx'.replace(/[xy]/g, function(c) {
+                    const r = Math.random() * 16 | 0;
+                    const v = c === 'x' ? r : (r & 0x3 | 0x8);
+                    return v.toString(16);
+                });
+                localStorage.setItem(persistentKey, uuid);
+            }
+            
+            return uuid;
+        }
+
+        if (typeof window.gtag === 'undefined') {
+            window.gtag = function(event, type, data) {
+                if (window.dataLayer) {
+                    window.dataLayer.push(arguments);
+                } else {
+                    console.log('gtag event:', event, type, data);
+                }
+            };
+        }
+
+        function toggleMobileMenu() {
+            const dropdown = document.getElementById('mobileDropdown');
+            dropdown.classList.toggle('show');
+        }
+
+        function toggleDropdown(type) {
+            const allDropdowns = document.querySelectorAll('.dropdown-content');
+            allDropdowns.forEach(dropdown => {
+                if (dropdown.id !== type + 'Dropdown') {
+                    dropdown.classList.remove('show');
+                }
+            });
+
+            const dropdown = document.getElementById(type + 'Dropdown');
+            dropdown.classList.toggle('show');
+        }
+
+        function toggleDownloadMenu() {
+            const dropdown = document.getElementById('downloadDropdown');
+            dropdown.classList.toggle('show');
+        }
+
+        function getDownloadMetadata(downloadUrl) {
+            const cleanUrl = downloadUrl.split('#')[0].split('?')[0];
+            const fileName = cleanUrl.split('/').pop() || '';
+            const normalizedName = fileName.replace(/^penligent\./, '').replace(/\.[^.]+$/, '');
+            const segments = normalizedName.split('_').filter(Boolean);
+            const lastSegment = segments[segments.length - 1];
+            const version = /^\d+(?:\.\d+)+(?:[-._a-zA-Z0-9]+)?$/.test(lastSegment || '') ? lastSegment : '';
+            const os = segments[0] || '';
+            var architecture = '';
+
+            if (segments.length >= 3 && version) {
+                architecture = segments[1];
+            } else if (os === 'windows' && fileName.endsWith('.exe')) {
+                architecture = 'x64';
+            }
+
+            return {
+                fileName: fileName,
+                version: version,
+                os: os,
+                architecture: architecture
+            };
+        }
+
+        function getStoredUser() {
+            try {
+                var rawUser = localStorage.getItem('user');
+                return rawUser ? JSON.parse(rawUser) : null;
+            } catch (error) {
+                return null;
+            }
+        }
+
+        function handleDownload(os) {
+            const visitorId = getPersistentUUID();
+            const downloadMap = {
+                kali: 'https://s3.ap-southeast-1.amazonaws.com/yanfa/penligent.kali_amd64_3.0.2.deb',
+                kali_arm: 'https://s3.ap-southeast-1.amazonaws.com/yanfa/penligent.kali_arm64_3.0.2.deb',
+                mac: 'https://s3.ap-southeast-1.amazonaws.com/yanfa/penligent.mac_arm64_3.0.2.dmg',
+                windows: 'https://s3.ap-southeast-1.amazonaws.com/yanfa/penligent.windows_3.0.2.exe'
+            };
+            const downloadUrl = downloadMap[os];
+            const metadata = getDownloadMetadata(downloadUrl || '');
+            const userAgentData = navigator.userAgentData || {};
+            const storedUser = getStoredUser();
+            
+            if (downloadUrl && typeof window.gtag !== 'undefined') {
+                var payload = {
+                    event_label: `wp_download_menu:${metadata.fileName || downloadUrl}`,
+                    download_entry: 'wp_download_menu',
+                    download_url: downloadUrl,
+                    download_file_name: metadata.fileName || downloadUrl,
+                    download_version: metadata.version || '',
+                    download_os: metadata.os || os,
+                    download_architecture: metadata.architecture || '',
+                    visitor_id: visitorId,
+                    source_path: window.location.pathname,
+                    device_model: userAgentData.model || navigator.platform || 'unknown',
+                    device_platform: userAgentData.platform || navigator.platform || 'unknown',
+                    device_type: userAgentData.mobile ? 'mobile' : 'desktop',
+                    device_user_agent: navigator.userAgent || 'unknown'
+                };
+
+                if (storedUser && storedUser.id) {
+                    payload.user_id = String(storedUser.id);
+                }
+
+                if (storedUser && storedUser.email) {
+                    payload.user_email = storedUser.email;
+                }
+
+                window.gtag("event", "download", payload);
+            }
+            
+        }
+
+        document.addEventListener('click', function(event) {
+            const mobileDropdown = document.getElementById('mobileDropdown');
+            const downloadDropdown = document.getElementById('downloadDropdown');
+            const allDropdowns = document.querySelectorAll('.dropdown-content');
+            
+            if (!event.target.closest('.mobile-menu-button') && !event.target.closest('.mobile-dropdown')) {
+                mobileDropdown.classList.remove('show');
+            }
+            
+            if (!event.target.closest('.download-button') && !event.target.closest('.download-dropdown')) {
+                downloadDropdown.classList.remove('show');
+            }
+            
+            allDropdowns.forEach(dropdown => {
+                if (!event.target.closest('.dropdown-trigger') && !event.target.closest('.dropdown-content')) {
+                    dropdown.classList.remove('show');
+                }
+            });
+        });
+
+        function getSeoArticleRouteValue() {
+            const origin = window.location.origin;
+            const pathname = window.location.pathname || '/';
+
+            if (origin && origin !== 'null') {
+                return origin + pathname;
+            }
+
+            return window.location.href.split('#')[0].split('?')[0];
+        }
+
+        function addSeoArticleRouteToSeoLinks() {
+            const seoArticleRoute = getSeoArticleRouteValue();
+            const currentPath = window.location.pathname || '/';
+            
+            let languagePrefix = '';
+            const hackinglabsMatch = currentPath.match(/^(\/hackinglabs\/[^\/]+)/);
+            if (hackinglabsMatch) {
+                languagePrefix = hackinglabsMatch[1];
+            }
+            
+            const anchors = document.querySelectorAll('a[href]');
+
+            anchors.forEach(a => {
+                const rawHref = a.getAttribute('href');
+                if (!rawHref) return;
+
+                if (/^(#|javascript:|mailto:|tel:)/i.test(rawHref)) return;
+
+                // 如果链接是 /hackinglabs 开头的，不做任何处理
+                // if (rawHref.startsWith('/hackinglabs')) return;
+
+                let url;
+                try {
+                    url = new URL(rawHref, window.location.href);
+                } catch (e) {
+                    return;
+                }
+
+                if (url.searchParams.get('utm_source') !== 'seo') return;
+                if (url.searchParams.has('seo_article_route')) return;
+
+                url.searchParams.set('seo_article_route', seoArticleRoute);
+                if (languagePrefix && rawHref.startsWith('/')) {
+                    if (url.pathname.startsWith(languagePrefix)) {
+                        url.pathname = url.pathname.substring(languagePrefix.length) || '/';
+                    }
+                    a.setAttribute('href', url.pathname + url.search + url.hash);
+                } else if (rawHref.startsWith('?')) {
+                    a.setAttribute('href', url.search + url.hash);
+                } else if (rawHref.startsWith('.')) {
+                    if (languagePrefix && url.pathname.startsWith(languagePrefix)) {
+                        url.pathname = url.pathname.substring(languagePrefix.length) || '/';
+                    }
+                    a.setAttribute('href', url.pathname + url.search + url.hash);
+                } else {
+                    a.setAttribute('href', url.toString());
+                }
+            });
+        }
+
+        document.addEventListener('DOMContentLoaded', function() {
+            addSeoArticleRouteToSeoLinks();
+
+            const currentPath = window.location.pathname;
+            const navLinks = document.querySelectorAll('.nav-link');
+            
+            navLinks.forEach(link => {
+                const rawHref = link.getAttribute('href');
+                if (!rawHref) return;
+
+                try {
+                    const url = new URL(rawHref, window.location.href);
+                    if (url.pathname === currentPath) {
+                        link.classList.add('active');
+                    }
+                } catch (e) {}
+            });
+        });
+    </script>
+</body>
+</html>
+				</div>
+					</div>
+				</div>
+				</div>
+				<div data-elementor-type="single-post" data-elementor-id="31" class="elementor elementor-31 elementor-location-single post-3207 post type-post status-publish format-standard has-post-thumbnail hentry category-hot-topics" data-elementor-post-type="elementor_library">
+			<div class="elementor-element elementor-element-22a65332 e-flex e-con-boxed e-con e-parent" data-id="22a65332" data-element_type="container" data-settings="{&quot;background_background&quot;:&quot;classic&quot;}">
+					<div class="e-con-inner">
+				<div class="elementor-element elementor-element-6676cfbc elementor-widget elementor-widget-theme-post-title elementor-page-title elementor-widget-heading" data-id="6676cfbc" data-element_type="widget" data-widget_type="theme-post-title.default">
+					<h1 class="elementor-heading-title elementor-size-default">Over 220,000 OpenClaw Instances Exposed to the Internet, Why Agent Runtimes “Go Naked” at Scale</h1>				</div>
+				<div class="elementor-element elementor-element-3ed31a51 elementor-align-center elementor-widget elementor-widget-post-info" data-id="3ed31a51" data-element_type="widget" data-widget_type="post-info.default">
+							<ul class="elementor-inline-items elementor-icon-list-items elementor-post-info">
+								<li class="elementor-icon-list-item elementor-repeater-item-7f530f1 elementor-inline-item" itemprop="datePublished">
+						<a href="https://www.penligent.ai/hackinglabs/2026/03/04/">
+														<span class="elementor-icon-list-text elementor-post-info__item elementor-post-info__item--type-date">
+										<time>2026-03-04</time>					</span>
+									</a>
+				</li>
+				<li class="elementor-icon-list-item elementor-repeater-item-6863c75 elementor-inline-item" itemprop="author">
+						<a href="https://www.penligent.ai/hackinglabs/author/penligent/">
+														<span class="elementor-icon-list-text elementor-post-info__item elementor-post-info__item--type-author">
+										penligent					</span>
+									</a>
+				</li>
+				</ul>
+						</div>
+					</div>
+				</div>
+		<div class="elementor-element elementor-element-532e3431 e-flex e-con-boxed e-con e-parent" data-id="532e3431" data-element_type="container" data-settings="{&quot;background_background&quot;:&quot;classic&quot;}">
+					<div class="e-con-inner">
+				<div class="elementor-element elementor-element-97cbf25 elementor-widget elementor-widget-theme-post-content" data-id="97cbf25" data-element_type="widget" data-widget_type="theme-post-content.default">
+					
+<h2 class="wp-block-heading">The headline is about infrastructure, not autonomy</h2>
+
+
+
+<p class="wp-block-paragraph">The most misleading framing around OpenClaw is that the security problem is “AI agents getting smarter.” The credible research points to something more boring—and more dangerous: <strong>mass deployment plus mass misconfiguration</strong>.</p>
+
+
+
+<p class="wp-block-paragraph">SecurityScorecard’s STRIKE team summarizes the core reality clearly: the real risk behind OpenClaw is “access and exposed infrastructure,” with large numbers of internet-facing deployments, many running vulnerable versions. (<a href="https://securityscorecard.com/blog/beyond-the-hype-moltbots-real-risk-is-exposed-infrastructure-not-ai-superintelligence/">SecurityScorecard</a>)</p>
+
+
+
+<p class="wp-block-paragraph">Microsoft’s Defender Security Research Team goes further and treats the runtime category itself as a risk boundary shift: OpenClaw blends untrusted instructions with executable code while operating with persistent credentials, which is why Microsoft says it should be treated as “untrusted code execution with persistent credentials” and is “not appropriate” to run on a standard personal or enterprise workstation. (<a href="https://www.microsoft.com/en-us/security/blog/2026/02/19/running-openclaw-safely-identity-isolation-runtime-risk/?utm_source=chatgpt.com">Microsoft</a>)</p>
+
+
+
+<p class="wp-block-paragraph">If you operate security at scale, you already know how this ends: once an admin panel or gateway is internet-reachable, scanners find it; once scanners find it, attackers start testing it; once attackers test it, the weakest link (auth, tokens, plugin ecosystem, patch lag) becomes the compromise point.</p>
+
+
+
+<h2 class="wp-block-heading">What “exposed OpenClaw instances” really means</h2>
+
+
+
+<p class="wp-block-paragraph">When reports say “internet-exposed OpenClaw instances,” they may be referring to different measurement methods. This is why the numbers vary widely across credible coverage.</p>
+
+
+
+<p class="wp-block-paragraph">Here are the most common definitions used by researchers and journalists:</p>
+
+
+
+<ul class="wp-block-list">
+<li><strong>Unique IPs hosting exposed control panels</strong> (one IP can host multiple services; one service can move IPs)</li>
+
+
+
+<li><strong>Instance fingerprints</strong> (HTTP titles, favicon hashes, UI routes, or protocol behaviors that match OpenClaw variants)</li>
+
+
+
+<li><strong>Actively reachable gateways</strong> (a specific port responds to the network)</li>
+
+
+
+<li><strong>Control panels reachable without strong access controls</strong> (login pages, missing passwords, weak tokens, or misconfigured proxies)</li>
+
+
+
+<li><strong>Vulnerability exposure</strong> (instances that match specific CVEs or show behaviors consistent with exploitability)</li>
+</ul>
+
+
+
+<p class="wp-block-paragraph">SecurityScorecard’s Feb 9 research provides a concrete, defensible baseline: STRIKE identified <strong>42.9K unique IP addresses hosting exposed OpenClaw control panels</strong>, with <strong>15.2K</strong> appearing vulnerable to RCE at the time, and it notes the dataset is refreshed every 15 minutes. (<a href="https://securityscorecard.com/blog/beyond-the-hype-moltbots-real-risk-is-exposed-infrastructure-not-ai-superintelligence/">SecurityScorecard</a>)</p>
+
+
+
+<p class="wp-block-paragraph">Other reporting uses different lenses and later snapshots. The Register described STRIKE’s alarm over “more than 135,000” internet-exposed instances at the time of writing. (<a href="https://www.theregister.com/2026/02/09/openclaw_instances_exposed_vibe_code/?utm_source=chatgpt.com">The Register</a>)</p>
+
+
+
+<p class="wp-block-paragraph">Hackmag then claimed the live dashboard count grew from 135,000 to <strong>more than 220,000</strong>, explicitly attributing the jump to rapidly increasing real-time counts. (<a href="https://hackmag.com/news/openclaw-open?utm_source=chatgpt.com">HackMag</a>)</p>
+
+
+
+<p class="wp-block-paragraph">Infosecurity Magazine highlighted an “over 40,000” finding in early coverage, aligning with the early-phase STRIKE measurements. (<a href="https://www.infosecurity-magazine.com/news/researchers-40000-exposed-openclaw/?utm_source=chatgpt.com">Infosecurity Magazine</a>)</p>
+
+
+
+<p class="wp-block-paragraph">Bitsight independently observed <strong>30,000+</strong> exposed instances within a specific analysis window (Jan 27–Feb 8, 2026), which reinforces the scale even if definitions differ. (<a href="https://www.bitsight.com/blog/openclaw-ai-security-risks-exposed-instances?utm_source=chatgpt.com">Bitsight</a>)</p>
+
+
+
+<p class="wp-block-paragraph"><strong>Operational takeaway:</strong> don’t argue about whether it’s 40K or 220K. Treat it as a fast-moving exposure class that can spike within days—and that your environment may already contain.</p>
+
+
+
+<figure class="wp-block-image aligncenter size-large"><img fetchpriority="high" alt="" fetchpriority="high" decoding="async" width="1024" height="572" src="https://www.penligent.ai/hackinglabs/wp-content/uploads/2026/03/image-45-1024x572.png" alt="" class="wp-image-3210" srcset="https://www.penligent.ai/hackinglabs/wp-content/uploads/2026/03/image-45-1024x572.png 1024w, https://www.penligent.ai/hackinglabs/wp-content/uploads/2026/03/image-45-300x167.png 300w, https://www.penligent.ai/hackinglabs/wp-content/uploads/2026/03/image-45-768x429.png 768w, https://www.penligent.ai/hackinglabs/wp-content/uploads/2026/03/image-45-18x10.png 18w, https://www.penligent.ai/hackinglabs/wp-content/uploads/2026/03/image-45.png 1376w" sizes="(max-width: 1024px) 100vw, 1024px" /><figcaption class="wp-element-caption">Over 220,000 OpenClaw Instances Exposed to the Internet, Why Agent Runtimes “Go Naked” at Scale</figcaption></figure>
+
+
+
+<h2 class="wp-block-heading">Why OpenClaw exposure is more dangerous than a typical web admin panel</h2>
+
+
+
+<p class="wp-block-paragraph">It’s tempting to treat OpenClaw like “another self-hosted tool with a UI.” That’s the mistake.</p>
+
+
+
+<p class="wp-block-paragraph">OpenClaw is an <strong>agent runtime</strong>. Its job is to take actions—often across multiple systems—using credentials you provide. SecurityScorecard frames the escalation risk precisely: if attackers compromise an exposed OpenClaw instance, they inherit whatever access the agent already has (email, cloud services, internal resources, API tokens). (<a href="https://securityscorecard.com/blog/how-exposed-openclaw-deployments-turn-agentic-ai-into-an-attack-surface/">SecurityScorecard</a>)</p>
+
+
+
+<p class="wp-block-paragraph">Microsoft’s warning is fundamentally about <em>how the runtime behaves over time</em>: it can install third-party skills, process unpredictable instructions from outside sources, and retain long-lived tokens/state. That combination weakens the traditional boundary between “trusted installed software” and “untrusted inputs.” (<a href="https://www.microsoft.com/en-us/security/blog/2026/02/19/running-openclaw-safely-identity-isolation-runtime-risk/?utm_source=chatgpt.com">Microsoft</a>)</p>
+
+
+
+<p class="wp-block-paragraph">So when an OpenClaw gateway is reachable, the risk isn’t limited to the server itself. The risk is the entire set of downstream services the agent can touch.</p>
+
+
+
+<h2 class="wp-block-heading">The root cause pattern, defaults plus convenience plus cloud</h2>
+
+
+
+<h3 class="wp-block-heading">Default exposure behavior is a multiplier</h3>
+
+
+
+<p class="wp-block-paragraph">SecurityScorecard’s Feb 9 research explicitly ties the crisis to convenience-driven deployment and weak access controls, and it documents large-scale exposed control panels across dozens of countries. (<a href="https://securityscorecard.com/blog/beyond-the-hype-moltbots-real-risk-is-exposed-infrastructure-not-ai-superintelligence/">SecurityScorecard</a>)</p>
+
+
+
+<p class="wp-block-paragraph">Bitsight adds the “how this happens” operator story: exposing OpenClaw to the public internet is “remarkably easy,” and they observed &gt;30,000 exposed instances in a short window. (<a href="https://www.bitsight.com/blog/openclaw-ai-security-risks-exposed-instances?utm_source=chatgpt.com">Bitsight</a>)</p>
+
+
+
+<p class="wp-block-paragraph">This is the same pattern every security team sees with fast-adoption software:</p>
+
+
+
+<ul class="wp-block-list">
+<li>a default bind that’s too permissive,</li>
+
+
+
+<li>a “quick start” culture that skips perimeter controls,</li>
+
+
+
+<li>and cloud hosts where “reachable” becomes “public” by accident.</li>
+</ul>
+
+
+
+<h3 class="wp-block-heading">The “agent identity” problem is new for many organizations</h3>
+
+
+
+<p class="wp-block-paragraph">SecurityScorecard urges teams to treat agents as additional identities inside the environment with their own access and blast radius. (<a href="https://securityscorecard.com/blog/how-exposed-openclaw-deployments-turn-agentic-ai-into-an-attack-surface/">SecurityScorecard</a>)</p>
+
+
+
+<p class="wp-block-paragraph">That’s not just a metaphor. When an agent has OAuth grants, API keys, and messaging integrations, it becomes a high-privilege actor that doesn’t look like a human login—meaning many orgs won’t catch misuse until after damage.</p>
+
+
+
+<h2 class="wp-block-heading">The most repeated, highest-intent search phrases in top coverage</h2>
+
+
+
+<p class="wp-block-paragraph">You asked for the highest-click terms around this topic. Public sources don’t provide universal CTR numbers, but you can extract something defensible: <strong>the repeated headline language and repeated technical hooks across the most linked, high-authority coverage</strong>. Those repeats strongly correlate with what people search when they’re trying to fix something under pressure.</p>
+
+
+
+<p class="wp-block-paragraph">Across Microsoft, SecurityScorecard STRIKE, Bitsight, <a href="http://Hunt.io">Hunt.io</a>, The Hacker News, Oasis, Endor Labs, and major tech/security news, the most repeated high-intent phrases are:</p>
+
+
+
+<ul class="wp-block-list">
+<li>“<strong>OpenClaw instances exposed to the internet</strong>” and “internet-exposed OpenClaw” (<a href="https://www.theregister.com/2026/02/09/openclaw_instances_exposed_vibe_code/?utm_source=chatgpt.com">The Register</a>)</li>
+
+
+
+<li>“<strong>exposed control panels</strong>” and “publicly accessible control panel” (<a href="https://securityscorecard.com/blog/beyond-the-hype-moltbots-real-risk-is-exposed-infrastructure-not-ai-superintelligence/">SecurityScorecard</a>)</li>
+
+
+
+<li>“<strong>CVE-2026-25253</strong>” and “/api/export-auth token theft” (<a href="https://hunt.io/blog/cve-2026-25253-openclaw-ai-agent-exposure?utm_source=chatgpt.com">hunt.io</a>)</li>
+
+
+
+<li>“<strong>ClawJacked</strong>” and “malicious website hijacks local agent via WebSocket” (<a href="https://www.oasis.security/blog/openclaw-vulnerability?utm_source=chatgpt.com">oasis.security</a>)</li>
+
+
+
+<li>“<strong>ClawHub malicious skills</strong>” and “hundreds of malicious skills” (<a href="https://www.theverge.com/news/874011/openclaw-ai-skill-clawhub-extensions-security-nightmare?utm_source=chatgpt.com">The Verge</a>)</li>
+
+
+
+<li>“untrusted code execution with persistent credentials” (Microsoft’s phrasing is quoted widely) (<a href="https://www.microsoft.com/en-us/security/blog/2026/02/19/running-openclaw-safely-identity-isolation-runtime-risk/?utm_source=chatgpt.com">Microsoft</a>)</li>
+
+
+
+<li>“SSRF / webhook auth / path traversal” in OpenClaw tooling and ecosystem disclosures (<a href="https://www.endorlabs.com/learn/how-ai-sast-traced-data-flows-to-uncover-six-openclaw-vulnerabilities?utm_source=chatgpt.com">endorlabs.com</a>)</li>
+</ul>
+
+
+
+<p class="wp-block-paragraph">If you want search traffic that maps to real remediation work, these are the phrases that consistently show up where serious engineers are reading.</p>
+
+
+
+<figure class="wp-block-embed is-type-video is-provider-youtube wp-block-embed-youtube wp-embed-aspect-4-3 wp-has-aspect-ratio"><div class="wp-block-embed__wrapper">
+<iframe title="Kali Linux + Claude ? We are building Penligent - Change nature language to precise Security Actions" width="800" height="600" src="https://www.youtube.com/embed/DVDW1ij28yM?feature=oembed" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+</div></figure>
+
+
+
+<div class="wp-block-buttons is-content-justification-center is-layout-flex wp-container-core-buttons-is-layout-3e41869c wp-block-buttons-is-layout-flex">
+<div class="wp-block-button"><a class="wp-block-button__link wp-element-button" href="https://penligent.ai/">Try AI Hacker Tool >></a></div>
+</div>
+
+
+
+<h2 class="wp-block-heading">The realistic attack paths defenders should assume</h2>
+
+
+
+<p class="wp-block-paragraph">This section avoids exploit step-by-step details and focuses on the abuse chains that matter for risk reduction.</p>
+
+
+
+<h3 class="wp-block-heading">Path 1, exposed control panel or gateway becomes “permission inheritance”</h3>
+
+
+
+<p class="wp-block-paragraph">SecurityScorecard’s STRIKE team explains why RCE in agentic environments is uniquely dangerous: the attacker doesn’t just get code execution—they get the agent’s integrations and authority. (<a href="https://securityscorecard.com/blog/how-exposed-openclaw-deployments-turn-agentic-ai-into-an-attack-surface/">SecurityScorecard</a>)</p>
+
+
+
+<p class="wp-block-paragraph">Even when it isn’t RCE, a reachable control plane often exposes:</p>
+
+
+
+<ul class="wp-block-list">
+<li>configuration,</li>
+
+
+
+<li>installed skills,</li>
+
+
+
+<li>auth tokens,</li>
+
+
+
+<li>and the “shape” of the environment (which helps targeted exploitation).</li>
+</ul>
+
+
+
+<h3 class="wp-block-heading">Path 2, credential theft via CVE-2026-25253, the “token leaves your machine” class</h3>
+
+
+
+<p class="wp-block-paragraph"><a href="http://Hunt.io">Hunt.io</a>’s research is direct: they identified <strong>17,500+</strong> internet-exposed OpenClaw/variants vulnerable to <strong>CVE-2026-25253</strong>, and the vulnerability allows unauthenticated access to stored API tokens via <code>/api/export-auth</code>. (<a href="https://hunt.io/blog/cve-2026-25253-openclaw-ai-agent-exposure?utm_source=chatgpt.com">hunt.io</a>)</p>
+
+
+
+<p class="wp-block-paragraph">NVD’s description makes the class of bug clear: affected versions obtain a <code>gatewayUrl</code> from a query string and auto-connect via WebSocket, sending a token value—turning a crafted link or override into token exfiltration behavior. (<a href="https://nvd.nist.gov/vuln/detail/CVE-2026-25253?utm_source=chatgpt.com">NVD</a>)</p>
+
+
+
+<p class="wp-block-paragraph">In practice, once a token is gone, the rest of the agent’s connected systems become reachable in the ways that token permits.</p>
+
+
+
+<h3 class="wp-block-heading">Path 3, local workstation takeover via “ClawJacked” WebSocket chain</h3>
+
+
+
+<p class="wp-block-paragraph">Oasis Security describes a vulnerability chain where a website can silently take control of a developer’s OpenClaw agent via localhost WebSocket behavior, recommending updating to <strong>2026.2.25 or later</strong>. (<a href="https://www.oasis.security/blog/openclaw-vulnerability?utm_source=chatgpt.com">oasis.security</a>)</p>
+
+
+
+<p class="wp-block-paragraph">SecurityWeek’s report on the same class of issue summarizes the abuse: malicious websites could open a WebSocket connection to localhost on the OpenClaw gateway port, brute-force passwords, and take control of the agent. (<a href="https://www.securityweek.com/openclaw-vulnerability-allowed-malicious-websites-to-hijack-ai-agents/?utm_source=chatgpt.com">SecurityWeek</a>)</p>
+
+
+
+<p class="wp-block-paragraph">Some coverage reports the patch as <strong>2026.2.26</strong> (likely reflecting a specific release line after the initial fix), so the safest practical guidance is: update to the latest fixed release and verify the fix is actually present. (<a href="https://securityaffairs.com/188749/hacking/clawjacked-flaw-exposed-openclaw-users-to-data-theft.html?utm_source=chatgpt.com">Security Affairs</a>)</p>
+
+
+
+<h3 class="wp-block-heading">Path 4, supply chain compromise via skills, the marketplace becomes an attack surface</h3>
+
+
+
+<p class="wp-block-paragraph">The Verge reports that hundreds of skills in ClawHub contained malware and emphasizes that skills can execute with broad access to local files and networks, escalating the impact of a malicious extension. (<a href="https://www.theverge.com/news/874011/openclaw-ai-skill-clawhub-extensions-security-nightmare?utm_source=chatgpt.com">The Verge</a>)</p>
+
+
+
+<p class="wp-block-paragraph">Tom’s Hardware details a narrower slice—at least 14 malicious skills uploaded in late January 2026—illustrating how quickly attackers tested the ecosystem. (<a href="https://www.tomshardware.com/tech-industry/cyber-security/malicious-moltbot-skill-targets-crypto-users-on-clawhub?utm_source=chatgpt.com">Tom&#8217;s Hardware</a>)</p>
+
+
+
+<p class="wp-block-paragraph">Trend Micro documents malicious OpenClaw skills being used to distribute Atomic macOS Stealer, showing that the ecosystem is already being used as a malware delivery channel. (<a href="https://www.trendmicro.com/en_us/research/26/b/openclaw-skills-used-to-distribute-atomic-macos-stealer.html?utm_source=chatgpt.com">www.trendmicro.com</a>)</p>
+
+
+
+<p class="wp-block-paragraph">VirusTotal’s own blog describes detecting hundreds of actively malicious skills and frames the marketplace as a new supply-chain vector. (<a href="https://blog.virustotal.com/2026/02/from-automation-to-infection-how.html?utm_source=chatgpt.com">blog.virustotal.com</a>)</p>
+
+
+
+<p class="wp-block-paragraph">This is not theoretical. It is already an active distribution layer.</p>
+
+
+
+<h2 class="wp-block-heading">The CVE map that matters most, prioritized for real-world defense</h2>
+
+
+
+<p class="wp-block-paragraph">The goal here is not to list every advisory. The goal is to surface the CVEs that map to the most likely compromise paths: token theft, command injection, file disclosure, and tool-bridge vulnerabilities.</p>
+
+
+
+<h3 class="wp-block-heading">High-impact OpenClaw CVEs and what they mean</h3>
+
+
+
+<figure class="wp-block-table"><table class="has-fixed-layout"><thead><tr><th>CVE</th><th>What it enables, plain English</th><th>Typical preconditions</th><th>Fixed version signal</th></tr></thead><tbody><tr><td><strong>CVE-2026-25253</strong></td><td>Token theft via gateway URL override + auto WebSocket connection behavior, leading to account compromise patterns</td><td>User interaction or exposed UI patterns depending on deployment; token stored client-side and sent out</td><td>NVD references affected versions “before 2026.1.29” in its entry (<a href="https://nvd.nist.gov/vuln/detail/CVE-2026-25253?utm_source=chatgpt.com">NVD</a>)</td></tr><tr><td><strong>CVE-2026-25593</strong></td><td>Unauthenticated local client can use Gateway WebSocket config to set unsafe path values leading to command injection as gateway user</td><td>Local adjacency; still serious on shared hosts/dev boxes</td><td>Fixed in <strong>2026.1.20</strong> per NVD (<a href="https://nvd.nist.gov/vuln/detail/CVE-2026-25593?utm_source=chatgpt.com">NVD</a>)</td></tr><tr><td><strong>CVE-2026-24763</strong></td><td>Command injection risk in Docker sandbox execution due to unsafe PATH handling</td><td>Authenticated user controlling env variables; risky in privileged/misconfigured container setups</td><td>Fixed in <strong>2026.1.29</strong> per NVD (<a href="https://nvd.nist.gov/vuln/detail/CVE-2026-24763?utm_source=chatgpt.com">NVD</a>)</td></tr><tr><td><strong>CVE-2026-25157</strong></td><td>OS command injection via project root path in SSH remote handling</td><td>Scenarios using SSH node commands; remote host impact</td><td>Affected before <strong>2026.1.29</strong> per NVD (<a href="https://nvd.nist.gov/vuln/detail/CVE-2026-25157?utm_source=chatgpt.com">NVD</a>)</td></tr><tr><td><strong>CVE-2026-25475</strong></td><td>Local file disclosure via <code>MEDIA:</code> path staging, allowing reading arbitrary files if the agent outputs that path</td><td>Requires privileges that allow agent to read files; high-value in real environments</td><td>Patched in <strong>2026.1.30</strong> per NVD (<a href="https://nvd.nist.gov/vuln/detail/CVE-2026-25475?utm_source=chatgpt.com">NVD</a>)</td></tr></tbody></table></figure>
+
+
+
+<h3 class="wp-block-heading">Vulnerabilities discovered via modern code-flow analysis, not guesswork</h3>
+
+
+
+<p class="wp-block-paragraph">Endor Labs reports discovering six vulnerabilities in OpenClaw using data flow analysis and validating working exploits, with CVEs including <strong>CVE-2026-26319</strong>, <strong>CVE-2026-26322</strong>, and <strong>CVE-2026-26329</strong> among the set described publicly. (<a href="https://www.endorlabs.com/learn/how-ai-sast-traced-data-flows-to-uncover-six-openclaw-vulnerabilities?utm_source=chatgpt.com">endorlabs.com</a>)</p>
+
+
+
+<p class="wp-block-paragraph">For defenders, the value of this work is that it highlights how tool-bridging features (webhooks, upload paths, SSRF-adjacent behaviors) become escalation points in agent runtimes.</p>
+
+
+
+<h2 class="wp-block-heading">24-hour triage checklist, reduce risk fast without breaking everything</h2>
+
+
+
+<p class="wp-block-paragraph">This section is designed for security teams who need immediate action, and it assumes you are scanning only networks and systems you own or are authorized to test.</p>
+
+
+
+<h3 class="wp-block-heading">1) Find every host that looks like OpenClaw</h3>
+
+
+
+<p class="wp-block-paragraph">Start with port and service discovery, then validate with host-level checks.</p>
+
+
+
+<pre class="wp-block-code"><code># Authorized scanning only.
+# Look for the gateway/control-plane port commonly referenced in incident coverage.
+nmap -sS -sV -p 18789 --open &lt;YOUR_CIDR_RANGES&gt;
+</code></pre>
+
+
+
+<p class="wp-block-paragraph">If you have EDR inventory, search installed packages or process names associated with your OpenClaw deployment patterns.</p>
+
+
+
+<h3 class="wp-block-heading">2) Confirm whether the service is bound to public interfaces</h3>
+
+
+
+<p class="wp-block-paragraph">On Linux:</p>
+
+
+
+<pre class="wp-block-code"><code>sudo ss -lntp | grep -E ':18789\\b' || true
+sudo lsof -nP -iTCP:18789 -sTCP:LISTEN || true
+</code></pre>
+
+
+
+<p class="wp-block-paragraph">If you see <code>x.x.x.x:18789</code> or <code>:::18789</code>, treat it as internet-reachable unless your network controls block it.</p>
+
+
+
+<h3 class="wp-block-heading">3) Remove public reachability first, then perfect authentication</h3>
+
+
+
+<p class="wp-block-paragraph">If an instance is reachable from the internet, the safest short-term fix is to block it at the perimeter. You can add stronger auth later, but you cannot “auth your way out” of unpatched RCE/token-theft classes fast enough.</p>
+
+
+
+<p class="wp-block-paragraph">Example with UFW:</p>
+
+
+
+<pre class="wp-block-code"><code># Block public access to the OpenClaw gateway/control port
+sudo ufw deny 18789/tcp
+
+# Allow only from VPN/private admin ranges (example)
+sudo ufw allow from x.x.x.x/24 to any port 18789 proto tcp
+</code></pre>
+
+
+
+<h3 class="wp-block-heading">4) Patch with urgency, then rotate secrets as if exposure occurred</h3>
+
+
+
+<p class="wp-block-paragraph">Microsoft recommends isolation, limited credentials, and rebuild plans for a reason: if an agent was reachable, you have to assume downstream compromise paths exist. (<a href="https://www.microsoft.com/en-us/security/blog/2026/02/19/running-openclaw-safely-identity-isolation-runtime-risk/?utm_source=chatgpt.com">Microsoft</a>)</p>
+
+
+
+<p class="wp-block-paragraph">Patch priorities based on public disclosures:</p>
+
+
+
+<ul class="wp-block-list">
+<li>Update beyond the fixed releases for ClawJacked-class issues (Oasis recommends <strong>2026.2.25+</strong>) (<a href="https://www.oasis.security/blog/openclaw-vulnerability?utm_source=chatgpt.com">oasis.security</a>)</li>
+
+
+
+<li>Patch token-theft behaviors related to <strong>CVE-2026-25253</strong> (<a href="https://nvd.nist.gov/vuln/detail/CVE-2026-25253?utm_source=chatgpt.com">NVD</a>)</li>
+
+
+
+<li>Patch command injection and file disclosure CVEs outlined in NVD entries (<a href="https://nvd.nist.gov/vuln/detail/CVE-2026-25593?utm_source=chatgpt.com">NVD</a>)</li>
+</ul>
+
+
+
+<p class="wp-block-paragraph">Then rotate:</p>
+
+
+
+<ul class="wp-block-list">
+<li>API keys for LLM providers</li>
+
+
+
+<li>OAuth refresh tokens and app approvals</li>
+
+
+
+<li>any secrets the agent could read locally (SSH keys, cloud credentials, service account tokens)</li>
+</ul>
+
+
+
+<p class="wp-block-paragraph">If you cannot quickly enumerate what the agent had access to, that is itself a signal your deployment model needs rethinking.</p>
+
+
+
+<figure class="wp-block-image aligncenter size-large"><img loading="lazy" alt="" decoding="async" width="1024" height="572" src="https://www.penligent.ai/hackinglabs/wp-content/uploads/2026/03/image-46-1024x572.png" alt="" class="wp-image-3212" srcset="https://www.penligent.ai/hackinglabs/wp-content/uploads/2026/03/image-46-1024x572.png 1024w, https://www.penligent.ai/hackinglabs/wp-content/uploads/2026/03/image-46-300x167.png 300w, https://www.penligent.ai/hackinglabs/wp-content/uploads/2026/03/image-46-768x429.png 768w, https://www.penligent.ai/hackinglabs/wp-content/uploads/2026/03/image-46-18x10.png 18w, https://www.penligent.ai/hackinglabs/wp-content/uploads/2026/03/image-46.png 1376w" sizes="(max-width: 1024px) 100vw, 1024px" /><figcaption class="wp-element-caption">Over 220,000 OpenClaw Instances Exposed to the Internet, Why Agent Runtimes “Go Naked” at Scale</figcaption></figure>
+
+
+
+<div class="wp-block-buttons is-content-justification-center is-layout-flex wp-container-core-buttons-is-layout-3e41869c wp-block-buttons-is-layout-flex">
+<div class="wp-block-button"><a class="wp-block-button__link wp-element-button" href="https://penligent.ai/">Try AI Hacker Tool >></a></div>
+</div>
+
+
+
+<h2 class="wp-block-heading">Secure deployment blueprint, what “good” looks like for an agent runtime</h2>
+
+
+
+<h3 class="wp-block-heading">Rule 1, treat the runtime as disposable and isolate it</h3>
+
+
+
+<p class="wp-block-paragraph">Microsoft’s guidance is clear: evaluate only in a fully isolated environment (dedicated VM or separate physical system), using dedicated non-privileged credentials and non-sensitive data. (<a href="https://www.microsoft.com/en-us/security/blog/2026/02/19/running-openclaw-safely-identity-isolation-runtime-risk/?utm_source=chatgpt.com">Microsoft</a>)</p>
+
+
+
+<p class="wp-block-paragraph">If you do only one thing, do this.</p>
+
+
+
+<h3 class="wp-block-heading">Rule 2, bind locally and control ingress explicitly</h3>
+
+
+
+<p class="wp-block-paragraph">If you use Docker, avoid publishing the port broadly:</p>
+
+
+
+<pre class="wp-block-code"><code># Prefer localhost binding to prevent accidental public exposure
+docker run --name openclaw \\
+  -p x.x.x.x:18789:18789 \\
+  --restart unless-stopped \\
+  openclaw/openclaw:latest
+</code></pre>
+
+
+
+<p class="wp-block-paragraph">Then provide access via VPN or private tunnel rather than public IPs.</p>
+
+
+
+<h3 class="wp-block-heading">Rule 3, enforce least-privilege integrations and separate identities</h3>
+
+
+
+<p class="wp-block-paragraph">SecurityScorecard’s STRIKE team urges teams to treat agents as identities with their own blast radius. (<a href="https://securityscorecard.com/blog/how-exposed-openclaw-deployments-turn-agentic-ai-into-an-attack-surface/">SecurityScorecard</a>)</p>
+
+
+
+<p class="wp-block-paragraph">Translate that into control design:</p>
+
+
+
+<ul class="wp-block-list">
+<li>separate service accounts for the agent</li>
+
+
+
+<li>minimal OAuth scopes</li>
+
+
+
+<li>no access to production cloud consoles unless required</li>
+
+
+
+<li>no read access to secrets folders by default</li>
+
+
+
+<li>use short-lived credentials where possible</li>
+</ul>
+
+
+
+<h3 class="wp-block-heading">Rule 4, skills are a supply chain, allowlist and review</h3>
+
+
+
+<p class="wp-block-paragraph">Even OpenClaw’s own blog acknowledges that skills run in the agent’s context with access to tools and data—and that malicious skills can exfiltrate information or execute unauthorized commands. (<a href="https://openclaw.ai/blog/virustotal-partnership?utm_source=chatgpt.com">OpenClaw</a>)</p>
+
+
+
+<p class="wp-block-paragraph">Given the ecosystem has already been abused at scale, you should:</p>
+
+
+
+<ul class="wp-block-list">
+<li>allowlist approved skill sources</li>
+
+
+
+<li>pin versions and verify hashes</li>
+
+
+
+<li>require code review for any skill that can execute commands or access sensitive stores</li>
+
+
+
+<li>disable skills you don’t need</li>
+</ul>
+
+
+
+<h3 class="wp-block-heading">Rule 5, use scanning and telemetry, but don’t confuse scanning with safety</h3>
+
+
+
+<p class="wp-block-paragraph">OpenClaw announced a VirusTotal partnership to scan skills and display scan results in version history. (<a href="https://openclaw.ai/blog/virustotal-partnership?utm_source=chatgpt.com">OpenClaw</a>)</p>
+
+
+
+<p class="wp-block-paragraph">That helps, but it does not solve instruction-level attacks, social engineering, or logic-layer abuse.</p>
+
+
+
+<p class="wp-block-paragraph">VirusTotal also describes the marketplace as a malware delivery channel, which should set your expectation: <strong>this ecosystem will remain a target.</strong> (<a href="https://blog.virustotal.com/2026/02/from-automation-to-infection-how.html?utm_source=chatgpt.com">blog.virustotal.com</a>)</p>
+
+
+
+<h2 class="wp-block-heading">Monitoring and detection, catch abuse before it becomes “quiet persistence”</h2>
+
+
+
+<p class="wp-block-paragraph">A core point in Microsoft’s write-up is that persistence may look like configuration drift and legitimate OAuth approvals rather than obvious malware. (<a href="https://www.microsoft.com/en-us/security/blog/2026/02/19/running-openclaw-safely-identity-isolation-runtime-risk/?utm_source=chatgpt.com">Microsoft</a>)</p>
+
+
+
+<p class="wp-block-paragraph">So your monitoring needs to include identity and behavior signals, not just binaries.</p>
+
+
+
+<h3 class="wp-block-heading">1) Detect exposure policy violations</h3>
+
+
+
+<p class="wp-block-paragraph">A simple host check you can run via your config management system:</p>
+
+
+
+<pre class="wp-block-code"><code># Exit non-zero if the gateway is listening on all interfaces
+if ss -lntp | grep -qE '0\\.0\\.0\\.0:18789|:::18789'; then
+  echo "Policy violation: OpenClaw port 18789 bound to all interfaces"
+  exit 2
+fi
+exit 0
+</code></pre>
+
+
+
+<h3 class="wp-block-heading">2) Watch for suspicious outbound patterns</h3>
+
+
+
+<p class="wp-block-paragraph">For agent hosts, alert on:</p>
+
+
+
+<ul class="wp-block-list">
+<li>new domains contacted shortly after skill installs</li>
+
+
+
+<li>requests to cloud metadata IPs (for example, x.x.x.x) from unexpected workloads</li>
+
+
+
+<li>sudden spikes in LLM provider API usage tied to agent tokens</li>
+
+
+
+<li>outbound connections to paste sites or webhook collectors</li>
+</ul>
+
+
+
+<p class="wp-block-paragraph">Endor Labs’ disclosure work highlights why SSRF-adjacent tool surfaces matter in agent runtimes, because “tool inputs” can become network actions. (<a href="https://www.endorlabs.com/learn/how-ai-sast-traced-data-flows-to-uncover-six-openclaw-vulnerabilities?utm_source=chatgpt.com">endorlabs.com</a>)</p>
+
+
+
+<h3 class="wp-block-heading">3) Identity telemetry, watch OAuth grants and token refresh behavior</h3>
+
+
+
+<p class="wp-block-paragraph">If your agent uses OAuth, log:</p>
+
+
+
+<ul class="wp-block-list">
+<li>new app consents</li>
+
+
+
+<li>scope changes</li>
+
+
+
+<li>refresh token creation</li>
+
+
+
+<li>unusual access times or locations</li>
+</ul>
+
+
+
+<p class="wp-block-paragraph">Treat the agent as a non-human identity that needs the same governance you apply to service accounts.</p>
+
+
+
+<h2 class="wp-block-heading">Incident response, if you were exposed, assume downstream impact</h2>
+
+
+
+<p class="wp-block-paragraph">If an OpenClaw control plane or gateway was internet-reachable, do not stop at “we closed the port.”</p>
+
+
+
+<p class="wp-block-paragraph">Your IR plan should include:</p>
+
+
+
+<ol class="wp-block-list">
+<li><strong>Containment</strong></li>
+</ol>
+
+
+
+<ul class="wp-block-list">
+<li>remove public exposure at network edge</li>
+
+
+
+<li>isolate the host (quarantine segment)</li>
+
+
+
+<li>snapshot disk and memory if you need forensic evidence</li>
+</ul>
+
+
+
+<ol class="wp-block-list">
+<li><strong>Credential rotation</strong></li>
+</ol>
+
+
+
+<ul class="wp-block-list">
+<li>rotate all LLM provider API keys</li>
+
+
+
+<li>revoke/rotate SaaS tokens and OAuth grants</li>
+
+
+
+<li>rotate SSH keys and cloud credentials accessible to the agent <a href="http://Hunt.io">Hunt.io</a>’s research shows how directly token exposure maps to real compromise potential. (<a href="https://hunt.io/blog/cve-2026-25253-openclaw-ai-agent-exposure?utm_source=chatgpt.com">hunt.io</a>)</li>
+</ul>
+
+
+
+<ol class="wp-block-list">
+<li><strong>Behavior review</strong></li>
+</ol>
+
+
+
+<ul class="wp-block-list">
+<li>review agent logs and action histories for unexpected tool execution</li>
+
+
+
+<li>inspect installed skills/extensions and recent changes</li>
+
+
+
+<li>check for new scheduled jobs, cron entries, or persistence mechanisms</li>
+</ul>
+
+
+
+<ol class="wp-block-list">
+<li><strong>Rebuild</strong> Microsoft explicitly recommends a rebuild plan as part of the operating model for evaluating such runtimes. (<a href="https://www.microsoft.com/en-us/security/blog/2026/02/19/running-openclaw-safely-identity-isolation-runtime-risk/?utm_source=chatgpt.com">Microsoft</a>)</li>
+</ol>
+
+
+
+<p class="wp-block-paragraph">If your team is already running authorized security validation, the OpenClaw exposure story is fundamentally a verification problem: you need to know where the runtime is deployed, whether it is reachable, whether known fixes are actually present, and whether integrations are scoped safely.</p>
+
+
+
+<p class="wp-block-paragraph">That’s where an AI-assisted penetration testing platform like <strong>Penligent</strong> can be useful in a concrete way: automating evidence-based verification of exposure conditions (reachable ports, misconfigured proxies, unauthenticated control paths) and producing repeatable remediation proof you can share with engineering and leadership.</p>
+
+
+
+<p class="wp-block-paragraph">Penligent has also published focused research that treats the OpenClaw skill ecosystem as a supply-chain boundary—useful context when you’re building governance for skills and extension review pipelines. (<a href="https://www.penligent.ai/hackinglabs/openclaw-virustotal-the-skill-marketplace-just-became-a-supply-chain-boundary/">penligent.ai</a>)</p>
+
+
+
+<figure class="wp-block-image aligncenter size-large"><img loading="lazy" alt="" decoding="async" width="1024" height="559" src="https://www.penligent.ai/hackinglabs/wp-content/uploads/2026/03/image-47-1024x559.png" alt="" class="wp-image-3213" srcset="https://www.penligent.ai/hackinglabs/wp-content/uploads/2026/03/image-47-1024x559.png 1024w, https://www.penligent.ai/hackinglabs/wp-content/uploads/2026/03/image-47-300x164.png 300w, https://www.penligent.ai/hackinglabs/wp-content/uploads/2026/03/image-47-768x419.png 768w, https://www.penligent.ai/hackinglabs/wp-content/uploads/2026/03/image-47-18x10.png 18w, https://www.penligent.ai/hackinglabs/wp-content/uploads/2026/03/image-47.png 1408w" sizes="(max-width: 1024px) 100vw, 1024px" /><figcaption class="wp-element-caption">Over 220,000 OpenClaw Instances Exposed to the Internet, Why Agent Runtimes “Go Naked” at Scale</figcaption></figure>
+
+
+
+<div class="wp-block-buttons is-content-justification-center is-layout-flex wp-container-core-buttons-is-layout-3e41869c wp-block-buttons-is-layout-flex">
+<div class="wp-block-button"><a class="wp-block-button__link wp-element-button" href="https://penligent.ai/">Try AI Hacker Tool >></a></div>
+</div>
+
+
+
+<h2 class="wp-block-heading">Summary, what security teams should say out loud</h2>
+
+
+
+<ul class="wp-block-list">
+<li>The OpenClaw incident wave is not mainly about “AI going rogue.” It’s about <strong>agent runtimes being deployed like toys</strong> while holding <strong>real credentials</strong>. (<a href="https://securityscorecard.com/blog/beyond-the-hype-moltbots-real-risk-is-exposed-infrastructure-not-ai-superintelligence/">SecurityScorecard</a>)</li>
+
+
+
+<li>Reported exposure counts vary because measurement methods vary, but multiple independent sources still show <strong>mass-scale exposure</strong> in short windows. (<a href="https://securityscorecard.com/blog/beyond-the-hype-moltbots-real-risk-is-exposed-infrastructure-not-ai-superintelligence/">SecurityScorecard</a>)</li>
+
+
+
+<li>The most important defensive moves are the classic ones—restrict exposure, patch quickly, rotate secrets, isolate runtimes—but you must apply them as if you’re securing a privileged identity, not a normal app. (<a href="https://securityscorecard.com/blog/how-exposed-openclaw-deployments-turn-agentic-ai-into-an-attack-surface/">SecurityScorecard</a>)</li>
+
+
+
+<li>The skill marketplace is already an active malware delivery channel; treat it as a supply-chain threat model, not an app store convenience. (<a href="https://www.theverge.com/news/874011/openclaw-ai-skill-clawhub-extensions-security-nightmare?utm_source=chatgpt.com">The Verge</a>)</li>
+</ul>
+
+
+
+<h2 class="wp-block-heading">References</h2>
+
+
+
+<p class="wp-block-paragraph">Microsoft Security Blog: Running OpenClaw safely: identity, isolation, and runtime risk <a href="https://www.microsoft.com/en-us/security/blog/2026/02/19/running-openclaw-safely-identity-isolation-runtime-risk/">https://www.microsoft.com/en-us/security/blog/2026/02/19/running-openclaw-safely-identity-isolation-runtime-risk/</a></p>
+
+
+
+<p class="wp-block-paragraph">SecurityScorecard STRIKE: Beyond the Hype — exposed infrastructure, counts, and RCE risk <a href="https://securityscorecard.com/blog/beyond-the-hype-moltbots-real-risk-is-exposed-infrastructure-not-ai-superintelligence/">https://securityscorecard.com/blog/beyond-the-hype-moltbots-real-risk-is-exposed-infrastructure-not-ai-superintelligence/</a></p>
+
+
+
+<p class="wp-block-paragraph">SecurityScorecard STRIKE: How exposed OpenClaw deployments turn agentic AI into an attack surface <a href="https://securityscorecard.com/blog/how-exposed-openclaw-deployments-turn-agentic-ai-into-an-attack-surface/">https://securityscorecard.com/blog/how-exposed-openclaw-deployments-turn-agentic-ai-into-an-attack-surface/</a></p>
+
+
+
+<p class="wp-block-paragraph">Bitsight: OpenClaw AI security risks, 30,000+ exposed instances observed in a defined window <a href="https://www.bitsight.com/blog/openclaw-ai-security-risks-exposed-instances">https://www.bitsight.com/blog/openclaw-ai-security-risks-exposed-instances</a></p>
+
+
+
+<p class="wp-block-paragraph">NVD: CVE-2026-25253 <a href="https://nvd.nist.gov/vuln/detail/CVE-2026-25253">https://nvd.nist.gov/vuln/detail/CVE-2026-25253</a></p>
+
+
+
+<p class="wp-block-paragraph">NVD: CVE-2026-25593 <a href="https://nvd.nist.gov/vuln/detail/CVE-2026-25593">https://nvd.nist.gov/vuln/detail/CVE-2026-25593</a></p>
+
+
+
+<p class="wp-block-paragraph">NVD: CVE-2026-24763 <a href="https://nvd.nist.gov/vuln/detail/CVE-2026-24763">https://nvd.nist.gov/vuln/detail/CVE-2026-24763</a></p>
+
+
+
+<p class="wp-block-paragraph">NVD: CVE-2026-25157 <a href="https://nvd.nist.gov/vuln/detail/CVE-2026-25157">https://nvd.nist.gov/vuln/detail/CVE-2026-25157</a></p>
+
+
+
+<p class="wp-block-paragraph">NVD: CVE-2026-25475 <a href="https://nvd.nist.gov/vuln/detail/CVE-2026-25475">https://nvd.nist.gov/vuln/detail/CVE-2026-25475</a></p>
+
+
+
+<p class="wp-block-paragraph">Oasis Security: OpenClaw vulnerability chain (ClawJacked) and patch guidance <a href="https://www.oasis.security/blog/openclaw-vulnerability">https://www.oasis.security/blog/openclaw-vulnerability</a></p>
+
+
+
+<p class="wp-block-paragraph">Endor Labs: Six OpenClaw vulnerabilities discovered via data flow analysis <a href="https://www.endorlabs.com/learn/how-ai-sast-traced-data-flows-to-uncover-six-openclaw-vulnerabilities">https://www.endorlabs.com/learn/how-ai-sast-traced-data-flows-to-uncover-six-openclaw-vulnerabilities</a></p>
+
+
+
+<p class="wp-block-paragraph">OpenClaw official blog: VirusTotal partnership for ClawHub skill scanning <a href="https://openclaw.ai/blog/virustotal-partnership">https://openclaw.ai/blog/virustotal-partnership</a></p>
+
+
+
+<p class="wp-block-paragraph">VirusTotal blog: From Automation to Infection — OpenClaw skills as a malware vector <a href="https://blog.virustotal.com/2026/02/from-automation-to-infection-how.html">https://blog.virustotal.com/2026/02/from-automation-to-infection-how.html</a></p>
+
+
+
+<p class="wp-block-paragraph">Penligent: OpenClaw + VirusTotal — The skill marketplace as a supply-chain boundary <a href="https://www.penligent.ai/hackinglabs/openclaw-virustotal-the-skill-marketplace-just-became-a-supply-chain-boundary/">https://www.penligent.ai/hackinglabs/openclaw-virustotal-the-skill-marketplace-just-became-a-supply-chain-boundary/</a></p>
+
+
+
+<p class="wp-block-paragraph"></p>
+				</div>
+				<div class="elementor-element elementor-element-3ec6880c elementor-widget elementor-widget-post-navigation" data-id="3ec6880c" data-element_type="widget" data-widget_type="post-navigation.default">
+							<div class="elementor-post-navigation">
+			<div class="elementor-post-navigation__prev elementor-post-navigation__link">
+				<a href="https://www.penligent.ai/hackinglabs/chrome-security-flaw-enabled-spying-via-gemini-live-assistant/" rel="prev"><span class="elementor-post-navigation__link__prev"><span class="post-navigation__prev--label">Previous</span></span></a>			</div>
+						<div class="elementor-post-navigation__next elementor-post-navigation__link">
+				<a href="https://www.penligent.ai/hackinglabs/agentic-ai-security-in-production-mcp-security-memory-poisoning-tool-misuse-and-the-new-execution-boundary/" rel="next"><span class="elementor-post-navigation__link__next"><span class="post-navigation__next--label">Next</span></span></a>			</div>
+		</div>
+						</div>
+		<footer class="elementor-element elementor-element-6cd54c4c e-con-full e-flex e-con e-child" data-id="6cd54c4c" data-element_type="container" data-settings="{&quot;background_background&quot;:&quot;classic&quot;}">
+				<div class="elementor-element elementor-element-43a6aefe elementor-widget elementor-widget-heading" data-id="43a6aefe" data-element_type="widget" data-widget_type="heading.default">
+					<h6 class="elementor-heading-title elementor-size-default"><a href="https://www.penligent.ai/">Start Your  AI  Pentesting</a></h6>				</div>
+				<div class="elementor-element elementor-element-615aa89 elementor-widget elementor-widget-text-editor" data-id="615aa89" data-element_type="widget" data-widget_type="text-editor.default">
+									<p>Meet your AI-powered Pentesting Tool via Penligent.ai</p>								</div>
+				<div class="elementor-element elementor-element-0108d28 elementor-widget elementor-widget-button" data-id="0108d28" data-element_type="widget" data-widget_type="button.default">
+										<a class="elementor-button elementor-button-link elementor-size-sm" href="https://www.penligent.ai/">
+						<span class="elementor-button-content-wrapper">
+									<span class="elementor-button-text">Try Now &gt;</span>
+					</span>
+					</a>
+								</div>
+				</footer>
+		<div class="elementor-element elementor-element-46b4fc6c e-con-full e-flex e-con e-child" data-id="46b4fc6c" data-element_type="container">
+				<div class="elementor-element elementor-element-72e25bb8 elementor-widget elementor-widget-heading" data-id="72e25bb8" data-element_type="widget" data-widget_type="heading.default">
+					<span class="elementor-heading-title elementor-size-default">Share the Post:</span>				</div>
+				<div class="elementor-element elementor-element-69ef2f28 elementor-share-buttons--view-icon elementor-share-buttons--skin-minimal elementor-share-buttons--color-custom elementor-share-buttons--align-center elementor-share-buttons--shape-square elementor-grid-0 elementor-widget elementor-widget-share-buttons" data-id="69ef2f28" data-element_type="widget" data-widget_type="share-buttons.default">
+							<div class="elementor-grid">
+								<div class="elementor-grid-item">
+						<div
+							class="elementor-share-btn elementor-share-btn_linkedin"
+							role="button"
+							tabindex="0"
+							aria-label="Teilen auf linkedin"
+						>
+															<span class="elementor-share-btn__icon">
+								<svg class="e-font-icon-svg e-fab-linkedin" viewBox="0 0 448 512" xmlns="http://www.w3.org/2000/svg"><path d="M416 32H31.9C14.3 32 0 46.5 0 64.3v383.4C0 465.5 14.3 480 31.9 480H416c17.6 0 32-14.5 32-32.3V64.3c0-17.8-14.4-32.3-32-32.3zM135.4 416H69V202.2h66.5V416zm-33.2-243c-21.3 0-38.5-17.3-38.5-38.5S80.9 96 102.2 96c21.2 0 38.5 17.3 38.5 38.5 0 21.3-17.2 38.5-38.5 38.5zm282.1 243h-66.4V312c0-24.8-.5-56.7-34.5-56.7-34.6 0-39.9 27-39.9 54.9V416h-66.4V202.2h63.7v29.2h.9c8.9-16.8 30.6-34.5 62.9-34.5 67.2 0 79.7 44.3 79.7 101.9V416z"></path></svg>							</span>
+																				</div>
+					</div>
+									<div class="elementor-grid-item">
+						<div
+							class="elementor-share-btn elementor-share-btn_x-twitter"
+							role="button"
+							tabindex="0"
+							aria-label="Teilen auf x-twitter"
+						>
+															<span class="elementor-share-btn__icon">
+								<svg class="e-font-icon-svg e-fab-x-twitter" viewBox="0 0 512 512" xmlns="http://www.w3.org/2000/svg"><path d="M389.2 48h70.6L305.6 224.2 487 464H345L233.7 318.6 106.5 464H35.8L200.7 275.5 26.8 48H172.4L272.9 180.9 389.2 48zM364.4 421.8h39.1L151.1 88h-42L364.4 421.8z"></path></svg>							</span>
+																				</div>
+					</div>
+									<div class="elementor-grid-item">
+						<div
+							class="elementor-share-btn elementor-share-btn_reddit"
+							role="button"
+							tabindex="0"
+							aria-label="Teilen auf reddit"
+						>
+															<span class="elementor-share-btn__icon">
+								<svg class="e-font-icon-svg e-fab-reddit" viewBox="0 0 512 512" xmlns="http://www.w3.org/2000/svg"><path d="M201.5 305.5c-13.8 0-24.9-11.1-24.9-24.6 0-13.8 11.1-24.9 24.9-24.9 13.6 0 24.6 11.1 24.6 24.9 0 13.6-11.1 24.6-24.6 24.6zM504 256c0 137-111 248-248 248S8 393 8 256 119 8 256 8s248 111 248 248zm-132.3-41.2c-9.4 0-17.7 3.9-23.8 10-22.4-15.5-52.6-25.5-86.1-26.6l17.4-78.3 55.4 12.5c0 13.6 11.1 24.6 24.6 24.6 13.8 0 24.9-11.3 24.9-24.9s-11.1-24.9-24.9-24.9c-9.7 0-18 5.8-22.1 13.8l-61.2-13.6c-3-.8-6.1 1.4-6.9 4.4l-19.1 86.4c-33.2 1.4-63.1 11.3-85.5 26.8-6.1-6.4-14.7-10.2-24.1-10.2-34.9 0-46.3 46.9-14.4 62.8-1.1 5-1.7 10.2-1.7 15.5 0 52.6 59.2 95.2 132 95.2 73.1 0 132.3-42.6 132.3-95.2 0-5.3-.6-10.8-1.9-15.8 31.3-16 19.8-62.5-14.9-62.5zM302.8 331c-18.2 18.2-76.1 17.9-93.6 0-2.2-2.2-6.1-2.2-8.3 0-2.5 2.5-2.5 6.4 0 8.6 22.8 22.8 87.3 22.8 110.2 0 2.5-2.2 2.5-6.1 0-8.6-2.2-2.2-6.1-2.2-8.3 0zm7.7-75c-13.6 0-24.6 11.1-24.6 24.9 0 13.6 11.1 24.6 24.6 24.6 13.8 0 24.9-11.1 24.9-24.6 0-13.8-11-24.9-24.9-24.9z"></path></svg>							</span>
+																				</div>
+					</div>
+									<div class="elementor-grid-item">
+						<div
+							class="elementor-share-btn elementor-share-btn_email"
+							role="button"
+							tabindex="0"
+							aria-label="Teilen auf email"
+						>
+															<span class="elementor-share-btn__icon">
+								<svg class="e-font-icon-svg e-fas-envelope" viewBox="0 0 512 512" xmlns="http://www.w3.org/2000/svg"><path d="M502.3 190.8c3.9-3.1 9.7-.2 9.7 4.7V400c0 26.5-21.5 48-48 48H48c-26.5 0-48-21.5-48-48V195.6c0-5 5.7-7.8 9.7-4.7 22.4 17.4 52.1 39.5 154.1 113.6 21.1 15.4 56.7 47.8 92.2 47.6 35.7.3 72-32.8 92.3-47.6 102-74.1 131.6-96.3 154-113.7zM256 320c23.2.4 56.6-29.2 73.4-41.4 132.7-96.3 142.8-104.7 173.4-128.7 5.8-4.5 9.2-11.5 9.2-18.9v-19c0-26.5-21.5-48-48-48H48C21.5 64 0 85.5 0 112v19c0 7.4 3.4 14.3 9.2 18.9 30.6 23.9 40.7 32.4 173.4 128.7 16.8 12.2 50.2 41.8 73.4 41.4z"></path></svg>							</span>
+																				</div>
+					</div>
+						</div>
+						</div>
+				</div>
+					</div>
+				</div>
+		<div class="elementor-element elementor-element-185c65f7 e-flex e-con-boxed e-con e-parent" data-id="185c65f7" data-element_type="container">
+					<div class="e-con-inner">
+				<div class="elementor-element elementor-element-24cbff4c elementor-widget elementor-widget-heading" data-id="24cbff4c" data-element_type="widget" data-widget_type="heading.default">
+					<h6 class="elementor-heading-title elementor-size-default">Related Posts</h6>				</div>
+				<div class="elementor-element elementor-element-4592d68d elementor-posts__hover-none elementor-grid-2 elementor-grid-tablet-2 elementor-grid-mobile-1 elementor-posts--thumbnail-top elementor-widget elementor-widget-posts" data-id="4592d68d" data-element_type="widget" data-settings="{&quot;cards_row_gap&quot;:{&quot;unit&quot;:&quot;px&quot;,&quot;size&quot;:80,&quot;sizes&quot;:[]},&quot;cards_row_gap_tablet&quot;:{&quot;unit&quot;:&quot;px&quot;,&quot;size&quot;:71,&quot;sizes&quot;:[]},&quot;cards_row_gap_mobile&quot;:{&quot;unit&quot;:&quot;px&quot;,&quot;size&quot;:30,&quot;sizes&quot;:[]},&quot;cards_columns&quot;:&quot;2&quot;,&quot;cards_columns_tablet&quot;:&quot;2&quot;,&quot;cards_columns_mobile&quot;:&quot;1&quot;}" data-widget_type="posts.cards">
+				<div class="elementor-widget-container">
+							<div class="elementor-posts-container elementor-posts elementor-posts--skin-cards elementor-grid">
+				<article class="elementor-post elementor-grid-item post-10369 post type-post status-publish format-standard has-post-thumbnail hentry category-cve tag-cloud-security tag-cve-2026-109469 tag-device-security tag-identity-security tag-microsoft-entra-id">
+			<div class="elementor-post__card">
+				<a class="elementor-post__thumbnail__link" href="https://www.penligent.ai/hackinglabs/cve-2026-109469/" tabindex="-1" ><div class="elementor-post__thumbnail"><img loading="lazy" width="1600" height="900" src="https://www.penligent.ai/hackinglabs/wp-content/uploads/2026/11/cve-2026-109469-entra-device-registration-cover.png" class="attachment-full size-full wp-image-10373" alt="Provider-mitigated Entra Device Registration vulnerability with tenant audit evidence shown as a separate assurance step." decoding="async" srcset="https://www.penligent.ai/hackinglabs/wp-content/uploads/2026/11/cve-2026-109469-entra-device-registration-cover.png 1600w, https://www.penligent.ai/hackinglabs/wp-content/uploads/2026/11/cve-2026-109469-entra-device-registration-cover-300x169.png 300w, https://www.penligent.ai/hackinglabs/wp-content/uploads/2026/11/cve-2026-109469-entra-device-registration-cover-1024x576.png 1024w, https://www.penligent.ai/hackinglabs/wp-content/uploads/2026/11/cve-2026-109469-entra-device-registration-cover-768x432.png 768w, https://www.penligent.ai/hackinglabs/wp-content/uploads/2026/11/cve-2026-109469-entra-device-registration-cover-1536x864.png 1536w, https://www.penligent.ai/hackinglabs/wp-content/uploads/2026/11/cve-2026-109469-entra-device-registration-cover-18x10.png 18w" sizes="(max-width: 1600px) 100vw, 1600px" /></div></a>
+				<div class="elementor-post__text">
+				<h4 class="elementor-post__title">
+			<a href="https://www.penligent.ai/hackinglabs/cve-2026-109469/" >
+				CVE-2026-109469: Entra Device Registration Authorization Bypass			</a>
+		</h4>
+				<div class="elementor-post__excerpt">
+			<p>CVE-2026-109469 status on November 8, 2026 Microsoft says the vulnerability has already been fully mitigated and requires no customer action</p>
+		</div>
+		
+		<a class="elementor-post__read-more" href="https://www.penligent.ai/hackinglabs/cve-2026-109469/" aria-label="Read more about CVE-2026-109469: Entra Device Registration Authorization Bypass" tabindex="-1" >
+			Read More		</a>
+
+				</div>
+					</div>
+		</article>
+				<article class="elementor-post elementor-grid-item post-10325 post type-post status-publish format-standard has-post-thumbnail hentry category-vs tag-ai-pentesting tag-hackerai">
+			<div class="elementor-post__card">
+				<a class="elementor-post__thumbnail__link" href="https://www.penligent.ai/hackinglabs/hackerai-alternatives-update-review/" tabindex="-1" ><div class="elementor-post__thumbnail"><img loading="lazy" width="1600" height="900" src="https://www.penligent.ai/hackinglabs/wp-content/uploads/2026/11/hackerai-alternatives-cover.png" class="attachment-full size-full wp-image-10329" alt="Editorial decision map connecting assessment delivery, framework ownership, Burp workflows and AI application tests to different evaluation routes." decoding="async" srcset="https://www.penligent.ai/hackinglabs/wp-content/uploads/2026/11/hackerai-alternatives-cover.png 1600w, https://www.penligent.ai/hackinglabs/wp-content/uploads/2026/11/hackerai-alternatives-cover-300x169.png 300w, https://www.penligent.ai/hackinglabs/wp-content/uploads/2026/11/hackerai-alternatives-cover-1024x576.png 1024w, https://www.penligent.ai/hackinglabs/wp-content/uploads/2026/11/hackerai-alternatives-cover-768x432.png 768w, https://www.penligent.ai/hackinglabs/wp-content/uploads/2026/11/hackerai-alternatives-cover-1536x864.png 1536w, https://www.penligent.ai/hackinglabs/wp-content/uploads/2026/11/hackerai-alternatives-cover-18x10.png 18w" sizes="(max-width: 1600px) 100vw, 1600px" /></div></a>
+				<div class="elementor-post__text">
+				<h4 class="elementor-post__title">
+			<a href="https://www.penligent.ai/hackinglabs/hackerai-alternatives-update-review/" >
+				HackerAI Alternatives: Choose by Workflow, Cost and Evidence			</a>
+		</h4>
+				<div class="elementor-post__excerpt">
+			<p>The most useful HackerAI alternative depends on what you want to change. Shortlist Penligent for a packaged application-assessment workflow, GreyDGL</p>
+		</div>
+		
+		<a class="elementor-post__read-more" href="https://www.penligent.ai/hackinglabs/hackerai-alternatives-update-review/" aria-label="Read more about HackerAI Alternatives: Choose by Workflow, Cost and Evidence" tabindex="-1" >
+			Read More		</a>
+
+				</div>
+					</div>
+		</article>
+				</div>
+		
+						</div>
+				</div>
+					</div>
+				</div>
+				</div>
+				<div data-elementor-type="footer" data-elementor-id="38" class="elementor elementor-38 elementor-location-footer" data-elementor-post-type="elementor_library">
+			<div class="elementor-element elementor-element-10318fa e-flex e-con-boxed e-con e-parent" data-id="10318fa" data-element_type="container">
+					<div class="e-con-inner">
+				<div class="elementor-element elementor-element-5df30db elementor-widget elementor-widget-html" data-id="5df30db" data-element_type="widget" data-widget_type="html.default">
+					<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Penligent Footer</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+        }
+
+        .footer {
+            background-color: #141212;
+            color: #FFFFFF;
+        }
+
+        .footer-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 48px 16px;
+        }
+        .footer-meta{
+            padding: 16px 0;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            font-size: 12px;
+        }
+        .footer-meta-item{
+            align-items: center;
+        }
+
+        @media (min-width: 768px) {
+            .footer-container {
+                padding: 48px 24px;
+            }
+        }
+
+        .footer-grid {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 32px;
+        }
+
+        @media (min-width: 768px) {
+            .footer-grid {
+                grid-template-columns: 3fr 9fr;
+            }
+        }
+
+        .footer-info {
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+        }
+
+        .footer-email {
+            color: #FFFFFF;
+            text-decoration: none;
+            transition: color 0.2s;
+        }
+
+        .footer-email:hover {
+            color: #FFFFFF;
+            text-decoration: underline;
+        }
+
+        .social-links {
+            display: flex;
+            gap: 16px;
+            margin-top: 16px;
+            align-items: center;
+        }
+
+        .social-link {
+            color: #6b7280;
+            transition: color 0.2s;
+        }
+
+        .social-link:hover {
+            color: #FFFFFF;
+        }
+
+        .social-link svg {
+            width: 20px;
+            height: 20px;
+        }
+
+        .social-link.discord svg {
+            width: 24px;
+            height: 24px;
+        }
+
+        .copyright {
+            font-size: 14px;
+            color: #FFFFFF;
+            margin-top: 32px;
+        }
+
+        @media (min-width: 768px) {
+            .copyright {
+                margin-top: 0;
+            }
+        }
+
+        .footer-links {
+            display: grid;
+            grid-template-columns: repeat(2, minmax(0, 1fr));
+            gap: 32px;
+        }
+
+        @media (min-width: 640px) {
+            .footer-links {
+                grid-template-columns: repeat(4, minmax(0, 1fr));
+            }
+        }
+
+        .footer-section h3 {
+            font-weight: 600;
+            color: #FFFFFF;
+            margin-bottom: 16px;
+            font-size: 14px;
+        }
+
+        .footer-section ul {
+            list-style: none;
+        }
+
+        .footer-section li {
+            margin-bottom: 12px;
+        }
+
+        .footer-section a {
+            color: #e7f1f0;
+            text-decoration: none;
+            font-size: 14px;
+            transition: color 0.2s;
+        }
+
+.footer-section a:hover {
+            color: #FFFFFF;
+        }
+    </style>
+</head>
+<body>
+    <footer class="footer">
+        <div class="footer-container">
+            <div class="footer-grid">
+                <div class="footer-info">
+                    <div>
+                        <a href="mailto:[email withheld by Lighthouse]" class="footer-email">[email withheld by Lighthouse]</a>
+                        <div class="social-links">
+                            <a href="https://discord.gg/3vxXqvQUX7" target="_blank" rel="noopener noreferrer" aria-label="Discord (opens in a new tab)" class="social-link discord" data-no-translation-href>
+                                <svg aria-hidden="true" viewBox="0 0 24 24" fill="currentColor">
+                                    <path d="M20.317 4.37a19.791 19.791 0 0 0-4.885-x.x.x.x 0 0 0-.079.037c-.21.375-.444.864-.608 1.25a18.27 18.27 0 0 0-5.487 0 12.64 12.64 0 0 0-.617-x.x.x.x 0 0 0-.079-.037A19.736 19.736 0 0 0 3.677 4.37a.07.07 0 0 0-.032.027C.533 9.046-.32 13.58.099 18.057a.082.082 0 0 0 .031.057 19.9 19.9 0 0 0 5.993 x.x.x.x 0 0 0 .084-.028 14.09 14.09 0 0 0 1.226-x.x.x.x 0 0 0-.041-.106 13.107 13.107 0 0 1-1.872-.892.077.077 0 0 1-.008-.128 10.2 10.2 0 0 0 .372-.292.074.074 0 0 1 .077-.01c3.928 1.793 8.18 1.793 12.062 0a.074.074 0 0 1 .078.01c.12.098.246.198.373.292a.077.077 0 0 1-.006.127 12.299 12.299 0 0 1-1.873.892.077.077 0 0 0-.041.107c.36.698.772 1.362 1.225 1.993a.076.076 0 0 0 .084.028 19.839 19.839 0 0 0 6.002-x.x.x.x 0 0 0 .032-.054c.5-5.177-.838-9.674-3.549-13.66a.061.061 0 0 0-.031-.03zM8.02 15.33c-1.183 0-2.157-1.085-2.157-2.419 0-1.333.956-2.419 2.157-2.419 1.21 0 2.176 1.096 2.157 2.42 0 1.333-.956 2.418-2.157 2.418zm7.975 0c-1.183 0-2.157-1.085-2.157-2.419 0-1.333.955-2.419 2.157-2.419 1.21 0 2.176 1.096 2.157 2.42 0 1.333-.946 2.418-2.157 2.418z"/>
+                                </svg>
+                            </a>
+                            <a href="https://github.com/penligent" target="_blank" rel="noopener noreferrer" aria-label="GitHub (opens in a new tab)" class="social-link" data-no-translation-href>
+                                <svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                    <path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"></path>
+                                </svg>
+                            </a>
+                            <a href="https://x.com/penligent" target="_blank" rel="noopener noreferrer" aria-label="X / Twitter (opens in a new tab)" class="social-link" data-no-translation-href>
+                                <svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                    <path d="M22 4s-.7 2.1-2 3.4c1.6 10-9.4 17.3-18 11.6 2.2.1 4.4-.6 6-2C3 15.5.5 9.6 3 5c2.2 2.6 5.6 4.1 9 4-.9-4.2 4-6.6 7-3.8 1.1 0 3-1.2 3-1.2z"></path>
+                                </svg>
+                            </a>
+</div>
+                    </div>
+                    
+                </div>
+
+                <div class="footer-links">
+                    <div class="footer-section">
+                        <h3>Product</h3>
+                        <ul>
+                            <li><a href="https://www.penligent.ai/pricing" data-no-translation-href>Pricing</a></li>
+<li><a href="https://www.penligent.ai/faq" data-no-translation-href>FAQ</a></li>
+                        </ul>
+                    </div>
+                    <div class="footer-section">
+                        <h3>Resources</h3>
+                        <ul>
+                            <li><a href="https://www.penligent.ai/docs" data-no-translation-href>Docs</a></li>
+                            <li><a href="https://www.penligent.ai/hackinglabs/" data-no-translation-href data-no-translation>Hacking Labs</a></li>
+                            <li><a href="https://discord.gg/3vxXqvQUX7" target="_blank" rel="noopener noreferrer" data-no-translation-href>Tech Support</a></li>
+                        </ul>
+                    </div>
+                    <div class="footer-section">
+                        <h3>Company</h3>
+                        <ul>
+                            <li><a href="https://www.penligent.ai/about" data-no-translation-href>About</a></li>
+</ul>
+                    </div>
+                    <div class="footer-section">
+                        <h3>Legal</h3>
+                        <ul>
+                            <li><a href="https://www.penligent.ai/terms" data-no-translation-href>Terms</a></li>
+                            <li><a href="https://www.penligent.ai/security" data-no-translation-href>Security</a></li>
+                            <li><a href="https://www.penligent.ai/privacy" data-no-translation-href>Privacy</a></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            <div class="footer-meta">
+                <div class="footer-meta-item"><p class="copyright">© <span id="currentYear"></span> Future Share LLC.</p></div>
+                <div class="footer-meta-item">Disclaimer: Penligent is for authorized security testing only. You must have explicit permission from the target owner. Unauthorized use is prohibited and solely your responsibility.</div>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // 设置当前年份
+        document.getElementById('currentYear').textContent = new Date().getFullYear();
+
+        // 复用 index.html 的 URL 处理逻辑
+        document.addEventListener('DOMContentLoaded', function() {
+
+        });
+    </script>
+</body>
+</html>
+				</div>
+					</div>
+				</div>
+				</div>
+		
+<template id="tp-language" data-tp-language="en_US"></template><script type="speculationrules">
+{"prefetch":[{"source":"document","where":{"and":[{"href_matches":"/hackinglabs/*"},{"not":{"href_matches":["/hackinglabs/wp-*.php","/hackinglabs/wp-admin/*","/hackinglabs/wp-content/uploads/*","/hackinglabs/wp-content/*","/hackinglabs/wp-content/plugins/*","/hackinglabs/wp-content/themes/hello-elementor/*","/hackinglabs/*\\?(.+)"]}},{"not":{"selector_matches":"a[rel~=\"nofollow\"]"}},{"not":{"selector_matches":".no-prefetch, .no-prefetch a"}}]},"eagerness":"conservative"}]}
+</script>
+        <div id="trp-floater-ls" onclick="" data-no-translation class="trp-language-switcher-container trp-floater-ls-names trp-bottom-right trp-color-dark flags-full-names" >
+            <div id="trp-floater-ls-current-language" class="trp-with-flags">
+
+                <a href="#" class="trp-floater-ls-disabled-language trp-ls-disabled-language" onclick="event.preventDefault()">
+					<img loading="lazy" class="trp-flag-image" src="https://www.penligent.ai/hackinglabs/wp-content/plugins/translatepress-multilingual/assets/images/flags/en_US.png" width="18" height="12" alt="en_US" title="English">English				</a>
+
+            </div>
+            <div id="trp-floater-ls-language-list" class="trp-with-flags" >
+
+                <div class="trp-language-wrap trp-language-wrap-bottom">                    <a href="https://www.penligent.ai/hackinglabs/de/over-220000-openclaw-instances-exposed-to-the-internet-why-agent-runtimes-go-naked-at-scale/"
+                         title="German">
+          						  <img loading="lazy" class="trp-flag-image" src="https://www.penligent.ai/hackinglabs/wp-content/plugins/translatepress-multilingual/assets/images/flags/de_DE.png" width="18" height="12" alt="de_DE" title="German">German					          </a>
+                                    <a href="https://www.penligent.ai/hackinglabs/fr/over-220000-openclaw-instances-exposed-to-the-internet-why-agent-runtimes-go-naked-at-scale/"
+                         title="French">
+          						  <img loading="lazy" class="trp-flag-image" src="https://www.penligent.ai/hackinglabs/wp-content/plugins/translatepress-multilingual/assets/images/flags/fr_FR.png" width="18" height="12" alt="fr_FR" title="French">French					          </a>
+                                    <a href="https://www.penligent.ai/hackinglabs/es/over-220000-openclaw-instances-exposed-to-the-internet-why-agent-runtimes-go-naked-at-scale/"
+                         title="Spanish">
+          						  <img loading="lazy" class="trp-flag-image" src="https://www.penligent.ai/hackinglabs/wp-content/plugins/translatepress-multilingual/assets/images/flags/es_ES.png" width="18" height="12" alt="es_ES" title="Spanish">Spanish					          </a>
+                                    <a href="https://www.penligent.ai/hackinglabs/pt/over-220000-openclaw-instances-exposed-to-the-internet-why-agent-runtimes-go-naked-at-scale/"
+                         title="Portuguese">
+          						  <img loading="lazy" class="trp-flag-image" src="https://www.penligent.ai/hackinglabs/wp-content/plugins/translatepress-multilingual/assets/images/flags/pt_BR.png" width="18" height="12" alt="pt_BR" title="Portuguese">Portuguese					          </a>
+                                    <a href="https://www.penligent.ai/hackinglabs/ja/over-220000-openclaw-instances-exposed-to-the-internet-why-agent-runtimes-go-naked-at-scale/"
+                         title="Japanese">
+          						  <img loading="lazy" class="trp-flag-image" src="https://www.penligent.ai/hackinglabs/wp-content/plugins/translatepress-multilingual/assets/images/flags/ja.png" width="18" height="12" alt="ja" title="Japanese">Japanese					          </a>
+                                    <a href="https://www.penligent.ai/hackinglabs/ko/over-220000-openclaw-instances-exposed-to-the-internet-why-agent-runtimes-go-naked-at-scale/"
+                         title="Korean">
+          						  <img loading="lazy" class="trp-flag-image" src="https://www.penligent.ai/hackinglabs/wp-content/plugins/translatepress-multilingual/assets/images/flags/ko_KR.png" width="18" height="12" alt="ko_KR" title="Korean">Korean					          </a>
+                                    <a href="https://www.penligent.ai/hackinglabs/hi/over-220000-openclaw-instances-exposed-to-the-internet-why-agent-runtimes-go-naked-at-scale/"
+                         title="Hindi">
+          						  <img loading="lazy" class="trp-flag-image" src="https://www.penligent.ai/hackinglabs/wp-content/plugins/translatepress-multilingual/assets/images/flags/hi_IN.png" width="18" height="12" alt="hi_IN" title="Hindi">Hindi					          </a>
+                                    <a href="https://www.penligent.ai/hackinglabs/ar/over-220000-openclaw-instances-exposed-to-the-internet-why-agent-runtimes-go-naked-at-scale/"
+                         title="Arabic">
+          						  <img loading="lazy" class="trp-flag-image" src="https://www.penligent.ai/hackinglabs/wp-content/plugins/translatepress-multilingual/assets/images/flags/ar.png" width="18" height="12" alt="ar" title="Arabic">Arabic					          </a>
+                                    <a href="https://www.penligent.ai/hackinglabs/tr/over-220000-openclaw-instances-exposed-to-the-internet-why-agent-runtimes-go-naked-at-scale/"
+                         title="Turkish">
+          						  <img loading="lazy" class="trp-flag-image" src="https://www.penligent.ai/hackinglabs/wp-content/plugins/translatepress-multilingual/assets/images/flags/tr_TR.png" width="18" height="12" alt="tr_TR" title="Turkish">Turkish					          </a>
+                                    <a href="https://www.penligent.ai/hackinglabs/he/over-220000-openclaw-instances-exposed-to-the-internet-why-agent-runtimes-go-naked-at-scale/"
+                         title="Hebrew">
+          						  <img loading="lazy" class="trp-flag-image" src="https://www.penligent.ai/hackinglabs/wp-content/plugins/translatepress-multilingual/assets/images/flags/he_IL.png" width="18" height="12" alt="he_IL" title="Hebrew">Hebrew					          </a>
+                <a href="#" class="trp-floater-ls-disabled-language trp-ls-disabled-language" onclick="event.preventDefault()"><img loading="lazy" class="trp-flag-image" src="https://www.penligent.ai/hackinglabs/wp-content/plugins/translatepress-multilingual/assets/images/flags/en_US.png" width="18" height="12" alt="en_US" title="English">English</a></div>            </div>
+        </div>
+
+    			<script>
+				const lazyloadRunObserver = () => {
+					const lazyloadBackgrounds = document.querySelectorAll( `.e-con.e-parent:not(.e-lazyloaded)` );
+					const lazyloadBackgroundObserver = new IntersectionObserver( ( entries ) => {
+						entries.forEach( ( entry ) => {
+							if ( entry.isIntersecting ) {
+								let lazyloadBackground = entry.target;
+								if( lazyloadBackground ) {
+									lazyloadBackground.classList.add( 'e-lazyloaded' );
+								}
+								lazyloadBackgroundObserver.unobserve( entry.target );
+							}
+						});
+					}, { rootMargin: '200px 0px 200px 0px' } );
+					lazyloadBackgrounds.forEach( ( lazyloadBackground ) => {
+						lazyloadBackgroundObserver.observe( lazyloadBackground );
+					} );
+				};
+				const events = [
+					'DOMContentLoaded',
+					'elementor/lazyload/observe',
+				];
+				events.forEach( ( event ) => {
+					document.addEventListener( event, lazyloadRunObserver );
+				} );
+			</script>
+			<script id="hello-theme-frontend-js" src="https://www.penligent.ai/hackinglabs/wp-content/themes/hello-elementor/assets/js/hello-frontend.js?ver=3.4.7"></script>
+<script id="elementor-webpack-runtime-js" src="https://www.penligent.ai/hackinglabs/wp-content/plugins/elementor/assets/js/webpack.runtime.min.js?ver=3.32.2"></script>
+<script id="elementor-frontend-modules-js" src="https://www.penligent.ai/hackinglabs/wp-content/plugins/elementor/assets/js/frontend-modules.min.js?ver=3.32.2"></script>
+<script id="jquery-ui-core-js-before">
+jQuery.uiBackCompat = true;
+//# sourceURL=jquery-ui-core-js-before
+</script>
+<script id="jquery-ui-core-js" src="https://www.penligent.ai/hackinglabs/wp-includes/js/jquery/ui/core.min.js?ver=1.14.2"></script>
+<script id="elementor-frontend-js-before">
+var elementorFrontendConfig = {"environmentMode":{"edit":false,"wpPreview":false,"isScriptDebug":false},"i18n":{"shareOnFacebook":"Share on Facebook","shareOnTwitter":"Share on Twitter","pinIt":"Pin it","download":"Download","downloadImage":"Download image","fullscreen":"Fullscreen","zoom":"Zoom","share":"Share","playVideo":"Play Video","previous":"Previous","next":"Next","close":"Close","a11yCarouselPrevSlideMessage":"Previous slide","a11yCarouselNextSlideMessage":"Next slide","a11yCarouselFirstSlideMessage":"This is the first slide","a11yCarouselLastSlideMessage":"This is the last slide","a11yCarouselPaginationBulletMessage":"Go to slide"},"is_rtl":false,"breakpoints":{"xs":0,"sm":480,"md":768,"lg":1025,"xl":1440,"xxl":1600},"responsive":{"breakpoints":{"mobile":{"label":"Mobile Portrait","value":767,"default_value":767,"direction":"max","is_enabled":true},"mobile_extra":{"label":"Mobile Landscape","value":880,"default_value":880,"direction":"max","is_enabled":false},"tablet":{"label":"Tablet Portrait","value":1024,"default_value":1024,"direction":"max","is_enabled":true},"tablet_extra":{"label":"Tablet Landscape","value":1200,"default_value":1200,"direction":"max","is_enabled":false},"laptop":{"label":"Laptop","value":1366,"default_value":1366,"direction":"max","is_enabled":false},"widescreen":{"label":"Widescreen","value":2400,"default_value":2400,"direction":"min","is_enabled":false}},
+"hasCustomBreakpoints":false},"version":"3.32.2","is_static":false,"experimentalFeatures":{"e_font_icon_svg":true,"additional_custom_breakpoints":true,"container":true,"e_optimized_markup":true,"theme_builder_v2":true,"hello-theme-header-footer":true,"e_pro_free_trial_popup":true,"nested-elements":true,"home_screen":true,"global_classes_should_enforce_capabilities":true,"e_variables":true,"cloud-library":true,"e_opt_in_v4_page":true,"import-export-customization":true},"urls":{"assets":"https:\/\/www.penligent.ai\/hackinglabs\/wp-content\/plugins\/elementor\/assets\/","ajaxurl":"https:\/\/www.penligent.ai\/hackinglabs\/wp-admin\/admin-ajax.php","uploadUrl":"https:\/\/www.penligent.ai\/hackinglabs\/wp-content\/uploads"},"nonces":{"floatingButtonsClickTracking":"5b281450dd"},"swiperClass":"swiper","settings":{"page":[],"editorPreferences":[]},"kit":{"active_breakpoints":["viewport_mobile","viewport_tablet"],"global_image_lightbox":"yes","lightbox_enable_counter":"yes","lightbox_enable_fullscreen":"yes","lightbox_enable_zoom":"yes","lightbox_enable_share":"yes","lightbox_title_src":"title","lightbox_description_src":"description","hello_header_logo_type":"logo","hello_footer_logo_type":"logo"},"post":{"id":3207,"title":"Over%20220%2C000%20OpenClaw%20Instances%20Exposed%20to%20the%20Internet%2C%20Why%20Agent%20Runtimes%20%E2%80%9CGo%20Naked%E2%80%9D%20at%20Scale","excerpt":"","featuredImage":"https:\/\/www.penligent.ai\/hackinglabs\/wp-content\/uploads\/2026\/03\/Over-220000-OpenClaw-Instances-Exposed-to-the-Internet-Why-Agent-Runtimes-Go-Naked-at-Scale.png"}};
+//# sourceURL=elementor-frontend-js-before
+</script>
+<script id="elementor-frontend-js" src="https://www.penligent.ai/hackinglabs/wp-content/plugins/elementor/assets/js/frontend.min.js?ver=3.32.2"></script>
+<script id="imagesloaded-js" src="https://www.penligent.ai/hackinglabs/wp-includes/js/imagesloaded.min.js?ver=5.0.0"></script>
+<script id="elementor-pro-webpack-runtime-js" src="https://www.penligent.ai/hackinglabs/wp-content/plugins/elementor-pro/assets/js/webpack-pro.runtime.min.js?ver=3.28.3"></script>
+<script id="wp-hooks-js" src="https://www.penligent.ai/hackinglabs/wp-includes/js/dist/hooks.min.js?ver=f0f188028580e8dc1255"></script>
+<script id="wp-i18n-js" src="https://www.penligent.ai/hackinglabs/wp-includes/js/dist/i18n.min.js?ver=1dfe7db3940c23ea9216"></script>
+<script id="wp-i18n-js-after">
+wp.i18n.setLocaleData( { 'text direction\u0004ltr': [ 'ltr' ] } );
+//# sourceURL=wp-i18n-js-after
+</script>
+<script id="elementor-pro-frontend-js-before">
+var ElementorProFrontendConfig = {"ajaxurl":"https:\/\/www.penligent.ai\/hackinglabs\/wp-admin\/admin-ajax.php","nonce":"8f5dfdb27f","urls":{"assets":"https:\/\/www.penligent.ai\/hackinglabs\/wp-content\/plugins\/elementor-pro\/assets\/","rest":"https:\/\/www.penligent.ai\/hackinglabs\/wp-json\/"},"settings":{"lazy_load_background_images":true},"popup":{"hasPopUps":false},"shareButtonsNetworks":{"facebook":{"title":"Facebook","has_counter":true},"twitter":{"title":"Twitter"},"linkedin":{"title":"LinkedIn","has_counter":true},"pinterest":{"title":"Pinterest","has_counter":true},"reddit":{"title":"Reddit","has_counter":true},"vk":{"title":"VK","has_counter":true},"odnoklassniki":{"title":"OK","has_counter":true},"tumblr":{"title":"Tumblr"},"digg":{"title":"Digg"},"skype":{"title":"Skype"},"stumbleupon":{"title":"StumbleUpon","has_counter":true},"mix":{"title":"Mix"},"telegram":{"title":"Telegram"},"pocket":{"title":"Pocket","has_counter":true},"xing":{"title":"XING","has_counter":true},"whatsapp":{"title":"WhatsApp"},"email":{"title":"Email"},"print":{"title":"Print"},"x-twitter":{"title":"X"},"threads":{"title":"Threads"}},
+"facebook_sdk":{"lang":"en_US","app_id":""},"lottie":{"defaultAnimationUrl":"https:\/\/www.penligent.ai\/hackinglabs\/wp-content\/plugins\/elementor-pro\/modules\/lottie\/assets\/animations\/default.json"}};
+//# sourceURL=elementor-pro-frontend-js-before
+</script>
+<script id="elementor-pro-frontend-js" src="https://www.penligent.ai/hackinglabs/wp-content/plugins/elementor-pro/assets/js/frontend.min.js?ver=3.28.3"></script>
+<script id="pro-elements-handlers-js" src="https://www.penligent.ai/hackinglabs/wp-content/plugins/elementor-pro/assets/js/elements-handlers.min.js?ver=3.28.3"></script>
+<script id="wp-emoji-settings" type="application/json">
+{"baseUrl":"https://s.w.org/images/core/emoji/17.0.2/72x72/","ext":".png","svgUrl":"https://s.w.org/images/core/emoji/17.0.2/svg/","svgExt":".svg","source":{"concatemoji":"https://www.penligent.ai/hackinglabs/wp-includes/js/wp-emoji-release.min.js?ver=7.1.4"}}
+</script>
+<script type="module">
+/*! This file is auto-generated */
+var e="script#wp-emoji-settings",t=document.querySelector(e);if(!(t instanceof HTMLScriptElement))throw new Error("Element missing: "+e);const r=JSON.parse(t.text),s=(window._wpemojiSettings=r,"wpEmojiSettingsSupports"),o=["flag","emoji"];function i(e){try{var t={supportTests:e,timestamp:(new Date).valueOf()};sessionStorage.setItem(s,JSON.stringify(t))}catch(e){}}function c(e,t,n){e.clearRect(0,0,e.canvas.width,e.canvas.height),e.fillText(t,0,0);t=new Uint32Array(e.getImageData(0,0,e.canvas.width,e.canvas.height).data);e.clearRect(0,0,e.canvas.width,e.canvas.height),e.fillText(n,0,0);const r=new Uint32Array(e.getImageData(0,0,e.canvas.width,e.canvas.height).data);return t.every((e,t)=>e===r[t])}function p(e,t){e.clearRect(0,0,e.canvas.width,e.canvas.height),e.fillText(t,0,0);var n=e.getImageData(16,16,1,1);for(let e=0;e<n.data.length;e++)if(0!==n.data[e])return!1;return!0}function u(e,t,n,r){switch(t){case"flag":return n(e,"\ud83c\udff3\ufe0f\u200d\u26a7\ufe0f","\ud83c\udff3\ufe0f\u200b\u26a7\ufe0f")?!1:!n(e,"\ud83c\udde8\ud83c\uddf6","\ud83c\udde8\u200b\ud83c\uddf6")&&!n(e,"\ud83c\udff4\udb40\udc67\udb40\udc62\udb40\udc65\udb40\udc6e\udb40\udc67\udb40\udc7f","\ud83c\udff4\u200b\udb40\udc67\u200b\udb40\udc62\u200b\udb40\udc65\u200b\udb40\udc6e\u200b\udb40\udc67\u200b\udb40\udc7f");case"emoji":return!r(e,"\ud83e\u1fac8")}return!1}function f(e,t,n,r){let a;const s=(a="undefined"!=typeof WorkerGlobalScope&&self instanceof WorkerGlobalScope?new OffscreenCanvas(300,150):document.createElement("canvas")).getContext("2d",{willReadFrequently:!0}),o=(s.textBaseline="top",s.font="600 32px Arial",{});return e.forEach(e=>{o[e]=t(s,e,n,r)}),o}function a(e){var t=document.createElement("script");t.src=e,t.defer=!0,document.head.appendChild(t)}r.supports={everything:!0,everythingExceptFlag:!0},new Promise(t=>{let n=function(){try{var e=JSON.parse(sessionStorage.getItem(s));if("object"==typeof e&&"number"==typeof e.timestamp&&(new Date).valueOf()<e.timestamp+604800&&"object"==typeof e.supportTests)return e.supportTests}catch(e){}return null}();if(!n){if("undefined"!=typeof Worker&&"undefined"!=typeof OffscreenCanvas&&"undefined"!=typeof URL&&URL.createObjectURL&&"undefined"!=typeof Blob)try{var e="postMessage("+f.toString()+"("+[JSON.stringify(o),u.toString(),c.toString(),p.toString()].join(",")+"));",r=new Blob([e],{type:"text/javascript"});const a=new Worker(URL.createObjectURL(r),{name:"wpTestEmojiSupports"});return void(a.onmessage=e=>{i(n=e.data),a.terminate(),t(n)})}catch(e){}i(n=f(o,u,c,p))}t(n)}).then(e=>{for(const n in e)r.supports[n]=e[n],r.supports.everything=r.supports.everything&&r.supports[n],"flag"!==n&&(r.supports.everythingExceptFlag=r.supports.everythingExceptFlag&&r.supports[n]);var t;r.supports.everythingExceptFlag=r.supports.everythingExceptFlag&&!r.supports.flag,r.supports.everything||((t=r.source||{}).concatemoji?a(t.concatemoji):t.wpemoji&&t.twemoji&&(a(t.twemoji),a(t.wpemoji)))});
+//# sourceURL=https://www.penligent.ai/hackinglabs/wp-includes/js/wp-emoji-loader.min.js
+</script>
+
+</body>
+</html>

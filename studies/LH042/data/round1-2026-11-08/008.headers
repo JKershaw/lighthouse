@@ -1,0 +1,24 @@
+Date: Sun, 08 Nov 2026 19:11:29 GMT
+Content-Type: text/html; charset=utf-8
+Transfer-Encoding: chunked
+Connection: close
+x-llms-txt: /llms.txt
+status: 200 OK
+via: 1.1 varnish, 1.1 varnish, 1.1 varnish
+Report-To: {"group":"cf-nel","max_age":604800,"endpoints":[{"url":"https://a.nel.cloudflare.com/report/v4?s=iuHbs4qE2kcdwJAChWDGIG%2BJ1PU50iDKuJgPo8egM6T4zu0WfqAzqwr5pvUU7YCMOZlIC%2BhQk6fdXC%2F%2BHTPvmAW6ui6E04vndPknuJrjr%2BSYBFs6hparpXnLamH8rNapaeDyyV4%2FUrfB"}]}
+link: </llms.txt>; rel="llms-txt", </llms-full.txt>; rel="llms-full-txt"
+Server: cloudflare
+Cache-Control: public, max-age=0
+Nel: {"report_to":"cf-nel","success_fraction":0.0,"max_age":604800}
+Age: 290614
+x-served-by: cache-ams-eham8680089-AMS, cache-ams-eham8680089-AMS, cache-ams-eham8680083-AMS, cache-iad-kiad7000040-IAD
+x-cache: MISS, HIT, HIT
+x-cache-hits: 0, 7, 0
+x-timer: S1794165090.731547,VS0,VE5
+vary: Cookie, Accept-Encoding
+x-request-id: 6b155f92-4b52-422c-961a-ce273cc4ce0b
+ghost-fastly: true;production
+alt-svc: h3=":443"; ma=86400
+cf-cache-status: DYNAMIC
+CF-RAY: a576e2428e7c7608-IAD
+

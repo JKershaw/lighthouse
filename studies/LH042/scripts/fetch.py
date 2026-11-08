@@ -13,7 +13,9 @@ content is a list of exposed hosts are not put in a URL file at all.
 Each body is saved as data/<label>/NNN.body with data/<label>/NNN.headers, and
 data/<label>/readlog.csv gets one row per URL: n, url, start_utc, robots,
 http_status, bytes, sha256_as_fetched, sha256_saved, final_url, content_type,
-ipv4_redacted (how many addresses were replaced), error. robots.txt is read once per host and a disallowed URL is not
+ipv4_redacted (how many addresses were replaced), emails_redacted
+(email addresses withheld with scripts/redact_emails.py, added 8 November 2026
+after rounds 1 to 5, whose bodies were redacted in place afterwards), error. robots.txt is read once per host and a disallowed URL is not
 fetched. The client names itself honestly and sends no cookies, keys or email.
 """
 import argparse
@@ -29,6 +31,9 @@ import urllib.error
 import urllib.parse
 import urllib.request
 import urllib.robotparser
+
+sys.path.insert(0, str(pathlib.Path(__file__).resolve().parents[3] / "scripts"))
+from redact_emails import redact_bytes  # noqa: E402
 
 UA = "Lighthouse-research/1.0 (+https://lighthouse.harbour.cat)"
 HERE = pathlib.Path(__file__).resolve().parent
@@ -83,7 +88,7 @@ def main():
         ok, rstate = robots_ok(url, cache, ctx)
         row = dict(n=n, url=url, start_utc=start, robots=rstate, http_status="", bytes="",
                    sha256_as_fetched="", sha256_saved="", final_url="", content_type="",
-                   ipv4_redacted="", error="")
+                   ipv4_redacted="", emails_redacted="", error="")
         if not ok:
             row["error"] = "not fetched: robots.txt disallows"
             rows.append(row)
@@ -108,7 +113,9 @@ def main():
         row["bytes"] = len(body)
         row["sha256_as_fetched"] = hashlib.sha256(body).hexdigest() if body else ""
         saved, nsub = IPV4.subn(b"x.x.x.x", body)
+        saved, nmail = redact_bytes(saved)  # the keeper, 8 November 2026: email addresses are withheld
         row["ipv4_redacted"] = nsub
+        row["emails_redacted"] = nmail
         row["sha256_saved"] = hashlib.sha256(saved).hexdigest() if saved else ""
         (out / f"{n:03d}.body").write_bytes(saved)
         (out / f"{n:03d}.headers").write_text(headers)

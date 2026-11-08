@@ -1,0 +1,115 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 720 650" width="720" height="650" role="img" aria-labelledby="chart-title chart-desc">
+<title id="chart-title">Published counts of exposed AI services, by method</title>
+<desc id="chart-desc">Four small charts, each its own series and axis, never joined. OpenA2A&#x27;s monthly Shodan index, March to November 2026: OpenClaw-family gateways 242,379 on 14 March, 267,172 on 11 April, lowest 153,638 on 26 June, 205,872 on 1 November; LLM endpoints between 5,126 and 47,369; MCP servers rising from 889 to 2,734. Xu and co-authors&#x27; own daily sweep of Ollama&#x27;s port: 10,473 IPs on 14 February 2025, 16,821 on 25 April 2025, about 11,500 in July 2025 and 16,059 on 13 February 2026. A Shodan index count is what Shodan&#x27;s crawlers indexed, not a verified host. Source: LH042 data/counts.csv.</desc>
+<style>
+svg { --bg:#fbfaf7; --ink:#1f1f1f; --muted:#5d5850; --grid:#e3ddd1; --teal:#1f6576; --amber:#93600c; --purple:#78549b; --blue:#2866ab; --neutral:#74716a; color-scheme:light dark; }
+@media (prefers-color-scheme: dark) { svg { --bg:#15191b; --ink:#e6e2d9; --muted:#aaa498; --grid:#2f3538; --teal:#8ec4d4; --amber:#e0a650; --purple:#c6a7df; --blue:#8bb9ed; --neutral:#aaa498; } }
+text { font-family:"Source Sans 3", "Source Sans Pro", system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif; font-variant-numeric:tabular-nums lining-nums; fill:var(--ink); }
+.head { font-size:17px; font-weight:600; }
+.sub { font-size:13px; fill:var(--muted); }
+.ann,.ax { font-size:12px; fill:var(--muted); }
+.nm { font-size:12px; font-weight:600; }
+.note { font-size:11.5px; fill:var(--muted); }
+.sec { font-size:14px; font-weight:600; }
+.grid { stroke:var(--grid); stroke-width:1; }
+.axis { stroke:var(--muted); stroke-width:1; }
+</style>
+<rect width="100%" height="100%" fill="var(--bg)"/>
+<text class="head" x="24" y="32">Published counts of exposed AI services, by method</text>
+<text class="sub" x="24" y="54">Each chart is one publisher's series with its own axis from zero. Series are never joined.</text>
+<text class="sub" x="24" y="72">Unreviewed working figure, LH042 version 0.1; counts as published, read 8 November 2026.</text>
+<text class="sec" x="32" y="106">OpenClaw-family panels</text>
+<text class="note" x="32" y="122">OpenA2A index: Shodan, sum of its OpenClaw queries</text>
+<line class="grid" x1="78" x2="333" y1="303.0" y2="303.0"/>
+<text class="ax" x="72" y="307.0" text-anchor="end">0</text>
+<line class="grid" x1="78" x2="333" y1="220.5" y2="220.5"/>
+<text class="ax" x="72" y="224.5" text-anchor="end">150,000</text>
+<line class="grid" x1="78" x2="333" y1="138.0" y2="138.0"/>
+<text class="ax" x="72" y="142.0" text-anchor="end">300,000</text>
+<line class="axis" x1="78" x2="333" y1="303" y2="303"/>
+<text class="ax" x="78.0" y="319" text-anchor="start">14 Mar 2026</text>
+<text class="ax" x="333.0" y="319" text-anchor="end">1 Nov 2026</text>
+<path d="M78.0,169.7 L108.8,156.1 L142.8,175.7 L192.3,218.5 L220.9,208.9 L231.9,201.9 L266.0,197.1 L318.7,189.9 L333.0,189.8" fill="none" stroke="var(--teal)" stroke-width="2.5" stroke-linejoin="round"/>
+<circle cx="78.0" cy="169.7" r="4" fill="var(--bg)" stroke="var(--teal)" stroke-width="2.5"/>
+<circle cx="108.8" cy="156.1" r="4" fill="var(--bg)" stroke="var(--teal)" stroke-width="2.5"/>
+<circle cx="142.8" cy="175.7" r="4" fill="var(--bg)" stroke="var(--teal)" stroke-width="2.5"/>
+<circle cx="192.3" cy="218.5" r="4" fill="var(--bg)" stroke="var(--teal)" stroke-width="2.5"/>
+<circle cx="220.9" cy="208.9" r="4" fill="var(--bg)" stroke="var(--teal)" stroke-width="2.5"/>
+<circle cx="231.9" cy="201.9" r="4" fill="var(--bg)" stroke="var(--teal)" stroke-width="2.5"/>
+<circle cx="266.0" cy="197.1" r="4" fill="var(--bg)" stroke="var(--teal)" stroke-width="2.5"/>
+<circle cx="318.7" cy="189.9" r="4" fill="var(--bg)" stroke="var(--teal)" stroke-width="2.5"/>
+<circle cx="333.0" cy="189.8" r="4" fill="var(--bg)" stroke="var(--teal)" stroke-width="2.5"/>
+<text class="nm" x="78.0" y="187.7" text-anchor="start">242,379</text>
+<text class="nm" x="108.8" y="146.1" text-anchor="middle">267,172</text>
+<text class="nm" x="192.3" y="236.5" text-anchor="middle">153,638</text>
+<text class="nm" x="333.0" y="179.8" text-anchor="end">205,872</text>
+<text class="sec" x="382" y="106">LLM endpoints</text>
+<text class="note" x="382" y="122">OpenA2A index: Shodan, its LLM-endpoint category</text>
+<line class="grid" x1="428" x2="683" y1="303.0" y2="303.0"/>
+<text class="ax" x="422" y="307.0" text-anchor="end">0</text>
+<line class="grid" x1="428" x2="683" y1="220.5" y2="220.5"/>
+<text class="ax" x="422" y="224.5" text-anchor="end">30,000</text>
+<line class="grid" x1="428" x2="683" y1="138.0" y2="138.0"/>
+<text class="ax" x="422" y="142.0" text-anchor="end">60,000</text>
+<line class="axis" x1="428" x2="683" y1="303" y2="303"/>
+<text class="ax" x="428.0" y="319" text-anchor="start">14 Mar 2026</text>
+<text class="ax" x="683.0" y="319" text-anchor="end">1 Nov 2026</text>
+<path d="M428.0,239.5 L458.8,233.9 L492.8,232.0 L542.3,172.7 L570.9,288.9 L581.9,279.8 L616.0,247.9 L668.7,256.0 L683.0,258.8" fill="none" stroke="var(--amber)" stroke-width="2.5" stroke-dasharray="7 3" stroke-linejoin="round"/>
+<circle cx="428.0" cy="239.5" r="4" fill="var(--bg)" stroke="var(--amber)" stroke-width="2.5"/>
+<circle cx="458.8" cy="233.9" r="4" fill="var(--bg)" stroke="var(--amber)" stroke-width="2.5"/>
+<circle cx="492.8" cy="232.0" r="4" fill="var(--bg)" stroke="var(--amber)" stroke-width="2.5"/>
+<circle cx="542.3" cy="172.7" r="4" fill="var(--bg)" stroke="var(--amber)" stroke-width="2.5"/>
+<circle cx="570.9" cy="288.9" r="4" fill="var(--bg)" stroke="var(--amber)" stroke-width="2.5"/>
+<circle cx="581.9" cy="279.8" r="4" fill="var(--bg)" stroke="var(--amber)" stroke-width="2.5"/>
+<circle cx="616.0" cy="247.9" r="4" fill="var(--bg)" stroke="var(--amber)" stroke-width="2.5"/>
+<circle cx="668.7" cy="256.0" r="4" fill="var(--bg)" stroke="var(--amber)" stroke-width="2.5"/>
+<circle cx="683.0" cy="258.8" r="4" fill="var(--bg)" stroke="var(--amber)" stroke-width="2.5"/>
+<text class="nm" x="428.0" y="257.5" text-anchor="start">23,086</text>
+<text class="nm" x="542.3" y="162.7" text-anchor="middle">47,369</text>
+<text class="nm" x="570.9" y="306.9" text-anchor="middle">5,126</text>
+<text class="nm" x="683.0" y="276.8" text-anchor="end">16,079</text>
+<text class="sec" x="32" y="360">MCP servers</text>
+<text class="note" x="32" y="376">OpenA2A index: Shodan, its MCP category</text>
+<line class="grid" x1="78" x2="333" y1="557.0" y2="557.0"/>
+<text class="ax" x="72" y="561.0" text-anchor="end">0</text>
+<line class="grid" x1="78" x2="333" y1="474.5" y2="474.5"/>
+<text class="ax" x="72" y="478.5" text-anchor="end">2,000</text>
+<line class="grid" x1="78" x2="333" y1="392.0" y2="392.0"/>
+<text class="ax" x="72" y="396.0" text-anchor="end">4,000</text>
+<line class="axis" x1="78" x2="333" y1="557" y2="557"/>
+<text class="ax" x="78.0" y="573" text-anchor="start">14 Mar 2026</text>
+<text class="ax" x="333.0" y="573" text-anchor="end">1 Nov 2026</text>
+<path d="M78.0,520.3 L108.8,510.2 L142.8,502.5 L192.3,482.5 L220.9,487.1 L231.9,483.8 L266.0,474.6 L318.7,454.1 L333.0,444.2" fill="none" stroke="var(--purple)" stroke-width="2.5" stroke-dasharray="2 3" stroke-linejoin="round"/>
+<circle cx="78.0" cy="520.3" r="4" fill="var(--bg)" stroke="var(--purple)" stroke-width="2.5"/>
+<circle cx="108.8" cy="510.2" r="4" fill="var(--bg)" stroke="var(--purple)" stroke-width="2.5"/>
+<circle cx="142.8" cy="502.5" r="4" fill="var(--bg)" stroke="var(--purple)" stroke-width="2.5"/>
+<circle cx="192.3" cy="482.5" r="4" fill="var(--bg)" stroke="var(--purple)" stroke-width="2.5"/>
+<circle cx="220.9" cy="487.1" r="4" fill="var(--bg)" stroke="var(--purple)" stroke-width="2.5"/>
+<circle cx="231.9" cy="483.8" r="4" fill="var(--bg)" stroke="var(--purple)" stroke-width="2.5"/>
+<circle cx="266.0" cy="474.6" r="4" fill="var(--bg)" stroke="var(--purple)" stroke-width="2.5"/>
+<circle cx="318.7" cy="454.1" r="4" fill="var(--bg)" stroke="var(--purple)" stroke-width="2.5"/>
+<circle cx="333.0" cy="444.2" r="4" fill="var(--bg)" stroke="var(--purple)" stroke-width="2.5"/>
+<text class="nm" x="78.0" y="538.3" text-anchor="start">889</text>
+<text class="nm" x="333.0" y="434.2" text-anchor="end">2,734</text>
+<text class="sec" x="382" y="360">Ollama endpoints, 2025 to 2026</text>
+<text class="note" x="382" y="376">Xu et al.: own daily IPv4 sweep; four days the paper states</text>
+<line class="grid" x1="428" x2="683" y1="557.0" y2="557.0"/>
+<text class="ax" x="422" y="561.0" text-anchor="end">0</text>
+<line class="grid" x1="428" x2="683" y1="474.5" y2="474.5"/>
+<text class="ax" x="422" y="478.5" text-anchor="end">10,000</text>
+<line class="grid" x1="428" x2="683" y1="392.0" y2="392.0"/>
+<text class="ax" x="422" y="396.0" text-anchor="end">20,000</text>
+<line class="axis" x1="428" x2="683" y1="557" y2="557"/>
+<text class="ax" x="428.0" y="573" text-anchor="start">14 Feb 2025</text>
+<text class="ax" x="683.0" y="573" text-anchor="end">13 Feb 2026</text>
+<circle cx="428.0" cy="470.6" r="4" fill="var(--bg)" stroke="var(--blue)" stroke-width="2.5"/>
+<circle cx="477.0" cy="418.2" r="4" fill="var(--bg)" stroke="var(--blue)" stroke-width="2.5"/>
+<circle cx="533.8" cy="462.1" r="4" fill="var(--bg)" stroke="var(--blue)" stroke-width="2.5"/>
+<circle cx="683.0" cy="424.5" r="4" fill="var(--bg)" stroke="var(--blue)" stroke-width="2.5"/>
+<text class="nm" x="428.0" y="488.6" text-anchor="start">10,473</text>
+<text class="nm" x="477.0" y="408.2" text-anchor="middle">16,821</text>
+<text class="nm" x="533.8" y="452.1" text-anchor="middle">about 11,500</text>
+<text class="nm" x="683.0" y="414.5" text-anchor="end">16,059</text>
+<text class="note" x="24" y="616">OpenA2A plots the latest sweep each month; sweeps within one month can differ by more than months do.</text>
+<text class="note" x="24" y="634">Exposure is not compromise. Counts are the publishers' claims; Lighthouse scanned nothing.</text>
+</svg>

@@ -1,0 +1,992 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>AI Infrastructure Scanning: Recon Now, Credentials Next</title>
+
+    <link rel="stylesheet" href="https://blog.cyberdesserts.com/assets/built/screen.css?v=MbfamtXGITr0JHjG">
+
+    <meta name="description" content="72 hours against exposed AI infrastructure: the scanners catalogue everything, but the exploitation targets credentials and cloud secrets.">
+    <link rel="icon" href="https://storage.ghost.io/c/35/11/3511c934-5ff5-4c52-bd35-1fa0ecc19415/content/images/size/w256h256/2026/08/FINAL-favicon-96-1.png" type="image/png">
+    <link rel="canonical" href="https://blog.cyberdesserts.com/ai-infrastructure-scanning-research/">
+    <link rel="alternate" type="text/markdown" href="https://blog.cyberdesserts.com/ai-infrastructure-scanning-research.md">
+    <meta name="referrer" content="no-referrer-when-downgrade">
+    
+    <meta property="og:site_name" content="CyberDesserts">
+    <meta property="og:type" content="article">
+    <meta property="og:title" content="AI Infrastructure Scanning: Recon Now, Credentials Next">
+    <meta property="og:description" content="72 hours against exposed AI infrastructure: the scanners catalogue everything, but the exploitation targets credentials and cloud secrets.">
+    <meta property="og:url" content="https://blog.cyberdesserts.com/ai-infrastructure-scanning-research/">
+    <meta property="og:image" content="https://images.unsplash.com/photo-1721314787850-5745fdfb06b4?crop&#x3D;entropy&amp;cs&#x3D;tinysrgb&amp;fit&#x3D;max&amp;fm&#x3D;jpg&amp;ixid&#x3D;M3wxMTc3M3wwfDF8c2VhcmNofDMxfHxjb21wdXRlciUyMG5ldHdvcmslMjBzY2FufGVufDB8fHx8MTc3ODc5NzE2N3ww&amp;ixlib&#x3D;rb-4.1.0&amp;q&#x3D;80&amp;w&#x3D;2000">
+    <meta property="article:published_time" content="2026-05-14T22:24:46.000Z">
+    <meta property="article:modified_time" content="2026-10-27T19:09:37.000Z">
+    <meta property="article:tag" content="AI Security">
+    <meta property="article:tag" content="Threat Intelligence &amp; Security News">
+    <meta property="article:tag" content="CTEM">
+    
+    <meta property="article:publisher" content="https://www.facebook.com/CyberDesserts/">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="AI Infrastructure Scanning: Recon Now, Credentials Next">
+    <meta name="twitter:description" content="72 hours against exposed AI infrastructure: the scanners catalogue everything, but the exploitation targets credentials and cloud secrets.">
+    <meta name="twitter:url" content="https://blog.cyberdesserts.com/ai-infrastructure-scanning-research/">
+    <meta name="twitter:image" content="https://images.unsplash.com/photo-1721314787850-5745fdfb06b4?crop&#x3D;entropy&amp;cs&#x3D;tinysrgb&amp;fit&#x3D;max&amp;fm&#x3D;jpg&amp;ixid&#x3D;M3wxMTc3M3wwfDF8c2VhcmNofDMxfHxjb21wdXRlciUyMG5ldHdvcmslMjBzY2FufGVufDB8fHx8MTc3ODc5NzE2N3ww&amp;ixlib&#x3D;rb-4.1.0&amp;q&#x3D;80&amp;w&#x3D;2000">
+    <meta name="twitter:label1" content="Written by">
+    <meta name="twitter:data1" content="Shakel Ahmed">
+    <meta name="twitter:label2" content="Filed under">
+    <meta name="twitter:data2" content="AI Security, Threat Intelligence &amp; Security News, CTEM">
+    <meta property="og:image:width" content="1200">
+    <meta property="og:image:height" content="750">
+    
+    <script type="application/ld+json">
+{
+    "@context": "https://schema.org",
+    "@type": "Article",
+    "publisher": {
+        "@type": "Organization",
+        "name": "CyberDesserts",
+        "url": "https://blog.cyberdesserts.com/",
+        "logo": {
+            "@type": "ImageObject",
+            "url": "https://storage.ghost.io/c/35/11/3511c934-5ff5-4c52-bd35-1fa0ecc19415/content/images/2026/08/shield-1024-1.png",
+            "width": 60,
+            "height": 60
+        }
+    },
+    "author": {
+        "@type": "Person",
+        "name": "Shakel Ahmed",
+        "image": {
+            "@type": "ImageObject",
+            "url": "https://storage.ghost.io/c/35/11/3511c934-5ff5-4c52-bd35-1fa0ecc19415/content/images/2026/08/shakel-ahmed.jpg",
+            "width": 800,
+            "height": 774
+        },
+        "url": "https://blog.cyberdesserts.com/author/shakel-ahmed/",
+        "sameAs": [
+            "https://cyberdesserts.com/about/shakel-ahmed/",
+            "https://www.linkedin.com/in/shaka"
+        ]
+    },
+    "headline": "AI Infrastructure Scanning: Recon Now, Credentials Next",
+    "url": "https://blog.cyberdesserts.com/ai-infrastructure-scanning-research/",
+    "datePublished": "2026-05-14T22:24:46.000Z",
+    "dateModified": "2026-10-27T19:09:37.000Z",
+    "image": {
+        "@type": "ImageObject",
+        "url": "https://images.unsplash.com/photo-1721314787850-5745fdfb06b4?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3wxMTc3M3wwfDF8c2VhcmNofDMxfHxjb21wdXRlciUyMG5ldHdvcmslMjBzY2FufGVufDB8fHx8MTc3ODc5NzE2N3ww&ixlib=rb-4.1.0&q=80&w=2000",
+        "width": 1200,
+        "height": 750
+    },
+    "keywords": "AI Security, Threat Intelligence & Security News, CTEM",
+    "description": "460 source IPs, 11,643 requests, 72 hours against exposed AI infrastructure. The operators that recognised it were cataloguing; the ones attacking were after credentials that sit on any exposed host.",
+    "mainEntityOfPage": "https://blog.cyberdesserts.com/ai-infrastructure-scanning-research/"
+}
+    </script>
+
+    <meta name="generator" content="Ghost 6.75">
+    <link rel="alternate" type="application/rss+xml" title="CyberDesserts" href="https://blog.cyberdesserts.com/rss/">
+    <script defer src="https://cdn.jsdelivr.net/ghost/portal@~2.72/umd/portal.min.js" data-i18n="true" data-ghost="https://blog.cyberdesserts.com/" data-key="b9e2f32c778f38500196c93c82" data-api="https://cyberdesserts.ghost.io/ghost/api/content/" data-locale="en" crossorigin="anonymous"></script><style id="gh-members-styles">.gh-post-upgrade-cta-content,
+.gh-post-upgrade-cta {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+    text-align: center;
+    width: 100%;
+    color: #ffffff;
+    font-size: 16px;
+}
+
+.gh-post-upgrade-cta-content {
+    border-radius: 8px;
+    padding: 40px 4vw;
+}
+
+.gh-post-upgrade-cta h2 {
+    color: #ffffff;
+    font-size: 28px;
+    letter-spacing: -0.2px;
+    margin: 0;
+    padding: 0;
+}
+
+.gh-post-upgrade-cta p {
+    margin: 20px 0 0;
+    padding: 0;
+}
+
+.gh-post-upgrade-cta small {
+    font-size: 16px;
+    letter-spacing: -0.2px;
+}
+
+.gh-post-upgrade-cta a {
+    color: #ffffff;
+    cursor: pointer;
+    font-weight: 500;
+    box-shadow: none;
+    text-decoration: underline;
+}
+
+.gh-post-upgrade-cta a:hover {
+    color: #ffffff;
+    opacity: 0.8;
+    box-shadow: none;
+    text-decoration: underline;
+}
+
+.gh-post-upgrade-cta a.gh-btn {
+    display: block;
+    background: #ffffff;
+    text-decoration: none;
+    margin: 28px 0 0;
+    padding: 8px 18px;
+    border-radius: 4px;
+    font-size: 16px;
+    font-weight: 600;
+}
+
+.gh-post-upgrade-cta a.gh-btn:hover {
+    opacity: 0.92;
+}</style>
+    <script defer src="https://cdn.jsdelivr.net/ghost/sodo-search@~1.9/umd/sodo-search.min.js" data-key="b9e2f32c778f38500196c93c82" data-styles="https://cdn.jsdelivr.net/ghost/sodo-search@~1.9/umd/main.css" data-sodo-search="https://cyberdesserts.ghost.io/" data-locale="en" crossorigin="anonymous"></script>
+    
+    <link href="https://blog.cyberdesserts.com/webmentions/receive/" rel="webmention">
+    <script defer src="/public/cards.min.js?v=mLGdiz8Ij-Hk3ydN"></script>
+    <link rel="stylesheet" type="text/css" href="/public/cards.min.css?v=WwnU9jw5ancNC8Gc">
+    <script defer src="/public/comment-counts.min.js?v=oFYkaGLdiMqB8VN9" data-ghost-comments-counts-api="https://blog.cyberdesserts.com/members/api/comments/counts/"></script>
+    <script defer src="/public/member-attribution.min.js?v=AKG4hWena9j3yX3I"></script>
+    <script defer src="/public/ghost-stats.min.js?v=GjA0fyDfVPF71jEZ" data-stringify-payload="false" data-datasource="analytics_events" data-storage="localStorage" data-host="https://blog.cyberdesserts.com/.ghost/analytics/api/v1/page_hit"  tb_site_uuid="3511c934-5ff5-4c52-bd35-1fa0ecc19415" tb_post_uuid="08b6f546-a92b-40dc-86f5-8892cadd61a0" tb_post_type="post" tb_member_uuid="undefined" tb_member_status="undefined" tb_gift_link=""></script><style>:root {--ghost-accent-color: #000000;}</style>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-ZZYQDMRBDN"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-ZZYQDMRBDN');
+</script>
+
+<meta name="robots" content="max-image-preview:large">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+
+
+<style>
+/* Reserve space for share buttons before they load */
+.cyber-share-container {
+    min-height: 52px;
+}
+
+/* Prevent portal button causing layout shift */
+div[data-ghost-portal] {
+    position: fixed !important;
+}
+
+/* Reserve space for comment counts */
+.feed-comments {
+    min-height: 20px;
+    display: inline-block;
+}
+
+/* Prevent font swap shift */
+@font-face {
+    font-family: 'Inter';
+    font-display: optional;
+}
+</style>
+
+
+<style>
+/* --- New Custom Footer (v3) --- */
+
+/* 1. Hide the default Ghost footer */
+.site-footer, .gh-foot {
+    display: none !important;
+}
+
+/* 2. Style footer container */
+.custom-site-footer {
+    box-sizing: border-box;
+    padding: 35px 4vw; /* padding (height) */
+    border-top: 1px solid #e9e9e9;
+    background: #fff;
+    color: #555;
+    
+    /* Using 15px  */
+    font-size: 15px; 
+}
+
+/* 3. Create the two-column (copyright + nav) layout */
+.custom-footer-content {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    align-items: center;
+    max-width: 1120px; /* Matches the blog's content width */
+    margin: 0 auto;
+}
+
+/* 4. Style the copyright text */
+.custom-footer-copyright {
+    margin: 0;
+    padding: 5px 0;
+    text-align: left;
+}
+
+/* 5. Style the navigation links */
+.custom-footer-nav {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: flex-end; /* Aligns links to the right */
+    align-items: center;
+}
+
+.custom-footer-nav a {
+    color: #555;
+    text-decoration: none;
+    font-weight: 500;
+    margin: 5px 12px; /* Space between links */
+}
+
+.custom-footer-nav a:last-of-type {
+    margin-right: 0;
+}
+
+.custom-footer-nav a:hover {
+    text-decoration: underline;
+    color: #111;
+}
+
+/* 6. Make it responsive for mobile */
+@media (max-width: 767px) {
+    .custom-footer-content {
+        flex-direction: column; /* Stack vertically on mobile */
+    }
+    
+    .custom-footer-copyright {
+        text-align: center;
+        margin-bottom: 15px;
+        order: 2; /* Show copyright *below* links on mobile */
+    }
+    
+    .custom-footer-nav {
+        order: 1; /* Show links *above* copyright on mobile */
+        justify-content: center;
+        margin-bottom: 10px;
+    }
+
+    .custom-footer-nav a {
+        margin: 5px 10px;
+    }
+}
+</style>
+
+<style>
+/* Base table styling - desktop */
+.gh-content table,
+.post-content table,
+.article-content table {
+  width: 100% !important;
+  max-width: 100% !important;
+  border-collapse: collapse !important;
+  margin: 20px 0 !important;
+  display: table !important;
+  table-layout: fixed !important;
+}
+
+/* Theme scroll wrappers only */
+.gh-content .table-wrapper,
+.post-content .table-wrapper {
+  overflow: visible !important;
+  max-width: 100% !important;
+  width: 100% !important;
+}
+
+/* Mobile: table becomes its own scroll container */
+@media (max-width: 768px) {
+  .gh-content table,
+  .post-content table,
+  .article-content table {
+    display: block !important;
+    overflow-x: auto !important;
+    -webkit-overflow-scrolling: touch !important;
+    table-layout: auto !important;
+    width: max-content !important;
+    max-width: 100% !important;
+  }
+
+  /* Hide scroll hints on mobile only when table fits */
+  .scroll-hint {
+    display: block !important;
+  }
+}
+
+/* Hide scroll hint on desktop */
+.scroll-hint {
+  display: none;
+  font-size: 12px;
+  color: #888;
+  margin: 0 0 6px 0;
+}
+
+/* Header styling */
+.gh-content table th,
+.post-content table th {
+  background: #2d2d2d !important;
+  color: #fff !important;
+  font-weight: 600 !important;
+  padding: 10px !important;
+  border: 1px solid #444 !important;
+  text-align: left !important;
+  word-wrap: break-word !important;
+  overflow-wrap: break-word !important;
+  white-space: nowrap !important;
+}
+
+/* Cell styling */
+.gh-content table td,
+.post-content table td {
+  padding: 10px !important;
+  border: 1px solid #ddd !important;
+  text-align: left !important;
+  word-wrap: break-word !important;
+  overflow-wrap: break-word !important;
+  white-space: normal !important;
+  vertical-align: top !important;
+  min-width: 120px !important;
+}
+</style>
+
+
+<style>
+.cyber-share-container {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 12px;
+    margin: 24px 0 32px 0;
+}
+
+.cyber-share-btn {
+    cursor: pointer;
+    text-decoration: none !important;
+    background-color: #ffffff;
+    color: #000000 !important;
+    border: 1px solid #e0e0e0;
+    padding: 8px 16px;
+    border-radius: 6px;
+    font-weight: 500;
+    font-size: 14px;
+    display: flex;
+    align-items: center;
+    transition: all 0.2s ease;
+}
+
+.cyber-share-btn:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(0,0,0,0.05);
+    border-color: #000000;
+}
+
+.cyber-share-btn svg {
+    fill: #000000;
+    margin-right: 10px;
+}
+
+/* Success state for Copy Button */
+.copy-success {
+    background-color: #000000 !important;
+    color: #ffffff !important;
+    border-color: #000000 !important;
+}
+.copy-success svg {
+    fill: #ffffff !important;
+}
+</style>
+</head>
+
+<body class="post-template tag-ai-security tag-news tag-ctem is-head-left-logo is-head-brand">
+<div class="site">
+
+    <header id="gh-head" class="gh-head gh-outer">
+        <div class="gh-head-inner">
+            <div class="gh-head-brand">
+                <div class="gh-head-brand-wrapper">
+                    <a class="gh-head-logo" href="https://blog.cyberdesserts.com">
+                            <img src="https://storage.ghost.io/c/35/11/3511c934-5ff5-4c52-bd35-1fa0ecc19415/content/images/2026/08/shield-1024-1.png" alt="CyberDesserts">
+                    </a>
+                </div>
+                <button class="gh-search gh-icon-btn" aria-label="Search this site" data-ghost-search><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2" width="20" height="20"><path stroke-linecap="round" stroke-linejoin="round" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"></path></svg></button>
+                <button class="gh-burger" aria-label="Toggle menu"></button>
+            </div>
+
+            <nav class="gh-head-menu">
+                <ul class="nav">
+    <li class="nav-blog"><a href="https://blog.cyberdesserts.com/">Blog </a></li>
+    <li class="nav-free-career-guide"><a href="https://blog.cyberdesserts.com/cybersecurity-career-guide-2026/">Free Career Guide</a></li>
+    <li class="nav-members-hub"><a href="https://blog.cyberdesserts.com/cybersecurity-career-resources/">Members Hub</a></li>
+    <li class="nav-cyberdesserts-com"><a href="https://cyberdesserts.com/">CyberDesserts.com</a></li>
+    <li class="nav-ai-security"><a href="https://blog.cyberdesserts.com/ai-security/">AI Security</a></li>
+</ul>
+
+            </nav>
+
+            <div class="gh-head-actions">
+                    <button class="gh-search gh-icon-btn" aria-label="Search this site" data-ghost-search><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2" width="20" height="20"><path stroke-linecap="round" stroke-linejoin="round" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"></path></svg></button>
+                    <div class="gh-head-members">
+                                <a class="gh-head-link" href="#/portal/signin" data-portal="signin">Sign in</a>
+                                <a class="gh-head-btn gh-btn gh-primary-btn" href="#/portal/signup" data-portal="signup">Subscribe</a>
+                    </div>
+            </div>
+        </div>
+    </header>
+
+
+    <div class="site-content">
+        
+<main class="site-main">
+
+        <article class="single post tag-ai-security tag-news tag-ctem">
+
+        <header class="single-header gh-canvas">
+            <div class="single-meta">
+                <span class="single-meta-item single-meta-date">
+                    <time datetime="2026-05-14">
+                        14 May 2026
+                    </time>
+                </span>
+                <span class="single-meta-item single-meta-length">
+                    7 min read
+                </span>
+                    <span class="single-meta-item single-meta-tag">
+                        <a class="post-tag post-tag-ai-security" href="/tag/ai-security/">AI Security</a>
+                    </span>
+            </div>
+
+            <h1 class="single-title">The Scanners Mapping AI Infrastructure Aren&#x27;t After Your Model. They&#x27;re After Your Credentials.</h1>
+
+                <div class="single-excerpt">
+                    460 source IPs, 11,643 requests, 72 hours against exposed AI infrastructure. The operators that recognised it were cataloguing; the ones attacking were after credentials that sit on any exposed host.
+                </div>
+
+            <div class="author-name" style="display: none;"><a href="/author/shakel-ahmed/">Shakel Ahmed</a></div>
+
+                <figure class="single-media kg-width-narrow">
+                    <img srcset="https://images.unsplash.com/photo-1721314787850-5745fdfb06b4?crop&#x3D;entropy&amp;cs&#x3D;tinysrgb&amp;fit&#x3D;max&amp;fm&#x3D;jpg&amp;ixid&#x3D;M3wxMTc3M3wwfDF8c2VhcmNofDMxfHxjb21wdXRlciUyMG5ldHdvcmslMjBzY2FufGVufDB8fHx8MTc3ODc5NzE2N3ww&amp;ixlib&#x3D;rb-4.1.0&amp;q&#x3D;80&amp;w&#x3D;400 400w,
+https://images.unsplash.com/photo-1721314787850-5745fdfb06b4?crop&#x3D;entropy&amp;cs&#x3D;tinysrgb&amp;fit&#x3D;max&amp;fm&#x3D;jpg&amp;ixid&#x3D;M3wxMTc3M3wwfDF8c2VhcmNofDMxfHxjb21wdXRlciUyMG5ldHdvcmslMjBzY2FufGVufDB8fHx8MTc3ODc5NzE2N3ww&amp;ixlib&#x3D;rb-4.1.0&amp;q&#x3D;80&amp;w&#x3D;750 750w,
+https://images.unsplash.com/photo-1721314787850-5745fdfb06b4?crop&#x3D;entropy&amp;cs&#x3D;tinysrgb&amp;fit&#x3D;max&amp;fm&#x3D;jpg&amp;ixid&#x3D;M3wxMTc3M3wwfDF8c2VhcmNofDMxfHxjb21wdXRlciUyMG5ldHdvcmslMjBzY2FufGVufDB8fHx8MTc3ODc5NzE2N3ww&amp;ixlib&#x3D;rb-4.1.0&amp;q&#x3D;80&amp;w&#x3D;960 960w,
+https://images.unsplash.com/photo-1721314787850-5745fdfb06b4?crop&#x3D;entropy&amp;cs&#x3D;tinysrgb&amp;fit&#x3D;max&amp;fm&#x3D;jpg&amp;ixid&#x3D;M3wxMTc3M3wwfDF8c2VhcmNofDMxfHxjb21wdXRlciUyMG5ldHdvcmslMjBzY2FufGVufDB8fHx8MTc3ODc5NzE2N3ww&amp;ixlib&#x3D;rb-4.1.0&amp;q&#x3D;80&amp;w&#x3D;1140 1140w" sizes="(min-width: 1023px) 920px, calc(90vw)" src="https://images.unsplash.com/photo-1721314787850-5745fdfb06b4?crop&#x3D;entropy&amp;cs&#x3D;tinysrgb&amp;fit&#x3D;max&amp;fm&#x3D;jpg&amp;ixid&#x3D;M3wxMTc3M3wwfDF8c2VhcmNofDMxfHxjb21wdXRlciUyMG5ldHdvcmslMjBzY2FufGVufDB8fHx8MTc3ODc5NzE2N3ww&amp;ixlib&#x3D;rb-4.1.0&amp;q&#x3D;80&amp;w&#x3D;960" alt="The Scanners Mapping AI Infrastructure Aren&#x27;t After Your Model. They&#x27;re After Your Credentials.">
+                        <figcaption><span style="white-space:pre-wrap">Photo by </span><a href="https://unsplash.com/@omilaev?utm_source=ghost&amp;utm_medium=referral&amp;utm_campaign=api-credit"><span style="white-space:pre-wrap">Igor Omilaev</span></a><span style="white-space:pre-wrap"> / </span><a href="https://unsplash.com/?utm_source=ghost&amp;utm_medium=referral&amp;utm_campaign=api-credit"><span style="white-space:pre-wrap">Unsplash</span></a></figcaption>
+                </figure>
+        </header>
+
+    <div class="single-content gh-content gh-canvas">
+        <p><em>Updated July 2026</em></p><hr><p>Exposed AI infrastructure is already being scanned at scale, but the exploitation aimed at it has not arrived to match.</p><p>Across 72 hours against a research deployment shaped to look like exposed AI infrastructure, the traffic split into two populations with opposite implications. Most of what hit the deployment was commercial reconnaissance: intelligence platforms and internet-wide classifiers cataloguing AI infrastructure with self-identifying user-agents, scheduled windows, and structured wordlists probing entrypoints. The exploitation came from a separate population: generic credential-harvesting tooling. It hit AI ports because the ports were web-accessible. The AI service was <strong>not</strong> the target; the credentials sitting on the same host were the real target. Perhaps expected as credential harvesting as an attack vector has been around for much longer.</p><p>On the other hand exposed AI infrastructure sits in a reconnaissance-heavy phase that looks like the early stages of the cloud and IoT exposure from the past: operators are systematically mapping the ecosystem, and widespread AI-specific exploitation has not arrived to match the visibility. The reconnaissance is a leading indicator for where AI-targeted exploitation goes once operational capability catches up, and it sits inside the wider <a href="https://blog.cyberdesserts.com/ai-agent-security-risks/">security risks facing AI agents and their infrastructure</a>.</p><p>That gap between reconnaissance and exploitation is a window defenders can use, instrumenting detection and response before the exploitation tail catches up to the mapping.</p><div class="kg-card kg-button-card kg-align-center"><a href="#/portal/signup" class="kg-btn kg-btn-accent">Get research like this delivered to your inbox. </a></div><h2 id="there-is-a-lot-of-exposed-ai-infrastructure-to-find">There is a lot of exposed AI infrastructure to find</h2><p>The reconnaissance is running against a genuine exposure surface, one large enough to measure across two independent classifiers.</p><p>Cross-classifier analysis between Shodan and Censys identified roughly 25,000 to 30,000 publicly exposed Ollama deployments at the time of measurement (11 May 2026), which makes self-hosted AI inference far more exposed than most organisations realise. Open WebUI exposure runs larger still, with Censys HTML-title classification identifying roughly 63,000 deployments indexed on the public internet. Most of the Ollama population sits on the canonical port: Shodan product classification put 79.8% of confirmed hosts directly on port 11434 (Shodan, 11 May 2026).</p><p>The exposure carries known consequences. CVE-2024-37032, an Ollama path traversal enabling remote code execution against versions before 0.1.34, is the clearest example of why exposed inference infrastructure is a defensive concern rather than a visibility curiosity (NVD, 2024).</p><p>A naive Shodan banner search returned roughly 1,165 Ollama hosts; the structured Shodan product classification on the same data returned 25,488; Censys returned about 30,000. Twenty-fold spread on the same population, depending on how you ask. One source alone is not enough, but Shodan and Censys landing in the same range, roughly 25,000 and 30,000, is what makes the 25-to-30-thousand estimate defensible.</p><p>The exact count is not the point. A large, visible AI infrastructure ecosystem already exists, and it is big enough to attract structured reconnaissance.</p><h2 id="the-reconnaissance-is-structured-and-commercial">The reconnaissance is structured and commercial</h2><p>One scanner cluster produced 75.7% of all observed traffic. Seven coordinated source IPs ran the same tooling, executing a 491-path AI infrastructure wordlist against the deployment over a 31-hour active window before disengaging completely. Four IPs ran sustained sweeps with the full wordlist; three ran lighter scout reconnaissance. Same tooling fingerprints across all seven.</p><p>Two behaviours in that cluster matter more than its existence.</p><p>The wordlist is port-agnostic. Those 491 paths span MCP discovery (<code>/.well-known/mcp.json</code>), Ollama endpoints (<code>/api/tags</code>), OpenAI-compatible paths (<code>/v1/chat/completions</code>), Ray cluster paths, and generic AI endpoints. The cluster probed <code>/.well-known/mcp.json</code> on eight different ports, including ports running services that have nothing to do with MCP. The tooling does not model what service should run where. It fires all 491 paths at every open port it finds.</p><p>That kills port obfuscation as a control. And the mismatch is measurable, not abstract: scanner reconnaissance hit non-canonical ports 79.6% of the time in this dataset, while real Ollama deployments concentrate 79.8% on canonical port 11434. The scanners look on ports where the deployments mostly aren't, and reach them anyway by covering every open port they find.</p><p>The internet-wide classifiers are now AI-aware too. Censys probed our deployment with a consistent sequence, GET <code>/mcp</code>, GET <code>/jsonrpc</code>, then a POST to <code>/</code> with <code>application/json</code>, across roughly two dozen distinct CensysInspect sources. This is classifier evolution captured in flight: Censys tooling being updated to include AI-specific path probing as part of its standard sweep. Shodan, under passive observation, indexed only one of the deployment's 13 exposed services in the 72-hour window, against six for Censys in the same period. That gap is discovery latency, not capability. Shodan indexes Ollama at scale globally; the timeline for any single deployment under passive querying is what differs, and Shodan's paid on-demand scanning closes some of it for defenders who use it.</p><p>The practical consequence for anyone auditing their own exposure: a passive Shodan query alone may show a fraction of what is actually visible. Triangulating across classifiers requires more work.</p><h2 id="the-exploitation-went-after-credentials-not-ai-models">The exploitation went after credentials, not AI models</h2><p>No targeted AI exploitation showed up in the dataset. The dominant pattern was arrive, probe, disengage, with most operators gone before any attempt to interact with an inference endpoint.</p><p>The malicious population that did try was not AI-aware. Generic credential-harvesting tooling fired <code>.env</code> and cloud-secret wordlists at whatever was web-accessible. One pair of coordinated DigitalOcean IPs fired an identical 286-path wordlist within 26 seconds of each other, covering AWS, Azure, GCP and OCI credentials, Kubernetes secrets, and Git artefacts. Another variant ran pure <code>.env</code> exhaustion across six webroot prefixes. Ten more IPs in the long tail probed <code>.env</code> and <code>.git/config</code> and nothing else.</p><p>None of it cared that the host was running AI, because the ports were web-accessible and the credentials behind them were the same prize on any exposed host.</p><p>This is the exposure worth checking first. Credential harvesters do not skip a host because it runs AI; a web-accessible port is a web-accessible port, and the <code>.env</code> sweep arrives the same either way. The full timing and validation picture, harvested AWS keys reaching live API calls in under 90 seconds, sits in the companion research: <a href="https://blog.cyberdesserts.com/exposed-credentials-pipeline/">how fast exposed credentials get validated</a>.</p><p>One scanner did cross into inference probing, and it is worth a close look because it marks where the gap starts to close. From a single source IP, 30 POST requests hit <code>/v1/chat/completions</code> across the second half of the deployment, carrying <a href="https://blog.cyberdesserts.com/prompt-injection-attacks/">canary-prompt payloads</a> that asked for a single-word reply and rotated through model names, at roughly 45-minute intervals. The research deployment returned generic placeholder responses rather than content-correct answers. The scanner came back on schedule regardless. It was not checking what the endpoint said. It was confirming the endpoint accepts structured POST payloads and returns valid JSON. Indicative of cataloguing rather than exploitation.</p><p>Why the population skews so heavily toward reconnaissance is not something the data settles. The likeliest contributor is a capability gap: the deployment was shaped well enough to draw recon but not deep enough to sustain exploitation, so operators probed, hit dead ends, and left. Timing is a factor too, since 72 hours may miss exploitation that follows commercial intelligence pipelines days or weeks later. And AI-specific exploitation may simply still be emerging, concentrated on high-value targets or moving through vectors this deployment could not see. None of those are confirmed. What the window does establish is that the catalogue is being built now and evolving.</p><h2 id="what-to-do-while-the-window-is-open">What to do while the window is open</h2><p>The visibility runs one way: scanners catalogue continuously, while defenders react to what they happen to notice. Closing that gap means either paying for commercial scanning data or running monitoring of your own.</p><p>Three things follow.</p><p><strong>Assume you are already catalogued.</strong> Commercial scanners reach new infrastructure within hours of it going online, at a depth comparable to dedicated security tooling. The question is about what posture you apply given that your infrastructure is already catalogued.</p><p><strong>Layer controls on the services themselves.</strong> Port obfuscation fails against a port-agnostic wordlist of api's and entry points, and the credential-harvesting class hits AI deployments incidentally regardless of which service answers. What works is layered security: authentication on every AI service endpoint (Ollama ships without it, so this is on you to add), rate-limiting on inference endpoints to catch sustained probing, IP allow-listing for services with no business being public, credential-path filtering at the WAF for <code>.env</code> and <code>.git/config</code>, and patching for AI service CVEs such as CVE-2024-37032.</p><p><strong>Treat the quiet as a countdown, not safety.</strong> No targeted exploitation observed is not the same as no threat. It is a leading indicator, and the value of the window is that monitoring can go on now, including signatures for the commercial scanner patterns above, before the targeted-attack phase arrives. Instrument during this phase and you are ready for what comes next.</p><p>This piece gives the diagnosis and the layered response. The endpoint-level defensive priority work, and the credential-validation timing that shows why the harvesting class moves as fast as it does, see the <a href="https://blog.cyberdesserts.com/exposed-credentials-pipeline/" rel="noreferrer">companion research</a>.</p><h2 id="methodology-and-disclosure">Methodology and disclosure</h2><p>The research deployment ran a 72-hour observation window, calibrated against earlier iterations of the same research programme. That window captures commercial scanner first-contact, the structured cluster's full discovery-and-sweep cycle, and the late-arrival inference probing. It does not capture operators whose cadence runs on weekly or monthly cycles, which is a known limitation rather than an absence of activity.</p><p>Exposure claims triangulate across multiple commercial classifiers rather than trusting any single one, because the same population indexed by different methods returned counts that differed twenty-fold. It matters most for AI infrastructure specifically, where the classifier ecosystem is still calibrating how it handles these services.</p><p>Methodology and findings are public; specific apparatus configuration values are not, because configuration values become signatures that let operators identify and avoid the deployment in later iterations (Srinivasa et al., 2023; Sun et al., 2021). The general techniques, anti-fingerprinting configuration and HTTP response shaping, are well documented in public security research (Richards, 2022; Brumen, 2025). Each deployment is decommissioned once the findings ship; by the time this publishes, the one described here is offline. I am happy to discuss the research approach with genuine enquiries from other researchers.</p><h2 id="references">References</h2><p>Brumen, A. (2025). "Recon series #3: HTTP fingerprinting." YesWeHack Learn Bug Bounty, 18 March 2025. https://www.yeswehack.com/learn-bug-bounty/recon-series-http-fingerprinting</p><p>NVD. (2024). "CVE-2024-37032: Ollama path traversal." National Vulnerability Database, 31 May 2024. https://nvd.nist.gov/vuln/detail/cve-2024-37032</p><p>Richards, T. (2022). "Anti-fingerprinting Configuration for NGINX." August 2022. https://tomrichards.net/2022/08/anti-fingerprinting-configuration-for-nginx/</p><p>Srinivasa, S., Pedersen, J. M., &amp; Vasilomanolakis, E. (2023). "Gotta Catch 'em All: A Multistage Framework for Honeypot Fingerprinting." Digital Threats: Research and Practice, 4(3), Article 42. https://doi.org/10.1145/3584976</p><p>Sun, Y., Tian, Z., Li, M., Su, S., Du, X., &amp; Guizani, M. (2021). "Honeypot Identification in Softwarized Industrial Cyber-Physical Systems." IEEE Transactions on Industrial Informatics, 17(8), 5542-5551. https://doi.org/10.1109/TII.2020.3044576</p>
+    </div>
+
+    <div class="gh-canvas">
+    <footer class="single-footer">
+
+        <div class="single-footer-left">
+            <div class="navigation navigation-previous">
+                <a class="navigation-link" href="/cybersecurity-compliance-career-guide/" aria-label="Previous post">
+                    <span class="navigation-icon"><svg class="icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32">
+    <path d="M26.667 14.667v2.667h-16L18 24.667l-1.893 1.893L5.547 16l10.56-10.56L18 7.333l-7.333 7.333h16z"></path>
+</svg></span>
+                </a>
+            </div>
+        </div>
+
+        <div class="single-footer-middle">
+            <div class="single-footer-top">
+                <h3 class="single-footer-title">Published by:</h3>
+                <div class="author-list">
+                        <div class="author-image-placeholder u-placeholder square">
+                            <a href="/author/shakel-ahmed/" title="Shakel Ahmed">
+                                    <img class="author-image u-object-fit" src="https://storage.ghost.io/c/35/11/3511c934-5ff5-4c52-bd35-1fa0ecc19415/content/images/size/w150/2026/08/shakel-ahmed.jpg" alt="Shakel Ahmed" loading="lazy">
+                            </a>
+                        </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="single-footer-right">
+            <div class="navigation navigation-next">
+                <a class="navigation-link" href="/npm-security/" aria-label="Next post">
+                    <span class="navigation-icon"><svg class="icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32">
+    <path d="M5.333 14.667v2.667h16L14 24.667l1.893 1.893L26.453 16 15.893 5.44 14 7.333l7.333 7.333h-16z"></path>
+</svg></span>
+                </a>
+            </div>
+        </div>
+
+    </footer>
+    </div>
+
+</article>
+                <section class="related-wrapper gh-canvas">
+        <h3 class="related-title">You might also like...</h3>
+        <div class="post-feed related-feed">
+                <article class="feed post" data-month="October 2026">
+
+    <div class="feed-calendar">
+        <div class="feed-calendar-day">
+            04
+        </div>
+        <div class="feed-calendar-month">
+            Oct
+        </div>
+    </div>
+
+        <div class="feed-image u-placeholder rectangle">
+                <img
+                    class="u-object-fit"
+                    srcset="https://images.unsplash.com/photo-1667372335937-d03be6fb0a9c?crop&#x3D;entropy&amp;cs&#x3D;tinysrgb&amp;fit&#x3D;max&amp;fm&#x3D;jpg&amp;ixid&#x3D;M3wxMTc3M3wwfDF8c2VhcmNofDUxfHxjb250aW51b3VzJTIwaW50ZWdyYXRpb258ZW58MHx8fHwxNzkxMTI1Mjg0fDA&amp;ixlib&#x3D;rb-4.1.0&amp;q&#x3D;80&amp;w&#x3D;400 400w,
+https://images.unsplash.com/photo-1667372335937-d03be6fb0a9c?crop&#x3D;entropy&amp;cs&#x3D;tinysrgb&amp;fit&#x3D;max&amp;fm&#x3D;jpg&amp;ixid&#x3D;M3wxMTc3M3wwfDF8c2VhcmNofDUxfHxjb250aW51b3VzJTIwaW50ZWdyYXRpb258ZW58MHx8fHwxNzkxMTI1Mjg0fDA&amp;ixlib&#x3D;rb-4.1.0&amp;q&#x3D;80&amp;w&#x3D;750 750w,
+https://images.unsplash.com/photo-1667372335937-d03be6fb0a9c?crop&#x3D;entropy&amp;cs&#x3D;tinysrgb&amp;fit&#x3D;max&amp;fm&#x3D;jpg&amp;ixid&#x3D;M3wxMTc3M3wwfDF8c2VhcmNofDUxfHxjb250aW51b3VzJTIwaW50ZWdyYXRpb258ZW58MHx8fHwxNzkxMTI1Mjg0fDA&amp;ixlib&#x3D;rb-4.1.0&amp;q&#x3D;80&amp;w&#x3D;960 960w,
+https://images.unsplash.com/photo-1667372335937-d03be6fb0a9c?crop&#x3D;entropy&amp;cs&#x3D;tinysrgb&amp;fit&#x3D;max&amp;fm&#x3D;jpg&amp;ixid&#x3D;M3wxMTc3M3wwfDF8c2VhcmNofDUxfHxjb250aW51b3VzJTIwaW50ZWdyYXRpb258ZW58MHx8fHwxNzkxMTI1Mjg0fDA&amp;ixlib&#x3D;rb-4.1.0&amp;q&#x3D;80&amp;w&#x3D;1140 1140w"
+                    sizes="(min-width: 576px) 160px, 90vw"
+                    src="https://images.unsplash.com/photo-1667372335937-d03be6fb0a9c?crop&#x3D;entropy&amp;cs&#x3D;tinysrgb&amp;fit&#x3D;max&amp;fm&#x3D;jpg&amp;ixid&#x3D;M3wxMTc3M3wwfDF8c2VhcmNofDUxfHxjb250aW51b3VzJTIwaW50ZWdyYXRpb258ZW58MHx8fHwxNzkxMTI1Mjg0fDA&amp;ixlib&#x3D;rb-4.1.0&amp;q&#x3D;80&amp;w&#x3D;750"
+                    alt="What Is AppSec and Why It Matters Now"
+                    loading="lazy"
+                >
+        </div>
+
+    <div class="feed-wrapper">
+        <h2 class="feed-title">What Is AppSec and Why It Matters Now</h2>
+            <div class="feed-excerpt">October 2026
+
+Application security, or AppSec, is the work of making sure software can be trusted: when it is designed,</div>
+        <div class="feed-right">
+            <time class="feed-date" datetime="2026-10-04">
+                04 Oct 2026
+            </time>
+            <div class="feed-visibility feed-visibility-public">
+                <svg class="icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32">
+    <path d="M16 23.027L24.24 28l-2.187-9.373 7.28-6.307-9.587-.827-3.747-8.827-3.747 8.827-9.587.827 7.267 6.307L7.759 28l8.24-4.973z"></path>
+</svg>            </div>
+                <div class="feed-length">
+                    4 min read
+                </div>
+                <script
+    data-ghost-comment-count="6ac26499bb71bb0001d505ff"
+    data-ghost-comment-count-empty=""
+    data-ghost-comment-count-singular="comment"
+    data-ghost-comment-count-plural="comments"
+    data-ghost-comment-count-tag="div"
+    data-ghost-comment-count-class-name="feed-comments"
+    data-ghost-comment-count-autowrap="true"
+>
+</script>
+            <div class="feed-icon">
+                <svg class="icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32">
+    <path d="M11.453 22.107L17.56 16l-6.107-6.12L13.333 8l8 8-8 8-1.88-1.893z"></path>
+</svg>            </div>
+        </div>
+    </div>
+
+    <a class="u-permalink" href="/what-is-appsec/" aria-label="What Is AppSec and Why It Matters Now"></a>
+
+</article>                <article class="feed post" data-month="August 2026">
+
+    <div class="feed-calendar">
+        <div class="feed-calendar-day">
+            18
+        </div>
+        <div class="feed-calendar-month">
+            Aug
+        </div>
+    </div>
+
+        <div class="feed-image u-placeholder rectangle">
+                <img
+                    class="u-object-fit"
+                    srcset="https://images.unsplash.com/photo-1664447973006-ac31f9fdfac2?crop&#x3D;entropy&amp;cs&#x3D;tinysrgb&amp;fit&#x3D;max&amp;fm&#x3D;jpg&amp;ixid&#x3D;M3wxMTc3M3wwfDF8c2VhcmNofDU2fHxhaXxlbnwwfHx8fDE3ODcwNDM0NTZ8MA&amp;ixlib&#x3D;rb-4.1.0&amp;q&#x3D;80&amp;w&#x3D;400 400w,
+https://images.unsplash.com/photo-1664447973006-ac31f9fdfac2?crop&#x3D;entropy&amp;cs&#x3D;tinysrgb&amp;fit&#x3D;max&amp;fm&#x3D;jpg&amp;ixid&#x3D;M3wxMTc3M3wwfDF8c2VhcmNofDU2fHxhaXxlbnwwfHx8fDE3ODcwNDM0NTZ8MA&amp;ixlib&#x3D;rb-4.1.0&amp;q&#x3D;80&amp;w&#x3D;750 750w,
+https://images.unsplash.com/photo-1664447973006-ac31f9fdfac2?crop&#x3D;entropy&amp;cs&#x3D;tinysrgb&amp;fit&#x3D;max&amp;fm&#x3D;jpg&amp;ixid&#x3D;M3wxMTc3M3wwfDF8c2VhcmNofDU2fHxhaXxlbnwwfHx8fDE3ODcwNDM0NTZ8MA&amp;ixlib&#x3D;rb-4.1.0&amp;q&#x3D;80&amp;w&#x3D;960 960w,
+https://images.unsplash.com/photo-1664447973006-ac31f9fdfac2?crop&#x3D;entropy&amp;cs&#x3D;tinysrgb&amp;fit&#x3D;max&amp;fm&#x3D;jpg&amp;ixid&#x3D;M3wxMTc3M3wwfDF8c2VhcmNofDU2fHxhaXxlbnwwfHx8fDE3ODcwNDM0NTZ8MA&amp;ixlib&#x3D;rb-4.1.0&amp;q&#x3D;80&amp;w&#x3D;1140 1140w"
+                    sizes="(min-width: 576px) 160px, 90vw"
+                    src="https://images.unsplash.com/photo-1664447973006-ac31f9fdfac2?crop&#x3D;entropy&amp;cs&#x3D;tinysrgb&amp;fit&#x3D;max&amp;fm&#x3D;jpg&amp;ixid&#x3D;M3wxMTc3M3wwfDF8c2VhcmNofDU2fHxhaXxlbnwwfHx8fDE3ODcwNDM0NTZ8MA&amp;ixlib&#x3D;rb-4.1.0&amp;q&#x3D;80&amp;w&#x3D;750"
+                    alt="MCP Security Best Practices: Check Your Own Server First"
+                    loading="lazy"
+                >
+        </div>
+
+    <div class="feed-wrapper">
+        <h2 class="feed-title">MCP Security Best Practices: Check Your Own Server First</h2>
+            <div class="feed-excerpt">19 August 2026. Checked against MCP specification 2026-07-28.
+
+Most MCP security best practice do not go far enough.</div>
+        <div class="feed-right">
+            <time class="feed-date" datetime="2026-08-18">
+                18 Aug 2026
+            </time>
+            <div class="feed-visibility feed-visibility-public">
+                <svg class="icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32">
+    <path d="M16 23.027L24.24 28l-2.187-9.373 7.28-6.307-9.587-.827-3.747-8.827-3.747 8.827-9.587.827 7.267 6.307L7.759 28l8.24-4.973z"></path>
+</svg>            </div>
+                <div class="feed-length">
+                    10 min read
+                </div>
+                <script
+    data-ghost-comment-count="6a841319dea8c000012de124"
+    data-ghost-comment-count-empty=""
+    data-ghost-comment-count-singular="comment"
+    data-ghost-comment-count-plural="comments"
+    data-ghost-comment-count-tag="div"
+    data-ghost-comment-count-class-name="feed-comments"
+    data-ghost-comment-count-autowrap="true"
+>
+</script>
+            <div class="feed-icon">
+                <svg class="icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32">
+    <path d="M11.453 22.107L17.56 16l-6.107-6.12L13.333 8l8 8-8 8-1.88-1.893z"></path>
+</svg>            </div>
+        </div>
+    </div>
+
+    <a class="u-permalink" href="/mcp-security-best-practices/" aria-label="MCP Security Best Practices: Check Your Own Server First"></a>
+
+</article>                <article class="feed post" data-month="July 2026">
+
+    <div class="feed-calendar">
+        <div class="feed-calendar-day">
+            20
+        </div>
+        <div class="feed-calendar-month">
+            Jul
+        </div>
+    </div>
+
+        <div class="feed-image u-placeholder rectangle">
+                <img
+                    class="u-object-fit"
+                    srcset="https://images.unsplash.com/photo-1677442136019-21780ecad995?crop&#x3D;entropy&amp;cs&#x3D;tinysrgb&amp;fit&#x3D;max&amp;fm&#x3D;jpg&amp;ixid&#x3D;M3wxMTc3M3wwfDF8c2VhcmNofDZ8fGFpfGVufDB8fHx8MTc4NDU4MjcwNXww&amp;ixlib&#x3D;rb-4.1.0&amp;q&#x3D;80&amp;w&#x3D;400 400w,
+https://images.unsplash.com/photo-1677442136019-21780ecad995?crop&#x3D;entropy&amp;cs&#x3D;tinysrgb&amp;fit&#x3D;max&amp;fm&#x3D;jpg&amp;ixid&#x3D;M3wxMTc3M3wwfDF8c2VhcmNofDZ8fGFpfGVufDB8fHx8MTc4NDU4MjcwNXww&amp;ixlib&#x3D;rb-4.1.0&amp;q&#x3D;80&amp;w&#x3D;750 750w,
+https://images.unsplash.com/photo-1677442136019-21780ecad995?crop&#x3D;entropy&amp;cs&#x3D;tinysrgb&amp;fit&#x3D;max&amp;fm&#x3D;jpg&amp;ixid&#x3D;M3wxMTc3M3wwfDF8c2VhcmNofDZ8fGFpfGVufDB8fHx8MTc4NDU4MjcwNXww&amp;ixlib&#x3D;rb-4.1.0&amp;q&#x3D;80&amp;w&#x3D;960 960w,
+https://images.unsplash.com/photo-1677442136019-21780ecad995?crop&#x3D;entropy&amp;cs&#x3D;tinysrgb&amp;fit&#x3D;max&amp;fm&#x3D;jpg&amp;ixid&#x3D;M3wxMTc3M3wwfDF8c2VhcmNofDZ8fGFpfGVufDB8fHx8MTc4NDU4MjcwNXww&amp;ixlib&#x3D;rb-4.1.0&amp;q&#x3D;80&amp;w&#x3D;1140 1140w"
+                    sizes="(min-width: 576px) 160px, 90vw"
+                    src="https://images.unsplash.com/photo-1677442136019-21780ecad995?crop&#x3D;entropy&amp;cs&#x3D;tinysrgb&amp;fit&#x3D;max&amp;fm&#x3D;jpg&amp;ixid&#x3D;M3wxMTc3M3wwfDF8c2VhcmNofDZ8fGFpfGVufDB8fHx8MTc4NDU4MjcwNXww&amp;ixlib&#x3D;rb-4.1.0&amp;q&#x3D;80&amp;w&#x3D;750"
+                    alt="Hugging Face&#x27;s AI breach needed AI to investigate it. The models refused."
+                    loading="lazy"
+                >
+        </div>
+
+    <div class="feed-wrapper">
+        <h2 class="feed-title">Hugging Face&#x27;s AI breach needed AI to investigate it. The models refused.</h2>
+            <div class="feed-excerpt">Updated 21 August 2026: rewritten to cover all four evaluation disclosures. An earlier version said hosted models refuse forensic work</div>
+        <div class="feed-right">
+            <time class="feed-date" datetime="2026-07-20">
+                20 Jul 2026
+            </time>
+            <div class="feed-visibility feed-visibility-public">
+                <svg class="icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32">
+    <path d="M16 23.027L24.24 28l-2.187-9.373 7.28-6.307-9.587-.827-3.747-8.827-3.747 8.827-9.587.827 7.267 6.307L7.759 28l8.24-4.973z"></path>
+</svg>            </div>
+                <div class="feed-length">
+                    10 min read
+                </div>
+                <script
+    data-ghost-comment-count="6a5e91ac015ccd0001d67896"
+    data-ghost-comment-count-empty=""
+    data-ghost-comment-count-singular="comment"
+    data-ghost-comment-count-plural="comments"
+    data-ghost-comment-count-tag="div"
+    data-ghost-comment-count-class-name="feed-comments"
+    data-ghost-comment-count-autowrap="true"
+>
+</script>
+            <div class="feed-icon">
+                <svg class="icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32">
+    <path d="M11.453 22.107L17.56 16l-6.107-6.12L13.333 8l8 8-8 8-1.88-1.893z"></path>
+</svg>            </div>
+        </div>
+    </div>
+
+    <a class="u-permalink" href="/ai-incident-response/" aria-label="Hugging Face&#x27;s AI breach needed AI to investigate it. The models refused."></a>
+
+</article>                <article class="feed post" data-month="July 2026">
+
+    <div class="feed-calendar">
+        <div class="feed-calendar-day">
+            09
+        </div>
+        <div class="feed-calendar-month">
+            Jul
+        </div>
+    </div>
+
+        <div class="feed-image u-placeholder rectangle">
+                <img
+                    class="u-object-fit"
+                    srcset="https://images.unsplash.com/photo-1571171637578-41bc2dd41cd2?crop&#x3D;entropy&amp;cs&#x3D;tinysrgb&amp;fit&#x3D;max&amp;fm&#x3D;jpg&amp;ixid&#x3D;M3wxMTc3M3wwfDF8c2VhcmNofDd8fHNvZnR3YXJlfGVufDB8fHx8MTc4MzYyNDAxMnww&amp;ixlib&#x3D;rb-4.1.0&amp;q&#x3D;80&amp;w&#x3D;400 400w,
+https://images.unsplash.com/photo-1571171637578-41bc2dd41cd2?crop&#x3D;entropy&amp;cs&#x3D;tinysrgb&amp;fit&#x3D;max&amp;fm&#x3D;jpg&amp;ixid&#x3D;M3wxMTc3M3wwfDF8c2VhcmNofDd8fHNvZnR3YXJlfGVufDB8fHx8MTc4MzYyNDAxMnww&amp;ixlib&#x3D;rb-4.1.0&amp;q&#x3D;80&amp;w&#x3D;750 750w,
+https://images.unsplash.com/photo-1571171637578-41bc2dd41cd2?crop&#x3D;entropy&amp;cs&#x3D;tinysrgb&amp;fit&#x3D;max&amp;fm&#x3D;jpg&amp;ixid&#x3D;M3wxMTc3M3wwfDF8c2VhcmNofDd8fHNvZnR3YXJlfGVufDB8fHx8MTc4MzYyNDAxMnww&amp;ixlib&#x3D;rb-4.1.0&amp;q&#x3D;80&amp;w&#x3D;960 960w,
+https://images.unsplash.com/photo-1571171637578-41bc2dd41cd2?crop&#x3D;entropy&amp;cs&#x3D;tinysrgb&amp;fit&#x3D;max&amp;fm&#x3D;jpg&amp;ixid&#x3D;M3wxMTc3M3wwfDF8c2VhcmNofDd8fHNvZnR3YXJlfGVufDB8fHx8MTc4MzYyNDAxMnww&amp;ixlib&#x3D;rb-4.1.0&amp;q&#x3D;80&amp;w&#x3D;1140 1140w"
+                    sizes="(min-width: 576px) 160px, 90vw"
+                    src="https://images.unsplash.com/photo-1571171637578-41bc2dd41cd2?crop&#x3D;entropy&amp;cs&#x3D;tinysrgb&amp;fit&#x3D;max&amp;fm&#x3D;jpg&amp;ixid&#x3D;M3wxMTc3M3wwfDF8c2VhcmNofDd8fHNvZnR3YXJlfGVufDB8fHx8MTc4MzYyNDAxMnww&amp;ixlib&#x3D;rb-4.1.0&amp;q&#x3D;80&amp;w&#x3D;750"
+                    alt="The Vulnerabilities That Never Get a CVE"
+                    loading="lazy"
+                >
+        </div>
+
+    <div class="feed-wrapper">
+        <h2 class="feed-title">The Vulnerabilities That Never Get a CVE</h2>
+            <div class="feed-excerpt">July 2026
+
+Most vulnerability programmes run on a simple assumption: if a flaw matters, it gets a CVE, and if</div>
+        <div class="feed-right">
+            <time class="feed-date" datetime="2026-07-09">
+                09 Jul 2026
+            </time>
+            <div class="feed-visibility feed-visibility-public">
+                <svg class="icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32">
+    <path d="M16 23.027L24.24 28l-2.187-9.373 7.28-6.307-9.587-.827-3.747-8.827-3.747 8.827-9.587.827 7.267 6.307L7.759 28l8.24-4.973z"></path>
+</svg>            </div>
+                <div class="feed-length">
+                    9 min read
+                </div>
+                <script
+    data-ghost-comment-count="6a4feeaea0cdd200015c05b4"
+    data-ghost-comment-count-empty=""
+    data-ghost-comment-count-singular="comment"
+    data-ghost-comment-count-plural="comments"
+    data-ghost-comment-count-tag="div"
+    data-ghost-comment-count-class-name="feed-comments"
+    data-ghost-comment-count-autowrap="true"
+>
+</script>
+            <div class="feed-icon">
+                <svg class="icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32">
+    <path d="M11.453 22.107L17.56 16l-6.107-6.12L13.333 8l8 8-8 8-1.88-1.893z"></path>
+</svg>            </div>
+        </div>
+    </div>
+
+    <a class="u-permalink" href="/silent-patching/" aria-label="The Vulnerabilities That Never Get a CVE"></a>
+
+</article>                <article class="feed post" data-month="July 2026">
+
+    <div class="feed-calendar">
+        <div class="feed-calendar-day">
+            05
+        </div>
+        <div class="feed-calendar-month">
+            Jul
+        </div>
+    </div>
+
+        <div class="feed-image u-placeholder rectangle">
+                <img
+                    class="u-object-fit"
+                    srcset="https://images.unsplash.com/photo-1683639651000-11dd8702312e?crop&#x3D;entropy&amp;cs&#x3D;tinysrgb&amp;fit&#x3D;max&amp;fm&#x3D;jpg&amp;ixid&#x3D;M3wxMTc3M3wwfDF8c2VhcmNofDE1fHx2YXVsdHxlbnwwfHx8fDE3ODMyNzA2NDV8MA&amp;ixlib&#x3D;rb-4.1.0&amp;q&#x3D;80&amp;w&#x3D;400 400w,
+https://images.unsplash.com/photo-1683639651000-11dd8702312e?crop&#x3D;entropy&amp;cs&#x3D;tinysrgb&amp;fit&#x3D;max&amp;fm&#x3D;jpg&amp;ixid&#x3D;M3wxMTc3M3wwfDF8c2VhcmNofDE1fHx2YXVsdHxlbnwwfHx8fDE3ODMyNzA2NDV8MA&amp;ixlib&#x3D;rb-4.1.0&amp;q&#x3D;80&amp;w&#x3D;750 750w,
+https://images.unsplash.com/photo-1683639651000-11dd8702312e?crop&#x3D;entropy&amp;cs&#x3D;tinysrgb&amp;fit&#x3D;max&amp;fm&#x3D;jpg&amp;ixid&#x3D;M3wxMTc3M3wwfDF8c2VhcmNofDE1fHx2YXVsdHxlbnwwfHx8fDE3ODMyNzA2NDV8MA&amp;ixlib&#x3D;rb-4.1.0&amp;q&#x3D;80&amp;w&#x3D;960 960w,
+https://images.unsplash.com/photo-1683639651000-11dd8702312e?crop&#x3D;entropy&amp;cs&#x3D;tinysrgb&amp;fit&#x3D;max&amp;fm&#x3D;jpg&amp;ixid&#x3D;M3wxMTc3M3wwfDF8c2VhcmNofDE1fHx2YXVsdHxlbnwwfHx8fDE3ODMyNzA2NDV8MA&amp;ixlib&#x3D;rb-4.1.0&amp;q&#x3D;80&amp;w&#x3D;1140 1140w"
+                    sizes="(min-width: 576px) 160px, 90vw"
+                    src="https://images.unsplash.com/photo-1683639651000-11dd8702312e?crop&#x3D;entropy&amp;cs&#x3D;tinysrgb&amp;fit&#x3D;max&amp;fm&#x3D;jpg&amp;ixid&#x3D;M3wxMTc3M3wwfDF8c2VhcmNofDE1fHx2YXVsdHxlbnwwfHx8fDE3ODMyNzA2NDV8MA&amp;ixlib&#x3D;rb-4.1.0&amp;q&#x3D;80&amp;w&#x3D;750"
+                    alt="LiteLLM Security: Your AI Gateway Is a Secrets Manager. Benchmark It Like One"
+                    loading="lazy"
+                >
+        </div>
+
+    <div class="feed-wrapper">
+        <h2 class="feed-title">LiteLLM Security: Your AI Gateway Is a Secrets Manager. Benchmark It Like One</h2>
+            <div class="feed-excerpt">July 2026
+
+An AI gateway is a secrets manager wearing a router&#39;s clothes. LiteLLM, the most widely adopted</div>
+        <div class="feed-right">
+            <time class="feed-date" datetime="2026-07-05">
+                05 Jul 2026
+            </time>
+            <div class="feed-visibility feed-visibility-public">
+                <svg class="icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32">
+    <path d="M16 23.027L24.24 28l-2.187-9.373 7.28-6.307-9.587-.827-3.747-8.827-3.747 8.827-9.587.827 7.267 6.307L7.759 28l8.24-4.973z"></path>
+</svg>            </div>
+                <div class="feed-length">
+                    7 min read
+                </div>
+                <script
+    data-ghost-comment-count="6a4a8bcc11dddb0001a88dc4"
+    data-ghost-comment-count-empty=""
+    data-ghost-comment-count-singular="comment"
+    data-ghost-comment-count-plural="comments"
+    data-ghost-comment-count-tag="div"
+    data-ghost-comment-count-class-name="feed-comments"
+    data-ghost-comment-count-autowrap="true"
+>
+</script>
+            <div class="feed-icon">
+                <svg class="icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32">
+    <path d="M11.453 22.107L17.56 16l-6.107-6.12L13.333 8l8 8-8 8-1.88-1.893z"></path>
+</svg>            </div>
+        </div>
+    </div>
+
+    <a class="u-permalink" href="/litellm-security-secrets-manager/" aria-label="LiteLLM Security: Your AI Gateway Is a Secrets Manager. Benchmark It Like One"></a>
+
+</article>        </div>
+    </section>
+
+                <section class="gh-comments gh-canvas">
+        <header class="gh-comments-header">
+            <h3 class="gh-comments-title related-title">Member discussion</h3>
+            <script
+    data-ghost-comment-count="6a0640233aa79800019ec542"
+    data-ghost-comment-count-empty=""
+    data-ghost-comment-count-singular="comment"
+    data-ghost-comment-count-plural="comments"
+    data-ghost-comment-count-tag="span"
+    data-ghost-comment-count-class-name="gh-comments-count"
+    data-ghost-comment-count-autowrap="true"
+>
+</script>
+        </header>
+        
+        <script defer src="https://cdn.jsdelivr.net/ghost/comments-ui@~1.6/umd/comments-ui.min.js" data-locale="en" data-ghost-comments="https://blog.cyberdesserts.com/" data-api="https://cyberdesserts.ghost.io/ghost/api/content/" data-admin="https://cyberdesserts.ghost.io/ghost/" data-key="b9e2f32c778f38500196c93c82" data-title="" data-count="false" data-post-id="6a0640233aa79800019ec542" data-color-scheme="auto" data-avatar-saturation="60" data-accent-color="#000000" data-comments-enabled="all" data-publication="CyberDesserts" crossorigin="anonymous"></script>
+    
+    </section>
+
+</main>
+    </div>
+
+    <footer class="gh-foot gh-outer">
+        <div class="gh-foot-inner gh-inner">
+            <div class="gh-copyright">
+                CyberDesserts © 2026
+            </div>
+                <nav class="gh-foot-menu">
+                    <ul class="nav">
+    <li class="nav-sign-up"><a href="#/portal/">Sign up</a></li>
+</ul>
+
+                </nav>
+            <div class="gh-powered-by">
+                <a href="https://ghost.org/" target="_blank" rel="noopener">Powered by Ghost</a>
+            </div>
+        </div>
+    </footer>
+
+</div>
+
+    <div class="pswp" tabindex="-1" role="dialog" aria-hidden="true">
+    <div class="pswp__bg"></div>
+
+    <div class="pswp__scroll-wrap">
+        <div class="pswp__container">
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+        </div>
+
+        <div class="pswp__ui pswp__ui--hidden">
+            <div class="pswp__top-bar">
+                <div class="pswp__counter"></div>
+
+                <button class="pswp__button pswp__button--close" title="Close (Esc)"></button>
+                <button class="pswp__button pswp__button--share" title="Share"></button>
+                <button class="pswp__button pswp__button--fs" title="Toggle fullscreen"></button>
+                <button class="pswp__button pswp__button--zoom" title="Zoom in/out"></button>
+
+                <div class="pswp__preloader">
+                    <div class="pswp__preloader__icn">
+                        <div class="pswp__preloader__cut">
+                            <div class="pswp__preloader__donut"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="pswp__share-modal pswp__share-modal--hidden pswp__single-tap">
+                <div class="pswp__share-tooltip"></div>
+            </div>
+
+            <button class="pswp__button pswp__button--arrow--left" title="Previous (arrow left)"></button>
+            <button class="pswp__button pswp__button--arrow--right" title="Next (arrow right)"></button>
+
+            <div class="pswp__caption">
+                <div class="pswp__caption__center"></div>
+            </div>
+        </div>
+    </div>
+</div>
+<script>
+    if (document.body.classList.contains('with-full-cover') && (/Android|webOS|iPhone|iPad|iPod|BlackBerry/i.test(navigator.platform))) {
+        document.getElementsByClassName('cover')[0].style.height = window.innerHeight + 'px';
+    }
+</script>
+
+<script src="https://blog.cyberdesserts.com/assets/built/main.min.js?v=2TMHKzwU3AY3IYVp"></script>
+
+<footer class="custom-site-footer">
+    <div class="custom-footer-content">
+        
+        <div class="custom-footer-copyright">
+            © 2026 CyberDesserts. All rights reserved.
+        </div>
+
+        <nav class="custom-footer-nav">
+            <a href="https://blog.cyberdesserts.com/rss" target="_blank" rel="noopener">RSS</a>
+            <a href="https://cyberdesserts.com/about/">About CyberDesserts</a>
+            <a href="https://cyberdesserts.com/privacy-policy.html">Privacy Policy</a>
+            <a href="https://cyberdesserts.com/terms-of-service.html">Terms of Service</a>
+            
+        </nav>
+
+    </div>
+</footer>
+
+<script>
+  document.querySelectorAll('a[href^="http"]').forEach(link => {
+    try {
+      const url = new URL(link.href);
+      const host = url.hostname.toLowerCase();
+      
+      // 1. Handles blog.lab. and resources.cyberdesserts.com
+      const isInternal = host === 'cyberdesserts.com' || host.endsWith('.cyberdesserts.com');
+      
+      // 2. Handles all Amazon/amzn.to links
+      const isAmazon = host.includes('amazon.') || host.includes('amzn.to');
+
+      if (!isInternal) {
+        link.setAttribute('target', '_blank');
+        let relValues = ['noopener', 'noreferrer'];
+
+        if (isAmazon) {
+          relValues.push('sponsored');
+        } else {
+          relValues.push('nofollow');
+        }
+
+        link.setAttribute('rel', relValues.join(' '));
+      }
+    } catch (e) {
+      // Safe exit for malformed links
+    }
+  });
+</script>
+
+<script src="https://analytics.ahrefs.com/analytics.js" data-key="TTYTqz81MCIc0SrYCL7tYQ" async></script>
+
+<!-- Meta Pixel Code -->
+<script>
+!function(f,b,e,v,n,t,s)
+{if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+n.callMethod.apply(n,arguments):n.queue.push(arguments)};
+if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
+n.queue=[];t=b.createElement(e);t.async=!0;
+t.src=v;s=b.getElementsByTagName(e)[0];
+s.parentNode.insertBefore(t,s)}(window, document,'script',
+'https://connect.facebook.net/en_US/fbevents.js');
+fbq('init', '823786743738101');
+fbq('track', 'PageView');
+</script>
+<noscript><img height="1" width="1" style="display:none"
+src="https://www.facebook.com/tr?id=823786743738101&ev=PageView&noscript=1"
+/></noscript>
+<!-- End Meta Pixel Code -->
+
+</body>
+</html>

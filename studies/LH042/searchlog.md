@@ -94,3 +94,16 @@ Summary: Hunt.io's banner search for the Hermes web panel, about 5,900 scan even
 
 ## Design read (touches no count)
 - Anthropic, "self-replicating AI", https://www.anthropic.com/research/self-replicating-ai, read with WebFetch (extract) about 19:08: the testbed's vector is "an ADB port open without authentication"; devices named include off-brand Android TV boxes, smart appliances, AI-enabled cameras, NAS boxes and mini-PCs; it cites Kimwolf's "over two million devices" (Synthient), an infection count, and a FOFA search for one reachable camera host; forecast "by the end of 2026". Used to fix the device class; it gives no exposure count for ADB.
+
+## Searches during collection, for primaries already named (after the brief, 19:13 to 19:20 UTC)
+
+The brief allows searching for a known count's primary page by name. Each was a WebSearch, standard mode.
+
+- C1 "SentinelLABS Censys Ollama 175,000 hosts report sentinelone.com labs": found sentinelone.com/labs/silent-brothers-ollama-hosts-form-anonymous-ai-network-beyond-platform-guardrails (fetched; HTTP 429).
+- C2 "bitsight.com blog OpenClaw exposed instances": no Bitsight page among the results; secondary pages only.
+- C3 "intruder.io research exposed AI services 1 million certificate transparency Ollama": CSA notes; Intruder's page itself was then taken from the CSA note's link.
+- C4 "hunt.io blog Hermes agent web panel exposed July 2026": no Hunt.io page among the results; news coverage only.
+- C5 "prnewswire Censys 2026 State of the Internet Report exposed AI infrastructure grew 63% nine months": helpnetsecurity.com 2026/10/15 (fetched), vmblog.com release (fetched; HTTP 403), info.censys.com landing page (not fetched; a form), others not opened.
+- C6 "research.opena2a.org exposure sweep reports Ollama monthly": nothing from OpenA2A; surfaced a CSA note of 15 September 2026 relaying a Netlas-based count of 36,769.
+- C7 "Cloud Security Alliance research note 36,769 exposed self-hosted AI endpoints Netlas": the CSA note (fetched), Security Affairs (fetched), others not opened.
+- C8 "Mysterium VPN study exposed self-hosted AI endpoints Netlas Open WebUI 18,529": no Mysterium page among the results; its URL was then taken from the Security Affairs article's link.
