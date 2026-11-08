@@ -38,6 +38,7 @@ summaries:
 - studies/LH037 | Vendors that ship PHP
 - studies/LH038 | The kernel flaw's disclosure timeline
 - studies/LH039 | WordPress's fix for its own updater
+- studies/LH040 | The poisoned LiteLLM release
 
 # Editing the section fronts
 
