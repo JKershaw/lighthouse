@@ -4,7 +4,8 @@ Internet-Drafts from the IETF Datatracker's read-only API, under brief.md (proto
 8 November 2026). The census rule is the brief's and is fixed here:
 
   group stratum: drafts whose group is aipref, webbotauth, agentproto, dawn or audit;
-  name stratum: drafts whose name contains one of NAME_TOKENS, or ends with "-ai".
+  name stratum: drafts whose name contains one of NAME_TOKENS, or ends with one of
+  NAME_SUFFIXES (amendment 0.2 added "-dawn-", "-audit-", "-dawn" and "-audit").
 
 Checks robots.txt first and skips any URL it disallows. GETs paced at about one a second;
 every body kept under data/ietf/raw-<label>/ with readlog.csv, except that author records
@@ -20,8 +21,11 @@ UA = "Lighthouse-research/1.0 (+https://lighthouse.harbour.cat)"
 BASE = "https://datatracker.ietf.org"
 GROUPS = ["aipref", "webbotauth", "agentproto", "dawn", "audit"]
 NAME_TOKENS = ["agent", "aipref", "ai-pref", "webbotauth", "web-bot-auth", "botauth", "bot-auth",
-               "crawler", "robots", "llm", "-ai-"]
-NAME_SUFFIX = "-ai"
+               "crawler", "robots", "llm", "-ai-",
+               # Amendment 0.2 (8 November 2026, after census 0a): the acronyms of the two
+               # groups whose individual drafts carry no other token.
+               "-dawn-", "-audit-"]
+NAME_SUFFIXES = ["-ai", "-dawn", "-audit"]
 PAGE = 500
 AUTHOR_BATCH = 50
 
@@ -112,7 +116,8 @@ def main():
             queries["group:" + acr] = None
     for tok in NAME_TOKENS:
         queries["name:" + tok] = R.get_all("docs-name-" + tok.strip("-"), "/api/v1/doc/document/", {"type": "draft", "name__contains": tok})
-    queries["suffix:" + NAME_SUFFIX] = R.get_all("docs-suffix-ai", "/api/v1/doc/document/", {"type": "draft", "name__endswith": NAME_SUFFIX})
+    for suf in NAME_SUFFIXES:
+        queries["suffix:" + suf] = R.get_all("docs-suffix-" + suf.strip("-"), "/api/v1/doc/document/", {"type": "draft", "name__endswith": suf})
     R.get_all("states", "/api/v1/doc/state/", {"type__slug__in": "draft,draft-stream-ietf,draft-iesg,draft-iana-review,draft-rfceditor"})
     docs = {}
     for key, objs in queries.items():
@@ -164,7 +169,7 @@ def derive(d):
             if kind == "group":
                 r["strata"].add("group"); r["tokens"].add("group:" + tok)
             else:
-                r["strata"].add("name"); r["tokens"].add(tok if kind == "name" else "suffix:-ai")
+                r["strata"].add("name"); r["tokens"].add(tok if kind == "name" else "suffix:-" + tok)
     cols = ["name", "id", "rev", "title", "time", "expires", "group", "stream", "intended_std_level",
             "states", "pages", "strata", "tokens", "abstract"]
     with open(os.path.join(d, "census.csv"), "w", newline="") as fh:
