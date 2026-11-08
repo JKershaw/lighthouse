@@ -34,6 +34,7 @@ Directions, blind spots and things to look at. The sweep reads this first and tr
 - 8 November 2026, at the review: about $200 to $1,000 of spend for that session (at list rates; the keeper pays a subscription with a weekly cap, not list prices), to assign as the session sees fit, "ideally covering any gaps". Don't worry too much about budget. What the session starts under this counts as started by the keeper.
 - 8 November 2026: Lighthouse does not try to re-identify people, repositories, accounts or systems that a source has anonymised. "Agreed, that's a line we won't cross." Agents are to be cautious, having read essays/it-was-only-a-test.md; now in AGENTS.md, Rules that matter.
 - 8 November 2026: on the exposed-services agent's partial read of a robots.txt (notes/incidents/2026-11-08-robots-partial-read/): "That's a very interesting fault, especially given our essay, a very mild version in a sense." On email addresses already in git history: "The email is fine." On following robots.txt redirects in the closing web: "Always happy to follow the standards."
+- 8 November 2026, on what tonight's studies ran into: "There's now classes of data and access, from rules we voluntary follow, routes we don't consider, paid information, licensed information, etc. not to mention private, or ephemeral." Drawn up as P-0022.
 
 ## For the next review
 
@@ -103,17 +104,28 @@ Agreed and not yet started: the next run takes these after the started lane (sch
 - Next step: the brief is already a row; the read waits for the keeper to name an account, or to decline.
 - Keeper, 2026-11-08: later. The brief (row LH013-installer-brief) goes ahead; it should say whether a free public source, such as ClickPy's SQL, carries the installer's version before any account is named.
 
-### P-0021 A price for compute that Lighthouse may keep
-
-- Kind: repair of an instrument for an active investigation. Priority: normal. Status: waiting for the keeper (8 November 2026: one route is contacting a third party). Investigation: [what AI activity costs the shared internet](investigations/ai-cost-and-spread.md).
-- Source: [studies/LH045/brief.md](studies/LH045/brief.md), Part A, and its [for-driver note](studies/LH045/for-driver.md); lead L-0011; sources.md S39.
-- Why: the charter names "the compute behind them", and price is the one daily public trace of it the sweep found; the cost strand has no price instrument because every free daily series checked forbids keeping it.
-- Cost: small once permitted.
-- Next step: the keeper's choice between two routes, both outside what a session may do alone: ask one publisher (Silicon Data's public index is the closest fit) for written consent to keep and publish its daily index with attribution, which is contacting a third party; or look further for an openly licensed price series (none found in a bounded check of five sources, 8 November 2026). Until then no series is kept, and a single attributed figure may be quoted in a dated sentence.
 
 ## Backlog
 
 Each proposal: kind (watch, deepening, repair, new question, new investigation), priority (urgent with its deadline, high, normal, lead), status (backlog, started, waiting, agreed, declined, parked, expired, done), the investigation it belongs to, where it came from with dates read, why it is worth asking, a rough cost, and the next step. Declined and expired proposals stay at the end with the reason, so they are not proposed again unchanged.
+
+
+
+### P-0022 Classes of data and access: what Lighthouse may read, and what each class hides
+
+- Kind: repair of method, across investigations. Priority: high (the keeper's line of 8 November 2026). Status: backlog. Investigation: what AI activity costs the shared internet, and the map of instruments.
+- Source: the keeper, 8 November 2026 (From the keeper), on what that evening's studies ran into. Examples from one night: rules Lighthouse follows voluntarily (robots.txt kept the closing-web probe from 32 of 161 services, studies/LH044; a dashboard's /api/ disallowed, notes/incidents/2026-11-08-robots-partial-read/); routes Lighthouse does not consider (re-identifying what a source anonymised, studies/LH043; scanning or querying exposed hosts, studies/LH042); paid information (BigQuery's download table, P-0002; Censys's report behind a form, LH042); licensed information (five compute-price series whose terms forbid keeping them, studies/LH045 and P-0021; Epoch's CC BY log kept); private (incident accounts with every identifier withheld; email addresses Lighthouse now withholds itself); ephemeral (PyPI's deleted releases leave no registry time, LH041; GH Archive's hours missing whole event types, studies/LH046; the Wayback Machine refusing this container, LH044; data that rolls over, LH045).
+- Why: each class hides a different part of the world, and the gaps are not random: what is walled, licensed, private or gone is often where the activity the charter asks about would be. The map of instruments says where each instrument stops by where it stands, what it counts and who may read it; this would add, for each source Lighthouse reads or declined to read, which class kept it out, so a finding's blind side can be stated by class.
+- Cost: small to start: a classification column for the map's rows and for every source a study recorded as unread, refused, withheld or dropped since September, from the records' own fetch logs; then a short essay or note if the pattern earns one.
+- Next step: the next horizon sweep reads this first (From the keeper) and decides the form; a natural first step is a table of tonight's refusals and walls by class, from the fetch logs of LH041 to LH046.
+### P-0021 A price for compute that Lighthouse may keep
+
+- Kind: repair of an instrument for an active investigation. Priority: normal. Status: backlog (the keeper, 8 November 2026: wait; no publisher is contacted). Investigation: [what AI activity costs the shared internet](investigations/ai-cost-and-spread.md).
+- Source: [studies/LH045/brief.md](studies/LH045/brief.md), Part A, and its [for-driver note](studies/LH045/for-driver.md); lead L-0011; sources.md S39.
+- Why: the charter names "the compute behind them", and price is the one daily public trace of it the sweep found; the cost strand has no price instrument because every free daily series checked forbids keeping it.
+- Cost: small once permitted.
+- Next step: the keeper's choice between two routes, both outside what a session may do alone: ask one publisher (Silicon Data's public index is the closest fit) for written consent to keep and publish its daily index with attribution, which is contacting a third party; or look further for an openly licensed price series (none found in a bounded check of five sources, 8 November 2026). Until then no series is kept, and a single attributed figure may be quoted in a dated sentence.
+- Keeper, 2026-11-08: agreed, we wait. A sweep or study that finds an openly licensed daily price series draws this up again; no publisher is asked.
 
 ### P-0020 Widen the map of instruments on its thin layers: names and the IPv6 address space
 
@@ -148,6 +160,7 @@ Each proposal: kind (watch, deepening, repair, new question, new investigation),
 - Why: the front page shows the newest run and the latest findings, but nothing says in plain words what was released, started and decided since last week.
 - Cost: small; generated from releases.md, schedule/runs.csv, proposals.md's keeper lines and the studies' checkpoints, with a sentence the editor may hand-set in README.md's header.
 - Next step: design it with the Now box; the gate decides whether the editor may add it without review (it shows no finding).
+- Keeper, 2026-11-08: yes to the runner step; schedule/runner.md step 7 now keeps site/this-week.md.
 
 ### P-0019 Reader-facing pages without internal codes, and a Latest list that reflects what is current
 
