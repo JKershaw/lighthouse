@@ -1,0 +1,187 @@
+== Baseline
+September panel files read: 120; with zero PushEvents: 19 (16%). Clean-reference test (<=10%): FAILED
+September medians by hour of day (events, PushEvent, CreateEvent, control types):
+  hour  0: events 75098.0, push 39964.5, create 2928.5, control 6945.5
+  hour  6: events 90374.5, push 69699.5, create 5799.0, control 4380.0
+  hour 12: events 76681.5, push 46205.5, create 4466.0, control 3626.5
+  hour 18: events 78417.0, push 33779.0, create 3190.0, control 5116.5
+January to August reference medians (16 files, hour 12): events 158693.0, push 124358.0, create 11747.5, delete 4532.5, control 6397.0
+Operative baseline (brief, inconclusive clause): reference
+
+== Coverage
+panel: 272 rows; 200: 272; 404: 0; other: 0
+wholeday: 160 rows; 200: 160; 404: 0; other: 0
+reference: 17 rows; 200: 17; 404: 0; other: 0
+latest: 3 rows; 200: 3; 404: 0; other: 0
+reread: 6 rows; 200: 6; 404: 0; other: 0
+distinct files: 452; unread share of distinct: 0/452
+bytes received (hours.csv rows): 7,491,337,045
+
+== Comparison 1: PushEvent and CreateEvent gaps in the panel, before and from 15 October
+  PushEvent    hour all: 1 Sep-14 Oct 26/176 (15%); 15 Oct-7 Nov 64/96 (67%)
+  PushEvent    hour   0: 1 Sep-14 Oct 8/44 (18%); 15 Oct-7 Nov 17/24 (71%)
+  PushEvent    hour   6: 1 Sep-14 Oct 5/44 (11%); 15 Oct-7 Nov 15/24 (62%)
+  PushEvent    hour  12: 1 Sep-14 Oct 5/44 (11%); 15 Oct-7 Nov 16/24 (67%)
+  PushEvent    hour  18: 1 Sep-14 Oct 8/44 (18%); 15 Oct-7 Nov 16/24 (67%)
+  CreateEvent  hour all: 1 Sep-14 Oct 26/176 (15%); 15 Oct-7 Nov 64/96 (67%)
+  CreateEvent  hour   0: 1 Sep-14 Oct 8/44 (18%); 15 Oct-7 Nov 17/24 (71%)
+  CreateEvent  hour   6: 1 Sep-14 Oct 5/44 (11%); 15 Oct-7 Nov 15/24 (62%)
+  CreateEvent  hour  12: 1 Sep-14 Oct 5/44 (11%); 15 Oct-7 Nov 16/24 (67%)
+  CreateEvent  hour  18: 1 Sep-14 Oct 8/44 (18%); 15 Oct-7 Nov 16/24 (67%)
+  DeleteEvent  hour all: 1 Sep-14 Oct 26/176 (15%); 15 Oct-7 Nov 64/96 (67%)
+  DeleteEvent  hour   0: 1 Sep-14 Oct 8/44 (18%); 15 Oct-7 Nov 17/24 (71%)
+  DeleteEvent  hour   6: 1 Sep-14 Oct 5/44 (11%); 15 Oct-7 Nov 15/24 (62%)
+  DeleteEvent  hour  12: 1 Sep-14 Oct 5/44 (11%); 15 Oct-7 Nov 16/24 (67%)
+  DeleteEvent  hour  18: 1 Sep-14 Oct 8/44 (18%); 15 Oct-7 Nov 16/24 (67%)
+  Zero-push panel files by month: 2026-09: 19/120, 2026-10: 49/124, 2026-11: 22/28
+  Fixed reading: not applied (September failed the clean-reference test; described against the references)
+
+== Comparison 2: control types (PR, issues, issue comments, stars) against baseline, gap vs non-gap files
+  1 Sep-14 Oct, push gap: n=26, control ratio median 0.67 (range 0.17-10.14); all-events ratio median 0.04
+  1 Sep-14 Oct, pushes present: n=150, control ratio median 0.61 (range 0.07-10.01); all-events ratio median 0.53
+  15 Oct-7 Nov, push gap: n=64, control ratio median 0.49 (range 0.22-1.40); all-events ratio median 0.03
+  15 Oct-7 Nov, pushes present: n=32, control ratio median 0.41 (range 0.27-0.96); all-events ratio median 0.30
+
+== Comparison 3: whole days, hour by hour (events / PushEvents / CreateEvents; * = partial hour, p = partial push hour)
+  2026-09-15: 0:68874/32141/2832  1:79885/43276/2921  2:83932/49677/2768  3:88750/65961/3655  4:90434/70824/3322  5:86853/66827/2886  6:83544/63387/3011  7:84762/66980/2733  8:80300/63142/2238  9:70456/52443/1982  10:61235/42996/1814  11:55729/39765/2101  12:55822/36998/1961  13:61865/28340/2038  14:80422/22862/2007  15:81142/24180/2133  16:75454/21473/2104  17:80898/16049/2171  18:76950/17363/2247  19:72601/16312/2202  20:72402/16532/2406  21:71367/12995/1785  22:63925/14406/1682  23:62267/18295/1733
+  2026-10-01: 0:61854/44556/4805  1:78086/59630/6363  2:85345/65041/8603  3:86558/65065/10668  4:83993/62678/11220  5:80366/57641/12454  6:84105/61563/12888  7:82354/59901/12680  8:85259/60597/14096  9:86772/64715/12423  10:83164/62566/10031  11:84334/62627/11469  12:92323/70908/11872  13:94071/73333/10997  14:92587/70998/11373  15:85569/64617/10350  16:90520/68888/11241  17:93428/71180/9900  18:91028/69721/9305  19:94617/72707/9447  20:92585/70193/8511  21:90394/68354/8365  22:89340/68376/7645  23:85242/64303/7164
+  2026-10-07: 0:7715/0/0  1:7737/0/0  2:8859/0/0  3:9170/0/0  4:7216/0/0  5:6097/0/0  6:8624/0/0  7:6463/0/0  8:9182/0/0  9:7715/0/0  10:6012/0/0  11:5878/0/0  12:6510/0/0  13:6745/0/0  14:7152/0/0  15:6219/0/0  16:5820/0/0  17:6324/0/0  18:5171/0/0  19:6356/0/0  20:6314/0/0  21:5594/0/0  22:5103/0/0  23:4552/0/0
+  2026-10-14: 0:90334/74794/8828  1:86628/69219/8725  2:84066/65815/8311  3:86867/69145/8725  4:86415/68184/9078  5:86616/68719/9431  6:86590/69052/9810  7:87836/70656/9691  8:87461/70154/10285  9:88758/71500/10534  10:89727/72854/10259  11:91389/73944/10692  12:94517/77272/10592  13:91223/73180/10485  14:80838/54165/7762p  15:55989/43175/6051p  16:37362/27673/3832p  17:38496/27003/4158p  18:25758/15397/2298p  19:7915/2327/325p  20:4866/0/0  21:5329/0/0  22:5350/0/0  23:5346/0/0
+  2026-10-15: 0:4995/0/0  1:5043/0/0  2:4840/0/0  3:4912/0/0  4:5277/0/0  5:5098/0/0  6:4617/0/0  7:4373/0/0  8:4227/0/0  9:3835/0/0  10:3350/0/0  11:2986/0/0  12:3192/0/0  13:3102/0/0  14:3292/0/0  15:3582/0/0  16:4679/0/0  17:5125/0/0  18:5771/0/0  19:6031/0/0  20:5429/0/0  21:5418/0/0  22:6211/0/0  23:5827/0/0
+  2026-10-26: 0:83118/67415/9397  1:80077/65208/8827  2:87793/72596/9205  3:87463/72623/8488  4:90235/73154/9666  5:89038/72969/9535  6:85759/68518/10261  7:77818/62514/8676p  8:60557/47772/6582p  9:32255/23934/3398p  10:7214/3780/537p  11:2728/0/0  12:2598/0/0  13:2917/0/0  14:3345/0/0  15:2780/0/0  16:3331/0/0  17:2953/0/0  18:3979/0/0  19:3446/0/0  20:4505/0/0  21:3601/0/0  22:3438/0/0  23:3405/0/0
+  2026-11-05: 0:13751/7679/960p  1:12094/7161/969p  2:12325/7156/892p  3:12045/6861/842p  4:10010/5117/602p  5:9193/4235/482p  6:8614/3421/397p  7:4907/518/46p  8:4444/0/0  9:4562/0/0  10:12742/6906/885p  11:20469/13510/1976p  12:12815/7132/931p  13:18234/11546/1530p  14:16377/10110/1404p  15:8342/3442/441p  16:10777/5683/873p  17:3689/0/0  18:17668/12066/1545p  19:20156/14211/1702p  20:3525/0/0  21:3639/0/0  22:3250/0/0  23:3184/0/0
+  2026-11-07: 0:4388/0/0  1:4533/0/0  2:4213/0/0  3:4244/0/0  4:4249/0/0  5:4218/0/0  6:3932/0/0  7:3859/0/0  8:3963/0/0  9:4203/0/0  10:4147/0/0  11:4053/0/0  12:4105/0/0  13:3770/0/0  14:3690/0/0  15:3655/0/0  16:3482/0/0  17:3631/0/0  18:3741/0/0  19:3768/0/0  20:3633/0/0  21:3617/0/0  22:3648/0/0  23:3615/0/0
+  Boundary hours (push presence changes between consecutive whole-day hours): per-minute PushEvents, minutes 0-59
+    2026-10-14-19: push minutes 8/60, longest run without push 52 min; per minute: 587 361 270 257 239 274 223 116 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
+    2026-10-26-10: push minutes 9/60, longest run without push 51 min; per minute: 745 741 673 587 307 188 210 230 99 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
+    2026-11-05-7: push minutes 2/60, longest run without push 58 min; per minute: 308 210 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
+    2026-11-05-10: push minutes 28/60, longest run without push 20 min; per minute: 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 144 262 246 239 232 242 272 233 246 261 280 317 278 224 249 272 278 269 248 329 285 256 238 245 217 271 269 4 0 0 0 0 0 0 0 0 0 0 0 0
+    2026-11-05-16: push minutes 25/60, longest run without push 35 min; per minute: 162 179 139 168 152 159 310 193 297 170 230 223 235 152 173 258 305 314 311 272 354 314 232 283 98 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
+    2026-11-05-18: push minutes 41/60, longest run without push 10 min; per minute: 0 0 0 0 0 0 0 0 0 0 220 278 256 210 286 307 281 257 262 207 281 282 288 257 292 349 254 261 235 217 363 289 230 304 238 305 397 516 568 496 558 287 265 263 250 299 292 229 295 227 115 0 0 0 0 0 0 0 0 0
+    2026-11-05-19: push minutes 28/60, longest run without push 32 min; per minute: 604 607 552 554 536 576 505 571 544 612 622 624 668 658 673 787 609 548 624 476 343 361 328 280 283 256 323 87 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
+  Within partial push hours: events of other types per minute, in minutes with PushEvents against minutes without
+    2026-09-01-6: 49 minutes with pushes, mean 44 other events/min; 11 without, mean 26; ratio 1.7
+    2026-09-08-18: 31 minutes with pushes, mean 81 other events/min; 29 without, mean 53; ratio 1.5
+    2026-09-09-0: 43 minutes with pushes, mean 203 other events/min; 17 without, mean 171; ratio 1.2
+    2026-09-09-12: 32 minutes with pushes, mean 157 other events/min; 28 without, mean 100; ratio 1.6
+    2026-09-14-18: 49 minutes with pushes, mean 387 other events/min; 11 without, mean 374; ratio 1.0
+    2026-09-21-12: 39 minutes with pushes, mean 163 other events/min; 21 without, mean 35; ratio 4.7
+    2026-10-06-18: 30 minutes with pushes, mean 201 other events/min; 30 without, mean 118; ratio 1.7
+    2026-10-14-14: 46 minutes with pushes, mean 560 other events/min; 14 without, mean 64; ratio 8.7
+    2026-10-14-15: 43 minutes with pushes, mean 272 other events/min; 17 without, mean 67; ratio 4.1
+    2026-10-14-16: 40 minutes with pushes, mean 211 other events/min; 20 without, mean 63; ratio 3.4
+    2026-10-14-17: 43 minutes with pushes, mean 235 other events/min; 17 without, mean 83; ratio 2.8
+    2026-10-14-18: 29 minutes with pushes, mean 284 other events/min; 31 without, mean 69; ratio 4.1
+    2026-10-14-19: 8 minutes with pushes, mean 153 other events/min; 52 without, mean 84; ratio 1.8
+    2026-10-26-7: 53 minutes with pushes, mean 282 other events/min; 7 without, mean 51; ratio 5.5
+    2026-10-26-8: 38 minutes with pushes, mean 308 other events/min; 22 without, mean 49; ratio 6.3
+    2026-10-26-9: 24 minutes with pushes, mean 264 other events/min; 36 without, mean 55; ratio 4.8
+    2026-10-26-10: 9 minutes with pushes, mean 133 other events/min; 51 without, mean 44; ratio 3.0
+    2026-11-02-18: 16 minutes with pushes, mean 132 other events/min; 44 without, mean 60; ratio 2.2
+    2026-11-05-0: 41 minutes with pushes, mean 112 other events/min; 19 without, mean 77; ratio 1.5
+    2026-11-05-1: 40 minutes with pushes, mean 96 other events/min; 20 without, mean 54; ratio 1.8
+    2026-11-05-2: 38 minutes with pushes, mean 100 other events/min; 22 without, mean 62; ratio 1.6
+    2026-11-05-3: 36 minutes with pushes, mean 101 other events/min; 24 without, mean 65; ratio 1.6
+    2026-11-05-4: 25 minutes with pushes, mean 102 other events/min; 35 without, mean 67; ratio 1.5
+    2026-11-05-5: 19 minutes with pushes, mean 98 other events/min; 41 without, mean 75; ratio 1.3
+    2026-11-05-6: 15 minutes with pushes, mean 128 other events/min; 45 without, mean 73; ratio 1.8
+    2026-11-05-7: 2 minutes with pushes, mean 139 other events/min; 58 without, mean 71; ratio 2.0
+    2026-11-05-10: 28 minutes with pushes, mean 123 other events/min; 32 without, mean 74; ratio 1.7
+    2026-11-05-11: 44 minutes with pushes, mean 135 other events/min; 16 without, mean 64; ratio 2.1
+    2026-11-05-12: 23 minutes with pushes, mean 134 other events/min; 37 without, mean 70; ratio 1.9
+    2026-11-05-13: 42 minutes with pushes, mean 128 other events/min; 18 without, mean 72; ratio 1.8
+    2026-11-05-14: 24 minutes with pushes, mean 156 other events/min; 36 without, mean 70; ratio 2.2
+    2026-11-05-15: 12 minutes with pushes, mean 132 other events/min; 48 without, mean 69; ratio 1.9
+    2026-11-05-16: 25 minutes with pushes, mean 111 other events/min; 35 without, mean 66; ratio 1.7
+    2026-11-05-18: 41 minutes with pushes, mean 111 other events/min; 19 without, mean 56; ratio 2.0
+    2026-11-05-19: 28 minutes with pushes, mean 143 other events/min; 32 without, mean 60; ratio 2.4
+    2026-11-06-6: 34 minutes with pushes, mean 86 other events/min; 26 without, mean 92; ratio 0.9
+    2026-11-08-12: 14 minutes with pushes, mean 82 other events/min; 46 without, mean 53; ratio 1.5
+    median ratio over 37 partial push hours: 1.8 (range 0.9-8.7)
+  Where in the hour pushes stop: minute of the last PushEvent in partial push hours whose pushes start at minute 0
+    2026-09-01-6: 48, 2026-09-08-18: 30, 2026-09-09-0: 42, 2026-09-09-12: 31, 2026-09-14-18: 48, 2026-09-21-12: 38, 2026-10-06-18: 29, 2026-10-14-14: 45, 2026-10-14-15: 42, 2026-10-14-16: 39, 2026-10-14-17: 42, 2026-10-14-18: 28, 2026-10-14-19: 7, 2026-10-26-7: 52, 2026-10-26-8: 37, 2026-10-26-9: 23, 2026-10-26-10: 8, 2026-11-02-18: 15, 2026-11-05-0: 40, 2026-11-05-1: 39, 2026-11-05-2: 37, 2026-11-05-3: 35, 2026-11-05-4: 24, 2026-11-05-5: 18, 2026-11-05-6: 14, 2026-11-05-7: 1, 2026-11-05-11: 43, 2026-11-05-12: 22, 2026-11-05-13: 51, 2026-11-05-14: 23, 2026-11-05-16: 24, 2026-11-05-19: 27, 2026-11-08-12: 13
+
+== Comparison 4: PushEvent payload keys and CreateEvent ref_type across files read
+  keys ['before', 'head', 'push_id', 'ref', 'repository_id']: 278 files, 2026-01-01-12 to 2026-11-08-12
+  push events with a non-empty commits list: 0
+  CreateEvent ref_type totals: {'branch': 1808380}
+  Mean uncompressed bytes per event, by type, panel files by month:
+    PushEvent: 2026-09: 626; 2026-10: 641; 2026-11: 643; Jan-Aug refs: 627
+    PullRequestEvent: 2026-09: 1,329; 2026-10: 1,285; 2026-11: 1,280; Jan-Aug refs: 1,368
+    IssueCommentEvent: 2026-09: 12,503; 2026-10: 13,157; 2026-11: 13,413; Jan-Aug refs: 10,987
+    WatchEvent: 2026-09: 505; 2026-10: 503; 2026-11: 501; Jan-Aug refs: 508
+    CreateEvent: 2026-09: 657; 2026-10: 684; 2026-11: 702; Jan-Aug refs: 675
+
+== Comparison 5: stability
+  2026-10-01-12: first 2026-11-08T19:47:11Z 18566754 ce2d57e01925c8fd events 92323; re-read 2026-11-08T20:00:54Z 18566754 ce2d57e01925c8fd events 92323; same
+  2026-10-15-12: first 2026-11-08T19:49:44Z 3942637 8b862603546a6c6a events 3192; re-read 2026-11-08T20:00:57Z 3942637 8b862603546a6c6a events 3192; same
+  2026-10-26-12: first 2026-11-08T19:51:15Z 2843416 4be8c227412e4cf4 events 2598; re-read 2026-11-08T20:00:59Z 2843416 4be8c227412e4cf4 events 2598; same
+  2026-11-05-3: first 2026-11-08T19:58:35Z 5911883 ff42e1fa3cc9ed3c events 12045; re-read 2026-11-08T20:01:00Z 5911883 ff42e1fa3cc9ed3c events 12045; same
+  2026-11-07-12: first 2026-11-08T19:52:35Z 5068710 bda4a40ac0cd5030 events 4105; re-read 2026-11-08T20:01:02Z 5068710 bda4a40ac0cd5030 events 4105; same
+  2026-11-07-18: first 2026-11-08T19:52:37Z 4504396 00138fbb9a3bceef events 3741; re-read 2026-11-08T20:01:03Z 4504396 00138fbb9a3bceef events 3741; same
+  against the reviewer's fetch log (size and 16-hex hash prefix): 10 same, 0 different 
+  LH002 2026-04-02-14: recorded 35617941 bytes, 153261 events; now 35617941 bytes, 153261 events, PushEvent 111213
+  LH043 2026-07-01-12: recorded 21587792 bytes, sha256 1c74717a5441b202...; now 21587792, 1c74717a5441b202..., same; events 161121, PushEvent 138335, CreateEvent 14784
+  Last-Modified present on 458 of 458 files
+  Hours from the end of the file's hour to Last-Modified: median 0.08, min 0.08 (2026-09-02-0), max 0.09 (2026-09-05-0)
+  Files written more than 24 hours after their hour: 
+
+== Comparison 6: reference hours, January to August 2026 (and LH002's hour)
+  2026-01-01-12: status 200, bytes 33106782, events 154722, push 115695, create 9118, delete 3505, control 21503, partial 0, gaps []
+  2026-01-15-12: status 200, bytes 33893253, events 153766, push 116240, create 11024, delete 4373, control 16708, partial 0, gaps []
+  2026-02-01-12: status 200, bytes 34444821, events 159234, push 117135, create 11714, delete 3584, control 21127, partial 0, gaps []
+  2026-02-15-12: status 200, bytes 33906100, events 153474, push 114528, create 10358, delete 3783, control 19063, partial 0, gaps []
+  2026-03-01-12: status 200, bytes 33461841, events 160422, push 121103, create 11781, delete 4925, control 18294, partial 0, gaps []
+  2026-03-15-12: status 200, bytes 31562008, events 164927, push 131472, create 12046, delete 4146, control 12855, partial 0, gaps []
+  2026-04-01-12: status 200, bytes 33052570, events 155959, push 121708, create 15708, delete 5735, control 10422, partial 0, gaps []
+  2026-04-02-14: status 200, bytes 35617941, events 153261, push 111213, create 13515, delete 5457, control 17611, partial 0, gaps []
+  2026-04-15-12: status 200, bytes 25231320, events 156006, push 127008, create 15418, delete 6227, control 5497, partial 0, gaps []
+  2026-05-01-12: status 200, bytes 30954059, events 153453, push 120844, create 14559, delete 5826, control 9447, partial 0, gaps []
+  2026-05-15-12: status 200, bytes 13238473, events 87307, push 72852, create 8406, delete 3625, control 1834, partial 0, gaps []
+  2026-06-01-12: status 200, bytes 21820960, events 158152, push 135957, create 14921, delete 5865, control 998, partial 0, gaps []
+  2026-06-15-12: status 200, bytes 21773581, events 162822, push 138311, create 16058, delete 7269, control 924, partial 0, gaps []
+  2026-07-01-12: status 200, bytes 21587792, events 161121, push 138335, create 14784, delete 6885, control 882, partial 0, gaps []
+  2026-07-15-12: status 200, bytes 21495021, events 169372, push 155445, create 8619, delete 4692, control 424, partial 0, gaps []
+  2026-08-01-12: status 200, bytes 20483146, events 169487, push 165377, create 2818, delete 1021, control 212, partial 0, gaps []
+  2026-08-15-12: status 200, bytes 20752507, events 170586, push 166990, create 2348, delete 1004, control 189, partial 0, gaps []
+
+== Other derived measures over all first reads
+empty files: []
+missing (404): []; unread: []
+partial hours: 0 of 452: 
+partial push hours: 37: 2026-09-01-6, 2026-09-08-18, 2026-09-09-0, 2026-09-09-12, 2026-09-14-18, 2026-09-21-12, 2026-10-06-18, 2026-10-14-14, 2026-10-14-15, 2026-10-14-16, 2026-10-14-17, 2026-10-14-18, 2026-10-14-19, 2026-10-26-7, 2026-10-26-8, 2026-10-26-9, 2026-10-26-10, 2026-11-02-18, 2026-11-05-0, 2026-11-05-1, 2026-11-05-2, 2026-11-05-3, 2026-11-05-4, 2026-11-05-5, 2026-11-05-6, 2026-11-05-7, 2026-11-05-10, 2026-11-05-11, 2026-11-05-12, 2026-11-05-13, 2026-11-05-14, 2026-11-05-15, 2026-11-05-16, 2026-11-05-18, 2026-11-05-19, 2026-11-06-6, 2026-11-08-12
+short hours (events < 50% of operative baseline): 297 of 452
+files with events outside their hour: 0; total such events 0
+  events per event-id step, Jan-Aug refs, pushes present: n=16, median 0.0001
+  events per event-id step, 1 Sep-14 Oct, no pushes: n=26, median 0.0015
+  events per event-id step, 1 Sep-14 Oct, pushes present: n=150, median 0.0000
+  events per event-id step, 15 Oct-8 Nov, no pushes: n=66, median 0.0011
+  events per event-id step, 15 Oct-8 Nov, pushes present: n=33, median 0.0000
+  (Event ids in files with pushes span billions of ids, in files without pushes a few million: the id field mixes ranges,
+   so the span measure fixed in the brief is kept in files.csv but not interpreted.)
+
+== Runs of consecutive panel (and latest) files without PushEvents, in time order
+  2026-09-01-12 to 2026-09-05-6: 16 files
+  2026-09-09-18 to 2026-09-10-0: 2 files
+  2026-09-21-18 to 2026-09-21-18: 1 files
+  2026-10-07-0 to 2026-10-08-0: 5 files
+  2026-10-09-18 to 2026-10-10-0: 2 files
+  2026-10-15-0 to 2026-10-18-6: 14 files
+  2026-10-22-18 to 2026-10-24-0: 6 files
+  2026-10-26-12 to 2026-11-02-12: 29 files
+  2026-11-03-0 to 2026-11-04-18: 8 files
+  2026-11-06-0 to 2026-11-06-0: 1 files
+  2026-11-06-12 to 2026-11-08-6: 8 files
+  Whole-day files without PushEvents: 2026-09-15: 0/24, 2026-10-01: 0/24, 2026-10-07: 24/24, 2026-10-14: 4/24, 2026-10-15: 24/24, 2026-10-26: 13/24, 2026-11-05: 7/24, 2026-11-07: 24/24
+  Latest files (8 November): 2026-11-08-0: events 3609, push 0; 2026-11-08-6: events 3449, push 0; 2026-11-08-12: events 5756, push 2166
+
+== Push-present panel files: PushEvents and all events per file (median, range)
+  1 Sep-14 Oct: n=150; PushEvent median 61,826 (7,303-124,687); events median 83,422
+  15 Oct-7 Nov: n=32; PushEvent median 35,700 (3,421-68,518); events median 47,088
+  January to August references: PushEvent median 124,358 (72,852-166,990)
+
+== Push-free panel files: all events per file (median, range), and the four control types
+  1 Sep-14 Oct: n=26; events median 5,628 (1,328-81,070); control median 4,259 (1,070-64,843)
+  15 Oct-7 Nov: n=64; events median 3,956 (2,085-11,345); control median 3,150 (1,436-8,958)
+  Types present in push-free files (files holding at least one): PushEvent 0, CreateEvent 0, DeleteEvent 0, PullRequestEvent 90, PullRequestReviewEvent 90, PullRequestReviewCommentEvent 82, IssuesEvent 90, IssueCommentEvent 90, WatchEvent 90, ForkEvent 90, ReleaseEvent 90, MemberEvent 90, PublicEvent 89, GollumEvent 90, CommitCommentEvent 90, DiscussionEvent 72
+  Files (all first reads) holding PushEvents but no CreateEvent or DeleteEvent, or the reverse: []
