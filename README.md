@@ -41,6 +41,8 @@ When a widely used library puts out a new version, some software has it within d
 
 Essays are where we say what we think the findings mean, kept apart from the findings themselves so that a reading is never mistaken for a measurement. Each says which records it rests on, marks what is a reading made after the evidence was seen, and ends with what would test it. The first, [Seen from outside, seen from inside](essays/seen-from-outside-seen-from-inside.md), asks why PHP's fix could be watched only from outside and Node.js's only from inside, and what each view's blind spot says about how the software lives.
 
+[It was only a test](essays/it-was-only-a-test.md) follows agents finding one another, pursuing ordinary tasks beyond permission, and leaving records that another worker may treat as instructions. It asks how we could investigate that inheritance, including in our own systems.
+
 ## The map
 
 What can each public instrument see of the internet, and where does it stop? [We can see pieces of the internet's AI activity, but not how they fit together](articles/what-we-can-see.md) reads seventeen public sources and finds that none says how its piece overlaps the others, so their counts cannot be added up. [What Lighthouse has observed](observations.md) lists every reading so far and whose instruments each relied on, and [the investigations](investigations/) follow single questions through several of them. The charter makes such a map one of the watch's outputs, with what it cannot see marked as part of it: a dark region is not an empty one.
