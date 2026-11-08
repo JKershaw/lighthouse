@@ -1,0 +1,76 @@
+== PyPI release reads
+Counter({404: 85}) reads: 85
+
+== indicator strings: records containing each W02 and W11 specific indicator
+W02 'sha1-hulud' 792
+W02 'the second coming' 792
+W11 'math_init\\.js' 444
+W11 '9fc2570b7cef51c1b8df116d144d11ff4096357be7d2c4c6367cfc2509cf1bcc' 428
+W11 '54dc7ea54a1317cca0e890a2770630cf7fa6c97813e0cb9d2caa93012b350668' 10
+W07 'm-kosche' 1
+W06 'router_init\\.js' 1
+W06 '@tanstack/setup' 1
+W03 'api-monitor\\.com' 3
+W12 'skyleen' 2
+W13 '25a0735d0db7dc40e5d45ce42d9c106067e6a66e184d967cfecfab17c3bcb5ef' 1
+
+== versions with a registry time outside their wave's window (brief's view)
+W02 18 Counter({'2026-06': 12, '2024-03': 2, '2017-02': 1, '2023-02': 1, '2026-07': 1, '2026-08': 1})
+W11 26 Counter({'2026-03': 10, '2026-04': 4, '2026-05': 3, '2026-06': 3, '2026-07': 3, '2026-02': 2, '2026-11': 1})
+W06 8 Counter({'2026-05': 8})
+
+== ambiguous W02+W10 records
+MAL-2025-190636 @asyncapi published 2025-11-24T11:48:04Z modified 2026-07-15T05:49:22.863029419Z
+MAL-2025-190643 @asyncapi published 2025-11-24T11:33:26Z modified 2026-07-15T05:49:22.971470391Z
+MAL-2025-190656 @asyncapi published 2025-11-24T12:49:48Z modified 2026-07-15T05:49:23.074127922Z
+MAL-2025-190657 @asyncapi published 2025-11-24T12:50:55Z modified 2026-07-15T05:49:22.131249077Z
+
+== lineage, unassigned (brief's view): by date month and marker
+93 Counter({('npm', '2026-03'): 66, ('npm', '2026-06'): 21, ('npm', '2021-03'): 1, ('npm', '2026-10'): 1, ('npm', '2023-07'): 1, ('npm', '2026-01'): 1, ('PyPI', '2026-11'): 1, ('PyPI', '2026-03'): 1})
+March 2026 records: (names canisterworm, names teampcp) -> {(True, True): 66, (False, True): 1}
+
+== clocks (post hoc view)
+W01 first registry 2025-09-14 17:58:50.315000+00:00 | first OSV published - first registry (h) 18.22 | median version lag (h) 11.68 | first import - first registry (h) 30.59 | records with bare-date published 0 of 203
+W02 first registry 2025-11-24 03:10:05.406000+00:00 | first OSV published - first registry (h) 0.47 | median version lag (h) 11.07 | first import - first registry (h) 9.26 | records with bare-date published 0 of 791
+W06 first registry 2026-05-11 14:41:32.435000+00:00 | first OSV published - first registry (h) 2.25 | median version lag (h) 4.30 | first import - first registry (h) 8.90 | records with bare-date published 5 of 185
+W07 first registry 2026-05-19 01:39:31.249000+00:00 | first OSV published - first registry (h) -1.66 | median version lag (h) -1.95 | first import - first registry (h) 3.99 | records with bare-date published 316 of 360
+W08 first registry 2026-06-01 10:54:09.908000+00:00 | first OSV published - first registry (h) -10.90 | median version lag (h) 24.41 | first import - first registry (h) 3.48 | records with bare-date published 32 of 106
+W11 first registry 2026-08-04 09:35:00.763000+00:00 | first OSV published - first registry (h) 1.09 | median version lag (h) 4.03 | first import - first registry (h) 11.97 | records with bare-date published 0 of 445
+W12 first registry 2026-09-23 02:23:04.778000+00:00 | first OSV published - first registry (h) -2.38 | median version lag (h) -3.82 | first import - first registry (h) 9.28 | records with bare-date published 2 of 2
+W13 first registry 2026-10-08 01:12:07.320000+00:00 | first OSV published - first registry (h) 1.71 | median version lag (h) 1.71 | first import - first registry (h) 2.38 | records with bare-date published 0 of 1
+
+== W03 earliest OSV published among its records
+(datetime.datetime(2026, 4, 8, 4, 18, 49, tzinfo=datetime.timezone.utc), 'MAL-2026-2508')
+(datetime.datetime(2026, 4, 8, 4, 18, 49, tzinfo=datetime.timezone.utc), 'MAL-2026-2508')
+
+== W08 hours to each new cluster (post hoc)
+[60.54, 61.52, 81.4, 81.48, 81.55, 81.6, 86.82]
+W06 [4.65, 4.8, 4.84, 5.29, 5.64, 6.31, 7.01, 7.59, 8.05, 8.07, 9.8, 30.02]
+W01 [0.6, 2.52, 2.55, 2.78, 7.23, 10.93, 11.37, 13.74, 14.38, 14.49, 15.3, 16.18, 25.9, 28.61, 31.26, 70.82]
+
+== seeds: MAL records in the full index, and how the selected copies were classed (brief's view)
+W01 @ctrl/tinycolor 1 {'W01': 1}
+W02 @zapier/ 10 {'W02': 10}
+W02 @ensdomains/ 44 {'W02': 44}
+W03 pgserve 1 {'seed only': 1}
+W03 @automagik/genie 1 {'seed only': 1}
+W04 @bitwarden/cli 1 {'seed only': 1}
+W05 @cap-js/sqlite 1 {'window-overlap W03+W04+W05': 1}
+W05 @cap-js/db-service 1 {'window-overlap W03+W04+W05': 1}
+W06 @tanstack/ 42 {'W06': 42}
+W07 @antv/ 279 {'W07': 278, 'lineage, unassigned': 1}
+W08 @redhat-cloud-services/ 32 {'window-overlap W08+W09': 32}
+W10 @asyncapi/specs 1 {'ambiguous W02+W10': 1}
+W10 @asyncapi/generator-helpers 1 {'ambiguous W02+W10': 1}
+W10 @asyncapi/generator-components 1 {'ambiguous W02+W10': 1}
+W11 keyv 1 {'W11': 1}
+W12 @memtensor/memos-cloud-openclaw-plugin 1 {'W12': 1}
+W12 memoryos 1 {'W12': 1}
+W13 tensorlake 1 {'W13': 1}
+tensorlake-prefixed packages in the full MAL index: ['tensorlake']
+
+== ChainDrop: math_init.js and Math_Symbol.js
+records 444 naming math_init.js 444 naming math_symbol.js 444
+
+== origins of ChainDrop's indicator records (reporting feeds)
+Counter({'amazon-inspector;ghsa-malware': 438, 'amazon-inspector': 3, '': 2, 'ghsa-malware': 1})
