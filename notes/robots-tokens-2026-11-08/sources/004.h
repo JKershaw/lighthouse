@@ -12,8 +12,8 @@ vary: Accept, Accept-Encoding
 x-openai-proxy-wasm: v0.1
 Server: cloudflare
 cf-cache-status: DYNAMIC
-set-cookie: __cf_bm=Pucr3We9mnULzDmttXI0F9L3NYefGVCEZRE02AU94TI-1794170515.8573928-1.0.1.1-I5QFXKKgcbXWX1AXxiVVEG4vvWgUsGxHp_uSCuB4NeMSOzcDOTVDQ2A4CgICjMdGtQX0C0WTneh2b8dDNpKGQByaDk1lBkCPdT2nWZriS.QAtpuw7DtWKtwe5_IQBl3F; HttpOnly; SameSite=None; Partitioned; Secure; Path=/; Domain=openai.com; Expires=Sun, 08 Nov 2026 21:11:55 GMT
-set-cookie: _cfuvid=3uGMNs6mHQ2m8I07QTjKS8a5FGixrwS2bi.9ttYoPHo-1794170515.8573928-1.0.1.1-IHxzgmlHD8R0iwqTqqhS1PxP9SPiQhIh1xVPC35kWT8; HttpOnly; SameSite=None; Secure; Path=/; Domain=openai.com
+set-cookie: __cf_bm=[value withheld by Lighthouse]; HttpOnly; SameSite=None; Partitioned; Secure; Path=/; Domain=openai.com; Expires=Sun, 08 Nov 2026 21:11:55 GMT
+set-cookie: _cfuvid=[value withheld by Lighthouse]; HttpOnly; SameSite=None; Secure; Path=/; Domain=openai.com
 Nel: {"report_to":"cf-nel","success_fraction":0.01,"max_age":604800}
 Strict-Transport-Security: max-age=31536000; includeSubDomains; preload
 X-Content-Type-Options: nosniff

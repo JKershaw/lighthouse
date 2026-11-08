@@ -23,7 +23,7 @@ The keeper, 8 November 2026 (proposals.md, From the keeper; AGENTS.md, Rules tha
 
 ## The tokens and where they came from
 
-The two providers' own pages were read once each on 8 November 2026, after their robots.txt, with an honest User-Agent and nothing else. They're kept under [robots-tokens-2026-11-08/sources/](robots-tokens-2026-11-08/sources/) with email addresses withheld. In 002.b, Cloudflare's hex encoding of an address (`data-cfemail` and an `email-protection#` link) was also replaced by hand. [fetchlog.csv](robots-tokens-2026-11-08/sources/fetchlog.csv) gives each request's URL, UTC time, status and the sha256 of the bytes received, and [fetch_sources.py](robots-tokens-2026-11-08/fetch_sources.py) is the script that made them.
+The two providers' own pages were read once each on 8 November 2026, after their robots.txt, with an honest User-Agent and nothing else. They're kept under [robots-tokens-2026-11-08/sources/](robots-tokens-2026-11-08/sources/) with email addresses withheld. In 002.b, Cloudflare's hex encoding of an address (`data-cfemail` and an `email-protection#` link) was also replaced by hand, and the values of cookies the servers set are withheld from the kept headers. [fetchlog.csv](robots-tokens-2026-11-08/sources/fetchlog.csv) gives each request's URL, UTC time, status and the sha256 of the bytes received, and [fetch_sources.py](robots-tokens-2026-11-08/fetch_sources.py) is the script that made them.
 
 | Provider | Token | What the provider says it is | Source, read (UTC) |
 |---|---|---|---|

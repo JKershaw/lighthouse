@@ -20,6 +20,6 @@ Server: cloudflare
 x-ami-version: ami-0202e7ae82238224b
 expires: Mon, 09 Nov 2026 00:42:24 GMT
 cf-cache-status: BYPASS
-set-cookie: __cf_bm=gbh15FKEdn31lXwM7PTpDcqGjL1Awq197dg2voyPW8U-1794170544.0968995-1.0.1.1-d2Ux.gK2akMFIA9LOv7.7Q8VP6F2lzU8lKxe46nmCmWGMlH2mkWQY6OXEn_cebMyxc8Xe63UBJ0neKwax7W4a7N1Miryukg9mHyrctXB_h0ZEj1uT1eTPa4et.wmp41i; HttpOnly; SameSite=None; Partitioned; Secure; Path=/; Domain=claude.com; Expires=Sun, 08 Nov 2026 21:12:24 GMT
+set-cookie: __cf_bm=[value withheld by Lighthouse]; HttpOnly; SameSite=None; Partitioned; Secure; Path=/; Domain=claude.com; Expires=Sun, 08 Nov 2026 21:12:24 GMT
 CF-RAY: a577676c9f35500d-IAD
 alt-svc: h3=":443"; ma=86400
