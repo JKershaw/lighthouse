@@ -9,6 +9,9 @@ update log page's embedded data. Idempotent: a label already held is not fetched
 Epoch AI's data is CC BY 4.0: credit Epoch AI, 'AI data centers', published online at epoch.ai.
 Usage: python3 -I studies/LH045/scripts/collect_epoch.py --read 2026-11-08T1930Z
 """
+import sys as _sys, os as _os
+_sys.path.insert(0, _os.path.join(_os.path.dirname(_os.path.abspath(__file__)), '..', '..', '..', 'scripts'))
+from redact_emails import redact_bytes  # noqa: E402
 import argparse, csv, datetime, gzip, hashlib, html, json, os, re, sys, time
 import urllib.error, urllib.request, urllib.robotparser
 
@@ -115,7 +118,7 @@ def main():
     w = csv.writer(log)
     w.writerow(["name", "url", "utc_start", "status", "content_type", "size", "sha256", "note"])
     t = now(); st, ct, body, note = get(ROBOTS)
-    open(os.path.join(d, "robots.body"), "wb").write(body)
+    open(os.path.join(d, "robots.body"), "wb").write(redact_bytes(body)[0])
     w.writerow(["robots", ROBOTS, t, st, ct, len(body), hashlib.sha256(body).hexdigest(), note])
     rp = urllib.robotparser.RobotFileParser()
     rp.parse(body.decode("utf-8", "replace").splitlines() if st == 200 else [])
@@ -125,7 +128,7 @@ def main():
         if st == 200 and not rp.can_fetch(UA, url):
             w.writerow([name, url, t, "skipped", "", 0, "", "disallowed by robots.txt"]); print(name, "skipped (robots)"); continue
         s2, ct, body, note = get(url)
-        open(os.path.join(d, name + ".body"), "wb").write(body)
+        open(os.path.join(d, name + ".body"), "wb").write(redact_bytes(body)[0])
         w.writerow([name, url, t, s2, ct, len(body), hashlib.sha256(body).hexdigest(), note])
         log.flush()
         print(name, s2, len(body))

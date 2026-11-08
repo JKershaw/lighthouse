@@ -14,6 +14,9 @@ raw retention). Derives census.csv and authors.csv. Idempotent: a label already 
 not fetched again; --derive-only rebuilds the derived tables from the kept bodies.
 Usage: python3 -I studies/LH045/scripts/collect_ietf.py --read 2026-11-08T1945Z
 """
+import sys as _sys, os as _os
+_sys.path.insert(0, _os.path.join(_os.path.dirname(_os.path.abspath(__file__)), '..', '..', '..', 'scripts'))
+from redact_emails import redact_bytes  # noqa: E402
 import argparse, csv, datetime, hashlib, json, os, re, sys, time
 import urllib.error, urllib.parse, urllib.request, urllib.robotparser
 
@@ -68,6 +71,9 @@ class Reader:
                 note = "email fields replaced; sha256 is of the bytes received"
             except ValueError:
                 note = "redaction failed; body withheld"; body = b""
+        body, n_red = redact_bytes(body)  # the keeper, 8 November 2026: email addresses withheld
+        if n_red:
+            note = (note + "; " if note else "") + "%d email addresses withheld; sha256 is of the bytes received" % n_red
         open(os.path.join(self.d, fn), "wb").write(body)
         self.w.writerow([fn, url, t, st, ct, len(body), sha_received, note]); self.log.flush()
         print(fn, st, len(body))
