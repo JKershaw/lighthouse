@@ -1,0 +1,15 @@
+qualifying releases: 424; projects that released: 37; projects with a known outcome: 37
+projects where most releases reached half within two days: 26 of 37 (0.703) -> 'for some projects'
+projects where no release reached half within two days: 11
+projects where some but not most reached: 0: []
+project-resampled 95% interval for the share of projects (10,000 resamples, seed 20260927, random.choices): 0.541 to 0.838 (index convention) / 0.541 to 0.838 (inclusive quantiles)
+pooled over releases: 127 of 424 known reached half within two days (0.300); unknown: 0
+projects' median day-1 at-or-newer share: median 0.576, quartiles 0.295 and 0.690 (n=37)
+bootstrap of that median: 0.532 to 0.638
+releases not at half by day 30: 280; censored at the last day held: 5
+
+projects where most reached: aiohttp 4/4, annotated-types 1/1, anyio 3/3, certifi 4/4, cffi 2/2, charset-normalizer 5/5, click 6/6, cryptography 6/7, filelock 21/21, idna 8/8, packaging 3/3, pathspec 2/2, platformdirs 9/9, pydantic 5/6, pydantic-core 5/7, pygments 1/1, pyjwt 1/1, python-dotenv 1/1, requests 3/3, rpds-py 2/2, starlette 9/11, tqdm 8/8, typing-extensions 1/1, typing-inspection 2/2, urllib3 1/1, uvicorn 14/16
+projects where none reached: aiobotocore 0/6, boto3 0/103, botocore 0/103, fsspec 0/3, grpcio-status 0/6, litellm 0/46, numpy 0/5, pandas 0/3, protobuf 0/4, pytest 0/3, s3transfer 0/7
+
+gap days found (project, day, clause) among the days used:
+  none

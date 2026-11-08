@@ -1,0 +1,24 @@
+eleven projects: median day-1 share -> median day-30 share (releases whose day 30 is held)
+  aiobotocore          2.0 ->   2.5  (n 6, day-30 held 6)
+  boto3                7.5 ->  12.2  (n 103, day-30 held 101)
+  litellm              9.5 ->  21.0  (n 46, day-30 held 46)
+  grpcio-status       10.2 ->  14.5  (n 6, day-30 held 6)
+  fsspec              21.3 ->  22.3  (n 3, day-30 held 3)
+  botocore            23.4 ->  26.9  (n 103, day-30 held 101)
+  protobuf            24.6 ->  32.5  (n 4, day-30 held 3)
+  pandas              27.7 ->  32.3  (n 3, day-30 held 3)
+  pytest              29.3 ->  35.3  (n 3, day-30 held 3)
+  numpy               29.5 ->  27.6  (n 5, day-30 held 5)
+  s3transfer          34.0 ->  37.0  (n 7, day-30 held 7)
+releases reaching half within 30 days: 139 ; on day 0: 23 ; median day: 1
+litellm releases reaching half: 6 [('1.83.1', 28), ('1.83.2', 27), ('1.83.3', 26), ('1.83.4', 24), ('1.83.5', 18), ('1.83.6', 18)] median day 25.0
+day 0 of each litellm release that reached, and the day it reached:
+   1.83.1 2026-04-03 reached on 2026-05-01
+   1.83.2 2026-04-04 reached on 2026-05-01
+   1.83.3 2026-04-05 reached on 2026-05-01
+   1.83.4 2026-04-07 reached on 2026-05-01
+   1.83.5 2026-04-13 reached on 2026-05-01
+   1.83.6 2026-04-13 reached on 2026-05-01
+projects none of whose releases reached half by day 30: 10
+requests 2.34.0: day 0 2026-05-11, day 1 at-or-newer 35,233,968 of 64,346,148 = 54.8 per cent; day 30 60.7 per cent
+pandas 3.0.3: day 0 2026-05-11, day 1 at-or-newer 7,134,370 of 25,742,566 = 27.7 per cent; day 30 32.3 per cent

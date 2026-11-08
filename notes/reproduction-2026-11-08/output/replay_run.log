@@ -1,0 +1,29 @@
+1. frame: frame.py (releases, CI subsample, SHA-256 order) from projects.csv and pypi_versions.csv
+   same  data/releases.csv
+   same  data/project_order.csv
+2. analysis: analyse.py over data/counts, data/ci, data/daily_totals_*, data/pypistats
+   same  data/analysis/ci_installers.csv
+   same  data/analysis/ci_projects.csv
+   same  data/analysis/ci_releases.csv
+   same  data/analysis/crosscheck_pypistats.csv
+   same  data/analysis/described.csv
+   same  data/analysis/gaps.csv
+   same  data/analysis/project_outcomes.csv
+   same  data/analysis/release_days.csv
+   same  data/analysis/release_outcomes.csv
+   same  data/analysis/summary.csv
+3. figure: draw_figure.py
+   same  uptake.svg
+4. reads: queries and rows read against the brief's ceilings (600 queries, 60 billion rows)
+   ClickPy queries 152, rows read 5,848,644,945; PyPI JSON 54; sdists 4; pypistats 5
+5. readings made after the counts (post hoc): draw_piece_figure.py and post_hoc.py
+   same  piece_figure_reading.txt
+   same  post_hoc_reading.txt
+   same  two-days-for-most.svg
+6. the checks behind version 0.4 (post hoc): review/v04_checks.py
+   same  review/v04_checks.txt
+REPLAY PASSED
+
+real	0m1.202s
+user	0m1.111s
+sys	0m0.073s

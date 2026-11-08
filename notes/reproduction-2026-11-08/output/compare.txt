@@ -1,0 +1,10 @@
+releases: mine 424, record 424, keys equal: True
+day 0-2 shares: largest absolute difference 0.000050 (rounding only); mismatches beyond rounding: 3 [(('boto3', '1.42.83'), '0', '0.0225', '0.022550'), (('litellm', '1.85.0'), '0', '0.0474', '0.047450'), (('litellm', '1.92.0'), '2', '0.0558', '0.055750')]
+reached-half class mismatches: 0 []
+days-to-half mismatches: 0 []
+record's days_to_half notes: ['not reached by day 27', 'not reached by day 30']
+projects with releases: mine 37, record 37, same set: True
+project rows differing: 3
+  ('boto3', {'project': 'boto3', 'releases': '103', 'known': '103', 'reached': '0', 'unknown': '0', 'share_reached': '0.000', 'cls': 'none reached', 'median_day1_share': '0.0746', 'n_not_by_30': '101', 'n_censored': '2'}, {'sha256_order': '30', 'project': 'boto3', 'releases': '103', 'known': '103', 'reached': '0', 'share_reached': '0.000000', 'most_reached': 'no', 'median_day1_share': '0.074593', 'median_days_to_half_among_reaching': '', 'releases_not_reaching_half_by_day_30': '103'})
+  ('botocore', {'project': 'botocore', 'releases': '103', 'known': '103', 'reached': '0', 'unknown': '0', 'share_reached': '0.000', 'cls': 'none reached', 'median_day1_share': '0.2340', 'n_not_by_30': '101', 'n_censored': '2'}, {'sha256_order': '32', 'project': 'botocore', 'releases': '103', 'known': '103', 'reached': '0', 'share_reached': '0.000000', 'most_reached': 'no', 'median_day1_share': '0.234005', 'median_days_to_half_among_reaching': '', 'releases_not_reaching_half_by_day_30': '103'})
+  ('protobuf', {'project': 'protobuf', 'releases': '4', 'known': '4', 'reached': '0', 'unknown': '0', 'share_reached': '0.000', 'cls': 'none reached', 'median_day1_share': '0.2464', 'n_not_by_30': '3', 'n_censored': '1'}, {'sha256_order': '8', 'project': 'protobuf', 'releases': '4', 'known': '4', 'reached': '0', 'share_reached': '0.000000', 'most_reached': 'no', 'median_day1_share': '0.246432', 'median_days_to_half_among_reaching': '', 'releases_not_reaching_half_by_day_30': '4'})
