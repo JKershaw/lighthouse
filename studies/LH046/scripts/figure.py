@@ -70,7 +70,7 @@ for r in zero:
     xx = x(when(r))
     s.append(f'<line x1="{xx:.1f}" x2="{xx:.1f}" y1="{STRIP}" y2="{STRIP + 16}" stroke="var(--amber)" stroke-width="1.5"/>')
 s.append(f'<text class="note" x="{L - 48}" y="{H - 30}">Counts are what the files held when read on 8 November 2026, not GitHub\'s own activity.</text>')
-s.append(f'<text class="note" x="{L - 48}" y="{H - 14}">Source: data.gharchive.org hourly files; Lighthouse study LH046, version 0.1, unreviewed.</text>')
+s.append(f'<text class="note" x="{L - 48}" y="{H - 14}">Source: data.gharchive.org hourly files; Lighthouse study LH046, version 0.2, after its evidence review.</text>')
 s.append("</svg>")
 open(OUT, "w").write("\n".join(s) + "\n")
 print("wrote", OUT, len(panel), "panel files,", len(zero), "without pushes; max events", max(int(r["events"]) for r in panel))
