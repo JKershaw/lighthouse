@@ -100,3 +100,7 @@ Per read: at most 322 panel requests (two per service), retained bodies at most 
 - Measure 5 unread throughout: walls are undated beyond the reads themselves.
 
 It cannot say, in any case, how much automated traffic any service receives, who sends it, whether any of it is AI, or whether any operator is harmed; those are operators' accounts, recorded as theirs.
+
+## Amendments
+
+- **8 November 2026, before any panel status was read** (after the draw, which reads only the retained frames). The Debian frame holds 387 `/debian/` URLs on 351 hosts, not "351 distinct URLs" as written above; the draw used hosts, as the rule says, so nothing changes. The OAI frame holds 7,103 URLs on 5,246 hosts. One drawn OAI-PMH endpoint (P01) is a bare address on port 81: it is in the panel because its operator registered it for harvesting, and it gets the same two requests as any other.
