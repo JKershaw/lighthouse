@@ -1,0 +1,1054 @@
+
+
+<!DOCTYPE html>
+
+
+
+
+
+
+<html data-bs-theme="auto" lang="en" >
+    <head>
+        
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <title>
+            API Notes
+        </title>
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="traceparent" content="">
+        <link href="https://static.ietf.org/fonts/inter/import.css" rel="stylesheet">
+        <link href="https://static.ietf.org/fonts/noto-sans-mono/import.css" rel="stylesheet">
+        <link rel="stylesheet" href="https://static.ietf.org/dt/12.83.0/ietf/css/ietf.css">
+        <link rel="stylesheet" href="https://static.ietf.org/dt/12.83.0/ietf/css/select2.css">
+        
+        <script src="https://static.ietf.org/dt/12.83.0/ietf/js/theme.js"></script>
+        <style>
+            
+        </style>
+        
+        
+        <script type="module" crossorigin="" src="https://static.ietf.org/dt/12.83.0/assets/embedded-96ae9b3d.js"></script>
+<link href="https://static.ietf.org/dt/12.83.0/assets/create-pinia-singleton-c155de42.js" type="text/javascript" crossorigin="anonymous" rel="modulepreload" as="script" />
+<link href="https://static.ietf.org/dt/12.83.0/assets/Scrollbar-cfcf5b4b.js" type="text/javascript" crossorigin="anonymous" rel="modulepreload" as="script" />
+        
+
+<link rel="apple-touch-icon"
+      sizes="180x180"
+      href="https://static.ietf.org/dt/12.83.0/ietf/images/ietf-logo-nor-180.png">
+<link rel="icon"
+      sizes="32x32"
+      href="https://static.ietf.org/dt/12.83.0/ietf/images/ietf-logo-nor-32.png">
+<link rel="icon"
+      sizes="16x16"
+      href="https://static.ietf.org/dt/12.83.0/ietf/images/ietf-logo-nor-16.png">
+<link rel="manifest" href="/site.webmanifest">
+<link rel="mask-icon"
+      href="https://static.ietf.org/dt/12.83.0/ietf/images/ietf-logo-nor-mask.svg"
+      color="#ffffff">
+<meta name="msapplication-TileColor"
+      content="#ffffff">
+<meta name="theme-color"
+      content="#ffffff">
+        <script src="https://static.ietf.org/dt/12.83.0/ietf/js/ietf.js"></script>
+        
+    </head>
+    <body  class="navbar-offset position-relative"
+          data-group-menu-data-url="/group/groupmenu.json">
+        
+        <noscript><iframe class="status" title="Site status" src="/status/latest"></iframe></noscript>
+<div class="vue-embed" data-component="Status"></div>
+        <a class="visually-hidden visually-hidden-focusable" href="#content">Skip to main content</a>
+        <nav class="navbar navbar-expand-lg fixed-top bg-secondary-subtle">
+            <div class="container-fluid">
+                <a class="navbar-brand" href="/">
+                    
+
+
+
+<img alt="IETF Logo"
+     class="d-lm-none me-2"
+     
+     
+        
+             src="https://static.ietf.org/dt/12.83.0/ietf/images/ietf-logo-nor-white.svg"
+        
+     
+     >
+
+<img alt="IETF Logo"
+     class="d-dm-none me-2"
+     
+     
+        
+             src="https://static.ietf.org/dt/12.83.0/ietf/images/ietf-logo-nor.svg"
+        
+     
+     >
+                    Datatracker
+                    
+                </a>
+                <div class="collapse navbar-collapse" id="navbar-collapse">
+                    <ul class="nav navbar-nav flex-nowrap">
+                        
+
+
+
+
+<li class="nav-item dropdown">
+    
+        <a href="#"
+           class="nav-link dropdown-toggle"
+           role="button"
+           data-bs-toggle="dropdown"
+           aria-expanded="false">
+            Groups
+        </a>
+        <ul class="dropdown-menu mt-n1">
+        
+    <li class="dropdown-header">By area/parent</li>
+    
+
+
+
+    
+    <li class="dropend group-menu group-parent-2010">
+        <a class="dropdown-item dropdown-toggle "
+           href="/wg/#ART">
+            Apps &amp; Realtime
+        </a>
+    </li>
+
+    
+    <li class="dropend group-menu group-parent-1008">
+        <a class="dropdown-item dropdown-toggle "
+           href="/wg/#GEN">
+            General
+        </a>
+    </li>
+
+    
+    <li class="dropend group-menu group-parent-1052">
+        <a class="dropdown-item dropdown-toggle "
+           href="/wg/#INT">
+            Internet
+        </a>
+    </li>
+
+    
+    <li class="dropend group-menu group-parent-1193">
+        <a class="dropdown-item dropdown-toggle "
+           href="/wg/#OPS">
+            Ops &amp; Management
+        </a>
+    </li>
+
+    
+    <li class="dropend group-menu group-parent-1249">
+        <a class="dropdown-item dropdown-toggle "
+           href="/wg/#RTG">
+            Routing
+        </a>
+    </li>
+
+    
+    <li class="dropend group-menu group-parent-1260">
+        <a class="dropdown-item dropdown-toggle "
+           href="/wg/#SEC">
+            Security
+        </a>
+    </li>
+
+    
+    <li class="dropend group-menu group-parent-2412">
+        <a class="dropdown-item dropdown-toggle "
+           href="/wg/#WIT">
+            Web and Internet Transport
+        </a>
+    </li>
+
+    
+        <li><a class="dropdown-item" href="/group/iesg/about/">IESG</a></li>
+    
+    <li class="dropend group-menu group-parent-7">
+        <a class="dropdown-item dropdown-toggle "
+           href="/program/">
+            IAB
+        </a>
+    </li>
+
+    
+    <li class="dropend group-menu group-parent-3">
+        <a class="dropdown-item dropdown-toggle "
+           href="/rg/">
+            IRTF
+        </a>
+    </li>
+
+    
+    <li class="dropend group-menu group-parent-2309">
+        <a class="dropdown-item dropdown-toggle "
+           href="/adm/">
+            IETF LLC
+        </a>
+    </li>
+
+    
+    <li class="dropend group-menu group-parent-1876">
+        <a class="dropdown-item dropdown-toggle "
+           href="/rfcedtyp/">
+            RFC Editor
+        </a>
+    </li>
+
+
+    <li class="dropend">
+        <a class="dropdown-item dropdown-toggle "
+           href="/group/">
+            Other
+        </a>
+        
+
+
+<ul class="dropdown-menu ms-n1">
+    
+        <li>
+            <a class="dropdown-item "
+               href="/ag/">Active AGs</a>
+        </li>
+    
+        <li>
+            <a class="dropdown-item "
+               href="/area/">Active Areas</a>
+        </li>
+    
+        <li>
+            <a class="dropdown-item "
+               href="/dir/">Active Directorates</a>
+        </li>
+    
+        <li>
+            <a class="dropdown-item "
+               href="/iabworkshop/">Active IAB Workshops</a>
+        </li>
+    
+        <li>
+            <a class="dropdown-item "
+               href="/program/">Active Programs</a>
+        </li>
+    
+        <li>
+            <a class="dropdown-item "
+               href="/rag/">Active RAGs</a>
+        </li>
+    
+        <li>
+            <a class="dropdown-item "
+               href="/team/">Active Teams</a>
+        </li>
+    
+    
+</ul>
+
+    </li>
+    <li><hr class="dropdown-divider"></li>
+    <li class="dropdown-header">New work</li>
+    <li>
+        <a class="dropdown-item"
+           href="/group/chartering/">
+            Chartering groups
+        </a>
+    </li>
+    <li>
+        <a class="dropdown-item"
+           href="/wg/bofs/">
+            BOFs
+        </a>
+    </li>
+    <li>
+        <a class="dropdown-item"
+           href="/doc/bof-requests">
+            BOF Requests
+        </a>
+    </li>
+    <li><hr class="dropdown-divider"></li>
+    <li class="dropdown-header">Other groups</li>
+    <li>
+        <a class="dropdown-item"
+           href="/group/concluded/">
+            Concluded groups
+        </a>
+    </li>
+    <li>
+        <a class="dropdown-item"
+           href="/list/nonwg">
+            Non-WG lists
+        </a>
+    </li>
+    
+    </ul>
+</li>
+
+<li class="nav-item dropdown">
+    
+        <a href="#"
+           class="nav-link dropdown-toggle"
+           role="button"
+           data-bs-toggle="dropdown"
+           aria-expanded="false">
+            Documents
+        </a>
+        <ul class="dropdown-menu mt-n1">
+        
+    <li>
+        <a class="dropdown-item"
+           href="/doc/search">
+            Search
+        </a>
+    </li>
+    <li>
+        <a class="dropdown-item"
+           href="/doc/recent">
+            Recent I-Ds
+        </a>
+    </li>
+    <li>
+        <a class="dropdown-item"
+           href="/submit/">
+            Submit an Internet-Draft
+        </a>
+    </li>
+    
+    
+        <li><hr class="dropdown-divider">
+        </li>
+    
+    <li class="dropdown-header">
+        RFC streams
+    </li>
+    <li>
+        <a class="dropdown-item"
+           href="/stream/iab/">
+            IAB
+        </a>
+    </li>
+    <li>
+        <a class="dropdown-item"
+           href="/stream/irtf/">
+            IRTF
+        </a>
+    </li>
+    <li>
+        <a class="dropdown-item"
+           href="/stream/ise/">
+            ISE
+        </a>
+    </li>
+    <li>
+        <a class="dropdown-item"
+           href="/stream/editorial/">
+            Editorial
+        </a>
+    </li>
+    
+        <li><hr class="dropdown-divider">
+        </li>
+    
+    <li class="dropdown-header">
+        Subseries
+    </li>
+    <li>
+        <a class="dropdown-item"
+           href="/doc/std">
+            STD
+        </a>
+        <a class="dropdown-item"
+           href="/doc/bcp">
+            BCP
+        </a>
+        <a class="dropdown-item"
+           href="/doc/fyi">
+            FYI
+        </a>
+    </li>
+    
+    </ul>
+</li>
+
+<li class="nav-item dropdown">
+    
+        <a href="#"
+           class="nav-link dropdown-toggle"
+           role="button"
+           data-bs-toggle="dropdown"
+           aria-expanded="false">
+            Meetings
+        </a>
+        <ul class="dropdown-menu mt-n1">
+        
+    <li>
+        <a class="dropdown-item"
+           href="/meeting/agenda">
+            Agenda
+        </a>
+    </li>
+    <li>
+        <a class="dropdown-item"
+           href="/meeting/materials">
+            Materials
+        </a>
+    </li>
+    <li>
+        <a class="dropdown-item"
+           href="/meeting/floor-plan">
+            Floor plan
+        </a>
+    </li>
+    <li>
+        <a class="dropdown-item"
+           href="https://www.ietf.org/how/meetings/register/">
+            Registration
+        </a>
+    </li>
+    <li>
+        <a class="dropdown-item"
+           href="/meeting/important-dates/">
+            Important dates
+        </a>
+    </li>
+    <li>
+        <a class="dropdown-item"
+           href="/meeting/session/request/">
+            Request a session
+        </a>
+    </li>
+    
+    <li>
+        <a class="dropdown-item"
+           href="/meeting/requests">
+            Session requests
+        </a>
+    </li>
+    
+    
+        
+            <li><hr class="dropdown-divider">
+            </li>
+        
+        <li class="dropdown-header">
+            Upcoming meetings
+        </li>
+    
+    <li>
+        <a class="dropdown-item"
+           href="/meeting/upcoming">
+            Upcoming meetings
+        </a>
+    </li>
+    
+        
+            <li><hr class="dropdown-divider">
+            </li>
+        
+        <li class="dropdown-header">
+            Past meetings
+        </li>
+    
+    <li>
+        <a class="dropdown-item"
+           href="/meeting/past">
+            Past IETF meetings
+        </a>
+    </li>
+    <li>
+        <a class="dropdown-item"
+           href="/meeting/past/interim">
+            Past interim meetings
+        </a>
+    </li>
+    
+    </ul>
+</li>
+
+<li class="nav-item dropdown">
+    
+        <a href="#"
+           class="nav-link dropdown-toggle"
+           role="button"
+           data-bs-toggle="dropdown"
+           aria-expanded="false">
+            Other
+        </a>
+        <ul class="dropdown-menu mt-n1">
+        
+    <li>
+        <a class="dropdown-item"
+           href="/ipr/">
+            IPR disclosures
+        </a>
+    </li>
+    <li>
+        <a class="dropdown-item"
+           href="/liaison/">
+            Liaison statements
+        </a>
+    </li>
+    
+    <li>
+        <a class="dropdown-item"
+           href="/iesg/agenda/">
+            IESG agenda
+        </a>
+    </li>
+    <li>
+        <a class="dropdown-item"
+           href="/nomcom/">
+            NomComs
+        </a>
+    </li>
+    <li>
+        <a class="dropdown-item"
+           href="/doc/downref">
+            Downref registry
+        </a>
+    </li>
+    <li class="dropend">
+        <a class="dropdown-item dropdown-toggle" href="#">
+            Statistics
+        </a>
+        <ul class="dropdown-menu">
+            <li>
+                <a class="dropdown-item"
+                   href="/stats/document/">
+                    I-Ds/RFCs
+                </a>
+            </li>
+            <li>
+                <a class="dropdown-item"
+                   href="/stats/meeting/">
+                    Meetings
+                </a>
+            </li>
+            
+            
+        </ul>
+    </li>
+    <li>
+        <a class="dropdown-item"
+           href="/api/">
+            API Help
+        </a>
+    </li>
+    <li>
+        <a class="dropdown-item"
+           href="/release/">
+            Release notes
+        </a>
+    </li>
+    <li>
+        <a class="dropdown-item"
+           target="_blank" href="https://status.ietf.org">
+            System status
+        </a>
+    </li>
+    
+        <li><hr class="dropdown-divider">
+        </li>
+    
+    <li>
+        <a class="dropdown-item text-danger "
+           target="_blank" href="https://github.com/ietf-tools/datatracker/issues/new/choose">
+            <i class="bi bi-bug">
+            </i>
+            Report a bug
+        </a>
+    </li>
+    
+    </ul>
+</li>
+
+
+    
+
+
+
+<li class="nav-item dropdown">
+    
+        <a href="#"
+           class="nav-link dropdown-toggle"
+           role="button"
+           data-bs-toggle="dropdown"
+           aria-expanded="false">
+            
+                User
+            
+        </a>
+        <ul class="dropdown-menu  mt-n1 ">
+        
+    
+    
+        
+            <li>
+                <a class="dropdown-item "
+                   rel="nofollow"
+                   href="/accounts/login/?next=/api/">
+                    Sign in
+                </a>
+            </li>
+            <li>
+                <a class="dropdown-item "
+                   rel="nofollow"
+                   href="/accounts/reset/">
+                    Password reset
+                </a>
+            </li>
+            <li>
+                <a class="dropdown-item "
+                   href="/accounts/settings/"
+                   rel="nofollow">
+                    Preferences
+                </a>
+            </li>
+        
+    
+    
+        <li>
+            <a class="dropdown-item "
+               href="/accounts/create/">
+                New account
+            </a>
+        </li>
+    
+    <li class="dropend">
+      <a class="dropdown-item dropdown-toggle" href="#">
+        List subscriptions
+      </a>
+      <ul class="dropdown-menu">
+            <li>
+                <a class="dropdown-item "
+                href="https://mailman3.ietf.org/mailman3/lists/">
+                    IETF Lists
+                </a>
+            </li>
+            <li>
+                <a class="dropdown-item "
+                href="https://mailman3.irtf.org/mailman3/lists/">
+                IRTF Lists
+                </a>
+            </li>
+            <li>
+                <a class="dropdown-item "
+                href="https://mailman3.iab.org/mailman3/lists/">
+                    IAB Lists
+                </a>
+            </li>
+            <li>
+                <a class="dropdown-item "
+                href="https://mailman3.rfc-editor.org/mailman3/lists/">
+                    RFC-Editor Lists
+                </a>
+            </li>
+        </ul>
+    </li>
+    
+    
+    
+    </ul></li>
+
+
+                    </ul>
+                </div>
+                <div class="d-flex align-items-center">
+                    <a class="nav-link text-danger d-none d-xl-inline me-xl-4"
+                       target="_blank"
+                       href="https://github.com/ietf-tools/datatracker/issues/new/choose">
+                        Report a bug
+                        <i class="bi bi-bug"></i>
+                    </a>
+
+                    
+                        <a class="btn me-1  btn-warning  d-none d-sm-block"
+                           rel="nofollow"
+                           href="/accounts/login/?next=/api/">
+                            Sign in
+                        </a>
+                    
+
+                    <div class="d-none d-md-block dropdown" id="navbar-doc-search-wrapper">
+                        <input class="form-control"
+                               id="navbar-doc-search"
+                               type="text"
+                               placeholder="Document search"
+                               autocomplete="off"
+                               data-ajax-url="/doc/select2search/document/all/"
+                               aria-label="Document search">
+                        <ul class="dropdown-menu" id="navbar-doc-search-results">
+                        </ul>
+                    </div>
+                </div>
+                <button class="navbar-toggler"
+                        type="button"
+                        data-bs-toggle="collapse"
+                        data-bs-target="#navbar-collapse"
+                        aria-controls="navbar-collapse"
+                        aria-expanded="false"
+                        aria-label="Toggle navigation">
+                    <i class="navbar-toggler-icon"></i>
+                </button>
+            </div>
+        </nav>
+        
+        <main class="pt-3 container-fluid" id="main">
+            <div class="row">
+                
+                <div class="col mx-lg-3 ietf-auto-nav" id="content">
+                    <noscript data-nosnippet>
+                        <div class="alert alert-danger alert-ignore my-3">
+                            <b>Javascript disabled?</b> Like other modern websites, the IETF Datatracker relies on Javascript.
+                            Please enable Javascript for full functionality.
+                        </div>
+                    </noscript>
+                    
+                    
+    <h1>Datatracker API Notes</h1>
+    <div class="bio-text">
+        <h2 id="framework">Framework API</h2>
+        <p>
+            This section describes the autogenerated read-only API towards the database tables.  See also
+            the
+            <a href="/api/submission">Internet-Draft submission API description</a>
+            and the
+            <a href="#iesg-position-api">IESG ballot position API description</a>
+        </p>
+        <p>
+            The datatracker API uses
+            <a href="https://django-tastypie.readthedocs.org/">tastypie</a>
+            to generate an API which mirrors the Django ORM (Object Relational Mapping)
+            for the database.  Each Django model class maps down to the SQL database
+            tables and up to the API.  The Django models classes are defined in the
+            models.py files of the datatracker. Browse the <a href="https://github.com/ietf-tools/datatracker">code tree</a>
+            for the models file in each app (such as <a href="https://github.com/ietf-tools/datatracker/blob/main/ietf/doc/models.py">ietf/doc/models.py</a>,
+            <a href="https://github.com/ietf-tools/datatracker/blob/main/ietf/group/models.py">ietf/group/models.py</a>, &hellip;).
+        </p>
+        <p>
+            The API top endpoint is at
+            <a href="https://datatracker.ietf.org/api/v1">https://datatracker.ietf.org/api/v1</a>.
+            The top
+            endpoint lists inferior endpoints, and thus permits some autodiscovery,
+            but there's really no substitute for looking at the actual ORM model classes.
+            Comparing a class in <code>models.py</code> with the equivalent endpoint may give
+            some clue (note that in the case of Group, it's a subclass of <code>GroupInfo</code>):
+        </p>
+        <ul>
+            <li>
+                <a href="https://datatracker.ietf.org/api/v1/group/group/">https://datatracker.ietf.org/api/v1/group/group/</a>
+            </li>
+            <li>
+                <a href="https://github.com/ietf-tools/datatracker/blob/main/ietf/group/models.py">
+                    ietf/group/models.py
+                </a>
+            </li>
+        </ul>
+        <p>
+            Data is currently provided in JSON and XML format.  Adding new formats is
+            fairly easy, if it should be found desirable.
+        </p>
+        <h3 id="framework-documents">Framework API: Documents</h3>
+        <p>
+            Documents are listed at
+            <a href="https://datatracker.ietf.org/api/v1/doc/document/">/api/v1/doc/document/</a>.
+        </p>
+        <p>
+            In general, individual database objects are represented in the API with a path
+            composed of the model collection, the object name, and the object key.  Most
+            objects have simple numerical keys, but documents have the document name as
+            key.  Take <code>draft-ietf-eppext-keyrelay</code>.  Documents have a model <code>Document</code> which
+            is described in the <code>doc</code> <code>models.py</code> file.  Assembling the path components
+            <code>doc</code>, <code>document</code> (lowercase!) and <code>draft-ietf-eppext-keyrelay</code>, we get the
+            URL:
+        </p>
+        <p>
+            <a href="https://datatracker.ietf.org/api/v1/doc/document/draft-ietf-eppext-keyrelay/">
+                https://datatracker.ietf.org/api/v1/doc/document/draft-ietf-eppext-keyrelay/
+            </a>
+        </p>
+        <p>
+            If you instead do a search for this document, you will get a machine-readable
+            search result, which is composed of some meta-information about the search,
+            and a list with one element:
+        </p>
+        <p>
+            <a href="https://datatracker.ietf.org/api/v1/doc/document/?name=draft-ietf-eppext-keyrelay">
+                api/v1/doc/document/?name=draft-ietf-eppext-keyrelay
+            </a>
+        </p>
+        <p>
+            To search for documents based on state, you need to know that documents have
+            multiple orthogonal states:
+        </p>
+        <ul>
+            <li>
+                If a document has an rfc-editor state, you can select for it by asking for, e.g.,
+                <a href="https://datatracker.ietf.org/api/v1/doc/document/?limit=0&amp;name__contains=-v6ops-&amp;states__type__slug__in=draft-rfceditor">
+                    v6ops documents which match <code>states__type__slug__in=draft-rfceditor</code>
+                </a>
+            </li>
+            <li>
+                If a document has an IESG state, you can select for it by asking for, e.g.,
+                <a href="https://datatracker.ietf.org/api/v1/doc/document/?name__contains=-v6ops&amp;states__type__slug__in=draft-iesg">
+                    v6ops documents which match <code>states__type__slug__in=draft-iesg</code>
+                </a>
+            </li>
+            <li>
+                If a document has a WG state, you can select for it by asking for
+                documents which match <code>states__type__slug__in=draft-stream-ietf</code>
+                (but without additional filters, that's going to be a lot of documents)
+            </li>
+            <li>
+                States which match <code>states__type__slug__in=draft</code> describe the basic
+                Active/Expired/Dead whatever state of the Internet-Draft.
+            </li>
+        </ul>
+        <p>
+            You could use this in at least two alternative ways:
+        </p>
+        <ol>
+            <li>
+                You could either fetch and remember the different state groups of interest to you
+                with queries like
+                <pre>
+$ curl 'https://datatracker.ietf.org/api/v1/doc/state/?format=json&amp;limit=0&amp;type__slug__in=draft-rfceditor'
+$ curl 'https://datatracker.ietf.org/api/v1/doc/state/?format=json&amp;limit=0&amp;type__slug__in=draft-iesg'
+$ curl 'https://datatracker.ietf.org/api/v1/doc/state/?format=json&amp;limit=0&amp;type__slug__in=draft-stream-ietf'
+                </pre>
+                and then match the listed "resource_uri" of the results to the states listed for each
+                document when you ask for
+                <pre>
+$ curl 'https://datatracker.ietf.org/api/v1/doc/document/?limit=0&amp;name__contains=-v6ops-'
+                </pre>
+            </li>
+            <li>
+                Or alternatively you could do a series of queries asking for matches to the RFC Editor
+                state first, then the IESG state, then the Stream state, and exclude earlier hits:
+                <pre>
+$ curl 'https://datatracker.ietf.org/api/v1/doc/document/?limit=0&amp;name__contains=-v6ops-&amp;states__type__slug__in=draft-rfceditor' ...
+$ curl 'https://datatracker.ietf.org/api/v1/doc/document/?limit=0&amp;name__contains=-v6ops-&amp;states__type__slug__in=draft-iesg' ...
+                </pre>
+                etc.
+            </li>
+        </ol>
+        <h2 id="simplified-documents">Simplified Documents API</h2>
+        <p>
+            A simplified Documents API, intended for cases where only a limited set of
+            document attributes are necessary for an application is
+            available for all documents at the relative url <code>doc.json</code>, e.g.,
+            <code><a class="text-reset" href="/doc/draft-ietf-poised95-std-proc-3/doc.json">/doc/draft-ietf-poised95-std-proc-3/doc.json</a></code>.
+            You can also specify an RFC:  <code><a class="text-reset" href="/doc/rfc2026/doc.json">/doc/rfc2026/doc.json</a></code>.
+            No API key is needed to access this.
+        </p>
+        <p>
+            The simplified document API takes no parameters, and is invoked with a HTTP GET.
+        </p>
+        <h2 id="iesg-position-api">IESG Ballot Position API</h2>
+        <p>
+            A simplified IESG ballot position interface, intended for automation, is
+            available at <code>/api/iesg/position</code>.  Access is limited to area directors.
+        </p>
+        <p>
+            The interface requires the use of a personal API key, which can be created at
+            <a href="/accounts/apikey">/accounts/apikey</a>
+        </p>
+        <p>
+            The ballot position API takes the following parameters:
+        </p>
+        <ul>
+            <li>
+                <code>apikey</code> (required) which is the personal API key hash
+            </li>
+            <li>
+                <code>doc</code> (required) which is the balloted document name
+            </li>
+            <li>
+                <code>position</code> (required) which is the position slug, one of:
+                <code>yes</code>, <code>noobj</code>, <code>block</code>, <code>discuss</code>, <code>abstain</code>, <code>recuse</code>, <code>norecord</code>
+                .
+            </li>
+            <li>
+                <code>discuss</code> (required if position is <code>discuss</code>) which is the discuss text
+            </li>
+            <li>
+                <code>comment</code> (optional) which is comment text
+            </li>
+        </ul>
+        <p>
+            It returns an appropriate http result code, and a brief explanatory text message.
+        </p>
+        <p>
+            Here is an example:
+        </p>
+        <pre>
+$ curl -S -F "apikey=AwAAABVR3D5GHkVMhspKSxBCVknGMmqikNIhT85kSnghjaV_pYy26WV92mm-jpdi" -F "doc=draft-ietf-lamps-eai-addresses" -F "position=noobj" -F "comment=Comment text"  https://datatracker.ietf.org/api/iesg/position
+  Done
+    </pre>
+        <h2 id="session-video-url-api">Set Session Video URL</h2>
+        <p>
+            This interface is intended for Meetecho, to provide a way to set the
+            URL of a video recording for a given session.  It is available at
+            <code>/api/meeting/session/video/url</code>.
+            Access is limited to recording managers.
+        </p>
+        <p>
+            The interface requires the use of a personal API key, which can be created at
+            <a href="/accounts/apikey">/accounts/apikey</a>
+        </p>
+        <p>
+            The ballot position API takes the following parameters:
+        </p>
+        <ul>
+            <li>
+                <code>apikey</code> (required) which is the personal API key hash
+            </li>
+            <li>
+                <code>meeting</code> (required) which is the meeting number
+            </li>
+            <li>
+                <code>group</code> (required) which is the group acronym
+            </li>
+            <li>
+                <code>item</code> (required) which is the chronological sequence number of the session (1 for a group's first session, 2 for the second, etc.)
+            </li>
+            <li>
+                <code>url</code> (required) which is the url that points to the video recording
+            </li>
+        </ul>
+        <p>
+            It returns an appropriate http result code, and a brief explanatory text message.
+        </p>
+        <p>
+            Here is an example:
+        </p>
+        <pre>
+$ curl -S -F "apikey=DgAAAMLSi3coaE5TjrRs518xO8eBRlCmFF3eQcC8_SjUTtRGLGiJh7-1SYPT5WiS" -F "meeting=101" -F "group=mptcp" -F "item=1" -F "url=https://foo.example/beer/mptcp" https://datatracker.ietf.org/api/meeting/session/video/url
+  Done
+    </pre>
+        <h2 id="openid-connect">OpenID Connect</h2>
+        <p>
+            The datatracker supports
+            <a href="https://openid.net/connect/">OpenID Connect</a>,
+            but
+            not dynamic registration.  The OpenID Connect Issuer is
+            <code>https://datatracker.ietf.org/api/openid/</code>
+        </p>
+        <h2 id="datatracker-version">Datatracker Version</h2>
+        <p>
+            The datatracker version and release/patch date is available as a JSON blob at
+            <code>
+                <a href="/api/version">
+                    /api/version
+                </a>
+            </code>.
+        </p>
+        <h2 id="personal-api-keys">
+            Personal API Keys
+        </h2>
+        <p>
+            The datatracker has some API endpoints that uses Personal API keys,
+            rather than having general access or requiring username/password
+            login, see for example details for
+            <code>/api/iesg/position</code>
+            <a href="#iesg-position-api">above</a>.
+            Personal API keys are available from your
+            <a href="/accounts/apikey">
+                Account API Keys
+            </a>
+            page when you are logged in.
+        </p>
+        <p>
+            Personal API keys have some characteristics you should be aware of:
+        </p>
+        <ul>
+            <li>
+                Each API key is valid only for a specific endpoint.  If you try to use a key for
+                a different API endpoint than it's created for, it will not work.
+            </li>
+            <li>
+                The API keys will cause you to be given access with the datatracker
+                roles you have, thus giving you appropriate access to the various
+                API endpoints according to the role limitations indicated for each
+                endpoint.
+            </li>
+            <li>
+                An API key will only give you access to its related endpoint if you have logged
+                in to the datatracker using your regular login and password during the last
+                30 days.  If you receive the
+                error message "<code>Too long since last regular login</code>" you should do
+                a regular login in order to activate access.
+            </li>
+        </ul>
+    </div>
+
+                    
+                </div>
+            </div>
+        </main>
+        
+            <footer class="col-md-12 col-sm-12 border-top mt-5 py-5 bg-light-subtle text-center position-sticky">
+                <a href="https://www.ietf.org/" class="p-3">IETF</a>
+                <a href="https://www.ietf.org/iesg/" class="p-3">IESG</a>
+                <a href="https://www.iab.org/" class="p-3">IAB</a>
+                <a href="https://www.irtf.org/" class="p-3">IRTF</a>
+                <a href="https://www.ietf.org/llc/" class="p-3 text-nowrap">IETF LLC</a>
+                <a href="https://trustee.ietf.org/" class="p-3 text-nowrap">IETF Trust</a>
+                <a href="https://www.rfc-editor.org/" class="p-3 text-nowrap">RFC Editor</a>
+                <a href="https://www.iana.org/" class="p-3">IANA</a>
+                <a href="https://www.ietf.org/privacy-statement/" class="p-3 text-nowrap">Privacy Statement</a>
+                <div class="small text-body-secondary py-3">
+                    
+                        <a class="mx-2" href="/release/about">About IETF Datatracker</a>
+                        <span class="mx-2">
+                            
+                                <a href="https://github.com/ietf-tools/datatracker/releases/tag/12.83.0">
+                            
+                            Version 12.83.0
+                            (release - 70a3417)
+                            
+                                </a>
+                            
+                        </span>
+                    
+                    <a class="mx-2" href="https://status.ietf.org" target="_blank">System Status</a>
+                    <span class="mx-2 text-danger">
+                        <i class="bi bi-bug"></i>
+                        Report a bug:
+                        <a class="text-reset" target="_blank" href="https://github.com/ietf-tools/datatracker/issues/new/choose">GitHub</a>
+                        
+                            <a class="text-reset" href="mailto:tools-help@ietf.org">Email</a>
+                        
+                    </span>
+                    
+                </div>
+            </footer>
+        
+        
+        
+        <script src="https://static.ietf.org/dt/12.83.0/ietf/js/select2.js"></script>
+        <script src="https://static.ietf.org/dt/12.83.0/ietf/js/navbar-doc-search.js"></script>
+      
+<script>
+  var _paq = window._paq || [];
+  
+  _paq.push(['disableCookies']);
+  _paq.push(['trackPageView']);
+  _paq.push(['enableLinkTracking']);
+  (function() {
+    var u="//analytics.ietf.org/";
+    _paq.push(['setTrackerUrl', u+'matomo.php']);
+    _paq.push(['setSiteId', 7]);
+    var d=document, g=d.createElement('script'), s=d.getElementsByTagName('script')[0];
+    g.type='text/javascript'; g.async=true; g.defer=true; g.src=u+'matomo.js'; s.parentNode.insertBefore(g,s);
+  })();
+</script>
+<noscript><p><img src="//analytics.ietf.org/matomo.php?idsite=7" style="border:0;" alt="" /></p></noscript>
+
+    <script>(function(){function c(){var b=a.contentDocument||(a.contentWindow&&a.contentWindow.document);if(b){var d=b.createElement('script');d.innerHTML="window.__CF$cv$params={r:'a576de503bc87fed',t:'MTc5NDE2NDkyOA=='};var l=window.parent.location,o;try{o=new URL(l.origin).origin}catch(e){try{o=new URL(new URL(l.href).origin).origin}catch(e){o=''}}var u='/cdn-cgi/challenge-platform/scripts/jsd/main.js?ray=a576de503bc87fed',a=document.createElement('script');a.src=o?new URL(u,o).href:u;document.getElementsByTagName('head')[0].appendChild(a);";b.getElementsByTagName('head')[0].appendChild(d)}}if(document.body){var a=document.createElement('iframe');a.height=1;a.width=1;a.style.position='absolute';a.style.top=0;a.style.left=0;a.style.border='none';a.style.visibility='hidden';document.body.appendChild(a);if('loading'!==document.readyState)c();else if(window.addEventListener)document.addEventListener('DOMContentLoaded',c);else{var e=document.onreadystatechange||function(){};document.onreadystatechange=function(b){e(b);'loading'!==document.readyState&&(document.onreadystatechange=e,c())}}}})();</script></body>
+</html>

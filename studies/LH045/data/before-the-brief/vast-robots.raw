@@ -1,0 +1,70 @@
+User-agent: OAI-SearchBot
+Disallow: /admin/
+Disallow: /vercel/path0/
+Disallow: /pricing/tables/
+Disallow: /tag/
+Disallow: /tags
+Disallow: /post/
+Allow: /
+
+User-agent: GPTBot
+Disallow: /admin/
+Disallow: /vercel/path0/
+Disallow: /pricing/tables/
+Disallow: /tag/
+Disallow: /tags
+Disallow: /post/
+Allow: /
+
+User-agent: ChatGPT-User
+Disallow: /admin/
+Disallow: /vercel/path0/
+Disallow: /pricing/tables/
+Disallow: /tag/
+Disallow: /tags
+Disallow: /post/
+Allow: /
+
+User-agent: ClaudeBot
+Disallow: /admin/
+Disallow: /vercel/path0/
+Disallow: /pricing/tables/
+Disallow: /tag/
+Disallow: /tags
+Disallow: /post/
+Allow: /
+
+User-agent: PerplexityBot
+Disallow: /admin/
+Disallow: /vercel/path0/
+Disallow: /pricing/tables/
+Disallow: /tag/
+Disallow: /tags
+Disallow: /post/
+Allow: /
+
+User-agent: Google-Extended
+Disallow: /admin/
+Disallow: /vercel/path0/
+Disallow: /pricing/tables/
+Disallow: /tag/
+Disallow: /tags
+Disallow: /post/
+Allow: /
+
+User-agent: *
+Disallow: /admin/
+Disallow: /vercel/path0/
+Disallow: /pricing/tables/
+Disallow: /tag/
+Disallow: /tags
+Disallow: /post/
+Allow: /
+
+Content-Signal: search=yes, ai-train=no, ai-input=yes
+Sitemap: https://vast.ai/sitemap.xml
+Sitemap: https://vast.ai/jobs-sitemap.xml
+
+# LLM and agent indexes
+# https://vast.ai/llms.txt
+# https://vast.ai/llms-full.txt
