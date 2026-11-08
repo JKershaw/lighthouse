@@ -9,7 +9,13 @@ robots_allowed() implements RFC 9309 matching (product-token group, else '*'; lo
 Allow wins a tie; '*' and '$' in patterns), so that no request goes to a path a robots.txt
 disallows. Python's urllib.robotparser is not used: it ignores wildcards. From read 1
 (amendment 3), the collector follows up to five robots.txt redirects and applies the rules of the
-final robots.txt to the probe host; matching here is unchanged.
+final robots.txt to the probe host.
+
+Amendment 5 (the keeper's decision, 8 November 2026; in force from read 1, not retroactive): which
+groups are obeyed, and measure 4's matching for reads labelled from AMENDMENT5_FROM, move to the
+shared scripts/robots_rules.py (Lighthouse-research or the running provider's agent tokens, else
+'*'; the strictest applicable group wins). parse_robots() and robots_allowed() stay here only to
+reproduce the baseline's derived tables as they were made.
 """
 import re
 from urllib.parse import urlsplit, quote, unquote
@@ -18,6 +24,11 @@ CLASSIFIER_VERSION = '0.3'
 # Amendment 4 (8 November 2026, post hoc, from read 1): reads labelled before AMENDMENT4_FROM are
 # classified as version 0.2, so the baseline stays as read; later reads as 0.3.
 AMENDMENT4_FROM = '2026-11-09'
+
+
+# Amendment 5 (8 November 2026, the keeper's decision, from read 1): robots.txt groups obeyed under
+# scripts/robots_rules.py; measure 4 read with the same matcher for reads labelled from here.
+AMENDMENT5_FROM = '2026-11-09'
 
 
 def version_for(label):

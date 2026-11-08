@@ -1,0 +1,23 @@
+HTTP 200
+Date: Sun, 08 Nov 2026 20:41:54 GMT
+Content-Type: text/plain
+Content-Length: 293
+Connection: close
+Server: cloudflare
+last-modified: Sat, 07 Nov 2026 01:53:05 GMT
+etag: "6aee8481-125"
+x-oai-base: base
+content-security-policy: default-src 'self'; script-src 'report-sample' 'nonce-592f15b82cc56a64fff305a7911cc9fb' 'unsafe-inline' 'strict-dynamic' https://openaiapi-site.azureedge.net https://js.intercomcdn.com https://app.intercom.io https://widget.intercom.io https://js.stripe.com https://chatgpt.com; style-src 'report-sample' 'self' 'unsafe-inline' https://openaiapi-site.azureedge.net; object-src 'none'; base-uri 'none'; connect-src 'self' blob: https://api.openai.com https://cdn.openai.com https://cdn.platform.openai.com https://us.api.openai.com https://eu.api.openai.com https://au.api.openai.com https://jp.api.openai.com https://sg.api.openai.com https://in.api.openai.com https://ca.api.openai.com https://kr.api.openai.com https://ae.api.openai.com https://gb.api.openai.com https://api.unified-3s.api.openai.org https://api.unified-0s.api.openai.org https://api.openai.org https://api.openai-staging.com wss://api.openai.com wss://eu.api.openai.com wss://us.api.openai.com wss://au.api.openai.com wss://jp.api.openai.com wss://sg.api.openai.com wss://in.api.openai.com wss://ca.api.openai.com wss://kr.api.openai.com wss://ae.api.openai.com wss://gb.api.openai.com wss://api.openai.org wss://api.openai-staging.com wss://ws.chatgpt.com wss://ws.chatgpt-staging.com https://auth0.openai.com https://auth.openai.com https://chatgpt.com https://504-SWE-347.mktoweb.com https://browser-intake-datadoghq.com https://api.stripe.com https://*.intercom.io wss://*.intercom.io https://uploads.intercomcdn.com https://uploads.intercomusercontent.com https://*.sentry.io https://api.hsforms.com https://*.algolia.net https://*.algolia.io https://*.oaiusercontent.com https://status.openai.com https://chatgpt.com https://featureassets.org https://prodregistryv2.org https://ab.chatgpt.com https://dot-control-plane.gateway.unified-1.api.openai.com;  font-src 'self' data: https://cdn.openai.com/  https://cdn.platform.openai.com https://js.intercomcdn.com http://fonts.intercomcdn.com; child-src 'self' blob: https://js.stripe.com https://hooks.stripe.com https://auth0.openai.com https://auth.openai.com https://share.hsforms.com https://intercom-sheets.com https://www.intercom-reporting.com https://www.youtube.com https://player.vimeo.com https://fast.wistia.net https://www.youtube-nocookie.com https://inquiry.withpersona.com https://chatgpt.com https://integrity.openai.com; frame-src 'self' https://gpt5-coding-examples.vercel.app https://js.stripe.com https://*.js.stripe.com https://cdn.openai.com/ https://hooks.stripe.com https://auth0.openai.com https://auth.openai.com https://504-SWE-347.mktoweb.com https://share.hsforms.com https://intercom-sheets.com https://www.intercom-reporting.com https://www.youtube.com https://player.vimeo.com https://fast.wistia.net https://www.youtube-nocookie.com https://inquiry.withpersona.com https://chatgpt.com https://integrity.openai.com https://cdn.platform.openai.com/; img-src 'self' blob: https: android-webview-video-poster: data:; manifest-src 'self' https://openaiapi-site.azureedge.net; media-src 'self' blob: data: https://openaiassets.blob.core.windows.net https://js.intercomcdn.com https://cdn.openai.com; form-action 'self' https://504-SWE-347.mktoweb.com https://intercom.help https://api-iam.intercom.io https://messenger-apps.intercom.io https://*.statuspage.io; report-uri https://o33249.ingest.sentry.io/api/5415417/security/?sentry_key=a420f427111d4831b9e18763b745d20e&sentry_environment=production;
+x-frame-options: SAMEORIGIN
+cache-control: no-store, no-cache, must-revalidate, proxy-revalidate, max-age=0
+Accept-Ranges: bytes
+x-openai-proxy-wasm: v0.1
+Age: 47994
+cf-cache-status: HIT
+Nel: {"report_to":"cf-nel","success_fraction":0.01,"max_age":604800}
+Strict-Transport-Security: max-age=31536000; includeSubDomains; preload
+X-Content-Type-Options: nosniff
+set-cookie: __cf_bm=2doxLolgxhWy424HclVpD3lTtK_vg4Rk9N0JJDPoXlU-1794170514.1298323-1.0.1.1-H2DHbSqsh_Fu108U_lZHh3EtUNJ1rGB3GX17iwH_JjEeJGIvp5TZKqkX5IUQhmF.WFAPHnm_0yHyV8bH4z5mwUmOEL2hmw97.9zOMEmlM8JtX.qepVTKn2.98.dEV8r2; HttpOnly; SameSite=None; Partitioned; Secure; Path=/; Domain=openai.com; Expires=Sun, 08 Nov 2026 21:11:54 GMT
+Report-To: {"group":"cf-nel","max_age":604800,"endpoints":[{"url":"https://a.nel.cloudflare.com/report/v4?s=R1FfzZlnFH8vYHwpFjW6IrBldqz942y0IB3pZkB6rPaSj1XKqt%2F%2BPJWAiUe3ktECbcE4Dhg2gSQfv0o5JRgC0oTEGnZ9ti49sTCulg7KF%2F4BwG5NcE0N5MvH5JDliAMAi7fpq3Q%3D"}]}
+CF-RAY: a57766b1495fd969-IAD
+alt-svc: h3=":443"; ma=86400

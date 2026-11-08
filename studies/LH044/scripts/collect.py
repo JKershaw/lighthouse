@@ -20,6 +20,14 @@ for example 2026-11-08T2000Z. A label already held is refused, never overwritten
 
 A wall is the observation. The collector never answers a challenge, runs no JavaScript, keeps no
 cookies, sends no credentials, submits no form, and does not retry a refused request.
+
+Which robots.txt rules are obeyed (amendment 5, the keeper's decision of 8 November 2026, in force
+for every request from read 1): scripts/robots_rules.py, with the provider from LIGHTHOUSE_PROVIDER
+('anthropic' or 'openai'; unset or anything else means every listed provider's tokens). A group
+naming Lighthouse-research or one of that provider's tokens (scripts/robots_tokens.json) applies,
+else '*'; the strictest applicable group wins. Every request this module makes, in --read,
+--wayback, --httparchive and --statements, is decided that way; the provider is recorded in
+services.json and summary.json.
 """
 from datetime import datetime, timezone, timedelta
 from email.utils import parsedate_to_datetime
@@ -37,7 +45,8 @@ from lh044lib import fetch, header, UA_PLAIN, UA_COMPAT, ROBOTS_TOKEN, utcnow  #
 sys.path.insert(0, str(Path(__file__).resolve().parents[3] / 'scripts'))
 from redact_emails import redact_bytes  # noqa: E402  (the keeper, 8 November 2026: addresses withheld)
 from classify import (classify, parse_robots, robots_allowed, AI_TOKENS, WALL_CLASSES,  # noqa: E402
-                      CLASSIFIER_VERSION, version_for, complete_lines)
+                      CLASSIFIER_VERSION, version_for, complete_lines, AMENDMENT5_FROM)
+import robots_rules  # noqa: E402  (scripts/robots_rules.py: amendment 5, the keeper's rule)
 import re  # noqa: E402
 
 ROOT = Path(__file__).resolve().parents[1]
@@ -73,6 +82,20 @@ HA_TECH = ['Cloudflare Bot Management', 'Cloudflare Turnstile', 'Akamai Bot Mana
            'Friendly Captcha']
 LOG_FIELDS = ['n', 'service', 'kind', 'url', 'utc', 'status', 'error', 'error_detail', 'content_type',
               'bytes', 'truncated', 'sha256', 'elapsed_ms', 'ua', 'route']
+
+
+def provider_label(provider):
+    return provider or 'all'
+
+
+def obey(groups, url, provider):
+    """Amendment 5: may Lighthouse request url under these robots_rules groups? Returns the
+    robots_rules Decision (allowed, decided_by, rule, line, ...)."""
+    return robots_rules.decide_groups(groups or [], url, provider)
+
+
+def why_disallowed(d):
+    return 'by %s: %s (line %s; provider %s)' % (d.decided_by, d.rule, d.line, d.provider)
 
 
 def route(url):
@@ -210,7 +233,8 @@ def robots_outcome(res, version=CLASSIFIER_VERSION):
         truncated = str(res.get('truncated', False)) == 'True'
         if version >= '0.3' and truncated:
             return 'truncated', None, 'robots_unreachable', 'robots.txt longer than %d bytes' % ROBOTS_CAP
-        return 'parsed', parse_robots(res['body'].decode('utf-8', 'replace')), '', ''
+        # amendment 5: groups for scripts/robots_rules.py, complete lines only
+        return 'parsed', robots_rules.parse(robots_rules.complete_text(res['body'], truncated)), '', ''
     if 300 <= st < 400:
         return 'redirect', None, 'robots_redirect', header(res, 'location')[:120]
     if 400 <= st < 500:
@@ -218,11 +242,12 @@ def robots_outcome(res, version=CLASSIFIER_VERSION):
     return 'unreachable', None, 'robots_unreachable', str(st)
 
 
-def do_read(label):
+def do_read(label, provider=None):
     check_window()
     out = ROOT / 'data' / ('read-' + label)
     if out.exists():
         sys.exit('read %s already held' % label)
+    print('robots.txt obeyed for Lighthouse-research and provider: %s' % provider_label(provider))
     panel = load_panel()
     holds = previous_holds(label)
     version = version_for(label)
@@ -255,8 +280,9 @@ def do_read(label):
             row.update({'pre_class': pcls, 'pre_detail': pdet})
             services.append(row)
             continue
-        if not robots_allowed(groups, ROBOTS_TOKEN, s['url']):
-            row.update({'pre_class': 'robots_disallowed', 'pre_detail': ''})
+        d = obey(groups, s['url'], provider)
+        if not d.allowed:
+            row.update({'pre_class': 'robots_disallowed', 'pre_detail': why_disallowed(d)})
             services.append(row)
             continue
         if host_full(rec, s['url']):
@@ -271,7 +297,8 @@ def do_read(label):
     t1 = utcnow()
     with open(out / 'services.json', 'w') as f:
         json.dump({'label': label, 'started': t0.isoformat(), 'finished': t1.isoformat(),
-                   'services': services}, f, indent=1)
+                   'robots_rules': 'amendment 5 (scripts/robots_rules.py)',
+                   'provider': provider_label(provider), 'services': services}, f, indent=1)
     do_classify(label)
 
 
@@ -340,17 +367,32 @@ def do_classify(label):
                      'classifier': version,
                      'route': log[str(s['probe_n'] or s['robots_n'])]['route'] if (s['probe_n'] or s['robots_n']) else ''})
         if s['robots_n'] and s['robots_state'] == 'parsed':
-            rtext = _load_resp(d, s['robots_n'])['body'].decode('utf-8', 'replace')
-            if version >= '0.3':
-                rtext = complete_lines(rtext, log[str(s['robots_n'])]['truncated'] == 'True')
-            g = parse_robots(rtext)
             root = '%s://%s/' % (urlsplit(s['url']).scheme, urlsplit(s['url']).netloc)
+            rbody = _load_resp(d, s['robots_n'])['body']
+            rcut = log[str(s['robots_n'])]['truncated'] == 'True'
+            if label >= AMENDMENT5_FROM:
+                # amendment 5: scripts/robots_rules.py for measure 4 too (complete lines; each token's
+                # own group, else '*'), plus the decision the read obeyed and which group made it
+                g = robots_rules.parse(robots_rules.complete_text(rbody, rcut))
+                allowed = robots_rules.token_allowed
+                dec = obey(g, s['url'], None if meta.get('provider', 'all') == 'all' else meta['provider'])
+            else:
+                rtext = rbody.decode('utf-8', 'replace')
+                if version >= '0.3':
+                    rtext = complete_lines(rtext, rcut)
+                g = parse_robots(rtext)
+                allowed = robots_allowed
+                dec = None
             rr = {'id': s['id'], 'host': s['host'],
-                  'lighthouse_probe_allowed': robots_allowed(g, ROBOTS_TOKEN, s['url']),
-                  'star_root_allowed': robots_allowed(g, '*', root),
-                  'star_probe_allowed': robots_allowed(g, '*', s['url'])}
+                  'lighthouse_probe_allowed': allowed(g, ROBOTS_TOKEN, s['url']),
+                  'star_root_allowed': allowed(g, '*', root),
+                  'star_probe_allowed': allowed(g, '*', s['url'])}
             for t in AI_TOKENS:
-                rr[t] = robots_allowed(g, t, root)
+                rr[t] = allowed(g, t, root)
+            if dec is not None:
+                rr['obeyed_probe_allowed'] = dec.allowed
+                rr['obeyed_decided_by'] = dec.decided_by or ''
+                rr['obeyed_provider'] = dec.provider
             robots_rows.append(rr)
     with open(d / 'classes.csv', 'w', newline='') as f:
         w = csv.DictWriter(f, fieldnames=list(rows[0].keys()))
@@ -367,6 +409,8 @@ def do_classify(label):
     for r in rows:
         summ['by_stratum'].setdefault(r['stratum'], {}).setdefault(r['class'], 0)
         summ['by_stratum'][r['stratum']][r['class']] += 1
+    if 'provider' in meta:   # reads made under amendment 5 name the rule and the provider they obeyed
+        summ['robots_rules'], summ['provider'] = meta['robots_rules'], meta['provider']
     hosts = {}
     for r in log.values():
         h = urlsplit(r['url']).hostname
@@ -404,7 +448,7 @@ def do_classify(label):
     print(json.dumps(summ, indent=1))
 
 
-def do_wayback(label):
+def do_wayback(label, provider=None):
     """For each service walled at read LABEL: the Wayback Machine's CDX list of captures of the
     probe URL since 2024-01-01, then archived captures read (raw, id_) by bisection to bracket when
     the wall first appears. A fixed check set (every tenth open service by id) gets a CDX listing
@@ -424,10 +468,10 @@ def do_wayback(label):
     state = {'used': 0, 'fails': 0, 'stopped': ''}
     results = []
 
-    def get(sid, kind, url):
+    def get(sid, kind, url, cap=65536):
         if state['stopped'] or state['used'] >= WAYBACK_MAX:
             return None
-        r = rec.get(sid, kind, url, UA_PLAIN, '*/*')
+        r = rec.get(sid, kind, url, UA_PLAIN, '*/*', cap=cap)
         state['used'] += 1
         time.sleep(WAYBACK_PAUSE - PAUSE)
         if r['status'] == 429:
@@ -440,10 +484,10 @@ def do_wayback(label):
             state['fails'] = 0
         return r
 
-    rb = get('-', 'robots', 'https://web.archive.org/robots.txt')
+    rb = get('-', 'robots', 'https://web.archive.org/robots.txt', cap=ROBOTS_CAP)
     groups = None
     if rb and not rb['error'] and rb['status'] and 200 <= rb['status'] < 300:
-        groups = parse_robots(rb['body'].decode('utf-8', 'replace'))
+        groups = robots_rules.parse(robots_rules.complete_text(rb['body'], rb['truncated']))
     elif rb and rb['status'] and 400 <= rb['status'] < 500 and rb['status'] != 429:
         groups = []
     if groups is None:
@@ -452,7 +496,7 @@ def do_wayback(label):
     def cdx(sid, url):
         q = ('https://web.archive.org/cdx/search/cdx?url=%s&output=json&from=20240101'
              '&fl=timestamp,statuscode,digest,length&collapse=digest&limit=500' % quote(url, safe=''))
-        if groups is not None and not robots_allowed(groups, ROBOTS_TOKEN, q):
+        if groups is not None and not obey(groups, q, provider).allowed:
             return None, 'robots_disallowed'
         r = get(sid, 'cdx', q)
         if r is None:
@@ -467,7 +511,7 @@ def do_wayback(label):
 
     def capture_class(sid, s, ts, st):
         u = 'https://web.archive.org/web/%sid_/%s' % (ts, s['url'])
-        if groups is not None and not robots_allowed(groups, ROBOTS_TOKEN, u):
+        if groups is not None and not obey(groups, u, provider).allowed:
             return None
         r = get(sid, 'capture', u)
         if r is None or r['error']:
@@ -523,12 +567,13 @@ def do_wayback(label):
         w.writeheader()
         w.writerows(results)
     with open(out / 'summary.json', 'w') as f:
-        json.dump({'label': label, 'requests': state['used'], 'stopped': state['stopped'],
+        json.dump({'label': label, 'provider': provider_label(provider), 'requests': state['used'],
+                   'stopped': state['stopped'],
                    'walled': len(walled), 'checks': len(check)}, f, indent=1)
     print(json.dumps({'requests': state['used'], 'stopped': state['stopped'], 'walled': len(walled)}))
 
 
-def do_httparchive(label):
+def do_httparchive(label, provider=None):
     check_window()
     out = ROOT / 'data' / ('httparchive-' + label)
     if out.exists():
@@ -538,14 +583,14 @@ def do_httparchive(label):
     state, groups, pcls, _ = robots_outcome(rb) if rb and not cut else ('unreachable', None, 'host_cap', '')
     url = ('https://cdn.httparchive.org/v1/adoption?technology=%s&geo=ALL&rank=ALL&start=2024-01-01'
            % quote(','.join(HA_TECH), safe=','))
-    if state in ('parsed', 'unavailable') and robots_allowed(groups, ROBOTS_TOKEN, url):
+    if state in ('parsed', 'unavailable') and obey(groups, url, provider).allowed:
         rec.get('-', 'context', url, UA_PLAIN, 'application/json', cap=8 * 1024 * 1024)
     else:
         print('HTTP Archive not read: robots', state, pcls)
     rec.close()
 
 
-def do_statements(label, listfile):
+def do_statements(label, listfile, provider=None):
     check_window()
     out = ROOT / 'data' / ('statements-' + label)
     if out.exists():
@@ -559,7 +604,7 @@ def do_statements(label, listfile):
             rb, _, cut = fetch_robots(rec, row['id'], '%s://%s/robots.txt' % key)
             robots[key] = robots_outcome(rb) if rb and not cut else ('unreachable', None, 'host_cap', '')
         state, groups, pcls, _ = robots[key]
-        if state not in ('parsed', 'unavailable') or not robots_allowed(groups, ROBOTS_TOKEN, row['url']):
+        if state not in ('parsed', 'unavailable') or not obey(groups, row['url'], provider).allowed:
             print('not read (robots %s %s): %s' % (state, pcls, row['url']))
             continue
         rec.get(row['id'], 'statement', row['url'], UA_PLAIN, ACCEPT['page'], cap=2 * 1024 * 1024)
@@ -574,16 +619,17 @@ def main():
     ap.add_argument('--httparchive')
     ap.add_argument('--statements', nargs=2, metavar=('LABEL', 'FILE'))
     a = ap.parse_args()
+    provider = robots_rules.provider_from_env()   # amendment 5: LIGHTHOUSE_PROVIDER, else all providers
     if a.read:
-        do_read(a.read)
+        do_read(a.read, provider)
     elif a.classify:
         do_classify(a.classify)
     elif a.wayback:
-        do_wayback(a.wayback)
+        do_wayback(a.wayback, provider)
     elif a.httparchive:
-        do_httparchive(a.httparchive)
+        do_httparchive(a.httparchive, provider)
     elif a.statements:
-        do_statements(*a.statements)
+        do_statements(*a.statements, provider=provider)
     else:
         ap.print_help()
 

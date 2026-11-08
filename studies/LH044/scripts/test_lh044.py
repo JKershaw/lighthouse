@@ -8,6 +8,12 @@
      answered by this container's own policy. The first hop of each case is a retained baseline
      robots.txt redirect where one exists.
   3. A few RFC 9309 matching cases.
+  4 to 6. Amendment 4: the robots.txt read limit, echoed addresses, refresh-to-captcha pages.
+  7. Amendment 5 (the keeper's rule, scripts/robots_rules.py): the eight baseline probes the
+     evidence review named would not have been sent, under any provider setting; no other baseline
+     probe would have been withheld and none allowed that protocol 0.1 refused; measure 4 reads the
+     same on every baseline file with either matcher; and an offline read (fetch replaced by the
+     retained responses) withholds the probe and records the provider and the deciding group.
 
 Usage: python3 -I studies/LH044/scripts/test_lh044.py
 """
@@ -94,8 +100,8 @@ final, chain, cut = collect.fetch_robots(rec, 'D02', u0)
 st, groups, pcls, _ = collect.robots_outcome(final)
 check('D02 retained redirect followed once to a parsed robots.txt', len(chain) == 2 and st == 'parsed' and not cut)
 check('rules of the final robots.txt apply to the probe host',
-      robots_allowed(groups, 'Lighthouse-research', 'https://wikimedia.org/api/x') and
-      not robots_allowed(groups, 'Lighthouse-research', 'https://wikimedia.org/private/x'))
+      collect.obey(groups, 'https://wikimedia.org/api/x', None).allowed and
+      not collect.obey(groups, 'https://wikimedia.org/private/x', None).allowed)
 check('hops logged with their own kind', [k for k, _ in rec.log] == ['robots', 'robots-redirect-1'])
 
 # relative Location (retained: docs.rs -> /-/static/.../robots.txt)
@@ -196,6 +202,86 @@ check('P04 robots.txt: 0.2 parsed (a probe followed), 0.3 wall_at_robots (no pro
       collect.robots_outcome(p4r, '0.2')[0] == 'parsed' and collect.robots_outcome(p4r, '0.3')[2] == 'wall_at_robots')
 check('a page that only mentions a captcha is not a challenge',
       classify(200, None, [], b'<html><p>Our forms use a captcha.</p>hello</html>', 'page', 'hello', version='0.3')[0] == 'open')
+
+# 7. Amendment 5: the keeper's rule (scripts/robots_rules.py), provider from LIGHTHOUSE_PROVIDER
+import robots_rules  # noqa: E402  (collect put scripts/ on the path)
+EIGHT = ['D15', 'Q07', 'F06', 'F07', 'R06', 'R07', 'D11', 'P18']
+withheld = {p: set() for p in ('anthropic', 'openai', None)}
+looser, m4_diff = [], []
+for sid, s in svc.items():
+    if not s['robots_n'] or s['robots_state'] != 'parsed':
+        continue
+    n = s['robots_n']
+    rr = collect._load_resp(BASE, n)
+    rr.update({'error': None, 'url': log[str(n)]['url'], 'truncated': log[str(n)]['truncated']})
+    st, g, _, _ = collect.robots_outcome(rr, '0.3')
+    if st != 'parsed':
+        continue       # CRAN (R12), cut at 64 KiB: robots_unreachable from read 1 whatever the rule
+    old_g = parse_robots(rr['body'].decode('utf-8', 'replace'))
+    old_ok = robots_allowed(old_g, 'Lighthouse-research', s['url'])
+    for p in withheld:
+        ok = collect.obey(g, s['url'], p).allowed
+        if s['probe_n'] and old_ok and not ok:
+            withheld[p].add(sid)
+        if ok and not old_ok:
+            looser.append((sid, p))
+    root = '%s://%s/' % (collect.urlsplit(s['url']).scheme, collect.urlsplit(s['url']).netloc)
+    from classify import AI_TOKENS  # noqa: E402
+    for t in AI_TOKENS + ['*']:
+        if robots_allowed(old_g, t, root) != robots_rules.token_allowed(g, t, root):
+            m4_diff.append((sid, t))
+for p, ids in withheld.items():
+    check('provider %s: the baseline probes withheld under amendment 5 are exactly the eight %s'
+          % (p or 'unknown (all)', ','.join(EIGHT)), ids == set(EIGHT))
+check('every one of the eight was sent at the baseline', all(svc[x]['probe_n'] for x in EIGHT))
+check('no baseline robots.txt allows under amendment 5 a probe protocol 0.1 refused', looser == [])
+check('measure 4 reads the same on every parsed baseline file with either matcher', m4_diff == [])
+for sid in EIGHT:
+    n = svc[sid]['robots_n']
+    rr = collect._load_resp(BASE, n)
+    rr.update({'error': None, 'url': log[str(n)]['url'], 'truncated': log[str(n)]['truncated']})
+    d = collect.obey(collect.robots_outcome(rr, '0.3')[1], svc[sid]['url'], 'anthropic')
+    check('%s %s withheld as anthropic, decided by %s (%s, line %s)' % (sid, svc[sid]['host'], d.decided_by,
+          d.rule, d.line), not d.allowed and d.decided_by in robots_rules.load_tokens()['anthropic'])
+
+# an offline read through do_read itself: fetch replaced by the retained responses, no network
+import lh044lib  # noqa: E402
+by_url = {}
+for k, x in log.items():
+    r = collect._load_resp(BASE, k)
+    by_url[x['url']] = dict(resp(x['url'], r['status'], r['headers'], r['body']), sha256=x['sha256'])
+asked = []
+
+
+def fake_fetch(url, ua=None, accept=None, cap=None):
+    asked.append(url)
+    return dict(by_url[url])
+
+
+for prov in ('anthropic', None):
+    with tempfile.TemporaryDirectory() as tmp:
+        fake_root = Path(tmp)
+        (fake_root / 'data').mkdir()
+        saved = (collect.ROOT, collect.fetch, collect.PAUSE, collect.load_panel)
+        panel = [dict(r, stratum='named') for r in csv.DictReader(open(collect.ROOT / 'panel' / 'named.csv'))
+                 if r['id'] in ('D15', 'D01')]
+        collect.ROOT, collect.fetch, collect.PAUSE = fake_root, fake_fetch, 0
+        collect.load_panel = lambda: panel
+        asked.clear()
+        with contextlib.redirect_stdout(io.StringIO()):
+            collect.do_read('2026-11-15T0000Z', prov)
+        collect.ROOT, collect.fetch, collect.PAUSE, collect.load_panel = saved
+        meta = json.load(open(fake_root / 'data' / 'read-2026-11-15T0000Z' / 'services.json'))
+        d15 = next(x for x in meta['services'] if x['id'] == 'D15')
+        rob = {r['id']: r for r in csv.DictReader(open(fake_root / 'data' / 'read-2026-11-15T0000Z' / 'robots.csv'))}
+        summ = json.load(open(fake_root / 'data' / 'read-2026-11-15T0000Z' / 'summary.json'))
+        check('offline read, provider %s: D15 gets its robots.txt only, recorded robots_disallowed by an Anthropic '
+              'token, provider recorded' % (prov or 'all'),
+              d15['pre_class'] == 'robots_disallowed' and not d15['probe_n'] and 'by ClaudeBot' in d15['pre_detail']
+              and svc['D15']['url'] not in asked and meta['provider'] == (prov or 'all')
+              and summ['provider'] == (prov or 'all'))
+        check('offline read, provider %s: robots.csv carries the obeyed decision' % (prov or 'all'),
+              rob['D15']['obeyed_probe_allowed'] == 'False' and rob['D15']['obeyed_decided_by'] == 'ClaudeBot')
 
 print('\n%d failed' % len(fails))
 sys.exit(1 if fails else 0)

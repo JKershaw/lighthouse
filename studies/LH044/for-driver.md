@@ -2,6 +2,22 @@
 
 Written 8 November 2026 by the LH044 subagent. Nothing here has been put into a shared file.
 
+## Amendment 5, the keeper's robots.txt rule (added 8 November 2026, about 21:00 UTC)
+
+Done in this directory and in the shared scripts/robots_rules.py and scripts/robots_tokens.json (new), with notes/robots-tokens-2026-11-08.md. Brief, Amendments: Amendment 5 replaces the open question. From read 1 the collector obeys groups for Lighthouse-research or the running provider's tokens, else `*`, with the strictest winning. The provider comes from `LIGHTHOUSE_PROVIDER` (`anthropic` or `openai`), and unset means all providers. Under this rule, eight baseline probes would not have been sent (D15, D11, F06, F07, R06, R07 named; P18, Q07 drawn), whatever the provider setting, and no others. scripts/test_lh044.py checks this offline and passes (0 failed), as does `python3 -I scripts/robots_rules.py`.
+
+For shared files:
+
+- **schedule/due.csv:** in the task text of rows LH044-read-01 to LH044-read-13, after "python3 -I studies/LH044/scripts/collect.py --read <UTC label>", add "with LIGHTHOUSE_PROVIDER set to the run's provider (anthropic under Claude Code, openai under Codex; brief, Amendment 5)". Add a row for the sweep (the driving session may reword or re-window it):
+```
+robots-sweep-1,method,"Bring every collector with open schedule rows under the keeper's robots.txt rule (AGENTS.md, Rules that matter): call scripts/robots_rules.py with LIGHTHOUSE_PROVIDER before each request, by a dated amendment in each brief, from the list in notes/robots-tokens-2026-11-08.md; first LH036 and LH038, whose kernel.org URLs the retained robots.txt files disallow, then LH030 to LH034, LH037, LH039 and LH040 before their reads of 9 November",2026-11-08,2026-11-09,open,2026-11-08,,,notes/robots-tokens-2026-11-08.md
+```
+- **schedule/runner.md** (a suggestion): a scheduled run exports `LIGHTHOUSE_PROVIDER` for its provider before any collector runs. Unset is safe, because it obeys every provider's tokens, but it is stricter than the rule needs.
+- **AGENTS.md, Rules that matter** (a suggestion, one clause): after "The tokens are kept in scripts/robots_tokens.json", add "and applied by scripts/robots_rules.py; the provider is named in LIGHTHOUSE_PROVIDER".
+- **Investigation page, Where the evidence stands, under the baseline line:** "From read 1 (15 November) the closing web also obeys robots.txt groups addressed to the agents of the provider running Lighthouse (the keeper, 8 November 2026). Eight services the baseline probed are kept out that way, six of them named, and two of those walled at the baseline (Maven Central's two hosts) ([brief, Amendment 5](../studies/LH044/brief.md))."
+- **programme.md, Next, under the LH044 entry:** "Amendment 5 (the keeper's decision, 8 November 2026): from read 1 the collector obeys groups for Lighthouse's own token or the running provider's agent tokens, else `*`, the strictest winning, through the shared scripts/robots_rules.py. Eight baseline probes would not have been sent under it. A sweep of the other collectors is listed in notes/robots-tokens-2026-11-08.md: most check no robots.txt, and LH036 and LH038 fetch kernel.org pages that kernel.org's robots.txt, as read on 8 November, disallows to every crawler."
+- **For the keeper or the driving session to confirm:** (1) names that robots.txt files use for a provider's agents but no provider page lists (Claude-Code, anthropic-ai, Claude-Web, ChatGPT, OpenAI) are applied, the stricter choice; (2) as written, `*` applies only when no applicable token is named, so a file that shuts `*` out but lets ClaudeBot in by name would let Lighthouse in as `anthropic`. No baseline file does this. Both choices are recorded in notes/robots-tokens-2026-11-08.md and in robots_rules.py's self-test.
+
 ## schedule/due.csv
 
 Replace the P-0013-brief row with (status done):
@@ -56,7 +72,7 @@ Proposed as new entries (next free S numbers; the driving session assigns them).
 
 ## Leads and proposals
 
-- **Amendment 4 made** (after R-0059, 8 November 2026, post hoc, from read 1): robots.txt read to 512 KiB with no cut-off line applied; echoed addresses and route recorded, tallies within route; a refresh-to-captcha signature (classifier 0.3). Still open for the keeper: whether to honour robots.txt groups for Anthropic's agent tokens (brief, Amendments, open question; eight baseline probes went to hosts disallowing one at the probe path). The study page must be on main before read 1 (R-0059, Found 5).
+- **Amendment 4 made** (after R-0059, 8 November 2026, post hoc, from read 1): robots.txt read to 512 KiB with no cut-off line applied; echoed addresses and route recorded, tallies within route; a refresh-to-captcha signature (classifier 0.3). The keeper has since decided the question of robots.txt groups for Anthropic's agent tokens: see Amendment 5 above. The study page must be on main before read 1 (R-0059, Found 5).
 - **Amendment 3 made** (the driving session's decision, 8 November 2026): robots.txt redirects are followed, up to five, from read 1; at most seven requests to any host in a read; brief, Amendments. Not retroactive.
 - **A Wayback route.** Measure 5 needs a machine that reaches web.archive.org. Running `collect.py --wayback <label>` there, with the same code and caps, is the brief's provision; it needs a task that names the machine.
 - **Correction to the gate's note on P-0013** (proposals.md, and notes/horizon/2026-11-07T0853Z.md): kernel.org's post names "AI crawlers" and training data as well as scrapers (statements/coded.csv, S01). Worth a line where the gate's reading is quoted.
