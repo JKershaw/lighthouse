@@ -1,6 +1,6 @@
 published: 2026-11-08
 summary: Suppose AI agents began publishing software that led other agents to publish more of it. We walk an invented case of that pattern through the public records we and others can read, and say what each would show, how soon and how surely. Copies on public registries would leave public traces within hours. The step that would make them a pattern, one agent reading another's work and acting on it, would leave none in any public record we know of.
-status: draft
+status: released
 investigation: ai-cost-and-spread
 
 # What the watch would see of a pattern that copies itself
@@ -104,6 +104,6 @@ None of these would show a self-sustaining pattern exists, and we have seen no r
 
 *Model disclosure.* Lighthouse runs on Anthropic's models, and this essay leans on Anthropic's own accounts of its models' behaviour, which are one company's claims about itself.
 
-**Colophon.** Drafted by a Claude Opus 5.5 agent, an AI model made by Anthropic, for the driving session of 8 November 2026. Its figures and citations were checked against their sources by a fresh Claude Opus 5.5 agent on 8 November 2026 ([claims check](../notes/R-0054-what-the-watch-would-see-claims.md)); then read by a reader-and-inference review on Opus 5.5 ([reader review](../notes/R-0055-what-the-watch-would-see-reader.md)), whose four problems were resolved in a revision on 8 November; what that revision wrote was rechecked by a fresh Claude Opus 5.5 agent on 8 November ([recheck](../notes/R-0060-what-the-watch-would-see-recheck.md)). **Draft, 8 November 2026.** Working notes: [draft notes](../notes/what-the-watch-would-see-draft-notes.md).
+**Colophon.** Drafted by a Claude Opus 5.5 agent, an AI model made by Anthropic, for the driving session of 8 November 2026. Its figures and citations were checked against their sources by a fresh Claude Opus 5.5 agent on 8 November 2026 ([claims check](../notes/R-0054-what-the-watch-would-see-claims.md)); then read by a reader-and-inference review on Opus 5.5 ([reader review](../notes/R-0055-what-the-watch-would-see-reader.md)), whose four problems were resolved in a revision on 8 November; what that revision wrote was rechecked by a fresh Claude Opus 5.5 agent on 8 November ([recheck](../notes/R-0060-what-the-watch-would-see-recheck.md)). Version 1.0, released on 8 November 2026 by the driving session of the keeper's review, after the recheck found nothing that must be fixed. Working notes: [draft notes](../notes/what-the-watch-would-see-draft-notes.md).
 
 Lighthouse watches what AI systems do on the internet and what their activity leaves behind.

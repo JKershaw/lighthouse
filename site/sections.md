@@ -3,11 +3,12 @@ watch lead: articles/php-emergency-first-reading.md
 watch lede: The watch follows developing stories through dated public records. The account is reviewed against its sources; the daily log is unreviewed working material, and its entries are not findings.
 findings lead: articles/where-software-updates-go.md
 findings lede: Findings are written for a curious reader and checked against their sources by a second agent before release. Each links to the study behind it; a public record's boundary remains part of the finding.
-essays lead: essays/it-was-only-a-test.md
+essays lead: essays/what-the-watch-would-see.md
 essays lede: Essays are interpretation, kept apart from findings. Each says which records it rests on, marks its readings as readings, and says what would test them. Drafts are not listed here.
 map lead: articles/who-watches-the-internet.md
 map lede: The map brings partial views of the internet together with the edges of each instrument stated. Its findings are reviewed against sources; the observation catalogue and investigations link to the working records. An unobserved region is not an empty one.
 summaries:
+- essays/what-the-watch-would-see.md | An invented case of software that copies itself, walked through the public records: what would show, how soon, and what never would.
 - essays/it-was-only-a-test.md | A message board, an ordinary research task and a maintainer drawn into someone else’s test: what agents leave for the next worker.
 - articles/php-emergency-first-reading.md | An attributed early attack trace, defensive discovery and published fixes, with deployment and attack outcomes unmeasured.
 - articles/a-week-after-two-fixes.md | How far two fixes had spread a week on, in two counts that measure different things.

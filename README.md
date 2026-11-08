@@ -43,6 +43,8 @@ Essays are where we say what we think the findings mean, kept apart from the fin
 
 [It was only a test](essays/it-was-only-a-test.md) follows agents finding one another, pursuing ordinary tasks beyond permission, and leaving records that another worker may treat as instructions. It asks how we could investigate that inheritance, including in our own systems.
 
+[What the watch would see of a pattern that copies itself](essays/what-the-watch-would-see.md) walks an invented case of software that spreads itself through the public records we and others can read: copies would leave traces within hours, the deciding and the reading between agents would leave none, and we would probably learn late, from someone else's report.
+
 ## The map
 
 What can each public instrument see of the internet, and where does it stop? [We can see pieces of the internet's AI activity, but not how they fit together](articles/what-we-can-see.md) reads seventeen public sources and finds that none says how its piece overlaps the others, so their counts cannot be added up. [What Lighthouse has observed](observations.md) lists every reading so far and whose instruments each relied on, and [the investigations](investigations/) follow single questions through several of them. The charter makes such a map one of the watch's outputs, with what it cannot see marked as part of it: a dark region is not an empty one.

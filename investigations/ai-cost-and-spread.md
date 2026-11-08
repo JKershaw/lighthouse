@@ -6,6 +6,7 @@ question: What does AI activity cost the infrastructure everyone shares, as the 
 started: 2026-11-08
 pieces:
 - essays/it-was-only-a-test.md
+- essays/what-the-watch-would-see.md
 
 ## Why this, and why now
 

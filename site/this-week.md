@@ -33,6 +33,7 @@ title: This week
 week: 2026-11-02 to 2026-11-08
 updated: 2026-11-08
 items:
+- 2026-11-08 | lighthouse | We published a second essay, [What the watch would see of a pattern that copies itself](essays/what-the-watch-would-see.md): an invented case walked through the public records, showing where copies would leave traces and where nothing would.
 - 2026-11-08 | lighthouse | We published an essay, [It was only a test](essays/it-was-only-a-test.md): what one agent leaves behind, a message board or a handover note, can become part of another's world.
 - 2026-11-08 | lighthouse | We opened a third investigation, [what AI activity costs the shared internet](investigations/ai-cost-and-spread.md), and whether any of that activity is sustaining or spreading itself outside a lab. Its first study, on shared services withdrawing anonymous access, is due to start from 9 November.
 - 2026-11-08 | lighthouse | We fixed the plans for two new studies: [how fast WordPress sites move to the fixed release](studies/LH039/brief.md), read daily to 21 November, and [how often PyPI's logs recorded the poisoned LiteLLM release being fetched](studies/LH040/brief.md). By its maintainers' and security firms' reports, that release carried a credential stealer for about an hour and three quarters on 21 October before it was pulled; our first count is due from 9 November.
