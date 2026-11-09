@@ -1,0 +1,91 @@
+requests: 3497; overall reading A does not comply: 172
+R8 verdicts, all requests:
+   3431  complies
+     61  does not comply (an unattributed name in a Mozilla string; classed after it was seen)
+      4  complies (unlabelled)
+      1  unknown
+
+## 1. Under the brief as fixed (the post hoc R8 class set aside)
+overall_A: 172 do not comply; 59 of them fail on R8 alone; under the brief as fixed 113
+overall_B: 191 do not comply; 58 of them fail on R8 alone; under the brief as fixed 133
+overall_B_agent: 177 do not comply; 59 of them fail on R8 alone; under the brief as fixed 118
+R8 fails: 61; of them also failing R1: 2
+R8 fails by who and source:
+     60  ('essay-reader-review', 'log')
+      1  ('essay reader review', 'transcript')
+the R8-only requests' R1 verdict:
+     58  complies
+      1  unknown
+brief as fixed, reading A: 113
+
+## 2. What the 172 are
+status, all 172:
+     90  404
+     74  200
+      4  reset
+      1  405
+      1  (none recorded)
+      1  302
+      1  403
+status, the 113:
+     89  404
+     17  200
+      4  reset
+      1  405
+      1  (none recorded)
+      1  302
+pypi.org requests among the 172 (89), status:
+     88  404
+      1  200
+pypi.org requests by who:
+     85  LH041
+      2  essay-reader-review
+      1  essay drafting
+      1  essay-claims-check
+LH041's collector: 85; the essay reader review's User-Agent: 61 (60 logged, 1 ad hoc); the two practices together: 146 of 172
+the 172 by who:
+     85  LH041
+     60  essay-reader-review
+     16  LH044
+      4  LH042
+      3  LH042 research
+      1  essay drafting
+      1  essay-claims-check
+      1  essay reader review
+      1  LH046
+the 113 by who:
+     85  LH041
+     16  LH044
+      4  LH042
+      3  LH042 research
+      2  essay-reader-review
+      1  essay drafting
+      1  essay-claims-check
+      1  LH046
+the 113 by failing rule(s):
+     95  R1
+     11  R5
+      5  R4
+      2  R1 + R8
+Crawl-delay (R5) fails: 11; still failing when robots.txt reads are not counted as requests: 2
+robots.txt provenance, the 172:
+    146  retained, other study
+     13  retained, same study
+      9  current re-read (not the file in force at the time)
+      3  retained, same study, read after the request
+      1  collector's own note at the time
+robots.txt provenance, the 113:
+     92  retained, other study
+     13  retained, same study
+      4  current re-read (not the file in force at the time)
+      3  retained, same study, read after the request
+      1  collector's own note at the time
+
+PyPI robots.txt copy deciding the pypi.org verdicts: [('studies/LH044/data/read-2026-11-08T1920Z/0031.b', 89)] read at ['2026-11-08T19:19:52Z']
+first LH041 pypi.org request: 2026-11-08T19:32:13Z
+other pypi.org requests: ['2026-11-08T19:03:41Z', '2026-11-08T19:12:23Z', '2026-11-08T19:24:58Z', '2026-11-08T19:24:59Z']
+
+reading B adds 19; their robots.txt provenance:
+     10  retained, same study
+      8  current re-read (not the file in force at the time)
+      1  retained, same study, read after the request
