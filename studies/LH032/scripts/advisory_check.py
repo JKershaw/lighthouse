@@ -10,6 +10,9 @@ import json
 import sys
 import urllib.error
 import urllib.request
+import os as _os, sys as _sys
+_sys.path.insert(0, _os.path.join(_os.path.dirname(_os.path.abspath(__file__)), '..', '..', '..', 'scripts'))
+from lh_fetch import urlopen, redacted, UA  # noqa: E402  robots.txt gate (the keeper, 8 November 2026)
 
 ROOT = Path(__file__).resolve().parents[1]
 READ = ROOT / 'data' / ('read-' + sys.argv[1])
@@ -25,15 +28,15 @@ log = []
 for i, url in enumerate(urls):
     at, status, body, final, error = now(), None, b'', '', ''
     try:
-        request = urllib.request.Request(url, headers={'User-Agent': 'Mozilla/5.0 (compatible; Lighthouse research observation)'})
-        with urllib.request.urlopen(request, timeout=25) as response:
+        request = urllib.request.Request(url, headers={'User-Agent': UA})
+        with urlopen(request, timeout=25) as response:
             status, final, body = response.status, response.url, response.read(512 * 1024 + 1)
     except urllib.error.HTTPError as exc:
         status, final, body, error = exc.code, exc.url, exc.read(4096), 'HTTP error'
     except Exception as exc:
         error = f'{type(exc).__name__}: {exc}'
     body = body[:512 * 1024]
-    saved = gzip.compress(body, mtime=0)
+    saved = gzip.compress(redacted(body), mtime=0)
     (OUT / f'page-{i + 1}.html.gz').write_bytes(saved)
     log.append({'url': url, 'started_utc': at, 'finished_utc': now(), 'status': status, 'final_url': final,
                 'bytes_retained': len(body), 'sha256_retained_response': hashlib.sha256(body).hexdigest(),

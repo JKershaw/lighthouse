@@ -4,9 +4,12 @@ from datetime import datetime, timezone
 from hashlib import sha256
 from pathlib import Path
 from urllib.error import HTTPError
-from urllib.request import Request, urlopen
+from urllib.request import Request
 import argparse
 import json
+import os as _os, sys as _sys
+_sys.path.insert(0, _os.path.join(_os.path.dirname(_os.path.abspath(__file__)), '..', '..', '..', 'scripts'))
+from lh_fetch import urlopen, redacted, UA  # noqa: E402  robots.txt gate (the keeper, 8 November 2026)
 
 ROOT = Path(__file__).resolve().parents[1]
 PAGES = [('criteria', 'https://www.cisa.gov/known-exploited-vulnerabilities'),
@@ -25,14 +28,14 @@ for name, url in PAGES:
     row = {'source': name, 'url': url, 'reader': 'direct', 'start_utc': datetime.now(timezone.utc).isoformat()}
     try:
         try:
-            response = urlopen(Request(url, headers={'User-Agent': 'Mozilla/5.0 (compatible; Lighthouse research observation)'}), timeout=40)
+            response = urlopen(Request(url, headers={'User-Agent': UA}), timeout=40)
         except HTTPError as error:
             response = error
         with response:
             body = response.read(CEILING + 1)
             row.update(finish_utc=datetime.now(timezone.utc).isoformat(), status=response.status, final_url=response.geturl(),
                        bytes=len(body), sha256=sha256(body).hexdigest(), content_type=response.headers.get('Content-Type', ''))
-            (OUT / (name + '.raw')).write_bytes(body[:CEILING])
+            (OUT / (name + '.raw')).write_bytes(redacted(body[:CEILING]))
             row['file'] = name + '.raw'
     except Exception as error:
         row.setdefault('finish_utc', datetime.now(timezone.utc).isoformat())

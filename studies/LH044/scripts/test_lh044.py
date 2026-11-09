@@ -14,6 +14,12 @@
      probe would have been withheld and none allowed that protocol 0.1 refused; measure 4 reads the
      same on every baseline file with either matcher; and an offline read (fetch replaced by the
      retained responses) withholds the probe and records the provider and the deciding group.
+  8. Amendment of 9 November 2026 (use=reference): the two baseline bodies withheld (0140.b, 0190.b)
+     are checked against their retained records (sha256 of the bytes received against readlog.csv,
+     the class derived from the whole body against classes.csv, the panel marker in the extract);
+     check 1 reproduces their classes from those records. An offline read of DOAJ (A19), whose
+     robots.txt asks for use=reference, withholds the probe's body, classifies it from the run's
+     local copy, and reproduces the class once that copy is gone.
 
 Usage: python3 -I studies/LH044/scripts/test_lh044.py
 """
@@ -282,6 +288,60 @@ for prov in ('anthropic', None):
               and summ['provider'] == (prov or 'all'))
         check('offline read, provider %s: robots.csv carries the obeyed decision' % (prov or 'all'),
               rob['D15']['obeyed_probe_allowed'] == 'False' and rob['D15']['obeyed_decided_by'] == 'ClaudeBot')
+
+# 8. Amendment of 9 November 2026: bodies withheld where Content-Signal asks for use=reference
+import content_signal  # noqa: E402
+committed_rows = {r['id']: r for r in csv.DictReader(open(BASE / 'classes.csv'))}
+for sid, n in (('A19', 140), ('P18', 190)):
+    w = content_signal.load_record(BASE / ('%04d.b' % n))
+    check('%s: body %04d.b withheld, record beside it' % (sid, n),
+          w is not None and (BASE / ('%04d.b' % n)).read_bytes().startswith(b'[body withheld by Lighthouse'))
+    check('%s: retained sha256 is the fetch log\'s hash of the bytes received' % sid,
+          w['sha256_received'] == log[str(n)]['sha256'] and w['bytes_received'] == int(log[str(n)]['bytes']))
+    check('%s: class derived from the whole body matches classes.csv' % sid,
+          (w['derived']['class'], w['derived']['detail']) == (committed_rows[sid]['class'], committed_rows[sid]['detail'])
+          and w['derived']['classifier'] == committed_rows[sid]['classifier'])
+    check('%s: the panel marker is in the kept extract' % sid, svc[sid]['marker'] in w['extract']['marker'])
+    check('%s: the Content-Signal line as read is in the kept robots.txt and asks for use=reference' % sid,
+          w['content_signal']['line'].encode() in collect._load_resp(BASE, svc[sid]['robots_n'])['body']
+          and content_signal.decide(collect._load_resp(BASE, svc[sid]['robots_n'])['body'], [])['withhold'])
+
+with tempfile.TemporaryDirectory() as tmp:
+    fake_root = Path(tmp)
+    (fake_root / 'data').mkdir()
+    saved = (collect.ROOT, collect.fetch, collect.PAUSE, collect.load_panel)
+    panel = [dict(r, stratum='named') for r in csv.DictReader(open(collect.ROOT / 'panel' / 'named.csv'))
+             if r['id'] in ('A19', 'D01')]
+    collect.ROOT, collect.fetch, collect.PAUSE = fake_root, fake_fetch, 0
+    collect.load_panel = lambda: panel
+    with contextlib.redirect_stdout(io.StringIO()):
+        collect.do_read('2026-11-15T0001Z', 'anthropic')
+    rd = fake_root / 'data' / 'read-2026-11-15T0001Z'
+    meta = json.load(open(rd / 'services.json'))
+    a19 = next(x for x in meta['services'] if x['id'] == 'A19')
+    d01 = next(x for x in meta['services'] if x['id'] == 'D01')
+    pn = a19['probe_n']
+    w = content_signal.load_record(rd / ('%04d.b' % pn))
+    cls1 = {r['id']: (r['class'], r['detail']) for r in csv.DictReader(open(rd / 'classes.csv'))}
+    check('offline read: A19 probe body withheld (placeholder, record, local copy), its robots.txt kept whole',
+          w is not None and (rd / ('%04d.b' % pn)).read_bytes().startswith(b'[body withheld by Lighthouse')
+          and Path(str(rd / ('%04d.b' % pn)) + content_signal.LOCAL_SUFFIX).exists()
+          and b'use=reference' in (rd / ('%04d.b' % a19['robots_n'])).read_bytes())
+    lrow = {x['n']: x for x in csv.DictReader(open(rd / 'readlog.csv'))}[str(pn)]
+    check('offline read: record keeps the sha256 the readlog gives, and the signal as read',
+          w['sha256_received'] == lrow['sha256'] and 'use=reference' in w['content_signal']['line']
+          and w['content_signal']['where'] == 'robots.txt')
+    check('offline read: A19 classified from the local copy as at the baseline, derivation kept',
+          cls1['A19'] == ('open', 'marker') and content_signal.load_record(rd / ('%04d.b' % pn))['derived']['class'] == 'open')
+    check('offline read: a host without a use=reference signal (D01) keeps its body whole',
+          not content_signal.load_record(rd / ('%04d.b' % d01['probe_n']))
+          if d01['probe_n'] else True)
+    Path(str(rd / ('%04d.b' % pn)) + content_signal.LOCAL_SUFFIX).unlink()
+    with contextlib.redirect_stdout(io.StringIO()):
+        collect.do_classify('2026-11-15T0001Z')
+    cls2 = {r['id']: (r['class'], r['detail']) for r in csv.DictReader(open(rd / 'classes.csv'))}
+    check('offline read: re-classified without the local copy, the same classes', cls2 == cls1)
+    collect.ROOT, collect.fetch, collect.PAUSE, collect.load_panel = saved
 
 print('\n%d failed' % len(fails))
 sys.exit(1 if fails else 0)

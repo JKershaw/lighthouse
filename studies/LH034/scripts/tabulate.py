@@ -15,7 +15,11 @@ DAYS = (1, 2, 7, 14, 30)
 EVENTS = {'2026-10': (date(2026, 10, 21), {'22': 'v22.23.4', '24': 'v24.22.1', '26': 'v26.12.1'}),
           '2026-07': (date(2026, 7, 28), {'22': 'v22.23.2', '24': 'v24.18.1', '26': 'v26.5.1'})}
 reads = sorted((ROOT / 'data').glob('read-*'))
-index = json.loads(gzip.decompress((reads[-1] / 'dist-index.raw.gz').read_bytes()))
+# The newest read that holds the release list (amendment of 9 November 2026: nodejs.org's robots.txt
+# disallows /dist/, so reads from 9 November do not fetch it; versions released after that list are
+# outside `order` and are counted separately as unlisted, never silently as old).
+index_read = [r for r in reads if (r / 'dist-index.raw.gz').exists()][-1]
+index = json.loads(gzip.decompress((index_read / 'dist-index.raw.gz').read_bytes()))
 order = {r['version']: n for n, r in enumerate(reversed(index))}  # higher is later
 days = {}
 for read in reads:
@@ -35,7 +39,13 @@ def share_at_or_newer(versions, ln, fixed):
     return total, newer, (round(newer / total, 4) if total else None)
 
 
-tables = {'reads': [r.name for r in reads], 'days_held': [str(d) for d in sorted(days)]}
+tables = {'reads': [r.name for r in reads], 'days_held': [str(d) for d in sorted(days)], 'release_list_from': index_read.name}
+tables['unlisted_versions_by_day'] = {}
+for d, (rname, summary) in sorted(days.items()):
+    vs = summary.get('version', {}) if isinstance(summary, dict) else {}
+    unl = {v: n for v, n in vs.items() if v.startswith('v') and v not in order}
+    if unl:
+        tables['unlisted_versions_by_day'][str(d)] = unl
 for key, (day0, fixed) in EVENTS.items():
     m = {}
     for d, (src, s) in sorted(days.items()):

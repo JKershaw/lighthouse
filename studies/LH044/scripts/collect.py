@@ -13,7 +13,12 @@ row. Stops working after END: the study's requests end on a fixed date.
 
 Email addresses in kept headers and text bodies are replaced with a placeholder before saving
 (scripts/redact_emails.py, the keeper, 8 November 2026); readlog.csv's sha256 is of the bytes
-received. Everything is kept under data/<kind>-<LABEL>/: readlog.csv (one row per request), each response's
+received. Where the robots.txt governing a host (or a response header) carries a Content-Signal
+asking for use=reference or use=immediate, a 2xx body is not kept (amendment of 9 November 2026,
+scripts/content_signal.py): <n>.b holds a placeholder, <n>.withheld.json the sha256 of the bytes
+received, the signal as read and a bounded extract (and, after --classify, the class and echoes
+derived from the body), and <n>.b.withheld-local the whole body for this run only, ignored by git.
+Everything is kept under data/<kind>-<LABEL>/: readlog.csv (one row per request), each response's
 headers (<n>.h) and first 64 KiB of body (<n>.b), and the derived tables. LABEL is a UTC time,
 for example 2026-11-08T2000Z. A label already held is refused, never overwritten (except
 --classify, which only rewrites derived tables).
@@ -47,6 +52,7 @@ from redact_emails import redact_bytes  # noqa: E402  (the keeper, 8 November 20
 from classify import (classify, parse_robots, robots_allowed, AI_TOKENS, WALL_CLASSES,  # noqa: E402
                       CLASSIFIER_VERSION, version_for, complete_lines, AMENDMENT5_FROM)
 import robots_rules  # noqa: E402  (scripts/robots_rules.py: amendment 5, the keeper's rule)
+import content_signal  # noqa: E402  (scripts/content_signal.py: amendment of 9 November 2026, use=reference)
 import re  # noqa: E402
 
 ROOT = Path(__file__).resolve().parents[1]
@@ -124,11 +130,15 @@ def load_panel():
 
 
 class Recorder:
-    def __init__(self, outdir):
+    def __init__(self, outdir, provider=None):
         self.dir = outdir
         self.dir.mkdir(parents=True)
         self.n = 0
         self.host_counts = {}
+        # Amendment of 9 November 2026 (use=reference): the robots.txt body and request number that
+        # governed each host in this run, set by the caller, so get() can read its Content-Signal.
+        self.provider = provider
+        self.robots_for = {}
         self.v03 = True   # set False only when re-creating a pre-amendment-4 read
         self.f = open(self.dir / 'readlog.csv', 'w', newline='')
         self.w = csv.DictWriter(self.f, fieldnames=LOG_FIELDS)
@@ -144,7 +154,25 @@ class Recorder:
         htext = 'HTTP %s\n' % r['status'] + ''.join('%s: %s\n' % kv for kv in r['headers'])
         (self.dir / ('%04d.h' % self.n)).write_bytes(redact_bytes(htext.encode('utf-8', 'replace'))[0])
         body = r['body'] if b'\x00' in r['body'][:4096] else redact_bytes(r['body'])[0]
-        (self.dir / ('%04d.b' % self.n)).write_bytes(body)
+        sig = {'withhold': False}
+        if not kind.startswith('robots') and r['status'] and 200 <= r['status'] < 300:
+            rb, rn = self.robots_for.get(h, (None, ''))
+            sig = content_signal.decide(rb, r['headers'], self.provider)
+        if sig['withhold']:
+            # Amendment of 9 November 2026: the site asks for use=reference, so the body is not kept in
+            # the repository; hash, headers and a bounded extract are, and the whole body is held for
+            # this run only in <n>.b.withheld-local (git-ignored), for do_classify and the coder.
+            content_signal.write_withheld(self.dir / ('%04d.b' % self.n), r['body'], {
+                'file': '%04d.b' % self.n, 'by': 'scripts/collect.py', 'sha256_received': r['sha256'],
+                'url': url, 'service': service,
+                'kind': kind, 'fetched_utc': r['utc'], 'http_status': r['status'],
+                'headers': '%04d.h' % self.n,
+                'content_signal': {'line': sig['signal'], 'where': sig['where'],
+                                   'as_read': ('robots.txt kept as %04d.b' % rn) if sig['where'] == 'robots.txt'
+                                   else 'response header'},
+                'extract': {'title': content_signal.title_of(body)}})
+        else:
+            (self.dir / ('%04d.b' % self.n)).write_bytes(body)
         self.w.writerow({'n': self.n, 'service': service, 'kind': kind, 'url': url, 'utc': r['utc'],
                          'status': r['status'] if r['status'] is not None else '', 'error': r['error'] or '',
                          'error_detail': r['error_detail'], 'content_type': header(r, 'content-type'),
@@ -251,7 +279,7 @@ def do_read(label, provider=None):
     panel = load_panel()
     holds = previous_holds(label)
     version = version_for(label)
-    rec = Recorder(out)
+    rec = Recorder(out, provider)
     rec.v03 = version >= '0.3'
     services = []
     t0 = utcnow()
@@ -276,6 +304,8 @@ def do_read(label, provider=None):
             continue
         state, groups, pcls, pdet = robots_outcome(rr, version)
         row['robots_n'], row['robots_state'] = rr['n'], state
+        if state == 'parsed':
+            rec.robots_for[(u.hostname or '').lower()] = (rr['body'], rr['n'])
         if pcls:
             row.update({'pre_class': pcls, 'pre_detail': pdet})
             services.append(row)
@@ -303,13 +333,40 @@ def do_read(label, provider=None):
 
 
 def _load_resp(d, n):
+    """A kept response. Where the body was withheld for use=reference (a <n>.withheld.json beside
+    it), 'withheld' carries that record and 'body' is the run's local copy if this checkout still has
+    it, else the record's extract; 'withheld_local' says which."""
     if not n:
         return None
     lines = (d / ('%04d.h' % int(n))).read_text().splitlines()
     st = lines[0].split(' ', 1)[1] if lines else 'None'
     headers = [tuple(x.split(': ', 1)) if ': ' in x else (x, '') for x in lines[1:] if x]
-    return {'status': None if st == 'None' else int(st), 'headers': headers,
-            'body': (d / ('%04d.b' % int(n))).read_bytes()}
+    bpath = d / ('%04d.b' % int(n))
+    body, w, local = bpath.read_bytes(), content_signal.load_record(bpath), False
+    if w is not None:
+        lp = Path(str(bpath) + content_signal.LOCAL_SUFFIX)
+        local = lp.exists()
+        body = lp.read_bytes() if local else '\n'.join(str(v) for v in w.get('extract', {}).values()).encode()
+    return {'status': None if st == 'None' else int(st), 'headers': headers, 'body': body,
+            'withheld': w, 'withheld_local': local}
+
+
+def _save_derived(d, n, **fields):
+    """Keep what do_classify derived from a withheld body's local copy in its record, so a later
+    re-classification without the copy reproduces it."""
+    p = content_signal.record_path(d / ('%04d.b' % int(n)))
+    rec = json.loads(p.read_text())
+    rec.setdefault('derived', {}).update(fields)
+    p.write_text(json.dumps(rec, indent=1, ensure_ascii=False) + '\n')
+
+
+def _derived(resp, version=None):
+    """The kept derivation of a withheld body with no local copy, or None."""
+    w = resp.get('withheld')
+    if not w or resp.get('withheld_local'):
+        return None
+    dv = w.get('derived') or {}
+    return dv if version is None or dv.get('classifier') == version else None
 
 
 def scan_echoes(headers, body):
@@ -354,8 +411,17 @@ def do_classify(label):
             lr = log[str(s['probe_n'])]
             resp = _load_resp(d, s['probe_n'])
             err = lr['error'] or None
-            cls, det = classify(resp['status'] or 0, err, resp['headers'], resp['body'],
-                                s['surface'], s['marker'], s['url'], version=version)
+            dv = _derived(resp, version)
+            if dv:   # body withheld for use=reference: the class derived from it when it was here
+                cls, det = dv['class'], dv['detail']
+            else:
+                cls, det = classify(resp['status'] or 0, err, resp['headers'], resp['body'],
+                                    s['surface'], s['marker'], s['url'], version=version)
+            if resp['withheld_local']:
+                text = resp['body'].decode('utf-8', 'replace')
+                _save_derived(d, s['probe_n'], classifier=version, **{'class': cls}, detail=det,
+                              marker_found=bool(s['marker']) and s['marker'] in text,
+                              marker_in_context=content_signal.excerpt(text, s['marker'], 80) if s['marker'] else '')
             status = lr['status']
             if cls in ('rate_limited',):
                 u = retry_after_until({'headers': resp['headers'], 'utc': lr['utc']})
@@ -429,7 +495,14 @@ def do_classify(label):
     echoes = []
     for n, r in sorted(log.items(), key=lambda kv: int(kv[0])):
         resp = _load_resp(d, n)
-        for where, name, addr in scan_echoes(resp['headers'], resp['body']):
+        dv = _derived(resp)
+        if dv is not None and 'echoes' in dv:
+            found = [tuple(e) for e in dv['echoes']]
+        else:
+            found = scan_echoes(resp['headers'], resp['body'])
+            if resp['withheld_local']:
+                _save_derived(d, n, echoes=[list(e) for e in found])
+        for where, name, addr in found:
             echoes.append({'n': n, 'service': r['service'], 'route': r['route'], 'where': where,
                            'name': name, 'address': addr})
     with open(d / 'echoes.csv', 'w', newline='') as f:
@@ -464,7 +537,7 @@ def do_wayback(label, provider=None):
     walled = [r for r in classes if r['wall'] == 'yes' and r['class'] != 'wall_at_robots']
     opened = [r for r in classes if r['class'] == 'open']
     check = opened[::10]
-    rec = Recorder(out)
+    rec = Recorder(out, provider)
     state = {'used': 0, 'fails': 0, 'stopped': ''}
     results = []
 
@@ -488,6 +561,7 @@ def do_wayback(label, provider=None):
     groups = None
     if rb and not rb['error'] and rb['status'] and 200 <= rb['status'] < 300:
         groups = robots_rules.parse(robots_rules.complete_text(rb['body'], rb['truncated']))
+        rec.robots_for['web.archive.org'] = (rb['body'], rb['n'])
     elif rb and rb['status'] and 400 <= rb['status'] < 500 and rb['status'] != 429:
         groups = []
     if groups is None:
@@ -578,9 +652,11 @@ def do_httparchive(label, provider=None):
     out = ROOT / 'data' / ('httparchive-' + label)
     if out.exists():
         sys.exit('httparchive %s already held' % label)
-    rec = Recorder(out)
+    rec = Recorder(out, provider)
     rb, _, cut = fetch_robots(rec, '-', 'https://cdn.httparchive.org/robots.txt')
     state, groups, pcls, _ = robots_outcome(rb) if rb and not cut else ('unreachable', None, 'host_cap', '')
+    if state == 'parsed':
+        rec.robots_for['cdn.httparchive.org'] = (rb['body'], rb['n'])
     url = ('https://cdn.httparchive.org/v1/adoption?technology=%s&geo=ALL&rank=ALL&start=2024-01-01'
            % quote(','.join(HA_TECH), safe=','))
     if state in ('parsed', 'unavailable') and obey(groups, url, provider).allowed:
@@ -595,7 +671,7 @@ def do_statements(label, listfile, provider=None):
     out = ROOT / 'data' / ('statements-' + label)
     if out.exists():
         sys.exit('statements %s already held' % label)
-    rec = Recorder(out)
+    rec = Recorder(out, provider)
     robots = {}
     for row in csv.DictReader(open(listfile)):
         u = urlsplit(row['url'])
@@ -603,6 +679,8 @@ def do_statements(label, listfile, provider=None):
         if key not in robots:
             rb, _, cut = fetch_robots(rec, row['id'], '%s://%s/robots.txt' % key)
             robots[key] = robots_outcome(rb) if rb and not cut else ('unreachable', None, 'host_cap', '')
+            if robots[key][0] == 'parsed':
+                rec.robots_for[(u.hostname or '').lower()] = (rb['body'], rb['n'])
         state, groups, pcls, _ = robots[key]
         if state not in ('parsed', 'unavailable') or not obey(groups, row['url'], provider).allowed:
             print('not read (robots %s %s): %s' % (state, pcls, row['url']))

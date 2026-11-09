@@ -1,0 +1,33 @@
+{
+ "withheld": "body",
+ "file": "0006.b",
+ "date": "2026-11-09",
+ "by": "the scheduled run (schedule row use-reference-1)",
+ "why": "The site's robots.txt carries Cloudflare's Content-Signal with use=reference (\"index, excerpt, and link back\"); a whole copy in Lighthouse's public repository goes beyond that (studies/LH047, finding R4). Withheld under schedule row use-reference-1 by the scheduled run.",
+ "url": "https://dealing-with-bots.coar-repositories.org/context/",
+ "statement": "S03",
+ "kind": "statement",
+ "fetched_utc": "2026-11-08T19:29:38Z",
+ "http_status": 200,
+ "fetch_log": "studies/LH044/data/statements-2026-11-08T1920Z/readlog.csv (n=6)",
+ "sha256_received": "24f5228f2012058fc442289e16184c79acb2932b0b00817e74f5774568250b71",
+ "bytes_received": 14846,
+ "sha256_kept_until_withheld": "24f5228f2012058fc442289e16184c79acb2932b0b00817e74f5774568250b71",
+ "bytes_kept_until_withheld": 14846,
+ "headers": "0006.h (kept unchanged)",
+ "content_signal": {
+  "line": "Content-Signal: search=yes,ai-train=no,use=reference",
+  "group": "User-agent: *",
+  "as_read": "studies/LH044/data/statements-2026-11-08T1920Z/0005.b line 31 (read 2026-11-08T19:29:36Z)"
+ },
+ "extract": {
+  "title": "Dealing With Bots: A COAR Resource for Repository Managers: Context",
+  "quotation_1": "needing to protect themselves from the worst excesses of a large and growing subset of those remote systems",
+  "quotation_2": "COAR considers such machine users (bots) to be \"first order\" users of repository systems - alongside human users.",
+  "quotation_3": "In March 2025, Imperva (a subsidiary of Thales) published a report"
+ },
+ "used_by": [
+  "studies/LH044/statements/coded.csv (S03)",
+  "studies/LH044/checkpoints/2026-11-08.md"
+ ]
+}

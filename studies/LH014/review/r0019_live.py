@@ -6,6 +6,10 @@ The reads: pillow 12.3.0 on its days 1 and 30 and sentry-sdk 2.64.0 on its days 
 opening figures), one band B release day each for astropy and djlint, pillow's per-day total on 2 July, and
 the mirror classes' downloads of pillow 12.3.0 on its days 0 and 1 (a first run folded 12.2.0 into '~other' where the study kept it, so its cells differed only by that fold; the sums agreed)."""
 import csv, datetime, io, os, sys, urllib.parse, urllib.request
+import os as _os, sys as _sys
+_sys.path.insert(0, _os.path.join(_os.path.dirname(_os.path.abspath(__file__)), '..', '..', '..', 'scripts'))
+from lh_fetch import urlopen, check as robots_check, NotFetched, UA  # noqa: E402  robots.txt gate (the keeper, 8 November 2026)
+from redact_emails import redact_bytes  # noqa: E402  email addresses withheld from kept bodies
 from collections import defaultdict
 
 HERE = os.path.dirname(os.path.abspath(__file__))
@@ -20,8 +24,9 @@ def run(sql):
     assert "read_overflow_mode = 'throw'" in sql
     import re
     assert all(d <= CUT for d in re.findall(r"'(\d{4}-\d{2}-\d{2})'", sql)), 'a query named a day after the cut'
-    req = urllib.request.Request(URL, data=sql.encode(), headers={'Content-Type': 'text/plain'})
-    with urllib.request.urlopen(req, timeout=120) as resp:
+    req = urllib.request.Request(URL, data=sql.encode(), headers={'Content-Type': 'text/plain', 'User-Agent': UA})
+    # robots.txt-gated urlopen (scripts/lh_fetch.py): NotFetched stops the re-read, a missing reading, never a negative
+    with urlopen(req, timeout=120) as resp:
         body = resp.read().decode()
         rows = list(csv.DictReader(io.StringIO(body)))
         return rows, resp.headers.get('X-ClickHouse-Summary', '')

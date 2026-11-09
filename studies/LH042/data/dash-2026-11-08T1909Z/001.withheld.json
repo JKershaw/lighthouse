@@ -1,0 +1,38 @@
+{
+ "withheld": "body",
+ "file": "001.body",
+ "date": "2026-11-09",
+ "by": "the scheduled run (schedule row use-reference-1)",
+ "why": "The site's robots.txt carries Cloudflare's Content-Signal with use=reference (\"index, excerpt, and link back\"); a whole copy in Lighthouse's public repository goes beyond that (studies/LH047, finding R4). Withheld under schedule row use-reference-1 by the scheduled run.",
+ "url": "https://declawed.io/",
+ "fetched_utc": "2026-11-08T19:09:17Z",
+ "http_status": 200,
+ "fetch_log": "studies/LH042/data/dash-2026-11-08T1909Z/readlog.csv (n=1)",
+ "sha256_received": "76f5ec4b76f0a7f34edc4f3dfa68cee8daf74dfcc6c2b5292b06a0ae6f3422ae",
+ "bytes_received": 245686,
+ "sha256_kept_until_withheld": "0e5b2b2985c9008d36e1bf46c488f94a0d2dfc59dd8165f628ed8f89abe4e598",
+ "bytes_kept_until_withheld": 245676,
+ "kept_note": "the kept copy had six IPv4 addresses replaced (sha256 aeb2cb38...) and one email address withheld (data/SCREENING.md) before this step",
+ "headers": "001.headers (kept unchanged)",
+ "content_signal": {
+  "line": "Content-Signal: search=yes,ai-train=no,use=reference",
+  "group": "User-agent: *",
+  "as_read": "studies/LH047/data/reads/robots-current/robots-declawed.io-0.txt line 31 (LH047's re-read, 8 November 2026, 20:40 to 20:43 UTC); the same line is quoted from the design read of about 19:02 UTC in studies/LH042/searchlog.md (D9). fetch.py read robots.txt at 19:09 UTC with urllib.robotparser and did not keep it."
+ },
+ "extract": {
+  "title": "DECLAWED | Live view of OpenClaw instances by STRIKE",
+  "method_quotation": "favicon hash and HTTP title fingerprinting",
+  "method_quotation_2": "Unique fingerprint matches across SecurityScorecard internet-wide scans",
+  "total_label_with_empty_value": "<div class=\"stat-value\" id=\"stat-total-instances\">--</div><div class=\"stat-label\">Total Instances</div>",
+  "inactive_definition": "Previously discovered but no longer responding",
+  "refresh_note": "Data refreshes every 15 minutes"
+ },
+ "used_by": [
+  "studies/LH042/brief.md (The recurring read; Amendment 1)",
+  "studies/LH042/sources.md",
+  "studies/LH042/data/relayed.csv (R10)",
+  "studies/LH042/for-driver.md",
+  "sources.md",
+  "studies/LH047/for-driver.md (item 8)"
+ ]
+}

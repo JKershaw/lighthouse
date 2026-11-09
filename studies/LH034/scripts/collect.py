@@ -9,10 +9,13 @@ from datetime import date, datetime, timedelta, timezone
 from hashlib import sha256
 from pathlib import Path
 from urllib.error import HTTPError
-from urllib.request import Request, urlopen
+from urllib.request import Request
 import argparse
 import gzip
 import json
+import os as _os, sys as _sys
+_sys.path.insert(0, _os.path.join(_os.path.dirname(_os.path.abspath(__file__)), '..', '..', '..', 'scripts'))
+from lh_fetch import urlopen, redacted, UA  # noqa: E402  robots.txt gate (the keeper, 8 November 2026)
 
 ROOT = Path(__file__).resolve().parents[1]
 BASE = 'https://storage.googleapis.com/access-logs-summaries-nodejs/nodejs.org-access.log.{}.json'
@@ -37,7 +40,7 @@ for name, url in jobs:
     row = {'source': name, 'url': url, 'start_utc': datetime.now(timezone.utc).isoformat()}
     try:
         try:
-            response = urlopen(Request(url, headers={'User-Agent': 'Lighthouse research observation'}), timeout=60)
+            response = urlopen(Request(url, headers={'User-Agent': UA}), timeout=60)
         except HTTPError as error:
             response = error
         with response:
@@ -45,7 +48,7 @@ for name, url in jobs:
             row.update(finish_utc=datetime.now(timezone.utc).isoformat(), status=response.status, bytes=len(body),
                        sha256=sha256(body).hexdigest())
             if response.status == 200:
-                (OUT / (name + '.raw.gz')).write_bytes(gzip.compress(body, mtime=0))
+                (OUT / (name + '.raw.gz')).write_bytes(gzip.compress(redacted(body), mtime=0))
                 row['file'] = name + '.raw.gz'
     except Exception as error:
         row.setdefault('finish_utc', datetime.now(timezone.utc).isoformat())

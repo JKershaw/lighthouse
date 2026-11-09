@@ -1,0 +1,40 @@
+{
+ "withheld": "body",
+ "file": "0140.b",
+ "date": "2026-11-09",
+ "by": "the scheduled run (schedule row use-reference-1)",
+ "why": "The site's robots.txt carries Cloudflare's Content-Signal with use=reference (\"index, excerpt, and link back\"); a whole copy in Lighthouse's public repository goes beyond that (studies/LH047, finding R4). Withheld under schedule row use-reference-1 by the scheduled run.",
+ "url": "https://doaj.org/api/search/journals/lighthouse",
+ "service": "A19",
+ "kind": "probe",
+ "fetched_utc": "2026-11-08T19:23:16Z",
+ "http_status": 200,
+ "fetch_log": "studies/LH044/data/read-2026-11-08T1920Z/readlog.csv (n=140)",
+ "sha256_received": "19883ab32a4876a730bcf72604e4a9639cac99d51eccf8ff2dc2d4c2806f066f",
+ "bytes_received": 202,
+ "sha256_kept_until_withheld": "19883ab32a4876a730bcf72604e4a9639cac99d51eccf8ff2dc2d4c2806f066f",
+ "bytes_kept_until_withheld": 202,
+ "headers": "0140.h (kept unchanged)",
+ "content_signal": {
+  "line": "Content-signal: search=yes, ai-train=yes, ai-input=yes, use=reference",
+  "group": "User-Agent: *",
+  "as_read": "studies/LH044/data/read-2026-11-08T1920Z/0139.b line 9 (read 2026-11-08T19:23:15Z, two seconds before the probe)"
+ },
+ "extract": {
+  "marker": "\"results\"",
+  "marker_in_context": "\"results\": []",
+  "total": "\"total\": 0"
+ },
+ "derived": {
+  "classifier": "0.2",
+  "class": "open",
+  "detail": "marker",
+  "marker_found": true,
+  "echoes": [],
+  "note": "computed from the whole body before it was withheld; classes.csv row A19"
+ },
+ "used_by": [
+  "studies/LH044/data/read-2026-11-08T1920Z/classes.csv (A19)",
+  "studies/LH044/scripts/test_lh044.py"
+ ]
+}

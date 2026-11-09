@@ -100,3 +100,44 @@ How they were found: `grep -rlE 'urllib|import requests|from requests|curl|fetch
 Many of these hosts are APIs (PyPI's JSON, deps.dev, ClickHouse's public SQL, Docker's registry, GitHub's API) rather than pages. The rule covers them all the same; the sweep would read each host's robots.txt.
 
 **kernel.org (derived from retained files; no request made).** LH044 read the robots.txt files of git.kernel.org and lore.kernel.org at 19:18:56 and 19:18:58 UTC on 8 November 2026. Both disallow `/` to `*` and to ClaudeBot. Under the old rule and the new, those files close every git.kernel.org URL in LH036's panel (the CVE's mbox file and the upstream commit) and LH038's two kernel policy pages and lore.kernel.org query. LH036's read logs show the mbox file requested at its reads of 1, 2 and 5 November, and LH038's show its policy pages requested on 4 November. Whether the files said the same on those days was not checked. Both studies have reads scheduled: LH036 from 9 November, LH038 from 17 November. This was found by checking other studies' URLs against the 91 robots.txt files LH044 kept. Hosts LH044 did not read were not checked.
+
+## Sweep of 9 November 2026
+
+Part of schedule row robots-sweep-1, by a subagent of the scheduled run. Each collector below now asks scripts/robots_gate.py before every request, sends Lighthouse's User-Agent (`Mozilla/5.0 (compatible; Lighthouse-research/1.0; +https://lighthouse.harbour.cat)`), and withholds email addresses from bodies it keeps. A URL the gate does not allow, or whose robots.txt cannot be read, is not requested and is logged "not fetched" with the deciding group and rule, as a missing reading. Most collectors use the driving session's scripts/lh_fetch.py, a gated drop-in for urlopen. For studies whose shared scripts/common.py holds a requests session, the gate wraps the session itself, so direct `S.get` and `S.post` calls are covered too. Where common.py runs git, a clone's https URL is checked first. In an existing partial clone whose origin is not allowed, git is told not to fetch missing objects (GIT_NO_LAZY_FETCH). Each study's brief has an amendment of the same date. Nothing was run against a live site: each edited file was compiled, the gate was exercised offline with stubbed robots.txt files, and the offline tests of LH010, LH015 and LH017 pass. LH030 to LH034, LH037, LH039 and LH040 were done by the driving session and aren't listed here.
+
+| Study | Collectors | New state |
+|---|---|---|
+| LH002 | collect_depsdev.py, select_cohort.py, swh_check.py; analyse.py | gated on cache misses; a URL not allowed stops the script. analyse.py's lazy by-hash fetch from GitHub is gated, read as "not fetched (robots.txt)" if not allowed. Clones are still made by hand (collect_git.py docstring) |
+| LH005 | common.py (curl) | gated; status "not fetched: ..." in read_log.csv; ClickPy endpoint checked |
+| LH006, LH007 | common.py (requests session, git) | session and git gated; "robots.txt gate" rows in read_log.csv |
+| LH008, LH009, LH010 | common.py (requests session, git) | as LH006; LH010's offline replay unaffected |
+| LH011, LH012 | common.py (curl); review/requery.py | gated; the review re-reads stop at a URL not allowed |
+| LH013 | common.py (curl), collect.py docs stage, preflight.py | gated; open rows (installer brief) |
+| LH014 | common.py (curl); review/r0019_live.py | gated |
+| LH015, LH017 | collect.py PyPI reads; common.py git | gated, including blobs fetched on demand |
+| LH016 | review/replay-X2/x2_requery.py | gated; stops if ClickPy is not allowed |
+| LH018 | collect.py, augment.py | gated via lh_fetch |
+| LH019, LH025, LH026 | collect.py | gated via lh_fetch |
+| LH020, LH021 | collect.py | gated via lh_fetch |
+| LH022, LH023 | collect.py | gated via lh_fetch |
+| LH024 | collect.py, collect_daily.py | gated via lh_fetch |
+| LH028 | collect.py | gated via lh_fetch |
+| LH029 | collect.py, review/live_read.py | gated via lh_fetch |
+| LH041 | collect.py; review/fetch_sample.py | gated; "not fetched" rows in requests.csv; fetch_sample.py's robotparser replaced by the gate |
+| LH042 | scripts/fetch.py, review/live_fetch.py | robotparser replaced by the gate; fetch.py no longer fetches when robots.txt answers 5xx (RFC 9309) |
+
+Left open: requests sessions follow redirects without asking the gate again, as urllib does for LH036; a `params=` query added by requests isn't seen by the gate; and for git the gate checks the repository's URL, not the `/info/refs` path git actually requests. Bodies kept by the old Docker Hub and GitHub collectors (LH018 to LH029) are now redacted, so an offline replay that compares a logged sha256 with a kept file would differ wherever an address was withheld; none of those studies has a read scheduled.
+
+### The collectors read on 9 November (the scheduled run itself)
+
+LH030, LH031 (collect.py, criteria.py, vendor.py), LH032 (advisory_check.py), LH033, LH034, LH037, LH039 (collect.py, packagist.py) and LH040 (collect.py) now import `urlopen` from scripts/lh_fetch.py, a drop-in that asks the gate first and raises `NotFetched` (logged by each collector's own error handling) for a disallowed URL or an unreadable robots.txt; `redacted()` from the same module withholds email addresses before a body is saved. LH032's git clone of NCSC-NL/php2shell is checked by hand against the gate before each read (github.com's robots.txt answered HTTP 403 on 9 November: no rules). Each brief has a dated amendment. What the first gated reads met:
+
+| Study | Not fetched on 9 November | Why |
+| --- | --- | --- |
+| LH034 | nodejs.org/dist/index.json | `Disallow: /dist/` in the `*` group; fetched at every earlier read |
+| LH036 | git.kernel.org announcement | disallowed (as expected from the 8 November amendment) |
+| LH037 | fortiguard.fortinet.com advisory page | robots.txt unreachable in this run |
+| LH039 | api.wordpress.org statistics and version-check (6 URLs) | `Disallow: /` in the `*` group; fetched on 7 and 8 November |
+| LH040 | api.deps.dev (5 URLs) | `Disallow: /` in the `*` group |
+
+Every other URL these collectors requested was allowed. The earlier requests to nodejs.org/dist/, api.wordpress.org and api.deps.dev belong in the rules-of-the-road re-audit (row LH047-reread). collect_prebrief.py in LH040 ran once before the brief and is not gated.

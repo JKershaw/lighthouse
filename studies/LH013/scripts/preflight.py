@@ -5,6 +5,10 @@ import hashlib
 import io
 import json
 import subprocess
+import os as _os, sys as _sys
+_sys.path.insert(0, _os.path.join(_os.path.dirname(_os.path.abspath(__file__)), '..', '..', '..', 'scripts'))
+from lh_fetch import urlopen, check as robots_check, NotFetched, UA  # noqa: E402  robots.txt gate (the keeper, 8 November 2026)
+from redact_emails import redact_bytes  # noqa: E402  email addresses withheld from kept bodies
 from datetime import datetime, timezone
 from pathlib import Path
 
@@ -23,12 +27,19 @@ log = []
 def query(label, sql):
     assert 'count(' not in sql.lower() and 'sum(' not in sql.lower()
     start = datetime.now(timezone.utc).isoformat(timespec='seconds')
-    response = subprocess.run(['curl', '--max-time', '90', '-sS', '-D', str(OUT / (label + '.headers')),
+    endpoint = 'https://sql-clickhouse.clickhouse.com/?user=demo'
+    ok, info = robots_check(endpoint)  # the robots.txt gate (the keeper, 8 November 2026)
+    if not ok:  # not requested: a missing reading, never a negative
+        why = 'not fetched: %s (robots %s, status %s, group %s, rule %s)' % (info.get('reason'), info.get('robots_url'),
+              info.get('robots_status'), info.get('decided_by', ''), info.get('rule', ''))
+        log.append(dict(label=label, observed_at_utc=start, query=sql, status=why, bytes=0, sha256='', stderr=''))
+        raise RuntimeError(f'{label}: {why}')
+    response = subprocess.run(['curl', '-A', UA, '--max-time', '90', '-sS', '-D', str(OUT / (label + '.headers')),
                                '-w', '\nHTTP %{http_code}', 'https://sql-clickhouse.clickhouse.com/?user=demo',
                                '--data-binary', '@-'], input=(sql + ' FORMAT CSVWithNames').encode(),
                               capture_output=True, timeout=100)
     body, _, status = response.stdout.rpartition(b'\nHTTP ')
-    (OUT / (label + '.csv')).write_bytes(body)
+    (OUT / (label + '.csv')).write_bytes(redact_bytes(body)[0])
     log.append(dict(label=label, observed_at_utc=start, query=sql, status=status.decode(errors='replace'),
                     bytes=len(body), sha256=hashlib.sha256(body).hexdigest(), stderr=response.stderr.decode()))
     if response.returncode or status != b'200':

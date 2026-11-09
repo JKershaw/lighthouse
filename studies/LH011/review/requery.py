@@ -4,6 +4,10 @@ scripts/common.py does) and of a few upload times from PyPI's JSON API, compared
 files. At most 15 ClickPy queries; every read is printed with its time. No key or credential.
 Output: requery.txt beside it. Run: python3 studies/LH011/review/requery.py"""
 import csv, os, json, subprocess, datetime, io
+import os as _os, sys as _sys
+_sys.path.insert(0, _os.path.join(_os.path.dirname(_os.path.abspath(__file__)), '..', '..', '..', 'scripts'))
+from lh_fetch import urlopen, check as robots_check, NotFetched, UA  # noqa: E402  robots.txt gate (the keeper, 8 November 2026)
+from redact_emails import redact_bytes  # noqa: E402  email addresses withheld from kept bodies
 from collections import defaultdict
 STUDY = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 D = os.path.join(STUDY, 'data')
@@ -14,7 +18,11 @@ def now():
     return datetime.datetime.now(datetime.timezone.utc).strftime('%Y-%m-%dT%H:%M:%SZ')
 
 def curl(url, data=None):
-    cmd = ['curl', '-sS', '-w', '\n%{http_code}', url]
+    ok, info = robots_check(url)  # the robots.txt gate (the keeper, 8 November 2026)
+    if not ok:  # not requested: this re-read stops here, a missing reading and never a negative
+        raise SystemExit('not fetched: %s %s (robots %s, status %s, group %s, rule %s)' % (url, info.get('reason'),
+                         info.get('robots_url'), info.get('robots_status'), info.get('decided_by', ''), info.get('rule', '')))
+    cmd = ['curl', '-sS', '-A', UA, '-w', '\n%{http_code}', url]
     if data is not None:
         cmd += ['--data-binary', '@-']
     p = subprocess.run(cmd, input=(data or '').encode(), capture_output=True, timeout=120)

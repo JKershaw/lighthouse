@@ -4,7 +4,7 @@ Every page fetched for this study on 8 November 2026 (UTC), with the read log's 
 
 | file | source | URL | published | observation window | read (UTC) | HTTP | use |
 |---|---|---|---|---|---|---|---|
-| dash-2026-11-08T1909Z/001 | SecurityScorecard DECLAWED page | https://declawed.io/ | live |  | 2026-11-08T19:09:17Z | 200 | method text only; counts load from /api/, disallowed (R10) |
+| dash-2026-11-08T1909Z/001 | SecurityScorecard DECLAWED page | https://declawed.io/ | live |  | 2026-11-08T19:09:17Z | 200 | method text only; counts load from /api/, disallowed (R10); body withheld 9 November 2026 (use=reference), hash and quotations in data/dash-2026-11-08T1909Z/001.withheld.json |
 | dash-2026-11-08T1909Z/002 |  | https://declawed.io/api/stats |  |  | 2026-11-08T19:09:20Z | not fetched: robots.txt disallows |  |
 | dash-2026-11-08T1909Z/003 | Shadowserver dashboard | https://dashboard.shadowserver.org/ |  |  | 2026-11-08T19:09:20Z | URLError: <urlopen error [Errno 104] Con | unread: connection reset |
 | round1-2026-11-08/001 | Xu, Li, Qiu, Sun, arXiv 2609.07115 abstract | https://arxiv.org/abs/2609.07115 | submitted 2026-09-07 | 2025-02-14 to 2026-02-13 | 2026-11-08T19:11:09Z | 200 | admitted (C05) |

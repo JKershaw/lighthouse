@@ -709,9 +709,12 @@ def do_pypi():
         n[0] += 1
         t0, when = time.time(), now()
         try:
-            with urllib.request.urlopen(url, timeout=60) as r:
+            # robots.txt-gated (scripts/lh_fetch.py): a URL not allowed is not requested and is logged "not fetched"
+            with urlopen(urllib.request.Request(url, headers={'User-Agent': UA}), timeout=60) as r:
                 body = r.read()
             st, j = 200, json.loads(body)
+        except NotFetched as ex:
+            st, j, body = str(ex), None, b''
         except Exception as ex:
             st, j, body = getattr(ex, 'code', 'error'), None, b''
         log(read_utc=when, source='PyPI JSON API', endpoint=url, method='GET', status=st, bytes=len(body),

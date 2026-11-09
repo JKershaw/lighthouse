@@ -94,11 +94,14 @@ def stage_docs():
     os.makedirs(os.path.join(DATA, 'docs'), exist_ok=True)
     for label, url, fn in pages:
         t = common.now()
-        status, body, _ = common.curl(url)
-        with open(os.path.join(DATA, 'docs', fn), 'w') as f:
-            f.write(body)
+        status, body, _ = common.curl(url)  # robots.txt-gated: status "not fetched: ..." when not allowed
+        sha = hashlib.sha256(body.encode()).hexdigest()  # of the text received; email addresses are withheld from the kept file
+        if not status.startswith('not fetched'):
+            with open(os.path.join(DATA, 'docs', fn), 'w') as f:
+                f.write(common.redact_bytes(body.encode())[0].decode())
         common.log(dict(read_utc=t, source='Documentation', stage='docs', label=label, endpoint=url, http_status=status,
-                        read_bytes=len(body.encode()), output='docs/' + fn, note='sha256 ' + hashlib.sha256(body.encode()).hexdigest()))
+                        read_bytes=len(body.encode()), output='docs/' + fn if not status.startswith('not fetched') else '',
+                        note='sha256 ' + sha))
         print(label, status, len(body))
 
 

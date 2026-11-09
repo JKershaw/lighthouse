@@ -5,6 +5,10 @@ releases' Requires-Python and pydantic's requirement on pydantic-core. Every Cli
 its time, SQL and the rows ClickHouse reports reading. Compares each figure with the retained files in
 data/ and data/analysis/. Usage: python3 requery.py > requery.txt"""
 import csv, json, os, subprocess, datetime as dt
+import os as _os, sys as _sys
+_sys.path.insert(0, _os.path.join(_os.path.dirname(_os.path.abspath(__file__)), '..', '..', '..', 'scripts'))
+from lh_fetch import urlopen, check as robots_check, NotFetched, UA  # noqa: E402  robots.txt gate (the keeper, 8 November 2026)
+from redact_emails import redact_bytes  # noqa: E402  email addresses withheld from kept bodies
 from packaging.version import Version, InvalidVersion
 
 HERE = os.path.dirname(os.path.abspath(__file__))
@@ -20,8 +24,12 @@ def ck(label, sql):
     """POST the SQL anonymously; return rows (list of lists) and log time, SQL and read_rows."""
     global TOTAL_ROWS
     t = dt.datetime.now(dt.timezone.utc).strftime('%Y-%m-%dT%H:%M:%SZ')
+    ok, info = robots_check(CK)  # the robots.txt gate (the keeper, 8 November 2026)
+    if not ok:  # not requested: this re-read stops here, a missing reading and never a negative
+        raise SystemExit('not fetched: %s %s (robots %s, status %s, group %s, rule %s)' % (CK, info.get('reason'),
+                         info.get('robots_url'), info.get('robots_status'), info.get('decided_by', ''), info.get('rule', '')))
     hdr = os.path.join(HERE, '.hdr.tmp')
-    out = subprocess.run(['curl', '-sS', '--max-time', '90', '-D', hdr, '-X', 'POST', CK, '--data-binary', sql + ' FORMAT CSV'],
+    out = subprocess.run(['curl', '-sS', '-A', UA, '--max-time', '90', '-D', hdr, '-X', 'POST', CK, '--data-binary', sql + ' FORMAT CSV'],
                          capture_output=True, text=True)
     body = out.stdout
     summary = ''
@@ -43,7 +51,11 @@ def ck(label, sql):
 def pypi(project, version=None):
     url = f'https://pypi.org/pypi/{project}/{version}/json' if version else f'https://pypi.org/pypi/{project}/json'
     t = dt.datetime.now(dt.timezone.utc).strftime('%Y-%m-%dT%H:%M:%SZ')
-    out = subprocess.run(['curl', '-sS', '--max-time', '60', url], capture_output=True, text=True)
+    ok, info = robots_check(url)  # the robots.txt gate (the keeper, 8 November 2026)
+    if not ok:  # not requested: this re-read stops here, a missing reading and never a negative
+        raise SystemExit('not fetched: %s %s (robots %s, status %s, group %s, rule %s)' % (url, info.get('reason'),
+                         info.get('robots_url'), info.get('robots_status'), info.get('decided_by', ''), info.get('rule', '')))
+    out = subprocess.run(['curl', '-sS', '-A', UA, '--max-time', '60', url], capture_output=True, text=True)
     print(f'[{t}] PyPI JSON {url}')
     return json.loads(out.stdout)
 

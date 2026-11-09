@@ -10,6 +10,10 @@ import os
 import re
 import subprocess
 import threading
+import os as _os, sys as _sys
+_sys.path.insert(0, _os.path.join(_os.path.dirname(_os.path.abspath(__file__)), '..', '..', '..', 'scripts'))
+from lh_fetch import urlopen, check as robots_check, NotFetched, UA  # noqa: E402  robots.txt gate (the keeper, 8 November 2026)
+from redact_emails import redact_bytes  # noqa: E402  email addresses withheld from kept bodies
 
 from packaging.version import Version, InvalidVersion
 
@@ -56,10 +60,37 @@ def log(**row):
             w.writerow({k: row.get(k, '') for k in LOG_FIELDS})
 
 
+_ORIGIN_OK = {}
+
+
+def _git_env(args, cwd):
+    """The robots.txt gate for git over HTTPS (the keeper, 8 November 2026). A clone's https URL is checked
+    first, and a clone it does not allow is not made (RuntimeError "not fetched: ..."). In an existing partial
+    clone, which fetches missing objects from its origin on demand, the origin is checked once; if it is not
+    allowed, git is told not to fetch (GIT_NO_LAZY_FETCH), so a missing object is an error, not a request."""
+    if 'clone' in args:
+        for a in args:
+            if a.startswith('https://'):
+                ok, info = robots_check(a)
+                if not ok:
+                    raise RuntimeError('not fetched: %s (robots %s, status %s, group %s, rule %s)' % (
+                        info.get('reason'), info.get('robots_url'), info.get('robots_status'),
+                        info.get('decided_by', ''), info.get('rule', '')))
+        return None
+    if cwd:
+        if cwd not in _ORIGIN_OK:
+            o = subprocess.run(['git', 'config', '--get', 'remote.origin.url'], cwd=cwd, capture_output=True, text=True).stdout.strip()
+            _ORIGIN_OK[cwd] = robots_check(o)[0] if o.startswith('https://') else True
+        if not _ORIGIN_OK[cwd]:
+            return dict(os.environ, GIT_NO_LAZY_FETCH='1')
+    return None
+
+
 def git(args, cwd=None, check=True, timeout=900):
     """git without credentials or prompts (anonymous HTTPS through the environment's proxy), as LH010 ran it."""
     p = subprocess.run(['git', '-c', 'credential.helper=', '-c', 'core.askPass=true'] + args, cwd=cwd,
-                       capture_output=True, text=True, timeout=timeout, env={**os.environ, 'GIT_TERMINAL_PROMPT': '0'},
+                       capture_output=True, text=True, timeout=timeout,
+                       env={**os.environ, 'GIT_TERMINAL_PROMPT': '0', **(_git_env(args, cwd) or {})},
                        errors='replace')
     if check and p.returncode != 0:
         raise RuntimeError(f'git {" ".join(args[:2])}: {p.stderr[:300]}')

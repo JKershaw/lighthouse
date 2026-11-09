@@ -1,0 +1,39 @@
+{
+ "withheld": "body",
+ "file": "0008.b",
+ "date": "2026-11-09",
+ "by": "the scheduled run (schedule row use-reference-1)",
+ "why": "The site's robots.txt carries Cloudflare's Content-Signal with use=reference (\"index, excerpt, and link back\"); a whole copy in Lighthouse's public repository goes beyond that (studies/LH047, finding R4). Withheld under schedule row use-reference-1 by the scheduled run.",
+ "url": "https://coar-repositories.org/wp-content/uploads/2026/06/3.6.-Paul-Walk-Dealing-With-Bots.pdf",
+ "statement": "S04",
+ "kind": "statement",
+ "fetched_utc": "2026-11-08T19:29:41Z",
+ "http_status": 200,
+ "fetch_log": "studies/LH044/data/statements-2026-11-08T1920Z/readlog.csv (n=8)",
+ "sha256_received": "41bd87e4cc26f6902dcb18d312fec427313049b0063a75a568c8f9499dbab366",
+ "bytes_received": 1497722,
+ "sha256_kept_until_withheld": "41bd87e4cc26f6902dcb18d312fec427313049b0063a75a568c8f9499dbab366",
+ "bytes_kept_until_withheld": 1497722,
+ "headers": "0008.h (kept unchanged)",
+ "content_signal": {
+  "line": "Content-Signal: search=yes,ai-train=no,use=reference",
+  "group": "User-agent: *",
+  "as_read": "studies/LH044/data/statements-2026-11-08T1920Z/0007.b line 31 (read 2026-11-08T19:29:39Z)"
+ },
+ "extract": {
+  "title": "Strategies for Dealing With Bots",
+  "quotation_1": "Overwhelming traffic from badly-behaved bots",
+  "quotation_2": "Blocking benign remote services",
+  "quotation_3": "in some cases we cannot do this because the repository is blocking the IRD robot.",
+  "quotation_4": "Configure and deploy a robots.txt file: Necessary, but insufficient",
+  "quotation_5": "Use \"proof-of-work\" challenges: Effective",
+  "quotation_6": "Anubis (open-source, free-to-use) and BotStopper (commercial version)",
+  "quotation_7": "Cloudflare security rules (available on free tier)",
+  "survey_link": "https://coar-repositories.org/wp-content/uploads/2025/06/Report-of-the-COAR-Survey-on-AI-Bots-June-2025-1.pdf",
+  "note": "read as text with pdftotext -layout; quotations 3 to 5 join lines or table cells of that text"
+ },
+ "used_by": [
+  "studies/LH044/statements/coded.csv (S04)",
+  "studies/LH044/checkpoints/2026-11-08.md"
+ ]
+}

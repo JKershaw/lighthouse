@@ -14,6 +14,10 @@ SETTINGS read_overflow_mode = 'throw' (amendment 1) and result_overflow_mode = '
 short by a limit fails rather than returning a partial answer; a body that carries a ClickHouse
 exception is treated as failed even under HTTP 200."""
 import csv, io, json, os, re, subprocess, time, datetime
+import os as _os, sys as _sys
+_sys.path.insert(0, _os.path.join(_os.path.dirname(_os.path.abspath(__file__)), '..', '..', '..', 'scripts'))
+from lh_fetch import urlopen, check as robots_check, NotFetched, UA  # noqa: E402  robots.txt gate (the keeper, 8 November 2026)
+from redact_emails import redact_bytes  # noqa: E402  email addresses withheld from kept bodies
 
 STUDY = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 DATA = os.path.join(STUDY, 'data')
@@ -56,10 +60,17 @@ def spent():
 
 def curl(url, data=None):
     """Return (status, body, headers). curl reads the session's proxy settings."""
+    # The robots.txt gate first (the keeper, 8 November 2026): a URL it does not allow, or whose robots.txt
+    # cannot be read, is not requested; the status returned, and so logged, is "not fetched: ..." with the
+    # deciding group and rule, a missing reading and never a negative.
+    ok, info = robots_check(url)
+    if not ok:
+        return ('not fetched: %s (robots %s, status %s, group %s, rule %s)' % (info.get('reason'), info.get('robots_url'),
+                info.get('robots_status'), info.get('decided_by', ''), info.get('rule', ''))), '', ''
     hdr = os.path.join(SCRATCH, '.headers')
     if os.path.exists(hdr):
         os.remove(hdr)
-    cmd = ['curl', '-sS', '-L', '--max-time', '170', '-D', hdr, '-w', '\n%{http_code}', url]
+    cmd = ['curl', '-sS', '-A', UA, '-L', '--max-time', '170', '-D', hdr, '-w', '\n%{http_code}', url]
     if data is not None:
         cmd += ['--data-binary', '@-']
     p = subprocess.run(cmd, input=(data or '').encode(), capture_output=True, timeout=200)
@@ -122,6 +133,7 @@ def clickhouse(stage, label, sql, output=None, note=''):
     if output:
         path = os.path.join(DATA, output)
         os.makedirs(os.path.dirname(path), exist_ok=True)
+        body = redact_bytes(body.encode())[0].decode()
         with open(path, 'w') as f:
             f.write(body if body.endswith('\n') else body + '\n')
     return rows

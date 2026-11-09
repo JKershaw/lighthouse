@@ -6,6 +6,10 @@ import json
 import re
 import urllib.error
 import urllib.request
+import os as _os, sys as _sys
+_sys.path.insert(0, _os.path.join(_os.path.dirname(_os.path.abspath(__file__)), '..', '..', '..', 'scripts'))
+from lh_fetch import urlopen, check as robots_check, NotFetched, UA  # noqa: E402  robots.txt gate (the keeper, 8 November 2026)
+from redact_emails import redact_bytes  # noqa: E402  email addresses withheld from kept bodies
 from datetime import datetime, timezone
 from pathlib import Path
 
@@ -41,9 +45,9 @@ def fetch(key, url):
     try:
         req = urllib.request.Request(url, headers={
             'Accept': 'application/vnd.github+json',
-            'User-Agent': 'Lighthouse-LH020/0.1',
+            'User-Agent': UA,
             'X-GitHub-Api-Version': '2022-11-28'})
-        with urllib.request.urlopen(req, timeout=20) as response:
+        with urlopen(req, timeout=20) as response:
             status = response.status
             hdr = dict(response.headers)
             body = response.read(limit + 1)
@@ -59,7 +63,7 @@ def fetch(key, url):
         error = f'{type(exc).__name__}: {exc}'
     total += len(body)
     file = OUT / (key + '.raw')
-    file.write_bytes(body)
+    file.write_bytes(redact_bytes(body)[0])
     rows.append(dict(observed_at_utc=at, key=key, url=url, status=status,
                      bytes=len(body), sha256=hashlib.sha256(body).hexdigest(),
                      file=file.relative_to(ROOT).as_posix(),

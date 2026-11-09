@@ -5,6 +5,10 @@ import hashlib
 import json
 import urllib.error
 import urllib.request
+import os as _os, sys as _sys
+_sys.path.insert(0, _os.path.join(_os.path.dirname(_os.path.abspath(__file__)), '..', '..', '..', 'scripts'))
+from lh_fetch import urlopen, check as robots_check, NotFetched, UA  # noqa: E402  robots.txt gate (the keeper, 8 November 2026)
+from redact_emails import redact_bytes  # noqa: E402  email addresses withheld from kept bodies
 from datetime import datetime, timezone
 from pathlib import Path
 
@@ -37,10 +41,10 @@ def fetch(key, url):
     cap = min(2 * 1024 * 1024, 12 * 1024 * 1024 - total)
     try:
         req = urllib.request.Request(url, headers={
-            'User-Agent': 'Lighthouse-LH021/0.1',
+            'User-Agent': UA,
             'Accept': 'application/vnd.github+json',
             'X-GitHub-Api-Version': '2022-11-28'})
-        with urllib.request.urlopen(req, timeout=20) as response:
+        with urlopen(req, timeout=20) as response:
             status = response.status
             hdr = dict(response.headers)
             body = response.read(cap + 1)
@@ -56,7 +60,7 @@ def fetch(key, url):
         error = f'{type(exc).__name__}: {exc}'
     total += len(body)
     file = OUT / (key + '.raw')
-    file.write_bytes(body)
+    file.write_bytes(redact_bytes(body)[0])
     rows.append(dict(observed_at_utc=at, key=key, url=url, status=status,
                      bytes=len(body), sha256=hashlib.sha256(body).hexdigest(),
                      file=file.relative_to(ROOT).as_posix(),

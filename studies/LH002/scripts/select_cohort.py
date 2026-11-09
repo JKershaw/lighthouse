@@ -10,6 +10,10 @@ Usage: python3 select_cohort.py <scratch_dir>
 Writes <scratch_dir>/raw/depsdev/* and <scratch_dir>/cohort_selection.json
 """
 import hashlib, json, os, sys, time, urllib.request, urllib.parse
+import os as _os, sys as _sys
+_sys.path.insert(0, _os.path.join(_os.path.dirname(_os.path.abspath(__file__)), '..', '..', '..', 'scripts'))
+from lh_fetch import urlopen, check as robots_check, NotFetched, UA  # noqa: E402  robots.txt gate (the keeper, 8 November 2026)
+from redact_emails import redact_bytes  # noqa: E402  email addresses withheld from kept bodies
 
 S = sys.argv[1]
 RAW = os.path.join(S, 'raw', 'depsdev')
@@ -21,8 +25,9 @@ PREVER = '1.26.0'  # the release current at window start
 
 def get(url, path):
     if not os.path.exists(path):
-        with urllib.request.urlopen(url, timeout=60) as r:
-            open(path, 'wb').write(r.read())
+        # robots.txt gate: a disallowed URL raises NotFetched and stops the run (a missing reading, never a negative)
+        with urlopen(urllib.request.Request(url, headers={'User-Agent': UA}), timeout=60) as r:
+            open(path, 'wb').write(redact_bytes(r.read())[0])
         time.sleep(0.2)
     return json.load(open(path))
 

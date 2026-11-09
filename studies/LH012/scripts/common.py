@@ -12,6 +12,10 @@ default), any ClickPy query that could return a download count: in phase 1 only 
 `get_text` logs a read of a documentation page; `get_json` counts PyPI requests against the ceiling
 and records the byte length of every body; pypistats is not used."""
 import csv, io, json, os, re, subprocess, time, datetime
+import os as _os, sys as _sys
+_sys.path.insert(0, _os.path.join(_os.path.dirname(_os.path.abspath(__file__)), '..', '..', '..', 'scripts'))
+from lh_fetch import urlopen, check as robots_check, NotFetched, UA  # noqa: E402  robots.txt gate (the keeper, 8 November 2026)
+from redact_emails import redact_bytes  # noqa: E402  email addresses withheld from kept bodies
 
 STUDY = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 DATA = os.path.join(STUDY, 'data')
@@ -54,10 +58,17 @@ def spent():
 
 def curl(url, data=None, binary_out=None, accept=None):
     """Return (status, body, headers). curl is used because it reads the session's proxy settings."""
+    # The robots.txt gate first (the keeper, 8 November 2026): a URL it does not allow, or whose robots.txt
+    # cannot be read, is not requested; the status returned, and so logged, is "not fetched: ..." with the
+    # deciding group and rule, a missing reading and never a negative.
+    ok, info = robots_check(url)
+    if not ok:
+        return ('not fetched: %s (robots %s, status %s, group %s, rule %s)' % (info.get('reason'), info.get('robots_url'),
+                info.get('robots_status'), info.get('decided_by', ''), info.get('rule', ''))), '', ''
     hdr = os.path.join(SCRATCH, '.headers')
-    cmd = ['curl', '-sS', '-L', '-D', hdr, '-w', '\n%{http_code}', url]
+    cmd = ['curl', '-sS', '-A', UA, '-L', '-D', hdr, '-w', '\n%{http_code}', url]
     if binary_out:
-        cmd = ['curl', '-sS', '-L', '-D', hdr, '-o', binary_out, '-w', '%{http_code}', url]
+        cmd = ['curl', '-sS', '-A', UA, '-L', '-D', hdr, '-o', binary_out, '-w', '%{http_code}', url]
     if accept:
         cmd[1:1] = ['-H', 'Accept: ' + accept]
     if data is not None:
@@ -114,6 +125,7 @@ def clickhouse(label, sql, output=None):
     if status != '200':
         raise SystemExit(f'{label}: HTTP {status}: {body[:400]}')
     if output:
+        body = redact_bytes(body.encode())[0].decode()
         with open(os.path.join(DATA, output), 'w') as f:
             f.write(body if body.endswith('\n') else body + '\n')
     time.sleep(0.5)  # be gentle with a free public service
@@ -137,6 +149,7 @@ def get_text(source, label, url, path):
     """A documentation page, saved to scratch space (not retained) and logged."""
     t = now()
     status, body, _ = curl(url)
+    body = redact_bytes(body.encode())[0].decode()
     with open(path, 'w') as f:
         f.write(body)
     log(dict(read_utc=t, source=source, label=label, endpoint=url, http_status=status,

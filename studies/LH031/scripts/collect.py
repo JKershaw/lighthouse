@@ -4,9 +4,12 @@ from datetime import datetime, timezone
 from hashlib import sha256
 from pathlib import Path
 from urllib.error import HTTPError
-from urllib.request import Request, urlopen
+from urllib.request import Request
 import argparse
 import json
+import os as _os, sys as _sys
+_sys.path.insert(0, _os.path.join(_os.path.dirname(_os.path.abspath(__file__)), '..', '..', '..', 'scripts'))
+from lh_fetch import urlopen, redacted, UA  # noqa: E402  robots.txt gate (the keeper, 8 November 2026)
 
 ROOT = Path(__file__).resolve().parents[1]
 SOURCES = [('feed', 'https://www.cisa.gov/sites/default/files/feeds/known_exploited_vulnerabilities.json'),
@@ -24,14 +27,14 @@ for name, url in SOURCES:
     row = {'source': name, 'url': url, 'start_utc': datetime.now(timezone.utc).isoformat()}
     try:
         try:
-            response = urlopen(Request(url, headers={'User-Agent': 'Mozilla/5.0 (compatible; Lighthouse research observation)'}), timeout=40)
+            response = urlopen(Request(url, headers={'User-Agent': UA}), timeout=40)
         except HTTPError as error:
             response = error
         with response:
             body = response.read(16 * 1024 * 1024 + 1)
             row.update(finish_utc=datetime.now(timezone.utc).isoformat(), status=response.status, bytes=len(body),
                        sha256=sha256(body).hexdigest(), content_type=response.headers.get('Content-Type', ''))
-            (OUT / (name + '.raw')).write_bytes(body[:16 * 1024 * 1024])
+            (OUT / (name + '.raw')).write_bytes(redacted(body[:16 * 1024 * 1024]))
             row['file'] = name + '.raw'
             data = json.loads(body)
             entries = {v['cveID']: v for v in data.get('vulnerabilities', [])}

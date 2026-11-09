@@ -3,6 +3,10 @@ data/read_log.csv with its UTC read time, the endpoint, the query text and what 
 No key, token or credential is read or sent: ClickHouse's public demo user, pypistats.org and
 pepy.tech's anonymous path are the only endpoints used."""
 import csv, io, json, os, subprocess, time, datetime
+import os as _os, sys as _sys
+_sys.path.insert(0, _os.path.join(_os.path.dirname(_os.path.abspath(__file__)), '..', '..', '..', 'scripts'))
+from lh_fetch import urlopen, check as robots_check, NotFetched, UA  # noqa: E402  robots.txt gate (the keeper, 8 November 2026)
+from redact_emails import redact_bytes  # noqa: E402  email addresses withheld from kept bodies
 
 STUDY = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 DATA = os.path.join(STUDY, 'data')
@@ -25,8 +29,14 @@ def log(entry):
 
 
 def curl(url, data=None):
-    """Return (status, body). curl is used because it reads the session's proxy settings."""
-    cmd = ['curl', '-sS', '-w', '\n%{http_code}', url]
+    """Return (status, body). curl is used because it reads the session's proxy settings.
+    The robots.txt gate is asked first (the keeper, 8 November 2026): a URL it does not allow is not
+    requested, and the status returned, and so logged, is "not fetched: ..." with the deciding group and rule."""
+    ok, info = robots_check(url)
+    if not ok:
+        return ('not fetched: %s (robots %s, group %s, rule %s)' % (info.get('reason'), info.get('robots_url'),
+                info.get('decided_by', ''), info.get('rule', ''))), ''
+    cmd = ['curl', '-sS', '-A', UA, '-w', '\n%{http_code}', url]
     if data is not None:
         cmd += ['--data-binary', '@-']
     p = subprocess.run(cmd, input=(data or '').encode(), capture_output=True, timeout=180)
@@ -49,6 +59,7 @@ def clickhouse(label, sql, output):
     if status != '200':
         raise SystemExit(f'{label}: HTTP {status}: {body[:300]}')
     with open(os.path.join(DATA, output), 'w') as f:
+        body = redact_bytes(body.encode())[0].decode()
         f.write(body if body.endswith('\n') else body + '\n')
     time.sleep(1)  # be gentle with a free public service
     return rows

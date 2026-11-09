@@ -5,6 +5,10 @@ import hashlib
 import json
 import urllib.error
 import urllib.request
+import os as _os, sys as _sys
+_sys.path.insert(0, _os.path.join(_os.path.dirname(_os.path.abspath(__file__)), '..', '..', '..', 'scripts'))
+from lh_fetch import urlopen, check as robots_check, NotFetched, UA  # noqa: E402  robots.txt gate (the keeper, 8 November 2026)
+from redact_emails import redact_bytes  # noqa: E402  email addresses withheld from kept bodies
 from datetime import datetime, timezone
 from pathlib import Path
 
@@ -23,8 +27,8 @@ def fetch(key, url, headers=None, ephemeral=False):
     status, data, hdr, error = '', b'', {}, ''
     cap = min(1024 * 1024, 2 * 1024 * 1024 - retained)
     try:
-        request = urllib.request.Request(url, headers={'User-Agent': 'Lighthouse-LH026/0.1', **(headers or {})})
-        with urllib.request.urlopen(request, timeout=25) as response:
+        request = urllib.request.Request(url, headers={'User-Agent': UA, **(headers or {})})
+        with urlopen(request, timeout=25) as response:
             status, hdr = response.status, dict(response.headers)
             data = response.read(cap + 1)
             if len(data) > cap:
@@ -34,7 +38,7 @@ def fetch(key, url, headers=None, ephemeral=False):
     except Exception as exc:
         error = f'{type(exc).__name__}: {exc}'
     if not ephemeral:
-        (OUT / (key + '.raw')).write_bytes(data)
+        (OUT / (key + '.raw')).write_bytes(redact_bytes(data)[0])
         retained += len(data)
     remaining = hdr.get('Ratelimit-Remaining', hdr.get('RateLimit-Remaining', ''))
     rows.append(dict(utc=at, key=key, url=url, status=status,

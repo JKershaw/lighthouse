@@ -7,6 +7,10 @@ import json
 import re
 import urllib.error
 import urllib.request
+import os as _os, sys as _sys
+_sys.path.insert(0, _os.path.join(_os.path.dirname(_os.path.abspath(__file__)), '..', '..', '..', 'scripts'))
+from lh_fetch import urlopen, check as robots_check, NotFetched, UA  # noqa: E402  robots.txt gate (the keeper, 8 November 2026)
+from redact_emails import redact_bytes  # noqa: E402  email addresses withheld from kept bodies
 from datetime import datetime, timezone
 from pathlib import Path
 
@@ -41,9 +45,9 @@ def fetch(key, url, kind='github', accept=None):
     status = ''
     error = ''
     try:
-        req = urllib.request.Request(url, headers={'User-Agent': 'Lighthouse-LH022/0.1',
+        req = urllib.request.Request(url, headers={'User-Agent': UA,
             'Accept': accept or 'application/vnd.github+json'})
-        with urllib.request.urlopen(req, timeout=25) as response:
+        with urlopen(req, timeout=25) as response:
             status = response.status
             hdr = dict(response.headers)
             data = response.read(min(2 * 1024 * 1024, 12 * 1024 * 1024 - retained) + 1)
@@ -58,7 +62,7 @@ def fetch(key, url, kind='github', accept=None):
     except Exception as exc:
         error = f'{type(exc).__name__}: {exc}'
     path = OUT / (key + '.raw')
-    path.write_bytes(data)
+    path.write_bytes(redact_bytes(data)[0])
     retained += len(data)
     rows.append(dict(utc=at, kind=kind, key=key, url=url, status=status, bytes=len(data),
                      sha256=hashlib.sha256(data).hexdigest(), remaining=hdr.get('X-RateLimit-Remaining', ''),

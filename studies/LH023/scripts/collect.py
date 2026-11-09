@@ -5,6 +5,10 @@ import hashlib
 import json
 import urllib.error
 import urllib.request
+import os as _os, sys as _sys
+_sys.path.insert(0, _os.path.join(_os.path.dirname(_os.path.abspath(__file__)), '..', '..', '..', 'scripts'))
+from lh_fetch import urlopen, check as robots_check, NotFetched, UA  # noqa: E402  robots.txt gate (the keeper, 8 November 2026)
+from redact_emails import redact_bytes  # noqa: E402  email addresses withheld from kept bodies
 from datetime import datetime, timezone
 from pathlib import Path
 
@@ -24,8 +28,8 @@ def read(key, url, headers=None, ephemeral=False):
     at = datetime.now(timezone.utc).isoformat(timespec='seconds').replace('+00:00', 'Z')
     status, data, error, hdr = '', b'', '', {}
     try:
-        req = urllib.request.Request(url, headers={'User-Agent': 'Lighthouse-LH023/0.1', **(headers or {})})
-        with urllib.request.urlopen(req, timeout=24) as r:
+        req = urllib.request.Request(url, headers={'User-Agent': UA, **(headers or {})})
+        with urlopen(req, timeout=24) as r:
             status, hdr = r.status, dict(r.headers)
             data = r.read(min(2 * 1024 * 1024, 10 * 1024 * 1024 - spent) + 1)
             if len(data) > min(2 * 1024 * 1024, 10 * 1024 * 1024 - spent):
@@ -35,7 +39,7 @@ def read(key, url, headers=None, ephemeral=False):
     except Exception as exc:
         error = f'{type(exc).__name__}: {exc}'
     if not ephemeral:
-        (OUT / (key + '.raw')).write_bytes(data)
+        (OUT / (key + '.raw')).write_bytes(redact_bytes(data)[0])
         spent += len(data)
     rows.append(dict(utc=at, key=key, url=url, status=status, bytes='' if ephemeral else len(data),
                      sha256='' if ephemeral else hashlib.sha256(data).hexdigest(),

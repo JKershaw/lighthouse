@@ -1,0 +1,42 @@
+{
+ "withheld": "body",
+ "file": "0190.b",
+ "date": "2026-11-09",
+ "by": "the scheduled run (schedule row use-reference-1)",
+ "why": "The site's robots.txt carries Cloudflare's Content-Signal with use=reference (\"index, excerpt, and link back\"); a whole copy in Lighthouse's public repository goes beyond that (studies/LH047, finding R4). Withheld under schedule row use-reference-1 by the scheduled run.",
+ "url": "https://jurnal.itg.ac.id/index.php/algoritma/oai?verb=Identify",
+ "service": "P18",
+ "kind": "probe",
+ "fetched_utc": "2026-11-08T19:25:06Z",
+ "http_status": 200,
+ "fetch_log": "studies/LH044/data/read-2026-11-08T1920Z/readlog.csv (n=190)",
+ "sha256_received": "fdce364d0ac26a620e4eeb8451e226caa8998cf99889ae81f72f9ca6331686a2",
+ "bytes_received": 1948,
+ "sha256_kept_until_withheld": "8b9c058ac0aacc520222161be9c3f77f9367b773707c14aba6a1990239cb5612",
+ "bytes_kept_until_withheld": 1968,
+ "kept_note": "two email addresses had been withheld from the kept copy (the keeper, 8 November 2026)",
+ "headers": "0190.h (kept unchanged)",
+ "content_signal": {
+  "line": "Content-Signal: search=yes,ai-train=no,use=reference",
+  "group": "User-agent: *",
+  "as_read": "studies/LH044/data/read-2026-11-08T1920Z/0189.b line 31 (read 2026-11-08T19:25:04Z)"
+ },
+ "extract": {
+  "marker": "<Identify>",
+  "repository_name": "<repositoryName>Jurnal Algoritma</repositoryName>",
+  "protocol_version": "<protocolVersion>2.0</protocolVersion>"
+ },
+ "derived": {
+  "classifier": "0.2",
+  "class": "open",
+  "detail": "marker",
+  "marker_found": true,
+  "echoes": [],
+  "note": "computed from the whole body before it was withheld; classes.csv row P18"
+ },
+ "used_by": [
+  "studies/LH044/data/read-2026-11-08T1920Z/classes.csv (P18)",
+  "studies/LH044/scripts/test_lh044.py",
+  "studies/LH044/review/ai_tokens_check-output.txt (P18)"
+ ]
+}

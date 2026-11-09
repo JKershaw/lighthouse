@@ -187,7 +187,7 @@ https://arxiv.org/abs/2609.07115
 
 ### S30 SecurityScorecard DECLAWED
 
-SecurityScorecard STRIKE's live dashboard of OpenClaw instances ("favicon hash and HTTP title fingerprinting" from its internet-wide scans). Its figures load from a path its robots.txt disallows to every agent, beside a block list naming AI agents' fetchers, so Lighthouse does not read its counts (LH042, Amendment 1, which records the requests made to that path before the whole robots.txt had been read). Page read 8 November 2026.
+SecurityScorecard STRIKE's live dashboard of OpenClaw instances ("favicon hash and HTTP title fingerprinting" from its internet-wide scans). Its figures load from a path its robots.txt disallows to every agent, beside a block list naming AI agents' fetchers, so Lighthouse does not read its counts (LH042, Amendment 1, which records the requests made to that path before the whole robots.txt had been read). Page read 8 November 2026; its body was withheld from the repository on 9 November 2026, since its Content-Signal asks for use=reference, and the quotation remains, with the page's hash, in studies/LH042/data/dash-2026-11-08T1909Z/001.withheld.json.
 
 https://declawed.io/
 
@@ -223,7 +223,7 @@ https://rdap.arin.net/registry/ip/
 
 ### S36 Operators' statements on automated load
 
-The operators' own accounts that LH044 codes in studies/LH044/statements/coded.csv: kernel.org, "creepy-crawlies" (29 August 2026); Wikimedia, its API rate-limits page (2026) and "How crawlers impact the operations of the Wikimedia projects" (1 April 2025); Read the Docs, "AI crawlers need to be more respectful" (25 July 2024); GitHub's changelog, "Updated rate limits for unauthenticated requests" (8 May 2025); COAR's Dealing With Bots resource and its June 2026 slides. Each is the operator's account. Read 8 November 2026, 19:29 to 19:30 UTC.
+The operators' own accounts that LH044 codes in studies/LH044/statements/coded.csv: kernel.org, "creepy-crawlies" (29 August 2026); Wikimedia, its API rate-limits page (2026) and "How crawlers impact the operations of the Wikimedia projects" (1 April 2025); Read the Docs, "AI crawlers need to be more respectful" (25 July 2024); GitHub's changelog, "Updated rate limits for unauthenticated requests" (8 May 2025); COAR's Dealing With Bots resource and its June 2026 slides. Each is the operator's account. Read 8 November 2026, 19:29 to 19:30 UTC. COAR's two bodies were withheld from the repository on 9 November 2026, since their Content-Signal asks for use=reference; the quotations remain, with each body's hash, in the .withheld.json files beside them.
 
 https://people.kernel.org/monsieuricon/creepy-crawlies
 https://www.mediawiki.org/wiki/Wikimedia_APIs/Rate_limits

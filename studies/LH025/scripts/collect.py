@@ -7,6 +7,10 @@ import json
 import re
 import urllib.error
 import urllib.request
+import os as _os, sys as _sys
+_sys.path.insert(0, _os.path.join(_os.path.dirname(_os.path.abspath(__file__)), '..', '..', '..', 'scripts'))
+from lh_fetch import urlopen, check as robots_check, NotFetched, UA  # noqa: E402  robots.txt gate (the keeper, 8 November 2026)
+from redact_emails import redact_bytes  # noqa: E402  email addresses withheld from kept bodies
 from datetime import datetime, timezone
 from pathlib import Path
 
@@ -42,8 +46,8 @@ def main():
         at = now()
         cap = min(1024 * 1024, 10 * 1024 * 1024 - retained)
         try:
-            request = urllib.request.Request(url, headers={'User-Agent': 'Lighthouse-LH025/0.1', **(headers or {})})
-            with urllib.request.urlopen(request, timeout=25) as response:
+            request = urllib.request.Request(url, headers={'User-Agent': UA, **(headers or {})})
+            with urlopen(request, timeout=25) as response:
                 status, hdr = response.status, dict(response.headers)
                 data = response.read(cap + 1)
                 if len(data) > cap:
@@ -55,7 +59,7 @@ def main():
         filename = f'{kind}_{repo}_{tag.replace(".", "_").replace("-", "_")}.raw'
         path = out / filename
         if not ephemeral:
-            path.write_bytes(data)
+            path.write_bytes(redact_bytes(data)[0])
             retained += len(data)
         limit = hdr.get('Ratelimit-Remaining', hdr.get('RateLimit-Remaining', ''))
         row = dict(utc=at, kind=kind, repository=repo, tag=tag, url=url, status=status,

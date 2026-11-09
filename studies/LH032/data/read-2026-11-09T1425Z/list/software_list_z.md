@@ -1,0 +1,12 @@
+# List of software with PHP dependency potentially affected by php2shell CVEs
+[About this list](README.md)
+
+[0-9](software_list_0-9.md) [A](software_list_a.md) [B](software_list_b.md) [C](software_list_c.md) [D](software_list_d.md) [E](software_list_e.md) [F](software_list_f.md) [G](software_list_g.md) [H](software_list_h.md) [I](software_list_i.md) [J](software_list_j.md) [K](software_list_k.md) [L](software_list_l.md) [M](software_list_m.md) [N](software_list_n.md) [O](software_list_o.md) [P](software_list_p.md) [Q](software_list_q.md) [R](software_list_r.md) [S](software_list_s.md) [T](software_list_t.md) [U](software_list_u.md) [V](software_list_v.md) [W](software_list_w.md) [X](software_list_x.md) [Y](software_list_y.md) [Z](software_list_z.md)
+
+### Z
+
+| Supplier | Product | Version (see Status) | Status CVE-2026-109618 | Status CVE-2026-109619 | Notes | Links |
+|:---------|:--------|:--------------------:|:----------------------:|:----------------------:|:------|------:|
+|Zabbix|Zabbix web frontend||Vulnerable|Vulnerable|CVE assessment: Affected when deployed on an affected web-serving PHP runtime; product evidence establishes a PHP web application, web interface, web service or HTTP framework scope, and the PHP defect is below the application layer.<br>The 7.4 guide identifies the PHP frontend, its PHP version range and conditional authentication/database modules separately from native server/proxy/agent requirements.|[source 1](<https://www.zabbix.com/documentation/7.4/en/manual/installation/frontend>)<br>[source 2](<https://www.zabbix.com/documentation/7.4/en/manual/installation/requirements>)|
+|Zen Cart project|Zen Cart||Vulnerable|Vulnerable|CVE assessment: Affected when deployed on an affected web-serving PHP runtime; product evidence establishes a PHP web application, web interface, web service or HTTP framework scope, and the PHP defect is below the application layer.<br>Official requirements distinguish core release compatibility, the 1.5.8 installer exception and extension introduction dates.|[source](<https://docs.zen-cart.com/user/first_steps/server_requirements/>)|
+|ZoneMinder project|ZoneMinder PHP web and API components||Investigation|Investigation|CVE assessment: PHP relationship confirmed; CVE match unknown<br>The official packaging spec separately declares PHP dependencies for web frontends.|[source](<https://github.com/ZoneMinder/zoneminder/blob/master/distros/redhat/zoneminder.spec>)|

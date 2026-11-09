@@ -12,6 +12,10 @@ Each query's UTC time, text, HTTP status and rows are logged below; the rows are
 x2_requery_data/. No key or credential; the public `demo` user, through the session's proxy, via curl.
 Output: x2_requery.txt.  Run: python3 studies/LH011/review/x2_requery.py"""
 import csv, datetime, io, os, subprocess
+import os as _os, sys as _sys
+_sys.path.insert(0, _os.path.join(_os.path.dirname(_os.path.abspath(__file__)), '..', '..', '..', '..', 'scripts'))
+from lh_fetch import urlopen, check as robots_check, NotFetched, UA  # noqa: E402  robots.txt gate (the keeper, 8 November 2026)
+from redact_emails import redact_bytes  # noqa: E402  email addresses withheld from kept bodies
 from collections import defaultdict
 from packaging.version import Version
 
@@ -34,9 +38,13 @@ with open(os.path.join(DATA, 'pypi_versions.csv')) as f:
 def query(label, sql, out):
     t = datetime.datetime.now(datetime.timezone.utc).strftime('%Y-%m-%dT%H:%M:%SZ')
     sql = ' '.join(sql.split()) + ' FORMAT CSVWithNames'
-    p = subprocess.run(['curl', '-sS', '-w', '\n%{http_code}', URL, '--data-binary', '@-'],
+    ok, info = robots_check(URL)  # the robots.txt gate (the keeper, 8 November 2026)
+    if not ok:  # not requested: this re-read stops here, a missing reading and never a negative
+        raise SystemExit('not fetched: %s %s (robots %s, status %s, group %s, rule %s)' % (URL, info.get('reason'),
+                         info.get('robots_url'), info.get('robots_status'), info.get('decided_by', ''), info.get('rule', '')))
+    p = subprocess.run(['curl', '-sS', '-A', UA, '-w', '\n%{http_code}', URL, '--data-binary', '@-'],
                        input=sql.encode(), capture_output=True, timeout=120)
-    body, _, status = p.stdout.decode('utf-8', 'replace').rpartition('\n')
+    body, _, status = redact_bytes(p.stdout)[0].decode('utf-8', 'replace').rpartition('\n')
     rows = list(csv.DictReader(io.StringIO(body))) if status.strip() == '200' else []
     say(f'[{label} {t}] HTTP {status.strip()}, {len(rows)} rows: {sql}')
     if rows:

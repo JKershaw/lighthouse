@@ -7,6 +7,10 @@ import json
 import re
 import urllib.error
 import urllib.request
+import os as _os, sys as _sys
+_sys.path.insert(0, _os.path.join(_os.path.dirname(_os.path.abspath(__file__)), '..', '..', '..', 'scripts'))
+from lh_fetch import urlopen, check as robots_check, NotFetched, UA  # noqa: E402  robots.txt gate (the keeper, 8 November 2026)
+from redact_emails import redact_bytes  # noqa: E402  email addresses withheld from kept bodies
 from concurrent.futures import ThreadPoolExecutor
 from datetime import datetime, timezone
 from html.parser import HTMLParser
@@ -54,9 +58,9 @@ def fetch(item):
     started = datetime.now(timezone.utc).isoformat(timespec='seconds').replace('+00:00', 'Z')
     status, data, hdr, final, error = '', b'', {}, '', ''
     try:
-        request = urllib.request.Request(url, headers={'User-Agent': 'Lighthouse-LH024/0.1',
+        request = urllib.request.Request(url, headers={'User-Agent': UA,
                                                        'Accept': 'text/html,application/xhtml+xml'})
-        with urllib.request.urlopen(request, timeout=22) as response:
+        with urlopen(request, timeout=22) as response:
             status, hdr, final = response.status, dict(response.headers), response.url
             data = response.read(CAP + 1)
     except urllib.error.HTTPError as exc:
@@ -74,7 +78,7 @@ def fetch(item):
     except Exception:
         pass
     if role != 'media':
-        (OUT / (key + '.raw')).write_bytes(data)
+        (OUT / (key + '.raw')).write_bytes(redact_bytes(data)[0])
     row = dict(observed_at_utc=started, key=key, role=role, url=url, final_url=final,
                status=status, bytes_retained=len(data), sha256_retained=hashlib.sha256(data).hexdigest(),
                raw_retained=(role != 'media'), title=html.unescape(metadata.meta.get('og:title') or metadata.title.strip())[:250],

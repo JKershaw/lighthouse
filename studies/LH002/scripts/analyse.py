@@ -8,6 +8,10 @@ gharchive_hour.py. Publishes no name, handle or address.
 Usage: python3 analyse.py <scratch_dir> <study_dir>
 """
 import collections, csv, datetime as dt, json, os, re, subprocess, sys
+import os as _os, sys as _sys
+_sys.path.insert(0, _os.path.join(_os.path.dirname(_os.path.abspath(__file__)), '..', '..', '..', 'scripts'))
+from lh_fetch import urlopen, check as robots_check, NotFetched, UA  # noqa: E402  robots.txt gate (the keeper, 8 November 2026)
+from redact_emails import redact_bytes  # noqa: E402  email addresses withheld from kept bodies
 S, STUDY = sys.argv[1:3]
 DATA = os.path.join(STUDY, 'data'); CL = os.path.join(S, 'clones')
 UTC = dt.timezone.utc
@@ -137,7 +141,14 @@ write('ai_tool_trailers.csv', [dict(repo=r, tool_named_in_trailer=t, commits=n) 
 hour0 = dt.datetime(2026, 4, 2, 14, tzinfo=UTC); hour1 = hour0 + dt.timedelta(hours=1)
 gha = json.load(open(os.path.join(S, 'gharchive_2026-04-02-14_cohort_events.json')))
 hrows = []
+SLUG = dict(l.split() for l in open(os.path.join(S, 'repos.txt')) if l.strip())
 for rid in [f'R{i:02d}' for i in range(10)]:
+    # A partial clone fetches a missing object from GitHub on demand: ask the robots.txt gate first. If the
+    # repository's URL is not allowed, git is told not to fetch, and the by-hash readings are missing, not negatives.
+    lazy_ok, rinfo = robots_check(f'https://github.com/{SLUG[rid]}.git')
+    genv = None if lazy_ok else dict(os.environ, GIT_NO_LAZY_FETCH='1')
+    if not lazy_ok:
+        print(f'{rid}: not fetched: {rinfo.get("reason")} (group {rinfo.get("decided_by", "")}, rule {rinfo.get("rule", "")})', file=sys.stderr)
     git_commits = [c for c in raw if c['repo'] == rid and hour0 <= ts(c['ct']) < hour1]
     ev = [e for e in gha if e['repo'] == rid]
     pushes = [e for e in ev if e['type'] == 'PushEvent']
@@ -150,16 +161,18 @@ for rid in [f'R{i:02d}' for i in range(10)]:
         reach = bool(subprocess.run(['git', '-C', repo, 'for-each-ref', '--contains', e['head'], '--format=x'], capture_output=True, text=True).stdout.strip())
         heads_reachable += reach
         # retrievable by hash: in a partial clone this fetches the object from GitHub on demand
-        ok = subprocess.run(['git', '-C', repo, 'cat-file', '-e', e['head'] + '^{commit}'], capture_output=True).returncode == 0
+        ok = subprocess.run(['git', '-C', repo, 'cat-file', '-e', e['head'] + '^{commit}'], capture_output=True, env=genv).returncode == 0
         heads_by_hash += ok
         if ok:
-            n = subprocess.run(['git', '-C', repo, 'rev-list', '--count', f"{e['before']}..{e['head']}"], capture_output=True, text=True).stdout.strip()
+            n = subprocess.run(['git', '-C', repo, 'rev-list', '--count', f"{e['before']}..{e['head']}"], capture_output=True, text=True, env=genv).stdout.strip()
             pushed_commits += int(n or 0)
-            heads_on_default += subprocess.run(['git', '-C', repo, 'merge-base', '--is-ancestor', e['head'], dflt]).returncode == 0
+            heads_on_default += subprocess.run(['git', '-C', repo, 'merge-base', '--is-ancestor', e['head'], dflt], env=genv).returncode == 0
     hrows.append(dict(repo=rid, gharchive_events=len(ev), gharchive_push_events=len(pushes),
                       gharchive_other_events=';'.join(sorted({e['type'] for e in ev if e['type'] != 'PushEvent'})),
-                      push_heads_reachable_from_refs=heads_reachable, push_heads_retrievable_by_hash=heads_by_hash, commits_in_pushes_per_git=pushed_commits,
-                      push_heads_now_on_default_branch=heads_on_default,
+                      push_heads_reachable_from_refs=heads_reachable,
+                      push_heads_retrievable_by_hash=heads_by_hash if lazy_ok else 'not fetched (robots.txt)',
+                      commits_in_pushes_per_git=pushed_commits if lazy_ok else '',
+                      push_heads_now_on_default_branch=heads_on_default if lazy_ok else '',
                       git_commits_with_committer_time_in_hour=len(git_commits),
                       git_commits_in_hour_on_default_branch=sum(c['default'] for c in git_commits)))
 write('gharchive_hour_vs_git.csv', hrows)

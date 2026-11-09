@@ -15,15 +15,17 @@ from datetime import datetime, timezone
 from hashlib import sha256
 from pathlib import Path
 from urllib.error import HTTPError
-from urllib.request import Request, urlopen
+from urllib.request import Request
 import argparse
 import csv
 import json
 import os
 import ssl
+import os as _os, sys as _sys
+_sys.path.insert(0, _os.path.join(_os.path.dirname(_os.path.abspath(__file__)), '..', '..', '..', 'scripts'))
+from lh_fetch import urlopen, redacted, UA  # noqa: E402  robots.txt gate (the keeper, 8 November 2026)
 
 ROOT = Path(__file__).resolve().parents[1]
-UA = 'Lighthouse-research/1.0'
 CA = '/root/.ccr/ca-bundle.crt'
 CTX = ssl.create_default_context(cafile=CA) if os.path.exists(CA) else ssl.create_default_context()
 CH = 'https://sql-clickhouse.clickhouse.com/?user=demo&default_format=CSVWithNames'
@@ -113,7 +115,7 @@ def fetch(name, url, body, out, rows):
         row.update(status='error: ' + type(err).__name__ + ': ' + str(err)[:200], content_type='')
     row.update(size=len(payload), sha256=sha256(payload).hexdigest() if payload else '')
     if payload:
-        (out / (name + '.raw')).write_bytes(payload[:CEILING_BYTES])
+        (out / (name + '.raw')).write_bytes(redacted(payload[:CEILING_BYTES]))
     rows.append(row)
     print(json.dumps({k: row.get(k) for k in ('name', 'status', 'size', 'read_rows')}), flush=True)
 

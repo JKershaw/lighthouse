@@ -4,9 +4,12 @@ from datetime import datetime, timezone
 from hashlib import sha256
 from pathlib import Path
 from urllib.error import HTTPError
-from urllib.request import Request, urlopen
+from urllib.request import Request
 import argparse
 import json
+import os as _os, sys as _sys
+_sys.path.insert(0, _os.path.join(_os.path.dirname(_os.path.abspath(__file__)), '..', '..', '..', 'scripts'))
+from lh_fetch import urlopen, redacted, UA  # noqa: E402  robots.txt gate (the keeper, 8 November 2026)
 
 ROOT = Path(__file__).resolve().parents[1]
 PANEL = json.loads((ROOT / 'panel.json').read_text())
@@ -26,7 +29,7 @@ for group, key, index, url in targets:
     name = f'{key}_{index}'
     row = {'group': group, 'source': key, 'name': name, 'url': url, 'start_utc': datetime.now(timezone.utc).isoformat()}
     try:
-        request = Request(url, headers={'User-Agent': 'Mozilla/5.0 (compatible; Lighthouse research observation)'})
+        request = Request(url, headers={'User-Agent': UA})
         try:
             response = urlopen(request, timeout=25)
         except HTTPError as error:
@@ -38,7 +41,7 @@ for group, key, index, url in targets:
                        last_modified=response.headers.get('Last-Modified', ''), bytes=len(body),
                        sha256=sha256(body).hexdigest())
             if len(body) <= 1024 * 1024:
-                (OUT / (name + '.raw')).write_bytes(body)
+                (OUT / (name + '.raw')).write_bytes(redacted(body))
                 row['file'] = name + '.raw'
             else:
                 row['error'] = 'over 1 MiB ceiling; no body retained'

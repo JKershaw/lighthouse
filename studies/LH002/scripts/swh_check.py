@@ -10,6 +10,10 @@ hold the release tag v1.27.0 and the v1.x branch.
 Usage: python3 swh_check.py <scratch_dir> <study_dir>
 """
 import csv, json, os, subprocess, sys, time, urllib.request, urllib.error
+import os as _os, sys as _sys
+_sys.path.insert(0, _os.path.join(_os.path.dirname(_os.path.abspath(__file__)), '..', '..', '..', 'scripts'))
+from lh_fetch import urlopen, check as robots_check, NotFetched, UA  # noqa: E402  robots.txt gate (the keeper, 8 November 2026)
+from redact_emails import redact_bytes  # noqa: E402  email addresses withheld from kept bodies
 S, STUDY = sys.argv[1:3]
 API = 'https://archive.softwareheritage.org/api/1'
 RAW = os.path.join(S, 'raw', 'swh'); os.makedirs(RAW, exist_ok=True)
@@ -20,8 +24,9 @@ def get(url, name):
     path = os.path.join(RAW, name)
     if not os.path.exists(path):
         try:
-            with urllib.request.urlopen(url, timeout=60) as r:
-                body = {'_status': r.status, 'data': json.load(r)}
+            # robots.txt gate: a disallowed URL raises NotFetched and stops the run (a missing reading, never a negative)
+            with urlopen(urllib.request.Request(url, headers={'User-Agent': UA}), timeout=60) as r:
+                body = {'_status': r.status, 'data': json.loads(redact_bytes(r.read())[0])}
         except urllib.error.HTTPError as e:
             body = {'_status': e.code, 'data': None}
         json.dump(body, open(path, 'w')); time.sleep(0.5)

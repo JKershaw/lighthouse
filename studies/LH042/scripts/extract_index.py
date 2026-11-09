@@ -19,7 +19,9 @@ def main(d, n="001"):
     d = pathlib.Path(d)
     if not d.is_absolute():
         d = HERE.parent / d
-    t = re.sub(r"\s+", " ", text_of((d / f"{n}.body").read_bytes()))
+    body = d / f"{n}.body"
+    local = pathlib.Path(str(body) + ".withheld-local")   # body withheld for use=reference: this run's copy
+    t = re.sub(r"\s+", " ", text_of((local if local.exists() else body).read_bytes()))
     asof = re.search(r"As of ([A-Z][a-z]+ \d{1,2}, 20\d\d)", t)
     seg = t.split("Recent sweeps", 1)[1].split("Top countries", 1)[0]
     rows = []

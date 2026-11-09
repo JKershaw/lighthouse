@@ -6,6 +6,9 @@ One GET per URL, bodies kept as fetched under data/raw-<label>/ with readlog.csv
 Usage: python3 studies/LH039/scripts/collect.py --read 2026-11-08T1415Z
 """
 import argparse, csv, datetime, hashlib, os, sys, urllib.request
+import os as _os, sys as _sys
+_sys.path.insert(0, _os.path.join(_os.path.dirname(_os.path.abspath(__file__)), '..', '..', '..', 'scripts'))
+from lh_fetch import urlopen, redacted, UA  # noqa: E402  robots.txt gate (the keeper, 8 November 2026)
 
 URLS = [
     ("stats-1", "https://api.wordpress.org/stats/wordpress/1.0/"),
@@ -46,13 +49,13 @@ def main():
         w = csv.writer(f); w.writerow(["name", "url", "utc_start", "status", "content_type", "size", "sha256"])
         for name, url in URLS:
             t = datetime.datetime.now(datetime.timezone.utc).strftime("%Y-%m-%dT%H:%M:%SZ")
-            req = urllib.request.Request(url, headers={"User-Agent": "Lighthouse-research/1.0"})
+            req = urllib.request.Request(url, headers={"User-Agent": UA})
             try:
-                with urllib.request.urlopen(req, timeout=60) as r:
+                with urlopen(req, timeout=60) as r:
                     body = r.read(4 << 20); status = r.status; ct = r.headers.get("Content-Type", "")
             except Exception as e:
                 body = str(e).encode(); status = getattr(e, "code", "error"); ct = ""
-            open(os.path.join(d, name + ".body"), "wb").write(body)
+            open(os.path.join(d, name + ".body"), "wb").write(redacted(body))
             w.writerow([name, url, t, status, ct, len(body), hashlib.sha256(body).hexdigest()])
             print(name, status, len(body))
 

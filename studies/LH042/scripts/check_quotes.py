@@ -3,7 +3,7 @@
 its retained body (after converting HTML to text and collapsing whitespace and
 quote marks), and that each admitted count's figure appears in its quotation.
 Usage: python3 -I studies/LH042/scripts/check_quotes.py"""
-import csv, pathlib, re, sys
+import csv, json, pathlib, re, sys
 HERE = pathlib.Path(__file__).resolve().parent
 sys.path.insert(0, str(HERE))
 from totext import text_of
@@ -16,8 +16,16 @@ def norm(s):
 
 cache = {}
 def body_text(src):
+    """The retained body's text; for a body withheld for use=reference (amendment of 9 November
+    2026), this run's local copy if present, else the quotations kept in its .withheld.json."""
     if src not in cache:
-        cache[src] = norm(text_of((DATA / (src + ".body")).read_bytes()))
+        body = DATA / (src + ".body")
+        rec = DATA / (src + ".withheld.json")
+        local = pathlib.Path(str(body) + ".withheld-local")
+        if rec.exists() and not local.exists():
+            cache[src] = norm(" | ".join(str(v) for v in json.loads(rec.read_text()).get("extract", {}).values()))
+        else:
+            cache[src] = norm(text_of((local if local.exists() else body).read_bytes()))
     return cache[src]
 
 bad = 0

@@ -10,6 +10,10 @@ its provenance, which types the package-to-repository link.
 Usage: python3 collect_depsdev.py <scratch_dir> <study_dir>
 """
 import csv, json, os, sys, time, urllib.parse, urllib.request
+import os as _os, sys as _sys
+_sys.path.insert(0, _os.path.join(_os.path.dirname(_os.path.abspath(__file__)), '..', '..', '..', 'scripts'))
+from lh_fetch import urlopen, check as robots_check, NotFetched, UA  # noqa: E402  robots.txt gate (the keeper, 8 November 2026)
+from redact_emails import redact_bytes  # noqa: E402  email addresses withheld from kept bodies
 
 S, STUDY = sys.argv[1:3]
 RAW = os.path.join(S, 'raw', 'depsdev'); os.makedirs(RAW, exist_ok=True)
@@ -25,8 +29,9 @@ q = lambda s: urllib.parse.quote(s, safe='')
 def get(url, path):
     if not os.path.exists(path):
         try:
-            with urllib.request.urlopen(url, timeout=60) as r:
-                open(path, 'wb').write(r.read())
+            # robots.txt gate: a disallowed URL raises NotFetched and stops the run (a missing reading, never a negative)
+            with urlopen(urllib.request.Request(url, headers={'User-Agent': UA}), timeout=60) as r:
+                open(path, 'wb').write(redact_bytes(r.read())[0])
         except urllib.error.HTTPError as e:
             json.dump({'_http_error': e.code}, open(path, 'w'))
         time.sleep(0.2)

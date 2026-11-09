@@ -1,0 +1,259 @@
+[
+  {
+    "group": "signals",
+    "name": "cve_org",
+    "url": "https://cveawg.mitre.org/api/cve/CVE-2026-98432",
+    "start_utc": "2026-11-09T14:30:57.500004+00:00",
+    "robots": {
+      "robots_url": "https://cveawg.mitre.org/robots.txt",
+      "robots_status": 404,
+      "robots_sha256": "fcc374e694086c781cb8aa809e10913dd195129d5d9efded031fe2761bb20244",
+      "provider": "anthropic",
+      "reason": "robots.txt answered 404: no rules"
+    },
+    "finish_utc": "2026-11-09T14:30:58.011908+00:00",
+    "status": 200,
+    "final_url": "https://cveawg.mitre.org/api/cve/CVE-2026-98432",
+    "content_type": "application/json; charset=utf-8",
+    "last_modified": "",
+    "bytes": 9799,
+    "sha256": "fb634038ae5ae0cc849197537192a136ba08f9cd6b61b14f3c4964ee73fdb6a6",
+    "file": "cve_org.raw.gz"
+  },
+  {
+    "group": "signals",
+    "name": "nvd",
+    "url": "https://services.nvd.nist.gov/rest/json/cves/2.0?cveId=CVE-2026-98432",
+    "start_utc": "2026-11-09T14:30:58.014231+00:00",
+    "robots": {
+      "robots_url": "https://services.nvd.nist.gov/robots.txt",
+      "robots_status": 404,
+      "robots_sha256": "4457831418c9ed13d6c2cf445d266240bf18225eeff3d56893281762a98a4f95",
+      "provider": "anthropic",
+      "reason": "robots.txt answered 404: no rules"
+    },
+    "finish_utc": "2026-11-09T14:30:58.576164+00:00",
+    "status": 200,
+    "final_url": "https://services.nvd.nist.gov/rest/json/cves/2.0?cveId=CVE-2026-98432",
+    "content_type": "application/json",
+    "last_modified": "",
+    "bytes": 7188,
+    "sha256": "a9832b96ba1984a4c2fd075fe5873c6702d458bb3324d0225947b392021d0015",
+    "file": "nvd.raw.gz"
+  },
+  {
+    "group": "signals",
+    "name": "osv",
+    "url": "https://api.osv.dev/v1/vulns/CVE-2026-98432",
+    "start_utc": "2026-11-09T14:30:58.577586+00:00",
+    "robots": {
+      "robots_url": "https://api.osv.dev/robots.txt",
+      "robots_status": 404,
+      "robots_sha256": "503279a5dae7a157195c221e6c9c6d33490eba8c6e57083c128328eb6eae1617",
+      "provider": "anthropic",
+      "reason": "robots.txt answered 404: no rules"
+    },
+    "finish_utc": "2026-11-09T14:30:59.045485+00:00",
+    "status": 200,
+    "final_url": "https://api.osv.dev/v1/vulns/CVE-2026-98432",
+    "content_type": "application/json",
+    "last_modified": "",
+    "bytes": 8371,
+    "sha256": "de31e83be24a3ed6461267d9a7990536a1aba5f414ec981d7ab30b4e54efa119",
+    "file": "osv.raw.gz"
+  },
+  {
+    "group": "signals",
+    "name": "epss",
+    "url": "https://api.first.org/data/v1/epss?cve=CVE-2026-98432&scope=time-series",
+    "start_utc": "2026-11-09T14:30:59.047530+00:00",
+    "robots": {
+      "robots_url": "https://api.first.org/robots.txt",
+      "robots_status": 404,
+      "robots_sha256": "2c5de5794fda903b4e869e9ae3224d3fa5fc9481c344d717d5d06d542b244b56",
+      "provider": "anthropic",
+      "reason": "robots.txt answered 404: no rules"
+    },
+    "finish_utc": "2026-11-09T14:30:59.438328+00:00",
+    "status": 200,
+    "final_url": "https://api.first.org/data/v1/epss?cve=CVE-2026-98432&scope=time-series",
+    "content_type": "application/json; charset=utf-8",
+    "last_modified": "",
+    "bytes": 1785,
+    "sha256": "0ad2088babd64ebc7c9cd6a960cd764feb5a954cc3a2de93550cf62822bd3442",
+    "file": "epss.raw.gz"
+  },
+  {
+    "group": "signals",
+    "name": "kev",
+    "url": "https://www.cisa.gov/sites/default/files/feeds/known_exploited_vulnerabilities.json",
+    "start_utc": "2026-11-09T14:30:59.439073+00:00",
+    "robots": {
+      "robots_url": "https://www.cisa.gov/robots.txt",
+      "robots_status": 403,
+      "robots_sha256": "9485a33d8d411b539080b0c8135fd6436f49747edd1d82140760723e7f2a6297",
+      "provider": "anthropic",
+      "reason": "robots.txt answered 403: no rules"
+    },
+    "finish_utc": "2026-11-09T14:31:00.239296+00:00",
+    "status": 200,
+    "final_url": "https://www.cisa.gov/sites/default/files/feeds/known_exploited_vulnerabilities.json",
+    "content_type": "application/json",
+    "last_modified": "Fri, 06 Nov 2026 19:44:45 GMT",
+    "bytes": 1832349,
+    "sha256": "47e0406b2be5a40420eff66f3d90e83eb8883dae6ff4d08e1b2a942c366f6cc2",
+    "file": "kev.raw.gz"
+  },
+  {
+    "group": "fixes",
+    "name": "debian",
+    "url": "https://security-tracker.debian.org/tracker/CVE-2026-98432",
+    "start_utc": "2026-11-09T14:31:00.505804+00:00",
+    "robots": {
+      "robots_url": "https://security-tracker.debian.org/robots.txt",
+      "robots_status": 404,
+      "robots_sha256": "503bdbc043e63a4e06173ef99fea784adcf9f7047eff8b6ef7f0de1c99074a2d",
+      "provider": "anthropic",
+      "reason": "robots.txt answered 404: no rules"
+    },
+    "finish_utc": "2026-11-09T14:31:00.977153+00:00",
+    "status": 200,
+    "final_url": "https://security-tracker.debian.org/tracker/CVE-2026-98432",
+    "content_type": "text/html; charset=UTF-8",
+    "last_modified": "",
+    "bytes": 6949,
+    "sha256": "b2ecbd9d57448d2f58d3b68baf9b85bcfc51e16c4a7b7a02bbbb2b98a68eb75e",
+    "file": "debian.raw.gz"
+  },
+  {
+    "group": "fixes",
+    "name": "ubuntu",
+    "url": "https://ubuntu.com/security/cves/CVE-2026-98432.json",
+    "start_utc": "2026-11-09T14:31:00.978972+00:00",
+    "robots": {
+      "robots_url": "https://ubuntu.com/robots.txt",
+      "robots_status": 200,
+      "robots_sha256": "aab936ae074e1cf70e1e9cd3ff99efa91cac964d37b8e6ae5b695580c9adb5ae",
+      "provider": "anthropic",
+      "decided_by": "ClaudeBot",
+      "rule": "Allow: /security",
+      "reason": "allowed by robots.txt"
+    },
+    "finish_utc": "2026-11-09T14:31:02.249415+00:00",
+    "status": 200,
+    "final_url": "https://ubuntu.com/security/cves/CVE-2026-98432.json",
+    "content_type": "application/json",
+    "last_modified": "",
+    "bytes": 219994,
+    "sha256": "24fc231480094568296be3ca95fb2f6c639b27bc0e61d9a9419cbc68cf94085a",
+    "file": "ubuntu.raw.gz"
+  },
+  {
+    "group": "fixes",
+    "name": "redhat",
+    "url": "https://access.redhat.com/hydra/rest/securitydata/cve/CVE-2026-98432.json",
+    "start_utc": "2026-11-09T14:31:02.274687+00:00",
+    "robots": {
+      "robots_url": "https://access.redhat.com/robots.txt",
+      "robots_status": 200,
+      "robots_sha256": "b24da2e98556900cae0db111a470baa3672e3ed420eb66c9d48ca42a9cc96f02",
+      "provider": "anthropic",
+      "decided_by": "*",
+      "rule": "None",
+      "reason": "allowed by robots.txt"
+    },
+    "finish_utc": "2026-11-09T14:31:03.206570+00:00",
+    "status": 200,
+    "final_url": "https://access.redhat.com/hydra/rest/securitydata/cve/CVE-2026-98432.json",
+    "content_type": "application/json",
+    "last_modified": "",
+    "bytes": 11289,
+    "sha256": "65d0c30885bfb209cb5607bea857994280148738bf1861346c6ca8e85d72d6fe",
+    "file": "redhat.raw.gz"
+  },
+  {
+    "group": "fixes",
+    "name": "suse",
+    "url": "https://www.suse.com/security/cve/CVE-2026-98432.html",
+    "start_utc": "2026-11-09T14:31:03.208142+00:00",
+    "robots": {
+      "robots_url": "https://www.suse.com/robots.txt",
+      "robots_status": 200,
+      "robots_sha256": "b4c0817fe99a48acb630f2c987aae548c755af5c783d5033ce71c7c62d2320af",
+      "provider": "anthropic",
+      "decided_by": "*",
+      "rule": "Allow: /",
+      "reason": "allowed by robots.txt"
+    },
+    "finish_utc": "2026-11-09T14:31:04.083643+00:00",
+    "status": 200,
+    "final_url": "https://www.suse.com/security/cve/CVE-2026-98432.html",
+    "content_type": "text/html",
+    "last_modified": "Mon, 09 Nov 2026 11:13:11 GMT",
+    "bytes": 361236,
+    "sha256": "e57d9baf8015d7e6ff643387403f402274a1c6acad8b9bc1327a36728b4d34c4",
+    "file": "suse.raw.gz"
+  },
+  {
+    "group": "pages",
+    "name": "anthropic",
+    "url": "https://www.anthropic.com/research/discovering-vulnerabilities-with-claude",
+    "start_utc": "2026-11-09T14:31:04.164761+00:00",
+    "robots": {
+      "robots_url": "https://www.anthropic.com/robots.txt",
+      "robots_status": 200,
+      "robots_sha256": "b8bb03567cf862a9024bd464bd4bd7afaf054b1029de79727b2ba94711480ec7",
+      "provider": "anthropic",
+      "decided_by": "*",
+      "rule": "Allow: /",
+      "reason": "allowed by robots.txt"
+    },
+    "finish_utc": "2026-11-09T14:31:04.710010+00:00",
+    "status": 200,
+    "final_url": "https://www.anthropic.com/research/discovering-vulnerabilities-with-claude",
+    "content_type": "text/html; charset=utf-8",
+    "last_modified": "",
+    "bytes": 176338,
+    "sha256": "0b598185e31f537082165c921d8eb4d26b71e1556479711b82489c4eacd10aca",
+    "file": "anthropic.raw.gz"
+  },
+  {
+    "group": "pages",
+    "name": "almalinux",
+    "url": "https://almalinux.org/blog/2026-10-30-cve-2026-98432/",
+    "start_utc": "2026-11-09T14:31:04.737383+00:00",
+    "robots": {
+      "robots_url": "https://almalinux.org/robots.txt",
+      "robots_status": 200,
+      "robots_sha256": "d595966780c20fce31b90b5399ee20b7d86cd601bce87b45451e19617a1a3c39",
+      "provider": "anthropic",
+      "decided_by": "*",
+      "rule": "Allow: /",
+      "reason": "allowed by robots.txt"
+    },
+    "finish_utc": "2026-11-09T14:31:05.370585+00:00",
+    "status": 200,
+    "final_url": "https://almalinux.org/blog/2026-10-30-cve-2026-98432/",
+    "content_type": "text/html; charset=utf-8",
+    "last_modified": "",
+    "bytes": 43143,
+    "sha256": "e870fbe7b4012db85da201151082d3a2537c9cc2bf8ea2dadc225f01b2ec547e",
+    "file": "almalinux.raw.gz"
+  },
+  {
+    "group": "pages",
+    "name": "kernel_announcement",
+    "url": "https://git.kernel.org/pub/scm/linux/security/vulns.git/plain/cve/published/2026/CVE-2026-98432.mbox",
+    "start_utc": "2026-11-09T14:31:05.375838+00:00",
+    "robots": {
+      "robots_url": "https://git.kernel.org/robots.txt",
+      "robots_status": 200,
+      "robots_sha256": "e7c9d8ab803235ba162d0957c6be02270e11d8c79f2a457a650ebbb090130594",
+      "provider": "anthropic",
+      "decided_by": "ClaudeBot",
+      "rule": "Disallow: /",
+      "reason": "disallowed by robots.txt"
+    },
+    "error": "not fetched: disallowed by robots.txt"
+  }
+]

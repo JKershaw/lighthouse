@@ -15,8 +15,17 @@ data/<label>/readlog.csv gets one row per URL: n, url, start_utc, robots,
 http_status, bytes, sha256_as_fetched, sha256_saved, final_url, content_type,
 ipv4_redacted (how many addresses were replaced), emails_redacted
 (email addresses withheld with scripts/redact_emails.py, added 8 November 2026
-after rounds 1 to 5, whose bodies were redacted in place afterwards), error. robots.txt is read once per host and a disallowed URL is not
-fetched. The client names itself honestly and sends no cookies, keys or email.
+after rounds 1 to 5, whose bodies were redacted in place afterwards), error. robots.txt is read once per host through scripts/robots_gate.py (the keeper's rule
+of 8 November 2026; from the robots sweep of 9 November 2026 it replaced urllib.robotparser checked
+for this collector's own User-Agent): a URL it disallows, or whose robots.txt answers 5xx or cannot
+be read (RFC 9309: complete disallow), is not fetched, and the robots column gives the reason with
+the deciding group and rule. The client names itself honestly and sends no cookies, keys or email.
+
+From 9 November 2026 (brief, amendment of that date; scripts/content_signal.py): where the robots.txt
+the gate read, or a response header, carries a Content-Signal asking for use=reference or
+use=immediate, a 2xx body is not kept: NNN.body holds a placeholder, NNN.withheld.json the sha256
+of the bytes received, the signal as read and the page title, and NNN.body.withheld-local the whole
+redacted body for this run only (git ignores it), so the brief's extract can be taken from it.
 """
 import argparse
 import csv
@@ -30,12 +39,14 @@ import time
 import urllib.error
 import urllib.parse
 import urllib.request
-import urllib.robotparser
 
 sys.path.insert(0, str(pathlib.Path(__file__).resolve().parents[3] / "scripts"))
 from redact_emails import redact_bytes  # noqa: E402
+from robots_gate import RobotsGate  # noqa: E402  the keeper's robots.txt rule, 8 November 2026
+import content_signal  # noqa: E402  use=reference honoured from the next read (amendment, 9 November 2026)
 
-UA = "Lighthouse-research/1.0 (+https://lighthouse.harbour.cat)"
+UA = "Mozilla/5.0 (compatible; Lighthouse-research/1.0; +https://lighthouse.harbour.cat)"  # was "Lighthouse-research/1.0 (+https://lighthouse.harbour.cat)" until 9 November 2026
+GATE = RobotsGate(UA)
 HERE = pathlib.Path(__file__).resolve().parent
 DATA = HERE.parent / "data"
 IPV4 = re.compile(rb"(?<![\d.])(?:\d{1,3}\.){3}\d{1,3}(?![\d.])")
@@ -45,25 +56,14 @@ def now():
     return dt.datetime.now(dt.timezone.utc).strftime("%Y-%m-%dT%H:%M:%SZ")
 
 
-def robots_ok(url, cache, ctx):
-    p = urllib.parse.urlsplit(url)
-    root = f"{p.scheme}://{p.netloc}"
-    if root not in cache:
-        rp = urllib.robotparser.RobotFileParser()
-        try:
-            req = urllib.request.Request(root + "/robots.txt", headers={"User-Agent": UA})
-            with urllib.request.urlopen(req, timeout=30, context=ctx) as r:
-                rp.parse(r.read().decode("utf-8", "replace").splitlines())
-            cache[root] = ("read", rp)
-        except urllib.error.HTTPError as e:
-            # 4xx: no robots file, everything allowed (the convention); 5xx: unknown, fetch anyway and say so
-            cache[root] = (f"robots {e.code}", None)
-        except Exception as e:  # unreachable robots.txt
-            cache[root] = (f"robots unreadable ({type(e).__name__})", None)
-    state, rp = cache[root]
-    if rp is None:
-        return True, state
-    return rp.can_fetch(UA, url), ("allowed" if rp.can_fetch(UA, url) else "disallowed")
+def robots_ok(url, cache=None, ctx=None):
+    """(allowed, robots column) from scripts/robots_gate.py, which reads each host's robots.txt once per run.
+    4xx: no rules. 5xx, unreachable or over 512 KiB: not fetched in this run (until 9 November 2026 this
+    collector fetched anyway on a 5xx, saying so; RFC 9309 treats a 5xx as complete disallow)."""
+    ok, info = GATE.check(url)
+    state = "%s (robots %s, status %s, group %s, rule %s)" % (info.get("reason"), info.get("robots_url"),
+                                                            info.get("robots_status"), info.get("decided_by", ""), info.get("rule", ""))
+    return ok, state
 
 
 def main():
@@ -90,7 +90,7 @@ def main():
                    sha256_as_fetched="", sha256_saved="", final_url="", content_type="",
                    ipv4_redacted="", emails_redacted="", error="")
         if not ok:
-            row["error"] = "not fetched: robots.txt disallows"
+            row["error"] = "not fetched: " + rstate
             rows.append(row)
             continue
         req = urllib.request.Request(url, headers={"User-Agent": UA, "Accept": "*/*"})
@@ -117,7 +117,28 @@ def main():
         row["ipv4_redacted"] = nsub
         row["emails_redacted"] = nmail
         row["sha256_saved"] = hashlib.sha256(saved).hexdigest() if saved else ""
-        (out / f"{n:03d}.body").write_bytes(saved)
+        st = row["http_status"]
+        sig = {"withhold": False}
+        if isinstance(st, int) and 200 <= st < 300:
+            # Amendment of 9 November 2026: where the governing robots.txt (as the gate read it, no new
+            # request) or a response header carries a Content-Signal asking for use=reference, keep the
+            # hash, the headers and a bounded extract, not the body; the whole (redacted) body is held
+            # in NNN.body.withheld-local for this run only, which git ignores, for the brief's extract.
+            hpairs = [tuple(x.split(": ", 1)) for x in headers.splitlines() if ": " in x]
+            sig = content_signal.decide(GATE._robots(url).get("body"), hpairs, GATE.provider)
+        if sig["withhold"]:
+            content_signal.write_withheld(out / f"{n:03d}.body", saved, {
+                "file": f"{n:03d}.body", "by": "studies/LH042/scripts/fetch.py", "url": url,
+                "fetched_utc": start, "http_status": st, "headers": f"{n:03d}.headers",
+                "sha256_received": row["sha256_as_fetched"], "bytes_received": len(body),
+                "content_signal": {"line": sig["signal"], "where": sig["where"],
+                                   "as_read": "robots.txt read by scripts/robots_gate.py in this run, sha256 %s"
+                                   % GATE._robots(url).get("sha256", "") if sig["where"] == "robots.txt"
+                                   else "response header"},
+                "extract": {"title": content_signal.title_of(saved)}})
+            row["sha256_saved"] = hashlib.sha256((out / f"{n:03d}.body").read_bytes()).hexdigest()
+        else:
+            (out / f"{n:03d}.body").write_bytes(saved)
         (out / f"{n:03d}.headers").write_text(headers)
         rows.append(row)
         time.sleep(a.pause)

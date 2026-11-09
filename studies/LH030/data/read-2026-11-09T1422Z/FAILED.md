@@ -1,0 +1,3 @@
+# A failed read, kept as a record of the requests made
+
+The scheduled run of 9 November 2026 started this read at 2026-11-09T1422Z with a collector it had just changed to obey robots.txt (the keeper's rule of 8 November 2026). A bug in that change (the email-redaction call returned a pair, not bytes) made every body fail to save after it was received. The read log keeps each request's time, status, size and the sha256 of the bytes received; no body is retained. This read is not used by any measure. The study's read for 9 November is the next read directory, started minutes later with the bug fixed.

@@ -4,11 +4,14 @@ from datetime import datetime, timezone
 from hashlib import sha256
 from pathlib import Path
 from urllib.error import HTTPError
-from urllib.request import Request, urlopen
+from urllib.request import Request
 import argparse
 import html
 import json
 import re
+import os as _os, sys as _sys
+_sys.path.insert(0, _os.path.join(_os.path.dirname(_os.path.abspath(__file__)), '..', '..', '..', 'scripts'))
+from lh_fetch import urlopen, redacted, UA  # noqa: E402  robots.txt gate (the keeper, 8 November 2026)
 
 ROOT = Path(__file__).resolve().parents[1]
 SOURCES = [('advisory', 'https://security.paloaltonetworks.com/CVE-2026-109618'),
@@ -82,7 +85,7 @@ if __name__ == '__main__':
         row = {'source': name, 'url': url, 'start_utc': datetime.now(timezone.utc).isoformat()}
         try:
             try:
-                response = urlopen(Request(url, headers={'User-Agent': 'Mozilla/5.0 (compatible; Lighthouse research observation)'}), timeout=30)
+                response = urlopen(Request(url, headers={'User-Agent': UA}), timeout=30)
             except HTTPError as error:
                 response = error
             with response:
@@ -92,7 +95,7 @@ if __name__ == '__main__':
                 if len(body) > CEILING:
                     row['error'] = 'over 2 MiB ceiling; no body retained'
                 else:
-                    (OUT / (name + '.raw')).write_bytes(body)
+                    (OUT / (name + '.raw')).write_bytes(redacted(body))
                     row['file'] = name + '.raw'
                     if response.status == 200:
                         result[name] = EXTRACT[name](body)
