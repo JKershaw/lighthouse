@@ -4,13 +4,16 @@ how many maintainer clusters after the first began publishing in the same second
 as, or within 60 seconds of, the cluster that began just before them? Reads only
 the retained table; prints counts.
     python3 -I studies/LH041/review/simultaneous_starts.py > studies/LH041/review/simultaneous_starts-output.txt
+    python3 -I studies/LH041/review/simultaneous_starts.py <read label> [brief|posthoc]   (default: read 1, posthoc)
 Scopes: indicator joins for W02 and W11 (the headline counts), indicator+window
 for the others. Two thresholds (0 s and 60 s) chosen after the table was seen.
 """
-import csv, os
+import csv, os, sys
 from datetime import datetime
 HERE = os.path.dirname(os.path.abspath(__file__))
-T = os.path.join(HERE, "..", "data", "2026-11-08T1910Z", "tables", "posthoc", "clusters.csv")
+READ = sys.argv[1] if len(sys.argv) > 1 else "2026-11-08T1910Z"
+VIEW = sys.argv[2] if len(sys.argv) > 2 else "posthoc"
+T = os.path.join(HERE, "..", "data", READ, "tables", *(["posthoc"] if VIEW == "posthoc" else []), "clusters.csv")
 SCOPE = {"W02": "indicator", "W11": "indicator"}
 rows = {}
 for r in csv.DictReader(open(T)):
