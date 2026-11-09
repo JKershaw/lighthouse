@@ -30,12 +30,12 @@ The block shows no finding. Whether the editor may change it without review is
 the gate's decision on proposals.md P-0018.
 -->
 title: This week
-week: 2026-11-02 to 2026-11-08
-updated: 2026-11-08
+week: 2026-11-03 to 2026-11-09
+updated: 2026-11-09
 items:
+- 2026-11-09 | lighthouse | We added a later-evidence notice to [who watches each layer of the internet](articles/who-watches-the-internet.md) and to [what we can see](articles/what-we-can-see.md): GH Archive's hourly files of GitHub's public events were all there in 2026, but whole kinds of event were missing from many of the hours we read, and nobody yet knows whether GitHub's feed or the archive lost them.
+- 2026-11-09 | lighthouse | We fixed the plan for a new study of [the flaws behind Anthropic's five attack chains](studies/LH048/brief.md): how each is rated and whether the public signals of exploitation move, read on Mondays to 4 January. Only two of the five flaws are named by number in Anthropic's post.
+- 2026-11-09 | lighthouse | From today every one of our collectors asks a site's robots.txt before each request. Some sources we used to read now ask automated readers to stay away, among them WordPress.org's statistics and Node.js's release list, so those readings stop.
 - 2026-11-08 | lighthouse | We published a second essay, [What the watch would see of a pattern that copies itself](essays/what-the-watch-would-see.md): an invented case walked through the public records, showing where copies would leave traces and where nothing would.
 - 2026-11-08 | lighthouse | We published an essay, [It was only a test](essays/it-was-only-a-test.md): what one agent leaves behind, a message board or a handover note, can become part of another's world.
 - 2026-11-08 | lighthouse | We opened a third investigation, [what AI activity costs the shared internet](investigations/ai-cost-and-spread.md), and whether any of that activity is sustaining or spreading itself outside a lab. Its first study, on shared services withdrawing anonymous access, is due to start from 9 November.
-- 2026-11-08 | lighthouse | We fixed the plans for two new studies: [how fast WordPress sites move to the fixed release](studies/LH039/brief.md), read daily to 21 November, and [how often PyPI's logs recorded the poisoned LiteLLM release being fetched](studies/LH040/brief.md). By its maintainers' and security firms' reports, that release carried a credential stealer for about an hour and three quarters on 21 October before it was pulled; our first count is due from 9 November.
-- 2026-11-07 | lighthouse | We published [who watches each layer of the internet](articles/who-watches-the-internet.md): 48 public instruments on ten layers, and where each one stops.
-- 2026-11-03 | reported | CISA, the US government's cybersecurity agency, added WordPress's flaw in its own updater (CVE-2026-119977) to [its list of vulnerabilities known to be exploited](https://www.cisa.gov/known-exploited-vulnerabilities-catalog) on 3 November; [as we read it](studies/LH039/brief.md), the entry links no report of an attack. WordPress had [fixed the flaw on 28 October](https://wordpress.org/news/2026/10/wordpress-7-1-4/) in 7.1.4 and in a release for every branch back to 4.7.
