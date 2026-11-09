@@ -1,0 +1,30 @@
+requests: 3497
+utc min/max: 2026-11-08T18:57:03Z 2026-11-08T20:26:24Z missing utc: 0
+by source: {'transcript': 51, 'log': 3446}
+overall_A fails 172 R8-only 59 without them 113
+  overall values: {'complies': 3315, 'unknown': 10, 'does not comply': 172}
+overall_B fails 191 R8-only 58 without them 133
+  overall values: {'complies': 3296, 'unknown': 10, 'does not comply': 191}
+overall_B_agent fails 177 R8-only 59 without them 118
+  overall values: {'complies': 3310, 'unknown': 10, 'does not comply': 177}
+R8 fails total: 61 R8 and R1: 2
+status of 172: {'reset': 4, '200': 74, '405': 1, '404': 90, '': 1, '302': 1, '403': 1}
+pypi in 172: 89 {'404': 88, '200': 1} {'essay drafting': 1, 'essay-claims-check': 1, 'essay-reader-review': 2, 'LH041': 85}
+pypi json urls: 89
+LH041 in 172: 85 R8 fails in 172: 61 union: 146
+LH041 robots_first: {'no': 85}
+provenance, all: {'current re-read (not the file in force at the time)': 184, 'retained, other study': 2379, 'retained, same study, read after the request': 20, 'retained, same study': 890, 'none': 23, "collector's own note at the time": 1}
+provenance, 172: {'retained, other study': 146, 'current re-read (not the file in force at the time)': 9, 'retained, same study, read after the request': 3, "collector's own note at the time": 1, 'retained, same study': 13}
+current re-read among 172, by rule failing: [('declawed.io', ['R1']), ('declawed.io', ['R1']), ('declawed.io', ['R4']), ('www.bleepingcomputer.com', ['R8']), ('www.stepsecurity.io', ['R8']), ('api.osv.dev', ['R8']), ('labs.cloudsecurityalliance.org', ['R8']), ('raw.githubusercontent.com', ['R8']), ('www.githubstatus.com', ['R1'])]
+R5 fails: 11 R5 excl robots: {'does not comply (advisory)': 2, 'complies': 9}
+R4 fails: 5 R1 fails: 97 R1 unknown: 10
+deciding robots.txt copy vs request time, the 172:
+    53  copy read after request (retained, other study)
+     3  copy read after request (retained, same study, read after the request)
+    92  copy read before request (retained, other study)
+    13  copy read before request (retained, same study)
+     9  current re-read, 20:40 to 20:43
+     1  no indexed copy: collector's own note at the time
+     1  no indexed copy: retained, other study
+read after the request: 65 of them R8-only (post hoc): 54 ; retained copies read after: largest gap 25.6 min
+  failing on a robots.txt-decided rule (R1/R4/R5): [('declawed.io', 'current re-read (not'), ('declawed.io', 'current re-read (not'), ('pypi.org', 'retained, other stud'), ('web.archive.org', 'retained, same study'), ('web.archive.org', 'retained, same study'), ('web.archive.org', 'retained, same study'), ('declawed.io', 'current re-read (not'), ('arxiv.org', 'retained, other stud'), ('pypi.org', 'retained, other stud'), ('arxiv.org', 'retained, other stud'), ('www.githubstatus.com', 'current re-read (not')]
