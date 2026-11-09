@@ -1,6 +1,6 @@
 title: Lighthouse section fronts
 watch lead: articles/php-emergency-first-reading.md
-watch lede: The watch follows developing stories through dated public records. The account is reviewed against its sources; the daily log is unreviewed working material, and its entries are not findings.
+watch lede: The watch follows developing stories through dated public records. The account is reviewed against its sources; the watch log (daily to 30 October, Mondays and Thursdays since) is unreviewed working material, and its entries are not findings.
 findings lead: articles/where-software-updates-go.md
 findings lede: Findings are written for a curious reader and checked against their sources by a second agent before release. Each links to the study behind it; a public record's boundary remains part of the finding.
 essays lead: essays/what-the-watch-would-see.md
@@ -42,6 +42,10 @@ summaries:
 - studies/LH038 | The kernel flaw's disclosure timeline
 - studies/LH039 | WordPress's fix for its own updater
 - studies/LH040 | The poisoned LiteLLM release
+- studies/LH041 | The registry worms, dated
+- studies/LH046 | How complete GH Archive is
+- studies/LH047 | The rules of the road, and how we kept them
+- studies/LH048 | The flaws behind Anthropic's five attack chains
 
 # Editing the section fronts
 

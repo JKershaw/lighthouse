@@ -336,6 +336,13 @@ From the scheduled run of 9 November 2026 (LH041's Next, after its reader review
 
 - L-0048 The registry worms' public exfiltration repositories as a dated count: how many public repositories carry each wave's published description, by creation date, in aggregate only; its brief would keep only dated counts and discard account names at collection, naming no account and identifying no victim (the keeper's caution of 8 November 2026). It would date the worms' reach on developer machines and CI, which registry records cannot see.
 
+From the editor's visit of 9 November 2026 (notes/editor/2026-11-09T1417Z.md), editorial:
+
+- L-0049 An up-front answer on the front page to a newcomer's first question, whether anything self-sustaining has been seen, in the voice and limits of the current account.
+- L-0050 The piece header shows "Revised · Revised 9 November 2026": site/lib/revisions.js sets the display state "Revised" beside each dated revision line; one of the two could go.
+- L-0051 A short glossary for words a newcomer meets on the front page and study pages (the keeper, study numbers, protocol, gate).
+- L-0052 What the robots.txt rule of 8 November costs each study, in one place: the readings that stopped on 9 November (WordPress.org's statistics, Node.js's release list, deps.dev, git.kernel.org) and what each study can still answer.
+
 ## Declined, parked and expired
 
 - (none yet)

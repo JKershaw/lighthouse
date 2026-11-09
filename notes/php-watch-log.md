@@ -1,10 +1,10 @@
-title: PHP watch: daily log
+title: PHP watch: the log
 kind: working log (unreviewed records, not a released piece)
 date: 2026-10-23
 
-# PHP watch: daily log
+# PHP watch: the log
 
-A few plain lines a day on what the fixed PHP panels saw, newest first, each linking the day's checkpoints. These are working records: what a source said and when Lighthouse read it, not reviewed findings. Anything that would change [the public account](../articles/php-emergency-first-reading.md) is flagged here and goes through review before it reaches that page. How the watch runs is in [the continuation plan](php-watch-continuation-2026-10-23.md).
+A few plain lines on each read day (daily to 30 October 2026, Mondays and Thursdays since) on what the fixed PHP panels saw, newest first, each linking the day's checkpoints. These are working records: what a source said and when Lighthouse read it, not reviewed findings. Anything that would change [the public account](../articles/php-emergency-first-reading.md) is flagged here and goes through review before it reaches that page. How the watch runs is in [the continuation plan](php-watch-continuation-2026-10-23.md).
 
 ## 9 November 2026
 
