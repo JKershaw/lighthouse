@@ -36,7 +36,9 @@ from redact_emails import redact_bytes  # noqa: E402  (added 8 Nov 2026 after re
 def red(text):
     return redact_bytes(text.encode("utf-8"))[0].decode("utf-8")
 
-UA = "Lighthouse-research/1.0 (+https://lighthouse.harbour.cat)"
+# Robots sweep, 9 November 2026: every request asks the robots.txt gate first (the keeper, 8 November 2026),
+# and the User-Agent is the one the gate reads robots.txt with (was "Lighthouse-research/1.0 (+https://lighthouse.harbour.cat)").
+from lh_fetch import check as robots_check, UA  # noqa: E402
 EXPORTS = {"npm": "https://osv-vulnerabilities.storage.googleapis.com/npm/all.zip",
            "PyPI": "https://osv-vulnerabilities.storage.googleapis.com/PyPI/all.zip"}
 NPM_CEILING, PYPI_CEILING, SPOT = 3000, 300, 20
@@ -62,6 +64,11 @@ def get(url, log, accept=None, retries=1, note=""):
     hdr = {"User-Agent": UA, "Accept-Encoding": "gzip"}
     if accept:
         hdr["Accept"] = accept
+    ok, info = robots_check(url)
+    if not ok:  # not requested: logged "not fetched", a missing reading and never a negative
+        log.row(url, now(), "not fetched", 0, "", (note + "; " if note else "") + "%s (robots %s, status %s, group %s, rule %s)" % (
+            info.get("reason"), info.get("robots_url"), info.get("robots_status"), info.get("decided_by", ""), info.get("rule", "")))
+        return "not fetched", b"", {}
     for attempt in range(retries + 1):
         t = now()
         try:

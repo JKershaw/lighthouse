@@ -1,0 +1,20 @@
+(1) ad hoc rows without a matching tool call: []
+(2) literal URLs in non-collector calls found in neither ad hoc rows nor logs: 17
+     ('2942f8fb-83cf-', '540', 'adhoc-curl', 'https://data.gharchive.org/$h.json.gz')
+     ('agent-a6843267', '103', 'adhoc-curl', 'https://declawed.io$p')
+     ('agent-a8addcc8', '139', 'adhoc-curl', 'https://data.gharchive.org/$h.json.gz')
+     ('agent-a8addcc8', '139', 'adhoc-curl', 'https://data.gharchive.org/$h.json.gz')
+     ('agent-a8addcc8', '142', 'adhoc-curl', 'https://data.gharchive.org/$h.json.gz')
+     ('agent-a8addcc8', '142', 'adhoc-curl', 'https://data.gharchive.org/$h.json.gz')
+     ('agent-a8addcc8', '145', 'adhoc-curl', 'https://data.gharchive.org/$h.json.gz')
+     ('agent-a8addcc8', '145', 'adhoc-curl', 'https://data.gharchive.org/$h.json.gz')
+     ('agent-a8addcc8', '148', 'adhoc-curl', 'https://data.gharchive.org/$h.json.gz')
+     ('agent-a95ec693', '41', 'adhoc-curl', 'https://raw.githubusercontent.com/ossf/malicious-packages/main/$n')
+     ('agent-a95ec693', '138', 'adhoc-curl', 'by')
+     ('agent-a95ec693', '138', 'adhoc-curl', 'Lighthouse]')
+     ('agent-a95ec693', '156', 'adhoc-curl', 'https://osv-vulnerabilities.storage.googleapis.com/$e/all.zip')
+     ('agent-ac179a9e', '374', 'adhoc-inline', 'https://cdn.httparchive.org/robots.txt')
+     ('agent-ac179a9e', '374', 'adhoc-inline', 'https://cdn.httparchive.org/robots.txt')
+     ('agent-af0f7073', '101', 'adhoc-inline', 'https://%s/robots.txt')
+     ('agent-af0f7073', '151', 'adhoc-curl', 'https://osv-vulnerabilities.storage.googleapis.com/$e/all.zip')
+(3) ad hoc rows with a fetch-log twin within 15 s (dropped by the audit): 54 ; own-site rows: 1 ; total rows 106

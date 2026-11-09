@@ -84,8 +84,12 @@ for x in R:
         continue
     seen.add(k)
     cd = next((y['crawl_delay'] for y in R if group(y) == k[0] and y['host'] == k[1] and y['crawl_delay']), '')
-    if int(x['host_n']) >= 20 or x['R5'] != 'complies' or cd:
-        rows.append([k[0], k[1], x['host_n'], x['host_max60'], x['host_min_gap'], cd, x['R5'], x['R5_excl_robots']])
+    pair = [y for y in R if group(y) == k[0] and y['host'] == k[1]]
+    n5 = sum(1 for y in pair if y['R5'].startswith('does not comply'))  # R-0063: R5 is now per request
+    n5b = sum(1 for y in pair if y['R5_excl_robots'].startswith('does not comply'))
+    if int(x['host_n']) >= 20 or n5 or cd:
+        rows.append([k[0], k[1], x['host_n'], x['host_max60'], x['host_min_gap'], cd,
+                     '%d do not comply (advisory)' % n5 if n5 else 'complies', '%d do not comply (advisory)' % n5b if n5b else 'complies'])
 rows.sort(key=lambda r: -int(r[2]))
 table('Rate: every who-and-host pair with 20 or more requests or a Crawl-delay', ['who', 'host', 'requests', 'most in any 60 s',
       'shortest gap (s)', 'Crawl-delay', 'R5', 'R5 without robots.txt reads'], rows)

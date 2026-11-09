@@ -112,6 +112,7 @@ def resolve_chain(copy, copies, depth=0):
 
 
 CONTAINER_TEXT = (b'not enabled for this session', b'sessions are bound to their configured repositories')
+CHALLENGE_2XX = (b'sgcaptcha', b'Just a moment', b'challenge-platform', b'cf-chl-')  # R-0063
 
 
 def state_of(copy):
@@ -129,6 +130,15 @@ def state_of(copy):
     except ValueError:
         return 'unreachable'
     if 200 <= code < 300:
+        # R-0063 (evidence review, version 0.2): a 2xx answer that is a challenge page is not a
+        # robots.txt; it was parsed as an empty file in version 0.1 (balimedicaljournal.org, 202).
+        if copy.get('file'):
+            try:
+                head = open(os.path.join(ROOT, copy['file']), 'rb').read(4096)
+                if any(x in head for x in CHALLENGE_2XX):
+                    return 'challenge'
+            except OSError:
+                pass
         return 'parsed'
     if 300 <= code < 400:
         return 'redirect'
@@ -217,6 +227,9 @@ def judge_robots(req, copy, prov):
         return res
     if st == 'redirect':
         res.update(R1='unknown', R2='unknown', R2_agent='unknown', R1_rule='robots.txt redirect not followed in any copy')
+        return res
+    if st == 'challenge':  # R-0063
+        res.update(R1='unknown', R2='unknown', R2_agent='unknown', R1_rule='robots.txt answered %s with a challenge page: unread' % copy['status'])
         return res
     text = open(os.path.join(ROOT, copy['file']), 'rb').read().decode('utf-8', 'replace')
     groups = R.parse(text)
@@ -333,7 +346,7 @@ def main():
         reached = 'no (refused by the container)' if host in ('api.github.com', 'github.com', 'codeload.github.com') and q['status'] == '403' else (
             'no (no answer)' if q['status'] in ('reset', 'timeout') or 'rror' in q['status'] else (
                 'status not recorded' if q['status'] == '' else 'yes'))
-        if reached.startswith('no (refused'):
+        if reached.startswith('no (refused') and urlsplit(q['url']).path != '/robots.txt':  # R-0063: /robots.txt is always allowed
             rob = dict(rob, R1='unknown', R2='unknown', R2_agent='unknown', R1_rule="answered by this container's GitHub policy; GitHub not reached")
         rows.append(dict(source=q['source'], reached=reached, log=q['log'], who=q['who'], method=q['method'], url=q['url'], host=host, utc=q['utc'],
                          status=q['status'], ua=q['ua'], use=q['use'], kept=kept, robots_first=q['robots_first'], wall=w, **rob,
@@ -380,28 +393,30 @@ def main():
                 j += 1
             mx = max(mx, i2 - j + 1)
         cd = next((x['crawl_delay'] for x in rs if x['crawl_delay']), '')
-        ts2 = sorted(t(x['utc']) for x in rs if x['use'] != 'robots')
-        gaps2 = [(b - a).total_seconds() for a, b in zip(ts2, ts2[1:])]
-        verdict = 'complies'
-        why = ''
-        if cd:
-            try:
-                need_gap = float(cd.split()[0])
-                if gaps and min(gaps) < need_gap:
-                    verdict, why = 'does not comply (advisory)', 'Crawl-delay %s; shortest gap %.0f s' % (cd, min(gaps))
-            except ValueError:
-                pass
-        v2 = 'complies'
-        if cd:
-            try:
-                if gaps2 and min(gaps2) < float(cd.split()[0]):
-                    v2 = 'does not comply (advisory)'
-            except ValueError:
-                pass
+        try:
+            need_gap = float(cd.split()[0]) if cd else None
+        except ValueError:
+            need_gap = None
+        # R-0063 (evidence review, version 0.2): the brief's rule is about two consecutive requests
+        # less than N seconds apart, so the request that breaks it is the later of the pair. Version
+        # 0.1 marked every request of a who-and-host pair once its shortest gap was below N,
+        # including robots.txt reads that nothing preceded and requests 30 s or more after the last.
+        srt = sorted(rs, key=lambda x: (x['utc'], x['url']))
+        prev_all, prev_pages = None, None
+        for x in srt:
+            x['R5'], x['R5_why'], x['R5_excl_robots'] = 'complies', '', 'complies'
+            if need_gap is not None and prev_all is not None:
+                g = (t(x['utc']) - t(prev_all['utc'])).total_seconds()
+                if g < need_gap:
+                    x['R5'] = 'does not comply (advisory)'
+                    x['R5_why'] = 'Crawl-delay %s; %.0f s after the previous request' % (cd, g)
+            if need_gap is not None and x['use'] != 'robots' and prev_pages is not None:
+                if (t(x['utc']) - t(prev_pages['utc'])).total_seconds() < need_gap:
+                    x['R5_excl_robots'] = 'does not comply (advisory)'
+            prev_all = x
+            if x['use'] != 'robots':
+                prev_pages = x
         for x in rs:
-            x['R5_excl_robots'] = v2
-            x['R5'] = verdict
-            x['R5_why'] = why
             x['host_n'] = len(rs)
             x['host_max60'] = mx
             x['host_min_gap'] = '%.0f' % min(gaps) if gaps else ''

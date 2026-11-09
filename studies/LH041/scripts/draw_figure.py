@@ -32,15 +32,15 @@ pw, ph = 300, 150
 x0s = [70, 410]
 y0s = [125, 345, 565]
 out = [svg_open(W_, H_, "Maintainer clusters reached after each wave's first malicious publish",
-                "Six small step charts, one per worm wave. Each shows how many separate groups of npm maintainer "
-                "accounts had published a malicious version, counting up from the wave's first publish by the "
+                "Six small step charts, one per worm wave. Each shows how many groups of packages sharing a current npm "
+                "maintainer had published a malicious version, counting up from the wave's first publish by the "
                 "registry's clock. Shai-Hulud 2.0 reached 88 clusters in under 15 hours; ChainDrop 13 of its 14 in under 4 "
                 "hours; Shai-Hulud 17 in 71 hours; the TanStack wave 13 in 30 hours; Miasma 8 in 87 hours; the AntV "
-                "wave stayed mostly in one cluster of 316 packages, with 2 others. Post hoc view, unreviewed. "
+                "wave stayed mostly in one cluster of 316 packages, with 2 others. Post hoc view, record 0.3; a group is not a victim, an account or a step of the worm. "
                 "Source: OSV malicious-package records and npm registry metadata read 8 November 2026.")]
 out.append(f'<rect width="{W_}" height="{H_}" fill="var(--bg)"/>')
-out.append('<text class="head" x="24" y="34">How many maintainer groups each wave reached, hour by hour</text>')
-out.append('<text class="sub" x="24" y="56">Clusters of npm maintainer accounts with a malicious version, counted from the</text>')
+out.append('<text class="head" x="24" y="34">How many maintainer groups had a malicious version, hour by hour</text>')
+out.append('<text class="sub" x="24" y="56">Groups of packages sharing a current npm maintainer, with a malicious version, from the</text>')
 out.append('<text class="sub" x="24" y="74">wave\'s first malicious publish (registry clock). Each panel has its own scales.</text>')
 
 for k, (wid, title) in enumerate(PANELS):
@@ -81,8 +81,8 @@ for k, (wid, title) in enumerate(PANELS):
     out.append(f'<text class="ann" x="{lx}" y="{ly}" text-anchor="{anc}">{escape(lab)}</text>')
     out.append(f'<text class="ann" x="{lx}" y="{ly + 16}" text-anchor="{anc}">{w["npm_packages"]} npm packages, {w["versions"]} versions</text>')
 
-out.append(f'<text class="note" x="24" y="{H_ - 22}">Post hoc view, unreviewed: versions outside each wave\'s dated window left out. A later cluster is not proof the worm, not a</text>')
-out.append(f'<text class="note" x="24" y="{H_ - 7}">person, published there. Sources: OSV export and npm registry, read 8 Nov 2026 (Lighthouse LH041).</text>')
+out.append(f'<text class="note" x="24" y="{H_ - 22}">Post hoc view: versions outside each wave\'s window left out. A group is packages sharing a maintainer today, not a</text>')
+out.append(f'<text class="note" x="24" y="{H_ - 7}">victim or a worm step; a later group does not show that no person published. OSV and npm registry, read 8 Nov 2026.</text>')
 out.append("</svg>")
 open(os.path.join(HERE, "..", "figure-reach.svg"), "w").write("\n".join(out) + "\n")
 print("wrote figure-reach.svg")

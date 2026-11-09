@@ -1,0 +1,29 @@
+ 1 A agree    audit R1=does not comply  reviewer R1=does not comply  R2 tokens same | https://web.archive.org/cdx/search/cdx?url=www.w3.org&from=2025&to=202
+ 2 A agree    audit R1=does not comply  reviewer R1=does not comply  R2 tokens same | https://pypi.org/pypi/litellm/json
+ 3 A agree    audit R1=does not comply  reviewer R1=does not comply  R2 tokens same | https://pypi.org/pypi/okite/0.0.7/json
+ 4 A agree    audit R1=does not comply  reviewer R1=does not comply  R2 tokens same | https://pypi.org/pypi/napari-ufish/0.0.2/json
+ 5 A agree    audit R1=does not comply  reviewer R1=does not comply  R2 tokens same | https://pypi.org/pypi/guardrails-ai/0.10.1/json
+ 6 A agree    audit R1=does not comply  reviewer R1=does not comply  R2 tokens same | https://pypi.org/pypi/okite/0.0.8/json
+ 7 B agree    audit R1=complies         reviewer R1=complies         R2 tokens same | https://declawed.io/script.js?v=20260520z208
+ 8 B agree    audit R1=complies         reviewer R1=complies         R2 tokens same | https://www.bleepingcomputer.com/news/security/massive-chaindrop-npm-s
+ 9 B agree    audit R1=complies         reviewer R1=complies         R2 tokens same | https://news.metal.com/newscontent/104152219-smm-computing-power-midda
+10 B agree    audit R1=complies         reviewer R1=complies         R2 tokens same | https://coar-repositories.org/wp-content/uploads/2026/06/3.6.-Paul-Wal
+11 B agree    audit R1=complies         reviewer R1=complies         R2 tokens same | https://www.metal.com/en/compliance-center/terms-and-conditions
+12 B agree    audit R1=complies         reviewer R1=complies         R2 tokens same | https://www.bleepingcomputer.com/news/security/massive-chaindrop-npm-s
+13 C agree    audit R1=complies         reviewer R1=complies         R2 tokens same | https://rdap.arin.net/registry/ip/160.79.106.30
+14 C agree    audit R1=complies         reviewer R1=complies         R2 tokens same | https://api.stackexchange.com/2.3/questions/11227809?site=stackoverflo
+15 C agree    audit R1=complies         reviewer R1=complies         R2 tokens same | https://crates.io/api/v1/crates/serde
+16 C DISAGREE audit R1=complies         reviewer R1=unknown          R2 tokens same | http://balimedicaljournal.org/index.php/bmj/oai?verb=Identify
+17 C agree    audit R1=complies         reviewer R1=complies         R2 tokens same | https://www.malwarepatrol.net/over-14000-ollama-instances-exposed-to-t
+18 C agree    audit R1=complies         reviewer R1=complies         R2 tokens same | https://www.msjonline.org/index.php/ijrms/oai?verb=Identify
+19 C agree    audit R1=complies         reviewer R1=complies         R2 tokens same | https://drewdevault.com/2025/03/17/2025-03-17-Stop-externalizing-your-
+20 C agree    audit R1=complies         reviewer R1=complies         R2 tokens same | https://www.gharchive.org/
+21 C agree    audit R1=complies         reviewer R1=complies         R2 tokens same | https://docs.python.org/3/library/os.html
+22 C agree    audit R1=complies         reviewer R1=complies         R2 tokens same | https://invent.kde.org/plasma/kwin
+23 C agree    audit R1=complies         reviewer R1=complies         R2 tokens same | https://hunt.io/blog/cve-2026-25253-openclaw-ai-agent-exposure
+24 C agree    audit R1=complies         reviewer R1=complies         R2 tokens same | https://www.upguard.com/blog/understanding-and-securing-exposed-ollama
+25 C agree    audit R1=complies         reviewer R1=complies         R2 tokens same | https://api.openalex.org/works/doi:10.1038/nature14539
+26 C agree    audit R1=complies         reviewer R1=complies         R2 tokens same | https://www.aisi.gov.uk/blog/incident-report-unsanctioned-agent-behavi
+27 D agree    audit R1=unknown          reviewer R1=unknown          R2 tokens same | https://github.com/torvalds/linux
+28 D DISAGREE audit R1=unknown          reviewer R1=complies         R2 tokens same | https://github.com/robots.txt
+agree 26, disagree 2, of 28

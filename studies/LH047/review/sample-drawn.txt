@@ -1,0 +1,606 @@
+====================================================================================================
+#1 stratum A  row 105  LH044  2026-11-08T19:05:48Z
+URL : https://web.archive.org/cdx/search/cdx?url=www.w3.org&from=2025&to=2025&limit=3&output=json
+path: /cdx/search/cdx?url=www.w3.org&from=2025&to=2025&limit=3&output=json
+copy: studies/LH044/data/wayback-2026-11-08T1920Z/0001.b error:reset | retained, same study, read after the request
+====================================================================================================
+#2 stratum A  row 1809  essay-reader-review  2026-11-08T19:24:59Z
+URL : https://pypi.org/pypi/litellm/json
+path: /pypi/litellm/json
+copy: studies/LH044/data/read-2026-11-08T1920Z/0031.b 200 | retained, other study
+    User-agent: *
+    Disallow: /simple/
+    Disallow: /packages/
+    Disallow: /_includes/authed/
+    Disallow: /project/*/submit-malware-report/
+    Disallow: /pypi/*/json
+    Disallow: /pypi/*/*/json
+    Disallow: /pypi*?
+    Disallow: /search*
+    Disallow: /_/
+    Disallow: /integrity/
+    Disallow: /account/
+    Disallow: /admin/
+====================================================================================================
+#3 stratum A  row 2884  LH041  2026-11-08T19:32:34Z
+URL : https://pypi.org/pypi/okite/0.0.7/json
+path: /pypi/okite/0.0.7/json
+copy: studies/LH044/data/read-2026-11-08T1920Z/0031.b 200 | retained, other study
+    User-agent: *
+    Disallow: /simple/
+    Disallow: /packages/
+    Disallow: /_includes/authed/
+    Disallow: /project/*/submit-malware-report/
+    Disallow: /pypi/*/json
+    Disallow: /pypi/*/*/json
+    Disallow: /pypi*?
+    Disallow: /search*
+    Disallow: /_/
+    Disallow: /integrity/
+    Disallow: /account/
+    Disallow: /admin/
+====================================================================================================
+#4 stratum A  row 2878  LH041  2026-11-08T19:32:31Z
+URL : https://pypi.org/pypi/napari-ufish/0.0.2/json
+path: /pypi/napari-ufish/0.0.2/json
+copy: studies/LH044/data/read-2026-11-08T1920Z/0031.b 200 | retained, other study
+    User-agent: *
+    Disallow: /simple/
+    Disallow: /packages/
+    Disallow: /_includes/authed/
+    Disallow: /project/*/submit-malware-report/
+    Disallow: /pypi/*/json
+    Disallow: /pypi/*/*/json
+    Disallow: /pypi*?
+    Disallow: /search*
+    Disallow: /_/
+    Disallow: /integrity/
+    Disallow: /account/
+    Disallow: /admin/
+====================================================================================================
+#5 stratum A  row 2857  LH041  2026-11-08T19:32:22Z
+URL : https://pypi.org/pypi/guardrails-ai/0.10.1/json
+path: /pypi/guardrails-ai/0.10.1/json
+copy: studies/LH044/data/read-2026-11-08T1920Z/0031.b 200 | retained, other study
+    User-agent: *
+    Disallow: /simple/
+    Disallow: /packages/
+    Disallow: /_includes/authed/
+    Disallow: /project/*/submit-malware-report/
+    Disallow: /pypi/*/json
+    Disallow: /pypi/*/*/json
+    Disallow: /pypi*?
+    Disallow: /search*
+    Disallow: /_/
+    Disallow: /integrity/
+    Disallow: /account/
+    Disallow: /admin/
+====================================================================================================
+#6 stratum A  row 2885  LH041  2026-11-08T19:32:34Z
+URL : https://pypi.org/pypi/okite/0.0.8/json
+path: /pypi/okite/0.0.8/json
+copy: studies/LH044/data/read-2026-11-08T1920Z/0031.b 200 | retained, other study
+    User-agent: *
+    Disallow: /simple/
+    Disallow: /packages/
+    Disallow: /_includes/authed/
+    Disallow: /project/*/submit-malware-report/
+    Disallow: /pypi/*/json
+    Disallow: /pypi/*/*/json
+    Disallow: /pypi*?
+    Disallow: /search*
+    Disallow: /_/
+    Disallow: /integrity/
+    Disallow: /account/
+    Disallow: /admin/
+====================================================================================================
+#7 stratum B  row 64  LH042 research  2026-11-08T19:01:52Z
+URL : https://declawed.io/script.js?v=20260520z208
+path: /script.js?v=20260520z208
+copy: studies/LH047/data/reads/robots-current/robots-declawed.io-0.txt 200 | current re-read (not the file in force at the time)
+    User-agent: *
+    Content-Signal: search=yes,ai-train=no,use=reference
+    Allow: /
+    User-agent: ClaudeBot
+    Disallow: /
+    User-agent: anthropic-ai
+    Disallow: /
+    User-agent: Claude-Web
+    Disallow: /
+    User-agent: *
+    Allow: /
+    Disallow: /api/
+    User-agent: anthropic-ai
+    User-agent: Applebot
+    User-agent: Applebot-Extended
+    User-agent: atlassian-bot
+    User-agent: Awario
+    User-agent: bedrockbot
+    User-agent: bigsur.ai
+    User-agent: Bravebot
+    User-agent: Brightbot 1.0
+    User-agent: BuddyBot
+    User-agent: Bytespider
+    User-agent: CCBot
+    User-agent: Channel3Bot
+    User-agent: ChatGLM-Spider
+    User-agent: ChatGPT Agent
+    User-agent: ChatGPT-User
+    User-agent: Claude-SearchBot
+    User-agent: Claude-User
+    User-agent: Claude-Web
+    User-agent: ClaudeBot
+    User-agent: Cloudflare-AutoRAG
+    User-agent: CloudVertexBot
+    User-agent: cohere-ai
+    User-agent: cohere-training-data-crawler
+    User-agent: Cotoyogi
+    User-agent: Crawl4AI
+    User-agent: Crawlspace
+    User-agent: Datenbank Crawler
+    User-agent: DeepSeekBot
+    User-agent: Devin
+    User-agent: Diffbot
+    User-agent: DuckAssistBot
+    User-agent: Echobot Bot
+    User-agent: EchoboxBot
+    User-agent: FacebookBot
+    User-agent: facebookexternalhit
+    User-agent: Factset_spyderbot
+    User-agent: FirecrawlAgent
+    User-agent: FriendlyCrawler
+    User-agent: Gemini-Deep-Research
+    User-agent: Google-CloudVertexBot
+    User-agent: Google-Extended
+    User-agent: Google-Firebase
+    User-agent: Google-NotebookLM
+    User-agent: GoogleAgent-Mariner
+    User-agent: GoogleOther
+    User-agent: GoogleOther-Image
+    User-agent: GoogleOther-Video
+    User-agent: GPTBot
+    User-agent: iAskBot
+    User-agent: iaskspider
+    User-agent: iaskspider/2.0
+    User-agent: IbouBot
+    User-agent: ICC-Crawler
+    User-agent: ImagesiftBot
+    User-agent: imageSpider
+    User-agent: img2dataset
+    User-agent: ISSCyberRiskCrawler
+    User-agent: Kangaroo Bot
+    User-agent: KlaviyoAIBot
+    User-agent: KunatoCrawler
+    User-agent: laion-huggingface-processor
+    User-agent: LAIONDownloader
+    User-agent: LCC
+    User-agent: LinerBot
+    User-agent: Linguee Bot
+    User-agent: LinkupBot
+    User-agent: Manus-User
+    ...(53 more lines)
+====================================================================================================
+#8 stratum B  row 73  essay drafting  2026-11-08T19:02:13Z
+URL : https://www.bleepingcomputer.com/news/security/massive-chaindrop-npm-supply-chain-attack-infects-hundreds-of-packages/
+path: /news/security/massive-chaindrop-npm-supply-chain-attack-infects-hundreds-of-packages/
+copy: studies/LH047/data/reads/robots-current/robots-www.bleepingcomputer.com-0.txt 200 | current re-read (not the file in force at the time)
+    User-agent: ClaudeBot
+    Disallow: /
+    User-agent: *
+    Crawl-delay: 1
+    Disallow: /cgi-bin/
+    Disallow: /forums/style_images/
+    Disallow: /forums/index.php?act=Search
+    Disallow: /forums/index.php?act=Login
+    Disallow: /forums/index.php?act=Reg
+    Disallow: /forums/index.php?act=calendar
+    Disallow: /forums/index.php?act=Msg
+    Disallow: /forums/index.php?act=Mail
+    Disallow: /forums/index.php?act=Forward
+    Disallow: /forums/index.php?act=forward
+    Disallow: /forums/index.php?act=Track
+    Disallow: /forums/index.php?act=Post
+    Disallow: /forums/index.php?act=post
+    Disallow: /forums/index.php?showuser
+    Disallow: /forums/index.php?act=Print
+    Disallow: /forums/index.php?act=ST
+    Disallow: /forums/index.php?act=UserCP
+    Disallow: /forums/index.php?act=usercp
+    Disallow: /forums/index.php?act=Arcade
+    Disallow: /forums/index.php?act=findpost
+    Disallow: /forums/index.php?act=SF
+    Disallow: /forums/index.php?act=Stats
+    Disallow: /forums/index.php?&act=Online
+    Disallow: /forums/index.php?act=Members
+    Disallow: /forums/index.php?act=Help
+    Disallow: /forums/index.php?act=Profile
+    Disallow: /forums/index.php?act=profile
+    Disallow: /forums/index.php?act=Attach
+    Disallow: /forums/index.php?act=attach
+    Disallow: /forums/index.php?app=core&attach_id
+    Disallow: /forums/index.php?app=core&module=attach
+    Disallow: /forums/index.php?act=Print
+    Disallow: /forums/index.php?act=print
+    Disallow: /forums/index.php?app=core&module=global&section=login&do=deleteCookies&k=*
+    Disallow: /forums/index.php?app=core&module=global&section=login&do=logout*
+    Disallow: /forums/index.php?app=forums&module=forums&section=markasread&marktype=all&k=*
+    Disallow: /forums/index.php?app=forums&module=moderate&section=moderate&f=*
+    Disallow: /forums/index.php?app=core&module=search*
+    Disallow: /forums/index.php?sharelink=*
+    Disallow: /forums/u/*
+    Disallow: /forums/user-*
+    Disallow: /forums/*&view=findpost*
+    Disallow: /forums/*&view=old
+    Disallow: /forums/*&view=new
+    Disallow: /forums/*&mode=linear
+    Disallow: /forums/*&mode=linearplus
+    Disallow: /forums/*&mode=threaded
+    Disallow: /forums/*&amp;mode=threaded
+    Disallow: /forums/*&amp;mode=linearplus
+    Disallow: /forums/*&amp;mode=linear
+    Disallow: /forums/help.html
+    Disallow: /forums/lastpost
+    Disallow: /resources/link
+    Disallow: /tutorials/index.php?act=print
+    Disallow: /tutorials/index.php?act=friend
+    Disallow: /logreply/
+    Disallow: /download/search/*
+    Disallow: /forums/interface/twitter/*
+    Disallow: /forums/index.php?andor_type=&app=core&do=search*
+    Disallow: /forums/index.php?app=core&module=global*
+    Allow: /ads.txt
+    Allow: /
+====================================================================================================
+#9 stratum B  row 60  LH045  2026-11-08T19:01:30Z
+URL : https://news.metal.com/newscontent/104152219-smm-computing-power-midday-review-h100-rental-bidding-at-88000-h20-96g-annual-lease-at-43000
+path: /newscontent/104152219-smm-computing-power-midday-review-h100-rental-bidding-at-88000-h20-96g-annual-lease-at-43000
+copy: studies/LH045/data/before-the-brief/smm-robots.raw 200 | retained, same study
+    User-agent: *
+    User-agent: Googlebot
+    User-agent: Bingbot
+    User-agent: Applebot
+    User-agent: OAI-SearchBot
+    User-agent: ChatGPT-User
+    User-agent: Claude-SearchBot
+    User-agent: Claude-User
+    User-agent: PerplexityBot
+    User-agent: Perplexity-User
+    User-agent: DuckAssistBot
+    User-agent: Meta-ExternalFetcher
+    User-agent: MistralAI-Index
+    User-agent: MistralAI-User
+    User-agent: Amzn-SearchBot
+    User-agent: Amzn-User
+    User-agent: Bytespider
+    Allow: /
+    User-agent: ClaudeBot
+    User-agent: Google-Extended
+    User-agent: Applebot-Extended
+    User-agent: Meta-ExternalAgent
+    User-agent: MistralAI-Training
+    User-agent: CCBot
+    User-agent: Amazonbot
+    User-agent: cohere-ai
+    Disallow: /
+====================================================================================================
+#10 stratum B  row 2475  LH044  2026-11-08T19:29:41Z
+URL : https://coar-repositories.org/wp-content/uploads/2026/06/3.6.-Paul-Walk-Dealing-With-Bots.pdf
+path: /wp-content/uploads/2026/06/3.6.-Paul-Walk-Dealing-With-Bots.pdf
+copy: studies/LH044/data/statements-2026-11-08T1920Z/0007.b 200 | retained, same study
+    User-agent: *
+    Content-Signal: search=yes,ai-train=no,use=reference
+    Allow: /
+    User-agent: ClaudeBot
+    Disallow: /
+    User-agent: anthropic-ai
+    Disallow: /
+    User-agent: Claude-Web
+    Disallow: /
+    User-agent: *
+    Disallow: /wp-admin/
+    Allow: /wp-admin/admin-ajax.php
+====================================================================================================
+#11 stratum B  row 68  LH045  2026-11-08T19:02:06Z
+URL : https://www.metal.com/en/compliance-center/terms-and-conditions
+path: /en/compliance-center/terms-and-conditions
+copy: studies/LH045/data/before-the-brief/mtl-robots.raw 200 | retained, same study
+    User-agent: *
+    User-agent: Googlebot
+    User-agent: Bingbot
+    User-agent: Applebot
+    User-agent: OAI-SearchBot
+    User-agent: ChatGPT-User
+    User-agent: Claude-SearchBot
+    User-agent: Claude-User
+    User-agent: PerplexityBot
+    User-agent: Perplexity-User
+    User-agent: DuckAssistBot
+    User-agent: Meta-ExternalFetcher
+    User-agent: MistralAI-Index
+    User-agent: MistralAI-User
+    User-agent: Amzn-SearchBot
+    User-agent: Amzn-User
+    User-agent: Bytespider
+    Disallow: /search
+    Disallow: /*/search
+    Disallow: /watchlist
+    Disallow: /*/watchlist
+    Disallow: /*?keyword=
+    Allow: /
+    User-agent: ClaudeBot
+    User-agent: Google-Extended
+    User-agent: Applebot-Extended
+    User-agent: Meta-ExternalAgent
+    User-agent: MistralAI-Training
+    User-agent: CCBot
+    User-agent: Amazonbot
+    User-agent: cohere-ai
+    Disallow: /
+====================================================================================================
+#12 stratum B  row 241  essay-claims-check  2026-11-08T19:12:22Z
+URL : https://www.bleepingcomputer.com/news/security/massive-chaindrop-npm-supply-chain-attack-infects-hundreds-of-packages/
+path: /news/security/massive-chaindrop-npm-supply-chain-attack-infects-hundreds-of-packages/
+copy: studies/LH047/data/reads/robots-current/robots-www.bleepingcomputer.com-0.txt 200 | current re-read (not the file in force at the time)
+    User-agent: ClaudeBot
+    Disallow: /
+    User-agent: *
+    Crawl-delay: 1
+    Disallow: /cgi-bin/
+    Disallow: /forums/style_images/
+    Disallow: /forums/index.php?act=Search
+    Disallow: /forums/index.php?act=Login
+    Disallow: /forums/index.php?act=Reg
+    Disallow: /forums/index.php?act=calendar
+    Disallow: /forums/index.php?act=Msg
+    Disallow: /forums/index.php?act=Mail
+    Disallow: /forums/index.php?act=Forward
+    Disallow: /forums/index.php?act=forward
+    Disallow: /forums/index.php?act=Track
+    Disallow: /forums/index.php?act=Post
+    Disallow: /forums/index.php?act=post
+    Disallow: /forums/index.php?showuser
+    Disallow: /forums/index.php?act=Print
+    Disallow: /forums/index.php?act=ST
+    Disallow: /forums/index.php?act=UserCP
+    Disallow: /forums/index.php?act=usercp
+    Disallow: /forums/index.php?act=Arcade
+    Disallow: /forums/index.php?act=findpost
+    Disallow: /forums/index.php?act=SF
+    Disallow: /forums/index.php?act=Stats
+    Disallow: /forums/index.php?&act=Online
+    Disallow: /forums/index.php?act=Members
+    Disallow: /forums/index.php?act=Help
+    Disallow: /forums/index.php?act=Profile
+    Disallow: /forums/index.php?act=profile
+    Disallow: /forums/index.php?act=Attach
+    Disallow: /forums/index.php?act=attach
+    Disallow: /forums/index.php?app=core&attach_id
+    Disallow: /forums/index.php?app=core&module=attach
+    Disallow: /forums/index.php?act=Print
+    Disallow: /forums/index.php?act=print
+    Disallow: /forums/index.php?app=core&module=global&section=login&do=deleteCookies&k=*
+    Disallow: /forums/index.php?app=core&module=global&section=login&do=logout*
+    Disallow: /forums/index.php?app=forums&module=forums&section=markasread&marktype=all&k=*
+    Disallow: /forums/index.php?app=forums&module=moderate&section=moderate&f=*
+    Disallow: /forums/index.php?app=core&module=search*
+    Disallow: /forums/index.php?sharelink=*
+    Disallow: /forums/u/*
+    Disallow: /forums/user-*
+    Disallow: /forums/*&view=findpost*
+    Disallow: /forums/*&view=old
+    Disallow: /forums/*&view=new
+    Disallow: /forums/*&mode=linear
+    Disallow: /forums/*&mode=linearplus
+    Disallow: /forums/*&mode=threaded
+    Disallow: /forums/*&amp;mode=threaded
+    Disallow: /forums/*&amp;mode=linearplus
+    Disallow: /forums/*&amp;mode=linear
+    Disallow: /forums/help.html
+    Disallow: /forums/lastpost
+    Disallow: /resources/link
+    Disallow: /tutorials/index.php?act=print
+    Disallow: /tutorials/index.php?act=friend
+    Disallow: /logreply/
+    Disallow: /download/search/*
+    Disallow: /forums/interface/twitter/*
+    Disallow: /forums/index.php?andor_type=&app=core&do=search*
+    Disallow: /forums/index.php?app=core&module=global*
+    Allow: /ads.txt
+    Allow: /
+====================================================================================================
+#13 stratum C  row 107  LH044  2026-11-08T19:06:22Z
+URL : https://rdap.arin.net/registry/ip/160.79.106.30
+path: /registry/ip/160.79.106.30
+copy: studies/LH047/data/reads/robots-current/robots-rdap.arin.net-0.txt 404 | current re-read (not the file in force at the time)
+====================================================================================================
+#14 stratum C  row 1447  LH044  2026-11-08T19:22:10Z
+URL : https://api.stackexchange.com/2.3/questions/11227809?site=stackoverflow
+path: /2.3/questions/11227809?site=stackoverflow
+copy: studies/LH044/data/read-2026-11-08T1920Z/0103.b 400 | retained, same study
+====================================================================================================
+#15 stratum C  row 1170  LH044  2026-11-08T19:20:00Z
+URL : https://crates.io/api/v1/crates/serde
+path: /api/v1/crates/serde
+copy: studies/LH044/data/read-2026-11-08T1920Z/0035.b 200 | retained, same study
+    User-agent: *
+    Disallow:
+====================================================================================================
+#16 stratum C  row 1709  LH044  2026-11-08T19:24:13Z
+URL : http://balimedicaljournal.org/index.php/bmj/oai?verb=Identify
+path: /index.php/bmj/oai?verb=Identify
+copy: studies/LH044/data/read-2026-11-08T1920Z/0169.b 202 | retained, same study
+
+====================================================================================================
+#17 stratum C  row 157  LH042  2026-11-08T19:11:34Z
+URL : https://www.malwarepatrol.net/over-14000-ollama-instances-exposed-to-the-internet-serious-security-implications/
+path: /over-14000-ollama-instances-exposed-to-the-internet-serious-security-implications/
+copy: studies/LH047/data/reads/robots-current/robots-www.malwarepatrol.net-1.txt 200 | current re-read (not the file in force at the time)
+
+====================================================================================================
+#18 stratum C  row 1954  LH044  2026-11-08T19:26:06Z
+URL : https://www.msjonline.org/index.php/ijrms/oai?verb=Identify
+path: /index.php/ijrms/oai?verb=Identify
+copy: studies/LH044/data/read-2026-11-08T1920Z/0218.b 200 | retained, same study
+    User-agent: *
+    Disallow: /cache/
+====================================================================================================
+#19 stratum C  row 2579  LH044  2026-11-08T19:30:23Z
+URL : https://drewdevault.com/2025/03/17/2025-03-17-Stop-externalizing-your-costs-on-me.html
+path: /2025/03/17/2025-03-17-Stop-externalizing-your-costs-on-me.html
+copy: studies/LH044/data/statements-2026-11-08T1920Z/0016.b 404 | retained, same study
+====================================================================================================
+#20 stratum C  row 2941  LH046  2026-11-08T19:33:48Z
+URL : https://www.gharchive.org/
+path: /
+copy: studies/LH046/data/sources/gharchive-robots.txt 200 | retained, same study, read after the request
+
+====================================================================================================
+#21 stratum C  row 1409  LH044  2026-11-08T19:21:53Z
+URL : https://docs.python.org/3/library/os.html
+path: /3/library/os.html
+copy: studies/LH044/data/read-2026-11-08T1920Z/0094.b 200 | retained, same study
+    User-agent: *
+    Disallow: /dev
+    Disallow: /release
+    Disallow: /2/
+    Disallow: /2.0/
+    Disallow: /2.1/
+    Disallow: /2.2/
+    Disallow: /2.3/
+    Disallow: /2.4/
+    Disallow: /2.5/
+    Disallow: /2.6/
+    Disallow: /2.7/
+    Disallow: /3.0/
+    Disallow: /3.1/
+    Disallow: /3.2/
+    Disallow: /3.3/
+    Disallow: /3.4/
+    Disallow: /3.5/
+    Disallow: /3.6/
+    Disallow: /3.7/
+    Disallow: /3.8/
+    Disallow: /3.9/
+    Disallow: /3.10/
+====================================================================================================
+#22 stratum C  row 1115  LH044  2026-11-08T19:19:34Z
+URL : https://invent.kde.org/plasma/kwin
+path: /plasma/kwin
+copy: studies/LH044/data/read-2026-11-08T1920Z/0021.b 200 | retained, same study
+    User-Agent: *
+    Disallow: /autocomplete/users
+    Disallow: /autocomplete/projects
+    Disallow: /search
+    Disallow: /admin
+    Disallow: /profile
+    Disallow: /dashboard
+    Disallow: /users
+    Disallow: /api/v*
+    Disallow: /help
+    Disallow: /s/
+    Disallow: /-/profile
+    Disallow: /-/profile/
+    Disallow: /-/user_settings/
+    Disallow: /-/ide/
+    Disallow: /-/experiment
+    Allow: /users/sign_in
+    Allow: /users/sign_up
+    Allow: /users/*/snippets
+    User-Agent: *
+    Disallow: /*/new
+    Disallow: /*/edit
+    Disallow: /*/raw
+    Disallow: /*/realtime_changes
+    User-Agent: *
+    Disallow: /groups/*/-/analytics
+    Disallow: /groups/*/-/analytics/
+    Disallow: /groups/*/-/insights/
+    Disallow: /groups/*/-/issues_analytics
+    Disallow: /groups/*/-/contribution_analytics
+    Disallow: /groups/*/-/group_members
+    Disallow: /groups/*/-/saml/
+    Disallow: /groups/*/-/saml_group_links
+    Disallow: /groups/*/-/settings/
+    Disallow: /groups/*/-/billings
+    Disallow: /groups/*/-/hooks
+    Disallow: /groups/*/-/projects
+    User-Agent: *
+    Disallow: /*/*.git$
+    Disallow: /*/*.git/*
+    Disallow: /*/archive/
+    Disallow: /*/repository/archive*
+    Disallow: /*/activity
+    Disallow: /*/-/project_members
+    Disallow: /*/-/blame/
+    Disallow: /*/-/branches
+    Disallow: /*/-/commits/
+    Disallow: /*/-/commit
+    Disallow: /*/commit/*.patch
+    Disallow: /*/commit/*.diff
+    Disallow: /*/-/compare/
+    Disallow: /*/-/network/
+    Disallow: /*/path_locks
+    Disallow: /*/merge_requests/*.patch
+    Disallow: /*/merge_requests/*.diff
+    Disallow: /*/merge_requests/*/diffs
+    Disallow: /*/services
+    Disallow: /*/uploads/
+    Disallow: /*/-/import
+    Disallow: /*/-/requirements_management/
+    Disallow: /*/-/pipelines
+    Disallow: /*/-/pipeline_schedules
+    Disallow: /*/-/jobs
+    Disallow: /*/-/ci/
+    Disallow: /*/-/quality/
+    Disallow: /*/-/licenses
+    Disallow: /*/-/security/
+    Disallow: /*/-/dependencies
+    Disallow: /*/-/audit_events
+    Disallow: /*/-/on_demand_scans
+    Disallow: /*/-/feature_flags
+    Disallow: /*/-/ml/
+    Disallow: /*/-/environments
+    Disallow: /*/-/clusters
+    Disallow: /*/-/terraform
+    Disallow: /*/-/terraform_module_registry
+    Disallow: /*/-/*/configuration
+    Disallow: /*/-/error_tracking
+    Disallow: /*/-/metrics
+    Disallow: /*/-/alert_management
+    ...(13 more lines)
+====================================================================================================
+#23 stratum C  row 192  LH042  2026-11-08T19:12:01Z
+URL : https://hunt.io/blog/cve-2026-25253-openclaw-ai-agent-exposure
+path: /blog/cve-2026-25253-openclaw-ai-agent-exposure
+copy: studies/LH047/data/reads/robots-current/robots-hunt.io-0.txt 200 | current re-read (not the file in force at the time)
+    User-agent: *
+    Allow: /
+====================================================================================================
+#24 stratum C  row 160  LH042  2026-11-08T19:11:43Z
+URL : https://www.upguard.com/blog/understanding-and-securing-exposed-ollama-instances
+path: /blog/understanding-and-securing-exposed-ollama-instances
+copy: studies/LH047/data/reads/robots-current/robots-www.upguard.com-0.txt 200 | current re-read (not the file in force at the time)
+    User-agent: *
+====================================================================================================
+#25 stratum C  row 1563  LH044  2026-11-08T19:23:03Z
+URL : https://api.openalex.org/works/doi:10.1038/nature14539
+path: /works/doi:10.1038/nature14539
+copy: studies/LH044/data/read-2026-11-08T1920Z/0132.b 200 | retained, same study
+    User-agent: *
+    Allow: /
+====================================================================================================
+#26 stratum C  row 6  LH043  2026-11-08T18:59:39Z
+URL : https://www.aisi.gov.uk/blog/incident-report-unsanctioned-agent-behaviour-during-cyber-testing
+path: /blog/incident-report-unsanctioned-agent-behaviour-during-cyber-testing
+copy: studies/LH043/data/sources/aisi-robots.txt 200 | retained, same study, read after the request
+
+====================================================================================================
+#27 stratum D  row 1039  LH044  2026-11-08T19:19:01Z
+URL : https://github.com/torvalds/linux
+path: /torvalds/linux
+copy: studies/LH044/data/read-2026-11-08T1920Z/0003.b 403 | retained, same study
+====================================================================================================
+#28 stratum D  row 1034  LH044  2026-11-08T19:18:59Z
+URL : https://github.com/robots.txt
+path: /robots.txt
+copy: studies/LH044/data/read-2026-11-08T1920Z/0003.b 403 | retained, same study

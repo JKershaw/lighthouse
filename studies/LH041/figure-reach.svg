@@ -1,6 +1,6 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 720 790" width="720" height="790" role="img" aria-labelledby="chart-title chart-desc">
 <title id="chart-title">Maintainer clusters reached after each wave&#x27;s first malicious publish</title>
-<desc id="chart-desc">Six small step charts, one per worm wave. Each shows how many separate groups of npm maintainer accounts had published a malicious version, counting up from the wave&#x27;s first publish by the registry&#x27;s clock. Shai-Hulud 2.0 reached 88 clusters in under 15 hours; ChainDrop 13 of its 14 in under 4 hours; Shai-Hulud 17 in 71 hours; the TanStack wave 13 in 30 hours; Miasma 8 in 87 hours; the AntV wave stayed mostly in one cluster of 316 packages, with 2 others. Post hoc view, unreviewed. Source: OSV malicious-package records and npm registry metadata read 8 November 2026.</desc>
+<desc id="chart-desc">Six small step charts, one per worm wave. Each shows how many groups of packages sharing a current npm maintainer had published a malicious version, counting up from the wave&#x27;s first publish by the registry&#x27;s clock. Shai-Hulud 2.0 reached 88 clusters in under 15 hours; ChainDrop 13 of its 14 in under 4 hours; Shai-Hulud 17 in 71 hours; the TanStack wave 13 in 30 hours; Miasma 8 in 87 hours; the AntV wave stayed mostly in one cluster of 316 packages, with 2 others. Post hoc view, record 0.3; a group is not a victim, an account or a step of the worm. Source: OSV malicious-package records and npm registry metadata read 8 November 2026.</desc>
 <style>
 svg { --bg:#fbfaf7; --ink:#1f1f1f; --muted:#5d5850; --grid:#e3ddd1; --teal:#1f6576; --amber:#93600c; --purple:#78549b; --blue:#2866ab; --neutral:#74716a; color-scheme:light dark; }
 @media (prefers-color-scheme: dark) { svg { --bg:#15191b; --ink:#e6e2d9; --muted:#aaa498; --grid:#2f3538; --teal:#8ec4d4; --amber:#e0a650; --purple:#c6a7df; --blue:#8bb9ed; --neutral:#aaa498; } }
@@ -15,8 +15,8 @@ text { font-family:"Source Sans 3", "Source Sans Pro", system-ui, -apple-system,
 .axis { stroke:var(--muted); stroke-width:1; }
 </style>
 <rect width="720" height="790" fill="var(--bg)"/>
-<text class="head" x="24" y="34">How many maintainer groups each wave reached, hour by hour</text>
-<text class="sub" x="24" y="56">Clusters of npm maintainer accounts with a malicious version, counted from the</text>
+<text class="head" x="24" y="34">How many maintainer groups had a malicious version, hour by hour</text>
+<text class="sub" x="24" y="56">Groups of packages sharing a current npm maintainer, with a malicious version, from the</text>
 <text class="sub" x="24" y="74">wave's first malicious publish (registry clock). Each panel has its own scales.</text>
 <text class="nm" x="70" y="113">Shai-Hulud, Sep 2025</text>
 <line class="grid" x1="70" x2="370" y1="275.0" y2="275.0"/>
@@ -150,6 +150,6 @@ text { font-family:"Source Sans 3", "Source Sans Pro", system-ui, -apple-system,
 <path d="M410.0,715.0 H410.0 V705.0 H410.3 V695.0 H414.0 V685.0 H415.1 V675.0 H415.2 V665.0 H415.6 V655.0 H415.7 V645.0 H415.7 V635.0 H415.9 V625.0 H415.9 V615.0 H416.4 V605.0 H417.7 V595.0 H429.9 V585.0 H684.2 V575.0 H684.2" fill="none" stroke="var(--teal)" stroke-width="2.5"/>
 <text class="ann" x="710" y="685" text-anchor="end">14 clusters, last new at 51.2 h</text>
 <text class="ann" x="710" y="701" text-anchor="end">445 npm packages, 2237 versions</text>
-<text class="note" x="24" y="768">Post hoc view, unreviewed: versions outside each wave's dated window left out. A later cluster is not proof the worm, not a</text>
-<text class="note" x="24" y="783">person, published there. Sources: OSV export and npm registry, read 8 Nov 2026 (Lighthouse LH041).</text>
+<text class="note" x="24" y="768">Post hoc view: versions outside each wave's window left out. A group is packages sharing a maintainer today, not a</text>
+<text class="note" x="24" y="783">victim or a worm step; a later group does not show that no person published. OSV and npm registry, read 8 Nov 2026.</text>
 </svg>

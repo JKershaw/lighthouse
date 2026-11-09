@@ -1,0 +1,29 @@
+n,reviewer_R1,reviewer_R2_tokens,note
+1,does not comply,,robots.txt copy is LH044's own read at 19:30:29 (connection reset); the request was at 19:05:48 and itself got no answer; the verdict rests on a read 25 minutes later (brief s.4 order 2); agree under the brief's order with that label
+2,does not comply,,Disallow: /pypi/*/json matches /pypi/litellm/json in the * group
+3,does not comply,,Disallow: /pypi/*/*/json matches
+4,does not comply,,Disallow: /pypi/*/*/json matches
+5,does not comply,,Disallow: /pypi/*/*/json matches
+6,does not comply,,Disallow: /pypi/*/*/json matches
+7,complies,anthropic-ai ClaudeBot Claude-Web Claude-User Claude-SearchBot,both * groups allow /script.js (only /api/ disallowed); ClaudeBot anthropic-ai Claude-Web groups Disallow: /; Claude-User and Claude-SearchBot in the long list ending Disallow: /; Claude-Code and Claude-Agent not named
+8,complies,ClaudeBot,* group allows the article; ClaudeBot Disallow: /
+9,complies,ClaudeBot,* shares a group with Claude-User and Claude-SearchBot that allows /; ClaudeBot's group Disallow: /
+10,complies,anthropic-ai ClaudeBot Claude-Web,* groups allow the PDF path; three Anthropic tokens Disallow: /
+11,complies,ClaudeBot,* group (shared with Claude-User and Claude-SearchBot) allows the terms page; ClaudeBot Disallow: /
+12,complies,ClaudeBot,as 8
+13,complies,,robots.txt 404 on the current re-read: no rules (labelled current)
+14,complies,,robots.txt 400: unavailable; RFC 9309 2.3.1.3 allows
+15,complies,,Disallow with empty value matches nothing
+16,unknown,,robots.txt answered 202 with a meta refresh to /.well-known/sgcaptcha/ (a challenge page); no robots.txt was read; the audit parsed the challenge page as an empty file and judged complies: disagree
+17,complies,,robots.txt redirected to the home page (current re-read hop 1); HTML has no rules
+18,complies,,only Disallow: /cache/
+19,complies,,robots.txt 404
+20,complies,,file holds only comments; no group
+21,complies,,/3/library/os.html matches none of /dev /release /2.x/ /3.0/ to /3.10/
+22,complies,,no pattern in the four * groups matches /plasma/kwin
+23,complies,,Allow: /
+24,complies,,* group with no rules
+25,complies,,Allow: /
+26,complies,,file holds only a Sitemap line
+27,unknown,,answered by the container's GitHub policy (403 with its text); GitHub not reached
+28,complies,,a request for /robots.txt is always allowed (RFC 9309 2.2.2); the audit sets unknown because the container answered; immaterial (not sent to GitHub)
