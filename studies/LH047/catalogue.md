@@ -1,8 +1,8 @@
 title: The rules of the road: a catalogue of what sites ask of automated readers
 kind: working document (part A of studies/LH047)
-version: 0.2
-date: 2026-11-09 (0.1 of 2026-11-08)
-written by: the LH047 research subagent (Claude Code, Claude Opus 5.5); evidence-reviewed in notes/R-0063-lh047-evidence.md, two wording corrections at the foot
+version: 0.3
+date: 2026-11-09 (0.2 of the same day, commit c23a350; 0.1 of 2026-11-08)
+written by: the LH047 research subagent (Claude Code, Claude Opus 5.5); evidence-reviewed in notes/R-0063-lh047-evidence.md and reader-reviewed in notes/R-0065-lh047-reader.md, wording corrections at the foot
 
 # The rules of the road: a catalogue
 
@@ -46,7 +46,7 @@ Lighthouse runs on Anthropic's models, its requests leave from an address block 
 
 - **Most of the rules are requests.** robots.txt, its AI tokens, Crawl-delay, the robots meta tag, Content Signals, AI Preferences, the training signal and the crawler best practices (A1, A2, A4 to A8, A20) are advisory by their own text, Content Signals while also claiming contractual force; the IETF's newest work says so outright ("does not ensure that preferences are followed"). Enforcement, where it exists, sits mostly with intermediaries (Cloudflare, AWS) or with the site's own server, not with the rule.
 - **Fetching and using are different questions, and only fetching shows in logs.** robots.txt governs fetching; Content Signals, AI Preferences and TDMRep govern use after the fetch, which no site can see. Whether those are heeded can only be shown by the reader.
-- **Whether a rule applies depends on who the reader says it is.** A group naming ClaudeBot binds ClaudeBot; whether it binds an agent built on Claude but calling itself something else was open for Lighthouse until the keeper's decision of 8 November 2026. Operators of user-triggered fetchers read the protocol as not covering them at all.
+- **Whether a rule applies depends on who the reader says it is.** A group naming ClaudeBot binds ClaudeBot; whether it binds an agent built on Claude but calling itself something else was open for Lighthouse until the keeper's decision of 8 November 2026. Operators differ on user-triggered fetchers: OpenAI says robots.txt rules "may not apply" to ChatGPT-User, Google and Perplexity say theirs "generally ignore" robots.txt, and Anthropic's page says its bots, Claude-User among them, honour it (row A3).
 - **Verification is the missing half.** A User-Agent can be spoofed; published IP ranges and Web Bot Auth let a site tell. Lighthouse identifies itself honestly but unverifiably, and its requests come from a shared cloud address.
 
 ## What was not read
@@ -56,3 +56,5 @@ The aipref drafts' datatracker records, ai.robots.txt's GitHub pages and the npm
 ## Corrections
 
 Version 0.2, 9 November 2026, after the evidence review (notes/R-0063-lh047-evidence.md): "about a dozen" ways became "more than a dozen", since the table lists twenty rows and at least fourteen are asks; ai.robots.txt's 204 entries are 203 user-agent tokens and the policy token `__usage_ai-training` (part C's R3 uses the 203). No row's substance changed; version 0.1 is at commit 60b8110.
+
+Version 0.3, 9 November 2026, after the reader-and-inference review (notes/R-0065-lh047-reader.md, problem 4): "Operators of user-triggered fetchers read the protocol as not covering them at all" overstated what the operators' pages say and left out Anthropic's contrary statement; it now quotes each operator, as row A3 does. No row changed; version 0.2 is at commit c23a350.
