@@ -1,0 +1,57 @@
+== view: posthoc
+W02 indicator: clusters=88 later=87 same_second=2 within60=14 within60_of_first=1 first=2025-11-24 03:10:05 last_new=2025-11-24 17:54:19 hours_to_last_new=14.74 sizes=[32, 5, 21, 62, 21]...
+   03:10:05 -> 03:10:16  gap 11 s
+   04:25:39 -> 04:25:39  gap 0 s
+   06:19:33 -> 06:20:20  gap 47 s
+   06:20:20 -> 06:20:22  gap 2 s
+   07:32:22 -> 07:33:01  gap 39 s
+   07:33:01 -> 07:33:01  gap 0 s
+   07:44:12 -> 07:44:46  gap 34 s
+   09:12:45 -> 09:12:50  gap 5 s
+   09:12:50 -> 09:12:59  gap 9 s
+   10:51:24 -> 10:51:46  gap 22 s
+   11:10:35 -> 11:11:27  gap 52 s
+   11:18:28 -> 11:18:37  gap 9 s
+   11:18:37 -> 11:18:39  gap 2 s
+   16:44:07 -> 16:44:08  gap 1 s
+W11 indicator: clusters=13 later=12 same_second=1 within60=2 within60_of_first=0 first=2026-08-04 09:35:00 last_new=2026-08-04 13:18:05 hours_to_last_new=3.72 sizes=[11, 1, 47, 5, 2]...
+   10:39:07 -> 10:39:07  gap 0 s
+   10:41:16 -> 10:41:17  gap 1 s
+W11 indicator+window: clusters=14 later=13 same_second=1 within60=2 within60_of_first=0 first=2026-08-04 09:35:00 last_new=2026-08-06 12:46:20 hours_to_last_new=51.19 sizes=[11, 1, 47, 5, 2]...
+   10:39:07 -> 10:39:07  gap 0 s
+   10:41:16 -> 10:41:17  gap 1 s
+W01 indicator+window: clusters=17 later=16 same_second=0 within60=0 within60_of_first=0 first=2025-09-14 17:58:51 last_new=2025-09-17 16:48:00 hours_to_last_new=70.82 sizes=[5, 6, 21, 8, 11]...
+W06 indicator+window: clusters=13 later=12 same_second=0 within60=0 within60_of_first=0 first=2026-05-11 14:41:32 last_new=2026-05-12 20:42:54 hours_to_last_new=30.02 sizes=[1, 42, 4, 4, 3]...
+W07 indicator+window: clusters=3 later=2 same_second=0 within60=0 within60_of_first=0 first=2026-05-19 01:39:31 last_new=2026-05-25 22:29:28 hours_to_last_new=164.83 sizes=[316, 6, 37]...
+W08 indicator+window: clusters=8 later=7 same_second=0 within60=0 within60_of_first=0 first=2026-06-01 10:54:09 last_new=2026-06-05 01:43:33 hours_to_last_new=86.82 sizes=[32, 1, 55, 2, 1]...
+waves with any registry-dated version: ['W01', 'W02', 'W06', 'W07', 'W08', 'W10', 'W11', 'W12', 'W13'] 9
+('W02', 'indicator') {'packages': '788', 'npm_packages': '788', 'versions': '1086', 'versions_registry_time': '1029', 'first_registry': '2025-11-24T03:10:05Z', 'last_registry': '2025-11-24T17:54:20Z', 'span_hours': '14.74', 'clusters': '88', 'reach_after_seed': '87', 'hours_to_last_new_cluster': '14.74', 'largest_cluster_packages': '103', 'seed_cluster_packages': '32', 'npm_known_both': '728'}
+('W11', 'indicator') {'packages': '444', 'npm_packages': '444', 'versions': '2236', 'versions_registry_time': '2127', 'first_registry': '2026-08-04T09:35:00Z', 'last_registry': '2026-08-04T13:18:41Z', 'span_hours': '3.73', 'clusters': '13', 'reach_after_seed': '12', 'hours_to_last_new_cluster': '3.72', 'largest_cluster_packages': '149', 'seed_cluster_packages': '11', 'npm_known_both': '427'}
+('W07', 'indicator+window') {'packages': '360', 'npm_packages': '359', 'versions': '685', 'versions_registry_time': '682', 'first_registry': '2026-05-19T01:39:31Z', 'last_registry': '2026-05-27T04:08:16Z', 'span_hours': '194.48', 'clusters': '3', 'reach_after_seed': '2', 'hours_to_last_new_cluster': '164.83', 'largest_cluster_packages': '316', 'seed_cluster_packages': '316', 'npm_known_both': '359'}
+== view: brief
+W02 indicator: clusters=88 later=87 same_second=2 within60=13 within60_of_first=0 first=2017-02-21 09:37:56 last_new=2025-11-24 17:54:19 hours_to_last_new=76760.27 sizes=[103, 46, 32, 5, 21]...
+   04:25:39 -> 04:25:39  gap 0 s
+   06:19:33 -> 06:20:20  gap 47 s
+   06:20:20 -> 06:20:22  gap 2 s
+   07:32:22 -> 07:33:01  gap 39 s
+   07:33:01 -> 07:33:01  gap 0 s
+   07:44:12 -> 07:44:46  gap 34 s
+   09:12:45 -> 09:12:50  gap 5 s
+   09:12:50 -> 09:12:59  gap 9 s
+   10:51:24 -> 10:51:46  gap 22 s
+   11:10:35 -> 11:11:27  gap 52 s
+   11:18:28 -> 11:18:37  gap 9 s
+   11:18:37 -> 11:18:39  gap 2 s
+   16:44:07 -> 16:44:08  gap 1 s
+W11 indicator: clusters=13 later=12 same_second=1 within60=1 within60_of_first=0 first=2026-02-03 00:06:10 last_new=2026-08-04 13:18:05 hours_to_last_new=4381.20 sizes=[1, 11, 1, 47, 5]...
+   10:39:07 -> 10:39:07  gap 0 s
+W11 indicator+window: clusters=14 later=13 same_second=1 within60=1 within60_of_first=0 first=2026-02-03 00:06:10 last_new=2026-08-06 12:46:20 hours_to_last_new=4428.67 sizes=[1, 11, 1, 47, 5]...
+   10:39:07 -> 10:39:07  gap 0 s
+W01 indicator+window: clusters=17 later=16 same_second=0 within60=0 within60_of_first=0 first=2025-09-14 17:58:51 last_new=2025-09-17 16:48:00 hours_to_last_new=70.82 sizes=[5, 6, 21, 8, 11]...
+W06 indicator+window: clusters=13 later=12 same_second=0 within60=0 within60_of_first=0 first=2026-05-11 14:41:32 last_new=2026-05-12 20:42:54 hours_to_last_new=30.02 sizes=[1, 42, 4, 4, 3]...
+W07 indicator+window: clusters=3 later=2 same_second=0 within60=0 within60_of_first=0 first=2026-05-19 01:39:31 last_new=2026-05-25 22:29:28 hours_to_last_new=164.83 sizes=[316, 6, 37]...
+W08 indicator+window: no clusters
+waves with any registry-dated version: ['W01', 'W02', 'W06', 'W07', 'W09', 'W10', 'W11', 'W12', 'W13'] 9
+('W02', 'indicator') {'packages': '788', 'npm_packages': '788', 'versions': '1104', 'versions_registry_time': '1047', 'first_registry': '2017-02-21T09:37:56Z', 'last_registry': '2026-08-26T18:44:00Z', 'span_hours': '83361.1', 'clusters': '88', 'reach_after_seed': '87', 'hours_to_last_new_cluster': '76760.27', 'largest_cluster_packages': '103', 'seed_cluster_packages': '103', 'npm_known_both': '728'}
+('W11', 'indicator') {'packages': '444', 'npm_packages': '444', 'versions': '2262', 'versions_registry_time': '2153', 'first_registry': '2026-02-03T00:06:10Z', 'last_registry': '2026-11-03T23:16:58Z', 'span_hours': '6575.18', 'clusters': '13', 'reach_after_seed': '12', 'hours_to_last_new_cluster': '4381.2', 'largest_cluster_packages': '149', 'seed_cluster_packages': '1', 'npm_known_both': '427'}
+('W07', 'indicator+window') {'packages': '360', 'npm_packages': '359', 'versions': '685', 'versions_registry_time': '682', 'first_registry': '2026-05-19T01:39:31Z', 'last_registry': '2026-05-27T04:08:16Z', 'span_hours': '194.48', 'clusters': '3', 'reach_after_seed': '2', 'hours_to_last_new_cluster': '164.83', 'largest_cluster_packages': '316', 'seed_cluster_packages': '316', 'npm_known_both': '359'}
