@@ -1,0 +1,17 @@
+{
+  "_about": "LH048 units, by the brief's selection rule. The two flaws the post names by CVE are filled in at the brief; every other unit is 'pending' until the discovery read applies the rule to the two pages the post links, and is then set to identified, ambiguous or unidentified with the quoted entry text and the discovery label. Android's units are fixed as 'no identifier'. Severity on a linked page plays no part in the rule.",
+  "rule_applied_at": null,
+  "units": [
+    {"chain": "chrome", "step": "C1", "described": "V8 heap corruption from a malicious web page", "class": "pending", "cves": [], "candidates": [], "evidence": ""},
+    {"chain": "chrome", "step": "C2", "described": "V8 memory-region sandbox escape and ASLR defeat", "class": "pending", "cves": [], "candidates": [], "evidence": ""},
+    {"chain": "chrome", "step": "C3", "described": "race condition in CacheStorage, read outside the renderer sandbox", "class": "pending", "cves": [], "candidates": [], "evidence": ""},
+    {"chain": "chrome", "step": "C4", "described": "use-after-free in FedCM, code execution outside the sandbox", "class": "pending", "cves": [], "candidates": [], "evidence": ""},
+    {"chain": "safari", "step": "S1", "described": "use-after-free in JavaScriptCore (TypedArray operations through stale pointers)", "class": "pending", "cves": [], "candidates": [], "evidence": ""},
+    {"chain": "safari", "step": "S2", "described": "Gigacage variables used to index other regions (read/write outside the Gigacage)", "class": "pending", "cves": [], "candidates": [], "evidence": ""},
+    {"chain": "safari", "step": "S3", "described": "vulnerability in the WebContent sandbox's IPC mechanism, reading history, cookies and session data from disk", "class": "pending", "cves": [], "candidates": [], "evidence": ""},
+    {"chain": "android", "step": "A", "described": "three chained vulnerabilities (the post lists four bypasses: USB host setting; device-to-device authorisation skip; pairing code verification skip; raw-byte USB fallback)", "class": "no identifier", "cves": [], "candidates": [], "evidence": "the post names no CVE and links no advisory for this chain"},
+    {"chain": "windows", "step": "W", "described": "out-of-bounds read in the Windows kernel's QUIC implementation (HTTP/3), remote denial of service", "class": "named", "cves": ["CVE-2026-33096"], "candidates": [], "evidence": "named in the post, linked to its NVD page"},
+    {"chain": "linux", "step": "L", "described": "race-induced use-after-free in the kernel networking stack, Multipath TCP listener, remote root", "class": "named", "cves": ["CVE-2026-98432"], "candidates": [], "evidence": "named in the post, linked to its NVD page"}
+  ],
+  "linked_set": []
+}

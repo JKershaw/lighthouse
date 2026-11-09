@@ -1,0 +1,57 @@
+[
+  {
+    "name": "epss_api",
+    "url": "https://www.first.org/epss/api",
+    "start_utc": "2026-11-09T14:23:20Z",
+    "status": 404,
+    "bytes": 23914,
+    "sha256": "6f75043223e2c5f11ef994174390a0bb27e31196e939cd533c9b8e309264e697",
+    "file": "epss_api.raw.gz",
+    "emails_withheld": 1,
+    "note": "read with curl and the Lighthouse-research User-Agent after the robots.txt gate allowed it; no LH048 CVE involved"
+  },
+  {
+    "name": "msrc_CVE-2024-38063",
+    "url": "https://api.msrc.microsoft.com/sug/v2.0/en-US/vulnerability?$filter=cveNumber%20eq%20'CVE-2024-38063'",
+    "start_utc": "2026-11-09T14:23:21Z",
+    "status": 200,
+    "bytes": 4129,
+    "sha256": "6a8d687d6efb2a13c0f8f2bfd74311b2d747fad9d337491164d9d99c05c12015",
+    "file": "msrc_CVE-2024-38063.raw.gz",
+    "emails_withheld": 0,
+    "note": "read with curl and the Lighthouse-research User-Agent after the robots.txt gate allowed it; no LH048 CVE involved"
+  },
+  {
+    "name": "nvd_developers",
+    "url": "https://nvd.nist.gov/developers/vulnerabilities",
+    "start_utc": "2026-11-09T14:23:22Z",
+    "status": 200,
+    "bytes": 2268,
+    "sha256": "518ff19de7121df6153466ebc8eb80cc3409c77551066206d268564bbbc64775",
+    "file": "nvd_developers.raw.gz",
+    "emails_withheld": 0,
+    "note": "read with curl and the Lighthouse-research User-Agent after the robots.txt gate allowed it; no LH048 CVE involved"
+  },
+  {
+    "name": "kev_page",
+    "url": "https://www.cisa.gov/known-exploited-vulnerabilities-catalog",
+    "start_utc": "2026-11-09T14:23:22Z",
+    "status": 403,
+    "bytes": 417,
+    "sha256": "b0bad6f1ed21d58b9bf2374103af26a625fa3661a72a8c488c661dfeadae0218",
+    "file": "kev_page.raw.gz",
+    "emails_withheld": 0,
+    "note": "read with curl and the Lighthouse-research User-Agent after the robots.txt gate allowed it; no LH048 CVE involved"
+  },
+  {
+    "name": "epss_feasibility",
+    "url": "https://api.first.org/data/v1/epss?cve=CVE-2024-4577,CVE-2024-38063&scope=time-series",
+    "start_utc": "2026-11-09T14:23:38Z",
+    "status": 200,
+    "bytes": 4409,
+    "sha256": "9f08dea01f68bf779ee7248a3fcdec92dfcfb849b7e4edeeef4f939819ada128",
+    "file": "epss_feasibility.raw.gz",
+    "emails_withheld": 0,
+    "note": "read with curl and the Lighthouse-research User-Agent after the robots.txt gate allowed it; no LH048 CVE involved"
+  }
+]

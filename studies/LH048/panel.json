@@ -1,0 +1,16 @@
+{
+  "_about": "LH048 routes, fixed with the brief on 9 November 2026. {cve} is filled from selection.json; {cves} is a comma-separated batch of at most 100 identifiers.",
+  "post": "https://www.anthropic.com/research/discovering-vulnerabilities-with-claude",
+  "linked_pages": {
+    "chrome_release": "https://chromereleases.googleblog.com/2026/10/stable-channel-update-for-desktop_02018666648.html",
+    "apple_note": "https://support.apple.com/en-us/127594"
+  },
+  "signals": {
+    "kev": "https://www.cisa.gov/sites/default/files/feeds/known_exploited_vulnerabilities.json",
+    "epss": "https://api.first.org/data/v1/epss?cve={cves}&scope=time-series",
+    "cve_org": "https://cveawg.mitre.org/api/cve/{cve}",
+    "nvd": "https://services.nvd.nist.gov/rest/json/cves/2.0?cveId={cve}",
+    "msrc": "https://api.msrc.microsoft.com/sug/v2.0/en-US/vulnerability?$filter=cveNumber%20eq%20'{cve}'"
+  },
+  "msrc_cves": ["CVE-2026-33096"]
+}
