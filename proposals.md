@@ -332,6 +332,10 @@ From the studies and site work of 8 November 2026:
 - L-0046 TollBit's figure 4.3 (per-bot bypass rates, including Anthropic's bots) was not read, because of LH047's three-request cap per host; a later read could add it.
 - L-0047 Kim et al., IMC 2025, "Scrapers selectively respect robots.txt directives", was not read: arXiv is an audited host in LH047 and the ACM copy answered with a challenge.
 
+From the scheduled run of 9 November 2026 (LH041's Next, after its reader review, notes/R-0061-lh041-reader.md):
+
+- L-0048 The registry worms' public exfiltration repositories as a dated count: how many public repositories carry each wave's published description, by creation date, in aggregate only; its brief would keep only dated counts and discard account names at collection, naming no account and identifying no victim (the keeper's caution of 8 November 2026). It would date the worms' reach on developer machines and CI, which registry records cannot see.
+
 ## Declined, parked and expired
 
 - (none yet)

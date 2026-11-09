@@ -1,0 +1,40 @@
+rows 458 sets Counter({'panel': 272, 'wholeday': 160, 'reference': 17, 'reread': 6, 'latest': 3})
+distinct files 452
+all 200: True all non-empty (events>0): True
+date range 2026-01-01 2026-11-08
+panel files 272 hours {0: 68, 6: 68, 12: 68, 18: 68} range 2026-09-01-0 2026-11-07
+1 Sep-14 Oct 26 of 176 0.148
+15 Oct-7 Nov 64 of 96 0.667
+all 90 of 272 0.331
+Push/Create/Delete zero together in panel: True
+runs 11
+   2026-09-01-12 -> 2026-09-05-6 16
+   2026-09-09-18 -> 2026-09-10-0 2
+   2026-09-21-18 -> 2026-09-21-18 1
+   2026-10-07-0 -> 2026-10-08-0 5
+   2026-10-09-18 -> 2026-10-10-0 2
+   2026-10-15-0 -> 2026-10-18-6 14
+   2026-10-22-18 -> 2026-10-24-0 6
+   2026-10-26-12 -> 2026-11-02-12 29
+   2026-11-03-0 -> 2026-11-04-18 8
+   2026-11-06-0 -> 2026-11-06-0 1
+   2026-11-06-12 -> 2026-11-07-18 6
+events in no-push panel files: min 1328 median 4112 max 81070
+reference files 17
+   2026-01-01-12 events 154722 push 115695 push share 74.8% control4 21503
+   2026-01-15-12 events 153766 push 116240 push share 75.6% control4 16708
+   2026-02-01-12 events 159234 push 117135 push share 73.6% control4 21127
+   2026-02-15-12 events 153474 push 114528 push share 74.6% control4 19063
+   2026-03-01-12 events 160422 push 121103 push share 75.5% control4 18294
+   2026-03-15-12 events 164927 push 131472 push share 79.7% control4 12855
+   2026-04-01-12 events 155959 push 121708 push share 78.0% control4 10422
+   2026-04-02-14 events 153261 push 111213 push share 72.6% control4 17611
+   2026-04-15-12 events 156006 push 127008 push share 81.4% control4 5497
+   2026-05-01-12 events 153453 push 120844 push share 78.7% control4 9447
+   2026-05-15-12 events 87307 push 72852 push share 83.4% control4 1834
+   2026-06-01-12 events 158152 push 135957 push share 86.0% control4 998
+   2026-06-15-12 events 162822 push 138311 push share 84.9% control4 924
+   2026-07-01-12 events 161121 push 138335 push share 85.9% control4 882
+   2026-07-15-12 events 169372 push 155445 push share 91.8% control4 424
+   2026-08-01-12 events 169487 push 165377 push share 97.6% control4 212
+   2026-08-15-12 events 170586 push 166990 push share 97.9% control4 189

@@ -331,3 +331,15 @@ https://www.sysnet.ucsd.edu/~voelker/pubs/robots-imc25.pdf
 Cloudflare's account (4 August 2025) of a test with new domains, of an undeclared crawler it attributes to Perplexity, and of ChatGPT-User stopping at robots.txt in the same test; Perplexity disputes it (its reply unread: a challenge). Read 8 November 2026 (studies/LH047/data/reads/evidence-1/004.txt).
 
 https://blog.cloudflare.com/perplexity-is-using-stealth-undeclared-crawlers-to-evade-website-no-crawl-directives/
+
+### S54 OpenSSF malicious-packages
+
+OpenSSF's repository of malicious-package reports in OSV format (MAL- ids), merged from sources such as GitHub's malware advisories, Amazon Inspector, Google's open source security team, kam193, ReversingLabs and OpenSSF Package Analysis; each record names its origins and import times, and OSV serves the same records in its exports. One record per package, so a package compromised twice holds both episodes' versions. LH041 read the README, contributing guide, schema additions and config on 8 November 2026 and spot-checked 20 records against OSV's copies (all matched).
+
+https://github.com/ossf/malicious-packages
+
+### S55 The npm registry's package documents
+
+registry.npmjs.org/<package>: per-version publish times, kept for many removed malicious versions, the current maintainers, dist-tags and surviving version documents. Read anonymously by LH041 on 8 November 2026 (2,198 documents, 84 answered 404).
+
+https://registry.npmjs.org/
