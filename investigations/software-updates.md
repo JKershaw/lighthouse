@@ -8,6 +8,7 @@ started: 2026-09-26
 studies:
 - studies/LH002/LH002.md
 - studies/LH005/LH005.md
+- studies/LH049/brief.md
 - studies/LH006/LH006.md
 - studies/LH007/LH007.md
 - studies/LH008/LH008.md
