@@ -1,0 +1,74 @@
+[
+  {
+    "group": "pages",
+    "name": "post",
+    "url": "https://www.anthropic.com/research/discovering-vulnerabilities-with-claude",
+    "start_utc": "2026-11-10T14:16:49.547446+00:00",
+    "robots": {
+      "robots_url": "https://www.anthropic.com/robots.txt",
+      "robots_status": 200,
+      "robots_sha256": "b8bb03567cf862a9024bd464bd4bd7afaf054b1029de79727b2ba94711480ec7",
+      "provider": "anthropic",
+      "decided_by": "*",
+      "rule": "Allow: /",
+      "reason": "allowed by robots.txt"
+    },
+    "finish_utc": "2026-11-10T14:16:50.243778+00:00",
+    "status": 200,
+    "final_url": "https://www.anthropic.com/research/discovering-vulnerabilities-with-claude",
+    "content_type": "text/html; charset=utf-8",
+    "last_modified": "",
+    "bytes": 176388,
+    "sha256": "aa31b276a32f5949aaa9992ebf789523494d93690701a8409f3fb91c53c6dcff",
+    "file": "post.raw.gz",
+    "emails_withheld": 2
+  },
+  {
+    "group": "pages",
+    "name": "chrome_release",
+    "url": "https://chromereleases.googleblog.com/2026/10/stable-channel-update-for-desktop_02018666648.html",
+    "start_utc": "2026-11-10T14:16:50.267969+00:00",
+    "robots": {
+      "robots_url": "https://chromereleases.googleblog.com/robots.txt",
+      "robots_status": 200,
+      "robots_sha256": "0edd41a3f4f8214f3202bf8739f6fd44bd8cfc5c8b9238faea8ee247b2695bfa",
+      "provider": "anthropic",
+      "decided_by": "*",
+      "rule": "Allow: /",
+      "reason": "allowed by robots.txt"
+    },
+    "finish_utc": "2026-11-10T14:16:51.246315+00:00",
+    "status": 200,
+    "final_url": "https://chromereleases.googleblog.com/2026/10/stable-channel-update-for-desktop_02018666648.html",
+    "content_type": "text/html; charset=UTF-8",
+    "last_modified": "Tue, 10 Nov 2026 08:29:09 GMT",
+    "bytes": 1147813,
+    "sha256": "ce006dec83e3cea7ea07df291d29d92778d253f8784c10333ace7e262ddac57a",
+    "file": "chrome_release.raw.gz",
+    "emails_withheld": 0
+  },
+  {
+    "group": "pages",
+    "name": "apple_note",
+    "url": "https://support.apple.com/en-us/127594",
+    "start_utc": "2026-11-10T14:16:51.352381+00:00",
+    "robots": {
+      "robots_url": "https://support.apple.com/robots.txt",
+      "robots_status": 200,
+      "robots_sha256": "d96234b630e2bde380f107a5fbbea09fbf304b415cfadf53b4f24f27633b2b83",
+      "provider": "anthropic",
+      "decided_by": "*",
+      "rule": "None",
+      "reason": "allowed by robots.txt"
+    },
+    "finish_utc": "2026-11-10T14:16:51.801080+00:00",
+    "status": 200,
+    "final_url": "https://support.apple.com/en-us/127594",
+    "content_type": "text/html;charset=utf-8",
+    "last_modified": "Mon, 26 Oct 2026 02:30:00 GMT",
+    "bytes": 207412,
+    "sha256": "7d6c11680c9319a2f38ae7a36b844285627607e476db7be0e9c7dbdd02d5c843",
+    "file": "apple_note.raw.gz",
+    "emails_withheld": 0
+  }
+]
