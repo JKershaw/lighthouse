@@ -15,8 +15,8 @@ layout: base.njk
   </section>{% endif %}
   {% if sectionId == 'map' and lineage %}<aside class="lineage-signpost">
     <p class="kicker">Prototype · Unreviewed</p>
-    <h2><a href="/map/knowledge-lineage/">Follow an idea</a></h2>
-    <p>See how a claim changed after review, or follow an AI-assisted discovery into the questions it leaves open.</p>
+    <h2><a href="/map/knowledge-lineage/">Explore Lighthouse’s knowledge map</a></h2>
+    <p>Start with the questions, follow how our understanding changed, then open the evidence.</p>
   </aside>{% endif %}
   {% if section.entries.length %}<ol class="compact-entries">
   {% for p in section.entries %}{% include "compact-entry.njk" %}{% endfor %}

@@ -1,10 +1,18 @@
 # Follow an idea: the Knowledge Lineage pilot
 
-**In short.** Two small trails let a reader follow a corrected claim and a reported model discovery back to their records. The first agent comparison found the same retrieval accuracy with and without the index, so it does not establish a research improvement. Keep this as an unreviewed prototype, repair the remaining testing gaps, and test with an unfamiliar human before expanding it.
+**In short.** The knowledge map now starts with Lighthouse's three questions and a complete catalogue within a stated file boundary, then opens into selected histories, short trails and the evidence behind them. This reader-interface revision follows John's feedback that the pilot felt dense. The original comparison found equal retrieval accuracy; this new overview has not been tested with an unfamiliar human.
 
-Version 0.1, 10 November 2026. Written by OpenAI Codex, exact model identifier and attributable cost unavailable. Scope: cross-cutting method pilot under [issue #46](https://github.com/JKershaw/lighthouse/issues/46), using the still-open [proposal #47](https://github.com/JKershaw/lighthouse/pull/47). No fourth investigation, new collection or schedule. Existing released prose is unchanged.
+Version 0.2, 10 November 2026. Written by OpenAI Codex, exact model identifier and attributable cost unavailable. Scope: cross-cutting method pilot under [issue #46](https://github.com/JKershaw/lighthouse/issues/46), using the still-open [proposal #47](https://github.com/JKershaw/lighthouse/pull/47). No fourth investigation, new collection or schedule. Existing released prose is unchanged.
 
 [Open the visual prototype](../../map/knowledge-lineage/) after building the branch. The site's Map page carries an explicitly unreviewed signpost. The prototype is not a released finding and enters no release feed.
+
+## The three levels
+
+- [Overview](../../map/knowledge-lineage/): three investigations, 49 study records and 21 released pieces at the frozen input, plus eight selected readings showing how the core software-update inquiry developed. All scoped items are reachable, including ten outside the investigation groups' explicit links. The inventory is complete within its declared boundary; this is not a complete claim-level or external-research graph.
+- [Thread](../../map/knowledge-lineage/trails/): the two original journeys, with routine provenance inside native disclosures.
+- [Evidence](../../map/knowledge-lineage/evidence/): original passages, typed relationships, sample, dates and access limits.
+
+[Overview plan](overview-plan.md), [source/editorial check](overview-editor.md), [final agent audit](overview-review.md), [iteration assessment](overview-evaluation.md), [catalogue](overview.json), and [selected-history annotations](overview-history.json). The original protocol and comparison reports remain the record of version 0.1, before this interface changed.
 
 ## What is here
 
@@ -20,20 +28,22 @@ From the repository root:
 
 ```
 python3 scripts/lineage/extract.py --check
+node scripts/lineage/overview.mjs --check
 python3 scripts/lineage/draw.py
+python3 scripts/lineage/draw_overview.py
+npm ci --prefix site
+npm test --prefix site
+npm run build --prefix site
 python3 scripts/lineage/check.py
-cd site
-npm ci
-npm test
-npm run build
-npm run serve
+python3 scripts/lineage/preview.py
+npm run serve --prefix site
 ```
 
 Visit `/map/knowledge-lineage/`. `extract.py` without `--check` rebuilds the JSON from the exact commit in baseline.json plus explicitly versioned annotations. Every edge retains its passage, line span, input hash and frozen-revision URL. It fails on a missing passage. A newer source requires a deliberate input/version change; it cannot silently change this history.
 
 The tests check source passages and edge endpoints against frozen git, sampling, candidate separation and direction. They do not decide whether an attributed external event happened. The local check validates generated links and reproducibility without making external requests. The build has existing unresolved-link warnings elsewhere; the pilot's local links are checked separately.
 
-Static proofs can be regenerated after the site build with `python3 scripts/lineage/render_proofs.py`, requiring WeasyPrint 70 and PyMuPDF. The session used an isolated scratch install. The script prohibits network fetches. It applies the mobile layout explicitly because a print renderer is not a browser viewport engine. Use a real browser for acceptance, not these proofs.
+Static proofs can be regenerated after the site build with `python3 scripts/lineage/render_proofs.py`, requiring WeasyPrint 70 and PyMuPDF. The session used an isolated scratch install. The script prohibits network fetches, models closed disclosures and applies the phone layout explicitly because a print renderer is not a browser viewport engine. The overview has separate tall and wide layouts; the tall one stays in use until the wider drawing has room for readable labels. Use a real browser for acceptance, not these proofs.
 
 ## What the sample can and cannot say
 
@@ -51,7 +61,7 @@ The proposal points to Lancaster's thematic review, the AI-security knowledge-gr
 
 ## Next
 
-Revise before expanding. Complete actual 390px light/dark, keyboard and assistive-technology checks, then give an unfamiliar human the two journeys without coaching. Preserve errors and misunderstandings. A normal evidence/reader review is still needed before any release.
+John authorised the overview iteration after the first pilot. Its source audit and static checks do not replace reader acceptance. Complete actual 390px light/dark, keyboard and assistive-technology checks, then give an unfamiliar human the two journeys without coaching. Preserve errors and misunderstandings. A normal evidence/reader review is still needed before any release.
 
 If that works, add optional “earlier evidence / what changed / used later” blocks to one existing investigation, with an explicit small maintenance allowance. The twice-weekly research scout could attach existing claim IDs and a reason for reuse to leads it already produces; the existing proposals gate still decides what starts. No new crawler or timer is needed. Ask whether a real investigation choice changed before claiming better research. Only then consider wider citation coverage, multiple evidence parents and a broader landscape view.
 
