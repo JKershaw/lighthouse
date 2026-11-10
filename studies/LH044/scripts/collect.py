@@ -10,6 +10,9 @@ row. Stops working after END: the study's requests end on a fixed date.
   --wayback LABEL      Wayback Machine checks for that read's walled services (brief, measure 5).
   --httparchive LABEL  one request for HTTP Archive's monthly adoption counts (context, measure 6).
   --statements LABEL FILE   fetch operator statement pages listed in FILE (id,operator,url).
+  --usage-token LABEL  (offline, amendment 6) measure 4's 18th entry, `__usage_ai-training`, from a
+                       read's kept robots.txt files into usage_token.csv; makes no request. --classify
+                       does this itself for reads labelled from AMENDMENT6_FROM (read 1).
 
 Email addresses in kept headers and text bodies are replaced with a placeholder before saving
 (scripts/redact_emails.py, the keeper, 8 November 2026); readlog.csv's sha256 is of the bytes
@@ -50,7 +53,8 @@ from lh044lib import fetch, header, UA_PLAIN, UA_COMPAT, ROBOTS_TOKEN, utcnow  #
 sys.path.insert(0, str(Path(__file__).resolve().parents[3] / 'scripts'))
 from redact_emails import redact_bytes  # noqa: E402  (the keeper, 8 November 2026: addresses withheld)
 from classify import (classify, parse_robots, robots_allowed, AI_TOKENS, WALL_CLASSES,  # noqa: E402
-                      CLASSIFIER_VERSION, version_for, complete_lines, AMENDMENT5_FROM)
+                      CLASSIFIER_VERSION, version_for, complete_lines, AMENDMENT5_FROM,
+                      USAGE_TOKEN, AMENDMENT6_FROM)
 import robots_rules  # noqa: E402  (scripts/robots_rules.py: amendment 5, the keeper's rule)
 import content_signal  # noqa: E402  (scripts/content_signal.py: amendment of 9 November 2026, use=reference)
 import re  # noqa: E402
@@ -518,6 +522,53 @@ def do_classify(label):
         summ['echoed_blocks_16'][rt] = sorted({'.'.join(a.split('.')[:2]) + '.0.0/16' for a in addrs})
     with open(d / 'summary.json', 'w') as f:
         json.dump(summ, f, indent=1)
+    if label >= AMENDMENT6_FROM:
+        write_usage_token(label)
+
+
+USAGE_FIELDS = ['id', 'host', 'usage_token_named', 'usage_token_groups', 'usage_token_lines',
+                'usage_token_group_agents', 'usage_token_rules', 'usage_token_root_allowed',
+                'usage_token_mentioned']
+
+
+def usage_token_entry(groups, text, root):
+    """Amendment 6: measure 4's 18th entry for one parsed robots.txt (complete lines only).
+    named: a user-agent line names the token (product token, case-insensitive, robots_rules); groups
+    and lines: how many groups name it and where they start; group_agents: the other tokens those
+    groups name; rules: those groups' Allow and Disallow lines as read; root_allowed: whether those
+    rules alone allow '/' (blank when no group names it: no fallback to '*', unlike AI_TOKENS);
+    mentioned: the token appears anywhere in the text, comments included."""
+    tok = USAGE_TOKEN.lower()
+    named = [g for g in groups if tok in g.agents]
+    return {'usage_token_named': bool(named),
+            'usage_token_groups': len(named),
+            'usage_token_lines': ';'.join(str(g.line) for g in named),
+            'usage_token_group_agents': '|'.join(sorted({a for g in named for a in g.agents if a != tok})),
+            'usage_token_rules': ' | '.join(r[3] for g in named for r in g.rules),
+            'usage_token_root_allowed': robots_rules.token_allowed(groups, USAGE_TOKEN, root) if named else '',
+            'usage_token_mentioned': tok in text.lower()}
+
+
+def write_usage_token(label):
+    """Amendment 6: tabulate the token from a read's kept robots.txt files into usage_token.csv.
+    Offline; touches no other derived table, so the baseline's robots.csv stays as read."""
+    d = ROOT / 'data' / ('read-' + label)
+    meta = json.load(open(d / 'services.json'))
+    log = {r['n']: r for r in csv.DictReader(open(d / 'readlog.csv'))}
+    rows = []
+    for s in meta['services']:
+        if not (s['robots_n'] and s['robots_state'] == 'parsed'):
+            continue
+        root = '%s://%s/' % (urlsplit(s['url']).scheme, urlsplit(s['url']).netloc)
+        text = robots_rules.complete_text(_load_resp(d, s['robots_n'])['body'],
+                                          log[str(s['robots_n'])]['truncated'] == 'True')
+        rows.append(dict({'id': s['id'], 'host': s['host']},
+                         **usage_token_entry(robots_rules.parse(text), text, root)))
+    with open(d / 'usage_token.csv', 'w', newline='') as f:
+        w = csv.DictWriter(f, fieldnames=USAGE_FIELDS)
+        w.writeheader()
+        w.writerows(rows)
+    return rows
     print(json.dumps(summ, indent=1))
 
 
@@ -696,6 +747,7 @@ def main():
     ap.add_argument('--wayback')
     ap.add_argument('--httparchive')
     ap.add_argument('--statements', nargs=2, metavar=('LABEL', 'FILE'))
+    ap.add_argument('--usage-token')
     a = ap.parse_args()
     provider = robots_rules.provider_from_env()   # amendment 5: LIGHTHOUSE_PROVIDER, else all providers
     if a.read:
@@ -708,6 +760,10 @@ def main():
         do_httparchive(a.httparchive, provider)
     elif a.statements:
         do_statements(*a.statements, provider=provider)
+    elif a.usage_token:
+        rows = write_usage_token(a.usage_token)
+        print('usage_token.csv: %d parsed robots.txt files, %d with a group naming %s'
+              % (len(rows), sum(r['usage_token_named'] for r in rows), USAGE_TOKEN))
     else:
         ap.print_help()
 

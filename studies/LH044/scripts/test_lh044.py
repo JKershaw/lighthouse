@@ -20,6 +20,12 @@
      check 1 reproduces their classes from those records. An offline read of DOAJ (A19), whose
      robots.txt asks for use=reference, withholds the probe's body, classifies it from the run's
      local copy, and reproduces the class once that copy is gone.
+  9. Amendment 6 (10 November 2026): measure 4's 18th entry, `__usage_ai-training`, checked on
+     synthetic robots.txt files only; the 17 tokens' list and columns are unchanged (check 1
+     reproduces the baseline's robots.csv byte for byte, and writes no usage_token.csv). The offline
+     reads in 7 and 8 are labelled 15 November, so --classify also writes a usage_token.csv for
+     their retained robots.txt files (D15, D01, A19) into a temporary directory that nothing here
+     reads or prints.
 
 Usage: python3 -I studies/LH044/scripts/test_lh044.py
 """
@@ -60,8 +66,12 @@ with tempfile.TemporaryDirectory() as tmp:
         collect.do_classify(BASE.name[len('read-'):])
     collect.ROOT = old
     again = {r['id']: (r['class'], r['detail']) for r in csv.DictReader(open(work / 'classes.csv'))}
+    again_robots = (work / 'robots.csv').read_bytes()
+    no_usage_table = not (work / 'usage_token.csv').exists()
 check('baseline reclassified offline matches committed classes.csv (%d services)' % len(committed),
       again == committed)
+check('baseline robots.csv (measure 4, 17 tokens) reproduced byte for byte', again_robots == (BASE / 'robots.csv').read_bytes())
+check('amendment 6: --classify on the baseline writes no usage_token.csv (that needs --usage-token)', no_usage_table)
 
 
 # 2. fetch_robots against canned responses
@@ -342,6 +352,75 @@ with tempfile.TemporaryDirectory() as tmp:
     cls2 = {r['id']: (r['class'], r['detail']) for r in csv.DictReader(open(rd / 'classes.csv'))}
     check('offline read: re-classified without the local copy, the same classes', cls2 == cls1)
     collect.ROOT, collect.fetch, collect.PAUSE, collect.load_panel = saved
+
+# 9. Amendment 6: the shared usage-preference token, synthetic files only
+from classify import AI_TOKENS, USAGE_TOKEN, AMENDMENT6_FROM  # noqa: E402
+check('measure 4 still names the same 17 AI tokens, and the usage token is not one of them',
+      len(AI_TOKENS) == 17 and AI_TOKENS[0] == 'GPTBot' and AI_TOKENS[-1] == 'Diffbot'
+      and USAGE_TOKEN.lower() not in [t.lower() for t in AI_TOKENS])
+check('the usage token is not obeyed: it is not in scripts/robots_tokens.json',
+      not any(USAGE_TOKEN.lower() == t.lower() for ts in robots_rules.load_tokens().values() for t in ts))
+check('amendment 6 is tabulated by --classify from read 1 only', AMENDMENT6_FROM == '2026-11-15'
+      and '2026-11-08T1920Z' < AMENDMENT6_FROM <= '2026-11-15T0000Z')
+
+
+def usage(text):
+    return collect.usage_token_entry(robots_rules.parse(text), text, 'https://x.example/')
+
+
+u = usage('User-agent: GPTBot\nUser-agent: __usage_ai-training\nDisallow: /\n\nUser-agent: *\nAllow: /\n')
+check('a group naming the token beside GPTBot: named, its rules, / disallowed by them',
+      u['usage_token_named'] and u['usage_token_groups'] == 1 and u['usage_token_lines'] == '1'
+      and u['usage_token_group_agents'] == 'gptbot' and u['usage_token_rules'] == 'Disallow: /'
+      and u['usage_token_root_allowed'] is False and u['usage_token_mentioned'])
+g = robots_rules.parse('User-agent: GPTBot\nUser-agent: __usage_ai-training\nDisallow: /\n\nUser-agent: *\nAllow: /\n')
+check('the 17 tokens read as before beside it (GPTBot by its group, ClaudeBot by *)',
+      robots_rules.token_allowed(g, 'GPTBot', '/') is False and robots_rules.token_allowed(g, 'ClaudeBot', '/') is True)
+u = usage('user-agent: __USAGE_AI-TRAINING/1.0\nDisallow: /private\n')
+check('product token matched case-insensitively; a partial Disallow leaves / allowed',
+      u['usage_token_named'] and u['usage_token_root_allowed'] is True and u['usage_token_rules'] == 'Disallow: /private')
+u = usage('# User-agent: __usage_ai-training\nUser-agent: *\nDisallow: /\n')
+check('a comment is a mention, not a group; no fallback to * for this token',
+      not u['usage_token_named'] and u['usage_token_root_allowed'] == '' and u['usage_token_mentioned']
+      and u['usage_token_rules'] == '')
+u = usage('User-agent: __usage_ai-training\nDisallow: /a\n\nUser-agent: CCBot\nDisallow: /\n\n'
+          'User-agent: __usage_ai-training\nAllow: /b\n')
+check('two groups naming the token are combined, rules in file order',
+      u['usage_token_groups'] == 2 and u['usage_token_lines'] == '1;7'
+      and u['usage_token_rules'] == 'Disallow: /a | Allow: /b' and u['usage_token_group_agents'] == '')
+u = usage('User-agent: __usage_ai-trainingbot\nDisallow: /\n')
+check('a longer product token is a different token', not u['usage_token_named'] and u['usage_token_mentioned'])
+
+# write_usage_token on a synthetic read (no kept file): a cut-off last line is never applied
+with tempfile.TemporaryDirectory() as tmp:
+    fake_root = Path(tmp)
+    rd = fake_root / 'data' / 'read-2026-11-15T0002Z'
+    rd.mkdir(parents=True)
+    files = {1: (b'User-agent: __usage_ai-training\nDisallow: /\n', 'False'),
+             2: (b'User-agent: *\nDisallow:\nUser-agent: __usage_ai-training', 'True'),
+             3: (b'', 'False')}
+    svcs = [{'id': 'Z1', 'host': 'a.example', 'url': 'https://a.example/x', 'robots_n': 1, 'robots_state': 'parsed'},
+            {'id': 'Z2', 'host': 'b.example', 'url': 'https://b.example/x', 'robots_n': 2, 'robots_state': 'parsed'},
+            {'id': 'Z3', 'host': 'c.example', 'url': 'https://c.example/x', 'robots_n': 3, 'robots_state': 'unavailable'}]
+    with open(rd / 'readlog.csv', 'w', newline='') as f:
+        w = csv.writer(f)
+        w.writerow(['n', 'truncated'])
+        for n, (body, cut) in files.items():
+            (rd / ('%04d.h' % n)).write_text('HTTP 200\n')
+            (rd / ('%04d.b' % n)).write_bytes(body)
+            w.writerow([n, cut])
+    (rd / 'services.json').write_text(json.dumps({'services': svcs}))
+    saved = collect.ROOT
+    collect.ROOT = fake_root
+    rows = collect.write_usage_token('2026-11-15T0002Z')
+    collect.ROOT = saved
+    got = {r['id']: r for r in csv.DictReader(open(rd / 'usage_token.csv'))}
+    check('synthetic read: only parsed files tabulated, header as fixed',
+          set(got) == {'Z1', 'Z2'} and list(next(iter(got.values())).keys()) == collect.USAGE_FIELDS)
+    check('synthetic read: Z1 named with Disallow: /', got['Z1']['usage_token_named'] == 'True'
+          and got['Z1']['usage_token_root_allowed'] == 'False')
+    check('synthetic read: a token cut at the read limit is neither a group nor a mention',
+          got['Z2']['usage_token_named'] == 'False' and got['Z2']['usage_token_mentioned'] == 'False')
 
 print('\n%d failed' % len(fails))
 sys.exit(1 if fails else 0)

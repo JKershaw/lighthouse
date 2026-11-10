@@ -248,3 +248,13 @@ def robots_allowed(groups, token, url):
 AI_TOKENS = ['GPTBot', 'ChatGPT-User', 'OAI-SearchBot', 'ClaudeBot', 'Claude-User', 'Claude-SearchBot',
              'anthropic-ai', 'CCBot', 'Google-Extended', 'PerplexityBot', 'Perplexity-User', 'Bytespider',
              'Amazonbot', 'Applebot-Extended', 'meta-externalagent', 'cohere-ai', 'Diffbot']
+
+# Amendment 6 (10 November 2026, fixed before any kept robots.txt was searched for it): measure 4's
+# 18th entry, the shared usage-preference token. It is not an agent and not one of AI_TOKENS, whose
+# columns ("may fetch /", falling back to '*') stay as they were: for this token the measure is
+# whether a group names it and that group's own rules, written to usage_token.csv beside robots.csv
+# (collect.py, usage_token_entry). Not obeyed by Lighthouse's collectors: it is not in
+# scripts/robots_tokens.json. Tabulated for reads labelled from AMENDMENT6_FROM (read 1) by
+# --classify, and for the baseline only by an explicit `collect.py --usage-token <label>`.
+USAGE_TOKEN = '__usage_ai-training'
+AMENDMENT6_FROM = '2026-11-15'
