@@ -72,6 +72,19 @@ The same evidence could support three views, eventually accessible from the exis
 
 The evidence trail is probably the first useful view to build. It should work as a simple text/tree view before a node-link graphic. If a graphic is later justified, keep the site static, accessible, mobile-friendly and readable without JavaScript; use the existing chart-style rules. Do not change a released piece's wording or illustrations outside its review process.
 
+## The reader is a second, explicit beneficiary
+
+The internal graph may help researchers, but Lighthouse is also written for curious people who want to follow a question without knowing its file structure. Treat this as an equal design requirement, not an optional cosmetic layer. A reader should be able to arrive at a topic, follow its connected investigations, see the chain of evidence, and return to the broader landscape.
+
+Two reader journeys should be demonstrated with **real existing Lighthouse material**, without implying that unreviewed links are findings:
+
+1. **Follow a topic.** Start at 'AI-assisted vulnerability discovery'. Find the relevant Lighthouse investigation, its questions, the public source reports, related papers, the sequence from reported discovery through patch and disclosure, and the unresolved questions. A reader can move forwards to subsequent work or backwards to antecedents. The view shows what is a documented connection and what is a suggested research lead.
+2. **Follow a finding.** Start at one selected claim in *It was only a test*. Open its supporting passage and other evidence, see who checked it, what changed in corrections, and which later Lighthouse piece or proposal draws on it. A reader can see both the story and its limits without parsing a whole evidence directory.
+
+Try three coordinated presentation levels: a readable **thread page** linking the next and previous questions; a small **timeline or lineage drawing** for the selected topic, with evidence types visually distinct; and an optional **network overview** showing neighbours and possible bridges. A global galaxy of nodes should come later, if it earns its complexity. The first graphic should make one real relationship easier to understand than hyperlinks alone.
+
+**Reader acceptance checks in the pilot:** Every displayed edge can be opened as a working source or record link; its status is understandable without colour; suspected and checked relations look different; event date and first-observed date cannot be mistaken for one another; there is a plain text equivalent and keyboard-friendly navigation; the rendering works at 390px and in light and dark themes; it follows Lighthouse's existing visual language; and a reader can complete both journeys without knowing internal study codes. Have a reader unfamiliar with the underlying record attempt the journeys and note what they misunderstand. Visual polish is useful only when it improves understanding.
+
 ## Pilot: demonstrate use before scale
 
 **Research question:** Does a claim-and-lineage index help a researcher locate valid prior evidence, notice disagreement or unsupported claims, and select worthwhile next questions, compared with the repository and literature search workflow Lighthouse already uses?
@@ -86,12 +99,12 @@ The evidence trail is probably the first useful view to build. It should work as
 - Implement a script that reads existing, specified Markdown/CSV and produces a versioned list of nodes, edges and unresolved candidate edges. Preserve link targets, hashes or source identifiers, and dates.
 - First create only relationships explicit in retained records. LLM suggestions may go into a separate candidate list with the source passages needed for checking; they never silently become verified edges.
 - Audit a preselected sample against original evidence, noting incorrect, ambiguous and omitted connections. Treat duplicates and failed external-ID matches as failures or unknowns, not successes.
-- Build a minimal readable provenance view using this exported dataset. No database, crawler, live service or new framework is required.
+- Build a minimal readable provenance view and one carefully drawn, directly linked, accessible lineage figure using this exported dataset. Include the two reader journeys defined above. No database, crawler, live service or new framework is required.
 
 **Phase 2, compare against current practice.**
 - Have a fresh reviewer attempt the fixed questions using the normal repository and literature search, and then the graph-assisted version, with order or question assignment balanced where feasible.
 - Record correct retrieved sources and claims, false links, important omissions, time or tool usage where available, review effort, repeatability and what was genuinely new rather than surfaced twice. Disclose learning and shared-context effects.
-- Ask separately whether an actual next investigation changed for a defensible reason. A prettier picture or more nodes is not a research-quality outcome.
+- Ask separately whether an actual next investigation changed for a defensible reason. Test whether a fresh reader can navigate a thread, understand what the lines mean and locate the qualification and source of a finding. A prettier picture or more nodes is not a research-quality outcome.
 - Publish a candid internal evaluation with a recommendation to stop, revise or expand. Any public claims follow the ordinary review process.
 
 **Expansion only if the pilot earns it.** Integrate a small export with the existing research scout and proposals gate, so that each scout lead can point to related prior work. Consider a public lineage view after accessible, reproducible traversal is useful to a non-technical reader. Larger bibliometric maps and retrospective metrics of Lighthouse's research process remain optional follow-ups.
