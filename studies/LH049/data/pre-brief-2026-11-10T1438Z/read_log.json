@@ -1,0 +1,50 @@
+[
+  {
+    "name": "socket_post",
+    "url": "https://socket.dev/blog/bee-js-compromise",
+    "method": "GET",
+    "request_body": "",
+    "start_utc": "2026-11-10T14:38:30+00:00",
+    "robots": {
+      "robots_url": "https://socket.dev/robots.txt",
+      "robots_status": 200,
+      "robots_sha256": "d3a2476bf5c5a83fffc820156a8ba3da623a9291d36432d3722a8d39c5c2fe1b",
+      "provider": "anthropic",
+      "decided_by": "*",
+      "rule": "None",
+      "reason": "allowed by robots.txt"
+    },
+    "finish_utc": "2026-11-10T14:38:32+00:00",
+    "status": 200,
+    "final_url": "https://socket.dev/blog/bee-js-compromise",
+    "content_type": "text/html; charset=utf-8",
+    "last_modified": "",
+    "bytes": 632327,
+    "sha256": "0356265e0bf705b51f2f3a430137294c71bdac2b3d197b705b62d3e01c76e486",
+    "file": "socket_post.raw.gz",
+    "emails_withheld": 2
+  },
+  {
+    "name": "npm_blog_download_counts",
+    "url": "https://blog.npmjs.org/post/92574016600/numeric-precision-matters-how-npm-download-counts-work.html",
+    "method": "GET",
+    "request_body": "",
+    "start_utc": "2026-11-10T14:38:32+00:00",
+    "robots": {
+      "robots_url": "https://blog.npmjs.org/robots.txt",
+      "robots_status": 404,
+      "robots_sha256": "f83dd710fded3f1d4b38f8c716c8841eea9957c9c530b78cff552391ce9f4d25",
+      "provider": "anthropic",
+      "reason": "robots.txt answered 404: no rules"
+    },
+    "finish_utc": "2026-11-10T14:38:32+00:00",
+    "status": 200,
+    "final_url": "https://blog.npmjs.org/post/92574016600/numeric-precision-matters-how-npm-download-counts-work.html",
+    "content_type": "text/html; charset=utf-8",
+    "last_modified": "Wed, 13 Jan 2021 13:39:32 GMT",
+    "bytes": 7757,
+    "sha256": "73612620906ce89fc7ca9dd2109507f65e306dd82b1e8023347abdc2c7da6831",
+    "file": "npm_blog_download_counts.raw.gz",
+    "emails_withheld": 0
+  }
+]
