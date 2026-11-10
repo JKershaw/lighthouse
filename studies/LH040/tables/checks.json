@@ -1,0 +1,79 @@
+{
+ "read": "2026-11-09T1432Z",
+ "last_day_held": "2026-11-08",
+ "bodies_match_logged_sha256": {
+  "Q1_daily_totals": true,
+  "Q2_daily_by_version_oct_nov": true,
+  "Q3_daily_by_version_march": true,
+  "Q4_installer": true,
+  "Q7_file_type": true,
+  "Q5_system": true,
+  "Q6_ci": true,
+  "pypistats_overall": true
+ },
+ "case_row_on_day0": true,
+ "day0_gap": false,
+ "march_within_factor_two": true,
+ "pypistats_days_checked": 22,
+ "pypistats_days_over_5pc": 0,
+ "pypistats_rule_fails": false,
+ "comparison_known_day0": 17,
+ "gap_days": [],
+ "measure3": {
+  "13:23": {
+   "n_comparison_known": 17,
+   "comparison_min": 0.17221107029740643,
+   "comparison_max": 0.40522360661809,
+   "comparison_median": 0.2920661787520528,
+   "case_I": 0.19755411885224575,
+   "case_rank_of_known": 17,
+   "n_known": 18,
+   "ratio_to_median": 0.6764019021180734,
+   "within_range": true,
+   "above": false,
+   "below": false
+  },
+  "13:20": {
+   "n_comparison_known": 17,
+   "comparison_min": 0.17221107029740643,
+   "comparison_max": 0.40522360661809,
+   "comparison_median": 0.2920661787520528,
+   "case_I": 0.20347186579739537,
+   "case_rank_of_known": 17,
+   "n_known": 18,
+   "ratio_to_median": 0.6966635666847655,
+   "within_range": true,
+   "above": false,
+   "below": false
+  },
+  "12:47": {
+   "n_comparison_known": 17,
+   "comparison_min": 0.17221107029740643,
+   "comparison_max": 0.40522360661809,
+   "comparison_median": 0.2920661787520528,
+   "case_I": 0.30346548562336784,
+   "case_rank_of_known": 8,
+   "n_known": 18,
+   "ratio_to_median": 1.0390298764479415,
+   "within_range": true,
+   "above": false,
+   "below": false
+  }
+ },
+ "measure3_reading": "travelled as an ordinary newest release did in its first hours",
+ "queries": {
+  "Q1_daily_totals": "200",
+  "Q2_daily_by_version_oct_nov": "200",
+  "Q3_daily_by_version_march": "200",
+  "Q4_installer": "200",
+  "Q7_file_type": "200",
+  "Q5_system": "200",
+  "Q6_ci": "200",
+  "pypistats_overall": "200",
+  "depsdev_1.107.0": "error: NotFetched: not fetched: disallowed by robots.txt (robots https://api.deps.dev/robots.txt, status 200, group *, rule Disallow: /, sha256 331ea9090db0c9f6)",
+  "depsdev_dependents_1.107.0": "error: NotFetched: not fetched: disallowed by robots.txt (robots https://api.deps.dev/robots.txt, status 200, group *, rule Disallow: /, sha256 331ea9090db0c9f6)",
+  "depsdev_dependents_1.106.2": "error: NotFetched: not fetched: disallowed by robots.txt (robots https://api.deps.dev/robots.txt, status 200, group *, rule Disallow: /, sha256 331ea9090db0c9f6)",
+  "depsdev_dependents_1.106.1": "error: NotFetched: not fetched: disallowed by robots.txt (robots https://api.deps.dev/robots.txt, status 200, group *, rule Disallow: /, sha256 331ea9090db0c9f6)",
+  "depsdev_dependents_1.106.3": "error: NotFetched: not fetched: disallowed by robots.txt (robots https://api.deps.dev/robots.txt, status 200, group *, rule Disallow: /, sha256 331ea9090db0c9f6)"
+ }
+}

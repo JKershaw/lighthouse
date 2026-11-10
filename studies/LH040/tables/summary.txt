@@ -1,0 +1,65 @@
+LH040 tabulation of read 2026-11-09T1432Z (last day held 2026-11-08). Counts are fetches logged by PyPI as ClickPy holds them.
+Retained bodies match their logged SHA-256: True
+Gap days in Q1 span: none
+pypistats check, 14 Oct to 4 Nov: 0 of 22 days differ by more than 5% (rule fails if more than a fifth).
+
+Measure 1. C0 = 49043 fetches of 1.107.0 on 2026-10-21 (row); wheel 48683, sdist 360; litellm total 3465646; S0 = 0.0142.
+  StepSecurity (R9): about 49,000; C0 minus 49,000 = +43.
+
+Measure 2, tail to date (22 Oct to 2026-11-08): 1431 fetches over 18 days; unknown days: none.
+  by day: 10-22:331, 10-23:419, 10-24:57, 10-25:52, 10-26:51, 10-27:76, 10-28:60, 10-29:12, 10-30:18, 10-31:29, 11-01:242, 11-02:39, 11-03:3, 11-04:6, 11-05:17, 11-06:10, 11-07:1, 11-08:8
+  by installer: (none) 926, Browser 448, uv 31, requests 16, Nexus 9, devpi 1
+  by file type: bdist_wheel 1346, sdist 85
+
+Measure 3, I(R) = S0(R) / (h(R)/24):
+  1.103.2  day0 2026-10-01 count   830447 S0 0.21484  h 17.65/17.65/17.65  I 0.2921/0.2921/0.2921
+  1.104.0  day0 2026-10-03 count    52909 S0 0.02167  h 1.28/1.28/1.28  I 0.4052/0.4052/0.4052
+  1.104.1  day0 2026-10-07 count   156939 S0 0.04808  h 3.79/3.79/3.79  I 0.3045/0.3045/0.3045
+  1.104.2  day0 2026-10-08 count   802945 S0 0.20550  h 15.42/15.42/15.42  I 0.3198/0.3198/0.3198
+  1.105.0  day0 2026-10-11 count   511567 S0 0.19970  h 14.20/14.20/14.20  I 0.3375/0.3375/0.3375
+  1.105.1  day0 2026-10-14 count  1134566 S0 0.26994  h 19.54/19.54/19.54  I 0.3316/0.3316/0.3316
+  1.106.0  day0 2026-10-18 count   561366 S0 0.26024  h 18.17/18.17/18.17  I 0.3437/0.3437/0.3437
+  1.106.1  day0 2026-10-20 count   194725 S0 0.05298  h 5.10/5.10/5.10  I 0.2492/0.2492/0.2492
+  1.106.2  day0 2026-10-21 count   448846 S0 0.12951  h 11.54/11.59/12.14  I 0.2693/0.2682/0.2560
+  1.106.3  day0 2026-10-24 count   425389 S0 0.17889  h 14.75/14.75/14.75  I 0.2910/0.2910/0.2910
+  1.106.4  day0 2026-10-25 count   399832 S0 0.16964  h 14.45/14.45/14.45  I 0.2817/0.2817/0.2817
+  1.106.5  day0 2026-10-27 count   149039 S0 0.04253  h 4.25/4.25/4.25  I 0.2399/0.2399/0.2399
+  1.106.6  day0 2026-10-28 count    56104 S0 0.01484  h 1.18/1.18/1.18  I 0.3007/0.3007/0.3007
+  1.108.0  day0 2026-11-04 count   757725 S0 0.21280  h 20.48/20.48/20.48  I 0.2494/0.2494/0.2494
+  1.108.1  day0 2026-11-05 count     9966 S0 0.00274  h 0.38/0.38/0.38  I 0.1722/0.1722/0.1722
+  1.108.2  day0 2026-11-06 count    69781 S0 0.01994  h 1.95/1.95/1.95  I 0.2458/0.2458/0.2458
+  1.108.3  day0 2026-11-07 count    54356 S0 0.02020  h 1.57/1.57/1.57  I 0.3083/0.3083/0.3083
+  1.107.0  day0 2026-10-21 count    49043 S0 0.01415  h 1.72/1.67/1.12  I 0.1976/0.2035/0.3035
+  end 13:23: case I 0.1976, comparison range 0.1722 to 0.4052, median 0.2921, ratio 0.68, rank 17 of 18
+  end 13:20: case I 0.2035, comparison range 0.1722 to 0.4052, median 0.2921, ratio 0.70, rank 17 of 18
+  end 12:47: case I 0.3035, comparison range 0.1722 to 0.4052, median 0.2921, ratio 1.04, rank 8 of 18
+  pre-set reading: travelled as an ordinary newest release did in its first hours
+
+Measure 4 (tabulated only; read in the record after read 2):
+  2026-10-20 1.106.1 194725 1.106.2 0 1.107.0 None
+  2026-10-21 1.106.1 411616 1.106.2 448846 1.107.0 49043
+  2026-10-22 1.106.1 9014 1.106.2 796842 1.107.0 331
+  2026-10-23 1.106.1 8016 1.106.2 771314 1.107.0 419
+
+Measure 5, day-0 shares (case; comparison median, min to max):
+  installer      mirror tools 0.001162; 0.00047, 0.000227 to 0.000903
+  installer      none         0.029362; 0.008144, 0.002653 to 0.074754
+  installer      other names  0.011378; 0.001831, 0.0007 to 0.309664
+  installer      pip          0.217238; 0.306717, 0.208114 to 0.456512
+  installer      poetry       0.000449; 0.000315, 0.0 to 0.000951
+  installer      uv           0.740411; 0.674453, 0.446673 to 0.78081
+  system         (none)       0.041902; 0.009818, 0.004024 to 0.327714
+  system         Android      4.1e-05; 7.8e-05, 1.9e-05 to 0.000145
+  system         Darwin       0.026467; 0.011436, 0.009702 to 0.021874
+  system         FreeBSD      0.0; 0.0, 0.0 to 8e-06
+  system         Linux        0.904675; 0.962949, 0.652989 to 0.975868
+  system         OpenBSD      0.0; 0.0, 0.0 to 2e-06
+  system         Windows      0.026915; 0.01251, 0.007125 to 0.030997
+  system         iOS          0.0; 0.0, 0.0 to 2e-06
+  system         iPadOS       0.0; 0.0, 0.0 to 1e-06
+  system         wasi         0.0; 0.0, 0.0 to 1e-06
+  CI share (pip and uv only): case 0.216178 (10153 of 46966; flag not known 2077 of 49043); comparison median 0.1232, 0.0848 to 0.1774
+
+Measure 6: 1.82.7 and 1.82.8, 24 Mar to 30 Apr: 120633 fetches (day 0: 119321); unknown days: none; PyPI "over 119k"; within a factor of two: True.
+
+Measure 7: deps.dev: depsdev_1.107.0 error: NotFetched: not fetched: disallowed by robots.txt (ro; depsdev_dependents_1.107.0 error: NotFetched: not fetched: disallowed by robots.txt (ro; depsdev_dependents_1.106.2 error: NotFetched: not fetched: disallowed by robots.txt (ro; depsdev_dependents_1.106.1 error: NotFetched: not fetched: disallowed by robots.txt (ro; depsdev_dependents_1.106.3 error: NotFetched: not fetched: disallowed by robots.txt (ro

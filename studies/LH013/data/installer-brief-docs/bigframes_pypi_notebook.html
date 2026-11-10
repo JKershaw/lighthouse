@@ -1,0 +1,1160 @@
+
+<!DOCTYPE html>
+
+
+<html lang="en-US" data-content_root="../../" >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <title>Analyzing package downloads from PyPI with BigQuery DataFrames &#8212; bigframes  documentation</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "";
+  </script>
+  <!--
+    this give us a css class that will be invisible only if js is disabled
+  -->
+  <noscript>
+    <style>
+      .pst-js-only { display: none !important; }
+
+    </style>
+  </noscript>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../../_static/styles/theme.css?digest=75c7c72ae941e8b558d8" rel="stylesheet" />
+<link href="../../_static/styles/pydata-sphinx-theme.css?digest=75c7c72ae941e8b558d8" rel="stylesheet" />
+
+    <link rel="stylesheet" type="text/css" href="../../_static/pygments.css?v=03e43079" />
+    <link rel="stylesheet" type="text/css" href="../../_static/mystnb.11b39860a7a0cbfd473a3ad8a317855267ff0bd372690045ca344a6b62be495e.css" />
+  
+  <!-- So that users can add custom icons -->
+  <script defer src="../../_static/scripts/fontawesome.js?digest=75c7c72ae941e8b558d8"></script>
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../../_static/scripts/bootstrap.js?digest=75c7c72ae941e8b558d8" />
+<link rel="preload" as="script" href="../../_static/scripts/pydata-sphinx-theme.js?digest=75c7c72ae941e8b558d8" />
+
+    <script src="../../_static/documentation_options.js?v=ccd1e645"></script>
+    <script src="../../_static/doctools.js?v=fd6eb6e6"></script>
+    <script src="../../_static/sphinx_highlight.js?v=6ffebe34"></script>
+    <script>
+                window.dataLayer = window.dataLayer || [];
+                function gtag(){ dataLayer.push(arguments); }
+                gtag('consent', 'default', {
+                    'ad_storage': 'denied',
+                    'ad_user_data': 'denied',
+                    'ad_personalization': 'denied',
+                    'analytics_storage': 'denied'
+                });
+            </script>
+    <script async="async" src="https://www.googletagmanager.com/gtag/js?id=G-XVSRMCJ37X"></script>
+    <script>
+                window.dataLayer = window.dataLayer || [];
+                function gtag(){dataLayer.push(arguments);}
+                gtag('js', new Date());
+                gtag('config', 'G-XVSRMCJ37X');
+            </script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'notebooks/dataframes/pypi';</script>
+    <script>DOCUMENTATION_OPTIONS.search_as_you_type = false;</script>
+    <link rel="canonical" href="https://dataframes.bigquery.dev/notebooks/dataframes/pypi.html" />
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" />
+    <link rel="next" title="Array Data Types" href="../data_types/array.html" />
+    <link rel="prev" title="Unlock SQL and Python interoperability for BigQuery with %%bqsql magic" href="magics_with_local_data.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="color-scheme" content="light dark"/>
+  <meta name="docsearch:language" content="en-US"/>
+  <meta name="docsearch:version" content="" />
+  
+    
+    <script src="../../_static/searchtools.js"></script>
+    <script src="../../_static/language_data.js"></script>
+    <script src="../../searchindex.js"></script>
+  
+  </head>
+  <body data-default-mode="">
+  
+  
+  <div id="pst-skip-link" class="skip-link d-print-none"><a href="#main-content">Skip to main content</a></div>
+
+
+  
+  <div id="pst-scroll-pixel-helper"></div>
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>Back to top</button>
+  
+  
+  
+  
+  <dialog id="pst-search-dialog">
+    
+<form class="bd-search d-flex align-items-center"
+      action="../../search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         placeholder="Search the docs ..."
+         aria-label="Search the docs ..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form>
+  </dialog>
+
+  <div class="pst-async-banner-revealer d-none">
+  <aside id="bd-header-version-warning" class="d-none d-print-none" aria-label="Version warning"></aside>
+</div>
+
+  
+    <header id="pst-header" class="bd-header navbar navbar-expand-lg bd-navbar d-print-none">
+<div class="bd-header__inner bd-page-width">
+  <button type="button" class="pst-navbar-icon sidebar-toggle primary-toggle" aria-label="Site navigation" aria-expanded="false" aria-controls="pst-primary-sidebar-modal">
+    <span class="fa-solid fa-bars"></span>
+  </button>
+  
+  
+  <div class="col-lg-3 navbar-header-items__start">
+    
+      <div class="navbar-item">
+
+  
+    
+  
+
+<a class="navbar-brand logo" href="../../index.html">
+  
+  
+  
+  
+  
+  
+    <p class="title logo__title">BigQuery DataFrames (BigFrames)</p>
+  
+</a></div>
+    
+  </div>
+  
+  <div class="col-lg-9 navbar-header-items">
+    
+    <div class="me-auto navbar-header-items__center">
+      
+        <div class="navbar-item">
+<nav>
+  <ul class="bd-navbar-elements navbar-nav">
+    
+<li class="nav-item current active">
+  <a class="nav-link nav-internal" href="../../user_guide/index.html">
+    User Guide
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../../reference/index.html">
+    API Reference
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../../supported_pandas_apis.html">
+    Supported pandas APIs
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../../CHANGELOG.html">
+    Changelog
+  </a>
+</li>
+
+  </ul>
+</nav></div>
+      
+    </div>
+    
+    
+    <div class="navbar-header-items__end">
+      
+        <div class="navbar-item navbar-persistent--container">
+          
+
+<button type="button" class="btn search-button-field search-button__button pst-js-only" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+ <i class="fa-solid fa-magnifying-glass"></i>
+ <span class="search-button__default-text">Search</span>
+ <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+</button>
+        </div>
+      
+      
+        <div class="navbar-item">
+
+<div class="theme-switch-container dropdown pst-js-only" data-bs-toggle="tooltip" data-bs-placement="bottom" title="Color mode">
+  <button type="button" class="btn btn-sm nav-link pst-navbar-icon theme-switch-button dropdown-toggle" aria-label="Color mode" data-bs-toggle="dropdown">
+    <i class="theme-switch fa-solid fa-sun fa-lg" data-mode="light" title="Light"></i>
+    <i class="theme-switch fa-solid fa-moon fa-lg" data-mode="dark" title="Dark"></i>
+    <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto" title="System Settings"></i>
+  </button>
+  <ul class="dropdown-menu dropdown-menu-end">
+    <li><button type="button" class="dropdown-item d-flex align-items-center theme-change-button" data-mode="auto"><i class="fa-solid fa-circle-half-stroke fa-lg me-1"></i>System Settings</button></li>
+    <li><button type="button" class="dropdown-item d-flex align-items-center theme-change-button" data-mode="light"><i class="fa-solid fa-sun fa-lg me-1"></i>Light</button></li>
+    <li><button type="button" class="dropdown-item d-flex align-items-center theme-change-button" data-mode="dark"><i class="fa-solid fa-moon fa-lg me-1"></i>Dark</button></li>
+  </ul>
+</div></div>
+      
+        <div class="navbar-item"><ul class="navbar-icon-links"
+    aria-label="Icon Links">
+        <li class="nav-item">
+          
+          
+          
+          
+          
+          
+          
+          
+          <a href="https://github.com/google/bigframes" title="GitHub" class="nav-link pst-navbar-icon" rel="noopener" target="_blank" data-bs-toggle="tooltip" data-bs-placement="bottom"><i class="fa-brands fa-square-github fa-lg" aria-hidden="true"></i><span class="visually-hidden">GitHub</span></a>
+        </li>
+</ul></div>
+      
+    </div>
+    
+  </div>
+  
+  
+    <div class="navbar-persistent--mobile">
+
+<button type="button" class="btn search-button-field search-button__button pst-js-only" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+ <i class="fa-solid fa-magnifying-glass"></i>
+ <span class="search-button__default-text">Search</span>
+ <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+</button>
+    </div>
+  
+
+  
+    <button type="button" class="pst-navbar-icon sidebar-toggle secondary-toggle" aria-label="On this page" aria-expanded="false" aria-controls="pst-secondary-sidebar-modal">
+      <span class="fa-solid fa-outdent"></span>
+    </button>
+  
+</div>
+
+    </header>
+  
+
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      
+      
+      <dialog id="pst-primary-sidebar-modal" tabindex="-1"></dialog>
+      <div id="pst-primary-sidebar" class="bd-sidebar-primary bd-sidebar">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+      <div class="sidebar-header-items__center">
+        
+          
+          
+            <div class="navbar-item">
+<nav>
+  <ul class="bd-navbar-elements navbar-nav">
+    
+<li class="nav-item current active">
+  <a class="nav-link nav-internal" href="../../user_guide/index.html">
+    User Guide
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../../reference/index.html">
+    API Reference
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../../supported_pandas_apis.html">
+    Supported pandas APIs
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../../CHANGELOG.html">
+    Changelog
+  </a>
+</li>
+
+  </ul>
+</nav></div>
+          
+        
+      </div>
+    
+    
+    
+      <div class="sidebar-header-items__end">
+        
+          <div class="navbar-item">
+
+<div class="theme-switch-container dropdown pst-js-only" data-bs-toggle="tooltip" data-bs-placement="bottom" title="Color mode">
+  <button type="button" class="btn btn-sm nav-link pst-navbar-icon theme-switch-button dropdown-toggle" aria-label="Color mode" data-bs-toggle="dropdown">
+    <i class="theme-switch fa-solid fa-sun fa-lg" data-mode="light" title="Light"></i>
+    <i class="theme-switch fa-solid fa-moon fa-lg" data-mode="dark" title="Dark"></i>
+    <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto" title="System Settings"></i>
+  </button>
+  <ul class="dropdown-menu dropdown-menu-end">
+    <li><button type="button" class="dropdown-item d-flex align-items-center theme-change-button" data-mode="auto"><i class="fa-solid fa-circle-half-stroke fa-lg me-1"></i>System Settings</button></li>
+    <li><button type="button" class="dropdown-item d-flex align-items-center theme-change-button" data-mode="light"><i class="fa-solid fa-sun fa-lg me-1"></i>Light</button></li>
+    <li><button type="button" class="dropdown-item d-flex align-items-center theme-change-button" data-mode="dark"><i class="fa-solid fa-moon fa-lg me-1"></i>Dark</button></li>
+  </ul>
+</div></div>
+        
+          <div class="navbar-item"><ul class="navbar-icon-links"
+    aria-label="Icon Links">
+        <li class="nav-item">
+          
+          
+          
+          
+          
+          
+          
+          
+          <a href="https://github.com/google/bigframes" title="GitHub" class="nav-link pst-navbar-icon" rel="noopener" target="_blank" data-bs-toggle="tooltip" data-bs-placement="bottom"><i class="fa-brands fa-square-github fa-lg" aria-hidden="true"></i><span class="visually-hidden">GitHub</span></a>
+        </li>
+</ul></div>
+        
+      </div>
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item pst-sidebar-collapse"><button type="button" id="pst-collapse-sidebar-button" aria-expanded="true" aria-controls="pst-primary-sidebar">
+  <svg class="pst-icon" role="img" aria-hidden="true" focusable="false" viewBox="0 0 16 16" xmlns="http://www.w3.org/2000/svg">
+    <path fill="currentColor" d="M3 15.5C2.36232 15.5 1.74874 15.2564 1.28478 14.8189C0.820828 14.3815 0.541576 13.7832 0.504167 13.1467L0.5 13L0.5 3C0.499965 2.36232 0.743605 1.74874 1.18107 1.28478C1.61854 0.820828 2.21676 0.541576 2.85333 0.504167L3 0.5L13 0.5C13.6377 0.499965 14.2513 0.743605 14.7152 1.18107C15.1792 1.61854 15.4584 2.21676 15.4958 2.85333L15.5 3L15.5 13C15.5 13.6377 15.2564 14.2513 14.8189 14.7152C14.3815 15.1792 13.7832 15.4584 13.1467 15.4958L13 15.5L3 15.5ZM3 13.8333L10.5 13.8333L10.5 2.16667L3 2.16667C2.79589 2.16669 2.59889 2.24163 2.44636 2.37726C2.29383 2.5129 2.19638 2.69979 2.1725 2.9025L2.16667 3L2.16667 13C2.16669 13.2041 2.24163 13.4011 2.37726 13.5536C2.5129 13.7062 2.69979 13.8036 2.9025 13.8275L3 13.8333ZM6.65583 10.325L6.5775 10.2558L4.91083 8.58917C4.76735 8.44567 4.68116 8.25476 4.66843 8.05223C4.65569 7.84971 4.71729 7.6495 4.84167 7.48917L4.91083 7.41083L6.5775 5.74417C6.72747 5.59471 6.9287 5.50794 7.14032 5.50148C7.35194 5.49502 7.55809 5.56935 7.7169 5.70937C7.8757 5.8494 7.97525 6.04463 7.99533 6.25539C8.01541 6.46616 7.95451 6.67667 7.825 6.84417L7.75583 6.9225L6.67917 8L7.75583 9.0775C7.89931 9.22099 7.98551 9.41191 7.99824 9.61443C8.01097 9.81695 7.94938 10.0172 7.825 10.1775L7.75583 10.2558C7.61234 10.3993 7.42142 10.4855 7.2189 10.4982C7.01638 10.511 6.81617 10.4494 6.65583 10.325Z"/>
+  </svg>
+  <span class="pst-collapse-sidebar-label">Collapse Sidebar</span>
+  <span class="pst-expand-sidebar-label">Expand Sidebar</span>
+</button></div>
+        <div class="sidebar-primary-item">
+
+<nav class="bd-docs-nav bd-links"
+     aria-label="Section Navigation">
+  <p class="bd-links__title" role="heading" aria-level="1">Section Navigation</p>
+  <div class="bd-toc-item navbar-nav"><p aria-level="2" class="caption" role="heading"><span class="caption-text">Guides</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference external" href="https://docs.cloud.google.com/bigquery/docs/dataframes-quickstart">Getting Started</a></li>
+<li class="toctree-l1"><a class="reference external" href="https://docs.cloud.google.com/bigquery/docs/bigquery-dataframes-introduction">Cloud Docs User Guides</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Getting Started</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../getting_started/bq_dataframes_template.html">Quickstart Template</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../getting_started/getting_started_bq_dataframes.html">Getting Started</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../getting_started/magics.html">Magics</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../getting_started/ml_fundamentals_bq_dataframes.html">ML Fundamentals</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../getting_started/pandas_extensions.html">Pandas Extensions</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">DataFrames</span></p>
+<ul class="current nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="anywidget_mode.html">Anywidget Mode</a></li>
+<li class="toctree-l1"><a class="reference internal" href="dataframe.html">Dataframe</a></li>
+<li class="toctree-l1"><a class="reference internal" href="index_col_null.html">Operations with an “NULL index” DataFrame</a></li>
+
+<li class="toctree-l1"><a class="reference internal" href="integrations.html">Integrations</a></li>
+<li class="toctree-l1"><a class="reference internal" href="magics_with_local_data.html">Magics for Python and SQL Interoperability</a></li>
+<li class="toctree-l1 current active"><a aria-current="page" class="current reference internal" href="#">Pypi</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Data Types</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../data_types/array.html">Array</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../data_types/json.html">Json</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../data_types/struct.html">Struct</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../data_types/timedelta.html">BigFrames Timedelta</a></li>
+
+
+
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Generative AI</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../generative_ai/ai_functions.html">AI Functions</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../generative_ai/ai_movie_poster.html">AI Functions for Poster Analysis</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../generative_ai/pandas_bq_accessor_ai_functions.html">AI Functions with the BigQuery Accessor</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../generative_ai/bq_dataframes_ai_forecast.html">AI Forecast</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../generative_ai/bq_dataframes_llm_code_generation.html">Use BigQuery DataFrames with Generative AI for code generation</a></li>
+
+
+
+
+
+
+<li class="toctree-l1"><a class="reference internal" href="../generative_ai/bq_dataframes_llm_kmeans.html">Use BigQuery DataFrames to cluster and characterize complaints</a></li>
+
+<li class="toctree-l1"><a class="reference internal" href="../generative_ai/bq_dataframes_llm_output_schema.html">LLM Output Schema</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../generative_ai/bq_dataframes_llm_vector_search.html">Build a Vector Search application using BigQuery DataFrames (aka BigFrames)</a></li>
+
+<li class="toctree-l1"><a class="reference internal" href="../generative_ai/bq_dataframes_ml_drug_name_generation.html">BigQuery DataFrames ML: Drug Name Generation</a></li>
+
+<li class="toctree-l1"><a class="reference internal" href="../generative_ai/large_language_models.html">Large Language Models</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Machine Learning</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../ml/bq_dataframes_ml_cross_validation.html">ML Cross Validation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../ml/bq_dataframes_ml_linear_regression.html">Train a linear regression model with BigQuery DataFrames ML</a></li>
+
+<li class="toctree-l1"><a class="reference internal" href="../ml/bq_dataframes_ml_linear_regression_bbq.html">Train a linear regression model with BigQuery DataFrames ML</a></li>
+
+
+<li class="toctree-l1"><a class="reference internal" href="../ml/bq_dataframes_ml_linear_regression_big.html">Train a linear regression model with BigQuery DataFrames ML</a></li>
+
+<li class="toctree-l1"><a class="reference internal" href="../ml/easy_linear_regression.html">Easy Linear Regression</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../ml/sklearn_linear_regression.html">Sklearn Linear Regression</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../ml/timeseries_analysis.html">Timeseries Analysis</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Visualization</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../visualization/bq_dataframes_covid_line_graphs.html">COVID Line Graphs</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../visualization/tutorial.html">BigQuery DataFrame Visualization Tutorials</a></li>
+
+
+
+
+
+
+
+
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Geospatial Data</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../geo/geoseries.html">Geoseries</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Regionalized BigQuery</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../location/regionalized.html">README</a></li>
+
+
+
+
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Multimodal</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../multimodal/multimodal_dataframe.html">Multimodal Dataframe</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../multimodal/bigframes_embeddings_vector_search.html">Embeddings and Vector Search</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Remote Functions</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../remote_functions/remote_function.html">Remote Function</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../remote_functions/remote_function_usecases.html">Set Up</a></li>
+
+
+
+
+
+
+
+
+<li class="toctree-l1"><a class="reference internal" href="../remote_functions/remote_function_vertex_claude_model.html">Use BigQuery DataFrames to run Anthropic LLM at scale</a></li>
+
+
+
+
+
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Streaming</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../streaming/streaming_dataframe.html">Streaming Dataframe</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Experimental</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../experimental/ai_operators.html">AI Operators</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../experimental/semantic_operators.html">Semantic Operators</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Apps</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../apps/synthetic_data_generation.html">Synthetic Data Generation</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Kaggle</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../kaggle/bq_dataframes_ai_forecast.html">BigQuery DataFrames (BigFrames) AI Forecast</a></li>
+
+<li class="toctree-l1"><a class="reference internal" href="../kaggle/describe-product-images-with-bigframes-multimodal.html">Describe product images with BigFrames multimodal DataFrames</a></li>
+
+
+
+<li class="toctree-l1"><a class="reference internal" href="../kaggle/vector-search-with-bigframes-over-national-jukebox.html">Vector Search Over National Jukebox</a></li>
+</ul>
+</div>
+</nav></div>
+    </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+      <div class="sidebar-primary-item">
+<div id="ethical-ad-placement"
+      class="flat"
+      data-ea-publisher="readthedocs"
+      data-ea-type="readthedocs-sidebar"
+      data-ea-manual="true">
+</div></div>
+  </div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main" role="main">
+        
+        
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article d-print-none">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item">
+
+<nav aria-label="Breadcrumb" class="d-print-none">
+  <ul class="bd-breadcrumbs">
+    
+    <li class="breadcrumb-item breadcrumb-home">
+      <a href="../../index.html" class="nav-link" aria-label="Home">
+        <i class="fa-solid fa-house"></i>
+      </a>
+    </li>
+    
+    <li class="breadcrumb-item"><a href="../../user_guide/index.html" class="nav-link">User Guide</a></li>
+    
+    <li class="breadcrumb-item active" aria-current="page"><span class="ellipsis">Analyzing package downloads from PyPI with BigQuery DataFrames</span></li>
+  </ul>
+</nav>
+</div>
+      
+    </div>
+  
+  
+</div>
+</div>
+              
+              
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article">
+                  
+  <div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Copyright 2024 Google LLC</span>
+<span class="c1">#</span>
+<span class="c1"># Licensed under the Apache License, Version 2.0 (the "License");</span>
+<span class="c1"># you may not use this file except in compliance with the License.</span>
+<span class="c1"># You may obtain a copy of the License at</span>
+<span class="c1">#</span>
+<span class="c1">#     https://www.apache.org/licenses/LICENSE-2.0</span>
+<span class="c1">#</span>
+<span class="c1"># Unless required by applicable law or agreed to in writing, software</span>
+<span class="c1"># distributed under the License is distributed on an "AS IS" BASIS,</span>
+<span class="c1"># WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.</span>
+<span class="c1"># See the License for the specific language governing permissions and</span>
+<span class="c1"># limitations under the License.</span>
+</pre></div>
+</div>
+</div>
+</div>
+<section id="analyzing-package-downloads-from-pypi-with-bigquery-dataframes">
+<h1>Analyzing package downloads from PyPI with BigQuery DataFrames<a class="headerlink" href="#analyzing-package-downloads-from-pypi-with-bigquery-dataframes" title="Link to this heading">#</a></h1>
+<p>In this notebook, you’ll use the <a class="reference external" href="https://console.cloud.google.com/marketplace/product/gcp-public-data-pypi/pypi">PyPI public dataset</a> and the <a class="reference external" href="https://deps.dev/">deps.dev public dataset</a> to visualize Python package downloads for a package and its dependencies.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Choose a package which you want to visualize.</span>
+<span class="n">package_name</span> <span class="o">=</span> <span class="s2">"pandas"</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">bigframes.pandas</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">bpd</span>
+
+<span class="c1"># Use `ordering_mode="partial"` for more efficient query generation, but</span>
+<span class="c1"># some pandas-compatible methods may not be possible without a total ordering.</span>
+<span class="n">bpd</span><span class="o">.</span><span class="n">options</span><span class="o">.</span><span class="n">bigquery</span><span class="o">.</span><span class="n">ordering_mode</span> <span class="o">=</span> <span class="s2">"partial"</span>
+</pre></div>
+</div>
+</div>
+</div>
+<section id="counting-downloads-and-tracking-dependencies">
+<h2>Counting downloads and tracking dependencies<a class="headerlink" href="#counting-downloads-and-tracking-dependencies" title="Link to this heading">#</a></h2>
+<p>The <a class="reference external" href="https://console.cloud.google.com/bigquery?ws=!1m5!1m4!4m3!1sbigquery-public-data!2spypi!3sfile_downloads">PyPI <code class="docutils literal notranslate"><span class="pre">file_downloads</span></code></a> table contains a row for each time there is a download request for a package. The <a class="reference external" href="https://console.cloud.google.com/bigquery?ws=!1m5!1m4!4m3!1sbigquery-public-data!2sdeps_dev_v1!3sDependencies">deps.dev Dependencies</a> table contains a row for each dependency of each package.</p>
+<p>When <code class="docutils literal notranslate"><span class="pre">ordering_mode</span> <span class="pre">=</span> <span class="pre">&quot;partial&quot;</span></code>, <code class="docutils literal notranslate"><span class="pre">read_gbq_table</span></code> creates a DataFrame representing the table, but the DataFrame has no native ordering or index.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">bigframes.enums</span>
+
+<span class="c1"># Without ordering_mode = "partial" it is recommended that you set</span>
+<span class="c1"># the "filters" parameter to limit the number of rows subsequent queries</span>
+<span class="c1"># have to read.</span>
+<span class="n">pypi</span> <span class="o">=</span> <span class="n">bpd</span><span class="o">.</span><span class="n">read_gbq_table</span><span class="p">(</span>
+    <span class="s2">"bigquery-public-data.pypi.file_downloads"</span><span class="p">,</span>
+
+    <span class="c1"># Using ordering_mode = "partial" changes the default index to a "NULL"</span>
+    <span class="c1"># index, meaning no index is available for implicit joins.</span>
+    <span class="c1">#</span>
+    <span class="c1"># Setting this explicitly avoids a DefaultIndexWarning.</span>
+    <span class="n">index_col</span><span class="o">=</span><span class="n">bigframes</span><span class="o">.</span><span class="n">enums</span><span class="o">.</span><span class="n">DefaultIndexKind</span><span class="o">.</span><span class="n">NULL</span><span class="p">,</span>
+<span class="p">)</span>
+<span class="n">deps</span> <span class="o">=</span> <span class="n">bpd</span><span class="o">.</span><span class="n">read_gbq_table</span><span class="p">(</span>
+    <span class="s2">"bigquery-public-data.deps_dev_v1.Dependencies"</span><span class="p">,</span>
+    <span class="n">index_col</span><span class="o">=</span><span class="n">bigframes</span><span class="o">.</span><span class="n">enums</span><span class="o">.</span><span class="n">DefaultIndexKind</span><span class="o">.</span><span class="n">NULL</span><span class="p">,</span>
+<span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="limit-to-the-most-recent-7-days-of-data">
+<h2>Limit to the most recent 7 days of data<a class="headerlink" href="#limit-to-the-most-recent-7-days-of-data" title="Link to this heading">#</a></h2>
+<p>The PyPI and deps.dev tables are partitioned by date. Query only the most recent 7 days of data to reduce the number of bytes scanned.</p>
+<p>Just as with the default ordering mode, filters can be describe in a pandas-compatible way by passing a Boolean Series to the DataFrame’s <code class="docutils literal notranslate"><span class="pre">__getitem__</span></code> accessor.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">datetime</span>
+
+<span class="n">now</span> <span class="o">=</span> <span class="n">datetime</span><span class="o">.</span><span class="n">datetime</span><span class="o">.</span><span class="n">now</span><span class="p">(</span><span class="n">datetime</span><span class="o">.</span><span class="n">timezone</span><span class="o">.</span><span class="n">utc</span><span class="p">)</span>
+<span class="n">last_7_days</span> <span class="o">=</span> <span class="n">now</span> <span class="o">-</span> <span class="n">datetime</span><span class="o">.</span><span class="n">timedelta</span><span class="p">(</span><span class="n">days</span><span class="o">=</span><span class="mi">7</span><span class="p">)</span>
+<span class="n">last_30_days</span> <span class="o">=</span> <span class="n">now</span> <span class="o">-</span> <span class="n">datetime</span><span class="o">.</span><span class="n">timedelta</span><span class="p">(</span><span class="n">days</span><span class="o">=</span><span class="mi">30</span><span class="p">)</span>
+<span class="n">pypi</span> <span class="o">=</span> <span class="n">pypi</span><span class="p">[</span><span class="n">pypi</span><span class="p">[</span><span class="s2">"timestamp"</span><span class="p">]</span> <span class="o">&gt;</span> <span class="n">last_7_days</span><span class="p">]</span>
+<span class="n">deps</span> <span class="o">=</span> <span class="n">deps</span><span class="p">[</span><span class="n">deps</span><span class="p">[</span><span class="s2">"SnapshotAt"</span><span class="p">]</span> <span class="o">&gt;</span> <span class="n">last_30_days</span><span class="p">]</span>  <span class="c1"># deps are refreshed less frequently</span>
+<span class="n">deps</span> <span class="o">=</span> <span class="n">deps</span><span class="p">[</span><span class="n">deps</span><span class="p">[</span><span class="s2">"System"</span><span class="p">]</span> <span class="o">==</span> <span class="s2">"PYPI"</span><span class="p">]</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p><strong>⚠ Warning</strong></p>
+<p>Without <code class="docutils literal notranslate"><span class="pre">ordering_mode</span> <span class="pre">=</span> <span class="pre">&quot;partial&quot;</span></code>, these filters do not change the number of bytes scanned. Instead, add column and row filters at “read” time. For example,</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">datetime</span>
+
+<span class="n">last_7_days</span> <span class="o">=</span> <span class="n">datetime</span><span class="o">.</span><span class="n">datetime</span><span class="o">.</span><span class="n">now</span><span class="p">(</span><span class="n">datetime</span><span class="o">.</span><span class="n">timezone</span><span class="o">.</span><span class="n">utc</span><span class="p">)</span> <span class="o">-</span> <span class="n">datetime</span><span class="o">.</span><span class="n">timedelta</span><span class="p">(</span><span class="n">days</span><span class="o">=</span><span class="mi">7</span><span class="p">)</span>
+
+<span class="c1"># Without ordering_mode = "partial", one must limit the data at "read" time to reduce bytes scanned.</span>
+<span class="n">pypi</span> <span class="o">=</span> <span class="n">bpd</span><span class="o">.</span><span class="n">read_gbq_table</span><span class="p">(</span>
+    <span class="s2">"bigquery-public-data.pypi.file_downloads"</span><span class="p">,</span>
+    <span class="n">columns</span><span class="o">=</span><span class="p">[</span><span class="s2">"timestamp"</span><span class="p">,</span> <span class="s2">"project"</span><span class="p">],</span>
+    <span class="n">filters</span><span class="o">=</span><span class="p">[(</span><span class="s2">"timestamp"</span><span class="p">,</span> <span class="s2">"&gt;"</span><span class="p">,</span> <span class="n">last_7_days</span><span class="p">)],</span>
+<span class="p">)</span>
+</pre></div>
+</div>
+<p><code class="docutils literal notranslate"><span class="pre">head()</span></code> is not available when no ordering has been established. It fails with <code class="docutils literal notranslate"><span class="pre">OrderRequiredError</span></code>. Use <code class="docutils literal notranslate"><span class="pre">peek()</span></code> instead to download a sample of the data. This will be much more efficient, as the query doesn’t need to order all rows to determine which are first.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Warning: Ensure bpd.options.bigquery.ordering_mode = "partial" or else</span>
+<span class="c1"># this query() will cause a full table scan because of the sequential index.</span>
+<span class="k">assert</span> <span class="n">bpd</span><span class="o">.</span><span class="n">options</span><span class="o">.</span><span class="n">bigquery</span><span class="o">.</span><span class="n">ordering_mode</span> <span class="o">==</span> <span class="s2">"partial"</span>
+<span class="n">pypi</span><span class="o">.</span><span class="n">peek</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html">Query job 423d9d93-1495-4c76-b8c2-e830a6e19ff4 is DONE. 110.3 MB processed. <a target="_blank" href="https://console.cloud.google.com/bigquery?project=swast-scratch&j=bq:US:423d9d93-1495-4c76-b8c2-e830a6e19ff4&page=queryresults">Open Job</a></div><div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>timestamp</th>
+      <th>country_code</th>
+      <th>url</th>
+      <th>project</th>
+      <th>file</th>
+      <th>details</th>
+      <th>tls_protocol</th>
+      <th>tls_cipher</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>2024-09-18 18:15:04+00:00</td>
+      <td>US</td>
+      <td>/packages/ff/c8/4cd4b2834012ffc71ae3fd69187f08...</td>
+      <td>aiobreaker</td>
+      <td>{'filename': 'aiobreaker-1.2.0-py3-none-any.wh...</td>
+      <td>{'installer': {'name': 'pip', 'version': '21.1...</td>
+      <td>TLSv1.3</td>
+      <td>TLS_AES_128_GCM_SHA256</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>2024-09-18 18:29:50+00:00</td>
+      <td>US</td>
+      <td>/packages/21/8e/4562029e179226051cd4aa3135444d...</td>
+      <td>aiobotocore</td>
+      <td>{'filename': 'aiobotocore-1.3.0.tar.gz', 'proj...</td>
+      <td>{'installer': {'name': 'pip', 'version': '24.1...</td>
+      <td>TLSv1.2</td>
+      <td>ECDHE-RSA-AES128-GCM-SHA256</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>2024-09-18 18:22:14+00:00</td>
+      <td>US</td>
+      <td>/packages/11/16/4226e59bb72e096d9809ccedf349a1...</td>
+      <td>aiobotocore</td>
+      <td>{'filename': 'aiobotocore-2.0.1.tar.gz', 'proj...</td>
+      <td>{'installer': {'name': 'pip', 'version': '24.2...</td>
+      <td>TLSv1.2</td>
+      <td>ECDHE-RSA-AES128-GCM-SHA256</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>2024-09-18 18:22:08+00:00</td>
+      <td>US</td>
+      <td>/packages/11/16/4226e59bb72e096d9809ccedf349a1...</td>
+      <td>aiobotocore</td>
+      <td>{'filename': 'aiobotocore-2.0.1.tar.gz', 'proj...</td>
+      <td>{'installer': {'name': 'pip', 'version': '24.2...</td>
+      <td>TLSv1.2</td>
+      <td>ECDHE-RSA-AES128-GCM-SHA256</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>2024-09-18 18:29:22+00:00</td>
+      <td>US</td>
+      <td>/packages/54/b7/453119271cc4c36b07fdeab9b0ff25...</td>
+      <td>aiobotocore</td>
+      <td>{'filename': 'aiobotocore-2.3.3.tar.gz', 'proj...</td>
+      <td>{'installer': {'name': 'pip', 'version': '24.1...</td>
+      <td>TLSv1.2</td>
+      <td>ECDHE-RSA-AES128-GCM-SHA256</td>
+    </tr>
+  </tbody>
+</table>
+</div></div></div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">deps</span><span class="o">.</span><span class="n">peek</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html">Query job 3a421217-59e2-4722-8382-0930f0a3b9ee is DONE. 1.5 MB processed. <a target="_blank" href="https://console.cloud.google.com/bigquery?project=swast-scratch&j=bq:US:3a421217-59e2-4722-8382-0930f0a3b9ee&page=queryresults">Open Job</a></div><div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>SnapshotAt</th>
+      <th>System</th>
+      <th>Name</th>
+      <th>Version</th>
+      <th>Dependency</th>
+      <th>MinimumDepth</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>2024-08-29 04:39:16.121656+00:00</td>
+      <td>PYPI</td>
+      <td>zxkane-cdk-construct-simple-nat</td>
+      <td>0.2.89</td>
+      <td>{'System': 'PYPI', 'Name': 'attrs', 'Version':...</td>
+      <td>2</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>2024-08-29 04:39:16.121656+00:00</td>
+      <td>PYPI</td>
+      <td>zxkane-cdk-construct-simple-nat</td>
+      <td>0.2.82</td>
+      <td>{'System': 'PYPI', 'Name': 'attrs', 'Version':...</td>
+      <td>2</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>2024-08-29 04:39:16.121656+00:00</td>
+      <td>PYPI</td>
+      <td>zxkane-cdk-construct-simple-nat</td>
+      <td>0.2.88</td>
+      <td>{'System': 'PYPI', 'Name': 'attrs', 'Version':...</td>
+      <td>2</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>2024-08-29 04:39:16.121656+00:00</td>
+      <td>PYPI</td>
+      <td>zxkane-cdk-construct-simple-nat</td>
+      <td>0.2.91</td>
+      <td>{'System': 'PYPI', 'Name': 'attrs', 'Version':...</td>
+      <td>2</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>2024-08-29 04:39:16.121656+00:00</td>
+      <td>PYPI</td>
+      <td>zxkane-cdk-construct-simple-nat</td>
+      <td>0.2.77</td>
+      <td>{'System': 'PYPI', 'Name': 'attrs', 'Version':...</td>
+      <td>2</td>
+    </tr>
+  </tbody>
+</table>
+</div></div></div>
+</div>
+</section>
+<section id="find-dependencies-for-pandas">
+<h2>Find dependencies for pandas<a class="headerlink" href="#find-dependencies-for-pandas" title="Link to this heading">#</a></h2>
+<p>Use assign to add columns to the DataFrame after a scalar operations, such as extracting a sub-field from a <code class="docutils literal notranslate"><span class="pre">STRUCT</span></code> column.</p>
+<p>Because the DataFrame has no index, this does not work if the new column belongs to a different table expression.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">deps</span> <span class="o">=</span> <span class="n">deps</span><span class="o">.</span><span class="n">assign</span><span class="p">(</span><span class="n">DependencyName</span><span class="o">=</span><span class="n">deps</span><span class="p">[</span><span class="s2">"Dependency"</span><span class="p">]</span><span class="o">.</span><span class="n">struct</span><span class="o">.</span><span class="n">field</span><span class="p">(</span><span class="s2">"Name"</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>Use an aggregation to identify the unique <code class="docutils literal notranslate"><span class="pre">DependencyName</span></code>s for the <code class="docutils literal notranslate"><span class="pre">pandas</span></code> package. Note: <code class="docutils literal notranslate"><span class="pre">drop_duplicates()</span></code> is not supported, as the order-based behavior such as <code class="docutils literal notranslate"><span class="pre">keep=&quot;first&quot;</span></code> is not applicable when using <code class="docutils literal notranslate"><span class="pre">ordering_mode</span> <span class="pre">=</span> <span class="pre">&quot;partial&quot;</span></code>.</p>
+<p>A DataFrame with no index still supports aggregation operations. Set <code class="docutils literal notranslate"><span class="pre">as_index=False</span></code> to keep the GROUP BY keys as regular columns, instead of turning them into an index.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">package_deps</span> <span class="o">=</span> <span class="n">deps</span><span class="p">[</span><span class="n">deps</span><span class="p">[</span><span class="s2">"Name"</span><span class="p">]</span> <span class="o">==</span> <span class="n">package_name</span><span class="p">]</span><span class="o">.</span><span class="n">groupby</span><span class="p">([</span><span class="s2">"Name"</span><span class="p">,</span> <span class="s2">"DependencyName"</span><span class="p">],</span> <span class="n">as_index</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span><span class="o">.</span><span class="n">size</span><span class="p">()</span>
+<span class="n">package_deps</span><span class="o">.</span><span class="n">peek</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html">Query job 5b69917f-9ed7-483a-9241-0083acea9990 is DONE. 1.1 GB processed. <a target="_blank" href="https://console.cloud.google.com/bigquery?project=swast-scratch&j=bq:US:5b69917f-9ed7-483a-9241-0083acea9990&page=queryresults">Open Job</a></div><div class="output text_html">Query job ac94c55d-ce8e-4694-ad97-55c933cf3053 is DONE. 123 Bytes processed. <a target="_blank" href="https://console.cloud.google.com/bigquery?project=swast-scratch&j=bq:US:ac94c55d-ce8e-4694-ad97-55c933cf3053&page=queryresults">Open Job</a></div><div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>Name</th>
+      <th>DependencyName</th>
+      <th>size</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>pandas</td>
+      <td>pytz</td>
+      <td>168</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>pandas</td>
+      <td>numpy</td>
+      <td>168</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>pandas</td>
+      <td>python-dateutil</td>
+      <td>168</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>pandas</td>
+      <td>six</td>
+      <td>168</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>pandas</td>
+      <td>tzdata</td>
+      <td>56</td>
+    </tr>
+  </tbody>
+</table>
+</div></div></div>
+</div>
+</section>
+<section id="count-downloads-for-pandas-and-its-dependencies">
+<h2>Count downloads for pandas and its dependencies<a class="headerlink" href="#count-downloads-for-pandas-and-its-dependencies" title="Link to this heading">#</a></h2>
+<p>The previous step created <code class="docutils literal notranslate"><span class="pre">pandas_deps</span></code> with all the dependencies of <code class="docutils literal notranslate"><span class="pre">pandas</span></code> but not pandas itself.</p>
+<p>Combine two DataFrames with the same column names with the <code class="docutils literal notranslate"><span class="pre">bigframes.pandas.concat</span></code> function.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">pandas_and_deps</span> <span class="o">=</span> <span class="n">bpd</span><span class="o">.</span><span class="n">concat</span><span class="p">(</span>
+    <span class="p">[</span>
+        <span class="n">package_deps</span><span class="o">.</span><span class="n">drop</span><span class="p">(</span><span class="n">columns</span><span class="o">=</span><span class="p">[</span><span class="s2">"Name"</span><span class="p">,</span> <span class="s2">"size"</span><span class="p">])</span><span class="o">.</span><span class="n">rename</span><span class="p">(</span><span class="n">columns</span><span class="o">=</span><span class="p">{</span><span class="s2">"DependencyName"</span><span class="p">:</span> <span class="s2">"Name"</span><span class="p">}),</span>
+        <span class="n">bpd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">({</span><span class="s2">"Name"</span><span class="p">:</span> <span class="p">[</span><span class="n">package_name</span><span class="p">]}),</span>
+    <span class="p">],</span>
+
+    <span class="c1"># To join DataFrames that have a NULL index, set ignore_index = True.</span>
+    <span class="n">ignore_index</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span>
+<span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>Since there is no index to implicitly join on, use the <code class="docutils literal notranslate"><span class="pre">merge</span></code> method to join two DataFrames by column name.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">pandas_pypi</span> <span class="o">=</span> <span class="n">pandas_and_deps</span><span class="o">.</span><span class="n">merge</span><span class="p">(</span><span class="n">pypi</span><span class="p">,</span> <span class="n">how</span><span class="o">=</span><span class="s2">"inner"</span><span class="p">,</span> <span class="n">left_on</span><span class="o">=</span><span class="s2">"Name"</span><span class="p">,</span> <span class="n">right_on</span><span class="o">=</span><span class="s2">"project"</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>Create a time series to visualize by grouping by the date, extracted from the <code class="docutils literal notranslate"><span class="pre">timestamp</span></code> column.</p>
+<p><strong>Note:</strong> If you don’t <code class="docutils literal notranslate"><span class="pre">peek()</span></code> at your data and only do grouped aggregations, BigQuery DataFrames can eliminate unnecessary ordering from the compilation even without <code class="docutils literal notranslate"><span class="pre">ordering_mode</span> <span class="pre">=</span> <span class="pre">&quot;partial&quot;</span></code>.</p>
+<p>When BigQuery DataFrames aggregates over columns, those columns provide a
+unique key post-aggregation that is used for ordering. Any ordering applied before is overridden. By aggregating over
+a time series, the line plots will render in the expected order.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">pandas_pypi</span> <span class="o">=</span> <span class="n">pandas_pypi</span><span class="o">.</span><span class="n">assign</span><span class="p">(</span><span class="n">date</span><span class="o">=</span><span class="n">pandas_pypi</span><span class="p">[</span><span class="s2">"timestamp"</span><span class="p">]</span><span class="o">.</span><span class="n">dt</span><span class="o">.</span><span class="n">date</span><span class="p">)</span>
+<span class="n">downloads_per_day</span> <span class="o">=</span> <span class="n">pandas_pypi</span><span class="o">.</span><span class="n">groupby</span><span class="p">([</span><span class="s2">"date"</span><span class="p">,</span> <span class="s2">"project"</span><span class="p">])</span><span class="o">.</span><span class="n">size</span><span class="p">()</span>
+
+<span class="c1"># Cache after the aggregation so that the aggregation only runs once.</span>
+<span class="n">downloads_per_day</span><span class="o">.</span><span class="n">cache</span><span class="p">()</span>
+<span class="n">downloads_per_day</span><span class="o">.</span><span class="n">to_pandas</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html">Query job 57037a4c-5b8b-4f30-a5c6-bfeb9731a38f is DONE. 270.4 GB processed. <a target="_blank" href="https://console.cloud.google.com/bigquery?project=swast-scratch&j=bq:US:57037a4c-5b8b-4f30-a5c6-bfeb9731a38f&page=queryresults">Open Job</a></div><div class="output text_html">Query job a8ea0b8e-2260-4175-b80d-668a2411c6ad is DONE. 2.0 kB processed. <a target="_blank" href="https://console.cloud.google.com/bigquery?project=swast-scratch&j=bq:US:a8ea0b8e-2260-4175-b80d-668a2411c6ad&page=queryresults">Open Job</a></div><div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>date        project        
+2024-09-17  numpy               2572982
+            pandas              2195692
+            python-dateutil     3608119
+            pytz                1863133
+            six                 3064640
+            tzdata               991989
+2024-09-18  numpy              13282573
+            pandas             10856758
+            python-dateutil    17877058
+            pytz                9450103
+            six                15225000
+            tzdata              5230039
+2024-09-19  numpy              13637868
+            pandas             11077817
+            python-dateutil    18449777
+            pytz                9690329
+            six                15706263
+            tzdata              5473910
+2024-09-20  numpy              12609524
+            pandas             10758593
+            python-dateutil    17257536
+            pytz                9082050
+            six                14489456
+            tzdata              5206738
+2024-09-21  numpy               8316481
+            pandas              7483241
+            python-dateutil    11604691
+            pytz                5494178
+            six                 8814983
+            tzdata              3141578
+2024-09-22  numpy               7768078
+            pandas              6566272
+            python-dateutil    10835755
+            pytz                5130018
+            six                 8297507
+            tzdata              2811247
+2024-09-23  numpy              12389164
+            pandas             10758931
+            python-dateutil    17153013
+            pytz                9045824
+            six                14512209
+            tzdata              5214048
+2024-09-24  numpy              10385658
+            pandas              8830996
+            python-dateutil    14066307
+            pytz                7425446
+            six                11917222
+            tzdata              4550626
+dtype: Int64
+</pre></div>
+</div>
+</div>
+</div>
+<p>BigQuery DataFrames has several built-in visualization methods. Alternatively, download the time series with the <code class="docutils literal notranslate"><span class="pre">to_pandas()</span></code> method for further analysis and visualization.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">downloads_per_day</span><span class="o">.</span><span class="n">unstack</span><span class="p">()</span><span class="o">.</span><span class="n">plot</span><span class="o">.</span><span class="n">line</span><span class="p">(</span><span class="n">rot</span><span class="o">=</span><span class="mi">45</span><span class="p">,</span> <span class="n">ylabel</span><span class="o">=</span><span class="s2">"daily downloads"</span><span class="p">,</span> <span class="n">ylim</span><span class="o">=</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mf">2e7</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html">Query job 319558aa-e092-4fd0-a8aa-447fca216a57 is DONE. 1.6 kB processed. <a target="_blank" href="https://console.cloud.google.com/bigquery?project=swast-scratch&j=bq:US:319558aa-e092-4fd0-a8aa-447fca216a57&page=queryresults">Open Job</a></div><div class="output text_html">Query job e64eb861-bd12-4748-9c29-d97990aa1241 is DONE. 1.2 kB processed. <a target="_blank" href="https://console.cloud.google.com/bigquery?project=swast-scratch&j=bq:US:e64eb861-bd12-4748-9c29-d97990aa1241&page=queryresults">Open Job</a></div><div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;Axes: xlabel='date', ylabel='daily downloads'&gt;
+</pre></div>
+</div>
+<img alt="../../_images/e7162332a4920ea24fd72b292012d29125703039edc87f8fcffef0ec45d6b785.png" src="../../_images/e7162332a4920ea24fd72b292012d29125703039edc87f8fcffef0ec45d6b785.png" />
+</div>
+</div>
+</section>
+</section>
+
+
+                </article>
+              
+              
+              
+              
+              
+                <footer class="prev-next-footer d-print-none">
+                  
+<div class="prev-next-area">
+    <a class="left-prev"
+       href="magics_with_local_data.html"
+       title="previous page">
+      <i class="fa-solid fa-angle-left"></i>
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">previous</p>
+        <p class="prev-next-title">Unlock SQL and Python interoperability for BigQuery with %%bqsql magic</p>
+      </div>
+    </a>
+    <a class="right-next"
+       href="../data_types/array.html"
+       title="next page">
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title">Array Data Types</p>
+      </div>
+      <i class="fa-solid fa-angle-right"></i>
+    </a>
+</div>
+                </footer>
+              
+            </div>
+            
+            
+              
+                <dialog id="pst-secondary-sidebar-modal" tabindex="-1"></dialog>
+                <div id="pst-secondary-sidebar" class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+
+  <div class="sidebar-secondary-item">
+<div
+    id="pst-page-navigation-heading-2"
+    class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> On this page
+  </div>
+  <nav id="pst-page-toc-nav" class="page-toc" aria-labelledby="pst-page-navigation-heading-2">
+    <ul class="pst-show_toc_level nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#counting-downloads-and-tracking-dependencies">Counting downloads and tracking dependencies</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#limit-to-the-most-recent-7-days-of-data">Limit to the most recent 7 days of data</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#find-dependencies-for-pandas">Find dependencies for pandas</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#count-downloads-for-pandas-and-its-dependencies">Count downloads for pandas and its dependencies</a></li>
+</ul>
+  </nav></div>
+
+  <div class="sidebar-secondary-item">
+
+  <div class="tocsection sourcelink">
+    <a href="../../_sources/notebooks/dataframes/pypi.ipynb.txt">
+      <i class="fa-solid fa-file-lines"></i> Show Source
+    </a>
+  </div>
+</div>
+
+</div></div>
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+          </footer>
+        
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script defer src="../../_static/scripts/bootstrap.js?digest=75c7c72ae941e8b558d8"></script>
+<script defer src="../../_static/scripts/pydata-sphinx-theme.js?digest=75c7c72ae941e8b558d8"></script>
+
+  <footer class="bd-footer">
+<div class="bd-footer__inner bd-page-width">
+  
+    <div class="footer-items__start">
+      
+        <div class="footer-item">
+
+  <p class="copyright">
+    
+      © Copyright 2019, Google.
+      <br/>
+    
+  </p>
+</div>
+      
+        <div class="footer-item">
+
+  <p class="sphinx-version">
+    Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 9.0.4.
+  </p>
+</div>
+      
+    </div>
+  
+  
+  
+    <div class="footer-items__end">
+      
+        <div class="footer-item">
+<p class="theme-version">
+  <!-- # L10n: Setting the PST URL as an argument as this does not need to be localized -->
+  Built with the <a href="https://pydata-sphinx-theme.readthedocs.io/en/stable/index.html">PyData Sphinx Theme</a> 0.24.0.
+</p></div>
+      
+    </div>
+  
+</div>
+
+  </footer>
+  </body>
+</html>
