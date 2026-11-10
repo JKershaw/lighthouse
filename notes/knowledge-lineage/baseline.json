@@ -3,5 +3,6 @@
   "protocol": "0.1",
   "date": "2026-11-10",
   "sample_rule": "numbered claim rows at ordinals 1,6,...,81; maximum 17",
-  "external_rule": "first six distinct HTTPS source links in LH036 brief then first six new in LH038 brief; retained records only"
+  "original_external_rule": "first six distinct HTTPS source links in LH036 brief then first six new in LH038 brief; retained records only",
+  "external_rule": "Amendment 1: first six distinct HTTPS values from studies/LH036/panel.json, then first six new from studies/LH038/policies.json; insertion order; retained records only"
 }

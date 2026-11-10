@@ -2,6 +2,7 @@
 layout: base.njk
 ---
 {% set section = repo.front.sections | sectionById(sectionId) %}
+{% if sectionId == "map" and lineage %}<link rel="stylesheet" href="/assets/lineage.css">{% endif %}
 <article class="index section-front{% if sectionId == 'essays' %} is-essay{% endif %}">
   <h1>{{ section.title }}</h1>
   <p class="lede">{{ section.lede }}</p>
@@ -12,6 +13,11 @@ layout: base.njk
     <h2><a href="{{ p.url }}">{{ p.title }}</a></h2>
     <p>{{ p.compactSummary }}</p><p class="when">{{ p.entryDate }}{% if p.displayState and not (p.displayState == 'Revised' and p.revised and p.revised != p.entryDate) %} · {{ p.displayState }}{% endif %}{% if p.revised and p.revised != p.entryDate %} · {{ p.revisedLabel }} {{ p.revised }}{% endif %}</p>
   </section>{% endif %}
+  {% if sectionId == 'map' and lineage %}<aside class="lineage-signpost">
+    <p class="kicker">Prototype · Unreviewed</p>
+    <h2><a href="/map/knowledge-lineage/">Follow an idea</a></h2>
+    <p>See how a claim changed after review, or follow an AI-assisted discovery into the questions it leaves open.</p>
+  </aside>{% endif %}
   {% if section.entries.length %}<ol class="compact-entries">
   {% for p in section.entries %}{% include "compact-entry.njk" %}{% endfor %}
   </ol>{% elif not section.lead %}<p>No {{ 'essay has' if sectionId == 'essays' else 'item has' }} been released here yet.</p>{% endif %}

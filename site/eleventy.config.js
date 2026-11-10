@@ -5,6 +5,7 @@
 // of pages to maintain.
 
 import path from "node:path";
+import { loadLineage } from "./lib/lineage.js";
 import fs from "node:fs";
 import { fileURLToPath } from "node:url";
 import { HtmlBasePlugin } from "@11ty/eleventy";
@@ -22,7 +23,13 @@ const siteDir = path.dirname(fileURLToPath(import.meta.url));
 const root = path.resolve(siteDir, "..");
 
 let repo = null;
-const getRepo = () => repo || (repo = scanRepo(root));
+const getRepo = () => {
+  if (!repo) {
+    repo = scanRepo(root);
+    if (loadLineage(root)) repo.siteDirs.add("map/knowledge-lineage");
+  }
+  return repo;
+};
 const relPath = (inputPath) => path.relative(root, path.resolve(inputPath)).split(path.sep).join("/");
 const docFor = (data) => (data.page && data.page.inputPath ? getRepo().byPath[relPath(data.page.inputPath)] : null) || null;
 
@@ -33,7 +40,8 @@ export default function (eleventyConfig) {
 
   // Rescan at the start of every build, so serve mode sees new files.
   eleventyConfig.on("eleventy.before", () => {
-    repo = scanRepo(root);
+    repo = null;
+    getRepo();
     unresolved.length = 0;
   });
   eleventyConfig.on("eleventy.after", () => {
@@ -51,6 +59,16 @@ export default function (eleventyConfig) {
   // Images and illustrations beside the Markdown, and the site's own assets.
   for (const image of getRepo().images) eleventyConfig.addPassthroughCopy(image);
   eleventyConfig.addPassthroughCopy({ "site/assets": "assets" });
+
+  // A bounded, explicitly unreviewed view of retained evidence. No release/feed entry.
+  eleventyConfig.addGlobalData("lineage", () => loadLineage(root));
+  if (loadLineage(root)) {
+    eleventyConfig.addTemplate("_lighthouse/knowledge-lineage.njk", "", {
+      layout: "knowledge-lineage.njk", permalink: "/map/knowledge-lineage/",
+      title: "Follow an idea", section: "map",
+    });
+    eleventyConfig.addPassthroughCopy({ "notes/knowledge-lineage/graph.json": "map/knowledge-lineage/data.json" });
+  }
 
   // Markdown: no raw HTML (the records quote angle brackets as text), bare
   // URLs linked as GitHub does, and the repository-aware plugin.
