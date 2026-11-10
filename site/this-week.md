@@ -30,12 +30,12 @@ The block shows no finding. Whether the editor may change it without review is
 the gate's decision on proposals.md P-0018.
 -->
 title: This week
-week: 2026-11-03 to 2026-11-09
-updated: 2026-11-09
+week: 2026-11-04 to 2026-11-10
+updated: 2026-11-10
 items:
+- 2026-11-10 | reported | StepSecurity and Socket report that a release of bee-js, a small JavaScript library, was published to npm on 9 November with a malicious install step, through the project's own trusted publishing and with genuine provenance, and was removed about 75 minutes later. We've begun [a study of how far it travelled](studies/LH049/brief.md), read daily while npm's counts still cover its first day.
+- 2026-11-10 | lighthouse | Google, Microsoft, OpenAI and Anthropic have each announced the same robots.txt label for sites that don't want their pages used to train AI, as trade press reported on 30 October. Our study of [shared services closing their doors](studies/LH044/brief.md) will now record that label too, as a stated wish rather than proof anyone obeys it.
 - 2026-11-09 | lighthouse | We added a later-evidence notice to [who watches each layer of the internet](articles/who-watches-the-internet.md) and to [what we can see](articles/what-we-can-see.md): GH Archive's hourly files of GitHub's public events were all there in 2026, but whole kinds of event were missing from many of the hours we read, and nobody yet knows whether GitHub's feed or the archive lost them.
 - 2026-11-09 | lighthouse | We fixed the plan for a new study of [the flaws behind Anthropic's five attack chains](studies/LH048/brief.md): how each is rated and whether the public signals of exploitation move, read on Mondays to 4 January. Only two of the five flaws are named by number in Anthropic's post.
 - 2026-11-09 | lighthouse | From today our collectors ask a site's robots.txt before each request; a few one-off and review reads still don't share that check. Some sources we used to read now ask automated readers to stay away, among them WordPress.org's statistics and Node.js's release list, so those readings stop.
 - 2026-11-08 | lighthouse | We published a second essay, [What the watch would see of a pattern that copies itself](essays/what-the-watch-would-see.md): an invented case walked through the public records, showing where copies would leave traces and where nothing would.
-- 2026-11-08 | lighthouse | We published an essay, [It was only a test](essays/it-was-only-a-test.md): what one agent leaves behind, a message board or a handover note, can become part of another's world.
-- 2026-11-08 | lighthouse | We opened a third investigation, [what AI activity costs the shared internet](investigations/ai-cost-and-spread.md), and whether any of that activity is sustaining or spreading itself outside a lab. Its first study, on shared services withdrawing anonymous access, is due to start from 9 November.
