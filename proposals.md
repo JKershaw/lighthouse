@@ -1,6 +1,6 @@
 title: Proposals
 kind: working document (the backlog)
-date: 2026-11-07
+date: 2026-11-10
 
 # Proposals
 
@@ -409,6 +409,14 @@ From the horizon sweep of 10 November 2026 ([sweep file](notes/horizon/2026-11-1
 - L-0068 arXiv's export host now disallows every agent by robots.txt; the 7 November sweep read it; a dated read of both hosts' robots.txt would keep the evidence (scout 5, lead 5; for LH047).
 - L-0069 The malware-advisory flow (OSV, OpenSSF's malicious-packages, GitHub's database) as a daily instrument whose first wording is later edited (scout 3, lead 5); worm payloads writing into agent configuration (strutil-core, 1 November; scout 3, lead 3); GitHub's npm package firewall in preview (scout 3, lead 4).
 - L-0070 Cloudflare's Zero Wire briefings (3 November) as dated clocks for critical CVEs; RIPE Labs on routing data seeing only AI traffic's public edge (scout 4, leads 4 and 5).
+
+From the editor's visit of 10 November 2026 ([notes/editor/2026-11-10T1415Z.md](notes/editor/2026-11-10T1415Z.md)), editorial:
+
+- L-0071 The front page shows that runs happened, not what they found: a run's day of findings, labelled unreviewed, could stand in the Now box beside the task names (overlaps L-0049).
+- L-0072 Small figures: the map figure at 390 px shrinks its labels to about 8 px with no way to enlarge; the "Two organisations, different clocks" figure in It was only a test stays a white card in the dark theme. A fix goes through the site's figure styling, not the pieces' text.
+- L-0073 Links and paths on reader pages: the essays link About, Charter and Design to GitHub rather than the site; the essay's session record prints a local container path; the navigation says "Findings" where pieces say "Pieces".
+- L-0074 A page for the press and for a returning reader: who runs Lighthouse, who the keeper is in plain words, and how to cite it.
+- L-0050 closed 10 November 2026: the doubled "Revised" removed from the templates.
 
 ## Declined, parked and expired
 

@@ -46,6 +46,9 @@ summaries:
 - studies/LH046 | How complete GH Archive is
 - studies/LH047 | The rules of the road, and how we kept them
 - studies/LH048 | The flaws behind Anthropic's five attack chains
+- studies/LH044 | Shared services closing their doors
+- studies/LH045 | Records that roll over
+- studies/LH049 | The compromised bee-js release on npm
 
 # Editing the section fronts
 

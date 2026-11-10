@@ -16,7 +16,7 @@
   <p class="kicker">In focus · {{ p.entryKind }}</p>
   <h1 id="lead-title"><a href="{{ p.url }}">{{ p.title }}</a></h1>
   <p class="lead-deck">{{ p.deck }}</p>
-  <p class="when">{{ p.published }} · {{ p.displayState }}{% if p.revised and p.revised != p.published %} · {{ p.revisedLabel }} {{ p.revised }}{% endif %}</p>
+  <p class="when">{{ p.published }}{% if not (p.displayState == 'Revised' and p.revised and p.revised != p.published) %} · {{ p.displayState }}{% endif %}{% if p.revised and p.revised != p.published %} · {{ p.revisedLabel }} {{ p.revised }}{% endif %}</p>
   {% if p.figure %}<figure>
     <a class="figure-link" href="{{ p.url }}"><img src="{{ p.figure.url }}" alt="{{ p.figure.alt }}"></a>
     <figcaption>{{ p.figure.caption }} From <a href="{{ p.url }}">the piece published {{ p.published }}</a>{% if p.developing %}; later dated notices may postdate this illustration{% endif %}.</figcaption>
