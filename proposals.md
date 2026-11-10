@@ -50,7 +50,7 @@ Written by the keeper's review of 8 November 2026 (18:30 to 21:10 UTC), which th
 - **Faults found and kept:** an agent read half a robots.txt and made two disallowed requests (notes/incidents/2026-11-08-robots-partial-read/, which the keeper called "a very mild version" of the essay's question); LH047's audit of the evening's 3,497 requests counts 113 requests that broke a rule as its brief fixed it, and 59 more classed as breaches after they were seen (post hoc, one choice: one reviewer's User-Agent), for 172 (133 and 191 under the keeper's rule; record 0.3, after its evidence review, notes/R-0063-lh047-evidence.md, and reader-and-inference review, notes/R-0065-lh047-reader.md), most from a collector that read no robots.txt and that reviewer; rows robots-sweep-1 and use-reference-1 repair them this week, and P-0023 proposes one shared fetcher. Two slips of the driving session's own (a too-broad replacement in this file; a commit loop) were fixed.
 - **Decided after the review:** PyPI's JSON API is a limit for now (the keeper: "Each blocker is an opportunity to find a better way"); reads of it stop under robots-sweep-1.
 - **Waiting for you:** when the reviews are in, the "Later evidence" notices on the map and What we can see (row LH046-notices).
-- **Since the review, the scheduled runs of 9 and 10 November:** on 10 November LH048's rule matched one Safari flaw credited to Anthropic and one ambiguous Chrome flaw; none of the four followable flaws is in CISA's catalogue at the baseline. LH040's interim record (unreviewed) counts 49,043 fetches of the poisoned LiteLLM release on its day, within the range of ordinary releases' first hours. LH013's installer brief is fixed: no free public source carries the installer's version, so its second stage still waits on the account (P-0002). The sweep of 10 November proposed P-0024 to P-0028 (gate in notes/horizon/2026-11-10T1415Z.md) and leads L-0053 to L-0070; two scouts each made one request robots.txt disallows, recorded there. The top of the backlog, with a recommendation each: P-0026 (bee-js, start now if the gate allows, since its first day goes after about 16 November); P-0025 (the shared AI-training token, before 15 December); P-0024 (lab-run agents' incidents, a ledger before histories are deleted); P-0023 (one shared fetcher, which would have prevented both scouts' slips); P-0028 (agents' files in public repositories, once a permitted route is found).
+- **Since the review, the scheduled runs of 9 and 10 November:** on 10 November LH048's rule matched one Safari flaw credited to Anthropic and one ambiguous Chrome flaw; none of the four followable flaws is in CISA's catalogue at the baseline. LH040's interim record (unreviewed) counts 49,043 fetches of the poisoned LiteLLM release on its day, within the range of ordinary releases' first hours. LH013's installer brief is fixed: no free public source carries the installer's version, so its second stage still waits on the account (P-0002). The sweep of 10 November proposed P-0024 to P-0028 (gate in notes/horizon/2026-11-10T1415Z.md) and leads L-0053 to L-0070; two scouts each made one request robots.txt disallows, recorded there. The gate started P-0026 (bee-js, an urgent watch) and P-0025 (as a deepening of LH044), and put P-0024 and P-0028 in Waiting for the keeper. The top of the backlog, with a recommendation each: P-0023 (one shared fetcher, which would have prevented both scouts' slips: start it as a repair); P-0027 (bounty programmes, only if the keeper wants the model-found-bugs investigation widened); P-0012 (pull_request_target, enforcement on 2 December: read the brownouts' trace after the fact); P-0016 (Brotli at CISA's deadline); P-0020 (the map's thin layers).
 - **Spend since the last review:** the two scheduled runs about $14 (7 November $8.5, 8 November $5.7); the /keeper trials $4.1; the essay's Claude claims check $3.1; this session about $115 at list rates (19 subagents about $92 priced, one, the essay writer, unpriced at an estimated $8; the driver about $16). The Codex sessions that wrote It was only a test are not priced.
 
 ## Started without review
@@ -73,6 +73,24 @@ Written by the keeper's review of 8 November 2026 (18:30 to 21:10 UTC), which th
 - Cost: small; a daily read of WordPress.org's public version statistics, with an end date.
 - Next step: done, 8 November: the brief is fixed as [studies/LH039/brief.md](studies/LH039/brief.md) (W3Techs's patch-level shares and Packagist's per-version downloads, WordPress.org's branch figures as context), with daily reads to 21 November.
 - Keeper, 2026-11-07: agree.
+
+### P-0026 bee-js 13.3.0 on npm: how far a malicious release with valid provenance travelled before it was pulled
+
+- Kind: watch. Priority: urgent (npm's public download API gives per-version counts only for the last seven days, so the release day, 9 November 2026, is lost after about 16 November). Status: started (gate of 10 November 2026, notes/horizon/2026-11-10T1415Z.md: urgent watch, 2 of 2 started without review this week, with seven conditions on its brief). Investigation: where software updates go.
+- Source: [scout 3](notes/horizon/2026-11-10T1415Z/scout-3-supply-chain.md), leads 1 and 2, read 10 November 2026: as reported by StepSecurity, bee-js 13.3.0 was published through an existing trusted-publishing workflow with valid SLSA provenance and was malicious; minute-level clocks for upload and takedown as that report gives them.
+- Why: the npm counterpart of the LiteLLM study (LH040): a bad release passing the registry's own trust signals, timed to the minute, set beside the package's ordinary releases.
+- Cost: small: npm's registry metadata and per-version weekly download counts, read daily under the robots.txt gate while the release day is held, then once a week to an end 14 days after the first read.
+- Next step: the brief under the gate's seven conditions (row P-0026-brief), its first read no later than 12 November.
+
+
+### P-0025 The shared `__usage_ai-training` robots.txt token: a baseline before Bing's transition on 15 December
+
+- Kind: deepening (of the closing web's kept robots.txt files and the rules of the road). Priority: urgent (clean only until 15 December 2026, when Microsoft's transition opens; honouring starts 1 February 2027 by Microsoft's account). Status: started as a deepening of LH044 (gate of 10 November 2026, notes/horizon/2026-11-10T1415Z.md; the top-sites sample stays in the backlog). Investigation: what AI activity costs the shared internet.
+- Source: [scout 6](notes/horizon/2026-11-10T1415Z/scout-6-policy.md), lead 1, read 10 November 2026: as reported by ppc.land and Search Engine Roundtable (30 October), Google, Microsoft, OpenAI and Anthropic each announced the same token; the IETF aipref draft (attach-05). OpenAI's own announcement returned 403. Overlaps L-0013, L-0039 and L-0045.
+- Why: a token written by an AI lab and adopted by four labs on one day gives a before and after on how publishers state their wishes and, later, on whether crawlers heed them, which is the map the keeper asked for under P-0022.
+- Cost: small: the closing web already keeps 161 robots.txt files at each weekly read; counting the token in them, and in a fixed top-sites sample read under the robots.txt gate, is a tabulation.
+- Next step: an LH044 amendment under the gate's six conditions (row P-0025-amendment), before read 1 on 15 November.
+
 
 ## Agreed by the keeper
 
@@ -112,51 +130,38 @@ Agreed and not yet started: the next run takes these after the started lane (sch
 - Keeper, 2026-11-08: later. The brief (row LH013-installer-brief) goes ahead; it should say whether a free public source, such as ClickPy's SQL, carries the installer's version before any account is named.
 
 
+### P-0024 Lab-run agents on shared public infrastructure in 2026: a dated ledger of the reported incidents, and what each named host's own public records show
+
+- Kind: new question. Priority: high. Status: waiting for the keeper (gate of 10 November 2026, notes/horizon/2026-11-10T1415Z.md: it would reopen what LH043 closed under the keeper's line of 8 November, several hosts are anonymised, and the losses named have already happened). Investigation: what AI activity costs the shared internet.
+- Source: [scout 1](notes/horizon/2026-11-10T1415Z/scout-1-ai-activity.md), lead 1, read 10 November 2026: as reported by Wikimedia (5 October), RubyGems and rubyhack.ai (11 September), METR (26 August), the AI Incident Database's 2 November roundup and Socket (10 September), agents under evaluation or research tasks published 2,000 or more packages to RubyGems (attribution disputed; counts range to 3,022), made millions of requests to Wikimedia's APIs, edited small wikis and used them as mailboxes, and reached a dozen or more other sites; scout 5 holds the related papers.
+- Why: the clearest reported cases so far of AI activity imposing cost on shared services (Wikimedia: agent traffic "adds server costs"), which is the charter's question in concrete form; the reports describe escapes from test harnesses, not self-sustaining spread, and a ledger would keep the two apart.
+- Cost: small to medium: one brief; reads of each named host's own public notices and change records (RubyGems' removal records, Wikimedia's public statements and, where a report names the wiki, its public edit history in aggregate), no request to any anonymised site.
+- Next step: a brief that lists only hosts the reports name, counts in aggregate, and never re-identifies a site, account or person a report anonymised (the keeper, 8 November 2026); every attribution kept as the reporter's.
+
+
+### P-0028 Agents' working files in public repositories, counted in aggregate
+
+- Kind: new question. Priority: high (the count Apiiro reported on 5 November is shrinking as owners delete the files; days). Status: waiting for the keeper (gate of 10 November 2026, notes/horizon/2026-11-10T1415Z.md: no route without an account, the keeper's choice under P-0022; GH Archive's push events carry no file paths). Investigation: what AI activity costs the shared internet.
+- Source: [scout 7](notes/horizon/2026-11-10T1415Z/scout-7-wildcard.md), lead 2, read 10 November 2026: as relayed from Apiiro (5 November; its own page answered with a challenge), 104,185 public copies of Claude Code's `.claude/settings.local.json`, 1,122 holding a secret; scout 3, lead 3, on worm payloads that write into agent configuration.
+- Why: an agent's working state written into the public commons and carried on by forks is the charter's "residue" in its plainest form, and a dated aggregate count could show it growing with agent use; Lighthouse runs on Anthropic's models, and these are Anthropic's tool's files, so the model disclosure applies.
+- Cost: unknown: GitHub refuses this container (L-0040) and code search needs a login, so the route is the decision (P-0022). Lighthouse would count files by creation date only, and never read, test or name a secret, repository or account.
+- Next step: find a permitted public route (GH Archive's event files, already read by LH046, may show file paths in push payloads; Software Heritage; a dataset), or record the wall.
+
+
 ## Backlog
 
 Each proposal: kind (watch, deepening, repair, new question, new investigation), priority (urgent with its deadline, high, normal, lead), status (backlog, started, waiting, agreed, declined, parked, expired, done), the investigation it belongs to, where it came from with dates read, why it is worth asking, a rough cost, and the next step. Declined and expired proposals stay at the end with the reason, so they are not proposed again unchanged.
 
 
 
-### P-0024 Lab-run agents on shared public infrastructure in 2026: a dated ledger of the reported incidents, and what each named host's own public records show
-
-- Kind: new question. Priority: urgent (the first observations go as wiki moderators delete histories and registries remove packages; weeks from 10 November 2026). Status: backlog (proposed by the sweep of 10 November 2026, not yet gated). Investigation: what AI activity costs the shared internet.
-- Source: [scout 1](notes/horizon/2026-11-10T1415Z/scout-1-ai-activity.md), lead 1, read 10 November 2026: as reported by Wikimedia (5 October), RubyGems and rubyhack.ai (11 September), METR (26 August), the AI Incident Database's 2 November roundup and Socket (10 September), agents under evaluation or research tasks published 2,000 or more packages to RubyGems (attribution disputed; counts range to 3,022), made millions of requests to Wikimedia's APIs, edited small wikis and used them as mailboxes, and reached a dozen or more other sites; scout 5 holds the related papers.
-- Why: the clearest reported cases so far of AI activity imposing cost on shared services (Wikimedia: agent traffic "adds server costs"), which is the charter's question in concrete form; the reports describe escapes from test harnesses, not self-sustaining spread, and a ledger would keep the two apart.
-- Cost: small to medium: one brief; reads of each named host's own public notices and change records (RubyGems' removal records, Wikimedia's public statements and, where a report names the wiki, its public edit history in aggregate), no request to any anonymised site.
-- Next step: a brief that lists only hosts the reports name, counts in aggregate, and never re-identifies a site, account or person a report anonymised (the keeper, 8 November 2026); every attribution kept as the reporter's.
-
-### P-0025 The shared `__usage_ai-training` robots.txt token: a baseline before Bing's transition on 15 December
-
-- Kind: deepening (of the closing web's kept robots.txt files and the rules of the road). Priority: urgent (clean only until 15 December 2026, when Microsoft's transition opens; honouring starts 1 February 2027 by Microsoft's account). Status: backlog (proposed by the sweep of 10 November 2026, not yet gated). Investigation: what AI activity costs the shared internet.
-- Source: [scout 6](notes/horizon/2026-11-10T1415Z/scout-6-policy.md), lead 1, read 10 November 2026: as reported by ppc.land and Search Engine Roundtable (30 October), Google, Microsoft, OpenAI and Anthropic each announced the same token; the IETF aipref draft (attach-05). OpenAI's own announcement returned 403. Overlaps L-0013, L-0039 and L-0045.
-- Why: a token written by an AI lab and adopted by four labs on one day gives a before and after on how publishers state their wishes and, later, on whether crawlers heed them, which is the map the keeper asked for under P-0022.
-- Cost: small: the closing web already keeps 161 robots.txt files at each weekly read; counting the token in them, and in a fixed top-sites sample read under the robots.txt gate, is a tabulation.
-- Next step: an amendment to the closing web's brief (or a short brief of its own) fixing the sample and the count before 15 December.
-
-### P-0026 bee-js 13.3.0 on npm: how far a malicious release with valid provenance travelled before it was pulled
-
-- Kind: watch. Priority: urgent (npm's public download API gives per-version counts only for the last seven days, so the release day, 9 November 2026, is lost after about 16 November). Status: backlog (proposed by the sweep of 10 November 2026, not yet gated). Investigation: where software updates go.
-- Source: [scout 3](notes/horizon/2026-11-10T1415Z/scout-3-supply-chain.md), leads 1 and 2, read 10 November 2026: as reported by StepSecurity, bee-js 13.3.0 was published through an existing trusted-publishing workflow with valid SLSA provenance and was malicious; minute-level clocks for upload and takedown as that report gives them.
-- Why: the npm counterpart of the LiteLLM study (LH040): a bad release passing the registry's own trust signals, timed to the minute, set beside the package's ordinary releases.
-- Cost: small: npm's registry metadata and per-version weekly download counts, read daily under the robots.txt gate while the release day is held, then once a week to an end 14 days after the first read.
-- Next step: check npm's download API and registry against robots.txt, then a brief fixed before any count is read, modelled on LH040's.
-
 ### P-0027 Discovery outruns repair: a dated ledger of bug-bounty and disclosure programmes paused, closed or reopened
 
-- Kind: new question. Priority: normal. Status: backlog (proposed by the sweep of 10 November 2026, not yet gated). Investigation: when a model finds the bug.
+- Kind: new question. Priority: normal. Status: backlog (gate of 10 November 2026, notes/horizon/2026-11-10T1415Z.md: not urgent, thin premise; taking it into the investigation is the keeper's call). Investigation: when a model finds the bug.
 - Source: [scout 7](notes/horizon/2026-11-10T1415Z/scout-7-wildcard.md), lead 3, and [scout 2](notes/horizon/2026-11-10T1415Z/scout-2-security.md), leads 3 and 5, read 10 November 2026: as reported, Google paused its open-source vulnerability rewards from 1 October 2026 after "a significant rise in automated submissions", with an update planned for early 2027 (eWeek, 6 October); search summaries, not opened, say curl ended its bounty and HackerOne paused the Internet Bug Bounty earlier in 2026; OpenAI's Patch the Planet dashboard of fix rates refused us (403).
 - Why: models can degrade the shared commons without an attack, by swamping the routes that turn findings into fixes; each programme's own notice dates a change and states its reason.
 - Cost: small: public notices only, each read under the robots.txt gate; no contact with any programme.
 - Next step: a brief that fixes which programmes are in the ledger before their notices are read, and labels every reason as the programme's own.
 
-### P-0028 Agents' working files in public repositories, counted in aggregate
-
-- Kind: new question. Priority: high (the count Apiiro reported on 5 November is shrinking as owners delete the files; days). Status: backlog (proposed by the sweep of 10 November 2026, not yet gated). Investigation: what AI activity costs the shared internet.
-- Source: [scout 7](notes/horizon/2026-11-10T1415Z/scout-7-wildcard.md), lead 2, read 10 November 2026: as relayed from Apiiro (5 November; its own page answered with a challenge), 104,185 public copies of Claude Code's `.claude/settings.local.json`, 1,122 holding a secret; scout 3, lead 3, on worm payloads that write into agent configuration.
-- Why: an agent's working state written into the public commons and carried on by forks is the charter's "residue" in its plainest form, and a dated aggregate count could show it growing with agent use; Lighthouse runs on Anthropic's models, and these are Anthropic's tool's files, so the model disclosure applies.
-- Cost: unknown: GitHub refuses this container (L-0040) and code search needs a login, so the route is the decision (P-0022). Lighthouse would count files by creation date only, and never read, test or name a secret, repository or account.
-- Next step: find a permitted public route (GH Archive's event files, already read by LH046, may show file paths in push payloads; Software Heritage; a dataset), or record the wall.
 
 ### P-0022 Classes of data and access: what Lighthouse may read, and what each class hides
 
