@@ -53,3 +53,16 @@ for width,theme in [(390,'light'),(390,'dark'),(1000,'light'),(1000,'dark')]:
     page.get_pixmap(matrix=fitz.Matrix(1.333333,1.333333),clip=fitz.Rect(0,0,page.rect.width,bottom)).save(OUT/f'finding-{width}-{theme}.png')
     # PDFs are intermediate only; the user-facing proofs are PNGs.
     print(f'{width}px {theme}: {len(doc.pages)} static proof page(s)')
+
+# Render the related topic at phone width too, with the same actual template text.
+for theme in ['light','dark']:
+    topic=re.search(r'<section id="topic"[\s\S]*?</section>',html).group()
+    proof=html[:html.index('<section id="finding"')]+topic+'</article></main></body></html>'
+    dark=':root {--bg:#15191b;--ink:#e6e2d9;--muted:#aaa498;--rule:#2f3538;--accent:#8ec4d4;--tint:#1c2124;--essay:#e0a650}' if theme=='dark' else ''
+    css=f'@page {{size:390px 6500px;margin:0}} body {{background:var(--bg);color:var(--ink)}} a {{color:var(--accent)}} .lineage-page h1 {{font-size:43px}} .lineage-choices {{display:grid;grid-template-columns:1fr}} .lineage-choices a {{min-height:0}} .lineage-clocks {{grid-template-columns:1fr}} .lineage-card {{padding:.95rem}} {dark}'
+    proof=proof.replace('</body>',f'<style>{css}</style></body>')
+    doc=HTML(string=proof,base_url=SITE.as_uri()+'/',url_fetcher=local_only).render()
+    page=fitz.open(stream=doc.write_pdf(),filetype='pdf')[0]
+    bottom=min(page.rect.height,max(b[3] for b in page.get_text('blocks'))+20)
+    page.get_pixmap(matrix=fitz.Matrix(1.333333,1.333333),clip=fitz.Rect(0,0,page.rect.width,bottom)).save(OUT/f'topic-390-{theme}.png')
+    print(f'390px {theme}: topic static proof')
