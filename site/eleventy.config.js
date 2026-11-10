@@ -6,6 +6,7 @@
 
 import path from "node:path";
 import { loadLineage } from "./lib/lineage.js";
+import { loadKnowledgeMap } from "./lib/knowledge-map.js";
 import fs from "node:fs";
 import { fileURLToPath } from "node:url";
 import { HtmlBasePlugin } from "@11ty/eleventy";
@@ -26,7 +27,7 @@ let repo = null;
 const getRepo = () => {
   if (!repo) {
     repo = scanRepo(root);
-    if (loadLineage(root)) repo.siteDirs.add("map/knowledge-lineage");
+    if (loadLineage(root)) for (const route of ["map/knowledge-lineage", "map/knowledge-lineage/trails", "map/knowledge-lineage/evidence"]) repo.siteDirs.add(route);
   }
   return repo;
 };
@@ -62,11 +63,19 @@ export default function (eleventyConfig) {
 
   // A bounded, explicitly unreviewed view of retained evidence. No release/feed entry.
   eleventyConfig.addGlobalData("lineage", () => loadLineage(root));
+  eleventyConfig.addGlobalData("knowledgeMap", () => loadKnowledgeMap(root));
   if (loadLineage(root)) {
     eleventyConfig.addTemplate("_lighthouse/knowledge-lineage.njk", "", {
-      layout: "knowledge-lineage.njk", permalink: "/map/knowledge-lineage/",
-      title: "Follow an idea", section: "map",
+      layout: "knowledge-overview.njk", permalink: "/map/knowledge-lineage/",
+      title: "A map of what we know", section: "map",
     });
+    eleventyConfig.addTemplate("_lighthouse/knowledge-trails.njk", "", {
+      layout: "knowledge-lineage.njk", permalink: "/map/knowledge-lineage/trails/", title: "Follow a thread", section: "map",
+    });
+    eleventyConfig.addTemplate("_lighthouse/knowledge-evidence.njk", "", {
+      layout: "knowledge-evidence.njk", permalink: "/map/knowledge-lineage/evidence/", title: "Check the evidence", section: "map",
+    });
+    eleventyConfig.addPassthroughCopy({ "notes/knowledge-lineage/overview.json": "map/knowledge-lineage/overview.json" });
     eleventyConfig.addPassthroughCopy({ "notes/knowledge-lineage/graph.json": "map/knowledge-lineage/data.json" });
   }
 

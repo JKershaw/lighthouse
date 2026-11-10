@@ -2,16 +2,16 @@
 layout: base.njk
 ---
 <link rel="stylesheet" href="/assets/lineage.css">
-<article class="lineage-page">
-  <nav class="lineage-crumb" aria-label="Breadcrumb"><a href="/map/">The map</a> / Knowledge Lineage</nav>
+<article class="lineage-page" id="trails-page">
+  <nav class="lineage-crumb" aria-label="Breadcrumb"><a href="/map/knowledge-lineage/">Knowledge map</a> / Follow a thread</nav>
   <p class="kicker">Working prototype · Unreviewed · 10 November 2026</p>
-  <h1>Follow an idea.</h1>
-  <p class="lineage-deck">Knowledge grows when a finding can be checked, challenged and used again. Take a short trail through the evidence.</p>
-  <p class="lineage-boundary">These are selected existing records, rearranged for exploration. The prototype adds no new incident finding. A checked connection means we found its basis in the record; it does not independently confirm the event.</p>
+  <h1>Follow a thread.</h1>
+  <p class="lineage-deck">See how a claim changed, or what follows a reported discovery.</p>
+
   <nav class="lineage-choices" aria-label="Choose a trail">
     {% for trail in lineage.trails %}<a href="#{{ trail.id }}"><span>{{ trail.eyebrow | escape }}</span><strong>{{ trail.title | escape }}</strong></a>{% endfor %}
   </nav>
-  <p class="lineage-reading-key"><strong>How to read the trails.</strong> The pale guide gives a reading order. Connection panels name the actual direction: one account cites, challenges or revises another. Solid panel borders mean checked; dotted borders mean reported. Spacing does not measure time, and same-day order is not a measured sequence.</p>
+<p class="lineage-reading-key">Read the story first. Open a card’s evidence when you want to check it.</p>
   {% for trail in lineage.trails %}
   <section id="{{ trail.id }}" class="lineage-trail" aria-labelledby="{{ trail.id }}-title">
     <p class="kicker">{{ trail.eyebrow | escape }}</p>
@@ -29,18 +29,20 @@ layout: base.njk
             <p class="lineage-kind">{{ step.kind | escape }}</p>
             <h3><a href="{{ step.record_url }}">{{ step.title | escape }}</a></h3>
             <p>{{ step.summary | escape }}</p>
+            <details class="lineage-source-details"><summary>Evidence and dates</summary>
             <dl class="lineage-clocks">
               <div><dt>{{ step.date_label | escape }}</dt><dd>{{ step.event_date or 'Not established' }}</dd></div>
               <div><dt>Retained source read</dt><dd>{{ step.source_read_date or 'Not a source-read event' }}</dd></div>
             </dl>
             <p class="lineage-ai">{{ step.ai_role | escape }}</p>
             <p class="lineage-records"><a href="{{ step.evidence.url }}">Exact retained passage</a>{% if step.primary_url %} · <a href="{{ step.primary_url }}">Original source</a>{% endif %}</p>
+            </details>
           </div>
           {% for connection in step.connections %}
           <details class="lineage-connection connection-{{ connection.status }}">
             <summary><span class="lineage-status">{{ connection.status | capitalize }}</span> This {{ connection.predicate | replace('attributes-to', 'attributes its reading to') | replace('reports-on', 'reports on') | replace('asks-about', 'asks about') | escape }}: {{ connection.objectTitle | escape }} <span class="lineage-open">· inspect</span></summary>
             <p>{{ connection.qualification | escape }}</p>
-            <p><a href="#{{ connection.object }}">Jump to the related account</a> · <a href="#relation-{{ connection.id }}">Read this connection and its evidence</a></p>
+            <p><a href="#{{ connection.object }}">Jump to the related account</a> · <a href="/map/knowledge-lineage/evidence/#relation-{{ connection.id }}">Read this connection and its evidence</a></p>
           </details>
           {% endfor %}
         </li>
@@ -61,44 +63,11 @@ layout: base.njk
     <p class="lineage-next">{% if trail.id == 'finding' %}<a href="#topic">Next trail: what happens after a reported discovery?</a>{% else %}<a href="#finding">Back to the claim: what changed after review?</a>{% endif %}</p>
   </section>
   {% endfor %}
-  <section class="lineage-bridge" aria-labelledby="bridge-title">
+  <details class="lineage-bridge"><summary>Why these threads sit together</summary><section aria-labelledby="bridge-title">
     <p class="kicker">Suggested connection · Inferred</p>
     <h2 id="bridge-title">The same question, in different settings</h2>
     <p>What does a source report, and what can we establish from it? Both trails make that distinction useful. This is a navigation suggestion by the pilot author, not evidence that either investigation influenced the other.</p>
     <p><a href="{{ lineage.candidates[0].evidence.url }}">The shared evidence principle</a></p>
-  </section>
-  <section id="connections" aria-labelledby="connections-title">
-    <h2 id="connections-title">Read the connections</h2>
-    <p>A plain text equivalent of the trails. Each relationship names its direction, basis and limit. “Reported” attributes an account; “checked” verifies a record link. Inferred leads stay separate. A disputed status is supported by the data rules, but no additional disputed connection is asserted here.</p>
-    {% for edge in lineage.edges %}{% if edge.id.startsWith('trail-') %}
-    <details class="lineage-evidence" id="relation-{{ edge.id }}" open>
-      <summary>{{ edge.subjectTitle | escape }} <span class="lineage-predicate">{{ edge.predicate | escape }}</span> {{ edge.objectTitle | escape }} <span class="lineage-status">{{ edge.status | capitalize }}</span></summary>
-      <p>{{ edge.qualification | escape }}</p>
-      <blockquote>{{ edge.evidence.passage | escape }}</blockquote>
-      <p><a href="{{ edge.evidence.url }}">Open the exact passage at the frozen revision</a>. Pilot inspected {{ edge.pilot_read_date }}. Asserted by {{ edge.asserted_by | escape }}.</p>
-    </details>
-    {% endif %}{% endfor %}
-  </section>
-  <section id="sample" aria-labelledby="sample-title">
-    <h2 id="sample-title">Explore the small claims sample</h2>
-    <p>{{ lineage.sampling.selected_claim_rows }} rows, chosen by position from {{ lineage.sampling.total_claim_rows }} current rows. The earlier review covered 83. The sample is a way to test traceability, not a measure of the wider research landscape.</p>
-    {% for claim in lineage.claims %}
-    <details class="lineage-evidence" id="{{ claim.id }}">
-      <summary>{{ claim.text | escape }}</summary>
-      <p><strong>Retained status:</strong> {{ claim.evidence_status | escape }}. Row {{ claim.id }}; position {{ claim.ordinal }}.</p>
-      <p><strong>Source pinpoint:</strong> {{ claim.source_pinpoint | escape }}. Quote/location key: {{ claim.quote_anchor | escape }}.</p>
-      <p><a href="{{ claim.evidence.url }}">Exact claim row</a>{% for source in claim.sources %} · <a href="{{ source.url }}">Source {{ source.id }}</a>{% endfor %}</p>
-      <p><strong>Primary passage access:</strong> {{ claim.primary_passage_access | escape }}.{% if claim.historical_review %} <a href="{{ claim.historical_review.url }}">Historical reviewer row</a>. Its verdict predates the corrected row.{% endif %}</p>
-      <p class="lineage-small">The pilot checked this link’s extraction. It did not independently confirm the underlying event or refetch the source.</p>
-    </details>
-    {% endfor %}
-  </section>
-  <section id="boundary" aria-labelledby="boundary-title">
-    <h2 id="boundary-title">A useful trail has an edge</h2>
-    <p>The external sample lists {{ lineage.sampling.external_panel_records }} URLs from existing source panels. Membership is not proof of a successful read. This pilot collects no new external pages and makes no claim to find the origin of AI security research.</p>
-    <details class="lineage-evidence"><summary>See the selected external records</summary><ul>{% for record in lineage.external %}<li><a href="{{ record.url }}">{{ record.url | escape }}</a> · <a href="{{ record.evidence.url }}">Panel entry</a><p>{{ record.access | escape }}</p></li>{% endfor %}</ul></details>
-    <p>The original full-text source pack is outside this repository. References to it are retained as unresolved, rather than turned into invented links. Source publication dates, read dates and the pilot’s inspection date are separate fields in the export.</p>
-    <p><a href="/map/knowledge-lineage/data.json">Download the versioned graph data</a> · <a href="/notes/knowledge-lineage/protocol/">Read the fixed protocol</a> · <a href="/notes/knowledge-lineage/README/">Pilot record and evaluation</a></p>
-    <p class="lineage-small">Prepared by OpenAI Codex from frozen Lighthouse records. New navigation and annotations are unreviewed working material. Existing publications retain their own review and correction histories.</p>
-  </section>
+  </section></details>
+  <p><a href="/map/knowledge-lineage/evidence/">Explore the evidence record</a> · <a href="/map/knowledge-lineage/">Back to the knowledge map</a></p>
 </article>
