@@ -1,0 +1,1154 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <title>PyPI downloads statistics and continuous integration - Packaging - Discussions on Python.org</title>
+    <meta name="description" content="For folks analyzing PyPI statistics in BigQuery – are there examples out there of people doing data analysis with the file_downloads “CI” field? Does anyone have tips on how best to frame the relevance of that field in d…">
+    <meta name="generator" content="Discourse 2026.11.0-latest - https://github.com/discourse/discourse version ccc76ed446c4ebb6ab6cb51fb16158041d142a54">
+<link rel="icon" type="image/png" href="https://us1.discourse-cdn.com/flex002/uploads/python1/optimized/1X/9997f0605d56c4bfecd63594f52f42cdafd6b06a_2_32x32.png">
+<link rel="apple-touch-icon" type="image/png" href="https://us1.discourse-cdn.com/flex002/uploads/python1/optimized/1X/4c06143de7870c35963b818b15b395092a434991_2_180x180.png">
+<meta name="theme-color" media="(prefers-color-scheme: light)" content="#fff">
+<meta name="theme-color" media="(prefers-color-scheme: dark)" content="#111111">
+
+<meta name="color-scheme" content="light dark">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, viewport-fit=cover">
+<link rel="canonical" href="https://discuss.python.org/t/pypi-downloads-statistics-and-continuous-integration/91810" />
+
+<meta name="discourse-track-view-session-id" content="Mqab43iijx9YfZ2Sj3l8YiQfCzeOvrYk">
+  <link rel="search" type="application/opensearchdescription+xml" href="https://discuss.python.org/opensearch.xml" title="Discussions on Python.org Search">
+
+    
+    <link href="https://sea2.discourse-cdn.com/flex002/stylesheets/color_definitions_light-default_-1_2_a9f4647eb39f087a4f72c31b9722d34e54fc7d67.css?__ws=discuss.python.org" media="(prefers-color-scheme: light)" rel="stylesheet" class="light-scheme"/><link href="https://sea2.discourse-cdn.com/flex002/stylesheets/color_definitions_dark_1_2_dde780e1db0645ce1630ef863e9ba6e09e4926e1.css?__ws=discuss.python.org" media="(prefers-color-scheme: dark)" rel="stylesheet" class="dark-scheme" data-scheme-id="1"/>
+
+<link href="https://sea2.discourse-cdn.com/flex002/stylesheets/common_d39c0513c74da3ce39d775c0f4b4636f720b900d.css?__ws=discuss.python.org" media="all" rel="stylesheet" data-target="common"  />
+
+
+
+  <link href="https://sea2.discourse-cdn.com/flex002/stylesheets/automation_d39c0513c74da3ce39d775c0f4b4636f720b900d.css?__ws=discuss.python.org" media="all" rel="stylesheet" data-target="automation"  />
+  <link href="https://sea2.discourse-cdn.com/flex002/stylesheets/checklist_d39c0513c74da3ce39d775c0f4b4636f720b900d.css?__ws=discuss.python.org" media="all" rel="stylesheet" data-target="checklist"  />
+  <link href="https://sea2.discourse-cdn.com/flex002/stylesheets/discourse-ai_d39c0513c74da3ce39d775c0f4b4636f720b900d.css?__ws=discuss.python.org" media="all" rel="stylesheet" data-target="discourse-ai"  />
+  <link href="https://sea2.discourse-cdn.com/flex002/stylesheets/discourse-chat-integration_d39c0513c74da3ce39d775c0f4b4636f720b900d.css?__ws=discuss.python.org" media="all" rel="stylesheet" data-target="discourse-chat-integration"  />
+  <link href="https://sea2.discourse-cdn.com/flex002/stylesheets/discourse-data-explorer_d39c0513c74da3ce39d775c0f4b4636f720b900d.css?__ws=discuss.python.org" media="all" rel="stylesheet" data-target="discourse-data-explorer"  />
+  <link href="https://sea2.discourse-cdn.com/flex002/stylesheets/discourse-details_d39c0513c74da3ce39d775c0f4b4636f720b900d.css?__ws=discuss.python.org" media="all" rel="stylesheet" data-target="discourse-details"  />
+  <link href="https://sea2.discourse-cdn.com/flex002/stylesheets/discourse-github_d39c0513c74da3ce39d775c0f4b4636f720b900d.css?__ws=discuss.python.org" media="all" rel="stylesheet" data-target="discourse-github"  />
+  <link href="https://sea2.discourse-cdn.com/flex002/stylesheets/discourse-lazy-videos_d39c0513c74da3ce39d775c0f4b4636f720b900d.css?__ws=discuss.python.org" media="all" rel="stylesheet" data-target="discourse-lazy-videos"  />
+  <link href="https://sea2.discourse-cdn.com/flex002/stylesheets/discourse-local-dates_d39c0513c74da3ce39d775c0f4b4636f720b900d.css?__ws=discuss.python.org" media="all" rel="stylesheet" data-target="discourse-local-dates"  />
+  <link href="https://sea2.discourse-cdn.com/flex002/stylesheets/discourse-math_d39c0513c74da3ce39d775c0f4b4636f720b900d.css?__ws=discuss.python.org" media="all" rel="stylesheet" data-target="discourse-math"  />
+  <link href="https://sea2.discourse-cdn.com/flex002/stylesheets/discourse-narrative-bot_d39c0513c74da3ce39d775c0f4b4636f720b900d.css?__ws=discuss.python.org" media="all" rel="stylesheet" data-target="discourse-narrative-bot"  />
+  <link href="https://sea2.discourse-cdn.com/flex002/stylesheets/discourse-policy_d39c0513c74da3ce39d775c0f4b4636f720b900d.css?__ws=discuss.python.org" media="all" rel="stylesheet" data-target="discourse-policy"  />
+  <link href="https://sea2.discourse-cdn.com/flex002/stylesheets/discourse-presence_d39c0513c74da3ce39d775c0f4b4636f720b900d.css?__ws=discuss.python.org" media="all" rel="stylesheet" data-target="discourse-presence"  />
+  <link href="https://sea2.discourse-cdn.com/flex002/stylesheets/discourse-reactions_d39c0513c74da3ce39d775c0f4b4636f720b900d.css?__ws=discuss.python.org" media="all" rel="stylesheet" data-target="discourse-reactions"  />
+  <link href="https://sea2.discourse-cdn.com/flex002/stylesheets/discourse-solved_d39c0513c74da3ce39d775c0f4b4636f720b900d.css?__ws=discuss.python.org" media="all" rel="stylesheet" data-target="discourse-solved"  />
+  <link href="https://sea2.discourse-cdn.com/flex002/stylesheets/discourse-templates_d39c0513c74da3ce39d775c0f4b4636f720b900d.css?__ws=discuss.python.org" media="all" rel="stylesheet" data-target="discourse-templates"  />
+  <link href="https://sea2.discourse-cdn.com/flex002/stylesheets/discourse-topic-voting_d39c0513c74da3ce39d775c0f4b4636f720b900d.css?__ws=discuss.python.org" media="all" rel="stylesheet" data-target="discourse-topic-voting"  />
+  <link href="https://sea2.discourse-cdn.com/flex002/stylesheets/discourse-user-notes_d39c0513c74da3ce39d775c0f4b4636f720b900d.css?__ws=discuss.python.org" media="all" rel="stylesheet" data-target="discourse-user-notes"  />
+  <link href="https://sea2.discourse-cdn.com/flex002/stylesheets/footnote_d39c0513c74da3ce39d775c0f4b4636f720b900d.css?__ws=discuss.python.org" media="all" rel="stylesheet" data-target="footnote"  />
+  <link href="https://sea2.discourse-cdn.com/flex002/stylesheets/hosted-site_d39c0513c74da3ce39d775c0f4b4636f720b900d.css?__ws=discuss.python.org" media="all" rel="stylesheet" data-target="hosted-site"  />
+  <link href="https://sea2.discourse-cdn.com/flex002/stylesheets/poll_d39c0513c74da3ce39d775c0f4b4636f720b900d.css?__ws=discuss.python.org" media="all" rel="stylesheet" data-target="poll"  />
+  <link href="https://sea2.discourse-cdn.com/flex002/stylesheets/spoiler-alert_d39c0513c74da3ce39d775c0f4b4636f720b900d.css?__ws=discuss.python.org" media="all" rel="stylesheet" data-target="spoiler-alert"  />
+  <link href="https://sea2.discourse-cdn.com/flex002/stylesheets/discourse-ai_mobile_d39c0513c74da3ce39d775c0f4b4636f720b900d.css?__ws=discuss.python.org" media="(width < 40rem)" rel="stylesheet" data-target="discourse-ai_mobile"  />
+  <link href="https://sea2.discourse-cdn.com/flex002/stylesheets/discourse-reactions_mobile_d39c0513c74da3ce39d775c0f4b4636f720b900d.css?__ws=discuss.python.org" media="(width < 40rem)" rel="stylesheet" data-target="discourse-reactions_mobile"  />
+  <link href="https://sea2.discourse-cdn.com/flex002/stylesheets/discourse-ai_desktop_d39c0513c74da3ce39d775c0f4b4636f720b900d.css?__ws=discuss.python.org" media="(width >= 40rem)" rel="stylesheet" data-target="discourse-ai_desktop"  />
+  <link href="https://sea2.discourse-cdn.com/flex002/stylesheets/discourse-reactions_desktop_d39c0513c74da3ce39d775c0f4b4636f720b900d.css?__ws=discuss.python.org" media="(width >= 40rem)" rel="stylesheet" data-target="discourse-reactions_desktop"  />
+  <link href="https://sea2.discourse-cdn.com/flex002/stylesheets/poll_desktop_d39c0513c74da3ce39d775c0f4b4636f720b900d.css?__ws=discuss.python.org" media="(width >= 40rem)" rel="stylesheet" data-target="poll_desktop"  />
+
+  <link href="https://sea2.discourse-cdn.com/flex002/stylesheets/common_theme_4_4dd4d92fc5042873339167d5401a49647e98fdb5.css?__ws=discuss.python.org" media="all" rel="stylesheet" data-target="common_theme" data-theme-id="4" data-theme-name="unformatted code detector"/>
+<link href="https://sea2.discourse-cdn.com/flex002/stylesheets/common_theme_2_a7e99fd98416304634d32e68a8775269cee17972.css?__ws=discuss.python.org" media="all" rel="stylesheet" data-target="common_theme" data-theme-id="2" data-theme-name="light"/>
+  
+  
+
+
+
+    
+    
+        <link rel="alternate nofollow" type="application/rss+xml" title="RSS feed of &#39;PyPI downloads statistics and continuous integration&#39;" href="https://discuss.python.org/t/pypi-downloads-statistics-and-continuous-integration/91810.rss" />
+    <meta property="og:site_name" content="Discussions on Python.org" />
+<meta property="og:type" content="website" />
+<meta name="twitter:card" content="summary" />
+<meta name="twitter:image" content="https://us1.discourse-cdn.com/flex002/uploads/python1/original/3X/2/4/2471f90590474d10a7612db6f9f386e9a2d08c6d.png" />
+<meta property="og:image" content="https://us1.discourse-cdn.com/flex002/uploads/python1/original/3X/2/4/2471f90590474d10a7612db6f9f386e9a2d08c6d.png" />
+<meta property="og:image:width" content="600" />
+<meta property="og:image:height" content="371" />
+<meta property="og:image:type" content="image/png" />
+<meta property="og:url" content="https://discuss.python.org/t/pypi-downloads-statistics-and-continuous-integration/91810" />
+<meta name="twitter:url" content="https://discuss.python.org/t/pypi-downloads-statistics-and-continuous-integration/91810" />
+<meta property="og:title" content="PyPI downloads statistics and continuous integration" />
+<meta name="twitter:title" content="PyPI downloads statistics and continuous integration" />
+<meta property="og:description" content="For folks analyzing PyPI statistics in BigQuery – are there examples out there of people doing data analysis with the file_downloads “CI” field? Does anyone have tips on how best to frame the relevance of that field in data analysis?  Context I regularly look at package downloads in PyPI thanks to this dataset, and equally regularly get asked how much of the downloads statistics come from “real users” vs. automation (Continuous Integration (CI) systems and similar). The expectation is that any a..." />
+<meta name="twitter:description" content="For folks analyzing PyPI statistics in BigQuery – are there examples out there of people doing data analysis with the file_downloads “CI” field? Does anyone have tips on how best to frame the relevance of that field in data analysis?  Context I regularly look at package downloads in PyPI thanks to this dataset, and equally regularly get asked how much of the downloads statistics come from “real users” vs. automation (Continuous Integration (CI) systems and similar). The expectation is that any a..." />
+<meta property="og:article:section" content="Packaging" />
+<meta property="og:article:section:color" content="ED207B" />
+<meta name="twitter:label1" value="Reading time" />
+<meta name="twitter:data1" value="6 mins 🕑" />
+<meta name="twitter:label2" value="Likes" />
+<meta name="twitter:data2" value="40 ❤" />
+<meta property="article:published_time" content="2025-05-13T09:21:20+00:00" />
+<meta property="og:ignore_canonical" content="true" />
+
+
+    <link rel="alternate" type="text/markdown" href="https://discuss.python.org/t/pypi-downloads-statistics-and-continuous-integration/91810.md">
+    
+
+  </head>
+  <body class="crawler ">
+    
+    <header>
+  <a href="/">Discussions on Python.org</a>
+</header>
+
+    <div id="main-outlet" class="wrap" role="main">
+        <div id="topic-title">
+    <h1>
+      <a href="/t/pypi-downloads-statistics-and-continuous-integration/91810">PyPI downloads statistics and continuous integration</a>
+    </h1>
+
+      <div class="topic-category" itemscope itemtype="http://schema.org/BreadcrumbList">
+          <span itemprop="itemListElement" itemscope itemtype="http://schema.org/ListItem">
+            <a href="/c/packaging/14" class="badge-wrapper bullet" itemprop="item">
+              <span class='badge-category-bg' style='background-color: #ED207B'></span>
+              <span class='badge-category clear-badge'>
+                <span class='category-name' itemprop='name'>Packaging</span>
+              </span>
+            </a>
+            <meta itemprop="position" content="1" />
+          </span>
+        <span itemprop="itemListElement" itemscope itemtype="http://schema.org/ListItem">
+          <meta itemprop="name" content="PyPI downloads statistics and continuous integration" />
+          <link itemprop="item" href="https://discuss.python.org/t/pypi-downloads-statistics-and-continuous-integration/91810" />
+          <meta itemprop="position" content="2" />
+        </span>
+      </div>
+
+  </div>
+
+  
+
+    <div itemscope="itemscope" itemtype="http://schema.org/DiscussionForumPosting">
+      <meta itemprop='headline' content='PyPI downloads statistics and continuous integration'>
+      <link itemprop='url' href='https://discuss.python.org/t/pypi-downloads-statistics-and-continuous-integration/91810'>
+      <meta itemprop='datePublished' content='2025-05-13T09:21:20Z'>
+      <meta itemprop='keywords' content=''>
+          <meta itemprop='articleSection' content='Packaging'>
+        <div itemprop='publisher' itemscope itemtype="http://schema.org/Organization">
+          <meta itemprop='name' content='Python Software Foundation'>
+            <div itemprop='logo' itemscope itemtype="http://schema.org/ImageObject">
+              <meta itemprop='url' content='https://us1.discourse-cdn.com/flex002/uploads/python1/original/1X/c7591c98caf3b31d4d9c6f322f41ed9d80a50800.png'>
+            </div>
+        </div>
+
+      
+
+
+
+          <div id='post_1'  class='topic-body crawler-post'>
+            <div class='crawler-post-meta'>
+              <span class="creator" itemprop="author" itemscope="itemscope" itemtype="http://schema.org/Person">
+                <a rel='nofollow' href='https://discuss.python.org/u/thibaudcolas'><span itemprop="name">thibaudcolas</span></a>
+                  <meta itemprop='url' content='https://discuss.python.org/u/thibaudcolas'>
+                (Thibaud Colas)
+              </span>
+
+                <link itemprop="mainEntityOfPage" href="https://discuss.python.org/t/pypi-downloads-statistics-and-continuous-integration/91810">
+
+                <link itemprop="image" href="https://us1.discourse-cdn.com/flex002/uploads/python1/original/3X/2/4/2471f90590474d10a7612db6f9f386e9a2d08c6d.png">
+
+              <span class="crawler-post-infos">
+                  <time  datetime='2025-05-13T09:21:20Z' class='post-time'>
+                    May 13, 2025,  9:21am
+                  </time>
+                  <meta itemprop='dateModified' content='2025-05-13T09:50:54Z'>
+              <span itemprop="position">1</span>
+              </span>
+            </div>
+            <div class='post' itemprop="text">
+              <p>For folks analyzing <a href="https://packaging.python.org/en/latest/guides/analyzing-pypi-package-downloads/" rel="noopener nofollow ugc">PyPI statistics in BigQuery</a> – are there examples out there of people doing data analysis with the <code>file_downloads</code> “CI” field? Does anyone have tips on how best to frame the relevance of that field in data analysis?</p>
+<h2><a name="p-247741-context-1" class="anchor" href="#p-247741-context-1" aria-label="Heading link"></a>Context</h2>
+<p>I regularly look at package downloads in PyPI thanks to this dataset, and equally regularly get asked how much of the downloads statistics come from “real users” vs. automation (Continuous Integration (CI) systems and similar). The expectation is that any attempt at inferring usage trends from downloads is probably better if more directly connected to ““manual”” downloads. Rather than estimating prevalence of automation in the Python world. The <code>file_downloads.details.ci</code> field seems spot on  <img src="https://emoji.discourse-cdn.com/apple/person_tipping_hand.png?v=15" title=":person_tipping_hand:" class="emoji" alt=":person_tipping_hand:" loading="lazy" width="20" height="20">. But I’ve never seen anyone relying on it in their data analysis.</p>
+<h2><a name="p-247741-what-i-know-so-far-2" class="anchor" href="#p-247741-what-i-know-so-far-2" aria-label="Heading link"></a>What I know so far</h2>
+<p>Doesn’t feel fair to ask for help without sharing where I’m at, so here goes. This last came up when I blogged about <a href="https://wagtail.org/blog/uv-overtakes-poetry/" rel="noopener nofollow ugc">how uv is getting traction in the Wagtail world</a>. Turns out, of all installers trackable in PyPI stats, only <code>pip</code> and <code>uv</code> seem to add <code>ci</code> metadata in their user agent at all. So this premise of “how much traction uv is getting” is an interesting opportunity to dig deeper.</p>
+<p>And now that I’ve done the querying, it seems the pattern is pretty different between them two. With the caveat I don’t know much about how either implement downloads or local caching, uv has higher downloads in “CI” than “not”, while pip is the opposite:</p>
+<p><div class="lightbox-wrapper"><a class="lightbox" href="https://us1.discourse-cdn.com/flex002/uploads/python1/original/3X/2/4/2471f90590474d10a7612db6f9f386e9a2d08c6d.png" data-download-href="/uploads/short-url/5cpnddSQYvMym8MymyYNsSoyiwR.png?dl=1" title="Downloads of Wagtail with pip and uv, likely CI and not likely CI, line chart from Jan 2024 to April 2025" rel="noopener nofollow ugc"><img src="https://us1.discourse-cdn.com/flex002/uploads/python1/original/3X/2/4/2471f90590474d10a7612db6f9f386e9a2d08c6d.png" alt="Downloads of Wagtail with pip and uv, likely CI and not likely CI, line chart from Jan 2024 to April 2025" data-base62-sha1="5cpnddSQYvMym8MymyYNsSoyiwR" width="600" height="371"><div class="meta"><svg class="fa d-icon d-icon-far-image svg-icon" aria-hidden="true"><use href="#far-image"></use></svg><span class="filename">Downloads of Wagtail with pip and uv, likely CI and not likely CI, line chart from Jan 2024 to April 2025</span><span class="informations">600×371 12.4 KB</span><svg class="fa d-icon d-icon-discourse-expand svg-icon" aria-hidden="true"><use href="#discourse-expand"></use></svg></div></a></div></p>
+<p>I’ve never seen anyone using this <code>ci</code> field so not sure with what caveats to share that kind of analysis. Things like:</p>
+<ul>
+<li>Caching: Perhaps <code>uv</code> caches much better locally, so wouldn’t count as many local installs</li>
+<li>New release adoption: uv I believe has had this <code>ci</code> metadata reporting since inception, perhaps lots of pip-driven downloads are on older versions without.</li>
+<li>Different use cases: perhaps folks reach to <code>uv</code> to speed up their CI, while retaining pip for local dev.</li>
+</ul>
+<p>Keen to hear what others think!</p>
+<h2><a name="p-247741-references-3" class="anchor" href="#p-247741-references-3" aria-label="Heading link"></a>References</h2>
+<p>If anyone wants to dig deeper on this field, relevant details:</p>
+<ul>
+<li>It’s based on detect the following environment variables: <code>BUILD_BUILDID, BUILD_ID, CI, PIP_IS_CI</code></li>
+<li>Implementation in uv: <a href="https://github.com/astral-sh/uv/blob/0.7.3/crates/uv-client/src/linehaul.rs#L66-L69" rel="noopener nofollow ugc">looks_like_ci in linehaul.rs</a></li>
+<li>Implementation in pip: <a href="https://github.com/pypa/pip/blob/25.1.1/src/pip/_internal/network/session.py#L81-L107" rel="noopener nofollow ugc">looks_like_ci in session.py</a></li>
+<li>Early discussion about the need for this in pip / PyPI: <a href="https://github.com/pypa/pip/issues/5499" rel="noopener nofollow ugc">Differentiating organic vs automated installations pypa/pip#5499</a></li>
+</ul>
+            </div>
+
+              <div itemprop="interactionStatistic" itemscope="itemscope" itemtype="http://schema.org/InteractionCounter">
+                  <meta itemprop="interactionType" content="http://schema.org/LikeAction"/>
+                  <meta itemprop="userInteractionCount" content="4" />
+                <span class='post-likes'>4 Likes</span>
+              </div>
+
+
+            
+
+
+          </div>
+          <div id='post_2' itemprop="comment" itemscope="itemscope" itemtype="http://schema.org/Comment" class='topic-body crawler-post'>
+            <div class='crawler-post-meta'>
+              <span class="creator" itemprop="author" itemscope="itemscope" itemtype="http://schema.org/Person">
+                <a rel='nofollow' href='https://discuss.python.org/u/kpfleming'><span itemprop="name">kpfleming</span></a>
+                  <meta itemprop='url' content='https://discuss.python.org/u/kpfleming'>
+                (Kevin P. Fleming)
+              </span>
+
+
+
+              <span class="crawler-post-infos">
+                  <time itemprop="datePublished" datetime='2025-05-13T10:11:31Z' class='post-time'>
+                    May 13, 2025, 10:11am
+                  </time>
+                  <meta itemprop='dateModified' content='2025-05-13T10:11:31Z'>
+              <span itemprop="position">2</span>
+              </span>
+            </div>
+            <div class='post' itemprop="text">
+              <p>Charlie Marsh and I did a sponsor-track talk at PyCon US 2024 which involved measuring the ‘footprint’ of your development processes, and as part of that I did a quick analysis of CI vs. non-CI downloads from <a href="http://pypi.org" rel="noopener nofollow ugc">pypi.org</a> over a short period of time (one week, I believe). The numbers were shocking, the CI downloads represented more than 80% of the traffic.</p>
+            </div>
+
+              <div itemprop="interactionStatistic" itemscope="itemscope" itemtype="http://schema.org/InteractionCounter">
+                  <meta itemprop="interactionType" content="http://schema.org/LikeAction"/>
+                  <meta itemprop="userInteractionCount" content="3" />
+                <span class='post-likes'>3 Likes</span>
+              </div>
+
+
+            
+
+
+          </div>
+          <div id='post_3' itemprop="comment" itemscope="itemscope" itemtype="http://schema.org/Comment" class='topic-body crawler-post'>
+            <div class='crawler-post-meta'>
+              <span class="creator" itemprop="author" itemscope="itemscope" itemtype="http://schema.org/Person">
+                <a rel='nofollow' href='https://discuss.python.org/u/hugovk'><span itemprop="name">hugovk</span></a>
+                  <meta itemprop='url' content='https://discuss.python.org/u/hugovk'>
+                (Hugo van Kemenade)
+              </span>
+
+
+
+              <span class="crawler-post-infos">
+                  <time itemprop="datePublished" datetime='2025-05-13T10:54:00Z' class='post-time'>
+                    May 13, 2025, 10:54am
+                  </time>
+                  <meta itemprop='dateModified' content='2025-05-13T10:54:00Z'>
+              <span itemprop="position">3</span>
+              </span>
+            </div>
+            <div class='post' itemprop="text">
+              <aside class="quote no-group" data-username="thibaudcolas" data-post="1" data-topic="91810">
+<div class="title">
+<div class="quote-controls"></div>
+<img alt="" width="24" height="24" src="https://sea2.discourse-cdn.com/flex002/user_avatar/discuss.python.org/thibaudcolas/48/18263_2.png" class="avatar"> Thibaud Colas:</div>
+<blockquote>
+<p>For folks analyzing <a href="https://packaging.python.org/en/latest/guides/analyzing-pypi-package-downloads/">PyPI statistics in BigQuery</a> – are there examples out there of people doing data analysis with the <code>file_downloads</code> “CI” field?</p>
+</blockquote>
+</aside>
+<p>The only one I can think of is <a href="https://pepy.tech/">pepy.tech</a> which has a toggle to filter out CI downloads, but only it’s for pro accounts and I’ve not tried it.</p>
+<aside class="quote no-group" data-username="thibaudcolas" data-post="1" data-topic="91810">
+<div class="title">
+<div class="quote-controls"></div>
+<img alt="" width="24" height="24" src="https://sea2.discourse-cdn.com/flex002/user_avatar/discuss.python.org/thibaudcolas/48/18263_2.png" class="avatar"> Thibaud Colas:</div>
+<blockquote>
+<ul>
+<li>New release adoption: uv I believe has had this <code>ci</code> metadata reporting since inception, perhaps lots of pip-driven downloads are on older versions without.</li>
+</ul>
+</blockquote>
+</aside>
+<p>Yep, uv since version 0.1.22 from March 2024, just a month after its initial release, so pretty much since inception (<a href="https://github.com/astral-sh/uv/pull/2493">astral-sh/uv#2493</a>).</p>
+<p>pip has had it since version 19.1 – pip uses <a href="https://calver.org/users.html#utilities">CalVer</a> so that’s six years (<a href="https://github.com/pypa/pip/pull/6273">pypa/pip#6273</a>).</p>
+<p>Looking at the top 20 installers yesterday (via <code>pypinfo --limit 20 --percent --days 1 --all "" installer installer-version</code>):</p>
+<div class="md-table">
+<table>
+<thead>
+<tr>
+<th>installer_name</th>
+<th>installer_version</th>
+<th style="text-align:right">percent</th>
+<th style="text-align:right">download_count</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>pip</td>
+<td>25.1.1</td>
+<td style="text-align:right">23.94%</td>
+<td style="text-align:right">367,178,199</td>
+</tr>
+<tr>
+<td>pip</td>
+<td>24.0</td>
+<td style="text-align:right">11.48%</td>
+<td style="text-align:right">176,058,144</td>
+</tr>
+<tr>
+<td>uv</td>
+<td>0.7.2</td>
+<td style="text-align:right">10.10%</td>
+<td style="text-align:right">154,959,976</td>
+</tr>
+<tr>
+<td>pip</td>
+<td>25.0.1</td>
+<td style="text-align:right">9.95%</td>
+<td style="text-align:right">152,533,158</td>
+</tr>
+<tr>
+<td>pip</td>
+<td>23.0.1</td>
+<td style="text-align:right">8.83%</td>
+<td style="text-align:right">135,473,693</td>
+</tr>
+<tr>
+<td>uv</td>
+<td>0.7.3</td>
+<td style="text-align:right">4.21%</td>
+<td style="text-align:right">64,577,578</td>
+</tr>
+<tr>
+<td>pip</td>
+<td>23.2.1</td>
+<td style="text-align:right">4.21%</td>
+<td style="text-align:right">64,576,636</td>
+</tr>
+<tr>
+<td>pip</td>
+<td>22.3.1</td>
+<td style="text-align:right">3.15%</td>
+<td style="text-align:right">48,284,870</td>
+</tr>
+<tr>
+<td>pip</td>
+<td>21.3.1</td>
+<td style="text-align:right">3.06%</td>
+<td style="text-align:right">46,914,226</td>
+</tr>
+<tr>
+<td>pip</td>
+<td>24.3.1</td>
+<td style="text-align:right">2.87%</td>
+<td style="text-align:right">44,042,212</td>
+</tr>
+<tr>
+<td>uv</td>
+<td>0.6.13</td>
+<td style="text-align:right">2.43%</td>
+<td style="text-align:right">37,291,945</td>
+</tr>
+<tr>
+<td>pip</td>
+<td>22.2.2</td>
+<td style="text-align:right">2.37%</td>
+<td style="text-align:right">36,340,879</td>
+</tr>
+<tr>
+<td>uv</td>
+<td>0.6.17</td>
+<td style="text-align:right">2.18%</td>
+<td style="text-align:right">33,449,781</td>
+</tr>
+<tr>
+<td>pip</td>
+<td>24.2</td>
+<td style="text-align:right">2.05%</td>
+<td style="text-align:right">31,454,008</td>
+</tr>
+<tr>
+<td>pip</td>
+<td>21.0.1</td>
+<td style="text-align:right">1.66%</td>
+<td style="text-align:right">25,468,400</td>
+</tr>
+<tr>
+<td>uv</td>
+<td>0.6.10</td>
+<td style="text-align:right">1.61%</td>
+<td style="text-align:right">24,685,021</td>
+</tr>
+<tr>
+<td>pip</td>
+<td>20.2.2</td>
+<td style="text-align:right">1.60%</td>
+<td style="text-align:right">24,539,568</td>
+</tr>
+<tr>
+<td>pip</td>
+<td>22.1.2</td>
+<td style="text-align:right">1.55%</td>
+<td style="text-align:right">23,696,599</td>
+</tr>
+<tr>
+<td>poetry</td>
+<td>2.1.3</td>
+<td style="text-align:right">1.46%</td>
+<td style="text-align:right">22,402,809</td>
+</tr>
+<tr>
+<td>uv</td>
+<td>0.6.9</td>
+<td style="text-align:right">1.29%</td>
+<td style="text-align:right">19,768,787</td>
+</tr>
+<tr>
+<td>Total</td>
+<td></td>
+<td style="text-align:right"></td>
+<td style="text-align:right">1,533,696,489</td>
+</tr>
+</tbody>
+</table>
+</div><p>All of these versions are with CI detection, so the vast majority of PyPI downloads include it.</p>
+<p>Whilst we’re at it, here’s the top installers yesterday (<code>pypinfo --test --limit 20 --percent --days 1 --all "" installer</code>):</p>
+<div class="md-table">
+<table>
+<thead>
+<tr>
+<th>installer_name</th>
+<th style="text-align:right">percent</th>
+<th style="text-align:right">download_count</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>pip</td>
+<td style="text-align:right">72.76%</td>
+<td style="text-align:right">1,349,210,055</td>
+</tr>
+<tr>
+<td>uv</td>
+<td style="text-align:right">23.18%</td>
+<td style="text-align:right">429,835,352</td>
+</tr>
+<tr>
+<td>poetry</td>
+<td style="text-align:right">2.75%</td>
+<td style="text-align:right">51,047,940</td>
+</tr>
+<tr>
+<td>requests</td>
+<td style="text-align:right">0.46%</td>
+<td style="text-align:right">8,492,492</td>
+</tr>
+<tr>
+<td>None</td>
+<td style="text-align:right">0.26%</td>
+<td style="text-align:right">4,788,213</td>
+</tr>
+<tr>
+<td>bandersnatch</td>
+<td style="text-align:right">0.23%</td>
+<td style="text-align:right">4,316,255</td>
+</tr>
+<tr>
+<td>Bazel</td>
+<td style="text-align:right">0.12%</td>
+<td style="text-align:right">2,136,498</td>
+</tr>
+<tr>
+<td>Browser</td>
+<td style="text-align:right">0.09%</td>
+<td style="text-align:right">1,702,997</td>
+</tr>
+<tr>
+<td>setuptools</td>
+<td style="text-align:right">0.08%</td>
+<td style="text-align:right">1,421,528</td>
+</tr>
+<tr>
+<td>Nexus</td>
+<td style="text-align:right">0.06%</td>
+<td style="text-align:right">1,138,682</td>
+</tr>
+<tr>
+<td>pdm</td>
+<td style="text-align:right">0.01%</td>
+<td style="text-align:right">145,438</td>
+</tr>
+<tr>
+<td>Homebrew</td>
+<td style="text-align:right">0.01%</td>
+<td style="text-align:right">110,665</td>
+</tr>
+<tr>
+<td>devpi</td>
+<td style="text-align:right">0.00%</td>
+<td style="text-align:right">54,966</td>
+</tr>
+<tr>
+<td>Artifactory</td>
+<td style="text-align:right">0.00%</td>
+<td style="text-align:right">38,664</td>
+</tr>
+<tr>
+<td>OS</td>
+<td style="text-align:right">0.00%</td>
+<td style="text-align:right">8,784</td>
+</tr>
+<tr>
+<td>conda</td>
+<td style="text-align:right">0.00%</td>
+<td style="text-align:right">3,106</td>
+</tr>
+<tr>
+<td>pex</td>
+<td style="text-align:right">0.00%</td>
+<td style="text-align:right">1,035</td>
+</tr>
+<tr>
+<td>Total</td>
+<td style="text-align:right"></td>
+<td style="text-align:right">1,854,452,670</td>
+</tr>
+</tbody>
+</table>
+</div><p>These numbers are from querying BigQuery using the <a href="https://github.com/ofek/pypinfo">pypinfo</a> CLI – we should expose the <code>ci</code> field there too.</p>
+            </div>
+
+              <div itemprop="interactionStatistic" itemscope="itemscope" itemtype="http://schema.org/InteractionCounter">
+                  <meta itemprop="interactionType" content="http://schema.org/LikeAction"/>
+                  <meta itemprop="userInteractionCount" content="3" />
+                <span class='post-likes'>3 Likes</span>
+              </div>
+
+
+            
+
+
+          </div>
+          <div id='post_4' itemprop="comment" itemscope="itemscope" itemtype="http://schema.org/Comment" class='topic-body crawler-post'>
+            <div class='crawler-post-meta'>
+              <span class="creator" itemprop="author" itemscope="itemscope" itemtype="http://schema.org/Person">
+                <a rel='nofollow' href='https://discuss.python.org/u/notatallshaw'><span itemprop="name">notatallshaw</span></a>
+                  <meta itemprop='url' content='https://discuss.python.org/u/notatallshaw'>
+                (Damian Shaw)
+              </span>
+
+
+
+              <span class="crawler-post-infos">
+                  <time itemprop="datePublished" datetime='2025-05-13T13:13:31Z' class='post-time'>
+                    May 13, 2025,  1:13pm
+                  </time>
+                  <meta itemprop='dateModified' content='2025-05-13T13:13:31Z'>
+              <span itemprop="position">4</span>
+              </span>
+            </div>
+            <div class='post' itemprop="text">
+              <p>It’s worth noting that comparing HTTP calls for pip vs uv is not a linear mapping to traction.</p>
+<p>For example uv eagerly prefetches metadata, so uv might do a dozen metadata HTTP requests where pip might have done one. And there are plenty of other scenarios where they behave very differently, not least because uv supports a lot more use cases (projects, tools, scripts, etc.)</p>
+            </div>
+
+              <div itemprop="interactionStatistic" itemscope="itemscope" itemtype="http://schema.org/InteractionCounter">
+                  <meta itemprop="interactionType" content="http://schema.org/LikeAction"/>
+                  <meta itemprop="userInteractionCount" content="6" />
+                <span class='post-likes'>6 Likes</span>
+              </div>
+
+
+            
+
+
+          </div>
+          <div id='post_5' itemprop="comment" itemscope="itemscope" itemtype="http://schema.org/Comment" class='topic-body crawler-post'>
+            <div class='crawler-post-meta'>
+              <span class="creator" itemprop="author" itemscope="itemscope" itemtype="http://schema.org/Person">
+                <a rel='nofollow' href='https://discuss.python.org/u/mwichmann'><span itemprop="name">mwichmann</span></a>
+                  <meta itemprop='url' content='https://discuss.python.org/u/mwichmann'>
+                (Mats Wichmann)
+              </span>
+
+
+
+              <span class="crawler-post-infos">
+                  <time itemprop="datePublished" datetime='2025-05-13T22:45:33Z' class='post-time'>
+                    May 13, 2025, 10:45pm
+                  </time>
+                  <meta itemprop='dateModified' content='2025-05-13T22:45:33Z'>
+              <span itemprop="position">5</span>
+              </span>
+            </div>
+            <div class='post' itemprop="text">
+              <p>Interesting.  I’ve been asked questions like this too (basically “what does it mean”), as I’m sure a ton of people have. Is there <em>anything</em> useful that can be gleaned from download numbers, and if so, what?  Say I’ve got a small project that other perhaps “volatile” projects depend on. They haven’t got any caching set up on their CI, so every PR and update thereto triggers a “download”, maybe hundreds a day each. Raw download numbers make the impact of the project potentially look bigger than it is? Or do they?</p>
+            </div>
+
+              <div itemprop="interactionStatistic" itemscope="itemscope" itemtype="http://schema.org/InteractionCounter">
+                  <meta itemprop="interactionType" content="http://schema.org/LikeAction"/>
+                  <meta itemprop="userInteractionCount" content="2" />
+                <span class='post-likes'>2 Likes</span>
+              </div>
+
+
+            
+
+
+          </div>
+          <div id='post_6' itemprop="comment" itemscope="itemscope" itemtype="http://schema.org/Comment" class='topic-body crawler-post'>
+            <div class='crawler-post-meta'>
+              <span class="creator" itemprop="author" itemscope="itemscope" itemtype="http://schema.org/Person">
+                <a rel='nofollow' href='https://discuss.python.org/u/bwoodsend'><span itemprop="name">bwoodsend</span></a>
+                  <meta itemprop='url' content='https://discuss.python.org/u/bwoodsend'>
+                (Brénainn Woodsend)
+              </span>
+
+
+
+              <span class="crawler-post-infos">
+                  <time itemprop="datePublished" datetime='2025-05-13T23:10:39Z' class='post-time'>
+                    May 13, 2025, 11:10pm
+                  </time>
+                  <meta itemprop='dateModified' content='2025-05-13T23:10:39Z'>
+              <span itemprop="position">6</span>
+              </span>
+            </div>
+            <div class='post' itemprop="text">
+              <p>All these workflow/environment managers we have these days that feature bumping every package version to the latest at every opportunity make even the non CI downloads less representative of usage. Ruff for example is going to get a disproportionately large number of downloads versus flake8 just because it does a new release every 10 seconds. Slower updating/stable package will most commonly be installed from cache without incrementing any download counts.</p>
+            </div>
+
+              <div itemprop="interactionStatistic" itemscope="itemscope" itemtype="http://schema.org/InteractionCounter">
+                  <meta itemprop="interactionType" content="http://schema.org/LikeAction"/>
+                  <meta itemprop="userInteractionCount" content="3" />
+                <span class='post-likes'>3 Likes</span>
+              </div>
+
+
+            
+
+
+          </div>
+          <div id='post_7' itemprop="comment" itemscope="itemscope" itemtype="http://schema.org/Comment" class='topic-body crawler-post'>
+            <div class='crawler-post-meta'>
+              <span class="creator" itemprop="author" itemscope="itemscope" itemtype="http://schema.org/Person">
+                <a rel='nofollow' href='https://discuss.python.org/u/oscarbenjamin'><span itemprop="name">oscarbenjamin</span></a>
+                  <meta itemprop='url' content='https://discuss.python.org/u/oscarbenjamin'>
+                (Oscar Benjamin)
+              </span>
+
+
+
+              <span class="crawler-post-infos">
+                  <time itemprop="datePublished" datetime='2025-05-13T23:15:56Z' class='post-time'>
+                    May 13, 2025, 11:15pm
+                  </time>
+                  <meta itemprop='dateModified' content='2025-05-13T23:15:56Z'>
+              <span itemprop="position">7</span>
+              </span>
+            </div>
+            <div class='post' itemprop="text">
+              <p>Separately from the question of statistics it seems inefficient that PyPI is attacked by CI systems in this way.</p>
+<p>Can the CI systems not proxy/cache PyPI and keep the traffic mostly internal?</p>
+            </div>
+
+              <div itemprop="interactionStatistic" itemscope="itemscope" itemtype="http://schema.org/InteractionCounter">
+                  <meta itemprop="interactionType" content="http://schema.org/LikeAction"/>
+                  <meta itemprop="userInteractionCount" content="3" />
+                <span class='post-likes'>3 Likes</span>
+              </div>
+
+
+            
+
+
+          </div>
+          <div id='post_8' itemprop="comment" itemscope="itemscope" itemtype="http://schema.org/Comment" class='topic-body crawler-post'>
+            <div class='crawler-post-meta'>
+              <span class="creator" itemprop="author" itemscope="itemscope" itemtype="http://schema.org/Person">
+                <a rel='nofollow' href='https://discuss.python.org/u/groodt'><span itemprop="name">groodt</span></a>
+                  <meta itemprop='url' content='https://discuss.python.org/u/groodt'>
+                (Greg Roodt)
+              </span>
+
+
+
+              <span class="crawler-post-infos">
+                  <time itemprop="datePublished" datetime='2025-05-14T08:49:23Z' class='post-time'>
+                    May 14, 2025,  8:49am
+                  </time>
+                  <meta itemprop='dateModified' content='2025-05-14T08:49:23Z'>
+              <span itemprop="position">8</span>
+              </span>
+            </div>
+            <div class='post' itemprop="text">
+              <aside class="quote no-group" data-username="oscarbenjamin" data-post="7" data-topic="91810">
+<div class="title">
+<div class="quote-controls"></div>
+<img alt="" width="24" height="24" src="https://sea2.discourse-cdn.com/flex002/user_avatar/discuss.python.org/oscarbenjamin/48/1209_2.png" class="avatar"> Oscar Benjamin:</div>
+<blockquote>
+<p>Can the CI systems not proxy/cache PyPI and keep the traffic mostly internal?</p>
+</blockquote>
+</aside>
+<p>They could and they should. But they don’t.</p>
+<p>It’s the Tragedy of the Commons.</p>
+<p>The way to do it is to aggressively rate-limit and require authentication. But it’s very difficult and disruptive to change this entrenched behaviour unfortunately. It’s very similar to the DockerHub change (from unauthenticated pulls to authenticated), but likely more disruptive.</p>
+<p>On the installer/resolver spectrum, we can (mostly already do) cache downloads. But many CI instances are ephemeral and don’t have a persistent or shared cache across agents.</p>
+            </div>
+
+              <div itemprop="interactionStatistic" itemscope="itemscope" itemtype="http://schema.org/InteractionCounter">
+                  <meta itemprop="interactionType" content="http://schema.org/LikeAction"/>
+                  <meta itemprop="userInteractionCount" content="2" />
+                <span class='post-likes'>2 Likes</span>
+              </div>
+
+
+            
+
+
+          </div>
+          <div id='post_9' itemprop="comment" itemscope="itemscope" itemtype="http://schema.org/Comment" class='topic-body crawler-post'>
+            <div class='crawler-post-meta'>
+              <span class="creator" itemprop="author" itemscope="itemscope" itemtype="http://schema.org/Person">
+                <a rel='nofollow' href='https://discuss.python.org/u/hugovk'><span itemprop="name">hugovk</span></a>
+                  <meta itemprop='url' content='https://discuss.python.org/u/hugovk'>
+                (Hugo van Kemenade)
+              </span>
+
+
+
+              <span class="crawler-post-infos">
+                  <time itemprop="datePublished" datetime='2025-05-14T10:16:31Z' class='post-time'>
+                    May 14, 2025, 10:16am
+                  </time>
+                  <meta itemprop='dateModified' content='2025-05-14T10:16:31Z'>
+              <span itemprop="position">9</span>
+              </span>
+            </div>
+            <div class='post' itemprop="text">
+              <p>So it’s down to us to enable caching in our CI workflows.</p>
+<p>It’s pretty easy with <a href="https://github.com/actions/setup-python#caching-packages-dependencies">actions/setup-python</a>, usually just add <code>cache: pip</code>.</p>
+<p>And it’s enabled by default with <a href="https://github.com/astral-sh/setup-uv#enable-caching">actions/setup-uv</a> for GitHub-hosted runners.</p>
+            </div>
+
+              <div itemprop="interactionStatistic" itemscope="itemscope" itemtype="http://schema.org/InteractionCounter">
+                  <meta itemprop="interactionType" content="http://schema.org/LikeAction"/>
+                  <meta itemprop="userInteractionCount" content="3" />
+                <span class='post-likes'>3 Likes</span>
+              </div>
+
+
+            
+
+
+          </div>
+          <div id='post_10' itemprop="comment" itemscope="itemscope" itemtype="http://schema.org/Comment" class='topic-body crawler-post'>
+            <div class='crawler-post-meta'>
+              <span class="creator" itemprop="author" itemscope="itemscope" itemtype="http://schema.org/Person">
+                <a rel='nofollow' href='https://discuss.python.org/u/kpfleming'><span itemprop="name">kpfleming</span></a>
+                  <meta itemprop='url' content='https://discuss.python.org/u/kpfleming'>
+                (Kevin P. Fleming)
+              </span>
+
+
+
+              <span class="crawler-post-infos">
+                  <time itemprop="datePublished" datetime='2025-05-14T10:38:38Z' class='post-time'>
+                    May 14, 2025, 10:38am
+                  </time>
+                  <meta itemprop='dateModified' content='2025-05-14T10:38:38Z'>
+              <span itemprop="position">10</span>
+              </span>
+            </div>
+            <div class='post' itemprop="text">
+              <aside class="quote no-group" data-username="oscarbenjamin" data-post="7" data-topic="91810">
+<div class="title">
+<div class="quote-controls"></div>
+<img alt="" width="24" height="24" src="https://sea2.discourse-cdn.com/flex002/user_avatar/discuss.python.org/oscarbenjamin/48/1209_2.png" class="avatar"> Oscar Benjamin:</div>
+<blockquote>
+<p>Can the CI systems not proxy/cache PyPI and keep the traffic mostly internal?</p>
+</blockquote>
+</aside>
+<p>First, keep in mind that PyPI is already heavily proxied/cached by Fastly; without that the servers running <a href="http://pypi.org" rel="noopener nofollow ugc">pypi.org</a> would burn to a crisp <img src="https://emoji.discourse-cdn.com/apple/slight_smile.png?v=14" title=":slight_smile:" class="emoji" alt=":slight_smile:" loading="lazy" width="20" height="20"></p>
+<p>Second, caching PyPI is not easy (I can say this as a person who helped to run a Artifactory cache at a prior job). When new distributions are uploaded to PyPI, the index page for that package must be invalidated in the cache, otherwise installers won’t know about the new distributions. You might thing “oh, that’s fine, there will just be a delay of 30-60 minutes before the new distribution will be available”, and that seems true, but in reality the situation is more complex.</p>
+<p>A common problem for caching PyPI is in fact the AWS boto3 group of packages; AWS updates them often (sometimes more than once per week), and they upload a set of distributions which all require each other’s new versions (they can’t be used with older versions). If the cache is aware of one of the new distributions but not the others (because the others were last pulled within the cache timeout window and the indices for them are stale), then the installer will not able to install those packages without backtracking to older versions, and that doesn’t always work. This was our lived experience running a cache; we frequently had to manually invalidate the index caches for PyPI so that our employees could successfully install boto3.</p>
+<p>Another caching problem is yanking packages; a cache which does not know that a specific distribution has been yanked will continue providing it to installers who ask for it, and if that cache is sitting inside GitHub (for example) and feeding packages to CI workflows which build release artifacts, those artifacts will contain yanked packages.</p>
+<p>The current system works because PyPI sends ‘purge’ requests to Fastly when new distributions for packages are uploaded, or when distributions are yanked. Doing that for a distributed network of caches being run by numerous third parties would be very challlenging, if it’s even possible at all.</p>
+            </div>
+
+              <div itemprop="interactionStatistic" itemscope="itemscope" itemtype="http://schema.org/InteractionCounter">
+                  <meta itemprop="interactionType" content="http://schema.org/LikeAction"/>
+                  <meta itemprop="userInteractionCount" content="6" />
+                <span class='post-likes'>6 Likes</span>
+              </div>
+
+
+            
+
+
+          </div>
+          <div id='post_11' itemprop="comment" itemscope="itemscope" itemtype="http://schema.org/Comment" class='topic-body crawler-post'>
+            <div class='crawler-post-meta'>
+              <span class="creator" itemprop="author" itemscope="itemscope" itemtype="http://schema.org/Person">
+                <a rel='nofollow' href='https://discuss.python.org/u/thibaudcolas'><span itemprop="name">thibaudcolas</span></a>
+                  <meta itemprop='url' content='https://discuss.python.org/u/thibaudcolas'>
+                (Thibaud Colas)
+              </span>
+
+
+
+              <span class="crawler-post-infos">
+                  <time itemprop="datePublished" datetime='2025-05-14T12:50:49Z' class='post-time'>
+                    May 14, 2025, 12:50pm
+                  </time>
+                  <meta itemprop='dateModified' content='2025-05-14T12:50:49Z'>
+              <span itemprop="position">11</span>
+              </span>
+            </div>
+            <div class='post' itemprop="text">
+              <p><a class="mention" href="/u/kpfleming">@kpfleming</a> that research about CI vs. non-CI downloads sounds pretty spot on! Do you have data / methodology / results shared somewhere that others could reference? Otherwise I’ll go hunt for the talk recording <img src="https://emoji.discourse-cdn.com/apple/slight_smile.png?v=14" title=":slight_smile:" class="emoji" alt=":slight_smile:" loading="lazy" width="20" height="20"></p>
+<p><a class="mention" href="/u/hugovk">@hugovk</a> ty, I didn’t know about pepy.tech, I’ll check out how they present this "CI"filter.</p>
+<hr>
+<aside class="quote no-group" data-username="mwichmann" data-post="5" data-topic="91810">
+<div class="title">
+<div class="quote-controls"></div>
+<img alt="" width="24" height="24" src="https://sea2.discourse-cdn.com/flex002/user_avatar/discuss.python.org/mwichmann/48/1364_2.png" class="avatar"> Mats Wichmann:</div>
+<blockquote>
+<p>Is there <em>anything</em> useful that can be gleaned from download numbers, and if so, what?</p>
+</blockquote>
+</aside>
+<p>The use is limited and the risk to over-interpret the data is high, that said personally I still find it useful for specific comparisons as long as the uncertainties are acknowledged:</p>
+<ul>
+<li>Downloads over time for a specific package as a proxy for usage trends (not very truthful but still more useful than GitHub stars)</li>
+<li>Releases adoption. As an example, using PyPI data I recently wrote <a href="https://wagtail.org/blog/supported-versions-django-vs-fastapi-vs-laravel/" rel="noopener nofollow ugc">Supported versions: Django vs. FastAPI vs. Laravel</a>.</li>
+<li>Pre-release testing (if pre-release downloads are low, I know I need to ask more people)</li>
+<li>Comparing similar packages within a given subset of the Python ecosystem. For example reviewing Django packages’ downloads compared to the downloads of Django itself, to understand where that ecosystem is going.</li>
+</ul>
+<p>All of which are influenced by the prevalence of CI, and automation, and lots of other pitfalls. But IMO still useful enough currently.</p>
+            </div>
+
+              <div itemprop="interactionStatistic" itemscope="itemscope" itemtype="http://schema.org/InteractionCounter">
+                  <meta itemprop="interactionType" content="http://schema.org/LikeAction"/>
+                  <meta itemprop="userInteractionCount" content="0" />
+                <span class='post-likes'></span>
+              </div>
+
+
+            
+
+
+          </div>
+          <div id='post_12' itemprop="comment" itemscope="itemscope" itemtype="http://schema.org/Comment" class='topic-body crawler-post'>
+            <div class='crawler-post-meta'>
+              <span class="creator" itemprop="author" itemscope="itemscope" itemtype="http://schema.org/Person">
+                <a rel='nofollow' href='https://discuss.python.org/u/fungi'><span itemprop="name">fungi</span></a>
+                  <meta itemprop='url' content='https://discuss.python.org/u/fungi'>
+                (fungi)
+              </span>
+
+
+
+              <span class="crawler-post-infos">
+                  <time itemprop="datePublished" datetime='2025-05-14T13:20:13Z' class='post-time'>
+                    May 14, 2025,  1:20pm
+                  </time>
+                  <meta itemprop='dateModified' content='2025-05-14T13:20:13Z'>
+              <span itemprop="position">12</span>
+              </span>
+            </div>
+            <div class='post' itemprop="text">
+              <blockquote>
+<p>Is there <em>anything</em> useful that can be gleaned from download numbers, and if so, what?</p>
+</blockquote>
+<p>They help the PyPI administrators figure out which projects are causing the most load on the donated CDN services and hosting backend.</p>
+            </div>
+
+              <div itemprop="interactionStatistic" itemscope="itemscope" itemtype="http://schema.org/InteractionCounter">
+                  <meta itemprop="interactionType" content="http://schema.org/LikeAction"/>
+                  <meta itemprop="userInteractionCount" content="0" />
+                <span class='post-likes'></span>
+              </div>
+
+
+            
+
+
+          </div>
+          <div id='post_13' itemprop="comment" itemscope="itemscope" itemtype="http://schema.org/Comment" class='topic-body crawler-post'>
+            <div class='crawler-post-meta'>
+              <span class="creator" itemprop="author" itemscope="itemscope" itemtype="http://schema.org/Person">
+                <a rel='nofollow' href='https://discuss.python.org/u/fungi'><span itemprop="name">fungi</span></a>
+                  <meta itemprop='url' content='https://discuss.python.org/u/fungi'>
+                (fungi)
+              </span>
+
+
+
+              <span class="crawler-post-infos">
+                  <time itemprop="datePublished" datetime='2025-05-14T13:30:13Z' class='post-time'>
+                    May 14, 2025,  1:30pm
+                  </time>
+                  <meta itemprop='dateModified' content='2025-05-14T13:30:13Z'>
+              <span itemprop="position">13</span>
+              </span>
+            </div>
+            <div class='post' itemprop="text">
+              <blockquote>
+<p>Can the CI systems not proxy/cache PyPI and keep the traffic mostly internal?</p>
+</blockquote>
+<p>It’s definitely possible. I help run some rather large gating CI/CD systems and we deploy a caching proxy in each cloud region (using Apache mod_proxy+mod_cache) because it makes our jobs faster and <strong>more reliable</strong>. The Internet is chaotic, networks inside clouds less so, therefore every connection a job makes across the open Internet means an increased frequency of false failure results and reduced developer trust in the project’s testing.</p>
+<p>Of course, someone setting up a CI system on their own with limited resources doing the absolute bare minimum necessary to get it running probably doesn’t care about such things, and I suspect in aggregate that’s the sort of environment where the bulk of the hits are coming from.</p>
+            </div>
+
+              <div itemprop="interactionStatistic" itemscope="itemscope" itemtype="http://schema.org/InteractionCounter">
+                  <meta itemprop="interactionType" content="http://schema.org/LikeAction"/>
+                  <meta itemprop="userInteractionCount" content="0" />
+                <span class='post-likes'></span>
+              </div>
+
+
+            
+
+
+          </div>
+          <div id='post_14' itemprop="comment" itemscope="itemscope" itemtype="http://schema.org/Comment" class='topic-body crawler-post'>
+            <div class='crawler-post-meta'>
+              <span class="creator" itemprop="author" itemscope="itemscope" itemtype="http://schema.org/Person">
+                <a rel='nofollow' href='https://discuss.python.org/u/fungi'><span itemprop="name">fungi</span></a>
+                  <meta itemprop='url' content='https://discuss.python.org/u/fungi'>
+                (fungi)
+              </span>
+
+
+
+              <span class="crawler-post-infos">
+                  <time itemprop="datePublished" datetime='2025-05-14T13:49:34Z' class='post-time'>
+                    May 14, 2025,  1:49pm
+                  </time>
+                  <meta itemprop='dateModified' content='2025-05-14T13:49:34Z'>
+              <span itemprop="position">14</span>
+              </span>
+            </div>
+            <div class='post' itemprop="text">
+              <blockquote>
+<p>The way to do it is to aggressively rate-limit and require authentication. But it’s very difficult and disruptive to change this entrenched behaviour unfortunately. It’s very similar to the DockerHub change (from unauthenticated pulls to authenticated), but likely more disruptive.</p>
+</blockquote>
+<p>Veering a bit off-topic, but technically DockerHub’s protocol always required authentication. “Anonymous” pulls still had to get an ephemeral token to access the repository indices, though it’s hidden away from userspace by the tools implementing it so you typically wouldn’t notice. This along with a number of other cache-busting mechanisms like bogus timestamps and such make DockerHub significantly harder to cache effectively than PyPI (not to discount the other posts describing the challenges with caching PyPI, which I agree is not trivial either).</p>
+<p>And now the rate limits added in the past year-ish have made DockerHub caches a hindrance since funneling all your cold cache hits through a single machine means that your cache is likely to get blocked sooner, even though you were being a good citizen and reducing the overall number of requests from your CI in aggregate. For projects I’m involved in, the upshot has been that we’re abandoning DockerHub and Moby’s docker tooling in general, switching to independent registries either run by the project’s community or by other friendly parties (incidentally also easier to proxy/cache).</p>
+            </div>
+
+              <div itemprop="interactionStatistic" itemscope="itemscope" itemtype="http://schema.org/InteractionCounter">
+                  <meta itemprop="interactionType" content="http://schema.org/LikeAction"/>
+                  <meta itemprop="userInteractionCount" content="1" />
+                <span class='post-likes'>1 Like</span>
+              </div>
+
+
+            
+
+
+          </div>
+          <div id='post_15' itemprop="comment" itemscope="itemscope" itemtype="http://schema.org/Comment" class='topic-body crawler-post'>
+            <div class='crawler-post-meta'>
+              <span class="creator" itemprop="author" itemscope="itemscope" itemtype="http://schema.org/Person">
+                <a rel='nofollow' href='https://discuss.python.org/u/kpfleming'><span itemprop="name">kpfleming</span></a>
+                  <meta itemprop='url' content='https://discuss.python.org/u/kpfleming'>
+                (Kevin P. Fleming)
+              </span>
+
+
+
+              <span class="crawler-post-infos">
+                  <time itemprop="datePublished" datetime='2025-05-14T15:27:08Z' class='post-time'>
+                    May 14, 2025,  3:27pm
+                  </time>
+                  <meta itemprop='dateModified' content='2025-05-14T15:27:08Z'>
+              <span itemprop="position">15</span>
+              </span>
+            </div>
+            <div class='post' itemprop="text">
+              <aside class="quote no-group" data-username="thibaudcolas" data-post="11" data-topic="91810">
+<div class="title">
+<div class="quote-controls"></div>
+<img alt="" width="24" height="24" src="https://sea2.discourse-cdn.com/flex002/user_avatar/discuss.python.org/thibaudcolas/48/18263_2.png" class="avatar"> Thibaud Colas:</div>
+<blockquote>
+<p>that research about CI vs. non-CI downloads sounds pretty spot on! Do you have data / methodology / results shared somewhere that others could reference? Otherwise I’ll go hunt for the talk recording <img src="https://emoji.discourse-cdn.com/apple/slight_smile.png?v=14" title=":slight_smile:" class="emoji" alt=":slight_smile:" loading="lazy" width="20" height="20"></p>
+</blockquote>
+</aside>
+<p>It wasn’t much research, but here’s the recording: <a href="https://www.youtube.com/watch?v=hIXUzxmMcAU&amp;t=21s" rel="noopener nofollow ugc">https://www.youtube.com/watch?v=hIXUzxmMcAU&amp;t=21s</a></p>
+            </div>
+
+              <div itemprop="interactionStatistic" itemscope="itemscope" itemtype="http://schema.org/InteractionCounter">
+                  <meta itemprop="interactionType" content="http://schema.org/LikeAction"/>
+                  <meta itemprop="userInteractionCount" content="0" />
+                <span class='post-likes'></span>
+              </div>
+
+
+            
+
+
+          </div>
+          <div id='post_16' itemprop="comment" itemscope="itemscope" itemtype="http://schema.org/Comment" class='topic-body crawler-post'>
+            <div class='crawler-post-meta'>
+              <span class="creator" itemprop="author" itemscope="itemscope" itemtype="http://schema.org/Person">
+                <a rel='nofollow' href='https://discuss.python.org/u/thibaudcolas'><span itemprop="name">thibaudcolas</span></a>
+                  <meta itemprop='url' content='https://discuss.python.org/u/thibaudcolas'>
+                (Thibaud Colas)
+              </span>
+
+
+                <link itemprop="image" href="https://us1.discourse-cdn.com/flex002/uploads/python1/original/3X/c/9/c91fe1366fb6f5125233c90a55c970d9be525a87.png">
+
+              <span class="crawler-post-infos">
+                  <time itemprop="datePublished" datetime='2025-05-15T13:00:19Z' class='post-time'>
+                    May 15, 2025,  1:00pm
+                  </time>
+                  <meta itemprop='dateModified' content='2025-05-15T13:00:19Z'>
+              <span itemprop="position">16</span>
+              </span>
+            </div>
+            <div class='post' itemprop="text">
+              <p>ty! Was it that <a href="https://youtu.be/hIXUzxmMcAU?feature=shared&amp;t=2070" rel="noopener nofollow ugc">What about PyPI traffic? around 34:30</a> then? The number you have on the slide there has CI downloads at 27% of the total over one day, so not 80% of the traffic unless I’m misunderstanding.</p>
+<p>From my side I shared Wagtail’s CI figures for pip and uv above. Irrespective of installer, Wagtail’s download stats have been hovering between 10 and 30% from CI on a monthly basis over the last 12 months. Django is in a similar ballpark. FastAPI’s proportion is higher, between 20 and 50%:</p>
+<p><div class="lightbox-wrapper"><a class="lightbox" href="https://us1.discourse-cdn.com/flex002/uploads/python1/original/3X/c/9/c91fe1366fb6f5125233c90a55c970d9be525a87.png" data-download-href="/uploads/short-url/sHegXE8yKtvHFxSzZCabT3eX6ar.png?dl=1" title="fastapi downloads on PyPI likely CI vs not likely" rel="noopener nofollow ugc"><img src="https://us1.discourse-cdn.com/flex002/uploads/python1/original/3X/c/9/c91fe1366fb6f5125233c90a55c970d9be525a87.png" alt="fastapi downloads on PyPI likely CI vs not likely" data-base62-sha1="sHegXE8yKtvHFxSzZCabT3eX6ar" width="660" height="408"><div class="meta"><svg class="fa d-icon d-icon-far-image svg-icon" aria-hidden="true"><use href="#far-image"></use></svg><span class="filename">fastapi downloads on PyPI likely CI vs not likely</span><span class="informations">660×408 18.1 KB</span><svg class="fa d-icon d-icon-discourse-expand svg-icon" aria-hidden="true"><use href="#discourse-expand"></use></svg></div></a></div></p>
+<p>Sharing with the caveat again this is based on this “CI” reporting in user agents that I’m still trying to understand how to interpret</p>
+            </div>
+
+              <div itemprop="interactionStatistic" itemscope="itemscope" itemtype="http://schema.org/InteractionCounter">
+                  <meta itemprop="interactionType" content="http://schema.org/LikeAction"/>
+                  <meta itemprop="userInteractionCount" content="0" />
+                <span class='post-likes'></span>
+              </div>
+
+
+            
+
+
+          </div>
+          <div id='post_17' itemprop="comment" itemscope="itemscope" itemtype="http://schema.org/Comment" class='topic-body crawler-post'>
+            <div class='crawler-post-meta'>
+              <span class="creator" itemprop="author" itemscope="itemscope" itemtype="http://schema.org/Person">
+                <a rel='nofollow' href='https://discuss.python.org/u/thibaudcolas'><span itemprop="name">thibaudcolas</span></a>
+                  <meta itemprop='url' content='https://discuss.python.org/u/thibaudcolas'>
+                (Thibaud Colas)
+              </span>
+
+
+                <link itemprop="image" href="https://us1.discourse-cdn.com/flex002/uploads/python1/original/3X/c/5/c5cd922daf5bb5f092053076cc8f56dba90c8c74.png">
+
+              <span class="crawler-post-infos">
+                  <time itemprop="datePublished" datetime='2025-10-06T12:40:44Z' class='post-time'>
+                    October 6, 2025, 12:40pm
+                  </time>
+                  <meta itemprop='dateModified' content='2025-10-06T16:23:29Z'>
+              <span itemprop="position">17</span>
+              </span>
+            </div>
+            <div class='post' itemprop="text">
+              <p>I did a 6-month refresh of the data I shared when starting this thread, thought some here might find it interesting: <a href="https://wagtail.org/blog/uv-overtakes-pip-in-ci/" rel="noopener nofollow ugc">uv overtakes pip in CI (for Wagtail users)</a>. Main chart:</p>
+<p><div class="lightbox-wrapper"><a class="lightbox" href="https://us1.discourse-cdn.com/flex002/uploads/python1/original/3X/c/5/c5cd922daf5bb5f092053076cc8f56dba90c8c74.png" data-download-href="/uploads/short-url/sdQuIPVBLJed9CLVOmG2v1U1yZe.png?dl=1" title="pip &amp; uv downloads of Wagtail 🐦️, total and likely in CI - Monthly PyPI downloads - 2024-01-01 to 2025-10-01. Line chart of PyPI downloads of Wagtail. Two dotted lines for uv and pip. pip is flat, uv is rising gradually. Two solid lines at the bottom for uv and pip 'likely CI', with the rising uv line going above the flat pip line" rel="noopener nofollow ugc"><img src="https://us1.discourse-cdn.com/flex002/uploads/python1/optimized/3X/c/5/c5cd922daf5bb5f092053076cc8f56dba90c8c74_2_690x424.png" alt="pip &amp; uv downloads of Wagtail 🐦️, total and likely in CI - Monthly PyPI downloads - 2024-01-01 to 2025-10-01. Line chart of PyPI downloads of Wagtail. Two dotted lines for uv and pip. pip is flat, uv is rising gradually. Two solid lines at the bottom for uv and pip 'likely CI', with the rising uv line going above the flat pip line" data-base62-sha1="sdQuIPVBLJed9CLVOmG2v1U1yZe" width="690" height="424" srcset="https://us1.discourse-cdn.com/flex002/uploads/python1/optimized/3X/c/5/c5cd922daf5bb5f092053076cc8f56dba90c8c74_2_690x424.png, https://us1.discourse-cdn.com/flex002/uploads/python1/original/3X/c/5/c5cd922daf5bb5f092053076cc8f56dba90c8c74.png 1.5x, https://us1.discourse-cdn.com/flex002/uploads/python1/original/3X/c/5/c5cd922daf5bb5f092053076cc8f56dba90c8c74.png 2x" data-dominant-color="F7F5F7"><div class="meta"><svg class="fa d-icon d-icon-far-image svg-icon" aria-hidden="true"><use href="#far-image"></use></svg><span class="filename">pip &amp; uv downloads of Wagtail 🐦️, total and likely in CI - Monthly PyPI downloads - 2024-01-01 to 2025-10-01. Line chart of PyPI downloads of Wagtail. Two dotted lines for uv and pip. pip is flat, uv is rising gradually. Two solid lines at the bottom for uv and pip 'likely CI', with the rising uv line going above the flat pip line</span><span class="informations">903×556 33.5 KB</span><svg class="fa d-icon d-icon-discourse-expand svg-icon" aria-hidden="true"><use href="#discourse-expand"></use></svg></div></a></div></p>
+<p>I hope this encourages people to do more with those download statistics. For me I think seeing the uv uptake is a good encouragement to update the Wagtail community’s project templates to it once I’ve checked its level of cross-platform support.</p>
+<p>More broadly, on the applicability of this “CI downloads” data – it’s not great but I have a feeling it’s not nothing? I’d be interested to use it in conjunction with other filters. Possibly chart downloads for “latest version of |project| over time outside CI”, as the versions change, to see how that’s affected by releases and potentially shows a long-term trend different from CI downloads. Feedback welcome!</p>
+            </div>
+
+              <div itemprop="interactionStatistic" itemscope="itemscope" itemtype="http://schema.org/InteractionCounter">
+                  <meta itemprop="interactionType" content="http://schema.org/LikeAction"/>
+                  <meta itemprop="userInteractionCount" content="3" />
+                <span class='post-likes'>3 Likes</span>
+              </div>
+
+
+            
+
+
+          </div>
+          <div id='post_18' itemprop="comment" itemscope="itemscope" itemtype="http://schema.org/Comment" class='topic-body crawler-post'>
+            <div class='crawler-post-meta'>
+              <span class="creator" itemprop="author" itemscope="itemscope" itemtype="http://schema.org/Person">
+                <a rel='nofollow' href='https://discuss.python.org/u/hugovk'><span itemprop="name">hugovk</span></a>
+                  <meta itemprop='url' content='https://discuss.python.org/u/hugovk'>
+                (Hugo van Kemenade)
+              </span>
+
+
+
+              <span class="crawler-post-infos">
+                  <time itemprop="datePublished" datetime='2025-10-06T14:16:51Z' class='post-time'>
+                    October 6, 2025,  2:16pm
+                  </time>
+                  <meta itemprop='dateModified' content='2025-10-06T14:16:51Z'>
+              <span itemprop="position">18</span>
+              </span>
+            </div>
+            <div class='post' itemprop="text">
+              <aside class="quote no-group" data-username="thibaudcolas" data-post="17" data-topic="91810">
+<div class="title">
+<div class="quote-controls"></div>
+<img alt="" width="24" height="24" src="https://sea2.discourse-cdn.com/flex002/user_avatar/discuss.python.org/thibaudcolas/48/18263_2.png" class="avatar"> Thibaud Colas:</div>
+<blockquote>
+<p>uv overtakes pip in CI (for Wagtail users)</p>
+</blockquote>
+</aside>
+<p>Working link: <a href="https://wagtail.org/blog/uv-overtakes-pip-in-ci/" class="inline-onebox">uv overtakes pip in CI (for Wagtail users) | Wagtail CMS</a></p>
+            </div>
+
+              <div itemprop="interactionStatistic" itemscope="itemscope" itemtype="http://schema.org/InteractionCounter">
+                  <meta itemprop="interactionType" content="http://schema.org/LikeAction"/>
+                  <meta itemprop="userInteractionCount" content="1" />
+                <span class='post-likes'>1 Like</span>
+              </div>
+
+
+            
+
+
+          </div>
+
+    </div>
+
+
+    
+
+
+
+
+    </div>
+    <footer class="container wrap">
+  <nav class='crawler-nav'>
+    <ul>
+      <li itemscope itemtype='http://schema.org/SiteNavigationElement'>
+        <span itemprop='name'>
+          <a href='/' itemprop="url">Home </a>
+        </span>
+      </li>
+      <li itemscope itemtype='http://schema.org/SiteNavigationElement'>
+        <span itemprop='name'>
+          <a href='/categories' itemprop="url">Categories </a>
+        </span>
+      </li>
+      
+      <li itemscope itemtype='http://schema.org/SiteNavigationElement'>
+        <span itemprop='name'>
+          <a href='/guidelines' itemprop="url">Guidelines </a>
+        </span>
+      </li>
+        <li itemscope itemtype='http://schema.org/SiteNavigationElement'>
+          <span itemprop='name'>
+            <a href='/tos' itemprop="url">Terms of Service </a>
+          </span>
+        </li>
+        <li itemscope itemtype='http://schema.org/SiteNavigationElement'>
+          <span itemprop='name'>
+            <a href='/privacy' itemprop="url">Privacy Policy </a>
+          </span>
+        </li>
+    </ul>
+  </nav>
+  <p class='powered-by-link'>Powered by <a href="https://www.discourse.org">Discourse</a>, best viewed with JavaScript enabled</p>
+</footer>
+
+    
+    
+  </body>
+  
+</html>
