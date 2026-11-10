@@ -104,6 +104,27 @@
   }
  ],
  "linked_set": [
+  "CVE-2026-113279",
+  "CVE-2026-113072",
+  "CVE-2026-113280",
+  "CVE-2026-113271",
+  "CVE-2026-113135",
+  "CVE-2026-113020",
+  "CVE-2026-113318",
+  "CVE-2026-113093",
+  "CVE-2026-113309",
+  "CVE-2026-113154",
+  "CVE-2026-113336",
+  "CVE-2026-113181",
+  "CVE-2026-113095",
+  "CVE-2026-113212"
+ ],
+ "notes": [
+  "Chrome page (Chrome 156 stable, Tuesday 20 October 2026) says it 'includes 354 security fixes' and lists 353 CVE entries; 15 meet (a), all crediting Xinyang Ge (six of them 'Xinyang Ge (Anthropic), assisted by Claude'). One goes to C1 and C2 as ambiguous; 14 form the linked set.",
+  "Apple note (iOS 26.5.2 and iPadOS 26.5.2, released 29 June 2026): one entry meets (a).",
+  "Severity words were visible in the quoted entries at the same moment as the credits; they played no part in the rule."
+ ],
+ "linked_set_entries": [
   {
    "source": "chrome_release",
    "cve": "CVE-2026-113279",
@@ -174,10 +195,5 @@
    "cve": "CVE-2026-113212",
    "entry": "[N/A][572237007] High CVE-2026-113212: Use after free in PDF. Reported by Xinyang Ge (Anthropic), assisted by Claude on 2026-10-10"
   }
- ],
- "notes": [
-  "Chrome page (Chrome 156 stable, Tuesday 20 October 2026) says it 'includes 354 security fixes' and lists 353 CVE entries; 15 meet (a), all crediting Xinyang Ge (six of them 'Xinyang Ge (Anthropic), assisted by Claude'). One goes to C1 and C2 as ambiguous; 14 form the linked set.",
-  "Apple note (iOS 26.5.2 and iPadOS 26.5.2, released 29 June 2026): one entry meets (a).",
-  "Severity words were visible in the quoted entries at the same moment as the credits; they played no part in the rule."
  ]
 }
