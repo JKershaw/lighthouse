@@ -1,0 +1,287 @@
+{
+  "title": "How one inquiry changed course",
+  "intro": "Following a release led to two different roads: fast-moving downloads and slower pinned versions. Broader tests changed the explanations along the way.",
+  "scope": "Eight selected readings in the core Python inquiry. Arrows follow documented steps; each box opens the current corrected article. The wider download result concerns heavily downloaded libraries: later lower-rank samples did not show the same pattern.",
+  "nodes": [
+    {
+      "id": "projects",
+      "path": "articles/where-a-software-update-went.md",
+      "title": "A trail through projects",
+      "lines": [
+        "A trail through",
+        "nine projects"
+      ],
+      "status": "A first case",
+      "summary": "One release could be followed through nine selected projects. Their histories showed choices, not why they moved or what ran.",
+      "passage": "In those four weeks the new version reached four of the nine projects. The project in the opening moved its pin, a requirement for one exact version, six days after the release. A very busy project, which made 1,482 commits in the four weeks, took the new version into its lockfile eleven days after the release; a lockfile is where a project writes down the exact versions it has settled on for its own use. A project whose history on GitHub begins on 4 April already held the new version in its first commit there, two days after the release, and wrote an exact pin for it on 14 April. The fourth began using the library on the last day, and its lockfile settled on the newest version, as any would have by then. Those moves took five commits, out of 2,508 that the ten projects made in the four weeks. The other five projects did not take it up: two stayed pinned to 1.26.0, two still had 1.26.0 in their lockfiles at the end, and one did not use the library in those weeks.",
+      "passages": [
+        {
+          "label": "Result",
+          "passage": "In those four weeks the new version reached four of the nine projects. The project in the opening moved its pin, a requirement for one exact version, six days after the release. A very busy project, which made 1,482 commits in the four weeks, took the new version into its lockfile eleven days after the release; a lockfile is where a project writes down the exact versions it has settled on for its own use. A project whose history on GitHub begins on 4 April already held the new version in its first commit there, two days after the release, and wrote an exact pin for it on 14 April. The fourth began using the library on the last day, and its lockfile settled on the newest version, as any would have by then. Those moves took five commits, out of 2,508 that the ten projects made in the four weeks. The other five projects did not take it up: two stayed pinned to 1.26.0, two still had 1.26.0 in their lockfiles at the end, and one did not use the library in those weeks."
+        },
+        {
+          "label": "Limit",
+          "passage": "So this is how far the public record reaches, in one small neighbourhood over four weeks. It can follow a new version from a library into the projects that take it up, and, where a project pins it exactly, one step beyond. It cannot say why any of them moved, and it stops at the edge of every machine where the code was installed."
+        }
+      ]
+    },
+    {
+      "id": "downloads",
+      "path": "articles/what-a-download-shows.md",
+      "title": "Downloads ran ahead",
+      "lines": [
+        "Downloads",
+        "ran ahead"
+      ],
+      "status": "A new public trace",
+      "summary": "The release reached half of one library’s downloads within two days. A fetch still did not show an installation.",
+      "passage": "Version 1.27.0 went up on the registry at 14:48 UTC on 2 April. In the nine hours left of that day it was downloaded 1,639,539 times, 22 per cent of the day's downloads of the library. The next day it was 48 per cent, the day after 51. On every day from then to 22 April it was between 45 and 71 per cent. Over the four weeks it was downloaded about 96 million times, though it existed for only three of them. The release before it, in January, went the same way, passing 60 per cent the day after it came out, so this pace is ordinary for this library.",
+      "passages": [
+        {
+          "label": "Result",
+          "passage": "Version 1.27.0 went up on the registry at 14:48 UTC on 2 April. In the nine hours left of that day it was downloaded 1,639,539 times, 22 per cent of the day's downloads of the library. The next day it was 48 per cent, the day after 51. On every day from then to 22 April it was between 45 and 71 per cent. Over the four weeks it was downloaded about 96 million times, though it existed for only three of them. The release before it, in January, went the same way, passing 60 per cent the day after it came out, so this pace is ordinary for this library."
+        },
+        {
+          "label": "Limit",
+          "passage": "That is as far as the log reaches. An entry records one file, served by the registry to a program that gave its name. It is not an installation. A mirror or a company proxy fetches a file once and may install it many times without the registry seeing; an installer's cache reinstalls without fetching; and a command that only fetches a file, or a scanner checking packages for problems, downloads without installing anything. Nothing in the log says whether a file was ever used, still less run. It does not say whether a person, a build server or an AI agent asked for it either. One pattern hints at machines: across three whole weeks in April, downloads of the new version fell less at weekends, to 0.88 of the weekday level, or 0.82 leaving out one unusually busy Sunday, while the old version's fell to about half. That fits environments created afresh whenever something runs, day or night; it also fits people working at weekends, and nothing in the log tells them apart."
+        }
+      ]
+    },
+    {
+      "id": "images",
+      "path": "articles/what-an-image-holds.md",
+      "title": "Images showed the installation",
+      "lines": [
+        "Images showed",
+        "the installation"
+      ],
+      "status": "A further trace",
+      "summary": "Published images held a newer version before the lockfile named it. Whether anyone ran those images remained unseen.",
+      "passage": "The images show exactly that. The one the project's automated build made at 04:37 UTC on 2 April, ten hours before the new release, holds 1.26.0. The one built on 8 April holds 1.27.0. That image is an odd one, and we come back to it below. The next we read is not odd: the automated build of 22 April, made from a commit whose lockfile still said 1.26.0, holds 1.27.0 too. On 24 April the project changed its requirement to exactly 1.27.0. Its images had held that version since 8 April.",
+      "passages": [
+        {
+          "label": "Result",
+          "passage": "The images show exactly that. The one the project's automated build made at 04:37 UTC on 2 April, ten hours before the new release, holds 1.26.0. The one built on 8 April holds 1.27.0. That image is an odd one, and we come back to it below. The next we read is not odd: the automated build of 22 April, made from a commit whose lockfile still said 1.26.0, holds 1.27.0 too. On 24 April the project changed its requirement to exactly 1.27.0. Its images had held that version since 8 April."
+        },
+        {
+          "label": "Limit",
+          "passage": "An image is also an installation made to be run, not a run. Nothing in a registry says whether an image was started, where, or how often. Docker Hub counts pulls, 1,453,176 of them for octobot's images, but a pull is a request for an image, and a request is not a use: 612 of keboola's 730 tags show the same last-pulled day, 17 August 2026, which fits one program sweeping every tag rather than anyone running them."
+        }
+      ]
+    },
+    {
+      "id": "advisory",
+      "path": "articles/what-moves-a-pin.md",
+      "title": "An advisory offered a lead",
+      "lines": [
+        "An advisory",
+        "offered a lead"
+      ],
+      "status": "Early lead, later revised",
+      "summary": "One library’s pins moved soon after advisories. The burst did not recur across four other libraries.",
+      "passage": "We found the first commit naming 1.28.0 or 1.28.1 for 13 of the projects in the sample. Six of those commits came in the 28 hours after the advisory, between 54 minutes and 27.6 hours after it, and about a month after the release. Four of the six were changes written by Dependabot, a service on GitHub that opens updates to a project's dependencies: three were committed under its name, and one was merged by a person from the branch it had opened. A fifth was made under a project's own bot account, with a person named as co-author, in a change whose message says it upgrades a different library to a new major version, with mcp moving inside it. The sixth was a person whose message says the change fixes \"3 high-severity CVEs\", the numbered public records of security flaws, and names all three of that evening's advisories.",
+      "passages": [
+        {
+          "label": "Result",
+          "passage": "We found the first commit naming 1.28.0 or 1.28.1 for 13 of the projects in the sample. Six of those commits came in the 28 hours after the advisory, between 54 minutes and 27.6 hours after it, and about a month after the release. Four of the six were changes written by Dependabot, a service on GitHub that opens updates to a project's dependencies: three were committed under its name, and one was merged by a person from the branch it had opened. A fifth was made under a project's own bot account, with a person named as co-author, in a change whose message says it upgrades a different library to a new major version, with mcp moving inside it. The sixth was a person whose message says the change fixes \"3 high-severity CVEs\", the numbered public records of security flaws, and names all three of that evening's advisories."
+        },
+        {
+          "label": "Later qualification",
+          "passage": "> **Later evidence, 27 September 2026.** Across four libraries, pinned software moved to security fixes over weeks, after both the release and the advisory, with no burst like the one here ([the later reading](pins-move-over-weeks.md)); whether a fix's own notes draw pins sooner is still unsettled ([the latest reading](the-lead-was-a-few-libraries.md))."
+        }
+      ]
+    },
+    {
+      "id": "four",
+      "path": "articles/pins-move-over-weeks.md",
+      "title": "A wider reading changed the story",
+      "lines": [
+        "A wider reading",
+        "changed the story"
+      ],
+      "status": "The burst did not generalise",
+      "summary": "Four libraries showed pin changes over weeks, with no advisory burst. A pin move remained a request, not an installation.",
+      "passage": "There was no burst. Four of the 102 moved within a day after the advisory. pyjwt's and starlette's advisories, like the ones we saw before, came weeks after their fixes, and in the day after them one pinned project moved.",
+      "passages": [
+        {
+          "label": "Result",
+          "passage": "There was no burst. Four of the 102 moved within a day after the advisory. pyjwt's and starlette's advisories, like the ones we saw before, came weeks after their fixes, and in the day after them one pinned project moved."
+        },
+        {
+          "label": "Pin moves",
+          "passage": "By 27 September, 73 of the 102 had moved to the fix, 28 had not, and one had stopped pinning the library. The typical move, the median, came 18.7 days after the fix was released, and half of them fell between one and five weeks after it. Of the 73, 19 came before the advisory and 54 after it. For pyjwt and starlette, whose advisories came weeks after their fixes, 13 of the 30 moves came before the advisory."
+        },
+        {
+          "label": "Limit",
+          "passage": "And a move is a request. It changes what the project's next build or installation would take; it says nothing about what was installed or run. We did not check whether any project used the parts of these libraries the advisories concern, and nothing here says that any project was exposed."
+        }
+      ]
+    },
+    {
+      "id": "notes",
+      "path": "articles/fixes-that-said-so.md",
+      "title": "Could the release notes explain it?",
+      "lines": [
+        "Could the release",
+        "notes explain it?"
+      ],
+      "status": "Early lead, later qualified",
+      "summary": "Fourteen libraries offered a lead for fixes whose own notes said so. Two libraries carried much of it; a wider reading left it unsettled.",
+      "passage": "That share is not a fair comparison by itself, because the announced fixes' advisories came sooner. The typical announced fix, the median, had its advisory 3.9 days after its release, and the typical silent one 10.6 days after, so software pinning an announced fix had less time in which to move before the advisory. To compare fairly we counted, as last time, how many of the projects still waiting moved on each day. From the release to the advisory, a little over two in every hundred waiting projects moved each day to an announced fix (2.4), and a little under one and a half to a silent one (1.4): about 1.7 times the pace.",
+      "passages": [
+        {
+          "label": "Earlier result",
+          "passage": "That share is not a fair comparison by itself, because the announced fixes' advisories came sooner. The typical announced fix, the median, had its advisory 3.9 days after its release, and the typical silent one 10.6 days after, so software pinning an announced fix had less time in which to move before the advisory. To compare fairly we counted, as last time, how many of the projects still waiting moved on each day. From the release to the advisory, a little over two in every hundred waiting projects moved each day to an announced fix (2.4), and a little under one and a half to a silent one (1.4): about 1.7 times the pace."
+        },
+        {
+          "label": "Concentration",
+          "passage": "Each library gave one fix, so every difference between the two kinds is also a difference between seven libraries and seven others: their users, their bots, how often the projects that use them change anything. Two libraries carry much of the announced fixes' lead. gitpython's dependents moved fastest of all, and gave 8 of the 29 moves to announced fixes before the advisory, six of them in its first two days, four of those Renovate's. pyjwt's advisory came 25 days after its fix and gave 10 more. Leaving out any one library keeps the announced fixes ahead, but leaving out gitpython leaves them only just ahead (1.8 a day, against between 1.1 and 1.7 for the silent fixes with any one library left out). The days that make the difference rest on 13 moves against 5, and three of the 13 were one organisation's repositories, moved within 46 minutes on one July morning. We ran no test of significance; at counts this small, the noise in a rate is about as large as the difference."
+        },
+        {
+          "label": "Later qualification",
+          "passage": "> **Later evidence, 27 September 2026.** Counting thirty libraries once each, a later reading could not tell how fast pinned software moved before the advisory to fixes whose notes said so from how fast it moved to silent ones, and the pooled lead it found was too uncertain to call. This is a wider follow-up, not a correction; the figures here stand. [The latest reading](the-lead-was-a-few-libraries.md)."
+        }
+      ]
+    },
+    {
+      "id": "open",
+      "path": "articles/the-lead-was-a-few-libraries.md",
+      "title": "More libraries left the answer open",
+      "lines": [
+        "More libraries left",
+        "the answer open"
+      ],
+      "status": "Still unsettled",
+      "summary": "Across thirty libraries, the pooled count leaned one way, but typical libraries could not be distinguished. The sample settled neither an effect nor its absence.",
+      "passage": "Our earlier reading said that pinned software moved faster before the advisory to fixes whose notes said so, mostly in people's changes in the week after the release, and that with one fix for each library the notes could not be told apart from the library. Counting thirty libraries, each once, does not resolve that doubt. We could not tell the typical library whose fix said so from the typical library whose fix did not, and the week that carried the earlier difference shows no difference here. The pooled count still leans the announced way, by about one and a half times by our rule and by more when earlier notices are counted, and no single library's removal changes that; but by our own rule resampling the libraries puts even the pooled lead within reach of no difference, and the readings that do not reach it were chosen after the fact. So we do not say the notes make no difference, and we do not say they make one. This sample cannot settle it.",
+      "passages": [
+        {
+          "label": "Current conclusion",
+          "passage": "Our earlier reading said that pinned software moved faster before the advisory to fixes whose notes said so, mostly in people's changes in the week after the release, and that with one fix for each library the notes could not be told apart from the library. Counting thirty libraries, each once, does not resolve that doubt. We could not tell the typical library whose fix said so from the typical library whose fix did not, and the week that carried the earlier difference shows no difference here. The pooled count still leans the announced way, by about one and a half times by our rule and by more when earlier notices are counted, and no single library's removal changes that; but by our own rule resampling the libraries puts even the pooled lead within reach of no difference, and the readings that do not reach it were chosen after the fact. So we do not say the notes make no difference, and we do not say they make one. This sample cannot settle it."
+        }
+      ]
+    },
+    {
+      "id": "pace",
+      "path": "articles/two-days-for-most.md",
+      "title": "Test the fast road more widely",
+      "lines": [
+        "Test the fast road",
+        "more widely"
+      ],
+      "status": "Most releases in top libraries",
+      "summary": "Most releases reached half the downloads within two days in 26 of 37 heavily downloaded libraries. Later lower-rank samples differed, and a share of fetches did not measure installed uptake.",
+      "passage": "For 26 of the 37 libraries, most releases reached half of the downloads within two days: 70 per cent of the libraries. Resampling the libraries puts that share anywhere from 54 to 84 per cent, so a different set of libraries could give a different count. For 21 of the 26 every release reached half; for the other five, most did.",
+      "passages": [
+        {
+          "label": "Result",
+          "passage": "For 26 of the 37 libraries, most releases reached half of the downloads within two days: 70 per cent of the libraries. Resampling the libraries puts that share anywhere from 54 to 84 per cent, so a different set of libraries could give a different count. For 21 of the 26 every release reached half; for the other five, most did."
+        },
+        {
+          "label": "Corrected reading",
+          "passage": "The chart shows something we had not set out to measure. In every library but litellm, whatever share the typical new version held on the day after its release was most of what it held a month later: for 34 of the 37 libraries, the typical release's share a month later was within ten points of its share on the day after. We noticed this only when we drew the chart, after every count was in, so it describes these releases and is not yet a tested result; our next reading will measure it on releases we have not read. The share did not stand still in that month, though, as we saw only after this piece first appeared. It crept up, by about four points in the typical library, and 378 of the 418 releases whose month we read held more a month on than on the day after."
+        },
+        {
+          "label": "Fetch limit",
+          "passage": "A download is a fetch, not a person or a machine. A build server that sets up from scratch fifty times a day counts fifty times; a laptop, or a company's proxy, that keeps a copy counts once or not at all. So a share of downloads leans towards whatever fetches most often, and the part that stays on older versions could be a few environments fetching many times over, or many fetching once. The log cannot tell which."
+        }
+      ]
+    }
+  ],
+  "edges": [
+    {
+      "id": "history-1",
+      "subject": "projects",
+      "object": "downloads",
+      "predicate": "extends",
+      "path": "articles/what-a-download-shows.md",
+      "passage": "We had followed this release before, [through the public histories of those nine projects](where-a-software-update-went.md), and the trail stopped where every public record we read stopped: at the machines where the code was installed. One public record looks past that edge, the log of files downloaded from the Python Package Index. We read it for the same four weeks. It shows the new version arriving in days, carried, we think, by the programs that install software rather than by any project's decision. And what it sees is a download: never an installation, and never a run.",
+      "reading_direction": "Earlier reading to later reading; the verb describes how the later reading treats the earlier.",
+      "status": "checked against retained records"
+    },
+    {
+      "id": "history-2",
+      "subject": "downloads",
+      "object": "images",
+      "predicate": "extends",
+      "path": "articles/what-an-image-holds.md",
+      "passage": "We have been following this one release outward. [The projects' histories](where-a-software-update-went.md) showed what each project chose. [The download log](what-a-download-shows.md) showed the new version at half of all the library's downloads within two days, and stopped at the download. This time we read the installations themselves, one at a time, in the packaged environments some projects publish. They show that what a project pins and what its software installs can differ, and that what decides the installed version is how the software is built.",
+      "reading_direction": "Earlier reading to later reading; the verb describes how the later reading treats the earlier.",
+      "status": "checked against retained records"
+    },
+    {
+      "id": "history-3",
+      "subject": "images",
+      "object": "advisory",
+      "predicate": "tests and branches",
+      "path": "articles/what-moves-a-pin.md",
+      "passage": "We have been following releases of this library outward. [The projects' histories](where-a-software-update-went.md) showed what each project chose, [the download log](what-a-download-shows.md) showed a new version at half of all downloads within two days, and [the published images](what-an-image-holds.md) of six projects showed what their installers actually put in place. This time we took a later release, 1.28.0 of 16 June, and read the published images of a sample of the software built on it, fixed by a rule before we read any image. The images show two paces. Those whose installer settles an open range of versions took the new release within days, keeping pace with the download log. Those built from a lockfile or an exact pin took it only when the pin moved. For most of them that was a month or more later, if it had happened at all by mid-August, and the largest group moved in the day after the advisory, most of them in changes a bot had written, rather than after the release.",
+      "reading_direction": "Earlier reading to later reading; the verb describes how the later reading treats the earlier.",
+      "status": "checked against retained records"
+    },
+    {
+      "id": "history-4",
+      "subject": "advisory",
+      "object": "four",
+      "predicate": "revises",
+      "path": "articles/pins-move-over-weeks.md",
+      "passage": "Last time, in one library, we wrote that if the pattern held more widely, a release would reach pinned software mostly when there was a security reason to take it. Across these four libraries it did not hold in that form. The advisory brought about a week of quicker moves, no bigger than the release's two days, and most moves came at neither moment. We think the burst we saw after that library's advisories belonged to that library, or to that evening, and was not the rule. What survives is smaller: a fix, with its advisory, moved about twice as many pins in its first month as a release no advisory named, and about half of those moves were a bot's work.",
+      "reading_direction": "Earlier reading to later reading; the verb describes how the later reading treats the earlier.",
+      "status": "checked against retained records"
+    },
+    {
+      "id": "history-5",
+      "subject": "four",
+      "object": "notes",
+      "predicate": "narrows",
+      "path": "articles/fixes-that-said-so.md",
+      "passage": "In [our last piece](pins-move-over-weeks.md) we followed software that pins pyjwt as it moved to that fix, and counted ten of its 25 moves as coming before the advisory. They did not come before anyone had been told. The project had said so itself, in its own notes, on the day it released the fix. So this time we read the notes of every fix behind the advisories we had studied, sorted the fixes into those that said they mended a security flaw and those that did not, and asked whether pinned software moved sooner to the first kind. It did, in a particular way: at the same pace in the first two days after the release, much of it bots' work, and at about twice the pace in the rest of the first week, when most of the moves were people's. But no larger share of the moves came before the advisory, and with one fix for each library we cannot tell a fix's notes apart from the library it belongs to.",
+      "reading_direction": "Earlier reading to later reading; the verb describes how the later reading treats the earlier.",
+      "status": "checked against retained records"
+    },
+    {
+      "id": "history-6",
+      "subject": "notes",
+      "object": "open",
+      "predicate": "widens and revises",
+      "path": "articles/the-lead-was-a-few-libraries.md",
+      "passage": "Our earlier reading said that pinned software moved faster before the advisory to fixes whose notes said so, mostly in people's changes in the week after the release, and that with one fix for each library the notes could not be told apart from the library. Counting thirty libraries, each once, does not resolve that doubt. We could not tell the typical library whose fix said so from the typical library whose fix did not, and the week that carried the earlier difference shows no difference here. The pooled count still leans the announced way, by about one and a half times by our rule and by more when earlier notices are counted, and no single library's removal changes that; but by our own rule resampling the libraries puts even the pooled lead within reach of no difference, and the readings that do not reach it were chosen after the fact. So we do not say the notes make no difference, and we do not say they make one. This sample cannot settle it.",
+      "reading_direction": "Earlier reading to later reading; the verb describes how the later reading treats the earlier.",
+      "status": "checked against retained records"
+    },
+    {
+      "id": "history-7",
+      "subject": "downloads",
+      "object": "pace",
+      "predicate": "tests more widely",
+      "path": "articles/two-days-for-most.md",
+      "passage": "Anything that spreads through software, a fix, a flaw or something stranger, travels the same roads as an ordinary update, and nobody can call a spread unusual without knowing how ordinary ones go. We had measured that once, for one release of one library, which reached half of its downloads within two days. So we measured it for every release of the most downloaded Python libraries over five months. For most of them, a new version was half of all downloads by the next day; for eleven, no release was. But what ran through almost all of them was what requests and pandas showed: a new version took most of its share almost at once, and then, for a month, older versions went on being downloaded beside it.",
+      "reading_direction": "Earlier reading to later reading; the verb describes how the later reading treats the earlier.",
+      "status": "checked against retained records"
+    },
+    {
+      "id": "history-8",
+      "subject": "open",
+      "object": "pace",
+      "predicate": "returns to a question",
+      "path": "investigations/software-updates.md",
+      "passage": "- From projects to downloads: the histories stopped at what projects asked for, so we looked for a record on the far side of the release.\n- From downloads to images: the log could not say what was installed, so we read the installations some projects publish.\n- From installation to what moves a pin: images showed that pinned software waits, so the question became what ends the wait.\n- From advisories to the fix's own notes: fixes came out before their advisories, so a move \"before the advisory\" was not a move before anyone knew.\n- From fourteen libraries to thirty: two libraries carried the lead, so each library had to count once.\n- From the notes back to downloads: five months of advisories held too few libraries, so the next reading returned to how fast releases reach downloads.\n- From the pace to what stays behind: in almost every library a new version took most of its share on the first day and older versions kept the rest, so the question became what keeps older versions downloaded.\n- From the top fifty to the rest of the rankings: the pace had been measured only for the libraries almost everything depends on, so while the next reading waited for its weeks, it was measured on libraries drawn from further down.\n- From the downloads back to the pins: while the weekly reading waited, and because a lockfile holds only the builds that read it, we asked whether the pins we had timed decide what a project's own container recipe would install.\n- From recipes to tests: a container recipe read its lockfile only half the time, and test runs are the installs a build server repeats, so we asked whether the same projects' workflows read the pin.\n- From what stays behind to whether it holds: old Pythons and other libraries' limits could account for the older downloads of few libraries, and downloads reporting one Python made nearly two thirds of boto3's in the week read, so the question became whether what stays behind is steady from week to week.",
+      "reading_direction": "Earlier reading to later reading; the verb describes how the later reading treats the earlier.",
+      "status": "checked against retained records"
+    }
+  ],
+  "continuations": [
+    {
+      "title": "What older downloads can tell us",
+      "path": "articles/old-versions-new-pythons.md"
+    },
+    {
+      "title": "Test beyond the most downloaded libraries",
+      "path": "articles/rarer-further-down.md"
+    },
+    {
+      "title": "Follow recipes into test workflows",
+      "path": "articles/tests-read-the-lockfile.md"
+    }
+  ]
+}

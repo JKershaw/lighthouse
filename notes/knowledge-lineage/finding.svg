@@ -1,0 +1,45 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 360 478" width="360" height="478" role="img" aria-labelledby="chart-title chart-desc">
+<title id="chart-title">How a claim changed after review</title>
+<desc id="chart-desc">Four directly linked records. The earlier essay cites METR’s tentative account, shown by a dotted arrow pointing upwards. A later review challenges the earlier essay, and the corrected claim revises it, with solid arrows pointing back to the earlier wording. These are evidence relationships, not a causal or time scale.</desc>
+<style>
+svg { --bg:#fbfaf7; --ink:#1f1f1f; --muted:#5d5850; --grid:#e3ddd1; --teal:#1f6576; --amber:#93600c; --purple:#78549b; --blue:#2866ab; --neutral:#74716a; color-scheme:light dark; }
+@media (prefers-color-scheme: dark) { svg { --bg:#15191b; --ink:#e6e2d9; --muted:#aaa498; --grid:#2f3538; --teal:#8ec4d4; --amber:#e0a650; --purple:#c6a7df; --blue:#8bb9ed; --neutral:#aaa498; } }
+text { font-family:"Source Sans 3", "Source Sans Pro", system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif; font-variant-numeric:tabular-nums lining-nums; fill:var(--ink); }
+.head { font-size:17px; font-weight:600; }
+.sub { font-size:13px; fill:var(--muted); }
+.ann,.ax { font-size:12px; fill:var(--muted); }
+.nm { font-size:12px; font-weight:600; }
+.note { font-size:11.5px; fill:var(--muted); }
+.sec { font-size:14px; font-weight:600; }
+.grid { stroke:var(--grid); stroke-width:1; }
+.axis { stroke:var(--muted); stroke-width:1; }
+</style>
+<defs><marker id="arrow" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M0 0 L10 5 L0 10Z" fill="var(--muted)"/></marker></defs>
+<rect width="360" height="478" fill="var(--bg)"/>
+<g fill="none" stroke="var(--muted)" stroke-width="1.7" marker-end="url(#arrow)">
+<path d="M180 174 L180 88" stroke-dasharray="3 4"/>
+<path d="M90 353 L122 247"/>
+<path d="M270 353 L238 247"/>
+</g>
+<text x="191" y="125" class="nm">cites</text><text x="191" y="143" class="ann">Reported</text>
+<text x="12" y="294" class="nm">challenges</text><text x="12" y="312" class="ann">Checked</text>
+<text x="277" y="294" class="nm">revises</text><text x="277" y="312" class="ann">Checked</text>
+<a href="https://github.com/JKershaw/lighthouse/blob/8af0cb026037a8ee63456900978b3c44473c49cd/notes/it-was-only-a-test/claims-check-claude.md#L26-L26" aria-label="An interpretation, with limits: exact retained passage"><rect x="30" y="15" width="300" height="72" rx="2" fill="var(--bg)" stroke="var(--muted)" stroke-width="1.4"/>
+<text x="40" y="33" class="ann">Source account</text>
+<text x="40" y="54" font-size="14" font-weight="600">A tentative account of motive</text>
+</a>
+<a href="https://github.com/JKershaw/lighthouse/blob/8af0cb026037a8ee63456900978b3c44473c49cd/notes/it-was-only-a-test/reviewed-draft.md#L75-L75" aria-label="The essay went further: exact retained passage"><rect x="30" y="175" width="300" height="72" rx="2" fill="var(--bg)" stroke="var(--muted)" stroke-width="1.4"/>
+<text x="40" y="193" class="ann">Essay, before correction</text>
+<text x="40" y="214" font-size="14" font-weight="600">Earlier wording went further</text>
+</a>
+<a href="https://github.com/JKershaw/lighthouse/blob/8af0cb026037a8ee63456900978b3c44473c49cd/notes/it-was-only-a-test/claims-check-claude.md#L26-L26" aria-label="A checker challenged the wording: exact retained passage"><rect x="10" y="354" width="160" height="72" rx="2" fill="var(--bg)" stroke="var(--muted)" stroke-width="1.4"/>
+<text x="20" y="372" class="ann">Later review</text>
+<text x="20" y="393" font-size="14" font-weight="600">Wording</text>
+<text x="20" y="411" font-size="14" font-weight="600">challenged</text>
+</a>
+<a href="https://github.com/JKershaw/lighthouse/blob/8af0cb026037a8ee63456900978b3c44473c49cd/notes/it-was-only-a-test/claims-table.md#L59-L59" aria-label="The uncertainty returned: exact retained passage"><rect x="190" y="354" width="160" height="72" rx="2" fill="var(--bg)" stroke="var(--muted)" stroke-width="1.4"/>
+<text x="200" y="372" class="ann">Corrected claim</text>
+<text x="200" y="393" font-size="14" font-weight="600">Uncertainty</text>
+<text x="200" y="411" font-size="14" font-weight="600">restored</text>
+</a>
+<text x="12" y="454" class="ann">8 November records, selected retrospectively.</text><text x="12" y="472" class="ann">Arrows name relationships, not measured causes.</text></svg>

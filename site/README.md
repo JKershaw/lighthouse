@@ -69,3 +69,9 @@ Pieces and essays keep `status: released` or `status: draft` as the publication 
 Under a piece's byline, the site shows Draft, Developing, Revised or Released, its latest dated revision kind, and any explicit next revision. Developing takes priority over Revised; a developing account remains released and eligible for listings. The same state appears in listings and as a second Atom category under the publication-state scheme; an explicit next revision also accompanies the feed summary.
 
 The revision history at a piece's end combines its dated Correction and Later evidence notices with `revised` header items, newest date first. Same-day items retain source order rather than invent a clock. A link labelled earlier/previous edition or version in the revision text is shown as Earlier edition; no missing edition is guessed or reconstructed. Notices link back to their anchors in the piece. The history retains complete notice text, its source links and qualifications.
+
+## Knowledge Lineage
+
+`/map/knowledge-lineage/` provides overview, thread and evidence levels, plus a linked record page for every admitted study and publication. Its catalogue refreshes in `prebuild` from the checked-out commit; released publications, working studies, reviews and checkpoints retain distinct roles. Reviewed navigation is separate from the original pilot baseline. Changed source hashes withhold stale interpretations while preserving links to the current records. See [maintenance](../notes/knowledge-lineage/maintenance.md) for the bounded annotation/review step and separate curation reference.
+
+The Knowledge Lineage verification workflow runs unit, root/subdirectory link and real Chromium tests before merge. It exercises phone, tablet and desktop layouts in light and dark, native keyboard disclosures and all study pages with JavaScript disabled. Human-reader and assistive-technology validation remain separate from browser automation.

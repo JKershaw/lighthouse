@@ -1,0 +1,59 @@
+{
+  "adjudicator": "OpenAI Codex pilot author; exact model unavailable; unblinded",
+  "date": "2026-11-10",
+  "sources": [
+    "baseline-review.md",
+    "assisted-review.md"
+  ],
+  "criteria": "1 correct with retained pinpoint and limits; 0.5 incomplete; 0 wrong/unsupported",
+  "items": [
+    {
+      "question": 1,
+      "baseline": 1,
+      "assisted": 1,
+      "reason": "Both locate R01, METR, its source pinpoint and the limit on reproducing private incident logs."
+    },
+    {
+      "question": 2,
+      "baseline": 1,
+      "assisted": 1,
+      "reason": "Both interpret original-table ordinal6 as R06, locate the attributed participation estimate and distinguish it from a Lighthouse count. The protocol wording was ambiguous; the conditions agree on this interpretation."
+    },
+    {
+      "question": 3,
+      "baseline": 1,
+      "assisted": 1,
+      "reason": "Both locate all seven unreadable rows and preserve the separate later source verification and forensic limit."
+    },
+    {
+      "question": 4,
+      "baseline": 1,
+      "assisted": 1,
+      "reason": "Baseline uses the actual-reuse correction; assisted uses motive wording. Both are valid answers to the fixed any-correction question and preserve causal limits."
+    },
+    {
+      "question": 5,
+      "baseline": 1,
+      "assisted": 1,
+      "reason": "Both locate the provider report and separate severity, prediction, listing, fixes and exploitation. Assisted also inspects a retained compressed body; baseline uses the retained brief, which meets the task."
+    },
+    {
+      "question": 6,
+      "baseline": 1,
+      "assisted": 1,
+      "reason": "Both locate the explicit private-report unknown and reject reservation/commit clocks as substitutes."
+    },
+    {
+      "question": 7,
+      "baseline": 1,
+      "assisted": 1,
+      "reason": "Both find uptake and benefit unestablished and identify the additional measurement and attribution design as a proposed requirement."
+    },
+    {
+      "question": 8,
+      "baseline": 1,
+      "assisted": 1,
+      "reason": "Both keep the cross-thread connection thematic. Assisted also finds explicit within-thread reading of an earlier brief, without promoting it into cross-thread influence."
+    }
+  ]
+}

@@ -1,0 +1,23 @@
+---
+layout: base.njk
+---
+<link rel="stylesheet" href="/assets/lineage.css">
+<article class="lineage-page">
+<nav class="lineage-crumb"><a href="/map/knowledge-lineage/">Knowledge map</a> / {{ record.kind | capitalize }}</nav>
+<p class="kicker">{{ record.explanation.state if record.explanation else ('Working record' if record.kind == 'study' else ('Released essay' if record.kind == 'essay' else 'Released finding')) }}</p>
+<h1>{{ record.label or record.title }}</h1>
+{% if record.explanation %}
+<h2>The question</h2><p>{{ record.explanation.question | escape }}</p>
+<h2>What the record says</h2><p>{{ record.explanation.summary | escape }}</p>
+<aside class="lineage-aside"><h3>Where the answer stops</h3><p>{{ record.explanation.limit | escape }}</p></aside>
+<details class="knowledge-disclosure"><summary>Check the summary against the record</summary><ul>{% for item in record.explanation.evidence %}<li><a href="{{ item.url }}">{{ item.label }}</a></li>{% endfor %}</ul></details>
+{% else %}{% if record.needs_review %}<p>Earlier navigation summary awaits checking against this edition. Read the current record below.</p>{% endif %}<p class="lineage-deck">{{ record.summary | escape }}</p>{% endif %}
+<p><a href="{{ record.url }}">Read the {{ 'study record' if record.kind == 'study' else 'full piece' }}</a></p>
+{% if record.notices.length %}<aside class="lineage-aside"><h3>This account has changed</h3><ul>{% for notice in record.notices %}<li>{{ notice.kind }} · {{ notice.date }}</li>{% endfor %}</ul><p>Read the notices in the full piece for the current account.</p></aside>{% endif %}
+{% if record.incoming.length or record.outgoing.length %}<section><h2>Follow the connections</h2><p>These are explicit references between records. The link itself does not establish support or intellectual influence.</p>
+{% if record.outgoing.length %}<h3>Referenced by this record</h3><ul>{% for item in record.outgoing %}<li><a href="{{ item.mapUrl }}">{{ item.label or item.title }}</a> <span class="lineage-small">{{ item.kind }}</span></li>{% endfor %}</ul>{% endif %}
+{% if record.incoming.length %}<h3>Records that refer back here</h3><ul>{% for item in record.incoming %}<li><a href="{{ item.mapUrl }}">{{ item.label or item.title }}</a> <span class="lineage-small">{{ item.kind }}</span></li>{% endfor %}</ul>{% endif %}</section>{% endif %}
+{% if record.review_records.length %}<details class="knowledge-disclosure"><summary>Reviews and checking history · {{ record.review_records.length }}</summary><ul>{% for item in record.review_records %}<li><a href="{{ item.url }}">{{ item.title }}</a></li>{% endfor %}</ul></details>{% endif %}
+{% if record.checkpoints.length %}<details class="knowledge-disclosure"><summary>Dated checkpoints · {{ record.checkpoints.length }}</summary><ul>{% for item in record.checkpoints %}<li><a href="{{ item.url }}">{{ item.title }}</a></li>{% endfor %}</ul></details>{% endif %}
+<p class="lineage-small">{% if record.explanation or record.kind != 'study' %}Navigation summary checked against the retained record.{% else %}Read the linked source for this record’s current account.{% endif %} A record being written does not by itself mean that its study or investigation has ended.</p>
+</article>

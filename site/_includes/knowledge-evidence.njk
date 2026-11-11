@@ -1,0 +1,44 @@
+---
+layout: base.njk
+---
+<link rel="stylesheet" href="/assets/lineage.css">
+<article class="lineage-page" id="evidence-page">
+  <nav class="lineage-crumb" aria-label="Breadcrumb"><a href="/map/knowledge-lineage/">Knowledge map</a> / <a href="/map/knowledge-lineage/trails/">Follow a thread</a> / Evidence</nav>
+  <p class="kicker">Knowledge Lineage · Evidence record</p>
+  <h1>Check the evidence.</h1>
+  <p class="lineage-deck">Read the passages, relationships and limits behind the two pilot trails.</p>
+  <section id="connections" aria-labelledby="connections-title">
+    <h2 id="connections-title">Read the connections</h2>
+    <p>A plain text equivalent of the trails. Each relationship names its direction, basis and limit. “Reported” attributes an account; “checked” verifies a record link. Inferred leads stay separate. A disputed status is supported by the data rules, but no additional disputed connection is asserted here.</p>
+    {% for edge in lineage.edges %}{% if edge.id.startsWith('trail-') %}
+    <details class="lineage-evidence" id="relation-{{ edge.id }}">
+      <summary>{{ edge.subjectTitle | escape }} <span class="lineage-predicate">{{ edge.predicate | escape }}</span> {{ edge.objectTitle | escape }} <span class="lineage-status">{{ edge.status | capitalize }}</span></summary>
+      <p>{{ edge.qualification | escape }}</p>
+      <blockquote>{{ edge.evidence.passage | escape }}</blockquote>
+      <p><a href="{{ edge.evidence.url }}">Open the exact passage at the frozen revision</a>. Pilot inspected {{ edge.pilot_read_date }}. Asserted by {{ edge.asserted_by | escape }}.</p>
+    </details>
+    {% endif %}{% endfor %}
+  </section>
+  <section id="sample" aria-labelledby="sample-title">
+    <h2 id="sample-title">Explore the small claims sample</h2>
+    <p>{{ lineage.sampling.selected_claim_rows }} rows, chosen by position from {{ lineage.sampling.total_claim_rows }} current rows. The earlier review covered 83. The sample is a way to test traceability, not a measure of the wider research landscape.</p>
+    {% for claim in lineage.claims %}
+    <details class="lineage-evidence" id="{{ claim.id }}">
+      <summary>{{ claim.text | escape }}</summary>
+      <p><strong>Retained status:</strong> {{ claim.evidence_status | escape }}. Row {{ claim.id }}; position {{ claim.ordinal }}.</p>
+      <p><strong>Source pinpoint:</strong> {{ claim.source_pinpoint | escape }}. Quote/location key: {{ claim.quote_anchor | escape }}.</p>
+      <p><a href="{{ claim.evidence.url }}">Exact claim row</a>{% for source in claim.sources %} · <a href="{{ source.url }}">Source {{ source.id }}</a>{% endfor %}</p>
+      <p><strong>Primary passage access:</strong> {{ claim.primary_passage_access | escape }}.{% if claim.historical_review %} <a href="{{ claim.historical_review.url }}">Historical reviewer row</a>. Its verdict predates the corrected row.{% endif %}</p>
+      <p class="lineage-small">The pilot checked this link’s extraction. It did not independently confirm the underlying event or refetch the source.</p>
+    </details>
+    {% endfor %}
+  </section>
+  <section id="boundary" aria-labelledby="boundary-title">
+    <h2 id="boundary-title">A useful trail has an edge</h2>
+    <p>The external sample lists {{ lineage.sampling.external_panel_records }} URLs from existing source panels. Membership is not proof of a successful read. This pilot collects no new external pages and makes no claim to find the origin of AI security research.</p>
+    <details class="lineage-evidence"><summary>See the selected external records</summary><ul>{% for record in lineage.external %}<li><a href="{{ record.url }}">{{ record.url | escape }}</a> · <a href="{{ record.evidence.url }}">Panel entry</a><p>{{ record.access | escape }}</p></li>{% endfor %}</ul></details>
+    <p>The original full-text source pack is outside this repository. References to it are retained as unresolved, rather than turned into invented links. Source publication dates, read dates and the pilot’s inspection date are separate fields in the export.</p>
+    <p><a href="/map/knowledge-lineage/data.json">Download the versioned graph data</a> · <a href="/notes/knowledge-lineage/protocol/">Read the fixed protocol</a> · <a href="/notes/knowledge-lineage/README/">Pilot record and evaluation</a></p>
+    <p class="lineage-small">Prepared by OpenAI Codex from frozen Lighthouse records. Navigation summaries and source links have been checked; the underlying records retain their own publication states. Existing publications retain their own review and correction histories.</p>
+  </section>
+</article>

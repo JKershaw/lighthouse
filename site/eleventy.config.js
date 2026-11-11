@@ -5,6 +5,8 @@
 // of pages to maintain.
 
 import path from "node:path";
+import { loadLineage } from "./lib/lineage.js";
+import { loadKnowledgeMap } from "./lib/knowledge-map.js";
 import fs from "node:fs";
 import { fileURLToPath } from "node:url";
 import { HtmlBasePlugin } from "@11ty/eleventy";
@@ -22,7 +24,13 @@ const siteDir = path.dirname(fileURLToPath(import.meta.url));
 const root = path.resolve(siteDir, "..");
 
 let repo = null;
-const getRepo = () => repo || (repo = scanRepo(root));
+const getRepo = () => {
+  if (!repo) {
+    repo = scanRepo(root);
+    if (loadLineage(root)) for (const route of ["map/knowledge-lineage", "map/knowledge-lineage/trails", "map/knowledge-lineage/evidence"]) repo.siteDirs.add(route);
+  }
+  return repo;
+};
 const relPath = (inputPath) => path.relative(root, path.resolve(inputPath)).split(path.sep).join("/");
 const docFor = (data) => (data.page && data.page.inputPath ? getRepo().byPath[relPath(data.page.inputPath)] : null) || null;
 
@@ -33,7 +41,8 @@ export default function (eleventyConfig) {
 
   // Rescan at the start of every build, so serve mode sees new files.
   eleventyConfig.on("eleventy.before", () => {
-    repo = scanRepo(root);
+    repo = null;
+    getRepo();
     unresolved.length = 0;
   });
   eleventyConfig.on("eleventy.after", () => {
@@ -51,6 +60,29 @@ export default function (eleventyConfig) {
   // Images and illustrations beside the Markdown, and the site's own assets.
   for (const image of getRepo().images) eleventyConfig.addPassthroughCopy(image);
   eleventyConfig.addPassthroughCopy({ "site/assets": "assets" });
+
+  // A bounded, explicitly unreviewed view of retained evidence. No release/feed entry.
+  eleventyConfig.addGlobalData("lineage", () => loadLineage(root));
+  eleventyConfig.addGlobalData("knowledgeMap", () => loadKnowledgeMap(root));
+  if (loadLineage(root)) {
+    eleventyConfig.addTemplate("_lighthouse/knowledge-lineage.njk", "", {
+      layout: "knowledge-overview.njk", permalink: "/map/knowledge-lineage/",
+      title: "A map of what we know", section: "map",
+    });
+    eleventyConfig.addTemplate("_lighthouse/knowledge-record.njk", "", {
+      layout: "knowledge-record.njk", section: "map", pagination: {data:"knowledgeMap.recordPages",size:1,alias:"record"},
+      permalink: data => data.record.mapUrl,
+      eleventyComputed: {title:data=>data.record.title},
+    });
+    eleventyConfig.addTemplate("_lighthouse/knowledge-trails.njk", "", {
+      layout: "knowledge-lineage.njk", permalink: "/map/knowledge-lineage/trails/", title: "Follow a thread", section: "map",
+    });
+    eleventyConfig.addTemplate("_lighthouse/knowledge-evidence.njk", "", {
+      layout: "knowledge-evidence.njk", permalink: "/map/knowledge-lineage/evidence/", title: "Check the evidence", section: "map",
+    });
+    eleventyConfig.addPassthroughCopy({ "site/.generated/knowledge-map.json": "map/knowledge-lineage/overview.json" });
+    eleventyConfig.addPassthroughCopy({ "notes/knowledge-lineage/graph.json": "map/knowledge-lineage/data.json" });
+  }
 
   // Markdown: no raw HTML (the records quote angle brackets as text), bare
   // URLs linked as GitHub does, and the repository-aware plugin.

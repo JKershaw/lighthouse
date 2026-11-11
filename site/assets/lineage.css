@@ -1,0 +1,130 @@
+/* Knowledge Lineage is a reading route, not a spatial influence score. */
+.lineage-page { font-family: var(--sans); padding-bottom: 2rem; }
+.lineage-crumb { font-size: .88rem; margin-bottom: 2rem; color: var(--muted); }
+.lineage-page h1 { font-family: var(--serif); font-size: clamp(2.7rem, 8vw, 4.2rem); font-weight: 400; line-height: 1.08; letter-spacing: -.035em; margin: .7rem 0 1.1rem; }
+.lineage-deck { font-family: var(--serif); font-size: 1.4rem; line-height: 1.5; }
+.lineage-boundary, .lineage-reading-key { color: var(--muted); font-size: 1rem; }
+.lineage-choices { display: grid; grid-template-columns: 1fr 1fr; gap: .8rem; margin: 2rem 0; }
+.lineage-choices a { border: 1px solid var(--muted); padding: 1rem; text-decoration: none; min-height: 7rem; }
+.lineage-choices span { display: block; text-transform: uppercase; letter-spacing: .06em; font-size: .78rem; margin-bottom: .5rem; color: var(--muted); }
+.lineage-choices strong { font-size: 1.1rem; font-weight: 600; }
+.lineage-trail { padding-top: 2.4rem; margin-top: 2rem; border-top: 1px solid var(--rule); scroll-margin-top: 1rem; }
+.lineage-page h2 { font-family: var(--serif); font-size: 2rem; font-weight: 400; line-height: 1.2; margin: .6rem 0 1rem; }
+.lineage-page h3 { font-size: 1.2rem; line-height: 1.35; margin: .3rem 0 .7rem; }
+.lineage-page h3 a { color: var(--ink); text-decoration-color: var(--muted); }
+.lineage-figure { margin: 1.8rem 0; }
+.lineage-steps { list-style: none; counter-reset: step; margin: 0; padding: 0 0 0 1.6rem; }
+.lineage-step { position: relative; padding: 0 0 1.7rem 1.2rem; border-left: 2px solid var(--rule); counter-increment: step; }
+
+.lineage-step:last-child { border-left-color: transparent; padding-bottom: .5rem; }
+.lineage-step::before { content: counter(step); position: absolute; left: -1rem; top: .8rem; background: var(--bg); color: var(--ink); border: 1.5px solid var(--muted); border-radius: 50%; width: 1.9rem; height: 1.9rem; text-align: center; line-height: 1.7rem; font-size: .8rem; font-variant-numeric: tabular-nums; }
+.lineage-card { border: 1px solid var(--rule); background: var(--tint); padding: 1.2rem; }
+.lineage-card p { font-size: 1.04rem; line-height: 1.5; }
+.lineage-card .lineage-kind { font-size: .77rem; text-transform: uppercase; letter-spacing: .07em; color: var(--muted); margin-bottom: .5rem; }
+.lineage-clocks { display: grid; grid-template-columns: 1fr 1fr; gap: .6rem; border-top: 1px solid var(--rule); padding-top: .7rem; margin-bottom: .7rem; font-size: .86rem; }
+.lineage-clocks dt { color: var(--muted); line-height: 1.3; }
+.lineage-clocks dd { margin: .3rem 0 0; font-variant-numeric: tabular-nums; }
+.lineage-card .lineage-ai { color: var(--muted); font-size: .85rem; }
+.lineage-card .lineage-records { margin: 0; font-size: .92rem; }
+.lineage-connection { font-size: .92rem; padding: .7rem .7rem; margin-top: .5rem; border-left: 2px solid var(--muted); }
+.lineage-connection.connection-reported { border-left-style: dotted; }
+.lineage-connection summary { cursor: pointer; }
+.lineage-connection p { margin: .6rem 0 0; }
+.lineage-status { display: inline-block; border: 1px solid currentColor; font-size: .73rem; padding: .08rem .35rem; margin-right: .3rem; font-weight: 600; line-height: 1.3; vertical-align: .05rem; }
+.lineage-open { color: var(--muted); }
+.lineage-figure figcaption { font-size: .92rem; color: var(--muted); margin-top: .8rem; }
+.lineage-aside { border-left: 3px solid var(--accent); padding: .5rem 0 .1rem 1.1rem; margin: 2rem 0 1.2rem; }
+.lineage-aside p { font-size: 1.03rem; }
+.lineage-next { font-size: .95rem; }
+.lineage-bridge { border: 1.5px dashed var(--muted); padding: 1.4rem; margin: 3rem 0; }
+.lineage-page > section:not(.lineage-trail) { margin-top: 3rem; }
+.lineage-evidence { border-top: 1px solid var(--rule); padding: .9rem 0; font-size: 1rem; scroll-margin-top: 1rem; }
+.lineage-evidence summary { cursor: pointer; font-weight: 600; padding-right: .4rem; }
+.lineage-evidence[open] summary { margin-bottom: 1rem; }
+.lineage-evidence blockquote { padding: .3rem 0 .3rem .8rem; font-size: .95rem; }
+.lineage-predicate { font-weight: 400; color: var(--muted); }
+.lineage-evidence .lineage-status { margin-left: .3rem; }
+.lineage-small { font-size: .9rem; color: var(--muted); }
+.lineage-signpost { border: 1px dashed var(--muted); padding: 1.2rem; margin: 2rem 0; }
+.lineage-signpost h2 { margin-top: .5rem; }
+.lineage-page summary:focus-visible { outline: 2px solid var(--accent); outline-offset: 3px; }
+.lineage-page a, .lineage-page summary { overflow-wrap: anywhere; }
+.lineage-page :target { scroll-margin-top: 1rem; }
+@media (max-width: 520px) {
+  .lineage-choices { grid-template-columns: 1fr; }
+  .lineage-choices a { min-height: auto; }
+  .lineage-card { padding: .95rem; }
+  .lineage-clocks { grid-template-columns: 1fr; }
+  .lineage-steps { padding-left: 1rem; }
+  .lineage-step { padding-left: 1rem; }
+}
+@media print {
+  .lineage-choices { display: none; }
+  .lineage-step { break-inside: avoid; }
+}
+
+.lineage-overview { max-width: 360px; margin: 1.8rem auto; }
+.lineage-overview img { width: 100%; height: auto; display: block; }
+.lineage-overview figcaption { font-size: .9rem; color: var(--muted); }
+
+/* The overview has a wider drawing surface and a short reading column. */
+main:has(.knowledge-overview) { max-width: 1180px; }
+.knowledge-overview { font-family: var(--sans); padding-bottom: 2rem; }
+.knowledge-intro { max-width: 730px; margin-bottom: 3rem; }
+.knowledge-overview h1 { font-family: var(--serif); font-size: 3.4rem; font-weight: 400; line-height: 1.06; letter-spacing: -.035em; margin: .6rem 0 1.2rem; }
+.knowledge-overview h2 { font-family: var(--serif); font-size: 2rem; line-height: 1.2; font-weight: 400; margin: 0 0 1rem; }
+.knowledge-overview h3 { font-size: 1.23rem; line-height: 1.3; margin: .5rem 0 .8rem; }
+.knowledge-overview p { line-height: 1.55; }
+.knowledge-date { color: var(--muted); font-size: .9rem; }
+.knowledge-territories { display: grid; grid-template-columns: repeat(3,1fr); gap: 1rem; position: relative; margin-top: 1.7rem; }
+.knowledge-territory { border-top: 3px solid var(--accent); padding: 1rem; background: var(--tint); }
+.knowledge-territory h3 a { color: var(--ink); }
+.knowledge-state { color: var(--muted); font-size: .78rem; margin-bottom: .8rem; }
+.knowledge-territory p { font-size: 1rem; }
+.knowledge-territory .knowledge-territory-deck { color: var(--muted); font-size: .94rem; }
+.knowledge-small-link { font-size: .86rem; }
+.knowledge-history { padding-top: 3rem; margin-top: 3rem; border-top: 1px solid var(--rule); }
+.knowledge-history-intro { max-width: 720px; }
+.knowledge-history-figure { margin: 1.6rem 0; }
+.knowledge-history-figure img, .knowledge-history-figure svg { width: 100%; height: auto; display: block; border: 0; box-shadow: none; }
+.knowledge-history-figure figcaption { max-width: 730px; color: var(--muted); font-size: .9rem; }
+.knowledge-phone-drawing { display: none; }
+.knowledge-current { padding: 1rem 1.3rem; background: var(--tint); border-left: 3px solid var(--accent); max-width: 730px; }
+.knowledge-current p { margin-bottom: .4rem; font-size: 1rem; }
+.knowledge-current p:last-child { margin-bottom: 0; }
+.knowledge-disclosure { border-bottom: 1px solid var(--rule); padding: 1rem 0; scroll-margin-top: 1rem; }
+.knowledge-disclosure summary { cursor: pointer; font-size: 1.08rem; font-weight: 600; }
+.knowledge-disclosure summary span { display: block; font-size: .86rem; font-weight: 400; color: var(--muted); margin: .3rem 0 0 1.1rem; }
+.knowledge-disclosure[open] > summary { margin-bottom: 1rem; }
+.knowledge-disclosure p, .knowledge-disclosure li { font-size: 1rem; }
+.knowledge-disclosure summary:focus-visible, .lineage-source-details summary:focus-visible { outline: 2px solid var(--accent); outline-offset: 3px; }
+.knowledge-history-list { padding-left: 1.6rem; max-width: 740px; }
+.knowledge-history-list li { margin-bottom: 1.7rem; }
+.knowledge-history-list p { margin-bottom: .5rem; }
+.knowledge-continue { margin-top: 1.4rem; font-size: .93rem; }
+.knowledge-trail-doors, .knowledge-catalogue { border-top: 1px solid var(--rule); padding-top: 2.4rem; margin-top: 3rem; }
+.knowledge-record-list { list-style: none; padding-left: 0; display: grid; grid-template-columns: 1fr 1fr; gap: .6rem 1.6rem; }
+.knowledge-record-list li { padding: .5rem 0; border-top: 1px solid var(--rule); }
+.knowledge-record-list li span { display: block; color: var(--muted); font-size: .8rem; }
+.lineage-source-details { font-size: .9rem; }
+.lineage-source-details summary { cursor: pointer; color: var(--accent); }
+.lineage-source-details[open] summary { margin-bottom: 1rem; }
+@media (max-width: 680px) {
+ .knowledge-overview h1 { font-size: 2.8rem; }
+ .knowledge-territories { grid-template-columns: 1fr; }
+ .knowledge-territory { padding: .9rem 1rem; }
+ .knowledge-territory h3 { font-size: 1.3rem; }
+ .knowledge-territory .knowledge-territory-deck { margin-bottom: .7rem; }
+ .knowledge-record-list { grid-template-columns: 1fr; }
+ .knowledge-wide-drawing { display: none; }
+ .knowledge-phone-drawing { display: block; max-width: 360px; margin: auto; }
+ .knowledge-history { padding-top: 2rem; margin-top: 2rem; }
+}
+
+/* Keep the natural-size phone layout until the wide drawing has room for its labels. */
+@media (max-width: 1071px) {
+ .knowledge-wide-drawing {display:none}
+ .knowledge-phone-drawing {display:block;max-width:360px;margin:auto}
+}
+
+.knowledge-history-figure svg a:focus-visible rect {stroke:var(--accent);stroke-width:3px}

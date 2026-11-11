@@ -1,0 +1,31 @@
+name: Knowledge Lineage verification
+on:
+  pull_request:
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  verify:
+    runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        prefix: ['', '/lighthouse']
+    steps:
+      - uses: actions/checkout@v7
+        with:
+          fetch-depth: 0
+      - uses: actions/setup-node@v7
+        with:
+          node-version: 22
+      - run: npm ci --prefix site
+      - run: npm test --prefix site
+      - run: node scripts/lineage/overview.mjs --check
+      - run: npm run build --prefix site
+        env:
+          PATH_PREFIX: ${{ matrix.prefix }}/
+      - run: python3 scripts/lineage/check.py --prefix '${{ matrix.prefix }}'
+      - run: npm install --no-save --package-lock=false playwright
+      - run: npx playwright install --with-deps chromium
+      - run: mkdir -p site/test/screenshots && node site/test/knowledge-browser.mjs
+        env:
+          PATH_PREFIX: ${{ matrix.prefix }}

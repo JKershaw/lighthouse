@@ -1,0 +1,62 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1040 610" width="1040" height="610" role="img" aria-labelledby="history-wide-title history-wide-desc">
+<title id="history-wide-title">How the software-update inquiry developed</title>
+<desc id="history-wide-desc">Eight selected readings. Projects led to downloads and images, then an advisory hypothesis. Wider samples revised that explanation and left the release-note question unsettled. A branch from downloads tested the two-day pattern in more libraries. Each box links to the current article; the HTML list supplies summaries and evidence. Arrows follow documented steps, not measured causes.</desc>
+<style>
+svg { --bg:#fbfaf7; --ink:#1f1f1f; --muted:#5d5850; --grid:#e3ddd1; --teal:#1f6576; --amber:#93600c; --purple:#78549b; --blue:#2866ab; --neutral:#74716a; color-scheme:light dark; }
+@media (prefers-color-scheme: dark) { svg { --bg:#15191b; --ink:#e6e2d9; --muted:#aaa498; --grid:#2f3538; --teal:#8ec4d4; --amber:#e0a650; --purple:#c6a7df; --blue:#8bb9ed; --neutral:#aaa498; } }
+text { font-family:"Source Sans 3", "Source Sans Pro", system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif; font-variant-numeric:tabular-nums lining-nums; fill:var(--ink); }
+.head { font-size:17px; font-weight:600; }
+.sub { font-size:13px; fill:var(--muted); }
+.ann,.ax { font-size:12px; fill:var(--muted); }
+.nm { font-size:12px; font-weight:600; }
+.note { font-size:11.5px; fill:var(--muted); }
+.sec { font-size:14px; font-weight:600; }
+.grid { stroke:var(--grid); stroke-width:1; }
+.axis { stroke:var(--muted); stroke-width:1; }
+</style>
+<rect width="1040" height="610" fill="var(--bg)"/>
+<defs><marker id="history-wide-next" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto"><path d="M0 0 L10 5 L0 10Z" fill="var(--muted)"/></marker></defs>
+<path d="M245 124 H272" stroke="var(--muted)" stroke-width="1.8" fill="none" marker-end="url(#history-wide-next)"/>
+<path d="M505 124 H532" stroke="var(--muted)" stroke-width="1.8" fill="none" marker-end="url(#history-wide-next)"/>
+<path d="M650 168 V297" stroke="var(--muted)" stroke-width="1.8" fill="none" marker-end="url(#history-wide-next)"/>
+<path d="M535 344 H508" stroke="var(--muted)" stroke-width="1.8" fill="none" marker-end="url(#history-wide-next)"/>
+<path d="M275 344 H248" stroke="var(--muted)" stroke-width="1.8" fill="none" marker-end="url(#history-wide-next)"/>
+<path d="M130 388 V507" stroke="var(--muted)" stroke-width="1.8" fill="none" marker-end="url(#history-wide-next)"/>
+<path d="M390 80 V20 H910 V77" stroke="var(--muted)" stroke-width="1.8" fill="none" marker-end="url(#history-wide-next)" stroke-dasharray="4 4"/>
+<path d="M245 554 H1032 V210 H910 V171" stroke="var(--muted)" stroke-width="1.8" fill="none" marker-end="url(#history-wide-next)" stroke-dasharray="4 4"/>
+<text x="650" y="15" text-anchor="middle" class="ann">Test the download pattern more widely</text>
+<text x="666" y="235" class="sec">What moves a pin?</text>
+<text x="650" y="580" class="ann">A later direction change returns to downloads</text>
+<a href="https://lighthouse.harbour.cat/articles/where-a-software-update-went/" aria-label="A trail through projects"><rect x="15" y="80" width="230" height="88" rx="3" fill="var(--bg)" stroke="var(--muted)" stroke-width="1.5"/>
+<text x="27" y="107" font-size="15" font-weight="600">A trail through</text>
+<text x="27" y="128" font-size="15" font-weight="600">nine projects</text>
+<text x="27" y="154" class="ann">A first case</text></a>
+<a href="https://lighthouse.harbour.cat/articles/what-a-download-shows/" aria-label="Downloads ran ahead"><rect x="275" y="80" width="230" height="88" rx="3" fill="var(--bg)" stroke="var(--muted)" stroke-width="1.5"/>
+<text x="287" y="107" font-size="15" font-weight="600">Downloads</text>
+<text x="287" y="128" font-size="15" font-weight="600">ran ahead</text>
+<text x="287" y="154" class="ann">A new public trace</text></a>
+<a href="https://lighthouse.harbour.cat/articles/what-an-image-holds/" aria-label="Images showed the installation"><rect x="535" y="80" width="230" height="88" rx="3" fill="var(--bg)" stroke="var(--muted)" stroke-width="1.5"/>
+<text x="547" y="107" font-size="15" font-weight="600">Images showed</text>
+<text x="547" y="128" font-size="15" font-weight="600">the installation</text>
+<text x="547" y="154" class="ann">A further trace</text></a>
+<a href="https://lighthouse.harbour.cat/articles/what-moves-a-pin/" aria-label="An advisory offered a lead"><rect x="535" y="300" width="230" height="88" rx="3" fill="var(--bg)" stroke="var(--muted)" stroke-width="1.5"/>
+<text x="547" y="327" font-size="15" font-weight="600">An advisory</text>
+<text x="547" y="348" font-size="15" font-weight="600">offered a lead</text>
+<text x="547" y="374" class="ann">Early lead, later revised</text></a>
+<a href="https://lighthouse.harbour.cat/articles/pins-move-over-weeks/" aria-label="A wider reading changed the story"><rect x="275" y="300" width="230" height="88" rx="3" fill="var(--bg)" stroke="var(--muted)" stroke-width="1.5"/>
+<text x="287" y="327" font-size="15" font-weight="600">A wider reading</text>
+<text x="287" y="348" font-size="15" font-weight="600">changed the story</text>
+<text x="287" y="374" class="ann">The burst did not generalise</text></a>
+<a href="https://lighthouse.harbour.cat/articles/fixes-that-said-so/" aria-label="Could the release notes explain it?"><rect x="15" y="300" width="230" height="88" rx="3" fill="var(--bg)" stroke="var(--muted)" stroke-width="1.5"/>
+<text x="27" y="327" font-size="15" font-weight="600">Could the release</text>
+<text x="27" y="348" font-size="15" font-weight="600">notes explain it?</text>
+<text x="27" y="374" class="ann">Early lead, later qualified</text></a>
+<a href="https://lighthouse.harbour.cat/articles/the-lead-was-a-few-libraries/" aria-label="More libraries left the answer open"><rect x="15" y="510" width="230" height="88" rx="3" fill="var(--bg)" stroke="var(--muted)" stroke-width="1.5"/>
+<text x="27" y="537" font-size="15" font-weight="600">More libraries left</text>
+<text x="27" y="558" font-size="15" font-weight="600">the answer open</text>
+<text x="27" y="584" class="ann">Still unsettled</text></a>
+<a href="https://lighthouse.harbour.cat/articles/two-days-for-most/" aria-label="Test the fast road more widely"><rect x="795" y="80" width="230" height="88" rx="3" fill="var(--bg)" stroke="var(--muted)" stroke-width="1.5"/>
+<text x="807" y="107" font-size="15" font-weight="600">Test the fast road</text>
+<text x="807" y="128" font-size="15" font-weight="600">more widely</text>
+<text x="807" y="154" class="ann">Most releases in top libraries</text></a>
+</svg>
