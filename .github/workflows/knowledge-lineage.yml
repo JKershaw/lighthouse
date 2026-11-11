@@ -29,3 +29,8 @@ jobs:
       - run: mkdir -p site/test/screenshots && node site/test/knowledge-browser.mjs
         env:
           PATH_PREFIX: ${{ matrix.prefix }}
+      - uses: actions/upload-artifact@v5
+        with:
+          name: knowledge-map-${{ strategy.job-index }}
+          path: site/test/screenshots/
+          retention-days: 7

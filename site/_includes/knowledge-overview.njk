@@ -9,7 +9,27 @@ layout: base.njk
     <h1>A map of what we know.</h1>
     <p class="lineage-deck">Follow a question. See what we learned, what changed our minds, and where the trail leads next.</p>
     <p class="knowledge-date">The recorded work as of {{ knowledgeMap.asOf }}.</p>
+    <p class="knowledge-jumps"><a href="#history-title">See the visual history ↓</a> · <a href="#questions-title">Choose a question</a> · <a href="#catalogue-title">Browse all the work</a></p>
   </header>
+  {% if not knowledgeMap.history.stale %}<section class="knowledge-history" aria-labelledby="history-title">
+    <p class="kicker">Inside one investigation</p>
+    <h2 id="history-title">{{ knowledgeMap.history.title }}</h2>
+    <p class="knowledge-history-intro">{{ knowledgeMap.history.intro }}</p>
+    <p class="knowledge-small-link">Tap or click any box to read its finding. Follow the arrows to see how the inquiry developed.</p>
+    <figure class="knowledge-history-figure">
+      <div class="knowledge-wide-drawing">{{ knowledgeMap.drawings.wide | safe }}</div>
+      <div class="knowledge-phone-drawing">{{ knowledgeMap.drawings.phone | safe }}</div>
+      <figcaption>{{ knowledgeMap.history.scope }} <a href="#history-reading">Read the history in words</a>.</figcaption>
+    </figure>
+    <div class="knowledge-current"><p><strong>Where the inquiry stands now</strong></p><p>Start with <a href="/articles/where-software-updates-go/">the current account</a>, including its later evidence and corrections.</p></div>
+    <details class="knowledge-disclosure" id="history-reading">
+      <summary>Read the history and follow its evidence</summary>
+      <ol class="knowledge-history-list">{% for node in knowledgeMap.history.nodes %}<li id="history-{{ node.id }}"><h3><a href="{{ node.mapUrl or node.url }}">{{ node.title }}</a></h3><p>{{ node.summary }}</p><p>Evidence: {% for basis in node.evidence_spans %}<a href="{{ basis.url }}">{{ basis.label }}</a>{% if not loop.last %} · {% endif %}{% endfor %}</p></li>{% endfor %}</ol>
+      <details class="knowledge-disclosure"><summary>What each arrow means</summary><ul>{% for edge in knowledgeMap.history.edges %}<li><a href="#history-{{ edge.subject }}">Earlier reading</a> → <a href="#history-{{ edge.object }}">later reading</a>: {{ edge.predicate }}. <a href="{{ edge.evidence.url }}">Recorded connection</a>.</li>{% endfor %}</ul><p>The verb describes what the later reading does with the earlier one. These links do not establish an external cause.</p></details>
+    </details>
+    <p class="knowledge-continue">Continue: {% for item in knowledgeMap.history.continuations %}<a href="/{{ item.path | replace('.md', '/') }}">{{ item.title }}</a>{% if not loop.last %} · {% endif %}{% endfor %}</p>
+  </section>
+  {% else %}<section class="knowledge-history" aria-labelledby="history-title"><h2 id="history-title">The visual history is being checked</h2><p>The selected visual history awaits checking against changed records. <a href="/articles/where-software-updates-go/">Read the current account</a>, or <a href="/map/knowledge-lineage/trails/">explore the retained evidence trails</a>.</p></section>{% endif %}
   <section aria-labelledby="questions-title" class="knowledge-questions">
     <h2 id="questions-title">Three questions guide the watch</h2>
     <div class="knowledge-territories">
@@ -24,24 +44,6 @@ layout: base.njk
     {% endfor %}
     </div>
   </section>
-  {% if not knowledgeMap.history.stale %}<section class="knowledge-history" aria-labelledby="history-title">
-    <p class="kicker">Inside one investigation</p>
-    <h2 id="history-title">{{ knowledgeMap.history.title }}</h2>
-    <p class="knowledge-history-intro">{{ knowledgeMap.history.intro }}</p>
-    <figure class="knowledge-history-figure">
-      <div class="knowledge-wide-drawing">{{ knowledgeMap.drawings.wide | safe }}</div>
-      <div class="knowledge-phone-drawing">{{ knowledgeMap.drawings.phone | safe }}</div>
-      <figcaption>{{ knowledgeMap.history.scope }} <a href="#history-reading">Read the history in words</a>.</figcaption>
-    </figure>
-    <div class="knowledge-current"><p><strong>Where the inquiry stands now</strong></p><p>Start with <a href="/articles/where-software-updates-go/">the current account</a>, including its later evidence and corrections.</p></div>
-    <details class="knowledge-disclosure" id="history-reading">
-      <summary>Read the history and follow its evidence</summary>
-      <ol class="knowledge-history-list">{% for node in knowledgeMap.history.nodes %}<li id="history-{{ node.id }}"><h3><a href="{{ node.mapUrl or node.url }}">{{ node.title }}</a></h3><p>{{ node.summary }}</p><p>Evidence: {% for basis in node.evidence_spans %}<a href="{{ basis.url }}">{{ basis.label }}</a>{% if not loop.last %} · {% endif %}{% endfor %}</p></li>{% endfor %}</ol>
-      <details class="knowledge-disclosure"><summary>What each arrow means</summary><ul>{% for edge in knowledgeMap.history.edges %}<li><a href="#history-{{ edge.subject }}">Earlier reading</a> → <a href="#history-{{ edge.object }}">later reading</a>: {{ edge.predicate }}. <a href="{{ edge.evidence.url }}">Recorded connection</a>.</li>{% endfor %}</ul><p>The verb describes what the later reading does with the earlier one. These links do not establish an external cause.</p></details>
-    </details>
-    <p class="knowledge-continue">Continue: {% for item in knowledgeMap.history.continuations %}<a href="/{{ item.path | replace('.md', '/') }}">{{ item.title }}</a>{% if not loop.last %} · {% endif %}{% endfor %}</p>
-  </section>
-  {% else %}<p>The selected visual history awaits checking against changed records. <a href="/articles/where-software-updates-go/">Read the current account</a>.</p>{% endif %}
   <section class="knowledge-trail-doors" aria-labelledby="trail-doors-title">
     <h2 id="trail-doors-title">Take a closer look</h2>
     <div class="lineage-choices">

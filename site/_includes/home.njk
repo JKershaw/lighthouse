@@ -9,6 +9,14 @@
   {% if about %}<a class="section-link" href="{{ about.url }}">About Lighthouse <span aria-hidden="true">→</span></a>{% endif %}
 </div>{% endif %}
 
+{% if knowledgeMap %}<section class="front-knowledge" aria-labelledby="home-knowledge-title">
+  <p class="kicker">Explore the research</p>
+  <h2 id="home-knowledge-title"><a href="/map/knowledge-lineage/">See how the findings connect</a></h2>
+  <p>Follow an idea through discoveries, challenges and corrections. Open a box in the visual history to read the finding behind it.</p>
+  {% if not knowledgeMap.history.stale %}<a class="front-knowledge-preview" href="/map/knowledge-lineage/#history-title"><img src="/notes/knowledge-lineage/history-wide.svg" alt="Preview of eight connected readings in the software-update investigation. Open the visual history." width="1040" height="610"></a>{% endif %}
+  <p class="section-links"><a class="section-link" href="/map/knowledge-lineage/#history-title">Open the visual history <span aria-hidden="true">→</span></a><a class="section-link" href="/map/knowledge-lineage/#catalogue-title">Browse all the recorded work <span aria-hidden="true">→</span></a></p>
+</section>{% endif %}
+
 {% if repo.thisWeek %}{% include "home-this-week.njk" %}{% endif %}
 
 {% if repo.front.lead %}{% set p = repo.front.lead %}
