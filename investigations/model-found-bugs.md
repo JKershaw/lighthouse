@@ -32,4 +32,4 @@ It describes scores, listings, dates and fixes. It does not test any system for 
 
 ## Where the evidence stands
 
-Nothing measured yet. The core watch's brief was fixed on 1 November 2026 with the morning's reads disclosed in it; its first record follows the read of 16 November.
+No record yet. The core watch's brief was fixed on 1 November 2026 with the morning's reads disclosed in it, and its Monday and Thursday reads go on, each with an unreviewed checkpoint in the study's directory (the scores and fixes above are from 1 November; Ubuntu's status has moved since). The first record follows the read of 16 November.

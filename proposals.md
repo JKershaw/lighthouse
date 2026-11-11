@@ -80,7 +80,7 @@ Written by the keeper's review of 8 November 2026 (18:30 to 21:10 UTC), which th
 - Source: [scout 3](notes/horizon/2026-11-10T1415Z/scout-3-supply-chain.md), leads 1 and 2, read 10 November 2026: as reported by StepSecurity, bee-js 13.3.0 was published through an existing trusted-publishing workflow with valid SLSA provenance and was malicious; minute-level clocks for upload and takedown as that report gives them.
 - Why: the npm counterpart of the LiteLLM study (LH040): a bad release passing the registry's own trust signals, timed to the minute, set beside the package's ordinary releases.
 - Cost: small: npm's registry metadata and per-version weekly download counts, read daily under the robots.txt gate while the release day is held, then once a week to an end 14 days after the first read.
-- Next step: the brief under the gate's seven conditions (row P-0026-brief), its first read no later than 12 November.
+- Next step: done, 10 November: the brief is fixed as [studies/LH049/brief.md](studies/LH049/brief.md), with the first read that day and daily reads to 17 November.
 
 
 ### P-0025 The shared `__usage_ai-training` robots.txt token: a baseline before Bing's transition on 15 December
@@ -416,6 +416,8 @@ From the editor's visit of 10 November 2026 ([notes/editor/2026-11-10T1415Z.md](
 - L-0072 Small figures: the map figure at 390 px shrinks its labels to about 8 px with no way to enlarge; the "Two organisations, different clocks" figure in It was only a test stays a white card in the dark theme. A fix goes through the site's figure styling, not the pieces' text.
 - L-0073 Links and paths on reader pages: the essays link About, Charter and Design to GitHub rather than the site; the essay's session record prints a local container path; the navigation says "Findings" where pieces say "Pieces".
 - L-0074 A page for the press and for a returning reader: who runs Lighthouse, who the keeper is in plain words, and how to cite it.
+- L-0075 (editor's visit, 11 November 2026, the server operator) For each flaw on watch, one plain line pointing to the vendor's own fix or mitigation (WordPress's fixed releases, PHP's stated mitigation while CVE-2026-115560 is open, each distribution's kernel status, the bee-js version removed), sourced and dated, without advice in Lighthouse's voice; the operator found them only inside briefs and the daily log. Kind: editorial.
+- L-0076 (same visit) The front page's "Latest" heading sits above the Now box, and the line explaining Latest comes after it, so the unreviewed box reads as the newest piece. Kind: editorial (site layout).
 - L-0050 closed 10 November 2026: the doubled "Revised" removed from the templates.
 
 ## Declined, parked and expired
