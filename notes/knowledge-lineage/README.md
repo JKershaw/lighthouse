@@ -1,10 +1,12 @@
-# Follow an idea: the Knowledge Lineage pilot
+# Follow an idea: Knowledge Lineage
 
-**In short.** The knowledge map now starts with Lighthouse's three questions and a complete catalogue within a stated file boundary, then opens into selected histories, short trails and the evidence behind them. This reader-interface revision follows John's feedback that the pilot felt dense. The original comparison found equal retrieval accuracy; this new overview has not been tested with an unfamiliar human.
+**In short.** The knowledge map starts with Lighthouse's three questions, then opens into selected histories, individual records and their evidence. All 49 study records and 21 released publications have explorable entries, and builds refresh the catalogue automatically. Source review and browser checks pass; improved human understanding remains to be tested.
+
+Version 1, 11 November 2026. [Release assessment and verification](release-assessment.md), [maintenance](maintenance.md), [source review](release-source-review.md) and [code review](release-code-review.md). The material below retains the pilot's scope and reproduction notes. The dated version 0.2 assessment describes the earlier interface, not the current release checks.
 
 Version 0.2, 10 November 2026. Written by OpenAI Codex, exact model identifier and attributable cost unavailable. Scope: cross-cutting method pilot under [issue #46](https://github.com/JKershaw/lighthouse/issues/46), using the still-open [proposal #47](https://github.com/JKershaw/lighthouse/pull/47). No fourth investigation, new collection or schedule. Existing released prose is unchanged.
 
-[Open the visual prototype](../../map/knowledge-lineage/) after building the branch. The site's Map page carries an explicitly unreviewed signpost. The prototype is not a released finding and enters no release feed.
+[Open the knowledge map](../../map/knowledge-lineage/). This releases navigation through existing material, without upgrading any working record's research or review status.
 
 ## The three levels
 
@@ -19,8 +21,8 @@ Version 0.2, 10 November 2026. Written by OpenAI Codex, exact model identifier a
 - [Protocol and dated amendment](protocol.md), committed before extraction and comparative outcomes. [Frozen input and active selection rule](baseline.json).
 - [Versioned graph](graph.json), [manual annotations](annotations.json), and [directly linked drawing](finding.svg). Markdown and retained sources remain authoritative.
 - [Baseline retrieval](baseline-review.md), [graph-assisted retrieval and AI journey proxy](assisted-review.md), [technical/source review and resolutions](technical-review.md), [evaluation](evaluation.md) and [item adjudication](adjudication.json).
-- [Self-contained HTML preview](preview.html) for inspection before merging; its original-record links go to the existing site and its new-record links to this branch.
-- Static render proofs in [proofs/](proofs/). These are HTML print-engine proofs, not mobile-browser screenshots. Browser and unfamiliar-human checks remain open.
+- [Historical version 0.2 HTML preview](preview.html), retained as an earlier interface snapshot. Use the built site for the current individual record pages.
+- Static render proofs in [proofs/](proofs/). These are HTML print-engine proofs. Real Chromium checks have since passed; unfamiliar-human and assistive-technology checks remain open.
 
 ## Reproduce
 
@@ -61,7 +63,7 @@ The proposal points to Lancaster's thematic review, the AI-security knowledge-gr
 
 ## Next
 
-John authorised the overview iteration after the first pilot. Its source audit and static checks do not replace reader acceptance. Complete actual 390px light/dark, keyboard and assistive-technology checks, then give an unfamiliar human the two journeys without coaching. Preserve errors and misunderstandings. A normal evidence/reader review is still needed before any release.
+John authorised the maintained feature and merge after review and verification. Source review and real-browser layout and keyboard checks now pass, as recorded in the release assessment. Give an unfamiliar human the two journeys without coaching, and check assistive-technology behaviour. Preserve errors and misunderstandings before changing the interface.
 
 If that works, add optional “earlier evidence / what changed / used later” blocks to one existing investigation, with an explicit small maintenance allowance. The twice-weekly research scout could attach existing claim IDs and a reason for reuse to leads it already produces; the existing proposals gate still decides what starts. No new crawler or timer is needed. Ask whether a real investigation choice changed before claiming better research. Only then consider wider citation coverage, multiple evidence parents and a broader landscape view.
 
@@ -69,4 +71,4 @@ If that works, add optional “earlier evidence / what changed / used later” b
 
 Protocol amendment 1 repaired the original prose-link sampling rule. Review found an ambiguous visual direction, overly short excerpts, missing date/access metadata and a missing pilot-index route; these were repaired and the review keeps its initial findings. The evaluation states its remaining limits.
 
-No external API charge was incurred by this pilot. Inference spend and the overhead of the three fresh agent contexts are unavailable in this harness, not zero. Package installation and local computation were not metered. The existing Harbour pricing commands need a named session/account and were not used to read credentials or invent a bill. No current scientific account or release list changed.
+No paid external research API was used. Inference spend and fresh-agent overhead are unavailable in this harness, not zero. Package installation, CI and local computation were not metered. The existing Harbour pricing commands need a named session/account and were not used to read credentials or invent a bill. No current scientific account changed; the release register records the navigation feature separately.
