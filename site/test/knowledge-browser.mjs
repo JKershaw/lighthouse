@@ -28,7 +28,7 @@ try{
   const nav=page.locator('.masthead').getByRole('link',{name:'Knowledge map',exact:true});
   assert.ok(await nav.isVisible(),'The knowledge map must be reachable in the main navigation');
   assert.ok(await page.locator('.front-knowledge').isVisible(),'The homepage must introduce the feature');
-  await page.locator('.front-knowledge').getByRole('link',{name:'Open the visual history',exact:false}).click();
+  await page.locator('.front-knowledge').getByRole('link',{name:'Open the visual history',exact:true}).click();
   assert.equal(await page.locator('h1').innerText(),'A map of what we know.');
   assert.ok(await page.evaluate(()=>document.documentElement.scrollWidth<=innerWidth),`Overflow ${width} ${theme}`);
   const current=JSON.parse(fs.readFileSync('site/.generated/knowledge-map.json'));
