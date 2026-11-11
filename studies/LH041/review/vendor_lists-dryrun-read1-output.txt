@@ -1,0 +1,20 @@
+DRY RUN on read 1 (2026-11-08T1910Z), whose outcomes were already seen; this is not read 2's result. Post hoc analyses of brief Amendment 2, run 2026-11-11T14:22Z to show the script works; CSVs went to a scratch directory, not under data/. Command: python3 -I studies/LH041/scripts/vendor_lists.py --read 2026-11-08T1910Z --out <scratch>
+LH041 Amendment 2, analysis 1 (post hoc), read 2026-11-08T1910Z; written to <--out directory>/vendor_lists.csv and vendor_lists_names.csv
+npm MAL- records' packages in the read (not withdrawn): 222873
+copy check: W04 w07: prebrief and review copies give identical lists (1 and 1 names)
+copy check: W05 w07: prebrief and review copies give identical lists (4 and 4 names)
+copy check: W10 w07: prebrief and review copies give identical lists (4 and 4 names)
+copy check: W11 w19: prebrief and review copies give identical lists (444 and 444 names)
+copy check: W11 w13: prebrief and review copies give identical lists (0 and 0 names)
+wave,page,part,comparison,vendor_listed,in_both_any_mal,brief_in_both_joined_this_wave,brief_in_both_joined_other_wave_only,brief_in_both_joined_none,only_vendor,brief_osv_wave_packages,brief_only_osv,posthoc_in_both_joined_this_wave,posthoc_in_both_joined_other_wave_only,posthoc_in_both_joined_none,posthoc_osv_wave_packages,posthoc_only_osv
+W04,w07,"prebrief copy; IOC subsection 'Indicators From April 22, 2026 Activity'",compared,1,1,0,0,1,0,0,0,0,0,1,0,0
+W04,all pages,union of the wave's pages,compared,1,1,0,0,1,0,0,0,0,0,1,0,0
+W05,w07,"prebrief copy; IOC subsection 'Indicators From April 29, 2026 Activity'",compared,4,4,0,0,4,0,0,0,0,0,4,0,0
+W05,all pages,union of the wave's pages,compared,4,4,0,0,4,0,0,0,0,0,4,0,0
+W10,w07,"prebrief copy; IOC subsection 'Indicators From July 14, 2026 Miasma Activity'",compared,4,4,0,0,4,0,1,1,0,0,4,1,1
+W10,all pages,union of the wave's pages,compared,4,4,0,0,4,0,1,1,0,0,4,1,1
+W11,w19,prebrief copy; article from h1,compared,444,444,444,0,0,0,445,1,444,0,0,445,1
+W11,w13,prebrief copy; article from h1,unknown (no list printed),,,,,,,,,,,,,
+W11,w18,prebrief copy; article from h1,unknown (no list printed),,,,,,,,,,,,,
+W11,w03,prebrief copy; article from h1,unknown (no list printed),,,,,,,,,,,,,
+W11,all pages,union of the wave's pages,compared,444,444,444,0,0,0,445,1,444,0,0,445,1

@@ -1,0 +1,52 @@
+DRY RUN on read 1 (2026-11-08T1910Z), whose outcomes were already seen; this is not read 2's result. Post hoc analyses of brief Amendment 2, run 2026-11-11T14:22Z to show the script works; CSVs went to a scratch directory, not under data/. Command: python3 -I studies/LH041/scripts/groupings.py --read 2026-11-08T1910Z --out <scratch>
+LH041 Amendment 2, analysis 3 (post hoc), read 2026-11-08T1910Z; written to <--out directory>/groupings.csv
+Groupings: brief = shared maintainer hash; a = shared hash or npm scope; b = shared hash after dropping hashes on >10% of the wave's npm packages with known maintainers.
+Baseline check against the published tables: 47 wave rows compared (npm packages, known both, clusters, reach, reading); mismatches: 0
+view,wave,scope,npm_packages,known_share,brief_clusters,brief_reach,brief_reading,a_clusters,a_reach,a_reading,a_holds,b_clusters,b_reach,b_reading,b_holds,b_hashes_dropped,b_packages_all_hashes_dropped
+brief,W01,indicator,0,,0,,unknown,0,,unknown,1,0,,unknown,1,0,0
+brief,W01,indicator+window,203,0.926,17,16,spread across clusters,17,16,spread across clusters,1,113,112,spread across clusters,1,27,98
+brief,W02,indicator,788,0.924,88,87,spread across clusters,88,87,spread across clusters,1,179,178,spread across clusters,1,1,90
+brief,W02,indicator+window,791,0.92,88,87,spread across clusters,88,87,spread across clusters,1,179,178,spread across clusters,1,1,90
+brief,W03,indicator,3,0.0,0,,unknown,0,,unknown,1,0,,unknown,1,0,0
+brief,W03,indicator+window,3,0.0,0,,unknown,0,,unknown,1,0,,unknown,1,0,0
+brief,W04,indicator,0,,0,,unknown,0,,unknown,1,0,,unknown,1,0,0
+brief,W05,indicator,0,,0,,unknown,0,,unknown,1,0,,unknown,1,0,0
+brief,W06,indicator,2,0.5,1,0,stayed in one cluster,1,0,stayed in one cluster,1,1,0,stayed in one cluster,1,3,1
+brief,W06,indicator+window,183,0.896,13,12,spread across clusters,13,12,spread across clusters,1,142,141,spread across clusters,1,30,132
+brief,W07,indicator,0,,0,,unknown,0,,unknown,1,0,,unknown,1,0,0
+brief,W07,indicator+window,359,1.0,3,2,spread across clusters,3,2,spread across clusters,1,341,340,spread across clusters,1,20,332
+brief,W08,indicator,0,,0,,unknown,0,,unknown,1,0,,unknown,1,0,0
+brief,W09,indicator,0,,0,,unknown,0,,unknown,1,0,,unknown,1,0,0
+brief,W09,indicator+window,1,0.0,0,,unknown,0,,unknown,1,0,,unknown,1,0,0
+brief,W10,indicator,0,,0,,unknown,0,,unknown,1,0,,unknown,1,0,0
+brief,W10,indicator+window,1,1.0,1,0,stayed in one cluster,1,0,stayed in one cluster,1,1,0,stayed in one cluster,1,1,1
+brief,W11,indicator,444,0.962,13,12,spread across clusters,12,11,spread across clusters,1,341,340,spread across clusters,1,10,329
+brief,W11,indicator+window,445,0.962,14,13,spread across clusters,13,12,spread across clusters,1,342,341,spread across clusters,1,10,329
+brief,W12,indicator,1,1.0,1,0,stayed in one cluster,1,0,stayed in one cluster,1,1,0,stayed in one cluster,1,11,1
+brief,W12,indicator+window,1,1.0,1,0,stayed in one cluster,1,0,stayed in one cluster,1,1,0,stayed in one cluster,1,11,1
+brief,W13,indicator,1,1.0,1,0,stayed in one cluster,1,0,stayed in one cluster,1,1,0,stayed in one cluster,1,3,1
+brief,W13,indicator+window,1,1.0,1,0,stayed in one cluster,1,0,stayed in one cluster,1,1,0,stayed in one cluster,1,3,1
+posthoc,W01,indicator,0,,0,,unknown,0,,unknown,1,0,,unknown,1,0,0
+posthoc,W01,indicator+window,203,0.926,17,16,spread across clusters,17,16,spread across clusters,1,113,112,spread across clusters,1,27,98
+posthoc,W02,indicator,788,0.924,88,87,spread across clusters,88,87,spread across clusters,1,179,178,spread across clusters,1,1,90
+posthoc,W02,indicator+window,791,0.92,88,87,spread across clusters,88,87,spread across clusters,1,179,178,spread across clusters,1,1,90
+posthoc,W03,indicator,3,0.0,0,,unknown,0,,unknown,1,0,,unknown,1,0,0
+posthoc,W03,indicator+window,3,0.0,0,,unknown,0,,unknown,1,0,,unknown,1,0,0
+posthoc,W04,indicator,0,,0,,unknown,0,,unknown,1,0,,unknown,1,0,0
+posthoc,W05,indicator,0,,0,,unknown,0,,unknown,1,0,,unknown,1,0,0
+posthoc,W06,indicator,2,0.5,1,0,stayed in one cluster,1,0,stayed in one cluster,1,1,0,stayed in one cluster,1,3,1
+posthoc,W06,indicator+window,183,0.896,13,12,spread across clusters,13,12,spread across clusters,1,142,141,spread across clusters,1,30,132
+posthoc,W07,indicator,0,,0,,unknown,0,,unknown,1,0,,unknown,1,0,0
+posthoc,W07,indicator+window,359,1.0,3,2,spread across clusters,3,2,spread across clusters,1,341,340,spread across clusters,1,20,332
+posthoc,W08,indicator,0,,0,,unknown,0,,unknown,1,0,,unknown,1,0,0
+posthoc,W08,indicator+window,106,1.0,8,7,spread across clusters,8,7,spread across clusters,1,93,92,spread across clusters,1,5,87
+posthoc,W09,indicator,0,,0,,unknown,0,,unknown,1,0,,unknown,1,0,0
+posthoc,W09,indicator+window,0,,0,,unknown,0,,unknown,1,0,,unknown,1,0,0
+posthoc,W10,indicator,0,,0,,unknown,0,,unknown,1,0,,unknown,1,0,0
+posthoc,W10,indicator+window,1,1.0,1,0,stayed in one cluster,1,0,stayed in one cluster,1,1,0,stayed in one cluster,1,1,1
+posthoc,W11,indicator,444,0.962,13,12,spread across clusters,12,11,spread across clusters,1,341,340,spread across clusters,1,10,329
+posthoc,W11,indicator+window,445,0.962,14,13,spread across clusters,13,12,spread across clusters,1,342,341,spread across clusters,1,10,329
+posthoc,W12,indicator,1,1.0,1,0,stayed in one cluster,1,0,stayed in one cluster,1,1,0,stayed in one cluster,1,11,1
+posthoc,W12,indicator+window,1,1.0,1,0,stayed in one cluster,1,0,stayed in one cluster,1,1,0,stayed in one cluster,1,11,1
+posthoc,W13,indicator,1,1.0,1,0,stayed in one cluster,1,0,stayed in one cluster,1,1,0,stayed in one cluster,1,3,1
+posthoc,W13,indicator+window,1,1.0,1,0,stayed in one cluster,1,0,stayed in one cluster,1,1,0,stayed in one cluster,1,3,1
