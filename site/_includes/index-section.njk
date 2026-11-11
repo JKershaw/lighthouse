@@ -14,7 +14,7 @@ layout: base.njk
     <p>{{ p.compactSummary }}</p><p class="when">{{ p.entryDate }}{% if p.displayState and not (p.displayState == 'Revised' and p.revised and p.revised != p.entryDate) %} · {{ p.displayState }}{% endif %}{% if p.revised and p.revised != p.entryDate %} · {{ p.revisedLabel }} {{ p.revised }}{% endif %}</p>
   </section>{% endif %}
   {% if sectionId == 'map' and lineage %}<aside class="lineage-signpost">
-    <p class="kicker">Prototype · Unreviewed</p>
+    <p class="kicker">Knowledge Lineage</p>
     <h2><a href="/map/knowledge-lineage/">Explore Lighthouse’s knowledge map</a></h2>
     <p>Start with the questions, follow how our understanding changed, then open the evidence.</p>
   </aside>{% endif %}

@@ -69,13 +69,18 @@ export default function (eleventyConfig) {
       layout: "knowledge-overview.njk", permalink: "/map/knowledge-lineage/",
       title: "A map of what we know", section: "map",
     });
+    eleventyConfig.addTemplate("_lighthouse/knowledge-record.njk", "", {
+      layout: "knowledge-record.njk", section: "map", pagination: {data:"knowledgeMap.recordPages",size:1,alias:"record"},
+      permalink: data => data.record.mapUrl,
+      eleventyComputed: {title:data=>data.record.title},
+    });
     eleventyConfig.addTemplate("_lighthouse/knowledge-trails.njk", "", {
       layout: "knowledge-lineage.njk", permalink: "/map/knowledge-lineage/trails/", title: "Follow a thread", section: "map",
     });
     eleventyConfig.addTemplate("_lighthouse/knowledge-evidence.njk", "", {
       layout: "knowledge-evidence.njk", permalink: "/map/knowledge-lineage/evidence/", title: "Check the evidence", section: "map",
     });
-    eleventyConfig.addPassthroughCopy({ "notes/knowledge-lineage/overview.json": "map/knowledge-lineage/overview.json" });
+    eleventyConfig.addPassthroughCopy({ "site/.generated/knowledge-map.json": "map/knowledge-lineage/overview.json" });
     eleventyConfig.addPassthroughCopy({ "notes/knowledge-lineage/graph.json": "map/knowledge-lineage/data.json" });
   }
 

@@ -5,3 +5,7 @@ site/node_modules/
 site/_site/
 # bodies withheld for Content-Signal use=reference, held for one run only (scripts/content_signal.py)
 *.withheld-local
+
+site/.generated/
+site/test/screenshots/knowledge-*.png
+site/test/screenshots/knowledge-browser-results.json

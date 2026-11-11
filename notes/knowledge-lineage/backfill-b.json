@@ -1,0 +1,447 @@
+[
+  {
+    "path": "studies/LH018/LH018.md",
+    "question": "Which public records show the emergency PHP fix moving downstream?",
+    "summary": "Three selected distribution tracks named vendor-fixed revisions for both emergency flaws, and four selected official image configurations declared fixed PHP source versions at the first snapshot. These are package and registry records, not installed or running PHP.",
+    "limit": "The image tags were chosen for known fixed version names; this snapshot supplies no adoption rate or common hours-to-patch clock.",
+    "state": "Record available",
+    "evidence": [
+      {
+        "label": "Question",
+        "passage": "# Which public records show the emergency PHP fix moving downstream?"
+      },
+      {
+        "label": "Answer",
+        "passage": "At this first snapshot, all three preselected distribution package tracks had vendor records naming a fixed revision for **both** CVE-2026-109618 and CVE-2026-109619. Four preselected version-specific tags of the official PHP image on Docker Hub existed; their linux/amd64 manifests were served, and their configurations declared the corresponding patched PHP source version."
+      },
+      {
+        "label": "Limit",
+        "passage": "This selected snapshot does not give a patch-adoption rate. Every image tag was chosen because its **name** incorporated a known fixed version; the question there was whether and when the named build appeared, not how much of PHP use it represents."
+      }
+    ]
+  },
+  {
+    "path": "studies/LH019/LH019.md",
+    "question": "What do the official PHP moving image tags name over time?",
+    "summary": "All four moving tags initially matched their selected fixed-version images and still matched on 22 October. Later rate-limited reads saw two changed digests, but verified the rebuilt PHP declaration only for 8.5; the other two tags were unknown after 22 October.",
+    "limit": "Publication and equal observed endpoints do not establish continuous tag history, patched executable behaviour, pulls or deployments.",
+    "state": "Closed",
+    "evidence": [
+      {
+        "label": "Question",
+        "passage": "# What do the official PHP moving image tags name over time?"
+      },
+      {
+        "label": "Answer",
+        "passage": "**At close, 30 October 2026.** At the 22 October checkpoint all four tags still named the same linux/amd64 digests. The 24 and 28 October checkpoints were cut short by the registry's rate limit (HTTP 429), so they cover one and two tags. `8.5-apache` named the same digest on 24 October and a new one on 28 October (pushed 28 October 03:54 UTC), whose configuration still declares PHP 8.5.12, so it was rebuilt on the same PHP release; `8.4-fpm`'s tag record named a new digest on 28 October (pushed 04:05 UTC), whose manifest was refused, so its declared version is not read. `8.3-cli` and `8.2-fpm` are unknown after 22 October. Nothing read shows a moving tag pointing back to an older PHP release; what else changed in the rebuilds is not read."
+      },
+      {
+        "label": "Limit",
+        "passage": "A later unchanged digest says only that the two observed endpoints match; it cannot rule out a change and reversal between visits. If a later digest differs, the change lies somewhere between the two observations. Missing responses remain unknown."
+      },
+      {
+        "label": "State",
+        "passage": "**Status:** closed; the brief's four checkpoints are taken, the last two partial."
+      }
+    ]
+  },
+  {
+    "path": "studies/LH020/LH020.md",
+    "question": "Which public records connect PHP's security notice to its official image publication?",
+    "summary": "A selected retrospective chain links a maintainer issue, two explicitly linked pull requests and successful publisher tests to subsequently observed images. Intermediate staging and build records were not read, and communication or CI success does not establish adoption.",
+    "limit": "This known chain is one coordinated episode; its distinct source clocks give descriptive intervals, not causal build durations or readership.",
+    "state": "Record available",
+    "evidence": [
+      {
+        "label": "Question",
+        "passage": "# Which public records connect PHP's security notice to its official image publication?"
+      },
+      {
+        "label": "Answer",
+        "passage": "The public record gives a dated path from an early issue in the PHP image-maintainer repository, through two explicitly linked pull requests, their reviews and CI, to images later observed on Docker Hub. It is more than a list of advisories: the second PR names the first, and the official-images test rerun reports 68 successful jobs. It is less than a complete build or adoption history: LH020 did not inspect Docker's intermediate `meta` and staging records, and neither a CI success nor a registry image says anyone installed or ran it."
+      },
+      {
+        "label": "Limit",
+        "passage": "These source and release PRs were known before the protocol. This is a retrospective selected case. Their explicit references show documented linkage, not who learned from whom, why they acted or how far the information spread outside these repositories. The 07:17 issue is not asserted to be the earliest public mention."
+      }
+    ]
+  },
+  {
+    "path": "studies/LH021/LH021.md",
+    "question": "What can public PHP consumer image repositories show of a rebuild?",
+    "summary": "A fixed three-repository source check found literal PHP base instructions for WordPress and Drupal and successful workflows at sampled heads. The deterministic cap selected unrelated proxy examples for Nextcloud, a coverage failure rather than evidence against PHP use.",
+    "limit": "A moving source instruction or successful workflow does not reveal the resolved base digest, publication, deployment or a patch response.",
+    "state": "Record available",
+    "evidence": [
+      {
+        "label": "Question",
+        "passage": "# What can public PHP consumer image repositories show of a rebuild?"
+      },
+      {
+        "label": "Answer",
+        "passage": "In this precommitted three-repository sample, the deterministic four-file cap found three literal `FROM php:` lines for WordPress and four for Drupal; for Nextcloud it selected four unrelated proxy example Dockerfiles. Each repository's ten most recent run records included two successful runs at its sampled head SHA."
+      },
+      {
+        "label": "Limit",
+        "passage": "None of those observations says which base digest a job resolved, whether it pulled layers, whether an image was published or deployed, or whether the patch prompted a change. The Nextcloud result is a coverage failure of this file-selection rule, not evidence that Nextcloud does not use PHP."
+      }
+    ]
+  },
+  {
+    "path": "studies/LH022/LH022.md",
+    "question": "Can a Drupal image build be linked to the fixed PHP base?",
+    "summary": "The exact preselected Drupal tag was absent from the publisher manifest, so the case stopped at selection without linking a production recipe, resolved base or derived artifact. An alternative tag noticed afterwards was not substituted.",
+    "limit": "The failed exact-tag rule does not show Drupal lacked an 8.3 image or classify its uptake.",
+    "state": "Record available",
+    "evidence": [
+      {
+        "label": "Question",
+        "passage": "# Drupal production-image link: a selection failure"
+      },
+      {
+        "label": "Answer",
+        "passage": "The preselected exact `11.3-php8.3-fpm` tag was absent from the current official-images `library/drupal` manifest. Under the fixed rule there is no selected derivative, so this case cannot link a production recipe, base digest or image artifact. The study stops at selection. It does not classify Drupal's uptake."
+      },
+      {
+        "label": "Limit",
+        "passage": "This is a failed exact-tag rule, not evidence that the repository lacks an 8.3 image. A separate explicitly post-selection case can choose a tag known to exist and measure how far the public chain reaches; it cannot turn this failure into a successful preselected case. No prior derived-image digest exists in this study."
+      }
+    ]
+  },
+  {
+    "path": "studies/LH023/LH023.md",
+    "question": "Can the selected Drupal production tag be linked through source, base resolution and published image?",
+    "summary": "A Drupal tag chosen post hoc after the failed selection had a published verified manifest and configuration declaring fixed PHP 8.3.36. Its recipe named a moving PHP base, but no selected run or ancestry label exposed the resolved base digest.",
+    "limit": "This known positive-looking case cannot establish the historical build input, independently patched executable, deployment or adoption rate.",
+    "state": "Record available",
+    "evidence": [
+      {
+        "label": "Question",
+        "passage": "# A Drupal image is published; its base resolution remains unseen"
+      },
+      {
+        "label": "Answer",
+        "passage": "The known `drupal:10.6-php8.3-fpm` production tag had a published linux/amd64 image at this observation. Its exact manifest and config hashes verified, and the config declares `PHP_VERSION=8.3.36`, the fixed 8.3 source version. The production Dockerfile's literal base instruction is `FROM php:8.3-fpm-trixie`. No selected public source Actions run after the PHP image publication at the frozen heads exposed a resolved PHP base digest, and the config has no ancestry label."
+      },
+      {
+        "label": "Limit",
+        "passage": "The `10.6` tag was selected after seeing its existence in the LH022 manifest. Current image metadata cannot reconstruct earlier tag pointers."
+      },
+      {
+        "label": "Selection",
+        "passage": "**Selection:** disclosed post hoc choice of a tag seen in LH022's failed selection, so no independent cohort inference."
+      }
+    ]
+  },
+  {
+    "path": "studies/LH024/LH024.md",
+    "question": "What did a fixed public panel say about the PHP emergency?",
+    "summary": "The week-long panel recorded advice, claimed traffic rules and provider patch or rebuild claims as different responses; readable institutional sources rose from six to eight of ten, while CISA stayed refused and Azure had no selected page. Relevant visible claim changes were dated by 23 October or earlier, with no later exposed-field changes through 28 October.",
+    "limit": "Provider claims do not measure efficacy or protected hosts; purposive searches missed material and their full ranked outputs were not retained.",
+    "state": "Closed",
+    "evidence": [
+      {
+        "label": "Question",
+        "passage": "# An emergency patch had several public kinds of protection"
+      },
+      {
+        "label": "Answer",
+        "passage": "The fixed public panel exposes different sorts of response: PHP's release notice, public-agency advice, and network providers' claims about traffic rules."
+      },
+      {
+        "label": "Limit",
+        "passage": "**Protocol deviation:** the search connector output was not itself retained with exact query invocation times and full ranked results. The selected URLs, frozen queries and direct reads are retained; nonselected search hits and precise search times cannot be replayed. This weakens any comparison of a missing result or search rank."
+      },
+      {
+        "label": "State",
+        "passage": "**Status:** closed; daily reads 22 to 28 October."
+      },
+      {
+        "label": "Week",
+        "passage": "**Over the week, to 28 October.** From 23 October eight of the ten institutions had directly readable pages at every read, after AWS's and Google Cloud's pages, placeholders on 22 October, became readable; CISA's alert refused the reader at all seven reads, and Azure never had a selected page. The day's searches added three own-domain records on 23 October (an AWS security bulletin, a Fastly post and a BleepingComputer article) and none after. The claims that changed did so by 23 October: AWS's bulletin, by its own fields updated on 22 and 23 October, described automatic platform updates for Elastic Beanstalk, blueprints for Lightsail that running instances cannot take in place, and then affected EMR releases and Bref for Lambda; Google Cloud's blog took editor's notes to 23 October and claims its Gemini 4 Argon model contributed to finding and patching the flaws. Those changes are dated 23 October or earlier by the sources' own clocks and were all seen by the 24 October read; from 25 to 28 October no exposed title, canonical, published, modified or author field changed, and server headers moved on pages whose visible text did not. Of the institutional pages, only PHP's, CERT-EU's and Cloudflare's named the related flaw CVE-2026-115560, at every read from 23 October."
+      }
+    ]
+  },
+  {
+    "path": "studies/LH025/LH025.md",
+    "question": "What do selected derived PHP image tags name each day?",
+    "summary": "All five selected tags already declared fixed PHP versions at baseline; all 16 retained configurations across the week kept those declarations. Nextcloud and WordPress digests changed, but five of seven reads were partial, leaving much of the later panel unknown.",
+    "limit": "The tracks are left-censored and Drupal was selected with its result known; declarations and digests do not establish rebuild causes, verified binaries or deployment.",
+    "state": "Closed",
+    "evidence": [
+      {
+        "label": "Question",
+        "passage": "# Five derived PHP image tags already declared fixed versions"
+      },
+      {
+        "label": "Answer",
+        "passage": "**Over the week, to 28 October.** No read from 22 to 28 October showed any of the five tags declaring an older PHP version: all 16 configurations retained declare the same fixed version as at the first read."
+      },
+      {
+        "label": "Limit",
+        "passage": "These five tags were chosen by repository family and variant, with Drupal included after LH023 had already read it. They are not a sample of all PHP consumers, and five of five is not an uptake rate."
+      },
+      {
+        "label": "State",
+        "passage": "**Status:** closed; daily reads 22 to 28 October, five of seven partial."
+      },
+      {
+        "label": "Missing reads",
+        "passage": "The registry's anonymous rate limit cut five of the seven reads short, so after 25 October the panel saw only the two WordPress tags, and much of the week is unknown for the rest."
+      }
+    ]
+  },
+  {
+    "path": "studies/LH026/LH026.md",
+    "question": "Do Drupal's published layers extend the selected PHP base?",
+    "summary": "In one case selected after its fixed-version declaration was known, all 12 ordered PHP base layers matched the prefix of Drupal's 17 layers, for both compressed and uncompressed digests. This establishes shared published layer content with five additional layers.",
+    "limit": "The match does not identify the historical mutable tag pointer, a unique build route, tested executable behaviour or a running deployment.",
+    "state": "Record available",
+    "evidence": [
+      {
+        "label": "Question",
+        "passage": "# Drupal's published layers extend the fixed PHP base layers"
+      },
+      {
+        "label": "Answer",
+        "passage": "The current published `drupal:10.6-php8.3-fpm` linux/amd64 image's 17 ordered filesystem layers begin with **all 12 layers** of the current `php:8.3-fpm-trixie` linux/amd64 image, matching both the compressed layer digests in their OCI manifests and the uncompressed `rootfs.diff_ids` in their configs. Both configs declare `PHP_VERSION=8.3.36`."
+      },
+      {
+        "label": "Limit",
+        "passage": "This comparison was made after the derivative had been chosen and after its config declared a fixed PHP version. It is a single selected feasibility case, not a frequency of downstream rebuilds."
+      },
+      {
+        "label": "Content boundary",
+        "passage": "Matching ordered layer digests establishes content identity for those published layer objects. It does not identify the historical mutable tag pointer a builder resolved, prove a unique route to those bytes, validate the executable by running it, or establish that a customer pulled or deployed this image."
+      }
+    ]
+  },
+  {
+    "path": "studies/LH027/LH027.md",
+    "question": "What does one operator's precautionary outage notice establish?",
+    "summary": "The selected National Archives notice refused the single direct read with HTTP 403, leaving the case inconclusive. A previously seen search snippet could not verify its exact service list, history, availability or restoration.",
+    "limit": "An access denial is not evidence about the services, and a case selected for an apparent shutdown cannot estimate shutdown prevalence.",
+    "state": "Record available",
+    "evidence": [
+      {
+        "label": "Question",
+        "passage": "# A selected outage notice was unavailable to the direct reader"
+      },
+      {
+        "label": "Answer",
+        "passage": "Inconclusive. The selected first-party notice returned HTTP 403 to this direct reader. The search result had already claimed some services were taken offline, but its snippet cannot supply the full notice, exact service list, update history or present status. This observation does not verify availability or restoration."
+      },
+      {
+        "label": "Limit",
+        "passage": "An access denial to this instrument says nothing about whether the operator removed the notice or whether the named services are still offline. The search snippet is insufficient to attribute an exact list or clock. This chosen positive-looking case cannot measure the rate of preventive shutdowns."
+      }
+    ]
+  },
+  {
+    "path": "studies/LH028/LH028.md",
+    "question": "What can the first public telemetry establish about this PHP event and AI's role?",
+    "summary": "Amazon's web-rendered account dated a honeypot attempt before disclosure, while retained Cloudflare text reported attack traffic without episode counts; neither identified attacker AI use or a compromised system. OpenAI's participant account described AI-assisted defensive discovery and coordination.",
+    "limit": "The direct Amazon read was a placeholder, so its text cannot be replayed from retained bytes; selected qualitative accounts supply no global attempt rate or causal AI attribution.",
+    "state": "Record available",
+    "evidence": [
+      {
+        "label": "Question",
+        "passage": "# The first public attack trace predates the PHP disclosure, but says little about AI use by attackers"
+      },
+      {
+        "label": "Answer",
+        "passage": "The web reader showed Amazon Threat Intelligence's first-party account of an attempted exploit in its MadPot honeypot dated **17 October**, with further attempts from 02:00 to 08:00 UTC on 21 October and after the stated 14:00 UTC embargo lift. Amazon says it does not know how the earlier actor obtained the information or whether attempts would have succeeded on real systems [S1]."
+      },
+      {
+        "label": "Limit",
+        "passage": "The direct collector received a `Site Unavailable` placeholder for this article, so the Amazon text is **not** independently replayable from retained raw bytes here."
+      },
+      {
+        "label": "AI role",
+        "passage": "OpenAI's retained page says Calif identified one flaw using GPT-5.6 Sol, Wiz independently reported both, and PHP maintainers led the fixes, with OpenAI and partners assisting coordination [S3]. That is a disclosed use of AI in *defensive discovery* and response, not evidence of attackers' tools."
+      }
+    ]
+  },
+  {
+    "path": "studies/LH029/LH029.md",
+    "question": "What did PHP's own 23 October notice say about a related issue in the fixed releases?",
+    "summary": "PHP described an unlikely related code-execution path under an unusual runtime handler-switching configuration and advised disabling upload progress until its next regular release. PHP named no affected versions: applicability to current releases is the record's inference, while Cloudflare stated that scope explicitly.",
+    "limit": "The notice's timestamp is not first-public visibility, and the record measures no installation, exposure prevalence or exploit attempt.",
+    "state": "Record available",
+    "evidence": [
+      {
+        "label": "Question",
+        "passage": "# What did PHP's own 23 October notice say about a related issue in the fixed releases?"
+      },
+      {
+        "label": "Answer",
+        "passage": "The entry names no affected version. By asking users to keep the setting until the next regular release in order \"to fully protect\", it implies that the current releases, including the 21 October fixed ones, do not close this path; that is our reading, not PHP's words."
+      },
+      {
+        "label": "Limit",
+        "passage": "**A claim, not a measurement.** The conditions and the \"unlikely\" judgement are PHP's. This study observed no installation, application, configuration or exploit attempt, and cannot say how many applications switch the serialise handler at runtime, whether any are exposed, or whether the next release will close the path."
+      },
+      {
+        "label": "Conditions",
+        "passage": "PHP's own archive entry, dated 23 October with a `datetime` attribute of 10:12:28 UTC and first read directly by Lighthouse at 17:00 UTC, suggests that users set `session.upload_progress.enabled=0` \"until the next regular bugfix release, to fully protect from an unlikely RCE vector\" [S1]. It says the issue can occur only under \"an unusual combination of configuration and application code\": an application sets `session.serialize_handler` to `php_binary` or `php_serialize` in its configuration, switches it to `php` at runtime with `ini_set()` before `session_start()`, and leaves session upload progress enabled. Applications that never change the handler at runtime can keep the feature enabled. The setting is the one PHP listed on 21 October as a partial measure against CVE-2026-109619; those who applied it then should keep it in place, and need do nothing more. PHP will handle the issue in the regular release cycle and publish a full advisory for CVE-2026-115560 with the next release."
+      }
+    ]
+  },
+  {
+    "path": "studies/LH030/LH030.md",
+    "question": "How does PHP's mitigation instruction travel through a fixed panel of notices and vulnerability records?",
+    "summary": "The interim record found no class changes across 22 reads to 30 October: one institution carried the instruction and none of seven trackers had opened an entry. Its later opening reports an unreviewed 5 November checkpoint in which SUSE became the first tracker with an entry; the watch remains open.",
+    "limit": "Fixed-URL absence is not institutional silence or measured reach; refusals and the missed 30 October evening read leave unknowns.",
+    "state": "Interim record",
+    "evidence": [
+      {
+        "label": "Question",
+        "passage": "# How does PHP's 23 October mitigation instruction travel through a fixed panel of public notices and vulnerability records?"
+      },
+      {
+        "label": "Answer",
+        "passage": "In 22 reads over the week from 23 October 17:15 UTC to 30 October 13:04 UTC, nothing in the frame changed class."
+      },
+      {
+        "label": "Limit",
+        "passage": "This is an observation of a fixed panel, not a measure of reach: a tracker or institution may have said something elsewhere, and an absence at a fixed URL is not silence."
+      },
+      {
+        "label": "State",
+        "passage": "**Study:** LH030, version 0.2 (interim record, after the reads of 30 October), 31 October 2026; version 0.1 (baseline record), 23 October 2026."
+      },
+      {
+        "label": "Latest opening",
+        "passage": "**In short.** On 23 October PHP told people how to protect themselves from a related third flaw (CVE-2026-115560) until a fix arrives. Did that advice spread? We follow it through 15 fixed public sources, seven vulnerability databases and eight security bodies' notices, read twice a week. In the first week only CERT-EU carried the advice and no database opened an entry; on 5 November SUSE became the first database to open one (unreviewed, from that day's checkpoint). The watch ends at the first read two days after PHP's next regular release, or on 30 November."
+      }
+    ]
+  },
+  {
+    "path": "studies/LH031/LH031.md",
+    "question": "When does CISA's catalogue list the October PHP flaws?",
+    "summary": "CISA's two emergency-flaw entries first appeared between the 26 October evening and 27 October morning reads, with CISA's own dateAdded of 26 October. The third flaw remained unlisted in the unreviewed 5 November checkpoint reported by the opening, and the watch continues.",
+    "limit": "A listing is an agency classification, not attack or compromise counts; the retained feed gives no per-entry evidence threshold or exploitation report.",
+    "state": "Interim record",
+    "evidence": [
+      {
+        "label": "Question",
+        "passage": "# When, if ever, does CISA's catalogue of known exploited vulnerabilities list the October 2026 PHP flaws?"
+      },
+      {
+        "label": "Answer",
+        "passage": "So the appearance falls between our reads of 26 October 18:34 UTC and 27 October 06:34 UTC, on CISA's dates 26 October; the three clocks are kept apart in [the 27 October checkpoint](checkpoints/2026-10-27.md)."
+      },
+      {
+        "label": "Limit",
+        "passage": "An agency's catalogue applies its own evidence threshold, which is not published per entry, and the feed states no criteria at all;"
+      },
+      {
+        "label": "State",
+        "passage": "Reads continue under the brief, for CVE-2026-115560 and for any revision of the two entries."
+      },
+      {
+        "label": "Latest opening",
+        "passage": "**In short.** Does CISA, the US cyber agency, list the October PHP flaws in its catalogue of known exploited vulnerabilities? It listed the two emergency flaws, CVE-2026-109618 and CVE-2026-109619, on 26 October, between our reads of 26 October 18:34 and 27 October 06:34 UTC. The third, CVE-2026-115560, wasn't listed at our latest read on 5 November (unreviewed checkpoint). A listing is CISA's classification, not a count of attacks. Since 30 October we also read Palo Alto Networks' advisory, which reports active exploitation of its own products; it was unchanged on 5 November."
+      }
+    ]
+  },
+  {
+    "path": "studies/LH032/LH032.md",
+    "question": "How does one national CERT's list record fixes for PHP-related products?",
+    "summary": "The audited baseline held 751 entries and 109 fixes for the first flaw; correcting history traversal changed recorded transition clocks and withdrew a pre-release resolved claim without changing current status totals. The opening reports 948 entries in an unreviewed 5 November checkpoint, and twice-weekly reads continue.",
+    "limit": "These are list statuses and mainline edit clocks, not vendor release times or customer states; a small advisory check was incomplete.",
+    "state": "Interim record",
+    "evidence": [
+      {
+        "label": "Question",
+        "passage": "# How do fixes for the October 2026 PHP flaws reach products that embed PHP, as one national CERT's public list records them?"
+      },
+      {
+        "label": "Answer",
+        "passage": "The original all-branches traversal treated merged side-branch trees as successive list states. First-parent reanalysis changes 117 first Fix/Not vuln clocks and 66 first-listed clocks, and changes the number of surviving identities with status transitions from 328 to 308. The original claim of one pre-release Not vuln record is withdrawn."
+      },
+      {
+        "label": "Limit",
+        "passage": "The mainline commit clocks date edits incorporated along the captured first-parent history, often in batches. Git alone does not date a public push or first reader access; a later commit can record an earlier vendor statement."
+      },
+      {
+        "label": "State",
+        "passage": "Read again with LH030's schedule: the questions are how many \"Investigation\" entries resolve and how fast, as the list records it, and whether a column for CVE-2026-115560 appears."
+      },
+      {
+        "label": "Baseline",
+        "passage": "The inventory contains 751 PHP-related entries, including runtimes, extensions, application frameworks, tools and hosted products. It is broader than a count of vendors or products bundling PHP. It gives a status per entry for each of the two original flaws (Investigation, Vulnerable, Fix, Workaround or Not vuln, each defined in its README by the kind of source behind it) and, for nearly all entries (749 of 751), a link. At its latest commit it holds **751 entries**. For CVE-2026-109618: **109 Fix, 222 Vulnerable, 389 Investigation, 30 Not vuln** and one blank (PHP itself); CVE-2026-109619's counts differ by one or two. So by the list's account, two days after PHP's release, about one entry in seven had a recorded fix and about half were still being assessed. These are the list's statuses, not vendors' or customers' states."
+      },
+      {
+        "label": "Latest opening",
+        "passage": "**In short.** The Dutch national cyber security centre, NCSC-NL, keeps a public list of software affected by the October PHP flaws, with a status for each entry, and we read it twice a week. On 5 November (unreviewed checkpoint) it had 948 entries; for CVE-2026-109618, 185 had a fix, 215 were vulnerable, 93 were still being assessed, 240 were marked as depending on the PHP runtime they run on, and 214 were not vulnerable. These are the list's statuses, not what vendors or their customers actually run."
+      }
+    ]
+  },
+  {
+    "path": "studies/LH033/LH033.md",
+    "question": "How does the PHP emergency fix reach counted services, beside Python download shares?",
+    "summary": "By day 7 Censys classified 52.4 to 78.8 per cent within the four fixed PHP branches as patched, while 54.3 per cent of version-reporting services were on branches PHP had not fixed. This is an interim comparison of service stocks with reused Python download flows; later checkpoints and post hoc comparisons remain separate from the day-7 record.",
+    "limit": "Reported versions, scan lag and backports make patched shares floors on protection; unlike units cannot rank ecosystems or explain causes.",
+    "state": "Interim record",
+    "evidence": [
+      {
+        "label": "Question",
+        "passage": "title: How does the PHP emergency fix reach the services others count, beside how Python releases reached downloads?"
+      },
+      {
+        "label": "Answer",
+        "passage": "A week after PHP's emergency releases, Censys counted between a little over half and nearly four fifths of the version-reporting, internet-facing PHP services in each fixed branch as patched: on day 7, 53.0 per cent in 8.2, 52.4 in 8.3, 67.8 in 8.4 and 78.8 in 8.5 (observation, Censys's classification)."
+      },
+      {
+        "label": "Limit",
+        "passage": "The comparison describes shapes; it does not rank the ecosystems, and severity, publicity, exploitation reports and AI are not examined as causes."
+      },
+      {
+        "label": "State",
+        "passage": "version: 0.1 (interim, to day 7)"
+      },
+      {
+        "label": "Tail",
+        "passage": "Beside them, 24.4 million services, 54.3 per cent of those that reported a version, ran branches for which PHP released no fix, as their versions report them; some may carry a distribution's backported fix under the old number, which this study does not measure."
+      },
+      {
+        "label": "Version reporting",
+        "passage": "**A Censys share is not protection.** The dashboard's own notes say figures \"can lag real-world changes by hours, and by up to about a week for some websites\", that \"Status is based on reported versions, so counts are an upper bound\", and that \"Linux distributions often backport security fixes without changing the PHP version\" (read 25 October 2026; discovery.md). So the patched shares are floors: Ubuntu's fixed package for its 24.04 release reports itself as 8.3.6 (studies/LH018), and services that hide their version are outside both the count and its denominator.\n- **A service is an address and a port**, not a machine, a website or an organisation.\n- **Different units.** The Python comparators are shares of a day's downloads from the Python Package Index, a flow weighted towards environments that fetch often; the PHP figures are a stock of services. The comparison describes shapes; it does not rank the ecosystems, and severity, publicity, exploitation reports and AI are not examined as causes.\n- **One third-party instrument.** Censys's detection changed on day 2 (above); its methods are not fully published.\n- **Interim.** Measures 3 to 6 and the day 14 and day 30 points wait for the read holding day 30 (21 or 22 November) and W3Techs's monthly points.\n- Not checked: Censys's terms of use; how Censys treats a service first seen already fixed; W3Techs's version detection."
+      },
+      {
+        "label": "Post hoc measure",
+        "passage": "**Measure 6 (amendment 1), pending.** How ordinary PHP patch releases spread among the websites W3Techs counts, beside the emergency release, needs W3Techs's monthly points of 1 November and 1 December. It was chosen after the baseline's history rows were seen and is labelled post hoc wherever it is reported, with its one comparison named in the amendment."
+      }
+    ]
+  },
+  {
+    "path": "studies/LH034/LH034.md",
+    "question": "How does the Node.js security release reach downloads, beside Python and PHP?",
+    "summary": "By day 7 the fixed release or newer versions took 53.9, 72.2 and 64.7 per cent of downloads within lines 22, 24 and 26; all first passed half on day 2. The interim comparison reuses Python and PHP data and explicitly labels a later posting-day alignment with July as post hoc.",
+    "limit": "A download is a request through one channel, not a machine or installation; different populations and units cannot rank ecosystems or establish causes.",
+    "state": "Interim record",
+    "evidence": [
+      {
+        "label": "Question",
+        "passage": "title: How does the Node.js security release of 21 October 2026 reach nodejs.org's downloads, beside the Python releases and the PHP fix?"
+      },
+      {
+        "label": "Answer",
+        "passage": "A week after Node.js's security releases of 21 October 2026, the fixed release or a newer one in its line made up 53.9 per cent of line 22's downloads from nodejs.org on day 7, 72.2 per cent of line 24's and 64.7 per cent of line 26's (derived from the project's counts). All three lines first passed half on day 2."
+      },
+      {
+        "label": "Limit",
+        "passage": "**A download is a request**, not a machine, an install or a user; a machine that builds often is counted often."
+      },
+      {
+        "label": "State",
+        "passage": "version: 0.1 (interim, to day 7)"
+      },
+      {
+        "label": "Post hoc comparison",
+        "passage": "*Post hoc, one comparison:* aligned by posting day instead (July's days 2, 3 and 8 against October's days 1, 2 and 7), July's shares were line 22 30.7, 31.9 and 31.0 per cent; line 24 15.1, 46.0 and 26.8; line 26 69.9, 89.1 and 89.4. This alignment was chosen after the offset was seen; no later read can test it on data not yet read, since both releases are past, and the brief's rule stays the measure. On either alignment, lines 22 and 24 were higher in October's first week than in July's, and line 26 was lower by day 7."
+      }
+    ]
+  }
+]

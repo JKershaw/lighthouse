@@ -1,0 +1,36 @@
+# Knowledge Lineage release code review
+
+**In short.** The release candidate builds successfully and exposes all seventy non-investigation record pages. The bounded recheck resolves the three automatic-update defects found in the first reading, with 51 unit tests passing and no remaining blocking code finding. This review does not establish browser or human acceptance.
+
+11 November 2026. Fresh OpenAI Codex agent context; exact host model identifier, attributable inference cost and elapsed time unavailable. Code and generated-HTML review of the shared working tree based on `df0d44d25dc2a12fb1aa7ecec07e93eba86ea564`. This is not an Opus review or a human usability test. No external requests, credentials or downloaded code were used. Only this review note was written by this reviewer; the build produced ignored output. Separate reviewers own the editorial backfill's claim checking.
+
+## Blocking findings
+
+1. **P1: stale summaries and history survive consequential source changes.** `scripts/lineage/overview.mjs` initially accepts curated study explanations whenever their quoted passages remain substrings (L104–107). A later correction or checkpoint interpretation can change the answer while retaining the original quotation. The old explanation then remains labelled as checked. The live history's L88–90 check has the same problem and checks only history-node passages, not its eight edge passages. In particular, `investigations/software-updates.md` supplies the return-to-a-question edge but is outside the eight history article nodes. Compare every annotated source's whole-record hash against its reviewed input, withholding annotations when any source changes; keep the frozen history available as a clearly labelled historical snapshot. Add a regression in which an appended correction leaves quoted passages untouched.
+
+2. **P2: current HTML and downloaded catalogue have different inputs.** `loadKnowledgeMap` reads `site/.generated/knowledge-map.json`, while `site/eleventy.config.js` copies `notes/knowledge-lineage/overview.json` to the overview's “Catalogue and retained references” route. The inspected generated page therefore uses input `df0d44d…`, but its download declares retained snapshot input `8af0cb0…`. `scripts/lineage/check.py` likewise reports the frozen file's counts. Route the current download and current integrity checks to the same generated data, and retain the old snapshot under its own unambiguous name. The current population happens to match, concealing the future omission of newly added work.
+
+3. **P2: automatic publication selection can mislabel unreleased work.** The generator's L31 filter excludes only status `draft`, while the record template calls every finding/essay a released finding/essay. A future `status: withdrawn`, `working`, or other value is included and falsely labelled as released. Require explicit released status for this catalogue's publication boundary, and add a fixture with a non-draft, unreleased status. All twenty-one publications in the currently inspected corpus actually say released; no existing publication was found falsely labelled.
+
+## Checks and limits
+
+- `npm test --prefix site`: 49 tests passed. These existing tests largely check the frozen catalogue and pilot; they do not exercise the new live-update failure cases above.
+- `npm run build --prefix site`: passed. The build wrote 956 files and generated 70 knowledge record pages: 49 studies, 18 findings and three essays. Existing unrelated unresolved-link warnings remain elsewhere in repository content.
+- The live catalogue contains explanations for all 49 study nodes, a 67-entry source-review archive and all 79 scoped checkpoint links. The source-review links attached to individual records cover explicit Markdown links in their selected lead only; older plain-text review references remain discoverable through the archive. This does not claim that every review is formally attached to each record it discusses.
+- Existing article header parsing is reused; short forms and checkpoints do not become duplicate catalogue nodes. Study pages say working record or a curated state rather than released finding. Explicit-reference links retain their qualification against inferred support or intellectual influence.
+- Root build completed. No browser launch, keyboard interaction, mobile rendering, assistive-technology inspection, subdirectory build or unfamiliar-human test was performed by this reviewer. The driving session owns the final root/prefix route check. The new CI browser job is a planned verification path until its result is observed; its existence is not evidence that it passed.
+- The browser script checks no-JavaScript pages at three widths in both themes, native disclosure keyboard opening and every study explanation. It does not inspect every publication wrapper or prove visual correctness from screenshots alone. Future stale-history operation also needs to tolerate the intentionally withheld drawing, rather than always asserting eight visible drawing links.
+
+## Bounded recheck
+
+11 November 2026, after the driving session's repairs. **The three blocking findings are resolved in the inspected source; no further blocking code finding was found.** Original findings above describe the initial candidate, not the repaired source.
+
+| Finding | Resolution checked |
+| --- | --- |
+| Stale summaries/history | Live study explanations now require the whole lead file's hash to match the retained reviewed input. History checks both node evidence spans and edge evidence source hashes, covering the investigation source too. A separate curation-ref.json allows a future reviewed navigation snapshot to advance without changing the original pilot baseline. Changed annotations are withheld rather than silently revalidated from retained snippets. |
+| Current download | Eleventy's download passthrough now uses site/.generated/knowledge-map.json, matching the HTML data source. check.py reports from that built download rather than the historical snapshot. The historical notes overview remains retained separately. |
+| Publication gate | Both article and essay filters now require their parsed status to equal released. The regression fixture includes released, draft and withdrawn statuses and admits only the released publication. |
+
+`npm test --prefix site` passed **51/51** in this recheck. The isolated temporary git fixture verifies that a new study is automatically catalogued, an appended interpretation with the old quotation intact withholds the old explanation, and live generation leaves the historical snapshot unchanged. The generator's null-history guard also allows that deliberately minimal fixture to run. Production template/browser paths still assume a history object; the actual retained production snapshot supplies one. The browser script now accepts intentionally withheld stale history instead of always requiring eight visible links.
+
+No additional build or browser run was performed in this bounded recheck. The previously successful root build predates the repairs; the driving session must regenerate and verify final root/prefix output and observe any CI browser result separately. Human and assistive-technology acceptance remain untested.

@@ -31,3 +31,16 @@ test('overview references and selected history are grounded in the frozen origin
  assert.ok(data.history.nodes.every(n=>data.nodes.some(x=>x.id===n.path&&x.kind==='finding')));
  const view=loadKnowledgeMap(root);assert.equal(view.groups.length,3);assert.equal(view.unassignedNodes.length,10);
 });
+
+test('every study has a bounded explanation with exact supporting passages and every item has a route',()=>{
+ const studies=data.nodes.filter(n=>n.kind==='study');assert.equal(studies.length,49);
+ for(const n of studies){
+  assert.ok(n.explanation?.question&&n.explanation.summary&&n.explanation.limit,n.id);
+  assert.ok(['Record available','Protocol only','Interim record','Closed'].includes(n.explanation.state));
+  const raw=execFileSync('git',['show',`${data.input_commit}:${n.path}`],{cwd:root,encoding:'utf8'});
+  for(const e of n.explanation.evidence)assert.ok(raw.includes(e.passage),n.id);
+ }
+ const view=loadKnowledgeMap(root);assert.equal(view.recordPages.length,70);
+ assert.equal(new Set(view.recordPages.map(n=>n.mapUrl)).size,70);
+ assert.equal(data.review_archive.length,67);assert.equal(studies.reduce((n,s)=>n+s.checkpoints.length,0),79);
+});

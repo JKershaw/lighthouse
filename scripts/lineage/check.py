@@ -24,7 +24,8 @@ def main():
     subprocess.run(['python3','scripts/lineage/extract.py','--check'],cwd=ROOT,check=True)
     graph=json.loads((ROOT/'notes/knowledge-lineage/graph.json').read_text())
     failures=[];count=0
-    for route in ['map/knowledge-lineage','map/knowledge-lineage/trails','map/knowledge-lineage/evidence','notes/knowledge-lineage/README','notes/knowledge-lineage/evaluation']:
+    records=[str(p.parent.relative_to(SITE)) for p in (SITE/'map/knowledge-lineage/records').glob('*/index.html')]
+    for route in records+['map/knowledge-lineage','map/knowledge-lineage/trails','map/knowledge-lineage/evidence','notes/knowledge-lineage/README','notes/knowledge-lineage/evaluation']:
         file=SITE/route/'index.html'
         if not file.exists(): failures.append(str(file));continue
         tags=Tags();tags.feed(file.read_text())
@@ -52,7 +53,7 @@ def main():
     for edge in graph['edges']:
         if edge['subject'] not in ids or edge['object'] not in ids:failures.append(edge['id'])
     scores=json.loads((ROOT/'notes/knowledge-lineage/adjudication.json').read_text())
-    overview=json.loads((ROOT/'notes/knowledge-lineage/overview.json').read_text())
+    overview=json.loads((SITE/'map/knowledge-lineage/overview.json').read_text())
     result=dict(comparison_applies_to='Original pilot 0.1, not a new test of overview 0.2',path_prefix=prefix or '/',local_links_checked=count,failures=failures,baseline_score=sum(q['baseline'] for q in scores['items']),assisted_score=sum(q['assisted'] for q in scores['items']),score_denominator=len(scores['items']),pilot_graph=dict(nodes=len(ids),edges=len(graph['edges']),candidates=len(graph['candidates'])),overview_catalogue=dict(nodes=len(overview['nodes']),**overview['counts'],unassigned=len(overview['unassigned'])),browser_test='not completed: browser launch/socket and cloud-localhost access unavailable')
     (ROOT/('notes/knowledge-lineage/check-results-prefix.json' if prefix else 'notes/knowledge-lineage/check-results.json')).write_text(json.dumps(result,indent=2)+'\n')
     print(json.dumps(result))

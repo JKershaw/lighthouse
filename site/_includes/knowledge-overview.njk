@@ -4,11 +4,11 @@ layout: base.njk
 <link rel="stylesheet" href="/assets/lineage.css">
 <article class="knowledge-overview" id="overview-page">
   <nav class="lineage-crumb" aria-label="Breadcrumb"><a href="/map/">The map</a> / Knowledge Lineage</nav>
-  <p class="kicker">Lighthouse’s knowledge map · Working prototype</p>
+  <p class="kicker">Lighthouse’s knowledge map</p>
   <header class="knowledge-intro">
     <h1>A map of what we know.</h1>
     <p class="lineage-deck">Follow a question. See what we learned, what changed our minds, and where the trail leads next.</p>
-    <p class="knowledge-date">The recorded work as of 10 November 2026.</p>
+    <p class="knowledge-date">The recorded work as of {{ knowledgeMap.asOf }}.</p>
   </header>
   <section aria-labelledby="questions-title" class="knowledge-questions">
     <h2 id="questions-title">Three questions guide the watch</h2>
@@ -24,7 +24,7 @@ layout: base.njk
     {% endfor %}
     </div>
   </section>
-  <section class="knowledge-history" aria-labelledby="history-title">
+  {% if not knowledgeMap.history.stale %}<section class="knowledge-history" aria-labelledby="history-title">
     <p class="kicker">Inside one investigation</p>
     <h2 id="history-title">{{ knowledgeMap.history.title }}</h2>
     <p class="knowledge-history-intro">{{ knowledgeMap.history.intro }}</p>
@@ -36,11 +36,12 @@ layout: base.njk
     <div class="knowledge-current"><p><strong>Where the inquiry stands now</strong></p><p>Start with <a href="/articles/where-software-updates-go/">the current account</a>, including its later evidence and corrections.</p></div>
     <details class="knowledge-disclosure" id="history-reading">
       <summary>Read the history and follow its evidence</summary>
-      <ol class="knowledge-history-list">{% for node in knowledgeMap.history.nodes %}<li id="history-{{ node.id }}"><h3><a href="{{ node.url }}">{{ node.title }}</a></h3><p>{{ node.summary }}</p><p>Evidence: {% for basis in node.evidence_spans %}<a href="{{ basis.url }}">{{ basis.label }}</a>{% if not loop.last %} · {% endif %}{% endfor %}</p></li>{% endfor %}</ol>
+      <ol class="knowledge-history-list">{% for node in knowledgeMap.history.nodes %}<li id="history-{{ node.id }}"><h3><a href="{{ node.mapUrl or node.url }}">{{ node.title }}</a></h3><p>{{ node.summary }}</p><p>Evidence: {% for basis in node.evidence_spans %}<a href="{{ basis.url }}">{{ basis.label }}</a>{% if not loop.last %} · {% endif %}{% endfor %}</p></li>{% endfor %}</ol>
       <details class="knowledge-disclosure"><summary>What each arrow means</summary><ul>{% for edge in knowledgeMap.history.edges %}<li><a href="#history-{{ edge.subject }}">Earlier reading</a> → <a href="#history-{{ edge.object }}">later reading</a>: {{ edge.predicate }}. <a href="{{ edge.evidence.url }}">Recorded connection</a>.</li>{% endfor %}</ul><p>The verb describes what the later reading does with the earlier one. These links do not establish an external cause.</p></details>
     </details>
     <p class="knowledge-continue">Continue: {% for item in knowledgeMap.history.continuations %}<a href="/{{ item.path | replace('.md', '/') }}">{{ item.title }}</a>{% if not loop.last %} · {% endif %}{% endfor %}</p>
   </section>
+  {% else %}<p>The selected visual history awaits checking against changed records. <a href="/articles/where-software-updates-go/">Read the current account</a>.</p>{% endif %}
   <section class="knowledge-trail-doors" aria-labelledby="trail-doors-title">
     <h2 id="trail-doors-title">Take a closer look</h2>
     <div class="lineage-choices">
@@ -55,11 +56,12 @@ layout: base.njk
     <details class="knowledge-disclosure" id="catalogue-{{ group.id }}">
       <summary>{{ group.title }} <span>{{ group.studies.length }} study records · {{ group.pieces.length }} pieces</span></summary>
       <p><a href="{{ group.url }}">The investigation and its current questions</a></p>
-      {% if group.pieceNodes.length %}<h3>Findings and essays</h3><ul class="knowledge-record-list">{% for node in group.pieceNodes %}<li><a href="{{ node.url }}">{{ node.title }}</a> <span>{{ 'Essay' if node.kind == 'essay' else 'Finding' }}</span></li>{% endfor %}</ul>{% endif %}
-      {% if group.studyNodes.length %}<h3>The study records</h3><ul class="knowledge-record-list">{% for node in group.studyNodes %}<li><a href="{{ node.url }}">{{ node.label }}</a> <span>Record</span></li>{% endfor %}</ul>{% endif %}
+      {% if group.pieceNodes.length %}<h3>Findings and essays</h3><ul class="knowledge-record-list">{% for node in group.pieceNodes %}<li><a href="{{ node.mapUrl or node.url }}">{{ node.title }}</a> <span>{{ 'Essay' if node.kind == 'essay' else 'Finding' }}</span></li>{% endfor %}</ul>{% endif %}
+      {% if group.studyNodes.length %}<h3>The study records</h3><ul class="knowledge-record-list">{% for node in group.studyNodes %}<li><a href="{{ node.mapUrl or node.url }}">{{ node.label }}</a> <span>Record</span></li>{% endfor %}</ul>{% endif %}
     </details>
     {% endfor %}
-    <details class="knowledge-disclosure" id="catalogue-other"><summary>Other work in the collection <span>{{ knowledgeMap.unassignedNodes.length }} records</span></summary><p>These records are outside the investigation groups’ explicit links. They remain part of this catalogue.</p><ul class="knowledge-record-list">{% for node in knowledgeMap.unassignedNodes %}<li><a href="{{ node.url }}">{{ node.label or node.title }}</a> <span>{{ node.kind }}</span></li>{% endfor %}</ul></details>
-    <details class="knowledge-disclosure" id="map-coverage"><summary>What this map includes</summary><p>All investigation declarations, study directories with a top-level Markdown record, and released top-level findings and essays at the frozen revision. Draft pieces, short-form duplicates, checkpoints and raw evidence sit outside this catalogue’s boundary. Every item in that boundary is reachable here.</p><p>Groups follow explicit record links and declared lists; they can overlap. A reference is not proof of influence or support. Study records can contain unreviewed work. The drawing above selects eight readings from one inquiry; the catalogue covers the larger collection.</p><p>This is an inward map of Lighthouse’s work. Its outward trail follows one reported discovery; a comprehensive external research landscape has not yet been collected.</p><p><a href="/map/knowledge-lineage/overview.json">Catalogue and retained references</a> · <a href="/notes/knowledge-lineage/overview-plan/">Scope and checking plan</a> · <a href="/notes/knowledge-lineage/README/">Pilot record</a></p></details>
+    <details class="knowledge-disclosure" id="catalogue-other"><summary>Other work in the collection <span>{{ knowledgeMap.unassignedNodes.length }} records</span></summary><p>These records are outside the investigation groups’ explicit links. They remain part of this catalogue.</p><ul class="knowledge-record-list">{% for node in knowledgeMap.unassignedNodes %}<li><a href="{{ node.mapUrl or node.url }}">{{ node.label or node.title }}</a> <span>{{ node.kind }}</span></li>{% endfor %}</ul></details>
+<details class="knowledge-disclosure"><summary>Source reviews and checking notes · {{ knowledgeMap.review_archive.length }}</summary><ul class="knowledge-record-list">{% for note in knowledgeMap.review_archive %}<li><a href="{{ note.url }}">{{ note.title }}</a></li>{% endfor %}</ul></details>
+    <details class="knowledge-disclosure" id="map-coverage"><summary>What this map includes</summary><p>All investigation declarations, study directories with a top-level Markdown record, and released top-level findings and essays at the displayed revision. Draft pieces, short-form duplicates, checkpoints and raw evidence sit outside this catalogue’s boundary. Every item in that boundary is reachable here.</p><p>Groups follow explicit record links and declared lists; they can overlap. A reference is not proof of influence or support. Study records can contain unreviewed work. The drawing above selects eight readings from one inquiry; the catalogue covers the larger collection.</p><p>This is an inward map of Lighthouse’s work. Its outward trail follows one reported discovery; a comprehensive external research landscape has not yet been collected.</p><p><a href="/map/knowledge-lineage/overview.json">Catalogue and retained references</a> · <a href="/notes/knowledge-lineage/overview-plan/">Scope and checking plan</a> · <a href="/notes/knowledge-lineage/README/">Pilot record</a></p></details>
   </section>
 </article>

@@ -8,9 +8,14 @@ import { fileURLToPath } from 'node:url';
 import { parseHeader, headerField } from '../../site/lib/header.js';
 import { pageUrl, pieceInfo, inShortOf } from '../../site/lib/repo.js';
 
-const root=path.resolve(path.dirname(fileURLToPath(import.meta.url)),'../..');
+const rootArg=process.argv.indexOf('--root');
+const root=rootArg>=0?path.resolve(process.argv[rootArg+1]):path.resolve(path.dirname(fileURLToPath(import.meta.url)),'../..');
 const dir=path.join(root,'notes/knowledge-lineage');
-const base=JSON.parse(fs.readFileSync(path.join(dir,'baseline.json'))).input_commit;
+const refFile=fs.existsSync(path.join(dir,'curation-ref.json'))?'curation-ref.json':'baseline.json';
+const frozen=JSON.parse(fs.readFileSync(path.join(dir,refFile))).input_commit;
+const live=process.argv.includes('--live');
+const base=live?execFileSync('git',['rev-parse','HEAD'],{cwd:root,encoding:'utf8'}).trim():frozen;
+const stale=[];
 const git=(...args)=>execFileSync('git',args,{cwd:root,encoding:'utf8'});
 const all=git('ls-tree','-r','--name-only',base).trim().split('\n');
 const inputs={};
@@ -25,7 +30,7 @@ const describe=(p,kind)=>{
 };
 const studyDirs=[...new Set(all.filter(p=>/^studies\/LH\d+\/[^/]+\.md$/.test(p)).map(p=>path.posix.dirname(p)))].sort();
 const studies=studyDirs.map(d=>{const id=d.split('/')[1];return all.includes(`${d}/${id}.md`)?`${d}/${id}.md`:all.includes(`${d}/brief.md`)?`${d}/brief.md`:all.filter(p=>path.posix.dirname(p)===d&&p.endsWith('.md')).sort()[0];});
-const nodes=[...all.filter(p=>/^investigations\/[^/]+\.md$/.test(p)).map(p=>describe(p,'investigation')),...studies.map(p=>describe(p,'study')),...all.filter(p=>/^articles\/[^/]+\.md$/.test(p)).map(p=>describe(p,'finding')).filter(p=>p.status!=='draft'),...all.filter(p=>/^essays\/[^/]+\.md$/.test(p)).map(p=>describe(p,'essay')).filter(p=>p.status!=='draft')];
+const nodes=[...all.filter(p=>/^investigations\/[^/]+\.md$/.test(p)).map(p=>describe(p,'investigation')),...studies.map(p=>describe(p,'study')),...all.filter(p=>/^articles\/[^/]+\.md$/.test(p)).map(p=>describe(p,'finding')).filter(p=>p.status==='released'),...all.filter(p=>/^essays\/[^/]+\.md$/.test(p)).map(p=>describe(p,'essay')).filter(p=>p.status==='released')];
 const byPath=new Map(nodes.map(n=>[n.path,n]));
 const studyByDir=new Map(nodes.filter(n=>n.kind==='study').map(n=>[path.posix.dirname(n.path),n]));
 function target(from,href){
@@ -82,7 +87,10 @@ const grouped=new Set(groups.flatMap(g=>[...g.studies,...g.pieces]));
 const unassigned=nodes.filter(n=>n.kind!=='investigation'&&!grouped.has(n.id)).map(n=>n.id);
 let history=null;
 const annotations=path.join(dir,'overview-history.json');
-if(fs.existsSync(annotations)){
+if(live){
+ history=JSON.parse(fs.readFileSync(path.join(dir,'overview.json'),'utf8')).history;
+ if(history)history.stale=[...history.nodes.flatMap(n=>n.evidence_spans),...history.edges.map(e=>e.evidence)].some(e=>!all.includes(e.path)||createHash('sha256').update(read(e.path)).digest('hex')!==e.sha256);
+}else if(fs.existsSync(annotations)){
  const h=JSON.parse(fs.readFileSync(annotations));
  history={...h,nodes:h.nodes.map(n=>{
    if(!byPath.has(n.path))throw new Error(`History node outside corpus: ${n.path}`);
@@ -92,8 +100,30 @@ if(fs.existsSync(annotations)){
 const labelSource=read('site/sections.md');
 const labels=new Map([...labelSource.matchAll(/^- (studies\/LH\d+) \| (.+)$/gm)].map(m=>[m[1],m[2]]));
 for(const n of nodes)if(n.kind==='study')n.label=labels.get(path.posix.dirname(n.path))||n.title;
-const result={schema_version:'0.1',input_commit:base,generated_for:'2026-11-10',boundary:'Every investigation declaration, study directory with a top-level Markdown lead, and released top-level finding/essay at the frozen commit. Short forms, drafts, checkpoints and raw evidence are excluded.',counts:{investigations:groups.length,studies:studyDirs.length,findings:nodes.filter(n=>n.kind==='finding').length,essays:nodes.filter(n=>n.kind==='essay').length,references:edges.length},nodes:nodes.map(({header,body,raw,...n})=>n),edges,unresolved_references:unresolvedReferences,groups,unassigned,history,inputs:Object.fromEntries(Object.entries(inputs).sort())};
-const output=JSON.stringify(result,null,2)+'\n',file=path.join(dir,'overview.json');
+const backfillFiles=['backfill-a.json','backfill-b.json','backfill-c.json'];
+const backfill=backfillFiles.flatMap(name=>fs.existsSync(path.join(dir,name))?JSON.parse(fs.readFileSync(path.join(dir,name),'utf8')):[]);
+for(const node of nodes){
+ const curated=backfill.find(c=>c.path===node.path);
+ if(curated){
+  if((!live||createHash('sha256').update(node.raw).digest('hex')===JSON.parse(fs.readFileSync(path.join(dir,'overview.json'))).inputs[node.path])&&curated.evidence.every(e=>node.raw.includes(e.passage)))node.explanation={...curated,evidence:curated.evidence.map(e=>({label:e.label,...evidence(node.path,e.passage)}))};
+  else {node.needs_review=true;stale.push(node.path);}
+ }
+ if(['finding','essay'].includes(node.kind))node.summary=labelSource.split('\n').find(line=>line.startsWith('- '+node.path+' | '))?.split(' | ').slice(1).join(' | ')||node.summary;
+ node.review_records=[];
+ for(const match of node.raw.matchAll(/\[[^\]]*\]\(([^)]+)\)/g)){
+  const rel=path.posix.normalize(path.posix.join(path.posix.dirname(node.path),match[1].split('#')[0]));
+  if(/^notes\/R-[^/]+\.md$/.test(rel)&&all.includes(rel)&&!node.review_records.some(r=>r.path===rel)){
+   const text=read(rel);node.review_records.push({path:rel,title:plain(text.match(/^# (.+)$/m)?.[1]||'Source review'),url:pageUrl(rel)});
+  }
+ }
+ const studyDir=node.kind==='study'?path.posix.dirname(node.path):null;
+ node.checkpoints=studyDir?all.filter(p=>p.startsWith(studyDir+'/checkpoints/')&&p.endsWith('.md')).map(p=>({path:p,url:pageUrl(p),title:path.basename(p,'.md')})):[];
+ node.notices=[...node.raw.matchAll(/^> \*\*(Correction|Later evidence), ([^*]+)\*\*/gm)].map(m=>({kind:m[1],date:m[2]}));
+}
+const reviewArchive=all.filter(p=>/^notes\/R-[^/]+\.md$/.test(p)).map(p=>{const raw=read(p);return {path:p,title:plain(raw.match(/^# (.+)$/m)?.[1]||path.basename(p,'.md')),url:pageUrl(p)};});
+const result={review_archive:reviewArchive,schema_version:'0.2',input_commit:base,mode:live?'current catalogue':'retained snapshot',stale_annotations:stale,generated_for:live?git('show','-s','--format=%cs',base).trim():'2026-11-10',boundary:'Every investigation declaration, study directory with a top-level Markdown lead, and released top-level finding/essay at the frozen commit. Short forms, drafts, checkpoints and raw evidence are excluded.',counts:{investigations:groups.length,studies:studyDirs.length,findings:nodes.filter(n=>n.kind==='finding').length,essays:nodes.filter(n=>n.kind==='essay').length,references:edges.length},nodes:nodes.map(({header,body,raw,...n})=>n),edges,unresolved_references:unresolvedReferences,groups,unassigned,history,inputs:Object.fromEntries(Object.entries(inputs).sort())};
+const output=JSON.stringify(result,null,2)+'\n',file=live?path.join(root,'site/.generated/knowledge-map.json'):path.join(dir,'overview.json');
+fs.mkdirSync(path.dirname(file),{recursive:true});
 if(process.argv.includes('--check')){if(!fs.existsSync(file)||fs.readFileSync(file,'utf8')!==output)throw new Error('Overview differs; regenerate with node scripts/lineage/overview.mjs');}
 else fs.writeFileSync(file,output);
 console.log(JSON.stringify({counts:result.counts,unassigned:unassigned.length,history:history?.nodes.length||0}));

@@ -1,0 +1,467 @@
+[
+  {
+    "path": "studies/LH000/LH000.md",
+    "question": "What does Harbour record about one dispatch, what does its host show, and what does it leave behind?",
+    "summary": "One exploratory dispatch left a Harbour record, two host samples and a study directory. The samples describe the host container; attributing its near-idle load to background processes is an interpretation without an idle baseline.",
+    "limit": "One dispatch cannot supply the planned calibration or observe the model inference occurring outside the container.",
+    "state": "Record available",
+    "evidence": [
+      {
+        "label": "Answer",
+        "passage": "Harbour's take record for this dispatch held 37 item fields, 23 with a value and 14 null: an observation of what Harbour stored, not of what happened on the host. Two host samples six minutes apart found a close to idle four core container, with load averages of 0.02 and 0.01 and 23 then 21 established IPv4 connections, also observations. That this load belongs mostly to the container's own supervisor processes and this session's harness, not the dispatch's own work, is an interpretation: every top process could be named from its command line, though no idle only baseline was sampled. This dispatch's residue inside the repository, so far, is the new directory studies/LH000/ holding this study. Whether the write-up shapes a later dispatch, such as one answering ticket Q-0002 or I-0002, is a scenario, not yet confirmed."
+      },
+      {
+        "label": "Boundary",
+        "passage": "This agent cannot see its own token usage or cost from inside the task; CLAUDE.md records that only the driver session can, so none are given here. This agent's own inference happens outside this container, on Anthropic's infrastructure, and appears in no host sample; the counts above describe the container hosting the agent, not the computation producing this text."
+      },
+      {
+        "label": "Boundary",
+        "passage": "The sample is one dispatch, read twice, not LH001's proposed three repetition calibration with an idle only baseline, a non-LLM comparator and a seven day follow-up window, so no signal per token, per request or per change can be produced here. Clock uncertainty between the five commands inside one sample was not separately measured. Whether a person or Harbour's autopilot loop initiated this dispatch cannot be told from the take record alone."
+      }
+    ]
+  },
+  {
+    "path": "studies/LH002/LH002.md",
+    "question": "Where does one library release appear next in a small software neighbourhood?",
+    "summary": "Four of nine selected dependents came to hold mcp 1.27.0 during the window, and one dependent published a release that pinned it. The public records establish the order of these changes, without establishing their cause or showing installation or use.",
+    "limit": "The cohort was selected partly on uptake, so four of nine is not an uptake rate; open-range resolutions at installation leave no trace in these records.",
+    "state": "Record available",
+    "evidence": [
+      {
+        "label": "Answer",
+        "passage": "In this neighbourhood the change travelled, and the public record shows where it went but not why. Within the window, four of the nine dependents' repositories came to hold the library's new release, `mcp` 1.27.0. The earliest record of it is R04's first GitHub commit, 2.1 days after publication, which already held it; the first move visible as a change came 6.2 days after publication. In one case the release went a further step: a dependent's own release, published 22 minutes after its update, pinned it for everyone who installs that dependent (observation and derived measurement, git and Open Source Insights). All four moves are explained by ordinary maintenance: a maintainer's standing habit of pinning each new release, this time 22 minutes before the project's own release, a bulk lockfile refresh, the pinning of another package's dependencies, and a first adoption. No identified bot made any of them, and no maintainer identity is shared with the library (derived measurement; interpretation for \"explained\")."
+      },
+      {
+        "label": "Answer",
+        "passage": "What links the release to each move is a version string that did not exist before 2 April, together with the order of events in time. That proves which came first; it does not show that the release prompted the change (interpretation). The records connect nothing to running software. No source read says which version of the library anyone installed or ran during the window. Open Source Insights today resolves the same dependents' window-time versions to releases published in September 2026, five months later. Two exact pins that did not move within the window, and a failed resolution, complete the picture: version propagation can be read where dependents pin or commit lockfiles, cannot be read where they declare open ranges, and its cause cannot be read anywhere in these records (interpretation)."
+      },
+      {
+        "label": "Boundary",
+        "passage": "**The cohort is selected on uptake.** Frame A holds packages that Open Source Insights resolves to the release in the window, so four movers in nine is not a rate at which dependents take up a release, and must not be read as one. Frame B's two members are the only contrast, and both are old projects that did not move. How the service defines a version's dependents is not documented on the page read, so the frame's exact meaning is uncertain."
+      }
+    ]
+  },
+  {
+    "path": "studies/LH003/LH003.md",
+    "question": "Who already observes AI-related activity online, which layer does each source see, and where does coverage end?",
+    "summary": "The survey included 17 of 34 candidate observatories and found partial views of different populations. Their relationships and overlap were unmeasured, so their counts cannot simply be added.",
+    "limit": "The survey read documentation rather than testing source behaviour, and some rows rely on search summaries; it estimates neither overall coverage nor population overlap.",
+    "state": "Record available",
+    "evidence": [
+      {
+        "label": "Answer",
+        "passage": "Thirty-four candidate observatories were considered; seventeen have a full row in sources.md's included table and seventeen are excluded there with a stated reason, an observation. Of the seventeen included, most see only one of LH F02's layers from one narrow population: repository-event archives and dependency resolvers see residue (changed structure), API-broker rankings and vendor usage reports see activity (inference calls), and vulnerability databases see a specific kind of residue, a disclosed flaw, rather than its exploitation. No source in this reading is classed as observing propagation directly. That is Lighthouse's classification, not an observation about the sources: LH F02 defines propagation as a derived link between an earlier residue record and later activity, not a surface any instrument reads off directly, so under that definition no source could be counted as seeing it. The empirical question is which of these records support identifying and testing such links. A propagation claim has to be built by joining two sources' records and testing the join, which is what LH002 is designed to attempt on a small scale for one such join (a dependency change and a dependent's later change) and what this study does not attempt at all. The strongest supported finding, an interpretation resting on the rows above rather than on any single one, is that these seventeen sources are partial views whose relationships to one another are unmeasured in anything this survey read: each is scoped to its own population (one forge, one broker, one vendor's product tiers in a given report, one company's network), no source read here states how much its population overlaps another's, and this study took no joint sample, so their counts cannot simply be added into a total. Distinct boundaries do not establish little overlap, and the table itself records connections, an observation: Open Source Insights links packages in seven ecosystems to their GitHub, GitLab and Bitbucket projects and to OSV advisories; OSV.dev aggregates GitHub Security Advisories, PyPA and RustSec among its upstream sources; GitHub's unreviewed advisories come from the NVD feed and are published in OSV format; NVD enriches records that CVE Numbering Authorities assign (this last per a search summary; see the fourth Finding). Where the populations overlap, and by how much, is a question for a joint sample, not something this reading establishes. What stays invisible, or visible only in part, is specific. No source read here can reliably tell a person's download or code change from an agent's. Cloudflare's AI Crawl Control does attribute crawler traffic to named AI operators, and its page lets a site owner group that traffic by crawler, by operator and by \"Category: Analyze crawlers by their purpose or type\" (an observation, from notes/R-0001.md's raw read of the page, last updated 23 April 2026); but it covers only crawlers Cloudflare has already identified, and because the category belongs to the crawler rather than to any one request, it cannot say why a particular page was fetched (an interpretation). The conversation figures do not say whether a person or a program was typing. No source states at what layer an AI system operated, and usage that happens off all these particular surfaces goes unseen, for instance direct provider API traffic outside a broker, a private repository, or a deployment that never triggers a public event. The first of those examples holds for the sources as read here; the first review note says later Economic Index reports, which this survey has not read, include one vendor's first-party API traffic."
+      },
+      {
+        "label": "Boundary",
+        "passage": "Several rows rest on a WebSearch summary of a source's documentation rather than a direct read of the primary page; sources.md flags each one. A WebSearch summary is a secondary account of what a page says, produced by a different model than the one writing this study, and it can compress or misstate a detail the primary page states precisely; none of those rows should be treated as more reliable than the direct-fetch rows until someone reads the primary source."
+      },
+      {
+        "label": "Boundary",
+        "passage": "This survey states each source's population and boundary as its own documentation describes them; it does not test any of those claims against the source's actual behaviour (for instance, whether GH Archive's payload really does vary the way its docs warn, or whether OpenRouter's CC BY 4.0 licence covers the exact figures a study would want to cite). Confirming a claimed licence or boundary against the source's actual output is a further task, not done here."
+      },
+      {
+        "label": "Boundary",
+        "passage": "This study cannot compare any two sources' populations quantitatively (how much they overlap, or how much of the wider population that \"what can we actually see of AI activity on the internet\" asks about, either one covers) because no source read here states its own overlap with another, and estimating one would require a joint sample this reading-only ticket did not take. Version 0.1's Findings called the populations \"almost disjoint by construction\", an interpretation drawn from each source's stated boundary; that reading did not follow and is withdrawn in version 0.2 (see Corrections). The Findings now describe partial views whose relationships are unmeasured: this study measured neither an overlap fraction nor its absence, and did not look for anyone else's measurement."
+      }
+    ]
+  },
+  {
+    "path": "studies/LH004/LH004.md",
+    "question": "What would Lighthouse’s three layers have shown during the documented xz backdoor event, and which carried the first detectable signal?",
+    "summary": "In this retrospective case reading, malicious tarballs were public before recognition, while memory-checking errors and later ssh overhead supplied activity-layer signals. The earlier errors were answered by the backdoor’s author; the later investigation exposed the backdoor.",
+    "limit": "This detected case cannot establish how many quieter cases go unseen; earlier dates rest partly on secondary reconstruction, and no Lighthouse instrument observed the event.",
+    "state": "Record available",
+    "evidence": [
+      {
+        "label": "Answer",
+        "passage": "A compromised release of xz-utils, a compression library that several Linux distributions link into their ssh server through distribution-specific dependencies (see the last finding), carried a backdoor from a tarball built in February 2024 into several distributions' rolling repositories before anyone recognised it (observation, drawn from the sources in Findings). Reading the case through Lighthouse's three layers: the backdoor's residue, malicious code sitting in two release tarballs, was technically public from 24 February 2024, the day version 5.6.0 was released, but nobody detected it there. What was actually detected, twice, sat in the activity layer: memory-checking errors seen in Red Hat's distributions from 4 March, which the backdoor's author answered with a purported fix on 8 March and a reworked backdoor released as 5.6.1 on 9 March, and then, on 29 March, one engineer's own ssh sessions running measurably slower and burning more CPU than they should, alongside valgrind errors on the same machines, which he traced to liblzma and disclosed the same day (observation, S14 and the timeline reconstruction, as read by R-0001). The second of these is the signal that broke the case. The first was not passed over: it was answered, by the person who had planted the backdoor, with changes that took the symptom away (observation of what S14 and the timeline record; the phrase \"took the symptom away\" is interpretation). Of the two, only the second maps cleanly onto a surface in LH F02's table, Processing, task wall time; the first is a correctness signal from a memory sanitiser, and F02's activity surfaces, tuned to resource consumption, have no row for it (interpretation). Propagation followed only after disclosure gave residue a name: distributions that had already built the compromised tarball reverted their packages within a day, and the case became a CVE, several advisories and a still-cited timeline within the same week (observation, Findings). No instrument Lighthouse has registered or proposed sat at any of these observation points, and the outward instruments LH F02 already names, GH Archive and Open Source Insights, watch source forges and language package ecosystems, not the Linux distribution package pipelines this case actually propagated through (interpretation). Whether an undetected case of the same kind exists today cannot be answered from this one case; it can only say what made this one detectable, which is not the same thing (interpretation, Limits)."
+      },
+      {
+        "label": "Boundary",
+        "passage": "**Survivor bias, as LH F04 itself warns.** This is a case that was detected, and detected unusually well: an engineer who happened to run valgrind and idle micro-benchmarks as routine habit, on a rolling-release system close enough to the injection that the compromised library was still installed, with an overhead, roughly half a second per login, large enough to notice by feel rather than needing a dashboard. An undetected case would lack exactly these things: a habitually suspicious observer, a system still carrying the compromised version at the moment of use, and an overhead large enough to notice without instrumentation. This study cannot say how many such cases exist, nor whether a quieter one has already run its course undetected; it can say only what made this one visible, and that a much smaller overhead, or a target further from a technically curious user base, plausibly would not have been."
+      },
+      {
+        "label": "Boundary",
+        "passage": "**The dates of the earlier signal rest on secondary reconstruction; the signal itself does not.** The 4 March start, the attribution of the first errors to Red Hat's distributions, and the dates and descriptions of the 8 and 9 March changes come from research.swtch.com's timeline, and the Fedora origin of the reports from one co-maintainer's own gist. S14, the primary disclosure, corroborates that the injected code caused valgrind errors and that 5.6.1 attempted to work around them, but gives no date for either and does not name where the errors were first seen. This study did not clone the xz-utils git history and check commit timestamps directly, so these dates are reported as the reconstruction's account, not independently confirmed."
+      },
+      {
+        "label": "Boundary",
+        "passage": "**No Lighthouse instrument, registered or proposed, observed any part of this case.** Every instrument attribution in Findings is an interpretation about what an instrument would have recorded had one existed at that observation point at that time; none is an observation of an actual reading, because Lighthouse did not exist as an observatory in 2021 to 2024 and has no retroactive access to any host or build system involved."
+      }
+    ]
+  },
+  {
+    "path": "studies/LH005/LH005.md",
+    "question": "Can a public record connect a software release to its installation?",
+    "summary": "Public copies of PyPI’s download log connect mcp 1.27.0 to fetched files and show it at about half of downloads by the next day. They reach the download, without establishing installation, execution or a link between one package’s download and another’s.",
+    "limit": "Counts are the copies’ counts, checked against one another rather than against BigQuery; anonymous aggregate rows cannot link downloads into installations.",
+    "state": "Record available",
+    "evidence": [
+      {
+        "label": "Answer",
+        "passage": "Partly, and only as far as the download. PyPI's public download record, read through ClickHouse's copy of it, connects a release to the files fetched from PyPI by version, day, installer and a self-reported CI flag. For `mcp` 1.27.0 it shows the release taken almost at once: 22.3 per cent of all `mcp` downloads on its release day, 1,639,539 of 7,351,271, in the nine hours after publication; 48.1 per cent the next day; between 45 and 71 per cent of every day's downloads from then to the window's end; 95,672,297 of the window's 219,899,536 `mcp` downloads in all (observation and derived measurement). By the time the first of LH002's dependents was seen pinning it, six days after publication, the release had been about half of all downloads for five days. What carried it to the downloaders was install-time resolution of open version ranges, mostly by `uv` (78.6 per cent of the window's downloads), not the dependents' pins (interpretation)."
+      },
+      {
+        "label": "Answer",
+        "passage": "The record reaches the download and stops there. A row is a file served by PyPI to a client that names itself. It is not an installation: mirrors, proxies and caches install many times from one download, and CI runs, `pip download` and scanners download without installing. It is never a run. It is aggregate and anonymous, so it cannot link one package's download to another's. lean-lsp-mcp 0.26.0 and 0.26.1, which pin `mcp==1.27.0` exactly, were downloaded 35,024 times from 8 to 29 April, 0.03 per cent of `mcp` 1.27.0's 109,023,441 on those days. The second hop LH002 found is real in the metadata and invisible in the downloads (derived measurement; interpretation)."
+      },
+      {
+        "label": "Boundary",
+        "passage": "**A copy, not the original.** Every count is ClickPy's, pypistats's or pepy's, not BigQuery's. The copies agree with each other to about one per cent in the window, which is evidence that none has drifted far, not proof that any matches the original."
+      },
+      {
+        "label": "Boundary",
+        "passage": "**Aggregate and anonymous.** No field ties two downloads together, so co-installation, the second hop, and the share of downloads made by any one dependent's users cannot be measured."
+      }
+    ]
+  },
+  {
+    "path": "studies/LH006/LH006.md",
+    "question": "Can a public record show what was installed, beyond the download?",
+    "summary": "Published container layers exposed installed mcp versions: 38 images from six readable repositories yielded 37 with mcp and one without it. The build instructions could explain an image moving before its repository’s lockfile, while registry tag histories retained only part of the past.",
+    "limit": "Images show packaged installations rather than runs; byte and registry allowances left images unread, and this selected neighbourhood does not represent installations at large.",
+    "state": "Record available",
+    "evidence": [
+      {
+        "label": "Answer",
+        "passage": "Yes, in part: a published container image is a public record of installed state, and it reaches past the download to the installation, though not to a run. Inside each image's layers the installer's own record, a `site-packages/mcp-<version>.dist-info` directory, says which version of `mcp` was installed, and the image's configuration says when it was built. For the images read here that record could be read anonymously from the registry without pulling the image, by streaming the image's upper layers and stopping at the directory, between 25 and 211 MB of compressed data per image (observation; data/image_mcp.csv)."
+      },
+      {
+        "label": "Answer",
+        "passage": "The population is thin. Of the 37 packages in the frame (LH002's ten projects and the 34 direct dependents of `mcp` 1.27.0 that Open Source Insights lists), 7 name a published image of their own, and 6 of those could be read (observation; data/candidates.csv). In those six, 38 images were read to a result: 37 held an installed `mcp` and one, jesse's, held none (derived; data/image_timeline.csv). Three things came out of them that neither the download log nor git shows:"
+      },
+      {
+        "label": "Answer",
+        "passage": "- **The installed version follows how the image is built, not the project's pin alone.** agentcrew's repository locked `mcp` 1.26.0 until 24 April, and LH002 counted it among the dependents that did not move. Its images held 1.27.0 from 8 April, 5.5 days after the release, because its Dockerfile installs from an open range (`mcp>=1.24.0`) rather than the lockfile. serena pins exactly and mcp-snowflake-server installs from its lockfile, and their images moved only when the pin did: serena 2.9 days after its git pin and 24.9 days after the release, mcp-snowflake-server 11 minutes after its pin and 34.1 days after the release. keboola's package pins exactly and it has no public repository; its images moved between two builds on 17 April, 14.9 days after the release, in a build of the package version whose PyPI release three days later is the first to require 1.27.0, so its move with its pin is inferred, not seen. octobot's images still held 1.26.0 in its next image, on 30 July (observation for versions and times; derived for the lags; interpretation for the cause)."
+      },
+      {
+        "label": "Answer",
+        "passage": "- **A registry keeps what a tag used to point at only by accident.** Neither Docker Hub's nor ghcr.io's anonymous interfaces list the earlier digests of a tag. An earlier build stays visible only if another tag still names it, as agentcrew's first 0.12.3 build does; builds that only ever carried a moving tag, such as serena's `main`, leave nothing listed (observation of every field returned; derived)."
+      },
+      {
+        "label": "Answer",
+        "passage": "The limits are as sharp. An image is an installation made to be run; nothing in a registry says whether, where or how often it ran, and a pull count or last-pulled time counts requests, including sweeps by some client that pulled 612 of keboola's tags on one day. Docker Hub's anonymous allowance, served here as 100 pulls an hour shared across the proxy's addresses, was exhausted by other traffic from 18:43:57 to at least 18:55:26 UTC, and with the study's own budget of 30 pulls it bounded what could be read (observation)."
+      },
+      {
+        "label": "Boundary",
+        "passage": "- **Byte caps cut two repositories short.** agentcrew's installed environment sits in a 500 MB layer in which `mcp` appears after about 110 MB, and jesse's first image had to be read to the end (786 MB) to show it held no `mcp`. Both reached the 800 MB per-repository cap: agentcrew's 0.11.1 image and jesse's 1.13.9 are recorded as \"not determined\", jesse's 1.13.11 and 2.1.3 as configuration only. jesse 2.1.3, whose PyPI release requires `mcp==1.26.0`, would have been the one jesse image expected to hold it. The total, 2,960,812,225 bytes, stayed under the 3 GB cap."
+      },
+      {
+        "label": "Boundary",
+        "passage": "- **Not a run, and not a population.** Nothing here says an image was started. The six repositories are the images of a selected neighbourhood; frame A is selected on having taken 1.27.0 up at some point (studies/LH002/brief.md), and nothing here estimates how images at large take a release."
+      }
+    ]
+  },
+  {
+    "path": "studies/LH007/LH007.md",
+    "question": "Do published images take a new library release through open ranges, or wait for a pin or lockfile to move?",
+    "summary": "In the 13 readable image repositories, open-range builds generally took mcp 1.28.x within days, while pinned or locked builds held the named version until the pin moved. More first pins moved soon after the advisory evening than in the four weeks after release, a timing pattern rather than established causation.",
+    "limit": "The 49 images are a small, clustered and selected sample, with much of Docker Hub left unread; images do not show runs or the installed population.",
+    "state": "Record available",
+    "evidence": [
+      {
+        "label": "Answer",
+        "passage": "In this sample, the images that resolve an open range took the new release within days, and the images built from a lockfile or an exact pin took it only when the pin moved. For most of the lockfile and exact-pin repositories that was a month or more after the release, or had not happened by 15 August: of 12 such image repositories, 9 had no pin on the new release within four weeks of it, and the largest group of pin moves, four of the nine found, came within 28 hours of a security advisory published a month after the release rather than in the days after the release itself."
+      },
+      {
+        "label": "Answer",
+        "passage": "The sample is the published images of the direct dependents of `mcp` that Open Source Insights lists around release 1.28.0 (16 June 2026), fixed by a hash-order rule before any image was read: 22 of 120 screened packages name an image of their own, and 13 image repositories gave an installed `mcp` version, 49 images in all (observation; data/candidates.csv, data/image_timeline.csv)."
+      },
+      {
+        "label": "Answer",
+        "passage": "- **More first pins moved in the day after the advisory than in the four weeks after the release.** Of 13 projects whose first commit pinning or locking 1.28.x was found, six made it between 0.9 and 27.6 hours after GHSA-vj7q-gjh5-988w, a high-severity advisory fixed in 1.28.1, was published on 16 July at 20:14 UTC, 29.9 days after 1.28.0. It was the third high-severity advisory against `mcp` published that evening; the two before it, at 19:56 and 19:58 UTC, concern flaws fixed in 1.27.2 (data/osv_mcp_all.csv, read by the review). Four of the six commits were changes Dependabot wrote: three committed under its name and one merged by a person from its branch. One was made under a project's own bot account, with a person as co-author, in a change whose message says it upgrades FastMCP to version 3 and regenerates the lock; the sixth is a person's, citing the three advisories (observation of commits and the advisories' publication times; the causal link is interpretation from timing and commit messages). Three first pins moved in the four weeks after the release (days 0.7, 7.1 and 20.8) and four between days 40 and 57. Five sampled projects had no commit pinning or locking 1.28.x by 15 August (browser-use, hybrid-groups, modulector, alation's MCP server and mcp-standards-server)."
+      },
+      {
+        "label": "Answer",
+        "passage": "The limits are sharp. The sample is small and clustered: 49 images from 13 repositories, many of them from better-telegram-mcp (10), mcp-proxy-for-aws (6) and mcp-mesh (7). The byte ceiling was reached before most Docker Hub images were read: of the seven Docker Hub repositories, including the largest projects (langflow, browser-use, jesse), only browser-use gave an installed version. Images are installations, not runs, and a published image is not the installed population."
+      },
+      {
+        "label": "Boundary",
+        "passage": "- **The advisory link is timing.** Six pins moved within 28 hours of the advisory; the Dependabot commit messages say \"Bump mcp from ... to 1.28.1\" and do not say whether they were security updates, though serena's was authored within four minutes of the third advisory; openroad-mcp's cites \"3 high-severity CVEs\" and names alerts matching the three advisories of that evening; mcp-atlassian's is a FastMCP migration whose regenerated lock carried `mcp` to 1.28.1. Three advisories were published within 18 minutes, so \"the advisory\" here means the set, and the one fixed only in 1.28.1 is what made 1.28.x, rather than 1.27.2, the version that cleared them all."
+      }
+    ]
+  },
+  {
+    "path": "studies/LH008/LH008.md",
+    "question": "What moves a dependent’s pin: a new release or a security advisory?",
+    "summary": "Across four libraries, 73 of 102 repository and library pairs moved to a fix or later, at a median 18.7 days after release. Moves rose after both releases and advisories; each two-day window contained eight moves, which cannot show which the advisory caused.",
+    "limit": "A pin move is a repository request, without evidence of installation, execution or exposure; release notes were not read, so before the advisory need not mean before public notice of the fix.",
+    "state": "Record available",
+    "evidence": [
+      {
+        "label": "Answer",
+        "passage": "In this sample, pins and locks moved after both, and neither drew most of them. Across four libraries in the top 50 by downloads (urllib3, cryptography, pyjwt, starlette), 102 kept repository and library pairs held a version below a fix when it was released; 73 moved to the fix or later by 27 September, a median 18.7 days after the release (and, for the 54 that moved after the advisory, a median 10.5 days after it), 28 had not moved and one stopped pinning the library. The rate of moves rose in the two days after the release (8 moves, 4.1 per 100 repository-days) and again in the week after the advisory (8 moves in its first two days, 5.1; 14 in days two to seven, 4.3), against 1.3 to 1.7 per 100 repository-days from the third day after the release to the advisory and in the three weeks after the advisory's first week (derived measurement; data/hazard.csv, figure rates.svg). The release's spell lasted two days: from day two to day seven, stopping at the advisory where it came first, the rate was 1.5. No burst like LH007's appeared: 4 of the 102 moved within a day after the advisory, where LH007 found 6 of 13 `mcp` projects within 28 hours (observation; LH007 is one library and one evening)."
+      },
+      {
+        "label": "Answer",
+        "passage": "What this does not say: which moves the advisory caused. The advisory's two days and the release's two days carry eight moves each, a count at which the difference between 4.1 and 5.1 is noise. A fixed release may say in its own notes that it fixes a security flaw before any advisory is published; this study did not read release notes, so \"before the advisory\" is not \"before anyone knew\" (interpretation). A move is a request in a repository, not an installation or a run, and no project here is said to have been exposed."
+      },
+      {
+        "label": "Boundary",
+        "passage": "- **A move is a request.** It changes what the repository's next build or install would take; nothing here says what was installed, deployed or run, or whether any project was exposed to an advisory."
+      }
+    ]
+  },
+  {
+    "path": "studies/LH009/LH009.md",
+    "question": "Do pinned dependents move sooner before an advisory when the fix’s own notes announce the flaw?",
+    "summary": "The selected announced fixes had about 1.7 times the pooled pre-advisory move rate of silent fixes, while similar shares of moves came before the advisory. Few libraries and moves carried the difference, so the pattern cannot distinguish an effect of the notes from differences between libraries’ users.",
+    "limit": "One release per library confounds class with library; unread release pages could contain announcements, so silent means silent only in the sources read.",
+    "state": "Record available",
+    "evidence": [
+      {
+        "label": "Answer",
+        "passage": "In this sample, pinned dependents moved to an announced fix before its advisory at about 1.7 times the pace they moved to a silent one, but the same share of their moves came before the advisory, and the difference rests on few moves in few libraries. Of the 37 fixed releases behind LH008's 68 advisories, 19 said in their own changelog, tag or PyPI description, at or before the release, that they fixed a security flaw, and 18 did not (observation; data/fix_classes.csv). Taking each of LH008's 16 libraries' one event (eight announced, eight silent; seven of each had pinned dependents to follow), 257 repository and event pairs held an affected version when the fix came out, and 173 moved to it by 27 September (derived; data/summary_by_class.csv)."
+      },
+      {
+        "label": "Answer",
+        "passage": "What this does not say (interpretation). With one release per library, class and library cannot be separated: the announced class's lead before the advisory comes mostly from gitpython (8 moves, 6 of them in its first two days, four of those Renovate's) and pyjwt (10 moves over a 25-day gap), and the days-two-to-seven difference is 13 moves against 5, three of the 13 in one organisation's repositories on one morning. The pattern fits people reading an announced fix's notes and moving within the week, while bots move both classes on the same schedule; it fits equally a difference between the libraries' users. \"Silent\" means silent in the three sources the rule reads: GitHub's release pages, where litellm, mcp and langchain may put their notes, were refused, and those three releases had no notes in any source read. A move is a request in a repository, not an installation or a run, and no project here is said to have been exposed."
+      },
+      {
+        "label": "Boundary",
+        "passage": "- **Class is library.** Each library gives one release, so every difference between the classes is also a difference between seven libraries and seven others: their users, their bots, how often their dependents update. gitpython's dependents moved fastest of all (median 5.3 days) and carry 8 of the announced class's 29 moves before the advisory; pyjwt's 25-day gap carries 10. Leaving out any one event keeps the announced class ahead, but not by much when gitpython is left out (1.84 against 1.13 to 1.68)."
+      },
+      {
+        "label": "Boundary",
+        "passage": "- **Silent in the sources read.** GitHub's release pages were refused (HTTP 403, every one), and three silent events (litellm, mcp, langchain) have no notes in the changelog, the description or the tag, so they may have announced the fix on GitHub or elsewhere. Security mailing lists, blogs and social media were not read. litellm's repository held a release-notes page for v1.83.0 for three weeks after the release, not at the tag or the head; its security words concern the March supply-chain incident."
+      }
+    ]
+  },
+  {
+    "path": "studies/LH010/LH010.md",
+    "question": "Does the announced-fix lead hold when more libraries contribute and each library counts once?",
+    "summary": "The study leaves the question unsettled: pooled pre-advisory moves favour announced fixes, but the typical libraries cannot be told apart and the brief-clock pooled interval spans no difference. Later clocks and restrictions are outcome-aware, post hoc readings rather than confirmed findings.",
+    "limit": "Only 18 announced and 12 silent libraries had pinned dependents, short of the planned 20 each; the widening reuses earlier cases and is not a replication, and inaccessible notes are missing evidence.",
+    "state": "Record available",
+    "evidence": [
+      {
+        "label": "Answer",
+        "passage": "The study does not settle the question. Before the advisory, pinned dependents moved to announced fixes at a higher pooled rate than to silent ones under every clock and every restriction tried, but with the library as the unit the brief's classes cannot be told apart under any of them (only the strict class under a clock chosen after the fact reaches p < 0.05; \"How many comparisons\" below), and under the brief's own clock the pooled lead's uncertainty spans no difference. The top 500 projects gave 43 libraries with a qualifying event, not the 40 or more the design needed: 22 announced and 21 silent, of which 18 announced and 12 silent had pinned dependents to follow (observation; brief.md amendment 1, data/summary_by_class.csv). Their 209 repository and event pairs gave 142 moves by 27 September. Version 0.3 reanalysed the retained evidence after every outcome was known (outcome-aware and post hoc, not preregistered; Findings, \"Reanalysis of retained evidence, version 0.3\"); the first three bullets are version 0.2's figures, unchanged, with one interval added."
+      },
+      {
+        "label": "Answer",
+        "passage": "- **Pooled over pairs, by the brief's clock** (derived; data/hazard_by_class.csv). From the release to the event's advisory, 2.30 moves per 100 repository-days at risk for announced fixes (35 moves over 1,522.4 repository-days) against 1.57 for silent ones (20 over 1,273.4), a ratio of 1.46; LH009 had 2.36 against 1.36. A library-clustered bootstrap (10,000 resamples of libraries within each class, seed 20260927; added in version 0.3) puts the ratio's 95 per cent interval at 0.52 to 3.96. Leaving out any one library, the announced rate stays between 2.04 and 3.73 and the silent between 1.41 and 1.95. In days two to seven after the release, stopping at the advisory, 3.34 (11 moves) against 2.29 (5), ratio 1.46, interval 0.43 to 6.17."
+      },
+      {
+        "label": "Boundary",
+        "passage": "- **Too few libraries.** The design asked for 20 libraries a class with pinned dependents; the top 500 projects and five months of advisories gave 18 and 12. Many fixes followed their release before by days, and Open Source Insights lists few or no dependents for such a release, so the frame rule loses exactly the libraries that release often."
+      },
+      {
+        "label": "Boundary",
+        "passage": "- **Outcome-aware reanalysis.** Every reading in version 0.3 (the two new clocks, the notes restriction, the bootstrap) was chosen after version 0.2's outcomes were known, and the reanalysis makes 36 overlapping comparisons with no correction; the few intervals and p values that exclude no difference are all under readings chosen after the fact. The notes-evidence rule was written after the retained texts had been read for it."
+      },
+      {
+        "label": "Boundary",
+        "passage": "- **Silent in the sources read.** Eight silent events have no notes in the changelog at the tag, the description or the annotation, and a ninth (fastmcp) had notes only 64 days after its release; version 0.3 separates these nine (state c, insufficient accessible notes) from the twelve silent events whose notes were read and carry no announcement (state b). \"Silent\" in version 0.2 and in every table before the reanalysis covers both. GitHub's release pages were not requested, since LH009 found every one refused, and such projects often write their notes only there, so a c state is missing evidence, not silence. Security mailing lists, blogs and social media were not read."
+      },
+      {
+        "label": "Boundary",
+        "passage": "- **Not independent of LH009.** 12 of the 43 events, ten of them among the 30 libraries with pairs, are LH008's releases with LH009's class and LH008's or LH009's frames, so LH010 is a widening of LH009, not a replication of it."
+      }
+    ]
+  },
+  {
+    "path": "studies/LH011/LH011.md",
+    "question": "Do releases of the most downloaded Python projects reach half of downloads within two days, and how does their early CI flag compare with the replaced version?",
+    "summary": "For 26 of 37 releasing projects, most releases reached half of downloads within two days, counting each release or any later one: 70.3 per cent (95 per cent interval 54.1 to 83.8), below the brief’s 75 per cent rule. New releases’ early pip and uv downloads carried the CI flag less often than replaced releases, with a median project difference of 6.6 percentage points below.",
+    "limit": "The interval spans the brief’s 75 per cent boundary; downloads weight frequent uncached fetches rather than uptake by people or projects, while the CI flag provides only a floor on builds.",
+    "state": "Record available",
+    "evidence": [
+      {
+        "label": "Answer",
+        "passage": "Of the 37 projects among the 50 most downloaded that released a new newest version between April and August 2026, 26 had most of their releases reach half of the project's downloads, counting that release or any later one, on the first or second day after release: 70.3 per cent, with a project-resampled 95 per cent interval of 54.1 to 83.8 per cent (derived measurement). The brief's convention calls 75 per cent or more \"as a rule\" and below 50 per cent \"not as a rule\", so 70.3 per cent reads \"for some projects\"; the interval includes 75 and excludes 50. The split is sharp rather than graded: 21 projects had every release reach half, 11 had none, and five were mixed. Where it happened it happened fast, usually on the first full day. Where it did not, the new release's share was between 2 and 34 per cent on the day after release (project medians), moved little over the month, to between 2 and 37 per cent by day 30, litellm's rising most, from 9.5 to 21, and, for ten of the eleven, never reached half within 30 days (derived measurement). Pooled over releases rather than projects, only 127 of 424 releases (30.0 per cent) reached half within two days, because the three projects that release almost daily, boto3, botocore and litellm, account for 252 releases and none of theirs did."
+      },
+      {
+        "label": "Answer",
+        "passage": "For one release a project a month (104 releases, all 37 projects), a median of 32.2 per cent of a new release's pip and uv downloads over its first three days carried the CI flag, against 40.7 per cent of the replaced release's on the same days (medians of project medians). Every project's median difference, the median over its releases of the new share minus the replaced share, was below zero; the median of project medians was -6.6 percentage points (95 per cent interval -11.4 to -5.0), and 96 of 104 releases had the new release below the old. For the three daily releasers, boto3, botocore and litellm, whose per-release differences took both signs, the median difference was just below zero while the median new-release share was a little above the median replaced share, so the two summaries do not point the same way there; the difference of medians is not the measure the brief fixed. The flag's meaning was read from pip's and uv's own source: both send true when one of four CI variables is set and nothing otherwise, so it is a floor on builds, not a measure of them. LH005's one case, `mcp` 1.27.0, had 10.6 per cent of its downloads flagged against 48.6 per cent of the previous release's, a gap of 38 points, larger than any project's median here (at most 30); it was measured over 3 to 22 April and over all installers, not over days 0 to 2 and pip and uv, so the two are not the same measure (interpretation)."
+      },
+      {
+        "label": "Boundary",
+        "passage": "**A share of downloads is a share of fetches.** Each row counts a file served, so an environment that installs from scratch many times a day, such as a build that keeps no cache, counts as many times as it fetches, while one that caches, or sits behind a mirror, counts once or not at all. A version's share is weighted towards environments that fetch often and without a cache: a low share is not by itself slow uptake by people or projects, and a high share is not broad uptake (interpretation, added in version 0.3)."
+      },
+      {
+        "label": "Boundary",
+        "passage": "**The flag is a floor on builds.** pip and uv flag CI only when one of four variables is set; builds without them, including most container builds outside a CI service, are counted as not flagged. The rule was read for four versions; ClickPy drops the installer version, so older pip and uv versions were assumed to follow it. The 1.7 per cent of downloads by other installers were left out of the CI share."
+      }
+    ]
+  },
+  {
+    "path": "studies/LH012/LH012.md",
+    "question": "What keeps older Python library versions downloaded, and which explanations can the public record rule out?",
+    "summary": "Unsupported Pythons cannot account for most older downloads in 32 of 37 projects; identified dependency bounds remain undetermined for 26, and frozen lists are consistent with a trace rather than measured. A separate test found day-30 shares within ten points of day 2 for most releases in 28 of 32 projects, while shares usually continued rising within that band.",
+    "limit": "Bounds are estimates under an unobserved co-fetch assumption; the post hoc resolver-walk reading is untested, and the download log cannot establish which fetched candidates were installed.",
+    "state": "Record available",
+    "evidence": [
+      {
+        "label": "Answer",
+        "passage": "Pythons the newer releases no longer support are ruled out as the main reason for older downloads as a rule: for 32 of the 37 projects (86.5 per cent, project-resampled 95 per cent interval 75.7 to 97.3), less than half of the downloads on versions older than the release of a month before came from a Python that every newer release excludes, even counting downloads with no Python reported as excluded (derived measurement, on the Python the installer reports). For three projects such downloads are most of the older downloads, the brief's class \"accounts for most\": boto3 (76.3 to 77.0 per cent), aiobotocore (63.0 to 63.5) and numpy (62.5 to 66.7); the question stays open for pandas and urllib3. That class counts fetches that could not have been of R or later; it does not say why they were of the versions they were. For boto3 and aiobotocore few were at the highest version their Python admits, where a fresh install lands (6.7 and 0.6 per cent; numpy 56.7). Read after version 0.2 was released (post hoc, below), their count-by-version profiles are flat for long runs of versions below each Python's edge (for boto3 on Python 3.9, about a hundred at one level and several hundred at the next), the shape an installer's resolution walk leaves when it fetches each version it tries and rejects; on that reading most of those downloads were versions inspected and discarded, not installed (interpretation, untested). Identified bounds, the requirements that the 500 most downloaded projects declare, are in the brief's class \"accounts for most\" for four tightly coupled projects: pydantic-core (held by pydantic's exact pin), fsspec (by s3fs), and botocore and s3transfer (by boto3). B is an estimate under the co-fetch assumption, that each fetch of a held dependent version brings one fetch of the project, and the log does not observe that, since it counts each project's fetches separately; so the class says what identified bounds could account for, not what they did. The log's own ratios strain the assumption for botocore and s3transfer, boto3 being fetched 2.94 and 3.88 times as often as they are (7.51 times botocore on Python 3.9), and are most consistent with it for pydantic-core, whose dependent is fetched about as often (1.05 times) and whose older fetches sit largely at the one version pydantic's newest releases pin. Only for pydantic-core do the dependent's current versions carry a large part of the hold (53.2 per cent); for fsspec, botocore and s3transfer the hold comes from s3fs's and boto3's older versions, which moves the question to why those are fetched. On the same assumption, identified bounds are ruled out as the main reason for seven projects; they are undetermined for 26, mostly because requirements the log cannot resolve (extras, platform markers, versions not read) leave the upper estimate near one. Environments rebuilt from frozen lists cannot be counted in the log, as the brief said in advance; 18 of the 37 projects show their trace (most older downloads off every version a fresh install on the identified constraints would land on, and more often flagged CI than new downloads). So for most projects the public record rules out the Python explanation, cannot rule identified bounds in or out, and leaves what remains unmeasured, consistent with frozen lists but not shown to be them."
+      },
+      {
+        "label": "Answer",
+        "passage": "The first-day observation holds as a rule on releases no earlier study read: for 28 of the 32 projects with a release between November 2025 and March 2026 (87.5 per cent, interval 75.0 to 96.9), most releases' at-or-newer share on day 30 was within ten points of day 2. Within the band the share went on rising: it was higher on day 30 than on day 2 in 339 of the 355 releases (median 7.15 points, raised by the 238 releases of the three projects that release on most working days; 3.02 without them), and the median release rose for 31 of the 32 projects, by 3.2 points for the median project, so to settle is to stay within ten points, not to stop (a reading made after the counts, found by a replay in studies/LH016; version 0.4, review/v04_checks.txt). The band is absolute: by the brief's secondary descriptor, the ratio of the day-2 to the day-30 share, boto3's and aiobotocore's median releases held only 0.60 and 0.58 of their day-30 share on day 2, their shares being small (reported from version 0.3; firstday_releases.csv, summarised in review/r0018_check.txt, B)."
+      },
+      {
+        "label": "Boundary",
+        "passage": "**A download can be a version the installer tried and rejected.** A resolver that fetches each candidate it tries counts every one as a download; the log marks none of them. The profiles of boto3's, aiobotocore's and grpcio-status's older downloads have that shape (post hoc, above), so their older shares, and P for boto3 and aiobotocore, may count inspections rather than installations."
+      },
+      {
+        "label": "Boundary",
+        "passage": "**B rests on the co-fetch assumption, and the log strains it.** B treats each fetch of a held dependent version as bringing one fetch of the project. The log records each project's fetches separately and never links one fetch to another, so B is a modelled estimate, never an observed count of held fetches, and its classes say what identified bounds could account for. Where the dependent is fetched far more often than the project (boto3 is 2.94 times botocore and 3.88 times s3transfer, and 7.51 times botocore on Python 3.9), the lower estimate can reach one without the dependent's environments carrying that many of the project's fetches; the guard checks only that the project's older fetches sit at versions the held dependent admits. \"Accounts for most\" for botocore and s3transfer should be read with that ratio."
+      },
+      {
+        "label": "Boundary",
+        "passage": "**Frozen lists are not measured.** The trace is a description consistent with frozen lists and with unidentified bounds and pins; nothing here counts environments rebuilt from lists."
+      }
+    ]
+  },
+  {
+    "path": "studies/LH013/LH013.md",
+    "question": "Do older-download shares, Python exclusion and concentrated download profiles hold over the next two weeks?",
+    "summary": "Over three adjacent weeks, older shares stayed within five points for 32 of 37 projects and Python-exclusion classes held for 35 of 37; the largest reported-field cells generally held across the two new weeks. All four tests of the earlier post hoc boto3 readings held on those new weeks, while interpreting the flat profile as a resolver walk remains unproven.",
+    "limit": "Holding does not explain downloads: a reported-field cell is not a machine or a population, and these adjacent weeks cannot establish longer-term stability or identify installer versions.",
+    "state": "Record available",
+    "evidence": [
+      {
+        "label": "Answer",
+        "passage": "Over these three adjacent weeks, what stays behind held from week to week, as a rule, on every measure the brief tests (derived measurements, counts of fetches). A project's older share O, at the reference release R0 held fixed from LH012, stayed within 5 points of W0 in both new weeks for 32 of 37 projects (86.5 per cent, project-resampled 95 per cent interval 75.7 to 97.3); the five that moved further were aiohttp, fsspec, litellm, numpy and pydantic-core, all downwards. The median project's O was 37.3, 36.6 and 36.7 per cent in W0, W1 and W2. The class of Python exclusion P held for 35 of 37 (94.6 per cent, 86.5 to 100): boto3, aiobotocore and numpy stayed \"accounts for most\" in both weeks (boto3 76.9 to 78.3 per cent across the weeks' estimates), and the two that changed, pandas and urllib3, were the two \"undetermined\" in W0 and moved to \"cannot be the main reason\" as their upper estimates slipped under one half."
+      },
+      {
+        "label": "Answer",
+        "passage": "Downloads are concentrated in few combinations of reported fields. The largest cell of six fields (Python minor, installer, system, libc, CI flag, country) held the median project's 10.2 and 10.1 per cent of downloads in W1 and W2, and nine cells together carried half for the median project; boto3's largest cell, Python 3.9, pip, Linux, glibc, no CI flag, US, held 61.1 and 61.3 per cent of all its downloads, and with country set aside 64.9 and 64.8 per cent. C held, same cell and within 5 points, for 33 of 37 (89.2 per cent, 78.4 to 97.3), and C5, without country, for 29 of 37 (78.4 per cent, 64.9 to 91.9, an interval that reaches below the three quarters the label needs). Read after the counts (post hoc, over the twelve cases where the largest cell changed): in ten of them the two largest cells were within 2.1 points of each other in both weeks and within 0.8 in at least one, so these changes are near ties changing places; the other two are litellm's, whose largest cell passed from pip to uv. A cell is not a machine, an owner or a population."
+      },
+      {
+        "label": "Answer",
+        "passage": "All four tests of LH012's post hoc readings held, on two weeks no Lighthouse study had read, for the one library they concern. boto3's downloads reporting Python 3.9 were 65.3 and 65.1 per cent of its downloads (test: above one half); Python 3.9 fetched boto3 7.16 and 8.04 times as often as botocore, against 2.73 and 2.92 over all Pythons (test: at least twice); 95.2 and 95.5 per cent of boto3's Python 3.9 downloads were below 1.42.97 (test: above three quarters); and boto3's Python 3.9 profile below 1.42.97 stayed flat, flatness 0.0007 and 0.0005 against 0.001 in W0 (test: below 0.05). The staircase kept its shape (median counts per block of twenty versions, described, not tested): about 850,000 to 900,000 a version for the first hundred versions from the edge down, then about 520,000 to 550,000 for the next four hundred, then about 106,000 to 127,000, and 1.42.87 stayed at about half its neighbours (0.53 and 0.55, 0.55 in W0). That these are a resolver's walk stays an interpretation: the log cannot say which installer versions made them, and whether it counts requests for metadata files is still not known. Holding is not explanation; nothing here says who or what makes these downloads."
+      },
+      {
+        "label": "Boundary",
+        "passage": "**A download is a fetch, and a cell is not a machine.** Every share weights environments by how often they fetch. A cell that holds its values and size from week to week has not been shown to be the same machines; many unrelated machines can share one, and one machine can fall in several."
+      },
+      {
+        "label": "Boundary",
+        "passage": "**Two adjacent weeks.** W1 and W2 follow W0 directly. Holding over three consecutive weeks says nothing of longer stretches, of other seasons, or of what a change in one large population would do."
+      },
+      {
+        "label": "Boundary",
+        "passage": "**Unknown stays unknown.** When ClickPy first held 12 October 2026 cannot be read from the source; the record knows only that it was held by 03:59 UTC on 22 October. Whether the download log counts requests for PEP 658 metadata files is not stated on either page read, so which pips can leave a walk in the log is not settled; which installer versions make the flat profiles needs the installer's version, which ClickPy does not hold."
+      }
+    ]
+  },
+  {
+    "path": "studies/LH014/LH014.md",
+    "question": "Below the top fifty Python projects, do releases reach half of downloads within two days, and do their shares settle by day 2?",
+    "summary": "The two-day majority held for 25 of 52 releasing projects drawn from ranks 51 to 500 and 9 of 35 from ranks 501 to 5,000, below the brief’s rule in both bands. The ten-point day-2 to day-30 band held for 39 of 50 and 23 of 35 projects respectively.",
+    "limit": "These are samples of 80 projects per band beside a top-fifty census, and the first band’s interval crosses the one-half boundary; rank is descriptive rather than causal, and fetch shares are not direct uptake measures.",
+    "state": "Record available",
+    "evidence": [
+      {
+        "label": "Answer",
+        "passage": "For projects ranked 51 to 500 in ClickPy's August 2026 downloads (band A), 25 of the 52 drawn projects with a release between April and August 2026 had most of their releases reach half of the project's downloads, counting that release or any later one, on the first or second day after release: 48.1 per cent, with a project-resampled 95 per cent interval of 34.6 to 61.5 (derived measurement). For projects ranked 501 to 5,000 (band B), 9 of 35: 25.7 per cent, 11.4 to 40.0. The brief's convention calls a share below one half \"not as a rule\", so both bands read \"not as a rule\"; band A's interval includes one half, so in another draw it could read \"for some projects\". Beside them, as a description and not a test, LH011's top fifty: 26 of 37, 70.3 per cent, 54.1 to 83.8. Pooled over releases, 114 of 295 releases in band A (38.6 per cent) and 38 of 196 in band B (19.4 per cent) reached half within two days, against 127 of 424 (30.0 per cent) in the top fifty, where three near-daily releasers weigh on the pooled figure."
+      },
+      {
+        "label": "Answer",
+        "passage": "LH012's settling test (the at-or-newer share on day 30 within ten points of day 2 for most of a project's releases) held for 39 of 50 projects in band A, 78.0 per cent (66.0 to 88.0), \"holds as a rule\", and for 23 of 35 in band B, 65.7 per cent (51.4 to 80.0), \"holds for some projects\" (derived measurement). Beside them, LH012 found 28 of 32 top-fifty projects settling on November to March releases, and 35 of 37 on LH011's April to August releases as a description."
+      },
+      {
+        "label": "Boundary",
+        "passage": "**A download is a fetch.** Each row is a file PyPI served; an environment that installs from scratch many times a day counts as often as it fetches, and one behind a cache or mirror once or not at all. A low share is not by itself slow uptake by people or projects (LH011, Limits)."
+      },
+      {
+        "label": "Boundary",
+        "passage": "**Two samples beside a census.** The top fifty is every project with a release among the fifty most downloaded; each band is 80 projects drawn at random, of which 52 and 35 released. The intervals, thirteen to fourteen points either side, carry the sampling; band A's primary share, 48.1 per cent, sits just below the one-half line its interval crosses, and its settling share, 78.0 per cent (75.6 without the overlap projects), just above the three-quarter line. The groups differ in many ways besides rank: the gradient is a description, not a cause."
+      }
+    ]
+  },
+  {
+    "path": "studies/LH015/LH015.md",
+    "question": "Do pinned repositories’ container recipes install from the file holding the timed pin or lockfile?",
+    "summary": "Of 469 timed pairs, 247 kept a container recipe; among 167 decided pairs, 129 had recipes instructing builds to install requirements from the pinned file, including 21 of 37 lockfile-only pairs. More than a quarter of recipe pairs were undetermined, so the brief’s labels for these shares are withheld.",
+    "limit": "A recipe is a set of instructions rather than an observed build; no image or run was read, and whether the target library is installed at all is unresolved.",
+    "state": "Record available",
+    "evidence": [
+      {
+        "label": "Answer",
+        "passage": "**P1.** 247 of the 469 pairs, 52.7 per cent (95 per cent interval 45.9 to 59.3), keep at least one container recipe at the snapshot: **for some pairs**, by the brief's convention, with an interval that spans the one-half boundary (derived measurement). In the repository view the share is 45.3 per cent (40.1 to 50.8), **not as a rule**, a different label, also spanning the boundary; 151 of the 332 repositories keep a recipe at one of their snapshots and 150 at every one."
+      },
+      {
+        "label": "Answer",
+        "passage": "**P2.** Of the 167 pairs whose recipes the rules decide, 129, 77.2 per cent (68.6 to 84.4), are **from the pinned file**: some build installs L's version from a timed file and no other build takes it elsewhere. The label this share would carry, \"as a rule\", **does not stand**: undetermined pairs are 68 of the 247 with a recipe (27.5 per cent, above the brief's one fifth), and the two undetermined bounds carry different labels, 83.8 per cent \"as a rule\" with every undetermined pair counted as from the pinned file and 54.9 per cent \"for some pairs\" with every one counted as not. By pin class, with every label withheld for the same reason: lockfile 21 of 37, 56.8 per cent (37.8 to 75.0; bounds 79.5 and 26.9 per cent); exact pin 63 of 77, 81.8 per cent (68.9 to 91.0; bounds 83.9 and 72.4); both 45 of 53, 84.9 per cent (72.9 to 94.3; bounds 88.6 and 64.3). The repository view gives 70.2 per cent overall (61.5 to 78.4), which would read \"for some pairs\"."
+      },
+      {
+        "label": "Answer",
+        "passage": "**What the classes mean.** A class is a reading of a recipe's instructions: what a build from it would be told to install, from which file, with the context the brief's rules fix. A recipe is not a build. No registry or image was read, so nothing here shows that any image exists, which recipe, if any, makes the images anyone runs, or what an image holds. Whether a build installs L at all (through extras, groups, markers or another package) is not resolved: \"from the pinned file\" means a step installs the project's requirements from a timed file that pins or locks L, and \"not from the pinned file\" means no step does and some step installs the project's requirements from elsewhere."
+      }
+    ]
+  },
+  {
+    "path": "studies/LH016/LH016.md",
+    "question": "Which research and review steps changed Lighthouse’s claims, at what cost, and what passed through to release?",
+    "summary": "Across six rounds, 66 of 125 recorded changes altered what readers would believe: evidence review most often changed figures or certainty, while changes to meaning came mostly from reader review and outside review relayed after release, a grouping made after the counts. Eight of ten public-claim changes at recheck corrected text just written to resolve an earlier review.",
+    "limit": "The study counts changes rather than truth; step order and differing texts prevent ranking reviewers by their counts or costs, and relayed review’s authorship and cost are known only in part.",
+    "state": "Record available",
+    "evidence": [
+      {
+        "label": "Answer",
+        "passage": "**Who changed what a claim means.** In the six rounds of 28 and 29 September 2026 (LH011 to LH015), 125 changes were made to the pieces, their public surfaces and their records while a step of the workflow ran, and 66 of them changed what a careful reader of a public surface would believe (tier A in the codebook the brief fixed before any change was coded; derived measurement). The evidence review made the most, 23 in six rounds, and 13 of those were figures or how sure a sentence sounded. Changes to what a claim meant, what a count counts, what caused what, or a new reading, came mostly from outside review that the keeper relayed after two pieces' release, readings from outside the workflow's own steps, whether the keeper's own or another reviewer's (5 of its 8; step K, which version 0.1 called the keeper's reading) and from the reader-and-inference review's second stage (8 of its 17), and seldom from the evidence review (4 of its 23); this grouping of the codebook's types was made after the counts. All 8 of the relayed review's changes, and 15 of stage 2's 17, altered text that an evidence review had read and passed. The repository records who relayed each such reading, not who or what produced it, and by the account of Astra, a reviewer outside the workflow, in a report the keeper relayed after release, much of it was Astra's analysis, so nothing here compares a person's reading with an agent's."
+      },
+      {
+        "label": "Answer",
+        "passage": "**Fixes need checking.** Text written to resolve a check carried problems of its own. 8 of the recheck's 10 public-claim changes corrected text written minutes before in response to a review, six of the eight sentences stage 2's resolution had introduced and half of the eight a new reading stated more broadly or surely than its evidence, or mislabelled; and 6 of the 7 changes the evidence review made to LH011's revision corrected text written after the relayed reading (derived; a reading made after the counts, from a literal search of each round's starting text)."
+      },
+      {
+        "label": "Answer",
+        "passage": "**Cost.** At list rates, estimated from transcripts: the evidence review $30.41 over six rounds, $1.32 per public-claim change it made, and $1.94 in the three rounds where the reader review also ran; the reader review with its recheck $22.47 over three rounds, $0.83; the blind check, run once, $7.24 for 3 public-claim changes and 5 to the record; the relayed review an unknown cost, which version 0.1 gave as none, since who or what produced it was not recorded. The steps read different texts in a fixed order, so a later step's count is what it added after the others, not what it would find alone, and changes differ in importance: these figures describe these rounds, and they do not rank the steps or say where to spend."
+      },
+      {
+        "label": "Boundary",
+        "passage": "- **Changes, not truth.** The study counts what each step changed and whether the change moved the text towards the retained evidence, as the first coder judged it; it does not say whether any claim is now right, and it cannot see an error no step changed."
+      },
+      {
+        "label": "Boundary",
+        "passage": "- **Order and credit.** The steps ran in one order on texts earlier steps had left, so a step's count is what it added in its place. No step ran without the others, and nothing here measures what the workflow would have released without a given step, except the replays and the corrections after release."
+      },
+      {
+        "label": "Boundary",
+        "passage": "- **What the history holds.** The clone starts at db300e2, so the first drafts of 26 September are read only through the notes. The keeper's own words are not in the repository; what the keeper asked is taken from the revision commits and the close-outs. Nor does the history say who produced the readings the keeper relayed: step K records the route, and Astra's account, which the keeper relayed after release (review/relayed-review-astra-2026-09-29.md), is that much of that analysis was Astra's, so K's author and cost are known only in part, and K is not a person's reading (version 0.2)."
+      }
+    ]
+  },
+  {
+    "path": "studies/LH017/LH017.md",
+    "question": "Do pinned projects’ CI jobs install from the timed pin or lockfile, including where container recipes leave it unread?",
+    "summary": "Of 469 timed pairs, 395 kept CI; instructions showed some job would take the timed pinned file in 282 of 291 decided pairs, and the timed lockfile itself in 164 of 188. In 83 of those 164 pairs, all lock-reading jobs used commands that could re-lock, and lockfile-only pairs’ pin-reading share carries no label because too many are undetermined.",
+    "limit": "A workflow is instructions rather than a run; some-job counts differ from recipes’ every-build rule, and the comparison under a shared rule was made after the counts.",
+    "state": "Record available",
+    "evidence": [
+      {
+        "label": "Answer",
+        "passage": "**P1.** 395 of the 469 pairs, 84.2 per cent (95 per cent interval 79.7 to 88.3), keep at least one GitHub Actions or GitLab CI job at the snapshot: **as a rule**, by the brief's convention (derived measurement). In the repository view the share is 81.5 per cent (77.3 to 85.5), the same label; 271 of the 332 repositories keep CI at one of their snapshots and 270 at every one. 5 more pairs keep only another CI system's files (counted, not classed), and 69 keep none."
+      },
+      {
+        "label": "Answer",
+        "passage": "**P2.** Of the 291 pairs whose CI the rules decide, 282, 96.9 per cent (94.4 to 98.9), have **some job that installs L's version from a timed file**: **as a rule** (derived measurement); 50 pairs are undetermined, 14.7 per cent of the pairs whose CI installs the project's requirements or is undetermined, below the brief's one fifth, so the label stands. By pin class: exact pin 94 of 95, 98.9 per cent (96.4 to 100), **as a rule**; both 91 of 92, 98.9 per cent (96.3 to 100), **as a rule**; lockfile 97 of 104, 93.3 per cent (87.5 to 97.7), **no label**: undetermined pairs are 31 of 135 of that class's frame, 23.0 per cent, above one fifth, and the two undetermined bounds read \"as a rule\" (94.8 per cent) and \"for some pairs\" (71.9 per cent). The repository view gives 96.4 per cent overall (93.8 to 98.6) and 91.0 per cent for lockfile pairs."
+      },
+      {
+        "label": "Answer",
+        "passage": "**P3.** Of the 188 pairs with a timed lockfile whose CI is decided for the lock, 164, 87.2 per cent (80.2 to 93.3), have **some job that installs L's version from the timed lockfile itself**: **as a rule** (derived measurement). Undetermined pairs are 41 of 229, 17.9 per cent, below one fifth; with every one counted as not reading the lock the share would be 71.6 per cent (\"for some pairs\"), and as reading it 89.5 per cent. The repository view gives 87.5 per cent (81.8 to 92.8). **Half of these rest on commands that could re-lock:** in 83 of the 164 pairs every job that reads the timed lock does so through `uv run` or `uv sync` without `--locked` or `--frozen` (or a bare `pipenv install`, `pdm install` or hatch-pip-compile), which keep the locked versions unless the project's own constraints exclude them (LH015's D4); counted as resolving afresh, as the brief's sensitivity does, the share is 81 of 161, 50.3 per cent (38.6 to 60.9). Counted by this study's pair rule, some container build read the timed lock at 71 pairs, and at 14 of them every such build did so only through such commands (at 6 of the 45 that LH015's own rule decides), by LH015's flags: a comparison made after the counts, for the figure, and not tested (post hoc; Finding 14)."
+      },
+      {
+        "label": "Answer",
+        "passage": "**Beside the container recipes (described, not tested).** LH015 counts a pair \"from the pinned file\" only when every build that installs the project's requirements is class 1, where this study counts a pair that reads the pin when any job is; the comparisons in this paragraph are the ones the brief fixed, with LH015's classes as they stand, and Finding 14 sets the two kinds of build side by side under one rule, after the counts. For the pairs with a timed lockfile that both studies decide, a container build read the timed lock in 40 and did not in 25 (LH015's `reads_T_lock`); of those 25, a CI job read it in 20. Of LH015's 38 pairs \"not from the pinned file\", CI reads the pin in 21 of the 24 this study decides; of the 7 pairs whose recipe left a timed lock unused, CI reads it in 4 of the 5 decided. Of the 222 pairs with no recipe, 131 are decided and CI reads the pin in 126; 59 keep neither a recipe nor CI. Counting both kinds of build, a container build or a CI job installs from the pinned file at 321 of the 469 pairs (68.4 per cent, 62.1 to 74.6); of the 413 pairs where the two readings together decide it, neither does at 92 (22.3 per cent, 17.4 to 27.4), 59 of them with no recipe and no CI; at the 56 pairs outside the 413, a recipe or CI is undetermined and neither reads the pin."
+      },
+      {
+        "label": "Answer",
+        "passage": "**What the classes mean.** A class is a reading of a workflow's instructions: what a job would be told to install, from which file, in the working directory the rules fix. A workflow is a recipe for a run, not a record of one: nothing here shows that a job ran, how often, on which events, with a cache that made no download, or against which index. \"Reads the pin\" means that some job's install step takes L's version from a timed file, whatever other jobs do; whether a job installs L at all (extras, groups, markers, another package) is not resolved. The study shows that a road runs from the pin to installs of the kind the download log's CI flag marks, for almost every one of these projects that keeps CI; it does not show how many of the log's older downloads come down that road, nor whether older downloads are frozen lists rather than unread bounds or an installer's resolution walk."
+      },
+      {
+        "label": "Boundary",
+        "passage": "- A workflow is not a run. Nothing here says which jobs run, how often, with what cache or against which index; a job under an `if:` is read as if it runs (6 pairs read the pin only through such steps), and jobs are counted alike whether they test, lint, publish or run once a year."
+      },
+      {
+        "label": "Boundary",
+        "passage": "- LH015's pair rule asks of every build what this study's asks of any job, so the two studies' shares compare only when put under one rule (Finding 14): under either, the workflows read the timed lockfile more often than the recipes, and under LH015's they install from the pin no more often."
+      }
+    ]
+  }
+]

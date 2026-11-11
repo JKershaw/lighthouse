@@ -7,7 +7,8 @@
     "build": "cd .. && eleventy --config=site/eleventy.config.js",
     "serve": "cd .. && eleventy --config=site/eleventy.config.js --serve",
     "test": "node --test test/*.test.js",
-    "test:offline": "node test/offline-browser.mjs"
+    "test:offline": "node test/offline-browser.mjs",
+    "prebuild": "cd .. && node scripts/lineage/overview.mjs --live"
   },
   "engines": {
     "node": ">=18"

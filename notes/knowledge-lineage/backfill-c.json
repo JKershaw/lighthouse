@@ -1,0 +1,349 @@
+[
+  {
+    "path": "studies/LH035/LH035.md",
+    "question": "Which public instruments observe the internet itself, at which layer, and where does each stop?",
+    "summary": "The documentation survey included 48 public instruments across all ten layers, with none covering its whole layer and 11 drawing on another included instrument. This maps documented views rather than measuring the internet.",
+    "limit": "Coverage and access depend on the pages read; some fields rest on model-written extracts, and the raw-page check did not cover the blind-spot or literature columns.",
+    "state": "Record available",
+    "evidence": [
+      {
+        "label": "Finding or design",
+        "passage": "**In short.** Which free public instruments watch the internet itself, from its cables to its traffic, and where does each stop? Reading 48 instruments' own pages in November 2026, every one of ten layers has at least one, but none sees the whole of its layer: routing archives listen from a small minority of networks, traffic is seen one network at a time, the fullest scanning data are paid for or restricted and the evidence behind the exploit-prediction scores read is private; and 11 of the 48 build on another. This describes instruments from their documentation and measures nothing of the internet; a map page drawn from it is in review."
+      },
+      {
+        "label": "Scope and qualification",
+        "passage": "Rows I01 to I40 were written from model-written extracts of pages and checked against the raw pages on 6 November, four days later, not on the day they were written: a field a page changed in those four days and the check did not catch is the 2 November extract's. Row I30 (CISA's catalogue) rests on its extract alone, since its pages refused the research client. The quotation check is mechanical and exact; the field check was made by two Sonnet subagents reading plain-text dumps, with the driving session rechecking only what they flagged, so a claim they wrongly passed as supported was not rechecked. The blind-spot and literature columns were not part of the check. Rows I41 to I48 rest on raw reads of 5 November, except the two fields that rest on 2 November extracts."
+      }
+    ]
+  },
+  {
+    "path": "studies/LH036/brief.md",
+    "question": "How do the public signals about CVE-2026-98432 move, from its fix on 15 October 2026 through Anthropic's account of an exploit on 27 October, and where has the fix landed?",
+    "summary": "The protocol follows CVE-2026-98432's public severity and exploitation signals and distribution fixes twice weekly, stopping by 13 January 2027 or after a KEV listing's follow-up. Anthropic's exploit claim is attributed, with Lighthouse's use of Anthropic models disclosed.",
+    "limit": "Public signals and fix availability cannot establish exploitation, affected running machines, installation or the cause of a score change.",
+    "state": "Protocol only",
+    "evidence": [
+      {
+        "label": "Finding or design",
+        "passage": "**In short** (added 7 November 2026; not part of the protocol). Anthropic said on 27 October that its model wrote a working exploit for CVE-2026-98432, a serious Linux kernel flaw fixed on 15 October. We watch the public signals defenders rely on: CISA's list of exploited flaws, the EPSS exploit-prediction score, how the official record is scored and enriched, and fixes from Debian, Ubuntu, Red Hat and SUSE. Reads are twice a week, until 13 January 2027 or 14 days after a CISA listing. The exploit and the post are Anthropic's, and Lighthouse runs on Anthropic's models."
+      },
+      {
+        "label": "Supporting passage",
+        "passage": "At most 20 GETs and 40 MiB per read, and about 22 reads; no subagent is needed for collection. The study stops at the last scheduled read on or before 13 January 2027 (90 days after E0), or at the first scheduled read at least 14 days after a KEV listing, whichever comes first. An interim record follows the read of 16 November 2026 (day 32), and the record follows the stop. Any piece needs its own reviews."
+      },
+      {
+        "label": "Scope and qualification",
+        "passage": "It is inconclusive for EPSS if the API stops returning this CVE's history, for a distribution whose tracker is unavailable at most reads, and for the timing of any change whose surrounding reads were missed. It cannot say whether anyone has exploited the bug, how many machines run an affected kernel, whether a fixed package was installed, or why any score moved. It makes no claim that harm is happening or that a system is compromised; a third party's published report of exploitation would be recorded as that party's claim, with what it rests on. Whether Anthropic's publication kept to its stated policy is not a measure here; it is the timeline study's question."
+      }
+    ]
+  },
+  {
+    "path": "studies/LH037/brief.md",
+    "question": "Which of the most-exploited vendors say their products carry the PHP flaws of 21 October 2026, on which PHP branch, and when do their fixes appear?",
+    "summary": "The protocol follows statements and fixes from 20 vendors chosen by their counts in CISA’s exploited-flaw catalogue. Its unreviewed 5 November checkpoint found six vendors naming the flaws, seven with no statement found, five unreadable and two without a channel; Google first named carried PHP branches on 2 November.",
+    "limit": "Unavailable routes and rolling feeds constrain what can be found; vendor statements cannot establish exploitation, installed fixes or affected device counts.",
+    "state": "Protocol only",
+    "evidence": [
+      {
+        "label": "Finding or design",
+        "passage": "**In short** (added 7 November 2026; not part of the protocol). Many vendors ship their own copy of PHP inside products such as firewalls and appliances, and fix it on their own clocks. Twice a week we read what the 20 vendors with most entries in CISA's list of exploited flaws say about the October PHP flaws. At the 5 November read (unreviewed checkpoint), 6 of the 20 had a statement naming the flaws, 7 had none we could find, 5 could not be read and 2 have no channel to read; Google, on 2 November, was the first to say which PHP branches some of its products carry."
+      },
+      {
+        "label": "Scope and qualification",
+        "passage": "It is inconclusive for a vendor whose routes are unavailable at most reads, for a vendor whose statements live only behind a login or a script-only page, and for the timing of any change whose surrounding reads were missed. A feed that carries only recent items can drop a statement the baseline would have found had it been made earlier; a statement found later whose own date precedes the baseline is reported with that limit. The study cannot say whether any product was exploited, how many devices run an affected build, whether a fix was installed, or why a vendor did or did not publish. It makes no claim that harm is happening or that a system is compromised; a vendor's own report of exploitation is recorded as that vendor's claim, with what it rests on. No primary literature search was run before this brief: it tests no explanation, and its measures read each vendor's statement as the vendor dates it."
+      }
+    ]
+  },
+  {
+    "path": "studies/LH038/brief.md",
+    "question": "When was CVE-2026-98432 reported, fixed, numbered, shipped and described, and how do those dates sit beside the disclosure policies each party states?",
+    "summary": "The protocol plans one public-source timeline read from 17 November, comparing CVE-2026-98432's dated events with six published disclosure policies and writing a record by 30 November. Ambiguous policy clocks are computed separately.",
+    "limit": "The comparison describes dates and cannot determine private communications, motives or whether any party complied with its policy.",
+    "state": "Protocol only",
+    "evidence": [
+      {
+        "label": "Finding or design",
+        "passage": "**In short** (added 7 November 2026; not part of the protocol). When an AI model finds a serious flaw, how do the dates of its public life line up with the disclosure rules the parties say they follow? For the same kernel flaw, we'll build a dated timeline from public sources (report, fix, CVE, distribution advisories, Anthropic's post) and set it beside six published disclosure policies. One read from 17 November; the record by 30 November."
+      },
+      {
+        "label": "Supporting passage",
+        "passage": "Where a policy's clock is ambiguous (P1's \"a patch is available\" could be T1, the first stable release or a distribution's fix; \"full technical details\" is not defined), the record computes against each candidate and does not pick one, and quotes the post's technical content without classing it as \"full\" or not. The comparison is a description of dates; it makes no claim about intent, compliance, harm or exploitation, and none in Lighthouse's voice that the flaw is exploited."
+      },
+      {
+        "label": "Scope and qualification",
+        "passage": "The timeline is inconclusive for T0 if no public source dates the report, which is the expected outcome and is recorded as unknown, not as absent; for any event whose source is unavailable; and for P2's and P1's texts on the dates they would have applied, if no history dates them. It cannot say what was said privately between reporter, kernel and distributions, why any date fell where it did, or whether any party kept to its policy."
+      }
+    ]
+  },
+  {
+    "path": "studies/LH039/brief.md",
+    "question": "After WordPress fixed CVE-2026-119977 on 28 October 2026, how fast did the public views of WordPress's installed base move to the fixed releases?",
+    "summary": "The protocol separately follows W3Techs's fixed-release shares within three WordPress branches and Packagist's developer downloads after the 28 October fix, with daily reads through 21 November. WordPress.org's branch totals provide context but cannot identify fixed sites.",
+    "limit": "The views count different populations; static or missing W3Techs points may leave a fortnight unresolved, and developer downloads cannot stand in for sites.",
+    "state": "Protocol only",
+    "evidence": [
+      {
+        "label": "Finding or design",
+        "passage": "**In short** (added 8 November 2026; not part of the protocol). WordPress fixed a flaw in its own update process on 28 October 2026, in 7.1.4 and in a release on every branch back to 4.7, and CISA listed it as exploited on 3 November. WordPress.org's own statistics only count branches, so they can't tell a fixed site from an unfixed one; we watch two views that do see releases, W3Techs's survey of websites and Packagist's count of developer downloads, each counting something different, with WordPress.org's branch figures as context. Reads are daily until 21 November, with a checkpoint on 14 November and a record after the last read."
+      },
+      {
+        "label": "Supporting passage",
+        "passage": "The question: **from the release, how did the share of WordPress sites on a fixed release move, within each of the branches 7.1, 7.0 and 6.9, as W3Techs's survey of websites reports it; and how did Composer downloads of WordPress core move to the fixed releases, as Packagist reports them?** The two views count different things and are reported apart."
+      },
+      {
+        "label": "Scope and qualification",
+        "passage": "If W3Techs's shares within the branches do not move over the window, the record says its sampling cannot resolve a fortnight and gives the monthly points instead; if more than four daily reads fail, the W3Techs series is reported as partial. Packagist's view answers a different question (developers and builds) and does not stand in for sites."
+      }
+    ]
+  },
+  {
+    "path": "studies/LH040/LH040.md",
+    "question": "How far did the poisoned LiteLLM 1.107.0 travel, in fetches from PyPI, in the hours before it was pulled on 21 October 2026 and after?",
+    "summary": "The unreviewed interim record counts 49,043 fetches of poisoned LiteLLM 1.107.0 on 21 October (1.42% of LiteLLM fetches), within the ordinary-release comparison range but low unless the availability window ended early. It records another 1,431 fetches from 22 October to 8 November.",
+    "limit": "These are fetches rather than installs or infections; daily logs cannot place them within the release's availability window, and the retained counts may change on reread.",
+    "state": "Interim record",
+    "evidence": [
+      {
+        "label": "Finding or design",
+        "passage": "To 8 November 2026, unreviewed. PyPI's download logs, as ClickPy held them on 9 November, record 49,043 fetches of litellm 1.107.0 on its upload day, 21 October 2026 (observation), which is 1.42 per cent of litellm's 3,465,646 fetches that day (derived). Beside the comparison releases, per hour as the newest release, 1.107.0's index lies inside the range of all 17 under each of the three window ends, so the brief's pre-set reading applies: it \"travelled as an ordinary newest release did in its first hours\" (derived, by the rule fixed before the counts). Within that range it sits low under the maintainers' end of 13:23 UTC (17th of 18, at 0.68 times the comparison median) and near the middle only under Aikido's 12:47 (8th of 18, 1.04 times). The logs keep recording fetches of 1.107.0 on every day read after it was pulled, 1,431 from 22 October to 8 November (observation). ClickPy's rows for the March 2026 versions, 120,633 fetches from 24 March to 30 April, are within a factor of two of PyPI's own \"over 119k\" (R5), so the brief's calibration holds (derived)."
+      },
+      {
+        "label": "Supporting passage",
+        "passage": "A download is one fetch of one file. It is not an install, a running copy, a victim or an infection, and nothing here says any system fetched, ran or was compromised by 1.107.0. StepSecurity's count of \"about 49,000\" (R9) is theirs, unchecked, and set beside ours below rather than merged with it."
+      },
+      {
+        "label": "Supporting passage",
+        "passage": "- ClickPy keeps the day, not the time: no fetch is placed inside W, and the per-hour index rests on an even-spread assumption that is false in its details."
+      },
+      {
+        "label": "Scope and qualification",
+        "passage": "- The figures are ClickPy's copy of PyPI's logs as held on 9 November; ClickPy re-ingests days it finds wrong (S21), and read 2 re-reads day 0."
+      }
+    ]
+  },
+  {
+    "path": "studies/LH041/LH041.md",
+    "question": "The registry worms, dated. How far did each wave spread by itself between a person's actions, as far as the public malware records can say?",
+    "summary": "Nine of thirteen named registry-worm waves have registry times, including Miasma only under a post hoc reading and July's wave through a record that does not identify it. The large Shai-Hulud 2.0 and ChainDrop spans use post hoc windows; maintainer groups cannot be counted as infections or worm generations.",
+    "limit": "The records cannot establish intervening human actions; group counts bound only recorded reach, while OSV's incomplete coverage leaves whole-wave reach unknown.",
+    "state": "Interim record",
+    "evidence": [
+      {
+        "label": "Finding or design",
+        "passage": "**How many are dated.** Nine of the thirteen have registry times for malicious versions: eight under the brief's rules (W01, W02, W06, W07, W10, W11, W12, W13), of which W10's rest on one record joined by window that does not identify the wave, and W08 only under the post hoc reading. W03, W04, W05 and W09 have none (W09's one npm record under the brief's rule has registry times but cannot belong to a PyPI wave). The post hoc readings are two decisions, each a single alternative to the brief's rule, taken after the counts were seen (Findings, the post hoc view). (Derived measurement; post hoc where marked.)"
+      },
+      {
+        "label": "Supporting passage",
+        "passage": "Each count is an upper bound on how many of the groups in OSV's records were reached without a person's new act; OSV's records are themselves a floor of unknown depth (Limits), so a wave's whole reach may be larger. A group (cluster) is packages that share a current npm maintainer: not a victim, an account, an organisation or a step of the worm. Several groups began publishing within seconds of one another (below), which fits one publishing run, one holder of several stolen tokens, or a split made by today's maintainer lists better than a new victim reached in between (interpretation), so the counts are not counts of infections or generations:"
+      },
+      {
+        "label": "Supporting passage",
+        "passage": "- **Shai-Hulud 2.0** (November 2025): 788 npm packages; the 1,029 malicious versions with a registry time all went up on 24 November 2025 between 03:10 and 17:54 UTC, across 88 maintainer clusters; 87 after the first, the median one 7.1 hours in (post hoc view; the brief's view gives the same cluster counts but a span polluted by versions outside the wave). 14 of the 87 began within 60 seconds of the cluster that began just before them, 2 of those in the same second; the second cluster began 11 seconds after the first (post hoc, Findings)."
+      },
+      {
+        "label": "Scope and qualification",
+        "passage": "- **ChainDrop** (August 2026): 444 packages and 2,236 versions in the wave's window, 2,127 registry-dated between 09:35 and 13:19 UTC on 4 August; the first cluster holds 11 packages, and 12 more clusters holding 416 packages followed within 3.7 hours; 17 packages have no packument (post hoc view). 2 of the 12 later clusters began within 60 seconds of the one before them, 1 in the same second (post hoc, Findings). StepSecurity's own split of the same day is 11 carriers and 433 packages \"republished automatically\", 444 in all (w19): OSV's 444 packages equal its total and the first cluster's 11 equal its carriers, a comparison of counts, not of package lists."
+      }
+    ]
+  },
+  {
+    "path": "studies/LH042/LH042.md",
+    "question": "How do published counts of internet-exposed AI services move over time, read from the scanners' and researchers' own publications?",
+    "summary": "The record admits 91 published counts from 19 publishers, with only six comparable series, and finds Ollama and OpenClaw counts after February 2026. The long OpenA2A series changes substantially, but a monthly step is not by itself evidence of population change.",
+    "limit": "The figures are publishers' claims checked against their pages, not host measurements; internet reachability establishes neither compromise nor AI activity.",
+    "state": "Interim record",
+    "evidence": [
+      {
+        "label": "Finding or design",
+        "passage": "**Counts exist; series are few.** Under the brief's admission rule (the publisher's own page names what it counted, when and how), 91 counts from 19 publishers were admitted, falling into 57 series (one publisher, one stated method, one product, one kind of count, one unit). Six series have two or more dates (observation, data/series_changes.txt): one paper's daily sweep of Ollama's port (four dates stated in its text, February 2025 to February 2026) and five from OpenA2A Research's public Exposure Prevalence Index (nine monthly sweeps from 14 March to 1 November 2026 for its OpenClaw, LLM-endpoint and MCP categories; its totals split in two at the method boundary OpenA2A dates to 18 June 2026). Every other count stands alone, and the brief forbids joining counts made different ways."
+      },
+      {
+        "label": "Supporting passage",
+        "passage": "**For Ollama and OpenClaw, counts after February 2026 exist** (observation of the publishers' claims). Ollama: 25,036 hosts on 11 April by Shodan's product label (OpenA2A); over 25,000 in April by re-running the Shodan query Cisco used in September 2025, which the page does not give (insecurestack); on 11 May, roughly 1,165 by a Shodan banner search, 25,488 by Shodan's product label and about 30,000 by a Censys query (all CyberDesserts); 6,935 servers answering with Ollama's anonymous banner and 22,024 responses on its default port in Netlas's index on 30 and 31 August (Mysterium VPN). OpenClaw: 63,070 live instances by a Censys query on 31 March (CyberDesserts), and OpenA2A's monthly Shodan category to 1 November. So the horizon sweep's \"no count since February\" (scouts 5 and 7) is not borne out by what was found here; what was missing is a count made the same way twice."
+      },
+      {
+        "label": "Supporting passage",
+        "passage": "OpenA2A notes that sweeps within one month can differ by more than months do (its June totals ran from 245,111 to 349,424), so a month-to-month step in its index is not by itself a change in the population."
+      },
+      {
+        "label": "Supporting passage",
+        "passage": "- A count is its publisher's claim. Lighthouse checked that each figure is on the page, not that it is right; the index counts' own limits (port hits on unrelated services, honeypots, indexing lag, unindexed services) are stated by their publishers and could not be measured here."
+      },
+      {
+        "label": "Scope and qualification",
+        "passage": "**What this does not say.** Nothing here measures exposure directly, and nothing says any host is compromised, abused or running anything an AI system put there. A Shodan or Netlas index count is what that index holds, which its publishers say over-counts (port hits on unrelated services, honeypots) and under-counts (blocked or unindexed services) at once."
+      }
+    ]
+  },
+  {
+    "path": "studies/LH043/LH043.md",
+    "question": "Do the published accounts of evaluation agents acting on the internet name anything a reader could look up?",
+    "summary": "None of the eight primary accounts read names an identifier that permits a public-event lookup. The study closes for now and will reopen only if a publisher supplies an identifier, without trying to recover anonymised parties.",
+    "limit": "The unreviewed result concerns missing identifiers, not whether the described actions occurred or left public traces; no event-record search was run.",
+    "state": "Closed",
+    "evidence": [
+      {
+        "label": "Finding or design",
+        "passage": "None of the eight primary accounts read names a public identifier for the repositories, accounts, packages, datasets or gists involved (observation, unreviewed). The UK AI Security Institute's incident report says its rewriting of a pull-request thread was done \"to preserve the anonymity of the affected repository and users\". Without an identifier, a search of the public event record for these actions would have to find them by their shape, and in practice that would work to re-identify parties the publishers chose to protect, private maintainers among them. Lighthouse does not do that. The question is closed for now, not answered in the negative: a missing identifier says nothing about whether the actions left public traces."
+      },
+      {
+        "label": "Supporting passage",
+        "passage": "No brief was fixed: the study stopped while reading the sources a brief would have rested on, so nothing here was chosen after an outcome of an event-record search was seen, because no such search was run. Overlap: the same accounts are cited by essays/it-was-only-a-test.md."
+      },
+      {
+        "label": "Scope and qualification",
+        "passage": "Re-open only if a publisher names an identifier itself. The investigation page's \"What it will not do\" gains a line: Lighthouse does not try to re-identify people, repositories or systems that a source has anonymised. Whether a general coverage check of GH Archive (which event types it carries, measured on hours unrelated to any incident) is worth a study of its own is left to the backlog."
+      }
+    ]
+  },
+  {
+    "path": "studies/LH044/brief.md",
+    "question": "Which shared services of public infrastructure close their doors to an anonymous, identified reader, when, and what do their operators say about why? A weekly panel, 8 November 2026 to 9 February 2027",
+    "summary": "The protocol follows access barriers, robots.txt declarations and operator statements for a fixed panel of 161 shared services over thirteen weeks. The brief reports no measurements yet and discloses that requests leave from an Anthropic address block; later amendments add company-token rules and usageai-training tracking.",
+    "limit": "One URL, client and address cannot distinguish whom a barrier targets; the panel is not the web, and barriers do not establish load, AI attribution or harm.",
+    "state": "Protocol only",
+    "evidence": [
+      {
+        "label": "Finding or design",
+        "passage": "**In short** (added 8 November 2026; not part of the protocol). Operators of shared public services, kernel.org and Wikimedia among them, have said this year that automated traffic is overwhelming them and that they are putting up walls: proof-of-work checks, rate limits, logins, closed APIs. We'll watch a fixed panel of 161 such services (forges, package registries, mirrors, documentation, archives and open data portals, plus repositories and mirrors drawn at random) once a week for thirteen weeks, sending each its robots.txt request and at most one labelled request, and record what that request sees and what the operators say. Nothing has been measured yet; the baseline read follows this brief. Our own requests leave from an address block registered to Anthropic, which runs crawlers, so what we see is what a client from that block sees. From the first weekly read we also obey what each site's robots.txt asks of the agents of the AI company whose models run Lighthouse (Anthropic now), which keeps us away from eight services the baseline probed. From the first weekly read we also note whether each robots.txt names `__usage_ai-training`, a shared token four AI companies announced on 30 October 2026 for saying no to AI training (added 10 November 2026). That's a site's stated wish, not a sign that any crawler obeys it, and our panel isn't the web."
+      },
+      {
+        "label": "Supporting passage",
+        "passage": "- One request, one address, one client. A wall may be set for data-centre addresses, for Anthropic's address block in particular, for unknown clients, for this User-Agent, or for everyone; one request cannot tell them apart, and the direct and proxied routes may leave from different addresses. A page that walls browsers but passes tools, or the reverse, shows the wall only on the matching surface."
+      },
+      {
+        "label": "Scope and qualification",
+        "passage": "It cannot say, in any case, how much automated traffic any service receives, who sends it, whether any of it is AI, or whether any operator is harmed; those are operators' accounts, recorded as theirs."
+      }
+    ]
+  },
+  {
+    "path": "studies/LH045/brief.md",
+    "question": "Keep it before it rolls over: Epoch AI's data-centre records and the IETF's agent drafts, captured while they are still public",
+    "summary": "The protocol drops compute-price capture because the sources forbid retention or republication, and preserves Epoch records weekly to January plus three IETF draft censuses. It keeps replayable records and names later questions, without analysing the captures.",
+    "limit": "Epoch's figures are capacity estimates rather than power draw or internet load; drafts indicate standards-body attention, not deployment.",
+    "state": "Protocol only",
+    "evidence": [
+      {
+        "label": "Finding or design",
+        "passage": "**In short** (added 8 November 2026; not part of the protocol). Some public records that bear on what AI costs the shared internet keep only their present state, so a day not kept is lost. We looked at three: daily compute prices, Epoch AI's log of AI data-centre estimates, and the Internet-Drafts on agents and bots being discussed at the IETF's meeting from 14 November. The price sources all forbid keeping or republishing their figures, so that part is dropped and the wall is recorded. Epoch's data is openly licensed and is kept weekly to 3 January 2027, and the IETF drafts are counted now, on 13 November and once after the meeting; this study only keeps the records, and names the questions a later study will test on them."
+      },
+      {
+        "label": "Supporting passage",
+        "passage": "A capture, not an analysis. Its product is a dated, replayable archive of public records that would otherwise be overwritten, with the questions a later study will put to it named now, so that study tests them on data neither it nor this one has analysed. This study reads its captures only to check that they are complete and well formed, and reports counts of what was kept, not findings."
+      },
+      {
+        "label": "Supporting passage",
+        "passage": "- **Epoch's figures are estimates,** from satellite imagery, permits and public documents by Epoch's own description, of capacity being built. They are not measured power draw, not utilisation and not AI activity on the open internet; a data centre's compute is not load on shared infrastructure, and nothing here links a site to traffic anywhere."
+      },
+      {
+        "label": "Scope and qualification",
+        "passage": "- **A draft is not adoption.** An Internet-Draft is a proposal anyone may submit; a WG draft is a proposal a group has agreed to work on; neither is a standard, and neither is deployment. Counting drafts measures attention in a standards body, not what agents or bots do."
+      }
+    ]
+  },
+  {
+    "path": "studies/LH046/LH046.md",
+    "question": "How complete have GH Archive's hourly files been since September 2026?",
+    "summary": "All 452 sampled GH Archive files were present and nonempty, but pushes, creates and deletes were jointly absent from 90 of 272 September–November panel files, including runs before 15 October. The September baseline failed the brief's test, so the before-and-after comparison is descriptive.",
+    "limit": "Counts describe archive contents rather than GitHub activity; the source and cause of missing events remain unknown, and the sample can miss short gaps.",
+    "state": "Record available",
+    "evidence": [
+      {
+        "label": "Finding or design",
+        "passage": "Every one of the 452 hourly files read, dated from 1 January to 8 November 2026, was present and none was empty (observation). But from 1 September to 7 November 2026, PushEvent, CreateEvent and DeleteEvent were absent, always together, from 90 of the 272 panel files (four fixed hours a day, 00:00, 06:00, 12:00 and 18:00 UTC): 26 of 176 (15 per cent) from 1 September to 14 October and 64 of 96 (67 per cent) from 15 October to 7 November, at every sampled hour of day (observation, derived share). They vanish and return in runs, of one file to 29 consecutive sampled files, and the edges fall inside an hour, not on file boundaries. In files without pushes, the other event types kept arriving (every file read had events in at least 57 of its 60 minutes) at roughly the levels they had in the same period's files with pushes. The reviewer's lead, that from 15 October many hours hold no pushes, holds as a description; that this began on 15 October does not (the 15 October split was taken from that lead, not found in the data), because September already had a four-day run of files without pushes (1 September 12:00 to 5 September 06:00) and two shorter ones."
+      },
+      {
+        "label": "Supporting passage",
+        "passage": "The brief's fixed reading of the before-and-after comparison is **not applied**: the September baseline failed the brief's own test (19 of 120 September panel files, 16 per cent, had no PushEvent, above the 10 per cent limit), so by the brief comparison 1 is reported as description against the January to August reference hours, which all held pushes."
+      },
+      {
+        "label": "Supporting passage",
+        "passage": "What the files hold is not what happened on GitHub, and no independent count of GitHub's activity was read. Whether GitHub's public events feed, GH Archive's collector or something else lost these events is unknown: neither GH Archive's page nor GitHub's changelog, docs or status incidents for September to November 2026, as read, say anything about it, and GH Archive's issue tracker could not be read from here (interpretation boundary; searchlog.md)."
+      },
+      {
+        "label": "Scope and qualification",
+        "passage": "- **A sample.** Four hours a day, 16 reference hours over eight months and eight chosen whole days. Gaps shorter than six hours fall between panel files; the whole days show they exist. The September baseline was not clean, so no threshold-based gap rate is reported against it; the January to August references are hour 12 only, so hour-of-day variation is not in that baseline."
+      }
+    ]
+  },
+  {
+    "path": "studies/LH047/LH047.md",
+    "question": "The rules of the road: what sites ask of automated readers, how well each request is heeded, and how well Lighthouse heeded them on 8 November 2026",
+    "summary": "The record catalogues twenty automated-reader mechanisms and finds published compliance measurements disagree and count different things. Its one-evening Lighthouse audit found 113 breaches under the fixed brief, plus 59 under a single post hoc identification class, for 172 among 3,497 recorded requests.",
+    "limit": "The transcript count is a floor, some verdicts use later robots.txt files, and these request-level breaches measure neither incidents nor harm nor agents in general.",
+    "state": "Record available",
+    "evidence": [
+      {
+        "label": "Finding or design",
+        "passage": "**In short.** Websites ask automated readers to stay out of some pages, not to train on what they read, to slow down or to prove who they are, and most of these asks are requests that nothing enforces. Published measurements of how well crawlers heed them disagree, partly because they count different things and partly over what robots.txt covers: OpenAI's, Google's and Perplexity's pages say it may not apply to fetches a user asks for, Anthropic's page says its bots honour it, and the published evidence on Anthropic's bots (Lighthouse runs on Anthropic's models) is mixed. Of the 3,497 requests we could find that Lighthouse made on 8 November 2026 between 18:57 and 20:26 UTC (a floor), 113 broke a rule as our brief fixed it, against 2 we already knew of; 59 more, all from one reviewer whose User-Agent named no one, we classed as breaches only after seeing them (post hoc, one choice), for 172 (a derived measurement, after an evidence review and a reader-and-inference review). These count requests that broke a stated rule, not incidents or harm: 90 of the 172 were answered with HTTP 404, among them 88 of the 89 requests to PyPI's documented JSON interface, which PyPI's robots.txt asks crawlers to avoid, and 146 came from two practices, one collector that read no robots.txt and that reviewer's User-Agent; next comes a short paper for readers who have never thought about robots.txt."
+      },
+      {
+        "label": "Supporting passage",
+        "passage": "Twenty mechanisms by which sites and publishers state what automated readers may do, each from its own specification or operator. Fetching rules (robots.txt and its AI tokens, Crawl-delay) are advisory and visible in a site's logs; use rules (Content Signals, the IETF's AI Preferences, TDMRep, RSL) govern what happens after the fetch, which no site can see; enforcement, where it exists, comes from servers and intermediaries (rate limits, challenges, paywalls, verified-bot lists), not from the rules. Interpretation, after both reviews."
+      },
+      {
+        "label": "Supporting passage",
+        "passage": "The published measurements read do not agree, and they do not measure the same thing."
+      },
+      {
+        "label": "Supporting passage",
+        "passage": "Of 3,497 requests (3,446 in the studies' fetch logs, 51 found only in the agents' transcripts), under reading A (the groups naming Lighthouse's own token, else `*`) **3,315 complied, 172 did not and 10 are unknown**. Of the 172, 59 fail only on identification (R8), under a class made after the requests were seen (below); under the brief as fixed, which has no class for their User-Agent, **113 did not comply** and those 59 are unclassified ([review/brief_as_fixed.py](review/brief_as_fixed.py) and its .out, kept for the reader-and-inference review's resolution)."
+      },
+      {
+        "label": "Supporting passage",
+        "passage": "- **The transcripts are this session's only.** Requests made by earlier sessions that evening, by OpenAI Codex (which wrote and revised the essay *It was only a test* earlier on 8 November), or inside scripts outside the repository are not seen; the unlogged count is a floor."
+      },
+      {
+        "label": "Supporting passage",
+        "passage": "- **robots.txt in force at the time.** 184 verdicts rest on a file re-read after the event, 9 of them among the 172 (4 among the 113); a file changed in between would change them. Copies are up to about 25 minutes from the request (web.archive.org's, LH044's own later read, used for LH044's pre-brief reads). The declawed.io file quoted in the incident note was not indexed; the current re-read stood in, with the same verdicts."
+      },
+      {
+        "label": "Scope and qualification",
+        "passage": "- **One evening.** This is a census of one night's requests by one project, not a rate for agents in general."
+      }
+    ]
+  },
+  {
+    "path": "studies/LH048/brief.md",
+    "question": "How were the flaws behind Anthropic's five attack chains of 27 October 2026 scored, and do the signals of exploitation move?",
+    "summary": "The protocol follows severity, EPSS and KEV signals for identifiable flaws in Anthropic's five chains through 4 January 2027. At its unreviewed 10 November checkpoint, four flaws could be followed, including one Chrome flaw ambiguous between two steps; none was KEV-listed, all had a High or Critical rating from at least one source, and EPSS scores were low.",
+    "limit": "Unidentified or ambiguous flaws remain inconclusive; five chains support no general rate, and scores cannot establish exploitation, affected systems or why a score moved.",
+    "state": "Protocol only",
+    "evidence": [
+      {
+        "label": "Finding or design",
+        "passage": "**In short** (written 9 November 2026; not part of the protocol). On 27 October Anthropic described five attack chains its unreleased model built, in Chrome, Safari, Android, Windows and Linux, but named only two flaws by number: one in Windows and one in Linux. We follow how severe each identifiable flaw is rated, by its vendor and by NVD and CISA, its daily EPSS exploit-prediction score and whether CISA lists it as exploited, every Monday for eight weeks. On 10 November a rule fixed in advance matched one Safari flaw that Apple credits to Anthropic and one Chrome flaw that could be either of two steps, so four flaws can be followed; at that first reading none was in CISA's catalogue, all were rated High or Critical by at least one source, and their EPSS scores were low ([checkpoint](checkpoints/2026-11-10.md), unreviewed; In short updated 10 November). The exploit and the post are Anthropic's, and Lighthouse runs on Anthropic's models."
+      },
+      {
+        "label": "Supporting passage",
+        "passage": "Five chains, and at most a dozen or so identifiable flaws, cannot support a rate: nothing here says how AI-found flaws are scored in general, or whether they are scored differently from others, and no comparison group is drawn. An EPSS percentile is already a comparison with every scored CVE, and is the only reference the study uses. The linked set is described alongside, never pooled with the chains."
+      },
+      {
+        "label": "Scope and qualification",
+        "passage": "It is inconclusive for a chain whose flaws are unidentified, ambiguous or have no identifier (Android certainly, and S2 likely); for EPSS if the API stops returning these CVEs; for a source unavailable at most reads; and for the timing of any change whose surrounding reads were missed. It cannot say whether anyone has exploited any flaw, why any score moved, how many systems are affected, or whether the post's \"62 CVEs ... all rated critical or high severity\" is true beyond the one page it links. It makes no claim that harm is happening or that a system is compromised; a third party's published report of exploitation would be recorded as that party's claim, with what it rests on."
+      }
+    ]
+  },
+  {
+    "path": "studies/LH049/brief.md",
+    "question": "How far did the compromised bee-js 13.3.0 travel, in fetches from npm, on 9 November 2026 and after?",
+    "summary": "The protocol plans daily npm reads through 24 November to count bee-js 13.3.0 fetches on and after 9 November, using short-lived per-version data and an ordinary-release comparison if one appears. Socket's estimate of roughly ten fetches is a reported guess; the brief has read no npm download count.",
+    "limit": "Fetch counts include mirrors and scanners and miss cached installs; they cannot establish installs, victims, infection or whether the malicious hook succeeded.",
+    "state": "Protocol only",
+    "evidence": [
+      {
+        "label": "Finding or design",
+        "passage": "**In short** (added 10 November 2026; not part of the protocol). Just after midnight UTC on 9 November 2026 a release of bee-js, a JavaScript library for the Swarm storage network, was published to npm through the project's own release workflow, with a genuine provenance signature, and with code that ran at install time and fetched more code from an attacker's server, as StepSecurity and Socket report. npm removed it about 75 minutes later. We'll count how often npm's public download figures record it being fetched that day and afterwards, using a per-version count npm keeps for only seven days, so the reads have to start now. Socket has guessed \"on the order of ten\" fetches; we have read that guess but no download figure from npm. A download is a fetch, not an install or a victim. Reads daily from 10 November, the last on 24 November; the record by 1 December."
+      },
+      {
+        "label": "Supporting passage",
+        "passage": "What a count counts: by npm's account (E9), a download is an HTTP 200 response that served a package tarball. It is not an install, a running copy, a victim or an infection. Mirrors fetch each new version once, usually on the day it is published (E9), so a count this small may be mostly mirrors and scanners; copies installed from caches, mirrors or lockfile-pinned stores are not counted at all. This study says so wherever a count appears, and makes no claim, in Lighthouse's voice, that any system fetched, ran or was harmed by 13.3.0 (gate, condition 4)."
+      },
+      {
+        "label": "Scope and qualification",
+        "passage": "It cannot say, in any case, how many machines installed or ran 13.3.0, who did, whether the hook's server answered them, whether any wallet or credential was taken, how many copies came from mirrors or caches, or which projects resolved it. Those would need data that are private, or a census of dependents and lockfiles that the gate's aggregate-only condition would bind."
+      }
+    ]
+  }
+]
