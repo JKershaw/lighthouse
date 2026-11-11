@@ -17,3 +17,7 @@ Read the live stale list. Check only the affected summaries and connections agai
 The authored files are backfill-a/b/c.json and overview-history.json. `curation-ref.json` identifies the revision checked for the maintained annotations; advance it after checking affected records and regenerate `overview.json`. This does not change baseline.json or the original experimental results. Regenerate the selected drawings if their content changes. Run the tests, builds, link checker and browser workflow before release. Correct or remove unsupported connections; never manufacture a connection merely to fill the map.
 
 No recurring scout, new investigation or background collector is created. External literature expansion still needs a bounded source-selection plan. Inference cost remains incomplete in this harness.
+
+## Reader direction, 11 November 2026
+
+John asked to remove the dedicated homepage promotion. The intended experience is contextual discovery while reading: an inviting route beside or after a piece into related questions, evidence and other research streams. A simple flow chart belongs in supporting navigation or on its own page. Prominent homepage treatment could become appropriate when a larger visual corpus has a worthwhile shape to explore. This records the direction for a separately previewed design; it does not commission a new sidebar or related-reading implementation.
