@@ -6,7 +6,8 @@ permissions:
   contents: read
 jobs:
   verify:
-    runs-on: ubuntu-latest
+    runs-on: ubuntu-24.04
+    timeout-minutes: 10
     strategy:
       matrix:
         prefix: ['', '/lighthouse']
@@ -25,8 +26,11 @@ jobs:
           PATH_PREFIX: ${{ matrix.prefix }}/
       - run: python3 scripts/lineage/check.py --prefix '${{ matrix.prefix }}'
       - run: npm install --no-save --package-lock=false playwright
-      - run: npx playwright install --with-deps chromium
-      - run: mkdir -p site/test/screenshots && node site/test/knowledge-browser.mjs
+      - run: |
+          mkdir -p site/test/screenshots
+          lineage_browser_path="$(command -v google-chrome)"
+          CHROMIUM_PATH="$lineage_browser_path" node site/test/knowledge-browser.mjs
+        timeout-minutes: 3
         env:
           PATH_PREFIX: ${{ matrix.prefix }}
       - uses: actions/upload-artifact@v5

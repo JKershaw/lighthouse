@@ -18,3 +18,9 @@
 ## Verdict and limits
 
 **Pass for this bounded navigation repair; no blocker found.** The driving session must observe the final root/prefix checks and browser workflow. No screenshot, live deployment, screen reader or unfamiliar-human journey was inspected by this reviewer. A preview image at phone width is a signpost, not a readable substitute for the separate phone drawing. The larger collection remains a linked catalogue with selected visual histories; this change does not create a visual system for every record or establish improved comprehension.
+
+## Driving-session verification update
+
+All 51 local tests passed, and the root and subdirectory builds passed; the latter checked 2,488 links/fragments without failures. The initial CI run stalled in Playwright's browser/dependency installation, before acceptance assertions. The local installed Chromium was also unavailable because this harness denies its startup socket. Neither is a failed navigation assertion or a passed browser test.
+
+The workflow now names Ubuntu 24.04 and uses its already installed Google Chrome through the browser script's existing CHROMIUM_PATH option, with bounded job and browser-step timeouts. The official [runner image inventory](https://github.com/actions/runner-images/blob/main/images/ubuntu/Ubuntu2404-Readme.md), read 11 November 2026, lists Google Chrome 156.0.8078.79 and Chromium 156.0.8078.0. No browser download or system dependency installation is needed for this route. Its observed CI outcome remains the release gate.
