@@ -24,12 +24,17 @@ try{
   const page=await browser.newPage({viewport:{width,height:900},colorScheme:theme,javaScriptEnabled:false});
   await page.route('**/*',route=>route.request().url().startsWith('http://127.0.0.1:')?route.continue():route.abort());
   const errors=[];page.on('pageerror',e=>errors.push(String(e)));
-  await page.goto(base+'/map/knowledge-lineage/');
+  await page.goto(base+'/');
+  const nav=page.locator('.masthead').getByRole('link',{name:'Knowledge map',exact:true});
+  assert.ok(await nav.isVisible(),'The knowledge map must be reachable in the main navigation');
+  assert.ok(await page.locator('.front-knowledge').isVisible(),'The homepage must introduce the feature');
+  await page.locator('.front-knowledge').getByRole('link',{name:'Open the visual history',exact:true}).click();
   assert.equal(await page.locator('h1').innerText(),'A map of what we know.');
   assert.ok(await page.evaluate(()=>document.documentElement.scrollWidth<=innerWidth),`Overflow ${width} ${theme}`);
   const current=JSON.parse(fs.readFileSync('site/.generated/knowledge-map.json'));
   const drawing=page.locator(width<1072?'.knowledge-phone-drawing':'.knowledge-wide-drawing');
   if(!current.history.stale){assert.equal(await drawing.locator('svg a').count(),8);assert.ok(await drawing.isVisible());}else{assert.ok((await page.locator('main').innerText()).includes('awaits checking'));}
+  if(!current.history.stale)assert.ok(await page.evaluate(()=>document.querySelector('.knowledge-history').compareDocumentPosition(document.querySelector('.knowledge-questions'))&Node.DOCUMENT_POSITION_FOLLOWING),'The visual history must come before the question cards');
   const disclosure=page.locator('#catalogue-software-updates summary');await disclosure.focus();await page.keyboard.press('Enter');
   assert.equal(await page.locator('#catalogue-software-updates').getAttribute('open'),'');
   await page.screenshot({path:`site/test/screenshots/knowledge-${width}-${theme}.png`,fullPage:true});
@@ -41,7 +46,10 @@ try{
    if(n.explanation){assert.equal(await page.locator('h2',{hasText:'What the record says'}).count(),1,n.id);assert.ok((await page.locator('main').innerText()).includes(n.explanation.summary),n.id);}
    assert.ok(await page.evaluate(()=>document.documentElement.scrollWidth<=innerWidth),n.id);
   }
-  assert.equal(errors.length,0);report.push({width,theme,studies:studies.length,keyboardDisclosure:true,noJavaScript:true});await page.close();
+  await page.goto(base+'/articles/old-versions-new-pythons/');
+  await page.locator('.knowledge-record-entry a').click();
+  assert.ok(page.url().includes('/map/knowledge-lineage/records/finding-old-versions-new-pythons/'));
+  assert.equal(errors.length,0);report.push({width,theme,studies:studies.length,homepageEntry:true,articleEntry:true,keyboardDisclosure:true,noJavaScript:true});await page.close();
  }
  fs.writeFileSync('site/test/screenshots/knowledge-browser-results.json',JSON.stringify(report,null,2)+'\n');console.log(JSON.stringify(report));
 }finally{await browser?.close();server.close();}

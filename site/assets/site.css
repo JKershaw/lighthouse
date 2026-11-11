@@ -599,6 +599,13 @@ td:last-child, th:last-child { padding-right: 0; }
 .front-intro { border-bottom: 1px solid var(--rule); padding-bottom: .9rem; margin-bottom: 2rem; }
 .front-intro p { font-size: 1.08em; line-height: 1.55; margin: 0; }
 .front-intro .section-link { margin-top: .2rem; }
+.front-knowledge { border: 1px solid var(--rule); border-top: 3px solid var(--accent); background: var(--tint); padding: 1.2rem; margin: 0 0 2rem; }
+.front-knowledge h2 { font-family: var(--serif); font-size: 1.7rem; font-weight: 400; margin: .3rem 0 .6rem; }
+.front-knowledge h2 a { color: var(--ink); }
+.front-knowledge p { font-family: var(--sans); font-size: .96rem; line-height: 1.5; }
+.front-knowledge-preview { display: block; }
+.front-knowledge-preview img { width: 100%; height: auto; border: 0; box-shadow: none; }
+.knowledge-record-entry { font-family: var(--sans); font-size: .92rem; padding: .7rem 0; border-block: 1px solid var(--rule); }
 .front-lead { margin-bottom: 2.4rem; }
 /* This week: a dated block from site/this-week.md, above the lead. */
 .this-week { font-family: var(--sans); font-size: .92rem; line-height: 1.5; margin: -.8rem 0 2rem; padding-bottom: .9rem; border-bottom: 1px solid var(--rule); }

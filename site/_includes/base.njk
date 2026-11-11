@@ -27,6 +27,7 @@
       <li><a href="/articles/"{% if navSection == "articles" %} aria-current="page"{% endif %}>Findings</a></li>
       <li><a href="/essays/"{% if navSection == "essays" %} aria-current="page"{% endif %}>Essays</a></li>
       {% if repo.hasInvestigations %}<li><a href="/investigations/"{% if navSection == "investigations" %} aria-current="page"{% endif %}>Investigations</a></li>{% endif %}
+      {% if knowledgeMap %}<li><a href="/map/knowledge-lineage/"{% if navSection == "map" %} aria-current="page"{% endif %}>Knowledge map</a></li>{% endif %}
       {% if schedule %}<li><a href="/schedule/"{% if navSection == "schedule" %} aria-current="page"{% endif %}>Schedule</a></li>{% endif %}
       {%- set about = repo.byPath["about.md"] or repo.byPath["AGENTS.md"] %}
       {% if about %}<li><a href="{{ about.url }}"{% if navSection == "about" %} aria-current="page"{% endif %}>About</a></li>{% endif %}

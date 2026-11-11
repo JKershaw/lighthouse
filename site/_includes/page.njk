@@ -12,6 +12,7 @@ layout: base.njk
   {% elif doc.section == "about" %}<p class="kicker">{% if doc.path == "AGENTS.md" and repo.hasAbout %}<a href="{{ repo.byPath['about.md'].url }}">About</a> <span aria-hidden="true">/</span> {% endif %}{{ doc.label }}</p>
   {% endif %}
   {% if doc.header or not doc.ownH1 %}<h1>{{ doc.title }}</h1>{% endif %}
+  {% if knowledgeMap %}{% for node in knowledgeMap.recordPages %}{% if node.path == doc.path %}<p class="knowledge-record-entry"><a href="{{ node.mapUrl }}">Explore this {{ 'study' if node.kind == 'study' else 'piece' }} in the knowledge map</a>: follow its evidence and connected work.</p>{% endif %}{% endfor %}{% endif %}
   {% if doc.investigation %}{% include "investigation-header.njk" %}
   {% elif doc.header and doc.header.length %}
   <dl class="meta">
