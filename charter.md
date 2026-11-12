@@ -62,6 +62,8 @@ Observatories have grown in a fixed order: catalogue what is visible, calibrate 
 
 ## Research scope
 
+**Direction added by the keeper, 12 November 2026.** The watch includes computational systems exercising physical authority, beginning with a bounded investigation of armed AI-powered robots, human control and civilian consequences. Harm can arise when systems carry out institutional instructions as well as when they fail or exceed them. This extends the watch beyond internet infrastructure; it does not treat physical deployment as evidence of self-sustaining AI propagation. The initial pilot and its limits are recorded in [the commissioning decision](notes/physical-authority/commissioning.md).
+
 Our scope includes computational activity, information flows, persistent state, dependencies, authority, structural change, maintenance, concentration, propagation and recovery. Value and context are studied through declared purposes and observable consequences; traffic volume alone reveals neither.
 
 Mapping, explanation and risk assessment are complementary outputs. A map describes what is visible. An explanation proposes a mechanism. A risk assessment relates evidence and possible mechanisms to consequences over a stated time horizon.

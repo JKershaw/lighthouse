@@ -5,6 +5,7 @@ const intros = {
  'software-updates': { title: 'How software updates travel', question: 'A release is available. What happens next?', state: 'Findings to explore', summary: 'Follow releases through downloads, pinned versions and build instructions.', start: '/articles/where-software-updates-go/' },
  'model-found-bugs': { title: 'When a model finds a flaw', question: 'How does a reported discovery reach defenders?', state: 'An ongoing investigation', summary: 'Keep the discovery report, fixes, disclosure dates and public signals in view.', start: '/map/knowledge-lineage/trails/#topic' },
  'ai-cost-and-spread': { title: 'AI and the shared internet', question: 'What does this activity leave behind?', state: 'Working records to explore', summary: 'Explore services closing access, exposed systems and the evidence for spread.', start: '/investigations/ai-cost-and-spread/' },
+ 'physical-authority': { title: 'When AI acquires physical authority', question: 'What is an armed robot allowed to decide?', state: 'An ongoing investigation', summary: 'Follow armed robotics, human control and civilian consequences through public evidence.', start: '/investigations/physical-authority/' },
 };
 export function loadKnowledgeMap(root) {
  const generated=path.join(root,'site/.generated/knowledge-map.json');
@@ -18,9 +19,11 @@ export function loadKnowledgeMap(root) {
  n.outgoing=[...new Set(data.edges.filter(e=>e.subject===n.id).map(e=>e.object))].map(id=>nodes.get(id));
  n.incoming=[...new Set(data.edges.filter(e=>e.object===n.id).map(e=>e.subject))].map(id=>nodes.get(id));
  }
- const groups=['software-updates','model-found-bugs','ai-cost-and-spread'].map(id=>{
-  const g=data.groups.find(g=>g.id===id);if(!g)return null;
-  return {...g,...intros[id],studyNodes:g.studies.map(id=>nodes.get(id)),pieceNodes:g.pieces.map(id=>nodes.get(id))};
- }).filter(Boolean);
+ const order=['software-updates','model-found-bugs','ai-cost-and-spread'];
+ const rank=id=>order.includes(id)?order.indexOf(id):order.length;
+ const groups=[...data.groups].sort((a,b)=>rank(a.id)-rank(b.id)).map(g=>{
+  const intro=intros[g.id]||{title:g.title,question:g.question,state:'Research to explore',summary:'',start:g.url};
+  return {...g,...intro,studyNodes:g.studies.map(id=>nodes.get(id)),pieceNodes:g.pieces.map(id=>nodes.get(id))};
+ });
  return {...data,recordPages:data.nodes.filter(n=>n.kind!=='investigation'),drawings:{wide:fs.readFileSync(path.join(root,'notes/knowledge-lineage/history-wide.svg'),'utf8'),phone:fs.readFileSync(path.join(root,'notes/knowledge-lineage/history-mobile.svg'),'utf8')},groups,unassignedNodes:data.unassigned.map(id=>nodes.get(id))};
 }

@@ -32,6 +32,8 @@ summaries:
 - notes/php-watch-log.md | Unreviewed dated readings from fixed sources; changes await review before becoming findings.
 - observations.md | Every reading so far, linked to its record and the instruments it relied on.
 - investigations/software-updates.md | The question, current account and studies behind the software-update investigation.
+- investigations/physical-authority.md | A new investigation of armed robots, human control and civilian consequences; its baseline is planned, not a deployment finding.
+- studies/LH050 | What public records establish about armed robots and human control
 - studies/LH030 | PHP's mitigation advice in public notices
 - studies/LH031 | PHP flaws in CISA's exploited list
 - studies/LH032 | PHP fixes in products, by the Dutch NCSC
