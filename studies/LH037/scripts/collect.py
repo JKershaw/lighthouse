@@ -2,8 +2,9 @@
 """One LH037 read: every route and every recorded advisory in panel.json once, raw bytes up to 4 MiB each, gzipped.
 
 Usage: python3 studies/LH037/scripts/collect.py --read 2026-11-02T1415Z
-For each body it counts the three CVE identifiers and the word PHP (case-sensitive, word boundary); a match is a
-prompt to open the body, never a finding. No retry, search, login or probe.
+For each body it counts the three CVE identifiers and the word PHP (case-sensitive, word boundary), and beside them,
+from the amendment of 12 November 2026, "php" in any case at the start of a word and the CVE ids in any case
+(mentions.py); a match is a prompt to open the body, never a finding. No retry, search, login or probe.
 """
 from datetime import datetime, timezone
 from hashlib import sha256
@@ -14,6 +15,8 @@ import argparse, gzip, json, re
 import os as _os, sys as _sys
 _sys.path.insert(0, _os.path.join(_os.path.dirname(_os.path.abspath(__file__)), '..', '..', '..', 'scripts'))
 from lh_fetch import urlopen, redacted, UA  # noqa: E402  robots.txt gate (the keeper, 8 November 2026)
+_sys.path.insert(0, _os.path.dirname(_os.path.abspath(__file__)))
+from mentions import counts  # noqa: E402  old and amended mention rules (amendment of 12 November 2026)
 
 ROOT = Path(__file__).resolve().parents[1]
 PANEL = json.loads((ROOT / 'panel.json').read_text())
@@ -39,7 +42,6 @@ for stratum in ('rule_panel', 'named_stratum'):
                     continue
                 targets.append((stratum, vendor, kind, key, url))
 assert len(targets) <= 60
-php = re.compile(rb'\bPHP\b')
 rows = []
 for stratum, vendor, kind, key, url in targets:
     name = re.sub(r'[^a-z0-9]+', '-', vendor.lower()) + '__' + key
@@ -57,7 +59,7 @@ for stratum, vendor, kind, key, url in targets:
                        final_url=response.geturl(), content_type=response.headers.get('Content-Type', ''),
                        last_modified=response.headers.get('Last-Modified', ''), bytes=len(body),
                        sha256=sha256(body).hexdigest(),
-                       mentions={c: body.count(c.encode()) for c in PANEL['cves']} | {'PHP': len(php.findall(body))})
+                       mentions=counts(body, PANEL['cves']))
             if len(body) <= CEILING:
                 (OUT / (name + '.raw.gz')).write_bytes(gzip.compress(redacted(body), mtime=0))
                 row['file'] = name + '.raw.gz'
