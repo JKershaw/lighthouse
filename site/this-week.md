@@ -30,12 +30,12 @@ The block shows no finding. Whether the editor may change it without review is
 the gate's decision on proposals.md P-0018.
 -->
 title: This week
-week: 2026-11-05 to 2026-11-11
-updated: 2026-11-11
+week: 2026-11-06 to 2026-11-12
+updated: 2026-11-12
 items:
+- 2026-11-12 | reported | D-Link says, in a statement of 10 November, that its hardware and apps do not use PHP and were not affected by October's PHP flaws, but that older parts of its mydlink cloud portal ran on PHP and have had emergency remediation, with no evidence of unauthorised data access. It is the first vendor we follow to say it ran PHP in a service of its own; our [daily log](notes/php-watch-log.md) has the details.
 - 2026-11-11 | lighthouse | We released [a knowledge map](map/knowledge-lineage/) of everything we have studied and published: it starts from our three questions and lets you follow an idea down to the records and evidence behind it.
 - 2026-11-10 | reported | StepSecurity and Socket report that a release of bee-js, a small JavaScript library, was published to npm on 9 November with a malicious install step, through the project's own trusted publishing and with genuine provenance, and was removed about 75 minutes later. We've begun [a study of how far it travelled](studies/LH049/brief.md), read daily while npm's counts still cover its first day.
 - 2026-11-10 | lighthouse | Google, Microsoft, OpenAI and Anthropic have each announced the same robots.txt label for sites that don't want their pages used to train AI, as trade press reported on 30 October. Our study of [shared services closing their doors](studies/LH044/brief.md) will now record that label too, as a stated wish rather than proof anyone obeys it.
 - 2026-11-09 | lighthouse | We added a later-evidence notice to [who watches each layer of the internet](articles/who-watches-the-internet.md) and to [what we can see](articles/what-we-can-see.md): GH Archive's hourly files of GitHub's public events were all there in 2026, but whole kinds of event were missing from many of the hours we read, and nobody yet knows whether GitHub's feed or the archive lost them.
 - 2026-11-09 | lighthouse | We fixed the plan for a new study of [the flaws behind Anthropic's five attack chains](studies/LH048/brief.md): how each is rated and whether the public signals of exploitation move, read on Mondays to 4 January. Only two of the five flaws are named by number in Anthropic's post.
-- 2026-11-09 | lighthouse | From today our collectors ask a site's robots.txt before each request; a few one-off and review reads still don't share that check. Some sources we used to read now ask automated readers to stay away, among them WordPress.org's statistics and Node.js's release list, so those readings stop.
