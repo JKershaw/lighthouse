@@ -1,0 +1,183 @@
+{
+  "advisory": {
+    "published": "2026-10-21",
+    "updated": "2026-10-29",
+    "exploit_maturity": "ATTACKED",
+    "sentences": {
+      "will_be_fixed": true,
+      "until_fix_available": true,
+      "active_exploitation": true
+    },
+    "fixed_builds": [
+      "10.2.10-h42",
+      "10.2.13-h27",
+      "10.2.16-h12",
+      "10.2.18-h13",
+      "10.2.7-h39",
+      "11.1.10-h36",
+      "11.1.13-h16",
+      "11.1.16-h4",
+      "11.1.4-h38",
+      "11.1.6-h40",
+      "11.1.7-h12",
+      "11.2.10-h16",
+      "11.2.13-h4",
+      "11.2.16-h1",
+      "11.2.4-h23",
+      "11.2.7-h23",
+      "12.1.10-h3",
+      "12.1.4-h13",
+      "12.1.7-h11",
+      "12.2.4-h1"
+    ],
+    "upgrade_to": [
+      "10.2.10-h42",
+      "10.2.13-h27",
+      "10.2.16-h12",
+      "10.2.18-h13",
+      "10.2.7-h39",
+      "11.1.10-h36",
+      "11.1.13-h16",
+      "11.1.16-h4",
+      "11.1.4-h38",
+      "11.1.6-h40",
+      "11.1.7-h12",
+      "11.2.10-h16",
+      "11.2.13-h4",
+      "11.2.16-h1",
+      "11.2.4-h23",
+      "11.2.7-h23",
+      "12.1.10-h3",
+      "12.1.4-h13",
+      "12.1.7-h11",
+      "12.2.4-h1"
+    ],
+    "previously_impacted": [
+      " Although Cortex XCORE (SaaS) was previously impacted, a remediation patch was deployed on October 21, 2026.",
+      " Although WildFire Cloud was previously impacted, a remediation patch was deployed on October 22, 2026."
+    ]
+  },
+  "csaf": {
+    "version": "1",
+    "initial_release_date": "2026-10-21T16:00:00.000Z",
+    "current_release_date": "2026-11-11T17:04:21.845Z",
+    "revision_history": [
+      {
+        "number": "1",
+        "date": "2026-10-21T09:00:00.000Z",
+        "summary": "Initial Publication"
+      },
+      {
+        "number": "2",
+        "date": "2026-10-21T12:18:00.000Z",
+        "summary": "Updated the status of GlobalProtect App and Prisma Access Agent as not impacted. Also updated the Frequently Asked question (FAQ) section."
+      },
+      {
+        "number": "3",
+        "date": "2026-10-21T14:07:00.000Z",
+        "summary": "Updated the status of Cortex XSIAM and Prisma Cloud as not impacted"
+      },
+      {
+        "number": "4",
+        "date": "2026-10-21T16:33:00.000Z",
+        "summary": "Threat ID released and details updated"
+      },
+      {
+        "number": "5",
+        "date": "2026-10-22T17:25:00.000Z",
+        "summary": "Updated the status of Cortex XDR Broker VM, Cortex XCORE (SaaS), Strata Cloud Manager, WildFire Appliance WF-500 and WF-500-B and WildFire Cloud. Also updated the Frequently Asked question (FAQ) section."
+      },
+      {
+        "number": "6",
+        "date": "2026-10-22T20:45:00.000Z",
+        "summary": "Added estimated availability dates (ETAs) for hotfix releases across supported PAN-OS versions."
+      },
+      {
+        "number": "7",
+        "date": "2026-10-23T10:10:00.000Z",
+        "summary": "Updated the status of Prisma SD-WAN ION, Prisma SD-WAN  Controller, Prisma SD-WAN On-Prem Controller, Next Generation Trust Security and Trust Protection Foundation as not impacted. Also made the correction to the status of WildFire Appliance WF-500 and WF-500-B impact."
+      },
+      {
+        "number": "8",
+        "date": "2026-10-23T17:01:00.000Z",
+        "summary": " Added updated threat signature and content version release details"
+      },
+      {
+        "number": "9",
+        "date": "2026-10-24T22:25:00.000Z",
+        "summary": "Updated the Frequently Asked question (FAQ) section. Also, removed the ETA for 10.2.18-h13, 11.1.16-h4 and 11.2.10-h16 as these versions are released"
+      },
+      {
+        "number": "10",
+        "date": "2026-10-25T22:45:00.000Z",
+        "summary": "Removed the ETAs for 11.1.4-h38, 11.1.6-h40, 11.1.10-h36 and 11.1.13-h16 as these versions are released"
+      },
+      {
+        "number": "11",
+        "date": "2026-10-26T17:10:00.000Z",
+        "summary": "Removed the ETAs for 10.2.13-h27 and 10.2.16-h12 as these versions are released. Also updated the Frequently Asked question (FAQ) section. Updated the status of Koi."
+      },
+      {
+        "number": "12",
+        "date": "2026-10-26T21:03:00.000Z",
+        "summary": "Removed the ETAs for 12.1.7-h11 and 12.2.4-h1 as these versions are released."
+      },
+      {
+        "number": "13",
+        "date": "2026-10-27T09:40:00.000Z",
+        "summary": "Severity Updated to Critical and Urgency updated as Highest"
+      },
+      {
+        "number": "14",
+        "date": "2026-10-27T22:15:00.000Z",
+        "summary": "Removed ETAs for 11.2.7-h23, 11.2.13-h4 and 11.2.16-h1 as these versions are released"
+      },
+      {
+        "number": "15",
+        "date": "2026-10-28T22:20:00.000Z",
+        "summary": "Removed ETAs for 10.2.7-h39, 10.2.10-h42, 11.2.4-h23, 12.1.4-h13 and 12.1.10-h3 as these versions are released"
+      },
+      {
+        "number": "16",
+        "date": "2026-10-29T16:54:00.000Z",
+        "summary": "Removed ETAs for 11.1.7-h12 as the version is released. Also updated the Frequently Asked question (FAQ) section. "
+      }
+    ],
+    "fixed_product_ids": [
+      "PANW-PAN-OS-926",
+      "PANW-PAN-OS-927",
+      "PANW-PAN-OS-928",
+      "PANW-PAN-OS-929",
+      "PANW-PAN-OS-930",
+      "PANW-PAN-OS-931",
+      "PANW-PAN-OS-932",
+      "PANW-PAN-OS-933",
+      "PANW-PAN-OS-934",
+      "PANW-PAN-OS-935",
+      "PANW-PAN-OS-936",
+      "PANW-PAN-OS-937",
+      "PANW-PAN-OS-938",
+      "PANW-PAN-OS-939",
+      "PANW-PAN-OS-940",
+      "PANW-PAN-OS-941",
+      "PANW-PAN-OS-942",
+      "PANW-PAN-OS-943",
+      "PANW-PAN-OS-944",
+      "PANW-PAN-OS-945"
+    ],
+    "remediations": []
+  },
+  "unit42": {
+    "title": "Threat Brief: Critical Vulnerabilities in PHP: CVE-2026-109618, CVE-2026-109619 (Updated October 29)",
+    "published": "October 29, 2026",
+    "update_headings": [
+      "October 29, 2026"
+    ],
+    "sentences": {
+      "actively_exploited": true,
+      "independently_verified": true,
+      "patched_not_affected": true,
+      "share_impacted": true
+    }
+  }
+}
