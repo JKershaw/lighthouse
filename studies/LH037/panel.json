@@ -135,7 +135,12 @@
       "routes": {
         "announcements": "https://supportannouncement.us.dlink.com/"
       },
-      "advisories": {}
+      "advisories": {
+        "SAP10524": {
+          "url": "https://supportannouncement.us.dlink.com/security/publication.aspx?name=SAP10524",
+          "found_at_read": "2026-11-12T1416Z"
+        }
+      }
     },
     "Palo Alto Networks": {
       "routes": {
