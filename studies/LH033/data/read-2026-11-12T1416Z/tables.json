@@ -1,0 +1,792 @@
+{
+ "read": "2026-11-12T1416Z",
+ "censys_refreshed_at": "2026-11-12 13:15:21.300333+00:00",
+ "m1_patched_share_by_branch": {
+  "8.2": {
+   "0": {
+    "day": "2026-10-21",
+    "patched": 113939,
+    "targets": 5315086,
+    "share": 0.0214
+   },
+   "1": {
+    "day": "2026-10-22",
+    "patched": 1219271,
+    "targets": 5516696,
+    "share": 0.221
+   },
+   "2": {
+    "day": "2026-10-23",
+    "patched": 2330429,
+    "targets": 5659481,
+    "share": 0.4118
+   },
+   "3": {
+    "day": "2026-10-24",
+    "patched": 2629546,
+    "targets": 5706850,
+    "share": 0.4608
+   },
+   "4": {
+    "day": "2026-10-25",
+    "patched": 2771341,
+    "targets": 5758510,
+    "share": 0.4813
+   },
+   "5": {
+    "day": "2026-10-26",
+    "patched": 2883668,
+    "targets": 5813906,
+    "share": 0.496
+   },
+   "6": {
+    "day": "2026-10-27",
+    "patched": 3011897,
+    "targets": 5886908,
+    "share": 0.5116
+   },
+   "7": {
+    "day": "2026-10-28",
+    "patched": 3186252,
+    "targets": 6010022,
+    "share": 0.5302
+   },
+   "8": {
+    "day": "2026-10-29",
+    "patched": 3367341,
+    "targets": 5778517,
+    "share": 0.5827
+   },
+   "9": {
+    "day": "2026-10-30",
+    "patched": 3962033,
+    "targets": 5906955,
+    "share": 0.6707
+   },
+   "10": {
+    "day": "2026-10-31",
+    "patched": 4221442,
+    "targets": 5999941,
+    "share": 0.7036
+   },
+   "11": {
+    "day": "2026-11-01",
+    "patched": 4394900,
+    "targets": 6083079,
+    "share": 0.7225
+   },
+   "12": {
+    "day": "2026-11-02",
+    "patched": 4486280,
+    "targets": 6141009,
+    "share": 0.7305
+   },
+   "13": {
+    "day": "2026-11-03",
+    "patched": 4599435,
+    "targets": 6225649,
+    "share": 0.7388
+   },
+   "14": {
+    "day": "2026-11-04",
+    "patched": 4648169,
+    "targets": 6329823,
+    "share": 0.7343
+   },
+   "15": {
+    "day": "2026-11-05",
+    "patched": 4671310,
+    "targets": 6257331,
+    "share": 0.7465
+   },
+   "16": {
+    "day": "2026-11-06",
+    "patched": 4648197,
+    "targets": 6211905,
+    "share": 0.7483
+   },
+   "17": {
+    "day": "2026-11-07",
+    "patched": 4648079,
+    "targets": 6199562,
+    "share": 0.7497
+   },
+   "18": {
+    "day": "2026-11-08",
+    "patched": 4626650,
+    "targets": 6169837,
+    "share": 0.7499
+   },
+   "19": {
+    "day": "2026-11-09",
+    "patched": 4626828,
+    "targets": 6166051,
+    "share": 0.7504
+   },
+   "20": {
+    "day": "2026-11-10",
+    "patched": 4591810,
+    "targets": 6121988,
+    "share": 0.7501
+   },
+   "21": {
+    "day": "2026-11-11",
+    "patched": 4560319,
+    "targets": 6145051,
+    "share": 0.7421
+   }
+  },
+  "8.3": {
+   "0": {
+    "day": "2026-10-21",
+    "patched": 121448,
+    "targets": 6896112,
+    "share": 0.0176
+   },
+   "1": {
+    "day": "2026-10-22",
+    "patched": 1705588,
+    "targets": 7177861,
+    "share": 0.2376
+   },
+   "2": {
+    "day": "2026-10-23",
+    "patched": 3071109,
+    "targets": 7285788,
+    "share": 0.4215
+   },
+   "3": {
+    "day": "2026-10-24",
+    "patched": 3383118,
+    "targets": 7370948,
+    "share": 0.459
+   },
+   "4": {
+    "day": "2026-10-25",
+    "patched": 3587353,
+    "targets": 7511892,
+    "share": 0.4776
+   },
+   "5": {
+    "day": "2026-10-26",
+    "patched": 3722986,
+    "targets": 7597039,
+    "share": 0.4901
+   },
+   "6": {
+    "day": "2026-10-27",
+    "patched": 3899409,
+    "targets": 7703031,
+    "share": 0.5062
+   },
+   "7": {
+    "day": "2026-10-28",
+    "patched": 4117523,
+    "targets": 7860923,
+    "share": 0.5238
+   },
+   "8": {
+    "day": "2026-10-29",
+    "patched": 4344258,
+    "targets": 7570579,
+    "share": 0.5738
+   },
+   "9": {
+    "day": "2026-10-30",
+    "patched": 5111635,
+    "targets": 7756465,
+    "share": 0.659
+   },
+   "10": {
+    "day": "2026-10-31",
+    "patched": 5344569,
+    "targets": 7818107,
+    "share": 0.6836
+   },
+   "11": {
+    "day": "2026-11-01",
+    "patched": 5482678,
+    "targets": 7860813,
+    "share": 0.6975
+   },
+   "12": {
+    "day": "2026-11-02",
+    "patched": 5574819,
+    "targets": 7914134,
+    "share": 0.7044
+   },
+   "13": {
+    "day": "2026-11-03",
+    "patched": 5659378,
+    "targets": 7976612,
+    "share": 0.7095
+   },
+   "14": {
+    "day": "2026-11-04",
+    "patched": 5649414,
+    "targets": 8024163,
+    "share": 0.7041
+   },
+   "15": {
+    "day": "2026-11-05",
+    "patched": 5667243,
+    "targets": 7963102,
+    "share": 0.7117
+   },
+   "16": {
+    "day": "2026-11-06",
+    "patched": 5657160,
+    "targets": 7920256,
+    "share": 0.7143
+   },
+   "17": {
+    "day": "2026-11-07",
+    "patched": 5662961,
+    "targets": 7904322,
+    "share": 0.7164
+   },
+   "18": {
+    "day": "2026-11-08",
+    "patched": 5643981,
+    "targets": 7867558,
+    "share": 0.7174
+   },
+   "19": {
+    "day": "2026-11-09",
+    "patched": 5663762,
+    "targets": 7872665,
+    "share": 0.7194
+   },
+   "20": {
+    "day": "2026-11-10",
+    "patched": 5661329,
+    "targets": 7854072,
+    "share": 0.7208
+   },
+   "21": {
+    "day": "2026-11-11",
+    "patched": 5624777,
+    "targets": 7874264,
+    "share": 0.7143
+   }
+  },
+  "8.4": {
+   "0": {
+    "day": "2026-10-21",
+    "patched": 120743,
+    "targets": 2784890,
+    "share": 0.0434
+   },
+   "1": {
+    "day": "2026-10-22",
+    "patched": 1027238,
+    "targets": 2910999,
+    "share": 0.3529
+   },
+   "2": {
+    "day": "2026-10-23",
+    "patched": 1760377,
+    "targets": 3008583,
+    "share": 0.5851
+   },
+   "3": {
+    "day": "2026-10-24",
+    "patched": 1900287,
+    "targets": 3052113,
+    "share": 0.6226
+   },
+   "4": {
+    "day": "2026-10-25",
+    "patched": 1955896,
+    "targets": 3081722,
+    "share": 0.6347
+   },
+   "5": {
+    "day": "2026-10-26",
+    "patched": 2011031,
+    "targets": 3116704,
+    "share": 0.6452
+   },
+   "6": {
+    "day": "2026-10-27",
+    "patched": 2092120,
+    "targets": 3168735,
+    "share": 0.6602
+   },
+   "7": {
+    "day": "2026-10-28",
+    "patched": 2197493,
+    "targets": 3241669,
+    "share": 0.6779
+   },
+   "8": {
+    "day": "2026-10-29",
+    "patched": 2323374,
+    "targets": 3129519,
+    "share": 0.7424
+   },
+   "9": {
+    "day": "2026-10-30",
+    "patched": 2540439,
+    "targets": 3251891,
+    "share": 0.7812
+   },
+   "10": {
+    "day": "2026-10-31",
+    "patched": 2612691,
+    "targets": 3294389,
+    "share": 0.7931
+   },
+   "11": {
+    "day": "2026-11-01",
+    "patched": 2666790,
+    "targets": 3332923,
+    "share": 0.8001
+   },
+   "12": {
+    "day": "2026-11-02",
+    "patched": 2718518,
+    "targets": 3375359,
+    "share": 0.8054
+   },
+   "13": {
+    "day": "2026-11-03",
+    "patched": 2767691,
+    "targets": 3419928,
+    "share": 0.8093
+   },
+   "14": {
+    "day": "2026-11-04",
+    "patched": 2795655,
+    "targets": 3451698,
+    "share": 0.8099
+   },
+   "15": {
+    "day": "2026-11-05",
+    "patched": 2814885,
+    "targets": 3433453,
+    "share": 0.8198
+   },
+   "16": {
+    "day": "2026-11-06",
+    "patched": 2803416,
+    "targets": 3417304,
+    "share": 0.8204
+   },
+   "17": {
+    "day": "2026-11-07",
+    "patched": 2803578,
+    "targets": 3411535,
+    "share": 0.8218
+   },
+   "18": {
+    "day": "2026-11-08",
+    "patched": 2800029,
+    "targets": 3397643,
+    "share": 0.8241
+   },
+   "19": {
+    "day": "2026-11-09",
+    "patched": 2808820,
+    "targets": 3401131,
+    "share": 0.8258
+   },
+   "20": {
+    "day": "2026-11-10",
+    "patched": 2813891,
+    "targets": 3400137,
+    "share": 0.8276
+   },
+   "21": {
+    "day": "2026-11-11",
+    "patched": 2833086,
+    "targets": 3424868,
+    "share": 0.8272
+   }
+  },
+  "8.5": {
+   "0": {
+    "day": "2026-10-21",
+    "patched": 45431,
+    "targets": 2429661,
+    "share": 0.0187
+   },
+   "1": {
+    "day": "2026-10-22",
+    "patched": 983600,
+    "targets": 2727405,
+    "share": 0.3606
+   },
+   "2": {
+    "day": "2026-10-23",
+    "patched": 2054947,
+    "targets": 2915945,
+    "share": 0.7047
+   },
+   "3": {
+    "day": "2026-10-24",
+    "patched": 2213699,
+    "targets": 3018698,
+    "share": 0.7333
+   },
+   "4": {
+    "day": "2026-10-25",
+    "patched": 2306850,
+    "targets": 3096326,
+    "share": 0.745
+   },
+   "5": {
+    "day": "2026-10-26",
+    "patched": 2405449,
+    "targets": 3177054,
+    "share": 0.7571
+   },
+   "6": {
+    "day": "2026-10-27",
+    "patched": 2534571,
+    "targets": 3272063,
+    "share": 0.7746
+   },
+   "7": {
+    "day": "2026-10-28",
+    "patched": 2665446,
+    "targets": 3381503,
+    "share": 0.7882
+   },
+   "8": {
+    "day": "2026-10-29",
+    "patched": 2831956,
+    "targets": 3415571,
+    "share": 0.8291
+   },
+   "9": {
+    "day": "2026-10-30",
+    "patched": 3104649,
+    "targets": 3567325,
+    "share": 0.8703
+   },
+   "10": {
+    "day": "2026-10-31",
+    "patched": 3204793,
+    "targets": 3623985,
+    "share": 0.8843
+   },
+   "11": {
+    "day": "2026-11-01",
+    "patched": 3274715,
+    "targets": 3681329,
+    "share": 0.8895
+   },
+   "12": {
+    "day": "2026-11-02",
+    "patched": 3330324,
+    "targets": 3721419,
+    "share": 0.8949
+   },
+   "13": {
+    "day": "2026-11-03",
+    "patched": 3376509,
+    "targets": 3760908,
+    "share": 0.8978
+   },
+   "14": {
+    "day": "2026-11-04",
+    "patched": 3403363,
+    "targets": 3793671,
+    "share": 0.8971
+   },
+   "15": {
+    "day": "2026-11-05",
+    "patched": 3420157,
+    "targets": 3789129,
+    "share": 0.9026
+   },
+   "16": {
+    "day": "2026-11-06",
+    "patched": 3396261,
+    "targets": 3759518,
+    "share": 0.9034
+   },
+   "17": {
+    "day": "2026-11-07",
+    "patched": 3402938,
+    "targets": 3767765,
+    "share": 0.9032
+   },
+   "18": {
+    "day": "2026-11-08",
+    "patched": 3401525,
+    "targets": 3762089,
+    "share": 0.9042
+   },
+   "19": {
+    "day": "2026-11-09",
+    "patched": 3410619,
+    "targets": 3767160,
+    "share": 0.9054
+   },
+   "20": {
+    "day": "2026-11-10",
+    "patched": 3404468,
+    "targets": 3753752,
+    "share": 0.907
+   },
+   "21": {
+    "day": "2026-11-11",
+    "patched": 3384674,
+    "targets": 3746077,
+    "share": 0.9035
+   }
+  }
+ },
+ "m1_first_day_at_half": {
+  "8.3": 6,
+  "8.4": 2,
+  "8.5": 2,
+  "8.2": 6
+ },
+ "m2_unfixed_tail": {
+  "0": {
+   "day": "2026-10-21",
+   "affected_nofix": 23311748,
+   "patched": 401561,
+   "affected": 17024188,
+   "unknown": 16167585,
+   "versioned": 40737497,
+   "all": 56905082,
+   "nofix_share_of_versioned": 0.5722,
+   "unknown_share_of_all": 0.2841
+  },
+  "1": {
+   "day": "2026-10-22",
+   "affected": 13397264,
+   "affected_nofix": 23336842,
+   "unknown": 19715918,
+   "patched": 4936430,
+   "versioned": 41670536,
+   "all": 61386454,
+   "nofix_share_of_versioned": 0.56,
+   "unknown_share_of_all": 0.3212
+  },
+  "2": {
+   "day": "2026-10-23",
+   "patched": 9217699,
+   "affected_nofix": 23317219,
+   "unknown": 53596493,
+   "affected": 9652935,
+   "versioned": 42187853,
+   "all": 95784346,
+   "nofix_share_of_versioned": 0.5527,
+   "unknown_share_of_all": 0.5596
+  },
+  "3": {
+   "day": "2026-10-24",
+   "patched": 10127556,
+   "unknown": 56254163,
+   "affected": 9021959,
+   "affected_nofix": 23487164,
+   "versioned": 42636679,
+   "all": 98890842,
+   "nofix_share_of_versioned": 0.5509,
+   "unknown_share_of_all": 0.5689
+  },
+  "4": {
+   "day": "2026-10-25",
+   "affected": 8827010,
+   "affected_nofix": 23617921,
+   "patched": 10622371,
+   "unknown": 57815408,
+   "versioned": 43067302,
+   "all": 100882710,
+   "nofix_share_of_versioned": 0.5484,
+   "unknown_share_of_all": 0.5731
+  },
+  "5": {
+   "day": "2026-10-26",
+   "affected_nofix": 23818548,
+   "affected": 8681569,
+   "patched": 11024092,
+   "unknown": 59561394,
+   "versioned": 43524209,
+   "all": 103085603,
+   "nofix_share_of_versioned": 0.5472,
+   "unknown_share_of_all": 0.5778
+  },
+  "6": {
+   "day": "2026-10-27",
+   "affected": 8492740,
+   "affected_nofix": 24067703,
+   "patched": 11538997,
+   "unknown": 61957826,
+   "versioned": 44099440,
+   "all": 106057266,
+   "nofix_share_of_versioned": 0.5458,
+   "unknown_share_of_all": 0.5842
+  },
+  "7": {
+   "day": "2026-10-28",
+   "unknown": 66063032,
+   "affected_nofix": 24386744,
+   "patched": 12167767,
+   "affected": 8327403,
+   "versioned": 44881914,
+   "all": 110944946,
+   "nofix_share_of_versioned": 0.5434,
+   "unknown_share_of_all": 0.5955
+  },
+  "8": {
+   "day": "2026-10-29",
+   "affected_nofix": 23326171,
+   "affected": 7027257,
+   "unknown": 68176142,
+   "patched": 12867985,
+   "versioned": 43221413,
+   "all": 111397555,
+   "nofix_share_of_versioned": 0.5397,
+   "unknown_share_of_all": 0.612
+  },
+  "9": {
+   "day": "2026-10-30",
+   "affected": 5763880,
+   "affected_nofix": 23698383,
+   "patched": 14719874,
+   "unknown": 70709723,
+   "versioned": 44182137,
+   "all": 114891860,
+   "nofix_share_of_versioned": 0.5364,
+   "unknown_share_of_all": 0.6154
+  },
+  "10": {
+   "day": "2026-10-31",
+   "patched": 15384641,
+   "affected": 5352927,
+   "affected_nofix": 23813093,
+   "unknown": 72320127,
+   "versioned": 44550661,
+   "all": 116870788,
+   "nofix_share_of_versioned": 0.5345,
+   "unknown_share_of_all": 0.6188
+  },
+  "11": {
+   "day": "2026-11-01",
+   "affected": 5139061,
+   "affected_nofix": 23907281,
+   "unknown": 73182606,
+   "patched": 15820241,
+   "versioned": 44866583,
+   "all": 118049189,
+   "nofix_share_of_versioned": 0.5329,
+   "unknown_share_of_all": 0.6199
+  },
+  "12": {
+   "day": "2026-11-02",
+   "patched": 16111175,
+   "affected_nofix": 24008604,
+   "affected": 5041980,
+   "unknown": 73773408,
+   "versioned": 45161759,
+   "all": 118935167,
+   "nofix_share_of_versioned": 0.5316,
+   "unknown_share_of_all": 0.6203
+  },
+  "13": {
+   "day": "2026-11-03",
+   "affected": 4980084,
+   "patched": 16404289,
+   "affected_nofix": 24119742,
+   "unknown": 74350391,
+   "versioned": 45504115,
+   "all": 119854506,
+   "nofix_share_of_versioned": 0.5301,
+   "unknown_share_of_all": 0.6203
+  },
+  "14": {
+   "day": "2026-11-04",
+   "affected_nofix": 24226778,
+   "patched": 16497895,
+   "affected": 5102754,
+   "unknown": 74917550,
+   "versioned": 45827427,
+   "all": 120744977,
+   "nofix_share_of_versioned": 0.5287,
+   "unknown_share_of_all": 0.6205
+  },
+  "15": {
+   "day": "2026-11-05",
+   "affected": 4869420,
+   "patched": 16574876,
+   "unknown": 74810190,
+   "affected_nofix": 23952488,
+   "versioned": 45396784,
+   "all": 120206974,
+   "nofix_share_of_versioned": 0.5276,
+   "unknown_share_of_all": 0.6223
+  },
+  "16": {
+   "day": "2026-11-06",
+   "patched": 16506303,
+   "unknown": 74441492,
+   "affected_nofix": 23647039,
+   "affected": 4803949,
+   "versioned": 44957291,
+   "all": 119398783,
+   "nofix_share_of_versioned": 0.526,
+   "unknown_share_of_all": 0.6235
+  },
+  "17": {
+   "day": "2026-11-07",
+   "affected": 4765628,
+   "affected_nofix": 23533011,
+   "patched": 16518826,
+   "unknown": 74136286,
+   "versioned": 44817465,
+   "all": 118953751,
+   "nofix_share_of_versioned": 0.5251,
+   "unknown_share_of_all": 0.6232
+  },
+  "18": {
+   "day": "2026-11-08",
+   "affected": 4724942,
+   "unknown": 73661505,
+   "affected_nofix": 23365120,
+   "patched": 16473497,
+   "versioned": 44563559,
+   "all": 118225064,
+   "nofix_share_of_versioned": 0.5243,
+   "unknown_share_of_all": 0.6231
+  },
+  "19": {
+   "day": "2026-11-09",
+   "affected": 4696978,
+   "patched": 16511353,
+   "unknown": 73647574,
+   "affected_nofix": 23287987,
+   "versioned": 44496318,
+   "all": 118143892,
+   "nofix_share_of_versioned": 0.5234,
+   "unknown_share_of_all": 0.6234
+  },
+  "20": {
+   "day": "2026-11-10",
+   "affected": 4658451,
+   "affected_nofix": 23133443,
+   "patched": 16472830,
+   "unknown": 73653175,
+   "versioned": 44264724,
+   "all": 117917899,
+   "nofix_share_of_versioned": 0.5226,
+   "unknown_share_of_all": 0.6246
+  },
+  "21": {
+   "day": "2026-11-11",
+   "affected": 4787404,
+   "patched": 16404199,
+   "affected_nofix": 23093946,
+   "unknown": 73646755,
+   "versioned": 44285549,
+   "all": 117932304,
+   "nofix_share_of_versioned": 0.5215,
+   "unknown_share_of_all": 0.6245
+  }
+ }
+}
