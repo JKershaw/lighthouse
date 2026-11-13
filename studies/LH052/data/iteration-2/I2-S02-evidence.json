@@ -1,0 +1,66 @@
+{
+  "source_id": "I2-S02",
+  "url": "https://arxiv.org/html/2605.30208v2",
+  "read_utc": "2026-11-13T09:00:38.285983+00:00",
+  "sha256_raw": "b96071f1caa162e00ac6004799f9276013d1daac312a33ff03ac11b473c1dc6a",
+  "evidence_rows": [
+    {
+      "row_id": "I2-M04",
+      "field": "exposure_definition",
+      "location": "\u00a7\u00a72.7\u20132.9"
+    },
+    {
+      "row_id": "I2-M05",
+      "field": "observation_window",
+      "location": "\u00a73; Tables 2, 5; \u00a76.1"
+    },
+    {
+      "row_id": "I2-M06",
+      "field": "denominator",
+      "location": "Tables 3\u20135"
+    },
+    {
+      "row_id": "I2-M07",
+      "field": "comparison",
+      "location": "\u00a73 RQ2/RQ3; \u00a76.3"
+    },
+    {
+      "row_id": "I2-M08",
+      "field": "outcome_definition",
+      "location": "Table 3; \u00a76.2"
+    },
+    {
+      "row_id": "I2-M09",
+      "field": "confounders",
+      "location": "\u00a76.3"
+    },
+    {
+      "row_id": "I2-M10",
+      "field": "provenance_coverage",
+      "location": "\u00a76.2"
+    },
+    {
+      "row_id": "I2-M11",
+      "field": "review_knowledge_measure",
+      "location": "Table 3; \u00a75.5 Knowledge transfer; \u00a7\u00a73\u20134 checked"
+    },
+    {
+      "row_id": "I2-M12",
+      "field": "causal_claims",
+      "location": "\u00a73; Table 6; \u00a7\u00a76.3, 7"
+    },
+    {
+      "row_id": "I2-M13",
+      "field": "staffing_measure",
+      "location": "\u00a7\u00a72\u20136 checked"
+    },
+    {
+      "row_id": "I2-M14",
+      "field": "missing_information",
+      "location": "Tables 2\u20136; \u00a7\u00a76.1\u20136.3"
+    }
+  ],
+  "paraphrase_file": "../../operator-measurements.csv",
+  "paraphrase_words": 95,
+  "retention_note": "Only locators here; all source paraphrases are in the referenced rows, not duplicated. No direct quotations retained."
+}

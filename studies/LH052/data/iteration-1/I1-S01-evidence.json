@@ -1,0 +1,43 @@
+{
+  "source_id": "I1-S01",
+  "provenance": "Direct first-party HTML via Python urllib after OpenAI RobotsGate; paraphrases, not full source replay.",
+  "evidence": [
+    {
+      "id": "I1-S01-E01",
+      "field": "technical_trigger",
+      "location": "What happened, paragraphs 1 and 3",
+      "paraphrase": "Peak traffic exceeded a Central US component’s scaling capacity; GitHub attributes the incident to capacity, not a new code or configuration change."
+    },
+    {
+      "id": "I1-S01-E02",
+      "field": "sustaining_recovery_mechanism",
+      "location": "What happened, paragraph 2",
+      "paraphrase": "Teams rerouted traffic, isolated infrastructure and restored service in stages; Copilot client retries increased recovery traffic."
+    },
+    {
+      "id": "I1-S01-E03",
+      "field": "ai_role",
+      "location": "Opening paragraph; What happened, paragraph 2",
+      "paraphrase": "Copilot was affected; AI initiation or code authorship is not disclosed."
+    },
+    {
+      "id": "I1-S01-E04",
+      "field": "team_or_staffing_change",
+      "location": "What we have done and what comes next, paragraph beginning Scale is not our only challenge",
+      "paraphrase": "GitHub says operational practices lagged increased change and complexity, and teams and resources were redirected toward availability; no service-team headcount or AI-motivated staffing change is disclosed."
+    },
+    {
+      "id": "I1-S01-E05",
+      "field": "knowledge_review_capacity",
+      "location": "Same paragraph; subsequent paragraph beginning We learn from every outage",
+      "paraphrase": "Testing, rollouts, observability, alerting and retry controls were being strengthened."
+    },
+    {
+      "id": "I1-S01-E06",
+      "field": "operational_outcome",
+      "location": "Opening paragraph",
+      "paraphrase": "Reported duration: seven hours and 47 minutes."
+    }
+  ],
+  "paraphrase_word_count": 92
+}

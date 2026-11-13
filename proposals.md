@@ -17,23 +17,28 @@ Everything Lighthouse might look into, ranked: events worth watching, follow-ups
 
 ## The throttle
 
-Set by the keeper (7 November 2026) and flexible: when a limit bites, a run says so in a line and suggests a change, rather than working around it or debating it; the keeper changes it.
+Set by the keeper on 7 November 2026, doubled at John's request on 13 November 2026 ([decision](notes/operating-limits-2026-11-13.md)). These are operating ceilings, not targets to fill. When a limit bites, report it and suggest a change.
 
-- **Active investigations:** at most four during the keeper-approved physical-authority pilot, through 24 December 2026; otherwise three. Opening one always waits for the keeper. Active now, four of four: [Where does a software update go?](investigations/software-updates.md), [When a model finds the bug](investigations/model-found-bugs.md), [What AI activity costs the shared internet](investigations/ai-cost-and-spread.md) (P-0014, opened 8 November 2026), and [When AI acquires physical authority](investigations/physical-authority.md) (keeper, 12 November 2026; [commissioning record](notes/physical-authority/commissioning.md)). Only one new robotics study runs at a time. At the pilot close, rest it and return the limit to three unless the keeper explicitly renews it; no fifth investigation is authorised.
-- **Started without review:** at most three new studies in any seven days (raised from two by the keeper, 13 November 2026: "Happy to expand any limits so we can track"), urgent watches included. Deepenings and repairs of a study already running do not count, nor does anything the keeper starts or agrees.
-- **Urgent watches:** at most three at once (raised from two by the keeper, 13 November 2026), each ending 14 days after its first read unless the keeper extends it.
-- **Every recurring read** has an end date or a stop condition in its brief, so promises cannot pile up for ever.
-- **Spend:** no envelope, and not a reason to hold work back for now (the keeper, 30 October and 7 November 2026). "For the next review" gives the spend of the runs since the last review.
+- **Active investigations:** at most eight during the physical-authority pilot through 24 December 2026; otherwise six. Opening one still needs the keeper's agreement. Active now, four of eight: [Where does a software update go?](investigations/software-updates.md), [When a model finds the bug](investigations/model-found-bugs.md), [What AI activity costs the shared internet](investigations/ai-cost-and-spread.md), and [When AI acquires physical authority](investigations/physical-authority.md). The latter still closes or is explicitly renewed on 24 December; its study-specific scope is unchanged. The standing ceiling then becomes six.
+- **Started without review:** at most four new studies in any seven days, urgent watches included. Deepenings and repairs of a study already running do not count, nor does anything the keeper starts or agrees.
+- **Urgent watches:** at most four at once. A newly commissioned watch ends no later than 28 days after its first read unless its brief chooses an earlier stop or the keeper extends it. Existing fixed watches retain their recorded end dates.
+- **Every recurring read** has an end date or a stop condition in its brief. Raising capacity does not create work or renew a commitment.
+- **Discovery:** at most ten new proposals per horizon sweep; the scout reading guide is now about fifty pages each, not a quota. Seven scouts and the twice-weekly cadence remain.
+- **Review allowance:** the reader-and-inference review guide is $14 at list rates within a $40 round guide, doubled from $7 and $20. These remain planning guides, not an overall billing cap (notes/reader-review.md).
+- **Spend:** the existing no-fixed-envelope instruction for agent runs remains, with usage recorded where measurable and unknown costs labelled unknown. John controls actual account billing and subscription limits; this decision changes no provider account or paid service. Study-specific resource ceilings remain those fixed in each brief unless explicitly amended.
 
 ## From the keeper
 
 Last reviewed by the keeper: 2026-11-08T21:10Z (written by /keeper at the end of each review).
 
+
+- **13 November 2026, commissioned:** raise standing operating limits as [recorded](notes/operating-limits-2026-11-13.md), then file and run up to two bounded iterations on AI adoption, organisational capacity and reliability. P-0034 is agreed directly by John; [LH052](studies/LH052/brief.md) fixes the pilot before collection, tracked by [issue #51](https://github.com/JKershaw/lighthouse/issues/51). The earlier literature review is commissioning context, not a new finding. Automatic review initially blocked publication; John approved the stated public scope on resumption after the scheduled pass. Both iterations and all three checks are complete.
+
 Directions, blind spots and things to look at. The sweep reads this first and treats each line as a proposal of the highest priority it can give.
 
-- **13 November 2026, after the run's report:** "Happy to expand any limits so we can track." P-0029 (WFX Phantom) and P-0031 (Ukraine's ground-robot counts as an LH050 source) are agreed, and the throttle's limits on unreviewed starts and urgent watches go from two to three.
+- **13 November 2026, after the run's report:** "Happy to expand any limits so we can track." P-0029 (WFX Phantom) and P-0031 (Ukraine's ground-robot counts as an LH050 source) are agreed, and the throttle's limits on unreviewed starts and urgent watches go from two to three. This intermediate ceiling of three is superseded by the current ceiling of four under the separate doubling decision, approved for publication in this session.
 
-- **12 November 2026, agreed and prepared:** track armed AI-powered robots through [When AI acquires physical authority](investigations/physical-authority.md), with [LH050's baseline and pilot watch](studies/LH050/brief.md). The keeper agreed the [proposal](notes/physical-authority/integration-proposal.md): six weeks through 24 December, a temporary fourth investigation slot, one new robotics study at a time, two eight-hour researcher-days and $100 in attributable agent usage where measurable, no more than two released pieces. This is agreed work, not waiting for another gate. The preparation held pushes until John confirmed that the scheduled work had concluded; he has now authorised merging as needed ([commissioning](notes/physical-authority/commissioning.md)). The brief and dated rows prepare activation; no collection has occurred under the protocol. At closure rest it and return capacity to three unless renewed.
+- **12 November 2026, agreed and prepared:** track armed AI-powered robots through [When AI acquires physical authority](investigations/physical-authority.md), with [LH050's baseline and pilot watch](studies/LH050/brief.md). The keeper agreed the [proposal](notes/physical-authority/integration-proposal.md): six weeks through 24 December, a temporary fourth investigation slot, one new robotics study at a time, two eight-hour researcher-days and $100 in attributable agent usage where measurable, no more than two released pieces. This is agreed work, not waiting for another gate. The preparation held pushes until John confirmed that the scheduled work had concluded; he has now authorised merging as needed ([commissioning](notes/physical-authority/commissioning.md)). The brief and dated rows prepare activation; no collection has occurred under the protocol. At closure rest it unless renewed; the standing ceiling is six under the 13 November operating decision.
 
 - 8 November 2026, at the review: about $200 to $1,000 of spend for that session (at list rates; the keeper pays a subscription with a weekly cap, not list prices), to assign as the session sees fit, "ideally covering any gaps". Don't worry too much about budget. What the session starts under this counts as started by the keeper.
 - 8 November 2026: Lighthouse does not try to re-identify people, repositories, accounts or systems that a source has anonymised. "Agreed, that's a line we won't cross." Agents are to be cautious, having read essays/it-was-only-a-test.md; now in AGENTS.md, Rules that matter.
@@ -98,6 +103,16 @@ Written by the keeper's review of 8 November 2026 (18:30 to 21:10 UTC), which th
 
 
 ## Agreed by the keeper
+
+### P-0034 What public records reveal about AI, organisational capacity and reliability
+
+- Kind: bounded deepening of the shared-internet costs investigation. Status: agreed by John, 13 November 2026; two iterations complete and reviewed, publication approved by John on resumption after the scheduled pass. Issue: [#51](https://github.com/JKershaw/lighthouse/issues/51).
+- Source: [commissioning](notes/organisational-reliability/commissioning.md) and the [26-source background review](notes/organisational-reliability/background-review.md), prior knowledge disclosed.
+- Question: can incident and operator-research records connect AI use, staffing/ownership, relevant knowledge, review capacity and recovery, and where do those public records stop?
+- Bounds: [LH052 protocol](studies/LH052/brief.md), four purposive outage cases; a conditional second iteration on two known operator studies; at most two iterations in this directed session, no recurring reads or paid services. No new investigation.
+- Next step: publish [the two-iteration record](studies/LH052/LH052.md), then stop. Consider measurement feasibility before commissioning anything further. Unknown cost stays unknown; publication handoff is tracked in issue #51.
+- Keeper, 2026-11-13: agree and run an iteration or two; raise limits first.
+
 
 Agreed and not yet started: the next run takes these after the started lane (schedule/runner.md, step 5).
 
