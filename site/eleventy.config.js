@@ -19,6 +19,7 @@ import { writeOfflineFiles } from "./lib/offline.js";
 import sideNotes from "./lib/side-notes.js";
 import { buildSchedule, withoutCode } from "./lib/schedule.js";
 import { homeContent, withoutTitle } from "./lib/front.js";
+import { STATUS } from "./lib/model.js";
 
 const siteDir = path.dirname(fileURLToPath(import.meta.url));
 const root = path.resolve(siteDir, "..");
@@ -61,6 +62,9 @@ export default function (eleventyConfig) {
   for (const image of getRepo().images) eleventyConfig.addPassthroughCopy(image);
   eleventyConfig.addPassthroughCopy({ "site/assets": "assets" });
 
+  // Working files: one footer link to everything a reader does not need.
+  eleventyConfig.addTemplate("_lighthouse/working.njk", "", { layout: "index-working.njk", permalink: "/working/", title: "Working files", section: "working" });
+
   // A bounded, explicitly unreviewed view of retained evidence. No release/feed entry.
   eleventyConfig.addGlobalData("lineage", () => loadLineage(root));
   eleventyConfig.addGlobalData("knowledgeMap", () => loadKnowledgeMap(root));
@@ -99,6 +103,7 @@ export default function (eleventyConfig) {
   eleventyConfig.addPreprocessor("lighthouse-header", "md", (data, content) => stripHeader(content));
 
   eleventyConfig.addGlobalData("repo", () => getRepo());
+  eleventyConfig.addGlobalData("statuses", STATUS);
   eleventyConfig.addGlobalData("schedule", () => buildSchedule(root));
   eleventyConfig.addGlobalData("layout", "page.njk");
   eleventyConfig.addGlobalData("permalink", () => (data) => pageUrl(relPath(data.page.inputPath)));

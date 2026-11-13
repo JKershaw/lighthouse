@@ -1,4 +1,5 @@
 <li class="compact-entry{% if p.essay %} compact-essay{% endif %}">
+  {% if p.reader %}<p class="topic">{{ p.reader.label }}{% set status = p.reader.status %}{% include "status.njk" %}</p>{% endif %}
   <h3><a href="{{ p.url }}">{{ p.title }}</a></h3>
   {% if p.compactSummary %}<p class="compact-deck">{{ p.compactSummary }}</p>{% endif %}
   <p class="when"><span>{{ p.entryKind }}</span>{% if p.displayState and not (p.displayState == 'Revised' and p.revised and p.revised != p.entryDate) %} · {{ p.displayState }}{% endif %}{% if p.entryDate %} · {{ p.entryDate }}{% endif %}{% if p.revised and p.revised != p.entryDate %} · {{ p.revisedLabel }} {{ p.revised }}{% endif %}</p>

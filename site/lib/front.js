@@ -40,6 +40,7 @@ export function frontInfo({ source = '', config = '', byPath, bodies, images, pi
   const value = (name) => headerField(settings?.fields, name)?.value || '';
   const headerValue = (name) => headerField(header?.fields, name)?.value || '';
   const summaries = parseSummaries(headerField(settings?.fields, 'summaries')?.items);
+  const topicLabels = parseSummaries(headerField(settings?.fields, 'labels')?.items);
 
   const kindOf = (p) => {
     if (p.path === watch?.path) return 'Unreviewed log';
@@ -106,7 +107,7 @@ export function frontInfo({ source = '', config = '', byPath, bodies, images, pi
   ];
   for (const section of sections) section.entries = section.entries.filter((p) => p.path !== section.lead?.path);
 
-  return { lead, latest, latestOrder: LATEST_ORDER, investigations: investigationCards, sections, labels: Object.fromEntries(summaries) };
+  return { lead, latest, latestOrder: LATEST_ORDER, investigations: investigationCards, sections, labels: Object.fromEntries(summaries), summaries, topicLabels };
 }
 
 // Rendered Markdown without its leading h1, for a layout that sets the title itself.

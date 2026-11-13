@@ -1,0 +1,11 @@
+{
+  "comment": "The front page's budget (notes/reader-experience-plan-2026-11-13.md). Measured from the built page by test/budgets.test.js (words in main, links, navigation) and test/measure.mjs --check (height at 390 px). Recorded, not enforced, until the new front page lands (row ux-4-land); then set enforce to true. Raising a number is a keeper decision.",
+  "enforce": false,
+  "front": {
+    "heightAt390": 2500,
+    "mainWords": 600,
+    "links": 40,
+    "headerNav": 5,
+    "footerLinks": 8
+  }
+}

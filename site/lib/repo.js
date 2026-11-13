@@ -2,6 +2,8 @@
 // their titles, headers and git dates, which images are copied, and the
 // indexes built from them. Nothing here is a registry; it is all found.
 
+import { applyModel } from "./model.js";
+import { withoutCode } from "./schedule.js";
 import fs from "node:fs";
 import path from "node:path";
 import { execFileSync } from "node:child_process";
@@ -530,6 +532,9 @@ export function scanRepo(root, { siteFile = path.join(root, "site", "site.json")
     }
   }
   investigations.sort((a, b) => a.title.localeCompare(b.title));
+  // Each study's home, for the "you are here" line: the first investigation that lists it.
+  const studyHome = {};
+  for (const inv of investigations) for (const s of inv.studies) if (s.study && !studyHome[s.study]) studyHome[s.study] = { title: inv.title, url: inv.url };
 
   // What a piece shows around its text: its twin, and, when it or its full
   // form names an investigation, the investigation, its current account and
@@ -581,6 +586,8 @@ export function scanRepo(root, { siteFile = path.join(root, "site", "site.json")
     .filter((s) => s.lead)
     .sort((a, b) => b.id.localeCompare(a.id, "en", { numeric: true }));
 
+  // A study's newest checkpoint is live for seven days after its read, then provisional.
+  for (const s of studies) if (s.checkpoints[0]) s.checkpoints[0].recent = buildDate.getTime() - new Date(`${s.checkpoints[0].key.slice(0, 10)}T00:00:00Z`).getTime() <= 7 * 86400000;
   const notes = pages
     .filter((p) => p.section === "notes")
     .map((p) => {
@@ -624,6 +631,7 @@ export function scanRepo(root, { siteFile = path.join(root, "site", "site.json")
   const stories = buildStories(pages, byPath, bodies);
   for (const story of stories) siteDirs.add(story.url.replace(/^\/|\/$/g, ""));
   siteDirs.add("follow");
+  siteDirs.add("working");
   const front = frontInfo({ source: files.includes("README.md") ? fs.readFileSync(path.join(root, "README.md"), "utf8") : "",
     config: fs.existsSync(path.join(root, "site/sections.md")) ? fs.readFileSync(path.join(root, "site/sections.md"), "utf8") : "",
     byPath, bodies, images, pieces: fulls, essays: releasedEssays, investigations, watch });
@@ -635,6 +643,10 @@ export function scanRepo(root, { siteFile = path.join(root, "site", "site.json")
     const home = front.sections.find((section) => section.lead && (section.lead.path === p.path || (twinOf.get(p.path) && section.lead.path === twinOf.get(p.path).path)));
     if (home) p.context.section = { title: home.title, url: home.url };
   }
+  // The reader's content model: label, summary, status, home and next.
+  applyModel({ pieces, essays: releasedEssays, investigations, labels: front.topicLabels, summaries: front.summaries, twinOf });
+  // A study's plain name for the "you are here" line: its label in site/sections.md, else its title without the code.
+  const studyLabels = Object.fromEntries(studies.map((st) => [st.id, front.labels[st.dir] || front.labels[`${st.dir}/`] || (withoutCode(st.lead.title).length <= 70 ? withoutCode(st.lead.title) : "This study")]));
   const watchSection = front.sections.find(section => section.id === "watch");
   watchSection.entries.unshift(...stories.map(story => ({ title: story.title, url: story.url, path: story.path, compactSummary: "Reviewed notices and unreviewed daily logs in one dated thread.", entryKind: "Developing story", entryDate: story.account.revised || story.account.published })));
 
@@ -657,6 +669,8 @@ export function scanRepo(root, { siteFile = path.join(root, "site", "site.json")
     hasEssays: dirs.includes("essays"),
     investigations,
     investigationsById,
+    studyHome,
+    studyLabels,
     hasInvestigations: dirs.includes("investigations"),
     hasAbout,
     studies,

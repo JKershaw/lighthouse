@@ -3,11 +3,7 @@ layout: base.njk
 ---
 {% if page.inputPath == "./README.md" %}{% include "home.njk" %}{% elif doc.story %}{% if doc.storyData %}{% include "story.njk" %}{% else %}<article><p class="kicker">Draft developing story</p><h1>{{ doc.title }}</h1><div class="prose">{{ content | withoutTitle | safe }}</div></article>{% endif %}{% else %}
 <article class="doc{% if doc.header %} has-meta{% endif %}{% if doc.section == 'articles' or doc.essay %} is-piece{% endif %}{% if doc.register %} is-{{ doc.register }}{% endif %}">
-  {% if doc.short %}<p class="kicker"><a href="/articles/short/">Short form</a>{% if doc.draft %} <span class="tag">Draft</span>{% endif %}</p>
-  {% elif doc.section == "articles" %}<p class="kicker"><a href="/articles/">Pieces</a>{% if doc.draft %} <span class="tag">Draft</span>{% endif %}</p>
-  {% elif doc.essay %}<p class="kicker">{% if repo.hasEssays %}<a href="/essays/">Essays</a>{% else %}Essays{% endif %}{% if doc.draft %} <span class="tag">Draft</span>{% endif %}</p>
-  {% elif doc.section == "investigations" %}<p class="kicker">{% if repo.hasInvestigations %}<a href="/investigations/">Investigations</a>{% else %}Investigations{% endif %}</p>
-  {% elif doc.study %}<p class="kicker"><a href="/studies/">Studies</a> <span aria-hidden="true">/</span> <a href="/studies/{{ doc.study }}/">{{ doc.study }}</a></p>
+  {% if doc.section == "articles" or doc.essay or doc.section == "investigations" or doc.study %}{% include "crumbs.njk" %}
   {% elif doc.section == "notes" %}<p class="kicker"><a href="/notes/">Notes</a></p>
   {% elif doc.section == "about" %}<p class="kicker">{% if doc.path == "AGENTS.md" and repo.hasAbout %}<a href="{{ repo.byPath['about.md'].url }}">About</a> <span aria-hidden="true">/</span> {% endif %}{{ doc.label }}</p>
   {% endif %}

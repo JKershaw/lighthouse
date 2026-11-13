@@ -1,0 +1,2 @@
+{#- One status badge, the same everywhere (lib/model.js STATUS): set `status` to reviewed, provisional or live before including. #}
+{%- set st = statuses[status] %}{% if st %}<span class="status status-{{ status }}" title="{{ st.title }}">{{ st.label }}</span>{% endif -%}

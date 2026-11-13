@@ -1,10 +1,13 @@
-{# Placed before the colophon's rule by the lighthouse-html transform. #}
-{%- set ctx = doc.context %}<!--lh:end-->{% include "revision-history.njk" %}
-{%- if ctx and ctx.investigation and (ctx.prev or ctx.next) %}<nav class="piece-pager" aria-label="In this investigation">
-  <p class="pager-label">In <a href="{{ ctx.investigation.url }}">{{ ctx.investigation.title }}</a></p>
-  <ul>
-    {%- if ctx.prev %}<li class="pager-prev"><span class="pager-dir">Previous</span> <a href="{{ ctx.prev.url }}" rel="prev">{{ ctx.prev.title }}</a></li>{%- endif %}
-    {%- if ctx.next %}<li class="pager-next"><span class="pager-dir">Next</span> <a href="{{ ctx.next.url }}" rel="next">{{ ctx.next.title }}</a></li>{%- endif %}
-  </ul>
+{# Placed before the colophon's rule by the lighthouse-html transform. One next step at the end of every released piece (lib/model.js): the next piece in its investigation's order, else its home. #}
+{%- set n = doc.reader.next if doc.reader else null %}<!--lh:end-->{% include "revision-history.njk" %}
+{%- if n %}<nav class="read-next" aria-label="Read next">
+  <p class="read-next-label">Read next</p>
+  {%- if n.kind == "piece" %}
+  <p class="read-next-title"><a href="{{ n.url }}" rel="next">{{ n.title }}</a></p>
+  <p class="read-next-home">Or back to <a href="{{ doc.reader.home.url }}">{{ doc.reader.home.title }}</a>{% if doc.reader.home.investigation %}, the investigation this is part of{% endif %}.</p>
+  {%- else %}
+  <p class="read-next-title"><a href="{{ n.url }}">{{ n.title }}</a></p>
+  <p class="read-next-home">{% if doc.reader.home.investigation %}The investigation this is part of, with everything else in it.{% else %}Everything else of this kind, newest first.{% endif %}</p>
+  {%- endif %}
 </nav>{%- endif %}
 <!--/lh:end-->

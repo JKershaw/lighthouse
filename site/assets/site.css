@@ -730,3 +730,61 @@ a.chip:hover { background: var(--tint); }
   transform: none;
   margin-inline: auto;
 }
+
+/* The reader's site (notes/reader-experience-plan-2026-11-13.md). */
+
+/* One status badge, the same everywhere: Reviewed (solid), Provisional
+   (dashed), Live (a dot). The word carries the meaning; the shape repeats it
+   for a reader who cannot tell the colours apart. */
+.status {
+  display: inline-block;
+  font-family: var(--sans);
+  font-size: 0.7rem;
+  font-weight: 600;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  line-height: 1.5;
+  border-radius: 3px;
+  padding: 0 0.45em;
+  text-decoration: none;
+  vertical-align: 0.1em;
+  white-space: nowrap;
+}
+.status-reviewed { color: var(--bg); background: var(--accent); border: 1px solid var(--accent); }
+a.status-reviewed:hover { background: var(--accent-hover); border-color: var(--accent-hover); color: var(--bg); text-decoration: none; }
+.status-provisional { color: var(--muted); background: transparent; border: 1px dashed var(--faint); }
+.status-live { color: var(--live); background: transparent; border: 1px solid var(--live); }
+.status-live::before { content: ""; display: inline-block; width: 0.45em; height: 0.45em; border-radius: 50%; background: var(--live); margin-right: 0.35em; vertical-align: 0.1em; }
+:root { --live: #9a3d1c; }
+@media (prefers-color-scheme: dark) { :root { --live: #f0977f; } }
+
+/* "You are here": the kicker becomes a path. */
+.crumbs { text-transform: none; letter-spacing: 0.02em; font-size: 0.82rem; }
+.crumbs a { color: var(--muted); }
+.crumbs .sep { margin: 0 0.4em; color: var(--faint); }
+
+/* A topic label above a title in lists, so lists scan. */
+.topic { display: block; font-family: var(--sans); font-size: 0.74rem; font-weight: 600; letter-spacing: 0.08em; text-transform: uppercase; color: var(--muted); margin: 0 0 0.15rem; }
+.topic .status { margin-left: 0.5em; vertical-align: 0.05em; }
+
+/* One next step at the end of every piece. */
+.read-next {
+  margin: 2.5em 0 0;
+  font-family: var(--sans);
+  padding: 0.9rem 1rem;
+  border-left: 3px solid var(--accent);
+  background: var(--tint);
+  line-height: 1.45;
+}
+.read-next + hr { margin-top: 1.5em; }
+.read-next p { margin: 0; }
+.read-next-label { font-size: 0.75rem; letter-spacing: 0.1em; text-transform: uppercase; color: var(--muted); }
+.read-next-title { font-size: 1.05rem; font-weight: 600; margin: 0.25rem 0 0.35rem !important; }
+.read-next-title a { display: inline-block; padding: 0.15rem 0; }
+.read-next-home { font-size: 0.88rem; color: var(--muted); }
+
+/* Working files: everything a reader does not need, one click away. */
+.working-files { list-style: none; padding: 0; margin: 0; }
+.working-files li { padding: 0.6rem 0; border-bottom: 1px solid var(--rule); }
+.working-files a { font-weight: 600; }
+.working-files p { margin: 0.15rem 0 0; font-size: 0.92rem; color: var(--muted); }

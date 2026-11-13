@@ -51,7 +51,34 @@ summaries:
 - studies/LH044 | Shared services closing their doors
 - studies/LH045 | Records that roll over
 - studies/LH049 | The compromised bee-js release on npm
+- studies/LH051 | A CI secret stealer's traces, hour by hour
+- studies/LH052 | AI, organisational capacity and reliability
+- studies/LH043 | Evaluation agents on the open internet
+- studies/LH042 | Published counts of exposed AI services
+- studies/LH035 | Who watches each layer of the internet
+labels:
+- articles/who-watches-the-internet.md | Instruments
+- articles/what-we-can-see.md | What we can see
+- articles/a-week-after-two-fixes.md | PHP and Node.js fixes
+- articles/php-emergency-first-reading.md | PHP emergency
+- articles/where-software-updates-go.md | Software updates
+- articles/where-a-software-update-went.md | Software updates
+- articles/what-a-download-shows.md | Downloads
+- articles/what-an-image-holds.md | Container images
+- articles/what-moves-a-pin.md | Security releases
+- articles/pins-move-over-weeks.md | Security releases
+- articles/fixes-that-said-so.md | Security releases
+- articles/the-lead-was-a-few-libraries.md | Security releases
+- articles/two-days-for-most.md | Python downloads
+- articles/old-versions-new-pythons.md | Python downloads
+- articles/rarer-further-down.md | Python downloads
+- articles/recipes-follow-the-pin.md | Pins and lockfiles
+- articles/tests-read-the-lockfile.md | Pins and lockfiles
+- articles/the-xz-backdoor.md | Supply-chain history
+- essays/seen-from-outside-seen-from-inside.md | Watching software
+- essays/it-was-only-a-test.md | Agents and tests
+- essays/what-the-watch-would-see.md | Self-spreading software
 
 # Editing the section fronts
 
-Leads name repository paths and are optional. A draft cannot lead or enter a released list. Summaries are short editorial signposts, not replacements for a piece's complete summary and limits. The home page retains its full earlier text in its background disclosure. New released pieces enter the findings list from the scan; a short summary can be added here without changing the piece's prose. A line for a study's directory (`studies/LH030 | label`) gives the short label the front page's Now box shows for that watch; the editor's visit keeps these current.
+Leads name repository paths and are optional. A draft cannot lead or enter a released list. Summaries are short editorial signposts, not replacements for a piece's complete summary and limits. The home page retains its full earlier text in its background disclosure. New released pieces enter the findings list from the scan; a short summary can be added here without changing the piece's prose. A `labels` line (`path | label`) gives a released piece or essay the short topic label shown above its title in lists, two or three words so that lists scan; the piece's title is unchanged, and site/test/model.test.js fails the build's tests when a released piece has none. A line for a study's directory (`studies/LH030 | label`) gives the short label the front page's Now box shows for that watch; the editor's visit keeps these current.

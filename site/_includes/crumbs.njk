@@ -1,0 +1,9 @@
+{#- "You are here": the front page, the page's home (its investigation, else its section), then the page. Replaces the kicker on pieces, essays, investigations and studies. #}
+<nav class="crumbs kicker" aria-label="You are here"><a href="/">Lighthouse</a>
+{%- if doc.reader %}<span class="sep" aria-hidden="true">›</span><a href="{{ doc.reader.home.url }}">{{ doc.reader.home.title }}</a>{% if doc.short %}<span class="sep" aria-hidden="true">›</span><a href="/articles/short/">Short form</a>{% endif %}
+{%- elif doc.essay %}<span class="sep" aria-hidden="true">›</span><a href="/essays/">Essays</a>
+{%- elif doc.section == "articles" %}<span class="sep" aria-hidden="true">›</span><a href="{{ '/articles/short/' if doc.short else '/articles/' }}">{{ 'Short form' if doc.short else 'Findings' }}</a>
+{%- elif doc.section == "investigations" %}<span class="sep" aria-hidden="true">›</span><a href="/investigations/">Investigations</a>
+{%- elif doc.study %}{% set h = repo.studyHome[doc.study] %}<span class="sep" aria-hidden="true">›</span>{% if h %}<a href="{{ h.url }}">{{ h.title }}</a>{% else %}<a href="/studies/">Studies</a>{% endif %}{% if not studyIndex %}<span class="sep" aria-hidden="true">›</span><a href="/studies/{{ doc.study }}/" title="{{ doc.study }}">{{ repo.studyLabels[doc.study] }}</a>{% endif %}
+{%- endif %}
+{%- if doc.draft %} <span class="tag">Draft</span>{% endif %}</nav>

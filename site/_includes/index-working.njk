@@ -1,0 +1,32 @@
+---
+layout: base.njk
+---
+{# Working files: everything a reader does not need to follow the findings, one click away from every page's footer. Nothing listed here is a finding unless it says so. #}
+{%- set items = [
+  ["/schedule/", "Schedule", "What the watch has promised to do and when, and what each run did."],
+  [repo.byPath["programme.md"].url if repo.byPath["programme.md"], "Programme", "The questions answered, next, and after that."],
+  [repo.byPath["proposals.md"].url if repo.byPath["proposals.md"], "Proposals", "Ideas not yet promises, how each is weighed, and what waits for the keeper."],
+  [repo.byPath["observations.md"].url if repo.byPath["observations.md"], "What Lighthouse has observed", "Every reading so far, and through whose instruments."],
+  ["/studies/", "Studies", "One folder per study: its brief, its records, its checkpoints and its data."],
+  ["/notes/", "Notes", "Reviews, retros, editor's visits and working notes."],
+  ["/watch/", "The watch", "Developing stories and the daily log."],
+  ["/map/", "The map", "What each public instrument can see, and where it stops."],
+  ["/map/knowledge-lineage/" if knowledgeMap, "Knowledge map", "Everything studied and published, from the questions down to the evidence."],
+  [repo.byPath["sources.md"].url if repo.byPath["sources.md"], "Sources", "The public sources Lighthouse reads, and their terms."],
+  [repo.byPath["releases.md"].url if repo.byPath["releases.md"], "Releases", "Every release and correction, dated."],
+  [repo.byPath["charter.md"].url if repo.byPath["charter.md"], "Charter", "Why Lighthouse exists and what it will and won't do."],
+  [repo.byPath["design.md"].url if repo.byPath["design.md"], "Research design", "How the watch is meant to see."],
+  [repo.byPath["AGENTS.md"].url if repo.hasAbout and repo.byPath["AGENTS.md"], "Operating manual", "How a session of the watch works, for any agent."],
+  ["/feed.xml", "Feed", "New and corrected pieces, for a feed reader."]
+] %}
+<article class="index">
+  <nav class="crumbs kicker" aria-label="You are here"><a href="/">Lighthouse</a></nav>
+  <h1>Working files</h1>
+  <p class="in-short">The watch's own records, kept in the open. You don't need any of this to follow the findings: those are in <a href="/investigations/">Investigations</a> and <a href="/articles/">Findings</a>. Nothing here is a finding unless it says so.</p>
+  <ul class="working-files">
+    {%- for it in items %}{% if it[0] %}
+    <li><a href="{{ it[0] }}"{% if page.url == it[0] %} aria-current="page"{% endif %}>{{ it[1] }}</a><p>{{ it[2] }}</p></li>
+    {%- endif %}{% endfor %}
+  </ul>
+  <p class="provenance">Built from <a href="{{ repo.repoUrl }}">the repository</a>, where every file is.</p>
+</article>
