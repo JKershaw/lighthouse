@@ -1,0 +1,14 @@
+{"case_id": "armed-comparison", "purpose": "the brief's one replacement search after PA-S04 was unavailable (HTTP 403)", "connector": "Claude Code WebSearch tool (standard mode), Anthropic", "run_at_utc": "between 2026-11-13T14:56:30Z and 14:57:58Z (after the last fetch before it, before the first fetch after it)", "query": "armed ground robot test remote control official military",
+ "order_note": "Order as supplied by the connector. The connector returned exactly ten links; whether this is the complete order of the underlying engine cannot be verified. The connector also returned a model-written summary, which is not retained as evidence. No result was opened.",
+ "results": [
+ {"rank": 1, "url": "https://interestingengineering.com/ai-robotics/germany-ukraine-test-armed-gereon", "eligible": false, "why": "third-party news outlet, not a first-party test record"},
+ {"rank": 2, "url": "https://www.defenseone.com/technology/2018/02/us-army-now-holding-drills-ground-robots-shoot/145854/?oref=d-dontmiss", "eligible": false, "why": "third-party news outlet"},
+ {"rank": 3, "url": "https://www.defensenews.com/digital-show-dailies/dsei/2019/09/10/estonian-robot-fires-javelin-using-a-norwegian-remote-launcher/?query-11-page=4", "eligible": false, "why": "third-party news outlet"},
+ {"rank": 4, "url": "https://www.defenseone.com/technology/2018/02/us-army-now-holding-drills-ground-robots-shoot/145854/", "eligible": false, "why": "third-party news outlet; duplicate of rank 2"},
+ {"rank": 5, "url": "https://www.defensenews.com/digital-show-dailies/dsei/2019/09/10/estonian-robot-fires-javelin-using-a-norwegian-remote-launcher/", "eligible": false, "why": "third-party news outlet; duplicate of rank 3"},
+ {"rank": 6, "url": "https://govexec.com/defense/2018/02/us-army-now-holding-drills-ground-robots-shoot/145899", "eligible": false, "why": "third-party news outlet"},
+ {"rank": 7, "url": "https://www.defensenews.com/digital-show-dailies/dsei/2019/09/13/getting-serious-about-armed-ground-robots/?query-11-page=4", "eligible": false, "why": "third-party news outlet"},
+ {"rank": 8, "url": "https://www.twz.com/marines-test-fire-robot-dog-armed-with-rocket-launcher.md", "eligible": false, "why": "third-party outlet and, by its title, a duplicate account of the PA-S04 candidate"},
+ {"rank": 9, "url": "https://development.c4isrnet.com/?p=35526", "eligible": false, "why": "third-party outlet (development host)"},
+ {"rank": 10, "url": "https://www.pulse.bot/defense/news/us-marines-test-armed-robot-at-quantico-base-2f49642d-f506-4ccc-b957-0383afe05482/", "eligible": false, "why": "aggregator, not first-party"}],
+ "outcome": "No first-party armed ground-robot test record among the first ten results, judged from URL and title without opening. Under brief 0.1 the armed non-humanoid comparison is left unavailable. Eligibility was judged from domain and title only; no page was requested."}
