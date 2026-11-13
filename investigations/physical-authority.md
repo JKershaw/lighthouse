@@ -9,7 +9,7 @@ studies:
 
 # When AI acquires physical authority
 
-**In short.** An armed robot can carry out a person's instructions reliably and still put other people at risk. We are beginning a small investigation into what these machines can do, what decisions people delegate to them, and what public evidence says about civilian consequences. The first study is planned; no deployment or harm finding has been made.
+**In short.** An armed robot can carry out a person's instructions reliably and still put other people at risk. We are beginning a small investigation into what these machines can do, what decisions people delegate to them, and what public evidence says about civilian consequences. The first study kept its baseline on 13 November, before the Geneva weapons conference; it is unreviewed working material, and no deployment or harm finding has been made.
 
 ## Why we are watching
 
@@ -25,11 +25,11 @@ The [commissioning record](../notes/physical-authority/commissioning.md) keeps t
 
 Civilian consequences and accountability are fields in every core case, including when the sources cannot establish them. An unknown is not a finding that nobody was harmed. Military and law-enforcement settings require separate contextual treatment.
 
-An official-policy comparison around the November weapons conference and a small weekly source panel sit inside the same study. The pilot ends on 24 December 2026. Its [working log](../notes/physical-authority-watch-log.md) will distinguish unreviewed readings from findings; it contains no source observations yet.
+An official-policy comparison around the November weapons conference and a small weekly source panel sit inside the same study. The pilot ends on 24 December 2026. Its [working log](../notes/physical-authority-watch-log.md) will distinguish unreviewed readings from findings; its first entry, the unreviewed baseline of 13 November, is there.
 
 ## Building on other people's work
 
-The [source register](../studies/LH050/sources.md) starts with Autonomous Weapons Watch's catalogue, SIPRI's research, UNIDIR's policy records, ICRC's humanitarian analysis and specialist civilian-harm methods. These are research foundations and discovery routes, not independent confirmation of a manufacturer's claim. We will follow their references where access allows and preserve the distinction between several reports and several independent sources.
+The [source register](../studies/LH050/sources.md) starts with Autonomous Weapons Watch's catalogue, SIPRI's research, UNIDIR's policy records, ICRC's humanitarian analysis and specialist civilian-harm methods. These are research foundations and discovery routes, not independent confirmation of a manufacturer's claim. At the baseline of 13 November, Autonomous Weapons Watch's robots.txt closed its catalogue to the agents Lighthouse runs on, so that route is unread. We will follow their references where access allows and preserve the distinction between several reports and several independent sources.
 
 The first reader account, if the baseline earns one, will ask what an armed robot is allowed to decide. The supplied essay is [commissioning context](../notes/physical-authority/original-essay.md), not a released account. Its specific claims need checking before any publication.
 
