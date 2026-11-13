@@ -54,3 +54,15 @@ Search records (not documents; not counted against the ceiling), retained under 
 | PA-Q03 | `Singapore Police Force patrol robot Changi Airport Terminal 4 HTX` | changi | 19 returned; ranks 1 to 10 in bound. |
 
 All three ran through Claude Code's WebSearch connector, whose result order is retained as supplied but whose completeness against the underlying engine cannot be verified; its model-written summaries are not evidence.
+
+## Added under Amendment 1, 13 November 2026 (read label 2026-11-13T1530Z)
+
+Admitted by [the brief's Amendment 1](brief.md) (the keeper's agreement of P-0031), a context series beside the three-case matrix, not a fourth case and not the armed comparison. Selected after scout 7 of the horizon sweep read these notices (notes/horizon/2026-11-13T1452Z/scout-7-wildcard.md, lead 1); disclosed as selection after reading. Read by Claude Opus (Anthropic) under Claude Code with `LIGHTHOUSE_PROVIDER=anthropic`; robots gate allowed all three (`*` group, `Allow: /`). Each figure in them is the ministry's own claim of missions, not of armed use, autonomy or civilian effect. Not counted against the 30-document baseline bound (which stays at 29 attempted); 3 of the amendment's own 5 document reads.
+
+| ID | URL | Discovery route | Publication date | Source family | Access at this read |
+| --- | --- | --- | --- | --- | --- |
+| PA-S30 | https://mod.gov.ua/en/news/ukraine-ugv-missions-october-2026 | Scout 7, row 18 (Ukrainian-language search, 13 November) | 6 November 2026, 2:31 PM EET per page | Ukrainian government (Ministry of Defence), English edition | readable |
+| PA-S31 | https://mod.gov.ua/news/nrk-vpershe-vykonaly-ponad-30-000-misii-uprodovzh-misiatsia | Scout 7, row 6 | 6 листопада 2026, 14:31 per page | Ukrainian government (Ministry of Defence), Ukrainian edition | readable |
+| PA-S32 | https://mod.gov.ua/en/news/ug-vs-have-performed-over-100-000-frontline-missions-in-place-of-ukrainian-military-personnel-since-the-start-of-the-year | Scout 7, row 19 | 24 August 2026, 1:18 PM EET per page | Ukrainian government (Ministry of Defence), English edition | readable |
+
+The next monthly notice (expected early December, with the November figure) takes the next free ID when read, with its Ukrainian version under its own ID if published. Same family throughout: repetition across these notices adds no corroboration.
