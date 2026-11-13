@@ -1,0 +1,37 @@
+{
+  "source_id": "I1-S05",
+  "provenance": "Direct first-party HTML via Python urllib after OpenAI RobotsGate; paraphrases, not full source replay.",
+  "evidence": [
+    {
+      "id": "I1-S05-E01",
+      "field": "technical_trigger",
+      "location": "Resolved report, paragraph beginning The immediate cause",
+      "paraphrase": "A sidecar hit concurrency limits; its autoscaling policy watched host-service limits. Saturated load balancers degraded authentication."
+    },
+    {
+      "id": "I1-S05-E02",
+      "field": "sustaining_recovery_mechanism",
+      "location": "Resolved report, paragraphs beginning Some of the failing traffic; The retry storm; Residual Copilot; Complicating factors paragraph before follow-up actions",
+      "paraphrase": "Traffic rerouting served requests successfully. Software gateway retries and a latent VS Code retry bug amplified load; reducing retries and controlling incoming traffic stabilised recovery. GitHub also reports scraping attacks impeded recovery; their AI origin is not disclosed."
+    },
+    {
+      "id": "I1-S05-E03",
+      "field": "ai_role",
+      "location": "Resolved report, first two paragraphs and Residual Copilot paragraph",
+      "paraphrase": "Copilot Token Service was affected. The account identifies client retry logic, without attributing initiation or retry decisions to an AI agent."
+    },
+    {
+      "id": "I1-S05-E04",
+      "field": "knowledge_review_capacity",
+      "location": "Resolved report, follow-up actions list",
+      "paraphrase": "Planned controls cover autoscaling, sidecar limits, client/gateway backoff, capacity monitoring and failover safeguards; staffing or expertise loss is not disclosed."
+    },
+    {
+      "id": "I1-S05-E05",
+      "field": "operational_outcome",
+      "location": "Resolved report, first paragraph",
+      "paraphrase": "Reported window: 17 August 2026, 13:28-21:15 UTC; most services recovered 16:36, Actions approximately 18:03, Copilot Token Service 21:02."
+    }
+  ],
+  "paraphrase_word_count": 113
+}
