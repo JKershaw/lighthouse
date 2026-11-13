@@ -1,0 +1,37 @@
+{
+  "source_id": "I1-S04",
+  "provenance": "Direct first-party HTML via Python urllib after OpenAI RobotsGate; paraphrases, not full source replay.",
+  "evidence": [
+    {
+      "id": "I1-S04-E01",
+      "field": "technical_trigger",
+      "location": "Opening paragraphs 2-3; The query behaviour change; Memory preallocation",
+      "paraphrase": "A database-permissions change duplicated feature metadata; an oversized configuration exceeded Bot Management’s feature limit and failed the proxy."
+    },
+    {
+      "id": "I1-S04-E02",
+      "field": "sustaining_recovery_mechanism",
+      "location": "The outage; Other impact during the incident; opening paragraph 4",
+      "paraphrase": "Rapid configuration distribution, debugging overhead and returning login traffic/retries amplified impact. Teams stopped distribution, restored a known-good file, restarted services and scaled concurrency."
+    },
+    {
+      "id": "I1-S04-E03",
+      "field": "ai_role",
+      "location": "How Cloudflare processes requests, paragraphs beginning Cloudflare’s Bot Management and The model takes",
+      "paraphrase": "An ML model generates bot scores used for access rules. Configuration failure affected that serving path; no AI-written change or autonomous AI incident decision is disclosed."
+    },
+    {
+      "id": "I1-S04-E04",
+      "field": "knowledge_review_capacity",
+      "location": "The query behaviour change, paragraph beginning Unfortunately; The outage; Remediation and follow-up steps",
+      "paraphrase": "A database-scope assumption failed; responders initially suspected attack. Input validation, kill switches and failure-mode review were planned."
+    },
+    {
+      "id": "I1-S04-E05",
+      "field": "operational_outcome",
+      "location": "Opening paragraphs 1 and 4; final timeline",
+      "paraphrase": "Opening: onset 11:20 UTC; timeline: 11:28. Core traffic largely recovered 14:30; all systems 17:06."
+    }
+  ],
+  "paraphrase_word_count": 98
+}

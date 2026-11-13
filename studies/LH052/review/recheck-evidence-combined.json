@@ -1,0 +1,224 @@
+{
+  "iterations": {
+    "1": {
+      "http_requests": 13,
+      "request_kinds": {
+        "robots": 5,
+        "substantive": 5,
+        "robots_retention_inspection": 3
+      },
+      "response_body_bytes": 677667,
+      "summed_http_elapsed_seconds": 81.41,
+      "source_access_counts": {
+        "readable": 3,
+        "unavailable_placeholder": 2
+      },
+      "unique_substantive_endpoints": 5,
+      "logged_redirects": 0,
+      "discovery_queries": 4,
+      "cached_source_identification": {
+        "I1-S01": {
+          "available": true,
+          "observed_cache_sha256": "e59a37a6907bd7b06108408b50f8fe7d14dd0780a3bf4d14be00e950795885ee",
+          "recorded_original_sha256": "e59a37a6907bd7b06108408b50f8fe7d14dd0780a3bf4d14be00e950795885ee",
+          "matches_original_hash": true,
+          "matches_recorded_redacted_cache": false,
+          "observed_cache_bytes": 183477,
+          "recorded_original_bytes": 183477,
+          "remaining_text_email_pattern_matches": 0,
+          "extracted_text_email_pattern_matches": 0
+        },
+        "I1-S02": {
+          "available": true,
+          "observed_cache_sha256": "5b131ca14aa96311d3432b0062c7443d3b0e6346ec279bd376a75f0a76bcd5d7",
+          "recorded_original_sha256": "5b131ca14aa96311d3432b0062c7443d3b0e6346ec279bd376a75f0a76bcd5d7",
+          "matches_original_hash": true,
+          "matches_recorded_redacted_cache": false,
+          "observed_cache_bytes": 195,
+          "recorded_original_bytes": 195,
+          "remaining_text_email_pattern_matches": 0
+        },
+        "I1-S03": {
+          "available": true,
+          "observed_cache_sha256": "5b131ca14aa96311d3432b0062c7443d3b0e6346ec279bd376a75f0a76bcd5d7",
+          "recorded_original_sha256": "5b131ca14aa96311d3432b0062c7443d3b0e6346ec279bd376a75f0a76bcd5d7",
+          "matches_original_hash": true,
+          "matches_recorded_redacted_cache": false,
+          "observed_cache_bytes": 195,
+          "recorded_original_bytes": 195,
+          "remaining_text_email_pattern_matches": 0
+        },
+        "I1-S04": {
+          "available": true,
+          "observed_cache_sha256": "7b85f82d556cabbb1a8a7c8da6c20e8307213b1aed1c2115a3326714bca4de6a",
+          "recorded_original_sha256": "7b85f82d556cabbb1a8a7c8da6c20e8307213b1aed1c2115a3326714bca4de6a",
+          "matches_original_hash": true,
+          "matches_recorded_redacted_cache": false,
+          "observed_cache_bytes": 326232,
+          "recorded_original_bytes": 326232,
+          "remaining_text_email_pattern_matches": 0,
+          "extracted_text_email_pattern_matches": 0
+        },
+        "I1-S05": {
+          "available": true,
+          "observed_cache_sha256": "1fdc1b069de1e72a19c959c5c1506057f23ba4382e80292c0a424cad8b65a45d",
+          "recorded_original_sha256": "1fdc1b069de1e72a19c959c5c1506057f23ba4382e80292c0a424cad8b65a45d",
+          "matches_original_hash": true,
+          "matches_recorded_redacted_cache": false,
+          "observed_cache_bytes": 163566,
+          "recorded_original_bytes": 163566,
+          "remaining_text_email_pattern_matches": 0,
+          "extracted_text_email_pattern_matches": 0
+        }
+      }
+    },
+    "2": {
+      "http_requests": 8,
+      "request_kinds": {
+        "robots": 4,
+        "substantive": 4
+      },
+      "response_body_bytes": 1339839,
+      "summed_http_elapsed_seconds": 53.943,
+      "source_access_counts": {
+        "readable": 4
+      },
+      "unique_substantive_endpoints": 4,
+      "logged_redirects": 0,
+      "discovery_queries": 0,
+      "cached_source_identification": {
+        "I2-S01": {
+          "available": true,
+          "observed_cache_sha256": "56e1d8bb8c55a75fbfa931cfb7e91288478811c307e45e435ea305e7c8542b46",
+          "recorded_original_sha256": "56e1d8bb8c55a75fbfa931cfb7e91288478811c307e45e435ea305e7c8542b46",
+          "matches_original_hash": true,
+          "matches_recorded_redacted_cache": false,
+          "observed_cache_bytes": 47982,
+          "recorded_original_bytes": 47982,
+          "remaining_text_email_pattern_matches": 0,
+          "extracted_text_email_pattern_matches": 0
+        },
+        "I2-S03": {
+          "available": true,
+          "observed_cache_sha256": "ebd5d356e8d7c86770d3eb5e90be147a27eb66ddf43c0d20787dc347cc9833fa",
+          "recorded_original_sha256": "bb66a6606edeed86ccd41d0efbb6b054e27741007f3e33877f6e92820978b904",
+          "matches_original_hash": false,
+          "matches_recorded_redacted_cache": true,
+          "observed_cache_bytes": 165562,
+          "recorded_original_bytes": 165246,
+          "remaining_text_email_pattern_matches": 0,
+          "extracted_text_email_pattern_matches": 0
+        },
+        "I2-S02": {
+          "available": true,
+          "observed_cache_sha256": "b96071f1caa162e00ac6004799f9276013d1daac312a33ff03ac11b473c1dc6a",
+          "recorded_original_sha256": "b96071f1caa162e00ac6004799f9276013d1daac312a33ff03ac11b473c1dc6a",
+          "matches_original_hash": true,
+          "matches_recorded_redacted_cache": false,
+          "observed_cache_bytes": 195367,
+          "recorded_original_bytes": 195367,
+          "remaining_text_email_pattern_matches": 0,
+          "extracted_text_email_pattern_matches": 0
+        },
+        "I2-S04": {
+          "available": true,
+          "observed_cache_sha256": "5e05052e9f01121f34001f3499ae5456aedf92b298e8ef496631abea57ad45a8",
+          "recorded_original_sha256": "5e05052e9f01121f34001f3499ae5456aedf92b298e8ef496631abea57ad45a8",
+          "matches_original_hash": true,
+          "matches_recorded_redacted_cache": false,
+          "observed_cache_bytes": 919264,
+          "recorded_original_bytes": 919264,
+          "extracted_text_email_pattern_matches": 0
+        }
+      }
+    }
+  },
+  "review_footprint": {
+    "cached_substantive_verification_documents": 7,
+    "new_http_requests": 0,
+    "new_discovery_queries": 0,
+    "remaining_substantive_verification_allowance": 1
+  },
+  "outage_coding": {
+    "rows": 30,
+    "classification_counts": {
+      "explicit reported evidence": 15,
+      "unavailable": 12,
+      "not disclosed": 2,
+      "conflicting": 1
+    },
+    "distinct_cases": 4
+  },
+  "measurement_coding": {
+    "rows": 28,
+    "status_counts": {
+      "explicit_reported": 19,
+      "interpretation": 4,
+      "not_disclosed": 5
+    },
+    "duplicate_row_ids": 0,
+    "words_by_source": {
+      "I2-S01": {
+        "recomputed_whitespace_words": 34,
+        "recorded_words": 34,
+        "matches": true,
+        "at_most_150": true
+      },
+      "I2-S02": {
+        "recomputed_whitespace_words": 95,
+        "recorded_words": 95,
+        "matches": true,
+        "at_most_150": true
+      },
+      "I2-S03": {
+        "recomputed_whitespace_words": 23,
+        "recorded_words": 23,
+        "matches": true,
+        "at_most_150": true
+      },
+      "I2-S04": {
+        "recomputed_whitespace_words": 89,
+        "recorded_words": 89,
+        "matches": true,
+        "at_most_150": true
+      }
+    },
+    "locator_row_set_matches_matrix": {
+      "I2-S01": true,
+      "I2-S02": true,
+      "I2-S03": true,
+      "I2-S04": true
+    }
+  },
+  "combined_analyst_footprint": {
+    "http_requests": 21,
+    "response_body_bytes": 2017506,
+    "summed_http_elapsed_seconds": 135.353,
+    "source_ids_attempted": 9,
+    "unique_substantive_endpoints_attempted": 9,
+    "readable_substantive_documents": 7,
+    "discovery_queries": 4
+  },
+  "reviewed_input_sha256": {
+    "studies/LH051/brief.md": "19034cbb64a966e5949750b61618c9dcb47b661de7d3de0ad86ef603311699fa",
+    "studies/LH051/cases.csv": "0f7dd2b5f4f656dde32ff4d503f09d30573c7fb5ac9c57276e3ca948d86be66c",
+    "studies/LH051/operator-measurements.csv": "10d674892c1fe74e0c3a398657c0d6d510e3292b552f7f1d6acd074bdf9bb8c7",
+    "studies/LH051/sources-iteration-1.json": "90584397d182c4dff7e74cabece0e9877252562272ab9a59c98bc203593ed3e6",
+    "studies/LH051/reads-iteration-1.jsonl": "962007e5fdcd2a484b3dc2e4375342801624ee73ff7f089de495ef5464345c0f",
+    "studies/LH051/iteration-1.md": "5a4ca1ff4eb2fee9b62da2409ced9dc2f03302f6fd5fee622174495a023e8f85",
+    "studies/LH051/sources-iteration-2.json": "a5cc440464e37950c8d2aa692543789d27c6c978d229e94dad1df921657f3bdf",
+    "studies/LH051/reads-iteration-2.jsonl": "fc4f9972a1e45f7f4da4d0c6e0757680030483041f635dcb91790c681dd6f6b4",
+    "studies/LH051/iteration-2.md": "ec9f3a471e94f3b6d0b9cf3ebf63f95de69498463be9deb8800ce99ef607f4b9",
+    "studies/LH051/data/iteration-1/I1-S01-evidence.json": "9fe88f51217213b7b01864bf7fc28848c79482956810d2e0c64055d61159a8a1",
+    "studies/LH051/data/iteration-1/I1-S04-evidence.json": "2a08ac11fcae466ad5f0154503231556145283ac6e0757ffb804448157af7714",
+    "studies/LH051/data/iteration-1/I1-S05-evidence.json": "47fddd845e8ac9fe9d1afd254d8a30f57b158f6551a7307df204192c2885e0af",
+    "studies/LH051/data/iteration-2/I2-S01-evidence.json": "089e8c53b92a0cba057f0b53d73ed6208bd1667e87ac0ff33ded1035f8fbbdb0",
+    "studies/LH051/data/iteration-2/I2-S02-evidence.json": "f19c0acfc8a2c41484032c73d3b31a053a43f6e42a3900999366a6bfe2b49e89",
+    "studies/LH051/data/iteration-2/I2-S03-evidence.json": "b5991a54ff3563b014e2032871c0f7f0807a85198dd8b7495057fbb5bf41f5fa",
+    "studies/LH051/data/iteration-2/I2-S04-evidence.json": "8dd1f2c25fded65b62409ea44d7d5869de76e31cfda3dcf16166ff1a3cbd1b57",
+    "studies/LH051/LH051.md": "94420696a20109878eb71d8dc3036d8d1e186aff19c899cbcb06563e616fb7bc",
+    "investigations/ai-cost-and-spread.md": "71f3b824a7b8b29c662c922e0c7614ad9778c70ba2f7fb276a282334551077b4",
+    "programme.md": "d267a82cfec0bb0c57cefaeaa854cd4e26ce7bd30b519708e9deb19651148605",
+    "proposals.md": "cb6f0be44cea4de3fc8a339737180c9f9e8077c6a887a185443a1b1acb0b0fa9"
+  }
+}

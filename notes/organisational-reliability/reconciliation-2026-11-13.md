@@ -1,0 +1,13 @@
+# Keeping both 13 November sessions
+
+**In short.** The completed scheduled pass and keeper follow-up are preserved. This pilot is LH052 and proposal P-0034 because that pass independently used LH051/P-0029 for WFX Phantom. The two iterations, matrices and findings are unchanged; John approved publication of the stated public scope on resumption.
+
+The morning working branch used LH051 locally. Its fixed protocol (`bb8a6e9`), conditional checkpoint (`68b7093`), raw request logs and historical review-output hashes retain that original identifier. Main `33a9822` uses LH051 for a different study. The administrative alias is recorded in the current brief; current replay scripts and links use LH052. Source IDs and original-response hashes are unchanged. Comparing both parsed matrices with pre-renumber snapshot `99624d9` reproduces every field after identifier substitution.
+
+The merge preserved all scheduled source files and observations. The WFX study directory, robotics study directory and This week page are byte-identical to the fetched completed pass. Relative to that pass, only sixteen existing schedule task descriptions change: fifteen future open horizons take at most ten proposals, and the robotics closure applies the six-investigation standing ceiling. The completed 13 November horizon keeps its actual five-proposal instruction. Every other existing schedule field is unchanged; six completed pilot rows are added.
+
+The other keeper follow-up had raised unreviewed starts and concurrent urgent watches from two to three. The approved morning doubling now sets four, without multiplying the intervening rise again. Other existing study-specific limits and end dates are preserved. Actual billing remains John's control.
+
+The evidence, reader-and-inference and final recheck are complete. The final recheck's exact obsolete-status corrections were applied without another review chain. Reconciled replay outputs are retained under studies/LH052/review/reconciled-*.json; both matrices reproduce the reviewed values. The post-reconciliation site checks pass all 52 existing tests and build successfully. No new research source or network collection was added during the afternoon reconciliation. Complete active-time and monetary metering remain unavailable, not zero.
+
+The earlier automatic publication rejection was respected until John said “Continue” after the driver explicitly named publication of the research, operating rules, schedule changes and budget guides to the public Lighthouse repository. Publishing and merging that concrete reviewed change is now authorised. This record does not commission another study or release an article.

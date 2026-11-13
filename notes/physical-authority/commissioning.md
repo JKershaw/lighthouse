@@ -27,3 +27,7 @@ The end date is fixed unless amended explicitly. At the final checkpoint rest th
 ## Push hold lifted, 12 November 2026
 
 After preparation, John wrote: "Today's scheduled work has concluded so we are safe to merge as needed." This is the completion signal lifting the hold. Main advanced to `fc828b0` with the completed amendments and review; the preparation will reconcile those results before pushing. The earlier hold remains above as the decision history, not a continuing block.
+
+## Operating-capacity amendment, 13 November 2026
+
+John subsequently authorised [doubling Lighthouse's standing operating limits](../operating-limits-2026-11-13.md). The pilot still ends on 24 December and retains its fixed study resources and scope. The capacity ceiling in the earlier decision is superseded: eight through the pilot, six afterwards. Closing the pilot does not renew the investigation.
