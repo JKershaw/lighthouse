@@ -822,3 +822,17 @@ a.status-reviewed:hover { background: var(--accent-hover); border-color: var(--a
 .section-lede { font-family: var(--sans); font-size: 0.88rem; color: var(--muted); margin: -0.3rem 0 0.8rem; }
 .card-reading { font-family: var(--sans); font-size: 0.86rem; color: var(--muted); line-height: 1.4; }
 .status-key { font-family: var(--sans); font-size: 0.8rem; line-height: 1.9; color: var(--muted); }
+
+/* What we've learned so far: the front page's opening for a person. Each
+   item is a headline that links to the piece it retells. */
+.front-learned { margin: 0 0 2.6rem; }
+.front-learned > h2 { font-family: var(--sans); font-size: 1rem; margin: 0 0 0.9rem; border-top: 2px solid var(--accent); padding-top: 0.8rem; }
+.learned { list-style: none; margin: 0; padding: 0; display: grid; gap: 1.1rem 2rem; grid-template-columns: 1fr; }
+@media (min-width: 720px) { .learned { grid-template-columns: 1fr 1fr; } }
+.learned li { min-width: 0; margin: 0; }
+.learned h3 { font-size: 1.18rem; line-height: 1.3; margin: 0 0 0.3rem; text-wrap: balance; }
+.learned h3 a { color: var(--accent); text-decoration: underline; text-decoration-thickness: 1px; text-underline-offset: 0.18em; }
+.learned h3 a:hover { color: var(--accent-hover); }
+.learned p:not(.topic) { margin: 0; font-size: 0.98rem; line-height: 1.5; color: var(--ink); }
+.learned-question { margin: 1.4rem 0 0; padding: 0.9rem 1rem; background: var(--tint); border-radius: 3px; }
+.learned-question p { margin: 0; font-size: 1rem; line-height: 1.55; }

@@ -1,7 +1,7 @@
 {# The front page, in fixed slots (notes/reader-experience-plan-2026-11-13.md;
    adding a slot is a keeper decision, and site/budgets.json bounds the page):
    1. what Lighthouse is (README.md's first paragraph);
-   2. what we can say so far (site/answer.md; left out until reviewed);
+   2. what we've learned so far, and where the big question stands (site/learned.md; left out until reviewed);
    3. this week, with the day's line (site/this-week.md);
    4. the investigations, each with where it stands;
    5. the three newest findings and essays.
@@ -14,10 +14,17 @@
   {% if about %}<a class="section-link" href="{{ about.url }}">How Lighthouse works <span aria-hidden="true">→</span></a>{% endif %}
 </div>{% endif %}
 
-{% if repo.answer %}{% set a = repo.answer %}<section class="front-answer" aria-labelledby="answer-title">
-  <h2 id="answer-title">What we can say so far</h2>
-  <p class="answer-meta">{% if a.draft %}<span class="status status-draft" title="Shown only in a preview build; not on the published site">Draft, not yet reviewed</span>{% else %}{% set status = "reviewed" %}{% include "status.njk" %}{% endif %} <time datetime="{{ a.iso }}">{{ a.day }}</time></p>
-  <div class="answer-body">{{ a.body | sourceMarkdown("site/answer.md", "answer") | safe }}</div>
+{% if repo.learned %}{% set l = repo.learned %}<section class="front-learned" aria-labelledby="learned-title">
+  <h2 id="learned-title">What we've learned so far</h2>
+  {% if l.draft %}<p class="answer-meta"><span class="status status-draft" title="Shown only in a preview build; not on the published site">Draft, not yet reviewed</span></p>{% endif %}
+  <ul class="learned">
+    {% for it in l.items %}{% set p = repo.byPath[it.path] %}{% if p %}<li>
+      {% if p.reader %}<p class="topic">{{ p.reader.label }}</p>{% endif %}
+      <h3><a href="{{ p.url }}">{{ it.headline }}</a></h3>
+      <p>{{ it.sentence }}</p>
+    </li>{% endif %}{% endfor %}
+  </ul>
+  {% if l.question %}<div class="learned-question">{{ l.question | sourceMarkdown("site/learned.md", "question") | safe }}</div>{% endif %}
 </section>{% endif %}
 
 {% if repo.thisWeek or repo.today %}{% set weekLimit = 3 %}{% include "home-this-week.njk" %}{% endif %}

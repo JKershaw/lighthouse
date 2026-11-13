@@ -177,22 +177,26 @@ export function todayLine(source = '', now = new Date(), maxDays = 2) {
   return { iso: m[1], day: new Intl.DateTimeFormat('en-GB', { day: 'numeric', month: 'long', timeZone: 'UTC' }).format(day), sentence: m[2].trim() };
 }
 
-// "What we can say so far", from site/answer.md: a header with `date`,
-// `status` (draft or reviewed) and `reviews` (paths of its review notes),
-// then the answer in Markdown. Only a reviewed answer is shown; a draft is
-// shown only in a preview build (LIGHTHOUSE_PREVIEW=drafts), marked as one.
-export function answerInfo(source = '', preview = false) {
-  const text = String(source || '').replace(/^﻿/, '').replace(/^\s*<!--[\s\S]*?-->\s*/, '');
+// "What we've learned so far", from site/learned.md: a header with `date`,
+// `status` (draft or reviewed), `reviews`, `items` ("path | headline |
+// sentence", each retelling one released piece or essay) and `question` (the
+// closing line on the charter's question). Only a reviewed block is shown; a
+// draft only in a preview build (LIGHTHOUSE_PREVIEW=drafts), marked as one.
+export function learnedInfo(source = '', preview = false) {
+  const text = String(source || '').replace(/^\uFEFF/, '').replace(/^\s*<!--[\s\S]*?-->\s*/, '');
   const header = parseHeader(text);
   if (!header) return null;
   const value = (name) => headerField(header.fields, name)?.value || '';
   const status = value('status').toLowerCase();
   if (status !== 'reviewed' && !(preview && status === 'draft')) return null;
-  const body = text.split(/\n\s*\n/).slice(1).join('\n\n').trim();
-  if (!body) return null;
+  const items = (headerField(header.fields, 'items')?.items || []).map((item) => {
+    const [path, headline, ...rest] = item.split('|').map((x) => x.trim());
+    return path && headline && rest.length ? { path, headline, sentence: rest.join('|').trim() } : null;
+  }).filter(Boolean);
+  if (!items.length) return null;
   const d = /^\d{4}-\d{2}-\d{2}$/.test(value('date')) ? new Date(`${value('date')}T00:00:00Z`) : null;
   return {
-    status, draft: status !== 'reviewed', body,
+    status, draft: status !== 'reviewed', items, question: value('question'),
     iso: value('date'), day: d ? new Intl.DateTimeFormat('en-GB', { day: 'numeric', month: 'long', year: 'numeric', timeZone: 'UTC' }).format(d) : '',
     reviews: headerField(header.fields, 'reviews')?.items || [],
   };

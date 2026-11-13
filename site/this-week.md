@@ -24,6 +24,9 @@ Each time you update it:
    names in the text), British English, no em or en dashes, no figure that is
    not in a released piece or the cited source, and no claim in our voice that
    harm is happening or that a named system is compromised.
+   Write for a person, not an agent (the keeper, 13 November 2026): lead
+   with what happened and why a reader might care, and keep any caveat to
+   one short clause; the formal limits are in the page you link.
 5. Newest first, at most six items; drop the oldest beyond six.
 
 The block shows no finding. Whether the editor may change it without review is
@@ -35,8 +38,8 @@ updated: 2026-11-13
 today: 2026-11-13 | We read npm's daily download counts for the compromised bee-js release, which WordPress versions sites report running, the first hours of the CI secret stealer's public traces, and what public sources said about armed robots before next week's Geneva conference. None of it has been reviewed.
 items:
 - 2026-11-13 | lighthouse | We've started counting, hour by hour, the public traces of a campaign that StepSecurity and Aikido say used stolen GitHub accounts from 10 November to plant a script stealing build secrets, AI keys among them. We kept both firms' posts as published first; [the study's brief](studies/LH051/brief.md) says what we count and what we won't name.
-- 2026-11-13 | lighthouse | Our first study of [armed AI-powered robots](studies/LH050/brief.md) has started: before an international weapons conference opens in Geneva on 16 November, we kept what public sources say about three cases and the draft conference texts. It's unreviewed working material, and no deployment or harm finding has been made.
-- 2026-11-12 | lighthouse | We've opened [an investigation of armed AI-powered robots](investigations/physical-authority.md): what they can do, who decides when they use force, and what public evidence says about civilian consequences. Its first study's protocol was fixed that day; no deployment or harm finding has been made.
+- 2026-11-13 | lighthouse | Our first study of [armed AI-powered robots](studies/LH050/brief.md) has started: before an international weapons conference opens in Geneva on 16 November, we kept what public sources say about three cases and the draft conference texts, so that we can see what the week changes. None of it is a finding yet.
+- 2026-11-12 | lighthouse | We've opened [an investigation of armed AI-powered robots](investigations/physical-authority.md): what they can do, who decides when they use force, and what public evidence says about what happens to civilians.
 - 2026-11-12 | reported | D-Link says, in a statement of 10 November, that its networking hardware and apps were not affected by October's PHP flaws, but that older parts of its mydlink cloud portal ran on PHP and have had emergency remediation, with no evidence of unauthorised data access. Our [daily log](notes/php-watch-log.md) has the details.
 - 2026-11-11 | lighthouse | We released [a knowledge map](map/knowledge-lineage/) of everything we have studied and published: it starts from our three questions and lets you follow an idea down to the records and evidence behind it.
 - 2026-11-10 | reported | StepSecurity and Socket report that a release of bee-js, a small JavaScript library, was published to npm on 9 November with a malicious install step, through the project's own trusted publishing and with genuine provenance, and was removed about 75 minutes later. We've begun [a study of how far it travelled](studies/LH049/brief.md), read daily while npm's counts still cover its first day.

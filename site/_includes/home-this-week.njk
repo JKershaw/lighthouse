@@ -3,7 +3,7 @@
 <section class="this-week" aria-labelledby="this-week-title">
   <h2 id="this-week-title">This week{% if w and w.span %} <span class="this-week-span">{{ w.span }}</span>{% endif %}</h2>
   {% if repo.today %}<p class="today-line">{% set status = "live" %}{% include "status.njk" %} <strong>Today, <time datetime="{{ repo.today.iso }}">{{ repo.today.day }}</time>.</strong> {{ repo.today.sentence | mdInline(weekPage) | safe }}</p>{% endif %}
-  {% if w %}<p class="this-week-note">None of this is a finding: <span class="tag">Reported</span> items are others' accounts, <span class="tag">Lighthouse</span> items our own work.</p>
+  {% if w %}<p class="this-week-note"><span class="tag">Lighthouse</span> is our own work; <span class="tag">Reported</span> is someone else's account that we're following. Findings come later, after review.</p>
   <ul>
     {% for item in w.items %}{% if loop.index <= limit %}<li class="this-week-{{ item.kind }}"><span class="tag">{{ item.label }}</span> <time class="this-week-day" datetime="{{ item.iso }}">{{ item.day }}</time> {{ item.sentence | mdInline(weekPage) | safe }}</li>
     {% endif %}{% endfor %}
