@@ -645,7 +645,7 @@ export function scanRepo(root, { siteFile = path.join(root, "site", "site.json")
     if (home) p.context.section = { title: home.title, url: home.url };
   }
   // The reader's content model: label, summary, status, home and next.
-  applyModel({ pieces, essays: releasedEssays, investigations, labels: front.topicLabels, summaries: front.summaries, twinOf });
+  applyModel({ pieces, essays: releasedEssays, investigations, labels: front.topicLabels, summaries: front.summaries, twinOf, warnings });
   // A study's plain name for the "you are here" line: its label in site/sections.md, else its title without the code.
   const studyLabels = Object.fromEntries(studies.map((st) => [st.id, front.labels[st.dir] || front.labels[`${st.dir}/`] || (withoutCode(st.lead.title).length <= 70 ? withoutCode(st.lead.title) : "This study")]));
   const watchSection = front.sections.find(section => section.id === "watch");

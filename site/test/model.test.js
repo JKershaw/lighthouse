@@ -30,11 +30,11 @@ test('next: the following piece in order, else the home; essays find their inves
 
 test('every released piece and essay in the repository has the whole model', () => {
   const repo = scanRepo(root);
-  const missing = [];
+  const missing = repo.warnings.filter((w) => w.includes('no topic label')).map((w) => w.split(':')[0] + ': label');
   for (const p of [...repo.pieces, ...repo.releasedEssays]) {
     if (p.draft || (p.status && p.status !== 'released')) continue;
     const m = p.reader || {};
-    for (const field of ['label', 'summary', 'status']) if (!m[field]) missing.push(`${p.path}: ${field}`);
+    for (const field of ['summary', 'status']) if (!m[field]) missing.push(`${p.path}: ${field}`);
     if (!m.home?.url) missing.push(`${p.path}: home`);
     if (!m.next?.url) missing.push(`${p.path}: next`);
   }

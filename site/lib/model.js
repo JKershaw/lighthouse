@@ -25,7 +25,7 @@ const homeFronts = { articles: { title: 'Findings', url: '/articles/' }, essays:
 
 // Apply the model to the released pieces and essays. `labels` and `summaries`
 // are Maps from path to text; `essays` is newest first.
-export function applyModel({ pieces = [], essays = [], investigations = [], labels = new Map(), summaries = new Map(), twinOf = new Map() }) {
+export function applyModel({ pieces = [], essays = [], investigations = [], labels = new Map(), summaries = new Map(), twinOf = new Map(), warnings = null }) {
   const released = (p) => p && !p.draft && (!p.status || p.status === 'released');
   const all = [...pieces, ...essays].filter(released);
   for (const p of all) {
@@ -51,8 +51,11 @@ export function applyModel({ pieces = [], essays = [], investigations = [], labe
       const older = at >= 0 ? list[at + 1] : null;
       if (older) next = { title: older.title, url: older.url };
     }
+    if (warnings && !p.short && !labels.get(key) && !labels.get(p.path)) warnings.push(`${key}: no topic label in site/sections.md (labels:); showing "${home.title}"`);
     p.reader = {
-      label: labels.get(key) || labels.get(p.path) || '',
+      // Without a label in site/sections.md, the piece's home names it, and the
+      // build warns, so a new piece never shows a blank label or blocks a deploy.
+      label: labels.get(key) || labels.get(p.path) || home.title.replace(/\?$/, ''),
       summary: summaries.get(key) || summaries.get(p.path) || p.summary || '',
       status: statusOf(p),
       home: { title: home.title, url: home.url, investigation: Boolean(ctx.investigation) },
