@@ -18,13 +18,14 @@ The live front page at 390 px: about 6,300 px tall, about 1,500 words, 115 links
 
 ## The design, after a review of the plan (13 November, agreed by the keeper)
 
-Five principles shape every stage:
+Six principles shape every stage:
 
 1. **Certainty is a visual system.** One small status badge, used identically everywhere: **Reviewed** (passed its reviews), **Provisional** (a record or checkpoint), **Live** (an unreviewed count or the daily line, always dated). The labelling rule becomes a template the site enforces, not prose each run remembers.
-2. **The answer leads.** "What we can say so far" is designed now: the preview shows it filled with a draft marked "draft, not yet reviewed", and the reviewed text replaces the draft when it passes (about 23 November). It never reaches main unreviewed.
+2. **What we know leads.** The opening block is designed now: the preview shows it filled with a draft marked "draft, not yet reviewed", and the reviewed text replaces the draft when it passes (about 23 November). It is never shown on the published site unreviewed.
 3. **The investigation page is the unit.** Each investigation is a living page: question, current answer with its badge, what is running, a dated timeline, the pieces. The front page is a short guide to four of them plus this week.
 4. **Empty and worst states are designed.** A quiet day says so; a daily line older than two days disappears; the longest title sets the card layout; an investigation with nothing new says when its next read is due.
-5. **Reading comfort.** A measure of about 65 characters, a small type scale, one accent, reading time on pieces, and method folded into "How we know" at the end where a piece already has such a section.
+5. **Write for a person** (the keeper, 13 November: "agents need to see the formality, but a human reader needs consideration"). Reader surfaces (the front page, This week, investigation cards) lead with what is interesting and what it means, in plain words, with a caveat in one clause; the formal limits stay in the pieces and records, one click away. So the front page opens with "What we've learned so far" (site/learned.md: short headlines, each retelling one released piece or essay and linking to it) and closes that block with where the charter's question stands, rather than opening with what has not been found. The block is reviewed like a piece: every sentence checked against the piece it retells.
+6. **Reading comfort.** A measure of about 65 characters, a small type scale, one accent, reading time on pieces, and method folded into "How we know" at the end where a piece already has such a section.
 
 ## Bloat is a process, so guard against it
 
