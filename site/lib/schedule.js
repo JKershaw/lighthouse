@@ -267,6 +267,7 @@ export function buildSchedule(root, now = new Date()) {
   const pick = (states) => rows.filter((r) => states.includes(r.state));
   return {
     today,
+    rows,
     total: rows.length,
     counts: Object.entries(LABELS).filter(([k]) => counts[k]).map(([k, label]) => ({ state: k, label, n: counts[k] })),
     weeks,

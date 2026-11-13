@@ -788,3 +788,35 @@ a.status-reviewed:hover { background: var(--accent-hover); border-color: var(--a
 .working-files li { padding: 0.6rem 0; border-bottom: 1px solid var(--rule); }
 .working-files a { font-weight: 600; }
 .working-files p { margin: 0.15rem 0 0; font-size: 0.92rem; color: var(--muted); }
+
+.visually-hidden { position: absolute; width: 1px; height: 1px; overflow: hidden; clip: rect(0 0 0 0); white-space: nowrap; }
+.status-draft { color: var(--essay); background: transparent; border: 1px dashed var(--essay); }
+
+/* What we can say so far: the answer leads. */
+.front-answer { margin: 0 0 2.4rem; padding: 1rem 1.1rem 1.1rem; border-top: 3px solid var(--accent); background: var(--tint); }
+.front-answer h2 { font-family: var(--sans); font-size: 1rem; margin: 0 0 0.35rem; }
+.answer-meta { font-family: var(--sans); font-size: 0.82rem; color: var(--muted); margin: 0 0 0.6rem; }
+.answer-body p { font-size: 1.06rem; line-height: 1.55; margin: 0 0 0.7rem; max-width: var(--measure); }
+.answer-body p:last-child { margin-bottom: 0; }
+
+/* This week on the front page: the day's line first. */
+.today-line { font-family: var(--sans); font-size: 0.95rem; line-height: 1.5; margin: 0 0 0.8rem; }
+.this-week-note { font-family: var(--sans); font-size: 0.8rem; color: var(--muted); margin: 0 0 0.4rem; }
+
+/* Investigation cards: question, where it stands, what is moving. */
+.card-question { font-size: 0.95rem; line-height: 1.45; color: var(--muted); }
+.card-stands { font-family: var(--sans); font-size: 0.9rem; line-height: 1.45; }
+.card-kind { color: var(--muted); }
+
+/* An investigation page's living top. */
+.inv-now { border-left: 3px solid var(--accent); padding: 0.2rem 0 0.2rem 0.9rem; margin: 0 0 1.4rem; }
+.inv-stands { font-family: var(--sans); font-size: 0.95rem; line-height: 1.5; margin: 0 0 0.3rem; }
+.inv-label { display: block; font-size: 0.72rem; letter-spacing: 0.1em; text-transform: uppercase; color: var(--muted); margin-bottom: 0.15rem; }
+.inv-studies, .inv-pieces { font-family: var(--sans); margin: 0 0 1.2rem; }
+.inv-studies summary, .inv-pieces summary { font-weight: 600; cursor: pointer; padding: 0.35rem 0; min-height: 44px; display: list-item; line-height: 2; }
+.study-list { list-style: none; padding: 0; margin: 0.3rem 0 0; }
+.study-list li { padding: 0.35rem 0; border-bottom: 1px solid var(--rule); font-size: 0.92rem; line-height: 1.4; }
+.study-list .when { display: block; }
+.inv-pieces ol { padding-left: 1.3em; margin: 0.3rem 0 0; }
+.inv-pieces li { margin: 0 0 0.55rem; font-size: 0.95rem; line-height: 1.4; }
+.section-lede { font-family: var(--sans); font-size: 0.88rem; color: var(--muted); margin: -0.3rem 0 0.8rem; }

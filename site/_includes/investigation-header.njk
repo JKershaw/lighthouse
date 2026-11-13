@@ -1,24 +1,18 @@
-{% set inv = doc.investigation %}
+{# The top of an investigation's page, as a living page: the question, where it stands (its answer and that answer's status), what is running with each study's latest read, and its pieces in reading order. Built by lib/investigation-now.js from the repository and the schedule; the page's own text follows. #}
+{% set inv = doc.investigation %}{% set now = inv | investigationNow(repo, schedule) %}
 {% if inv.question %}<p class="question">{{ inv.question | mdInline(page) | safe }}</p>{% endif %}
-<dl class="meta investigation">
-  {% if inv.attention %}<div>
-    <dt>Attention</dt>
-    <dd>{{ inv.attention | capitalize }}. <span class="aside">Attention says where Lighthouse is looking, not whether any claim is proven or the question resolved.</span></dd>
-  </div>{% endif %}
-  {% if inv.current %}<div>
-    <dt>Current account</dt>
-    <dd><a href="{{ inv.current.url }}">{{ inv.current.title }}</a></dd>
-  </div>{% endif %}
-  {% if inv.started %}<div>
-    <dt>Started</dt>
-    <dd>{{ inv.started }}</dd>
-  </div>{% endif %}
-  {% if inv.pieces.length %}<div>
-    <dt>Pieces, in order</dt>
-    <dd><ol>{% for p in inv.pieces %}<li><a href="{{ p.url }}">{{ p.title }}</a>{% if p.draft %} <span class="tag">Draft</span>{% endif %}{% if p.twin %} <span class="twin">(<a href="{{ p.twin.url }}">short form</a>)</span>{% endif %}</li>{% endfor %}</ol></dd>
-  </div>{% endif %}
-  {% if inv.studies.length %}<div>
-    <dt>Studies</dt>
-    <dd><ol>{% for s in inv.studies %}<li><a href="{{ s.url }}"{% if s.study %} title="{{ s.study }}"{% endif %}>{{ s.title | withoutCode }}</a></li>{% endfor %}</ol></dd>
-  </div>{% endif %}
-</dl>
+<div class="inv-now">
+  <p class="inv-stands"><span class="inv-label">Where it stands</span> {% set status = now.answer.status %}{% include "status.njk" %} {% if now.answer.url %}{{ now.answer.kind }}: <a href="{{ now.answer.url }}">{{ now.answer.title }}</a>{% else %}{{ now.answer.title }}{% endif %}</p>
+  <p class="when">{% if inv.started %}Started {{ inv.started }} · {% endif %}{{ now.studies }} {{ "study" if now.studies == 1 else "studies" }}, {{ now.running }} running{% if now.pieces %} · {{ now.pieces }} {{ "piece" if now.pieces == 1 else "pieces" }}{% endif %}{% if now.latestRead %} · latest read {{ now.latestRead.day }}{% endif %}{% if now.next %} · next read {{ now.next.day }}{% endif %}</p>
+</div>
+{% if now.studyList.length %}<details class="inv-studies"{% if now.running %} open{% endif %}>
+  <summary>The studies{% if now.running %}: {{ now.running }} running{% endif %}</summary>
+  <ul class="study-list">
+    {% for s in now.studyList %}<li><a href="{{ s.url }}" title="{{ s.id }}">{{ s.title }}</a> <span class="when">{% if s.running %}running{% else %}finished or paused{% endif %}{% if s.latest %} · <a href="{{ s.latest.url }}">latest read {{ s.latest.day }}</a>{% endif %}</span></li>
+    {% endfor %}
+  </ul>
+</details>{% endif %}
+{% if inv.pieces.length %}<details class="inv-pieces" open>
+  <summary>Pieces, in reading order</summary>
+  <ol>{% for p in inv.pieces %}{% set full = repo.byPath[p.path] %}<li>{% if full and full.reader %}<span class="topic">{{ full.reader.label }}{% set status = full.reader.status %}{% include "status.njk" %}</span>{% endif %}<a href="{{ p.url }}">{{ p.title }}</a>{% if p.draft %} <span class="tag">Draft</span>{% endif %}{% if p.twin %} <span class="twin">(<a href="{{ p.twin.url }}">short form</a>)</span>{% endif %}</li>{% endfor %}</ol>
+</details>{% endif %}

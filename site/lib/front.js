@@ -161,3 +161,39 @@ export function thisWeek(source = '', now = new Date(), staleDays = 8) {
     : '';
   return { span, fromIso: from ? value('week').slice(0, 10) : '', toIso: to ? value('week').slice(-10) : '', updated: long.format(updated), updatedIso: value('updated'), items: current };
 }
+
+// The day's line from site/this-week.md's header (`today: YYYY-MM-DD |
+// sentence`): what the watch read that day, unreviewed and shown as Live.
+// Hidden when more than `maxDays` old at build, so a missed day shows nothing
+// rather than a stale line (the plan's designed empty state).
+export function todayLine(source = '', now = new Date(), maxDays = 2) {
+  const text = String(source || '').replace(/^﻿/, '').replace(/^\s*<!--[\s\S]*?-->\s*/, '');
+  const header = parseHeader(text);
+  const raw = header ? headerField(header.fields, 'today')?.value || '' : '';
+  const m = raw.match(/^(\d{4}-\d{2}-\d{2})\s*\|\s*([\s\S]+)$/);
+  if (!m) return null;
+  const day = new Date(`${m[1]}T00:00:00Z`);
+  if (Number.isNaN(day.getTime()) || now.getTime() - day.getTime() > maxDays * 86400000) return null;
+  return { iso: m[1], day: new Intl.DateTimeFormat('en-GB', { day: 'numeric', month: 'long', timeZone: 'UTC' }).format(day), sentence: m[2].trim() };
+}
+
+// "What we can say so far", from site/answer.md: a header with `date`,
+// `status` (draft or reviewed) and `reviews` (paths of its review notes),
+// then the answer in Markdown. Only a reviewed answer is shown; a draft is
+// shown only in a preview build (LIGHTHOUSE_PREVIEW=drafts), marked as one.
+export function answerInfo(source = '', preview = false) {
+  const text = String(source || '').replace(/^﻿/, '').replace(/^\s*<!--[\s\S]*?-->\s*/, '');
+  const header = parseHeader(text);
+  if (!header) return null;
+  const value = (name) => headerField(header.fields, name)?.value || '';
+  const status = value('status').toLowerCase();
+  if (status !== 'reviewed' && !(preview && status === 'draft')) return null;
+  const body = text.split(/\n\s*\n/).slice(1).join('\n\n').trim();
+  if (!body) return null;
+  const d = /^\d{4}-\d{2}-\d{2}$/.test(value('date')) ? new Date(`${value('date')}T00:00:00Z`) : null;
+  return {
+    status, draft: status !== 'reviewed', body,
+    iso: value('date'), day: d ? new Intl.DateTimeFormat('en-GB', { day: 'numeric', month: 'long', year: 'numeric', timeZone: 'UTC' }).format(d) : '',
+    reviews: headerField(header.fields, 'reviews')?.items || [],
+  };
+}

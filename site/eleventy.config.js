@@ -20,6 +20,7 @@ import sideNotes from "./lib/side-notes.js";
 import { buildSchedule, withoutCode } from "./lib/schedule.js";
 import { homeContent, withoutTitle } from "./lib/front.js";
 import { STATUS } from "./lib/model.js";
+import { investigationNow } from "./lib/investigation-now.js";
 
 const siteDir = path.dirname(fileURLToPath(import.meta.url));
 const root = path.resolve(siteDir, "..");
@@ -63,6 +64,7 @@ export default function (eleventyConfig) {
   eleventyConfig.addPassthroughCopy({ "site/assets": "assets" });
 
   // Working files: one footer link to everything a reader does not need.
+  eleventyConfig.addTemplate("_lighthouse/this-week.njk", "", { layout: "index-this-week.njk", permalink: "/this-week/", title: "This week", section: "this-week" });
   eleventyConfig.addTemplate("_lighthouse/working.njk", "", { layout: "index-working.njk", permalink: "/working/", title: "Working files", section: "working" });
 
   // A bounded, explicitly unreviewed view of retained evidence. No release/feed entry.
@@ -130,6 +132,7 @@ export default function (eleventyConfig) {
   eleventyConfig.addFilter("mdInline", (value, page) => (md ? md.renderInline(String(value || ""), { page }) : value));
 
   eleventyConfig.addFilter("homeContent", homeContent);
+  eleventyConfig.addFilter("investigationNow", investigationNow);
   // A reader meets a study's plain title; its code stays in the kicker, the URL and a title attribute.
   eleventyConfig.addFilter("withoutCode", withoutCode);
   // "working note (study LH039)" reads "Working note (study LH039)": the first letter only.

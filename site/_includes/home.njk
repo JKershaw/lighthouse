@@ -1,56 +1,43 @@
-{# The front page: README.md's first paragraph as an introduction, the dated
-   "This week" block from site/this-week.md, the lead
-   finding, the latest findings and essays, the investigations, and the rest
-   of README.md behind a disclosure. #}
+{# The front page, in fixed slots (notes/reader-experience-plan-2026-11-13.md;
+   adding a slot is a keeper decision, and site/budgets.json bounds the page):
+   1. what Lighthouse is (README.md's first paragraph);
+   2. what we can say so far (site/answer.md; left out until reviewed);
+   3. this week, with the day's line (site/this-week.md);
+   4. the investigations, each with where it stands;
+   5. the three newest findings and essays.
+   README.md's remainder is not shown here; About carries it. #}
 {% set home = content | homeContent %}
 {% set about = repo.byPath["about.md"] or repo.byPath["AGENTS.md"] %}
+<h1 class="visually-hidden">Lighthouse</h1>
 {% if home.intro %}<div class="front-intro">
   {{ home.intro | safe }}
-  {% if about %}<a class="section-link" href="{{ about.url }}">About Lighthouse <span aria-hidden="true">→</span></a>{% endif %}
+  {% if about %}<a class="section-link" href="{{ about.url }}">How Lighthouse works <span aria-hidden="true">→</span></a>{% endif %}
 </div>{% endif %}
 
-{% if repo.thisWeek %}{% include "home-this-week.njk" %}{% endif %}
-
-{% if repo.front.lead %}{% set p = repo.front.lead %}
-<section class="front-lead" aria-labelledby="lead-title">
-  <p class="kicker">In focus · {{ p.entryKind }}</p>
-  <h1 id="lead-title"><a href="{{ p.url }}">{{ p.title }}</a></h1>
-  <p class="lead-deck">{{ p.deck }}</p>
-  <p class="when">{{ p.published }}{% if not (p.displayState == 'Revised' and p.revised and p.revised != p.published) %} · {{ p.displayState }}{% endif %}{% if p.revised and p.revised != p.published %} · {{ p.revisedLabel }} {{ p.revised }}{% endif %}</p>
-  {% if p.figure %}<figure>
-    <a class="figure-link" href="{{ p.url }}"><img src="{{ p.figure.url }}" alt="{{ p.figure.alt }}"></a>
-    <figcaption>{{ p.figure.caption }} From <a href="{{ p.url }}">the piece published {{ p.published }}</a>{% if p.developing %}; later dated notices may postdate this illustration{% endif %}.</figcaption>
-  </figure>{% endif %}
-</section>
-{% else %}<h1>Lighthouse</h1>{% endif %}
-
-{% if repo.watch or repo.front.latest.length or schedule.latestRun or repo.onWatch.length %}<section class="front-section" aria-labelledby="latest-title">
-  <h2 id="latest-title">Latest</h2>
-  {% include "home-now.njk" %}
-  {% if repo.front.latest.length %}<p class="latest-order">{{ repo.front.latestOrder }}</p>
-  <ol class="compact-entries">
-    {% for p in repo.front.latest %}{% include "compact-entry.njk" %}{% endfor %}
-  </ol>{% endif %}
-  <p class="section-links">
-    <a class="section-link" href="/articles/">All findings <span aria-hidden="true">→</span></a>
-    {% if repo.hasEssays %}<a class="section-link" href="/essays/">All essays <span aria-hidden="true">→</span></a>{% endif %}
-  </p>
+{% if repo.answer %}{% set a = repo.answer %}<section class="front-answer" aria-labelledby="answer-title">
+  <h2 id="answer-title">What we can say so far</h2>
+  <p class="answer-meta">{% if a.draft %}<span class="status status-draft" title="Shown only in a preview build; not on the published site">Draft, not yet reviewed</span>{% else %}{% set status = "reviewed" %}{% include "status.njk" %}{% endif %} <time datetime="{{ a.iso }}">{{ a.day }}</time></p>
+  <div class="answer-body">{{ a.body | sourceMarkdown("site/answer.md", "answer") | safe }}</div>
 </section>{% endif %}
+
+{% if repo.thisWeek or repo.today %}{% set weekLimit = 3 %}{% include "home-this-week.njk" %}{% endif %}
 
 {% if repo.front.investigations.length %}<section class="front-section" aria-labelledby="investigations-title">
   <h2 id="investigations-title">Investigations</h2>
+  <p class="section-lede">Each follows one question through several studies. Start with the one that interests you.</p>
   <ul class="investigation-cards">
-    {% for inv in repo.front.investigations %}<li class="investigation-card">
+    {% for inv in repo.front.investigations %}{% set now = inv | investigationNow(repo, schedule) %}<li class="investigation-card">
       <h3><a href="{{ inv.url }}">{{ inv.title }}</a></h3>
-      {% if inv.question %}<p>{{ inv.question | mdInline(page) | safe }}</p>{% endif %}
-      {% if inv.facts.length %}<p class="when">{{ inv.facts | join(" · ") }}</p>{% endif %}
-      {% if inv.current %}<p class="investigation-current">Current account: <a href="{{ inv.current.url }}">{{ inv.current.title }}</a></p>{% endif %}
+      <p class="card-stands">{% set status = now.answer.status %}{% include "status.njk" %} {% if now.answer.url %}<span class="card-kind">{{ now.answer.kind }}:</span> <a href="{{ now.answer.url }}">{{ now.answer.title }}</a>{% else %}{{ now.answer.title }}{% endif %}</p>
+      <p class="when">{% if now.running %}{{ now.running }} {{ "study" if now.running == 1 else "studies" }} running{% else %}No study running{% endif %}{% if now.latestRead %} · latest read {{ now.latestRead.day }}{% endif %}{% if now.next %} · next read {{ now.next.day }}{% endif %}</p>
     </li>{% endfor %}
   </ul>
-  <a class="section-link" href="/investigations/">All investigations <span aria-hidden="true">→</span></a>
 </section>{% endif %}
 
-<details class="front-background">
-  <summary>Background and qualifications</summary>
-  <div class="prose">{{ home.background | safe }}</div>
-</details>
+{% if repo.front.latest.length %}<section class="front-section" aria-labelledby="latest-title">
+  <h2 id="latest-title">Recently published</h2>
+  <ol class="compact-entries">
+    {% set brief = true %}{% for p in repo.front.latest.slice(0, 3) %}{% include "compact-entry.njk" %}{% endfor %}
+  </ol>
+  <p class="section-links"><a class="section-link" href="/articles/">All findings and essays <span aria-hidden="true">→</span></a></p>
+</section>{% endif %}

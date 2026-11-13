@@ -32,6 +32,7 @@ the gate's decision on proposals.md P-0018.
 title: This week
 week: 2026-11-07 to 2026-11-13
 updated: 2026-11-13
+today: 2026-11-13 | We read npm's daily download counts for the compromised bee-js release, which WordPress versions sites report running, the first hours of the CI secret stealer's public traces, and what public sources said about armed robots before next week's Geneva conference. None of it has been reviewed.
 items:
 - 2026-11-13 | lighthouse | We've started counting, hour by hour, the public traces of a campaign that StepSecurity and Aikido say used stolen GitHub accounts from 10 November to plant a script stealing build secrets, AI keys among them. We kept both firms' posts as published first; [the study's brief](studies/LH051/brief.md) says what we count and what we won't name.
 - 2026-11-13 | lighthouse | Our first study of [armed AI-powered robots](studies/LH050/brief.md) has started: before an international weapons conference opens in Geneva on 16 November, we kept what public sources say about three cases and the draft conference texts. It's unreviewed working material, and no deployment or harm finding has been made.

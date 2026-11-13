@@ -1,10 +1,12 @@
-{# This week: a dated block from site/this-week.md, which the scheduled run keeps (its header says how). Left out when the file is missing or stale (lib/front.js, thisWeek). Not a finding: "Reported" items are others' accounts, linked; "Lighthouse" items are its own work. #}
-{% set w = repo.thisWeek %}
+{# This week: the day's line (Live, from site/this-week.md's `today`, hidden after two days) and the dated items from the same file, which the scheduled run keeps (its header says how). Left out when the file is missing or stale (lib/front.js, thisWeek and todayLine). "Reported" items are others' accounts, linked; "Lighthouse" items are its own work. On the front page the list is cut to three items; /this-week/ shows them all. #}
+{% set w = repo.thisWeek %}{% set limit = weekLimit or 99 %}
 <section class="this-week" aria-labelledby="this-week-title">
-  <h2 id="this-week-title">This week{% if w.span %} <span class="this-week-span">{{ w.span }}</span>{% endif %}</h2>
+  <h2 id="this-week-title">This week{% if w and w.span %} <span class="this-week-span">{{ w.span }}</span>{% endif %}</h2>
+  {% if repo.today %}<p class="today-line">{% set status = "live" %}{% include "status.njk" %} <strong>Today, <time datetime="{{ repo.today.iso }}">{{ repo.today.day }}</time>.</strong> {{ repo.today.sentence | mdInline(page) | safe }}</p>{% endif %}
+  {% if w %}<p class="this-week-note">None of this is a finding: <span class="tag">Reported</span> items are others' accounts, <span class="tag">Lighthouse</span> items our own work.</p>
   <ul>
-    {% for item in w.items %}<li class="this-week-{{ item.kind }}"><span class="tag">{{ item.label }}</span> <time class="this-week-day" datetime="{{ item.iso }}">{{ item.day }}</time> {{ item.sentence | mdInline(page) | safe }}</li>
-    {% endfor %}
+    {% for item in w.items %}{% if loop.index <= limit %}<li class="this-week-{{ item.kind }}"><span class="tag">{{ item.label }}</span> <time class="this-week-day" datetime="{{ item.iso }}">{{ item.day }}</time> {{ item.sentence | mdInline(page) | safe }}</li>
+    {% endif %}{% endfor %}
   </ul>
-  <p class="this-week-note">Written from the records, updated <time datetime="{{ w.updatedIso }}">{{ w.updated }}</time>. Reported items are others' accounts; none of this is a finding.</p>
+  {% if w.items.length > limit %}<a class="section-link" href="/this-week/">All {{ w.items.length }} this week, and what the watch is doing now <span aria-hidden="true">→</span></a>{% elif weekLimit %}<a class="section-link" href="/this-week/">What the watch is doing now <span aria-hidden="true">→</span></a>{% endif %}{% endif %}
 </section>
