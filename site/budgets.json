@@ -1,9 +1,9 @@
 {
-  "comment": "The front page's budget (notes/reader-experience-plan-2026-11-13.md). Measured from the built page by test/budgets.test.js (words in main, links, navigation) and test/measure.mjs --check (height at 390 px). Enforced in the site's tests (npm test, test/measure.mjs --check), which sessions run before pushing; not in the deploy workflow, so one long week never stops the site publishing, and the editor's visit reads the measurements. Raising a number is a keeper decision. The keeper, 13 November 2026: page length is fine if it is all interesting, since the front page is effectively a publication; so height and words allow the learned block (4,074 px and 776 words in the preview), and links and navigation stay tight, since bloat came from accreted sections and links, not from good writing.",
+  "comment": "The front page's budget (notes/reader-experience-plan-2026-11-13.md). Measured from the built page by test/budgets.test.js (words in main, links, navigation) and test/measure.mjs --check (height at 390 px). Enforced in the site's tests (npm test, test/measure.mjs --check), which sessions run before pushing; not in the deploy workflow, so one long week never stops the site publishing, and the editor's visit reads the measurements. Raising a number is a keeper decision. The keeper, 13 November 2026: page length is fine if it is all interesting, since the front page is effectively a publication; so height and words allow the learned block (4,378 px and 897 words once reviewed, the reviews having added caveats), and links and navigation stay tight, since bloat came from accreted sections and links, not from good writing.",
   "enforce": true,
   "front": {
     "heightAt390": 4500,
-    "mainWords": 850,
+    "mainWords": 950,
     "links": 40,
     "headerNav": 5,
     "footerLinks": 8
