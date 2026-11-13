@@ -3,6 +3,7 @@
 {% if inv.question %}<p class="question">{{ inv.question | mdInline(page) | safe }}</p>{% endif %}
 <div class="inv-now">
   <p class="inv-stands"><span class="inv-label">Where it stands</span> {% set status = now.answer.status %}{% include "status.njk" %} {% if now.answer.url %}{{ now.answer.kind }}: <a href="{{ now.answer.url }}">{{ now.answer.title }}</a>{% else %}{{ now.answer.title }}{% endif %}</p>
+  {% if now.reading %}<p class="card-reading">{{ now.reading.kind }}: <a href="{{ now.reading.url }}">{{ now.reading.title }}</a></p>{% endif %}
   <p class="when">{% if inv.started %}Started {{ inv.started }} · {% endif %}{{ now.studies }} {{ "study" if now.studies == 1 else "studies" }}, {{ now.running }} running{% if now.pieces %} · {{ now.pieces }} {{ "piece" if now.pieces == 1 else "pieces" }}{% endif %}{% if now.latestRead %} · latest read {{ now.latestRead.day }}{% endif %}{% if now.next %} · next read {{ now.next.day }}{% endif %}</p>
 </div>
 {% if now.studyList.length %}<details class="inv-studies"{% if now.running %} open{% endif %}>

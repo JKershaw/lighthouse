@@ -29,6 +29,7 @@
     {% for inv in repo.front.investigations %}{% set now = inv | investigationNow(repo, schedule) %}<li class="investigation-card">
       <h3><a href="{{ inv.url }}">{{ inv.title }}</a></h3>
       <p class="card-stands">{% set status = now.answer.status %}{% include "status.njk" %} {% if now.answer.url %}<span class="card-kind">{{ now.answer.kind }}:</span> <a href="{{ now.answer.url }}">{{ now.answer.title }}</a>{% else %}{{ now.answer.title }}{% endif %}</p>
+      {% if now.reading %}<p class="card-reading">{{ now.reading.kind }}: <a href="{{ now.reading.url }}">{{ now.reading.title }}</a></p>{% endif %}
       <p class="when">{% if now.running %}{{ now.running }} {{ "study" if now.running == 1 else "studies" }} running{% else %}No study running{% endif %}{% if now.latestRead %} · latest read {{ now.latestRead.day }}{% endif %}{% if now.next %} · next read {{ now.next.day }}{% endif %}</p>
     </li>{% endfor %}
   </ul>

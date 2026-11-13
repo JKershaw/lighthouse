@@ -43,6 +43,7 @@
       <li><a href="/feed.xml">Feed</a></li>
     </ul>
   </nav>
+  <p class="status-key"><span class="status status-reviewed">Reviewed</span> checked against its sources before release · <span class="status status-provisional">Provisional</span> a working record that may change · <span class="status status-live">Live</span> read recently, unreviewed, dated</p>
   <p>Built from <a href="{{ repo.repoUrl }}">the repository</a> on <time datetime="{{ repo.buildIso }}">{{ repo.buildDate }}</time>{% if repo.commit %}, at commit <a href="{{ repo.commitUrl }}">{{ repo.commit }}</a>{% endif %}.</p>
 </footer>
 </body>

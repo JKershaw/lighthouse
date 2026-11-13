@@ -18,13 +18,14 @@ export function investigationNow(inv, repo, schedule) {
   const pieces = (inv.pieces || []).filter((p) => !p.draft && !p.short).map((p) => repo.byPath[p.path]).filter(Boolean);
   const newestPiece = [...pieces].sort((a, b) => (b.pubTime || 0) - (a.pubTime || 0))[0] || null;
 
-  // The answer: the current account, else the newest released piece, else none yet.
+  // Where it stands: the current account if there is one (Reviewed); otherwise
+  // no reviewed finding yet (Provisional). The newest released piece or essay is
+  // shown beside it as reading, never as the investigation's answer.
   const current = inv.current ? repo.byPath[inv.current.path] : null;
   const answer = current
     ? { title: current.title, url: current.url, status: 'reviewed', kind: 'Current account' }
-    : newestPiece
-      ? { title: newestPiece.title, url: newestPiece.url, status: 'reviewed', kind: newestPiece.essay ? 'Latest essay' : 'Latest piece' }
-      : { title: 'Working records only; no reviewed finding yet', url: '', status: 'provisional', kind: '' };
+    : { title: 'No reviewed finding yet; working records only', url: '', status: 'provisional', kind: '' };
+  const reading = !current && newestPiece ? { title: newestPiece.title, url: newestPiece.url, kind: newestPiece.essay ? 'Latest essay' : 'Latest piece' } : null;
 
   // The latest activity: the newest checkpoint among its studies, or its newest piece.
   const reads = studies.filter((s) => s.checkpoints[0]).map((s) => ({ iso: s.checkpoints[0].key.slice(0, 10), title: repo.studyLabels?.[s.id] || s.lead.title, url: s.url }));
@@ -39,6 +40,7 @@ export function investigationNow(inv, repo, schedule) {
 
   return {
     answer,
+    reading,
     running: runningIds.size,
     studies: studies.length,
     pieces: pieces.length,
