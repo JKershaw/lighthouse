@@ -25,10 +25,13 @@ try{
   await page.route('**/*',route=>route.request().url().startsWith('http://127.0.0.1:')?route.continue():route.abort());
   const errors=[];page.on('pageerror',e=>errors.push(String(e)));
   await page.goto(base+'/');
-  const nav=page.locator('.masthead').getByRole('link',{name:'Knowledge map',exact:true});
-  assert.ok(await nav.isVisible(),'The knowledge map must be reachable in the main navigation');
+  const working=page.getByRole('contentinfo').getByRole('link',{name:'Working files',exact:true});
+  assert.ok(await working.isVisible(),'Working files must be reachable from the homepage');
   assert.equal(await page.locator('.front-knowledge').count(),0,'The homepage must not promote the map as a feature');
-  await nav.click();
+  await working.click();
+  const mapEntry=page.locator('main').getByRole('link',{name:'Knowledge map',exact:true});
+  assert.ok(await mapEntry.isVisible(),'The knowledge map must be reachable through Working files');
+  await mapEntry.click();
   assert.equal(await page.locator('h1').innerText(),'A map of what we know.');
   assert.ok(await page.evaluate(()=>document.documentElement.scrollWidth<=innerWidth),`Overflow ${width} ${theme}`);
   const current=JSON.parse(fs.readFileSync('site/.generated/knowledge-map.json'));
