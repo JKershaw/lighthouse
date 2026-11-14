@@ -20,14 +20,10 @@ Base: `cc80694431adfaafd8a2aea86b86813d1dcdb3ee`, checked out on 12 November. Lo
 
 Before any push, establish that the concurrent scheduled session has finished, fetch main and reconcile its changes. An idle GitHub Actions build or a quiet main branch alone does not prove the agent session has finished. If no reliable completion signal exists, keep the push hold and report the prepared commit to John. Do not poll indefinitely or create a timer without being asked.
 
-At reconciliation: preserve all other schedule claims and results; rename LH050 throughout if another session has used that identity; verify all relative links and the four-investigation capacity account; inspect elapsed schedule windows and record missed readings or a dated prospective amendment rather than backfilling. Commit the reconciled state and push only after the hold is demonstrably lifted. No additional approval of the already agreed research direction is needed.
+At reconciliation: preserve all other schedule claims and results; rename LH050 throughout if another session has used that identity; verify all relative links; inspect elapsed schedule windows and record missed readings or a dated prospective amendment rather than backfilling. Commit the reconciled state and push only after the hold is demonstrably lifted. No additional approval of the already agreed research direction is needed.
 
-The end date is fixed unless amended explicitly. At the final checkpoint rest the investigation and return the capacity limit to three unless John renews it. Existing research, review and evidence rules remain in force.
+The end date is fixed unless amended explicitly. At the final checkpoint rest the investigation unless John renews it. Existing research, review and evidence rules remain in force.
 
 ## Push hold lifted, 12 November 2026
 
 After preparation, John wrote: "Today's scheduled work has concluded so we are safe to merge as needed." This is the completion signal lifting the hold. Main advanced to `fc828b0` with the completed amendments and review; the preparation will reconcile those results before pushing. The earlier hold remains above as the decision history, not a continuing block.
-
-## Operating-capacity amendment, 13 November 2026
-
-John subsequently authorised [doubling Lighthouse's standing operating limits](../operating-limits-2026-11-13.md). The pilot still ends on 24 December and retains its fixed study resources and scope. The capacity ceiling in the earlier decision is superseded: eight through the pilot, six afterwards. Closing the pilot does not renew the investigation.
