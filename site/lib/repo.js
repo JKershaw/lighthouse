@@ -38,6 +38,9 @@ const ROOT_LABELS = {
   "proposals.md": "Proposals",
   "releases.md": "Releases",
   "sources.md": "Sources",
+  "glossary.md": "Glossary",
+  "corrections.md": "Corrections",
+  "data-and-replay.md": "Data and replay",
 };
 
 const dateFormat = new Intl.DateTimeFormat("en-GB", {
