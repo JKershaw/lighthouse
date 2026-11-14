@@ -1,5 +1,6 @@
 date_utc,run_id,component,amount,currency,basis,note
 2026-11-14,policy-work-2026-11-14,driver,,,unavailable,This harness does not expose model usage pricing
 2026-11-14,policy-work-2026-11-14,policy_review,,,unavailable,Fresh policy review; usage pricing not exposed to driver
-2026-11-14,2026-11-14T1411Z,driver,2.48,USD,list_rate_estimate,hb drivercost from 14:10 UTC to about 15:35 UTC; output tokens estimated from characters; updated if the editor's step adds more
+2026-11-14,2026-11-14T1411Z,driver,3.70,USD,list_rate_estimate,hb drivercost from 14:10 UTC through the editor's step; output tokens estimated from characters
 2026-11-14,2026-11-14T1411Z,subagents_work,7.66,USD,list_rate_estimate,"five Opus 5.5 subagents priced by hb tokens: LH039 checkpoint 1.14, AI-cost page 0.68, indexes 3.37, observations and programme 2.00, early openings 0.47"
+2026-11-14,2026-11-14T1411Z,editor_reader,0.51,USD,list_rate_estimate,"editor's visit reader, one Opus 5.5 subagent, hb tokens"

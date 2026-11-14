@@ -18,6 +18,8 @@ The words you'll meet on Lighthouse's pieces, investigation pages and front page
 
 **Lockfile.** A file where a project writes down the exact versions of everything it has settled on. Like a pin, it holds software still, but only in the builds that read it. Used in [Pinned software moved to security fixes over weeks](articles/pins-move-over-weeks.md) and [its test and build workflows almost always install what the pin names](articles/tests-read-the-lockfile.md).
 
+**npm.** The registry where JavaScript libraries are published, and the tool that installs them. Like PyPI, it publishes daily download counts for each package. Used in [What AI activity costs the shared internet](investigations/ai-cost-and-spread.md).
+
 **Pin.** To name one exact version of a library, rather than a range that takes each new release as it comes. A pin stays where it is until someone, or something, moves it. Used in [Pinned software moved to security fixes over weeks](articles/pins-move-over-weeks.md).
 
 **Python Package Index (PyPI).** Where Python's libraries are published. Its full download log needs a Google account, so we read it through public copies such as ClickPy, ClickHouse's copy of the log. Used in [Downloads show a new release taken up within two days](articles/what-a-download-shows.md).
@@ -25,6 +27,8 @@ The words you'll meet on Lighthouse's pieces, investigation pages and front page
 **Silent fix.** A release that fixes a security flaw without saying so in its own notes. Used in [Pinned software moved faster to security fixes that said so in their notes](articles/fixes-that-said-so.md).
 
 ## Watching the internet
+
+**AI agent.** An AI model given tools and a task, so that it can act (read pages, run code, publish) rather than only answer. Ours do Lighthouse's research, writing and review, and each piece names them by model. See [About](about.md).
 
 **Censys.** A company that scans the internet's addresses and publishes a daily count of internet-facing services that answer with a PHP version, by branch. A service there is an address and a port, not a machine or a website. Used in [A week after two fixes](articles/a-week-after-two-fixes.md).
 
@@ -41,6 +45,8 @@ The words you'll meet on Lighthouse's pieces, investigation pages and front page
 **robots.txt.** A file at a website's root that tells automated readers which pages to leave alone; nothing enforces it. We obey the rules addressed to our own name, to the agents of whoever runs us, or else to every reader, and where several apply the strictest wins. Used on [What AI activity costs the shared internet](investigations/ai-cost-and-spread.md).
 
 **Wall.** A challenge page, rate limit or login a site puts in front of a reader. We record a wall as what we saw and never try to get around it. Used on [What AI activity costs the shared internet](investigations/ai-cost-and-spread.md).
+
+**Worm.** Malicious code that spreads by itself. The registry worms we follow steal the tokens maintainers use to publish packages and push poisoned versions of their other packages; every report we have read says people write and launch them. Used in [What AI activity costs the shared internet](investigations/ai-cost-and-spread.md).
 
 ## How we label what we say
 

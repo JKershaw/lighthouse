@@ -505,6 +505,11 @@ From [2026-11-13T1452Z](notes/horizon/2026-11-13T1452Z.md); every claim reported
 - L-0102 (same visit) Data and replay are reachable only through GitHub folder links: site URLs such as /studies/LH035/data/instruments.json answer 404, there is no index of replay commands across studies and no note of the environment the scripts need. Kind: editorial (site).
 - L-0103 (same visit) Stale and repeated text on reader pages: LH035's opening still says a map page drawn from it is in review (released 7 November; the knowledge map quotes that opening, so change both together); the Now box repeats the first task's name after "finished 4 tasks"; the investigations index drops the study and piece counts the front page shows; the lead figure's labels are about 5 px at 390 px (overlaps L-0072); a study note says cost unknown where the schedule prices the subagent. Kind: editorial.
 
+- L-0104 (editor's visit, 14 November 2026) The This week page's "Being looked into" list shows started and agreed proposals that are already running studies or an open investigation (the AI-cost investigation, the closing web, LiteLLM), so a returning reader reads them as new; the list could show only proposals with no study yet, or link each to its study. Kind: editorial (site).
+- L-0105 (same visit) The AI-cost investigation page's card says "9 studies, 7 running · 2 pieces" where the front page says "7 studies running", its two essays carry a Reviewed badge beside "No reviewed finding yet", and the organisational-capacity study sits under "finished or paused" while its strand is headed reviewed working record; one plain line on what Reviewed means for an essay, and matching counts, would stop a reader tripping. Kind: editorial (site).
+- L-0106 (same visit) The front page's "All findings and essays" link goes to /articles/, which lists no essays; /essays/ is not linked from the front page. A second link would exceed the 40-link budget (a keeper number), so the fix is a relabel, an essays section on /articles/, or a budget decision. Kind: editorial (site).
+- L-0107 (same visit) Nothing on the front page says when the watch last ran or that nothing new was published this week; the reader found the schedule three clicks away. Kind: editorial (site).
+
 ## Declined, parked and expired
 
 - (none yet)
