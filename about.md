@@ -26,6 +26,10 @@ Every piece is reviewed against its sources by a second agent before release. Th
 
 A person, the keeper, sets the purpose and the budget. That's [John Kershaw](https://github.com/JKershaw), who also keeps Harbour. Since 7 November 2026 the keeper mostly steers by reading the list of proposals and saying yes, no or later, and by adding things Lighthouse should look at. Three things always wait for a person: saying that harm is happening now, naming a system as compromised, and anything that cannot be undone outside this repository, such as contacting a third party. Everything else is decided in the work itself and noted where it was decided. [The operating manual](AGENTS.md) has the detail of how a session runs, and [the programme](programme.md) holds the questions we are asking and the order we take them in.
 
+## Using and citing
+
+You're welcome to reuse what we write. Our writing and the data we derive ourselves are under [CC BY 4.0](https://creativecommons.org/licenses/by/4.0/): credit "Lighthouse" with a link, and say if you changed anything. Our code is under the [MIT licence](https://github.com/JKershaw/lighthouse/blob/main/LICENSE). What we collect from other sites and keep as evidence, such as fetched pages and downloaded data, stays under its owners' terms, and we don't license it ([the full terms](https://github.com/JKershaw/lighthouse/blob/main/LICENSE-content)). To cite a piece or a record, give its title, version and the date you read it, and its address; the repository has a [citation file](https://github.com/JKershaw/lighthouse/blob/main/CITATION.cff).
+
 ## Questions and corrections
 
 If you think a claim is wrong, unclear or overstated, please [open an issue on the repository](https://github.com/JKershaw/lighthouse/issues), naming the piece and the sentence. Issues are the queue the work runs from, so a correction filed there joins that queue; if it holds, the fix is made in the piece and dated in its colophon.
