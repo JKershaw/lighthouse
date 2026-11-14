@@ -1,5 +1,5 @@
-title: The reader-and-inference review, a pilot for the next two research rounds
-kind: working note (the pilot's instructions, dispatch text and log)
+title: The reader-and-inference review
+kind: working instructions and historical log
 version: 0.2 (29 September 2026, evening: kept after the pilot's two rounds)
 date: 2026-09-29
 authors: the driving session of 29 September 2026 (Opus 5.5), at the keeper's request
@@ -7,16 +7,6 @@ authors: the driving session of 29 September 2026 (Opus 5.5), at the keeper's re
 ## What it is
 
 A second review before release, after the evidence review of AGENTS.md step 4, which it does not replace. The evidence review asks whether the figures and the reproducibility hold. This one asks: **could these measurements be correct while the piece's explanation is wrong?** The reviewer reads the public pieces first, as an ordinary reader would, writes down what that reader would come away believing, and only then reads the study to compare.
-
-It runs for the next two research rounds, the rounds that release a piece or change the current account after 29 September 2026. The rehearsal of 29 September on LH012's corrected pieces (notes/R-0018.md) is not one of the two. At the first checkpoint after the second, the programme decides from the log below whether to keep it, change it or drop it.
-
-## Allowance
-
-**From 30 October 2026, the figures below are a guide, not a limit:** the keeper set no spending bound for now and watches the total.
-
-From 13 November 2026, the keeper doubles the planning guide to fourteen dollars at list rates for this review within a forty-dollar round guide: about two for stage 1, ten for stage 2 and two for the recheck ([decision](operating-limits-2026-11-13.md)). Record known spend and label unavailable pricing unknown; the figures are not provider billing limits. The driving session supplies the allowance and records what each stage actually used where measurable. Earlier rounds in the log retain the allowance in force when they ran.
-
-The allowance was first set at five dollars and raised to seven after the rehearsal of 29 September, which cost $13.34: $1.24 for stage 1, $6.46 for stage 2 (its own analysis of 37 libraries' version profiles, which found the problem that mattered) and $5.64 for a recheck sent to the same agent, whose whole context was re-read on every call.
 
 ## How to dispatch it
 
@@ -62,10 +52,6 @@ One row per round. "Worth it" is the driving session's judgement in a line: did 
 From 29 September 2026 a row also gives, where the diff lets the driving session count them, the changes to public claims made by stage 2 and by the recheck, and how many of the recheck's corrected text written during the round in response to a review. For the three research rows above they were 4 and 1, of which 1; 5 and 6, of which 4; and 8 and 3, of which 3, one of those three written partly in the corrections after the blind check (studies/LH016, data/changes.csv and data/origin_check.txt). For the correction round of 29 September, late evening, they were 3 and 3, of which 3, by the driving session's count from notes/R-0025.md. For the third research round of 30 September they were 0 and 13, of which 12, the other a unit left from the draft in a sentence the resolution renumbered, by the driving session's count from notes/R-0028.md.
 
 | Organisational-reliability pilot, 13 November 2026 | LH052 working record and costs-investigation page; no article or short form (notes/LH052-reader-review.md) | Codex/OpenAI, exact model and price unavailable; $14 review guide within $40 round guide, actual dollar compliance not certifiable | None material | Optional jargon gloss; bounded next-step recommendation retained | None | Evidence review separately corrected an omitted load factor, clock labels and cache handling | Stop after two iterations; assess production/verification measurement feasibility separately from staffing or understanding | Useful inference check; no new causal claim. Stage 1 inventory is reviewer-reported, not independently transcript-verified by parent; final recheck complete (notes/LH052-final-recheck.md) |
-
-## Decision after the two rounds
-
-Made by the driving session on 29 September 2026, evening, at the checkpoint after the second round, as the note's opening asks. Both rounds changed public claims that the evidence review had passed, and the second also changed the next research decision, at $5.18 and $3.95 against an allowance of $7. The review is kept as a standing step after the evidence review and before release, with the same dispatch, allowance and log, and AGENTS.md step 4 now says so. The log continues; the programme looks at it again after three more rounds, or sooner if a round finds nothing.
 
 ## Known-answer replay, 29 September 2026 (studies/LH016)
 
