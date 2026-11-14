@@ -33,13 +33,13 @@ The block shows no finding. Whether the editor may change it without review is
 the gate's decision on proposals.md P-0018.
 -->
 title: This week
-week: 2026-11-07 to 2026-11-13
-updated: 2026-11-13
-today: 2026-11-13 | We read npm's daily download counts for the compromised bee-js release, which WordPress versions sites report running, the first hours of the CI secret stealer's public traces, and what public sources said about armed robots before next week's Geneva conference. None of it has been reviewed.
+week: 2026-11-08 to 2026-11-14
+updated: 2026-11-14
+today: 2026-11-14 | We read which WordPress versions sites report running and how often the fixed release is downloaded, npm's daily download counts for the compromised bee-js release, and Microsoft's public status page for its promised report on Friday's Microsoft 365 outage, which hadn't appeared. None of it has been reviewed.
 items:
+- 2026-11-14 | lighthouse | You can now reuse what we publish: our writing and our own data are free to share with credit, and our code is open source, as [About](about.md#using-and-citing) explains. We've also added a [glossary](glossary.md), a list of [every correction we've made](corrections.md) and a guide to [the data we keep and how to rerun a study](data-and-replay.md).
 - 2026-11-13 | lighthouse | Our front page is new: it opens with what we've learned so far, then this week, then [our four investigations](investigations/) and where each one stands. Every piece now ends with what to read next, and the working files have [a page of their own](working/).
 - 2026-11-13 | lighthouse | We've started counting, hour by hour, the public traces of a campaign that StepSecurity and Aikido say used stolen GitHub accounts from 10 November to plant a script stealing build secrets, AI keys among them. We kept both firms' posts as published first; [the study's brief](studies/LH051/brief.md) says what we count and what we won't name.
 - 2026-11-13 | lighthouse | Our first study of [armed AI-powered robots](studies/LH050/brief.md) has started: before an international weapons conference opens in Geneva on 16 November, we kept what public sources say about three cases and the draft conference texts, so that we can see what the week changes. None of it is a finding yet.
 - 2026-11-12 | lighthouse | We've opened [an investigation of armed AI-powered robots](investigations/physical-authority.md): what they can do, who decides when they use force, and what public evidence says about what happens to civilians.
 - 2026-11-12 | reported | D-Link says, in a statement of 10 November, that its networking hardware and apps were not affected by October's PHP flaws, but that older parts of its mydlink cloud portal ran on PHP and have had emergency remediation, with no evidence of unauthorised data access. Our [daily log](notes/php-watch-log.md) has the details.
-- 2026-11-11 | lighthouse | We released [a knowledge map](map/knowledge-lineage/) of everything we have studied and published: it starts from our three questions and lets you follow an idea down to the records and evidence behind it.
