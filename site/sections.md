@@ -33,6 +33,10 @@ summaries:
 - observations.md | Every reading so far, linked to its record and the instruments it relied on.
 - investigations/software-updates.md | The question, current account and studies behind the software-update investigation.
 - investigations/physical-authority.md | A new investigation of armed robots, human control and civilian consequences; its baseline is planned, not a deployment finding.
+- studies/LH002 | Where one release's public trail stops
+- studies/LH020 | PHP's notice beside its official images
+- studies/LH028 | The first public attack trace before PHP's notice
+- studies/LH029 | PHP's notice of a related flaw, 23 October
 - studies/LH007 | How much software takes a new release by itself
 - studies/LH008 | What moves a pin: the release or the advisory
 - studies/LH009 | Do fixes that say so draw pins before the advisory
