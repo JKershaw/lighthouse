@@ -1,0 +1,31 @@
+{
+ "withheld": "body",
+ "why": "Content-Signal use=reference (or use=immediate): \"index, excerpt, and link back\"; a whole copy in a public repository goes beyond it",
+ "date": "2026-11-15",
+ "sha256_received": "e1749c6700547a264f3389c1d61d1a3c72656ead36593bcc2091ef1ce29a42eb",
+ "bytes_received": 202,
+ "file": "0145.b",
+ "by": "scripts/collect.py",
+ "url": "https://doaj.org/api/search/journals/lighthouse",
+ "service": "A19",
+ "kind": "probe",
+ "fetched_utc": "2026-11-15T14:17:41Z",
+ "http_status": 200,
+ "headers": "0145.h",
+ "content_signal": {
+  "line": "search=yes, ai-train=yes, ai-input=yes, use=reference",
+  "where": "robots.txt",
+  "as_read": "robots.txt kept as 0144.b"
+ },
+ "extract": {
+  "title": ""
+ },
+ "derived": {
+  "classifier": "0.3",
+  "class": "open",
+  "detail": "marker",
+  "marker_found": true,
+  "marker_in_context": "geSize\": 10, \"timestamp\": \"2026-11-15T14:17:41.700057Z\", \"query\": \"lighthouse\", \"results\": [], \"last\": \"https://doaj.org/api/v4/search/journals/lighthouse?page=1&pageSiz",
+  "echoes": []
+ }
+}

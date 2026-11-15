@@ -1,0 +1,159 @@
+LH044 compare_reads: 2026-11-15T1413Z against 2026-11-08T1920Z
+classifier: 0.2 then 0.3
+provider at later read: anthropic
+
+== Measure 1 and 2: tally by stratum (later read; earlier in brackets) ==
+named: services 101 (101), probe_answered 61 (61), wall_at_robots 7 (6), state_read 68 (67), walled 11 (13), open 51 (51), open_unconfirmed_or_js 1 (0), robots_disallowed 30 (23), unknown 3 (11)
+   unknown:robots_redirect 0 (8), unknown:robots_unreachable 1 (1), unknown:unread_proxy 2 (2)
+   unknown share 3/101 = 0.030 (inconclusive above 0.2)
+drawn: services 60 (60), probe_answered 28 (25), wall_at_robots 3 (1), state_read 31 (26), walled 6 (1), open 13 (17), open_unconfirmed_or_js 1 (2), robots_disallowed 14 (9), unknown 15 (25)
+   unknown:robots_redirect 0 (14), unknown:robots_unreachable 15 (11)
+   unknown share 15/60 = 0.250 (inconclusive above 0.2)
+panel unknown share 18/161 = 0.112
+open_unconfirmed or js_notice among read: 2/99
+
+By class of service, walled/read (later; earlier in brackets):
+  drawn mirror-drawn: 0/10 (0/10)
+  drawn repository: 6/21 (1/16)
+  named archive: 5/15 (5/14)
+  named docs: 2/13 (2/12)
+  named forge: 2/7 (2/9)
+  named mirror: 0/10 (0/9)
+  named opendata: 1/9 (1/7)
+  named registry: 1/14 (3/16)
+
+By stratum and route of the later read (class counts):
+  drawn|direct-http: walled 3 of 19 read; {'client_error_other': 1, 'gone': 1, 'open': 9, 'redirect_other': 5, 'refused': 2, 'robots_disallowed': 10, 'robots_unreachable': 9, 'wall_at_robots': 1}
+  drawn|egress-proxy: walled 3 of 12 read; {'gone': 3, 'open': 4, 'open_unconfirmed': 1, 'redirect_other': 1, 'refused': 1, 'robots_disallowed': 4, 'robots_unreachable': 6, 'wall_at_robots': 2}
+  named|direct: walled 0 of 1 read; {'open': 1, 'robots_disallowed': 2}
+  named|direct-http: walled 0 of 1 read; {'open': 1}
+  named|egress-proxy: walled 11 of 66 read; {'challenge': 2, 'gone': 2, 'open': 49, 'open_unconfirmed': 1, 'redirect_other': 3, 'refused': 2, 'robots_disallowed': 28, 'robots_unreachable': 1, 'unread_proxy': 2, 'wall_at_robots': 7}
+
+== Walls at the later read ==
+  A08 named catalog.hathitrust.org wall_at_robots status= was=wall_at_robots | challenge:cloudflare
+  A09 named babel.hathitrust.org wall_at_robots status= was=wall_at_robots | challenge:cloudflare
+  A11 named pubmed.ncbi.nlm.nih.gov refused status=403 was=open | 403
+  A15 named www.europeana.eu wall_at_robots status= was=wall_at_robots | challenge:cloudflare
+  A16 named www.biorxiv.org wall_at_robots status= was=robots_disallowed | rate_limited:429
+  D09 named stackoverflow.com wall_at_robots status= was=challenge | challenge:cloudflare
+  D13 named wiki.debian.org challenge status=302 was=challenge | redirect:/.internal/challenge.html?original=%2fDebianTesting&referer=
+  F11 named salsa.debian.org challenge status=302 was=challenge | redirect:/.internal/challenge.html?original=%2fdebian%2fdevscripts&referer=
+  F13 named invent.kde.org refused status=403 was=refused | 403
+  O07 named data.humdata.org wall_at_robots status= was=wall_at_robots | challenge:aws-waf
+  P04 drawn balimedicaljournal.org wall_at_robots status= was=open_unconfirmed | challenge:captcha-refresh
+  P17 drawn jpu.k-pin.org refused status=403 was=gone | 403
+  P31 drawn saebipcas.elpub.ru wall_at_robots status= was=robots_redirect | challenge:recaptcha
+  P34 drawn skripsi.sttjaffray.ac.id wall_at_robots status= was=wall_at_robots | challenge:cloudflare
+  P38 drawn www.jmolbiochem.com refused status=403 was=open | 403
+  P40 drawn www.msjonline.org refused status=403 was=open | 403
+  R02 named www.npmjs.com wall_at_robots status= was=wall_at_robots | challenge:cloudflare
+
+== Measure 3: changes (both bracketing reads known) ==
+closings: 3
+  A11 named pubmed.ncbi.nlm.nih.gov: open -> refused
+  P38 drawn www.jmolbiochem.com: open -> refused
+  P40 drawn www.msjonline.org: open -> refused
+openings: 1
+  A13 named api.crossref.org: wall_at_robots -> open
+walled now, not walled at earlier read (any earlier class): 7
+  A11 named pubmed.ncbi.nlm.nih.gov: open -> refused
+  A16 named www.biorxiv.org: robots_disallowed -> wall_at_robots
+  P04 drawn balimedicaljournal.org: open_unconfirmed -> wall_at_robots
+  P17 drawn jpu.k-pin.org: gone -> refused
+  P31 drawn saebipcas.elpub.ru: robots_redirect -> wall_at_robots
+  P38 drawn www.jmolbiochem.com: open -> refused
+  P40 drawn www.msjonline.org: open -> refused
+walled at earlier read, not walled now (any later class): 4
+  A13 named api.crossref.org: wall_at_robots -> open | marker
+  A20 named api.semanticscholar.org: rate_limited -> gone | 404
+  R06 named repo1.maven.org: rate_limited -> robots_disallowed | by ClaudeBot: Disallow: / (line 48; provider anthropic)
+  R07 named central.sonatype.com: rate_limited -> robots_disallowed | by ClaudeBot: Disallow: / (line 48; provider anthropic)
+
+All class changes: 43
+  robots_redirect -> redirect_other: 7  [D08 O02 P06 P09 P30 P39 Q05]
+  robots_redirect -> robots_unreachable: 6  [P05 P20 P22 P23 P35 P36]
+  open -> robots_disallowed: 5  [D11 D15 F06 P18 Q07]
+  robots_redirect -> robots_disallowed: 5  [F17 O09 Q08 Q15 R13]
+  open -> refused: 3  [A11 P38 P40]
+  robots_redirect -> open: 3  [D02 D14 O13]
+  rate_limited -> robots_disallowed: 2  [R06 R07]
+  challenge -> wall_at_robots: 1  [D09]
+  gone -> refused: 1  [P17]
+  open_unconfirmed -> wall_at_robots: 1  [P04]
+  rate_limited -> gone: 1  [A20]
+  robots_disallowed -> robots_unreachable: 1  [R12]
+  robots_disallowed -> wall_at_robots: 1  [A16]
+  robots_redirect -> wall_at_robots: 1  [P31]
+  robots_unreachable -> open_unconfirmed: 1  [M11]
+  robots_unreachable -> redirect_other: 1  [P11]
+  robots_unreachable -> robots_disallowed: 1  [Q11]
+  server_error -> robots_disallowed: 1  [F07]
+  wall_at_robots -> open: 1  [A13]
+
+== Measure 4: robots.txt declarations ==
+  parsed: 101 (91)
+  probe_disallowed_lighthouse_or_star: 34 (32)
+  probe_disallowed_obeyed: 44 (0)
+  star_allows_root_but_ai_token_disallowed: 13 (11)
+  star_root_disallowed: 16 (15)
+  parsed at both reads: 87; only earlier: A11 A16 P04 R12; only later: D08 D14 F17 O02 O09 O13 P06 P11 P17 P30 Q08 Q11 Q15 R13
+  services parsed at both reads with any measure-4 change: 0
+  later read, among files allowing * at /, files disallowing each token at /: {'GPTBot': 11, 'ClaudeBot': 11, 'Amazonbot': 11, 'CCBot': 9, 'Google-Extended': 9, 'Bytespider': 9, 'meta-externalagent': 9, 'anthropic-ai': 8, 'cohere-ai': 8, 'OAI-SearchBot': 7, 'PerplexityBot': 7, 'Applebot-Extended': 7, 'Diffbot': 7, 'ChatGPT-User': 6, 'Claude-SearchBot': 4, 'Claude-User': 3, 'Perplexity-User': 3}
+  later read, probe withheld under the obeyed rule (amendment 5): 44
+    A04 named export.arxiv.org | *
+    A05 named archive.softwareheritage.org | *
+    A06 named zenodo.org | *
+    A10 named www.loc.gov | *
+    A12 named eutils.ncbi.nlm.nih.gov | *
+    A18 named api.archives-ouvertes.fr | *
+    A22 named core.ac.uk | *
+    D11 named runescape.wiki | ClaudeBot
+    D15 named wiki.gentoo.org | ClaudeBot
+    F01 named git.kernel.org | ClaudeBot
+    F02 named lore.kernel.org | ClaudeBot
+    F06 named codeberg.org | ClaudeBot
+    F07 named git.sr.ht | ClaudeBot
+    F10 named gitlab.freedesktop.org | ClaudeBot
+    F12 named src.fedoraproject.org | ClaudeBot
+    F14 named git.savannah.gnu.org | *
+    F16 named gitea.com | ClaudeBot
+    F17 named hg.mozilla.org | *
+    F19 named sourceware.org | *
+    M09 named dl.fedoraproject.org | ClaudeBot
+    O03 named data.europa.eu | *
+    O05 named data.gov.au | *
+    O09 named api.openstreetmap.org | *
+    O10 named nominatim.openstreetmap.org | *
+    P07 drawn bibdigital.sid.inpe.br | *
+    P14 drawn irl.umsl.edu | *
+    P18 drawn jurnal.itg.ac.id | ClaudeBot
+    P29 drawn revistaaen.es | *
+    Q01 drawn debian.anexia.at | *
+    Q02 drawn debian.lagis.at | *
+    Q04 drawn debian.mirror.lrz.de | *
+    Q06 drawn ftp.br.debian.org | *
+    Q07 drawn ftp.eq.uc.pt | ClaudeBot
+    Q08 drawn ftp.lanet.kr | *
+    Q11 drawn linuxsoft.cern.ch | ClaudeBot
+    Q13 drawn mirror.braindrainlan.nu | *
+    Q15 drawn mirror.ipb.de | *
+    Q18 drawn mirror.tzulo.com | *
+    R01 named pypi.org | *
+    R06 named repo1.maven.org | ClaudeBot
+    R07 named central.sonatype.com | ClaudeBot
+    R11 named fastapi.metacpan.org | *
+    R13 named hackage.haskell.org | ClaudeBot
+    R17 named proxy.golang.org | *
+
+== Measure 4, entry 18: __usage_ai-training ==
+  2026-11-08T1920Z: 91 files parsed, 0 with a group naming the token, 0 mentioning it anywhere
+  2026-11-15T1413Z: 101 files parsed, 0 with a group naming the token, 0 mentioning it anywhere
+
+== Measure 8: our own load (later read) ==
+  requests 274 (readlog rows 274), bytes retained 2627767, max to one host 4 (readlog: 4), routes {'egress-proxy': 206, 'direct': 4, 'direct-http': 64}
+  kinds: {'robots': 161, 'probe': 91, 'robots-redirect-1': 20, 'robots-redirect-2': 1, 'robots-redirect-3': 1}
+  earlier read: requests 249, bytes 2257016, max 2
+
+== Egress (inconclusive rule, within route) ==
+  earlier: {'egress-proxy': ['160.79.0.0/16'], 'direct-http': ['34.136.0.0/16', '34.172.0.0/16']} {'egress-proxy': ['160.79.106.130', '160.79.106.131', '160.79.106.141', '160.79.106.143', '160.79.106.16', '160.79.106.30'], 'direct-http': ['34.136.29.35', '34.172.54.233']}
+  later:   {'egress-proxy': ['160.79.0.0/16']} {'egress-proxy': ['160.79.106.131', '160.79.106.133', '160.79.106.134', '160.79.106.234', '160.79.106.236', '160.79.106.241']}

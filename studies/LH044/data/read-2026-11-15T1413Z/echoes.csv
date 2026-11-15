@@ -1,0 +1,10 @@
+n,service,route,where,name,address
+66,R21,egress-proxy,header,x-ratelimit-ip,160.79.106.133
+88,D01,egress-proxy,header,x-client-ip,160.79.106.234
+89,D01,egress-proxy,header,x-client-ip,160.79.106.241
+90,D02,egress-proxy,header,x-client-ip,160.79.106.131
+91,D02,egress-proxy,header,x-client-ip,160.79.106.236
+92,D02,egress-proxy,header,x-client-ip,160.79.106.236
+93,D03,egress-proxy,header,x-client-ip,160.79.106.131
+94,D03,egress-proxy,header,x-client-ip,160.79.106.134
+140,A16,egress-proxy,body,IP Address:,160.79.106.131

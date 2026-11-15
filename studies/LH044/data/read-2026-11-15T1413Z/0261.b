@@ -1,0 +1,12 @@
+User-agent: *
+Allow: /pub
+Disallow: /debian
+Disallow: /linuxmint
+Disallow: /archlinux
+Disallow: /ubuntu-releases
+User-agent: facebookexternalhit/1.1
+Disallow: /pub
+User-agent: Amazonbot
+Disallow: /
+User-agent: MJ12bot 
+Disallow: / 

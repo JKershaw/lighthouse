@@ -1,0 +1,27 @@
+User-agent: *
+Disallow: /enterprise/
+Disallow: /rhel/
+Disallow: /oracle/
+Disallow: /internal/
+Disallow: /kickstart/
+Disallow: /layout/
+Disallow: /onlycern/
+Disallow: /cern/rhel/
+Disallow: /cgi-bin/
+Disallow: *.iso$
+Disallow: /repos/els7*
+
+User-agent: claude
+User-agent: claudebot
+User-agent: claude-web
+User-agent: bingbot
+User-agent: gptbot
+User-agent: cohere
+User-agent: cohere-ai
+User-agent: YandexBot
+User-agent: amazonbot
+User-agent: SemrushBot
+User-agent: PerplexityBot
+User-agent: awesome_bot
+User-agent: MJ12bot
+Disallow: /

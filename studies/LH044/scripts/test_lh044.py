@@ -59,7 +59,7 @@ with tempfile.TemporaryDirectory() as tmp:
     (fake_root / 'data').mkdir()
     import shutil
     work = fake_root / 'data' / BASE.name   # same label, so the baseline's classifier (0.2) applies
-    shutil.copytree(BASE, work, ignore=shutil.ignore_patterns('classes.csv', 'robots.csv', 'summary.json'))
+    shutil.copytree(BASE, work, ignore=shutil.ignore_patterns('classes.csv', 'robots.csv', 'summary.json', 'usage_token.csv'))
     old = collect.ROOT
     collect.ROOT = fake_root
     with contextlib.redirect_stdout(io.StringIO()):

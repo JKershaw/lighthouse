@@ -1,0 +1,12 @@
+User-Agent: *
+Disallow: /debian/
+Disallow: /debian-cd/
+Disallow: /raspbian/
+Disallow: /ubuntu/
+Disallow: /ubuntu-ports/
+Disallow: /ubuntu-releases/
+Disallow: /pub/gentoo/
+Disallow: /pub/archlinux/
+Disallow: /pub/cygwin/
+Disallow: /pub/XCP-ng/
+Disallow: /pub/HANGUL/
