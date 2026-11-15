@@ -1,0 +1,11 @@
+id,study,task,earliest,latest,status,updated,by,ref,note,kind,depends_on,run_id
+retained,LH900,Fixture retained,,,done,,,evidence.md#fixture,,observe,,fixture-completed
+record,LH900,"Analyse ""held, bounded"" evidence
+without another collection",,,open,,,,,analyse,retained,
+gate,LH900,Fixture gate,,,blocked,,,,Needs a substantive retained report,plan,,
+late-wait,LH900,Fixture late-wait,,2026-11-13,open,,,,,analyse,gate,
+late-ready,LH900,Fixture late-ready,,2026-11-13,open,,,,,analyse,retained,
+scheduled,LH900,Fixture scheduled,2026-11-15,,open,,,,,analyse,,
+old-claim,LH900,Fixture old-claim,,,running,2026-11-14T05:59:59Z,Fixture owner,,,observe,,fixture-old
+fresh-claim,LH900,Fixture fresh-claim,,,running,2026-11-14T06:00:00Z,Fixture owner,,,observe,,fixture-fresh
+missed,LH900,Fixture missed,,,missed,,,,No replacement observation is inferred,,,

@@ -108,3 +108,7 @@ Per read: the six requests above, at most one retry each (twelve in all), robots
 - No comparison release is published (measure 5 not made; measures 1 to 4 then describe one case with nothing like it in the same windows, and the record says so).
 
 It cannot say, in any case, how many machines installed or ran 13.3.0, who did, whether the hook's server answered them, whether any wallet or credential was taken, how many copies came from mirrors or caches, or which projects resolved it. Those would need data that are private, or a census of dependents and lockfiles that the gate's aggregate-only condition would bind.
+
+## Operational scheduling amendment, 14 November 2026
+
+The dated [readiness timing amendment](../../notes/readiness/2026-11-14-operational-amendments.md) records the original planning dates, retained outcomes already known and the administrative change. It changes no scientific rule, observation window, access boundary or resource ceiling. The original text above remains the historical protocol.

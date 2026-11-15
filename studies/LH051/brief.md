@@ -106,3 +106,7 @@ Lighthouse runs on Anthropic's models, and this brief was written by one (Claude
 - Gap hours throughout, leaving measure 4 and the CreateEvent and DeleteEvent series unformable.
 
 It cannot say, in any case, how many repositories ran the stealer, which secrets were taken, by whom, whether any key was used, or anything about private repositories; how many distinct repositories or accounts were touched across the whole watch; or who closed a probe and why. Those would need data that are private, or identifiers this study's conditions forbid it to keep.
+
+## Operational scheduling amendment, 14 November 2026
+
+The dated [readiness timing amendment](../../notes/readiness/2026-11-14-operational-amendments.md) records the original planning dates, retained outcomes already known and the administrative change. It changes no scientific rule, observation window, access boundary or resource ceiling. The original text above remains the historical protocol.

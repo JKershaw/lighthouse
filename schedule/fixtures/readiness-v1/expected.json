@@ -1,0 +1,257 @@
+{
+  "schema_version": 1,
+  "evaluated_at": "2026-11-14T12:00:00Z",
+  "today": "2026-11-14",
+  "valid": true,
+  "diagnostics": [],
+  "rows": [
+    {
+      "id": "retained",
+      "study": "LH900",
+      "task": "Fixture retained",
+      "earliest": "",
+      "latest": "",
+      "status": "done",
+      "updated": "",
+      "by": "",
+      "ref": "evidence.md#fixture",
+      "note": "",
+      "kind": "observe",
+      "depends_on": "",
+      "run_id": "fixture-completed",
+      "state": "done",
+      "readiness": "done",
+      "actionable": false,
+      "reasons": [
+        "Historical outcome: done"
+      ],
+      "unmet_dependencies": [],
+      "calendar_state": "due",
+      "stale": false
+    },
+    {
+      "id": "record",
+      "study": "LH900",
+      "task": "Analyse \"held, bounded\" evidence\nwithout another collection",
+      "earliest": "",
+      "latest": "",
+      "status": "open",
+      "updated": "",
+      "by": "",
+      "ref": "",
+      "note": "",
+      "kind": "analyse",
+      "depends_on": "retained",
+      "run_id": "",
+      "state": "ready",
+      "readiness": "ready",
+      "actionable": true,
+      "reasons": [],
+      "unmet_dependencies": [],
+      "calendar_state": "due",
+      "stale": false
+    },
+    {
+      "id": "gate",
+      "study": "LH900",
+      "task": "Fixture gate",
+      "earliest": "",
+      "latest": "",
+      "status": "blocked",
+      "updated": "",
+      "by": "",
+      "ref": "",
+      "note": "Needs a substantive retained report",
+      "kind": "plan",
+      "depends_on": "",
+      "run_id": "",
+      "state": "blocked",
+      "readiness": "blocked",
+      "actionable": false,
+      "reasons": [
+        "Needs a substantive retained report"
+      ],
+      "unmet_dependencies": [],
+      "calendar_state": "due",
+      "stale": false
+    },
+    {
+      "id": "late-wait",
+      "study": "LH900",
+      "task": "Fixture late-wait",
+      "earliest": "",
+      "latest": "2026-11-13",
+      "status": "open",
+      "updated": "",
+      "by": "",
+      "ref": "",
+      "note": "",
+      "kind": "analyse",
+      "depends_on": "gate",
+      "run_id": "",
+      "state": "dependency_wait",
+      "readiness": "dependency_wait",
+      "actionable": false,
+      "reasons": [
+        "Waiting for gate to be done (currently blocked)",
+        "Deadline elapsed; the brief decides whether late work is admissible"
+      ],
+      "unmet_dependencies": [
+        "gate"
+      ],
+      "calendar_state": "overdue",
+      "stale": false
+    },
+    {
+      "id": "late-ready",
+      "study": "LH900",
+      "task": "Fixture late-ready",
+      "earliest": "",
+      "latest": "2026-11-13",
+      "status": "open",
+      "updated": "",
+      "by": "",
+      "ref": "",
+      "note": "",
+      "kind": "analyse",
+      "depends_on": "retained",
+      "run_id": "",
+      "state": "ready",
+      "readiness": "ready",
+      "actionable": true,
+      "reasons": [
+        "Deadline elapsed; the brief decides whether late work is admissible"
+      ],
+      "unmet_dependencies": [],
+      "calendar_state": "overdue",
+      "stale": false
+    },
+    {
+      "id": "scheduled",
+      "study": "LH900",
+      "task": "Fixture scheduled",
+      "earliest": "2026-11-15",
+      "latest": "",
+      "status": "open",
+      "updated": "",
+      "by": "",
+      "ref": "",
+      "note": "",
+      "kind": "analyse",
+      "depends_on": "",
+      "run_id": "",
+      "state": "calendar_wait",
+      "readiness": "calendar_wait",
+      "actionable": false,
+      "reasons": [
+        "Not before 2026-11-15 UTC"
+      ],
+      "unmet_dependencies": [],
+      "calendar_state": "upcoming",
+      "stale": false
+    },
+    {
+      "id": "old-claim",
+      "study": "LH900",
+      "task": "Fixture old-claim",
+      "earliest": "",
+      "latest": "",
+      "status": "running",
+      "updated": "2026-11-14T05:59:59Z",
+      "by": "Fixture owner",
+      "ref": "",
+      "note": "",
+      "kind": "observe",
+      "depends_on": "",
+      "run_id": "fixture-old",
+      "state": "recovery",
+      "readiness": "recovery",
+      "actionable": false,
+      "reasons": [
+        "Claim needs reconciliation before reopening; elapsed time does not authorise duplicate work"
+      ],
+      "unmet_dependencies": [],
+      "calendar_state": "due",
+      "stale": true
+    },
+    {
+      "id": "fresh-claim",
+      "study": "LH900",
+      "task": "Fixture fresh-claim",
+      "earliest": "",
+      "latest": "",
+      "status": "running",
+      "updated": "2026-11-14T06:00:00Z",
+      "by": "Fixture owner",
+      "ref": "",
+      "note": "",
+      "kind": "observe",
+      "depends_on": "",
+      "run_id": "fixture-fresh",
+      "state": "running",
+      "readiness": "running",
+      "actionable": false,
+      "reasons": [
+        "Owned by a running claim"
+      ],
+      "unmet_dependencies": [],
+      "calendar_state": "due",
+      "stale": false
+    },
+    {
+      "id": "missed",
+      "study": "LH900",
+      "task": "Fixture missed",
+      "earliest": "",
+      "latest": "",
+      "status": "missed",
+      "updated": "",
+      "by": "",
+      "ref": "",
+      "note": "No replacement observation is inferred",
+      "kind": "",
+      "depends_on": "",
+      "run_id": "",
+      "state": "missed",
+      "readiness": "missed",
+      "actionable": false,
+      "reasons": [
+        "Historical outcome: missed"
+      ],
+      "unmet_dependencies": [],
+      "calendar_state": "due",
+      "stale": false
+    }
+  ],
+  "groups": {
+    "ready": [
+      "record"
+    ],
+    "overdue": [
+      "late-ready"
+    ],
+    "upcoming": [
+      "scheduled"
+    ],
+    "stale": [
+      "old-claim"
+    ],
+    "gaps": [],
+    "warnings": []
+  },
+  "coverage": [],
+  "ready": [
+    "record"
+  ],
+  "overdue": [
+    "late-ready"
+  ],
+  "upcoming": [
+    "scheduled"
+  ],
+  "stale": [
+    "old-claim"
+  ],
+  "gaps": [],
+  "warnings": []
+}

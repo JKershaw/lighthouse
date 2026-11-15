@@ -4,6 +4,8 @@
 
 import fs from "node:fs";
 import path from "node:path";
+import { fileURLToPath } from "node:url";
+import { spawnSync } from "node:child_process";
 import { REPO_URL, formatDate, isIgnored, pageUrl, plainText, sourceUrl } from "./repo.js";
 import { slugify } from "./markdown.js";
 import { parseHeader, headerField } from "./header.js";
@@ -37,17 +39,30 @@ export function parseCsv(text) {
 const iso = (d) => d.toISOString().slice(0, 10);
 const addDays = (d, n) => new Date(d.getTime() + n * 86400000);
 
-// What a row's status means today: open rows become due, overdue or upcoming.
-export function stateOf(row, today) {
-  if (row.status !== "open") return row.status;
-  if (row.latest && row.latest < today) return "overdue";
-  if (!row.earliest || row.earliest <= today) return "due";
-  return "upcoming";
+// Decisions come from the same offline model as the command-line report.
+// Resolve the program from this module, not the input root (which can be a fixture).
+const MODEL_CLI = fileURLToPath(new URL("../../schedule/check.py", import.meta.url));
+function readinessReport(root, now) {
+  const result = spawnSync("python3", [MODEL_CLI, "--root", path.resolve(root), "--now", now.toISOString(), "--json"], {
+    encoding: "utf8", maxBuffer: 8 * 1024 * 1024,
+  });
+  if (result.error) throw new Error(`The schedule build requires Python 3: ${result.error.message}`);
+  let report;
+  try { report = JSON.parse(result.stdout); }
+  catch { throw new Error(`The readiness model did not return JSON (exit ${result.status}): ${result.stderr || "empty output"}`); }
+  if (report.schema_version !== 1 || !Array.isArray(report.rows) || !report.groups || typeof report.valid !== "boolean") {
+    throw new Error("Unsupported readiness model data contract");
+  }
+  // Invalid input deliberately returns JSON with a failing exit status. Preserve
+  // its diagnostics and non-actionable rows so the page can explain the problem.
+  if (result.status !== 0 && report.valid) throw new Error(`The readiness model failed (exit ${result.status})`);
+  return report;
 }
 
 const LABELS = {
-  due: "Due now", overdue: "Overdue", upcoming: "Upcoming", running: "In progress", done: "Done",
-  missed: "Missed", blocked: "Blocked", keeper: "Waiting on the keeper", cancelled: "Cancelled",
+  ready: "Ready", dependency_wait: "Waiting on prerequisites", calendar_wait: "Scheduled",
+  running: "In progress", recovery: "Stale claim: recovery required", done: "Done", missed: "Missed",
+  blocked: "Blocked", keeper: "Waiting on the keeper", cancelled: "Cancelled", invalid: "Invalid queue",
 };
 
 // Where a row's study label leads: a study's directory, or the page its work lives on.
@@ -83,7 +98,7 @@ export function refParts(ref, root) {
 // without an end date, the day it was claimed or done.
 export function dayOf(row) {
   if (row.status === "cancelled") return "";
-  if (row.latest) return row.earliest;
+  if (row.latest) return row.earliest || row.latest;
   return ["done", "missed", "running"].includes(row.status) ? (row.updated || "").slice(0, 10) : "";
 }
 
@@ -176,13 +191,12 @@ const lowerArticle = (text) => String(text).replace(/^(The|A|An) /, (m) => m.toL
 
 // The front page's view of the newest run: when it started, what it finished,
 // each linked to what it produced, and, apart, what was due at the run and
-// still waits. A row waits when it names the run, is still open and its
-// window had opened by the run's day; rows the run added for later are neither.
+// still waits. Only explicitly claimed work belongs to a run. Historical
+// runs without public identity retain their narrative without reconstructed counts.
 export function latestRun(run, rows, root, shown = 4) {
   if (!run) return null;
   const names = plainNames(root);
-  const ran = (r) => run.started && (r.by || "").includes(run.started);
-  const runDay = String(run.started || "").slice(0, 10);
+  const ran = (r) => Boolean(run.run_id && r.run_id === run.run_id);
   const seen = new Set();
   const done = [];
   for (const r of rows) {
@@ -195,7 +209,7 @@ export function latestRun(run, rows, root, shown = 4) {
     done.push({ text: r.status === "missed" ? `${text} (missed)` : text, href, id: r.id });
   }
   const waiting = rows
-    .filter((r) => ["open", "running", "blocked", "keeper"].includes(r.status) && ran(r) && r.earliest && r.earliest <= runDay)
+    .filter((r) => ["open", "running", "blocked", "keeper"].includes(r.status) && ran(r))
     .map((r) => ({ text: plainTask(r, root, names), href: r.href, id: r.id }));
   const t = runTime(run.started);
   const more = Math.max(0, done.length - shown);
@@ -236,13 +250,14 @@ export function proposalsNow(root) {
 export function buildSchedule(root, now = new Date()) {
   const file = path.join(root, SCHEDULE_TABLE);
   if (!fs.existsSync(file)) return null;
-  const today = iso(now);
-  const rows = parseCsv(fs.readFileSync(file, "utf8")).map((r) => {
-    const state = stateOf(r, today);
+  const report = readinessReport(root, now);
+  const today = report.today;
+  const rows = report.rows.map((r) => {
+    const state = r.state;
     const refs = refParts(r.ref, root);
     // A finished row leads to what it produced; any other to its study.
     const made = ["done", "missed"].includes(state) && refs.find((p) => p.page);
-    return { ...r, state, stateLabel: LABELS[state] || r.status, refs, href: made ? made.href : hrefFor(r.study), day: dayOf(r) };
+    return { ...r, state, stateLabel: LABELS[r.readiness] || r.status, refs, href: made ? made.href : hrefFor(r.study), day: dayOf(r) };
   });
 
   // Weeks from the Monday of last week to six weeks ahead, each a row of seven days.
@@ -263,19 +278,35 @@ export function buildSchedule(root, now = new Date()) {
   const runs = fs.existsSync(runsFile) ? parseCsv(fs.readFileSync(runsFile, "utf8")).sort((a, b) => b.started.localeCompare(a.started)) : [];
 
   const counts = {};
-  for (const r of rows) counts[r.state] = (counts[r.state] || 0) + 1;
+  for (const r of rows) counts[r.readiness] = (counts[r.readiness] || 0) + 1;
   const pick = (states) => rows.filter((r) => states.includes(r.state));
+  const group = (name) => {
+    const byId = new Map(rows.map((r) => [r.id, r]));
+    return (report.groups[name] || []).map((id) => byId.get(id)).filter(Boolean);
+  };
+  const ready = report.valid ? group("ready") : [];
+  const overdue = report.valid ? group("overdue") : [];
   return {
     today,
+    valid: report.valid,
+    diagnostics: report.diagnostics,
+    evaluatedAt: report.evaluated_at,
+    groups: report.groups,
+    coverage: report.coverage || [],
+    ready,
+    overdue,
+    stale: group("stale"),
+    waiting: pick(["dependency_wait", "blocked", "keeper"]),
+    scheduled: pick(["calendar_wait"]),
     rows,
     total: rows.length,
     counts: Object.entries(LABELS).filter(([k]) => counts[k]).map(([k, label]) => ({ state: k, label, n: counts[k] })),
     weeks,
-    attention: pick(["overdue", "keeper", "blocked", "running"]),
+    attention: rows.filter((r) => !["done", "missed", "cancelled"].includes(r.state) && (r.calendar_state === "overdue" || ["dependency_wait", "keeper", "blocked", "running", "recovery", "invalid"].includes(r.state))),
     keeperRows: pick(["keeper"]).map((r) => ({ ...r, plain: plainTask(r, root) })),
-    due: pick(["due"]).filter((r) => r.latest),
-    openEnded: rows.filter((r) => !r.latest && ["due", "upcoming", "running", "keeper", "blocked"].includes(r.state)),
-    beyond: rows.filter((r) => r.latest && r.earliest > last && r.state === "upcoming"),
+    due: ready,
+    openEnded: rows.filter((r) => !r.latest && ["ready", "calendar_wait", "dependency_wait", "running", "recovery", "keeper", "blocked"].includes(r.state)),
+    beyond: rows.filter((r) => r.latest && r.earliest > last && r.state === "calendar_wait"),
     recent: rows.filter((r) => ["done", "missed"].includes(r.state)).sort((a, b) => (b.updated || "").localeCompare(a.updated || "")).slice(0, 12),
     range: { first, last },
     lastRun: runs[0] || null,

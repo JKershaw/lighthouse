@@ -29,6 +29,16 @@ jobs:
           node-version: 22
           cache: npm
           cache-dependency-path: site/package-lock.json
+      - uses: actions/setup-python@v6
+        with:
+          python-version: '3.12'
+      - name: Validate readiness
+        run: |
+          python3 -m unittest discover -s schedule -p 'test_*.py'
+          python3 schedule/check.py
+      - name: Summarise recorded costs
+        continue-on-error: true
+        run: python3 schedule/cost_summary.py
       - id: pages
         uses: actions/configure-pages@v6
       - name: Install
