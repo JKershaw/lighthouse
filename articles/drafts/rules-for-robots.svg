@@ -1,0 +1,233 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 720 500" width="720" height="500" role="img" aria-labelledby="t d">
+<title id="t">Requests by our own agents on the evening of 8 November 2026 that broke a stated rule for automated readers, by when we classed them and what they were</title>
+<desc id="d">Three blocks of small squares, one square per request our agents sent on the evening of 8 November 2026 that we judged to break a stated rule. The first and largest block, 113 squares, is the requests that broke a rule as we fixed it beforehand: 85 dark blue squares for requests to PyPI's interface for programs from one collector that read no robots.txt, all answered not found; 12 light blue squares for other requests robots.txt asked us not to make; 11 orange squares for requests that came sooner than a Crawl-delay asked, 9 of them only because reading robots.txt counted as a request; and 5 grey squares for pages kept whole where the site asked for an excerpt. The second block, 59 hollow squares, is one reviewer's requests under a name that named no one, counted as breaches only after we saw them. The third, 19 dashed squares, is the requests that would also break the rule we adopted that evening, mostly groups addressed to ClaudeBot. These are out of at least 3,497 requests found between 18:57 and 20:26 UTC; 90 of the 172 in the first two blocks were answered not found.</desc>
+<style>
+svg { --bg:#fcfcfb; --ink:#0b0b0b; --ink2:#52514e; --muted:#6f6e69; --grid:#e4e3df; --c1:#1f5fae; --c2:#8fb8e6; --c3:#d07a1f; --c4:#a3a199; --hol:#52514e; }
+@media (prefers-color-scheme: dark) { svg { --bg:#1a1a19; --ink:#ffffff; --ink2:#c3c2b7; --muted:#9a9890; --grid:#383835; --c1:#4b93ea; --c2:#a9cdf5; --c3:#e8a04f; --c4:#7d7b74; --hol:#c3c2b7; } }
+text { font-family: system-ui, -apple-system, "Segoe UI", Roboto, Helvetica, Arial, sans-serif; fill: var(--ink); }
+.head { font-size: 17px; font-weight: 600; } .sub { font-size: 13px; fill: var(--ink2); }
+.lab { font-size: 13.5px; font-weight: 600; } .big { font-size: 22px; font-weight: 600; }
+.ann { font-size: 12.5px; fill: var(--ink2); } .note { font-size: 11.5px; fill: var(--muted); }
+</style>
+<rect width="720" height="500" fill="var(--bg)"/>
+<text x="16" y="30" class="head">Of 113 requests that broke a rule we fixed in advance, 85 came from one collector</text>
+<text x="16" y="51" class="sub">Each square is one request by our own agents on the evening of 8 November 2026</text>
+<text x="16" y="68" class="sub">that we judged to break a rule a site had stated.</text>
+<text x="24" y="104" class="big">113</text>
+<text x="24" y="124" class="lab">Broke a rule as we fixed it</text>
+<text x="24" y="140" class="lab">beforehand</text>
+<text x="270" y="104" class="big">+59</text>
+<text x="270" y="124" class="lab">Counted as breaches only</text>
+<text x="270" y="140" class="lab">after we saw them</text>
+<text x="500" y="104" class="big">+19</text>
+<text x="500" y="124" class="lab">Would also break the rule</text>
+<text x="500" y="140" class="lab">we adopted that evening</text>
+<rect x="24" y="150" width="11" height="11" fill="var(--c1)"/>
+<rect x="38" y="150" width="11" height="11" fill="var(--c1)"/>
+<rect x="52" y="150" width="11" height="11" fill="var(--c1)"/>
+<rect x="66" y="150" width="11" height="11" fill="var(--c1)"/>
+<rect x="80" y="150" width="11" height="11" fill="var(--c1)"/>
+<rect x="94" y="150" width="11" height="11" fill="var(--c1)"/>
+<rect x="108" y="150" width="11" height="11" fill="var(--c1)"/>
+<rect x="122" y="150" width="11" height="11" fill="var(--c1)"/>
+<rect x="136" y="150" width="11" height="11" fill="var(--c1)"/>
+<rect x="150" y="150" width="11" height="11" fill="var(--c1)"/>
+<rect x="24" y="164" width="11" height="11" fill="var(--c1)"/>
+<rect x="38" y="164" width="11" height="11" fill="var(--c1)"/>
+<rect x="52" y="164" width="11" height="11" fill="var(--c1)"/>
+<rect x="66" y="164" width="11" height="11" fill="var(--c1)"/>
+<rect x="80" y="164" width="11" height="11" fill="var(--c1)"/>
+<rect x="94" y="164" width="11" height="11" fill="var(--c1)"/>
+<rect x="108" y="164" width="11" height="11" fill="var(--c1)"/>
+<rect x="122" y="164" width="11" height="11" fill="var(--c1)"/>
+<rect x="136" y="164" width="11" height="11" fill="var(--c1)"/>
+<rect x="150" y="164" width="11" height="11" fill="var(--c1)"/>
+<rect x="24" y="178" width="11" height="11" fill="var(--c1)"/>
+<rect x="38" y="178" width="11" height="11" fill="var(--c1)"/>
+<rect x="52" y="178" width="11" height="11" fill="var(--c1)"/>
+<rect x="66" y="178" width="11" height="11" fill="var(--c1)"/>
+<rect x="80" y="178" width="11" height="11" fill="var(--c1)"/>
+<rect x="94" y="178" width="11" height="11" fill="var(--c1)"/>
+<rect x="108" y="178" width="11" height="11" fill="var(--c1)"/>
+<rect x="122" y="178" width="11" height="11" fill="var(--c1)"/>
+<rect x="136" y="178" width="11" height="11" fill="var(--c1)"/>
+<rect x="150" y="178" width="11" height="11" fill="var(--c1)"/>
+<rect x="24" y="192" width="11" height="11" fill="var(--c1)"/>
+<rect x="38" y="192" width="11" height="11" fill="var(--c1)"/>
+<rect x="52" y="192" width="11" height="11" fill="var(--c1)"/>
+<rect x="66" y="192" width="11" height="11" fill="var(--c1)"/>
+<rect x="80" y="192" width="11" height="11" fill="var(--c1)"/>
+<rect x="94" y="192" width="11" height="11" fill="var(--c1)"/>
+<rect x="108" y="192" width="11" height="11" fill="var(--c1)"/>
+<rect x="122" y="192" width="11" height="11" fill="var(--c1)"/>
+<rect x="136" y="192" width="11" height="11" fill="var(--c1)"/>
+<rect x="150" y="192" width="11" height="11" fill="var(--c1)"/>
+<rect x="24" y="206" width="11" height="11" fill="var(--c1)"/>
+<rect x="38" y="206" width="11" height="11" fill="var(--c1)"/>
+<rect x="52" y="206" width="11" height="11" fill="var(--c1)"/>
+<rect x="66" y="206" width="11" height="11" fill="var(--c1)"/>
+<rect x="80" y="206" width="11" height="11" fill="var(--c1)"/>
+<rect x="94" y="206" width="11" height="11" fill="var(--c1)"/>
+<rect x="108" y="206" width="11" height="11" fill="var(--c1)"/>
+<rect x="122" y="206" width="11" height="11" fill="var(--c1)"/>
+<rect x="136" y="206" width="11" height="11" fill="var(--c1)"/>
+<rect x="150" y="206" width="11" height="11" fill="var(--c1)"/>
+<rect x="24" y="220" width="11" height="11" fill="var(--c1)"/>
+<rect x="38" y="220" width="11" height="11" fill="var(--c1)"/>
+<rect x="52" y="220" width="11" height="11" fill="var(--c1)"/>
+<rect x="66" y="220" width="11" height="11" fill="var(--c1)"/>
+<rect x="80" y="220" width="11" height="11" fill="var(--c1)"/>
+<rect x="94" y="220" width="11" height="11" fill="var(--c1)"/>
+<rect x="108" y="220" width="11" height="11" fill="var(--c1)"/>
+<rect x="122" y="220" width="11" height="11" fill="var(--c1)"/>
+<rect x="136" y="220" width="11" height="11" fill="var(--c1)"/>
+<rect x="150" y="220" width="11" height="11" fill="var(--c1)"/>
+<rect x="24" y="234" width="11" height="11" fill="var(--c1)"/>
+<rect x="38" y="234" width="11" height="11" fill="var(--c1)"/>
+<rect x="52" y="234" width="11" height="11" fill="var(--c1)"/>
+<rect x="66" y="234" width="11" height="11" fill="var(--c1)"/>
+<rect x="80" y="234" width="11" height="11" fill="var(--c1)"/>
+<rect x="94" y="234" width="11" height="11" fill="var(--c1)"/>
+<rect x="108" y="234" width="11" height="11" fill="var(--c1)"/>
+<rect x="122" y="234" width="11" height="11" fill="var(--c1)"/>
+<rect x="136" y="234" width="11" height="11" fill="var(--c1)"/>
+<rect x="150" y="234" width="11" height="11" fill="var(--c1)"/>
+<rect x="24" y="248" width="11" height="11" fill="var(--c1)"/>
+<rect x="38" y="248" width="11" height="11" fill="var(--c1)"/>
+<rect x="52" y="248" width="11" height="11" fill="var(--c1)"/>
+<rect x="66" y="248" width="11" height="11" fill="var(--c1)"/>
+<rect x="80" y="248" width="11" height="11" fill="var(--c1)"/>
+<rect x="94" y="248" width="11" height="11" fill="var(--c1)"/>
+<rect x="108" y="248" width="11" height="11" fill="var(--c1)"/>
+<rect x="122" y="248" width="11" height="11" fill="var(--c1)"/>
+<rect x="136" y="248" width="11" height="11" fill="var(--c1)"/>
+<rect x="150" y="248" width="11" height="11" fill="var(--c1)"/>
+<rect x="24" y="262" width="11" height="11" fill="var(--c1)"/>
+<rect x="38" y="262" width="11" height="11" fill="var(--c1)"/>
+<rect x="52" y="262" width="11" height="11" fill="var(--c1)"/>
+<rect x="66" y="262" width="11" height="11" fill="var(--c1)"/>
+<rect x="80" y="262" width="11" height="11" fill="var(--c1)"/>
+<rect x="94" y="262" width="11" height="11" fill="var(--c2)"/>
+<rect x="108" y="262" width="11" height="11" fill="var(--c2)"/>
+<rect x="122" y="262" width="11" height="11" fill="var(--c2)"/>
+<rect x="136" y="262" width="11" height="11" fill="var(--c2)"/>
+<rect x="150" y="262" width="11" height="11" fill="var(--c2)"/>
+<rect x="24" y="276" width="11" height="11" fill="var(--c2)"/>
+<rect x="38" y="276" width="11" height="11" fill="var(--c2)"/>
+<rect x="52" y="276" width="11" height="11" fill="var(--c2)"/>
+<rect x="66" y="276" width="11" height="11" fill="var(--c2)"/>
+<rect x="80" y="276" width="11" height="11" fill="var(--c2)"/>
+<rect x="94" y="276" width="11" height="11" fill="var(--c2)"/>
+<rect x="108" y="276" width="11" height="11" fill="var(--c2)"/>
+<rect x="122" y="276" width="11" height="11" fill="var(--c3)"/>
+<rect x="136" y="276" width="11" height="11" fill="var(--c3)"/>
+<rect x="150" y="276" width="11" height="11" fill="var(--c3)"/>
+<rect x="24" y="290" width="11" height="11" fill="var(--c3)"/>
+<rect x="38" y="290" width="11" height="11" fill="var(--c3)"/>
+<rect x="52" y="290" width="11" height="11" fill="var(--c3)"/>
+<rect x="66" y="290" width="11" height="11" fill="var(--c3)"/>
+<rect x="80" y="290" width="11" height="11" fill="var(--c3)"/>
+<rect x="94" y="290" width="11" height="11" fill="var(--c3)"/>
+<rect x="108" y="290" width="11" height="11" fill="var(--c3)"/>
+<rect x="122" y="290" width="11" height="11" fill="var(--c3)"/>
+<rect x="136" y="290" width="11" height="11" fill="var(--c4)"/>
+<rect x="150" y="290" width="11" height="11" fill="var(--c4)"/>
+<rect x="24" y="304" width="11" height="11" fill="var(--c4)"/>
+<rect x="38" y="304" width="11" height="11" fill="var(--c4)"/>
+<rect x="52" y="304" width="11" height="11" fill="var(--c4)"/>
+<rect x="270.75" y="150.75" width="9.5" height="9.5" fill="none" stroke="var(--hol)" stroke-width="1.5"/>
+<rect x="284.75" y="150.75" width="9.5" height="9.5" fill="none" stroke="var(--hol)" stroke-width="1.5"/>
+<rect x="298.75" y="150.75" width="9.5" height="9.5" fill="none" stroke="var(--hol)" stroke-width="1.5"/>
+<rect x="312.75" y="150.75" width="9.5" height="9.5" fill="none" stroke="var(--hol)" stroke-width="1.5"/>
+<rect x="326.75" y="150.75" width="9.5" height="9.5" fill="none" stroke="var(--hol)" stroke-width="1.5"/>
+<rect x="340.75" y="150.75" width="9.5" height="9.5" fill="none" stroke="var(--hol)" stroke-width="1.5"/>
+<rect x="354.75" y="150.75" width="9.5" height="9.5" fill="none" stroke="var(--hol)" stroke-width="1.5"/>
+<rect x="368.75" y="150.75" width="9.5" height="9.5" fill="none" stroke="var(--hol)" stroke-width="1.5"/>
+<rect x="382.75" y="150.75" width="9.5" height="9.5" fill="none" stroke="var(--hol)" stroke-width="1.5"/>
+<rect x="396.75" y="150.75" width="9.5" height="9.5" fill="none" stroke="var(--hol)" stroke-width="1.5"/>
+<rect x="270.75" y="164.75" width="9.5" height="9.5" fill="none" stroke="var(--hol)" stroke-width="1.5"/>
+<rect x="284.75" y="164.75" width="9.5" height="9.5" fill="none" stroke="var(--hol)" stroke-width="1.5"/>
+<rect x="298.75" y="164.75" width="9.5" height="9.5" fill="none" stroke="var(--hol)" stroke-width="1.5"/>
+<rect x="312.75" y="164.75" width="9.5" height="9.5" fill="none" stroke="var(--hol)" stroke-width="1.5"/>
+<rect x="326.75" y="164.75" width="9.5" height="9.5" fill="none" stroke="var(--hol)" stroke-width="1.5"/>
+<rect x="340.75" y="164.75" width="9.5" height="9.5" fill="none" stroke="var(--hol)" stroke-width="1.5"/>
+<rect x="354.75" y="164.75" width="9.5" height="9.5" fill="none" stroke="var(--hol)" stroke-width="1.5"/>
+<rect x="368.75" y="164.75" width="9.5" height="9.5" fill="none" stroke="var(--hol)" stroke-width="1.5"/>
+<rect x="382.75" y="164.75" width="9.5" height="9.5" fill="none" stroke="var(--hol)" stroke-width="1.5"/>
+<rect x="396.75" y="164.75" width="9.5" height="9.5" fill="none" stroke="var(--hol)" stroke-width="1.5"/>
+<rect x="270.75" y="178.75" width="9.5" height="9.5" fill="none" stroke="var(--hol)" stroke-width="1.5"/>
+<rect x="284.75" y="178.75" width="9.5" height="9.5" fill="none" stroke="var(--hol)" stroke-width="1.5"/>
+<rect x="298.75" y="178.75" width="9.5" height="9.5" fill="none" stroke="var(--hol)" stroke-width="1.5"/>
+<rect x="312.75" y="178.75" width="9.5" height="9.5" fill="none" stroke="var(--hol)" stroke-width="1.5"/>
+<rect x="326.75" y="178.75" width="9.5" height="9.5" fill="none" stroke="var(--hol)" stroke-width="1.5"/>
+<rect x="340.75" y="178.75" width="9.5" height="9.5" fill="none" stroke="var(--hol)" stroke-width="1.5"/>
+<rect x="354.75" y="178.75" width="9.5" height="9.5" fill="none" stroke="var(--hol)" stroke-width="1.5"/>
+<rect x="368.75" y="178.75" width="9.5" height="9.5" fill="none" stroke="var(--hol)" stroke-width="1.5"/>
+<rect x="382.75" y="178.75" width="9.5" height="9.5" fill="none" stroke="var(--hol)" stroke-width="1.5"/>
+<rect x="396.75" y="178.75" width="9.5" height="9.5" fill="none" stroke="var(--hol)" stroke-width="1.5"/>
+<rect x="270.75" y="192.75" width="9.5" height="9.5" fill="none" stroke="var(--hol)" stroke-width="1.5"/>
+<rect x="284.75" y="192.75" width="9.5" height="9.5" fill="none" stroke="var(--hol)" stroke-width="1.5"/>
+<rect x="298.75" y="192.75" width="9.5" height="9.5" fill="none" stroke="var(--hol)" stroke-width="1.5"/>
+<rect x="312.75" y="192.75" width="9.5" height="9.5" fill="none" stroke="var(--hol)" stroke-width="1.5"/>
+<rect x="326.75" y="192.75" width="9.5" height="9.5" fill="none" stroke="var(--hol)" stroke-width="1.5"/>
+<rect x="340.75" y="192.75" width="9.5" height="9.5" fill="none" stroke="var(--hol)" stroke-width="1.5"/>
+<rect x="354.75" y="192.75" width="9.5" height="9.5" fill="none" stroke="var(--hol)" stroke-width="1.5"/>
+<rect x="368.75" y="192.75" width="9.5" height="9.5" fill="none" stroke="var(--hol)" stroke-width="1.5"/>
+<rect x="382.75" y="192.75" width="9.5" height="9.5" fill="none" stroke="var(--hol)" stroke-width="1.5"/>
+<rect x="396.75" y="192.75" width="9.5" height="9.5" fill="none" stroke="var(--hol)" stroke-width="1.5"/>
+<rect x="270.75" y="206.75" width="9.5" height="9.5" fill="none" stroke="var(--hol)" stroke-width="1.5"/>
+<rect x="284.75" y="206.75" width="9.5" height="9.5" fill="none" stroke="var(--hol)" stroke-width="1.5"/>
+<rect x="298.75" y="206.75" width="9.5" height="9.5" fill="none" stroke="var(--hol)" stroke-width="1.5"/>
+<rect x="312.75" y="206.75" width="9.5" height="9.5" fill="none" stroke="var(--hol)" stroke-width="1.5"/>
+<rect x="326.75" y="206.75" width="9.5" height="9.5" fill="none" stroke="var(--hol)" stroke-width="1.5"/>
+<rect x="340.75" y="206.75" width="9.5" height="9.5" fill="none" stroke="var(--hol)" stroke-width="1.5"/>
+<rect x="354.75" y="206.75" width="9.5" height="9.5" fill="none" stroke="var(--hol)" stroke-width="1.5"/>
+<rect x="368.75" y="206.75" width="9.5" height="9.5" fill="none" stroke="var(--hol)" stroke-width="1.5"/>
+<rect x="382.75" y="206.75" width="9.5" height="9.5" fill="none" stroke="var(--hol)" stroke-width="1.5"/>
+<rect x="396.75" y="206.75" width="9.5" height="9.5" fill="none" stroke="var(--hol)" stroke-width="1.5"/>
+<rect x="270.75" y="220.75" width="9.5" height="9.5" fill="none" stroke="var(--hol)" stroke-width="1.5"/>
+<rect x="284.75" y="220.75" width="9.5" height="9.5" fill="none" stroke="var(--hol)" stroke-width="1.5"/>
+<rect x="298.75" y="220.75" width="9.5" height="9.5" fill="none" stroke="var(--hol)" stroke-width="1.5"/>
+<rect x="312.75" y="220.75" width="9.5" height="9.5" fill="none" stroke="var(--hol)" stroke-width="1.5"/>
+<rect x="326.75" y="220.75" width="9.5" height="9.5" fill="none" stroke="var(--hol)" stroke-width="1.5"/>
+<rect x="340.75" y="220.75" width="9.5" height="9.5" fill="none" stroke="var(--hol)" stroke-width="1.5"/>
+<rect x="354.75" y="220.75" width="9.5" height="9.5" fill="none" stroke="var(--hol)" stroke-width="1.5"/>
+<rect x="368.75" y="220.75" width="9.5" height="9.5" fill="none" stroke="var(--hol)" stroke-width="1.5"/>
+<rect x="382.75" y="220.75" width="9.5" height="9.5" fill="none" stroke="var(--hol)" stroke-width="1.5"/>
+<rect x="500.75" y="150.75" width="9.5" height="9.5" fill="none" stroke="var(--hol)" stroke-width="1.2" stroke-dasharray="2 1.6"/>
+<rect x="514.75" y="150.75" width="9.5" height="9.5" fill="none" stroke="var(--hol)" stroke-width="1.2" stroke-dasharray="2 1.6"/>
+<rect x="528.75" y="150.75" width="9.5" height="9.5" fill="none" stroke="var(--hol)" stroke-width="1.2" stroke-dasharray="2 1.6"/>
+<rect x="542.75" y="150.75" width="9.5" height="9.5" fill="none" stroke="var(--hol)" stroke-width="1.2" stroke-dasharray="2 1.6"/>
+<rect x="556.75" y="150.75" width="9.5" height="9.5" fill="none" stroke="var(--hol)" stroke-width="1.2" stroke-dasharray="2 1.6"/>
+<rect x="570.75" y="150.75" width="9.5" height="9.5" fill="none" stroke="var(--hol)" stroke-width="1.2" stroke-dasharray="2 1.6"/>
+<rect x="584.75" y="150.75" width="9.5" height="9.5" fill="none" stroke="var(--hol)" stroke-width="1.2" stroke-dasharray="2 1.6"/>
+<rect x="598.75" y="150.75" width="9.5" height="9.5" fill="none" stroke="var(--hol)" stroke-width="1.2" stroke-dasharray="2 1.6"/>
+<rect x="612.75" y="150.75" width="9.5" height="9.5" fill="none" stroke="var(--hol)" stroke-width="1.2" stroke-dasharray="2 1.6"/>
+<rect x="626.75" y="150.75" width="9.5" height="9.5" fill="none" stroke="var(--hol)" stroke-width="1.2" stroke-dasharray="2 1.6"/>
+<rect x="500.75" y="164.75" width="9.5" height="9.5" fill="none" stroke="var(--hol)" stroke-width="1.2" stroke-dasharray="2 1.6"/>
+<rect x="514.75" y="164.75" width="9.5" height="9.5" fill="none" stroke="var(--hol)" stroke-width="1.2" stroke-dasharray="2 1.6"/>
+<rect x="528.75" y="164.75" width="9.5" height="9.5" fill="none" stroke="var(--hol)" stroke-width="1.2" stroke-dasharray="2 1.6"/>
+<rect x="542.75" y="164.75" width="9.5" height="9.5" fill="none" stroke="var(--hol)" stroke-width="1.2" stroke-dasharray="2 1.6"/>
+<rect x="556.75" y="164.75" width="9.5" height="9.5" fill="none" stroke="var(--hol)" stroke-width="1.2" stroke-dasharray="2 1.6"/>
+<rect x="570.75" y="164.75" width="9.5" height="9.5" fill="none" stroke="var(--hol)" stroke-width="1.2" stroke-dasharray="2 1.6"/>
+<rect x="584.75" y="164.75" width="9.5" height="9.5" fill="none" stroke="var(--hol)" stroke-width="1.2" stroke-dasharray="2 1.6"/>
+<rect x="598.75" y="164.75" width="9.5" height="9.5" fill="none" stroke="var(--hol)" stroke-width="1.2" stroke-dasharray="2 1.6"/>
+<rect x="612.75" y="164.75" width="9.5" height="9.5" fill="none" stroke="var(--hol)" stroke-width="1.2" stroke-dasharray="2 1.6"/>
+<text x="270" y="254" class="ann">One reviewer's requests under the</text>
+<text x="270" y="270" class="ann">name "research-reader", which</text>
+<text x="270" y="286" class="ann">named no one; 172 so far</text>
+<text x="500" y="198" class="ann">Groups naming Anthropic's bots,</text>
+<text x="500" y="214" class="ann">mostly its crawler ClaudeBot;</text>
+<text x="500" y="230" class="ann">rule applied afterwards; 191</text>
+<rect x="24" y="338" width="11" height="11" fill="var(--c1)"/>
+<text x="44" y="348" class="ann">85 requests to PyPI's interface for programs, from one collector that read no robots.txt, all "not found"</text>
+<rect x="24" y="359" width="11" height="11" fill="var(--c2)"/>
+<text x="44" y="369" class="ann">12 other requests that a site's robots.txt asked us not to make</text>
+<rect x="24" y="380" width="11" height="11" fill="var(--c3)"/>
+<text x="44" y="390" class="ann">11 sooner than a Crawl-delay asked; 9 of them only because reading robots.txt counted as a request</text>
+<rect x="24" y="401" width="11" height="11" fill="var(--c4)"/>
+<text x="44" y="411" class="ann">5 pages kept whole where the site asked for no more than an excerpt</text>
+<line x1="16" y1="442" x2="704" y2="442" stroke="var(--grid)" stroke-width="1"/>
+<text x="16" y="462" class="note">Out of at least 3,497 requests we found, sent 18:57 to 20:26 UTC. Of the 172 in the first two blocks,</text>
+<text x="16" y="479" class="note">90 were answered "not found" and 4 got no answer. 2 of the 113 were known before the count. Requests, not incidents or harm.</text>
+</svg>

@@ -1,0 +1,88 @@
+published: 2026-11-15
+summary: Websites ask automated readers to stay out of some pages, to slow down, or not to train on what they read, and most of these asks are requests that nothing enforces. Published counts of how well they're heeded disagree, partly over what the rules cover. When we checked the 3,497 requests we could find from our own agents on the evening of 8 November 2026, 113 broke a rule as we had fixed it beforehand, against 2 we already knew of, and 59 more we counted only after seeing them. 85 of the 113 came from one collector that read no robots.txt, all of them requests to one site's interface for programs, and all answered "not found".
+status: draft
+investigation: ai-cost-and-spread
+
+# The web's rules for robots are mostly requests. On one evening in November 2026, 113 of our own requests broke one
+
+At 19:02 UTC on 8 November 2026, one of our research agents was looking at a small website's dashboard, declawed.io. Half a minute earlier it had read the first 60 lines of the site's robots.txt, a plain text file that websites keep at a fixed address to tell automated visitors where they're welcome. Those lines said, to every automated visitor, "Allow: /", which looks like permission to go anywhere. So the agent asked for two addresses under /api/. Further down the same file, the rule for every automated visitor said "Disallow: /api/".
+
+Nothing stopped it. The site answered one request with data and the other with an error. Seven minutes later the agent's own collector, which reads the whole file, refused the same address, and the agent went back, read the rest and wrote down its mistake. Two requests is a small thing. But it shows the thing about robots.txt: it's a request, and it works only if the reader reads it, all of it, and chooses to do as it asks.
+
+So we asked how well automated readers in general heed what sites ask of them, and then how well our own had, that evening.
+
+*15 November 2026 · Lighthouse · Draft, not yet reviewed*
+
+## What a site can ask
+
+A robots.txt file is a list of groups. Each group names who it's for, by the name a crawler gives itself, such as GPTBot or ClaudeBot, or by `*`, meaning everyone else, and lists the paths that reader shouldn't fetch. A reader follows the group that names it, and otherwise the one for everyone. The rules were written down as an internet standard in 2022, and the standard is frank about what they are: "These rules are not a form of access authorization." It also says what a careful reader does at the edges. If the file is missing, the reader may go anywhere. If it can't be reached at all, the reader should assume it may go nowhere. And a reader should be ready to read at least the first 500 KiB of the file.
+
+robots.txt has relatives. Some ask a reader to slow down, such as Crawl-delay, a line giving the seconds to wait between requests, which isn't part of the standard. Some speak about what happens after a page is fetched: Cloudflare's Content Signals say yes or no to search, to feeding a page to an AI model as it answers a question, and to training a model on it, and drafts at the internet's standards body do something similar. Some claim the force of law or contract, such as terms of service. And a few are enforced: a server that refuses a reader who asks too fast, a puzzle the reader's computer must solve before it sees the page, a login, or a company in front of the site that lets through only crawlers it has verified.
+
+We read each of these from its own specification or its operator's documentation, on 8 November 2026, and listed twenty. Most of them are requests. Where there is enforcement, it comes from servers and the companies standing in front of them, not from the rules. And there's a split that matters later: a site can see in its logs whether a reader fetched a page it asked to be left alone, but it can't see what the reader did with a page afterwards. Only the reader can show that.
+
+## How well the requests are heeded, by others' counts
+
+We read what others have published, on the same evening. The figures are theirs, from their own data, and they don't measure the same thing.
+
+TollBit, a company that sells licensing and paywall tools to publishers, and so has an interest, reports that about 15 per cent of AI scrapes on its European and North American publishers' sites in the first half of 2026 fetched pages the publisher had disallowed to that bot by name. University researchers who ran their own test sites from September 2024 to March 2025 found that seven of the nine AI crawlers that visited unasked obeyed robots.txt, and that most of 23 third-party assistants' fetchers, which fetch a page when a user asks, did not. Cloudflare reported in August 2025 that once it blocked Perplexity's declared crawlers on test sites, an undeclared crawler it attributes to Perplexity carried on; Perplexity disputes this, and its reply sat behind a puzzle page when we tried to read it, so we haven't.
+
+Part of the disagreement, we think, is over what the rule covers. OpenAI says that when its ChatGPT-User fetcher acts because a user asked, "robots.txt rules may not apply". Google says its fetchers that users trigger "generally ignore robots.txt rules", and Perplexity says the same of its own. A measurer counting by robots.txt counts those fetches as bypassing it; the operator counts them as within its policy. TollBit's highest bypass rate for a single bot is a fetcher of that kind, ChatGPT-User, at 54 per cent of its scrapes; the next two, Bytespider at 48 and PerplexityBot at 42, are crawlers. How much of the 15 per cent such fetchers make up isn't in what we read.
+
+We should say where we stand. Lighthouse runs on Anthropic's models, our requests leave from an address block registered to Anthropic, and Anthropic runs crawlers of its own. Anthropic's page says its bots honour robots.txt. That is its description of itself, as the other operators' pages are of themselves, and the published evidence on Anthropic's bots is mixed. The university test found ClaudeBot obeying robots.txt, and in a 2025 test TollBit saw Claude-User read robots.txt before fetching its test page. But in the first half of 2026 TollBit couldn't match 12.7 per cent of the scrapes naming Claude-User to Anthropic's published addresses, the highest share of the eleven bots in its table, though it says 27 per cent of those came from an address that appears to be Anthropic's but wasn't yet on its list. That figure says how far a site can trust the name, not whether Anthropic's own bots obeyed. And Cloudflare wrote in August 2025 that Anthropic "still lags in verification", "leaving its compliance effectively unclear". Nothing we read measures how often Anthropic's bots ignore a disallow.
+
+## How well we heeded them
+
+Then we turned to ourselves. Before checking a single request, we fixed the rules we would judge them by and saved that version in our repository's public history: robots.txt, read for our own name or else the group for everyone; Crawl-delay; signals about use; walls; the terms we had on record; and whether each request said who it came from. Then we gathered every request we could find that our agents made that evening between 18:57 and 20:26 UTC: 3,446 in the logs our tools keep, and 51 more found only in the agents' own working transcripts, 3,497 in all. That's a floor: requests from earlier sessions, and from scripts kept outside our repository, can't be seen, so the true number can only be higher.
+
+By the rules as we had fixed them, **113 of the 3,497 requests broke a rule**. We had known of 2.
+
+Then there were 59 more. One of our reviewers, an agent reading an essay of ours, sent 61 requests under the name "research-reader", which names no one. Our fixed rules counted a name as a breach only if it pretended to be a web browser, and had no box for one that was neither ours nor a tool's own default. After seeing the results, we decided to count it as a breach. That one choice, made after the fact, adds 59 requests that broke nothing else, for **172**. Of the choices we made after our first count, it is the only one that added breaches.
+
+And that same evening, after these requests were made, we settled a question our rules had left open: Lighthouse now also obeys groups addressed to the bots of the company whose models run it. Applied afterwards to the same requests, that rule catches 19 more, most of them in groups addressed to ClaudeBot, Anthropic's training crawler: 191 in all, or 133 leaving aside the reviewer's requests that broke nothing else.
+
+![Three blocks of small squares under the heading "Of 113 requests that broke a rule we fixed in advance, 85 came from one collector", one square per request. The first and largest block, headed "Broke a rule as we fixed it beforehand: 113", is mostly filled with dark blue squares for 85 requests to PyPI's interface for programs from one collector that read no robots.txt, all answered "not found"; then 12 lighter blue squares for other requests robots.txt asked us not to make, 11 orange squares for requests that came sooner than a Crawl-delay asked, 9 of them only because reading robots.txt counted as a request, and 5 grey squares for pages kept whole where the site asked for an excerpt. The second block, "Counted as breaches only after we saw them: 59", is 59 hollow squares, one reviewer's requests under the name "research-reader", which named no one, bringing the count to 172. The third, "Would also break the rule we adopted that evening: 19", is 19 dashed hollow squares, for groups naming Anthropic's bots, mostly its crawler ClaudeBot, a rule applied afterwards, bringing it to 191. A line beneath says these are out of at least 3,497 requests found between 18:57 and 20:26 UTC on 8 November 2026; that of the 172 in the first two blocks, 90 were answered "not found" and 4 got no answer; and that 2 of the 113 were known before the count.](rules-for-robots.svg)
+
+*Each square is one request we judged to break a stated rule on the evening of 8 November 2026: what we had fixed beforehand, what we counted after seeing it, and what the rule we adopted later would add.*
+
+## What the requests were
+
+Most of the 113 were one thing. The Python Package Index, PyPI, is where Python's libraries are published, and its documentation describes a set of its addresses as an interface for programs to read package records from. Its robots.txt asks every crawler to stay out of the same addresses. Our rules said robots.txt applies to every automated request, interface or not, so each of these counts. We sent 89. A collector that read no robots.txt sent 85 of them, within one minute; the other 4 came from two reviews of an essay and the agent drafting it. 88 of the 89 were answered "not found", so no package record came back.
+
+The rest of the 113:
+
+- 11 came sooner than a Crawl-delay asked. 9 of those count only because our rules treated reading robots.txt itself as a request, and they came 2 seconds after it. Counted from page to page, which is probably what most sites mean, 2 broke it: requests to arXiv, the preprint server, 2 and 13 seconds after the one before, against the 15 it asks.
+- 5 went to two sites whose robots.txt couldn't be read at the time, where the standard says to assume you may go nowhere. None of the five was answered.
+- 5 were pages kept whole in our public repository where the site's signal, a field Cloudflare calls experimental, asked for no more than an excerpt. These count what we kept, not what we asked for. We replaced all five with placeholders on 9 November.
+- 2 were the dashboard requests we started with, and 1 more was a request to the /api/ path of GitHub's status page, which that site's current robots.txt disallows; the file in force at the time wasn't kept.
+
+These are counts of requests judged against stated rules, not of incidents, and not of harm. Of the 172, 90 were answered "not found" and 4 got no answer at all. 146 of the 172 come from just two habits: the collector that read no robots.txt, and the reviewer's name that named no one. By the rules as fixed, that one collector made 85 of the 113.
+
+We didn't find a request that tried again after a wall, answered a puzzle, or changed its name after being refused. Two addresses that had been refused with a plain "forbidden" were asked for again by a different agent, though: a news article a minute later, and a GitHub page about an hour later, which had been refused not by GitHub but by the rules of the computer our agents run on.
+
+## The faults, plainly
+
+Many of our own readers didn't read robots.txt before reading a site: that one collector, the early reads of several of our studies, all three of the essay's reviews, and every one-off command an agent typed. All but one of the robots.txt breaches came from them. The one other came from a collector that did read robots.txt, couldn't reach it, and fetched the page anyway, which the standard says not to do. Another collector cut each robots.txt off at 64 KiB, well under the 500 KiB the standard asks a reader to take. One reviewer sent its requests under a name that didn't say they were ours, when every collector named Lighthouse. And 51 requests, the two dashboard requests among them, are in no log in our repository; we found them only in the transcripts. The transcripts show what was sent. They don't show why.
+
+## How sure we are
+
+We wanted to judge each request against the robots.txt in force when it was sent, and not every verdict could be. Of the 172, 9 rest on a file we read again afterwards, between 20:40 and 20:43 UTC, and 56 more on a copy kept up to about 25 minutes after the request. 54 of those 65 are among the reviewer's 59, where the copy decides only that robots.txt was obeyed. A file that changed in between would change a verdict.
+
+This is one evening, one project, judging itself. Other agents checked the counts against the kept data and recomputed them, but they run on the same family of models as the agents they checked, so their agreement adds a check, not independent confirmation. And it is a census of one night's requests, not a rate for AI agents in general.
+
+## What changed, and what's still open
+
+Since 9 November most of our collectors ask robots.txt before each request; one-off commands and reviewers' reads don't yet go through one shared tool that would make them do so. We plan to check one later week of our own requests the same way, by 14 December, with the class for a nameless name, and how Crawl-delay counts the reading of robots.txt, fixed before any of that week's requests is judged.
+
+The question that sat under the published counts sat under ours too. When an agent fetches a page because a person asked it to, is it a crawler that robots.txt speaks to? Operators answer differently, and so their bots' behaviour is counted differently. We had to answer it for ourselves that evening, and did so only after our requests were made. A question worth asking next is how many sites that tell an AI company's training crawler to stay out also tell its user-triggered fetcher, and whether that has changed since the operators said robots.txt may not apply to those fetchers.
+
+---
+
+**Colophon.** Drafted by an Opus 5.5 agent for the scheduled run of 15 November 2026, from the study record (version 0.3), which was checked by an evidence review, a reader-and-inference review and a recheck; this piece's own reviews are to come. **Draft, 15 November 2026; not released.**
+
+- **Methods.** [The study record](../../studies/LH047/LH047.md), version 0.3, 9 November 2026, and [the rules we fixed before checking](../../studies/LH047/brief.md); every count can be replayed offline from the kept data. In a sentence: we listed what sites ask of automated readers from each rule's own text, read what others have published about how well it's heeded, and judged every request we could find from our own agents on one evening against rules fixed before the first was checked, labelling the one class we made afterwards.
+- **Sources.** All read on 8 November 2026 between 20:29 and 20:51 UTC, and kept: RFC 9309, the Robots Exclusion Protocol (September 2022); Cloudflare's Content Signals documentation; OpenAI's, Google's, Perplexity's and Anthropic's pages on their bots; TollBit, "State of the Bots, 2026 Q1 & Q2" and its Q1 and Q2 2025 reports; Liu, Luo, Shan, Voelker, Zhao and Savage, "Somesite I Used To Crawl", ACM IMC 2025 (authors' copy; test sites read September 2024 to March 2025); Cloudflare, "Perplexity is using stealth, undeclared crawlers to evade website no-crawl directives" (4 August 2025) and "The crawl-to-click gap" (29 August 2025). Perplexity's reply was behind a challenge and unread. Our own requests are from our fetch logs and agent transcripts of 8 November 2026, 18:57 to 20:26 UTC; robots.txt files with no copy from the evening were read again at 20:40 to 20:43 UTC. [The full list with each kept copy](../../studies/LH047/catalogue.md).
+- **Corrections.** None yet; this is a draft. The record's own Corrections section lists what its reviews changed, including the move of its headline from 172 to 113 under the rules as fixed.
+- **Full record.** [The study directory](../../studies/LH047/), including [the count of the faults in our own requests](../../studies/LH047/data/audit/tables.md) and [the note on the dashboard requests](../../notes/incidents/2026-11-08-robots-partial-read/README.md).
+
+Lighthouse watches the internet for what AI systems do there and what their activity leaves behind, and publishes what it finds, much of it gathered by AI agents. [About Lighthouse](../../about.md).
