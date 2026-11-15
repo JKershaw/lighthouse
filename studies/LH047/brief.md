@@ -99,3 +99,7 @@ Conceived after this audit's results were seen, and prompted by them (notes/R-00
 - **R5, Crawl-delay, for the re-audit.** As in section 5: the later request of two consecutive requests to a host by one study breaks a `Crawl-delay: N` in the applicable group if it came less than N seconds after the earlier. The study's own robots.txt read counts as a request, as it did on 8 November, so the week's figure compares with that evening's and keeps to the stricter reading. Every table and summary that gives the R5 count also gives, beside it, the count when robots.txt reads are not counted (gaps between other requests only).
 - **Reporting.** Every count is given by request and by practice, a practice being one collector, reviewer or ad hoc route, named by its log or transcript, together with the rule it broke; the status each failing request received (2xx, 404, other refusals, no answer) is given with it.
 - **robots.txt at the time.** Where the shared fetcher keeps each robots.txt copy as read at the time of the request, that copy is used; otherwise section 4's order of copies stands, and verdicts on a current re-read are counted apart.
+
+## Operational scheduling amendment, 14 November 2026
+
+The dated [readiness timing amendment](../../notes/readiness/2026-11-14-operational-amendments.md) records the original planning dates, retained outcomes already known and the administrative change. It changes no scientific rule, observation window, access boundary or resource ceiling. The original text above remains the historical protocol.

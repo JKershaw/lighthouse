@@ -1,111 +1,91 @@
 #!/usr/bin/env python3
-"""Check schedule/due.csv and say what is due. Offline, standard library only.
+"""Validate and report the queue offline. Positional dates replay midnight UTC."""
+from __future__ import annotations
 
-Usage: python3 schedule/check.py [YYYY-MM-DD]   (default: today, UTC)
-
-Prints, in order: problems with the table itself; rows due now; rows overdue (window closed, still open);
-claims gone stale; rows waiting on the keeper or blocked; the next seven days; and gaps (a study with a brief
-but no record and no rows, or an interim record with no open row). Exits 1 if the table has problems.
-"""
-from datetime import date, datetime, timedelta, timezone
+import argparse
+from datetime import datetime, time, timezone
+import json
 from pathlib import Path
-import csv
 import re
 import sys
 
+if __package__:
+    from .model import aware_instant, canonical_date, evaluate
+else:
+    from model import aware_instant, canonical_date, evaluate
+
 ROOT = Path(__file__).resolve().parents[1]
-TABLE = ROOT / 'schedule' / 'due.csv'
-FIELDS = ['id', 'study', 'task', 'earliest', 'latest', 'status', 'updated', 'by', 'ref', 'note']
-STATUSES = {'open', 'running', 'done', 'missed', 'blocked', 'keeper', 'cancelled'}
-STALE = timedelta(hours=6)
 
-today = date.fromisoformat(sys.argv[1]) if len(sys.argv) > 1 else datetime.now(timezone.utc).date()
-now = datetime.now(timezone.utc)
-rows = list(csv.DictReader(open(TABLE, newline='')))
-problems = []
 
-if rows and list(rows[0]) != FIELDS:
-    problems.append(f'columns are {list(rows[0])}, expected {FIELDS}')
-seen = set()
-for n, r in enumerate(rows, start=2):
-    where = f'line {n} ({r.get("id")})'
-    if not r.get('id'):
-        problems.append(f'{where}: no id')
-    elif r['id'] in seen:
-        problems.append(f'{where}: duplicate id')
-    seen.add(r.get('id'))
-    if r.get('status') not in STATUSES:
-        problems.append(f'{where}: status {r.get("status")!r} not one of {sorted(STATUSES)}')
-    for k in ('earliest', 'latest'):
-        if r.get(k):
-            try:
-                date.fromisoformat(r[k])
-            except ValueError:
-                problems.append(f'{where}: {k} {r[k]!r} is not YYYY-MM-DD')
-    if r.get('earliest') and r.get('latest') and r['latest'] < r['earliest']:
-        problems.append(f'{where}: latest before earliest')
-    if r.get('status') == 'done' and not r.get('ref'):
-        problems.append(f'{where}: done with no ref (a read directory, file or commit)')
+def arguments(argv):
+    parser = argparse.ArgumentParser(description=__doc__)
+    parser.add_argument('date', nargs='?', help='YYYY-MM-DD, evaluated at midnight UTC')
+    parser.add_argument('--now', help='timezone-aware ISO instant (incompatible with date)')
+    parser.add_argument('--root', type=Path, default=ROOT, help='repository or fixture root')
+    parser.add_argument('--json', action='store_true', help='emit readiness contract version 1')
+    return parser.parse_args(argv)
 
-def d(s):
-    return date.fromisoformat(s) if s else None
 
-def claimed_at(r):
-    """A running row's updated field holds its claim time, ISO with hour, e.g. 2026-11-02T06:35Z."""
-    try:
-        return datetime.fromisoformat(r['updated'].replace('Z', '+00:00'))
-    except ValueError:
-        return None
-
-due, overdue, stale, waiting, upcoming = [], [], [], [], []
-for r in rows:
-    s, e, l = r['status'], d(r['earliest']), d(r['latest'])
-    if s == 'open':
-        if l and l < today:
-            overdue.append(r)
-        elif (e is None or e <= today):
-            due.append(r)
-        elif e <= today + timedelta(days=7):
-            upcoming.append(r)
-    elif s == 'running':
-        t = claimed_at(r)
-        if t is None or (t.tzinfo and now - t > STALE):
-            stale.append(r)
-    elif s in ('keeper', 'blocked'):
-        waiting.append(r)
-
-gaps = []
-studies_with_open = {r['study'] for r in rows if r['status'] in ('open', 'running', 'keeper', 'blocked')}
-for brief in sorted(ROOT.glob('studies/LH*/brief.md')):
-    sid = brief.parent.name
-    record = brief.parent / f'{sid}.md'
-    if sid in studies_with_open:
-        continue
-    if not record.exists():
-        gaps.append(f'{sid}: a brief, no record and no open row')
-    elif re.search(r'^version:.*interim', record.read_text(), re.M):
-        gaps.append(f'{sid}: an interim record and no open row')
-
-# Proposals whose status says they wait for the keeper, wherever they sit in proposals.md.
-proposals_waiting = []
-PROPOSALS = ROOT / 'proposals.md'
-if PROPOSALS.exists():
-    for m in re.finditer(r'^### (P-\d+) (.+)$([\s\S]*?)(?=^### |^## |\Z)', PROPOSALS.read_text(), re.M):
-        if re.search(r'Status:\s*waiting for the keeper', m.group(3), re.I):
-            proposals_waiting.append(f'{m.group(1)}  {m.group(2).strip()}')
-
-def show(title, items, fmt=lambda r: f'  {r["id"]}  [{r["earliest"]} to {r["latest"] or "open-ended"}]  {r["task"]}'):
+def show(title, items):
     print(f'\n{title}: {len(items)}')
-    for r in items:
-        print(fmt(r) if isinstance(r, dict) else f'  {r}')
+    for item in items:
+        print(f'  {item}')
 
-print(f'schedule/due.csv on {today.isoformat()}: {len(rows)} rows')
-show('Problems with the table', problems)
-show('Due now', due)
-show('Overdue (window closed, still open: do it if the brief allows, or mark missed)', overdue)
-show('Stale claims (running for more than six hours: treat as open)', stale)
-show('Waiting on the keeper or blocked', waiting, lambda r: f'  {r["id"]}  {r["status"]}: {r["note"]}')
-show('Proposals waiting for the keeper (proposals.md)', proposals_waiting)
-show('Next seven days', upcoming)
-show('Gaps', gaps)
-sys.exit(1 if problems else 0)
+
+def human(report, root):
+    print(f'schedule/due.csv on {report["today"]}: {len(report["rows"])} rows')
+    print(f'Evaluated at {report["evaluated_at"]} (UTC; date arguments mean midnight UTC)')
+    show('Problems with the table', report['diagnostics'])
+    rows = {row['id']: row for row in report['rows']}
+    def tasks(identities):
+        return [f'{identity}  [{rows[identity]["earliest"] or "any time"} to {rows[identity]["latest"] or "open-ended"}]  {rows[identity]["task"]}' for identity in identities]
+    show('Due now (ready)', tasks(report['ready']))
+    show('Overdue (ready; follow the brief or mark missed)', tasks(report['overdue']))
+    show('Stale claims (reconcile ownership before reopening)', tasks(report['stale']))
+    waiting = [f'{row["id"]}  {row["state"]}: {"; ".join(row["reasons"])}' for row in report['rows']
+               if row['state'] in {'blocked', 'keeper', 'dependency_wait', 'running'}]
+    show('Waiting on evidence, a running claim, the keeper or a block', waiting)
+    proposals = root / 'proposals.md'
+    proposals_waiting = []
+    if proposals.exists():
+        try:
+            for match in re.finditer(r'^### (P-\d+) (.+)$([\s\S]*?)(?=^### |^## |\Z)', proposals.read_text(), re.M):
+                if re.search(r'Status:\s*waiting for the keeper', match.group(3), re.I):
+                    proposals_waiting.append(f'{match.group(1)}  {match.group(2).strip()}')
+        except (OSError, UnicodeError):
+            proposals_waiting.append('Could not read proposals.md; this does not change queue readiness')
+    show('Proposals waiting for the keeper (proposals.md)', proposals_waiting)
+    show('Next seven days (calendar only)', tasks(report['upcoming']))
+    show('Pipeline coverage warnings (advisory)', [item['message'] for item in report['coverage']])
+
+
+def main(argv=None):
+    args = arguments(argv)
+    now = datetime.now(timezone.utc)
+    try:
+        if args.date and args.now:
+            raise ValueError('supply either a positional date or --now, not both')
+        if args.date:
+            now = datetime.combine(canonical_date(args.date), time(), timezone.utc)
+        elif args.now:
+            now = aware_instant(args.now)
+    except ValueError as exc:
+        report = dict(schema_version=1, evaluated_at=None, today=None, valid=False,
+                      diagnostics=[f'clock: {exc}'], rows=[], coverage=[],
+                      groups={key: [] for key in ('ready', 'overdue', 'upcoming', 'stale', 'gaps', 'warnings')})
+        report.update(report['groups'])
+        if args.json:
+            print(json.dumps(report, ensure_ascii=False))
+        else:
+            print(f'Invalid evaluation clock: {exc}', file=sys.stderr)
+        return 1
+    report = evaluate(args.root, now)
+    if args.json:
+        print(json.dumps(report, ensure_ascii=False))
+    else:
+        human(report, args.root)
+    return 0 if report['valid'] else 1
+
+
+if __name__ == '__main__':
+    sys.exit(main())

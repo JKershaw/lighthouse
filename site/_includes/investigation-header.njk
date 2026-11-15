@@ -4,12 +4,13 @@
 <div class="inv-now">
   <p class="inv-stands"><span class="inv-label">Where it stands</span> {% set status = now.answer.status %}{% include "status.njk" %} {% if now.answer.url %}{{ now.answer.kind }}: <a href="{{ now.answer.url }}">{{ now.answer.title }}</a>{% else %}{{ now.answer.title }}{% endif %}</p>
   {% if now.reading %}<p class="card-reading">{{ now.reading.kind }}: <a href="{{ now.reading.url }}">{{ now.reading.title }}</a></p>{% endif %}
-  <p class="when">{% if inv.started %}Started {{ inv.started }} · {% endif %}{{ now.studies }} {{ "study" if now.studies == 1 else "studies" }}, {{ now.running }} running{% if now.pieces %} · {{ now.pieces }} {{ "piece" if now.pieces == 1 else "pieces" }}{% endif %}{% if now.latestRead %} · latest read {{ now.latestRead.day }}{% endif %}{% if now.next %} · next read {{ now.next.day }}{% endif %}</p>
+  {% if now.waiting.length %}<details><summary>Work waiting ({{ now.waiting.length }})</summary><ul class="sched-list">{% for row in now.waiting %}<li><span title="{{ row.id | escape }}">{{ row.task | escape }}</span>: {% for reason in row.reasons %}{{ reason | escape }}{% if not loop.last %}; {% endif %}{% endfor %}</li>{% endfor %}</ul></details>{% endif %}
+  <p class="when">{% if inv.started %}Started {{ inv.started }} · {% endif %}{{ now.studies }} {{ "study" if now.studies == 1 else "studies" }}, {{ now.running }} running{% if now.pieces %} · {{ now.pieces }} {{ "piece" if now.pieces == 1 else "pieces" }}{% endif %}{% if now.latestRead %} · latest read {{ now.latestRead.day }}{% endif %}{% if now.next %} · next read {{ now.next.day }}{% if now.next.reason %} ({{ now.next.reason | escape }}){% endif %}{% endif %}</p>
 </div>
 {% if now.studyList.length %}<details class="inv-studies"{% if now.running %} open{% endif %}>
   <summary>The studies{% if now.running %}: {{ now.running }} running{% endif %}</summary>
   <ul class="study-list">
-    {% for s in now.studyList %}<li><a href="{{ s.url }}" title="{{ s.id }}">{{ s.title }}</a> <span class="when">{% if s.running %}running{% else %}finished or paused{% endif %}{% if s.latest %} · <a href="{{ s.latest.url }}">latest read {{ s.latest.day }}</a>{% endif %}</span></li>
+    {% for s in now.studyList %}<li><a href="{{ s.url }}" title="{{ s.id }}">{{ s.title }}</a> <span class="when">{% if s.running %}running{% elif s.waiting.length %}waiting{% else %}scheduled, finished or paused{% endif %}{% if s.latest %} · <a href="{{ s.latest.url }}">latest read {{ s.latest.day }}</a>{% endif %}</span></li>
     {% endfor %}
   </ul>
 </details>{% endif %}

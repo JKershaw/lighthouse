@@ -5,7 +5,8 @@
 // is written by hand, so a card is never staler than the table.
 const long = new Intl.DateTimeFormat('en-GB', { day: 'numeric', month: 'long', timeZone: 'UTC' });
 const dayLabel = (iso) => (iso ? long.format(new Date(`${iso.slice(0, 10)}T00:00:00Z`)) : '');
-const RUNNING = ['due', 'upcoming', 'running', 'overdue'];
+const FINISHED = ['done', 'missed', 'cancelled'];
+const WAITING = ['dependency_wait', 'blocked', 'keeper', 'recovery'];
 
 export function investigationNow(inv, repo, schedule) {
   if (!inv) return null;
@@ -13,8 +14,8 @@ export function investigationNow(inv, repo, schedule) {
   const studies = (repo.studies || []).filter((s) => ids.has(s.id));
   const rows = (schedule && schedule.rows) || [];
   const today = (schedule && schedule.today) || new Date().toISOString().slice(0, 10);
-  const open = rows.filter((r) => ids.has(r.study) && RUNNING.includes(r.state));
-  const runningIds = new Set(open.map((r) => r.study));
+  const open = rows.filter((r) => ids.has(r.study) && r.readiness !== 'invalid' && !FINISHED.includes(r.state));
+  const runningIds = new Set(open.filter((r) => r.state === 'running').map((r) => r.study));
   const pieces = (inv.pieces || []).filter((p) => !p.draft && !p.short).map((p) => repo.byPath[p.path]).filter(Boolean);
   const newestPiece = [...pieces].sort((a, b) => (b.pubTime || 0) - (a.pubTime || 0))[0] || null;
 
@@ -27,16 +28,27 @@ export function investigationNow(inv, repo, schedule) {
     : { title: 'No reviewed finding yet; working records only', url: '', status: 'provisional', kind: '' };
   const reading = !current && newestPiece ? { title: newestPiece.title, url: newestPiece.url, kind: newestPiece.essay ? 'Latest essay' : 'Latest piece' } : null;
 
-  // The latest activity: the newest checkpoint among its studies, or its newest piece.
-  const reads = studies.filter((s) => s.checkpoints[0]).map((s) => ({ iso: s.checkpoints[0].key.slice(0, 10), title: repo.studyLabels?.[s.id] || s.lead.title, url: s.url }));
-  // A finished row in the schedule is a read too, whether or not it wrote a checkpoint page.
-  for (const r of rows) if (ids.has(r.study) && r.state === 'done' && /^\d{4}-\d{2}-\d{2}/.test(r.updated || '')) {
-    const s = studies.find((x) => x.id === r.study);
-    if (s) reads.push({ iso: r.updated.slice(0, 10), title: repo.studyLabels?.[s.id] || s.lead.title, url: s.url });
-  }
-  const latestRead = reads.sort((a, b) => b.iso.localeCompare(a.iso))[0] || null;
-  const next = open.filter((r) => r.earliest >= today || r.state === 'due' || r.state === 'overdue')
-    .sort((a, b) => (a.earliest || '').localeCompare(b.earliest || ''))[0] || null;
+  // Only completed observation work establishes a read. A checkpoint can be
+  // analysis or maintenance, and an untyped historical row remains unknown.
+  const reads = rows.filter((r) => ids.has(r.study) && r.kind === 'observe' && r.state === 'done' && /^\d{4}-\d{2}-\d{2}/.test(r.updated || ''))
+    .map((r) => {
+      const study = studies.find((s) => s.id === r.study);
+      const checkpoint = study?.checkpoints?.find((c) => (r.ref || '').includes(c.path || c.key));
+      return {
+        iso: r.updated.slice(0, 10), id: r.id, study: r.study,
+        title: repo.studyLabels?.[r.study] || study?.lead?.title || r.task,
+        url: r.href || checkpoint?.url || study?.url || '',
+      };
+    }).sort((a, b) => b.iso.localeCompare(a.iso) || b.id.localeCompare(a.id));
+  const latestRead = reads[0] || null;
+  const next = open.filter((r) => r.kind === 'observe')
+    .sort((a, b) => (a.earliest || '').localeCompare(b.earliest || '') || a.id.localeCompare(b.id))[0] || null;
+  const nextWaits = next && WAITING.includes(next.state);
+  const nextDay = next ? (next.earliest && next.earliest > today ? dayLabel(next.earliest) : 'today') : '';
+  const waiting = open.filter((r) => WAITING.includes(r.state)).map((r) => ({
+    id: r.id, study: r.study, task: r.task, href: r.href,
+    reasons: r.reasons || [], unmet_dependencies: r.unmet_dependencies || [],
+  }));
 
   return {
     answer,
@@ -45,13 +57,18 @@ export function investigationNow(inv, repo, schedule) {
     studies: studies.length,
     pieces: pieces.length,
     latestRead: latestRead ? { ...latestRead, day: dayLabel(latestRead.iso) } : null,
-    next: next ? { day: next.earliest <= today ? 'today' : dayLabel(next.earliest), study: repo.studyLabels?.[next.study] || '' } : null,
+    next: next ? { id: next.id, day: nextWaits ? (nextDay === 'today' ? 'waiting' : `${nextDay} (waiting)`) : nextDay, study: repo.studyLabels?.[next.study] || '', reasons: next.reasons || [], waiting: nextWaits, reason: nextWaits ? (next.reasons || []).join('; ') : '' } : null,
+    waiting,
     // Each study with whether it is running and its latest read, newest first.
-    studyList: studies.map((s) => ({
-      title: repo.studyLabels?.[s.id] || s.lead.title, url: s.url, id: s.id,
-      running: runningIds.has(s.id),
-      latest: s.checkpoints[0] ? { day: dayLabel(s.checkpoints[0].key), url: s.checkpoints[0].url, recent: s.checkpoints[0].recent } : null,
-      key: s.checkpoints[0] ? s.checkpoints[0].key : '',
-    })).sort((a, b) => Number(b.running) - Number(a.running) || b.key.localeCompare(a.key) || b.id.localeCompare(a.id, 'en', { numeric: true })),
+    studyList: studies.map((s) => {
+      const read = reads.find((r) => r.study === s.id);
+      return {
+        title: repo.studyLabels?.[s.id] || s.lead.title, url: s.url, id: s.id,
+        running: runningIds.has(s.id),
+        waiting: waiting.filter((r) => r.study === s.id),
+        latest: read ? { day: dayLabel(read.iso), url: read.url, recent: Boolean(s.checkpoints?.find((c) => c.key.slice(0, 10) === read.iso)?.recent) } : null,
+        key: read?.iso || '',
+      };
+    }).sort((a, b) => Number(b.running) - Number(a.running) || b.key.localeCompare(a.key) || b.id.localeCompare(a.id, 'en', { numeric: true })),
   };
 }

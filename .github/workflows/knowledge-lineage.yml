@@ -18,6 +18,14 @@ jobs:
       - uses: actions/setup-node@v7
         with:
           node-version: 22
+      - uses: actions/setup-python@v6
+        with:
+          python-version: '3.12'
+      - run: python3 -m unittest discover -s schedule -p 'test_*.py'
+      - run: python3 schedule/check.py
+      - name: Summarise recorded costs
+        continue-on-error: true
+        run: python3 schedule/cost_summary.py
       - run: npm ci --prefix site
       - run: npm test --prefix site
       - run: node scripts/lineage/overview.mjs --check
@@ -30,6 +38,7 @@ jobs:
           mkdir -p site/test/screenshots
           lineage_browser_path="$(command -v google-chrome)"
           CHROMIUM_PATH="$lineage_browser_path" node site/test/knowledge-browser.mjs
+          CHROMIUM_PATH="$lineage_browser_path" node site/test/readiness-browser.mjs
         timeout-minutes: 3
         env:
           PATH_PREFIX: ${{ matrix.prefix }}

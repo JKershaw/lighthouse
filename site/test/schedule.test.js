@@ -8,7 +8,7 @@ import os from "node:os";
 import path from "node:path";
 import { buildSchedule, refParts, dayOf, latestRun, proposalsNow, plainTask, withoutCode } from "../lib/schedule.js";
 
-const HEAD = "id,study,task,earliest,latest,status,updated,by,ref,note";
+const HEAD = "id,study,task,earliest,latest,status,updated,by,ref,note,kind,depends_on,run_id";
 
 function withRepo(files, fn) {
   const dir = fs.mkdtempSync(path.join(os.tmpdir(), "lighthouse-schedule-"));
@@ -45,6 +45,7 @@ test("a ref links each file it names: a Markdown file to its page, others to the
 });
 
 test("a row without an end date sits on the day it was done; a windowed row on the day it opens", () => {
+  assert.equal(dayOf({ earliest: "", latest: "2026-11-06", status: "open" }), "2026-11-06");
   assert.equal(dayOf({ earliest: "2026-11-05", latest: "2026-11-06", status: "done", updated: "2026-11-06" }), "2026-11-05");
   assert.equal(dayOf({ earliest: "2026-11-06", latest: "", status: "done", updated: "2026-11-06T1450Z" }), "2026-11-06");
   assert.equal(dayOf({ earliest: "2026-11-09", latest: "", status: "open", updated: "2026-11-01" }), "");
@@ -58,10 +59,10 @@ test("a finished row's chip leads to what it produced; an unfinished one to its 
     "LH001-raw,LH001,Re-read the rows,2026-11-06,,done,2026-11-06T1450Z,run,studies/LH001/LH001.md (0.3),",
     "LH001-2026-11-09,LH001,\"Monday read: collect.py --read <label>\",2026-11-09,2026-11-10,open,2026-11-01,,,",
     "LH001-gone,LH001,A read whose file is not here,2026-11-02,2026-11-03,done,2026-11-02,run,studies/LH001/checkpoints/2026-11-02.md,",
-  ].join("\r\n") + "\r\n";
+  ].map((r, i) => i ? `${r},observe,,` : r).join("\r\n") + "\r\n";
   withRepo({
     "schedule/due.csv": table,
-    "schedule/runs.csv": "started,by,did,commit\n2026-11-06T1416Z,scheduled run,LH001 re-read,0d10641\n2026-11-05T1414Z,scheduled run,reads,\n",
+    "schedule/runs.csv": "started,by,did,commit,run_id\n2026-11-06T1416Z,scheduled run,LH001 re-read,0d10641,\n2026-11-05T1414Z,scheduled run,reads,,\n",
     "studies/LH001/LH001.md": "# x\n",
     "studies/LH001/checkpoints/2026-11-05.md": "# y\n",
   }, (root) => {
@@ -88,10 +89,10 @@ test("the latest run lists what it finished, each linked to what it produced, wi
     "LH001-next,LH001,Monday read,2026-11-09,2026-11-10,open,2026-11-05,\"scheduled run 2026-11-05T1414Z (Claude Code, Anthropic cloud)\",,",
     "LH002-record,LH002,Record after the last read,2026-11-04,2026-11-30,open,2026-11-05,\"scheduled run 2026-11-05T1414Z (Claude Code, Anthropic cloud)\",,waits for a release",
     "LH003-record,LH003,Record,2026-11-04,2026-11-30,open,2026-11-05,\"scheduled run 2026-11-02T1524Z (Claude Code, Anthropic cloud)\",,another run's",
-  ].join("\r\n") + "\r\n";
+  ].map((r, i) => i ? `${r},observe,,${({ 1: "fixture-new", 2: "fixture-new", 3: "fixture-new", 4: "fixture-new", 5: "fixture-old", 7: "fixture-new", 8: "fixture-old" })[i] || ""}` : r).join("\r\n") + "\r\n";
   withRepo({
     "schedule/due.csv": table,
-    "schedule/runs.csv": "started,by,did,commit\n2026-11-02T1524Z,scheduled run,older,\n2026-11-05T1414Z,scheduled run (Claude Code; Anthropic cloud),\"reads done, log\",7d15779\n",
+    "schedule/runs.csv": "started,by,did,commit,run_id\n2026-11-02T1524Z,scheduled run,older,,fixture-old\n2026-11-05T1414Z,scheduled run (Claude Code; Anthropic cloud),\"reads done, log\",7d15779,fixture-new\n",
     "studies/LH001/checkpoints/2026-11-05.md": "# LH001 reads: 5 November 2026\n",
     "studies/LH002/LH002.md": "title: LH002: Does *the* fix travel?\nkind: study\n\n# Ignored heading\n",
     "notes/log.md": "# The watch log\n",
@@ -116,8 +117,8 @@ test("the latest run lists what it finished, each linked to what it produced, wi
 
 test("a run that finished no row shows its own line; four items show, the rest are counted", () => {
   withRepo({
-    "schedule/due.csv": HEAD + "\n" + ["a", "b", "c", "d", "e", "f"].map((x) => `${x},LH00${x},Read,2026-11-05,2026-11-06,done,2026-11-05,run 2026-11-05T1414Z,,`).join("\n") + "\n",
-    "schedule/runs.csv": "started,by,did,commit\n2026-11-05T1414Z,run,six reads,\n",
+    "schedule/due.csv": HEAD + "\n" + ["a", "b", "c", "d", "e", "f"].map((x) => `${x},LH00${x},Read,2026-11-05,2026-11-06,done,2026-11-05,run 2026-11-05T1414Z,https://example.test/read,,observe,,fixture-six`).join("\n") + "\n",
+    "schedule/runs.csv": "started,by,did,commit,run_id\n2026-11-05T1414Z,run,six reads,,fixture-six\n",
   }, (root) => {
     const run = buildSchedule(root, new Date("2026-11-07T08:00:00Z")).latestRun;
     assert.equal(run.count, 6);
@@ -127,12 +128,12 @@ test("a run that finished no row shows its own line; four items show, the rest a
   });
   withRepo({
     "schedule/due.csv": HEAD + "\n",
-    "schedule/runs.csv": "started,by,did,commit\n2026-11-04T1414Z,run,nothing due,\n",
+    "schedule/runs.csv": "started,by,did,commit,run_id\n2026-11-04T1414Z,run,nothing due,,\n",
   }, (root) => {
     const run = buildSchedule(root, new Date("2026-11-07T08:00:00Z")).latestRun;
     assert.equal(run.count, 0);
     assert.equal(run.did, "nothing due");
-    assert.equal(latestRun({ started: "2026-11-06T1416Z", did: "" }, [{ status: "done", by: "run 2026-11-06T1416Z", refs: [], href: "/x/", id: "Is it so?" }], root).stop, "");
+    assert.equal(latestRun({ started: "2026-11-06T1416Z", run_id: "fixture-direct", did: "" }, [{ status: "done", run_id: "fixture-direct", by: "run 2026-11-06T1416Z", refs: [], href: "/x/", id: "Is it so?" }], root).stop, "");
   });
 });
 
