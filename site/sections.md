@@ -33,6 +33,17 @@ summaries:
 - observations.md | Every reading so far, linked to its record and the instruments it relied on.
 - investigations/software-updates.md | The question, current account and studies behind the software-update investigation.
 - investigations/physical-authority.md | A new investigation of armed robots, human control and civilian consequences; its baseline is planned, not a deployment finding.
+- studies/LH007 | How much software takes a new release by itself
+- studies/LH008 | What moves a pin: the release or the advisory
+- studies/LH009 | Do fixes that say so draw pins before the advisory
+- studies/LH010 | Fixes that say so, read across more libraries
+- studies/LH011 | Two days to reach half the downloads
+- studies/LH012 | What keeps older versions downloaded
+- studies/LH013 | Whether what stays behind holds week to week
+- studies/LH014 | The two-day pace below the top fifty
+- studies/LH015 | Whether container recipes read the pinned file
+- studies/LH016 | Which steps of our own workflow changed what we say
+- studies/LH017 | Whether CI workflows read the pinned file
 - studies/LH050 | What public records establish about armed robots and human control
 - studies/LH030 | PHP's mitigation advice in public notices
 - studies/LH031 | PHP flaws in CISA's exploited list
