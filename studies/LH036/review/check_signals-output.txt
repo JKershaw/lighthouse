@@ -1,0 +1,81 @@
+== Measure 1: EPSS, each date from the earliest read holding it
+dates 2026-10-16 to 2026-11-15 count 31 later reads differing in value: []
+2026-10-16 0.00165 0.05304 first  read-2026-11-01T0830Z
+2026-10-17 0.00165 0.05301 factor 1.000  read-2026-11-01T0830Z
+2026-10-18 0.00165 0.05306 factor 1.000  read-2026-11-01T0830Z
+2026-10-19 0.00165 0.05318 factor 1.000  read-2026-11-01T0830Z
+2026-10-20 0.00165 0.05331 factor 1.000  read-2026-11-01T0830Z
+2026-10-21 0.00165 0.05378 factor 1.000  read-2026-11-01T0830Z
+2026-10-22 0.00165 0.05374 factor 1.000  read-2026-11-01T0830Z
+2026-10-23 0.00165 0.05378 factor 1.000  read-2026-11-01T0830Z
+2026-10-24 0.00165 0.05368 factor 1.000  read-2026-11-01T0830Z
+2026-10-25 0.00388 0.32583 factor 2.352 STEP read-2026-11-01T0830Z
+2026-10-26 0.00388 0.32613 factor 1.000  read-2026-11-01T0830Z
+2026-10-27 0.00388 0.32687 factor 1.000  read-2026-11-01T0830Z
+2026-10-28 0.00388 0.32754 factor 1.000  read-2026-11-01T0830Z
+2026-10-29 0.00388 0.32813 factor 1.000  read-2026-11-01T0830Z
+2026-10-30 0.00445 0.38738 factor 1.147  read-2026-11-01T0830Z
+2026-10-31 0.00457 0.39673 factor 1.027  read-2026-11-01T0830Z
+2026-11-01 0.00457 0.39666 factor 1.000  read-2026-11-02T1526Z
+2026-11-02 0.00457 0.39649 factor 1.000  read-2026-11-02T1526Z
+2026-11-03 0.0076 0.55326 factor 1.663  read-2026-11-05T1414Z
+2026-11-04 0.0076 0.55396 factor 1.000  read-2026-11-05T1414Z
+2026-11-05 0.0076 0.55426 factor 1.000  read-2026-11-09T1430Z
+2026-11-06 0.0076 0.55457 factor 1.000  read-2026-11-09T1430Z
+2026-11-07 0.0076 0.55515 factor 1.000  read-2026-11-09T1430Z
+2026-11-08 0.0076 0.55534 factor 1.000  read-2026-11-09T1430Z
+2026-11-09 0.0076 0.55549 factor 1.000  read-2026-11-12T1417Z
+2026-11-10 0.0076 0.55599 factor 1.000  read-2026-11-12T1417Z
+2026-11-11 0.0076 0.55719 factor 1.000  read-2026-11-16T1419Z
+2026-11-12 0.0076 0.55771 factor 1.000  read-2026-11-16T1419Z
+2026-11-13 0.00777 0.56375 factor 1.022  read-2026-11-16T1419Z
+2026-11-14 0.00777 0.56402 factor 1.000  read-2026-11-16T1419Z
+2026-11-15 0.00777 0.56395 factor 1.000  read-2026-11-16T1419Z
+overall factor 4.709
+
+== Measure 2: KEV
+read-2026-11-01T0830Z 2026.10.30 2026-10-30T17:02:45.3665Z entries 1766 not listed no substring
+read-2026-11-02T1526Z 2026.10.30 2026-10-30T17:02:45.3665Z entries 1766 not listed no substring
+read-2026-11-05T1414Z 2026.11.04 2026-11-04T20:00:05.774Z entries 1768 not listed no substring
+read-2026-11-09T1430Z 2026.11.06 2026-11-06T19:44:45.1797Z entries 1769 not listed no substring
+read-2026-11-12T1417Z 2026.11.10 2026-11-10T19:03:29.8375Z entries 1779 not listed no substring
+read-2026-11-16T1419Z 2026.11.13 2026-11-13T20:24:18.3008Z entries 1781 not listed no substring
+
+== Measure 3: CVE record, NVD, OSV
+read-2026-11-01T0830Z cve dateUpdated 2026-10-31T21:04:43.990Z cna dateUpdated 2026-10-24T14:08:46.326Z vec ['CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:U/C:H/I:H/A:H'] [9.8] adp [('CVE', '2026-10-31T21:04:43.990Z')] ssvc 0
+   NVD Received 2026-10-31T21:16:53.683 {'cvssMetricV31': [('Secondary', '416baaa9-dc9f-4396-8d5f-8c081fb06d67', 9.8)]} weaknesses [] config nodes 0
+   refs cve 11 osv 13 osv related 8 osv modified 2026-11-01T02:30:20.756107269Z
+read-2026-11-02T1526Z cve dateUpdated 2026-10-31T21:04:43.990Z cna dateUpdated 2026-10-24T14:08:46.326Z vec ['CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:U/C:H/I:H/A:H'] [9.8] adp [('CVE', '2026-10-31T21:04:43.990Z')] ssvc 0
+   NVD Received 2026-10-31T21:16:53.683 {'cvssMetricV31': [('Secondary', '416baaa9-dc9f-4396-8d5f-8c081fb06d67', 9.8)]} weaknesses [] config nodes 0
+   refs cve 11 osv 14 osv related 20 osv modified 2026-11-02T12:26:58.806033199Z
+   new osv ['http://www.openwall.com/lists/oss-security/2026/10/31/5']
+read-2026-11-05T1414Z cve dateUpdated 2026-11-03T06:08:32.425Z cna dateUpdated 2026-10-24T14:08:46.326Z vec ['CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:U/C:H/I:H/A:H'] [9.8] adp [('CVE', '2026-11-03T06:08:32.425Z')] ssvc 0
+   NVD Received 2026-11-03T07:20:59.297 {'cvssMetricV31': [('Secondary', '416baaa9-dc9f-4396-8d5f-8c081fb06d67', 9.8)]} weaknesses [] config nodes 0
+   refs cve 12 osv 15 osv related 70 osv modified 2026-11-04T17:27:21.973156910Z
+   new cve ['http://www.openwall.com/lists/oss-security/2026/11/03/1']
+   new osv ['http://www.openwall.com/lists/oss-security/2026/11/03/1']
+read-2026-11-09T1430Z cve dateUpdated 2026-11-03T06:08:32.425Z cna dateUpdated 2026-10-24T14:08:46.326Z vec ['CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:U/C:H/I:H/A:H'] [9.8] adp [('CVE', '2026-11-03T06:08:32.425Z')] ssvc 0
+   NVD Awaiting Analysis 2026-11-06T19:28:12.867 {'cvssMetricV31': [('Secondary', '416baaa9-dc9f-4396-8d5f-8c081fb06d67', 9.8)]} weaknesses [] config nodes 0
+   refs cve 12 osv 15 osv related 126 osv modified 2026-11-08T02:31:09.960954360Z
+read-2026-11-12T1417Z cve dateUpdated 2026-11-03T06:08:32.425Z cna dateUpdated 2026-10-24T14:08:46.326Z vec ['CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:U/C:H/I:H/A:H'] [9.8] adp [('CVE', '2026-11-03T06:08:32.425Z')] ssvc 0
+   NVD Undergoing Analysis 2026-11-06T19:28:12.867 {'cvssMetricV31': [('Secondary', '416baaa9-dc9f-4396-8d5f-8c081fb06d67', 9.8)]} weaknesses [] config nodes 0
+   refs cve 12 osv 15 osv related 131 osv modified 2026-11-11T17:27:07.008360706Z
+read-2026-11-16T1419Z cve dateUpdated 2026-11-03T06:08:32.425Z cna dateUpdated 2026-10-24T14:08:46.326Z vec ['CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:U/C:H/I:H/A:H'] [9.8] adp [('CVE', '2026-11-03T06:08:32.425Z')] ssvc 0
+   NVD Analyzed 2026-11-12T18:23:34.890 {'cvssMetricV31': [('Secondary', '416baaa9-dc9f-4396-8d5f-8c081fb06d67', 9.8)]} weaknesses [('Primary', ['CWE-416'])] config nodes 13
+   refs cve 12 osv 15 osv related 173 osv modified 2026-11-15T17:28:06.465326618Z
+
+NVD configurations at the last read:
+   cpe:2.3:o:linux:linux_kernel:*:*:*:*:*:*:*:* 4.4 5.10.272 True
+   cpe:2.3:o:linux:linux_kernel:*:*:*:*:*:*:*:* 5.11 5.15.223 True
+   cpe:2.3:o:linux:linux_kernel:*:*:*:*:*:*:*:* 5.16 6.1.190 True
+   cpe:2.3:o:linux:linux_kernel:*:*:*:*:*:*:*:* 6.2 6.6.159 True
+   cpe:2.3:o:linux:linux_kernel:*:*:*:*:*:*:*:* 6.7 6.12.113 True
+   cpe:2.3:o:linux:linux_kernel:*:*:*:*:*:*:*:* 6.13 6.18.56 True
+   cpe:2.3:o:linux:linux_kernel:*:*:*:*:*:*:*:* 6.19 7.2.10 True
+   cpe:2.3:o:linux:linux_kernel:7.3:rc1:*:*:*:*:*:* None None True
+   cpe:2.3:o:linux:linux_kernel:7.3:rc2:*:*:*:*:*:* None None True
+   cpe:2.3:o:linux:linux_kernel:7.3:rc3:*:*:*:*:*:* None None True
+   cpe:2.3:o:linux:linux_kernel:7.3:rc4:*:*:*:*:*:* None None True
+   cpe:2.3:o:linux:linux_kernel:7.3:rc5:*:*:*:*:*:* None None True
+   cpe:2.3:o:linux:linux_kernel:7.3:rc6:*:*:*:*:*:* None None True
+OSV related at last read, non-SUSE: ['ALSA-2026:93412', 'ALSA-2026:93413', 'ALSA-2026:93414', 'ALSA-2026:93415']
