@@ -33,9 +33,9 @@ The block shows no finding. Whether the editor may change it without review is
 the gate's decision on proposals.md P-0018.
 -->
 title: This week
-week: 2026-11-09 to 2026-11-15
-updated: 2026-11-15
-today: 2026-11-15 | We took our first weekly look at whether shared online services, from code hosts to science databases, let one labelled automated reader through, and PubMed, open a week ago, turned us away, which we are checking. We also read WordPress's and npm's daily figures, Epoch AI's records of AI data centres, and Microsoft's status page, where the full outage report still hadn't appeared. None of it has been reviewed.
+week: 2026-11-10 to 2026-11-16
+updated: 2026-11-16
+today: 2026-11-16 | On our Monday look at the PHP emergency fix, nothing changed in the official records, while Node.js users moved fast onto three newer releases that appeared on 11 November. We also re-read the two security firms' posts on the GitHub campaign, both of which have changed since we kept them, and Microsoft's status page, where the full outage report still hasn't appeared. None of it has been reviewed.
 items:
 - 2026-11-14 | reported | Microsoft 365 was disrupted from 12 to 14 November. Microsoft's early account, as an affected university reproduced it, blamed a network change and said it was "not related to cyber or AI / agents". We're [watching for its promised full report](notes/microsoft-outage-report/readings/2026-11-15.md) to see what that rests on.
 - 2026-11-14 | lighthouse | You can now reuse what we publish: our writing and our own data are free to share with credit, and our code is open source, as [About](about.md#using-and-citing) explains. We've also added a [glossary](glossary.md), a list of [every correction we've made](corrections.md) and a guide to [the data we keep and how to rerun a study](data-and-replay.md).
