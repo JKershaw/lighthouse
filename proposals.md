@@ -509,6 +509,9 @@ From [2026-11-13T1452Z](notes/horizon/2026-11-13T1452Z.md); every claim reported
 - L-0105 (same visit) The AI-cost investigation page's card says "9 studies, 7 running · 2 pieces" where the front page says "7 studies running", its two essays carry a Reviewed badge beside "No reviewed finding yet", and the organisational-capacity study sits under "finished or paused" while its strand is headed reviewed working record; one plain line on what Reviewed means for an essay, and matching counts, would stop a reader tripping. Kind: editorial (site).
 - L-0106 (same visit) The front page's "All findings and essays" link goes to /articles/, which lists no essays; /essays/ is not linked from the front page. A second link would exceed the 40-link budget (a keeper number), so the fix is a relabel, an essays section on /articles/, or a budget decision. Kind: editorial (site).
 - L-0107 (same visit) Nothing on the front page says when the watch last ran or that nothing new was published this week; the reader found the schedule three clicks away. Kind: editorial (site).
+- L-0108 (editor's visit, 16 November 2026) Every investigation card on the front page says "No study running", and the physical-authority page says "1 study, 0 running", while studies are read on a schedule under all four (LH050's page shows a latest read of 16 November); the running count seems to miss studies whose rows are observe-only or between reads. Kind: editorial (site).
+- L-0109 (same visit) /feed.xml shows nothing after 9 November, and /notes/microsoft-outage-report/ returns Not found while its readings exist. Kind: editorial (site).
+- L-0110 (same visit) The software-updates page opens with "Work waiting (63)", which expands into internal rows ("Waiting for LH030-stop to be done (currently blocked)"); a newcomer reads it as jargon. A plain summary or a collapsed default would serve better. Kind: editorial (site).
 
 ## Declined, parked and expired
 
