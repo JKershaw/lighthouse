@@ -1,0 +1,78 @@
+ok   baseline reclassified offline matches committed classes.csv (161 services)
+ok   baseline robots.csv (measure 4, 17 tokens) reproduced byte for byte
+ok   amendment 6: --classify on the baseline writes no usage_token.csv (that needs --usage-token)
+ok   D02 retained redirect followed once to a parsed robots.txt
+ok   rules of the final robots.txt apply to the probe host
+ok   hops logged with their own kind
+ok   D14 relative Location resolved against the robots.txt URL
+ok   R13 cross-site hop to a container refusal is robots_unreachable, so no probe
+ok   at most five redirects followed (six requests)
+ok   a chain still redirecting after five hops reads as robots_redirect
+ok   host cap stops the robots.txt request
+ok   host cap stops a probe
+ok   one service uses at most HOST_CAP requests on one host (6 robots + 1 probe)
+ok   own product-token group replaces *
+ok   wildcard honoured for others
+ok   CRAN robots.txt was cut at the baseline (64 KiB)
+ok   baseline (0.2) still reads CRAN as parsed
+ok   from read 1 a robots.txt cut at the limit is robots_unreachable, so no probe
+ok   the cut-off fragment alone disallowed the probe
+ok   complete lines only: the fragment is never applied
+ok   an uncut file is kept whole
+ok   robots.txt requested with a 512 KiB cap from read 1
+ok   x-client-ip and x-ratelimit-ip echoes found in the baseline
+ok   body echo found on the plain-HTTP route (P04)
+ok   echoes on the proxied route are all in 160.79.104.0/21
+ok   synthetic echoes: forwarded-for header and a body phrase
+ok   a version string is not an address
+ok   classes.csv records each service's route
+ok   P04 probe: 0.2 open_unconfirmed, 0.3 challenge
+ok   P04 robots.txt: 0.2 parsed (a probe followed), 0.3 wall_at_robots (no probe)
+ok   a page that only mentions a captcha is not a challenge
+ok   provider anthropic: the baseline probes withheld under amendment 5 are exactly the eight D15,Q07,F06,F07,R06,R07,D11,P18
+ok   provider openai: the baseline probes withheld under amendment 5 are exactly the eight D15,Q07,F06,F07,R06,R07,D11,P18
+ok   provider unknown (all): the baseline probes withheld under amendment 5 are exactly the eight D15,Q07,F06,F07,R06,R07,D11,P18
+ok   every one of the eight was sent at the baseline
+ok   no baseline robots.txt allows under amendment 5 a probe protocol 0.1 refused
+ok   measure 4 reads the same on every parsed baseline file with either matcher
+ok   D15 wiki.gentoo.org withheld as anthropic, decided by ClaudeBot (Disallow: /, line 94)
+ok   Q07 ftp.eq.uc.pt withheld as anthropic, decided by ClaudeBot (Disallow: /, line 167)
+ok   F06 codeberg.org withheld as anthropic, decided by ClaudeBot (Disallow: /, line 103)
+ok   F07 git.sr.ht withheld as anthropic, decided by ClaudeBot (Disallow: /, line 95)
+ok   R06 repo1.maven.org withheld as anthropic, decided by ClaudeBot (Disallow: /, line 48)
+ok   R07 central.sonatype.com withheld as anthropic, decided by ClaudeBot (Disallow: /, line 48)
+ok   D11 runescape.wiki withheld as anthropic, decided by ClaudeBot (Disallow: /, line 148)
+ok   P18 jurnal.itg.ac.id withheld as anthropic, decided by ClaudeBot (Disallow: /, line 48)
+ok   offline read, provider anthropic: D15 gets its robots.txt only, recorded robots_disallowed by an Anthropic token, provider recorded
+ok   offline read, provider anthropic: robots.csv carries the obeyed decision
+ok   offline read, provider all: D15 gets its robots.txt only, recorded robots_disallowed by an Anthropic token, provider recorded
+ok   offline read, provider all: robots.csv carries the obeyed decision
+ok   A19: body 0140.b withheld, record beside it
+ok   A19: retained sha256 is the fetch log's hash of the bytes received
+ok   A19: class derived from the whole body matches classes.csv
+ok   A19: the panel marker is in the kept extract
+ok   A19: the Content-Signal line as read is in the kept robots.txt and asks for use=reference
+ok   P18: body 0190.b withheld, record beside it
+ok   P18: retained sha256 is the fetch log's hash of the bytes received
+ok   P18: class derived from the whole body matches classes.csv
+ok   P18: the panel marker is in the kept extract
+ok   P18: the Content-Signal line as read is in the kept robots.txt and asks for use=reference
+ok   offline read: A19 probe body withheld (placeholder, record, local copy), its robots.txt kept whole
+ok   offline read: record keeps the sha256 the readlog gives, and the signal as read
+ok   offline read: A19 classified from the local copy as at the baseline, derivation kept
+ok   offline read: a host without a use=reference signal (D01) keeps its body whole
+ok   offline read: re-classified without the local copy, the same classes
+ok   measure 4 still names the same 17 AI tokens, and the usage token is not one of them
+ok   the usage token is not obeyed: it is not in scripts/robots_tokens.json
+ok   amendment 6 is tabulated by --classify from read 1 only
+ok   a group naming the token beside GPTBot: named, its rules, / disallowed by them
+ok   the 17 tokens read as before beside it (GPTBot by its group, ClaudeBot by *)
+ok   product token matched case-insensitively; a partial Disallow leaves / allowed
+ok   a comment is a mention, not a group; no fallback to * for this token
+ok   two groups naming the token are combined, rules in file order
+ok   a longer product token is a different token
+ok   synthetic read: only parsed files tabulated, header as fixed
+ok   synthetic read: Z1 named with Disallow: /
+ok   synthetic read: a token cut at the read limit is neither a group nor a mention
+
+0 failed

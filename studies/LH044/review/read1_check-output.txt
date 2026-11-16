@@ -1,0 +1,80 @@
+== 1. Measure 1/2 table, read 1, from classes.csv (independent count)
+  named {'probe_answered': 61, 'robots_disallowed': 30, 'robots_unreachable': 1, 'state_read': 68, 'unknown': 3, 'unread_proxy': 2, 'wall_at_robots': 7, 'walled': 11}
+  drawn {'probe_answered': 28, 'robots_disallowed': 14, 'robots_unreachable': 15, 'state_read': 31, 'unknown': 15, 'wall_at_robots': 3, 'walled': 6}
+   baseline:
+  named {'probe_answered': 61, 'robots_disallowed': 23, 'robots_redirect': 8, 'robots_unreachable': 1, 'state_read': 67, 'unknown': 11, 'unread_proxy': 2, 'wall_at_robots': 6, 'walled': 13}
+  drawn {'probe_answered': 25, 'robots_disallowed': 9, 'robots_redirect': 14, 'robots_unreachable': 11, 'state_read': 26, 'unknown': 25, 'wall_at_robots': 1, 'walled': 1}
+
+== 2. Closings and openings (open <-> walled, both known), with route at each read
+  A11 named pubmed.ncbi.nlm.nih.gov: open (egress-proxy) -> refused (egress-proxy)
+  A13 named api.crossref.org: wall_at_robots (egress-proxy) -> open (egress-proxy)
+  P38 drawn www.jmolbiochem.com: open (direct-http) -> refused (direct-http)
+  P40 drawn www.msjonline.org: open (egress-proxy) -> refused (egress-proxy)
+
+== 3. Requests (measure 8)
+  total 274 {'robots': 161, 'probe': 91, 'redirect': 22}
+  routes {'egress-proxy': 206, 'direct': 4, 'direct-http': 64}
+  by stratum {'named': {'egress-proxy': 168, 'direct': 4, 'direct-http': 2}, 'drawn': {'direct-http': 62, 'egress-proxy': 38}}
+  max requests to one host 4 ['github.com']
+  bytes in readlog 2627767
+
+== 4. The egress rule: every echo kept, by read and route
+  baseline R21 egress-proxy x-ratelimit-ip 160.79.106.131
+  baseline D01 egress-proxy x-client-ip 160.79.106.30
+  baseline D01 egress-proxy x-client-ip 160.79.106.143
+  baseline D02 egress-proxy x-client-ip 160.79.106.16
+  baseline D03 egress-proxy x-client-ip 160.79.106.130
+  baseline D03 egress-proxy x-client-ip 160.79.106.141
+  baseline P04 direct-http ipr: 34.172.54.233
+  baseline P04 direct-http ipr: 34.136.29.35
+  read 1 R21 egress-proxy x-ratelimit-ip 160.79.106.133
+  read 1 D01 egress-proxy x-client-ip 160.79.106.234
+  read 1 D01 egress-proxy x-client-ip 160.79.106.241
+  read 1 D02 egress-proxy x-client-ip 160.79.106.131
+  read 1 D02 egress-proxy x-client-ip 160.79.106.236
+  read 1 D02 egress-proxy x-client-ip 160.79.106.236
+  read 1 D03 egress-proxy x-client-ip 160.79.106.131
+  read 1 D03 egress-proxy x-client-ip 160.79.106.134
+  read 1 A16 egress-proxy IP Address: 160.79.106.131
+  read 1 P04 robots body (not caught by the collector): y=powf:35.184.25.35:1794752324.828
+  RDAP 34.136.29.35: NET-34-128-0-0-1 34.128.0.0-34.191.255.255 GOOGL-2 registrant ['Google LLC']
+  RDAP 34.172.54.233: NET-34-128-0-0-1 34.128.0.0-34.191.255.255 GOOGL-2 registrant ['Google LLC']
+  RDAP 35.184.25.35: NET-35-184-0-0-1 35.184.0.0-35.191.255.255 GOOGLE-CLOUD registrant ['Google LLC']
+
+== 5. PubMed (A11): headers at both reads
+  baseline 0128 ['HTTP 200', 'Date: Sun, 08 Nov 2026 19:22:54 GMT', 'Server: Apache', 'Via: 1.1 google', 'Alt-Svc: clear']
+  baseline 0129 ['HTTP 200', 'Date: Sun, 08 Nov 2026 19:22:56 GMT', 'Server: nginx', 'Via: 1.1 google', 'Alt-Svc: clear']
+  read 1 0132 ['HTTP 403', 'Date: Sun, 15 Nov 2026 14:17:18 GMT', 'Alt-Svc: clear']
+  read 1 0133 ['HTTP 403', 'Date: Sun, 15 Nov 2026 14:17:20 GMT', 'Alt-Svc: clear']
+  read 1 body: <!doctype html><meta charset="utf-8"><meta name=viewport content="width=device-width, initial-scale=1"><title>403</title>403 Forbidden
+  container policy refusal for comparison (0004.h): ['HTTP 403', 'Content-Type: application/json; charset=utf-8', 'Content-Length: 378', 'Connection: close']
+
+== 6. Imunify360: every kept body naming it, and the robots.txt answer before each probe
+  0203 P17 probe 403 direct-http
+  0236 P38 probe 403 direct-http
+  0241 P40 probe 403 egress-proxy
+  JS challenge page (title "One moment, please...", wsidchk form): read-2026-11-15T1413Z 0202 P17 robots 200 text/html 11970 robots_state=parsed
+  JS challenge page (title "One moment, please...", wsidchk form): read-2026-11-15T1413Z 0235 P38 robots 200 text/html 11943 robots_state=parsed
+
+== 7. robots.txt parsed at read 1 whose governing answer was an HTML page
+  O13 opendata.swiss n=173 200 18758 bytes
+  P17 jpu.k-pin.org n=202 200 11970 bytes
+  P38 www.jmolbiochem.com n=235 200 11943 bytes
+  parsed files: 101; excluding the two challenge pages: 99
+  parsed at both reads: 87; excluding P38 (challenge page at read 1): 86
+  usage token named: 0, mentioned: 0, of 101 rows
+
+== 8. P31 (contact-form captcha): what a non-wall reading does to the drawn row
+  P31 as not a wall (no probe was sent, so its state is unread): {'probe_answered': 28, 'review:unread_no_probe': 1, 'robots_disallowed': 14, 'robots_unreachable': 15, 'state_read': 30, 'unknown': 16, 'wall_at_robots': 2, 'walled': 5}
+  -> walled 5 of 30 read
+  widget context: tr gcore-form-row" id="ftr-recaptcha"><div class="gcore-line-td" id="ftd-recaptcha"><div class="gcore-display-table gcore-input" id="fin-recaptcha"><div class="g-recaptcha" data-sitekey="6LfUTBwUAAAAA
+  form: <form action="https://elpub.ru/elpub-article/saebipcas?chronoform=RequestForm&event=submit" enctype="multipart/form-data
+
+== 9. Hackage (R13): the chain and the governing file
+  48 robots 301 https://hackage.haskell.org/robots.txt 0
+  49 robots-redirect-1 302 https://github.com/ai-robots-txt/ai.robots.txt/releases/latest/download/robots.txt 0
+  50 robots-redirect-2 302 https://github.com/ai-robots-txt/ai.robots.txt/releases/download/v2.1/robots.txt 0
+  51 robots-redirect-3 200 https://release-assets.githubusercontent.com/github-production-release-asset/778427389/187d62b5 4694
+  sha256 of kept 0051.b 0706cbe57ba74bc5c891cf9b349c999d32b7badb556728656adc38f9328e176b readlog 0706cbe57ba74bc5c891cf9b349c999d32b7badb556728656adc38f9328e176b
+  user-agent lines 188 | "*" group: False | __usage_ai-training present: False
+  classes.csv R13: robots_disallowed by ClaudeBot: Disallow: / (line 189; provider anthropic)
