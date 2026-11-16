@@ -78,7 +78,7 @@ add("foundation", d, "intervention", "not-established",
     "No intervention or abort mechanism for any Phantom is described in the sources read.",
     "observation (what the sources do not state)", "third-party-report", ["C026"], ["R027", "R028", "R029", "R030"])
 add("foundation", d, "deployment evidence", "supported-by-source",
-    "Proposals and reported research contracts only: $24 million in US Army, Navy and Air Force research contracts for feasibility testing (no award record read); production targets that differ between reports; a target of front-line US deployment within 12 to 18 months.",
+    "Proposals and reported research contracts only: $24 million in US Army, Navy and Air Force research contracts for feasibility testing (no award record read); production targets that differ between reports; a target of front-line US deployment within 12 to 18 months (The Next Web; eWeek gives the period as an aim to begin testing with the US military).",
     "observation of reported claims", "third-party-report", ["C030", "C032", "C033"], ["R030", "R029", "R027", "R028"],
     note="Events LH050-E005 (award/purchase as reported) and LH050-E006 (proposal). No delivery or operational use of an armed configuration is established. Research contracts are not a weapons purchase.")
 add("foundation", d, "civilian evidence", "not-established",
@@ -171,7 +171,7 @@ add("changi", gb, "deployment evidence", "supported-by-source",
     "observation of an official account", "official-account", ["C010"], ["R033"],
     note="Event LH050-E003, trial. Status after July 2025 not established.")
 add("changi", gb, "civilian evidence", "supported-by-source",
-    "HTX reports the public largely ignored a recorded 'Excuse me' message (replaced by a beep) and that people tried to mount GIBSON while it moved autonomously.",
+    "HTX reports the public was largely unresponsive to a recorded 'Excuse me' message (replaced by a beep) and that people tried to mount GIBSON while it moved autonomously.",
     "observation of an official (developer) account", "official-account", ["C014"], ["R032"],
     facet="reported public interaction")
 add("changi", gb, "civilian evidence", "not-established",
