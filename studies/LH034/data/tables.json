@@ -7,7 +7,8 @@
   "read-2026-11-02T1531Z",
   "read-2026-11-05T1414Z",
   "read-2026-11-09T1428Z",
-  "read-2026-11-12T1416Z"
+  "read-2026-11-12T1416Z",
+  "read-2026-11-16T1419Z"
  ],
  "days_held": [
   "2026-07-28",
@@ -90,7 +91,11 @@
   "2026-11-08",
   "2026-11-09",
   "2026-11-10",
-  "2026-11-11"
+  "2026-11-11",
+  "2026-11-12",
+  "2026-11-13",
+  "2026-11-14",
+  "2026-11-15"
  ],
  "release_list_from": "read-2026-11-05T1414Z",
  "unlisted_versions_by_day": {
@@ -353,6 +358,34 @@
    "v24.22.3": 520002,
    "v27.0.0": 101691,
    "v0.11.14.20140819": 3
+  },
+  "2026-11-12": {
+   "v26.13.1": 7772269,
+   "v22.23.5": 3848219,
+   "v24.22.3": 2321987,
+   "v27.0.0": 113794,
+   "v0.11.14.20140819": 3
+  },
+  "2026-11-13": {
+   "v26.13.1": 5358662,
+   "v22.23.5": 3111051,
+   "v24.22.3": 2804031,
+   "v27.0.0": 107161,
+   "v0.11.14.20140819": 3
+  },
+  "2026-11-14": {
+   "v26.13.1": 3936411,
+   "v22.23.5": 2149066,
+   "v24.22.3": 1312422,
+   "v27.0.0": 47770,
+   "v0.11.14.20140819": 3
+  },
+  "2026-11-15": {
+   "v26.13.1": 3822643,
+   "v22.23.5": 1982490,
+   "v24.22.3": 1253712,
+   "v27.0.0": 31663,
+   "v0.11.14.20140819": 4
   }
  },
  "measure_1_2026-10": {
@@ -517,6 +550,34 @@
      "at_or_newer": 4477724,
      "share": 0.6137,
      "read": "read-2026-11-12T1416Z"
+    },
+    "22": {
+     "day": "2026-11-12",
+     "line_downloads": 6431327,
+     "at_or_newer": 3227781,
+     "share": 0.5019,
+     "read": "read-2026-11-16T1419Z"
+    },
+    "23": {
+     "day": "2026-11-13",
+     "line_downloads": 5459761,
+     "at_or_newer": 2616298,
+     "share": 0.4792,
+     "read": "read-2026-11-16T1419Z"
+    },
+    "24": {
+     "day": "2026-11-14",
+     "line_downloads": 3222523,
+     "at_or_newer": 1363376,
+     "share": 0.4231,
+     "read": "read-2026-11-16T1419Z"
+    },
+    "25": {
+     "day": "2026-11-15",
+     "line_downloads": 2825017,
+     "at_or_newer": 1234597,
+     "share": 0.437,
+     "read": "read-2026-11-16T1419Z"
     }
    },
    "24": {
@@ -673,6 +734,34 @@
      "at_or_newer": 6629689,
      "share": 0.706,
      "read": "read-2026-11-12T1416Z"
+    },
+    "22": {
+     "day": "2026-11-12",
+     "line_downloads": 8722498,
+     "at_or_newer": 5795766,
+     "share": 0.6645,
+     "read": "read-2026-11-16T1419Z"
+    },
+    "23": {
+     "day": "2026-11-13",
+     "line_downloads": 7767744,
+     "at_or_newer": 4958356,
+     "share": 0.6383,
+     "read": "read-2026-11-16T1419Z"
+    },
+    "24": {
+     "day": "2026-11-14",
+     "line_downloads": 3773076,
+     "at_or_newer": 2301817,
+     "share": 0.6101,
+     "read": "read-2026-11-16T1419Z"
+    },
+    "25": {
+     "day": "2026-11-15",
+     "line_downloads": 3514996,
+     "at_or_newer": 2049727,
+     "share": 0.5831,
+     "read": "read-2026-11-16T1419Z"
     }
    },
    "26": {
@@ -829,6 +918,34 @@
      "at_or_newer": 5683740,
      "share": 0.9448,
      "read": "read-2026-11-12T1416Z"
+    },
+    "22": {
+     "day": "2026-11-12",
+     "line_downloads": 2336659,
+     "at_or_newer": 2002472,
+     "share": 0.857,
+     "read": "read-2026-11-16T1419Z"
+    },
+    "23": {
+     "day": "2026-11-13",
+     "line_downloads": 2230460,
+     "at_or_newer": 1924106,
+     "share": 0.8626,
+     "read": "read-2026-11-16T1419Z"
+    },
+    "24": {
+     "day": "2026-11-14",
+     "line_downloads": 1596591,
+     "at_or_newer": 1316393,
+     "share": 0.8245,
+     "read": "read-2026-11-16T1419Z"
+    },
+    "25": {
+     "day": "2026-11-15",
+     "line_downloads": 1615138,
+     "at_or_newer": 1370184,
+     "share": 0.8483,
+     "read": "read-2026-11-16T1419Z"
     }
    }
   },
@@ -1767,6 +1884,46 @@
      "unlisted_counted_at_or_above": {
       "v22.23.5": 655951
      }
+    },
+    "22": {
+     "day": "2026-11-12",
+     "line_downloads": 10279546,
+     "at_or_newer": 7076000,
+     "share": 0.6884,
+     "read": "read-2026-11-16T1419Z",
+     "unlisted_counted_at_or_above": {
+      "v22.23.5": 3848219
+     }
+    },
+    "23": {
+     "day": "2026-11-13",
+     "line_downloads": 8570812,
+     "at_or_newer": 5727349,
+     "share": 0.6682,
+     "read": "read-2026-11-16T1419Z",
+     "unlisted_counted_at_or_above": {
+      "v22.23.5": 3111051
+     }
+    },
+    "24": {
+     "day": "2026-11-14",
+     "line_downloads": 5371589,
+     "at_or_newer": 3512442,
+     "share": 0.6539,
+     "read": "read-2026-11-16T1419Z",
+     "unlisted_counted_at_or_above": {
+      "v22.23.5": 2149066
+     }
+    },
+    "25": {
+     "day": "2026-11-15",
+     "line_downloads": 4807507,
+     "at_or_newer": 3217087,
+     "share": 0.6692,
+     "read": "read-2026-11-16T1419Z",
+     "unlisted_counted_at_or_above": {
+      "v22.23.5": 1982490
+     }
     }
    },
    "24": {
@@ -1946,6 +2103,46 @@
      "read": "read-2026-11-12T1416Z",
      "unlisted_counted_at_or_above": {
       "v24.22.3": 520002
+     }
+    },
+    "22": {
+     "day": "2026-11-12",
+     "line_downloads": 11044485,
+     "at_or_newer": 8117753,
+     "share": 0.735,
+     "read": "read-2026-11-16T1419Z",
+     "unlisted_counted_at_or_above": {
+      "v24.22.3": 2321987
+     }
+    },
+    "23": {
+     "day": "2026-11-13",
+     "line_downloads": 10571775,
+     "at_or_newer": 7762387,
+     "share": 0.7343,
+     "read": "read-2026-11-16T1419Z",
+     "unlisted_counted_at_or_above": {
+      "v24.22.3": 2804031
+     }
+    },
+    "24": {
+     "day": "2026-11-14",
+     "line_downloads": 5085498,
+     "at_or_newer": 3614239,
+     "share": 0.7107,
+     "read": "read-2026-11-16T1419Z",
+     "unlisted_counted_at_or_above": {
+      "v24.22.3": 1312422
+     }
+    },
+    "25": {
+     "day": "2026-11-15",
+     "line_downloads": 4768708,
+     "at_or_newer": 3303439,
+     "share": 0.6927,
+     "read": "read-2026-11-16T1419Z",
+     "unlisted_counted_at_or_above": {
+      "v24.22.3": 1253712
      }
     }
    },
@@ -2127,6 +2324,46 @@
      "unlisted_counted_at_or_above": {
       "v26.13.1": 1193471
      }
+    },
+    "22": {
+     "day": "2026-11-12",
+     "line_downloads": 10108928,
+     "at_or_newer": 9774741,
+     "share": 0.9669,
+     "read": "read-2026-11-16T1419Z",
+     "unlisted_counted_at_or_above": {
+      "v26.13.1": 7772269
+     }
+    },
+    "23": {
+     "day": "2026-11-13",
+     "line_downloads": 7589122,
+     "at_or_newer": 7282768,
+     "share": 0.9596,
+     "read": "read-2026-11-16T1419Z",
+     "unlisted_counted_at_or_above": {
+      "v26.13.1": 5358662
+     }
+    },
+    "24": {
+     "day": "2026-11-14",
+     "line_downloads": 5533002,
+     "at_or_newer": 5252804,
+     "share": 0.9494,
+     "read": "read-2026-11-16T1419Z",
+     "unlisted_counted_at_or_above": {
+      "v26.13.1": 3936411
+     }
+    },
+    "25": {
+     "day": "2026-11-15",
+     "line_downloads": 5437781,
+     "at_or_newer": 5192827,
+     "share": 0.955,
+     "read": "read-2026-11-16T1419Z",
+     "unlisted_counted_at_or_above": {
+      "v26.13.1": 3822643
+     }
     }
    }
   },
@@ -2199,6 +2436,22 @@
     "21": {
      "as_written": 0.6137,
      "amended": 0.6456
+    },
+    "22": {
+     "as_written": 0.5019,
+     "amended": 0.6884
+    },
+    "23": {
+     "as_written": 0.4792,
+     "amended": 0.6682
+    },
+    "24": {
+     "as_written": 0.4231,
+     "amended": 0.6539
+    },
+    "25": {
+     "as_written": 0.437,
+     "amended": 0.6692
     }
    }
   },
@@ -2230,6 +2483,22 @@
     "21": {
      "as_written": 0.706,
      "amended": 0.7214
+    },
+    "22": {
+     "as_written": 0.6645,
+     "amended": 0.735
+    },
+    "23": {
+     "as_written": 0.6383,
+     "amended": 0.7343
+    },
+    "24": {
+     "as_written": 0.6101,
+     "amended": 0.7107
+    },
+    "25": {
+     "as_written": 0.5831,
+     "amended": 0.6927
     }
    }
   },
@@ -2261,6 +2530,22 @@
     "21": {
      "as_written": 0.9448,
      "amended": 0.9539
+    },
+    "22": {
+     "as_written": 0.857,
+     "amended": 0.9669
+    },
+    "23": {
+     "as_written": 0.8626,
+     "amended": 0.9596
+    },
+    "24": {
+     "as_written": 0.8245,
+     "amended": 0.9494
+    },
+    "25": {
+     "as_written": 0.8483,
+     "amended": 0.955
     }
    }
   }
@@ -2715,6 +3000,42 @@
    "line_25_share": 0.007,
    "no_version_share_of_total": 0.0,
    "read": "read-2026-11-12T1416Z"
+  },
+  "2026-11-12": {
+   "attributed": 35069622,
+   "total": 35070977,
+   "unfixed_share": 0.1037,
+   "line_20_share": 0.056,
+   "line_25_share": 0.0058,
+   "no_version_share_of_total": 0.0,
+   "read": "read-2026-11-16T1419Z"
+  },
+  "2026-11-13": {
+   "attributed": 30163185,
+   "total": 30164445,
+   "unfixed_share": 0.1138,
+   "line_20_share": 0.0608,
+   "line_25_share": 0.0066,
+   "no_version_share_of_total": 0.0,
+   "read": "read-2026-11-16T1419Z"
+  },
+  "2026-11-14": {
+   "attributed": 18081824,
+   "total": 18082722,
+   "unfixed_share": 0.1157,
+   "line_20_share": 0.0627,
+   "line_25_share": 0.0066,
+   "no_version_share_of_total": 0.0,
+   "read": "read-2026-11-16T1419Z"
+  },
+  "2026-11-15": {
+   "attributed": 16836536,
+   "total": 16837539,
+   "unfixed_share": 0.1082,
+   "line_20_share": 0.057,
+   "line_25_share": 0.0068,
+   "no_version_share_of_total": 0.0001,
+   "read": "read-2026-11-16T1419Z"
   }
  }
 }
