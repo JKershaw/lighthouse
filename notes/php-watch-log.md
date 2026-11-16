@@ -6,6 +6,19 @@ date: 2026-10-23
 
 A few plain lines on each read day (daily to 30 October 2026, Mondays and Thursdays since) on what the fixed PHP panels saw, newest first, each linking the day's checkpoints. These are working records: what a source said and when Lighthouse read it, not reviewed findings. Anything that would change [the public account](../articles/php-emergency-first-reading.md) is flagged here and goes through review before it reaches that page. How the watch runs is in [the continuation plan](php-watch-continuation-2026-10-23.md).
 
+## 16 November 2026
+
+The Monday read (scheduled run, 14:19 to 14:20 UTC).
+
+- **How the 23 October instruction travels:** no class changed. SUSE's record for CVE-2026-115560 is the same body as on 12 November and is still the only tracker record; Ubuntu and the others answered HTTP 404 again. PHP has made no regular 8.x release since 21 October; its news page added 8.6.0RC7 on 12 November and still plans 8.6.0 for 19 November. Whether a first 8.6.0 release counts as the brief's next regular release is for the record to decide before that release's contents are read ([LH030](../studies/LH030/checkpoints/2026-11-16.md)).
+- **CISA's catalogue:** version 2026.11.13 lists the two PHP flaws as before; CVE-2026-115560 is not listed. Palo Alto Networks' advisory and Unit 42's brief are unchanged, and the advisory's machine-readable file still lists the same 20 fixed builds ([LH031](../studies/LH031/checkpoints/2026-11-16.md)).
+- **Products embedding PHP:** no new commit to the Dutch NCSC's list since 12 November: 972 entries, 213 recording a fix ([LH032](../studies/LH032/checkpoints/2026-11-16.md)).
+- **How far the fix has reached, by others' counts:** by Censys's classification, on 15 November (day 25) 76.9 per cent of version-reporting services were counted patched in 8.2, 73.1 in 8.3, 85.2 in 8.4 and 91.3 in 8.5, up from 74.2, 71.4, 82.7 and 90.4 on day 21; part of the rise in 8.2 and 8.3 comes from those branches shrinking. 22.7 million services, 51.9 per cent of those reporting a version, run branches PHP did not fix. W3Techs, on pages dated 16 November, puts 32.5 to 55.4 per cent of each branch's sites at or above the fixed release ([LH033](../studies/LH033/checkpoints/2026-11-16.md)).
+- **Node.js downloads:** by day 25 (15 November) the three newer versions first seen on 11 November held about 41 per cent of line 22's downloads, 26 per cent of line 24's and 70 per cent of line 26's. Counting them as fixed, under the 12 November amendment, 66.9, 69.3 and 95.5 per cent of each line's downloads were at or above the fixed release (64.6, 72.1 and 95.4 on day 21); the measure as first written, which leaves them out, fell to 43.7, 58.3 and 84.8 ([LH034](../studies/LH034/checkpoints/2026-11-16.md)).
+- **Vendors that ship PHP:** no change: 7 of 20 vendors have a statement, every readable one unchanged. Oracle's alert answered HTTP 403 for a third read and Adobe's page 403 again ([LH037](../studies/LH037/checkpoints/2026-11-16T1419Z.md)).
+- **Media sweep, 14:19 UTC:** 95 distinct URLs, three new, all three refused by robots.txt, no page read ([sweep](php-media-sweep/2026-11-16T1419Z.md)).
+- **Flagged:** LH034's two counting rules are now far apart, so the day-30 summary must report both, as its amendment says, and say which it leads with and why. Fortinet's advisory feed lists a notice titled "Node2Shell CVEs" about Node.js flaws; it is outside LH034's sources and was not opened.
+
 ## 12 November 2026
 
 The Thursday read (scheduled run, 14:16 to 14:20 UTC).
