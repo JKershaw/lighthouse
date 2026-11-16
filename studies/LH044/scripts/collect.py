@@ -77,7 +77,9 @@ ECHO_HEADERS = re.compile(r'(?i)^(x-ip|x-client-ip|x-ratelimit-ip|x-real-ip|x-fo
                           r'cf-connecting-ip|true-client-ip|x-remote-addr|x-remote-ip|remote-addr|x-your-ip|'
                           r'x-client-address|x-visitor-ip)$')
 IPV4 = r'(?<![\d.])(?:\d{1,3}\.){3}\d{1,3}(?![\d.])'
-ECHO_BODY = re.compile(r'(?i)(?:\bipr?\b|client[_ -]?ip|remote[_ -]?addr(?:ess)?|your ip(?: address)?(?: is)?|'
+# Amendment 8 (16 November 2026, post hoc, after read 1): `powf`, the key read 1's sgcaptcha refresh
+# URL used where the baseline's used `ipr`, and any short key in that URL's `y=` parameter.
+ECHO_BODY = re.compile(r'(?i)(?:\bipr?\b|\bpowf\b|(?<=[?&]y=)[a-z]{2,8}|client[_ -]?ip|remote[_ -]?addr(?:ess)?|your ip(?: address)?(?: is)?|'
                        r'ip[_ -]?address)["\'=:\s>/]{1,6}(' + IPV4 + r')')
 ACCEPT = {
     'page': 'text/html,application/xhtml+xml;q=0.9,*/*;q=0.8',
@@ -397,7 +399,7 @@ def do_classify(label):
     meta = json.load(open(d / 'services.json'))
     log = {r['n']: r for r in csv.DictReader(open(d / 'readlog.csv'))}
     version = version_for(label)
-    rows, robots_rows = [], []
+    rows, robots_rows, robots_html = [], [], []
     for s in meta['services']:
         cls, det, status, ra = s['pre_class'], s['pre_detail'], '', ''
         if s['robots_n'] and not s['probe_n'] and cls not in ('robots_disallowed', 'not_probed_host_cap') \
@@ -440,6 +442,10 @@ def do_classify(label):
             root = '%s://%s/' % (urlsplit(s['url']).scheme, urlsplit(s['url']).netloc)
             rbody = _load_resp(d, s['robots_n'])['body']
             rcut = log[str(s['robots_n'])]['truncated'] == 'True'
+            if rbody.lstrip()[:1] == b'<':
+                # amendment 7: a markup answer parsed as robots.txt, for the checkpoint to look at (by
+                # body, not Content-Type: export.arxiv.org serves a real robots.txt as text/html)
+                robots_html.append(s['id'])
             if label >= AMENDMENT5_FROM:
                 # amendment 5: scripts/robots_rules.py for measure 4 too (complete lines; each token's
                 # own group, else '*'), plus the decision the read obeyed and which group made it
@@ -479,6 +485,7 @@ def do_classify(label):
     for r in rows:
         summ['by_stratum'].setdefault(r['stratum'], {}).setdefault(r['class'], 0)
         summ['by_stratum'][r['stratum']][r['class']] += 1
+    summ['robots_parsed_html'] = robots_html   # amendment 7: each one listed in the checkpoint
     if 'provider' in meta:   # reads made under amendment 5 name the rule and the provider they obeyed
         summ['robots_rules'], summ['provider'] = meta['robots_rules'], meta['provider']
     hosts = {}

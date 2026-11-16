@@ -1,7 +1,8 @@
 """LH044: tabulate a weekly read against an earlier read under the brief's measures 1 to 4 and 8.
 
 Offline: reads only the kept classes.csv, robots.csv, usage_token.csv, readlog.csv and summary.json of
-two reads and makes no request. Written for read 1 (15 November 2026) by the read-1 subagent.
+two reads, and the kept RDAP records under data/ (amendment 9's egress rule), and makes no request.
+Written for read 1 (15 November 2026) by the read-1 subagent; the egress section added by amendment 9.
 
     python3 -I studies/LH044/scripts/compare_reads.py <earlier label> <later label>
 
@@ -106,6 +107,66 @@ def robots_counts(rob):
         if r['star_root_allowed'] == 'True' and any(r[a] == 'False' for a in AI):
             t['star_allows_root_but_ai_token_disallowed'] += 1
     return t
+
+
+def _ip(a):
+    return tuple(int(x) for x in a.split('.'))
+
+
+def rdap_records():
+    """Every kept RDAP network record under data/ (read-*/rdap/*.json, and the prebrief's p*.body):
+    (start, end, net handle, registrant handle, registrant name)."""
+    out = []
+    for f in sorted(D.glob('read-*/rdap/*.json')) + sorted(D.glob('prebrief-*/p*.body')):
+        try:
+            d = json.loads(f.read_text())
+        except (ValueError, UnicodeDecodeError):
+            continue
+        if not isinstance(d, dict) or d.get('objectClassName') != 'ip network' or ':' in d.get('startAddress', ':'):
+            continue
+        reg = [e for e in d.get('entities', []) if 'registrant' in (e.get('roles') or [])]
+        name = ''
+        if reg:
+            name = ' '.join(v[3] for v in (reg[0].get('vcardArray') or [None, []])[1] if v[0] == 'fn')
+        out.append((_ip(d['startAddress']), _ip(d['endAddress']), d.get('handle', ''),
+                    reg[0].get('handle', '') if reg else '', name))
+    return out
+
+
+def registrant(addr, recs):
+    """The registrant organisation of the most specific kept record covering addr, or None."""
+    a = _ip(addr)
+    cover = [r for r in recs if r[0] <= a <= r[1]]
+    if not cover:
+        return None
+    r = min(cover, key=lambda r: [y - x for x, y in zip(r[0], r[1])])
+    return '%s (%s)' % (r[3], r[4]) if r[3] else r[2]
+
+
+def egress(sa, sb, recs=None):
+    """Amendment 9 (16 November 2026, post hoc, after read 1): within each route, the egress is the set
+    of registrant organisations of the addresses that route echoed; it changed between two reads when
+    both reads echoed on the route, every address is covered by a kept RDAP record, and the two sets
+    differ. A route with no echo at either read is 'unread', never a change. A registered network
+    within the same registrant (NET-34-128 to NET-35-184, both Google LLC) is not a change."""
+    recs = rdap_records() if recs is None else recs
+    ea, eb = sa.get('egress_ip_echoed', {}), sb.get('egress_ip_echoed', {})
+    out = {}
+    for rt in sorted(set(ea) | set(eb)):
+        ra = {a: registrant(a, recs) for a in ea.get(rt, [])}
+        rb = {a: registrant(a, recs) for a in eb.get(rt, [])}
+        unknown = sorted(a for a, r in list(ra.items()) + list(rb.items()) if r is None)
+        sa_, sb_ = sorted(set(ra.values()) - {None}), sorted(set(rb.values()) - {None})
+        if not ra or not rb:
+            verdict = 'unread at one read (not a change)'
+        elif unknown:
+            verdict = 'undecided until the unknown addresses are looked up'
+        elif sa_ != sb_:
+            verdict = 'CHANGED: classes on this route are not compared'
+        else:
+            verdict = 'unchanged'
+        out[rt] = {'earlier': sa_, 'later': sb_, 'unknown': unknown, 'verdict': verdict}
+    return out
 
 
 def main(a, b):
@@ -236,6 +297,12 @@ def main(a, b):
     print('== Egress (inconclusive rule, within route) ==')
     print('  earlier:', sa.get('echoed_blocks_16'), sa.get('egress_ip_echoed'))
     print('  later:  ', sb.get('echoed_blocks_16'), sb.get('egress_ip_echoed'))
+    print('  amendment 9 (registrant organisation of each echoed address, from kept RDAP records):')
+    for rt, v in sorted(egress(sa, sb).items()):
+        print('    %s: earlier %s; later %s -> %s' % (rt, v['earlier'], v['later'], v['verdict']))
+        if v['unknown']:
+            print('      no kept RDAP record covers %s: look it up once (rdap.arin.net) and keep it in the'
+                  ' later read\'s rdap/' % ', '.join(v['unknown']))
 
 
 if __name__ == '__main__':

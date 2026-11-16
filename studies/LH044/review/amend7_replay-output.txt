@@ -1,0 +1,17 @@
+== Classes that differ, 0.3 as read -> 0.4 replay ==
+  P17 (drawn): refused -> wall_at_robots  [challenge:script-reload-check (0.4 replay: no probe would follow)]
+  P38 (drawn): refused -> wall_at_robots  [challenge:script-reload-check (0.4 replay: no probe would follow)]
+  2 differ
+
+== Tally (0.4 replay; as read in brackets) ==
+  named: probe_answered 61 (61), wall_at_robots 7 (7), state_read 68 (68), walled 11 (11), open 51 (51), robots_disallowed 30 (30), unknown 3 (3)
+  drawn: probe_answered 26 (28), wall_at_robots 5 (3), state_read 31 (31), walled 6 (6), open 13 (13), robots_disallowed 14 (14), unknown 15 (15)
+  walled and read counts unchanged: True
+
+== Closings and openings against the baseline ==
+  as read:   [('A11', 'closing'), ('A13', 'opening'), ('P38', 'closing'), ('P40', 'closing')]
+  0.4 replay: [('A11', 'closing'), ('A13', 'opening'), ('P38', 'closing'), ('P40', 'closing')]
+
+== Kept bodies matching the 0.4 signature (baseline and read 1) ==
+  read-2026-11-15T1413Z/0202.b P17 robots http://jpu.k-pin.org/robots.txt status 200, alternatives [0, 1]
+  read-2026-11-15T1413Z/0235.b P38 robots http://www.jmolbiochem.com/robots.txt status 200, alternatives [0, 1]

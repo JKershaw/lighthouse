@@ -28,6 +28,11 @@
    "open_unconfirmed": 1
   }
  },
+ "robots_parsed_html": [
+  "O13",
+  "P17",
+  "P38"
+ ],
  "robots_rules": "amendment 5 (scripts/robots_rules.py)",
  "provider": "anthropic",
  "max_requests_to_one_host": 4,
@@ -85,11 +90,17 @@
    "160.79.106.234",
    "160.79.106.236",
    "160.79.106.241"
+  ],
+  "direct-http": [
+   "35.184.25.35"
   ]
  },
  "echoed_blocks_16": {
   "egress-proxy": [
    "160.79.0.0/16"
+  ],
+  "direct-http": [
+   "35.184.0.0/16"
   ]
  }
 }

@@ -26,6 +26,12 @@
      reads in 7 and 8 are labelled 15 November, so --classify also writes a usage_token.csv for
      their retained robots.txt files (D15, D01, A19) into a temporary directory that nothing here
      reads or prints.
+ 10. Amendments 7 to 9 (16 November 2026, post hoc, after read 1 and R-0072): classifier 0.4's
+     script challenge signature on read 1's retained robots.txt answers of P17 and P38 (0.3 parsed
+     them, 0.4 makes them wall_at_robots, so no probe), read 1's committed classes reproduced under
+     0.3 (amendment 7); the `powf:` echo key on read 1's P04 body, with the baseline's echoes
+     unchanged (amendment 8); and the egress rule by registrant organisation, from the kept RDAP
+     records, on the baseline against read 1 (amendment 9).
 
 Usage: python3 -I studies/LH044/scripts/test_lh044.py
 """
@@ -421,6 +427,82 @@ with tempfile.TemporaryDirectory() as tmp:
           and got['Z1']['usage_token_root_allowed'] == 'False')
     check('synthetic read: a token cut at the read limit is neither a group nor a mention',
           got['Z2']['usage_token_named'] == 'False' and got['Z2']['usage_token_mentioned'] == 'False')
+
+# 10. Amendments 7 to 9 (16 November 2026, post hoc): script challenges at robots.txt, `powf:`, egress rule
+import compare_reads  # noqa: E402
+from classify import version_for  # noqa: E402
+R1 = collect.ROOT / 'data' / 'read-2026-11-15T1413Z'
+log1 = {r['n']: r for r in csv.DictReader(open(R1 / 'readlog.csv'))}
+svc1 = {s['id']: s for s in json.load(open(R1 / 'services.json'))['services']}
+check('amendment 7: read 1 stays classifier 0.3, read 2 (22 November) is 0.4',
+      version_for('2026-11-15T1413Z') == '0.3' and version_for('2026-11-22T0000Z') == '0.4'
+      and version_for('2026-11-08T1920Z') == '0.2')
+for sid in ('P17', 'P38'):
+    n = svc1[sid]['robots_n']
+    rr = collect._load_resp(R1, n)
+    rr.update({'error': None, 'url': log1[str(n)]['url'], 'truncated': log1[str(n)]['truncated']})
+    o3, o4 = collect.robots_outcome(rr, '0.3'), collect.robots_outcome(rr, '0.4')
+    check('%s read 1 robots.txt (%04d.b, "One moment, please..."): 0.3 parsed (a probe followed), '
+          '0.4 wall_at_robots by script-reload-check (no probe)' % (sid, n),
+          o3[0] == 'parsed' and o4[0] == 'wall' and o4[2] == 'wall_at_robots' and o4[3] == 'challenge:script-reload-check')
+    check('%s: the probe that followed at read 1 is classed as before under 0.4 (refused)' % sid,
+          classify(*(lambda r: (r['status'], None, r['headers'], r['body']))(collect._load_resp(R1, svc1[sid]['probe_n'])),
+                   svc1[sid]['surface'], svc1[sid]['marker'], version='0.4')[0] == 'refused')
+check('the title alone, without a self-reload or check field, is not a challenge',
+      classify(200, None, [], b'<html><title>One moment, please...</title><p>hello</p></html>', 'page', 'hello',
+               version='0.4')[0] == 'open')
+check('a real robots.txt is still parsed under 0.4 (P40 at read 1)',
+      collect.robots_outcome(dict(collect._load_resp(R1, svc1['P40']['robots_n']), error=None, url='',
+                                  truncated='False'), '0.4')[0] == 'parsed')
+committed1 = {r['id']: (r['class'], r['detail']) for r in csv.DictReader(open(R1 / 'classes.csv'))}
+with tempfile.TemporaryDirectory() as tmp:
+    fake_root = Path(tmp)
+    (fake_root / 'data').mkdir()
+    work = fake_root / 'data' / R1.name
+    shutil.copytree(R1, work, ignore=shutil.ignore_patterns('classes.csv', 'robots.csv', 'summary.json',
+                                                           'usage_token.csv', 'echoes.csv'))
+    old = collect.ROOT
+    collect.ROOT = fake_root
+    with contextlib.redirect_stdout(io.StringIO()):
+        collect.do_classify(R1.name[len('read-'):])
+    collect.ROOT = old
+    again1 = {r['id']: (r['class'], r['detail']) for r in csv.DictReader(open(work / 'classes.csv'))}
+    summ1 = json.load(open(work / 'summary.json'))
+    echoes1 = (work / 'echoes.csv').read_bytes()
+check('read 1 reclassified offline (0.3) matches its committed classes.csv (%d services)' % len(committed1),
+      again1 == committed1)
+check('read 1 echoes.csv reproduced byte for byte by --classify', echoes1 == (R1 / 'echoes.csv').read_bytes())
+check('summary flags robots.txt answers that were markup but parsed: read 1 P17, P38 and O13',
+      summ1.get('robots_parsed_html') == ['O13', 'P17', 'P38'])
+p4r1 = collect._load_resp(R1, svc1['P04']['robots_n'])
+e4 = collect.scan_echoes(p4r1['headers'], p4r1['body'])
+check('read 1 P04 (0179.b): the plain-HTTP echo after `powf:` is found (35.184.25.35)',
+      ('body', 'powf:', '35.184.25.35') in e4)
+check('read 1 echoes.csv now carries the plain-HTTP echo',
+      any(r['route'] == 'direct-http' and r['address'] == '35.184.25.35' for r in csv.DictReader(open(R1 / 'echoes.csv'))))
+base_echo = [(r['n'], r['name'], r['address']) for r in csv.DictReader(open(BASE / 'echoes.csv'))]
+again_echo = []
+for k in sorted(log, key=int):
+    r = collect._load_resp(BASE, k)
+    again_echo += [(k, nm, a) for w, nm, a in collect.scan_echoes(r['headers'], r['body'])]
+check('baseline echoes unchanged by the new keys (%d)' % len(base_echo), again_echo == base_echo)
+check('a short key in an sgcaptcha y= parameter is read; a bare y= value without an address is not',
+      ('body', 'abc:', '198.51.100.7') in collect.scan_echoes([], b'/.well-known/sgcaptcha/?r=%2F&y=abc:198.51.100.7:17')
+      and collect.scan_echoes([], b'?y=abc:notanaddress') == [])
+sb0 = json.load(open(BASE / 'summary.json'))
+sb1 = json.load(open(R1 / 'summary.json'))
+eg = compare_reads.egress(sb0, sb1)
+check('egress rule: plain-HTTP route Google LLC at both reads (NET-34-128 then NET-35-184), unchanged',
+      eg['direct-http']['verdict'] == 'unchanged' and eg['direct-http']['earlier'] == ['GOOGL-2 (Google LLC)']
+      and eg['direct-http']['later'] == ['GOOGL-2 (Google LLC)'])
+check('egress rule: proxied route Anthropic at both reads, unchanged',
+      eg['egress-proxy']['verdict'] == 'unchanged' and eg['egress-proxy']['later'] == ['AP-2440 (Anthropic, PBC)'])
+recs = [((10, 0, 0, 0), (10, 255, 255, 255), 'NET-A', 'ORG-A', 'A'), ((11, 0, 0, 0), (11, 255, 255, 255), 'NET-B', 'ORG-B', 'B')]
+syn = compare_reads.egress({'egress_ip_echoed': {'r': ['10.0.0.1'], 's': ['10.0.0.1'], 't': ['10.0.0.1']}},
+                           {'egress_ip_echoed': {'r': ['11.0.0.1'], 's': ['12.0.0.1']}}, recs)
+check('egress rule: another registrant is a change; an address no kept record covers is undecided; no echo is unread',
+      syn['r']['verdict'].startswith('CHANGED') and syn['s']['verdict'].startswith('undecided')
+      and syn['t']['verdict'].startswith('unread'))
 
 print('\n%d failed' % len(fails))
 sys.exit(1 if fails else 0)
