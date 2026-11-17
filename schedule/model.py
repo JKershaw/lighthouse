@@ -22,6 +22,9 @@ STALE = timedelta(hours=6)
 UTC = timezone.utc
 
 
+CLOCK_TOLERANCE = timedelta(minutes=5)
+
+
 def canonical_date(value: str) -> date:
     """Accept exactly the public YYYY-MM-DD representation."""
     if not re.fullmatch(r'\d{4}-\d{2}-\d{2}', value):
@@ -354,6 +357,17 @@ def evaluate(root: Path | str, now: datetime) -> dict:
         identity = 'coverage:unavailable'
         coverage = [{'id': identity, 'message': f'Pipeline coverage audit could not read local metadata: {exc}'}]
         groups['warnings'] = [identity]
+    # A time written by hand can run ahead of the clock (the run of 17 November 2026 wrote
+    # several up to forty minutes early); flag any updated instant after the evaluation time.
+    for row in rows:
+        try:
+            written = aware_instant(row['updated'])
+        except (ValueError, TypeError):
+            continue
+        if written - now > CLOCK_TOLERANCE:
+            identity = f'clock:{row["id"]}'
+            coverage.append({'id': identity, 'message': f'{row["_where"]}: updated {row["updated"]} is later than the evaluation time {iso_utc(now)}; take times from the clock'})
+            groups['warnings'].append(identity)
     order = {row['id']: (row['latest'] or '9999-12-31', row['earliest'] or '', index)
              for index, row in enumerate(rows)}
     for key in ('ready', 'overdue', 'upcoming', 'stale'):

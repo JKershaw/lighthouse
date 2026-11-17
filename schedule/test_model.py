@@ -170,6 +170,14 @@ class ModelTests(unittest.TestCase):
         self.assertEqual(report['rows'][1]['state'], 'recovery')
         self.assertFalse(any(item['actionable'] for item in report['rows']))
 
+    def test_updated_after_the_clock_is_an_advisory_warning(self):
+        report = self.evaluate([row('early', status='done', ref='evidence.md', updated='2026-11-14T12:40:00Z'),
+                                row('within', status='done', ref='evidence.md', updated='2026-11-14T12:04:59Z'),
+                                row('legacy', status='done', ref='evidence.md', updated='2026-11-15')])
+        self.assertTrue(report['valid'])
+        self.assertEqual(report['warnings'], ['clock:early'])
+        self.assertTrue(any('later than the evaluation time' in item['message'] for item in report['coverage']))
+
     def test_naive_date_only_and_broken_claims_fail_closed(self):
         for value in ['2026-11-01', '2026-11-01T12:00:00', 'broken', '']:
             report = self.evaluate([row('claim', status='running', updated=value), row('ready')])
