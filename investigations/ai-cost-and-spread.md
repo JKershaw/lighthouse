@@ -14,18 +14,20 @@ studies:
 - studies/LH047/LH047.md
 - studies/LH051/brief.md
 - studies/LH052/LH052.md
-- studies/LH055/brief.md
+- studies/LH055/LH055.md
 pieces:
 - essays/it-was-only-a-test.md
 - essays/what-the-watch-would-see.md
 
-**In short.** We're asking what AI activity costs the infrastructure everyone shares, and whether any of it is keeping itself going or spreading outside a test. We keep five kinds of evidence apart, from services putting up walls against automated traffic to worms that people run through package registries. What we have so far are working records, some of them reviewed; there is no reviewed finding yet, and nothing below is evidence of AI activity sustaining or spreading itself. Weekly reads of the closing web run to 7 February 2027, and several studies have second reads in December.
+**In short.** We're asking what AI activity costs the infrastructure everyone shares, and whether any of it is keeping itself going or spreading outside a test. We keep five kinds of evidence apart, from services putting up walls against automated traffic to worms that people run through package registries. What we have so far are working records, some of them reviewed. There is no reviewed finding yet. One company reports an attack operation, run by people through AI agents, whose agents' records describe stolen AI keys paying for the hunt for more; the company states it as its finding, but it rests on records whose outcomes it says it can't verify, and nothing we've read confirms it. Weekly reads of the closing web run to 7 February 2027, and several studies have second reads in December.
 
 ## Where the evidence stands
 
-**New work, commissioned 17 November 2026.** [The ARTEX study](../studies/LH055/brief.md) will establish a primary-source baseline and examine the reported use of acquired AI credentials to power further credential hunting. The commissioning discussion has read reports relevant to this question, but none has yet been retained or reviewed under that study's brief. The earlier evidence summary below has not yet been reassessed against them. Collection runs to 1 December, with three reviewed research rounds and a decision on what to do next. [Commissioning](../notes/artex/commissioning.md).
+**Reviewed interim record (an evidence review, a reader-and-inference review and a recheck), 17 November 2026. ARTEX and the reported credential loop.** Amazon reported on 13 November that attackers, using AI agents it attributes with moderate confidence to ARTEX, an open-source AI hacking tool, ran a credential-theft operation in which stolen AI keys paid for the computing that powered the hunt for more keys. Amazon states this as its finding, but its evidence is the agents' own records, captured by its decoy sensors, and it says it can't verify the outcomes those records report. The attackers' instructions, captured the same way, show people set the agents' goals and limits.
 
-The original strands below began with first readings on 8 November 2026, the day the investigation opened; later additions are dated separately. Each line opens with how far it has been checked, and nothing is reviewed unless its line says so. The strands stay apart, and nothing below is evidence of AI activity sustaining or spreading itself.
+In the other reports we kept on 17 November (the FBI's advisory, Microsoft's and Censys's reports, and a security firm's summary), nothing confirms or contradicts that loop for ARTEX. One of them relays a finding that a different ARTEX campaign probably bought its AI computing from a reseller, and a September account of a similar loop in another operation also rests mostly on the agent's own records. Our read of Check Point's report on ARTEX campaigns hit a rate limit on the day; the scheduled reads try again from 18 November. Next, a targeted search for evidence outside the agents' records, starting with how Amazon's own sensors came to be used, and dated re-reads to 1 December. [Record](../studies/LH055/LH055.md), [commissioning](../notes/artex/commissioning.md).
+
+The original strands below began with first readings on 8 November 2026, the day the investigation opened; later additions are dated separately. Each line opens with how far it has been checked, and nothing is reviewed unless its line says so. The strands stay apart, and nothing below is evidence of AI activity sustaining or spreading itself apart from the people running it.
 
 - **Unreviewed. Load: the closing web, baseline.** The first read ([checkpoint](../studies/LH044/checkpoints/2026-11-08.md)): of the services whose answer one labelled request could read, 13 of 67 named and 1 of 26 drawn at random showed a wall (challenge pages at Stack Overflow and Debian's forge and wiki, challenges on robots.txt itself at npm's website, HathiTrust, Europeana and the Humanitarian Data Exchange, rate limits at Maven Central, Semantic Scholar and Crossref, a refusal at KDE's GitLab). robots.txt kept the study away from 31 of 161 services, kernel.org's git server and PyPI's JSON API among them, so walls there are out of its sight. No wall could be dated: the Wayback Machine hasn't answered the machine we read from.
 
@@ -77,7 +79,7 @@ These reports are different kinds of thing, and the investigation keeps them apa
 - **Capability in a lab:** evaluations and simulations of models copying themselves or acting beyond their brief. Capability in a controlled setting is not activity on the open internet.
 - **Activity on the open internet:** an AI system acting in public, with traces anyone can read. This is the strand the charter's question is about, and the one with the least evidence so far.
 
-No report read so far describes AI activity sustaining itself outside a test. If one does, it is recorded as its source's claim, with what it rests on.
+No report read so far describes AI activity sustaining or spreading itself outside a test and apart from the people running it. The nearest is Amazon's report of 13 November 2026 on an operation it calls self-sustaining, in which people set the agents' goals and limits and, by the agents' own records, stolen AI keys paid for further key hunting. That is an operation run by people, not AI acting apart from them; it is recorded as Amazon's claim, resting on records whose outcomes Amazon says it can't verify, and followed in [the ARTEX study](../studies/LH055/LH055.md).
 
 ## Questions
 
