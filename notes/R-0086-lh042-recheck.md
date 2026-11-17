@@ -1,0 +1,43 @@
+title: Recheck of LH042 record 0.3, the resolution of reader review R-0083
+kind: review note
+version: 1.0
+date: 2026-11-17
+authors: a review subagent (Claude Code, Opus 5.5) dispatched by the driving session of 17 November 2026, schedule row LH042-resolution-recheck (recheck half)
+
+**In short.** One fresh reading, as AGENTS.md asks, of everything version 0.3 of LH042 wrote in answer to the reader review R-0083. Every changed figure matches the retained data, and both must-fixes are met: the opening and the investigation page now carry OpenA2A's warning that sweeps within a month differ by more than months do, and the record no longer says finished fixes are owed. I found three faults in the new text and corrected them: the record named the wrong commit and a hand-written time for those fixes, and the brief's new amendment would have put per-sweep figures into the index's own series, joining counts made different ways while saying it changed no series definition. I also cut the record's opening from six sentences to four without dropping a qualification. Verdict: cleared.
+
+## Exact versions
+
+- Reviewed: repository HEAD 5a98f89 (branch claude/festive-hypatia-qtqig0), record version 0.3, studies/LH042/LH042.md blob 6a29a975212317deeb16c83acb56748bd6892a02; compared with 06914fb, where R-0083 read version 0.2 (blob c370810c91e461807b8baeb28c2855072fc50500, the same blob as at 49bfdf4).
+- Diff read: `git diff 06914fb HEAD -- studies/LH042 investigations/ai-cost-and-spread.md programme.md`, leaving out the LH044 line and clause (cleared in R-0085).
+- No request made; no host visited or queried. Nothing anonymised was looked into.
+
+## What I checked
+
+- **Figures against data/index_reads.csv.** June: three sweeps, range 245,111 to 349,424 (spread 104,313); the plotted 26 June point is the range's low end. April: two sweeps, 313,900 and 321,929; the plotted 11 April point is the higher. OpenClaw category 267,172 (11 April), 153,638 (26 June), 205,872 (1 November); April to June fall 113,534. All as written.
+- **Quotations against data/round3-2026-11-08/005.body** (OpenA2A's methodology, as text through scripts/totext.py). It says the exposure trend plots "the latest sweep in that month"; that a month's range "can be wider than the change between months"; that three June sweeps "on the same query set returned 349,424 on June 1, 320,506 on June 14, and 245,111 on June 26"; that "No previously published figure has been restated onto the newer definition"; and that the 18 June difference is "one to four detections in roughly 300,000". The record's paraphrases ("a few weeks apart", "last and lowest", "on the same queries") are fair. "OpenClaw gateways" is the index page's own label (round4-2026-11-08/001.body).
+- **M1 (R-0083).** Met in the opening and in both investigation-page places (the strand label line and question 2's line); the corrected label "OpenClaw category" is used throughout, in the figure too. The Answer adds the April point and the missing per-category range, both supported.
+- **M2 (R-0083).** Met in substance: data/counts.csv row C14 and data/table.md row C14 give the relabelled method and "not stated"; data/SCREENING.md logs the key's second copy with hashes; Next, the Corrections entry and Limits are updated. But the Corrections entry said the C14 change "is in commit bf814f1 (14 November), the earliest this shallow clone holds, so its exact time could not be read here". That is wrong: this clone holds history to d0ce368, and `git show 26e128c` shows the C14 relabelling, table rebuild, the key's withholding and the SCREENING.md section together in commit 26e128c at 20:28:19 UTC on 8 November, two minutes after the evidence review's commit a98212b. The record also gave the withholding as "about 20:45 UTC", SCREENING.md's hand-written time, which is later than the commit that contains it, the same fault the brief's correction of 8 November describes for other hand-written times. Corrected (below).
+- **Optional suggestions taken.** "an earlier search of ours"; the 18 June boundary's size; the restatement reading labelled as interpretation beside OpenA2A's sentence. All accurate.
+- **Brief amendment of 17 November.** Labelled "Written after outcomes were read", says what its writer had read and knew (the June range and the April to June fall), and is dated before the December read; the sentence about it in the brief's opening sits in the paragraph marked not part of the protocol. Items 1 and 3 change no admission rule: item 1 restates what index_reads.csv keeps; item 3 governs only how a step is described, fixes the comparison on the totals' range in advance, handles one-sweep months, and applies to all eight steps already read. Item 2 did not hold up as written: it admitted per-sweep category figures from sweep reports "into the existing series (S42 to S44)". data/series.csv defines those series' method as "one point per month, the latest sweep that month", sweep reports' figures already form series of their own (S13, S40, S41), and the methodology page says the first two Behavioral Threat Report issues gave a single-query OpenClaw figure, a different quantity. So item 2 would have changed a series definition and could have joined counts made different ways, while the amendment said it changed no series definition. It also raised a read from Amendment 2's one request to up to ten without saying so. Corrected, before any read under it (below).
+- **Figure.** Rendered studies/LH042/figure.svg at 720 by 660 in light and dark with the preamble's Chromium. Legible in both; panel title "OpenClaw category"; version line "LH042 version 0.3, not released"; footnote on within-month sweeps kept. `python3 -I studies/LH042/scripts/build.py` reproduces the committed figure and tables with no diff; `check_quotes.py` reports 0 problems.
+- **Read as a stranger.** The 0.3 opening named "one research group" and then "OpenA2A itself", so a new reader met a name out of nowhere, and "Lighthouse scanned nothing" names a project the reader does not know. The investigation page's question 2 line reads cleanly; "the June point" was ambiguous about whose point it was.
+- No em or en dashes in any changed file.
+
+## What I changed
+
+1. studies/LH042/LH042.md, In short: six sentences to four. Merged the method, the claims-not-hosts limit, reachable-not-compromised and "scanned nothing" into the first sentence; named OpenA2A where the index is introduced; joined the warning and the next reads. Kept every qualification: "partly", the same-day Ollama example, the earlier search, "need not be OpenClaw itself", the three June totals, "last and lowest", "alone don't show". No figure changed. "Lighthouse scanned nothing" became "we scanned nothing ourselves".
+2. LH042.md, Corrections (version 0.3, second item): bf814f1 and the shallow-clone sentence replaced by commit 26e128c at 20:28 UTC on 8 November for both fixes, with a sentence on why SCREENING.md's "about 20:45 UTC" does not stand. Next: "withheld at about 20:45 UTC" became "withheld on 8 November in commit 26e128c (20:28 UTC)".
+3. LH042.md, Corrections: a new sub-item for this recheck's changes. Header `review:`, Limits and Next now say the resolution was rechecked here instead of "not yet rechecked". Next's line on the amendment adds "kept apart from the index's monthly points".
+4. studies/LH042/brief.md, amendment of 17 November, item 2: per-sweep figures go into the series their stated method and unit give, never into S42 to S44; a category's within-month range uses only category-total figures, never the single-query figure; a dated parenthesis says the item was corrected by this recheck before any read, and what it said before. The amendment's opening now says it raises a read to at most ten requests.
+5. investigations/ai-cost-and-spread.md, question 2's LH042 line: "the June point is the last and lowest" became "the June point the index plots is the last and lowest".
+
+programme.md needed no change.
+
+## Not checked
+
+The sweep reports item 2 will fetch were not read (no network). Whether OpenA2A's sweep reports give per-category figures for 1 and 14 June is unknown here.
+
+## Verdict
+
+**Cleared**, with the changes above. No must-fix finding remains: both R-0083 must-fixes are met, every changed figure matches the retained data, and the amendment, as corrected, is honestly labelled as written after outcomes were read and changes no admission rule or series definition. Per AGENTS.md this one reading ends the chain; my changes are listed here, not sent to another reader. This is a contribution from a fresh agent on the same model family, not independent confirmation. Release remains the driver's decision.
