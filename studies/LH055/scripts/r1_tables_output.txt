@@ -1,0 +1,54 @@
+== 1. retained body hashes against fetch_log.jsonl
+S01: match
+S02: match
+S03: match
+S04: match
+S05: no body retained (outcome http_error, status 429)
+S06: match
+S07: match
+
+== 2. claim passages in retained text
+98 claims checked; 0 problems
+claims by source: S01 14, S02 29, S03 6, S04 16, S06 14, S07 19
+basis labels (a claim may carry several):
+   63  publisher interpretation
+   27  direct telemetry described by the publisher
+   14  agent-reported action/outcome
+    8  operator instruction/intent
+
+== 3. links.csv references
+42 link rows checked; 0 problems
+
+== 4. link statuses (counts of this record's codings, not of events)
+source         L1         L2         L3         L4         L5         L6
+S01       unknown    unknown    unknown    unknown    unknown    unknown
+S02       claimed    claimed    claimed    claimed    claimed    claimed
+S03       unknown    unknown    unknown    unknown    unknown    unknown
+S04       unknown    unknown    unknown    unknown    unknown    unknown
+S05       unknown    unknown    unknown    unknown    unknown    unknown
+S06     supported    claimed    claimed    claimed    claimed    claimed
+S07       unknown    unknown    unknown    unknown    unknown    unknown
+all 7 sources: supported 1; claimed 11; contradicted 0; unknown 30 (of 42 rows)
+ARTEX sources (S01 to S05, S07): supported 0; claimed 6; contradicted 0; unknown 30 (of 36 rows)
+ARTEX sources that were read (S01 to S04, S07): supported 0; claimed 6; contradicted 0; unknown 24 (of 30 rows)
+by link, over all sources:
+  L1: supported 1; claimed 1; contradicted 0; unknown 5
+  L2: supported 0; claimed 2; contradicted 0; unknown 5
+  L3: supported 0; claimed 2; contradicted 0; unknown 5
+  L4: supported 0; claimed 2; contradicted 0; unknown 5
+  L5: supported 0; claimed 2; contradicted 0; unknown 5
+  L6: supported 0; claimed 2; contradicted 0; unknown 5
+
+== 5. derived figures
+Censys: 1465 - 650 = 815 (page says roughly 815)
+Censys: 650 / 1465 = 0.444 (page says about 44%)
+Censys: 155 / 1465 = 0.1058 (page says 10.6%)
+Censys: 493 + 157 = 650 (PEG Tech plus Yancy, page says about 650)
+Censys: 19 + 18 = 37 of 43 gateway hosts named by product; 6 not broken down
+Censys: six named countries sum 1400 of 1,465 hosts (the rest not listed)
+SANS: roughly 379 - 341 = 38 channels left after the agent's test (SANS does not state this)
+Amazon Campaign 1 indicators: 5 rows, first seen 2026-10-14, last seen 2026-11-02
+Amazon Campaign 2 indicators: 6 rows, first seen 2026-10-14, last seen 2026-10-19
+Microsoft indicators: 8 rows, first seen 2026-10-19 to 2026-11-04, active as of ['2026-11-06']
+
+all checks passed
