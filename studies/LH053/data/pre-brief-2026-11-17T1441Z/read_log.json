@@ -1,0 +1,123 @@
+[
+  {
+    "name": "stepsecurity_post",
+    "url": "https://www.stepsecurity.io/blog/wppconnect-compromised-malicious-releases-steal-secrets-and-whatsapp-sessions",
+    "method": "GET",
+    "request_body": "",
+    "start_utc": "2026-11-17T14:41:08+00:00",
+    "robots": {
+      "robots_url": "https://www.stepsecurity.io/robots.txt",
+      "robots_status": 200,
+      "robots_sha256": "6151451306e53f6b4ce7328a3efc6e7917bf3be9fa557214db4985048aa1edba",
+      "provider": "anthropic",
+      "decided_by": "None",
+      "rule": "None",
+      "reason": "allowed by robots.txt"
+    },
+    "finish_utc": "2026-11-17T14:41:08+00:00",
+    "status": 200,
+    "final_url": "https://www.stepsecurity.io/blog/wppconnect-compromised-malicious-releases-steal-secrets-and-whatsapp-sessions",
+    "content_type": "text/html; charset=utf-8",
+    "last_modified": "Tue, 17 Nov 2026 13:36:15 GMT",
+    "bytes": 189396,
+    "sha256": "aca6933891c55b9187e7afb60593078b5c46793201f839ba05c34f2c540040aa",
+    "file": "stepsecurity_post.raw.gz",
+    "emails_withheld": 0
+  },
+  {
+    "name": "L_packument",
+    "url": "https://registry.npmjs.org/@wppconnect-team%2Fwppconnect",
+    "method": "GET",
+    "request_body": "",
+    "start_utc": "2026-11-17T14:41:25+00:00",
+    "robots": {
+      "robots_url": "https://registry.npmjs.org/robots.txt",
+      "robots_status": 200,
+      "robots_sha256": "c64a5b4be2b97300c4a8036084ba082046f9f4c562febfe66c95419f193882d9",
+      "provider": "anthropic",
+      "decided_by": "None",
+      "rule": "None",
+      "reason": "allowed by robots.txt"
+    },
+    "finish_utc": "2026-11-17T14:41:26+00:00",
+    "status": 200,
+    "final_url": "https://registry.npmjs.org/@wppconnect-team%2Fwppconnect",
+    "content_type": "application/json",
+    "last_modified": "Mon, 16 Nov 2026 04:03:48 GMT",
+    "bytes": 944979,
+    "sha256": "0f01f29643d1e022f952a0a763f403c0dbe3f575719a5e5bef183ef3a093f90b",
+    "file": "L_packument.raw.gz",
+    "emails_withheld": 571
+  },
+  {
+    "name": "S_packument",
+    "url": "https://registry.npmjs.org/@wppconnect%2Fserver",
+    "method": "GET",
+    "request_body": "",
+    "start_utc": "2026-11-17T14:41:26+00:00",
+    "robots": {
+      "robots_url": "https://registry.npmjs.org/robots.txt",
+      "robots_status": 200,
+      "robots_sha256": "c64a5b4be2b97300c4a8036084ba082046f9f4c562febfe66c95419f193882d9",
+      "provider": "anthropic",
+      "decided_by": "None",
+      "rule": "None",
+      "reason": "allowed by robots.txt"
+    },
+    "finish_utc": "2026-11-17T14:41:26+00:00",
+    "status": 200,
+    "final_url": "https://registry.npmjs.org/@wppconnect%2Fserver",
+    "content_type": "application/json",
+    "last_modified": "Mon, 16 Nov 2026 04:06:46 GMT",
+    "bytes": 1785064,
+    "sha256": "d8f296fca0038dabf7e9e88aae1f27197017570a97ab0554800736e77d36eae5",
+    "file": "S_packument.raw.gz",
+    "emails_withheld": 507
+  },
+  {
+    "name": "L_osv",
+    "url": "https://api.osv.dev/v1/query",
+    "method": "POST",
+    "request_body": "{\"package\": {\"name\": \"@wppconnect-team/wppconnect\", \"ecosystem\": \"npm\"}}",
+    "start_utc": "2026-11-17T14:41:26+00:00",
+    "robots": {
+      "robots_url": "https://api.osv.dev/robots.txt",
+      "robots_status": 404,
+      "robots_sha256": "503279a5dae7a157195c221e6c9c6d33490eba8c6e57083c128328eb6eae1617",
+      "provider": "anthropic",
+      "reason": "robots.txt answered 404: no rules"
+    },
+    "finish_utc": "2026-11-17T14:41:27+00:00",
+    "status": 200,
+    "final_url": "https://api.osv.dev/v1/query",
+    "content_type": "application/json",
+    "last_modified": "",
+    "bytes": 3049,
+    "sha256": "08e834f2e3b66e534140e8b33ec7a35d66df31e516dc956e0ad00249ced4f376",
+    "file": "L_osv.raw.gz",
+    "emails_withheld": 0
+  },
+  {
+    "name": "S_osv",
+    "url": "https://api.osv.dev/v1/query",
+    "method": "POST",
+    "request_body": "{\"package\": {\"name\": \"@wppconnect/server\", \"ecosystem\": \"npm\"}}",
+    "start_utc": "2026-11-17T14:41:27+00:00",
+    "robots": {
+      "robots_url": "https://api.osv.dev/robots.txt",
+      "robots_status": 404,
+      "robots_sha256": "503279a5dae7a157195c221e6c9c6d33490eba8c6e57083c128328eb6eae1617",
+      "provider": "anthropic",
+      "reason": "robots.txt answered 404: no rules"
+    },
+    "finish_utc": "2026-11-17T14:41:27+00:00",
+    "status": 200,
+    "final_url": "https://api.osv.dev/v1/query",
+    "content_type": "application/json",
+    "last_modified": "",
+    "bytes": 2997,
+    "sha256": "a209552bd37a910d4e38988aafa990a8e710586846348fd71ab77a4e4830a0b0",
+    "file": "S_osv.raw.gz",
+    "emails_withheld": 0
+  }
+]
