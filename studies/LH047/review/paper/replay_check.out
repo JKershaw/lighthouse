@@ -1,0 +1,8 @@
+# R-0082, 17 November 2026: sh studies/LH047/replay.sh rerun at HEAD 06914fb; then git status on studies/LH047/data
+robots9309 self-test passed
+rows 3447 sent 3446
+robots copies indexed: 256
+requests judged: 3497 ; authorities still without a copy: 0
+tables: studies/LH047/data/audit/tables.md; summary: studies/LH047/data/audit/summary.json
+git status --short studies/LH047/data (empty means byte-identical):
+[end]
