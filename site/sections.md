@@ -68,6 +68,8 @@ summaries:
 - studies/LH049 | The compromised bee-js release on npm
 - studies/LH051 | A CI secret stealer's traces, hour by hour
 - studies/LH052 | AI, organisational capacity and reliability
+- studies/LH053 | WPPConnect's compromised npm releases
+- studies/LH054 | A kernel flaw found by a person, for comparison
 - studies/LH043 | Evaluation agents on the open internet
 - studies/LH042 | Published counts of exposed AI services
 - studies/LH035 | Who watches each layer of the internet

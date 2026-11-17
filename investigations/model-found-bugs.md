@@ -8,6 +8,7 @@ studies:
 - studies/LH036/brief.md
 - studies/LH038/brief.md
 - studies/LH048/brief.md
+- studies/LH054/brief.md
 
 ## Why this, and why now
 
@@ -32,4 +33,4 @@ It describes scores, listings, dates and fixes. It does not test any system for 
 
 ## Where the evidence stands
 
-No record yet. The core watch's brief was fixed on 1 November 2026 with the morning's reads disclosed in it, and its Monday and Thursday reads go on, each with an unreviewed checkpoint in the study's directory (the scores and fixes above are from 1 November; Ubuntu's status has moved since). The first record follows the read of 16 November.
+**Interim, reviewed against the data and for how it reads, and rechecked (17 November 2026).** The core watch's [interim record](../studies/LH036/LH036.md), to the read of 16 November, opens with the state of things: CISA had not listed the flaw as exploited by its catalogue of 13 November, which does not say whether anyone has exploited it; the exploit-prediction score's one large daily rise came two days before Anthropic's post, and the dates do not say why it moved; and fixes had reached Debian, the kernels of Red Hat's Enterprise Linux 8, 9 and 10 and Ubuntu's four newest releases, with Ubuntu's three oldest affected releases still pending. Read the record for the figures and their limits. Reads go on twice a week. The disclosure timeline took its one read on 17 November: no public source it could read dates the report ([checkpoint](../studies/LH038/checkpoints/2026-11-17.md), unreviewed). From 19 November a [comparison case](../studies/LH054/brief.md) is read on the same days: NoisyTCP, a Linux kernel flaw disclosed on 15 November and credited to a person, not a model, so the core watch has something to set beside it. One case chosen after we saw it is not a sample.
