@@ -227,19 +227,19 @@ Figure 2: Diagram of ARTEX’s workflow with ScopeSentry
 ## ARTEX in two campaigns
 Not every ARTEX instance is operated with malicious intent, and some of the hosts publicly exposed are likely operated by authorized testers. As with all offensive security tools, there exists the potential for malicious usage. Two notable reports were released in October 2026 that provided context into observed malicious usage.
 ### South Korean finance (CrowdStrike, October 7)
-On 7 October 2026, CrowdStrike reported [144] that an unattributed actor using ARTEX targeted a South Korean finance company from late September to early October. The actor was assessed with moderate confidence to be a financially motivated Chinese speaker. The actor breached a broker-facing loan inquiry service at one bank and an employee mobile system at another, and exfiltrated data. ARTEX ran on 38.244.[defanged indicator withheld] with DeepSeek v4.1-flash as its main model, which the actor likely bought through an API reseller. The actor also ran Claude Code sessions backed by GLM and Grok. CrowdStrike found the activity because the actor left open directories exposing a .claude folder, prompts, session histories, and ARTEX configuration files.
-CrowdStrike’s report identified an open directory exposed at 38.244.[defanged indicator withheld]:18899. Censys scan history for that host shows how long it had been exposed:
-Figure 3: Service history for 38.244.[defanged indicator withheld]
+On 7 October 2026, CrowdStrike reported [144] that an unattributed actor using ARTEX targeted a South Korean finance company from late September to early October. The actor was assessed with moderate confidence to be a financially motivated Chinese speaker. The actor breached a broker-facing loan inquiry service at one bank and an employee mobile system at another, and exfiltrated data. ARTEX ran on [defanged indicator withheld] with DeepSeek v4.1-flash as its main model, which the actor likely bought through an API reseller. The actor also ran Claude Code sessions backed by GLM and Grok. CrowdStrike found the activity because the actor left open directories exposing a .claude folder, prompts, session histories, and ARTEX configuration files.
+CrowdStrike’s report identified an open directory exposed at [defanged indicator withheld]:18899. Censys scan history for that host shows how long it had been exposed:
+Figure 3: Service history for [defanged indicator withheld]
 The file names show the actor working on targets well beyond South Korean banks, including payment and gaming services. That fits CrowdStrike’s observation of broader activity tied to the same persona.
 The more useful finding for defenders is that this mistake is not unusual. During the writing of this report, Censys observed 32 open directories on ARTEX hosts. Examples:
 HostExposed contents
-110.42.[defanged indicator withheld]:18080GodPotato, Invoke-TheHash / SMBExec / WMIExec, pass-the-hash scripts, MSSQL UDF DLL: a Windows lateral-movement kit
-111.68.[defanged indicator withheld]:18080A public CVE-2021-3156 (sudo “Baron Samedit”) exploit, heap dumps, and brute-force scripts
-108.165.[defanged indicator withheld]:8299Three beacon_linux_amd64 implant builds and reverse-shell scripts, on a host that also runs FRP and CyberStrikeAI
-206.187.[defanged indicator withheld]:8081c2.py, stager.c, and a compiled Windows stager
-181.41.[defanged indicator withheld]:8081About 18 HTA droppers, batch loaders, a wpad.dat, and a MITM root CA private key
-203.195.[defanged indicator withheld]:80The fscan internal scanner and payload executables, next to a Vshell listener
-154.12.[defanged indicator withheld]:18080An operator’s entire home directory, including .ssh, .bash_history, and the ARTEX install
+[defanged indicator withheld]:18080GodPotato, Invoke-TheHash / SMBExec / WMIExec, pass-the-hash scripts, MSSQL UDF DLL: a Windows lateral-movement kit
+[defanged indicator withheld]:18080A public CVE-2021-3156 (sudo “Baron Samedit”) exploit, heap dumps, and brute-force scripts
+[defanged indicator withheld]:8299Three beacon_linux_amd64 implant builds and reverse-shell scripts, on a host that also runs FRP and CyberStrikeAI
+[defanged indicator withheld]:8081c2.py, stager.c, and a compiled Windows stager
+[defanged indicator withheld]:8081About 18 HTA droppers, batch loaders, a wpad.dat, and a MITM root CA private key
+[defanged indicator withheld]:80The fscan internal scanner and payload executables, next to a Vshell listener
+[defanged indicator withheld]:18080An operator’s entire home directory, including .ssh, .bash_history, and the ARTEX install
 Most of these directories were only active for hours to a couple of days. Between November 3 and November 5, 10 closed and 15 new ones appeared on other ARTEX hosts. Because Censys keeps scan history, the file listings remain available after the operator takes the directory down.
 ### Storm-0940 and ConnectWise (Microsoft, October 21)
 Microsoft attributed [145] the ConnectWise Cloud Backup supply-chain compromise to Storm-0940, a China state-aligned actor active since 2021. The group used ARTEX to automate scanning, password spraying, and OAuth application abuse. It attempted sign-ins to more than 2,250 tenants, peaking at 2,900 attempts per minute, and some victims saw privileged cloud access in under three hours. Microsoft also notes it has seen multiple actors across regions using ARTEX.
@@ -252,22 +252,22 @@ Most common console port8787, the ARTEX default (1,931 endpoints), then 8790, 44
 Top countriesUnited States – 726 Hong Kong – 387China – 177Japan – 51Singapore – 38South Korea – 21
 Console languageThe Chinese default dominates. English, Korean, Japanese, Russian, and Portuguese localizations also appear
 Two hosting netblocks account for about 44% of hosts and merit further analysis:
-- PEG Tech (AS54600): 493 hosts. They share one of two identical port layouts across 13 /24 networks. 125 hosts each sit in 38.11.[defanged indicator withheld]/24 and 38.11.[defanged indicator withheld]/24.
-- Yancy Limited (AS138415): 157 hosts. They share an identical CyberPanel-plus-mail-server template, mostly in 156.234.[defanged indicator withheld]/16.
+- PEG Tech (AS54600): 493 hosts. They share one of two identical port layouts across 13 /24 networks. 125 hosts each sit in [defanged indicator withheld]/24 and [defanged indicator withheld]/24.
+- Yancy Limited (AS138415): 157 hosts. They share an identical CyberPanel-plus-mail-server template, mostly in [defanged indicator withheld]/16.
 Uniform configurations like these suggest a provisioning template rather than hundreds of individual operators. Excluding them leaves about 815 ARTEX deployments. Yancy Limited and Zenixcloud (22 ARTEX hosts) also hosted proxy IPs listed in CrowdStrike’s report.
 Yancy Limited (AS138415) has come up in Censys reporting before. In December 2025, we observed a surge of Cobalt Strike listeners, mostly on Yancy, that peaked at 407 new hosts in a day and dropped to zero within two weeks. We assessed them as likely “a couple of unique instances spread across hundreds of IP aliases.” The Yancy ARTEX hosts follow the same pattern: one server template repeated across many addresses. The full details connection between the two remains unclear, but in both cases a large host count likely comes down to a few real servers.
-We also see customized builds: ARTEX MX on four adjacent hosts at 104.250.[defanged indicator withheld] – 104.250.[defanged indicator withheld], plus ARTEX v2 · Agent Security Workbench and a handful of other renamed consoles.
+We also see customized builds: ARTEX MX on four adjacent hosts at [defanged indicator withheld] – [defanged indicator withheld], plus ARTEX v2 · Agent Security Workbench and a handful of other renamed consoles.
 ### What else runs on ARTEX hosts
 Of the 1,465 ARTEX hosts, 155 (10.6%) carry at least one other Censys threat detection.
 Figure 4: Threats identified running on the same hosts as ARTEX
 Three patterns stand out.
 Operators stack AI attack frameworks. The most common companion to ARTEX is another AI pentesting tool. CyberStrikeAI shares hosts with ARTEX on 70 hosts, and PentAGI, HexStrike AI, and RedAmon also appear. Operators appear to be using multiple agent frameworks side by side.
 AI tooling sits next to conventional C2. A small but clear set of hosts pairs ARTEX with established command-and-control and tunneling tools:
-- 1.14.[defanged indicator withheld]: ARTEX and PentAGI, alongside a Cobalt Strike teamserver on port 50050 and an Adaptix C2 listener on 4321.
-- 1.14.[defanged indicator withheld]: two ARTEX consoles, Vshell, NPS, Gophish, a mail server admin panel, and a page titled “SuperAgent 主监督” (“SuperAgent main supervisor”).
-- 101.42.[defanged indicator withheld]: an ARTEX console on 443 and a Vshell login on 18080
-- 192.210.[defanged indicator withheld]: ARTEX with two Vshell listeners and an FRP server.
-- 45.87.[defanged indicator withheld], 45.87.[defanged indicator withheld], 45.87.[defanged indicator withheld], 45.87.[defanged indicator withheld], 45.87.[defanged indicator withheld]: five identically configured hosts, each running ARTEX, CyberStrikeAI, ARL(Asset Reconnaissance Lighthouse), and Vshell. Likely this is either a device with multiple public IPs on the same subnet or a cloned image.
+- [defanged indicator withheld]: ARTEX and PentAGI, alongside a Cobalt Strike teamserver on port 50050 and an Adaptix C2 listener on 4321.
+- [defanged indicator withheld]: two ARTEX consoles, Vshell, NPS, Gophish, a mail server admin panel, and a page titled “SuperAgent 主监督” (“SuperAgent main supervisor”).
+- [defanged indicator withheld]: an ARTEX console on 443 and a Vshell login on 18080
+- [defanged indicator withheld]: ARTEX with two Vshell listeners and an FRP server.
+- [defanged indicator withheld], [defanged indicator withheld], [defanged indicator withheld], [defanged indicator withheld], [defanged indicator withheld]: five identically configured hosts, each running ARTEX, CyberStrikeAI, ARL(Asset Reconnaissance Lighthouse), and Vshell. Likely this is either a device with multiple public IPs on the same subnet or a cloned image.
 LLM access is part of the tech stack. 43 ARTEX hosts also run self-hosted LLM gateway or reseller software, mainly CLIProxyAPI (19) and New API (18). The actor in CrowdStrike’s report bought DeepSeek access through a reseller. For defenders, unfamiliar LLM proxies and resellers in egress logs are worth investigating.
 ### Hunting ARTEX with Censys
 - Console: the query above, or the ARTEX / ScopeWeaver threat labels in the Censys Platform.
@@ -277,41 +277,41 @@ LLM access is part of the tech stack. 43 ARTEX hosts also run self-hosted LLM ga
 ## Indicators
 Reported by CrowdStrike and Microsoft:
 IndicatorsContext
-38.244.[defanged indicator withheld] host and open directory (CrowdStrike)
-101.53.[defanged indicator withheld]
-205.214.[defanged indicator withheld]
-124.155.[defanged indicator withheld]
-154.201.[defanged indicator withheld]
-23.248.[defanged indicator withheld]
-23.158.[defanged indicator withheld]
-103.248.[defanged indicator withheld]
-203.160.[defanged indicator withheld]
-209.209.[defanged indicator withheld] (CrowdStrike)
+[defanged indicator withheld] host and open directory (CrowdStrike)
+[defanged indicator withheld]
+[defanged indicator withheld]
+[defanged indicator withheld]
+[defanged indicator withheld]
+[defanged indicator withheld]
+[defanged indicator withheld]
+[defanged indicator withheld]
+[defanged indicator withheld]
+[defanged indicator withheld] (CrowdStrike)
 [defanged indicator withheld] API reseller (CrowdStrike)
-144.172.[defanged indicator withheld]
-144.172.[defanged indicator withheld]
-144.172.[defanged indicator withheld] infrastructure (Microsoft)
+[defanged indicator withheld]
+[defanged indicator withheld]
+[defanged indicator withheld] infrastructure (Microsoft)
 Censys-observed hosts referenced in this post:
-1.14.[defanged indicator withheld]
-1.14.[defanged indicator withheld]
-101.42.[defanged indicator withheld]
-192.210.[defanged indicator withheld]
-45.87.[defanged indicator withheld]
-45.87.[defanged indicator withheld]
-45.87.[defanged indicator withheld]
-45.87.[defanged indicator withheld]
-45.87.[defanged indicator withheld]
-104.250.[defanged indicator withheld]
-104.250.[defanged indicator withheld]
-104.250.[defanged indicator withheld]
-104.250.[defanged indicator withheld]
-110.42.[defanged indicator withheld]
-111.68.[defanged indicator withheld]
-108.165.[defanged indicator withheld]
-206.187.[defanged indicator withheld]
-181.41.[defanged indicator withheld]
-203.195.[defanged indicator withheld]
-154.12.[defanged indicator withheld]
+[defanged indicator withheld]
+[defanged indicator withheld]
+[defanged indicator withheld]
+[defanged indicator withheld]
+[defanged indicator withheld]
+[defanged indicator withheld]
+[defanged indicator withheld]
+[defanged indicator withheld]
+[defanged indicator withheld]
+[defanged indicator withheld]
+[defanged indicator withheld]
+[defanged indicator withheld]
+[defanged indicator withheld]
+[defanged indicator withheld]
+[defanged indicator withheld]
+[defanged indicator withheld]
+[defanged indicator withheld]
+[defanged indicator withheld]
+[defanged indicator withheld]
+[defanged indicator withheld]
 ## References
 - CrowdStrike, Unknown Threat Actor Uses AI-Driven ARTEX to Target South Korean Finance [146]
 - Microsoft Threat Intelligence, AI-driven, large-scale nation-state campaign using ARTEX enables supply chain compromise [147]

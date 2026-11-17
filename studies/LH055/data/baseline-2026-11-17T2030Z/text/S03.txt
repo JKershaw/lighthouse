@@ -138,14 +138,14 @@ let lookback = 30d; let ioc_ip_addr = dynamic(["[ipv4 withheld]", "[ipv4 withhel
 ## Indicators of compromise
 Note: Threat actors regularly use proxies and virtual private networks (VPNs) to change the source IP address of malicious traffic and bypass static detections. Microsoft is providing the following sample indicators of compromise (IOCs) to help defenders detect related activity.
 IndicatorTypeDescriptionFirst seenLast seen
-199.19.[defanged indicator withheld] addressWISP C2 node2026-11-02Active as of 2026-11-06
-199.19.[defanged indicator withheld] addressWISP C2 node2026-11-02Active as of 2026-11-06
-199.19.[defanged indicator withheld] addressWISP C2 node2026-11-02Active as of 2026-11-06
-91.92.[defanged indicator withheld] addressARTEX server2026-11-04Active as of 2026-11-06
-85.11.[defanged indicator withheld] addressARTEX server2026-11-04Active as of 2026-11-06
-85.11.[defanged indicator withheld] addressC2 server2026-11-04Active as of 2026-11-06
-178.16.[defanged indicator withheld] addressARTEX server2026-10-19Active as of 2026-11-06
-31.77.[defanged indicator withheld] addressARTEX server2026-10-28Active as of 2026-11-06
+[defanged indicator withheld] addressWISP C2 node2026-11-02Active as of 2026-11-06
+[defanged indicator withheld] addressWISP C2 node2026-11-02Active as of 2026-11-06
+[defanged indicator withheld] addressWISP C2 node2026-11-02Active as of 2026-11-06
+[defanged indicator withheld] addressARTEX server2026-11-04Active as of 2026-11-06
+[defanged indicator withheld] addressARTEX server2026-11-04Active as of 2026-11-06
+[defanged indicator withheld] addressC2 server2026-11-04Active as of 2026-11-06
+[defanged indicator withheld] addressARTEX server2026-10-19Active as of 2026-11-06
+[defanged indicator withheld] addressARTEX server2026-10-28Active as of 2026-11-06
 ### Learn more
 For the latest security research from the Microsoft Threat Intelligence community, check out the Microsoft Threat Intelligence Blog [139].
 To get notified about new publications and to join discussions on social media, follow us on LinkedIn [140], X (formerly Twitter) [141], and Bluesky [142].

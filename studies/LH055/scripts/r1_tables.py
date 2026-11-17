@@ -23,6 +23,10 @@ def norm(s):
     return re.sub(r"\s+", " ", s).strip()
 
 
+_P2 = os.path.join(DATA, "withholding_pass2.json")
+PASS2 = json.load(open(_P2)) if os.path.exists(_P2) else {}
+
+
 def main():
     ok = True
     print("== 1. retained body hashes against fetch_log.jsonl")
@@ -32,12 +36,14 @@ def main():
             print(f"{r['id']}: no body retained (outcome {r['outcome']}, status {r['status']})")
             continue
         h = hashlib.sha256(gzip.open(os.path.join(DATA, r["retained_body"])).read()).hexdigest()
-        same = h == r["retained_sha256"]
+        p2 = PASS2.get(r["id"], {}).get("body")  # second withholding pass, scripts/withhold_pass2.py
+        same = (r["retained_sha256"] == p2["sha256_before"] and h == p2["sha256_after"]) if p2 else h == r["retained_sha256"]
         ok &= same
         print(f"{r['id']}: {'match' if same else 'DIFFERS'}")
 
     print("\n== 2. claim passages in retained text")
-    claims = list(csv.DictReader(open(os.path.join(STUDY, "claims.csv"))))
+    # Round 1 claims only (locators in the baseline directory); round 2 rows are checked by r2_tables.py.
+    claims = [c for c in csv.DictReader(open(os.path.join(STUDY, "claims.csv"))) if c["passage_locator"].startswith("text/")]
     texts = {}
     bad = 0
     for c in claims:

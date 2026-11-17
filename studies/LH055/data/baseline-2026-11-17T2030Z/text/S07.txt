@@ -216,12 +216,12 @@ Inside your own network. CERT-In flags AI model API traffic from servers and oth
 ## Indicators of Compromise
 These indicators come from the primary reports. ARTEX infrastructure changes fast. Use the IP addresses to start a search, not as a complete list. We write addresses with [.] to stop them from turning into links.
 IndicatorTypeSource
-91.92.[defanged indicator withheld], 85.11.[defanged indicator withheld], 178.16.[defanged indicator withheld], 31.77.[defanged indicator withheld] servers (Storm-3358)Microsoft, Nov 6
-199.19.[defanged indicator withheld] sign-ins with credentials found on GitHubMicrosoft, Nov 5
-65.87.[defanged indicator withheld], 157.22.[defanged indicator withheld] attempts and reconnaissance against Azure AI workloadsMicrosoft, Nov 5
-144.172.[defanged indicator withheld], 144.172.[defanged indicator withheld], 144.172.[defanged indicator withheld] infrastructureMicrosoft, Oct 21, and Wiz
-38.244.[defanged indicator withheld] server, Korean finance attacksCrowdStrike, Oct 7
-154.64.[defanged indicator withheld], 183.1.[defanged indicator withheld], 95.169.[defanged indicator withheld], 203.190.[defanged indicator withheld] of the WorkOS requestsWorkOS, Nov 6
+[defanged indicator withheld], [defanged indicator withheld], [defanged indicator withheld], [defanged indicator withheld] servers (Storm-3358)Microsoft, Nov 6
+[defanged indicator withheld] sign-ins with credentials found on GitHubMicrosoft, Nov 5
+[defanged indicator withheld], [defanged indicator withheld] attempts and reconnaissance against Azure AI workloadsMicrosoft, Nov 5
+[defanged indicator withheld], [defanged indicator withheld], [defanged indicator withheld] infrastructureMicrosoft, Oct 21, and Wiz
+[defanged indicator withheld] server, Korean finance attacksCrowdStrike, Oct 7
+[defanged indicator withheld], [defanged indicator withheld], [defanged indicator withheld], [defanged indicator withheld] of the WorkOS requestsWorkOS, Nov 6
 artex-enrich/1.0, norma/0.4, Mozilla/5.0 (compatible; ArtEx/1.0), Mozilla/5.0 (compatible; infra-hunt/1.0), verify-911-probe/1.0HTTP user agentsWorkOS, Nov 6 (norma/0.4 also Wiz)
 t13d3013h1_1d37bd780c83_8537cf56674e, t13d3013h2_1d37bd780c83_8537cf56674e, t13d3014h1_1d37bd780c83_5ae85263eb3bTLS client fingerprints (JA4)WorkOS, Nov 6
 tomicdd/artex, congdonglinux/artexBackdoored Docker imagesBadByte, Nov 4

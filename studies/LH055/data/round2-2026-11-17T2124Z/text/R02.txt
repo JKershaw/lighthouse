@@ -1,0 +1,701 @@
+Beyond ARTEX: 45 AI Pentesting Tools and How to Find Them
+[image: GitGuardian Blog - Take Control of Your Secrets Security] [1]
+- Website [2]
+- Interactive Demo [3]
+- Learning Center [4]
+- NHI [5]
+Search
+[6]
+Beyond ARTEX: 45 Agentic Attack Frameworks, What They Hunt For, and How to Find Them
+[7] [8] [image: GitHub icon] [9]
+Book a demo [10]
+Artificial Intelligence [11] Security Research [12] Secrets detection [13]
+# Beyond ARTEX: 45 Agentic Attack Frameworks, What They Hunt For, and How to Find Them
+~45 agentic attack frameworks beyond ARTEX, fingerprinted for internet scanning: dozens of operator consoles sit exposed today, many unauthenticated.
+[image: Cybersecurity research team]
+## Cybersecurity research team
+Read more posts [14] by this author.
+[image: Cybersecurity research team] [15]
+#### Cybersecurity research team [16]
+9 Nov 2026 • 15 min read
+Follow us on
+[17] [18]
+[image: Beyond ARTEX: 45 Agentic Attack Frameworks, What They Hunt For, and How to Find Them]
+###### Table of contents
+## TL;DR
+- About 45 open-source frameworks now automate attacks: Each one wires a language model into a loop that runs tools and acts on their output. We cataloged 32 of them into five families; the rest are forks and variants.
+- Four ship a real secret scanner, but none ships the full pipeline: Pojun, Cybermes, Xalgorix, and AIRecon wire a scanner to the agent, yet none contains a GitHub fetcher. The model can assemble the rest at runtime, because each framework hands its agent a shell and web access.
+- Dozens of operator consoles sit on the open internet: Of the 41 frameworks fingerprinted for Shodan, 11 serve a web UI by default. The ARTEX family alone matched 1,428 Shodan services on Nov. 7, 2026.
+- The risk clusters in widely forked bases: It sits in a handful of heavily forked projects, not in the most-starred repositories.
+ARTEX was one framework. The field around it holds about 45 more, each an open-source project that wires a language model into a loop that runs tools and acts on their output. We read the code and used Shodan to find every one accessible. Four ship a secret scanner wired to the agent by default. Dozens of operator consoles answered a Shodan query today. This post is the catalog: where each tool's code lives, what it ships for hunting secrets on public GitHub, and how it looks on the Internet.
+## ARTEX, briefly
+ARTEX is an open-source agentic penetration-testing platform. Its creator took it down on 2026-10-08, 74 days after the first commit, following reports that threat actors were using it to hunt for secrets and move laterally with them. The takedown did not stop the spread: 102 forks and ARTEX-named repositories [19] appeared in the takedown week alone. Google Threat Intelligence Group (GTIG), Microsoft, Wiz, CrowdStrike, Zscaler, Check Point, Censys, and RST Cloud have all written about ARTEX itself. This post covers the rest of the field.
+ARTEX is not an isolated case. On Nov. 12, 2026, Palo Alto Networks Unit 42 reported [20] a campaign of autonomous AI attacks built on a customized fork of Cairn, one of the frameworks in our catalog. In an autonomous AI attack, the operator supplies a target and a goal. The agent then plans and executes the intrusion and records the results on its own. Between August and September 2026, attackers ran 25 Cairn operations against at least 19 organizations and gained access or data at 10. One operation included a credential and secret collection phase, even though we found no secret-hunting capability in the public Cairn repository.
+## The 45 frameworks
+Each framework has public source code and wires a model into a loop that runs tools and acts on their output. We cataloged 32 of the ~45 into five families, the remaining ~13 are forks, variants that reuse a family's pattern:
+- Network kill chain. End-to-end recon, exploitation, and post-exploitation, usually from a Kali container. PentAGI [21] runs agent teams with Nmap, Metasploit, and sqlmap. RedAmon [22] builds an attack-surface graph. Xalgorix [23], Pentest-Swarm-AI [24], LuaN1aoAgent [25], AIRecon [26], redcell [27], PentestCode [28] and cain-agent [29] share the pattern. DarkMoon [30] ships 50 specialist agents across web, cloud, Active Directory, and CI/CD.
+- Web-app and API. Strix [31] tests web applications autonomously. Shannon [32] works from source code, closer to a SAST reviewer than a live kill chain. PentestGPT [33] is an advisory assistant. T3MP3ST [34], Apex [35], deadend-cli [36] and PentesterFlow [37] sit nearby.
+- C2-integrated. Sage [38] and echidna [39] run as LLM operators inside the Mythic C2 framework. virga [40] puts a local model inside the implant. Pojun [41] and FORANG [42] are ARTEX derivatives that bolt a C2 console onto the base, so they belong here rather than in the kill-chain family; ycode [43] is a third ARTEX derivative, and ScopeWeaver [44] is an English- and Korean-localized fork of ARTEX.
+- Harnesses. RAPTOR [45], CyberStrike [46], cyber-harness [47], Nebula [48] and Cybermes [49] wrap a general coding agent [50] (Claude Code, Codex, Hermes) with offensive skills. Plugin packs do the same for coding agents; we track those as one group.
+- Research prototypes. Incalmo [51], hackingBuddyGPT [52], VulnBot [53], HackSynth [54], AutoPT [55] and Ares [56] come out of academic work.
+Three more appear in threat reporting and are worth including. Cairn coordinates worker agents on a shared fact graph, with no authentication by default. HexStrike is an MCP server that exposes more than 150 offensive tools to any MCP client, with no authentication by default. Agent Zero is a general-purpose agent, also with no authentication by default, that threat actors have experimented with. CAI was archived on 2026-08-28.
+The 13 last frameworks that couldn’t be included in any family are variants, forks, and research seeds that share a family's pattern.
+The catalog below gives one row per tool: where the code lives, how popular and how active it is, what it ships for secret-hunting, and how visible it is on Shodan. Stars and last-push are from the GitHub API on 2026-11-07. "Not reviewed" means the tool was outside the secret-hunting shortlist, so we did not inspect it: not the same as "None found," where we read the code and found no secret-hunting capability. Section 2 defines the shortlist and full grade scale.
+Tool
+Repo
+Family
+Stars
+Last push
+Secret-hunting
+Shodan class
+Strix
+usestrix/strix [57]
+Web/API
+74.2k
+2026-11-06
+None found
+service in some setups
+Shannon
+KeygraphHQ/shannon [58]
+Web/API (SAST)
+51.4k
+2026-11-06
+None found
+no listener
+PentAGI
+vxcontrol/pentagi [59]
+Network
+33.6k
+2026-10-22
+None found
+service in some setups
+Agent Zero
+agent0ai/agent-zero [60]
+General
+19.8k
+2026-11-05
+None found
+web UI by default
+PentestGPT
+GreyDGL/PentestGPT [61]
+Web/API
+16.3k
+2026-07-14
+—
+no listener
+HexStrike
+0x4m4/hexstrike-ai [62]
+MCP server
+13.4k
+2026-08-03
+None found
+service in some setups
+CAI (archived)
+aliasrobotics/cai [63]
+Network
+9.8k
+2026-08-22
+None found
+service in some setups
+Cairn
+oritera/Cairn [64]
+Harness/graph
+4.9k
+2026-09-07
+None found
+web UI by default
+RAPTOR
+gadievron/raptor [65]
+Harness
+4.0k
+2026-11-07
+Not reviewed
+no listener
+CyberStrike
+CyberStrikeus/CyberStrike [66]
+Harness
+3.4k
+2026-11-07
+Not reviewed
+service in some setups
+RedAmon
+samugit83/redamon [67]
+Network
+3.3k
+2026-11-05
+None found
+web UI by default
+PentestAgent
+GH05TCREW/pentestagent [68]
+Network
+3.2k
+2026-11-02
+Text only
+service in some setups
+Pentest-Swarm-AI
+Armur-Ai/Pentest-Swarm-AI [69]
+Network
+3.1k
+2026-11-03
+Unwired
+web UI by default
+sapper-v2
+N1nEmAn/sapper-v2 [70]
+Network
+1.5k
+2026-11-07
+Not reviewed
+service in some setups
+LuaN1aoAgent
+SanMuzZzZz/LuaN1aoAgent [71]
+Network
+1.5k
+2026-09-15
+Not reviewed
+service in some setups
+PentesterFlow
+PentesterFlow/agent [72]
+Web/API
+1.4k
+2026-08-31
+Not reviewed
+service in some setups
+xalgorix
+xalgorix/xalgorix [73]
+Network
+1.3k
+2026-11-07
+Provisioned
+web UI by default
+DarkMoon
+ASCIT31/Dark-Moon [74]
+Network
+1.2k
+2026-10-27
+Text only
+no usable fingerprint
+AIRecon
+pikpikcu/airecon [75]
+Network
+1.1k
+2026-10-27
+Provisioned
+no listener
+Cybermes
+Zyrexnn/Cybermes [76]
+Harness
+1.0k
+2026-11-05
+Provisioned
+no listener
+cain-agent
+—
+Network
+946
+2026-10-14
+None found (unwired)
+no listener
+PentestCode
+s0ld13rr/pentestcode [77]
+Network
+930
+2026-11-05
+Text only
+service in some setups
+ScopeWeaver
+cskwork/scopeweaver [78]
+Network (ARTEX-like)
+918
+2026-11-04
+Not reviewed
+web UI by default
+T3MP3ST
+elder-plinius/T3MP3ST [79]
+Web/API
+7.0k
+2026-09-08
+Not reviewed
+service in some setups
+cyber-harness
+chainreactors/cyber-harness [80]
+Harness
+384
+2026-11-07
+None found
+service in some setups
+redcell
+martian56/redcell [81]
+Network
+356
+2026-10-06
+None found
+web UI by default
+deadend-cli
+straylabs-ai/deadend-cli [82]
+Web/API
+324
+2026-08-07
+Not reviewed
+no listener
+Apex
+—
+Web/API
+323
+2026-11-06
+Not reviewed
+no listener
+Incalmo
+cylabcyberautonomy/Incalmo [83]
+Research
+148
+2026-11-02
+None found
+web UI by default
+Pojun
+chu0119/Pojun [84]
+C2 (ARTEX fork)
+84
+2026-11-06
+Provisioned
+web UI by default
+Sage
+MythicAgents/sage [85]
+C2 (Mythic)
+35
+2026-10-30
+None found
+no listener
+virga
+r74tech/virga [86]
+C2 (implant)
+8
+2026-10-12
+None found
+no usable fingerprint
+FORANG
+F0ran9/forang [87]
+C2 (ARTEX fork)
+8
+2026-11-07
+None found
+web UI by default
+echidna
+Echidna-Pentest/Echidna/ [88]
+C2 (Mythic)
+5
+2026-08-25
+None found
+no usable fingerprint
+Decepticon
+BitterSecurity/Decepticon [89]
+Harness
+—
+2026-11-07
+Unwired
+service in some setups
+Secret-hunting grades, in short: Provisioned (scanner named, reachable by the agent), Text only (recipe or skill, no scanner), Unwired (scanner named, nothing calls it), None found (reviewed, nothing there), Not reviewed (outside the shortlist). Section 2 explains each.
+## What ships for hunting secrets
+[image: Secret-hunting grades for 24 reviewed AI pentesting tools: provisioned 4, text only 5, unwired 2, none found 13.]
+We shortlisted the tools most likely to ship secret-hunting (the ARTEX forks, the Kali-container network agents, and the harnesses with OSINT skills) and read each at a pinned commit, grading what it ships for finding secrets on public GitHub.
+- Provisioned: a scanner is named in the code, and GitHub guidance reaches the agent by default.
+- Text only: recipes or skills, but no scanner the agent can run.
+- Unwired: code present, but no agent can call it.
+- None found: reviewed, nothing present.
+Tool
+Grade
+What ships
+Pojun [90]
+Provisioned
+gitleaks, named in the worker prompt since 2026-10-20; a default skill that points the agent at public GitHub and the target organization since 2026-11-05
+Cybermes [91]
+Provisioned
+Its own secret_scan binary (48 regex patterns); a corpus of 13 GitHub code-search dorks; nine read-only credential validators (AWS, GitHub, Slack, OpenAI, Anthropic and others) loaded as default skills
+Xalgorix [92]
+Provisioned
+gitleaks and trufflehog named; the default "full" checklist tells the agent to use GitHub search and gitleaks to find exposed secrets and keys
+AIRecon [93]
+Provisioned
+gitleaks and trufflehog in its Kali container; a typed web-search tool with dork operators; a default-offered skill with site:github.com secret dorks
+DarkMoon [94]
+Text only
+A prompt recipe to mine a named repository's history for keys and pass them to its cloud agents
+ycode [95]
+Text only
+GitHub leak-hunting skill text, no scanner installed
+ijlalhaider313/ARTEX [96]
+Text only
+A secret-scan recipe that calls trufflehog, gitleaks and gh, none of them installed
+PentestAgent [97]
+Text only
+Guidance only
+PentestCode [98]
+Text only
+A recon skill in the binary: GitHub/GitLab search for org:target and target.com password, then trufflehog/gitleaks on found repos; no scanner installed
+Decepticon [99]
+Unwired
+A GitHub-dork generator merged on 2026-10-09; no agent binds it on the reviewed commit or on main
+Pentest-Swarm-AI [100]
+Unwired
+A GitHub code-search client with four secret dorks that no code calls; trufflehog and gitleaks are installed but run only in a CI self-scan playbook for the operator's own repository
+ARTEX v0.3.15 [101]
+None found
+Published source only; its one GitHub API call is the self-updater
+cain-agent
+None found
+66 playbook files the loader never reads; a cloud library no agent calls
+redcell
+None found
+Generic leak collection in its OSINT prompt; GitHub not named; no scanner named
+RedAmon, HexStrike, Sage, echidna, cyber-harness, Incalmo, CAI, Cairn, PentAGI, FORANG
+None found
+—
+Four tools ship a real scanner wired to the agent: Pojun, Cybermes, Xalgorix and AIRecon. None contains a GitHub fetcher. Almost every framework in the catalog hands its agent a shell and web access [102], so a GitHub search or a scanner download is one improvised tool call away. A model and a prompt supply the capability. The repository does not ship it.
+## What they look like on Shodan
+Shodan indexes services, so the first question is whether a framework exposes anything to match. We classified each from its code. Of the ~45 frameworks, 41 are fingerprint-assessed for Shodan ; 11 serve a web UI on a network port by default, 18 serve a UI only in some setups or nothing distinctive at the root, and 12 have no listener at all. We wrote 56 fingerprint records, one per build with a distinct web interface.
+Tool
+Exposure class
+Count-only services
+Main ports
+PentAGI
+service in some setups
+419 (233 with its default certificate)
+8443, 8666, 8765
+Agent Zero
+web UI by default
+173 (134 at a login, 39 open)
+5080, 50080
+ScopeWeaver
+web UI by default
+43
+8787
+Cairn
+web UI by default
+41
+8000
+RedAmon
+web UI by default
+27
+3000, 443
+Xalgorix
+web UI by default
+6
+9137
+Strix (results viewer)
+service in some setups
+13
+8080
+Pojun
+web UI by default
+11
+8787
+Decepticon
+service in some setups
+4
+3000
+LuaN1aoAgent
+service in some setups
+2
+8787
+CyberStrike
+service in some setups
+2
+8888
+T3MP3ST
+service in some setups
+1
+3333
+Incalmo
+web UI by default
+1
+8443
+[image: Count-only Shodan services by tool on Nov. 7, 2026, log scale: ARTEX family 1,428, PentAGI 419, Agent Zero 173, ScopeWeaver 43, Cairn 41, RedAmon 27, Strix 13, Pojun 11, Xalgorix 6, Decepticon 4, LuaN1aoAgent 2, CyberStrike 2, T3MP3ST 1, Incalmo 1.]
+Figure: count-only Shodan services per tool on 2026-11-07, log scale, led by the ARTEX family at 1,428
+## What to take from this
+Forty-five frameworks, but the risk clusters in a handful of widely forked bases, not in the most-starred repositories.
+Almost none of these tools ship a secret-hunting pipeline, but that is no comfort. Each hands its agent a shell and web access, so the model can assemble one at runtime. A GitHub search, a scanner download, a found key passed to the next call: all one prompt away, none of it shipped in the repo.
+Dozens of operator consoles answered a Shodan query on our scan date, many behind no real barrier. We publish fingerprint descriptions, not a target list, so defenders can find their own exposed instances first.
+## Hunting queries
+The following table summarizes the Shodan queries we used to match the live tools' public instances
+Tool
+Shodan query
+Matches on
+Count
+PentAGI
+http.title:"PentAGI"
+page title
+521
+PentAGI
+http.favicon.hash:-1596753120
+favicon hash
+419
+PentAGI
+ssl.cert.issuer.cn:"PentAGI CA"
+TLS certificate
+240
+Agent Zero
+http.title:"Agent Zero"
+page title
+173
+Agent Zero
+http.title:"Login - Agent Zero"
+page title
+134
+Agent Zero
+http.title:"Agent Zero" -http.title:"Login"
+page title
+39
+ScopeWeaver
+http.title:"ScopeWeaver"
+page title
+43
+ScopeWeaver
+http.html:"Console for an LLM-driven autonomous penetration testing system"
+page HTML
+49
+RedAmon
+http.title:"RedAmon"
+page title
+29
+RedAmon
+http.favicon.hash:964522141
+favicon hash
+28
+RedAmon
+http.html:"Security reconnaissance and vulnerability assessment dashboard"
+page HTML
+29
+Xalgorix
+http.title:"Xalgorix"
+page title
+12
+Xalgorix
+http.html:"xalgorix.theme"
+page HTML
+9
+Xalgorix
+http.favicon.hash:248472114
+favicon hash
+7
+Strix
+http.title:"Strix Results"
+page title
+13
+Strix
+http.favicon.hash:-566184040
+favicon hash
+13
+Decepticon
+http.html:"Autonomous Red Team Platform"
+page HTML
+10
+Decepticon
+http.title:"Decepticon"
+page title
+5
+Decepticon
+http.favicon.hash:-1814445533
+favicon hash
+4
+LuaN1aoAgent
+http.title:"鸾鸟渗透智能体"
+page title
+2
+LuaN1aoAgent
+http.title:"鸾鸟Agent"
+page title
+1
+CyberStrike
+http.title:"CyberStrike"
+page title
+19
+CyberStrike
+http.title:"CyberStrike" http.html:"favicon-v3.svg"
+page title + HTML
+2
+T3MP3ST
+http.html:"T3MP3ST"
+page HTML
+2
+T3MP3ST
+http.title:"T3MP3ST"
+page title
+1
+Incalmo
+http.html:"Incalmo C2 Server API"
+page HTML
+1
+redcell
+http.html:"rc-theme"
+page HTML
+59
+redcell
+http.title:"REDCELL"
+page title
+6
+PentestCode
+http.favicon.hash:-196523122
+favicon hash
+167
+PentestCode
+http.title:"PentestCode"
+page title
+0
+Pentest-Swarm-AI
+http.html:"{\"error\":{\"code\":\"404\",\"message\":\"Cannot GET /\"}}"
+page HTML
+310
+cyber-harness
+http.html:"cyber-theme"
+page HTML
+75
+cyber-harness
+http.title:"Cyber" http.html:"cyber-theme"
+page title + HTML
+4
+ycode
+http.title:"月落"
+page title
+13
+virga
+http.html_hash:911008380
+page body hash
+6
+Nebula
+http.title:"Nebula 3"
+page title
+0
+sapper-v2
+http.title:"sapper — engagement graph"
+page title
+0
+FORANG
+http.title:"FORANG"
+page title
+0
+Mergen MCP
+http.title:"MERGEN — Arsenal"
+page title
+0
+AutoRedTeam
+ssl.cert.subject.cn:"AutoRedTeam C2"
+TLS certificate
+0
+pentest-ai
+http.title:"pentest-ai · dashboard"
+page title
+0
+ARTEX is just one of many tools that hunt for exposed secrets. Do you know what they'd find? Run a free GitHub Security Audit [103] to see which credentials linked to your organization are already exposed on public GitHub.
+Check your exposure on public GitHub [104]
+## FAQ
+What are agentic AI pentesting tools?
+Agentic AI pentesting tools are open-source projects that wire a language model into a loop that runs tools and acts on their output. About 45 exist. GitGuardian cataloged 32 of them into five families: network kill chain, web app and API, command-and-control (C2) integrated, harnesses, and research prototypes. The rest are forks and variants that reuse a family’s pattern.
+What is an autonomous AI for cyber attacks?
+An autonomous AI for cyber attacks is a self-sufficient system that can independently plan, execute, and adapt complex cyber intrusions with little to no human involvement. Unlike traditional methods, where a human takes the reins and uses AI to generate code or craft phishing emails, this kind of AI operates on its own. It analyzes the environment, makes tactical decisions in real time, and can quickly change its strategy if it encounters any defenses. Essentially, it's like having a digital strategist that can outsmart obstacles on its own.
+Do agentic AI pentesting tools hunt for secrets on GitHub?
+Agentic AI pentesting tools rarely ship secret-hunting on their own. Four ship a real scanner wired to the agent: Pojun, Cybermes, Xalgorix, and AIRecon. None of them contains a GitHub fetcher.
+Why do agentic AI pentesting tools still matter if they don’t ship a secret-hunting pipeline?
+Agentic AI pentesting tools hand their agent a shell and web access, so the model can assemble a pipeline at runtime. A GitHub search, a scanner download, and a found key passed to the next call are all one prompt away, even though none of it ships in the repository.
+How many ARTEX consoles are exposed on Shodan?
+ARTEX consoles matched 1,428 count-only Shodan services on Nov. 7, 2026, the most of any tool in the catalog. PentAGI followed with 419 and Agent Zero with 173.
+How do you find exposed agentic AI pentesting tools on Shodan?
+Agentic AI pentesting tools are found on Shodan with fingerprints that match a page title, favicon hash, page HTML, or TLS certificate. Of the 41 frameworks assessed, 11 serve a web UI by default, 18 serve one only in some setups or show nothing distinctive at the root, and 12 have no listener at all. GitGuardian wrote 56 fingerprint records, one per build with a distinct web interface.
+Are exposed agentic AI pentesting consoles protected?
+Exposed agentic AI pentesting consoles are often not protected. Dozens answered a Shodan query on the scan date, many behind no real barrier. Of the 173 Agent Zero services found, 134 sat at a login and 39 were open.
+ARTEX: AI Agents Find and Abuse Exposed GitHub Secrets
+Microsoft Threat Intelligence caught attackers using an agentic AI framework, ARTEX, to hunt exposed secrets on public GitHub and move into Azure tenants in as little as five minutes. GitGuardian has tracked this attack path since 2017. Here is what changed, and four things to do today.
+GitGuardian Blog - Take Control of Your Secrets SecurityDwayne McDaniel
+[105]
+Claude Code settings.local.json Secrets: GitHub, Docker Hub
+31,088 secrets in Claude Code’s .claude/settings.local.json on public GitHub, 5,343 valid at detection, 23,276 repositories. 613 more in Docker Hub images, 99 valid. Validity, timeline, Docker Hub, who is affected.
+GitGuardian Blog - Take Control of Your Secrets SecurityGuillaume Valadon
+[106]
+Your AI Agents Are Using Your Credentials
+AI agent security is an identity problem, but it often starts as a secrets and credential problem. Do your AI agents operate using static API keys, tokens, and other reusable credentials? They might bypass traditional identity controls, creating a governance blind spot.
+GitGuardian Blog - Take Control of Your Secrets SecurityKatie DeMatteis
+[107]
+[108]
+Share this article on Twitter [109], HackerNews [110], LinkedIn [111], or Reddit [112].
+## Related Articles
+[image: What the ARTEX FBI Alert Means for Credential Security] [113]
+Artificial Intelligence
+[114]
+Secrets Management
+[115]
+Secrets detection
+[116]
+# What the ARTEX FBI Alert Means for Credential Security
+[117]
+The FBI’s ARTEX alert shows AI agents reaching privileged access in under three hours, while leaked credentials stay valid for years. Here’s what that gap means for defenders and how to close it.
+[image: Anna Dovbysh] [118]
+### Anna Dovbysh
+[119]
+17 Nov 2026 – 9 min read
+[image: Coding Agent Security for AppSec Leaders: Start With What Agents Can Reach] [120]
+Artificial Intelligence
+[121]
+Best practices
+[122]
+Endpoint Protection
+[123]
+# Coding Agent Security for AppSec Leaders: Start With What Agents Can Reach
+[124]
+AI coding agents can read files, call tools, and use credentials that never appear in a pull request. For AppSec teams, securing the code is only part of the job.
+[image: Katie DeMatteis] [125]
+### Katie DeMatteis
+[126]
+12 Nov 2026 – 5 min read
+[image: AntiFox Targeting AWS Credentials: The Latest Wave of AI Agent Attacks] [127]
+Artificial Intelligence
+[128]
+Breach explained
+[129]
+Secrets detection
+[130]
+Secrets Management
+[131]
+# AntiFox Targeting AWS Credentials: The Latest Wave of AI Agent Attacks
+[132]
+Learn how AntiFox and ARTEX use agentic AI to find and exploit exposed credentials, what AWS intrusions reveal, and how security teams can reduce credential exposure.
+[image: Dwayne McDaniel] [133]
+### Dwayne McDaniel
+[134]
+11 Nov 2026 – 11 min read
+[image: An ARTEX build ships no secret scanner. In our lab, it found the secrets anyway] [135]
+Security Research
+[136]
+Secrets detection
+[137]
+Artificial Intelligence
+[138]
+# An ARTEX build ships no secret scanner. In our lab, it found the secrets anyway
+[139]
+An ARTEX build ships no secret scanner. In our lab, it found 8 of 9 planted secrets in seconds, even when asked only to assess the repo.
+[image: Guillaume Valadon] [140]
+### Guillaume Valadon
+[141]
+10 Nov 2026 – 8 min read
+# Start your journey to secrets-free source code
+And keep your secrets out of sight
+Start for free [142] Book a demo [143]
+[144]
+GitGuardian is the code security platform for the DevOps generation.
+With automated secrets detection and remediation, our platform enables Dev, Sec, and Ops to advance together towards the Secure Software Development Lifecycle.
+Subscribe to our newsletter to receive the latest content and updates from GitGuardian.
+Thank you! Your submission has been received!
+Oops! Something went wrong while submitting the form.
+By submitting this form, I agree to GitGuardian's Privacy Policy [145]
+PLATFORM
+Secrets Detection [146] Honeytoken [147] Public Monitoring [148]
+GITGUARDIAN VS
+GitHub Advanced Security [149] GitLab Secret Detection [150] truffleHog v3 [151] More alternatives [152]
+DEVELOPERS
+GitGuardian CLI [153] Documentation [154] API Documentation [155] Good Samaritan [156] Labs [157] GitHub [158] Roadmap [159] API Status [160] Security Champions [161]
+RESOURCES
+Blog [162] Learning Center [163] Dev & Sec resources [164] State of Secrets Sprawl [165] Events [166] GitHub Security Audit [167]
+PRICING
+Plans [168] Value Calculator [169]
+COMPANY
+About Us [170] Wall of fame [171] Careers [172] Contact us [173] FAQ [174] Partners [175] Newsroom [176]
+© 2026 GitGuardian. All Rights Reserved.
+Term & Conditions [177] Privacy Policy [178] Public Security Policy [179] Cookies [180]
+[181] [182] [image: GitHub icon] [183]

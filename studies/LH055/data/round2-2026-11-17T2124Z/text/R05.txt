@@ -1,0 +1,60 @@
+Amazon spins up AI honeypot, grabs ARTEX attack chain.
+Skip to content [1]
+[image: The Stack] [2]
+- Home [3]
+- About [4]
+- Partner [5]
+- Summit [6]
+- Membership [7]
+- RSS [8]
+Sign in [9] Subscribe [10]
+- [11]
+- [12]
+- [13]
+- [14]
+- [15]
+- [16]
+[17] [18]
+[image: Amazon spins up AI honeypot, grabs full ARTEX-powered attack chain.]
+AI [19] / Security [20] / Amazon [21] / honeypots [22]
+# Amazon spins up AI honeypot, grabs full ARTEX-powered attack chain.
+"System prompts, task context, tool-use histories, knowledge-graph state... straight into Amazon's telemetry."
+[image: Edward Targett] [23]
+By Edward Targett [24]
+Updated Nov 16, 2026 5:57 PM / Published Nov 16, 2026 5:55 PM 3 min read
+Listen
+Share
+[25] [26] [27] [28] [29] [30] [31] [32] [33]
+Amazon’s global “MadPot” honeypot network captured the full set of behaviours of an ARTEX [34] AI-powered threat campaign – by masquerading as LLM inference APIs.
+That’s according to Amazon CISO CJ Moses, who on November 13 shared [35] details of the threat campaign and how the honeypots captured attackers’ tradecraft/TTPs.
+Amazon assessed with “moderate confidence” that the attacks stemmed from “Chinese-nexus threat groups” – after cleverly soaking up every step of the attacks.
+The attackers had been engaged in “large-scale theft of credentials to access AI models, organized as a self-sustaining operation in which stolen keys paid for the LLM inference powering further credential hunting” – the honeypot technique worked because agentic attack frameworks need a model to power them. The malicious agents that found the sensors assumed that they had got more free inference access.
+As Amazon CISO Moses put it, their requests mapped the full operational history of the campaign: “Each call shipped system prompts, task context, tool-use histories, knowledge-graph state agents' reported findings straight into Amazon's telemetry.”
+The STACk [36]
+Reach 30,000 subscribers wielding $200b in annual tech budget.
+Get in touch for a deck and a chat [37]
+Despite the ever-growing levels of attacker automation and subsequent pace, Amazon's central finding for defenders is that nothing here was wildly novel. ("None of the techniques in these campaigns were new.")
+The agents succeeded where basic hygiene was missing: default or hardcoded credentials, secrets left in code/public artifacts, unauthenticated inference endpoints and unpatched software.
+Moses’ advice: assume exposed secrets and misconfigurations will be found fast; bring AI applications, model gateways and inference endpoints under the same controls as other production systems; and monitor AI services for unexpected spend or unusual usage. His post lists IOCs, observed between October 14 and November 2.
+The CISO’s blog came as the FBI published an advisory [38] [pdf] on ARTEX, which it described as an “open-source, large language model (LLM)-driven agentic platform that threat actors have weaponized to automate multiple phases of cyber intrusions.”
+(ARTEX was developed under the pseudonym Autumn-27 and published on GitHub in July 2026. Whilst it may become the latest offensive security framework to be demonised – The Stack would not be surprised to see it removed from GitHub – myriad others abound and they are essentially the AI-powered evolution of toolkits like Cobalt Strike that have long been used by Red Teams as well as cybercriminals.)
+Commenting on the FBI advisory, Bri Frost, from cyber range firm Cloud Range, commented: “What stands out here is how little it now takes to run a full intrusion…
+She added: “AI frameworks and the new AI swarm attacks are going to force incident response to change.. Organizations need to rehearse against attacks that move at this speed, using the same tools and decision-makers they would rely on in a real incident, so they find out where handoffs break down before an attacker does.”
+As Cisco Talos noted [39] on Friday November 13: “these frameworks are the new reality. Their evolution will most likely include autonomous lateral movement followed by data identification and exfiltration” – the threat intelligence team added that ARTEX is not natively bundled with any “traditional” C2 framework, “though the Model Context Protocol (MCP) extensibility layer means any compatible tool server can be added by an operator. This explains why we have observed multiple instances of ARTEX being deployed alongside tools such as VShell, GoPhish, and AdaptixC2.”
+Also commenting on the FBI advisory was Samuel Hassine, CEO at Filigran. He noted that ARTEX-enabled attackers are [going] “after partner portals, legacy services and third-party integrations, the systems nobody quite owns. Machines now map those blind spots faster than most companies do. Every executive team can ask one question this week. Do we hold a current map of everything we expose, suppliers included? Then test that map against the same techniques and fix what fails.”
+### See also: NCSC tests national-scale tripwires and honeypots in the UK... [40]
+Add The Stack on Google [41]
+Share
+[42] [43] [44] [45] [46] [47] [48] [49] [50]
+- [image: Edward Targett] [51]
+## Edward Targett [52]
+Ed is a co-founder of The Stack. He previously edited Computer Business Review. He has also covered energy markets. He started his journalism career on local papers. He left school at 15 and has made a living asking "but why?" ever since.
+[53]
+Interviews, insight, intelligence, and exclusive events for digital leaders.
+- Sign up [54]
+- Newsletters [55]
+- Privacy Policy [56]
+- [57]
+© 2026 The Stack
+### [58]
+[59] [60] [61] [62] [63] [64] [65] [66] [67]

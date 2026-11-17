@@ -23,6 +23,7 @@ from redact_emails import redact_bytes  # noqa: E402
 from reader_view import View  # noqa: E402
 
 PATTERNS = [
+    (re.compile(rb"\b\d{1,3}(?:(?:\[\.\]|\.)\d{1,3}){3}(?:/\d{1,2})?\b"), b"[ipv4 withheld]"),  # plain or defanged, 17 Nov 2026
     (re.compile(rb"\b(?:\d{1,3}\.){3}\d{1,3}(?:/\d{1,2})?\b"), b"[ipv4 withheld]"),
     (re.compile(rb"\b(?:sk|pk|rk)-[A-Za-z0-9_\-]{16,}"), b"[key withheld]"),
     (re.compile(rb"\bAKIA[0-9A-Z]{16}\b"), b"[key withheld]"),

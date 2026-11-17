@@ -1,0 +1,63 @@
+== 1. round 2 retained hashes
+R01: match
+R02: match
+R03: match (fetch log = redactions 'before'; body and text = 'after'; personal details withheld after collection)
+R04: match
+R05: match
+R06: match
+R07: match
+
+== 2. round 2 claim passages in retained text
+38 round 2 claims checked (C130 to C167); 0 problems; claims.csv holds 137 rows in all
+round 2 claims by source: S08 11, S09 3, S10 5, S11 5, S12 3, S13 5, S14 6
+round 2 basis labels (a claim may carry several):
+   25  publisher interpretation
+   14  direct telemetry described by the publisher
+    1  agent-reported action/outcome
+
+== 3. links_r2.csv references
+42 round 2 link rows checked; 0 problems; round 1 links.csv still holds 42 rows
+
+== 4. round 2 link statuses (counts of this record's codings, not of events)
+source         L1         L2         L3         L4         L5         L6
+S08     supported  supported    unknown    claimed    claimed    unknown
+S09       unknown    unknown    unknown    unknown    unknown    unknown
+S10       unknown    unknown    unknown    unknown    unknown    unknown
+S11       unknown    unknown    unknown    unknown    unknown    unknown
+S12       claimed    unknown    unknown    claimed    claimed    unknown
+S13       unknown    unknown    unknown    unknown    unknown    unknown
+S14       unknown    unknown    unknown    unknown    unknown    unknown
+all round 2 rows: supported 2; claimed 5; contradicted 0; unknown 35 (of 42)
+rows bearing on Amazon's Campaign 1 (repetition only): supported 0; claimed 3; contradicted 0; unknown 3 (of 6)
+rows from other campaigns or design readings: supported 2; claimed 2; contradicted 0; unknown 32 (of 36)
+supported or contradicted codings bearing on Campaign 1: 0
+round 1 Amazon (S02) codings, unchanged: L1 claimed; L2 claimed; L3 claimed; L4 claimed; L5 claimed; L6 claimed
+
+== 5. absence, provenance and clocks
+yes  Equixly (R04) text lacks 'self-sustain'
+yes  Equixly (R04) text lacks 'stolen key'
+yes  Equixly (R04) text lacks 'inference'
+yes  Equixly (R04) text lacks 'gateway'
+yes  Equixly (R04) text lacks 'loop'
+yes  Talos (R06) text lacks 'amazon'
+yes  Talos (R06) text lacks 'madpot'
+yes  Talos (R06) text lacks 'self-sustain'
+yes  Talos (R06) text lacks 'inference'
+yes  Talos (R06) text lacks 'gateway'
+yes  The Stack's quoted 'Each call shipped' is absent from Amazon's text and body
+yes  GitGuardian (R02) text lacks 'gateway'
+yes  GitGuardian (R02) text lacks 'llm/pool'
+yes  GitGuardian (R02) text lacks 'key pool'
+yes  CrowdStrike (R03) text lacks 'bought' and 'purchas'
+yes  Datadog (R07) text lacks 'bedrock'
+yes  Datadog (R07) text lacks 'sagemaker'
+yes  Datadog (R07) text lacks 'invokemodel'
+Amazon post published 2026-11-13T20:26:42+00:00; Talos published 2026-11-13T20:57:13+00:00, 30.5 minutes later
+Microsoft 5 November report last modified 2026-11-10T00:47:23+00:00, 3.82 days before Amazon's post
+
+== 6. budget
+round 2 queries: 4 of 4; pilot queries: 10 of 10
+round 2 documents requested: 7 of 8 (all received); pilot distinct documents requested: 14 of 24 (baseline 7, of which 6 retained)
+round 2 bytes received: 1,638,375; content GETs: 7; first start 2026-11-17T21:23:56Z, last finish 2026-11-17T21:26:48Z
+
+all checks passed

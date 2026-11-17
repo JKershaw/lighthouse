@@ -1,0 +1,212 @@
+ARTEX attacks: The TTPs are real, the expertise may be borrowed | Equixly
+Skip to content [1]
+[2]
+- Platform
+- Company
+- Partners
+- Research [3]
+- Resources
+Platform
+AI Penetration TestingThe platform end to end [4]
+Our AI EngineAgents, models and interfaces [5]CI/CD PipelineTesting inside the pipeline [6]PricingPlans and packaging [7]
+Industries
+See all industries [8]
+Financial servicesRegulated digital finance [9]
+EnergyCritical infrastructure protection [10]SaaSContinuous security for SaaS [11]RetailE-commerce and payment security [12]
+About usWho we are [13]Leadership teamMeet our founders [14]InvestorsDiscover our backers [15]CareersJoin the team [16]
+NewsCompany announcements [17]Contact usGet in touch [18]
+Become a partnerJoin the Equixly partner program
+Partner with Equixly to expand your security offering with autonomous penetration testing and AI red teaming, add continuous offensive testing to your managed services, or integrate exploit evidence into your technology stack. Access the resources and support needed to create value for your customers.
+Apply now [19]
+Become a partner [20]
+VAR & GSIResell Equixly to your clients [21]MSSPsManaged security services [22]Technology partnersTech integrations [23]
+Resources
+All ResourcesThe full library [24]BlogOffensive security insights [25]GlossaryKey offensive security terms [26]DocumentationSet up and use the platform [27]TrainingBecome an Equixly expert [28]FAQAnswers to common questions [29]Trust CenterSecurity, privacy and compliance [30]
+Latest from the blog
+CVE-2026-114938: Pre-auth heap overflow in Java 17, 21, and 25Breaches & Vulns [31]
+When the answer can be checked: Training a model with GRPO and GDPO on a security taskResearch [32]
+ARTEX attacks: The TTPs are real, the expertise may be borrowedAI Security [33]
+[34] [35] [36] [37]
+[38] [39] [40] [41] [42]
+[43] [44] [45] [46]
+[47] [48]
+[49] [50] [51] [52]
+[53]
+[54] [55] [56] [57] [58] [59] [60]
+[61]
+Back to the blog [62]
+# ARTEX attacks: The TTPs are real, the expertise may be borrowed
+AI Security [63]
+Nov 16, 2026 · 13 min read
+We compared ten documented AI-enabled attacks to see who made the decisions behind them and what the observed techniques reveal about the attacker.
+On November 13, the FBI issued a FLASH advisory [64] on ARTEX, an open-source AI penetration-testing [65] framework that a range of malicious actors now use against financial, government, technology and defense organizations, in some cases reaching privileged access in under three hours. The advisory raised a question for us: how much of the expertise behind these attacks belongs to the attacker?
+In October 2026, an attacker spent two weeks stealing Apple code-signing certificates from ten gray-market signing shops. The work involved exploiting web application flaws, escalating privileges, extracting keys, and validating each of the more than 300 certificates recovered, three of which proved usable. The operator mostly asked questions like "What’s the progress?" and "Which one is closest to the goal?", and ARTEX did the technical work, according to Check Point Research [66].
+That same month, a China-nexus espionage group pointed the same framework at more than 200 organizations in 11 days. This operator brought more: authentication keys from a 2022 mail-server export, a VPN key from a 2024 leak, and an instruction to find Windows machines without an endpoint sensor, CrowdStrike reported [67].
+Both attacks used sophisticated techniques, but the level of autonomy given to the tools varied significantly. This could impact how attribution is done in the future: when an AI agent selects and executes a technique, the technique may reveal little about the person directing it, since the operator’s instructions, the framework’s own decisions, and the weaknesses of the target all shape what defenders observe. We compared ten public cases of AI-enabled attacks to see how much of the decision-making in each can be traced to the human operator.
+## Summary of findings
+- The same framework served operators who contributed almost nothing after setting a goal and an espionage group that supplied leaked keys, evasion instructions, and its own malware.
+- In one retail campaign the operator sent 1,951 short prompts that directed target selection, privilege escalation and cleanup, so a low prompt count per target said little about the operator’s expertise.
+- An observed technique can reflect the operator’s instructions, the framework’s own choices or the weaknesses of the target, and the public record often cannot say which.
+- Where attribution was possible, targeting, history and tooling still separated actors using the same framework.
+- None of the ten cases shows an inexperienced attacker running a complex operation, although the FBI, which may hold intelligence beyond the public record, says ARTEX makes that possible.
+## How AI attack frameworks change technical decision-making
+Offensive tools have long automated individual steps, as when an exploit kit delivers an exploit or a command-and-control framework manages access, but a person still decided what to do with each result: which flaw to pursue, how to use the access gained, and where to go next.
+Agentic frameworks such as ARTEX, Cairn and CyberStrikeAI take over some of those decisions, running tools, reading the results, and trying another route when one fails. Attackers have bought malware, exploit kits, and stolen credentials for years, and these frameworks extend that to the judgment that connects one step of an attack to the next.
+Anthropic’s September 2026 threat report [68] stated that "sophistication has stopped being a reliable signal of who is behind an operation," and Damien Lewke wrote in March [69] that "sophistication stops being a reliable marker of who built the capability and becomes a marker of who had access to it." The public record now holds enough detail to test that idea one operation at a time.
+## Comparing ten documented AI-enabled attack cases
+We selected cases where public reporting describes what the operator supplied, what the agents exploited, and what happened as a result, drawing on several frameworks and research teams. For each we recorded five things: the human contribution, the source of the access, the agents’ role, the outcome observed, and the evidence supporting it.
+The goal-only ARTEX operators and VAPOR PANDA used the same framework with very different human input, the retail campaign ran on short prompts that still carried expert decisions, and initial access was supplied by operators in some cases and discovered or exploited by the agents in others. The last column shows which outcomes the researchers or victims confirmed and which rest only on the agents’ own records.
+CaseHuman contributionWhere the access came fromWhat the agents didOutcome and evidence
+Certificate theft, ARTEX (Check Point [70])Ten targets and an objective; about 27 prompts, a few of them tacticalDiscovered: hardcoded admin passwords. Exploited: missing API authentication, IDOR, injectionReconnaissance through privilege escalation, then validation of each certificate300+ certificates taken, 3 passed the agents’ checks. Agent-reported, read from a recovered operator database
+Gaming accounts, ARTEX (Check Point [71])13 targets and an objective; no further promptsDiscovered: a plaintext credentials file in an open web rootEvery stage, including sampling the stolen accounts190,000+ credential sets, 29 accounts live. Agent-reported
+Crypto draining, ARTEX (Check Point [72])292 targets, an objective and a wallet; no further promptsExploited flaws; leaked cloud credentials the agents foundEvery stage; reported cash-outs that never happenedFinancial objective failed, as assessed by the researchers. Other compromises are agent-reported
+Retail skimming, Hermes, Strix, and Cairn (Gambit Security [73])Target filtering, 1,951 prompts with technical direction, working admin passwords for two targetsExploited: SQL injection, one-time-password bypass. Supplied: two targets. Discovered: secrets in configuration filesScanning, exploitation, lateral movement, skimmer deployment27+ companies compromised "to varying degrees"; 600,000+ card records; skimmers confirmed live on 19 sites. Recovered staging server and researcher verification
+Espionage, Cairn (Unit 42 [74])A root domain and a one-line goal; target details in some tasks; VPN passwords in oneObtained: password spraying and brute force. Exploited: authentication bypass, open registration. Supplied: one taskPlanning through persistence, including new administrator accountsAccess or data at 10 of 19+ organizations, according to Cairn’s own records as assessed by Unit 42
+Espionage, ARTEX (CrowdStrike [75], VAPOR PANDA)Targets, leaked keys for one target, evasion and web shell instructions, its own malwareSupplied: one government target. Exploited by agents: unsigned SAML, XXE, an unauthenticated serviceParallel attack paths and lateral movementPost-exploitation at 9 of 200+ organizations, confirmed by CrowdStrike
+Password spray, ARTEX (Microsoft [76], Storm-0940)Not describedNone gainedSprayed 327 accounts at eight organizations151,000+ failed logons, no access. Victim-side telemetry
+ConnectWise, ARTEX (Microsoft [77], Storm-0940)Not describedPre-existing: stolen application credentials of unstated originSign-in attempts at 2,250+ tenants, directory operations, persistenceAuthenticated in some customer environments; most targeting failed. Victim-side telemetry
+Domain compromise, CyberStrikeAI (Kaspersky [78])Manual initial access, then goalsPre-existing: manual entry through SQL ServerPersistence, reconnaissance, lateral movement, credential dumpingDomain administrator in 3 to 4 days. Victim-side telemetry
+FortiGate, AI-assisted tooling (Amazon [79]), for comparisonRan the operation with AI-generated plans and toolsObtained: weak, reused credentials on exposed management interfacesNo autonomous framework600+ devices. Amazon threat intelligence
+Initial access was achieved through three methods, sometimes inside a single operation: operators supplied it, agents discovered it in exposed files and code, and agents obtained it by guessing passwords or exploiting flaws. Several outcomes, including Check Point’s certificate and account figures and Unit 42’s ten breached organizations, rest on the agents’ own records, and the last column marks which ones were confirmed from the victim’s side or by the researchers.
+## Who directed the attacks: Human operators or AI agents?
+In two of the cases documented by Check Point, the operators set targets and a goal and sent nothing further. The certificate thief sent about 27 prompts, mostly progress checks with a few tactical nudges such as "Why can’t we use the method we used to get it at [TARGET E]?"
+The retail campaign, reported by Gambit Security [80], involved far more operator interaction, with 1,951 prompts across 260 sessions, yet Gambit describes that as "only a few prompts per target." Many of those prompts gave technical direction:
+- "See whether the file upload in the report can give code execution."
+- "Test the sudo password first."
+- "Leave the ones in the container, clear the traces on the target."
+The operator also built the target list, filtering 301 shops from a traffic-ranking service down to those running custom code, so the agents did the execution while an experienced operator chose where to look and what to try.
+VAPOR PANDA’s operator brought tradecraft the framework did not have: an instruction to find Windows machines without an endpoint sensor, direction to write web shells, and the group’s BLOODALCHEMY backdoor.
+Without recovered operator transcripts the split is harder to see: Microsoft’s reporting on Storm-0940 does not establish which decisions came from the operators and which from the agents, and Amazon [81] concluded that its FortiGate actor’s advantage came from "AI-augmented efficiency and scale, not in deeper technical skill."
+Determining the skill of a threat actor is extremely difficult because even a short command can carry a decision about targets, privilege escalation or cleanup that the agent did not make for itself, so an operator who types little may still know a great deal.
+## Why TTPs can no longer reliably indicate attacker expertise
+CTI uses tactics, techniques, and procedures (TTPs) to understand adversary behavior, and it has never treated a single technique as a fingerprint. MITRE’s ATT&CK design guidance [82] says "it is not recommended to attribute activity solely based on the ATT&CK techniques used."
+AI agents add a complication: the attacker may not have chosen the technique at all. Each of the three influences on an observed technique tells an analyst something different.
+InfluenceExampleWhat the behavior reveals
+Human operatorAn instruction to avoid hosts with endpoint protectionThe operator’s objectives, awareness, and preferences
+FrameworkAn agent choosing and executing an exploitation pathThe capabilities and defaults of the framework
+Target environmentAn agent switching technique after meeting a defenseThe system under attack and the agent’s response to it
+If the agent selected a technique, its presence does not show that the operator understood it or would have chosen it. That distinction matters little for deciding whether the activity is malicious and a great deal for assessing the operator’s skill.
+One observable that helps is timing: Google and Mandiant [83] recorded ARTEX activity in compressed bursts, including "27 events in 23 seconds," a pace they describe as highly irregular for a human operator. Bursts like that point to automation, but the pauses between them say little about who decided what, since tool runs, model delays and offline password cracking can all produce them.
+Recovered operator transcripts can help establish who made particular decisions, as they did for Check Point and CrowdStrike. Most defenders see only HTTP requests, authentication events, and endpoint activity, in which the techniques are visible and the instructions that produced them are not.
+## How AI attack frameworks complicate threat attribution
+In these cases, a shared framework makes some technical behavior less distinctive, but conventional attribution signals remain useful. Microsoft’s two ARTEX users remain easy to tell apart by targeting, history and tooling: Storm-0940 [84] is a China-state-aligned actor active since 2021, for which OAuth application abuse is "a typical part" of its toolset, while Storm-3358 [85] is a financially motivated cluster that targets financial institutions with remote-access tools such as WISP, vshell, and AdaptixC2.
+Analysts already deal with shared tools such as Mimikatz and Cobalt Strike, but a shared agentic framework also shares some of the decisions, and its choices shift with the vulnerabilities and defenses it meets. That makes it harder to separate the attacker’s choices from the framework’s behavior.
+Analysts need to keep three questions apart:
+- Identifying the framework: was ARTEX or Cairn responsible for the observed activity?
+- Clustering the operation: do artifacts, infrastructure, and timing connect several incidents?
+- Attributing the adversary: does enough independent evidence tie the operation to an actor?
+## What CTI analysts should do differently
+Once activity shows signs of an agent, such as bursts of requests faster than a person could type or artifacts left by a known framework, identifying the framework becomes its own line of analysis. Public research now describes how ARTEX, Cairn, and CyberStrikeAI tend to behave, and a technique that matches a framework’s usual behavior says more about the tool than about the person running it.
+The operator is more likely to show in what departs from that behavior and in what the agent could not have found for itself. VAPOR PANDA’s instruction to avoid hosts with an endpoint sensor and its BLOODALCHEMY backdoor, the admin passwords supplied in the retail campaign and that campaign’s target list, filtered down to shops running custom code, all came from people, and they deserve more weight in a skill assessment than the exploitation steps the agents carried out. Recording whether access was supplied, discovered, obtained by exploitation, or unknown keeps that distinction visible through the rest of the analysis.
+Prompts, task files, agent logs and staging servers were what allowed Check Point, Gambit Security, Unit 42, and CrowdStrike to see who decided what, which makes them a priority for collection whenever responders recover them, and worth sharing with other teams where possible. Agent logs need care, though, as they record what the agents claimed: in the cryptocurrency case, the agents reported cash-outs that never happened, so each outcome should be labeled with the evidence behind it, whether victim telemetry, recovered artifacts, researcher verification, or agent self-report.
+## Conclusion
+Across the ten cases, increasingly sophisticated attacks were carried out without the person behind them making every technical decision. None of them shows an inexperienced attacker running a complex operation, even though the FBI says ARTEX "enables threat actors with minimal technical expertise to conduct complex, multi-target operations simultaneously." The FBI may well hold intelligence the public record lacks, but these cases alone do not demonstrate it.
+The techniques observed in an intrusion may say more about the framework in use, or the weaknesses of the target, than about the expertise of the attacker. Analysts can no longer assume an observed technique reflects a decision made by the human operator, and where the evidence does not show who selected it, that should stay unknown.
+In these cases, attribution rested on what a framework cannot supply: the targets, the stolen access, the infrastructure, and the intent. Analysts assessing future intrusions will need to separate what the human brought to an operation from what the agent worked out along the way.
+## On this page
+- Summary of findings [86]
+- How AI attack frameworks change technical decision-making [87]
+- Comparing ten documented AI-enabled attack cases [88]
+- Who directed the attacks: Human operators or AI agents? [89]
+- Why TTPs can no longer reliably indicate attacker expertise [90]
+- How AI attack frameworks complicate threat attribution [91]
+- What CTI analysts should do differently [92]
+- Conclusion [93]
+## Authors
+Alexandra Wells
+## Alexandra Wells
+Alexandra Wells
+Director of Marketing
+[94]
+Alexandra Wells is Director of Marketing at Equixly, where she leads go-to-market strategy. In a market where many security vendors sound alike, she helps companies articulate what makes them different and why it matters to buyers.
+With over a decade of experience in technology and go-to-market leadership, Alexandra has built marketing functions from scratch, driven rapid business growth, launched new products, and repositioned platforms for competitive markets. Her cybersecurity experience spans offensive security, threat intelligence, zero trust access, and other emerging technologies.
+She holds an MBA from the University of Cambridge and a first-class honors degree in Electrical and Electronic Engineering from the University of Canterbury, New Zealand.
+Latest articles
+Breaches & Vulns
+### CVE-2026-114938: Pre-auth heap overflow in Java 17, 21, and 25
+CVE-2026-114938 (Java4Shell) is a pre-auth heap overflow in the AVX-512 Base64 decoder of Java 17, 21, and 25 on x86. Who is affected, the fix, and mitigations.
+Nov 17, 2026
+Read more: CVE-2026-114938: Pre-auth heap overflow in Java 17, 21, and 25 [95]
+Breaches & Vulns
+### CVE-2026-119618: Critical RCE in Apache HTTP Server’s HTTP/2 module
+CVE-2026-119618 is a critical RCE in Apache HTTP Server 2.4.55 to 2.4.70 with HTTP/2 enabled. Upgrade to 2.4.71, or disable HTTP/2 and find exposed hosts.
+Nov 13, 2026
+Read more: CVE-2026-119618: Critical RCE in Apache HTTP Server’s HTTP/2 module [96]
+Director of Marketing
+[97]
+Did you like our post? Share it on social!
+- [98]
+- [99]
+## Related Articles
+View all articles [100]
+Breaches & Vulns
+### CVE-2026-114938: Pre-auth heap overflow in Java 17, 21, and 25
+CVE-2026-114938 (Java4Shell) is a pre-auth heap overflow in the AVX-512 Base64 decoder of Java 17, 21, and 25 on x86. Who is affected, the fix, and mitigations.
+Alexandra WellsAlexandra Wells
+Alessio Dalla PiazzaAlessio Dalla Piazza
+Nov 17, 2026
+Read more: CVE-2026-114938: Pre-auth heap overflow in Java 17, 21, and 25 [101]
+Research
+### When the answer can be checked: Training a model with GRPO and GDPO on a security task
+GRPO vs. GDPO on a verifiable security task: all variants gained 7 to 13 points. How they compare with PPO and DPO, and why reward design matters.
+Filippo BoniFilippo Boni
+Nicolò FrettiNicolò Fretti
+Giorgio RoffoGiorgio Roffo
+Nov 17, 2026
+Read more: When the answer can be checked: Training a model with GRPO and GDPO on a security task [102]
+Breaches & Vulns
+### CVE-2026-119618: Critical RCE in Apache HTTP Server’s HTTP/2 module
+CVE-2026-119618 is a critical RCE in Apache HTTP Server 2.4.55 to 2.4.70 with HTTP/2 enabled. Upgrade to 2.4.71, or disable HTTP/2 and find exposed hosts.
+Alexandra WellsAlexandra Wells
+Alessio Dalla PiazzaAlessio Dalla Piazza
+Zoran GorgievZoran Gorgiev
+Nov 13, 2026
+Read more: CVE-2026-119618: Critical RCE in Apache HTTP Server’s HTTP/2 module [103]
+Featured in
+SecurityWeek [104]Tech.eu [105]Teiss [106]DIGIT [107]Z News Service [108]
+Proud contributors
+- [image: OWASP] Open Worldwide Application Security Project [109]
+- [image: ECSO] European Cyber Security Organization [110]
+- [image: Cybersecurity made in Europe] [111]
+- [image: Clusit] Italian Cybersecurity Association [112]
+Platform
+- AI Penetration Testing [113]
+- Our AI Engine [114]
+- CI/CD Pipeline [115]
+- Pricing [116]
+Industries
+- Financial services [117]
+- Energy [118]
+- SaaS [119]
+- Retail [120]
+- All industries [121]
+Partners & company
+- Become a partner [122]
+- VAR & GSI [123]
+- MSSPs [124]
+- Technology partners [125]
+- About us [126]
+- Leadership team [127]
+- News [128]
+- Investors [129]
+- Careers [130]
+- Contact us [131]
+Resources
+- Research [132]
+- All Resources [133]
+- Blog [134]
+- Glossary [135]
+- Documentation [136]
+- Training [137]
+- FAQ [138]
+Legal & trust
+- Trust Center [139]
+- Privacy policy [140]
+- Cookie policy [141]
+- Privacy choices [142]
+© 2026 EquixlyVAT IT07231320487Built with love in[image: European Union]
+- ISO 27001Compliant [143]
+- SOC 2Compliant [144]
+- [145]
+- [146]
+- [147]
