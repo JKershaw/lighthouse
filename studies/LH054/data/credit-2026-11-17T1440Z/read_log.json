@@ -1,0 +1,46 @@
+[
+  {
+    "name": "oss_security_post",
+    "url": "https://www.openwall.com/lists/oss-security/2026/11/15/2",
+    "start_utc": "2026-11-17T14:40:21.371360+00:00",
+    "robots": {
+      "robots_url": "https://www.openwall.com/robots.txt",
+      "robots_status": 200,
+      "robots_sha256": "6d99c383cd7cb1304fc20bbfe9a5f2bbe3abbacbda4ac102ac99c04eab4a170a",
+      "provider": "anthropic",
+      "decided_by": "*",
+      "rule": "None",
+      "reason": "allowed by robots.txt"
+    },
+    "finish_utc": "2026-11-17T14:40:23.114493+00:00",
+    "status": 200,
+    "final_url": "https://www.openwall.com/lists/oss-security/2026/11/15/2",
+    "content_type": "text/html; charset=utf-8",
+    "last_modified": "",
+    "bytes": 8796,
+    "sha256_received": "01dda3ca336606935c3e4a1d04cbd1044d6319a38caa06acb0cfab4615d3a54c",
+    "sha256_kept_uncompressed": "01dda3ca336606935c3e4a1d04cbd1044d6319a38caa06acb0cfab4615d3a54c",
+    "file": "oss_security_post.html.gz"
+  },
+  {
+    "name": "cve_org",
+    "url": "https://cveawg.mitre.org/api/cve/CVE-2026-99288",
+    "start_utc": "2026-11-17T14:40:23.115637+00:00",
+    "robots": {
+      "robots_url": "https://cveawg.mitre.org/robots.txt",
+      "robots_status": 404,
+      "robots_sha256": "fcc374e694086c781cb8aa809e10913dd195129d5d9efded031fe2761bb20244",
+      "provider": "anthropic",
+      "reason": "robots.txt answered 404: no rules"
+    },
+    "finish_utc": "2026-11-17T14:40:23.575022+00:00",
+    "status": 200,
+    "final_url": "https://cveawg.mitre.org/api/cve/CVE-2026-99288",
+    "content_type": "application/json; charset=utf-8",
+    "last_modified": "",
+    "bytes": 6502,
+    "sha256_received": "94bf80143e8dc8d5c367c914fa9116e3360379b21eccb59f986e38bc630f764f",
+    "sha256_kept_uncompressed": "94bf80143e8dc8d5c367c914fa9116e3360379b21eccb59f986e38bc630f764f",
+    "file": "cve_org.json.gz"
+  }
+]
