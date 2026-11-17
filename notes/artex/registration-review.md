@@ -1,0 +1,18 @@
+# ARTEX commissioning and queue review, 17 November 2026
+
+**In short.** The proposed study fits the existing daily run and keeps commissioning separate from findings. I found two registration problems to resolve before landing it: failed baseline collection could leave the final answer blocked, and one request-limit sentence conflicts with the repeated panel reads. This is a review of the work plan, not a check of scientific evidence or source claims.
+
+Reviewer: a fresh Codex/OpenAI subagent, exact runtime model and usage price unavailable. Read AGENTS.md, schedule/runner.md, notes/artex/commissioning.md, studies/LH055/brief.md, the 28 LH055 queue rows, and the related commissioning additions in programme.md, proposals.md, investigations/ai-cost-and-spread.md and site/this-week.md. No source URLs opened, credentials read or collection performed. The workspace is an API-fetched partial repository; this note does not claim a full site build or full queue validation.
+
+## Material registration problems
+
+1. **Failed baseline can deadlock the answer.** The brief permits an inconclusive record if no baseline is available by 24 November, but the baseline task requires retaining a baseline. If it becomes missed/cancelled, r1-record cannot proceed, r2-publish cannot complete, and r3-record still waits for r2-publish even after collection-closure. Add a baseline-closure gate independent of successful capture and make round 1 depend on that disposition. Alternatively make the baseline task expressly a collection-attempt/closure outcome, whose completion reference can retain total failure without calling it a successful baseline. Keep future panel outcomes equally explicit when there is no usable panel.
+2. **Request ceiling is internally contradictory.** Under Resource envelope, "one additional access attempt per document only in a later scheduled read" could cap a recurring panel endpoint at two attempts, while nine dated panel reads are commissioned. Specify that the nine panel reads retain their own one-content-request-per-endpoint limit and that any additional-attempt restriction applies only to non-panel discovery documents after a failed first attempt.
+
+## What is sound
+
+The current commissioning is authorised, scoped to an existing investigation and discoverable through the ordinary queue. Research and reviews are explicit tasks, with exact-version release checks and no need to wait for future observations before publishing a supported interim answer. Collection has a fixed end, reviews can finish late without extending it, and gaps need not imply absence. Prior exposure to outcomes is disclosed; the corpus is purposive, unlike counts are not pooled, and report dependence, human direction, agent testimony, resource replenishment and replication are distinguished. Public additions describe commissioned work and do not promote a mechanism to a finding. The normal no-article option prevents publication count becoming the goal.
+
+## Resolution
+
+Driving session: added LH055-baseline-closure without a successful-read dependency and made r1-record depend on that gate. The brief requires a finished attempt or expiry of the late-baseline window and explicit gap disposition, never premature closure of a running attempt. Prospective reads still require an actual baseline and panel lock. Clarified that the extra-attempt restriction applies to failed non-panel documents; panel endpoints retain their nine dated reads. Queue syntax and readiness checks should be recorded separately with their actual environment limits. No scientific review clearance is supplied by this note.

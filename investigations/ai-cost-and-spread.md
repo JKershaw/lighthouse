@@ -14,6 +14,7 @@ studies:
 - studies/LH047/LH047.md
 - studies/LH051/brief.md
 - studies/LH052/LH052.md
+- studies/LH055/brief.md
 pieces:
 - essays/it-was-only-a-test.md
 - essays/what-the-watch-would-see.md
@@ -21,6 +22,8 @@ pieces:
 **In short.** We're asking what AI activity costs the infrastructure everyone shares, and whether any of it is keeping itself going or spreading outside a test. We keep five kinds of evidence apart, from services putting up walls against automated traffic to worms that people run through package registries. What we have so far are working records, some of them reviewed; there is no reviewed finding yet, and nothing below is evidence of AI activity sustaining or spreading itself. Weekly reads of the closing web run to 7 February 2027, and several studies have second reads in December.
 
 ## Where the evidence stands
+
+**New work, commissioned 17 November 2026.** [The ARTEX study](../studies/LH055/brief.md) will establish a primary-source baseline and examine the reported use of acquired AI credentials to power further credential hunting. The commissioning discussion has read reports relevant to this question, but none has yet been retained or reviewed under that study's brief. The earlier evidence summary below has not yet been reassessed against them. Collection runs to 1 December, with three reviewed research rounds and a decision on what to do next. [Commissioning](../notes/artex/commissioning.md).
 
 The original strands below began with first readings on 8 November 2026, the day the investigation opened; later additions are dated separately. Each line opens with how far it has been checked, and nothing is reviewed unless its line says so. The strands stay apart, and nothing below is evidence of AI activity sustaining or spreading itself.
 

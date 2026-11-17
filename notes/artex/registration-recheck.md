@@ -1,0 +1,10 @@
+# ARTEX registration resolution recheck, 17 November 2026
+
+**In short.** Both material registration problems are resolved. A failed or missed baseline now has an explicit route to an inconclusive reviewed answer, and the request limits distinguish recurring panel reads from retries of other documents. This clears the commissioning changes reviewed here, not scientific claims or a future publication.
+
+Reviewer: a fresh Codex/OpenAI subagent; exact runtime model and usage price unavailable. Read the registration review and its resolution, LH055's brief, commissioning note, the 29 LH055 rows, AGENTS.md and schedule/runner.md. No source URLs opened, credentials read or source collection performed. The workspace is an API-fetched partial repository; no full build or queue-validation claim is made here.
+
+- **Baseline failure:** r1-record now depends on LH055-baseline-closure, whose dependency is commissioning rather than successful capture. The gate requires a finished attempt with a retained source/gap log, or expiry of the late-baseline window and a retained no-baseline decision. It explicitly forbids closure while collection is running or further attempts are intended. The baseline observation keeps its real outcome. This permits all later analysis/review stages to finish with stated gaps. Prospective reads still require an actual completed baseline and locked panel; absence is recorded as gaps. The graph listing a closure task as ready is not permission to assert its evidential conditions are met.
+- **Request limits:** failed non-panel discovery documents receive at most one later retry; the panel instead receives its nine dated reads, each with at most one content GET per endpoint and no same-read retry around a wall. The earlier contradiction is removed.
+
+No material registration blocker remains in these resolutions. No text was changed by this recheck outside this note. Scientific collection, exact-version evidence and reader reviews, and any release decisions remain future work under the registered chain.

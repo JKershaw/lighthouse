@@ -21,6 +21,8 @@ Preserve time-sensitive evidence and finish active analysis, reviews and publica
 
 ## From the keeper
 
+**17 November 2026, ARTEX commissioned:** P-0039 starts as LH055, taking up L-0064 and L-0091. Three bounded reviewed rounds run through the existing daily queue; [commissioning](notes/artex/commissioning.md), [brief](studies/LH055/brief.md), [issue #57](https://github.com/JKershaw/lighthouse/issues/57). No collection under the brief yet.
+
 Last reviewed by the keeper: 2026-11-08T21:10Z (written by /keeper at the end of each review).
 
 
@@ -116,6 +118,15 @@ Rewritten by the horizon sweep of 17 November 2026 ([sweep file](notes/horizon/2
 
 
 ## Agreed by the keeper
+
+### P-0039 ARTEX: what supports the reported credential-to-compute loop, and what changes over the next fortnight
+
+- Kind: bounded deepening of the shared-internet costs investigation. Priority: high; primary reports can change before a baseline is kept. Status: started as LH055, directly commissioned by John on 17 November 2026. Issue: [#57](https://github.com/JKershaw/lighthouse/issues/57).
+- Source: leads L-0064 and L-0091, the keeper's ARTEX discussion, and [commissioning](notes/artex/commissioning.md). The discussion has read some recent reports; prior knowledge is disclosed, not treated as retained study evidence.
+- Question: what do current primary sources establish about ARTEX, and can their evidence establish that acquired AI credentials sustained further credential hunting?
+- Bounds: [fixed brief](studies/LH055/brief.md), three reviewed rounds: retrospective baseline, focused mechanism audit, prospective comparison. At most 24 primary documents and ten discovery queries; fixed panel of up to eight endpoints; daily reads 18 to 24 November, then 27 November and 1 December. Collection ends 1 December; final record, reviews and close-out by 4 December where possible. No automatic extension or additional timer.
+- Next step: the next daily run claims LH055-baseline, captures permitted primary sources and locks the panel, then takes ready analysis and reviews through the scheduled chain without waiting for future observations. Research is ready to start; no source collection under this brief or scientific review is complete.
+- Keeper, 2026-11-17: agreed the three-round plan and asked that the work be fed in so the scheduled daily Lighthouse run can handle it. Billing failsafes remain the keeper's; record daily costs rather than inventing a spend limit.
 
 ### P-0034 What public records reveal about AI, organisational capacity and reliability
 
@@ -492,7 +503,7 @@ From the horizon sweep of 10 November 2026 ([sweep file](notes/horizon/2026-11-1
 - L-0061 Agent identification: Cloudflare's Trusted Agent Delegation (5 November) and personal-agent policies (4 November), signed agents and Web Bot Auth with no replay protection (scout 1, lead 3; scout 6, lead 4; ties to L-0010).
 - L-0062 Cloudflare Radar's bot-share series, quoted by RIPE Labs on 10 November, is closed to us (403) and was corrected and its history rewritten on 26 October; a permitted route, or the wall itself, belongs in LH047's map (scout 1, lead 4; scout 4, lead 2).
 - L-0063 Anthropic's release of 9 November and its system card, unread, and Anthropic's revised account of July evaluation incidents in which a model published malicious PyPI versions (as reported by Socket, 10 September); secondary sources disagree on the removal time (scout 1, lead 5). Model disclosure applies.
-- L-0064 ARTEX, an open-source LLM penetration framework: Censys reports 1,465 exposed consoles (3 to 5 November); never visit a listed host (scout 4, lead 1).
+- L-0064 ARTEX, an open-source LLM penetration framework: Censys reports 1,465 exposed consoles (3 to 5 November); never visit a listed host (scout 4, lead 1). Taken up as P-0039 / LH055, commissioned 17 November 2026; see the fixed brief and scheduled baseline.
 - L-0065 Regulators' agent-incident reporting regimes forming now (US agencies' voluntary practices of 16 October, Australia's announced mandate, the EU AI Office's requests of 14 October): dated snapshots of each text (scout 6, lead 2).
 - L-0066 IETF 127, 16 to 20 November: the draft set frozen since 2 November, the signature protocol now a working-group draft, new drafts publishing agents' address ranges at well-known locations (scout 6, lead 3); LH045's census covers the counts.
 - L-0067 Research: fingerprinting the model and harness behind an agentic attack from honeypot telemetry (arXiv 2611.12386); agent skills spreading by copy with copies that rarely follow fixes (2610.11169, 2611.12155); coding agents copying existing flaws (2611.11455) (scout 5). All read through a summariser; recheck on the page.
@@ -526,7 +537,7 @@ From [2026-11-13T1452Z](notes/horizon/2026-11-13T1452Z.md); every claim reported
 - L-0088 TechnologyChecker's robots.txt report (updated 1 October): explicit allows for GPTBot from 2.51 to 7.69 per cent and 13.47 per cent of AI-bot requests answered 403 in the third quarter; vendor data with a flagged sampling artefact, beside LH044's tokens (scout 1, lead 5).
 - L-0089 CISA's catalogue 2026.11.10 added six entries on 10 November, among them a Barracuda Email Security Gateway pair due in three days while Mandiant's advisories were silent on exploitation (SecurityWeek, 4 November); only those two are above EPSS's 95th percentile (scout 2, lead 1).
 - L-0090 oss-security, 10 November: maintainers arguing whether models that rediscover flaws are "a reason to move away from embargoes", and a complaint about LLM-assisted exploits disclosed irresponsibly; and a CPython sandbox escape with no backport to security releases (5 November) (scout 2, leads 3 and 4). The model-found-bugs investigation seen from the people who patch.
-- L-0091 ARTEX operator fleets (Check Point, 5 November): 2,557 systems hosting panels (1,608 live), operators who "barely interacted with their agent fleets", reported successes that were hallucinations, and "not one cent moved"; extends L-0064; never visit a listed host (scout 3, lead 2).
+- L-0091 ARTEX operator fleets (Check Point, 5 November): 2,557 systems hosting panels (1,608 live), operators who "barely interacted with their agent fleets", reported successes that were hallucinations, and "not one cent moved"; extends L-0064; never visit a listed host (scout 3, lead 2). Taken up as P-0039 / LH055, commissioned 17 November 2026; see the fixed brief and scheduled baseline.
 - L-0092 Railway's final report (10 November): a build-isolation escape, then an OIDC misconfiguration, with the attacker "specifically targeting AI provider credentials" and about $740,000 of unauthorised spend (scout 3, lead 3).
 - L-0093 GitHub's partial defences: its 28 July hold on suspicious runs covers public repositories only, its package firewall covers npm only, and Dependabot pauses alerts for inactive repositories (10 November); OpenSSF's malicious-packages statistics, updated daily, against a quiet registry side and a noisy CI side; extends L-0069 and ties to P-0012 (scout 3, leads 4 and 5).
 - L-0094 Popcorn Time's abandoned updater: its domains reported passed to Shadowserver's sinkhole after a firm used them to disable it (press of 23 to 27 October, through Shadowserver's media list; no primary source found); a sinkhole's traffic would count machines still asking for updates years on (scout 4, lead 2). Software updates.

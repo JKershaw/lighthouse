@@ -82,6 +82,10 @@ Each answer says what its record's current Answer says, at the same certainty as
 
 ## Next
 
+### Commissioned, 17 November 2026: ARTEX and the evidence for a sustaining loop
+
+John commissioned [three bounded rounds](notes/artex/commissioning.md) under the shared-internet costs investigation: a current primary-source baseline, an audit of the reported credential-to-compute feedback loop, and a prospective comparison. [LH055's brief](studies/LH055/brief.md) discloses reports already read in the discussion; collection under it has not begun. The next run preserves the baseline, then advances ready analysis, evidence review, reader review, resolution recheck and a public checkpoint without waiting for later reads. Daily panel reads run 18 to 24 November, then 27 November and 1 December; collection stops on 1 December, with final analysis, reviews and a continue/repair/rest decision by 4 December where possible. The source-access and report-dependence audit must say whether public evidence can distinguish intent, agent testimony and observed resource use. This takes up L-0064 and L-0091 as P-0039, tracked in [issue #57](https://github.com/JKershaw/lighthouse/issues/57). No new investigation or timer; the ordinary daily queue carries each stage.
+
 ### Where the studies stand, 14 November 2026
 
 Ordinary upkeep of this file, from the records and AGENTS.md's "Where things stand"; it chooses nothing new. Four investigations are open. Each line gives a record's status as the record states it; the figures stay in the records and on the investigation pages.
