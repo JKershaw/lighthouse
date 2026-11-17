@@ -111,7 +111,7 @@ def d2f(d):
 
 
 panels = [
-    ("OpenClaw-family panels", "OpenA2A index: Shodan, sum of its OpenClaw queries", ["S42"], "line"),
+    ("OpenClaw category", "OpenA2A index: Shodan, sum of its OpenClaw queries", ["S42"], "line"),
     ("LLM endpoints", "OpenA2A index: Shodan, its LLM-endpoint category", ["S43"], "line"),
     ("MCP servers", "OpenA2A index: Shodan, its MCP category", ["S44"], "line"),
     ("Ollama endpoints, 2025 to 2026", "Xu et al.: own daily IPv4 sweep; four days the paper states", ["S01"], "points"),
@@ -122,7 +122,7 @@ lefts = [78, 428]
 tops = [138, 392]
 svg = [svg_open(W, H, "Published counts of exposed AI services, by method",
                 "Four small charts, each its own series and axis, never joined. OpenA2A's monthly Shodan index, March to "
-                "November 2026: OpenClaw-family gateways 242,379 on 14 March, 267,172 on 11 April, lowest 153,638 on "
+                "November 2026: OpenClaw category (OpenA2A's OpenClaw gateways) 242,379 on 14 March, 267,172 on 11 April, lowest 153,638 on "
                 "26 June, 205,872 on 1 November; LLM endpoints between 5,126 and 47,369; MCP servers rising from 889 "
                 "to 2,734. Xu and co-authors' own daily sweep of Ollama's port: 10,473 IPs on 14 February 2025, "
                 "16,821 on 25 April 2025, about 11,500 in July 2025 and 16,059 on 13 February 2026. A Shodan index "
@@ -130,7 +130,7 @@ svg = [svg_open(W, H, "Published counts of exposed AI services, by method",
 svg.append('<rect width="100%" height="100%" fill="var(--bg)"/>')
 svg.append('<text class="head" x="24" y="32">Published counts of exposed AI services, by method</text>')
 svg.append('<text class="sub" x="24" y="54">Each chart is one publisher\'s series with its own axis from zero. Series are never joined.</text>')
-svg.append('<text class="sub" x="24" y="72">Unreviewed working figure, LH042 version 0.1; counts as published, read 8 November 2026.</text>')
+svg.append('<text class="sub" x="24" y="72">Working figure, LH042 version 0.3, not released; counts as published, read 8 November 2026.</text>')
 for i, (title, sub, series, mode) in enumerate(panels):
     x0 = lefts[i % 2]
     y0 = tops[i // 2]
