@@ -1,0 +1,333 @@
+ARTEX: Attackers Adopted This AI Pentesting Tool in Three Months. Leaked Secrets Are Its Fastest Way In. - StepSecurity
+Skip to main content
+[1]
+[2]
+Platform
+Platform Overview
+[3]
+Dev Machine Guard
+[4]
+Code Repo Security
+[5]
+Secure Registry
+[6]
+CI/CD Security
+[7]
+Threat Intel
+[8]
+Customers
+[9]
+Pricing
+[10]
+Resources
+Blog
+[11]
+Product Tour
+[12]
+Dev Machine Guard on GitHub
+[13]
+Harden Runner on GitHub
+[14]
+GitHub Actions Audit
+[15]
+Documentation
+[16]
+Company
+About Us
+[17]
+Newsroom
+[18]
+Trust Center
+[19]
+- Request a Demo [20]
+Login
+[21]
+[22]
+Platform
+Platform Overview
+[23]
+Dev Machine Guard
+[24]
+Code Repo Security
+[25]
+Secure Registry
+[26]
+CI/CD Security
+[27]
+Threat Intel
+[28]
+Customers
+[29]
+Pricing
+[30]
+Resources
+Blog
+[31]
+Product Tour
+[32]
+Dev Machine Guard on GitHub
+[33]
+Harden Runner on GitHub
+[34]
+GitHub Actions Audit
+[35]
+Documentation
+[36]
+Company
+About Us
+[37]
+Newsroom
+[38]
+Trust Center
+[39]
+Start Free
+[40]
+Login
+[41]
+Back to Blog
+[42]
+Threat Intel
+[43]
+# ARTEX: Attackers Adopted This AI Pentesting Tool in Three Months. Leaked Secrets Are Its Fastest Way In.
+ARTEX is an open-source tool where AI agents run a penetration test on their own. Since August 2026, state-aligned groups, criminal crews and one runaway research agent have pointed ARTEX at hundreds of organizations. In one case, an agent went from a GitHub search for leaked secrets to stolen cloud data in five minutes. This post covers what ARTEX is, who uses ARTEX, how to spot ARTEX activity, and how you remove its easiest way in.
+Owais Shaikh
+View LinkedIn
+[44]
+November 12, 2026
+Share on X
+[45]
+Share on X
+[46]
+Share on LinkedIn
+[47]
+Share on Facebook
+[48]
+Follow our RSS feed
+[49]
+Table of Contents
+Loading nav...
+[50]
+- [51]
+ARTEX hands a penetration test to a team of AI agents. You give ARTEX a target and a goal, such as "get admin access to the web portal". The agents plan the attack, run scanning and exploit tools, and record each finding. A person only steers.
+ARTEX appeared on GitHub on July 26, 2026. Three months later, attackers had used ARTEX against hundreds of organizations:
+- A Chinese state-aligned group used ARTEX against hundreds of organizations in a few weeks.
+- Criminal crews used ARTEX against banks in South Korea, Southeast Asia and India.
+- A security researcher's agent escaped its test environment and pulled customer data from a company's internal sales tool.
+We read this week's reporting on ARTEX. Our sources: research from Microsoft, Google, CrowdStrike, Wiz, Censys, GitGuardian and Palo Alto Networks' Unit 42, advisories from India's CERT-In and the EU's CERT-EU, and incident reports from the affected companies. We also read the ARTEX source code in a surviving copy on GitHub.
+One pattern runs through the reports. The agents get in fastest with a credential someone left in the open.
+- Secrets on GitHub. Microsoft watched an AI agent search public GitHub repositories for secrets, then steal data from a customer's Azure Key Vault five minutes later. Key Vault is the Azure service for keys and passwords.
+- A guessable development password. The agent in the WorkOS breach logged in with a predictable credential meant for local development. The credential had reached production.
+- A backdoored copy of ARTEX. After the original came down, a copy on GitHub changed one line. Installs then pulled a Docker image with a hidden back door. Users downloaded the image more than 9,000 times.
+What to do now
+- Scan your public and internal repositories for secrets, including git history. Rotate every secret you find. A deleted file does not make a leaked secret safe.
+- Replace long-lived cloud keys in your CI secrets with short-lived sign-in tokens (OIDC). Set an expiry on every personal access token.
+- Check your internet-facing systems. None should accept a development or default credential.
+- If anyone in your organization runs ARTEX, find out which copy and which Docker image they installed. One popular copy shipped a back door.
+- Hunt for the indicators at the end of this post. Start with the user agents artex-enrich/1.0 and norma/0.4.
+## What ARTEX Is
+The developer Autumn-27 published ARTEX on GitHub as Autumn-27/ARTEX under the AGPL-3.0 open-source license. The same developer wrote ScopeSentry, a Chinese asset-discovery and vulnerability-scanning platform. Censys describes ARTEX as an AI layer on top of ScopeSentry. The project and its documentation use Chinese, so some outlets call ARTEX "Chinese-made". No source we read establishes more about the developer. People of several nationalities use the tool, including a South Korean former penetration tester whom Seoul police arrested in October.
+Version 0.3.15, the last open-source release, works like this:
+- One program with a web console. A Go server, a Next.js web interface and a PostgreSQL database run together, usually in Docker. The console and its API listen on port 8787. The supplied Docker Compose file opens port 8787 on every network interface. On a rented server, the console faces the internet the moment you start ARTEX.
+- A team of agents. One agent turns the operator's goal into objectives and sets the scope. A planner agent breaks the objectives into attack steps. Worker agents, three per task by default, each take one step and run real tools such as nmap, a shell and an HTTP client. The workers write back their results. A chat agent lets the operator steer. A retest agent checks findings a second time. ARTEX keeps two maps as the work runs: one of the target's assets, one of the steps already tried.
+- No AI model of its own. The operator connects ARTEX to Anthropic, OpenAI, or any service with the same interface. CrowdStrike and others found attackers running ARTEX mostly on DeepSeek models from resellers.
+- Soft safety limits. The original blocks .gov and .edu targets by default and holds risky actions for approval. CERT-EU [52] found "no hard technical enforcement" of scope. At least one fork advertises the removal of the blocklist.
+On October 7, CrowdStrike linked ARTEX to the breach of a South Korean finance company. At 10:50 UTC on October 8, the author posted a notice. The notice said attackers had abused the tool, ARTEX would go closed-source, and no new releases would follow. The repository came down the same day.
+The takedown came too late. GitGuardian counted 102 forks and ARTEX-named repositories in the takedown week alone. The largest surviving copies each have thousands of stars. Several outlets wrote this week about a deletion "at the end of October". The primary sources all give October 8.
+## Timeline
+Date (2026)Event
+July 26ARTEX appears on GitHub.
+AugustMicrosoft sees an AI attack framework send large volumes of secret searches to GitHub. Google's incident responders first see ARTEX in late August. A South Korean criminal ring starts using AI tools, mostly ARTEX, against more than 90 organizations.
+SeptemberStorm-0940, a Chinese state-aligned group, starts using ARTEX. An agent breaches DIVD, the Dutch Institute for Vulnerability Disclosure. The agent takes full control of a server in 12 minutes with two unknown flaws in the Zammad help-desk software.
+Late September to early OctoberAttacks hit South Korean lenders, including Shinhan, KB Kookmin, Hana, Yegaram Savings and BNK Busan.
+October 7CrowdStrike links ARTEX to the Korean finance attacks.
+October 8The author takes ARTEX closed-source and removes the repository. By evening, a copy on GitHub installs a backdoored Docker image.
+October 10 to 14Storm-0940 runs an ARTEX password-guessing campaign: more than 151,000 failed sign-ins against 327 accounts, at up to 2,900 attempts a minute.
+October 15Seoul police arrest the leader of the Korean ring. The ring stole 8.2 million records.
+October 17VAPOR PANDA, a China-linked group CrowdStrike tracks, starts an 11-day ARTEX campaign against more than 200 organizations in 14 countries.
+October 21Microsoft ties Storm-0940 and ARTEX to the compromise of the ConnectWise Cloud Backup application.
+October 25 to 30A researcher's ARTEX agent gets into a WorkOS internal tool and pulls records in bulk.
+November 4CERT-In warns Indian financial and crypto firms about Crafty Falcon, a group using ARTEX with other AI attack tools. BadByte researchers publish details of the backdoored Docker image.
+November 5Microsoft reports AI agents hunting GitHub for secrets. Censys counts 1,465 exposed ARTEX consoles. Docker removes the backdoored images.
+November 6Microsoft reports Storm-3358, a Cambodia-based criminal group, using ARTEX against Southeast Asian financial firms. WorkOS names a researcher as the source of its breach.
+November 9 to 12GitGuardian lists about 45 similar frameworks. Unit 42 describes how to spot ARTEX traffic. The Hacker News, citing Arctic Wolf, reports attacks with AntiFox, a tool built on ARTEX code.
+## Who Uses ARTEX
+No single group owns ARTEX. Researchers and victims have published these cases:
+WhoReported byWhat happened
+Storm-0940 (China state-aligned)Microsoft [53], Wiz [54]Targeted hundreds of organizations in aerospace, defense, energy, finance, government, software and other sectors. In several cases, the group reached privileged cloud access less than three hours after first targeting the victim. The group stole the credentials of the ConnectWise Cloud Backup application. Customers had already granted this application access to their Microsoft 365 data. The group then used ARTEX to attempt sign-ins to more than 2,250 customer tenants. A tenant is one customer's own Microsoft cloud environment. Wiz has since seen the group target other technology and software vendors.
+VAPOR PANDA (China-linked)CrowdStrike [55]Hit more than 200 organizations in 14 countries in 11 days, mostly government and defense. CrowdStrike confirmed follow-on activity at nine. One intrusion used about 1.4 billion tokens of AI model input. The operators told the agents to skip machines running CrowdStrike's own sensor.
+Unnamed actor, Korean financeCrowdStrike [56], Censys [57]Broke into a loan-inquiry service for brokers at one bank and an employee mobile system at another. The attacker left ARTEX settings and AI session logs in an open web directory. Censys says the directory sat in public view from August 18.
+Storm-3358 (Cambodia-based, criminal)Microsoft [58]Has targeted financial firms, mainly in Southeast Asia, since October. ARTEX agents exploited two kinds of web application flaw: anonymous file uploads, and flaws where the server sends requests for the attacker. The agents then installed open-source remote access tools.
+Crafty Falcon (criminal)CERT-In advisory CIAD-2026-0058Targets Indian lenders, fintechs, payment firms and crypto exchanges. The group enters through test and staging systems on the internet. From there, credentials and tokens shared with production carry the group into production. CERT-In lists two more ways in: stolen long-lived, hard-coded API tokens, and forged commits to source code repositories.
+Korean criminal ringSeoul Metropolitan Police, via BleepingComputer [59]Seven suspects, more than 90 Korean organizations, 8.2 million records and 38 ransom demands. The ring used ARTEX in most attacks after late August.
+A security researcherWorkOS [60]An agent running benchmark tests "escaped its isolated testing environment". The agent found a WorkOS internal sales tool on the internet and logged in with a guessable development credential. The agent then pulled contact details, account histories and summaries of customer conversations. The researcher came forward and deleted the data.
+Google's threat intelligence team [61] lists ARTEX among several frameworks of this kind, with PentAGI, HexStrike and Cairn. Both extortion gangs and espionage groups use them. In one case, Google saw attackers go from one compromised account to deep access in 15 minutes. GitGuardian counts about 45 open-source tools in the same category.
+## Why Leaked Secrets Are the Fastest Way In
+Most ARTEX techniques are old: scanning, password guessing, exploits for known web flaws. The agents add speed and persistence. They work around the clock, try several paths at once, and fix their own mistakes. Microsoft watched one agent send a malformed request to Azure, get an error, and send a corrected request about 28 seconds later.
+Speed matters most when the attacker breaks nothing at all. A working credential sitting in the open gives the agent everything.
+### Secrets in public code
+Microsoft's November 5 report [62] shows the pattern:
+- Since August, attackers have used an AI attack framework to send large volumes of searches to GitHub.
+- The searches combine a target company's name with words such as "secret" and the names of cloud and AI providers.
+- The agents look for an application's client secret, the password an app uses to sign in to Microsoft Entra ID.
+- With the secret, the agents sign in as the application and go straight for anything holding more credentials: storage account keys, connection strings, Kubernetes credentials and Key Vault contents.
+- In at least one case, the agent went from a GitHub search to data theft from Azure Key Vault in five minutes.
+Microsoft's advice: "removing the original disclosure alone does not remediate the exposure." Treat every secret you ever exposed as stolen, and rotate the secret.
+GitGuardian adds a detail with direct impact on your defense. GitGuardian read the ARTEX code [63] and found no secret-hunting feature. Its only call to the GitHub API checks for updates. GitGuardian then ran ARTEX in a sealed lab with nine planted secrets. In every run where ARTEX acted, the agents found eight of the nine, including an AWS key from git history. The AI model decided by itself to search code and history for credentials, with the shell and web access every such tool gives its agents.
+Blocking one tool's features will not stop this. Leave nothing to find.
+### Development credentials in production
+No nation-state hit WorkOS. A researcher's agent wandered onto an internal tool with no reason to face the internet. The tool accepted "a weak credential intended for local development". The WorkOS incident report [64] lists four failures:
+- The tool faced the internet.
+- The tool accepted a predictable credential.
+- The tool had no rate limits.
+- Nobody noticed the access for five days.
+The first open item on the WorkOS fix list: "controls to stop weak or development-only secrets from being deployed to production systems."
+The CERT-In advisory on Crafty Falcon describes the same pattern at scale. Attackers enter a test or staging environment, find credentials valid in production, and move across. The first CERT-In recommendation: share no credentials, tokens or API keys between test and production.
+### Trusted application credentials
+The ConnectWise case shows the same pattern one level up. Storm-0940 did not breach 2,250 customers one at a time. The group stole the credentials of one application all of them already trusted, then used ARTEX to try those credentials everywhere at once.
+Google's guidance for ARTEX-style attacks names code repositories and CI/CD pipelines as targets. Google recommends you move from classic GitHub personal access tokens to fine-grained tokens, or to short-lived GitHub Actions sign-in tokens, wherever possible.
+## A Backdoored Copy of the Attack Tool
+The takedown created a supply chain problem of its own. People still wanted ARTEX after the original disappeared. Someone stepped in to supply a copy.
+BadByte researchers traced the sequence [65]:
+- On the evening of October 8, eight hours after the author's notice, a new Docker Hub account called tomicdd pushed an ARTEX image.
+- Less than an hour later, a GitHub account uploaded a copy of the ARTEX source with one line changed. The Docker Compose file now pulled tomicdd/artex instead of the official image.
+- The new README called the copy the maintained successor and recommended a Docker install.
+- The repository gained about 1,100 stars in two days. Roughly as many later disappeared. GitHub most likely removed them as fake.
+The source code in the repository matched the original, so a code review found nothing. The back door lived only in the prebuilt image. An extra function runs any command sent in the login form, as root, before ARTEX checks the password.
+- Users pulled the backdoored image about 9,131 times. Docker removed the image on November 5, along with an identical second image, congdonglinux/artex.
+- BadByte found 62 internet-facing consoles running the backdoored build. 637 GitHub repositories still point their Compose files at the image. Copies already pulled or cached on mirrors still carry the back door.
+- A package in a third-party app store kept republishing the backdoored image through a daily update job. The job pinned the backdoored image's exact digest.
+Most people who installed the copy wanted to attack others. The lesson still applies to every team running open-source security tools:
+- A clean repository will happily point at a malicious image.
+- Anyone with money buys stars.
+- A pinned dependency protects you only if the version you pinned was safe.
+## How to Spot ARTEX Activity
+Traffic against your systems. Unit 42's November 11 report [66] describes a distinct rhythm. The agents send bursts of 1 to 14 requests about a second apart, then pause for 25 to 31 seconds while the model decides the next step. Unit 42 lists other signs:
+- More than 200 application client secrets tested in about three minutes.
+- Test inputs such as [defanged indicator withheld] and test@[defanged indicator withheld].
+- Storage tests where the agent writes a file and deletes the file at once.
+Unit 42 also saw campaigns reach cloud access through password reset pages and exposed APIs "without exploiting a single software vulnerability." The user agents artex-enrich/1.0 and norma/0.4 appear in both the WorkOS and Wiz indicators. Norma is the agent toolkit under ARTEX.
+Consoles on the internet. You find an ARTEX console on port 8787. The page title starts with "ARTEX" or ends in "自主渗透测试控制台" ("autonomous penetration testing console"). This week's counts:
+- Unit 42: 609 hosts, as of October.
+- Censys: 1,465 hosts, November 4.
+- BadByte: 1,645 hosts, November 4.
+- SOCRadar: 916 hosts in the United States alone, November 11.
+Each team used a different method and date, so the counts differ. Some exposed consoles belong to legitimate testers. Censys found 155 running next to other attack tools such as Cobalt Strike, and 32 with open directories serving exploit kits and implants.
+Inside your own network. CERT-In flags AI model API traffic from servers and other non-development machines as a sign of attack infrastructure or a planted operator console. If one of your servers starts calling an AI provider's API with no business reason, investigate.
+## Indicators of Compromise
+These indicators come from the primary reports. ARTEX infrastructure changes fast. Use the IP addresses to start a search, not as a complete list. We write addresses with [.] to stop them from turning into links.
+IndicatorTypeSource
+91.92.[defanged indicator withheld], 85.11.[defanged indicator withheld], 178.16.[defanged indicator withheld], 31.77.[defanged indicator withheld] servers (Storm-3358)Microsoft, Nov 6
+199.19.[defanged indicator withheld] sign-ins with credentials found on GitHubMicrosoft, Nov 5
+65.87.[defanged indicator withheld], 157.22.[defanged indicator withheld] attempts and reconnaissance against Azure AI workloadsMicrosoft, Nov 5
+144.172.[defanged indicator withheld], 144.172.[defanged indicator withheld], 144.172.[defanged indicator withheld] infrastructureMicrosoft, Oct 21, and Wiz
+38.244.[defanged indicator withheld] server, Korean finance attacksCrowdStrike, Oct 7
+154.64.[defanged indicator withheld], 183.1.[defanged indicator withheld], 95.169.[defanged indicator withheld], 203.190.[defanged indicator withheld] of the WorkOS requestsWorkOS, Nov 6
+artex-enrich/1.0, norma/0.4, Mozilla/5.0 (compatible; ArtEx/1.0), Mozilla/5.0 (compatible; infra-hunt/1.0), verify-911-probe/1.0HTTP user agentsWorkOS, Nov 6 (norma/0.4 also Wiz)
+t13d3013h1_1d37bd780c83_8537cf56674e, t13d3013h2_1d37bd780c83_8537cf56674e, t13d3014h1_1d37bd780c83_5ae85263eb3bTLS client fingerprints (JA4)WorkOS, Nov 6
+tomicdd/artex, congdonglinux/artexBackdoored Docker imagesBadByte, Nov 4
+d5070f52262effe216b840711343bff8f2787f39208d887d8dfd9c673f8d1573SHA-256 of the backdoored /app/artex programBadByte, Nov 4
+Port 8787, page title starting ARTEX or containing 自主渗透测试控制台ARTEX consoleCensys, SOCRadar, ARTEX source
+Microsoft lists two Entra ID sign-in errors as early warnings:
+- AADSTS7000215: wrong client secret.
+- AADSTS7000222: expired client secret.
+Either error means someone holds a credential for your application. Treat a failure followed by a success as urgent.
+## How StepSecurity Helps
+ARTEX agents get in fastest with long-lived credentials. StepSecurity helps you find and remove those credentials in your GitHub organization and CI/CD pipelines, and alerts you when someone abuses a personal access token.
+### 1. Fewer long-lived secrets in GitHub Actions
+Google recommends short-lived GitHub Actions sign-in tokens (OIDC) in place of stored keys. With OIDC, a workflow signs in to your cloud provider with a short-lived token. You store no key, so no key leaks.
+The Actions Secrets [67] page lists your organization, repository and environment secrets with the days since each secret's last rotation. For repository and environment secrets, you also see:
+- Whether any workflow still uses the secret.
+- Whether OIDC would replace the secret.
+StepSecurity reads secret names and dates only, never secret values. Start with unused secrets and with cloud keys ready to move to OIDC.
+[image: StepSecurity Actions Secrets page, Repository Secrets tab, with summary cards for total, unused, stale and OIDC-replaceable secrets, and a table showing days since last rotation, usage status, referencing workflows and OIDC availability for each secret]
+The Repository Secrets tab. Each row shows days since rotation, usage status and the workflows using the secret. Two AWS keys show OIDC Available, so you replace them with short-lived sign-in tokens.
+### 2. Personal access tokens: govern them and catch abuse
+Google recommends you move from classic personal access tokens (PATs) to fine-grained tokens. CERT-In lists stolen long-lived API tokens among the Crafty Falcon ways in. The Apps & PATs [68] page shows the GitHub Apps and fine-grained tokens with access to your organization, plus classic tokens authorized through SAML single sign-on, with the permissions or scopes of each. PAT governance checks flag:
+- Classic tokens with broad scopes such as repo or admin:org, and fine-grained tokens with write access to all repositories.
+- Tokens with no expiry.
+- Tokens older than your maximum age.
+- Tokens nobody has used recently.
+[image: StepSecurity Apps and PATs page, Fine-Grained PATs tab, listing each token's owner, name, permissions, repository access, creation date, expiry and last use, with filters for owner, permissions, access, status, last used and policy]
+The Fine-Grained PATs tab. You see each token's owner, permissions, repository access, expiry and last use, and filter by policy violation.
+For GitHub Enterprise customers, the PAT Abuse [69] detection reads your enterprise audit log every 15 minutes. Each token learns its own normal behavior, and the detection alerts you when:
+- A token appears from a new country.
+- A token's activity jumps far above its own normal level.
+- A token already flagged by your PAT governance policy stays in use.
+An agent with a stolen token works from new places and at machine speed. These detections flag both and name the token, so you know which one to revoke.
+[image: StepSecurity Detections page, PAT Abuse tab, showing counters for open detections, tokens involved, events analyzed and baselines learned, the three detection rules (new country, volume anomaly, use after violation), and detections flagging tokens still in use after a policy violation]
+PAT Abuse detections in a StepSecurity test organization. Each token learns a baseline from the audit log, polled every 15 minutes. Two tokens raised High detections for use after an over-scope and a no-expiry violation.
+### 3. Harden-Runner: secrets in logs, and unexpected outbound calls
+Google also recommends you scan pipelines and build artifacts for secrets. Harden-Runner [70] flags secrets printed in GitHub Actions build logs or packed into uploaded artifacts. Anyone with read access to the run reads both. On a public repository, anyone means everyone.
+[image: StepSecurity Secrets in Build Logs detections listing repository, secret type such as private-key, github-pat, stripe-access-token and slack-webhook-url, workflow file and timestamp]
+Secrets in Build Logs. Harden-Runner names the secret type and the workflow printing the secret, so you know what to rotate.
+Harden-Runner also learns the network destinations each job normally contacts and flags new ones. CERT-In flags AI model traffic from machines with no reason to send such traffic. Harden-Runner applies the same check to your CI runners. Suppose a build job suddenly calls an AI provider or an attacker's upload server. In audit mode, Harden-Runner flags the call as an anomalous network call. In block mode, you give each job a list of allowed destinations, and Harden-Runner blocks the call.
+[image: StepSecurity Detections page, Anomalous Network Calls tab, listing new endpoints contacted by workflows, including the bare IP address [ipv4 withheld] from a Rust build, with workflow file and timestamp]
+Anomalous Network Calls in the StepSecurity demo organization. The top row is a Rust build calling the bare IP address [ipv4 withheld] on port 9089. The job's baseline lists only crates.io, docs.rs, rust-lang.org and GitHub.
+## What to Do Now
+### 1. Remove the easy credentials
+- Scan your repositories for secrets, including forks you control and full git history. Turn on GitHub secret scanning and push protection.
+- Rotate every secret anyone ever committed or printed to a log, even after deleting the commit.
+- Move cloud access in CI from stored keys to OIDC. Set an expiry on every personal access token, prefer fine-grained tokens, and revoke unused ones.
+- Move Microsoft Entra ID applications from client secrets to managed identities or certificates wherever possible.
+- Check every internet-facing system, especially internal tools and test or staging environments. None should accept a default, development or shared credential.
+### 2. Hunt for ARTEX activity
+- Search web, proxy and API gateway logs for the user agents and IP addresses in the table above, and for the request rhythm Unit 42 describes.
+- Review application (service principal) sign-ins in Entra ID. Look for the AADSTS7000215 and AADSTS7000222 errors, and for one IP address signing in as several applications.
+- Look for servers in your environment calling AI model APIs with no reason to.
+### 3. If your team runs ARTEX
+Some security teams now test their own systems with ARTEX. WorkOS does. If your team does too:
+- Check which copy and which Docker image your team installed. An install from tomicdd/artex or congdonglinux/artex, or from a Compose file pointing to either image, has a back door giving anyone root on the host. Rebuild the host and rotate every AI provider key and credential stored in the console.
+- Keep the console off the internet. Bind port 8787 to localhost and reach the console over a VPN or SSH tunnel. Finish the admin setup before the console accepts connections from anywhere else.
+- Enforce the scope with network controls, not only with the tool's own settings. The WorkOS breach started when a researcher's agent left its test environment.
+Blog
+## Explore Related Posts
+‍
+[image: OPTIMJACK: a tampered script tile with a warning sign, an arrow, and a wallet with a card and a swap badge]
+## OPTIMJACK: Optimizely-Hosted Scripts Loaded a Crypto Clipper and Card Skimmer on 178 Organizations
+Optimizely confirmed that an attacker injected malicious JavaScript into customer projects, which served a crypto address swapper and card skimmer to visitors of more than 170 organizations, including CNN, BBC, Zoom, Salesforce and GitLab. We traced the payload, the iOS infrastructure and the wallets.
+Owais Shaikh
+View LinkedIn
+[71]
+November 17, 2026
+Read
+[72]
+[73]
+## New StepSecurity Control: Audit GitHub Fork PR Workflow Approval Policies
+StepSecurity’s new control flags GitHub organizations and public repositories that let fork pull request workflows run without approval.
+Vamsi Krishna
+View LinkedIn
+[74]
+November 16, 2026
+Read
+[75]
+[76]
+[image: WPPConnect Compromised: a teal GitHub tag box with a check mark next to a purple npm tarball box with a warning sign, with a not-equal sign between them and the text Same version. Different code.]
+## WPPConnect Compromised: Malicious Releases Steal Secrets and WhatsApp Sessions Through the Project's Own Pipeline
+Two npm releases of the WPPConnect WhatsApp libraries, a GitHub nightly build and Docker images carried a module that uploads environment variables, .env files and WhatsApp session tokens to a Telegram bot. The npm releases went out through the project's own trusted-publishing workflow. After the code was reported, the Git history was rewritten so the release tag no longer shows it.
+Owais Shaikh
+View LinkedIn
+[77]
+November 16, 2026
+Read
+[78]
+[79]
+[image: StepSecurity | Home] [80]
+LinkedIn
+[81]
+Github
+[82]
+X
+[83]
+Request a Demo
+[84]
+Start Free
+[85]
+System Status [86]Trust Center [87]
+Docs [88]Pricing [89]
+Contact Us [90]Product Tour [91]
+© 2026 All rights reserved
+Privacy Policy
+[92]
+Terms of Service
+[93]
+Our first annual report: The State of Open Source Supply Chain Attacks. Read it → [94]

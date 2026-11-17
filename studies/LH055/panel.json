@@ -1,0 +1,15 @@
+{
+  "study": "LH055",
+  "locked_at": "2026-11-17T20:32:32Z",
+  "locked_by": "Claude Code driver (Anthropic cloud), run 2026-11-17T202935Z-anthropic-artex",
+  "note": "Locked at the baseline, before any prospective read. P01 to P05 are the brief's fixed endpoints. P06 and P07 were chosen after the retrospective outcomes were seen (purposive, outcome-informed), with the reasons below; the brief allows up to three. No endpoint was replaced. Check Point (P05) returned HTTP 429 at the baseline; it stays on the panel and is read on the dated read days, never retried within a read.",
+  "endpoints": [
+    {"panel_id": "P01", "source_id": "S01", "url": "https://www.ic3.gov/CSA/2026/261113.pdf", "publisher": "FBI (IC3)", "reason": "brief"},
+    {"panel_id": "P02", "source_id": "S02", "url": "https://aws.amazon.com/blogs/security/amazon-threat-intelligence-observes-threat-actors-running-cybercrime-campaigns-with-artex-ai-agents/", "publisher": "Amazon", "reason": "brief"},
+    {"panel_id": "P03", "source_id": "S03", "url": "https://www.microsoft.com/en-us/security/blog/2026/11/06/artex-abuse-expands-as-cybercriminals-target-financial-sector/", "publisher": "Microsoft", "reason": "brief"},
+    {"panel_id": "P04", "source_id": "S04", "url": "https://censys.com/blog/artex-agentic-asbestos/", "publisher": "Censys", "reason": "brief"},
+    {"panel_id": "P05", "source_id": "S05", "url": "https://research.checkpoint.com/2026/hacking-on-autopilot-inside-artex-cybercrime-campaigns/", "publisher": "Check Point Research", "reason": "brief"},
+    {"panel_id": "P06", "source_id": "S06", "url": "https://isc.sans.edu/diary/33332", "publisher": "SANS Internet Storm Center", "reason": "Contrasting mechanism case: a honeypot capture by a different publisher of an agent validating stolen inference and re-serving it behind its own gateway, the loop's integration link observed directly; the diary does not tie it to ARTEX, so it tests whether the loop is specific to one framework's reporting. Added for its mechanism link, with low expected change."},
+    {"panel_id": "P07", "source_id": "S07", "url": "https://www.stepsecurity.io/blog/artex-ai-pentesting-tool-attackers-leaked-secrets", "publisher": "StepSecurity", "reason": "Secondary synthesis that names campaigns and primary sources absent from the brief's five (WorkOS, CERT-EU, GitGuardian, CERT-In, a backdoored copy, a research agent that left its test environment). A locator for new primary reports during the window; it supplies no independent corroboration."}
+  ]
+}
