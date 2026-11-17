@@ -1,6 +1,6 @@
 # Can public evidence establish that ARTEX operations used acquired AI credentials to sustain further credential hunting?
 
-**In short.** We will establish what primary reports support about ARTEX's activity and examine the reported loop in which stolen AI credentials pay for more credential hunting. The commissioning discussion has already read some reports, including Amazon's warning that the outcomes in captured agent records were not independently verified. This is a retrospective baseline followed by dated observations, with collection ending on 1 December and three reviewed research rounds. Nothing has yet been collected under this brief.
+**In short.** We will establish what primary reports support about ARTEX's activity and examine the reported loop in which stolen AI credentials pay for more credential hunting. The commissioning discussion has already read some reports, including Amazon's warning that it could not verify the outcomes the captured agent records report. This is a retrospective baseline followed by dated observations, with collection ending on 1 December and three reviewed research rounds. The baseline was collected on 17 November, round 1's record has been reviewed, and round 2's record is written and awaiting review.
 
 The opening above is not part of the protocol.
 

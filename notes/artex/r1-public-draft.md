@@ -4,6 +4,8 @@ date: 2026-11-17
 
 # ARTEX round 1, proposed public surfaces
 
+**Applied 17 November 2026** (commit 77dffb9), after the recheck cleared these texts; this file keeps them as cleared. Later the same evening the reseller sentence on the investigation page and in programme.md was narrowed to CrowdStrike's own words ("probably reached its AI model through a reseller or proxy"), as round 2's record explains, and the investigation paragraph's "Next" sentence was updated after round 2 ran.
+
 **In short.** Round 1 of the ARTEX study ends in a reviewed record, not an article: the answer so far is inconclusive, and a piece would mostly restate one company's report. These are the exact words proposed for each public surface once the reviews clear. Nothing here is on the site yet.
 
 ## 1. Study page opening (the record's In short, which the site shows first)

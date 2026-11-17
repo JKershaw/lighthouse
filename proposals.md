@@ -584,6 +584,8 @@ From [2026-11-17T1414Z](notes/horizon/2026-11-17T1414Z.md); every claim reported
 - L-0131 (same visit) All four front-page investigation cards say "No study running" beside "latest read 17 November" and twice-weekly reads; the label seems to count released or answered studies only and reads as a contradiction. Kind: editorial (site).
 - L-0132 (same visit) The this-week page's "On watch" list dated WordPress's latest read to 14 November and still listed the bee-js and WordPress watches as being looked into after their last daily reads; check how that list is built. Kind: editorial (site).
 - L-0133 (same visit) The outage's dates differ between pages: This week says Microsoft 365 was disrupted from 12 to 14 November, the watch's readings call it the 13 November outage; the watch should fix one dating, with its source, when the report arrives. The reader also could not find what Lighthouse costs to run, who funds it, or how a journalist reaches a person. Kind: editorial.
+- L-0134 (editor's visit, 17 November 2026, evening) On a phone, a study record's page puts its whole metadata block (status, authors, instruments, overlap) before the In short opening, which on the ARTEX record starts about 2,940 pixels down; the plain opening a newcomer needs comes after a screenful of record-keeping. Kind: editorial (site).
+- L-0135 (same visit) A journalist wanted one quotable paragraph on what ARTEX is (who made it, when, what it does) and could not find it on the ARTEX pages; the record carries the facts across several tables. Kind: editorial (piece or investigation page), for round 2's publication stage to weigh.
 
 ## Declined, parked and expired
 

@@ -21,5 +21,6 @@ date_utc,run_id,component,amount,currency,basis,note
 2026-11-17,2026-11-17T141414Z-anthropic-daily,subagents_sonnet,,,unavailable,six Sonnet 5.5 horizon scouts; prices.json has no Sonnet 5.5 rate
 2026-11-17,2026-11-17T141414Z-anthropic-daily,editor_reader,0.54,USD,list_rate_estimate,"editor's visit reader, one Opus 5.5 subagent, hb tokens"
 2026-11-17,2026-11-17T201609Z-openai-artex-commissioning,driver,,,unavailable,"Commissioning and registration; runtime usage pricing unavailable, not zero."
-2026-11-17,2026-11-17T202935Z-anthropic-artex,driver,5.69,USD,list_rate_estimate,hb drivercost from 20:29 UTC to the round 2 commit; output tokens estimated from characters
+2026-11-17,2026-11-17T202935Z-anthropic-artex,driver,7.07,USD,list_rate_estimate,hb drivercost from 20:29 UTC through the editor step; output tokens estimated from characters
 2026-11-17,2026-11-17T202935Z-anthropic-artex,subagents_work,14.74,USD,list_rate_estimate,"six Opus 5.5 subagents priced by hb tokens: round 1 record 3.98, evidence review 2.37, resolution 1.65, reader review both stages 0.79, recheck 1.58, round 2 audit 4.37"
+2026-11-17,2026-11-17T202935Z-anthropic-artex,editor_reader,0.76,USD,list_rate_estimate,"editor's visit reader, one Opus 5.5 subagent, hb tokens"
