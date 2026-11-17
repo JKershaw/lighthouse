@@ -1,0 +1,71 @@
+== A. fetch log: bytes, hashes, timings
+S01 status 200 bytes 540485 start 2026-11-17T20:30:48Z finish 2026-11-17T20:30:50Z | retained-body sha256 = retained_sha256 | received==retained hash: True | retained bytes 540485
+S02 status 200 bytes 1452605 start 2026-11-17T20:30:50Z finish 2026-11-17T20:30:51Z | retained-body sha256 = retained_sha256 | received==retained hash: False | retained bytes 1452833
+S03 status 200 bytes 310894 start 2026-11-17T20:30:51Z finish 2026-11-17T20:30:52Z | retained-body sha256 = retained_sha256 | received==retained hash: False | retained bytes 311143
+S04 status 200 bytes 181902 start 2026-11-17T20:30:52Z finish 2026-11-17T20:30:52Z | retained-body sha256 = retained_sha256 | received==retained hash: False | retained bytes 183155
+S05 status 429 bytes 5860 start 2026-11-17T20:30:52Z finish 2026-11-17T20:30:53Z
+S06 status 200 bytes 42389 start 2026-11-17T20:31:36Z finish 2026-11-17T20:31:37Z | retained-body sha256 = retained_sha256 | received==retained hash: False | retained bytes 42430
+S07 status 200 bytes 197119 start 2026-11-17T20:31:37Z finish 2026-11-17T20:31:38Z | retained-body sha256 = retained_sha256 | received==retained hash: False | retained bytes 197474
+sum of received_bytes over all 7 GETs (incl. the 429 body): 2,731,254
+sum over the six 200 responses only: 2,725,394
+robots decision files: 7
+
+== B. claims.csv passages and locators (independent check, exact substring after whitespace squash)
+98 claims; 0 passages not found at their locators
+unique ids: 98; first LH055-C001; last LH055-C128
+by source: {'S01': 14, 'S02': 29, 'S03': 6, 'S04': 16, 'S06': 14, 'S07': 19}
+basis labels: {'publisher interpretation': 63, 'direct telemetry described by the publisher': 27, 'agent-reported action/outcome': 14, 'operator instruction/intent': 8}
+
+== C. links.csv tallies
+rows: 42
+all: {'supported': 1, 'claimed': 11, 'contradicted': 0, 'unknown': 30}
+ARTEX incl. unread S05 (exclude S06): {'supported': 0, 'claimed': 6, 'contradicted': 0, 'unknown': 30}
+ARTEX read (S01-S04, S07): {'supported': 0, 'claimed': 6, 'contradicted': 0, 'unknown': 24}
+S02 only: {'supported': 0, 'claimed': 6, 'contradicted': 0, 'unknown': 0}
+S06 only: {'supported': 1, 'claimed': 5, 'contradicted': 0, 'unknown': 0}
+link claim-id problems: []
+
+== D. Censys figures, read from the text
+  ['As of November 4, 2026, Censys observed 1,465 hosts']
+  ['As of November 3, 2026, this matches 1,465 hosts']
+  ['About 650 sit in two blocks']
+  ['roughly 815 distinct-looking']
+  ['155 ARTEX hosts (10.6%)']
+  ['PEG Tech (AS54600): 493 hosts']
+  ['Yancy Limited (AS138415): 157 hosts']
+  ['about 44% of hosts']
+  ['43 ARTEX hosts also run self-hosted LLM gateway or reseller software, mainly CLIProxyAPI (19) and New API (18)']
+  ['1,931']
+  ['Between November 3 and November 5, 10 closed and 15 new']
+  ['Censys observed 32 open directories']
+  493+157=650; 1465-650=815; 650/1465=0.4437; 155/1465=0.1058; 43-(19+18)=6
+  country figures [726, 387, 177, 51, 38, 21], sum 1400
+
+== E. SANS channel arithmetic
+  ['roughly 379 upstream endpoints'] ['disabled the 341 that failed'] ['approximately 43 KB']
+  379-341=38 (derived; 'roughly 379' so the remainder is approximate); share failed 0.900
+
+== F. IOC date ranges
+  Amazon Campaign 1: 5 rows; first-seen min 2026-10-14; last-seen max 2026-11-02
+  Amazon Campaign 2: 6 rows; first-seen min 2026-10-14; last-seen max 2026-10-19
+  Microsoft: 8 rows; first seen 2026-10-19 to 2026-11-04; active as of {'2026-11-06'}
+
+== G. FBI notes and console-count citation
+  numbered notes in the Notes section: 11; any line naming Amazon in the FLASH: False
+  1,600 sentence: availability to threat actors.3,10 As of early November 2026, researchers identified over 1,600 publicly exposed ARTEX console instances, with total deployments likely significantly higher when including systems behind firewalls or in private networks.9
+  StepSecurity console counts: [('Unit 42', '609'), ('Censys', '1,465'), ('BadByte', '1,645'), ('SOCRadar', '916')]
+
+== H. Amazon caveat, exact
+  S02 line 92: ...lligence assessed threat activity referencing potentially affected AWS customers and notified them as appropriate. Because activity against other organizations could not be confirmed, this post shares the findings and indicators of compromise (IOCs) so that organizations that run...
+  S02 line 93: ... use to sustained, multi-objective offensive operations that run with minimal human intervention. This post describes how these campaigns operated based on the agents’ own descriptions of the campaigns....
+  S02 line 95: ...Amazon Threat Intelligence assesses with moderate confidence that ARTEX was used for these campaigns due to prompt references to ARTEX tooling and other technica...
+  S02 line 99: ...urred before and between the captured requests, on systems MadPot does not monitor. Amazon Threat Intelligence did not observe that activity as it happened and cannot verify the outcomes the agents reported, but the records show what the actors were pursuing....
+  S02 line 111: ...None of the techniques in these campaigns were new. What AI agents change is the speed and persistence of the attacker. The agents succeeded where basic security hygiene was missing, including default or hardcoded credentials, keys left in code and pu...
+
+== I. Passages bearing on 'every source that speaks to control' and 'agents spreading themselves'
+  S07 line 92: ...ol where AI agents run a penetration test on their own. Since August 2026, state-aligned groups, criminal crews and one runaway research agent have pointed ARTEX at hundreds of organizations. In one case, an agent went f...
+  S07 line 111: ...t admin access to the web portal". The agents plan the attack, run scanning and exploit tools, and record each finding. A person only steers....
+  S07 line 115: ...- A security researcher's agent escaped its test environment and pulled customer data from a company's internal sales tool....
+  S07 line 157: ...rike confirmed follow-on activity at nine. One intrusion used about 1.4 billion tokens of AI model input. The operators told the agents to skip machines running CrowdStrike's own sensor....
+  S07 line 162: ...A security researcherWorkOS [60]An agent running benchmark tests "escaped its isolated testing environment". The agent found a WorkOS internal sales tool on the inter...
+  S07 line 175: ...In every run where ARTEX acted, the agents found eight of the nine, including an AWS key from git history. The AI model decided by itself to search code and history for credentials, with the shell and web access every su...
