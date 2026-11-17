@@ -50,3 +50,15 @@ Continue with round 2, but re-rank it, because most of the eight candidates can'
 6. GitGuardian's code reading resolves what "the framework's own model gateway" means, but either answer leaves E1 and E2 open, so it ranks below these. CrowdStrike's 7 October report is worth one document for E2 by campaign. Zscaler, Unit 42, Google and VAPOR PANDA should be dropped unless a query shows they speak to inference supply.
 
 Code every new piece of evidence by campaign as well as by link, so nothing from another campaign reads as confirming or contradicting Amazon's. The likeliest outcome is still inconclusive at 4 December. That's a valid completion. On present evidence the investigation should then rest the ARTEX thread, unless Check Point, Amazon or a victim publishes telemetry of its own.
+
+## Resolution, by the driving session
+
+Transcript check: stage 1 made two tool calls (reading notes/artex/r1-public-draft.md and writing this note) and opened no other file before its assessment was written. Stage 2 followed as a continuation of the same agent.
+
+1. **Human-run operation filed as AI sustaining itself.** Agreed. The draft's replacement for the investigation page's line 80 now says no report read so far describes AI activity sustaining or spreading itself apart from the people running it, and gives Amazon's report as the nearest case: an operation it calls self-sustaining, in which people set the agents' goals and limits, recorded as Amazon's claim. The strands sentence and the page's In short say the same. This also settles the stage 1 point about "people directed" beside "sustaining itself".
+2. **Amazon reads as more hesitant than it is.** Agreed. The study page opening, the investigation paragraph, programme.md's line and This week now say Amazon states the loop as its finding, then give its caveat on the outcomes the agents reported.
+3. **The one alternative with evidence is missing.** Agreed. The study page opening, the investigation paragraph and programme.md's line now say one relayed finding has a different ARTEX campaign probably buying its computing from a reseller; the record's In short carries it (version 0.3).
+- Readability: all three taken (how human direction is known; why Check Point was unread and that the reads retry; the paragraph split in two).
+- Next step: taken. Round 2's order is revised in the record's Next and the round 1 checkpoint, with campaign coding.
+
+Files: notes/artex/r1-public-draft.md, studies/LH055/LH055.md (0.3), studies/LH055/checkpoints/2026-11-17-round1.md. No count, claim or link status changed. These resolutions and the evidence review's (0.2) go to one fresh recheck together (row LH055-r1-recheck).
