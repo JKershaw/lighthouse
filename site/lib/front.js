@@ -174,7 +174,9 @@ export function todayLine(source = '', now = new Date(), maxDays = 2) {
   if (!m) return null;
   const day = new Date(`${m[1]}T00:00:00Z`);
   if (Number.isNaN(day.getTime()) || now.getTime() - day.getTime() > maxDays * 86400000) return null;
-  return { iso: m[1], day: new Intl.DateTimeFormat('en-GB', { day: 'numeric', month: 'long', timeZone: 'UTC' }).format(day), sentence: m[2].trim() };
+  // Shown as a dateline ("Wednesday 18 November"), never "today": the page is
+  // static and read in every timezone, so only an absolute day stays true.
+  return { iso: m[1], day: new Intl.DateTimeFormat('en-GB', { weekday: 'long', day: 'numeric', month: 'long', timeZone: 'UTC' }).format(day).replace(',', ''), sentence: m[2].trim() };
 }
 
 // "What we've learned so far", from site/learned.md: a header with `date`,

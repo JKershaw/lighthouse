@@ -44,7 +44,9 @@ export function investigationNow(inv, repo, schedule) {
   const next = open.filter((r) => r.kind === 'observe')
     .sort((a, b) => (a.earliest || '').localeCompare(b.earliest || '') || a.id.localeCompare(b.id))[0] || null;
   const nextWaits = next && WAITING.includes(next.state);
-  const nextDay = next ? (next.earliest && next.earliest > today ? dayLabel(next.earliest) : 'today') : '';
+  // Absolute, so the label stays true however long after the build it is read:
+  // a read to come gives its not-before date, one already due says since when.
+  const nextDay = !next ? '' : !next.earliest ? 'due' : next.earliest > today ? dayLabel(next.earliest) : `due ${dayLabel(next.earliest)}`;
   const waiting = open.filter((r) => WAITING.includes(r.state)).map((r) => ({
     id: r.id, study: r.study, task: r.task, href: r.href,
     reasons: r.reasons || [], unmet_dependencies: r.unmet_dependencies || [],
@@ -61,7 +63,7 @@ export function investigationNow(inv, repo, schedule) {
     studies: studies.length,
     pieces: pieces.length,
     latestRead: latestRead ? { ...latestRead, day: dayLabel(latestRead.iso) } : null,
-    next: next ? { id: next.id, day: nextWaits ? (nextDay === 'today' ? 'waiting' : `${nextDay} (waiting)`) : nextDay, study: repo.studyLabels?.[next.study] || '', reasons: next.reasons || [], waiting: nextWaits, reason: nextWaits ? (next.reasons || []).join('; ') : '' } : null,
+    next: next ? { id: next.id, day: nextWaits ? (next.earliest && next.earliest > today ? `${nextDay} (waiting)` : 'waiting') : nextDay, study: repo.studyLabels?.[next.study] || '', reasons: next.reasons || [], waiting: nextWaits, reason: nextWaits ? (next.reasons || []).join('; ') : '' } : null,
     waiting,
     // Each study with whether it is running and its latest read, newest first.
     studyList: studies.map((s) => {

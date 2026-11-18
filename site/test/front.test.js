@@ -1,6 +1,6 @@
 import { test } from 'node:test';
 import assert from 'node:assert/strict';
-import { frontInfo, homeContent, withoutTitle, thisWeek, LATEST_COUNT, LATEST_ORDER } from '../lib/front.js';
+import { frontInfo, homeContent, withoutTitle, thisWeek, LATEST_COUNT, LATEST_ORDER, todayLine } from '../lib/front.js';
 const finding = {path:'articles/finding.md',url:'/articles/finding/',title:'A finding',section:'articles',status:'released',published:'1 October 2026',summary:'A complete summary with a limit.'};
 const draft = {...finding,path:'articles/draft.md',draft:true,status:'draft'};
 const essay = {...finding,path:'essays/reading.md',section:'essays',essay:true};
@@ -71,4 +71,12 @@ test('README splits into a visible introduction and the background behind the di
   assert.deepEqual(homeContent('<h1>Lighthouse</h1>\n<h2>Only headings</h2>'),{intro:'',background:'<h2>Only headings</h2>'});
   assert.equal(homeContent('<h1>L</h1><p class="x">Why.</p>').intro,'<p class="x">Why.</p>');
   assert.equal(withoutTitle('<h1 id="t">Title</h1>\n<p>Body.</p>'),'<p>Body.</p>');
+});
+
+test('the day\'s line is a dateline with its weekday, never "today", and hides two days after its date', () => {
+  const src = 'title: This week\ntoday: 2026-11-18 | We read things.\n';
+  assert.deepEqual(todayLine(src, new Date('2026-11-18T18:10:00Z')), { iso: '2026-11-18', day: 'Wednesday 18 November', sentence: 'We read things.' });
+  assert.equal(todayLine(src, new Date('2026-11-19T23:59:00Z')).day, 'Wednesday 18 November');
+  assert.equal(todayLine(src, new Date('2026-11-20T00:00:01Z')), null);
+  assert.equal(todayLine('title: This week\ntoday: soon | x\n', new Date('2026-11-18T12:00:00Z')), null);
 });

@@ -29,10 +29,12 @@ test('a current account is the answer, reviewed; otherwise the newest piece is s
   assert.equal(without.pieces, 2);
 });
 
-test('the next read is dated, today when due, and labelled waiting when it waits', () => {
+test('the next read is dated, says since when it has been due, and is labelled waiting when it waits', () => {
   const at = (rows) => investigationNow(inv(), { studies, byPath: {} }, { rows, today: '2026-11-18' }).next;
   assert.equal(at([r('later', 'LH001', 'calendar_wait', { earliest: '2026-11-21' })]).day, '21 November');
-  assert.equal(at([r('due', 'LH001', 'ready', { earliest: '2026-11-18' })]).day, 'today');
+  assert.equal(at([r('due', 'LH001', 'ready', { earliest: '2026-11-18' })]).day, 'due 18 November');
+  assert.equal(at([r('overdue', 'LH001', 'ready', { earliest: '2026-11-16' })]).day, 'due 16 November');
+  assert.equal(at([r('undated', 'LH001', 'ready')]).day, 'due');
   const blocked = at([r('held', 'LH002', 'blocked', { earliest: '2026-11-25', reasons: ['Needs a report'] })]);
   assert.deepEqual([blocked.day, blocked.waiting, blocked.reason], ['25 November (waiting)', true, 'Needs a report']);
   assert.equal(at([r('held-now', 'LH002', 'dependency_wait', { reasons: ['After the read'] })]).day, 'waiting');
