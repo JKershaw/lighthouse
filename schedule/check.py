@@ -11,8 +11,10 @@ import sys
 
 if __package__:
     from .model import aware_instant, canonical_date, evaluate
+    from .roles import ROLES, selection
 else:
     from model import aware_instant, canonical_date, evaluate
+    from roles import ROLES, selection
 
 ROOT = Path(__file__).resolve().parents[1]
 
@@ -22,6 +24,7 @@ def arguments(argv):
     parser.add_argument('date', nargs='?', help='YYYY-MM-DD, evaluated at midnight UTC')
     parser.add_argument('--now', help='timezone-aware ISO instant (incompatible with date)')
     parser.add_argument('--root', type=Path, default=ROOT, help='repository or fixture root')
+    parser.add_argument('--role', choices=ROLES, help='select work without changing global readiness')
     parser.add_argument('--json', action='store_true', help='emit readiness contract version 1')
     return parser.parse_args(argv)
 
@@ -39,8 +42,11 @@ def human(report, root):
     rows = {row['id']: row for row in report['rows']}
     def tasks(identities):
         return [f'{identity}  [{rows[identity]["earliest"] or "any time"} to {rows[identity]["latest"] or "open-ended"}]  {rows[identity]["task"]}' for identity in identities]
-    show('Due now (ready)', tasks(report['ready']))
-    show('Overdue (ready; follow the brief or mark missed)', tasks(report['overdue']))
+    chosen = report.get('selection', report)
+    if 'role' in chosen:
+        print(f'Work selection: {chosen["role"]}; waits and warnings below remain global')
+    show('Due now (ready)', tasks(chosen['ready']))
+    show('Overdue (ready; follow the brief or mark missed)', tasks(chosen['overdue']))
     show('Stale claims (reconcile ownership before reopening)', tasks(report['stale']))
     waiting = [f'{row["id"]}  {row["state"]}: {"; ".join(row["reasons"])}' for row in report['rows']
                if row['state'] in {'blocked', 'keeper', 'dependency_wait', 'running'}]
@@ -80,6 +86,8 @@ def main(argv=None):
             print(f'Invalid evaluation clock: {exc}', file=sys.stderr)
         return 1
     report = evaluate(args.root, now)
+    if args.role:
+        report['selection'] = dict(role=args.role, **selection(report, args.role))
     if args.json:
         print(json.dumps(report, ensure_ascii=False))
     else:
