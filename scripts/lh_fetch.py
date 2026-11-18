@@ -16,6 +16,7 @@ The provider is read from LIGHTHOUSE_PROVIDER; unset, every listed provider's to
 import os
 import sys
 import urllib.request
+from urllib.parse import urlsplit
 
 sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
 from robots_gate import RobotsGate  # noqa: E402
@@ -38,11 +39,32 @@ def check(url):
     return _GATE.check(url)
 
 
-def urlopen(request, *args, **kwargs):
-    url = request.full_url if isinstance(request, urllib.request.Request) else request
+def _require_allowed(url):
     ok, info = _GATE.check(url)
     if not ok:
         raise NotFetched("not fetched: %s (robots %s, status %s, group %s, rule %s, sha256 %s)" % (
             info.get("reason"), info.get("robots_url"), info.get("robots_status"),
             info.get("decided_by", ""), info.get("rule", ""), info.get("robots_sha256", "")[:16]))
+
+
+class _RobotsCheckedRedirect(urllib.request.HTTPRedirectHandler):
+    def redirect_request(self, req, fp, code, msg, headers, newurl):
+        try:
+            parts = urlsplit(newurl)
+            if parts.scheme not in {"http", "https"} or not parts.hostname or parts.username is not None:
+                raise NotFetched("not fetched: invalid HTTP(S) redirect destination")
+            _require_allowed(newurl)
+        except (NotFetched, ValueError):
+            fp.close()
+            raise
+        return super().redirect_request(req, fp, code, msg, headers, newurl)
+
+
+def urlopen(request, *args, check_redirects=False, **kwargs):
+    """Check robots.txt before fetching, and before each redirect when requested."""
+    url = request.full_url if isinstance(request, urllib.request.Request) else request
+    _require_allowed(url)
+    if check_redirects:
+        opener = urllib.request.build_opener(_RobotsCheckedRedirect())
+        return opener.open(request, *args, **kwargs)
     return urllib.request.urlopen(request, *args, **kwargs)
