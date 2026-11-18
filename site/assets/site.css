@@ -611,6 +611,9 @@ td:last-child, th:last-child { padding-right: 0; }
 .this-week-reported .tag { border-style: dashed; }
 .this-week-day { color: var(--muted); font-variant-numeric: tabular-nums; margin-right: .25em; white-space: nowrap; }
 .this-week-note { color: var(--muted); font-size: .8rem; margin: .5rem 0 0; }
+.this-week-home { color: var(--muted); font-size: .85em; }
+.this-week-home a { color: inherit; }
+.this-week-dayhead { font-family: var(--sans); font-size: .9rem; font-weight: 600; margin: 1rem 0 .35rem; }
 .latest-order { font-family: var(--sans); font-size: .8rem; color: var(--muted); margin: 0 0 .6rem; }
 .front-lead h1 a { color: var(--ink); text-decoration: none; }
 .front-lead .lead-deck { font-size: 1.08em; line-height: 1.5; }

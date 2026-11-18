@@ -1,6 +1,6 @@
 import { test } from 'node:test';
 import assert from 'node:assert/strict';
-import { frontInfo, homeContent, withoutTitle, thisWeek, LATEST_COUNT, LATEST_ORDER, todayLine } from '../lib/front.js';
+import { frontInfo, homeContent, withoutTitle, thisWeek, linkWeekItems, LATEST_COUNT, LATEST_ORDER, todayLine } from '../lib/front.js';
 const finding = {path:'articles/finding.md',url:'/articles/finding/',title:'A finding',section:'articles',status:'released',published:'1 October 2026',summary:'A complete summary with a limit.'};
 const draft = {...finding,path:'articles/draft.md',draft:true,status:'draft'};
 const essay = {...finding,path:'essays/reading.md',section:'essays',essay:true};
@@ -79,4 +79,35 @@ test('the day\'s line is a dateline with its weekday, never "today", and hides t
   assert.equal(todayLine(src, new Date('2026-11-19T23:59:00Z')).day, 'Wednesday 18 November');
   assert.equal(todayLine(src, new Date('2026-11-20T00:00:01Z')), null);
   assert.equal(todayLine('title: This week\ntoday: soon | x\n', new Date('2026-11-18T12:00:00Z')), null);
+});
+
+test('this week: the editor picks the front page few, the rest fill by date, the full page goes a day at a time',()=>{
+  const head=['title: This week','week: 2026-11-12 to 2026-11-18','updated: 2026-11-18','items:'];
+  const items=['- 2026-11-18 | reported | A.','- 2026-11-18 | lighthouse | B.','- 2026-11-17 | lighthouse | C.','- 2026-11-16 | reported | front | D | with a pipe.','- 2026-11-12 | lighthouse | FRONT | E.'];
+  const now=new Date('2026-11-18T20:00:00Z');
+  const week=thisWeek([...head,...items].join('\n'),now);
+  assert.deepEqual(week.lead.map(i=>i.sentence),['A.','D | with a pipe.','E.']);
+  assert.deepEqual(week.items.map(i=>i.front),[false,false,false,true,true]);
+  assert.deepEqual(week.days.map(d=>[d.day,d.items.length]),[['Wednesday 18 November',2],['Tuesday 17 November',1],['Monday 16 November',1],['Thursday 12 November',1]]);
+  assert.equal(week.earliest,'12 November');
+  // No picks: the newest three. More than three picks: the first three.
+  assert.deepEqual(thisWeek([...head,...items.map(l=>l.replace(/\| front \||\| FRONT \|/,'|'))].join('\n'),now).lead.map(i=>i.sentence),['A.','B.','C.']);
+  assert.deepEqual(thisWeek([...head,...items.map(l=>l.replace(/^(- [\d-]+ \| \w+ \|)(?! front| FRONT)/,'$1 front |'))].join('\n'),now).lead.map(i=>i.sentence),['A.','B.','C.']);
+});
+
+test('this week links: a study brief or record goes to the study page, with its investigation beside it',()=>{
+  const week=thisWeek(['title: This week','week: 2026-11-12 to 2026-11-18','updated: 2026-11-18','items:',
+    '- 2026-11-18 | reported | Firms report it; we\'ll [count](studies/LH056/brief.md).',
+    '- 2026-11-17 | lighthouse | [Our record](studies/LH055/LH055.md) and [the day\'s read](studies/LH055/checkpoints/2026-11-17.md).',
+    '- 2026-11-13 | lighthouse | [A study](studies/LH050/brief.md) for [the investigation](investigations/physical-authority.md).',
+    '- 2026-11-12 | reported | [Unlisted](studies/LH999/brief.md) and [a note](notes/x.md).'].join('\n'),new Date('2026-11-18T20:00:00Z'));
+  const linked=linkWeekItems(week,{studyHome:{LH056:{title:'Updates',url:'/investigations/u/'},LH055:{title:'Cost',url:'/investigations/c/'},LH050:{title:'Robots',url:'/investigations/r/'}},siteDirs:new Set(['studies/LH056','studies/LH055','studies/LH050'])});
+  assert.deepEqual(linked.items.map(i=>[i.sentence,i.home&&i.home.title]),[
+    ['Firms report it; we\'ll [count](studies/LH056/).','Updates'],
+    ['[Our record](studies/LH055/) and [the day\'s read](studies/LH055/checkpoints/2026-11-17.md).','Cost'],
+    ['[A study](studies/LH050/) for [the investigation](investigations/physical-authority.md).',null],
+    ['[Unlisted](studies/LH999/brief.md) and [a note](notes/x.md).',null]]);
+  assert.equal(linked.lead[0].sentence,linked.items[0].sentence);
+  assert.equal(linked.days[1].items[0].home.title,'Cost');
+  assert.equal(linkWeekItems(null),null);
 });

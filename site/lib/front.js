@@ -131,7 +131,7 @@ export function homeContent(html = '') {
 // file is missing, has no items in the week, or was last updated more than `staleDays`
 // before the build, so a missed update shows nothing rather than an old week.
 const ITEM_LABELS = { reported: 'Reported', lighthouse: 'Lighthouse' };
-export function thisWeek(source = '', now = new Date(), staleDays = 8) {
+export function thisWeek(source = '', now = new Date(), staleDays = 8, leadCount = 3) {
   const text = String(source || '').replace(/^\uFEFF/, '').replace(/^\s*<!--[\s\S]*?-->\s*/, '');
   const header = parseHeader(text);
   if (!header) return null;
@@ -144,12 +144,14 @@ export function thisWeek(source = '', now = new Date(), staleDays = 8) {
   if (!updated || now.getTime() - updated.getTime() > staleDays * 86400000) return null;
   const long = new Intl.DateTimeFormat('en-GB', { day: 'numeric', month: 'long', year: 'numeric', timeZone: 'UTC' });
   const short = new Intl.DateTimeFormat('en-GB', { day: 'numeric', month: 'short', timeZone: 'UTC' });
+  // `date | kind | sentence`, or `date | kind | front | sentence` for an item
+  // the editor picks for the front page.
   const items = (headerField(header.fields, 'items')?.items || []).map((item) => {
-    const m = item.match(/^([^|]*)\|([^|]*)\|([\s\S]*)$/) || [];
-    const [when, kind, sentence] = [m[1], m[2], m[3]].map((x) => (x || '').trim());
+    const m = item.match(/^([^|]*)\|([^|]*)\|(?:\s*(front)\s*\|)?([\s\S]*)$/i) || [];
+    const [when, kind, sentence] = [m[1], m[2], m[4]].map((x) => (x || '').trim());
     const date = day(when);
     const label = ITEM_LABELS[kind.toLowerCase()];
-    return date && label && sentence ? { iso: when, day: short.format(date), kind: kind.toLowerCase(), label, sentence } : null;
+    return date && label && sentence ? { iso: when, day: short.format(date), kind: kind.toLowerCase(), label, sentence, front: Boolean(m[3]) } : null;
   }).filter(Boolean);
   const [from, to] = value('week').split(/\s+to\s+/).map(day);
   // Items from before the week are left out, whatever the file still holds.
@@ -159,7 +161,46 @@ export function thisWeek(source = '', now = new Date(), staleDays = 8) {
     ? (from.getUTCMonth() === to.getUTCMonth() && from.getUTCFullYear() === to.getUTCFullYear()
       ? `${from.getUTCDate()} to ${long.format(to)}` : `${long.format(from).replace(/ \d{4}$/, from.getUTCFullYear() === to.getUTCFullYear() ? '' : '$&')} to ${long.format(to)}`)
     : '';
-  return { span, fromIso: from ? value('week').slice(0, 10) : '', toIso: to ? value('week').slice(-10) : '', updated: long.format(updated), updatedIso: value('updated'), items: current };
+  // The front page's few: the editor's picks first (at most `leadCount`), the
+  // newest others filling any places left, shown newest first.
+  const picked = current.filter((item) => item.front).slice(0, leadCount);
+  const fill = current.filter((item) => !item.front).slice(0, leadCount - picked.length);
+  const lead = current.filter((item) => picked.includes(item) || fill.includes(item));
+  // The full page, a day at a time, newest first.
+  const dayName = new Intl.DateTimeFormat('en-GB', { weekday: 'long', day: 'numeric', month: 'long', timeZone: 'UTC' });
+  const days = [];
+  for (const item of [...current].sort((a, b) => b.iso.localeCompare(a.iso))) {
+    if (days.at(-1)?.iso !== item.iso) days.push({ iso: item.iso, day: dayName.format(day(item.iso)).replace(',', ''), items: [] });
+    days.at(-1).items.push(item);
+  }
+  const earliest = days.at(-1).iso;
+  return { span, fromIso: from ? value('week').slice(0, 10) : '', toIso: to ? value('week').slice(-10) : '', updated: long.format(updated), updatedIso: value('updated'), items: current, lead, days,
+    earliest: new Intl.DateTimeFormat('en-GB', { day: 'numeric', month: 'long', timeZone: 'UTC' }).format(day(earliest)) };
+}
+
+// Where each This week item sends a reader, settled at build so it never
+// depends on the editor remembering. A link to a study's brief, record or
+// README goes to the study's own page instead (/studies/LHnnn/, which opens
+// with its plain "In short" and links the full record); a link to a
+// checkpoint or data file is left alone, since it means that day's read. An
+// item that links a study also gets `home`, the investigation the study
+// belongs to, unless the item already links an investigation page.
+export function linkWeekItems(week, { studyHome = {}, siteDirs = new Set() } = {}) {
+  if (!week) return week;
+  const LINK = /\]\(([^)\s]+)\)/g;
+  const fix = (item) => {
+    const targets = [...item.sentence.matchAll(LINK)].map((m) => m[1].replace(/^\/+/, ''));
+    const sentence = item.sentence.replace(LINK, (whole, target) => {
+      const m = target.replace(/^\/+/, '').match(/^studies\/(LH\d+)\/(?:brief|LH\d+|README)\.md$/);
+      return m && siteDirs.has(`studies/${m[1]}`) ? `](studies/${m[1]}/)` : whole;
+    });
+    const study = targets.map((t) => (t.match(/^studies\/(LH\d+)(?:\/|$)/) || [])[1]).find((id) => id && studyHome[id]);
+    const linksInvestigation = targets.some((t) => /^investigations\/[^/]+\.md(?:#|$)/.test(t));
+    return { ...item, sentence, home: study && !linksInvestigation ? studyHome[study] : null };
+  };
+  const items = week.items.map(fix);
+  const same = (list) => list.map((x) => items[week.items.indexOf(x)]);
+  return { ...week, items, lead: same(week.lead), days: week.days.map((d) => ({ ...d, items: same(d.items) })) };
 }
 
 // The day's line from site/this-week.md's header (`today: YYYY-MM-DD |

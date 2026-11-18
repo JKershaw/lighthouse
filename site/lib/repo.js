@@ -8,7 +8,7 @@ import fs from "node:fs";
 import path from "node:path";
 import { execFileSync } from "node:child_process";
 import { parseHeader, headerField } from "./header.js";
-import { frontInfo, thisWeek, todayLine, learnedInfo } from "./front.js";
+import { frontInfo, thisWeek, linkWeekItems, todayLine, learnedInfo } from "./front.js";
 import { buildStories } from "./stories.js";
 import { datedNotices } from "./updates.js";
 import { feedCatalog } from "./feed.js";
@@ -691,11 +691,13 @@ export function scanRepo(root, { siteFile = path.join(root, "site", "site.json")
     buildIso: buildDate.toISOString(),
     onWatch: onWatch(studies, front.labels || {}, buildDate),
     // The front page's dated "This week" block, kept in one file the scheduled run updates.
-    thisWeek: thisWeek(fs.existsSync(path.join(root, THIS_WEEK)) ? fs.readFileSync(path.join(root, THIS_WEEK), "utf8") : "", buildDate),
+    thisWeek: linkWeekItems(thisWeek(fs.existsSync(path.join(root, THIS_WEEK)) ? fs.readFileSync(path.join(root, THIS_WEEK), "utf8") : "", buildDate), { studyHome, siteDirs }),
     // The day's line (Live) and what we've learned (shown once reviewed), both from site/ files.
     today: todayLine(fs.existsSync(path.join(root, THIS_WEEK)) ? fs.readFileSync(path.join(root, THIS_WEEK), "utf8") : "", buildDate),
     learned: learnedInfo(fs.existsSync(path.join(root, "site/learned.md")) ? fs.readFileSync(path.join(root, "site/learned.md"), "utf8") : "", process.env.LIGHTHOUSE_PREVIEW === "drafts"),
   };
+  // The full This week page puts the day's line under its own day when that day has items.
+  repo.todayInWeek = Boolean(repo.today && repo.thisWeek && repo.thisWeek.days.some((d) => d.iso === repo.today.iso));
   repo.feeds = feedCatalog(repo);
   return repo;
 }
