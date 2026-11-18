@@ -24,3 +24,6 @@ date_utc,run_id,component,amount,currency,basis,note
 2026-11-17,2026-11-17T202935Z-anthropic-artex,driver,7.07,USD,list_rate_estimate,hb drivercost from 20:29 UTC through the editor step; output tokens estimated from characters
 2026-11-17,2026-11-17T202935Z-anthropic-artex,subagents_work,14.74,USD,list_rate_estimate,"six Opus 5.5 subagents priced by hb tokens: round 1 record 3.98, evidence review 2.37, resolution 1.65, reader review both stages 0.79, recheck 1.58, round 2 audit 4.37"
 2026-11-17,2026-11-17T202935Z-anthropic-artex,editor_reader,0.76,USD,list_rate_estimate,"editor's visit reader, one Opus 5.5 subagent, hb tokens"
+2026-11-18,2026-11-18T130045Z-anthropic-horizon-oneoff,driver,5.40,USD,list_rate_estimate,"hb drivercost from 13:00 UTC (4.92 at 13:30, plus an allowance for the close); output tokens estimated from characters"
+2026-11-18,2026-11-18T130045Z-anthropic-horizon-oneoff,subagents_opus,6.24,USD,list_rate_estimate,"three Opus 5.5 subagents priced by hb tokens: wildcard scout 2.10, gate 1.25, LH056 brief writer 2.89"
+2026-11-18,2026-11-18T130045Z-anthropic-horizon-oneoff,subagents_sonnet,,,unavailable,"six Sonnet 5.5 horizon scouts (about 5.57 million cache-read, 0.67 million cache-write and 28,000 output tokens by hb tokens); prices.json has no Sonnet 5.5 rate"
