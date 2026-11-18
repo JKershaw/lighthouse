@@ -24,13 +24,13 @@
 
 {% if l and l.question %}<div class="learned-question front-question">{{ l.question | sourceMarkdown("site/learned.md", "question") | safe }}</div>{% endif %}
 
-{% macro kickerLine(k, label) %}<p class="card-kicker{% if k.essay %} card-kicker-essay{% endif %}">{% if label %}<span class="card-topic">{{ label }}</span> · {% endif %}{% if k.essay %}Essay · {% endif %}{% if k.state %}{{ k.state }} {% endif %}{% if k.date %}<time datetime="{{ k.iso }}">{{ k.date }}</time>{% endif %}</p>{% endmacro %}
+{% macro kickerLine(k, label) %}<p class="card-kicker{% if k.essay %} card-kicker-essay{% endif %}">{% if label %}{{ label }} · {% endif %}{% if k.essay %}Essay · {% endif %}<time datetime="{{ k.iso }}">{{ k.date }}</time></p>{% endmacro %}
 
 {% if lead %}<article class="front-story" aria-labelledby="lead-title">
-  {% if lead.figure %}<a class="story-figure" href="{{ lead.url }}" tabindex="-1" aria-hidden="true"><img src="{{ lead.figure.url | url }}" alt="" loading="eager"></a>{% endif %}
   {{ kickerLine(lead.kicker, lead.topic) }}
   <h2 id="lead-title"><a href="{{ lead.url }}">{{ lead.headline }}</a></h2>
   {% if lead.deck %}<p class="story-deck">{{ lead.deck }}</p>{% endif %}
+  {% if lead.figure %}<figure class="story-figure"><a href="{{ lead.url }}" tabindex="-1" aria-hidden="true"><img src="{{ lead.figure.url | url }}" alt="" loading="eager"></a></figure>{% endif %}
 </article>{% endif %}
 
 {% if l %}<section class="front-learned" aria-labelledby="learned-title">
@@ -38,7 +38,6 @@
   {% if l.draft %}<p class="answer-meta"><span class="status status-draft" title="Shown only in a preview build; not on the published site">Draft, not yet reviewed</span></p>{% endif %}
   <ul class="learned">
     {% for it in l.cards %}{% if not lead or it.path != lead.path %}<li{% if it.kicker.essay %} class="learned-essay"{% endif %}>
-      {% if it.figure %}<a class="card-figure" href="{{ it.url }}" tabindex="-1" aria-hidden="true"><img src="{{ it.figure.url | url }}" alt="" loading="lazy"></a>{% endif %}
       {{ kickerLine(it.kicker, it.label) }}
       <h3><a href="{{ it.url }}">{{ it.headline }}</a></h3>
       <p>{{ it.sentence }}</p>
@@ -52,7 +51,7 @@
 {% if repo.front.investigations.length %}<section class="front-section" aria-labelledby="investigations-title">
   <h2 id="investigations-title">Investigations</h2>
   <p class="section-lede">Each follows one question through several studies. Start with the one that interests you.</p>
-  <ul class="investigation-cards">
+  <ul class="investigation-cards investigation-list">
     {% for inv in repo.front.investigations %}{% set now = inv | investigationNow(repo, schedule) %}<li class="investigation-card">
       <h3><a href="{{ inv.url }}">{{ inv.title }}</a></h3>
       {% if inv.question %}<p class="card-question">{{ inv.question }}</p>{% endif %}

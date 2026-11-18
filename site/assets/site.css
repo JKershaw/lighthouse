@@ -840,26 +840,35 @@ a.status-reviewed:hover { background: var(--accent-hover); border-color: var(--a
 .learned-question { margin: 1.4rem 0 0; padding: 0.9rem 1rem; background: var(--tint); border-radius: 3px; }
 .learned-question p { margin: 0; font-size: 1rem; line-height: 1.55; }
 
-/* The front page as a showcase (preview, 18 November 2026): the big question
-   under the introduction, a lead story with its illustration, illustrated
-   cards with a kicker line, and investigation cards with their newest item. */
-.front-question { margin: -1rem 0 2rem; }
-.front-story { margin: 0 0 2.6rem; }
-.front-story .story-figure { display: block; margin: 0 0 .9rem; border: 1px solid var(--rule); border-radius: 3px; overflow: hidden; background: var(--bg); }
-.front-story .story-figure img { display: block; width: 100%; height: auto; max-height: 26rem; object-fit: cover; object-position: top left; }
-.front-story h2 { font-size: 1.75rem; line-height: 1.2; margin: .15rem 0 .5rem; text-wrap: balance; }
-.front-story h2 a { color: var(--ink); text-decoration: none; }
-.front-story h2 a:hover { color: var(--accent); }
-.story-deck { font-size: 1.08rem; line-height: 1.5; margin: 0; color: var(--ink); }
-.card-kicker { font-family: var(--sans); font-size: .74rem; letter-spacing: .04em; text-transform: uppercase; color: var(--muted); margin: 0 0 .25rem; }
-.card-kicker .card-topic { color: var(--accent); font-weight: 600; }
-.card-kicker-essay .card-topic, .card-kicker-essay { color: var(--essay); }
-.learned .card-figure { display: block; aspect-ratio: 16 / 9; margin: 0 0 .6rem; border: 1px solid var(--rule); border-radius: 3px; overflow: hidden; background: var(--bg); }
-.learned .card-figure img { display: block; width: 100%; height: 100%; object-fit: cover; object-position: top left; }
+/* The front page, set by type (preview B, 18 November 2026): one picture,
+   for the lead; ink serif headlines without underlines; one quiet sans line
+   of topic and date; hairline rules rather than boxes; plain words for kinds. */
+.front-question { margin: -.6rem 0 2.4rem; padding: .1rem 0 .1rem 1.1rem; background: none; border-left: 2px solid var(--accent); border-radius: 0; font-style: italic; }
+.front-question strong { font-style: normal; }
+.front-story { margin: 0 0 2.8rem; padding-bottom: 2.2rem; border-bottom: 1px solid var(--rule); }
+.front-story h2 { font-size: 2.1rem; line-height: 1.15; letter-spacing: -.01em; margin: .2rem 0 .6rem; text-wrap: balance; }
+.front-story h2 a, .learned h3 a, .investigation-list h3 a { color: var(--ink); text-decoration: none; }
+.front-story h2 a:hover, .learned h3 a:hover, .investigation-list h3 a:hover { color: var(--accent); text-decoration: underline; text-decoration-thickness: 1px; }
+.story-deck { font-size: 1.15rem; line-height: 1.5; margin: 0; color: var(--muted); }
+.story-figure { margin: 1.4rem 0 0; }
+.story-figure { max-height: 24rem; overflow: hidden; -webkit-mask-image: linear-gradient(to bottom, #000 80%, transparent); mask-image: linear-gradient(to bottom, #000 80%, transparent); }
+.story-figure img { display: block; width: 100%; height: auto; }
+.card-kicker { font-family: var(--sans); font-size: .82rem; color: var(--muted); margin: 0 0 .2rem; }
+.card-kicker-essay { color: var(--essay); }
+.front-learned > h2, .front-section h2 { font-family: var(--sans); font-size: .82rem; font-weight: 600; letter-spacing: .08em; text-transform: uppercase; color: var(--muted); border-top: 1px solid var(--ink); padding-top: .7rem; }
+.front-section { border-top: 0; }
+.learned { gap: 0 2.2rem; }
+.learned li { border-top: 1px solid var(--rule); padding: .9rem 0 1.1rem; }
 .learned .topic { display: none; }
-.learned-essay h3 a { color: var(--essay); }
-.learned-essay h3 a:hover { color: var(--essay-hover); }
-.card-question { color: var(--ink); }
-.card-latest { color: var(--ink); }
-.card-latest-label { color: var(--muted); font-weight: 600; }
-@media (max-width: 600px) { .front-story h2 { font-size: 1.45rem; } .front-story .story-figure img { max-height: 18rem; } }
+.learned h3 { font-size: 1.3rem; line-height: 1.25; }
+.learned-essay h3 a { color: var(--ink); }
+.investigation-list { display: block; }
+.investigation-list .investigation-card { border: 0; border-top: 1px solid var(--rule); border-radius: 0; padding: .9rem 0 1rem; }
+.investigation-list .investigation-card h3 { font-size: 1.3rem; }
+.card-question { color: var(--ink); font-size: .95rem !important; }
+.card-latest-label { color: var(--muted); }
+.wk-kind { font-size: .78em; font-weight: 600; letter-spacing: .04em; text-transform: uppercase; color: var(--muted); margin-right: .35em; }
+.this-week-reported .wk-kind { font-style: italic; }
+.this-week .status-live { border: 0; padding: 0; font-size: .78em; letter-spacing: .04em; text-transform: uppercase; }
+.this-week { border-bottom: 0; }
+@media (max-width: 600px) { .front-story h2 { font-size: 1.65rem; } .learned h3, .investigation-list .investigation-card h3 { font-size: 1.15rem; } }

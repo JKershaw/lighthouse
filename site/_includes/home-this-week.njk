@@ -1,11 +1,11 @@
 {# This week: the day's line (Live, from site/this-week.md's `today`, hidden after two days) and the dated items from the same file, which the scheduled run keeps (its header says how). Left out when the file is missing or stale (lib/front.js, thisWeek and todayLine). "Reported" items are others' accounts, linked; "Lighthouse" items are its own work. The front page (weekLimit set) shows `w.lead`: the editor's picks, else the newest. /this-week/ shows every item a day at a time, with the day's line under its own day. Links in the file are written from the repository root, so items render as if from README.md on every page; the build points study links at the study's own page and adds the investigation each item belongs to (lib/front.js, linkWeekItems). #}
 {% set w = repo.thisWeek %}{% set weekPage = { inputPath: "./README.md" } %}
-{% macro weekItem(item, showDay) %}<li class="this-week-{{ item.kind }}"><span class="tag">{{ item.label }}</span> {% if showDay %}<time class="this-week-day" datetime="{{ item.iso }}">{{ item.day }}</time> {% endif %}{{ item.sentence | mdInline(weekPage) | safe }}{% if item.home %} <span class="this-week-home">More in <a href="{{ item.home.url }}">{{ item.home.title }}</a></span>{% endif %}</li>{% endmacro %}
+{% macro weekItem(item, showDay) %}<li class="this-week-{{ item.kind }}"><span class="wk-kind">{{ item.label }}</span> {% if showDay %}<time class="this-week-day" datetime="{{ item.iso }}">{{ item.day }}</time> {% endif %}{{ item.sentence | mdInline(weekPage) | safe }}{% if item.home %} <span class="this-week-home">More in <a href="{{ item.home.url }}">{{ item.home.title }}</a></span>{% endif %}</li>{% endmacro %}
 {% macro todayP(showDay) %}<p class="today-line">{% set status = "live" %}{% include "status.njk" %} {% if showDay %}<strong><time datetime="{{ repo.today.iso }}">{{ repo.today.day }}</time>.</strong> {% endif %}{{ repo.today.sentence | mdInline(weekPage) | safe }}</p>{% endmacro %}
 <section class="this-week" aria-labelledby="this-week-title">
   <h2 id="this-week-title">This week{% if w and w.span %} <span class="this-week-span">{{ w.span }}</span>{% endif %}</h2>
   {% if repo.today and (weekLimit or not repo.todayInWeek) %}{{ todayP(true) }}{% endif %}
-  {% if w %}<p class="this-week-note"><span class="tag">Lighthouse</span> is our own work; <span class="tag">Reported</span> is someone else's account that we're following. Findings come later, after review.</p>
+  {% if w %}{% if not weekLimit %}<p class="this-week-note">Lighthouse is our own work; Reported is someone else's account that we're following. Findings come later, after review.</p>{% endif %}
   {% if weekLimit %}<ul>
     {% for item in w.lead %}{{ weekItem(item, true) }}
     {% endfor %}
