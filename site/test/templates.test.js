@@ -8,7 +8,7 @@ import path from "node:path";
 import { fileURLToPath } from "node:url";
 
 const site = path.resolve(path.dirname(fileURLToPath(import.meta.url)), "..");
-const BUILT_IN = new Set(["capitalize", "dump", "first", "join", "last", "length", "lower", "replace", "safe", "string", "title", "trim", "upper", "url", "urlencode", "default", "escape", "sort", "reverse", "int", "float"]);
+const BUILT_IN = new Set(["capitalize", "dump", "first", "join", "last", "length", "lower", "replace", "safe", "string", "title", "trim", "upper", "url", "urlencode", "default", "escape", "sort", "reverse", "int", "float", "selectattr", "rejectattr"]);
 
 test("every filter a layout uses is built in or registered in eleventy.config.js", () => {
   const config = fs.readFileSync(path.join(site, "eleventy.config.js"), "utf8");

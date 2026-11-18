@@ -135,6 +135,30 @@ test('investigations count observations as reads and expose named work waits', (
   });
 });
 
+test('a study with unfinished rows is under way even when no run holds a claim', () => {
+  fixture(csv([
+    row('done-read', { kind: 'observe', status: 'done', updated: '2026-11-10', ref: 'https://example.test/read' }),
+    row('read-next', { kind: 'observe', earliest: '2026-11-17' }),
+    row('stop-gate', { status: 'blocked', note: 'Waiting for the stop condition' }),
+    row('old-read', { study: 'LH002', kind: 'observe', status: 'done', updated: '2026-10-01', ref: 'https://example.test/old' }),
+    row('only-waits', { study: 'LH003', status: 'blocked', note: 'Needs an outside report' }),
+  ]), (root) => {
+    const schedule = buildSchedule(root, NOW);
+    const studies = ['LH001', 'LH002', 'LH003'].map((id) => ({ id, url: `/studies/${id}/`, lead: { title: id }, checkpoints: [] }));
+    const inv = { studies: studies.map((s) => ({ study: s.id })), pieces: [] };
+    const now = investigationNow(inv, { studies, byPath: {} }, schedule);
+    assert.equal(now.running, 0);
+    assert.equal(now.underway, 2);
+    const by = Object.fromEntries(now.studyList.map((s) => [s.id, s]));
+    assert.equal(by.LH001.active, true);
+    assert.equal(by.LH001.scheduled, true, 'a read to come outweighs a blocked gate');
+    assert.equal(by.LH002.active, false);
+    assert.equal(by.LH003.active, true);
+    assert.equal(by.LH003.scheduled, false);
+    assert.deepEqual(now.studyList.map((s) => s.id).slice(-1), ['LH002'], 'finished studies sort last');
+  });
+});
+
 test('a blocked next observation says waiting and retains its named reason', () => {
   fixture(csv([row('blocked-read', { kind: 'observe', status: 'blocked', note: 'Access permission is required' })]), (root) => {
     const schedule = buildSchedule(root, NOW);

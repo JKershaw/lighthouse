@@ -5,12 +5,21 @@
   <p class="inv-stands"><span class="inv-label">Where it stands</span> {% set status = now.answer.status %}{% include "status.njk" %} {% if now.answer.url %}{{ now.answer.kind }}: <a href="{{ now.answer.url }}">{{ now.answer.title }}</a>{% else %}{{ now.answer.title }}{% endif %}</p>
   {% if now.reading %}<p class="card-reading">{{ now.reading.kind }}: <a href="{{ now.reading.url }}">{{ now.reading.title }}</a></p>{% endif %}
   {% if now.waiting.length %}<details><summary>Work waiting ({{ now.waiting.length }})</summary><ul class="sched-list">{% for row in now.waiting %}<li><span title="{{ row.id | escape }}">{{ row.task | escape }}</span>: {% for reason in row.reasons %}{{ reason | escape }}{% if not loop.last %}; {% endif %}{% endfor %}</li>{% endfor %}</ul></details>{% endif %}
-  <p class="when">{% if inv.started %}Started {{ inv.started }} · {% endif %}{{ now.studies }} {{ "study" if now.studies == 1 else "studies" }}, {{ now.running }} running{% if now.pieces %} · {{ now.pieces }} {{ "piece" if now.pieces == 1 else "pieces" }}{% endif %}{% if now.latestRead %} · latest read {{ now.latestRead.day }}{% endif %}{% if now.next %} · next read {{ now.next.day }}{% if now.next.reason %} ({{ now.next.reason | escape }}){% endif %}{% endif %}</p>
+  <p class="when">{% if inv.started %}Started {{ inv.started }} · {% endif %}{{ now.studies }} {{ "study" if now.studies == 1 else "studies" }}, {{ now.underway }} under way{% if now.pieces %} · {{ now.pieces }} {{ "piece" if now.pieces == 1 else "pieces" }}{% endif %}{% if now.latestRead %} · latest read {{ now.latestRead.day }}{% endif %}{% if now.next %} · next read {{ now.next.day }}{% if now.next.reason %} ({{ now.next.reason | escape }}){% endif %}{% endif %}</p>
 </div>
-{% if now.studyList.length %}<details class="inv-studies"{% if now.running %} open{% endif %}>
-  <summary>The studies{% if now.running %}: {{ now.running }} running{% endif %}</summary>
+{% set underway = now.studyList | selectattr("active") %}{% set earlier = now.studyList | rejectattr("active") %}
+{% macro studyItem(s) %}<li><a href="{{ s.url }}" title="{{ s.id }}">{{ s.title }}</a> <span class="when">{% if s.running %}in progress now{% elif s.scheduled %}scheduled{% elif s.active %}waiting{% else %}finished or paused{% endif %}{% if s.latest %} · <a href="{{ s.latest.url }}">latest read {{ s.latest.day }}</a>{% endif %}</span></li>{% endmacro %}
+{% if underway.length %}<details class="inv-studies" open>
+  <summary>Studies under way ({{ underway.length }})</summary>
   <ul class="study-list">
-    {% for s in now.studyList %}<li><a href="{{ s.url }}" title="{{ s.id }}">{{ s.title }}</a> <span class="when">{% if s.running %}running{% elif s.waiting.length %}waiting{% else %}scheduled, finished or paused{% endif %}{% if s.latest %} · <a href="{{ s.latest.url }}">latest read {{ s.latest.day }}</a>{% endif %}</span></li>
+    {% for s in underway %}{{ studyItem(s) }}
+    {% endfor %}
+  </ul>
+</details>{% endif %}
+{% if earlier.length %}<details class="inv-studies">
+  <summary>{% if underway.length %}Earlier studies{% else %}The studies{% endif %} ({{ earlier.length }}, finished or paused)</summary>
+  <ul class="study-list">
+    {% for s in earlier %}{{ studyItem(s) }}
     {% endfor %}
   </ul>
 </details>{% endif %}

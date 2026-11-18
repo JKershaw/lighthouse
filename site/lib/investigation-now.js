@@ -54,6 +54,10 @@ export function investigationNow(inv, repo, schedule) {
     answer,
     reading,
     running: runningIds.size,
+    // Studies with any unfinished row: what a reader means by "running".
+    // `running` counts only rows claimed by a run at build time, so it is
+    // almost always 0 between runs (front-page cards said "No study running").
+    underway: new Set(open.map((r) => r.study)).size,
     studies: studies.length,
     pieces: pieces.length,
     latestRead: latestRead ? { ...latestRead, day: dayLabel(latestRead.iso) } : null,
@@ -65,10 +69,16 @@ export function investigationNow(inv, repo, schedule) {
       return {
         title: repo.studyLabels?.[s.id] || s.lead.title, url: s.url, id: s.id,
         running: runningIds.has(s.id),
+        // Under way: any unfinished row in the schedule (a read to come, a
+        // claim, a wait or a block). Shown open on the page; the rest are
+        // listed collapsed as earlier studies, so the open list stays short.
+        active: open.some((r) => r.study === s.id),
         waiting: waiting.filter((r) => r.study === s.id),
+        // Some unfinished row is not waiting on anything: a read or step to come.
+        scheduled: open.some((r) => r.study === s.id && !WAITING.includes(r.state)),
         latest: read ? { day: dayLabel(read.iso), url: read.url, recent: Boolean(s.checkpoints?.find((c) => c.key.slice(0, 10) === read.iso)?.recent) } : null,
         key: read?.iso || '',
       };
-    }).sort((a, b) => Number(b.running) - Number(a.running) || b.key.localeCompare(a.key) || b.id.localeCompare(a.id, 'en', { numeric: true })),
+    }).sort((a, b) => Number(b.running) - Number(a.running) || Number(b.active) - Number(a.active) || b.key.localeCompare(a.key) || b.id.localeCompare(a.id, 'en', { numeric: true })),
   };
 }
