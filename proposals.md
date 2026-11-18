@@ -618,6 +618,10 @@ From [2026-11-18T1300Z](notes/horizon/2026-11-18T1300Z.md), a one-off sweep; eve
 - L-0153 Remotely operated machine guns on cranes in Gaza, reported firing on civilians since June 2026 (The New Arab, 19 June, citing PCHR and a UNICEF statement; Novara Media, 1 July, same family): 23 cranes with guns and cameras, some remotely operated; UNICEF reports a 12-year-old girl shot in her tent; no AI or automatic targeting reported and no Israeli statement included. Not a robot in LH050's sense and no AI function reported, so a civilian-consequence comparator, not a case; admitting it would need a dated LH050 amendment. Next: read UNICEF's statement and PCHR's report as the primaries, with human control and the operating force marked not established (scout 7, lead 3).
 - L-0154 Ukraine's Ministry of Defence reports more than 31,000 ground-robot logistics and evacuation missions in October, a monthly record, against 7,511 in January (Kyiv Post, 6 November, citing the ministry's Telegram post); a count of unarmed missions, not an extra-read trigger. Next: LH050's December read of the ministry series (ukraine-ugv-series) keeps the ministry's own October notice (scout 7, lead 5).
 
+From the Research run of 18 November 2026 (2026-11-18T151251Z-anthropic-research), LH038's reader review (notes/R-0092-lh038-record-reader.md):
+
+- L-0155 Reconcile SUSE's two clocks for CVE-2026-98432: its advisory pages give a Release Date of 24 October for the first four kernel advisories naming the flaw, while its CVE page lists the same announcements as published on 29 October, either side of Anthropic's post of 27 October. SUSE's announcement list archive for October 2026 and OSV's records for SUSE-SU-2026:24386-1 and 24422-1 could say which marks public release. Kind: repair of a measurement for LH038 and LH036 (outside LH038's one read and its revision rule). Cost: a few GETs.
+
 ## Declined, parked and expired
 
 ### P-0035 An extra LH050 panel read on 20 November, the CCW Review Conference's closing day
