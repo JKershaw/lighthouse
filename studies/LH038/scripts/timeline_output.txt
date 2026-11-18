@@ -1,0 +1,68 @@
+read log entries: 80
+status counts: {'200': 51, '403': 10, 'None': 19}
+
+== T1/T4 from stable changelogs
+5.10.272: release commit author 2026-10-15 12:13 UTC; commits in changelog 4; fix author 2026-10-01 22:12:53 UTC; Last-Modified Thu, 15 Oct 2026 13:04:12 GMT
+5.15.223: release commit author 2026-10-15 12:14 UTC; commits in changelog 4; fix author 2026-10-01 22:12:53 UTC; Last-Modified Thu, 15 Oct 2026 12:19:47 GMT
+6.1.190: release commit author 2026-10-15 12:15 UTC; commits in changelog 4; fix author 2026-10-01 22:12:53 UTC; Last-Modified Thu, 15 Oct 2026 12:25:20 GMT
+6.12.113: release commit author 2026-10-15 09:56 UTC; commits in changelog 502; fix author 2026-10-01 22:12:53 UTC; Last-Modified Thu, 15 Oct 2026 10:05:37 GMT
+6.18.56: release commit author 2026-10-11 13:26 UTC; commits in changelog 403; fix author 2026-10-01 22:12:53 UTC; Last-Modified Sun, 11 Oct 2026 13:38:56 GMT
+6.6.159: release commit author 2026-10-15 12:16 UTC; commits in changelog 4; fix author 2026-10-01 22:12:53 UTC; Last-Modified Thu, 15 Oct 2026 12:29:23 GMT
+7.2.10: release commit author 2026-10-11 13:27 UTC; commits in changelog 426; fix author 2026-10-01 22:12:53 UTC; Last-Modified Sun, 11 Oct 2026 13:43:19 GMT
+7.3: no body retained (status 200, bytes 4194305, Last-Modified Mon, 19 Oct 2026 05:51:02 GMT)
+distinct fix author dates: ['2026-10-01 22:12:53+00:00']
+
+== T5 SUSE (Release Date)
+suse_suse_su_202624386_1: 2026-10-24 11:15:59Z; names the CVE 8 times
+suse_suse_su_202624422_1: 2026-10-24 10:42:33Z; names the CVE 8 times
+suse_suse_su_202624437_1: 2026-10-24 11:15:59Z; names the CVE 8 times
+suse_suse_su_202624446_1: 2026-10-24 10:42:33Z; names the CVE 8 times
+suse_suse_su_202624479_1: 2026-11-02 08:57:18Z; names the CVE 8 times
+suse_suse_su_202624480_1: 2026-11-02 08:57:53Z; names the CVE 8 times
+suse_suse_su_202624481_1: 2026-11-02 08:58:28Z; names the CVE 8 times
+suse_suse_su_202624482_1: 2026-11-02 08:58:28Z; names the CVE 8 times
+suse_suse_su_202624483_1: 2026-11-02 08:58:28Z; names the CVE 8 times
+suse_suse_su_202624484_1: 2026-11-02 08:58:28Z; names the CVE 8 times
+suse_suse_su_202624485_1: 2026-11-02 09:02:26Z; names the CVE 8 times
+suse_suse_su_202624486_1: 2026-11-02 09:02:26Z; names the CVE 8 times
+== T5 SUSE Liberty list posts
+suse_liberty_008511: Tue Nov  3 16:07:39 UTC 2026; names the CVE 5 times
+suse_liberty_008517: Tue Nov  3 16:07:40 UTC 2026; names the CVE 5 times
+suse_liberty_008554: Fri Nov  6 16:08:02 UTC 2026; names the CVE 5 times
+== T5 Red Hat (Issued / Updated; dd after the first two dt)
+redhat_RHSA-2026_93412: issued 2026-11-01, updated 2026-11-01; names the CVE 4 times
+redhat_RHSA-2026_93413: issued 2026-11-01, updated 2026-11-01; names the CVE 4 times
+redhat_RHSA-2026_93414: issued 2026-11-01, updated 2026-11-01; names the CVE 4 times
+redhat_RHSA-2026_93415: issued 2026-11-01, updated 2026-11-01; names the CVE 4 times
+redhat_RHSA-2026_93775: issued 2026-11-02, updated 2026-11-02; names the CVE 4 times
+redhat_RHSA-2026_94109: issued 2026-11-02, updated 2026-11-02; names the CVE 4 times
+redhat_RHSA-2026_94303: issued 2026-11-03, updated 2026-11-03; names the CVE 4 times
+redhat_RHSA-2026_94438: issued 2026-11-03, updated 2026-11-03; names the CVE 4 times
+redhat_RHSA-2026_94477: issued 2026-11-03, updated 2026-11-03; names the CVE 4 times
+redhat_RHSA-2026_94508: issued 2026-11-03, updated 2026-11-03; names the CVE 4 times
+redhat_RHSA-2026_94558: issued 2026-11-03, updated 2026-11-03; names the CVE 4 times
+redhat_RHSA-2026_94623: issued 2026-11-03, updated 2026-11-03; names the CVE 4 times
+redhat_RHSA-2026_94996: issued 2026-11-04, updated 2026-11-04; names the CVE 4 times
+redhat_RHSA-2026_95416: issued 2026-11-09, updated 2026-11-13; names the CVE 4 times
+redhat_RHSA-2026_98608: issued 2026-11-11, updated 2026-11-11; names the CVE 4 times
+
+== T6 Anthropic post
+datePublished 2026-10-27T00:00:00.000Z dateModified 2026-10-30T15:24:16.000Z
+
+== T7 oss-security messages (Date header)
+ref_oss_security_10_30_1: Thu, 29 Oct 2026 17:21:41 -0700  = 2026-10-30 00:21 UTC
+ref_oss_security_10_30_6: Fri, 30 Oct 2026 09:05:46 +0000  = 2026-10-30 09:05 UTC
+ref_oss_security_10_31_5: Sat, 31 Oct 2026 16:01:47 +0000  = 2026-10-31 16:01 UTC
+ref_oss_security_11_03_1: Mon, 2 Nov 2026 20:46:01 -0800  = 2026-11-03 04:46 UTC
+
+== Elapsed UTC calendar days
+T1 fix author date 2026-10-01 22:12 UTC -> T6 post 2026-10-27: 26 days; +7 = 2026-10-08; +45 = 2026-11-15; +90 = 2026-12-30
+T4 first stable release (6.18.56) 2026-10-11 13:26 UTC -> T6 post 2026-10-27: 16 days; +7 = 2026-10-18; +45 = 2026-11-25; +90 = 2027-01-09
+T4 last stable release (6.6.159) 2026-10-15 12:16 UTC -> T6 post 2026-10-27: 12 days; +7 = 2026-10-22; +45 = 2026-11-29; +90 = 2027-01-13
+T3 CVE published 2026-10-15 12:08 UTC -> T6 post 2026-10-27: 12 days; +7 = 2026-10-22; +45 = 2026-11-29; +90 = 2027-01-13
+T1 -> T3: 14 days
+T1 -> first stable: 10 days; T1 -> last stable: 14 days
+first stable -> earliest followed SUSE (2026-10-24): 13 days; last stable -> it: 9 days
+first stable -> earliest followed Red Hat (2026-11-01): 21 days; last stable -> it: 17 days
+T6 post -> earliest followed SUSE: -3 days; -> earliest followed Red Hat: 5 days
+T0 (report) unknown: no pair with T0 computed. P4 (linux-distros 14 days): no use known, not computed.
