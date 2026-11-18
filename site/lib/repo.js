@@ -13,6 +13,7 @@ import { buildStories } from "./stories.js";
 import { datedNotices } from "./updates.js";
 import { feedCatalog } from "./feed.js";
 import { revisionInfo } from "./revisions.js";
+import { buildNow } from "./clock.js";
 
 export const REPO_URL = "https://github.com/JKershaw/lighthouse";
 export const REPO_BRANCH = "main";
@@ -411,7 +412,7 @@ export function scanRepo(root, { siteFile = path.join(root, "site", "site.json")
   const { files, dirs } = walk(root);
   const { dates, added } = gitDates(root);
   const commit = gitCommit(root);
-  const buildDate = new Date();
+  const buildDate = buildNow();
   const hasAbout = files.includes("about.md");
   const warnings = [];
 

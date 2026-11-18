@@ -44,12 +44,24 @@ jobs:
       - name: Install
         working-directory: site
         run: npm ci
+      # The site's unit and template tests. A failure stops the deploy, so the
+      # live site keeps its last good build. The page budget test skips itself
+      # here because nothing is built yet; it runs after the build, below.
+      - name: Test
+        working-directory: site
+        run: npm test
       - name: Build
         working-directory: site
         env:
           # "/" with a custom domain; "/<repository>/" on a github.io address.
           PATH_PREFIX: ${{ steps.pages.outputs.base_path }}/
         run: npm run build
+      # Word and link budgets for the built front page. Reported, not
+      # blocking: a page a few words over should not hold back a correction.
+      - name: Page budgets (reported, not blocking)
+        working-directory: site
+        continue-on-error: true
+        run: node --test test/budgets.test.js
       - uses: actions/upload-pages-artifact@v5
         with:
           path: site/_site

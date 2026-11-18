@@ -18,6 +18,7 @@ import { atomFeed, relevantFeeds } from "./lib/feed.js";
 import { writeOfflineFiles } from "./lib/offline.js";
 import sideNotes from "./lib/side-notes.js";
 import { buildSchedule, withoutCode } from "./lib/schedule.js";
+import { buildNow } from "./lib/clock.js";
 import { homeContent, withoutTitle } from "./lib/front.js";
 import { STATUS } from "./lib/model.js";
 import { investigationNow } from "./lib/investigation-now.js";
@@ -106,7 +107,7 @@ export default function (eleventyConfig) {
 
   eleventyConfig.addGlobalData("repo", () => getRepo());
   eleventyConfig.addGlobalData("statuses", STATUS);
-  eleventyConfig.addGlobalData("schedule", () => buildSchedule(root));
+  eleventyConfig.addGlobalData("schedule", () => buildSchedule(root, buildNow()));
   eleventyConfig.addGlobalData("layout", "page.njk");
   eleventyConfig.addGlobalData("permalink", () => (data) => pageUrl(relPath(data.page.inputPath)));
   eleventyConfig.addGlobalData("eleventyComputed", {
