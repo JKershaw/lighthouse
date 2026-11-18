@@ -25,8 +25,11 @@ export const currentAt = (p) => Math.max(p.pubTime || 0, ...(p.revisionHistory |
 // A piece's illustration: the first image in its body, if the image is in the
 // repository, with the italic caption that follows it. Used for the lead and
 // for the front page's cards.
-export function leadFigure(leadPath, body, images) {
-  const image = body.match(/!\[([^\]]*)\]\(([^)\s]+)\)/);
+export function leadFigure(leadPath, body, images, preferred = '') {
+  // A piece may name the image it shows on the front (`front figure:` in its
+  // header, a path as written in its body); else its first image.
+  const all = [...body.matchAll(/!\[([^\]]*)\]\(([^)\s]+)\)/g)];
+  const image = (preferred && all.find((m) => m[2] === preferred)) || all[0];
   if (!image) return null;
   const imagePath = path.posix.normalize(path.posix.join(path.posix.dirname(leadPath), image[2]));
   if (!images.includes(imagePath)) return null;
@@ -35,7 +38,7 @@ export function leadFigure(leadPath, body, images) {
   return { url: `/${imagePath}`, alt: image[1], caption };
 }
 
-export function frontInfo({ source = '', config = '', byPath, bodies, images, pieces, essays, investigations, watch }) {
+export function frontInfo({ source = '', config = '', byPath, bodies, images, pieces, essays, investigations, watch, now = new Date() }) {
   const header = parseHeader(source);
   const settings = parseHeader(config);
   const value = (name) => headerField(settings?.fields, name)?.value || '';
@@ -61,13 +64,22 @@ export function frontInfo({ source = '', config = '', byPath, bodies, images, pi
     return eligible(page) && accepts(page) ? entry(page) : null;
   };
 
-  // The lead: a released full piece named in README.md's header.
-  const leadPath = headerValue('lead');
-  const leadPage = byPath[leadPath];
-  const lead = eligible(leadPage) && leadPage.section === 'articles' && !leadPage.short ? {
+  // The lead story, decided by rule (the keeper, 18 November 2026): the
+  // newest released finding or essay, by publication or correction (the
+  // Latest order), unless README.md pins one with `lead:` and `lead until:
+  // YYYY-MM-DD`, which holds through that day (UTC) and then lapses, so a pin
+  // can't go stale unnoticed. A pin's `deck` replaces the piece's summary.
+  const full = (p) => eligible(p) && !p.short && (p.section === 'articles' || p.essay);
+  const until = /^\d{4}-\d{2}-\d{2}$/.test(headerValue('lead until')) ? new Date(`${headerValue('lead until')}T23:59:59.999Z`) : null;
+  const pinned = until && now <= until && full(byPath[headerValue('lead')]) ? byPath[headerValue('lead')] : null;
+  const newest = [...pieces, ...essays].filter(full)
+    .sort((a, b) => currentAt(b) - currentAt(a) || (b.pubTime || 0) - (a.pubTime || 0) || a.path.localeCompare(b.path))[0];
+  const leadPage = pinned || newest || null;
+  const lead = leadPage ? {
     ...entry(leadPage),
-    deck: headerValue('deck') || summaries.get(leadPath) || leadPage.summary,
-    figure: leadFigure(leadPath, bodies.get(leadPath) || '', images),
+    pinned: Boolean(pinned),
+    deck: (pinned && headerValue('deck')) || summaries.get(leadPage.path) || leadPage.summary,
+    figure: leadFigure(leadPage.path, bodies.get(leadPage.path) || '', images, leadPage.frontFigure),
   } : null;
 
   // Latest: released findings and essays, newest first by publication or
@@ -268,4 +280,12 @@ export function cardKicker(p) {
   const date = p.revised || p.published || '';
   const short = date.replace(/^(\d+) (\w{3})\w* \d{4}$/, '$1 $2');
   return { kind: p.essay ? 'Essay' : 'Finding', essay: Boolean(p.essay), state: p.displayState || '', date: short, iso: (p.revisionHistory?.[0]?.iso) || p.publishedIso || '' };
+}
+
+// An investigation page's plain opening, lifted from its rendered body so it
+// can stand right under the question, before the studies and the queue: the
+// first paragraph that starts "In short.", and the body without it.
+export function takeInShort(html = '') {
+  const m = String(html).match(/<p>\s*<strong>In short\.<\/strong>[\s\S]*?<\/p>/);
+  return m ? { lead: m[0], rest: html.slice(0, m.index) + html.slice(m.index + m[0].length) } : { lead: '', rest: html };
 }

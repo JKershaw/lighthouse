@@ -4,8 +4,10 @@
    build decides it, not a person on the day:
    1. what Lighthouse is (README.md's first paragraph), then where the big
       question stands (site/learned.md's `question`);
-   2. the lead story: README.md's `lead` (a released finding), with its
-      illustration, its `deck`, and the headline site/learned.md gives it;
+   2. the lead story: the newest released finding or essay, or one README.md
+      pins with `lead:` and `lead until:` (lib/front.js), with its
+      illustration (wide screens only), its deck, and the headline
+      site/learned.md gives it;
    3. what we've learned so far (site/learned.md; left out until reviewed),
       each card with its piece's illustration, kind, status and date, less
       the lead so nothing appears twice;
@@ -27,6 +29,7 @@
 {% macro kickerLine(k, label) %}<p class="card-kicker{% if k.essay %} card-kicker-essay{% endif %}">{% if label %}{{ label }} · {% endif %}{% if k.essay %}Essay · {% endif %}<time datetime="{{ k.iso }}">{{ k.date }}</time></p>{% endmacro %}
 
 {% if lead %}<article class="front-story" aria-labelledby="lead-title">
+  <p class="front-label">{{ "Editor's pick" if lead.pinned else "Latest" }}</p>
   {{ kickerLine(lead.kicker, lead.topic) }}
   <h2 id="lead-title"><a href="{{ lead.url }}">{{ lead.headline }}</a></h2>
   {% if lead.deck %}<p class="story-deck">{{ lead.deck }}</p>{% endif %}

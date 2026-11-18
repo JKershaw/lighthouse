@@ -6,11 +6,26 @@ const draft = {...finding,path:'articles/draft.md',draft:true,status:'draft'};
 const essay = {...finding,path:'essays/reading.md',section:'essays',essay:true};
 const log = {path:'notes/log.md',url:'/notes/log/',title:'Daily log',section:'notes',changed:'2 October 2026'};
 const data = () => ({byPath:{[finding.path]:finding,[draft.path]:draft,[essay.path]:essay,[log.path]:log},bodies:new Map([[finding.path,'# A finding\n\n![The measured boundary](figure.svg)\n\n*The caption preserves the limit.*']]),images:['articles/figure.svg'],pieces:[draft,finding],essays:[essay],investigations:[],watch:{path:log.path}});
-test('README selects only a released full finding and its own retained illustration',()=>{
-  const front=frontInfo({...data(),source:'lead: articles/finding.md\ndeck: A cautious deck.\n\n# Home'});
-  assert.equal(front.lead.path,finding.path);assert.equal(front.lead.figure.url,'/articles/figure.svg');assert.equal(front.lead.figure.alt,'The measured boundary');assert.equal(front.lead.figure.caption,'The caption preserves the limit.');
-  for(const path of [draft.path,essay.path,'missing.md'])assert.equal(frontInfo({...data(),source:`lead: ${path}\ndeck: D\n\n# Home`}).lead,null);
-  const missing=data();missing.images=[];assert.equal(frontInfo({...missing,source:'lead: articles/finding.md\ndeck: D\n\n# Home'}).lead.figure,null);
+test('the lead: the newest released finding or essay, unless README pins one until a date',()=>{
+  const now=new Date('2026-11-18T12:00:00Z');
+  const newer={...essay,path:'essays/newer.md',pubTime:5};
+  const d=()=>({...data(),byPath:{...data().byPath,[newer.path]:newer},essays:[essay,newer],now});
+  // Nothing pinned: the newest, essays included, never a draft.
+  assert.equal(frontInfo(d()).lead.path,newer.path);
+  assert.equal(frontInfo(d()).lead.pinned,false);
+  assert.equal(frontInfo(d()).lead.deck,newer.summary);
+  // A pin holds through its day, with its deck and its own illustration.
+  const pin='lead: articles/finding.md\nlead until: 2026-11-18\ndeck: A cautious deck.\n\n# Home';
+  const front=frontInfo({...d(),source:pin});
+  assert.equal(front.lead.path,finding.path);assert.equal(front.lead.pinned,true);assert.equal(front.lead.deck,'A cautious deck.');
+  assert.equal(front.lead.figure.url,'/articles/figure.svg');assert.equal(front.lead.figure.alt,'The measured boundary');assert.equal(front.lead.figure.caption,'The caption preserves the limit.');
+  // It lapses after that day, and a pin without an end date, or of a draft or a missing page, is ignored.
+  assert.equal(frontInfo({...d(),source:pin,now:new Date('2026-11-19T00:00:01Z')}).lead.path,newer.path);
+  for(const src of ['lead: articles/finding.md\ndeck: D\n\n# Home','lead: articles/draft.md\nlead until: 2026-12-01\n\n# Home','lead: missing.md\nlead until: 2026-12-01\n\n# Home'])assert.equal(frontInfo({...d(),source:src}).lead.path,newer.path);
+  const missing=d();missing.images=[];assert.equal(frontInfo({...missing,source:pin}).lead.figure,null);
+  // A piece can name which of its images the front shows.
+  const two=d();two.bodies=new Map([[finding.path,'![First](a.svg)\n\n![Second](figure.svg)']]);two.byPath={...two.byPath,[finding.path]:{...finding,frontFigure:'figure.svg'}};two.pieces=[draft,two.byPath[finding.path]];
+  assert.equal(frontInfo({...two,source:pin}).lead.figure.alt,'Second');
 });
 test('section choices come from Markdown, drafts stay out and watch logs stay labelled',()=>{
   const front=frontInfo({...data(),config:'title: Sections\nfindings lead: articles/finding.md\nfindings lede: Checked against sources.\nsummaries:\n- articles/finding.md | A short signpost with a limit.\n\n# Notes'});

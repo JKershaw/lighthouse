@@ -19,7 +19,7 @@ import { writeOfflineFiles } from "./lib/offline.js";
 import sideNotes from "./lib/side-notes.js";
 import { buildSchedule, withoutCode } from "./lib/schedule.js";
 import { buildNow } from "./lib/clock.js";
-import { homeContent, withoutTitle } from "./lib/front.js";
+import { homeContent, withoutTitle, takeInShort } from "./lib/front.js";
 import { STATUS } from "./lib/model.js";
 import { investigationNow } from "./lib/investigation-now.js";
 
@@ -133,6 +133,7 @@ export default function (eleventyConfig) {
   eleventyConfig.addFilter("mdInline", (value, page) => (md ? md.renderInline(String(value || ""), { page }) : value));
 
   eleventyConfig.addFilter("homeContent", homeContent);
+  eleventyConfig.addFilter("takeInShort", takeInShort);
   eleventyConfig.addFilter("investigationNow", investigationNow);
   // A reader meets a study's plain title; its code stays in the kicker, the URL and a title attribute.
   eleventyConfig.addFilter("withoutCode", withoutCode);

@@ -843,12 +843,13 @@ a.status-reviewed:hover { background: var(--accent-hover); border-color: var(--a
 /* The front page, set by type (preview B, 18 November 2026): one picture,
    for the lead; ink serif headlines without underlines; one quiet sans line
    of topic and date; hairline rules rather than boxes; plain words for kinds. */
-.front-question { margin: -.6rem 0 2.4rem; padding: .1rem 0 .1rem 1.1rem; background: none; border-left: 2px solid var(--accent); border-radius: 0; font-style: italic; }
-.front-question strong { font-style: normal; }
+.front-question { margin: -.6rem 0 2.4rem; padding: .1rem 0 .1rem 1.1rem; background: none; border-left: 2px solid var(--accent); border-radius: 0; }
 .front-story { margin: 0 0 2.8rem; padding-bottom: 2.2rem; border-bottom: 1px solid var(--rule); }
 .front-story h2 { font-size: 2.1rem; line-height: 1.15; letter-spacing: -.01em; margin: .2rem 0 .6rem; text-wrap: balance; }
-.front-story h2 a, .learned h3 a, .investigation-list h3 a { color: var(--ink); text-decoration: none; }
-.front-story h2 a:hover, .learned h3 a:hover, .investigation-list h3 a:hover { color: var(--accent); text-decoration: underline; text-decoration-thickness: 1px; }
+.front-story h2 a, .learned h3 a, .investigation-list h3 a { color: var(--ink); text-decoration: underline; text-decoration-color: var(--rule); text-decoration-thickness: 1px; text-underline-offset: .18em; }
+.front-story h2 a:hover, .learned h3 a:hover, .investigation-list h3 a:hover, .front-story h2 a:focus-visible, .learned h3 a:focus-visible, .investigation-list h3 a:focus-visible { color: var(--accent); text-decoration-color: currentColor; }
+.front-label { font-family: var(--sans); font-size: .82rem; font-weight: 600; letter-spacing: .08em; text-transform: uppercase; color: var(--muted); border-top: 1px solid var(--ink); padding-top: .7rem; margin: 0 0 .9rem; }
+@media (min-width: 720px) { .learned li:last-child:nth-child(odd) { grid-column: 1 / -1; } }
 .story-deck { font-size: 1.15rem; line-height: 1.5; margin: 0; color: var(--muted); }
 .story-figure { margin: 1.4rem 0 0; }
 .story-figure { max-height: 24rem; overflow: hidden; -webkit-mask-image: linear-gradient(to bottom, #000 80%, transparent); mask-image: linear-gradient(to bottom, #000 80%, transparent); }
@@ -869,6 +870,8 @@ a.status-reviewed:hover { background: var(--accent-hover); border-color: var(--a
 .card-latest-label { color: var(--muted); }
 .wk-kind { font-size: .78em; font-weight: 600; letter-spacing: .04em; text-transform: uppercase; color: var(--muted); margin-right: .35em; }
 .this-week-reported .wk-kind { font-style: italic; }
-.this-week .status-live { border: 0; padding: 0; font-size: .78em; letter-spacing: .04em; text-transform: uppercase; }
 .this-week { border-bottom: 0; }
-@media (max-width: 600px) { .front-story h2 { font-size: 1.65rem; } .learned h3, .investigation-list .investigation-card h3 { font-size: 1.15rem; } }
+@media (max-width: 600px) { .story-figure { display: none; } .front-story h2 { font-size: 1.65rem; } .learned h3, .investigation-list .investigation-card h3 { font-size: 1.15rem; } }
+.inv-in-short { margin: .4rem 0 1rem; }
+.inv-in-short p { font-size: 1.04rem; line-height: 1.55; margin: 0; }
+.inv-waiting { margin-top: .8rem; font-family: var(--sans); font-size: .85rem; }

@@ -10,6 +10,8 @@ studies:
 - studies/LH048/brief.md
 - studies/LH054/brief.md
 
+**In short.** We follow one Linux kernel flaw that Anthropic says its model wrote an exploit for, and because Lighthouse itself runs on Anthropic's models, we say so on every record. Our reviewed interim record, to the read of 16 November, found that CISA's catalogue of 13 November didn't list the flaw as exploited, which doesn't say whether anyone has exploited it. Fixes had reached Debian, the kernels of Red Hat Enterprise Linux 8, 9 and 10 and Ubuntu's four newest releases, while Ubuntu's three oldest affected releases were still waiting, and our reviewed timeline found no public source we could read that dates when the flaw was reported. Reads go on twice a week, and from 19 November a kernel flaw credited to a person, not a model, is read on the same days for comparison.
+
 ## Why this, and why now
 
 On 27 October 2026 Anthropic described five attack chains found with an unreleased internal model, among them an exploit the model wrote for CVE-2026-98432, a flaw in how the Linux kernel handles incoming IPv4 connections, giving remote root on servers with a Multipath TCP listener. The kernel had published the flaw and its fixes twelve days earlier and scored it 9.8 out of 10. Read on 1 November, EPSS, the public model that estimates how likely a flaw is to be exploited in the next 30 days, gave it 0.46 per cent for 31 October, below the median, and CISA's catalogue of exploited flaws did not list it. Debian's security updates carried fixes; Ubuntu's were pending, and its oldest supported releases had none. These are observations from one morning's reads, kept with the study's brief.

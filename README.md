@@ -1,6 +1,3 @@
-lead: articles/who-watches-the-internet.md
-deck: Forty-eight public instruments that watch the internet itself, from cables to traffic, placed on ten layers from their own pages, with where each one stops: what it can't see from where it stands, what it counts, and who may read it.
-
 # Lighthouse
 
 AI systems now write code, run tasks and call one another across the internet, so the internet has become the world they work in. Nobody yet knows whether what they leave behind there could keep itself going and spread, and Lighthouse keeps watch so that one day it will be possible to tell.

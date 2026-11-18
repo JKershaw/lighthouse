@@ -1,10 +1,10 @@
 {# The top of an investigation's page, as a living page: the question, where it stands (its answer and that answer's status), what is running with each study's latest read, and its pieces in reading order. Built by lib/investigation-now.js from the repository and the schedule; the page's own text follows. #}
 {% set inv = doc.investigation %}{% set now = inv | investigationNow(repo, schedule) %}
 {% if inv.question %}<p class="question">{{ inv.question | mdInline(page) | safe }}</p>{% endif %}
+{% if split and split.lead %}<div class="inv-in-short">{{ split.lead | safe }}</div>{% endif %}
 <div class="inv-now">
   <p class="inv-stands"><span class="inv-label">Where it stands</span> {% set status = now.answer.status %}{% include "status.njk" %} {% if now.answer.url %}{{ now.answer.kind }}: <a href="{{ now.answer.url }}">{{ now.answer.title }}</a>{% else %}{{ now.answer.title }}{% endif %}</p>
   {% if now.reading %}<p class="card-reading">{{ now.reading.kind }}: <a href="{{ now.reading.url }}">{{ now.reading.title }}</a></p>{% endif %}
-  {% if now.waiting.length %}<details><summary>Work waiting ({{ now.waiting.length }})</summary><ul class="sched-list">{% for row in now.waiting %}<li><span title="{{ row.id | escape }}">{{ row.task | escape }}</span>: {% for reason in row.reasons %}{{ reason | escape }}{% if not loop.last %}; {% endif %}{% endfor %}</li>{% endfor %}</ul></details>{% endif %}
   <p class="when">{% if inv.started %}Started {{ inv.started }} · {% endif %}{{ now.studies }} {{ "study" if now.studies == 1 else "studies" }}, {{ now.underway }} under way{% if now.pieces %} · {{ now.pieces }} {{ "piece" if now.pieces == 1 else "pieces" }}{% endif %}{% if now.latestRead %} · latest read {{ now.latestRead.day }}{% endif %}{% if now.next %} · next read {{ now.next.day }}{% if now.next.reason %} ({{ now.next.reason | escape }}){% endif %}{% endif %}</p>
 </div>
 {% set underway = now.studyList | selectattr("active") %}{% set earlier = now.studyList | rejectattr("active") %}
@@ -27,3 +27,5 @@
   <summary>Pieces, in reading order</summary>
   <ol>{% for p in inv.pieces %}{% set full = repo.byPath[p.path] %}<li>{% if full and full.reader %}<span class="topic">{{ full.reader.label }}{% set status = full.reader.status %}{% include "status.njk" %}</span>{% endif %}<a href="{{ p.url }}">{{ p.title }}</a>{% if p.draft %} <span class="tag">Draft</span>{% endif %}{% if p.twin %} <span class="twin">(<a href="{{ p.twin.url }}">short form</a>)</span>{% endif %}</li>{% endfor %}</ol>
 </details>{% endif %}
+{# The schedule's queue for this investigation: working detail, so it comes last. #}
+{% if now.waiting.length %}<details class="inv-waiting"><summary>Work waiting ({{ now.waiting.length }})</summary><ul class="sched-list">{% for row in now.waiting %}<li><span title="{{ row.id | escape }}">{{ row.task | escape }}</span>: {% for reason in row.reasons %}{{ reason | escape }}{% if not loop.last %}; {% endif %}{% endfor %}</li>{% endfor %}</ul></details>{% endif %}

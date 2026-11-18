@@ -456,6 +456,7 @@ export function scanRepo(root, { siteFile = path.join(root, "site", "site.json")
     if (info.section === "investigations" && header) {
       page.fields = header.fields;
     }
+    page.frontFigure = headerField(header?.fields, "front figure")?.value.trim() || "";
     pages.push(page);
     byPath[rel] = page;
     bodies.set(rel, body);
@@ -639,7 +640,7 @@ export function scanRepo(root, { siteFile = path.join(root, "site", "site.json")
   siteDirs.add("this-week");
   const front = frontInfo({ source: files.includes("README.md") ? fs.readFileSync(path.join(root, "README.md"), "utf8") : "",
     config: fs.existsSync(path.join(root, "site/sections.md")) ? fs.readFileSync(path.join(root, "site/sections.md"), "utf8") : "",
-    byPath, bodies, images, pieces: fulls, essays: releasedEssays, investigations, watch });
+    byPath, bodies, images, pieces: fulls, essays: releasedEssays, investigations, watch, now: buildDate });
   for (const section of front.sections) siteDirs.add(section.url.replace(/^\/|\/$/g, ""));
   // A piece in no investigation that leads a section front says it belongs
   // there, so a reader can tell where the map piece, for one, sits.
@@ -702,7 +703,7 @@ export function scanRepo(root, { siteFile = path.join(root, "site", "site.json")
   // "More in" link or a direct link to the investigation page.
   if (repo.learned) repo.learned.cards = repo.learned.items.map((it) => {
     const p = byPath[it.path];
-    return p ? { ...it, url: p.url, label: p.reader?.label || '', kicker: cardKicker(p), figure: leadFigure(it.path, bodies.get(it.path) || '', images) } : null;
+    return p ? { ...it, url: p.url, label: p.reader?.label || '', kicker: cardKicker(p), figure: leadFigure(it.path, bodies.get(it.path) || '', images, p.frontFigure) } : null;
   }).filter(Boolean);
   // The lead story's kicker, and its headline: the short one site/learned.md
   // gives it where it is there, else its title.

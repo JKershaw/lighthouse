@@ -126,7 +126,8 @@ test("essays: read like pieces, not pieces themselves, drafts not released", () 
   assert.deepEqual(repo.essays.map((p) => p.path), ["essays/unfinished.md", "essays/reading.md"]);
   assert.equal(repo.byPath["essays/unfinished.md"].draft, true);
   assert.deepEqual(repo.releasedEssays.map((p) => p.path), ["essays/reading.md"]);
-  assert.ok(repo.front.latest.some((p) => p.path === "essays/reading.md"));
+  // A released essay is shown: as the lead when it is the newest, else in Latest.
+  assert.ok(repo.front.lead?.path === "essays/reading.md" || repo.front.latest.some((p) => p.path === "essays/reading.md"));
   assert.ok(!repo.front.latest.some((p) => p.path === "essays/unfinished.md"));
   assert.equal(repo.hasEssays, true);
   assert.ok(repo.siteDirs.has("essays"));
