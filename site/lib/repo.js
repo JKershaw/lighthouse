@@ -8,7 +8,7 @@ import fs from "node:fs";
 import path from "node:path";
 import { execFileSync } from "node:child_process";
 import { parseHeader, headerField } from "./header.js";
-import { frontInfo, thisWeek, linkWeekItems, todayLine, learnedInfo } from "./front.js";
+import { frontInfo, thisWeek, linkWeekItems, todayLine, learnedInfo, leadFigure, firstSentence, cardKicker } from "./front.js";
 import { buildStories } from "./stories.js";
 import { datedNotices } from "./updates.js";
 import { feedCatalog } from "./feed.js";
@@ -696,6 +696,25 @@ export function scanRepo(root, { siteFile = path.join(root, "site", "site.json")
     today: todayLine(fs.existsSync(path.join(root, THIS_WEEK)) ? fs.readFileSync(path.join(root, THIS_WEEK), "utf8") : "", buildDate),
     learned: learnedInfo(fs.existsSync(path.join(root, "site/learned.md")) ? fs.readFileSync(path.join(root, "site/learned.md"), "utf8") : "", process.env.LIGHTHOUSE_PREVIEW === "drafts"),
   };
+  // The front page's cards, all from released material: each "What we've
+  // learned" item gets its piece's illustration and kind, status and date,
+  // and each investigation gets its newest This week item, by the item's
+  // "More in" link or a direct link to the investigation page.
+  if (repo.learned) repo.learned.cards = repo.learned.items.map((it) => {
+    const p = byPath[it.path];
+    return p ? { ...it, url: p.url, label: p.reader?.label || '', kicker: cardKicker(p), figure: leadFigure(it.path, bodies.get(it.path) || '', images) } : null;
+  }).filter(Boolean);
+  // The lead story's kicker, and its headline: the short one site/learned.md
+  // gives it where it is there, else its title.
+  if (front.lead) {
+    front.lead.kicker = cardKicker(byPath[front.lead.path]);
+    front.lead.topic = byPath[front.lead.path].reader?.label || '';
+    front.lead.headline = repo.learned?.cards.find((c) => c.path === front.lead.path)?.headline || front.lead.listTitle || front.lead.title;
+  }
+  for (const inv of front.investigations) {
+    const item = repo.thisWeek?.items.find((x) => x.home?.url === inv.url || x.sentence.includes(`](${inv.path})`));
+    inv.latest = item ? { iso: item.iso, day: item.day, label: item.label, sentence: firstSentence(item.sentence) } : null;
+  }
   // The full This week page puts the day's line under its own day when that day has items.
   repo.todayInWeek = Boolean(repo.today && repo.thisWeek && repo.thisWeek.days.some((d) => d.iso === repo.today.iso));
   repo.feeds = feedCatalog(repo);

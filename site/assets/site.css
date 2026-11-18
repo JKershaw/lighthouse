@@ -839,3 +839,27 @@ a.status-reviewed:hover { background: var(--accent-hover); border-color: var(--a
 .learned p:not(.topic) { margin: 0; font-size: 0.98rem; line-height: 1.5; color: var(--ink); }
 .learned-question { margin: 1.4rem 0 0; padding: 0.9rem 1rem; background: var(--tint); border-radius: 3px; }
 .learned-question p { margin: 0; font-size: 1rem; line-height: 1.55; }
+
+/* The front page as a showcase (preview, 18 November 2026): the big question
+   under the introduction, a lead story with its illustration, illustrated
+   cards with a kicker line, and investigation cards with their newest item. */
+.front-question { margin: -1rem 0 2rem; }
+.front-story { margin: 0 0 2.6rem; }
+.front-story .story-figure { display: block; margin: 0 0 .9rem; border: 1px solid var(--rule); border-radius: 3px; overflow: hidden; background: var(--bg); }
+.front-story .story-figure img { display: block; width: 100%; height: auto; max-height: 26rem; object-fit: cover; object-position: top left; }
+.front-story h2 { font-size: 1.75rem; line-height: 1.2; margin: .15rem 0 .5rem; text-wrap: balance; }
+.front-story h2 a { color: var(--ink); text-decoration: none; }
+.front-story h2 a:hover { color: var(--accent); }
+.story-deck { font-size: 1.08rem; line-height: 1.5; margin: 0; color: var(--ink); }
+.card-kicker { font-family: var(--sans); font-size: .74rem; letter-spacing: .04em; text-transform: uppercase; color: var(--muted); margin: 0 0 .25rem; }
+.card-kicker .card-topic { color: var(--accent); font-weight: 600; }
+.card-kicker-essay .card-topic, .card-kicker-essay { color: var(--essay); }
+.learned .card-figure { display: block; aspect-ratio: 16 / 9; margin: 0 0 .6rem; border: 1px solid var(--rule); border-radius: 3px; overflow: hidden; background: var(--bg); }
+.learned .card-figure img { display: block; width: 100%; height: 100%; object-fit: cover; object-position: top left; }
+.learned .topic { display: none; }
+.learned-essay h3 a { color: var(--essay); }
+.learned-essay h3 a:hover { color: var(--essay-hover); }
+.card-question { color: var(--ink); }
+.card-latest { color: var(--ink); }
+.card-latest-label { color: var(--muted); font-weight: 600; }
+@media (max-width: 600px) { .front-story h2 { font-size: 1.45rem; } .front-story .story-figure img { max-height: 18rem; } }

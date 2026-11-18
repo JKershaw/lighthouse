@@ -22,9 +22,10 @@ function parseSummaries(items = []) {
 export const LATEST_ORDER = 'Newest first, by the date each was published or last corrected; other later notices are shown beside each.';
 export const currentAt = (p) => Math.max(p.pubTime || 0, ...(p.revisionHistory || []).filter((r) => r.kind === 'correction').map((r) => r.time || 0));
 
-// The lead's illustration: the first image in its body, if the image is in the
-// repository, with the italic caption that follows it.
-function leadFigure(leadPath, body, images) {
+// A piece's illustration: the first image in its body, if the image is in the
+// repository, with the italic caption that follows it. Used for the lead and
+// for the front page's cards.
+export function leadFigure(leadPath, body, images) {
   const image = body.match(/!\[([^\]]*)\]\(([^)\s]+)\)/);
   if (!image) return null;
   const imagePath = path.posix.normalize(path.posix.join(path.posix.dirname(leadPath), image[2]));
@@ -243,4 +244,28 @@ export function learnedInfo(source = '', preview = false) {
     iso: value('date'), day: d ? new Intl.DateTimeFormat('en-GB', { day: 'numeric', month: 'long', year: 'numeric', timeZone: 'UTC' }).format(d) : '',
     reviews: headerField(header.fields, 'reviews')?.items || [],
   };
+}
+
+// The first sentence of a line of Markdown, for a one-line "latest" on a
+// card: up to the first full stop or question mark outside a link that is
+// followed by a capital letter or the end, else the whole line.
+export function firstSentence(md = '') {
+  let depth = 0;
+  for (let i = 0; i < md.length; i += 1) {
+    const c = md[i];
+    if (c === '[' || c === '(') depth += 1;
+    else if ((c === ']' || c === ')') && depth > 0) depth -= 1;
+    else if (depth === 0 && (c === '.' || c === '?') && (i === md.length - 1 || /\s[A-Z\[]/.test(md.slice(i + 1, i + 3)))) return md.slice(0, i + 1);
+  }
+  return md;
+}
+
+// What a front-page card shows above its headline: what kind of piece it is
+// (a finding, or an essay, which is interpretation), its status and the date
+// it was published, revised or corrected, whichever is latest.
+export function cardKicker(p) {
+  if (!p) return null;
+  const date = p.revised || p.published || '';
+  const short = date.replace(/^(\d+) (\w{3})\w* \d{4}$/, '$1 $2');
+  return { kind: p.essay ? 'Essay' : 'Finding', essay: Boolean(p.essay), state: p.displayState || '', date: short, iso: (p.revisionHistory?.[0]?.iso) || p.publishedIso || '' };
 }

@@ -1,6 +1,6 @@
 import { test } from 'node:test';
 import assert from 'node:assert/strict';
-import { frontInfo, homeContent, withoutTitle, thisWeek, linkWeekItems, LATEST_COUNT, LATEST_ORDER, todayLine } from '../lib/front.js';
+import { frontInfo, homeContent, withoutTitle, thisWeek, linkWeekItems, firstSentence, cardKicker, LATEST_COUNT, LATEST_ORDER, todayLine } from '../lib/front.js';
 const finding = {path:'articles/finding.md',url:'/articles/finding/',title:'A finding',section:'articles',status:'released',published:'1 October 2026',summary:'A complete summary with a limit.'};
 const draft = {...finding,path:'articles/draft.md',draft:true,status:'draft'};
 const essay = {...finding,path:'essays/reading.md',section:'essays',essay:true};
@@ -110,4 +110,14 @@ test('this week links: a study brief or record goes to the study page, with its 
   assert.equal(linked.lead[0].sentence,linked.items[0].sentence);
   assert.equal(linked.days[1].items[0].home.title,'Cost');
   assert.equal(linkWeekItems(null),null);
+});
+
+test('front cards: a first sentence that ignores stops inside links, and a short kicker',()=>{
+  assert.equal(firstSentence('Firms ([A.](https://a.example/x.y), [B](b.md)) report it. We count.'),'Firms ([A.](https://a.example/x.y), [B](b.md)) report it.');
+  assert.equal(firstSentence('When was it reported? No source says.'),'When was it reported?');
+  assert.equal(firstSentence('Version 1.26.1 shipped. Then more.'),'Version 1.26.1 shipped.');
+  assert.equal(firstSentence('No stop at all'),'No stop at all');
+  assert.deepEqual(cardKicker({essay:true,displayState:'Revised',revised:'8 November 2026',published:'8 November 2026',revisionHistory:[{iso:'2026-11-08'}]}),{kind:'Essay',essay:true,state:'Revised',date:'8 Nov',iso:'2026-11-08'});
+  assert.equal(cardKicker({displayState:'Released',published:'30 October 2026',publishedIso:'2026-10-30'}).date,'30 Oct');
+  assert.equal(cardKicker(null),null);
 });
