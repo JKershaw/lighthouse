@@ -76,3 +76,14 @@ The record in full, the brief and both amendments, the checkpoint, panel.json, f
 ## Verdict
 
 **Not cleared until the must-fix items are resolved** (M1 to M5). Each is a wording change, an added table row or a disclosure. None changes a date or a count already stated, or the main reading: the report date is unknown, the kernel's fix dates are 1, 11 and 15 October, and the post on 27 October came before any candidate 45-day window closed. M1 widens the stated range to include a distribution fix 3 days before the post. Whatever the resolution writes should be read once by a fresh agent before release, as AGENTS.md step 4 requires; the reader-and-inference review follows.
+
+## Resolution (record version 0.2, 18 November 2026)
+
+By the driving session of run 2026-11-18T151251Z-anthropic-research (Claude Code, Claude Opus 5.5), which wrote version 0.1; to be read once by a fresh agent (row LH038-record-recheck) after the reader review.
+
+- M1: SUSE's 24 October Release Date added as the brief's distribution-fix candidate (3 days; +45 8 Dec; +90 22 Jan 2027, in timeline.py's output); range now "3 to 26 days (12 to 26 after the kernel's own fix dates)"; the CVE row labelled post hoc in the table and Finding 3; the post's own wording stated as uncomputable; P5 notes Ubuntu's notices unread here and LH036's 10 November date.
+- M2: the clause quoted in full; Finding 3 says "in two stated cases"; a dated quotation note added to the brief.
+- M3: 403s attributed to the session's own access layer in the Answer and Limits.
+- M4: In short and Finding 4 reworded as release dates on SUSE's pages, with the 129-CVE caveat, also in Limits.
+- M5: Finding 4 and Next restate LH036 as it says it; the proposed line reworded as suggested.
+- S1 to S8 applied as suggested. O1 to O3 applied. O4 (entity-encoded "@" in Message-IDs kept in three oss-security bodies) not acted on: message ids are not mailboxes and the redaction rule names email addresses; left for the keeper's rule as written.

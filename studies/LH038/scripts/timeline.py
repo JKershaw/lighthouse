@@ -116,6 +116,10 @@ cands = [("T1 fix author date", t1), (f"T4 first stable release ({fv})", first_s
 for label, d in cands:
     print(f"{label} {d:%Y-%m-%d %H:%M} UTC -> T6 post {t6}: {days(d, t6)} days; "
           f"+7 = {(d.date() + dt.timedelta(7))}; +45 = {(d.date() + dt.timedelta(45))}; +90 = {(d.date() + dt.timedelta(90))}")
+fs0, fsd0 = min(suse.items(), key=lambda kv: kv[1])
+print(f"Earliest followed distribution fix (SUSE Release Date, {fs0}) {fsd0:%Y-%m-%d %H:%M} UTC -> T6 post {t6}: {days(fsd0, t6)} days; "
+      f"+7 = {(fsd0.date() + dt.timedelta(7))}; +45 = {(fsd0.date() + dt.timedelta(45))}; +90 = {(fsd0.date() + dt.timedelta(90))}")
+print("(version 0.2: the distribution-fix candidate added after R-0091; the T3 row was added after the read, post hoc)")
 print(f"T1 -> T3: {days(t1, t3)} days")
 print(f"T1 -> first stable: {days(t1, first_stable)} days; T1 -> last stable: {days(t1, last_stable)} days")
 fs, fsd = min(suse.items(), key=lambda kv: kv[1])
