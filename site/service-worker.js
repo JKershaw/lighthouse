@@ -24,11 +24,13 @@ self.addEventListener("install", (event) => {
     await Promise.all(assets.map(([url, response]) => assetCache.put(url, response)));
     // Keep illustrations from earlier reading sessions. Refresh them for this
     // build when possible, retaining the saved copy if its source disappeared.
-    const shellAssets = new Set(CONFIG.assets.map((url) => new URL(url, ROOT).href));
+    // The shell's own files are compared by path, so earlier fingerprinted
+    // copies (site.css?v=...) are not carried into the new build.
+    const shellPaths = new Set(CONFIG.assets.map((url) => new URL(url, ROOT).pathname));
     for (const name of (await caches.keys()).filter((key) => key.startsWith(`${PREFIX}assets:`) && key !== ASSETS)) {
       const previous = await caches.open(name);
       for (const request of await previous.keys()) {
-        if (shellAssets.has(request.url)) continue;
+        if (shellPaths.has(new URL(request.url).pathname)) continue;
         let response;
         try { response = await fetch(request, { cache: "reload" }); } catch { /* Use the saved copy. */ }
         if (!response?.ok) response = await previous.match(request);
@@ -95,9 +97,17 @@ self.addEventListener("fetch", (event) => {
       const cache = await caches.open(ASSETS);
       const cached = await cache.match(request);
       if (cached) return cached;
-      const response = await fetch(request);
-      event.waitUntil(remember(ASSETS, request, response.clone(), 120));
-      return response;
+      // A fingerprinted address (site.css?v=...) this build hasn't saved yet
+      // comes from the network; offline, the saved copy of the same file serves.
+      try {
+        const response = await fetch(request);
+        if (response.ok) event.waitUntil(remember(ASSETS, request, response.clone(), 120));
+        return response;
+      } catch (error) {
+        const saved = await cache.match(request, { ignoreSearch: true });
+        if (saved) return saved;
+        throw error;
+      }
     })());
   }
 });

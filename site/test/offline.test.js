@@ -3,7 +3,7 @@ import assert from 'node:assert/strict';
 import fs from 'node:fs';
 import os from 'node:os';
 import path from 'node:path';
-import { writeOfflineFiles, scopePath } from '../lib/offline.js';
+import { writeOfflineFiles, scopePath, versionedAsset } from '../lib/offline.js';
 
 test('offline shell follows the build, changes with content and supports a Pages prefix', () => {
   const output = fs.mkdtempSync(path.join(os.tmpdir(), 'lighthouse-offline-'));
@@ -31,4 +31,19 @@ test('offline shell follows the build, changes with content and supports a Pages
     assert.equal(scopePath('/'), '/');
     assert.equal(scopePath('lighthouse///'), '/lighthouse/');
   } finally { fs.rmSync(output, { recursive: true, force: true }); }
+});
+
+test('asset links carry a fingerprint of their contents, which changes when they do', () => {
+  const dir = fs.mkdtempSync(path.join(os.tmpdir(), 'lighthouse-assets-'));
+  try {
+    fs.writeFileSync(path.join(dir, 'site.css'), 'body { color: black; }');
+    const first = versionedAsset('/assets/site.css', dir);
+    assert.match(first, /^\/assets\/site\.css\?v=[0-9a-f]{10}$/);
+    assert.equal(versionedAsset('/assets/site.css', dir), first);
+    fs.writeFileSync(path.join(dir, 'site.css'), 'body { color: navy; }');
+    assert.notEqual(versionedAsset('/assets/site.css', dir), first);
+    // Anything else, or a file that isn't there, is left as it is.
+    assert.equal(versionedAsset('/assets/missing.css', dir), '/assets/missing.css');
+    assert.equal(versionedAsset('https://example.org/x.css', dir), 'https://example.org/x.css');
+  } finally { fs.rmSync(dir, { recursive: true, force: true }); }
 });

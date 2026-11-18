@@ -39,3 +39,20 @@ export function writeOfflineFiles(output, prefix = "/", template) {
   }, null, 2) + "\n");
   return config;
 }
+
+// A stylesheet's or script's address with a short fingerprint of its
+// contents (`/assets/site.css?v=3f9a1c2b7d`), so a page always asks for the
+// version it was built with: neither the browser's cache nor the service
+// worker's saved copy can pair new pages with old styles. The service worker
+// falls back to its saved copy, whatever the fingerprint, when offline.
+const fingerprints = new Map();
+export function versionedAsset(url, assetsDir) {
+  const m = String(url).match(/^\/assets\/(.+)$/);
+  if (!m) return url;
+  const file = path.join(assetsDir, m[1]);
+  let stat;
+  try { stat = fs.statSync(file); } catch { return url; }
+  const key = `${file}:${stat.mtimeMs}:${stat.size}`;
+  if (!fingerprints.has(key)) fingerprints.set(key, createHash('sha256').update(fs.readFileSync(file)).digest('hex').slice(0, 10));
+  return `${url}?v=${fingerprints.get(key)}`;
+}

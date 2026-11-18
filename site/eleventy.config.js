@@ -15,7 +15,7 @@ import { stripHeader } from "./lib/header.js";
 import lighthousePlugin, { unresolved } from "./lib/markdown.js";
 import { arrangePiece, markNotices } from "./lib/html.js";
 import { atomFeed, relevantFeeds } from "./lib/feed.js";
-import { writeOfflineFiles } from "./lib/offline.js";
+import { writeOfflineFiles, versionedAsset } from "./lib/offline.js";
 import sideNotes from "./lib/side-notes.js";
 import { buildSchedule, withoutCode } from "./lib/schedule.js";
 import { buildNow } from "./lib/clock.js";
@@ -134,6 +134,7 @@ export default function (eleventyConfig) {
 
   eleventyConfig.addFilter("homeContent", homeContent);
   eleventyConfig.addFilter("takeInShort", takeInShort);
+  eleventyConfig.addFilter("versioned", (url) => versionedAsset(url, path.join(siteDir, "assets")));
   eleventyConfig.addFilter("investigationNow", investigationNow);
   // A reader meets a study's plain title; its code stays in the kicker, the URL and a title attribute.
   eleventyConfig.addFilter("withoutCode", withoutCode);
