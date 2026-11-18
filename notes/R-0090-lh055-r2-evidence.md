@@ -74,3 +74,31 @@ All seven round 2 texts where the record cites them, and in full for the passage
 **Not cleared until the must-fix items are resolved** (M1 to M3). Each is a wording change. None changes a count, a link status or the answer (inconclusive; Amazon's six links still claimed; nothing in round 2 supports or contradicts Campaign 1). S5, if taken, changes one round 2 coding and the derived counts. Whatever resolves these should be read once by a fresh agent before release, as AGENTS.md step 4 requires; the reader-and-inference review follows.
 
 Later observation, not reviewed here: the 18 November panel read (checkpoints/2026-11-18-read.md) reports that Check Point's report answered and that Google's 16 November report was admitted from the horizon intake. That makes round 2's "Check Point unread" and "Google's report a lead only" statements stale for round 3, though they were true for round 2.
+
+## Resolution (version 0.5)
+
+Resolved on 18 November 2026 by a Claude Opus 5.5 subagent (claude-opus-5-5) for run 2026-11-18T151251Z-anthropic-research, in studies/LH055/LH055.md version 0.5 (0.4 is at commit 24659b1). Each change was checked against the retained source texts (R01 lines 45, 53 to 55 and 65; R03 line 324; R05 line 32; R06 line 74; R07 lines 61 to 73; R02 line 342; S02 lines 99 and 103; the fetch log's R03 and R07 entries and R07's body metadata). Both replays still end "all checks passed"; r1_tables_output.txt is unchanged.
+
+- **M1.** Fixed. The record's In short, the checkpoint's In short and the proposed investigation line now give Microsoft's summary ("abuse of Azure AI services") and its hedged detail ("might have attempted"), with no figure; the 7d E1 row's Public? cell now reads "publishes no figure, and its detail hedges what its summary states", and its first cell says use is stated in the summary and hedged in the detail (C133 to C135).
+- **M2.** Fixed. The proposed line now says a security firm "describes" the key failover, labels the gateway reading as ours and made after the fact, and says nothing in this study can test it unless Amazon or a later reading of the code says so.
+- **M3.** Fixed. Method 8 now says the collector withheld one email address (a mailto link in CrowdStrike's page) from that body, that the text extract held none, and that no key-shaped string occurred.
+- **S1.** Applied. The investigation page and programme.md each gain one parenthesis after the narrowed reseller clause saying it was narrowed on 17 November from round 2's record, which isn't fully reviewed yet, and checked by this review on 18 November; nothing else on those pages changed. The record's Next asks the reader review to see both surfaces.
+- **S2.** Applied in 7b and in C155's limitation (claims.csv and r2_claims_rows.py): the quotation matches S02 line 99 item for item, so it adds nothing beyond the post, whatever its origin.
+- **S3.** Applied. In short and Answer scope "only Amazon" and "no second origin" to ARTEX; the Answer, 7c and C137's limitation now set Microsoft's pre-Amazon relay of the loop's shape beside it, untied to ARTEX or a named report.
+- **S4.** Applied in post hoc reading 4 and 7b: "different AI gateways" (against one built-in gateway) and "a managed pool" (the hook for /llm/pool), S02 line 103.
+- **S5.** Applied in its second form: S08 L5 stays claimed; its reason in links_r2.csv (and r2_links_rows.py), the Answer bullet and Method 8 now say the only assertion is hedged and wider than the link. Recoding to unknown was not chosen because the hedged sentence does assert, weakly, that abuse of the AI resources aided the broader attack, which included credential theft; no count changed.
+- **S6.** Applied in the In short, the checkpoint, the proposed line ("which Microsoft suspects used ARTEX, Microsoft reports from its own monitoring") and the Answer bullet ("reports").
+- **S7.** Applied: 7e's S14 row adds the metadata published time and HTTP Last-Modified 2026-11-17T17:57:56Z, and the sentence after the table names both servers.
+- **S8.** Applied: (a) section 5's E3 row gains a bracketed round 2 note that Equixly was opened as S11; (b) the Answer now says the only round 2 document about Campaign 1 is the repeating article, and Datadog's design description bears only on how one of Amazon's phrases might be read.
+- **S9.** Applied: the In short keeps both hedges ("likely reached its model through what it judges is likely a proxy or reseller").
+- **O1.** Applied: C163 relabelled publisher interpretation. Round 2 basis label counts move from 25 and 14 to 26 publisher interpretation and 13 direct telemetry (r2_tables_output.txt); those counts appear nowhere else. No link count changed.
+- **O2.** Applied in 7c, the header's overlap line and C159 (evidence origin and limitation): directories Talos ties to the same attacks.
+- **O3.** Applied in C137 and 7c ("by its metadata").
+- **O4.** Applied: S08 L2's reason now cites the enumeration of AI model deployments (R01 line 54) and the attempted validation (line 55), outcome not stated.
+- **O5.** Applied in Limits: content bodies only, robots requests not counted.
+- **O6.** Applied in 7c, in GitGuardian's terms.
+- **O7.** Applied: the 7d E3 cell labels the certificate figure as an agent-recorded outcome without ground truth.
+- **O8.** Not applied: it is for the publication stage after the reader review, and this resolution was limited to labelling the reseller clause on those pages.
+- **O9.** Applied: the 7d E2 cell says VAPOR PANDA's keys were for a target, not model access.
+
+Counts: claims (137; 38 in round 2) and link statuses (2 supported, 5 claimed, 0 contradicted, 35 unknown over 42; Campaign 1 rows 0, 3, 0, 3) are unchanged. Per AGENTS.md step 4, these changes are to be read once by a fresh agent before release; the reader-and-inference review follows.
