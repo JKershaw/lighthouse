@@ -3,6 +3,8 @@
 Usage (from the repository root):
   python3 -I studies/LH046/scripts/collect.py studies/LH046/data            # the brief's sample, resumable
   python3 -I studies/LH046/scripts/collect.py studies/LH046/data --list     # print the sample and stop
+  LIGHTHOUSE_PROVIDER=anthropic python3 -I studies/LH046/scripts/collect.py studies/LH046/data/recheck-<UTC label> --recheck
+      # amendment 2 (18 November 2026): the December re-check sample, robots-gated, its own ceiling
 
 Writes, appending (a label already in hours.csv is skipped, so a broken run can resume):
   hours.csv    one row per file read: response, size, hash, headers, counts by type, payload shape, minute coverage
@@ -46,6 +48,19 @@ def sample():
         add(dt.date(2026, 11, 8), h, "latest")
     rereads = ["2026-10-01-12", "2026-10-15-12", "2026-10-26-12", "2026-11-05-3", "2026-11-07-12", "2026-11-07-18"]
     return out + [(r, "reread") for r in rereads]
+
+
+def recheck_sample():
+    """Amendment 2: every day 8 November to 6 December 2026 at 03, 09, 15 and 21 UTC (116 files),
+    then the same six files the first run re-read, read again for stability."""
+    out = []
+    d = dt.date(2026, 11, 8)
+    while d <= dt.date(2026, 12, 6):
+        for h in (3, 9, 15, 21):
+            out.append((f"{d.isoformat()}-{h}", "recheck"))
+        d += dt.timedelta(days=1)
+    rereads = ["2026-10-01-12", "2026-10-15-12", "2026-10-26-12", "2026-11-05-3", "2026-11-07-12", "2026-11-07-18"]
+    return out + [(r, "reread2") for r in rereads]
 
 
 def fetch(url):
@@ -151,8 +166,16 @@ HOUR_COLS = (["label", "set", "url", "utc_read", "attempts", "http_status", "byt
 
 
 def main():
+    global MAX_REQ, MAX_BYTES
     out = sys.argv[1]
-    plan = sample()
+    recheck = "--recheck" in sys.argv
+    plan = recheck_sample() if recheck else sample()
+    gate = None
+    if recheck:
+        MAX_REQ, MAX_BYTES = 140, 10 * 10**9  # amendment 2: 122 planned + single retries; 10 GB
+        sys.path.insert(0, os.path.join(os.path.dirname(os.path.abspath(__file__)), "..", "..", "..", "scripts"))
+        from robots_gate import RobotsGate
+        gate = RobotsGate(UA)
     if "--list" in sys.argv:
         for lab, s in plan:
             print(lab, s)
@@ -182,6 +205,12 @@ def main():
             continue
         url = BASE + lab + ".json.gz"
         attempts = 0
+        if gate is not None:
+            ok, info = gate.check(url)
+            if not ok:
+                t = time.strftime("%Y-%m-%dT%H:%M:%SZ", time.gmtime())
+                lf.write(f"{t}\tnot-fetched\t-\t\t{url}\t{s}\t0\t{info.get('reason', '')}\n"); lf.flush()
+                continue
         while True:
             if nreq >= MAX_REQ or nbytes >= MAX_BYTES:
                 print("ceiling reached:", nreq, "requests,", nbytes, "bytes"); return
