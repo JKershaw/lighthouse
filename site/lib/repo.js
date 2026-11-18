@@ -716,6 +716,22 @@ export function scanRepo(root, { siteFile = path.join(root, "site", "site.json")
     const item = repo.thisWeek?.items.find((x) => x.home?.url === inv.url || x.sentence.includes(`](${inv.path})`));
     inv.latest = item ? { iso: item.iso, day: item.day, label: item.label, sentence: firstSentence(item.sentence) } : null;
   }
+  // The front page's Explore list: the rest of Lighthouse, each with a count
+  // where the build can count it exactly, so the breadth shows and stays true.
+  const has = (d) => siteDirs.has(d) || Boolean(byPath[`${d}.md`]);
+  const n = (k, one, many) => `${k} ${k === 1 ? one : many}`;
+  repo.explore = [
+    has("studies") && { url: "/studies/", title: "Studies", note: `${n(studies.length, "study", "studies")}, each with its question, its data and its record` },
+    has("articles") && { url: "/articles/", title: "Findings", note: `${n(fulls.filter((p) => !p.draft && (!p.status || p.status === "released")).length, "finding", "findings")}, each reviewed against its sources` },
+    releasedEssays.length && { url: "/essays/", title: "Essays", note: `${n(releasedEssays.length, "essay", "essays")}: readings of the evidence, marked as readings` },
+    byPath["observations.md"] && { url: byPath["observations.md"].url, title: "What we've observed", note: "every reading so far, and whose instruments it relied on" },
+    files.includes("notes/knowledge-lineage/graph.json") && { url: "/map/knowledge-lineage/", title: "A map of what we know", note: "how each finding rests on its studies and sources" },
+    has("map") && { url: "/map/", title: "Who watches the internet", note: "the public instruments we rely on, and where each one stops" },
+    byPath["data-and-replay.md"] && { url: byPath["data-and-replay.md"].url, title: "Data and replay", note: "the data we keep, and how to rerun a study" },
+    byPath["corrections.md"] && { url: byPath["corrections.md"].url, title: "Corrections", note: "every correction we've made, and why" },
+    files.includes("schedule/due.csv") && { url: "/schedule/", title: "The schedule", note: "what each run did, and what comes next" },
+    byPath["glossary.md"] && { url: byPath["glossary.md"].url, title: "Glossary", note: "the terms we use, in plain words" },
+  ].filter(Boolean);
   // The full This week page puts the day's line under its own day when that day has items.
   repo.todayInWeek = Boolean(repo.today && repo.thisWeek && repo.thisWeek.days.some((d) => d.iso === repo.today.iso));
   repo.feeds = feedCatalog(repo);

@@ -852,8 +852,7 @@ a.status-reviewed:hover { background: var(--accent-hover); border-color: var(--a
 @media (min-width: 720px) { .learned li:last-child:nth-child(odd) { grid-column: 1 / -1; } }
 .story-deck { font-size: 1.15rem; line-height: 1.5; margin: 0; color: var(--muted); }
 .story-figure { margin: 1.4rem 0 0; }
-.story-figure { max-height: 24rem; overflow: hidden; -webkit-mask-image: linear-gradient(to bottom, #000 80%, transparent); mask-image: linear-gradient(to bottom, #000 80%, transparent); }
-.story-figure img { display: block; width: 100%; height: auto; }
+.story-figure img { display: block; width: auto; height: auto; max-width: 100%; max-height: 22rem; }
 .card-kicker { font-family: var(--sans); font-size: .82rem; color: var(--muted); margin: 0 0 .2rem; }
 .card-kicker-essay { color: var(--essay); }
 .front-learned > h2, .front-section h2 { font-family: var(--sans); font-size: .82rem; font-weight: 600; letter-spacing: .08em; text-transform: uppercase; color: var(--muted); border-top: 1px solid var(--ink); padding-top: .7rem; }
@@ -871,6 +870,12 @@ a.status-reviewed:hover { background: var(--accent-hover); border-color: var(--a
 .wk-kind { font-size: .78em; font-weight: 600; letter-spacing: .04em; text-transform: uppercase; color: var(--muted); margin-right: .35em; }
 .this-week-reported .wk-kind { font-style: italic; }
 .this-week { border-bottom: 0; }
+.explore-list { list-style: none; margin: 0; padding: 0; display: grid; grid-template-columns: 1fr; gap: 0 2.2rem; font-family: var(--sans); }
+@media (min-width: 720px) { .explore-list { grid-template-columns: 1fr 1fr; } }
+.explore-list li { border-top: 1px solid var(--rule); padding: .6rem 0 .7rem; margin: 0; }
+.explore-list a { font-family: var(--serif); font-size: 1.08rem; color: var(--ink); text-decoration: underline; text-decoration-color: var(--rule); text-underline-offset: .18em; }
+.explore-list a:hover, .explore-list a:focus-visible { color: var(--accent); text-decoration-color: currentColor; }
+.explore-list span { display: block; font-size: .86rem; color: var(--muted); margin-top: .1rem; }
 @media (max-width: 600px) { .story-figure { display: none; } .front-story h2 { font-size: 1.65rem; } .learned h3, .investigation-list .investigation-card h3 { font-size: 1.15rem; } }
 .inv-in-short { margin: .4rem 0 1rem; }
 .inv-in-short p { font-size: 1.04rem; line-height: 1.55; margin: 0; }

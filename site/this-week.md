@@ -22,7 +22,9 @@ Each time you update it:
    `- YYYY-MM-DD | lighthouse | sentence` for our own work (link the page).
    Link a study by its brief or record as usual: the build sends the reader
    to the study's own page, which opens in plain words, and adds a short
-   link to its investigation, so don't add either yourself.
+   link to its investigation, so don't add either yourself. Link each item
+   to its study or investigation wherever it has one: the front page's
+   investigation cards show their newest linked item as "Latest".
    One or two plain sentences in Markdown, repository paths from the root.
    No internal codes (no LH, P, R or L numbers, row ids, step numbers or file
    names in the text), British English, no em or en dashes, no figure that is
@@ -47,7 +49,7 @@ the gate's decision on proposals.md P-0018.
 title: This week
 week: 2026-11-12 to 2026-11-18
 updated: 2026-11-18
-today: 2026-11-18 | We kept counting downloads of the tampered WhatsApp library on npm, which published a new version today, reread the reports on ARTEX (Check Point's opened for us for the first time) and began a study of a Python agent package that security firms say shipped key-stealing releases last night. Microsoft's own outage report still isn't one we can read. The reads are unreviewed; the kernel flaw's timeline and ARTEX's second round of reading were reviewed today and added to their records, without a new article.
+today: 2026-11-18 | We kept counting downloads of the tampered WhatsApp library on npm, and began a study of a Python agent package that security firms say shipped key-stealing releases. The kernel flaw's timeline and our record on stolen AI keys were reviewed today.
 items:
 - 2026-11-18 | reported | front | Three security firms ([Socket](https://socket.dev/blog/agent-framework-pypi-package-compromised-with-credential-stealer), [Aikido](https://www.aikido.dev/blog/two-malicious-agent-framework-releases-hit-pypi-in-33-minutes) and [StepSecurity](https://www.stepsecurity.io/blog/microsoft-agent-framework-pypi-package-compromised)) report that agent-framework 1.26.1 and 1.26.2, a Python package for AI agents published as Microsoft's, carried code that steals cloud and AI keys; PyPI has quarantined both. We don't give security advice, but we'll [count how often each was fetched](studies/LH056/brief.md).
 - 2026-11-18 | lighthouse | When was the kernel flaw Anthropic's model wrote an exploit for reported? No public source we could read says. The fix reached stable kernels on 11 and 15 October, and its CVE came on 15 October, 12 days before Anthropic's post; [our dated timeline](studies/LH038/LH038.md) sets each step beside the parties' own disclosure rules.

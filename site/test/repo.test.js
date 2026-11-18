@@ -429,3 +429,12 @@ test("in short: a document's plain opening, else its answer or question", () => 
   assert.equal(inShortOf("# T\n\n## Answer\n\n| a | b |\n").inShort, "");
   assert.deepEqual(inShortOf("# T\n\n**In short** (added 7 November 2026; not part of the protocol). Plain words.\n\n## Question\n\nDense."), { inShort: "Plain words.", inShortFrom: "in short" });
 });
+
+test("the front page's Explore list counts what the build can count", () => {
+  const repo = scanCopy();
+  const studies = repo.explore.find((e) => e.url === "/studies/");
+  assert.ok(studies && studies.note.startsWith(`${repo.studies.length} stud`));
+  const essays = repo.explore.find((e) => e.url === "/essays/");
+  assert.ok(essays && essays.note.startsWith(`${repo.releasedEssays.length} essay`));
+  assert.ok(repo.explore.every((e) => e.url && e.title && e.note));
+});

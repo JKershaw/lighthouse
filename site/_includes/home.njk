@@ -13,7 +13,8 @@
       the lead so nothing appears twice;
    4. this week, with the day's line (site/this-week.md; the editor's three);
    5. the investigations, each with its question, where it stands and its
-      newest This week item.
+      newest This week item;
+   6. Explore: the rest of Lighthouse, with counts the build makes.
    README.md's remainder is not shown here; About carries it. #}
 {% set home = content | homeContent %}
 {% set about = repo.byPath["about.md"] or repo.byPath["AGENTS.md"] %}
@@ -62,5 +63,13 @@
       {% if inv.latest %}<p class="card-latest"><span class="card-latest-label">Latest, <time datetime="{{ inv.latest.iso }}">{{ inv.latest.day }}</time>:</span> {{ inv.latest.sentence | mdInline({ inputPath: "./README.md" }) | safe }}</p>{% endif %}
       <p class="when">{% if now.underway %}{{ now.underway }} {{ "study" if now.underway == 1 else "studies" }} under way{% else %}No study under way{% endif %}{% if now.latestRead %} · latest read {{ now.latestRead.day }}{% endif %}</p>
     </li>{% endfor %}
+  </ul>
+</section>{% endif %}
+
+{% if repo.explore.length %}<section class="front-section front-explore" aria-labelledby="explore-title">
+  <h2 id="explore-title">Explore</h2>
+  <ul class="explore-list">
+    {% for e in repo.explore %}<li><a href="{{ e.url }}">{{ e.title }}</a><span>{{ e.note }}</span></li>
+    {% endfor %}
   </ul>
 </section>{% endif %}
