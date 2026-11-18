@@ -22,7 +22,7 @@ A piece (articles/*.md, articles/short/*.md) may open with a header before its `
 
 ## Publish with GitHub Pages
 
-.github/workflows/site.yml builds and deploys on every push to main. To enable it, open the repository's Settings, then Pages, and set Source to GitHub Actions. A run made before Pages was enabled fails at its Pages step; re-run it from the Actions page, or push to main again, and the next run deploys. The site appears at https://jkershaw.github.io/lighthouse/.
+.github/workflows/site.yml runs the site's tests, then builds and deploys, on every push to main and once a day at 00:07 UTC, so the date-relative blocks stay true on a day nothing is pushed; a failed test keeps the last good site live. `LIGHTHOUSE_NOW=2026-11-19T00:07:00Z npm run build` builds the site as it would look at that instant. To enable it, open the repository's Settings, then Pages, and set Source to GitHub Actions. A run made before Pages was enabled fails at its Pages step; re-run it from the Actions page, or push to main again, and the next run deploys. The site appears at https://jkershaw.github.io/lighthouse/.
 
 For a custom domain, enter it under Settings, Pages, Custom domain. At your DNS provider, point a subdomain such as www at jkershaw.github.io with a CNAME record, or an apex domain at the A and AAAA addresses GitHub's Pages documentation lists. Tick Enforce HTTPS once the certificate is issued. Deploying from Actions needs no CNAME file.
 
