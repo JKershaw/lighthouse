@@ -1,0 +1,11 @@
+LH056 pre-brief searches (gate of 18 November 2026, condition 2: at most two searches for a Microsoft or PyPI statement).
+Tool: Claude Code WebSearch (standard mode), run between 13:19:20 and 13:21:30 UTC on 18 November 2026 (container clock, `date -u` before and after).
+Results are leads, not sources. No result below was opened. Titles and URLs as returned; the tool's own summary is paraphrased, not quoted as anyone's statement.
+
+S-1 query: Microsoft statement agent-framework PyPI 1.26.1 1.26.2 compromised
+Outcome: no result about agent-framework 1.26.1 or 1.26.2; no Microsoft statement found.
+Returned (not opened): forkast.news "the package registry layer how supply chain attacks are targeting agent infrastructure"; letsdatascience.com "Prompt injection drives agentic AI supply-chain compromise"; safedep.io, endorlabs.com, corgea.com, gurucul.com, stepsecurity.io, threatcluster.io pages on the durabletask PyPI compromise of May 2026; secure.software page on microsoft-agents-hosting-core; govinfosecurity.com and bankinfosecurity.com on the Mastra npm attack; decrypt.co; radar.offseq.com "Latest PyPi Compromise"; dev.to "Microsoft's open source tools hacked to steal AI developer passwords"; skills.sh page on an agent-framework skill (Socket).
+
+S-2 query: PyPI blog quarantine agent-framework November 2026 incident
+Outcome: no PyPI post about agent-framework; no PyPI statement found.
+Returned (not opened): blog.pypi.org archive 2024; blog.pypi.org 2026-04-02 incident report on litellm and telnyx (read by LH040 as its R5); blog.pypi.org 2024-12-30 quarantine post; blog.pypi.org author page; buttondown.com readwrite edition 14; letsdatascience.com (as above); pypi.org project page of an unrelated package (iflow-agent-framework); habr.com; pydevtools.com; socket.dev "pypi slashes malware response time"; forkast.news; csoonline.com; a web.archive.org mirror of blog.pypi.org; feeds.simonwillison.net; jfrog.com; stepsecurity.io "anthropic incident ai agent malicious package pypi"; mta-sts.unpwned.io; rotifer.dev.
