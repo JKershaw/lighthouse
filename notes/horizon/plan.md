@@ -35,17 +35,19 @@ Each scout has standing sources and a brief for its own searching. A sweep may a
 
 ## Direct publication checks
 
-Added 18 November 2026. The named scout opens each assigned index or feed once per sweep, using Lighthouse's existing rules for automated readers. Compare the visible entries with that endpoint's last successful check and deduplicate by article URL against earlier sweep files. On a first check, record a baseline and consider entries published in the preceding seven days. In the scout log record the endpoint, UTC read time, whether it returned new entries, no new entries or an access or coverage gap, and the primary URLs and publication dates of relevant entries. A failed check leaves the previous successful check as the comparison point. If an index only shows part of the interval, record the part that could not be checked. Continue with the scout's wider searches after the direct checks.
+Added 18 November 2026. Each named scout checks its primary endpoint once per sweep under Lighthouse's existing rules for automated readers. For RSS, read the feed XML and use entry titles, publication dates and article URLs. Use the robots-gated fetcher in `scripts/lh_fetch.py` if the usual fetch tool cannot render XML, checking the feed and any redirect destinations under the same rules. Use the listed publication index if the feed is unavailable or covers only part of the interval. Record access refusals and coverage gaps in the scout log. Open relevant articles at their primary URLs before making claims about their contents.
 
-| Scout | Source | Endpoint |
-| --- | --- | --- |
-| AI activity online | Google Threat Intelligence and Mandiant | [Threat Intelligence index](https://cloud.google.com/blog/topics/threat-intelligence) |
-| AI activity online | Microsoft Threat Intelligence | [Threat Intelligence index](https://www.microsoft.com/en-us/security/blog/topic/threat-intelligence/) |
-| AI activity online | Anthropic Threat Intelligence | [Threat Intelligence index](https://www.anthropic.com/threat-intelligence) |
-| AI activity online | OpenAI misuse reporting | [Misuse reports index](https://openai.com/index/disrupting-malicious-uses-of-ai/) |
-| Security and vulnerabilities | Amazon Threat Intelligence | [AWS Security Blog index](https://aws.amazon.com/blogs/security/) |
-| Software supply chain | StepSecurity | [Blog index](https://www.stepsecurity.io/blog) |
-| Internet infrastructure and measurement | Cloudflare Radar | [Radar posts](https://blog.cloudflare.com/tag/cloudflare-radar/) |
+Compare entries with the last successful check for the source and deduplicate by article URL against earlier sweep files. On a first check, record a baseline and consider entries published in the preceding seven days. If an earlier check left a gap, carry it forward and try to cover that period where the current feed or index reaches it. In the scout log record each attempted endpoint, UTC read time, the interval covered, whether it returned new entries, no new entries or a gap, and the primary URLs and publication dates of relevant entries. A failed check leaves the previous successful check as the comparison point. Use judgement about relevance in broader feeds and continue with wider searches after the direct checks.
+
+| Scout | Source | Primary endpoint | Index fallback |
+| --- | --- | --- | --- |
+| AI activity online | Google Threat Intelligence and Mandiant | [Threat Intelligence RSS](https://feeds.feedburner.com/threatintelligence/pvexyqv7v0v) | [Threat Intelligence index](https://cloud.google.com/blog/topics/threat-intelligence) |
+| AI activity online | Microsoft Threat Intelligence | [Security Blog RSS](https://www.microsoft.com/en-us/security/blog/feed/) | [Threat Intelligence index](https://www.microsoft.com/en-us/security/blog/topic/threat-intelligence/) |
+| AI activity online | Anthropic Threat Intelligence | [Threat Intelligence index](https://www.anthropic.com/threat-intelligence) | |
+| AI activity online | OpenAI misuse reporting | [OpenAI News RSS](https://openai.com/news/rss.xml) | [Misuse reports index](https://openai.com/index/disrupting-malicious-uses-of-ai/) |
+| Security and vulnerabilities | Amazon Threat Intelligence | [AWS Security Blog RSS](https://aws.amazon.com/blogs/security/feed/) | [AWS Security Blog index](https://aws.amazon.com/blogs/security/) |
+| Software supply chain | StepSecurity | [Blog RSS](https://www.stepsecurity.io/blog/rss.xml) | [Blog index](https://www.stepsecurity.io/blog) |
+| Internet infrastructure and measurement | Cloudflare Radar | [Radar RSS](https://blog.cloudflare.com/tag/cloudflare-radar/rss) | [Radar posts](https://blog.cloudflare.com/tag/cloudflare-radar/) |
 
 ## Physical-authority leads, added 12 November 2026
 
