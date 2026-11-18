@@ -94,12 +94,29 @@ class RunnerTests(unittest.TestCase):
             claims.claim(self.a, 'read', 'worker-a', 'Fixture A', 'watch')
         self.assertNotIn('analyse', self.report()['ready'])
 
+    def test_lost_push_acknowledgement_preserves_claim_and_fails_closed(self):
+        original_git = claims.git
+        def lost_ack(root, *args):
+            result = original_git(root, *args)
+            if args[:1] == ('push',):
+                raise claims.ClaimError('simulated network failure after accepted push')
+            return result
+        before = self.git(self.a, 'rev-parse', 'HEAD')
+        with patch.object(claims, 'git', side_effect=lost_ack):
+            with self.assertRaisesRegex(claims.ClaimError, 'NOT confirmed'):
+                claims.claim(self.a, 'read', 'accepted-worker', 'Fixture', 'watch')
+        self.assertEqual(self.git(self.a, 'rev-parse', 'HEAD'), before)
+        self.assertEqual(self.git(self.a, 'status', '--porcelain'), '')
+        with self.assertRaisesRegex(claims.ClaimError, 'owner=accepted-worker'):
+            claims.claim(self.b, 'read', 'competitor', 'Fixture', 'watch')
+
     def test_completion_merges_advancing_main_and_hands_over_to_research(self):
         claim = claims.claim(self.a, 'read', 'worker-a', 'Fixture A', 'watch')
         self.assertEqual(self.git(self.a, 'ls-remote', 'origin', 'refs/heads/main').split()[0], claim)
         self.change('read', status='done', ref='evidence.md')
         self.commit(self.a, 'Complete retained fixture')
         self.git(self.b, 'pull', '--ff-only')
+        claims.claim(self.b, 'editor', 'editor-b', 'Fixture B', 'editor')
         (self.b / 'concurrent.md').write_text('Another run advanced main.\n')
         self.commit(self.b, 'Concurrent outcome')
         self.git(self.b, 'push', 'origin', 'HEAD:main')
@@ -112,6 +129,8 @@ class RunnerTests(unittest.TestCase):
         self.git(self.a, 'push', 'origin', 'HEAD:main')
         self.assertTrue((self.a / 'concurrent.md').exists())
         report = self.report()
+        editor = next(row for row in report['rows'] if row['id'] == 'editor')
+        self.assertEqual((editor['status'], editor['run_id']), ('running', 'editor-b'))
         self.assertIn('analyse', selection(report, 'research')['ready'])
         self.assertNotIn('analyse', selection(report, 'watch')['ready'])
         self.assertIn('log', selection(report, 'watch')['ready'])
