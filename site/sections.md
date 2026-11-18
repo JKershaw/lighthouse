@@ -71,6 +71,7 @@ summaries:
 - studies/LH053 | WPPConnect's compromised npm releases
 - studies/LH054 | A kernel flaw found by a person, for comparison
 - studies/LH055 | ARTEX and the reported stolen-key loop
+- studies/LH056 | The quarantined agent-framework releases on PyPI
 - studies/LH043 | Evaluation agents on the open internet
 - studies/LH042 | Published counts of exposed AI services
 - studies/LH035 | Who watches each layer of the internet
