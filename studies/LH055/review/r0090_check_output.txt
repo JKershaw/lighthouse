@@ -1,0 +1,99 @@
+== A. hash chain: fetch log -> redactions.json -> withholding_pass2.json -> files on disk
+R01: body OK via log>pass2; text OK; status 200; received 323,815 bytes
+R02: body OK via log; text OK (no text hash recorded in the log; not checkable); status 200; received 393,783 bytes
+R03: body OK via log>redactions>pass2; text OK; status 200; received 170,179 bytes
+R04: body OK via log; text OK (no text hash recorded in the log; not checkable); status 200; received 482,188 bytes
+R05: body OK via log; text OK (no text hash recorded in the log; not checkable); status 200; received 96,516 bytes
+R06: body OK via log; text OK (no text hash recorded in the log; not checkable); status 200; received 88,348 bytes
+R07: body OK via log>pass2; text OK; status 200; received 83,546 bytes
+
+== B. round 2 quotations: verbatim within locator, and unique in the whole text
+38 round 2 claims; problems: 0; total rows in claims.csv: 137; ids C130 to C167; contiguous: True
+by source: {'S08': 11, 'S09': 3, 'S10': 5, 'S11': 5, 'S12': 3, 'S13': 5, 'S14': 6}
+basis labels: {'direct telemetry described by the publisher': 14, 'publisher interpretation': 25, 'agent-reported action/outcome': 1}
+claims with empty campaign: 0
+
+== C. links_r2.csv tallies (my count)
+rows: 42 ; sources: {'S08': 6, 'S09': 6, 'S10': 6, 'S11': 6, 'S12': 6, 'S13': 6, 'S14': 6}
+all: {'supported': 2, 'unknown': 35, 'claimed': 5}
+bearing on Campaign 1 (field not starting 'no'): 6 {'claimed': 3, 'unknown': 3} sources ['S12']
+supported rows: [('S08', 'L1'), ('S08', 'L2')]
+claimed rows: [('S08', 'L4'), ('S08', 'L5'), ('S12', 'L1'), ('S12', 'L4'), ('S12', 'L5')]
+cited claims missing or from another source: []
+distinct campaign strings: 7
+
+== D. statements checked against source text (presence of key words, lower case)
+S08 hedge and summary: {'might have attempted to abuse': 1, 'abuse of azure ai services': 1, 'suggests that the threat actor': 1, 'ai model deployments': 1, 'suspected artex use': 1, 'artex': 7}
+S10 payment words: {'bought': 0, 'purchas': 0, 'paid': 0, 'pay ': 0, 'payment': 1, 'subscri': 2, 'credit': 0, 'reseller': 1, 'proxy/reseller': 1}
+S11 Amazon mentions and loop words: {'amazon': 3, 'loop': 0, 'inference': 0, 'self-sustain': 0, 'stolen key': 0, 'api key': 0}
+S13 Amazon, loop, campaigns listed: {'amazon': 0, 'madpot': 0, 'crowdstrike': 4, 'microsoft': 12, 'check point': 2, 'datadog': 2, 'dosu': 2}
+S14 AI service words: {'bedrock': 0, 'sagemaker': 0, 'invokemodel': 0, 'openai': 5, 'deepseek': 2, 'llm/pool': 1, 'bans or cuts off': 1}
+S09 gateway/pool words: {'gateway': 0, 'pool': 0, 'self-updater': 1}
+S02 phrases bearing on post hoc reading 4: {'framework’s own model gateway': 1, 'different AI gateways': 1, 'managed pool': 1}
+The Stack's CISO quotation present in R05: True
+S02 line 99 carries the same five items: True ; 'shipped' in S02 text: False
+
+== E. clocks
+Talos minus Amazon (minutes): 30.5
+R01 HTTP Last-Modified: None | started 2026-11-17T21:23:56Z | finished 2026-11-17T21:23:58Z
+R02 HTTP Last-Modified: None | started 2026-11-17T21:23:58Z | finished 2026-11-17T21:23:58Z
+R03 HTTP Last-Modified: Tue, 17 Nov 2026 20:20:36 GMT | started 2026-11-17T21:23:58Z | finished 2026-11-17T21:23:59Z
+R04 HTTP Last-Modified: None | started 2026-11-17T21:23:59Z | finished 2026-11-17T21:24:00Z
+R05 HTTP Last-Modified: None | started 2026-11-17T21:24:00Z | finished 2026-11-17T21:24:01Z
+R06 HTTP Last-Modified: None | started 2026-11-17T21:26:04Z | finished 2026-11-17T21:26:04Z
+R07 HTTP Last-Modified: Tue, 17 Nov 2026 17:57:56 GMT | started 2026-11-17T21:26:48Z | finished 2026-11-17T21:26:48Z
+R07 article:published_time: 2026-11-09T00:00:00Z
+
+== F. budget and robots
+round 2 queries: ['7', '8', '9', '10'] ; round 1 queries: ['1', '2', '3', '4', '5', '6'] ; pilot total: 10
+round 2 content GETs: 7 ; statuses: Counter({200: 7})
+round 2 bytes received (content bodies only): 1,638,375
+robots decision files: 7 ; all allowed: True ; provider: {'anthropic'}
+provider in fetch log: {'anthropic'}
+pilot distinct requested URLs: 14
+
+== G. provenance of round 2 addresses (each requested URL found in a named retained body or query record)
+R01 in S03 body: True ; in S07 body: True
+R02 in S07 body: True
+R03 in S04 body: True ; in S07 body: True
+R04 in round 1 queries.md: True
+R05 in round 2 queries.md: True
+R06 (with tracking parameter) in R05 body: True
+R07 in R06 body: True
+
+== H. withholding
+R01: emails body 0 text 0; dotted quads body 1 text 0; partial-octet prefixes body 0 text 0
+R02: emails body 0 text 0; dotted quads body 0 text 0; partial-octet prefixes body 0 text 0
+R03: emails body 0 text 0; dotted quads body 0 text 0; partial-octet prefixes body 0 text 0
+R04: emails body 0 text 0; dotted quads body 0 text 0; partial-octet prefixes body 0 text 0
+R05: emails body 0 text 0; dotted quads body 0 text 0; partial-octet prefixes body 0 text 0
+R06: emails body 0 text 0; dotted quads body 0 text 0; partial-octet prefixes body 0 text 0
+R07: emails body 0 text 0; dotted quads body 0 text 0; partial-octet prefixes body 0 text 0
+fetch log email counts withheld at collection: {'R01': (0, 0), 'R02': (0, 0), 'R03': (1, 0), 'R04': (0, 0), 'R05': (0, 0), 'R06': (0, 0), 'R07': (0, 0)}
+R03 personal-details marker body/text: 1 1 ; username marker: 1 1
+R03 text lines after the 'personal details' sentence: ['marker', 'prose']
+R03 body: 'mailto:' occurrences 1 ; all followed by the email marker: True
+LH055.md: emails 0; dotted quads 0
+claims.csv: emails 0; dotted quads 0
+links_r2.csv: emails 0; dotted quads 0
+sources.md: emails 0; dotted quads 0
+checkpoints/2026-11-17-round2.md: emails 0; dotted quads 0
+scripts/r2_redact.py: emails 0; dotted quads 0
+scripts/r2_claims_rows.py: emails 0; dotted quads 0
+scripts/r2_links_rows.py: emails 0; dotted quads 0
+scripts/r2_tables.py: emails 0; dotted quads 0
+
+== I. public surfaces: the reseller sentence
+investigation page {'probably bought': 0, 'probably reached its AI model through a reseller or proxy': 1, 'probably reaching its model through a reseller or proxy': 0, "doesn't say how that access was paid for": 1}
+programme.md {'probably bought': 0, 'probably reached its AI model through a reseller or proxy': 0, 'probably reaching its model through a reseller or proxy': 1, "doesn't say how that access was paid for": 1}
+
+== J. the record's absolutes and phrasing (counts of phrases in LH055.md and the round 2 checkpoint)
+'Microsoft only suggests': record 1, checkpoint 1
+'Microsoft says only that': record 1, checkpoint 0
+'says only that the attacker likely reached': record 1, checkpoint 0
+'no email address or key-shaped string occurred': record 1, checkpoint 0
+'only quotes Amazon': record 1, checkpoint 1
+'may be what Amazon meant': record 1, checkpoint 1
+'the only round 2 evidence that bears on that campaign': record 1, checkpoint 0
+
+done
