@@ -8,7 +8,7 @@ date: 2026-11-07
 
 ## When
 
-Twice a week, on Tuesdays and Fridays, as rows `horizon-<date>` in schedule/due.csv, prefilled at least eight weeks ahead. The first is 7 November 2026.
+The Horizon role, or the compatible all-purpose runner, takes the due sweep rows. The promised cadence stays twice a week, on Tuesdays and Fridays, as rows `horizon-<date>` in schedule/due.csv, prefilled at least eight weeks ahead. The first is 7 November 2026.
 
 ## Each sweep
 
@@ -18,6 +18,7 @@ Twice a week, on Tuesdays and Fridays, as rows `horizon-<date>` in schedule/due.
 4. **Write the sweep file**, notes/horizon/`<UTC label>`.md: the inward threads, the searches and results, the new URLs, the pages opened, and the candidates drawn from them.
 5. **Propose.** Write the useful new proposals in proposals.md's form, each citing what was read with its date. A proposal is **urgent** only when its first observations are lost if nobody looks soon (a fresh advisory, a score's daily history, a page likely to change), and it states that window. Prefer what fits the charter's question and an active investigation; say plainly when it does neither.
 6. **Gate.** A fresh agent (Opus 5.5 or stronger) that wrote none of the proposals reads each new one with the charter, AGENTS.md's rules and the priorities, and gives it a lane with a sentence of reason: started, waiting for the keeper, backlog or declined. The run then starts what was put in the started lane, in priority order: a brief fixed before outcomes are read, its rows in schedule/due.csv, and for each watch its own end date or stopping condition. Without a fresh agent, the run may still start an urgent watch, since waiting loses it, and leaves everything else in the backlog with "not gated".
+   Hand over commissioned observation and research rows through the shared queue after fixing the brief; do not claim their future chain. An expiring first observation is a Watch handover with its deadline and retained brief in the run record. If no Watch session can meet that window, report the risk for the keeper's rollout decision rather than silently commissioning a different collection time. The all-purpose runner can take ready observations itself.
 7. **Re-rank and summarise.** Re-rank the backlog by the programme's criteria (scientific value, decision relevance, evidence access, tractability, cost), moving anything untouched for twelve weeks to parked. Rewrite "For the next review": what started since the keeper last reviewed, what waits for them, the top five of the backlog with a recommendation each, and the spend since the last review.
 
 ## The scouts
