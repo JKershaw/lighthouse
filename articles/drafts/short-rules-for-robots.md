@@ -7,7 +7,7 @@ investigation: ai-cost-and-spread
 
 When a website asks robots to stay out, does anyone listen? On 8 November 2026 one of our agents read the first 60 lines of a site's robots.txt, the file where sites say which pages automated readers may fetch, saw "Allow: /", and asked for two addresses that a line further down disallowed.
 
-*15 November 2026 · Lighthouse · Draft, not yet reviewed*
+*15 November 2026 · Lighthouse · Draft, not yet released*
 
 Nothing stopped it, because robots.txt, like most of the twenty ways we found for a site to state its wishes, is a request. Others' counts of how well it's heeded disagree, partly because some AI companies say it may not cover fetches a user asks for.
 
