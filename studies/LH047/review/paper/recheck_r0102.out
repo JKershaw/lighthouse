@@ -1,0 +1,38 @@
+judged rows: 3497 | overall_A breaches: 172 | R8-only (post hoc): 59 | as fixed: 113
+
+== 1. The summary's two classes, within the 113 ==
+pypi.org requests among the 113: 89 | breaking R1: 89 | URL contains /json: 89
+  pypi statuses: {'404': 88, '200': 1}
+  pypi R1_rule values: {"star group: ('disallow', '/pypi/*/*/json')": 88, "star group: ('disallow', '/pypi/*/json')": 1}
+  pypi, who: {'essay drafting': 1, 'essay-claims-check': 1, 'essay-reader-review': 2, 'LH041': 85}
+  pypi breaking any other rule too: 2
+Crawl-delay (R5) breaches among the 113: 11 | complying once the robots.txt read is excluded: 9
+  of those, breaking no other rule (so they count only because of the robots.txt read): 9
+    2026-11-08T19:21:11Z LH044 ftp.gnu.org min_gap 2 | other rules broken: []
+    2026-11-08T19:21:41Z LH044 en.wikipedia.org min_gap 2 | other rules broken: []
+    2026-11-08T19:21:46Z LH044 www.wikidata.org min_gap 2 | other rules broken: []
+    2026-11-08T19:22:21Z LH044 wiki.debian.org min_gap 2 | other rules broken: []
+    2026-11-08T19:22:38Z LH044 arxiv.org min_gap 2 | other rules broken: []
+    2026-11-08T19:23:29Z LH044 catalog.data.gov min_gap 2 | other rules broken: []
+    2026-11-08T19:23:36Z LH044 open.canada.ca min_gap 2 | other rules broken: []
+    2026-11-08T19:25:48Z LH044 scholarworks.wm.edu min_gap 2 | other rules broken: []
+    2026-11-08T19:29:34Z LH044 www.mediawiki.org min_gap 2 | other rules broken: []
+overlap PyPI x Crawl-delay-only: 0
+union: 98 of 113 = 86.7%; more than half: True
+PyPI alone: 78.8% | collector's 85 among PyPI: 85
+remaining 15 by rule: {'R1': 8, 'R4': 5, 'R5': 2}
+
+== 2. The 9 verdicts on current re-reads, and their lag ==
+172 with robots_prov 'current re-read': 9 | among the 113: 4 | among the post-hoc 59: 5
+   req 2026-11-08T19:02:05Z  reread 2026-11-08T20:41:34Z  lag 99.5 min  LH042 research declawed.io  file studies/LH047/data/reads/robots-current/robots-declawed.io-0.txt
+   req 2026-11-08T19:02:06Z  reread 2026-11-08T20:41:34Z  lag 99.5 min  LH042 research declawed.io  file studies/LH047/data/reads/robots-current/robots-declawed.io-0.txt
+   req 2026-11-08T19:09:17Z  reread 2026-11-08T20:41:34Z  lag 92.3 min  LH042 declawed.io  file studies/LH047/data/reads/robots-current/robots-declawed.io-0.txt
+   req 2026-11-08T19:24:57Z  reread 2026-11-08T20:42:41Z  lag 77.7 min  essay-reader-review www.bleepingcomputer.com  file studies/LH047/data/reads/robots-current/robots-www.bleepingcomputer.com-0.txt
+   req 2026-11-08T19:24:57Z  reread 2026-11-08T20:43:23Z  lag 78.4 min  essay-reader-review www.stepsecurity.io  file studies/LH047/data/reads/robots-current/robots-www.stepsecurity.io-0.txt
+   req 2026-11-08T19:24:58Z  reread 2026-11-08T20:41:01Z  lag 76.0 min  essay-reader-review api.osv.dev  file studies/LH047/data/reads/robots-current/robots-api.osv.dev-0.txt
+   req 2026-11-08T19:24:58Z  reread 2026-11-08T20:41:56Z  lag 77.0 min  essay-reader-review labs.cloudsecurityalliance.org  file studies/LH047/data/reads/robots-current/robots-labs.cloudsecurityalliance.org-0.txt
+   req 2026-11-08T19:26:50Z  reread 2026-11-08T20:42:07Z  lag 75.3 min  essay-reader-review raw.githubusercontent.com  file studies/LH047/data/reads/robots-current/robots-raw.githubusercontent.com-0.txt
+   req 2026-11-08T19:35:00Z  reread 2026-11-08T20:42:50Z  lag 67.8 min  LH046 www.githubstatus.com  file studies/LH047/data/reads/robots-current/robots-www.githubstatus.com-0.txt
+current re-read files used anywhere in the audit: 58 | in index: 58 | earliest 2026-11-08T20:40:58Z | latest 2026-11-08T20:43:30Z
+lag over the 9: min 67.8 min, max 99.5 min; over 25 min: 9 of 9
+copies kept after the request (not current re-reads), among the 172: 56, max lag 25.6 min

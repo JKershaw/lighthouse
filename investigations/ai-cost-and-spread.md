@@ -16,6 +16,7 @@ studies:
 - studies/LH052/LH052.md
 - studies/LH055/LH055.md
 pieces:
+- articles/rules-for-robots.md
 - essays/it-was-only-a-test.md
 - essays/what-the-watch-would-see.md
 
@@ -59,7 +60,7 @@ The original strands below began with first readings on 8 November 2026, the day
 
   Of at least 3,497 requests Lighthouse itself made between 18:57 and 20:26 UTC on 8 November, 113 broke a rule as the study's brief fixed it, against 2 known beforehand. 59 more, all from one reviewer whose User-Agent didn't name Lighthouse, we counted as breaches only after seeing them (one choice made after the results), for 172 (191 under the keeper's later rule). These are requests that broke a stated rule, not incidents of harm: 90 of the 172 got a 404, among them 88 of the 89 requests to PyPI's documented JSON interface that its robots.txt asks crawlers to avoid, and 146 came from two practices, a collector that read no robots.txt and that reviewer's User-Agent.
 
-  The counts are our own derived measurement, and 9 of the 172 verdicts rest on a robots.txt read again afterwards, and 56 more on a copy kept up to about 25 minutes after the request, rather than the file in force at the time; 54 of those 65 are among the 59 counted after the fact, where the copy decides only that robots.txt was obeyed ([record](../studies/LH047/LH047.md)). From 9 November most collectors ask robots.txt before each request; ad hoc and reviewers' reads don't yet go through one shared fetcher.
+  The counts are our own derived measurement, and 9 of the 172 verdicts rest on a robots.txt read again afterwards, and 56 more on a copy kept up to about 25 minutes after the request, rather than the file in force at the time; 54 of those 65 are among the 59 counted after the fact, where the copy decides only that robots.txt was obeyed ([record](../studies/LH047/LH047.md)). Released on 19 November 2026 as [a short paper](../articles/rules-for-robots.md), version 1.0, with [its short form](../articles/short/rules-for-robots.md), after an evidence review, a reader-and-inference review and two rechecks. From 9 November most collectors ask robots.txt before each request; ad hoc and reviewers' reads don't yet go through one shared fetcher.
 - **Unreviewed. Records being kept, from 8 November 2026** ([its brief](../studies/LH045/brief.md)). Two public records that overwrite themselves are being kept so a later study can read them: Epoch AI's openly licensed estimates of AI data centres (96 sites, with the update log it still serves back to March 2026), weekly to 3 January 2027, and a dated census of IETF drafts on agents, agent discovery, bot authentication and AI preferences, taken on 8 November (604 drafts by a fixed name and group rule), again before IETF 127 opens on 14 November and once after it ends.
 
   Daily compute prices were dropped: the free series checked (Silicon Data's H100 index, DRAMeXchange's memory spot prices, Shanghai Metals Market's Chinese GPU rental indices) all forbid keeping or republishing their figures, so the cost strand still has no price instrument. An estimate of a data centre's compute is not load on shared infrastructure, and a draft is not adoption.

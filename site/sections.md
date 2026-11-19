@@ -8,6 +8,7 @@ essays lede: Essays are interpretation, kept apart from findings. Each says whic
 map lead: articles/who-watches-the-internet.md
 map lede: The map brings partial views of the internet together with the edges of each instrument stated. Its findings are reviewed against sources; the observation catalogue and investigations link to the working records. An unobserved region is not an empty one.
 summaries:
+- articles/rules-for-robots.md | What sites ask of automated readers, how others count compliance, and how our own requests of one evening fared.
 - essays/what-the-watch-would-see.md | An invented case of software that copies itself, walked through the public records: what would show, how soon, and what never would.
 - essays/it-was-only-a-test.md | A message board, an ordinary research task and a maintainer drawn into someone else’s test: what agents leave for the next worker.
 - articles/php-emergency-first-reading.md | An attributed early attack trace, defensive discovery and published fixes, with deployment and attack outcomes unmeasured.
@@ -76,6 +77,7 @@ summaries:
 - studies/LH042 | Published counts of exposed AI services
 - studies/LH035 | Who watches each layer of the internet
 labels:
+- articles/rules-for-robots.md | Rules for robots
 - articles/who-watches-the-internet.md | Instruments
 - articles/what-we-can-see.md | What we can see
 - articles/a-week-after-two-fixes.md | PHP and Node.js fixes
