@@ -1,0 +1,21 @@
+A1 rows (groups): 20
+A1 total rows: 79,782,285
+  Python 3.9: 41,777,672  other: 38,004,613  3.9+other == total: True
+  metadata rows, all groups: 0 ; groups with metadata_rows > 0: 0
+  distinct installer values: 16 ; non-blank names: 15 ; blank present: True
+  non-blank names: Artifactory, Bazel, Browser, Homebrew, Nexus, OS, bandersnatch, devpi, pdm, pex, pip, poetry, requests, setuptools, uv
+   ('3.9', 'pip') 41,737,447
+   ('3.9', 'uv') 39,806
+   ('3.9', 'setuptools') 370
+   ('3.9', '') 49
+  3.9 groups sum check (pip+uv+setuptools+blank): True
+A2: {'date': '2026-11-17', 'project': 'boto3', 'total': '79782285'} ; A2 total == A1 total: True
+Brief class rule: present if >= 1% of rows, trace if >=1 below that, absent if 0 -> absent
+Read log, 2026-11-19 rows: 2
+   2026-11-19T14:28:30Z A1 HTTP 200 rows_returned 20 read_rows 80199680 output installer/stage_a_A1.csv
+   2026-11-19T14:28:33Z A2 HTTP 200 rows_returned 1 read_rows 89958 output installer/stage_a_A2.csv
+Queries: 2 of ceiling 5; rows read: 80,289,638 of ceiling 1,000,000,000; within: True
+rows_returned matches CSV rows: A1 True ; A2 True
+all overflow-throw settings in queries: True
+installer-brief.md SHA-256 now: 7bd05d211fbe3342e22e003b7430e9be497e2e07c5a6ca27c87e7932c86a2642
+installer-brief.md SHA-256 at 67eac9c: 7bd05d211fbe3342e22e003b7430e9be497e2e07c5a6ca27c87e7932c86a2642 ; unchanged: True
