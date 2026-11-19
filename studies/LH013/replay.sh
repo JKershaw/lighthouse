@@ -10,8 +10,14 @@ trap 'rm -rf "$TMP"' EXIT
 fail=0
 
 echo "1. hashes: the brief against issue #15's snapshot, and the files hashed before any count (data/pre_counts_sha256.txt)"
-(cd "$HERE" && grep '  studies/LH013/brief.md$' snapshot_sha256.txt | sed 's#  studies/LH013/#  #' | sha256sum -c -) >/dev/null 2>&1 && echo "   brief.md verifies" || { echo "   brief.md DOES NOT VERIFY"; fail=1; }
-(cd "$HERE" && grep -v '^#' data/pre_counts_sha256.txt | sha256sum -c -) > "$TMP/sha.log" 2>&1 && echo "   $(grep -c ': OK' "$TMP/sha.log") pre-count files verify" || { echo "   PRE-COUNT FILES DO NOT VERIFY"; cat "$TMP/sha.log"; fail=1; }
+# The robots-sweep amendment of 9 November 2026 (appended to brief.md) changed brief.md, by appending it, and
+# scripts/collect.py, common.py and preflight.py, after the counts; their pre-count versions are at commit 4c9b77c^.
+# So the brief is verified up to that amendment, and those three scripts are listed, not verified (fixed 19 November 2026).
+want=$(grep '  studies/LH013/brief.md$' "$HERE/snapshot_sha256.txt" | cut -d' ' -f1)
+got=$("$PY" -c "import hashlib,sys; s=open(sys.argv[1],'rb').read(); i=s.find(b'\n- **Amendment, 9 November 2026'); print(hashlib.sha256(s if i < 0 else s[:i]).hexdigest())" "$HERE/brief.md")
+[ "$want" = "$got" ] && echo "   brief.md verifies (text before the amendment of 9 November 2026)" || { echo "   brief.md DOES NOT VERIFY"; fail=1; }
+AMENDED='scripts/collect.py|scripts/common.py|scripts/preflight.py'
+(cd "$HERE" && grep -v '^#' data/pre_counts_sha256.txt | grep -Ev "  ($AMENDED)\$" | sha256sum -c -) > "$TMP/sha.log" 2>&1 && echo "   $(grep -c ': OK' "$TMP/sha.log") pre-count files verify; collect.py, common.py and preflight.py changed by the 9 November amendment, not verified" || { echo "   PRE-COUNT FILES DO NOT VERIFY"; cat "$TMP/sha.log"; fail=1; }
 
 echo "2. frame, gap rule and baseline check: frame.py, gaps.py, w0check.py"
 mkdir -p "$TMP/out/analysis"
