@@ -33,3 +33,6 @@ date_utc,run_id,component,amount,currency,basis,note
 2026-11-18,2026-11-18T151251Z-anthropic-research,subagents_opus,11.70,USD,list_rate_estimate,"eight Opus 5.5 subagents priced by hb tokens: LH055 r2 evidence 3.41, resolution 1.31, reader 1.19, recheck 1.55; LH038 evidence 1.57, reader 1.14, recheck 0.97; publication-surface read 0.56"
 2026-11-18,2026-11-18T181057Z-anthropic-editor,driver,3.00,USD,list_rate_estimate,"hb drivercost from 18:10 UTC (2.46 before the close, plus an allowance for it); output tokens estimated from characters"
 2026-11-18,2026-11-18T181057Z-anthropic-editor,subagents_opus,0.93,USD,list_rate_estimate,"one Opus 5.5 subagent priced by hb tokens: editor's reader 0.93"
+2026-11-19,2026-11-19T141417Z-anthropic-watch,driver,5.00,USD,list_rate_estimate,"hb drivercost from 14:14 UTC (4.39 before the close, plus an allowance for it); output tokens estimated from characters"
+2026-11-19,2026-11-19T141417Z-anthropic-watch,subagents_opus,2.53,USD,list_rate_estimate,"four Opus 5.5 subagents priced by hb tokens: LH055 panel read 0.63, LH050 panel read 0.78, LH054 baseline 0.65, Microsoft report check 0.48"
+2026-11-19,2026-11-19T141417Z-anthropic-watch,subagents_sonnet,,,unavailable,"one Sonnet subagent (media sweep); hb tokens returned no price for its model"

@@ -6,6 +6,19 @@ date: 2026-10-23
 
 A few plain lines on each read day (daily to 30 October 2026, Mondays and Thursdays since) on what the fixed PHP panels saw, newest first, each linking the day's checkpoints. These are working records: what a source said and when Lighthouse read it, not reviewed findings. Anything that would change [the public account](../articles/php-emergency-first-reading.md) is flagged here and goes through review before it reaches that page. How the watch runs is in [the continuation plan](php-watch-continuation-2026-10-23.md).
 
+## 19 November 2026
+
+The Thursday read (Watch run, 14:17 to 14:24 UTC).
+
+- **PHP's next regular release is out:** PHP's news page lists PHP 8.5.13, 8.4.28, 8.3.37 and 8.2.36, each dated 19 November (page `Last-Modified` 14:00 GMT), the first regular releases for the 8.x branches since 21 October. That is the release the 23 October instruction pointed to and the event LH030's stop waits on, so its last read is Monday 23 November. Only the titles and dates were read; what the releases say about CVE-2026-115560 is for that read and the record. No panel class changed: SUSE's record is still the only tracker record, unchanged since 10 November ([LH030](../studies/LH030/checkpoints/2026-11-19.md)).
+- **CISA's catalogue:** version 2026.11.18 lists the two PHP flaws as before; CVE-2026-115560 is not listed. It added five entries, among them a LiteLLM flaw, CVE-2026-40217, on 18 November (not a PHP mention; a lead for the LiteLLM study). Palo Alto Networks' advisory is byte for byte unchanged and its machine-readable file, regenerated on 17 November, lists the same 20 fixed builds ([LH031](../studies/LH031/checkpoints/2026-11-19.md)).
+- **Products embedding PHP:** no new commit to the Dutch NCSC's list since 12 November: 972 entries, 213 recording a fix ([LH032](../studies/LH032/checkpoints/2026-11-19.md)).
+- **How far the fix has reached, by others' counts:** by Censys's classification, on 18 November (day 28) 77.2 per cent of version-reporting services were counted patched in 8.2, 73.2 in 8.3, 85.7 in 8.4 and 91.3 in 8.5, within 0.4 points of day 25. 22.9 million services, 51.8 per cent of those reporting a version, run branches PHP did not fix ([LH033](../studies/LH033/checkpoints/2026-11-19.md)).
+- **Node.js downloads:** on day 28 (18 November), counting the three newer releases as fixed under the 12 November amendment, 67.1, 74.0 and 96.5 per cent of lines 22, 24 and 26 were at or above the fixed release; the measure as first written gives 46.4, 63.3 and 87.2 ([LH034](../studies/LH034/checkpoints/2026-11-19.md)).
+- **Vendors that ship PHP:** no change: 7 of 20 vendors have a statement, every readable one unchanged in text; the pages that changed added a Java flaw, nothing about PHP. Oracle's alert and Adobe's page answered HTTP 403 again ([LH037](../studies/LH037/checkpoints/2026-11-19T1423Z.md)).
+- **Media sweep, 14:17 UTC:** 96 distinct URLs, nine new; three pages read, all restating PHP's 23 October notice and Cloudflare's scope note, with no exploitation of CVE-2026-115560 reported; one wall (HTTP 402) and five refused by robots.txt ([sweep](php-media-sweep/2026-11-19T1417Z.md)).
+- **Flagged:** the 19 November releases may change how the public account of the newer flaw reads (it says the flaw awaits PHP's next regular release); any wording waits for LH030's last read and record, and its reviews. LH033's day-30 read (21 or 22 November) falls after the releases; how Censys's "patched" class treats them is for the record.
+
 ## 16 November 2026
 
 The Monday read (scheduled run, 14:19 to 14:20 UTC).
