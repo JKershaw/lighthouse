@@ -220,6 +220,7 @@ Agreed and not yet started: the next run takes these after the started lane (sch
 - Cost: one day of the public table; the account is the decision.
 - Next step: the brief is already a row; the read waits for the keeper to name an account, or to decline.
 - Keeper, 2026-11-08: later. The brief (row LH013-installer-brief) goes ahead; it should say whether a free public source, such as ClickPy's SQL, carries the installer's version before any account is named.
+- 2026-11-19: the brief found no free public source carrying the installer's version (ClickPy drops it). Its Stage A, which needs no account, ran on 19 November: no metadata-file rows for boto3 on 17 November 2026 in ClickPy, class absent (studies/LH013/LH013.md version 0.3, unreviewed). Stage B, the installer's version and the burst test, still waits for the keeper to name an account or decline.
 
 
 ### P-0024 Lab-run agents on shared public infrastructure in 2026: a dated ledger of the reported incidents, and what each named host's own public records show
