@@ -25,7 +25,7 @@ export function investigationNow(inv, repo, schedule) {
   const current = inv.current ? repo.byPath[inv.current.path] : null;
   const answer = current
     ? { title: current.title, url: current.url, status: 'reviewed', kind: 'Current account' }
-    : { title: 'No reviewed finding yet; working records only', url: '', status: 'provisional', kind: '' };
+    : { title: newestPiece ? 'No reviewed current account yet; see the latest piece' : 'No reviewed finding yet; working records only', url: '', status: 'provisional', kind: '' };
   const reading = !current && newestPiece ? { title: newestPiece.title, url: newestPiece.url, kind: newestPiece.essay ? 'Latest essay' : 'Latest piece' } : null;
 
   // Only completed observation work establishes a read. A checkpoint can be

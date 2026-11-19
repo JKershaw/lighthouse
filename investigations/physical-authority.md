@@ -13,7 +13,7 @@ studies:
 
 ## Why we are watching
 
-John commissioned this investigation on 12 November 2026, following a discussion about armed AI-powered robots and preliminary reporting about Foundation's proposed military applications. Tracking the subject is agreed. The open question is how much a small observatory can establish from public evidence.
+Lighthouse's keeper, the person who runs it, commissioned this investigation on 12 November 2026, after a discussion about armed AI-powered robots and early reporting about military uses proposed for Phantom, a humanoid robot made by a company called Foundation. Tracking the subject is agreed. The open question is how much a small observatory can establish from public evidence.
 
 The purpose is broader than watching a machine act beyond its instructions. Institutions can use obedient systems to exercise physical power. We will ask who benefits, who bears the risks, what human control means in practice, and who can account for the decisions.
 
@@ -21,7 +21,7 @@ The [commissioning record](../notes/physical-authority/commissioning.md) keeps t
 
 ## The first question
 
-[The baseline study](../studies/LH050/brief.md) compares three deliberately selected cases: Foundation/Phantom and the proposed Gaza application; an armed non-humanoid robot; and a civilian airport patrol comparison whose armament is not established by the sources read. Their selection reflects prior reading, not a representative sample. It will record armament, the functions said to use AI, who chooses targets and authorises force, and whether the evidence concerns a proposal, test, purchase, delivery or operational use.
+[The baseline study](../studies/LH050/brief.md) compares three deliberately selected cases: Foundation's Phantom humanoid robot and its reported proposed use in Gaza; an armed non-humanoid robot; and a civilian airport patrol comparison whose armament is not established by the sources read. Their selection reflects prior reading, not a representative sample. It will record armament, the functions said to use AI, who chooses targets and authorises force, and whether the evidence concerns a proposal, test, purchase, delivery or operational use.
 
 Civilian consequences and accountability are fields in every core case, including when the sources cannot establish them. An unknown is not a finding that nobody was harmed. Military and law-enforcement settings require separate contextual treatment.
 
@@ -31,7 +31,7 @@ An official-policy comparison around the November weapons conference and a small
 
 The [source register](../studies/LH050/sources.md) starts with Autonomous Weapons Watch's catalogue, SIPRI's research, UNIDIR's policy records, ICRC's humanitarian analysis and specialist civilian-harm methods. These are research foundations and discovery routes, not independent confirmation of a manufacturer's claim. At the baseline of 13 November, Autonomous Weapons Watch's robots.txt closed its catalogue to the agents Lighthouse runs on, so that route is unread. We will follow their references where access allows and preserve the distinction between several reports and several independent sources.
 
-The first reader account, if the baseline earns one, will ask what an armed robot is allowed to decide. The supplied essay is [commissioning context](../notes/physical-authority/original-essay.md), not a released account. Its specific claims need checking before any publication.
+The first reader account, if the baseline earns one, will ask what an armed robot is allowed to decide. An essay given to us when the investigation began is [background](../notes/physical-authority/original-essay.md), not a released account. Its specific claims need checking before any publication.
 
 ## What we will not infer
 
@@ -41,4 +41,4 @@ The work uses public records. It does not test weapons, optimise tactics, contac
 
 ## Checkpoint
 
-After the last pilot read, compare continuing the question, repairing its evidence method and resting the panel in favour of another outward question. A useful, reviewable explanation of a blind spot can justify the work even if no deployment change is established. Any renewal must state its scope, capacity and end date. The temporary fourth slot does not become a permanent commitment by default.
+After the last pilot read, compare continuing the question, repairing its evidence method and resting the panel in favour of another outward question. A useful, reviewable explanation of a blind spot can justify the work even if no deployment change is established. Any renewal must state its scope, capacity and end date. Running a fourth investigation alongside the other three is temporary, and doesn't become permanent by default.
