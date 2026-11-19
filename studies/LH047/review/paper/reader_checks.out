@@ -1,0 +1,53 @@
+172: 172  113: 113
+
+1. reading B adds: 19
+   LH042 research declawed.io | R2_tokens: anthropic-ai ClaudeBot Claude-Web Claude-User Claude-SearchBot | R2_agent: does not comply
+   LH041 www.bleepingcomputer.com | R2_tokens: ClaudeBot | R2_agent: complies
+   LH045 news.metal.com | R2_tokens: ClaudeBot | R2_agent: complies
+   LH042 research declawed.io | R2_tokens: anthropic-ai ClaudeBot Claude-Web Claude-User Claude-SearchBot | R2_agent: does not comply
+   LH045 www.metal.com | R2_tokens: ClaudeBot | R2_agent: complies
+   LH042 research declawed.io | R2_tokens: anthropic-ai ClaudeBot Claude-Web Claude-User Claude-SearchBot | R2_agent: does not comply
+   LH045 www.metal.com | R2_tokens: ClaudeBot | R2_agent: complies
+   essay drafting www.bleepingcomputer.com | R2_tokens: ClaudeBot | R2_agent: complies
+   LH042 www.penligent.ai | R2_tokens: anthropic-ai ClaudeBot Claude-Web | R2_agent: complies
+   essay-claims-check www.bleepingcomputer.com | R2_tokens: ClaudeBot | R2_agent: complies
+   LH044 codeberg.org | R2_tokens: anthropic-ai ClaudeBot Claude-Web | R2_agent: complies
+   LH044 git.sr.ht | R2_tokens: ClaudeBot | R2_agent: complies
+   LH044 repo1.maven.org | R2_tokens: anthropic-ai ClaudeBot Claude-Web | R2_agent: complies
+   LH044 central.sonatype.com | R2_tokens: anthropic-ai ClaudeBot Claude-Web | R2_agent: complies
+   LH044 runescape.wiki | R2_tokens: ClaudeBot Claude-SearchBot | R2_agent: complies
+   LH044 wiki.gentoo.org | R2_tokens: anthropic-ai ClaudeBot Claude-Web Claude-User Claude-SearchBot | R2_agent: does not comply
+   LH044 ftp.eq.uc.pt | R2_tokens: anthropic-ai ClaudeBot Claude-Web Claude-User Claude-SearchBot Claude-Code | R2_agent: does not comply
+   LH044 lwn.net | R2_tokens: ClaudeBot | R2_agent: complies
+   essay-recheck www.bleepingcomputer.com | R2_tokens: ClaudeBot | R2_agent: complies
+  all mention ClaudeBot: True
+  agent-token reading catches 5 of them
+
+2. robots_prov, the 172:
+   robots-index columns: ['authority', 'utc', 'study', 'status', 'file', 'truncated', 'source_log']
+   index time columns: ['utc']
+     92 ('retained, other study', 'before/at')
+     53 ('retained, other study', 'after request')
+     13 ('retained, same study', 'before/at')
+      9 ('current re-read (not the file in force at the time)', 'after request')
+      3 ('retained, same study, read after the request', 'after request')
+      1 ('retained, other study', 'no time')
+      1 ("collector's own note at the time", 'no time')
+   current re-read: 9 ; earlier copy kept after the request: 56 ; max lag min: 25.566666666666666
+   of these 65 , among the reviewer's R8-only 59: 54
+
+3. the 113 by component:
+     89 PyPI documented JSON interface (R1)
+      9 Crawl-delay only because robots.txt read counted (R5)
+      5 use=reference, pages kept (R4)
+      3 other robots.txt (R1): web.archive.org
+      2 other robots.txt (R1): dashboard.shadowserver.org
+      2 other robots.txt (R1): declawed.io
+      2 Crawl-delay page to page (R5)
+      1 other robots.txt (R1): www.githubstatus.com
+   R5_excl_robots values among R5 fails: Counter({'complies': 9, 'does not comply (advisory)': 2})
+
+4. LH041 pypi: 85 Counter({'404': 85})
+   first/last utc: 2026-11-08T19:32:13Z 2026-11-08T19:32:50Z
+   sample urls: ['https://pypi.org/pypi/bramin/0.0.2/json', 'https://pypi.org/pypi/bramin/0.0.3/json', 'https://pypi.org/pypi/bramin/0.0.4/json', 'https://pypi.org/pypi/cmd2func/0.2.2/json', 'https://pypi.org/pypi/cmd2func/0.2.3/json']
+   robots copy: Counter({'studies/LH044/data/read-2026-11-08T1920Z/0031.b': 85}) Counter({"star group: ('disallow', '/pypi/*/*/json')": 85})
