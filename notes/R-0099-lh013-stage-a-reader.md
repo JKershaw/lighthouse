@@ -1,0 +1,47 @@
+# R-0099: reader-and-inference review of LH013 Stage A (installer brief)
+
+## What a reader would believe, written before reading the record
+
+Written from LH013.md's In short and its Stage A section, programme.md's LH013 paragraph and proposals.md's P-0002 only.
+
+**Principal finding, said back.** On one day, 17 November 2026, none of boto3's roughly 80 million download rows in ClickPy was for a metadata file, so the package index's download log probably doesn't record metadata-file requests at all. If so, new pips that read a metadata file instead of downloading each candidate can't leave a trail of "trying versions" in the log; any such trail would have to come from old pips or other tools that download whole files.
+
+**What seems observed.** A count of zero rows whose file name ends `.metadata`, across 20 Python-by-installer groups; a day total that matches ClickPy's own per-day table; pip made nearly all the Python 3.9 rows.
+
+**What seems explained.** That the log omits metadata requests (called "strong evidence, not proof"). Nothing is said to cause anything; it "narrows who could make the flat profile" without showing anyone walks.
+
+**Limits a reader notices.** One day, one project; ClickPy is a copy that might drop rows; an empty file-name column would also give zero; a metadata request logged under another name would be missed; whether boto3 offers metadata files wasn't checked; the installer-version test (Stage B) hasn't run and waits for an account. A reader of the In short alone might take "most likely does not record metadata-file requests at all" as close to settled, and might not register that "metadata requests" here means file names with a suffix in a mirror. The programme line's "could not leave a walk in it" reads as stronger than the record's "narrows".
+
+## Stage 2: the record behind it
+
+**Reviewer.** Reader-and-inference reviewer, Claude Code, model Opus 5.5 (claude-opus-5-5, as the harness reports). **Version reviewed:** LH013 0.3 at HEAD a4e241d, 19 November 2026. Read: LH013.md whole, installer-brief.md, brief.md, amendments.md, sources.md, data/installer/, data/installer-brief-docs/ (listing and the linehaul files), data/docs/linehaul_parser.py.txt, read_log.csv's last two rows, scripts/installer_stage_a.py, investigations/software-updates.md, programme.md's Next. No other note, releases.md or commit message read; no network request. Calculation: studies/LH013/review/r0099_stage_a_check.py and .txt (20 groups, 15 named installers and blank; 79,782,285 = 41,777,672 + 38,004,613 = A2; 0 metadata rows; uv 13,637,082 rows, pip on other Pythons 23,307,101).
+
+### What the round establishes
+
+The two queries are as described, inside the ceiling, and every figure in the section reproduces from the retained CSVs. The class *absent* follows the brief's fixed rule. The day was fixed in advance and did not move. The section labels observation and interpretation, keeps "where offered", and does not claim anyone walks. Stage A's reading closely matches what a reader takes from it. The measurements are right; the open question is how far the explanation ("the download log carries no metadata-file requests") goes beyond them.
+
+### Material claim problems
+
+**1. "Not recorded at all" is wider than what was counted.** The query counts rows whose `project` is boto3 and whose file name ends `.metadata`. In linehaul's parser (data/docs/linehaul_parser.py.txt) a download row's `project` and `version` come from fields the content network writes into the log line, not from the URL. `File.project` must be a string, so a line with `(null)` there fails to parse and never reaches the table. A metadata-file request logged without boto3's project field would therefore be dropped, or stored under another project, and would never be counted. So zero is consistent with "not logged", and also with "logged but not attributed to boto3", alongside the record's own two alternatives (ClickPy's import, an empty file-name column). For the study this changes nothing: whichever holds, no metadata-file row enters boto3's version profile, and that is what matters for the walk reading. But the summaries go further and claim something about the log as a whole, which the count cannot support. The In short also turns the file-name proxy into "requests". A reader comes away believing the log has been shown, near enough, to drop metadata requests for every project.
+
+- LH013.md, In short. Replace "found no requests for metadata files among boto3's nearly 80 million download rows, so the log most likely does not record metadata-file requests at all (unreviewed)" with: "found no row for a metadata file (a file name ending `.metadata`) among boto3's nearly 80 million download rows in the public copy of the log, so whatever happens to such requests, none shapes boto3's counts by version; most likely the log does not record them, though one day of one library cannot show that (unreviewed)".
+- LH013.md, Stage A, What it means. Replace "That is strong evidence the download table carries none, but not proof: ClickPy's import could in principle drop them, and" with: "That is strong evidence the download table carries none attributed to boto3, but not proof: ClickPy's import could in principle drop them, a request logged without boto3's project name would not be counted here (linehaul takes the project from the log line, not the file name, and rejects a line that has none), and". Under Limits of Stage A, after "would not be counted.", add: "Nor would one logged without boto3's project name."
+- programme.md, LH013 paragraph. Replace "strong evidence, not proof, that the download log carries none, so pips that read metadata files, where offered, could not leave a walk in it" with: "so no metadata-file row shapes boto3's counts by version; strong evidence, not proof, that the log carries none, in which case pips that read metadata files, where offered, could leave no walk in it".
+- LH013.md, Limits ("Unknown stays unknown"). Replace "strong evidence, not proof, that the download log carries no metadata-file requests" with "strong evidence, not proof, that the download log carries none for boto3, and likely none at all".
+
+No other material problem. "Narrows who could make the flat profile; it does not show that anyone walks" keeps compatibility from being read as cause, and the In short and P-0002 both say that Stage B hasn't run.
+
+### Readability
+
+1. Say why zero isn't just "nobody fetched one": on the same day uv made 13.6 million and pip 23.3 million of boto3's rows on Pythons where newer pips are common (A1). Both clients read metadata files where the index offers them, so if such requests were logged and attributed, some would surely appear. This is an interpretation, made after the count, and should be labelled as one. It makes "absent" easier to trust than the bare zero does.
+2. The In short's last two sentences pack three ideas into one. Splitting off "the main installer read still waits for an account" as its own sentence would help.
+
+### Next step
+
+Stage B can tell the explanations apart better than anything else on offer. T1b, the gap in resolver-era pips' share between older and edge fetches, separates a walk from frozen lists. T2 against its shuffled baseline separates bursts from steady fetching, though, as the brief says, not a resolver from a descending script. The day's data stays in BigQuery, so waiting costs only time, and B3 settles both the file-name and attribution gaps for boto3. Without an account, one cheap step would materially firm up Stage A: one ClickPy query, as a dated amendment labelled as made after the count, counting boto3's rows on D with an empty file name and showing a few file names. If the column is filled, the record's own open alternative is gone. Whether boto3's files offer metadata (the simple index's `core-metadata` key) is a second cheap check, if the keeper's limit on index reads allows it. Neither replaces Stage B. One day of one library remains Stage B's main limit; a second fixed day would cost little more once an account exists.
+
+Verdict: not cleared (material: the In short, the Stage A interpretation and programme.md's LH013 paragraph generalise a zero count of boto3-attributed `.metadata` file names to "the log does not record metadata-file requests at all", where linehaul takes a row's project from the log line, so unattributed requests would go uncounted; the exact replacements above resolve it without changing any finding).
+
+## Resolution, by the driving session (19 November 2026)
+
+The material problem is accepted and resolved with the reviewer's exact replacements: the opening, "What it means", both limits and programme.md's LH013 paragraph now claim only that no metadata-file row shapes boto3's counts by version, keep the log-wide reading as likely, not shown, and name the attribution gap (a request logged without boto3's project name would not be counted). No finding, figure or class changed. The readability suggestions were not taken. The next step stands as the record says: Stage B, waiting on a named account. The reviewer's cheap firming step (one ClickPy query for boto3 rows on 17 November with an empty file name, as a dated post hoc amendment inside Stage A's unused ceiling of three queries) is noted under the record's Next for the run that next collects; it is not done under this review. A fresh agent rechecks what this resolution wrote (row LH013-installer-A-record-recheck).
