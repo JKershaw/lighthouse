@@ -14,6 +14,7 @@ studies:
 - studies/LH047/LH047.md
 - studies/LH051/brief.md
 - studies/LH052/LH052.md
+- studies/LH058/brief.md
 - studies/LH055/LH055.md
 pieces:
 - articles/rules-for-robots.md
@@ -92,6 +93,8 @@ No report read so far describes AI activity sustaining or spreading itself outsi
 4. **Agents in public.** Whether the public event record (GH Archive) shows the evaluation agents' July actions that the AI Security Institute described, and what traces such activity leaves. Closed for now, 8 November 2026: every account read replaces the repositories, accounts, packages and datasets involved with placeholders, so there's nothing a reader could look up, and we won't try to recover them ([record](../studies/LH043/LH043.md) 0.1, unreviewed). It reopens if a source publishes an identifier.
 
 5. **Organisational capacity and reliability, two-iteration pilot of 13 November 2026.** [The working record](../studies/LH052/LH052.md) audits four known outages and two operator studies. The readable accounts expose technical and review mechanisms, but do not establish AI-motivated staffing changes causing expertise loss and an outage. This is an evidence-coverage limit in selected materials, not evidence that capacity was preserved or lost. Collection has stopped; no recurring watch or new investigation. Evidence review, reader-and-inference review and final recheck are complete, and publication of this working record was approved ([how the pilot was commissioned](../notes/organisational-reliability/commissioning.md)); no article is released.
+
+6. **November's outages and the claim that patching for model-found flaws caused them, from 20 November 2026, agreed by the keeper.** [The brief](../studies/LH058/brief.md) fixes eight outages of 12 to 17 November from a Cloud Security Alliance note and, in weekly reads to 1 January 2027, records each operator's stated cause from its own public report, and who has claimed a link to patching for model-found flaws and on what evidence. A report that names no cause isn't read as a denial; nothing here is a cause found by us. Brief fixed before any operator's final report was read.
 
 Each becomes a study with its own brief. The first four were all started on 8 November 2026 ([how](../notes/ai-cost-and-spread-page-history.md)). Lab evaluations are read as context for what to look for, not measured.
 
