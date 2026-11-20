@@ -49,7 +49,7 @@ the gate's decision on proposals.md P-0018.
 title: This week
 week: 2026-11-14 to 2026-11-20
 updated: 2026-11-20
-today: 2026-11-20 | We took our first count of how often the two key-stealing releases of an AI agent package were fetched from Python's index, and checked again for Microsoft's full report on last week's outage. It isn't public yet.
+today: 2026-11-20 | We took our first count, not yet checked, of how often the two key-stealing releases of an AI agent package were fetched from Python's index, and checked again for Microsoft's full report on last week's outage. It isn't public yet.
 items:
 - 2026-11-20 | lighthouse | front | Eight big services went down between 12 and 17 November, and a newspaper's unnamed sources, then two members of Congress, have tied the week to the strain of patching flaws that AI models find. Until 1 January [we'll keep a ledger](studies/LH058/brief.md) of each operator's stated cause beside every claim of an AI link and what it rests on, and we won't read silence as a denial.
 - 2026-11-20 | lighthouse | Security firm GreyNoise keeps [a public tracker](https://php.events.greynoise.io/) of attacks on October's two emergency PHP flaws against its own decoy servers. [We'll read it daily](studies/LH057/brief.md) until 3 December, as a count of attacks on those sensors, not of victims.
