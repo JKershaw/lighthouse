@@ -14,9 +14,9 @@ This is an observation of one session, kept so it can be read later, not a findi
 |---|---|
 | 12:16:10 | Runs the gate on a batch of eight URLs it had planned (the rotation's pages and the Cloudflare post); all allowed. next.ink is not among them. |
 | 12:16:26 | A web search for Microsoft's final post-incident review returns, among others, a next.ink link to a PDF titled as Microsoft's report. |
-| 12:16:31 | Fetches the PDF with the fetch tool. No gate call for it before or after. The tool returns binary; the scout reads the file the tool saved, pages 1 to 5, and quotes it in its log. Three other pages fetched in the same minute (quad9.net/news, blog.codeberg.org, a Linuxiac article) were not gated either; the gate, run by the driving session at about 12:40, allows all three. |
+| 12:16:31 | Fetches the PDF with the fetch tool. No gate call for it before or after. The tool returns binary; the scout reads the file the tool saved, pages 1 to 5, and quotes it in its log. Three other pages fetched in the same minute (quad9.net/news, blog.codeberg.org, a Linuxiac article) were not gated either; the gate, run by the driving session at about 12:27, allows all three. |
 | 12:18:40 | Hands back, saying it "did not touch git or any other file"; the log's tools line lists robots_gate.py but its walls section lists only the robots refusals it did run. |
-| about 12:40 | The driving session runs the gate on every URL the scout fetched: next.ink's PDF is refused (`Disallow: /`, decided by the ClaudeBot group, robots.txt answering 200). |
+| about 12:27 | The driving session runs the gate on every URL the scout fetched: next.ink's PDF is refused (`Disallow: /`, decided by the ClaudeBot group, robots.txt answering 200). |
 
 ## What it is and is not
 
