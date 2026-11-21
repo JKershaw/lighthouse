@@ -10,6 +10,8 @@ Reads only files already kept under studies/LH039/data/; fetches nothing.
              (dl-*.body), where fetched.
   Measure 5: release named by stable-check (meta-4) and version-check (meta-1), where fetched.
 A read whose body is missing or was not fetched is reported as missing, never as zero.
+Where a body was removed under the keeper's decision of 21 November 2026 (notes/keeper/2026-11-21-robots-intent.md),
+the values are read from the <name>.derived.json written beside it by derive_kept.py; old clones still read the body.
 Usage: python3 -I studies/LH039/scripts/tabulate.py --packagist 2026-11-14T1415Z [--until 2026-11-14T1412Z]
 """
 import argparse, csv, datetime, glob, html, json, os, re
@@ -45,8 +47,31 @@ def status_of(readdir, name):
     return None
 
 
+def derived(readdir, name):
+    """The derived file that stands in for a removed body (derive_kept.py), or None."""
+    p = os.path.join(readdir, name + ".derived.json")
+    return json.load(open(p)) if os.path.exists(p) else None
+
+
+def has_body(readdir, name):
+    return os.path.exists(os.path.join(readdir, name + ".body")) or derived(readdir, name) is not None
+
+
+def json_body(readdir, name, key, part=None):
+    """A JSON body (or its `part`), or what a derived file keeps under `key`; raises when neither is held."""
+    p = os.path.join(readdir, name + ".body")
+    if not os.path.exists(p):
+        d = derived(readdir, name)
+        if d is not None:
+            return d["extracted"][key]
+    j = json.load(open(p))
+    return j[part] if part else j
+
+
 def body_note(readdir, name):
     p = os.path.join(readdir, name + ".body")
+    if not os.path.exists(p) and derived(readdir, name) is not None:
+        return "status %s" % status_of(readdir, name)
     if not os.path.exists(p):
         return "not requested on this read (URL not in this read's list)"
     b = open(p, "rb").read()
@@ -73,6 +98,35 @@ def w3_release_shares(path):
             x = float(val.rstrip("%"))
             out.append((v, x, x, val))
     return out, (date.group(1) if date else "")
+
+
+def w3_release_shares_derived(d):
+    """w3_release_shares from a derived file: the subversions diagram's rows and date."""
+    dg = [x for x in d["extracted"]["diagrams"] if "subversions of WordPress" in x["caption"]]
+    if not dg:
+        return [], ""
+    out = []
+    for label, val in dg[0]["rows"]:
+        v = label[len("Version "):]
+        if not (label.startswith("Version ") and re.fullmatch(r"\d+\.\d+\.\d+", v)):
+            continue
+        if val.startswith("less"):
+            out.append((v, 0.0, 0.1, "less than 0.1%"))
+        else:
+            x = float(val.rstrip("%"))
+            out.append((v, x, x, val))
+    return out, dg[0]["date"]
+
+
+def history_of(readdir, name):
+    p = os.path.join(readdir, name + ".body")
+    if os.path.exists(p):
+        return w3_history(p)
+    d = derived(readdir, name)
+    if d is None or d["extracted"]["history"] is None:
+        return None
+    h = d["extracted"]["history"]
+    return h["columns"], [tuple(r) for r in h["rows"]]
 
 
 def fixed_ratio(branch, rows):
@@ -121,10 +175,10 @@ def measure1(reads, lines):
         for rd in reads:
             lab = os.path.basename(rd)[4:]
             p = os.path.join(rd, "w3-%s.body" % b.replace(".", ""))
-            if not os.path.exists(p) or status_of(rd, "w3-%s" % b.replace(".", "")) not in ("200",):
+            if not has_body(rd, "w3-%s" % b.replace(".", "")) or status_of(rd, "w3-%s" % b.replace(".", "")) not in ("200",):
                 lines.append("%s  missing: %s" % (lab, body_note(rd, "w3-%s" % b.replace(".", ""))))
                 continue
-            rows, date = w3_release_shares(p)
+            rows, date = w3_release_shares(p) if os.path.exists(p) else w3_release_shares_derived(derived(rd, "w3-%s" % b.replace(".", "")))
             lo, hi, sep = fixed_ratio(b, rows)
             rng = pct(lo, 2) if lo is not None and hi is not None and abs(hi - lo) < 1e-12 else "%s to %s" % (pct(lo, 2), pct(hi, 2))
             given = "; ".join("%s %s" % (v, g) for v, _, _, g in rows)
@@ -136,8 +190,7 @@ def measure1(reads, lines):
     lines.append("-- W3Techs monthly history points (history_details pages, latest read; only releases above 1% shown by W3Techs) --")
     last = reads[-1]
     for b in BRANCHES:
-        p = os.path.join(last, "w3h-%s.body" % b.replace(".", ""))
-        h = w3_history(p) if os.path.exists(p) else None
+        h = history_of(last, "w3h-%s" % b.replace(".", ""))
         if not h:
             lines.append("%s: no history table" % b); continue
         cols, rows = h
@@ -212,7 +265,7 @@ def measure4(reads, lines):
         p = os.path.join(rd, "stats-1.body")
         b = open(p, "rb").read() if os.path.exists(p) else b""
         try:
-            s = json.loads(b)
+            s = json.loads(b) if os.path.exists(p) or derived(rd, "stats-1") is None else derived(rd, "stats-1")["extracted"]["shares"]
         except Exception:
             lines.append("%s  missing: %s" % (lab, body_note(rd, "stats-1"))); continue
         below = sum(v for k, v in s.items() if vt(k) < (4, 7, 0))
@@ -252,14 +305,14 @@ def measure5(reads, lines):
         lab = os.path.basename(rd)[4:]
         out = []
         try:
-            s = json.load(open(os.path.join(rd, "meta-4.body")))
+            s = json_body(rd, "meta-4", "stable_check")
             for b in BRANCHES:
                 named = [k for k, v in s.items() if (k == b or k.startswith(b + ".")) and v in ("latest", "outdated")]
                 out.append("stable-check %s: %s" % (b, ", ".join("%s %s" % (k, s[k]) for k in named) or "none"))
         except Exception:
             out.append("stable-check missing (%s)" % body_note(rd, "meta-4"))
         try:
-            m = json.load(open(os.path.join(rd, "meta-1.body")))
+            m = {"offers": json_body(rd, "meta-1", "offers", "offers")}
             offers = sorted({(o["response"], o["version"]) for o in m["offers"] if vt(o["version"])[:2] in [vt(b)[:2] for b in BRANCHES]})
             out.append("version-check offers on 7.1/7.0/6.9: %s" % ", ".join("%s %s" % o for o in offers))
         except Exception:

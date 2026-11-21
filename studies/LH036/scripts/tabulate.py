@@ -179,6 +179,14 @@ def suse(read):
 def page(read, name):
     log = {r['name']: r for r in json.loads((read / 'read_log.json').read_text())}
     row = log.get(name, {})
+    dv = read / (name + '.derived.json')
+    if row.get('status') == 200 and row.get('file') and not (read / row['file']).exists() and dv.exists():
+        # Body removed on 21 November 2026 (keeper's decision, notes/keeper/2026-11-21-robots-intent.md);
+        # scripts/derive_kept.py kept what this function takes from it.
+        e = json.loads(dv.read_text())['extracted']
+        if e['short_body'] or e['challenge_page']:
+            return {'status': 'unavailable (challenge or short body)', 'sha256': row.get('sha256')}
+        return {'status': 200, 'sha256': row.get('sha256'), 'dateModified': e['dateModified'], 'text_sha256': e['text_sha256']}
     t, st = body(read, name)
     out = {'status': st if t is None else 200, 'sha256': row.get('sha256')}
     if t is not None:

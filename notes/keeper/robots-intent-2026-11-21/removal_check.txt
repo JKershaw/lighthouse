@@ -1,0 +1,131 @@
+Removal of kept bodies under the keeper's decision of 21 November 2026 (notes/keeper/2026-11-21-robots-intent.md):
+verification that every output which read a removed body rebuilds byte-identically from the derived files.
+Run 21 November 2026 by a subagent of the Watch session (Claude Code, Claude Opus 5.5), offline, no web request.
+
+What was removed (final, after the coordinator's follow-ups of 21 November 2026): 201 bodies, each replaced
+by a <stem>.derived.json beside it (201 derived files), listed in each study's data/REMOVED.md and written by
+each study's scripts/derive_kept.py:
+- the 186 files of remove_list.tsv;
+- 8 files the list missed: studies/LH039/data/raw-2026-11-07T1418Z/{cand-3,cand-4,stats-1,stats-2,stats-3,
+  stats-4,meta-1,meta-4}.body (that read log has no header row, so kept_bodies.py did not match it);
+- 7 files found by the sweep (sweep_may_keep.py, output sweep_may_keep_output.json, run 21 November 2026 with
+  LIGHTHOUSE_PROVIDER=anthropic, one robots.txt read per host, 98 hosts, 2,015 tied bodies checked):
+  studies/LH040/data/pre-brief-2026-11-08T1414Z/pypi_1.107.0_json.raw, pypi_1.106.7_json.raw,
+  pypi_1.108.0_json.raw (pypi.org refuses /pypi/ to *), and studies/LH032/data/read-2026-10-28T0634Z/
+  advisory-check/page-4.html.gz, read-2026-10-29T0634Z/advisory-check/page-4.html.gz,
+  read-2026-10-30T0634Z/advisory-check/page-5.html.gz, read-2026-11-02T1526Z/advisory-check/page-5.html.gz
+  (www.antagonist.nl refuses ia_archiver). No script reads any of these seven. The sweep output was taken
+  before these seven were removed, so it still lists them; it found no other body that may not be kept.
+  Files in read-log folders that no logged URL ties to (an upper bound on untied bodies: it includes extracted
+  tables and other non-body files) are counted by study in the output's untied_by_study.
+
+The one output that changed, accepted by the coordinator on 21 November 2026: the LH036 challenge pages of 2
+and 5 November (studies/LH036/data/read-2026-11-02T1526Z/kernel_announcement.raw.gz and
+read-2026-11-05T1414Z/kernel_announcement.raw.gz) were removed too. In studies/LH036/review/check_fixes.py's
+output, line 150 changes from
+     text diff (8 lines): ['-You are seeing this because the administrator ... ', ..., '-v1.26.2', '+v1.28.2']
+(eight lines of the Anubis challenge's own words, about 1,300 characters) to
+     text diff: not shown, the body was removed on 21 November 2026 (text sha256 differs)
+The two pages' text hashes (a307f71b1958 and 502b4fb619d7) still print on the lines above, so the fact of a
+change is kept and its words are not. Every other output is byte-identical.
+
+Notes on the comparison:
+- studies/LH034/review/R-0039_checks.py already stops with FileNotFoundError before the change (its section D
+  reads dist-index.raw.gz from the newest read, which since 9 November holds none). Its output up to the stop is
+  compared; the traceback's line number moves (153 to 164) because lines were added above it, so the script
+  below masks line numbers in "<module>" frames. A copy limited to reads up to 5 November, which runs to the
+  end, is also compared (LH034-R0039-to-1105.out).
+- studies/LH036/review/check_fixes.py prints sets in hash order, so it is run with PYTHONHASHSEED=0 (without -I,
+  which would ignore that variable).
+- studies/LH036/review/check_details.py and check_signals.py, LH033's draw_figure.py (reads tables.json) and the
+  collectors read no removed body. No script reads the LH049 or LH056 bodies, or LH039's cand-3, cand-4 and
+  stats-2 to stats-4, LH036's upstream_fix, LH038's kernel_security_bugs, kernel_cve and linux_distros, LH040's
+  pypi_simple_json and deps.dev reads, or LH035's 14-caida-publicdata-asfac.html.
+- LH035's reread_check.py rewrites data/reads-2026-11-06/quote_check.json, whose committed copy predates the
+  current instruments.json; the script below runs in scratch copies, so the repository's copy is untouched.
+
+The script (the pre-removal tree is commit 240e6fbc0e2ed5676e8a1f43e37aea8ff94536b9, which holds the bodies and
+the original scripts; the "now" tree is copied from the working tree):
+---8<--- verify.sh
+#!/bin/bash
+# Rebuild every output that read a removed body, from the commit before the removal (bodies and original
+# scripts) and from the working tree (derived files and changed scripts), and compare them byte for byte.
+# Usage: bash verify.sh <empty scratch dir>   (run from anywhere; offline; reads only the repository)
+set -u
+R=/home/user/lighthouse; PRE=240e6fbc0e2ed5676e8a1f43e37aea8ff94536b9; T=$1
+mkdir -p $T/pre $T/out-pre $T/out-now
+git -C $R archive $PRE studies/LH008/data/lags.csv studies/LH011/data/analysis/release_days.csv studies/LH033 studies/LH034 studies/LH035 studies/LH036 studies/LH038 studies/LH039 studies/LH040 | tar -x -C $T/pre
+mkdir -p $T/now/studies/LH008/data $T/now/studies/LH011/data/analysis
+cp $R/studies/LH008/data/lags.csv $T/now/studies/LH008/data/; cp $R/studies/LH011/data/analysis/release_days.csv $T/now/studies/LH011/data/analysis/
+for s in LH033 LH034 LH035 LH036 LH038 LH039 LH040; do cp -r $R/studies/$s $T/now/studies/; done
+run() {  # $1 tree, $2 output dir
+  cd $1
+  for l in 2026-10-25T0855Z 2026-10-26T0637Z 2026-11-02T1530Z 2026-11-09T1427Z 2026-11-16T1419Z 2026-11-21T1414Z; do
+    python3 -I studies/LH033/scripts/tabulate.py $l > $2/LH033-tab-$l.out 2>&1; cp studies/LH033/data/read-$l/tables.json $2/LH033-$l-tables.json; done
+  python3 -I studies/LH034/scripts/tabulate.py > $2/LH034-tab.out 2>&1; cp studies/LH034/data/tables.json $2/LH034-tables.json
+  python3 -I studies/LH034/review/R-0039_checks.py 2>&1 | sed "s#$1#TREE#; s#line [0-9]*, in <module>#line N, in <module>#" > $2/LH034-R0039.out
+  sed "s#^nread = sorted(L34.glob('read-\*'))#nread = [p for p in sorted(L34.glob('read-*')) if p.name <= 'read-2026-11-05T1414Z']#" studies/LH034/review/R-0039_checks.py > studies/LH034/review/R39_to_1105.py
+  python3 -I studies/LH034/review/R39_to_1105.py > $2/LH034-R0039-to-1105.out 2>&1; rm studies/LH034/review/R39_to_1105.py
+  (cd studies/LH035 && python3 -I scripts/reread_check.py > $2/LH035-reread.out 2>&1; cp data/reads-2026-11-06/quote_check.json $2/LH035-quote_check.json)
+  python3 -I studies/LH036/scripts/tabulate.py > $2/LH036-tab.out 2>&1; cp studies/LH036/data/tables.json $2/LH036-tables.json
+  PYTHONHASHSEED=0 python3 studies/LH036/review/check_fixes.py > $2/LH036-check_fixes.out 2>&1
+  python3 -I studies/LH038/review/r0091_check.py 2>&1 | sed "s#$1#TREE#g" > $2/LH038-r0091.out
+  python3 -I studies/LH038/scripts/timeline.py > $2/LH038-timeline.out 2>&1
+  python3 -I studies/LH039/scripts/tabulate.py --packagist 2026-11-14T1415Z --until 2026-11-14T1412Z --out $2/LH039-cp14 > /dev/null
+  python3 -I studies/LH039/scripts/tabulate.py --packagist 2026-11-21T1415Z --out $2/LH039-cp21 > /dev/null
+  python3 -I studies/LH040/scripts/tabulate.py --read 2026-11-09T1432Z > $2/LH040-tab.out 2>&1; cp -r studies/LH040/tables $2/LH040-tables
+}
+run $T/pre $T/out-pre; run $T/now $T/out-now
+echo "removed bodies still present in the working tree: $(cd $R && git ls-tree -r --name-only $PRE studies | grep -E '\.(body|raw\.gz|raw|html\.gz|html)$' | while read f; do d=$(echo $f | sed -E 's/\.(body|raw\.gz|raw|html\.gz|html)$/.derived.json/'); [ -f $d ] && [ -f $f ] && echo $f; done | wc -l) (expected 0)"
+cd $T && for f in $(ls out-pre); do if diff -r -q out-pre/$f out-now/$f >/dev/null; then echo "identical  $f"; else echo "DIFFERS    $f"; diff -r out-pre/$f out-now/$f | cut -c1-160; fi; done
+--->8---
+
+Command: rm -rf <scratch>/v && bash verify.sh <scratch>/v
+Output (21 November 2026, after all 201 removals):
+removed bodies still present in the working tree: 0 (expected 0)
+identical  LH033-2026-10-25T0855Z-tables.json
+identical  LH033-2026-10-26T0637Z-tables.json
+identical  LH033-2026-11-02T1530Z-tables.json
+identical  LH033-2026-11-09T1427Z-tables.json
+identical  LH033-2026-11-16T1419Z-tables.json
+identical  LH033-2026-11-21T1414Z-tables.json
+identical  LH033-tab-2026-10-25T0855Z.out
+identical  LH033-tab-2026-10-26T0637Z.out
+identical  LH033-tab-2026-11-02T1530Z.out
+identical  LH033-tab-2026-11-09T1427Z.out
+identical  LH033-tab-2026-11-16T1419Z.out
+identical  LH033-tab-2026-11-21T1414Z.out
+identical  LH034-R0039-to-1105.out
+identical  LH034-R0039.out
+identical  LH034-tab.out
+identical  LH034-tables.json
+identical  LH035-quote_check.json
+identical  LH035-reread.out
+DIFFERS    LH036-check_fixes.out
+150c150
+<    text diff (8 lines): ['-You are seeing this because the administrator of this website has set up Anubis to protect the server against the scourge of AI com
+---
+>    text diff: not shown, the body was removed on 21 November 2026 (text sha256 differs)
+identical  LH036-tab.out
+identical  LH036-tables.json
+identical  LH038-r0091.out
+identical  LH038-timeline.out
+identical  LH039-cp14-packagist.csv
+identical  LH039-cp14-tabulation.txt
+identical  LH039-cp21-packagist.csv
+identical  LH039-cp21-tabulation.txt
+identical  LH040-tab.out
+identical  LH040-tables
+
+Per-study derivation commands (LH039's asserts its rows equal tabulate.py's parse of each body):
+  python3 -I studies/LH032/scripts/derive_kept.py
+  python3 -I studies/LH033/scripts/derive_kept.py
+  python3 -I studies/LH034/scripts/derive_kept.py
+  python3 -I studies/LH036/scripts/derive_kept.py
+  python3 -I studies/LH038/scripts/derive_kept.py
+  python3 -I studies/LH039/scripts/derive_kept.py
+  python3 -I studies/LH040/scripts/derive_kept.py
+  python3 -I studies/LH049/scripts/derive_kept.py
+  python3 -I studies/LH056/scripts/derive_kept.py
+  (cd studies/LH035 && python3 -I scripts/derive_kept.py)
+Run before each deletion; run again afterwards they find no body and write nothing.

@@ -1,0 +1,11 @@
+# Bodies removed from LH036's data, 21 November 2026
+
+Removed on 21 November 2026 under the keeper's decision of that day ([notes/keeper/2026-11-21-robots-intent.md](../../../notes/keeper/2026-11-21-robots-intent.md)): where a site's robots.txt refuses AI-training or archiving crawlers, or all bots, Lighthouse keeps no copy of the page in its public repository. Each removed body is replaced by a `.derived.json` file beside it, with the same name stem, holding the URL, read time, HTTP status, size and SHA-256 of the bytes received (from the read log), the facts the study uses, and a line saying why the body went. The derived files were written by [scripts/derive_kept.py](../scripts/derive_kept.py); the outputs of every script that read the bodies were rebuilt from the derived files and found byte-identical to the outputs from the bodies, with the one exception described below ([removal_check.txt](../../../notes/keeper/robots-intent-2026-11-21/removal_check.txt)). The bodies remain in git history before the removal commit.
+
+**Sites:** git.kernel.org (refuses AI-training crawlers by name and all bots under `*`).
+
+**Removed:**
+
+- `read-2026-11-01T0830Z/kernel_announcement.raw.gz`, `read-2026-11-01T0830Z/upstream_fix.raw.gz`, `read-2026-11-02T1526Z/kernel_announcement.raw.gz` and `read-2026-11-05T1414Z/kernel_announcement.raw.gz` (4 files). All were bot challenge pages, not the announcement or the commit.
+
+**What the derived files keep:** The derived files keep whether the page was a challenge, its title, its dateModified field and the SHA-256 of its visible text, which is all `scripts/tabulate.py` and `review/check_fixes.py` take from it. One output changed, by the coordinator's decision of 21 November 2026: `review/check_fixes.py` printed the text difference between the challenge pages of 2 and 5 November ("text diff (8 lines): [...]", eight lines of the challenge's own words), and now prints `   text diff: not shown, the body was removed on 21 November 2026 (text sha256 differs)` in its place. The two pages' text hashes still differ (a307f71b1958 and 502b4fb619d7, first 12 characters), so the fact of a change is kept; its words are not. Every other output is identical.

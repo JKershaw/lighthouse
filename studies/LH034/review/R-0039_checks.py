@@ -108,11 +108,17 @@ FIXED = {'8.2': 35, '8.3': 36, '8.4': 27, '8.5': 12}
 for rd in ('read-2026-10-25T0855Z', 'read-2026-10-26T0637Z'):
     out = []
     for m, fx in FIXED.items():
-        t = raw(L33 / rd / f'w3techs-details-{m}.raw.gz').decode('utf8', 'replace')
-        t = t[t.find('Subversions of PHP ' + m):]
-        t = t[t.find('<table class=bars>'):]
-        t = t[:t.find('</table></table>') + 1] if '</table></table>' in t else t[:20000]
-        rows = re.findall(r'pl-php/' + re.escape(m) + r'\.(\d+)"[^>]*>Version [\d.]+</a>.*?<td>(?:(\d+(?:\.\d+)?)%|less than 0\.1%)', t, re.S)
+        if (L33 / rd / f'w3techs-details-{m}.raw.gz').exists():
+            t = raw(L33 / rd / f'w3techs-details-{m}.raw.gz').decode('utf8', 'replace')
+            t = t[t.find('Subversions of PHP ' + m):]
+            t = t[t.find('<table class=bars>'):]
+            t = t[:t.find('</table></table>') + 1] if '</table></table>' in t else t[:20000]
+            rows = re.findall(r'pl-php/' + re.escape(m) + r'\.(\d+)"[^>]*>Version [\d.]+</a>.*?<td>(?:(\d+(?:\.\d+)?)%|less than 0\.1%)', t, re.S)
+        else:  # body removed 21 November 2026 (keeper's decision); LH033's derived file keeps the diagram's rows
+            dg = json.loads((L33 / rd / f'w3techs-details-{m}.derived.json').read_text())['extracted']['diagrams']
+            dg = [x for x in dg if x['caption'].endswith('subversions of PHP ' + m)]
+            rows = [(re.fullmatch(r'Version ' + re.escape(m) + r'\.(\d+)', lab).group(1), '' if val.startswith('less') else val.rstrip('%'))
+                    for lab, val in (dg[0]['rows'] if dg else []) if re.fullmatch(r'Version ' + re.escape(m) + r'\.(\d+)', lab)]
         seen = {}
         for v, pct in rows:
             seen.setdefault(int(v), float(pct) if pct else 0.0)
@@ -150,7 +156,12 @@ for rd in nread:
         d = date(int(f.name[4:8]), int(f.name[8:10]), int(f.name[10:12]))
         if d not in day:
             day[d] = (rd.name, json.loads(raw(f)))
-idx = json.loads(raw(nread[-1] / 'dist-index.raw.gz'))
+if not (nread[-1] / 'dist-index.raw.gz').exists() and (nread[-1] / 'dist-index.derived.json').exists():
+    # removed under the keeper's decision of 21 November 2026; scripts/derive_kept.py kept version, date, security
+    _d = json.loads((nread[-1] / 'dist-index.derived.json').read_text())['extracted']
+    idx = [{k: v for k, v in zip(_d['fields'], r) if v is not None} for r in _d['releases']]
+else:
+    idx = json.loads(raw(nread[-1] / 'dist-index.raw.gz'))
 inidx = {r['version'] for r in idx}
 dates = {r['version']: r['date'] for r in idx}
 FIX10 = {'22': (22, 23, 4), '24': (24, 22, 1), '26': (26, 12, 1)}

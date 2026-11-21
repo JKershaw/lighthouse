@@ -23,8 +23,14 @@ reads = sorted((ROOT / 'data').glob('read-*'))
 # The newest read that holds the release list (amendment of 9 November 2026: nodejs.org's robots.txt
 # disallows /dist/, so reads from 9 November do not fetch it; versions released after that list are
 # outside `order` and are counted separately as unlisted, never silently as old).
-index_read = [r for r in reads if (r / 'dist-index.raw.gz').exists()][-1]
-index = json.loads(gzip.decompress((index_read / 'dist-index.raw.gz').read_bytes()))
+# Copies removed under the keeper's decision of 21 November 2026 (notes/keeper/2026-11-21-robots-intent.md) are
+# read from dist-index.derived.json (scripts/derive_kept.py: version, date, security); old clones read the body.
+index_read = [r for r in reads if (r / 'dist-index.raw.gz').exists() or (r / 'dist-index.derived.json').exists()][-1]
+if (index_read / 'dist-index.raw.gz').exists():
+    index = json.loads(gzip.decompress((index_read / 'dist-index.raw.gz').read_bytes()))
+else:
+    _d = json.loads((index_read / 'dist-index.derived.json').read_text())['extracted']
+    index = [dict(zip(_d['fields'], r)) for r in _d['releases']]
 order = {r['version']: n for n, r in enumerate(reversed(index))}  # higher is later
 days = {}
 for read in reads:

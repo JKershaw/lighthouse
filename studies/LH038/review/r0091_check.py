@@ -53,8 +53,10 @@ log = json.load(open(READ / "read_log.json"))
 by = {r["name"]: r for r in log}
 st = [r.get("status") for r in log]
 n200 = sum(1 for s in st if s == 200)
-files = sorted(p.name for p in READ.glob("*.raw.gz"))
-kept200 = [r["name"] for r in log if r.get("status") == 200 and (READ / f"{r['name']}.raw.gz").exists()]
+# A body removed on 21 November 2026 under the keeper's decision (notes/keeper/2026-11-21-robots-intent.md) is
+# counted as kept through the <name>.derived.json that replaced it (scripts/derive_kept.py).
+files = sorted({p.name for p in READ.glob("*.raw.gz")} | {p.name[:-len(".derived.json")] + ".raw.gz" for p in READ.glob("*.derived.json")})
+kept200 = [r["name"] for r in log if r.get("status") == 200 and ((READ / f"{r['name']}.raw.gz").exists() or (READ / f"{r['name']}.derived.json").exists())]
 not_fetched = [r for r in log if r.get("status") is None]
 print("targets", len(log), "status 200", n200, "status 403", st.count(403), "not fetched", len(not_fetched),
       "raw files on disk", len(files), "200 bodies kept", len(kept200))
@@ -63,6 +65,10 @@ ok("51 answered HTTP 200", n200 == 51)
 ok("50 HTTP-200 bodies kept (7.3 over ceiling)", len(kept200) == 50 and "changelog_7.3" not in kept200)
 empty = []
 for n in kept200:
+    if not (READ / f"{n}.raw.gz").exists():
+        if json.load(open(READ / f"{n}.derived.json"))["extracted"].get("challenge_page"):
+            empty.append(n)
+        continue
     t = raw(READ / f"{n}.raw.gz")
     if "I Challenge Thee" in t or (n == "ref_nvd_detail" and "NVD - Home" in t and CVE not in t):
         empty.append(n)
@@ -206,8 +212,12 @@ for mon in ("09", "10", "11"):
     ok(f"2026/{mon}: no {CVE} anywhere in the index except matched subjects",
        h.count(CVE) == sum(1 for _, v in hit if CVE in v))
 ok("exactly four matches: 10/30/1, 10/30/6, 10/31/5, 11/03/1", matches == ["10/30/1", "10/30/6", "10/31/5", "11/03/1"])
-stt = text(raw(READ / "openwall_distros_stats.raw.gz"))
-ok("distros stats page read is an index, Last modified 2026/02/09, no CVE", "Last modified: 2026/02/09" in stt and CVE not in stt)
+if (READ / "openwall_distros_stats.raw.gz").exists():
+    stt = text(raw(READ / "openwall_distros_stats.raw.gz"))
+    ok("distros stats page read is an index, Last modified 2026/02/09, no CVE", "Last modified: 2026/02/09" in stt and CVE not in stt)
+else:  # body removed 21 November 2026; the derived file keeps the Last modified line and whether the CVE appears
+    e = json.load(open(READ / "openwall_distros_stats.derived.json"))["extracted"]
+    ok("distros stats page read is an index, Last modified 2026/02/09, no CVE", e["last_modified_line"] == "Last modified: 2026/02/09" and not e["names_" + CVE])
 
 # 7. policy quotations
 print("== 7. policy quotations against retained bodies")

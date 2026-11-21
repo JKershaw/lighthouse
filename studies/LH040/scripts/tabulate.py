@@ -99,12 +99,19 @@ def r6(x):
 
 def uploads():
     """First upload time of every final release in L1, plus 1.107.0 (absent from L1) at 11:39:51."""
-    d = json.loads(L1.read_bytes())
     up = {}
-    for v, files in d['releases'].items():
-        if files and is_final(v):
-            up[v] = min(datetime.fromisoformat(f['upload_time_iso_8601'].replace('Z', '+00:00'))
-                        for f in files)
+    if not L1.exists():
+        # L1's body was removed on 21 November 2026 (keeper's decision, notes/keeper/2026-11-21-robots-intent.md);
+        # scripts/derive_kept.py kept each final release's first upload time as PyPI gave it.
+        first = json.loads(L1.with_suffix('.derived.json').read_text())['extracted']['first_upload_time_iso_8601']
+        for v, t in first.items():
+            up[v] = datetime.fromisoformat(t.replace('Z', '+00:00'))
+    else:
+        d = json.loads(L1.read_bytes())
+        for v, files in d['releases'].items():
+            if files and is_final(v):
+                up[v] = min(datetime.fromisoformat(f['upload_time_iso_8601'].replace('Z', '+00:00'))
+                            for f in files)
     assert CASE not in up
     up[CASE] = CASE_UPLOAD
     return up

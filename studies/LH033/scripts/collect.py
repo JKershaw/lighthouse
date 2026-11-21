@@ -18,7 +18,10 @@ sys.path.insert(0, str(Path(__file__).resolve().parent))
 from packagist_extract import extract  # noqa: E402
 import os as _os, sys as _sys
 _sys.path.insert(0, _os.path.join(_os.path.dirname(_os.path.abspath(__file__)), '..', '..', '..', 'scripts'))
-from lh_fetch import urlopen, redacted, UA  # noqa: E402  robots.txt gate (the keeper, 8 November 2026)
+from lh_fetch import urlopen, redacted, UA, may_keep  # noqa: E402  robots.txt gate (the keeper, 8 November 2026)
+from robots_rules import page_reservation  # noqa: E402  what may be kept (the keeper, 21 November 2026)
+sys.path.insert(0, str(Path(__file__).resolve().parent))
+from derive_kept import w3_details, w3_history, NOTE  # noqa: E402
 
 ROOT = Path(__file__).resolve().parents[1]
 W3 = 'https://w3techs.com/technologies/'
@@ -53,8 +56,25 @@ for part in parts:
                 body = response.read(16 * 1024 * 1024 + 1)
                 row.update(finish_utc=datetime.now(timezone.utc).isoformat(), status=response.status, bytes=len(body),
                            sha256=sha256(body).hexdigest(), content_type=response.headers.get('Content-Type', ''))
-                (OUT / (name + '.raw.gz')).write_bytes(gzip.compress(redacted(body[:16 * 1024 * 1024]), mtime=0))
-                row['file'] = name + '.raw.gz'
+                body = body[:16 * 1024 * 1024]
+                keep, why = may_keep(response.geturl() or url)
+                reserved = page_reservation(body, response.headers)
+                if keep and not reserved:
+                    (OUT / (name + '.raw.gz')).write_bytes(gzip.compress(redacted(body), mtime=0))
+                    row['file'] = name + '.raw.gz'
+                else:
+                    # brief amendment of 21 November 2026: no body kept; only the facts the study uses
+                    row['body_kept'] = 'no: ' + (reserved or why)
+                    if name.startswith('w3techs-'):
+                        kind = name.split('-')[1]
+                        ext = w3_details(body) if kind == 'details' else {'history': w3_history(body)}
+                        rec = {'url': url, 'read_utc': row['start_utc'], 'finish_utc': row['finish_utc'],
+                               'http_status': row['status'], 'content_type': row['content_type'], 'bytes': row['bytes'],
+                               'sha256': row['sha256'], 'body_kept': row['body_kept'],
+                               'body_removed': NOTE.replace('Body removed on 21 November 2026', 'Body not kept'),
+                               'extracted': ext}
+                        (OUT / (name + '.derived.json')).write_text(json.dumps(rec, indent=1, ensure_ascii=False) + '\n')
+                        row['file'] = name + '.derived.json'
         except Exception as error:
             row.setdefault('finish_utc', datetime.now(timezone.utc).isoformat())
             row['error'] = type(error).__name__ + ': ' + str(error)[:200]

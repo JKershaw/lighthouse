@@ -14,6 +14,12 @@ def norm(s):
 def text(raw):
     t=re.sub(r'<(script|style)[^>]*>.*?</\1>',' ',raw,flags=re.S|re.I)
     t=re.sub(r'<[^>]+>',' ',t); return norm(t)
+def derived(fn):
+    # A page removed on 21 November 2026 under the keeper's decision (notes/keeper/2026-11-21-robots-intent.md):
+    # scripts/derive_kept.py kept only the quotations and figures the rows cite that the page bore out.
+    p=f"{d}/{fn.rsplit('.',1)[0]}.derived.json"
+    import os
+    return json.load(open(p))['extracted'] if os.path.exists(p) else None
 fields=['counts','vantage','cadence','history','access','page_date','window','cannot_see','note']
 res=[]
 for r in rs:
@@ -22,6 +28,9 @@ for r in rs:
         L=log[u.split(' ')[0]]
         try: raw=open(f"{d}/{L['file']}",encoding="utf-8",errors="replace").read()
         except FileNotFoundError: raw=""
+        x=derived(L['file']) if raw=="" else None
+        if x is not None:
+            bodies.append((L['file'],'\0'.join(x['quoted_segments_in_text']),'\0'.join(x['quoted_segments_in_markup']))); continue
         bodies.append((L['file'],text(raw),norm(raw)))
     for f in fields:
         for q in re.findall(r'"([^"]+)"',r.get(f,'') or ''):
@@ -44,6 +53,9 @@ for r in rs:
         L=log[u.split(' ')[0]]
         try: raw=open(f"{d}/{L['file']}",encoding='utf-8',errors='replace').read()
         except FileNotFoundError: raw=''
+        x=derived(L['file']) if raw=='' else None
+        if x is not None:
+            bodies.append('\0'.join(x['figures_found'])); continue
         bodies.append(text(raw)+' '+norm(raw))
     allb=' '.join(bodies)
     for f in fields:

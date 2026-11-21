@@ -50,12 +50,9 @@ if (READ / 'censys.raw.gz').exists():
             'unknown_share_of_all': round(s['unknown'] / (versioned + s['unknown']), 4)}
     tables['m2_unfixed_tail'] = m2
 
-w3 = {}
-for minor, fixed in FIXED.items():
-    name = f'w3techs-details-{minor}'
-    if not (READ / (name + '.raw.gz')).exists():
-        continue
-    text = re.sub(r'<script.*?</script>|<style.*?</style>', '', body(name).decode('utf8', 'replace'), flags=re.S)
+def w3_rows(raw, minor):
+    """Patch number -> share within the minor ("less than 0.1%" as 0), and the page's first W3Techs date."""
+    text = re.sub(r'<script.*?</script>|<style.*?</style>', '', raw.decode('utf8', 'replace'), flags=re.S)
     text = re.sub(r'\s+', ' ', html.unescape(re.sub(r'<[^>]+>', ' ', text)))
     part = text[text.find('Subversions of PHP ' + minor):]
     part = part[part.find('How to read the diagram'):]
@@ -65,7 +62,33 @@ for minor, fixed in FIXED.items():
             [(m.group(1), m.group(2), m.group(3)) for m in re.finditer(
                 r'Version ' + re.escape(minor) + r'\.(\d+) (?:([\d.]+)%|(less than 0\.1%))', part)]}
     stamp = re.search(r'W3Techs\.com, (\d+ \w+ \d{4})', text)
-    w3[minor] = {'w3techs_date': stamp.group(1) if stamp else None, 'fixed_patch': fixed,
+    return rows, (stamp.group(1) if stamp else None)
+
+
+def w3_rows_derived(d, minor):
+    """w3_rows from the derived file that replaced a removed body (scripts/derive_kept.py)."""
+    ext = d['extracted']
+    dg = [x for x in ext['diagrams'] if x['caption'].endswith('subversions of PHP ' + minor)]
+    rows = {}
+    for label, val in (dg[0]['rows'] if dg else []):
+        m = re.fullmatch(r'Version ' + re.escape(minor) + r'\.(\d+)', label)
+        if m:
+            rows[int(m.group(1))] = 0.0 if val.startswith('less') else float(val.rstrip('%'))
+    return rows, (ext['page_dates'][0] if ext['page_dates'] else None)
+
+
+# Bodies removed under the keeper's decision of 21 November 2026 (notes/keeper/2026-11-21-robots-intent.md)
+# are read from <name>.derived.json; old clones still read the body.
+w3 = {}
+for minor, fixed in FIXED.items():
+    name = f'w3techs-details-{minor}'
+    if (READ / (name + '.raw.gz')).exists():
+        rows, stamp = w3_rows(body(name), minor)
+    elif (READ / (name + '.derived.json')).exists():
+        rows, stamp = w3_rows_derived(json.loads((READ / (name + '.derived.json')).read_text()), minor)
+    else:
+        continue
+    w3[minor] = {'w3techs_date': stamp, 'fixed_patch': fixed,
                  'share_at_or_above_fixed_pct': round(sum(p for v, p in rows.items() if v >= fixed), 1),
                  'listed_rows': len(rows), 'note': '"less than 0.1%" rows counted as 0'}
 if w3:

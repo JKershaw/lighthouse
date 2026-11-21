@@ -89,6 +89,17 @@ def text_of(h):
 for n in ('anthropic', 'almalinux', 'kernel_announcement'):
     prev = None
     for r in reads:
+        dv = r / (n + '.derived.json')
+        x0 = {e['name']: e for e in json.loads((r / 'read_log.json').read_text())}.get(n) or {}
+        if x0.get('status') == 200 and x0.get('file') and not (r / x0['file']).exists() and dv.exists():
+            # body removed 21 November 2026 (keeper's decision); scripts/derive_kept.py kept these fields, not the text
+            e = json.loads(dv.read_text())['extracted']
+            print(n, r.name, 'bytes sha', x0['sha256'][:12], 'text sha', e['text_sha256'][:12], 'dateModified', e['dateModified'],
+                  'challenge' if e['challenge_page'] else '', 'title', e['title'])
+            if prev is not None and (prev if isinstance(prev, str) else sha256('\n'.join(prev).encode()).hexdigest()) != e['text_sha256']:
+                print('   text diff: not shown, the body was removed on 21 November 2026 (text sha256 differs)')
+            prev = e['text_sha256']
+            continue
         t, x = raw(r, n)
         if t is None:
             print(n, r.name, 'no body', (x or {}).get('status'), (x or {}).get('robots', {}).get('reason') if x else 'not in log'); continue
@@ -96,6 +107,10 @@ for n in ('anthropic', 'almalinux', 'kernel_announcement'):
         dm = re.search(r'"dateModified"\s*:\s*"([^"]+)"', t)
         print(n, r.name, 'bytes sha', x['sha256'][:12], 'text sha', sha256('\n'.join(tx).encode()).hexdigest()[:12], 'dateModified', dm.group(1) if dm else None,
               'challenge' if 'not a bot' in t[:2000] else '', 'title', (re.search(r'(?s)<title>(.*?)</title>', t) or [None, None])[1])
+        if isinstance(prev, str):  # previous read held only a derived file: compare the text hashes
+            if prev != sha256('\n'.join(tx).encode()).hexdigest():
+                print('   text diff: not shown, the previous body was removed on 21 November 2026 (text sha256 differs)')
+            prev = None
         if prev and prev != tx:
             import difflib
             dl = [l for l in difflib.unified_diff(prev, tx, lineterm='', n=0) if l[:1] in '+-' and not l.startswith(('+++', '---'))]
