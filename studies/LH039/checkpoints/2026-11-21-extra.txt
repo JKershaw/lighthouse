@@ -1,0 +1,60 @@
+LH039 checkpoint 2 extra tables. Offline; reads only retained files.
+
+== Part A: measure 2, the comparison named in advance ==
+WordPress 7.1, LH039 read 2026-11-11T1415Z (day 14 after E0, page date 11 November 2026): fixed share 23.70% to 23.72% (7.1.5 apart, per brief)
+WordPress 7.1, LH039 read 2026-11-21T1411Z (day 24 after E0, page date 21 November 2026): fixed share 40.23% to 40.34% (7.1.5 apart, per brief)
+LH033 W3Techs reads held (label: PHP day): 2026-10-25T0855Z: 4, 2026-10-26T0637Z: 5, 2026-11-02T1530Z: 12, 2026-11-09T1427Z: 19, 2026-11-16T1419Z: 26, 2026-11-21T1414Z: 31
+Nearest to PHP day 14: day 12 (2 Nov, 2 days early); next is day 19 (5 days late).
+Nearest to PHP day 24: day 26 (16 Nov, 2 days late); previous is day 19 (5 days early).
+  PHP, LH033 read 2026-11-02T1530Z (PHP day 12), files studies/LH033/data/read-2026-11-02T1530Z/w3techs-details-8.x.raw.gz and tables.json:
+    8.2: LH033 tabulated 10.7% (page date 2 November 2026, 36 rows); recomputed by LH039's rule 10.67% to 10.71%
+    8.3: LH033 tabulated 12.1% (page date 2 November 2026, 36 rows); recomputed by LH039's rule 12.02% to 12.08%
+    8.4: LH033 tabulated 16.0% (page date 2 November 2026, 29 rows); recomputed by LH039's rule 15.97% to 16.08%
+    8.5: LH033 tabulated 23.8% (page date 2 November 2026, 15 rows); recomputed by LH039's rule 23.80% to 23.95%
+  PHP, LH033 read 2026-11-09T1427Z (PHP day 19), files studies/LH033/data/read-2026-11-09T1427Z/w3techs-details-8.x.raw.gz and tables.json:
+    8.2: LH033 tabulated 20.0% (page date 9 November 2026, 36 rows); recomputed by LH039's rule 19.92% to 20.00%
+    8.3: LH033 tabulated 21.4% (page date 9 November 2026, 36 rows); recomputed by LH039's rule 21.36% to 21.49%
+    8.4: LH033 tabulated 27.2% (page date 9 November 2026, 29 rows); recomputed by LH039's rule 27.20% to 27.33%
+    8.5: LH033 tabulated 38.9% (page date 9 November 2026, 15 rows); recomputed by LH039's rule 38.90% to 39.02%
+  PHP, LH033 read 2026-11-16T1419Z (PHP day 26), files studies/LH033/data/read-2026-11-16T1419Z/w3techs-details-8.x.raw.gz and tables.json:
+    8.2: LH033 tabulated 32.5% (page date 16 November 2026, 36 rows); recomputed by LH039's rule 32.37% to 32.53%
+    8.3: LH033 tabulated 36.6% (page date 16 November 2026, 36 rows); recomputed by LH039's rule 36.42% to 36.64%
+    8.4: LH033 tabulated 41.8% (page date 16 November 2026, 29 rows); recomputed by LH039's rule 41.76% to 41.90%
+    8.5: LH033 tabulated 55.4% (page date 16 November 2026, 15 rows); recomputed by LH039's rule 55.40% to 55.49%
+
+== Part B (post hoc, not pre-set; 2 comparisons): exact same-day matches that exist ==
+WordPress 7.1, LH039 read 2026-11-09T1431Z (day 12): 19.58% to 19.60%
+WordPress 7.1, LH039 read 2026-11-16T1418Z (day 19): 31.97% to 32.00%
+PHP at day 12 and 19: the LH033 reads 2026-11-02T1530Z and 2026-11-09T1427Z in Part A.
+
+== Part C (post hoc sensitivity, chosen after the reads were seen): measure 1 under other label treatments ==
+7.1 2026-11-15T1411Z  tabulator (7.1.5 apart, 7.1.6 fixed) 30.54% to 30.57% | 7.1.5 and 7.1.6 both apart 30.54% to 30.57% | 7.1.5 and 7.1.6 counted fixed 30.54% to 30.64% | 7.1.4 alone: 30.51% to 30.57%
+7.1 2026-11-16T1418Z  tabulator (7.1.5 apart, 7.1.6 fixed) 31.97% to 32.00% | 7.1.5 and 7.1.6 both apart 31.97% to 32.00% | 7.1.5 and 7.1.6 counted fixed 31.97% to 32.07% | 7.1.4 alone: 31.94% to 32.00%
+7.1 2026-11-17T1415Z  tabulator (7.1.5 apart, 7.1.6 fixed) 34.37% to 34.40% | 7.1.5 and 7.1.6 both apart 34.37% to 34.40% | 7.1.5 and 7.1.6 counted fixed 34.37% to 34.47% | 7.1.4 alone: 34.33% to 34.40%
+7.1 2026-11-18T1415Z  tabulator (7.1.5 apart, 7.1.6 fixed) 36.26% to 36.30% | 7.1.5 and 7.1.6 both apart 36.26% to 36.30% | 7.1.5 and 7.1.6 counted fixed 36.26% to 36.36% | 7.1.4 alone: 36.23% to 36.30%
+7.1 2026-11-19T1417Z  tabulator (7.1.5 apart, 7.1.6 fixed) 37.75% to 37.79% | 7.1.5 and 7.1.6 both apart 37.75% to 37.79% | 7.1.5 and 7.1.6 counted fixed 38.00% to 38.04% | 7.1.4 alone: 37.60% to 37.64%
+7.1 2026-11-20T1414Z  tabulator (7.1.5 apart, 7.1.6 fixed) 39.30% to 39.40% | 7.1.5 and 7.1.6 both apart 39.30% to 39.34% | 7.1.5 and 7.1.6 counted fixed 41.06% to 41.16% | 7.1.4 alone: 38.12% to 38.20%
+7.1 2026-11-21T1411Z  tabulator (7.1.5 apart, 7.1.6 fixed) 40.23% to 40.34% | 7.1.5 and 7.1.6 both apart 40.23% to 40.27% | 7.1.5 and 7.1.6 counted fixed 43.16% to 43.26% | 7.1.4 alone: 38.22% to 38.30%
+7.0 2026-11-15T1411Z  tabulator (any later release fixed) 15.38% to 15.40% | 7.0.8 alone 15.38% to 15.40%
+7.0 2026-11-16T1418Z  tabulator (any later release fixed) 16.77% to 16.78% | 7.0.8 alone 16.77% to 16.78%
+7.0 2026-11-17T1415Z  tabulator (any later release fixed) 18.40% | 7.0.8 alone 18.40%
+7.0 2026-11-18T1415Z  tabulator (any later release fixed) 19.74% | 7.0.8 alone 19.74%
+7.0 2026-11-19T1417Z  tabulator (any later release fixed) 20.88% | 7.0.8 alone 20.68%
+7.0 2026-11-20T1414Z  tabulator (any later release fixed) 23.50% | 7.0.8 alone 22.00%
+7.0 2026-11-21T1411Z  tabulator (any later release fixed) 24.90% | 7.0.8 alone 22.40%
+6.9 2026-11-15T1411Z  tabulator (any later release fixed) 15.50% | 6.9.11 alone 15.50%
+6.9 2026-11-16T1418Z  tabulator (any later release fixed) 16.92% | 6.9.11 alone 16.92%
+6.9 2026-11-17T1415Z  tabulator (any later release fixed) 19.40% | 6.9.11 alone 19.40%
+6.9 2026-11-18T1415Z  tabulator (any later release fixed) 20.86% | 6.9.11 alone 20.86%
+6.9 2026-11-19T1417Z  tabulator (any later release fixed) 22.08% | 6.9.11 alone 21.88%
+6.9 2026-11-20T1414Z  tabulator (any later release fixed) 24.40% | 6.9.11 alone 23.00%
+6.9 2026-11-21T1411Z  tabulator (any later release fixed) 25.87% | 6.9.11 alone 23.38%
+
+== Part D (observation): Packagist branch downloads read per day, packagist-2026-11-21T1415Z ==
+Releases read: 7.1.0 to 7.1.4, 7.0.0 to 7.0.8, 6.9.0 to 6.9.11 (packagist.py VERSIONS; no --extra).
+roots 7.1: 11-12 24284, 11-13 19624, 11-14 5115, 11-15 4718, 11-16 23643, 11-17 27826, 11-18 21663, 11-19 8608
+roots 7.0: 11-12 1601, 11-13 1231, 11-14 478, 11-15 413, 11-16 1297, 11-17 1782, 11-18 1550, 11-19 1472
+roots 6.9: 11-12 2761, 11-13 2637, 11-14 740, 11-15 783, 11-16 3801, 11-17 2802, 11-18 2562, 11-19 2633
+johnpbloch 7.1: 11-12 7334, 11-13 5814, 11-14 3926, 11-15 4962, 11-16 5907, 11-17 6854, 11-18 5790, 11-19 3437
+johnpbloch 7.0: 11-12 397, 11-13 230, 11-14 61, 11-15 57, 11-16 381, 11-17 392, 11-18 395, 11-19 342
+johnpbloch 6.9: 11-12 1192, 11-13 1534, 11-14 457, 11-15 874, 11-16 2220, 11-17 2106, 11-18 1425, 11-19 1268
