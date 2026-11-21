@@ -38,7 +38,10 @@ def p(s=""):
 
 def wp_ratio(label, branch, apart=("7.1.5",), fixed=None):
     path = os.path.join(T.DATA, "raw-" + label, "w3-%s.body" % branch.replace(".", ""))
-    rows, date = T.w3_release_shares(path)
+    if os.path.exists(path):
+        rows, date = T.w3_release_shares(path)
+    else:  # body removed 21 November 2026 (keeper's decision); derive_kept.py's file holds the rows
+        rows, date = T.w3_release_shares_derived(T.derived(os.path.dirname(path), "w3-%s" % branch.replace(".", "")))
     fx = fixed or T.FIXED[branch]
     nlo = nhi = olo = ohi = 0.0
     for v, lo, hi, _ in rows:
@@ -51,8 +54,18 @@ def wp_ratio(label, branch, apart=("7.1.5",), fixed=None):
     return nlo / (nlo + ohi), nhi / (nhi + olo), date
 
 
-def php_raw(label, minor):
-    t = gzip.open(os.path.join(LH033, "read-" + label, "w3techs-details-%s.raw.gz" % minor)).read().decode("utf8", "replace")
+def php_rows(label, minor):
+    """LH033's W3Techs rows for the minor: (patch, value as given) in page order, and the page's first date.
+    From the raw page, or, where it was removed on 21 November 2026 under the keeper's decision
+    (notes/keeper/2026-11-21-robots-intent.md), from LH033's w3techs-details-<minor>.derived.json."""
+    raw = os.path.join(LH033, "read-" + label, "w3techs-details-%s.raw.gz" % minor)
+    if not os.path.exists(raw):
+        e = json.load(open(raw[:-len(".raw.gz")] + ".derived.json"))["extracted"]
+        dg = [x for x in e["diagrams"] if x["caption"].endswith("subversions of PHP " + minor)]
+        rows = [(m.group(1), val) for lab, val in (dg[0]["rows"] if dg else [])
+                for m in [re.fullmatch(r"Version " + re.escape(minor) + r"\.(\d+)", lab)] if m]
+        return rows, (e["page_dates"][0] if e["page_dates"] else "")
+    t = gzip.open(raw).read().decode("utf8", "replace")
     t = re.sub(r"<script.*?</script>|<style.*?</style>", "", t, flags=re.S)
     t = re.sub(r"\s+", " ", html.unescape(re.sub(r"<[^>]+>", " ", t)))
     part = t[t.find("Subversions of PHP " + minor):]
@@ -60,16 +73,23 @@ def php_raw(label, minor):
     part = part[part.find("%") + 1:]
     part = part[:part.find("W3Techs.com,")]
     date = re.search(r"W3Techs\.com, (\d+ \w+ \d{4})", t)
+    rows = [(m.group(1), m.group(2) + "%" if m.group(2) else m.group(3)) for m in re.finditer(
+        r"Version " + re.escape(minor) + r"\.(\d+) (?:([\d.]+)%|(less than 0\.1%))", part)]
+    return rows, (date.group(1) if date else "")
+
+
+def php_raw(label, minor):
+    rows, date = php_rows(label, minor)
     nlo = nhi = olo = ohi = 0.0
     n = 0
-    for m in re.finditer(r"Version " + re.escape(minor) + r"\.(\d+) (?:([\d.]+)%|(less than 0\.1%))", part):
+    for v, val in rows:
         n += 1
-        lo, hi = (0.0, 0.1) if m.group(3) else (float(m.group(2)),) * 2
-        if int(m.group(1)) >= PHP_FIXED[minor]:
+        lo, hi = (0.0, 0.1) if val.startswith("less") else (float(val.rstrip("%")),) * 2
+        if int(v) >= PHP_FIXED[minor]:
             nlo += lo; nhi += hi
         else:
             olo += lo; ohi += hi
-    return nlo / (nlo + ohi), nhi / (nhi + olo), (date.group(1) if date else ""), n, nhi
+    return nlo / (nlo + ohi), nhi / (nhi + olo), date, n, nhi
 
 
 def php_tab(label, minor):

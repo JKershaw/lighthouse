@@ -129,3 +129,89 @@ Per-study derivation commands (LH039's asserts its rows equal tabulate.py's pars
   python3 -I studies/LH056/scripts/derive_kept.py
   (cd studies/LH035 && python3 -I scripts/derive_kept.py)
 Run before each deletion; run again afterwards they find no body and write nothing.
+
+== Addendum, 21 November 2026, after main was merged into the branch (commit 2ea73ef) ==
+New scripts from main that read a removed body: studies/LH039/scripts/checkpoint2_extra.py (LH039 w3-*.body through
+tabulate.py's parser, and LH033 w3techs-details-*.raw.gz directly). It now reads the derived files where the body is
+absent (php_rows(); wp_ratio() via tabulate.w3_release_shares_derived) and the bodies where present. Others checked from
+git diff 2174b14..origin/main: studies/LH038/scripts/timeline.py (version 0.4), review/r0105_check.py and
+review/r0106_offsets.py read no removed body (LH036 suse.raw.gz, LH038 suse-clocks and SUSE pages are kept); they were
+run anyway, with the 8 removed LH036/LH038 bodies restored and without them. The other scripts in that diff are the
+derive scripts, the gate and the scripts already covered above.
+
+Running verify.sh above again after the merge: identical except LH036-check_fixes.out (the accepted line) and
+LH038-timeline.out, which differs only because verify.sh's pre tree takes timeline.py from 240e6fb (version 0.3) and
+the working tree has version 0.4 from main (24 added lines, sections "version 0.4"); verify_lh038.sh below compares
+version 0.4 with and without the bodies, and with the retained timeline_output.txt.
+
+---8<--- verify_cp2.sh (checkpoint 2 run as studies/LH039/checkpoints/2026-11-21.md says, lines 151 and 152)
+#!/bin/bash
+# LH039 checkpoint 2: rebuild 2026-11-21-tabulation.txt, -packagist.csv and -extra.txt from the pre-removal commit
+# (bodies; checkpoint2_extra.py as merged from main) and from the working tree (derived files), and compare both with
+# the retained files. Usage: bash verify_cp2.sh <empty scratch dir>. Offline.
+set -u
+R=/home/user/lighthouse; PRE=240e6fbc0e2ed5676e8a1f43e37aea8ff94536b9; T=$1
+mkdir -p $T/pre $T/now/studies $T/retained
+git -C $R archive $PRE studies/LH033 studies/LH039 | tar -x -C $T/pre
+git -C $R show 453a50e:studies/LH039/scripts/checkpoint2_extra.py > $T/pre/studies/LH039/scripts/checkpoint2_extra.py
+cp -r $R/studies/LH033 $R/studies/LH039 $T/now/studies/
+for f in 2026-11-21-tabulation.txt 2026-11-21-packagist.csv 2026-11-21-extra.txt; do git -C $R show HEAD:studies/LH039/checkpoints/$f > $T/retained/$f; done
+for t in pre now; do
+  cd $T/$t
+  python3 -I studies/LH039/scripts/tabulate.py --packagist 2026-11-21T1415Z --until 2026-11-21T1411Z > $T/$t-tab.stdout 2>&1; echo "tabulate rc=$?"
+  python3 -I studies/LH039/scripts/checkpoint2_extra.py > $T/$t-extra.stdout 2>&1; echo "checkpoint2_extra rc=$?"
+  for f in 2026-11-21-tabulation.txt 2026-11-21-packagist.csv 2026-11-21-extra.txt; do
+    cmp -s studies/LH039/checkpoints/$f $T/retained/$f && echo "$t: $f identical to the retained file" || { echo "$t: $f DIFFERS from the retained file"; diff $T/retained/$f studies/LH039/checkpoints/$f | head -20; }
+  done
+done
+--->8---
+Output:
+tabulate rc=0
+checkpoint2_extra rc=0
+pre: 2026-11-21-tabulation.txt identical to the retained file
+pre: 2026-11-21-packagist.csv identical to the retained file
+pre: 2026-11-21-extra.txt identical to the retained file
+tabulate rc=0
+checkpoint2_extra rc=0
+now: 2026-11-21-tabulation.txt identical to the retained file
+now: 2026-11-21-packagist.csv identical to the retained file
+now: 2026-11-21-extra.txt identical to the retained file
+(stdout of both scripts also identical between the pre and now trees.)
+
+---8<--- verify_lh038.sh
+#!/bin/bash
+# Scripts merged from main that touch LH036/LH038 data: run on a tree with the removed bodies restored from
+# 240e6fb ("pre") and on the working tree ("now"), and compare; timeline.py's output is also compared with the
+# retained scripts/timeline_output.txt. Usage: bash verify_lh038.sh <empty scratch dir>. Offline.
+set -u
+R=/home/user/lighthouse; PRE=240e6fbc0e2ed5676e8a1f43e37aea8ff94536b9; T=$1
+mkdir -p $T/pre $T/now/studies
+git -C $R archive HEAD studies/LH036 studies/LH038 | tar -x -C $T/pre
+git -C $R archive $PRE $(git -C $R diff --name-only --diff-filter=D $PRE HEAD -- studies/LH036 studies/LH038) | tar -x -C $T/pre
+echo "bodies restored in pre: $(git -C $R diff --name-only --diff-filter=D $PRE HEAD -- studies/LH036 studies/LH038 | wc -l)"
+cp -r $R/studies/LH036 $R/studies/LH038 $T/now/studies/
+for t in pre now; do
+  cd $T/$t
+  python3 -I studies/LH038/scripts/timeline.py > $T/$t-timeline.out 2>&1; echo "$t timeline rc=$?"
+  python3 -I studies/LH038/review/r0105_check.py > $T/$t-r0105.out 2>&1; echo "$t r0105 rc=$?"
+  python3 -I studies/LH038/review/r0106_offsets.py > $T/$t-r0106.out 2>&1; echo "$t r0106 rc=$?"
+  python3 -I studies/LH038/review/r0091_check.py 2>&1 | sed "s#$T/$t#TREE#g" > $T/$t-r0091.out; echo "$t r0091 done"
+done
+cd $T; for f in timeline r0105 r0106 r0091; do cmp -s pre-$f.out now-$f.out && echo "identical  $f" || { echo "DIFFERS $f"; diff pre-$f.out now-$f.out | head; }; done
+git -C $R show HEAD:studies/LH038/scripts/timeline_output.txt | cmp -s - now-timeline.out && echo "timeline output identical to the retained timeline_output.txt" || echo "timeline output differs from the retained timeline_output.txt"
+--->8---
+Output:
+bodies restored in pre: 8
+pre timeline rc=0
+pre r0105 rc=0
+pre r0106 rc=0
+pre r0091 done
+now timeline rc=0
+now r0105 rc=0
+now r0106 rc=0
+now r0091 done
+identical  timeline
+identical  r0105
+identical  r0106
+identical  r0091
+timeline output identical to the retained timeline_output.txt
