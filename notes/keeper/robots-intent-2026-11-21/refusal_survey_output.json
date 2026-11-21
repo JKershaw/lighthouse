@@ -1,0 +1,696 @@
+[
+ {
+  "url": "https://af.net/?p=126897",
+  "robots": 200,
+  "cls": "T2: only crawler/other tokens refuse; Claude-User view allows",
+  "named": [
+   "Claude-User",
+   "ClaudeBot",
+   "Claude-SearchBot"
+  ],
+  "star": true,
+  "decided_by": "ClaudeBot",
+  "rule": "Disallow: /"
+ },
+ {
+  "url": "https://api.deps.dev/v3/systems/pypi/packages/litellm/versions/1.107.0",
+  "robots": 200,
+  "cls": "T1: refused under '*' (no AI token named)",
+  "named": [],
+  "star": false,
+  "decided_by": "*",
+  "rule": "Disallow: /"
+ },
+ {
+  "url": "https://api.deps.dev/v3alpha/systems/pypi/packages/litellm/versions/1.106.1:dependents",
+  "robots": 200,
+  "cls": "T1: refused under '*' (no AI token named)",
+  "named": [],
+  "star": false,
+  "decided_by": "*",
+  "rule": "Disallow: /"
+ },
+ {
+  "url": "https://api.deps.dev/v3alpha/systems/pypi/packages/litellm/versions/1.106.2:dependents",
+  "robots": 200,
+  "cls": "T1: refused under '*' (no AI token named)",
+  "named": [],
+  "star": false,
+  "decided_by": "*",
+  "rule": "Disallow: /"
+ },
+ {
+  "url": "https://api.deps.dev/v3alpha/systems/pypi/packages/litellm/versions/1.106.3:dependents",
+  "robots": 200,
+  "cls": "T1: refused under '*' (no AI token named)",
+  "named": [],
+  "star": false,
+  "decided_by": "*",
+  "rule": "Disallow: /"
+ },
+ {
+  "url": "https://api.deps.dev/v3alpha/systems/pypi/packages/litellm/versions/1.107.0:dependents",
+  "robots": 200,
+  "cls": "T1: refused under '*' (no AI token named)",
+  "named": [],
+  "star": false,
+  "decided_by": "*",
+  "rule": "Disallow: /"
+ },
+ {
+  "url": "https://api.github.com",
+  "robots": 403,
+  "cls": "robots unreadable"
+ },
+ {
+  "url": "https://api.osv.dev/v1/vulns/",
+  "robots": 404,
+  "cls": "robots unreadable"
+ },
+ {
+  "url": "https://autonomousweaponswatch.org/about",
+  "robots": 200,
+  "cls": "T2: only crawler/other tokens refuse; Claude-User view allows",
+  "named": [
+   "ClaudeBot",
+   "anthropic-ai",
+   "Claude-Web"
+  ],
+  "star": true,
+  "decided_by": "ClaudeBot",
+  "rule": "Disallow: /"
+ },
+ {
+  "url": "https://autonomousweaponswatch.org/weapons?page=2",
+  "robots": 200,
+  "cls": "T2: only crawler/other tokens refuse; Claude-User view allows",
+  "named": [
+   "ClaudeBot",
+   "anthropic-ai",
+   "Claude-Web"
+  ],
+  "star": true,
+  "decided_by": "ClaudeBot",
+  "rule": "Disallow: /"
+ },
+ {
+  "url": "https://bleepingcomputer.com/news/security/abandoned-popcorn-time-app-exposed-millions-of-device-to-rce-attacks",
+  "robots": 200,
+  "cls": "T2: only crawler/other tokens refuse; Claude-User view allows",
+  "named": [
+   "ClaudeBot"
+  ],
+  "star": true,
+  "decided_by": "ClaudeBot",
+  "rule": "Disallow: /"
+ },
+ {
+  "url": "https://darkreading.com/cyberattacks-data-breaches/artex-ai-pen-test-tool-hackers-weapon",
+  "robots": 200,
+  "cls": "T2: only crawler/other tokens refuse; Claude-User view allows",
+  "named": [
+   "ClaudeBot"
+  ],
+  "star": true,
+  "decided_by": "ClaudeBot",
+  "rule": "Disallow: /"
+ },
+ {
+  "url": "https://dashboard.shadowserver.org/",
+  "robots": "URLError",
+  "cls": "robots unreadable"
+ },
+ {
+  "url": "https://datatracker.ietf.org/api/",
+  "robots": 200,
+  "cls": "allowed now",
+  "named": [],
+  "star": true,
+  "decided_by": "*",
+  "rule": null
+ },
+ {
+  "url": "https://declawed.io/",
+  "robots": 200,
+  "cls": "T1: Claude-User named and refused",
+  "named": [
+   "Claude-User",
+   "ClaudeBot",
+   "Claude-SearchBot",
+   "anthropic-ai",
+   "Claude-Web"
+  ],
+  "star": true,
+  "decided_by": "ClaudeBot",
+  "rule": "Disallow: /"
+ },
+ {
+  "url": "https://declawed.io/api/stats",
+  "robots": 200,
+  "cls": "T1: Claude-User named and refused",
+  "named": [
+   "Claude-User",
+   "ClaudeBot",
+   "Claude-SearchBot",
+   "anthropic-ai",
+   "Claude-Web"
+  ],
+  "star": false,
+  "decided_by": "ClaudeBot",
+  "rule": "Disallow: /"
+ },
+ {
+  "url": "https://dns.coffee/",
+  "robots": 200,
+  "cls": "allowed now",
+  "named": [],
+  "star": true,
+  "decided_by": "*",
+  "rule": null
+ },
+ {
+  "url": "https://docs.un.org/CCPR/C/GC/37",
+  "robots": 200,
+  "cls": "allowed now",
+  "named": [],
+  "star": true,
+  "decided_by": null,
+  "rule": null
+ },
+ {
+  "url": "https://docs.un.org/CCW/CONF.VII/11",
+  "robots": 200,
+  "cls": "allowed now",
+  "named": [],
+  "star": true,
+  "decided_by": null,
+  "rule": null
+ },
+ {
+  "url": "https://docs.un.org/en/CCW/CONF.VII/WP.1",
+  "robots": 200,
+  "cls": "allowed now",
+  "named": [],
+  "star": true,
+  "decided_by": null,
+  "rule": null
+ },
+ {
+  "url": "https://docs.un.org/en/CCW/CONF.VII/WP.2",
+  "robots": 200,
+  "cls": "allowed now",
+  "named": [],
+  "star": true,
+  "decided_by": null,
+  "rule": null
+ },
+ {
+  "url": "https://docstore.ohchr.org/SelfServices/FilesHandler.ashx",
+  "robots": 200,
+  "cls": "T1: refused under '*' (no AI token named)",
+  "named": [],
+  "star": false,
+  "decided_by": "*",
+  "rule": "Disallow: /"
+ },
+ {
+  "url": "https://documents.un.org/api/symbol/access?s=CCPR/C/GC/37&l=en&t=pdf",
+  "robots": 200,
+  "cls": "T1: refused under '*' (no AI token named)",
+  "named": [],
+  "star": false,
+  "decided_by": "*",
+  "rule": "Disallow: /api"
+ },
+ {
+  "url": "https://documents.un.org/api/symbol/access?s=CCW/CONF.VII/WP.1&l=en&t=pdf",
+  "robots": 200,
+  "cls": "T1: refused under '*' (no AI token named)",
+  "named": [],
+  "star": false,
+  "decided_by": "*",
+  "rule": "Disallow: /api"
+ },
+ {
+  "url": "https://documents.un.org/api/symbol/access?s=CCW/CONF.VII/WP.2&l=en&t=pdf",
+  "robots": 200,
+  "cls": "T1: refused under '*' (no AI token named)",
+  "named": [],
+  "star": false,
+  "decided_by": "*",
+  "rule": "Disallow: /api"
+ },
+ {
+  "url": "https://documents.un.org/doc/undoc/gen/g26/000/00/pdf/g2600000.pdf",
+  "robots": 200,
+  "cls": "T1: refused under '*' (no AI token named)",
+  "named": [],
+  "star": false,
+  "decided_by": "*",
+  "rule": "Disallow: /doc"
+ },
+ {
+  "url": "https://epoch.ai/data/ai-data-centers/updates",
+  "robots": 200,
+  "cls": "allowed now",
+  "named": [],
+  "star": true,
+  "decided_by": "*",
+  "rule": null
+ },
+ {
+  "url": "https://epoch.ai/data/data-centers",
+  "robots": 200,
+  "cls": "allowed now",
+  "named": [],
+  "star": true,
+  "decided_by": "*",
+  "rule": null
+ },
+ {
+  "url": "https://hn.algolia.com/api/v1/search_by_date?tags=story&hitsPerPage=200&numericFilters=created_at_i%3E1795007220",
+  "robots": 404,
+  "cls": "robots unreadable"
+ },
+ {
+  "url": "https://interestingengineering.com/ai-robotics/openai-agents-hit-un-website",
+  "robots": 200,
+  "cls": "T2: only crawler/other tokens refuse; Claude-User view allows",
+  "named": [
+   "ClaudeBot",
+   "anthropic-ai",
+   "Claude-Web"
+  ],
+  "star": true,
+  "decided_by": "ClaudeBot",
+  "rule": "Disallow: /"
+ },
+ {
+  "url": "https://letsdatascience.com/news/uk-cma-forces-google-separate-ai-crawlers-18b72b3a",
+  "robots": 200,
+  "cls": "T2: only crawler/other tokens refuse; Claude-User view allows",
+  "named": [
+   "Claude-User",
+   "ClaudeBot",
+   "Claude-SearchBot",
+   "anthropic-ai"
+  ],
+  "star": true,
+  "decided_by": "ClaudeBot",
+  "rule": "Disallow: /"
+ },
+ {
+  "url": "https://meetings.unoda.org/ccw-revcon/convention-on-certain-conventional-weapons-seventh-review-conference-2026",
+  "robots": 200,
+  "cls": "allowed now",
+  "named": [],
+  "star": true,
+  "decided_by": "*",
+  "rule": null
+ },
+ {
+  "url": "https://mod.gov.ua/en/news/ug-vs-have-performed-over-100-000-frontline-missions-in-place-of-ukrainian-military-personnel-since-the-start-of-the-year",
+  "robots": 200,
+  "cls": "allowed now",
+  "named": [],
+  "star": true,
+  "decided_by": "*",
+  "rule": "Allow: /"
+ },
+ {
+  "url": "https://mod.gov.ua/en/news/ukraine-ugv-missions-october-2026",
+  "robots": 200,
+  "cls": "allowed now",
+  "named": [],
+  "star": true,
+  "decided_by": "*",
+  "rule": "Allow: /"
+ },
+ {
+  "url": "https://mod.gov.ua/news/nrk-vpershe-vykonaly-ponad-30-000-misii-uprodovzh-misiatsia",
+  "robots": 200,
+  "cls": "allowed now",
+  "named": [],
+  "star": true,
+  "decided_by": "*",
+  "rule": "Allow: /"
+ },
+ {
+  "url": "https://news.10jqka.com.cn/20261014/c680655367.shtml",
+  "robots": 200,
+  "cls": "allowed now",
+  "named": [],
+  "star": true,
+  "decided_by": null,
+  "rule": null
+ },
+ {
+  "url": "https://next.ink/wp-content/uploads/2026/11/PostIncidentReport.pdf",
+  "robots": 200,
+  "cls": "T2: only crawler/other tokens refuse; Claude-User view allows",
+  "named": [
+   "Claude-User",
+   "ClaudeBot",
+   "Claude-SearchBot",
+   "anthropic-ai",
+   "Claude-Web"
+  ],
+  "star": true,
+  "decided_by": "ClaudeBot",
+  "rule": "Disallow: /"
+ },
+ {
+  "url": "https://nodejs.org/dist/index.json",
+  "robots": 200,
+  "cls": "T1: refused under '*' (no AI token named)",
+  "named": [],
+  "star": false,
+  "decided_by": "*",
+  "rule": "Disallow: /dist/"
+ },
+ {
+  "url": "https://pypi.org/simple/agent-framework/",
+  "robots": 200,
+  "cls": "T1: refused under '*' (no AI token named)",
+  "named": [],
+  "star": false,
+  "decided_by": "*",
+  "rule": "Disallow: /simple/"
+ },
+ {
+  "url": "https://raw.githubusercontent.com/pypi/infra/main/terraform/file-hosting/vcl/main.vcl",
+  "robots": 404,
+  "cls": "robots unreadable"
+ },
+ {
+  "url": "https://reachingcriticalwill.org/disarmament-fora/ccw/2026/laws/reports/18145-ccw-report-vol-14-no-1",
+  "robots": 200,
+  "cls": "T2: only crawler/other tokens refuse; Claude-User view allows",
+  "named": [
+   "ClaudeBot",
+   "anthropic-ai",
+   "Claude-Web"
+  ],
+  "star": true,
+  "decided_by": "ClaudeBot",
+  "rule": "Disallow: /"
+ },
+ {
+  "url": "https://rustsec.org/advisories/",
+  "robots": 404,
+  "cls": "robots unreadable"
+ },
+ {
+  "url": "https://status.codeberg.org/",
+  "robots": 200,
+  "cls": "T1: refused under '*' (no AI token named)",
+  "named": [],
+  "star": false,
+  "decided_by": "*",
+  "rule": "Disallow: /"
+ },
+ {
+  "url": "https://tech-insider.org/uk-aisi-cyber-test-incident-ai-agent-2026/",
+  "robots": 200,
+  "cls": "T2: only crawler/other tokens refuse; Claude-User view allows",
+  "named": [
+   "ClaudeBot",
+   "anthropic-ai",
+   "Claude-Web"
+  ],
+  "star": true,
+  "decided_by": "ClaudeBot",
+  "rule": "Disallow: /"
+ },
+ {
+  "url": "https://techaeris.com/2026/11/17/barracuda-details-44-hour-artex-framework/",
+  "robots": 200,
+  "cls": "T2: only crawler/other tokens refuse; Claude-User view allows",
+  "named": [
+   "ClaudeBot",
+   "anthropic-ai",
+   "Claude-Web"
+  ],
+  "star": true,
+  "decided_by": "ClaudeBot",
+  "rule": "Disallow: /"
+ },
+ {
+  "url": "https://techcrunch.com/2026/09/25/for-months-openais-agent-swarms-have-been-attacking-online-databases-to-find-obscure-facts/",
+  "robots": 200,
+  "cls": "T2: only crawler/other tokens refuse; Claude-User view allows",
+  "named": [
+   "ClaudeBot",
+   "anthropic-ai"
+  ],
+  "star": true,
+  "decided_by": "ClaudeBot",
+  "rule": "Disallow: /"
+ },
+ {
+  "url": "https://thenewstack.io/hackers-hijacked-1900-github-accounts-then-they-went-after-30000-repos/",
+  "robots": 200,
+  "cls": "T2: only crawler/other tokens refuse; Claude-User view allows",
+  "named": [
+   "ClaudeBot",
+   "anthropic-ai",
+   "Claude-Web"
+  ],
+  "star": true,
+  "decided_by": "ClaudeBot",
+  "rule": "Disallow: /"
+ },
+ {
+  "url": "https://thersac.icts.thers.ac.jp/hc/en-us/articles/64262985209881-November-13-2026-Microsoft-365-Outage-MO1550821-Restored",
+  "robots": 200,
+  "cls": "allowed now",
+  "named": [],
+  "star": true,
+  "decided_by": "*",
+  "rule": null
+ },
+ {
+  "url": "https://transparency.meta.com/en-gb/metasecurity/threat-reporting/",
+  "robots": 200,
+  "cls": "T2: only crawler/other tokens refuse; Claude-User view allows",
+  "named": [
+   "ClaudeBot"
+  ],
+  "star": true,
+  "decided_by": "ClaudeBot",
+  "rule": "Disallow: /"
+ },
+ {
+  "url": "https://www.anthropic.com/research/discovering-vulnerabilities-with-claude",
+  "robots": 200,
+  "cls": "allowed now",
+  "named": [],
+  "star": true,
+  "decided_by": "*",
+  "rule": "Allow: /"
+ },
+ {
+  "url": "https://www.bankinfosecurity.com/exposed-litellm-key-enabled-pypi-supply-chain-attack-a-33211",
+  "robots": 200,
+  "cls": "T2: only crawler/other tokens refuse; Claude-User view allows",
+  "named": [
+   "ClaudeBot",
+   "anthropic-ai",
+   "Claude-Web"
+  ],
+  "star": true,
+  "decided_by": "ClaudeBot",
+  "rule": "Disallow: /"
+ },
+ {
+  "url": "https://www.bleepingcomputer.com/news/microsoft/microsoft-says-months-old-bug-caused-global-microsoft-365-outage/",
+  "robots": 200,
+  "cls": "T2: only crawler/other tokens refuse; Claude-User view allows",
+  "named": [
+   "ClaudeBot"
+  ],
+  "star": true,
+  "decided_by": "ClaudeBot",
+  "rule": "Disallow: /"
+ },
+ {
+  "url": "https://www.bleepingcomputer.com/news/security/meta-ai-model-hacked-a-company-during-misconfigured-cyber-test/",
+  "robots": 200,
+  "cls": "T2: only crawler/other tokens refuse; Claude-User view allows",
+  "named": [
+   "ClaudeBot"
+  ],
+  "star": true,
+  "decided_by": "ClaudeBot",
+  "rule": "Disallow: /"
+ },
+ {
+  "url": "https://www.bleepingcomputer.com/news/security/openai-details-more-cases-of-ai-agents-taking-unauthorized-actions",
+  "robots": 200,
+  "cls": "T2: only crawler/other tokens refuse; Claude-User view allows",
+  "named": [
+   "ClaudeBot"
+  ],
+  "star": true,
+  "decided_by": "ClaudeBot",
+  "rule": "Disallow: /"
+ },
+ {
+  "url": "https://www.bleepingcomputer.com/tag/supply-chain-attack/",
+  "robots": 200,
+  "cls": "T2: only crawler/other tokens refuse; Claude-User view allows",
+  "named": [
+   "ClaudeBot"
+  ],
+  "star": true,
+  "decided_by": "ClaudeBot",
+  "rule": "Disallow: /"
+ },
+ {
+  "url": "https://www.darkreading.com/cyber-risk/attacker-impersonates-ai-bots-scans-credentials",
+  "robots": 200,
+  "cls": "T2: only crawler/other tokens refuse; Claude-User view allows",
+  "named": [
+   "ClaudeBot"
+  ],
+  "star": true,
+  "decided_by": "ClaudeBot",
+  "rule": "Disallow: /"
+ },
+ {
+  "url": "https://www.darkreading.com/cyberattacks-data-breaches/artex-ai-pen-test-tool-hackers-weapon",
+  "robots": 200,
+  "cls": "T2: only crawler/other tokens refuse; Claude-User view allows",
+  "named": [
+   "ClaudeBot"
+  ],
+  "star": true,
+  "decided_by": "ClaudeBot",
+  "rule": "Disallow: /"
+ },
+ {
+  "url": "https://www.digital.mod.uk/policy-rules-standards-and-guidance/aiph/the-defence-ai-centre-ai-assurance-framework",
+  "robots": 200,
+  "cls": "T1: refused under '*' (no AI token named)",
+  "named": [],
+  "star": false,
+  "decided_by": "*",
+  "rule": "Disallow: /"
+ },
+ {
+  "url": "https://www.ft.com/content/8117b912-ebc7-46b2-90cd-a1ec32e12c5a",
+  "robots": 200,
+  "cls": "T2: only crawler/other tokens refuse; Claude-User view allows",
+  "named": [
+   "ClaudeBot",
+   "anthropic-ai",
+   "Claude-Web"
+  ],
+  "star": true,
+  "decided_by": "ClaudeBot",
+  "rule": "Disallow: /"
+ },
+ {
+  "url": "https://www.gov.uk/government/publications/jsp-936-dependable-artificial-intelligence-ai-in-defence-part-1-directive",
+  "robots": 200,
+  "cls": "allowed now",
+  "named": [],
+  "star": true,
+  "decided_by": "*",
+  "rule": null
+ },
+ {
+  "url": "https://www.techpowerup.com/354904/microsoft-explains-last-weeks-365-outage",
+  "robots": 200,
+  "cls": "T1: Claude-User named and refused",
+  "named": [
+   "Claude-User",
+   "ClaudeBot",
+   "Claude-SearchBot",
+   "anthropic-ai",
+   "Claude-Web"
+  ],
+  "star": true,
+  "decided_by": "Claude-User",
+  "rule": "Disallow: /"
+ },
+ {
+  "url": "https://www.theregister.com/a/5301400",
+  "robots": 200,
+  "cls": "T2: only crawler/other tokens refuse; Claude-User view allows",
+  "named": [
+   "Claude-User",
+   "ClaudeBot",
+   "Claude-SearchBot",
+   "anthropic-ai",
+   "Claude-Web",
+   "Claude-Code"
+  ],
+  "star": false,
+  "decided_by": "ClaudeBot",
+  "rule": "Disallow: /"
+ },
+ {
+  "url": "https://www.theregister.com/a/5310223",
+  "robots": 200,
+  "cls": "T2: only crawler/other tokens refuse; Claude-User view allows",
+  "named": [
+   "Claude-User",
+   "ClaudeBot",
+   "Claude-SearchBot",
+   "anthropic-ai",
+   "Claude-Web",
+   "Claude-Code"
+  ],
+  "star": false,
+  "decided_by": "ClaudeBot",
+  "rule": "Disallow: /"
+ },
+ {
+  "url": "https://www.theregister.com/research/2026/11/16/google-ai-agent-turned-a-security-patch-into-a-working-exploit-with-no-human-help/5309926",
+  "robots": 200,
+  "cls": "T2: only crawler/other tokens refuse; Claude-User view allows",
+  "named": [
+   "Claude-User",
+   "ClaudeBot",
+   "Claude-SearchBot",
+   "anthropic-ai",
+   "Claude-Web",
+   "Claude-Code"
+  ],
+  "star": false,
+  "decided_by": "ClaudeBot",
+  "rule": "Disallow: /"
+ },
+ {
+  "url": "https://www.wired.com/story/humanoid-robot-soldier-eric-trump-foundation-future-industries/",
+  "robots": 200,
+  "cls": "T1: Claude-User named and refused",
+  "named": [
+   "Claude-User",
+   "ClaudeBot",
+   "Claude-SearchBot"
+  ],
+  "star": true,
+  "decided_by": "ClaudeBot",
+  "rule": "Disallow: /"
+ },
+ {
+  "url": "https://www.xurrent.com/blog/microsoft-365-outage",
+  "robots": 200,
+  "cls": "allowed now",
+  "named": [],
+  "star": true,
+  "decided_by": "*",
+  "rule": null
+ },
+ {
+  "url": "https://api.wordpress.org/stats/wordpress/1.0/",
+  "robots": 200,
+  "cls": "T1: refused under '*' (no AI token named)",
+  "named": [],
+  "star": false,
+  "decided_by": "*",
+  "rule": "Disallow: /"
+ }
+]
