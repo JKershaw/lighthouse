@@ -6,10 +6,10 @@ Every source below was read once by [scripts/collect_prebrief.py](scripts/collec
 
 | Id | Source | Published or modified | Read (UTC) | Kept as | What it gives |
 | --- | --- | --- | --- | --- | --- |
-| L1 | PyPI JSON API, project: https://pypi.org/pypi/litellm/json | live | 2026-11-08 14:14 | [pre-brief-2026-11-08T1414Z/pypi_project_json.raw](data/pre-brief-2026-11-08T1414Z/pypi_project_json.raw) | Every release PyPI lists, with each file's upload time. Lists 1.107.0.dev1 to dev3 and 1.107.0rc1 to rc3, and no 1.107.0. |
+| L1 | PyPI JSON API, project: https://pypi.org/pypi/litellm/json | live | 2026-11-08 14:14 | pre-brief-2026-11-08T1414Z/pypi_project_json.raw (body removed 21 November 2026; derived file beside it, data/REMOVED.md) | Every release PyPI lists, with each file's upload time. Lists 1.107.0.dev1 to dev3 and 1.107.0rc1 to rc3, and no 1.107.0. |
 | L2 | PyPI JSON API, version: https://pypi.org/pypi/litellm/1.107.0/json | live | 14:14 | pypi_1.107.0_json.raw | HTTP 404 (`{"message": "Not Found"}`), as the gate found on 7 November at 09:22 UTC. |
 | L3 | PyPI JSON API for 1.106.7 and 1.108.0 | live | 14:14 | pypi_1.106.7_json.raw, pypi_1.108.0_json.raw | Neighbours' metadata. |
-| L4 | PyPI simple index (JSON form): https://pypi.org/simple/litellm/ | live, `_last-serial` 43351258 | 14:14 | pypi_simple_json.raw | No file of 1.107.0 (final) listed; project status "active". |
+| L4 | PyPI simple index (JSON form): https://pypi.org/simple/litellm/ | live, `_last-serial` 43351258 | 14:14 | pypi_simple_json.raw (body removed 21 November 2026; derived file beside it) | No file of 1.107.0 (final) listed; project status "active". |
 | L5 | PyPI project pages, https://pypi.org/project/litellm/ and /1.107.0/ | live | 14:14 | pypi_project_page*.raw | A 3,038-byte script challenge for both: unavailable. |
 | L6 | OSV query for litellm 1.107.0 (POST https://api.osv.dev/v1/query) | live | 14:14 | osv_query_1.107.0.raw | One record: MAL-2026-2144. |
 | L7 | OSV MAL-2026-2144: https://api.osv.dev/v1/vulns/MAL-2026-2144 | published 2026-03-24T11:15:14Z, modified 2026-10-29T14:30:33Z | 14:14 | osv_MAL-2026-2144.raw | Affected versions 1.82.7, 1.82.8, 1.107.0. Its details say 1.107.0 was "uploaded to PyPI on 2026-10-21 between 11:39 and 11:40 UTC" and describe the payload; the 1.107.0 origin is Amazon Inspector's report IN-MAL-2026-022275, imported 2026-10-29T14:14:39Z, whose own per-source text, as kept in the record, says no malicious code path was found. No removal time. |
