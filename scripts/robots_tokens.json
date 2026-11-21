@@ -1,5 +1,5 @@
 {
- "_about": "Robots.txt product tokens Lighthouse obeys (the keeper, 8 November 2026; AGENTS.md, Rules that matter). scripts/robots_rules.py reads this file: a group naming \"lighthouse\" or the running provider's applied tokens (every provider's when it cannot tell) applies, else \"*\"; the strictest applicable group wins. \"documented\" means the provider's own page lists the token; \"seen in the wild\" means a robots.txt Lighthouse read addresses the provider's agents by that name and no provider page read lists it. Entries with \"applied\": false would be recorded, not obeyed; none is. Pages retained under notes/robots-tokens-2026-11-08/sources/ (fetchlog.csv gives URL, UTC time, status and sha256). Written 8 November 2026.",
+ "_about": "Robots.txt product tokens Lighthouse obeys (the keeper, 8 November 2026; AGENTS.md, Rules that matter). scripts/robots_rules.py reads this file: a group naming \"lighthouse\" or the running provider's applied tokens (every provider's when it cannot tell) applies, else \"*\"; the strictest applicable group wins. \"documented\" means the provider's own page lists the token; \"seen in the wild\" means a robots.txt Lighthouse read addresses the provider's agents by that name and no provider page read lists it. Entries with \"applied\": false would be recorded, not obeyed; none is. Pages retained under notes/robots-tokens-2026-11-08/sources/ (fetchlog.csv gives URL, UTC time, status and sha256). Written 8 November 2026. Added 21 November 2026 (the keeper; notes/keeper/2026-11-21-robots-intent.md): each entry's \"kind\" now also decides the one-off reading mode (Lighthouse's token and the provider's tokens of kind \"user-triggered fetcher\", else *), and tokens of kind \"crawler (training)\", with the \"retention\" list below, decide whether a fetched body may be kept (scripts/robots_rules.py, may_keep).",
  "lighthouse": [
   "Lighthouse-research"
  ],
@@ -144,5 +144,22 @@
    "applied": true,
    "note": "Addresses OpenAI's agents by the company's name."
   }
- ]
+ ],
+ "retention": {
+  "_about": "Tokens whose refusal means an owner does not want their pages taken for AI training or kept in archives (the keeper, 21 November 2026; notes/keeper/2026-11-21-robots-intent.md). Where robots.txt disallows a URL to any of these, or to every provider token of kind \"crawler (training)\" listed above, or to *, Lighthouse may still read the page under the reading rule but keeps no body of it: only the URL, read time, status, SHA-256 of the bytes received, the facts used and short attributed quotes. The providers' own training crawlers are taken from their entries above; this list adds other well-known training and archiving crawlers by name. Their operators' pages were not read when this list was written; it is a list of names to honour, not a claim about what each crawler does. \"archive\" stands for the Internet Archive's archive.org_bot: RFC 9309 reads a user-agent line's product token as its leading run of letters, \"_\" and \"-\", so a file's \"archive.org_bot\" line names \"archive\" (scripts/robots_rules.py). \"anthropic-ai\" is Anthropic's older token, long used by site owners to refuse Anthropic's training; it is counted here as a training refusal (review R-0105).",
+  "tokens": [
+   "anthropic-ai",
+   "CCBot",
+   "Google-Extended",
+   "Applebot-Extended",
+   "meta-externalagent",
+   "FacebookBot",
+   "Bytespider",
+   "cohere-training-data-crawler",
+   "Diffbot",
+   "Amazonbot",
+   "ia_archiver",
+   "archive"
+  ]
+ }
 }

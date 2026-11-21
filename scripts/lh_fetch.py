@@ -35,12 +35,20 @@ class NotFetched(Exception):
     """robots.txt disallows the URL, or could not be read: not requested in this run."""
 
 
-def check(url):
-    return _GATE.check(url)
+def check(url, access=None):
+    return _GATE.check(url, access)
 
 
-def _require_allowed(url):
-    ok, info = _GATE.check(url)
+def may_keep(url, access=None):
+    """(keep, reason): may a body fetched from url be kept in the repository? (the keeper, 21 November
+    2026: not where robots.txt refuses * or a training or archiving crawler). Pass the final URL after
+    any redirect and the access mode it was read under. Also check
+    robots_rules.page_reservation(body, headers) on the body itself."""
+    return _GATE.may_keep(url, access)
+
+
+def _require_allowed(url, access=None):
+    ok, info = _GATE.check(url, access)
     if not ok:
         raise NotFetched("not fetched: %s (robots %s, status %s, group %s, rule %s, sha256 %s)" % (
             info.get("reason"), info.get("robots_url"), info.get("robots_status"),
@@ -48,23 +56,28 @@ def _require_allowed(url):
 
 
 class _RobotsCheckedRedirect(urllib.request.HTTPRedirectHandler):
+    def __init__(self, access=None):
+        super().__init__()
+        self.access = access
+
     def redirect_request(self, req, fp, code, msg, headers, newurl):
         try:
             parts = urlsplit(newurl)
             if parts.scheme not in {"http", "https"} or not parts.hostname or parts.username is not None:
                 raise NotFetched("not fetched: invalid HTTP(S) redirect destination")
-            _require_allowed(newurl)
+            _require_allowed(newurl, self.access)
         except (NotFetched, ValueError):
             fp.close()
             raise
         return super().redirect_request(req, fp, code, msg, headers, newurl)
 
 
-def urlopen(request, *args, check_redirects=False, **kwargs):
-    """Check robots.txt before fetching, and before each redirect when requested."""
+def urlopen(request, *args, check_redirects=False, access=None, **kwargs):
+    """Check robots.txt before fetching, and before each redirect when requested. access='oneoff' for a
+    one-off, targeted read; the default is the recurring-collection rule."""
     url = request.full_url if isinstance(request, urllib.request.Request) else request
-    _require_allowed(url)
+    _require_allowed(url, access)
     if check_redirects:
-        opener = urllib.request.build_opener(_RobotsCheckedRedirect())
+        opener = urllib.request.build_opener(_RobotsCheckedRedirect(access))
         return opener.open(request, *args, **kwargs)
     return urllib.request.urlopen(request, *args, **kwargs)

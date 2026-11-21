@@ -8,10 +8,22 @@ Codex: OpenAI's), else `*`; where several apply, the strictest wins. A collector
 it runs under and obeys every listed provider's tokens when it cannot tell. The tokens, with where
 each came from, are in scripts/robots_tokens.json.
 
+The keeper, 21 November 2026 (notes/keeper/2026-11-21-robots-intent.md): reading follows the
+owner's intention as well as the letter. A one-off, targeted read (access='oneoff') obeys the
+group naming Lighthouse's token, the running provider's user-triggered fetcher (Claude-User,
+ChatGPT-User) or the harness running it (Claude-Code), else `*`; recurring collection (access='recurring', the default) keeps the rule
+above. Separately, `may_keep` says whether a fetched body may be kept in the repository: not where
+robots.txt refuses the URL to `*`, to any provider's training crawler or to a training or
+archiving crawler in the file's "retention" list; and `page_reservation` reads a page's own
+"noai" or text-and-data-mining reservation. Where a body may not be kept, Lighthouse keeps the
+URL, read time, status, hash, the facts used and short attributed quotes.
+
 This module is dependency-free (standard library only) and makes no network request.
 
-  decide(body, url_or_path, provider=None, truncated=False)
+  decide(body, url_or_path, provider=None, truncated=False, access='recurring')
       -> Decision(allowed, decided_by, rule, line, named, per_token, provider)
+  may_keep(body, url_or_path, truncated=False)  -> (bool, reason): may a fetched body be kept?
+  page_reservation(body, headers)  -> reason or None: a page's own noai / TDM reservation
   provider_from_env()   'anthropic' or 'openai' from LIGHTHOUSE_PROVIDER, else None (= all providers)
   parse(text)           RFC 9309 groups
   token_allowed(groups, token, url_or_path)   one token's view (its group, else '*'), for measures
@@ -91,6 +103,54 @@ def applicable_tokens(provider=None, tokens=None):
             seen.add(t.lower())
             uniq.append(t)
     return uniq
+
+
+ACCESS = ('recurring', 'oneoff')
+ONEOFF_KINDS = ('user-triggered fetcher', 'harness (Claude Code)')
+TRAINING_KINDS = ('crawler (training)',)
+
+
+def _entries(path=TOKENS_FILE):
+    return json.load(open(path))
+
+
+def tokens_of_kind(kinds, provider=None, path=TOKENS_FILE):
+    """Applied tokens whose "kind" is in kinds, for one provider or (None) every provider."""
+    data = _entries(path)
+    out = []
+    for p in ([provider] if provider else [k for k in ('anthropic', 'openai') if k in data]):
+        for e in data.get(p, []):
+            if isinstance(e, dict) and e.get('applied', True) and e.get('kind') in kinds:
+                out.append(e['token'])
+    return out
+
+
+def access_tokens(access='recurring', provider=None, path=TOKENS_FILE):
+    """The token table decide() uses for an access mode. 'recurring': every applied token (the
+    rule of 8 November). 'oneoff': Lighthouse's token, the provider's user-triggered fetchers and
+    the harness that runs Lighthouse (Claude-Code), every provider's when provider is None, so a file that refuses only training or search
+    crawlers does not refuse a targeted read, and `*` applies when the file names none of them."""
+    if access not in ACCESS:
+        raise ValueError('access must be one of %s' % (ACCESS,))
+    tokens = load_tokens(path)
+    if access == 'recurring':
+        return tokens
+    out = {'lighthouse': list(tokens['lighthouse'])}
+    for p in ([provider] if provider else providers(tokens)):
+        out[p] = tokens_of_kind(ONEOFF_KINDS, p, path)
+    return out
+
+
+def retention_tokens(path=TOKENS_FILE):
+    """Every provider's training crawlers plus the file's "retention" list."""
+    data = _entries(path)
+    extra = data.get('retention', {}).get('tokens', [])
+    seen, out = set(), []
+    for t in tokens_of_kind(TRAINING_KINDS, None, path) + extra:
+        if t.lower() not in seen:
+            seen.add(t.lower())
+            out.append(t)
+    return out
 
 
 # ------------------------------------------------------------------ parsing
@@ -245,10 +305,65 @@ def decide_groups(groups, url_or_path, provider=None, tokens=None):
                     provider=prov)
 
 
-def decide(body, url_or_path, provider=None, truncated=False, tokens=None):
+def decide(body, url_or_path, provider=None, truncated=False, tokens=None, access='recurring'):
     """Whether Lighthouse may request url_or_path under this robots.txt body (bytes or str), and
-    which group decided. provider: 'anthropic', 'openai' or None (all listed providers)."""
+    which group decided. provider: 'anthropic', 'openai' or None (all listed providers). access:
+    'recurring' (default, every applied token) or 'oneoff' (Lighthouse's token, the provider's
+    user-triggered fetchers and the harness token, e.g. Claude-Code); an explicit tokens table
+    overrides access."""
+    if tokens is None:
+        tokens = access_tokens(access, provider)
     return decide_groups(parse(complete_text(body, truncated)), url_or_path, provider, tokens)
+
+
+def may_keep_groups(groups, url_or_path, retention=None):
+    """(keep, reason). A body may not be kept where `*` or any retention token is refused the URL
+    (each token by its own group, else `*`, as RFC 9309 reads one crawler's view)."""
+    if not token_allowed(groups, '*', url_or_path):
+        return False, '* refuses automated readers at this path'
+    for t in (retention if retention is not None else retention_tokens()):
+        if _rules_naming(groups, t)[0] and not token_allowed(groups, t, url_or_path):
+            return False, '%s (a training or archiving crawler) is refused at this path' % t
+    return True, 'no training, archiving or * refusal at this path'
+
+
+def may_keep(body, url_or_path, truncated=False, retention=None):
+    """Whether a body fetched from url_or_path may be kept in the repository, under this robots.txt."""
+    return may_keep_groups(parse(complete_text(body, truncated)), url_or_path, retention)
+
+
+_META = re.compile(rb'<meta\b[^>]*>', re.I)
+
+
+def _header_values(headers, name):
+    """Every value of a header, from a dict, a list of (name, value) pairs, or an email.message /
+    http.client headers object (which may repeat a header)."""
+    if headers is None:
+        return []
+    if hasattr(headers, 'get_all'):
+        return [str(v) for v in (headers.get_all(name) or [])]
+    items = headers.items() if hasattr(headers, 'items') else headers
+    return [str(v) for k, v in items if str(k).lower() == name]
+
+
+def page_reservation(body, headers=None):
+    """A page's own reservation against AI use, or None: a robots meta tag or X-Robots-Tag header
+    with noai or noimageai, or a tdm-reservation meta tag or header set to 1. headers may be a dict,
+    a list of (name, value) pairs or a urllib response's headers; repeated headers are all read."""
+    for xr in _header_values(headers, 'x-robots-tag'):
+        if re.search(r'\bnoai\b|\bnoimageai\b', xr.lower()):
+            return 'X-Robots-Tag: ' + xr.strip()
+    if any(v.strip() == '1' for v in _header_values(headers, 'tdm-reservation')):
+        return 'tdm-reservation header: 1'
+    if isinstance(body, str):
+        body = body.encode('utf-8', 'replace')
+    for m in _META.finditer((body or b'')[:2 * 1024 * 1024]):
+        tag = m.group(0).lower()
+        if b'tdm-reservation' in tag and re.search(rb'content\s*=\s*["\']?\s*1', tag):
+            return 'meta tdm-reservation: 1'
+        if re.search(rb'name\s*=\s*["\']?[a-z-]*robots', tag) and re.search(rb'\bnoai\b|\bnoimageai\b', tag):
+            return 'meta robots: ' + tag.decode('utf-8', 'replace')[:120]
+    return None
 
 
 # ------------------------------------------------------------------ offline self-tests
@@ -325,6 +440,55 @@ def _selftest():
     check('scripts/robots_tokens.json loads, Lighthouse-research first',
           load_tokens()['lighthouse'] == ['Lighthouse-research'] and load_tokens()['anthropic']
           and load_tokens()['openai'])
+
+    # the keeper, 21 November 2026: one-off reads and what may be kept
+    g1 = 'User-agent: ClaudeBot\nDisallow: /\n\nUser-agent: *\nAllow: /\n'
+    check('oneoff: a file refusing only the training crawler admits a targeted read',
+          decide(g1, '/a', 'anthropic', access='oneoff').allowed and not decide(g1, '/a', 'anthropic').allowed)
+    g2 = 'User-agent: *\nDisallow: /\n\nUser-agent: Claude-User\nAllow: /\n\nUser-agent: ClaudeBot\nDisallow: /\n'
+    check('oneoff: an explicit Claude-User Allow is followed even where * refuses',
+          decide(g2, '/a', 'anthropic', access='oneoff').allowed)
+    check('oneoff under openai: * applies when ChatGPT-User is not named',
+          not decide(g2, '/a', 'openai', access='oneoff').allowed)
+    g3 = 'User-agent: Claude-User\nDisallow: /\n'
+    check('oneoff: a named Claude-User refusal is obeyed', not decide(g3, '/a', 'anthropic', access='oneoff').allowed)
+    check('oneoff with provider unknown: every provider\'s user fetcher, strictest wins',
+          not decide(g3, '/a', None, access='oneoff').allowed)
+    check('access tokens: oneoff table holds only Lighthouse, user-triggered fetchers and the harness',
+          access_tokens('oneoff', 'anthropic')['anthropic'] == ['Claude-User', 'Claude-Code']
+          and access_tokens('oneoff', 'openai')['openai'] == ['ChatGPT-User'])
+    R = ['ClaudeBot', 'GPTBot', 'ia_archiver', 'Bytespider']
+    check('may_keep: refused for a training crawler means no body', not may_keep(g1, '/a', retention=R)[0])
+    check('may_keep: refused for an archiving crawler means no body',
+          not may_keep('User-agent: ia_archiver\nDisallow: /\n', '/a', retention=R)[0])
+    check('may_keep: * refusal means no body', not may_keep('User-agent: *\nDisallow: /x\n', '/x/1', retention=R)[0])
+    check('may_keep: refusal elsewhere on the site does not count',
+          may_keep('User-agent: GPTBot\nDisallow: /private/\n', '/public', retention=R)[0])
+    check('may_keep: no rules, keep', may_keep('', '/a', retention=R)[0])
+    check('every retention token is its own RFC 9309 product token, so a file can name it',
+          all(_token_of(t) == t.lower() for t in retention_tokens()))
+    check('retention tokens include both providers\' training crawlers and the extra list',
+          {'ClaudeBot', 'GPTBot', 'ia_archiver', 'CCBot'} <= set(retention_tokens()))
+    check('page_reservation: robots noai meta',
+          page_reservation(b'<head><meta name="robots" content="index, noai"></head>') is not None)
+    check('page_reservation: tdm-reservation meta and header',
+          page_reservation(b'<meta name="tdm-reservation" content="1">') is not None
+          and page_reservation(b'', {'TDM-Reservation': '1'}) is not None)
+    check('page_reservation: X-Robots-Tag noimageai', page_reservation(b'', {'X-Robots-Tag': 'noimageai'}) is not None)
+    from email.message import Message
+    hm = Message()
+    hm['X-Robots-Tag'] = 'noai'
+    hm['X-Robots-Tag'] = 'index'
+    check('page_reservation: repeated headers on a urllib-style object and (name, value) pairs',
+          page_reservation(b'', hm) is not None
+          and page_reservation(b'', [('X-Robots-Tag', 'index'), ('x-robots-tag', 'noai')]) is not None)
+    check('oneoff: a named Claude-Code refusal is obeyed under anthropic',
+          not decide('User-agent: Claude-Code\nDisallow: /\n', '/a', 'anthropic', access='oneoff').allowed)
+    check('retention list: archive.org_bot is matched as its RFC 9309 token, anthropic-ai counted',
+          not may_keep('User-agent: archive.org_bot\nDisallow: /\n', '/a')[0]
+          and not may_keep('User-agent: anthropic-ai\nDisallow: /\n', '/a')[0])
+    check('page_reservation: an ordinary page is not reserved',
+          page_reservation(b'<meta name="robots" content="index, follow"><p>noai in prose</p>') is None)
 
     # the eight LH044 baseline probes, on their retained robots.txt files
     if not LH044_BASE.exists():
