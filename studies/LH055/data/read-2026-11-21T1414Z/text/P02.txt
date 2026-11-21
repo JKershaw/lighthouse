@@ -1,0 +1,194 @@
+Amazon Threat Intelligence observes threat actors running cybercrime campaigns with ARTEX AI agents | AWS Security Blog Skip to Main Content [1]
+[2]
+Filter: All
+- English
+- Contact us [3]
+- AWS Marketplace [4]
+- Support
+- My account
+- [5]
+re:Invent
+[6]
+Discover AWS
+Products
+Solutions
+Pricing
+Resources
+Search
+Filter: All
+Sign in to console
+[7]
+- Create account [8]
+[9]
+[10]
+[11]
+[12]
+[13]
+[14]
+[15]
+[16]
+- [17]
+- [18]
+- [19]
+- [20]
+- [21]
+- [22]
+- [23]
+- [24]
+- [25]
+[26]
+[27]
+[28]
+[29]
+[30]
+[31]
+[32]
+[33]
+[34]
+[35]
+[36]
+[37]
+[38]
+[39]
+[40]
+[41]
+[42]
+[43]
+[44]
+[45]
+[46]
+[47]
+[48]
+[49]
+[50]
+[51]
+[52]
+[53]
+[54]
+[55]
+[56]
+[57]
+[58]
+[59]
+[60]
+[61]
+[62]
+[63]
+[64]
+[65]
+[66]
+AWS Blogs
+- Home [67]
+- Blogs
+- Editions
+## AWS Security Blog [68]
+# Amazon Threat Intelligence observes threat actors running cybercrime campaigns with ARTEX AI agents
+by CJ Moses on 13 NOV 2026 in Announcements [69], Security, Identity, & Compliance [70] Permalink [71] Comments [72] Share [73]
+- [74]
+- [75]
+- [76]
+- [77]
+From Oct. 3 to Nov. 5, 2026, Amazon’s MadPot, a globally distributed network of decoy threat sensors, captured requests from AI agents that included operating memory from offensive campaigns that threat actors ran on ARTEX, an open-source agentic AI penetration testing framework. The ARTEX agents sent these requests to MadPot sensors configured to present as popular large language model (LLM) inference APIs, and the requests carried the agents’ own records of their campaigns.
+Amazon Threat Intelligence assessed threat activity referencing potentially affected AWS customers and notified them as appropriate. Because activity against other organizations could not be confirmed, this post shares the findings and indicators of compromise (IOCs) so that organizations that run the affected technologies can review their own environments.
+The most prominent ARTEX campaign was a large-scale theft of credentials to access AI models, organized as a self-sustaining operation in which stolen keys paid for the LLM inference powering further credential hunting. Another campaign targeted cryptocurrency exchanges for know-your-customer (KYC) verification bypass using real-time deepfake injection. In aggregate, the agent records show that agentic frameworks have progressed from experimental use to sustained, multi-objective offensive operations that run with minimal human intervention. This post describes how these campaigns operated based on the agents’ own descriptions of the campaigns.
+## Attribution and instructions
+Amazon Threat Intelligence assesses with moderate confidence that ARTEX was used for these campaigns due to prompt references to ARTEX tooling and other technical artifacts referencing ARTEX. Threat actors instructed ARTEX agents through standing instruction prompts that set the mission objectives, targeting rules, and operational constraints. Within those instructions, the agents handled the work themselves. In one credential theft campaign, operators told the agents to work through a fixed sequence of countries, prioritize enterprise production sites over personal projects, and grade every stolen credential by whether it worked and what it could reach. Agents were directed to treat credentials exposed publicly for more than 30 days as low-value inventory.
+Amazon Threat Intelligence also assess with moderate confidence these are disparate Chinese-nexus threat groups due to use of simplified Chinese language in prompts, China time-zone configurations, targeting consistent with Chinese interests, and tooling predominantly used by Chinese-nexus threats. Sample instructions included setting red lines, such as excluding mainland China targets and government domains, and required all outbound traffic to go through proxies.
+## How MadPot saw inside these campaigns
+MadPot presents controlled services to potential attackers and records how they discover, test, and attempt to compromise or abuse them. MadPot telemetry allows Amazon Threat Intelligence to observe attacker behavior without exposing customer workloads. In this case, the MadPot sensors presented popular LLM-compatible chat-completions interfaces on various ports. Agentic frameworks sent prompts to these interfaces as part of their offensive workflows, treating them as LLM inference backends.
+The resulting telemetry contained the persistent task context, system prompts, tool histories, knowledge-graph state, and reported findings that these frameworks ordinarily send to an LLM to make operational decisions. Because agentic frameworks retain the history of past conversations, individual requests often contain the full operational history of a campaign. That history described activity that occurred before and between the captured requests, on systems MadPot does not monitor. Amazon Threat Intelligence did not observe that activity as it happened and cannot verify the outcomes the agents reported, but the records show what the actors were pursuing.
+Most of the activity used ARTEX to divide work among planner, worker, verification, and compression agents sharing a persistent knowledge graph. The knowledge graph acts as the operation’s shared memory: every agent reads from it, and writes its results back, so each agent picks up where the others left off. The agents’ records described reconnaissance, vulnerability testing, credential theft, cloud-privilege expansion, and cryptocurrency fraud attempts across hundreds of targets spanning AI application platforms and other workloads. These records show how threat actors are organizing persistent, financially motivated offensive operations using agentic AI frameworks.
+### Campaign 1: Stealing AI credentials at industrial scale
+In this campaign, threat actors used AI agents to steal API keys and other credentials that grant access to AI models, most likely so they could use those models while someone else paid for them. The agents’ records show stolen keys being fed into the framework’s own model gateway, where they powered the agents searching for more keys. Beyond AI model access keys, cloud credentials were treated as a doorway to more access. Agents validated identities through each provider’s token and identity services, enumerated storage, assessed permission scope, and went after managed AI model services, secrets and parameter stores, and application identities. They prioritized access to premium frontier models over general cloud permissions.
+Agents recorded use of different AI gateways, keys, and models, but they all used a shared method: find internet-exposed AI applications, extract the upstream provider keys they hold, validate those keys, and store them in a managed pool. The agents focused on applications that aggregate provider keys, because one weak management interface can expose many downstream accounts. Targets included LLM gateways and proxy platforms such as One API, New API, Veloera, Sub2API, and LiteLLM, and AI application builders such as Dify, FastGPT, Langflow, RAGFlow, Open WebUI, LobeChat, and Ollama. A codified vulnerability playbook mapped each fingerprinted product to its known attack chain, including uninitialized installs that could be claimed, anonymous management and provider-configuration endpoints, default administrator credentials, such as the LiteLLM default master key, CVE-2025-3248 (Langflow), CVE-2026-28797 (RAGFlow), an authentication bypass via the isCliRequest header in One API family systems, SSRF through URL-fetch features to cloud metadata services, and secrets left in client-side JavaScript, source maps, debug routes, and environment files.
+To find those keys, discovery drew on internet scanning services, certificate transparency, and public code and artifact sources: GitHub repositories and event archives (targeting secrets that fell outside automated revocation), npm and PyPI tarballs, container image layers, notebooks, model-hosting spaces, paste sites, and Telegram channels. One parallel operation worked through a fixed country sequence, prioritizing enterprise production sites, and graded every credential: L1 for a lead, L2 for a confirmed working API call, and L3 for quantified impact, such as readable data or spendable balance. Keys exposed publicly for more than 30 days were treated as low-value inventory.
+### Campaign 2: Defeating identity verification with deepfakes
+In this campaign, threat actors used AI agents to defeat the identity verification (KYC) checks at two cryptocurrency exchanges with deepfakes. The agents’ records show generating real-time deepfake video to pass live selfie checks and forged ID document photos to pass document checks.
+The records describe a methodical approach to the liveness check, which is a security method that confirms a person interacting with a digital system is a real, living human being physically present at the time of capture. The agents reverse-engineered one vendor’s liveness protocol in detail, documenting the face-detection event stream it sends, how it tracks face position during the check, and the coordinate system it uses to tell the user where to move. Their best recorded attempt completed the full movement sequence with the face positioned within 7 pixels of the target. Even so, the vendor’s server-side verdict rejected the deepfake in every attempt the agents recorded. In parallel, a separate session built a real-time deepfake video pipeline on a single consumer-grade GPU using an open-source face animation model. By splitting the model and avoiding unnecessary memory copies on the GPU, it reached 11.5 frames per second, close to what a live video check expects.
+The agents worked on the ID document as well. Verification vendors look for signs that a document photo was edited or is a picture of a screen rather than a camera capture. To get past those checks, the agents recorded building synthetic camera metadata whose image dimensions matched the real values inside the JPEG file, and preserving the original camera compression tables that re-saving an edited image would normally replace. The result is an altered image that looks, at the file level, like an untouched camera photo.
+This campaign also shows how ARTEX runs several workstreams toward one goal. At least four agent sessions ran at once: one searched for ways to cash out, one worked on clearing account balances, one set up the deepfake video pipeline, and one carried out the verification bypass. They shared findings and handed off tasks through cross-session tools.
+## What this means for defenders
+None of the techniques in these campaigns were new. What AI agents change is the speed and persistence of the attacker. The agents succeeded where basic security hygiene was missing, including default or hardcoded credentials, keys left in code and public artifacts, unauthenticated interfaces and inference endpoints, and unpatched software. Getting those fundamentals right remains the most effective defense.
+Given the speed and persistence of the attackers, organizations should assume exposed secrets and misconfigurations will be found quickly and remediate accordingly. They should bring AI applications, model gateways, and inference endpoints under the same controls as other production systems, and they should watch for misuse of AI services through unexpected spend or unusual usage.
+## Indicators of Compromise (IOCs)
+IOC Value IOC Type First Seen Last Seen Annotation
+[ipv4 withheld] IPv4 2026-10-17 2026-10-19 Campaign 1
+[ipv4 withheld] IPv4 2026-10-14 2026-10-19 Campaign 1
+[ipv4 withheld] IPv4 2026-10-31 2026-10-31 Campaign 1
+[ipv4 withheld] IPv4 2026-10-31 2026-10-31 Campaign 1
+[ipv4 withheld] IPv4 2026-11-02 2026-11-02 Campaign 1
+[ipv4 withheld] IPv4 2026-10-14 2026-10-14 Campaign 2
+[ipv4 withheld] IPv4 2026-10-17 2026-10-17 Campaign 2
+[ipv4 withheld] IPv4 2026-10-18 2026-10-18 Campaign 2
+[ipv4 withheld] IPv4 2026-10-18 2026-10-18 Campaign 2
+[ipv4 withheld] IPv4 2026-10-18 2026-10-18 Campaign 2
+[ipv4 withheld] IPv4 2026-10-18 2026-10-19 Campaign 2
+If you have questions, start a new thread on AWS re:Post [78] or reach out to AWS Support [79].
+[image: CJ Moses]
+### CJ Moses
+CJ Moses is the CISO of Amazon Integrated Security. In his role, CJ leads security engineering and operations across Amazon. His mission is to enable Amazon businesses by making the benefits of security the path of least resistance. CJ joined Amazon in December 2007, holding various roles including Consumer CISO, and most recently AWS CISO, before becoming CISO of Amazon Integrated Security September of 2023.
+Prior to joining Amazon, CJ led the technical analysis of computer and network intrusion efforts at the Federal Bureau of Investigation’s Cyber Division. CJ also served as a Special Agent with the Air Force Office of Special Investigations (AFOSI). CJ led several computer intrusion investigations seen as foundational to the security industry today.
+CJ holds degrees in Computer Science and Criminal Justice, and is an active SRO GT America GT2 race car driver.
+TAGS: Security Blog [80]
+Loading comments…
+### Resources
+- AWS Cloud Security [81]
+- AWS Compliance [82]
+- AWS Security Reference Architecture [83]
+- Best Practices [84]
+- Data Protection at AWS [85]
+- Zero Trust on AWS [86]
+- Cryptographic Computing [87]
+### Follow
+- Twitter [88]
+- Facebook [89]
+- LinkedIn [90]
+- Twitch [91]
+- Email Updates [92]
+Create an AWS account [93]
+## Learn
+- What Is AWS? [94]
+- What Is Cloud Computing? [95]
+- What Is Agentic AI? [96]
+- Cloud Computing Concepts Hub [97]
+- AWS Cloud Security [98]
+- What's New [99]
+- Blogs [100]
+- Press Releases [101]
+- Careers [102]
+## Resources
+- Getting Started [103]
+- Training [104]
+- AWS Trust Center [105]
+- AWS Solutions Library [106]
+- Architecture Center [107]
+- Product and Technical FAQs [108]
+- Analyst Reports [109]
+- AWS Partners [110]
+## Developers
+- Builder Center [111]
+- SDKs & Tools [112]
+- .NET on AWS [113]
+- Python on AWS [114]
+- Java on AWS [115]
+- PHP on AWS [116]
+- JavaScript on AWS [117]
+## Help
+- Contact Us [118]
+- File a Support Ticket [119]
+- AWS re:Post [120]
+- Knowledge Center [121]
+- AWS Support Overview [122]
+- AWS Accessibility [123]
+- Legal [124]
+- Event Code of Conduct [125]
+- Event Terms & Conditions [126]
+English
+Back to top
+Amazon is an equal opportunity employer and does not discriminate on the basis of protected veteran status, disability or other legally protected status. Veterans, military spouses, and people with disabilities are encouraged to apply.
+[127] [128] [129] [130] [131] [132] [133] [134]
+- Privacy [135]
+- Site terms [136]
+- Your Privacy Choices [137]
+- Cookie Preferences [138]
+© 2026, Amazon Web Services, Inc. or its affiliates. All rights reserved.
