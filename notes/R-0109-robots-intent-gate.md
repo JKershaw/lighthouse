@@ -1,4 +1,4 @@
-# R-0105: review of the robots intent gate (access modes, may_keep, page_reservation)
+# R-0109: review of the robots intent gate (access modes, may_keep, page_reservation)
 
 **In short.** A fresh agent checked the uncommitted change that carries out the keeper's decision of 21 November 2026 on robots.txt (reading by the owner's intention, and keeping no copy against it) in scripts/robots_rules.py, scripts/robots_gate.py, scripts/lh_fetch.py, scripts/robots_tokens.json and AGENTS.md. Reading works as decided for both providers and for an unknown provider, and every existing collector fetches exactly what it fetched before. Two things in the keeping rule need fixing before it's relied on: one retention token can never match, and `page_reservation` misses a reservation when a response carries more than one X-Robots-Tag header (and fails on a list of header pairs).
 
