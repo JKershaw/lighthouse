@@ -5,12 +5,19 @@ Packagist keeps the daily history, so this runs at each checkpoint, not daily.
 For both Composer packages of WordPress core and every release of branches 7.1,
 7.0 and 6.9, one GET of stats/<version>.json?average=daily&from=2026-10-14, kept
 under data/packagist-<label>/ with readlog.csv. Skips a label already held.
+From 21 November 2026 (the keeper's decision, notes/keeper/2026-11-21-robots-intent.md) a body is saved
+only through scripts/lh_fetch.py's save_body; where it may not be kept, no <name>.json is written and
+<name>.derived.json (write_derived) holds the read's metadata, body_kept "no: <reason>" and the daily
+series; tabulate.py's measure 3 then stops ("readings unavailable") rather than drop the release.
 Usage: python3 studies/LH039/scripts/packagist.py --read 2026-11-14T1415Z
+
+Moved onto the shared fetch path (lh_fetch urlopen and save_body) on 21 November 2026 under the keeper's decision
+(notes/keeper/2026-11-21-robots-intent.md); the evidence was collected by the earlier version, `git show 7523007:studies/LH039/scripts/packagist.py`.
 """
-import argparse, csv, datetime, hashlib, os, sys, time, urllib.request
+import argparse, csv, datetime, hashlib, json, os, sys, time, urllib.request
 import os as _os, sys as _sys
 _sys.path.insert(0, _os.path.join(_os.path.dirname(_os.path.abspath(__file__)), '..', '..', '..', 'scripts'))
-from lh_fetch import urlopen, redacted, UA  # noqa: E402  robots.txt gate (the keeper, 8 November 2026)
+from lh_fetch import urlopen, redacted, UA, save_body, write_derived  # noqa: E402  robots.txt gate (the keeper, 8 November 2026)
 
 PACKAGES = ["roots/wordpress", "johnpbloch/wordpress-core"]
 VERSIONS = (["7.1.%d" % i for i in range(0, 5)] + ["7.0.%d" % i for i in range(0, 9)]
@@ -33,14 +40,30 @@ def main():
                 name = "%s-%s" % (pkg.split("/")[0], v)
                 t = datetime.datetime.now(datetime.timezone.utc).strftime("%Y-%m-%dT%H:%M:%SZ")
                 req = urllib.request.Request(url, headers={"User-Agent": UA})
+                fetched = False
                 try:
                     with urlopen(req, timeout=60) as r:
                         body = r.read(4 << 20); status = r.status; ct = r.headers.get("Content-Type", "")
+                        final, hdrs, fetched = r.geturl() or url, r.headers, True
                 except Exception as e:
                     body = str(e).encode(); status = getattr(e, "code", "error"); ct = ""
-                open(os.path.join(d, name + ".json"), "wb").write(redacted(body))
-                w.writerow([name, url, t, status, ct, len(body), hashlib.sha256(body).hexdigest()])
-                print(name, status, len(body)); time.sleep(0.5)
+                sha = hashlib.sha256(body).hexdigest()
+                note = ""
+                if not fetched:  # Lighthouse's own note of the failure, not a page body
+                    open(os.path.join(d, name + ".json"), "wb").write(redacted(body))
+                else:
+                    kept, why = save_body(os.path.join(d, name + ".json"), body, final, hdrs)
+                    if not kept:
+                        try:
+                            j = json.loads(body)
+                            ext = {"labels": j["labels"], "values": j["values"]}
+                        except Exception as e:
+                            ext = {"extract_error": type(e).__name__}
+                        write_derived(os.path.join(d, name + ".derived.json"), url, why, ext, read_utc=t,
+                                      http_status=status, content_type=ct, bytes=len(body), sha256=sha)
+                        note = "  body_kept: no: " + why
+                w.writerow([name, url, t, status, ct, len(body), sha])
+                print(name, status, len(body), note); time.sleep(0.5)
 
 if __name__ == "__main__":
     sys.exit(main())

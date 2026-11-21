@@ -1,6 +1,13 @@
 #!/usr/bin/env python3
 """Daily LH024 read: the selection file for one UTC date, once, preserving primary bytes and media metadata.
-A dated copy of collect.py, which stays as it read 22 October; usage: collect_daily.py YYYY-MM-DD."""
+A dated copy of collect.py, which stays as it read 22 October; usage: collect_daily.py YYYY-MM-DD.
+
+From 21 November 2026 (the keeper's decision, notes/keeper/2026-11-21-robots-intent.md) a body is saved
+only through scripts/lh_fetch.py's save_body (which withholds email addresses, as before); where it may
+not be kept no .raw is written, raw_retained is False and `error` ends "body_kept: no: <reason>". A kept body is unchanged.
+
+Moved onto the shared fetch path (lh_fetch urlopen and save_body) on 21 November 2026 under the keeper's decision
+(notes/keeper/2026-11-21-robots-intent.md); the evidence was collected by the earlier version, `git show 7523007:studies/LH024/scripts/collect_daily.py`."""
 import csv
 import hashlib
 import html
@@ -10,8 +17,7 @@ import urllib.error
 import urllib.request
 import os as _os, sys as _sys
 _sys.path.insert(0, _os.path.join(_os.path.dirname(_os.path.abspath(__file__)), '..', '..', '..', 'scripts'))
-from lh_fetch import urlopen, check as robots_check, NotFetched, UA  # noqa: E402  robots.txt gate (the keeper, 8 November 2026)
-from redact_emails import redact_bytes  # noqa: E402  email addresses withheld from kept bodies
+from lh_fetch import urlopen, check as robots_check, NotFetched, UA, save_body  # noqa: E402  robots.txt gate (the keeper, 8 November 2026); one keep path (21 November)
 from concurrent.futures import ThreadPoolExecutor
 from datetime import datetime, timezone
 from html.parser import HTMLParser
@@ -81,11 +87,14 @@ def fetch(item):
         metadata.feed(data.decode('utf-8', 'replace'))
     except Exception:
         pass
-    if role != 'media':
-        (OUT / (key + '.raw')).write_bytes(redact_bytes(data)[0])
+    kept = role != 'media'
+    if kept:
+        kept, why = save_body(OUT / (key + '.raw'), data, final or url, hdr)
+        if not kept:
+            error = (error + '; ' if error else '') + 'body_kept: no: ' + why
     row = dict(observed_at_utc=started, key=key, role=role, url=url, final_url=final,
                status=status, bytes_retained=len(data), sha256_retained=hashlib.sha256(data).hexdigest(),
-               raw_retained=(role != 'media'), title=html.unescape(metadata.meta.get('og:title') or metadata.title.strip())[:250],
+               raw_retained=kept, title=html.unescape(metadata.meta.get('og:title') or metadata.title.strip())[:250],
                canonical=metadata.meta.get('canonical', ''), published=metadata.meta.get('article:published_time', metadata.meta.get('datepublished', metadata.meta.get('date', ''))),
                modified=metadata.meta.get('article:modified_time', metadata.meta.get('datemodified', '')),
                author=metadata.meta.get('author', ''), http_date=hdr.get('Date', ''),

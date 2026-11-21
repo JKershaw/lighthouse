@@ -1,5 +1,12 @@
 #!/usr/bin/env python3
-"""Exploratory, byte-retaining Drupal production chain read."""
+"""Exploratory, byte-retaining Drupal production chain read.
+
+From 21 November 2026 (the keeper's decision, notes/keeper/2026-11-21-robots-intent.md) a body is saved
+only through scripts/lh_fetch.py's save_body (which withholds email addresses, as before); where it may
+not be kept no .raw is written and `error` ends "body_kept: no: <reason>" (the log has no file column). A kept body is unchanged.
+
+Moved onto the shared fetch path (lh_fetch urlopen and save_body) on 21 November 2026 under the keeper's decision
+(notes/keeper/2026-11-21-robots-intent.md); the evidence was collected by the earlier version, `git show 7523007:studies/LH023/scripts/collect.py`."""
 import csv
 import hashlib
 import json
@@ -7,8 +14,7 @@ import urllib.error
 import urllib.request
 import os as _os, sys as _sys
 _sys.path.insert(0, _os.path.join(_os.path.dirname(_os.path.abspath(__file__)), '..', '..', '..', 'scripts'))
-from lh_fetch import urlopen, check as robots_check, NotFetched, UA  # noqa: E402  robots.txt gate (the keeper, 8 November 2026)
-from redact_emails import redact_bytes  # noqa: E402  email addresses withheld from kept bodies
+from lh_fetch import urlopen, check as robots_check, NotFetched, UA, save_body  # noqa: E402  robots.txt gate (the keeper, 8 November 2026); one keep path (21 November)
 from datetime import datetime, timezone
 from pathlib import Path
 
@@ -27,10 +33,12 @@ def read(key, url, headers=None, ephemeral=False):
         raise RuntimeError('ceiling')
     at = datetime.now(timezone.utc).isoformat(timespec='seconds').replace('+00:00', 'Z')
     status, data, error, hdr = '', b'', '', {}
+    final = url
     try:
         req = urllib.request.Request(url, headers={'User-Agent': UA, **(headers or {})})
         with urlopen(req, timeout=24) as r:
             status, hdr = r.status, dict(r.headers)
+            final = r.geturl() or url
             data = r.read(min(2 * 1024 * 1024, 10 * 1024 * 1024 - spent) + 1)
             if len(data) > min(2 * 1024 * 1024, 10 * 1024 * 1024 - spent):
                 data, error = data[:-1], 'response cap exceeded'
@@ -38,18 +46,21 @@ def read(key, url, headers=None, ephemeral=False):
         status, hdr, data, error = exc.code, dict(exc.headers), exc.read(4096), 'HTTP error'
     except Exception as exc:
         error = f'{type(exc).__name__}: {exc}'
+    logged_error = error
     if not ephemeral:
-        (OUT / (key + '.raw')).write_bytes(redact_bytes(data)[0])
+        kept, why = save_body(OUT / (key + '.raw'), data, final, hdr)
+        if not kept:
+            logged_error = (error + '; ' if error else '') + 'body_kept: no: ' + why
         spent += len(data)
     rows.append(dict(utc=at, key=key, url=url, status=status, bytes='' if ephemeral else len(data),
                      sha256='' if ephemeral else hashlib.sha256(data).hexdigest(),
                      remaining=hdr.get('X-RateLimit-Remaining', hdr.get('Ratelimit-Remaining', '')),
-                     error=error))
+                     error=logged_error))
     with (OUT / 'read_log.csv').open('w', newline='') as f:
         w = csv.DictWriter(f, rows[0].keys(), lineterminator='\n')
         w.writeheader()
         w.writerows(rows)
-    print(key, status, len(data), error, flush=True)
+    print(key, status, len(data), logged_error, flush=True)
     return json.loads(data) if status == 200 and not error else None
 
 

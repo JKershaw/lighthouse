@@ -9,23 +9,28 @@ Usage: python3 -I studies/LH049/scripts/collect_prebrief.py --read <UTC label> [
 Every request is asked of scripts/robots_gate.py first (set LIGHTHOUSE_PROVIDER). Bodies are kept gzipped under
 data/pre-brief-<label>/ after redact_bytes; read_log.json keeps URL, UTC start and finish, status, bytes received,
 their SHA-256, emails withheld and the robots decision. A target already held in that directory is skipped.
+
+From 21 November 2026 (the keeper's decision, notes/keeper/2026-11-21-robots-intent.md; the reads above were
+made before it): the gate is scripts/lh_fetch.py's own (check, then lh_fetch's urlopen, which asks the same
+cached gate, so robots.txt is still read once per host and the rule is unchanged), and a body is saved only
+through lh_fetch's save_body; where it may not be kept nothing is written, read_log.json's row has no `file`
+and gets body_kept "no: <reason>", and a later run into the same directory treats it as held (no refetch).
+
+Moved onto the shared fetch path (lh_fetch urlopen and save_body) on 21 November 2026 under the keeper's decision
+(notes/keeper/2026-11-21-robots-intent.md); the evidence was collected by the earlier version, `git show 7523007:studies/LH049/scripts/collect_prebrief.py`.
 """
 from datetime import datetime, timezone
 from hashlib import sha256
 from pathlib import Path
 from urllib.error import HTTPError
-from urllib.request import Request, urlopen
+from urllib.request import Request
 import argparse
-import gzip
 import json
 import sys
 
 sys.path.insert(0, str(Path(__file__).resolve().parents[3] / 'scripts'))
-from robots_gate import RobotsGate  # noqa: E402
+from lh_fetch import check, urlopen, save_body, UA  # noqa: E402  one gate, one keep path (21 November 2026)
 from redact_emails import redact_bytes  # noqa: E402
-
-UA = 'Mozilla/5.0 (compatible; Lighthouse-research/1.0; +https://lighthouse.harbour.cat)'
-GATE = RobotsGate(UA)
 ROOT = Path(__file__).resolve().parents[1]
 CEILING = 16 * 1024 * 1024
 MAX_REQUESTS = 12
@@ -55,13 +60,13 @@ OUT = ROOT / 'data' / ('pre-brief-' + a.read)
 OUT.mkdir(parents=True, exist_ok=True)
 LOG = OUT / 'read_log.json'
 rows = json.loads(LOG.read_text()) if LOG.exists() else []
-held = {r['name'] for r in rows if r.get('file')}
+held = {r['name'] for r in rows if r.get('file') or r.get('body_kept')}
 for name, url, body in targets:
     if name in held:
         continue
     row = {'name': name, 'url': url, 'method': 'POST' if body else 'GET', 'request_body': body or '',
            'start_utc': datetime.now(timezone.utc).isoformat(timespec='seconds')}
-    ok, info = GATE.check(url)
+    ok, info = check(url)
     row['robots'] = info
     if not ok:
         row['error'] = 'not fetched: ' + info['reason']
@@ -80,9 +85,12 @@ for name, url, body in targets:
                            last_modified=resp.headers.get('Last-Modified', ''), bytes=len(data),
                            sha256=sha256(data).hexdigest())
                 if len(data) <= CEILING:
-                    red, n = redact_bytes(data)
-                    (OUT / (name + '.raw.gz')).write_bytes(gzip.compress(red, mtime=0))
-                    row.update(file=name + '.raw.gz', emails_withheld=n)
+                    n = redact_bytes(data)[1]
+                    kept, why = save_body(OUT / (name + '.raw.gz'), data, resp.geturl() or url, resp.headers)
+                    if kept:
+                        row.update(file=name + '.raw.gz', emails_withheld=n)
+                    else:
+                        row['body_kept'] = 'no: ' + why
         except Exception as err:
             row.update(finish_utc=datetime.now(timezone.utc).isoformat(timespec='seconds'),
                        error=type(err).__name__ + ': ' + str(err)[:300])

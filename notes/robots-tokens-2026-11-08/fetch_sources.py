@@ -8,7 +8,18 @@ logged request and each new host's robots.txt read first. No retries, no cookies
 address, no JavaScript. Email addresses in kept bodies are withheld (scripts/redact_emails.py);
 fetchlog.csv keeps the sha256 of the bytes received.
 
+From 21 November 2026 (the keeper's decision, notes/keeper/2026-11-21-robots-intent.md; the record of the
+reads of 8 November, not run again): it still reads, logs and keeps each host's robots.txt itself and fetches
+under that file (provider None, no automatic redirects), as before, so its requests are unchanged; a page
+body (each hop's) is saved only through scripts/lh_fetch.py's save_body, given the robots.txt this script
+already read (robots_body=, None where it answered 4xx), so nothing is read twice. Where a body may not be
+kept no NNN.b is written (the NNN.h header file still is) and the robots_decision column ends
+"; body_kept: no: <reason>". A kept body is unchanged.
+
 Usage: python3 -I notes/robots-tokens-2026-11-08/fetch_sources.py OUTDIR URL...
+
+Moved onto the shared fetch path (lh_fetch urlopen and save_body) on 21 November 2026 under the keeper's decision
+(notes/keeper/2026-11-21-robots-intent.md); the evidence was collected by the earlier version, `git show 7523007:notes/robots-tokens-2026-11-08/fetch_sources.py`.
 """
 from datetime import datetime, timezone
 from hashlib import sha256
@@ -26,6 +37,7 @@ REPO = Path(__file__).resolve().parents[2]
 sys.path.insert(0, str(REPO / 'scripts'))
 from redact_emails import redact_bytes  # noqa: E402
 import robots_rules  # noqa: E402
+from lh_fetch import save_body  # noqa: E402  the one keep path (21 November 2026)
 
 UA = 'Lighthouse-research/1.0 (+https://lighthouse.harbour.cat)'
 CA = '/root/.ccr/ca-bundle.crt'
@@ -72,12 +84,17 @@ def main(outdir, urls):
     n = len(list(out.glob('*.h')))
     robots = {}
 
-    def keep(kind, r, note=''):
+    def keep(kind, r, note='', robots_body=None):
         nonlocal n
         n += 1
         h = 'HTTP %s\n' % r['status'] + ''.join('%s: %s\n' % kv for kv in r['headers'])
-        (out / ('%03d.h' % n)).write_bytes(redact_bytes(h.encode('utf-8', 'replace'))[0])
-        (out / ('%03d.b' % n)).write_bytes(redact_bytes(r['body'])[0])
+        (out / ('%03d.h' % n)).write_bytes(redact_bytes(h.encode('utf-8', 'replace'))[0])  # response headers, not a body
+        if kind.startswith('robots'):  # a robots.txt copy is always kept, as before
+            (out / ('%03d.b' % n)).write_bytes(redact_bytes(r['body'])[0])
+        else:
+            kept, why = save_body(out / ('%03d.b' % n), r['body'], r['url'], r['headers'], robots_body=robots_body)
+            if not kept:
+                note = (note + '; ' if note else '') + 'body_kept: no: ' + why
         w.writerow([n, kind, r['url'], r['utc'], r['status'], r['error'], len(r['body']), r['truncated'],
                     sha256(r['body']).hexdigest(), note])
         lf.flush()
@@ -119,7 +136,7 @@ def main(outdir, urls):
                 break
             r = get(cur, 4 * 1024 * 1024)
             keep('page' if hop == 0 else 'page-redirect-%d' % hop, r,
-                 'allowed (%s)' % (d.decided_by or 'no group'))
+                 'allowed (%s)' % (d.decided_by or 'no group'), robots_body=body if rb else None)
             print(r['status'], r['error'], cur, len(r['body']))
             st = r['status']
             if r['error'] or not st or not (300 <= st < 400):

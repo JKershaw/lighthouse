@@ -1,10 +1,17 @@
 #!/usr/bin/env python3
-"""One bounded LH018 public-source snapshot. No image layers or binaries."""
+"""One bounded LH018 public-source snapshot. No image layers or binaries.
+
+The record of the snapshot of 21 October 2026; it refuses to run again once its log exists. From 21 November
+2026 (the keeper's decision, notes/keeper/2026-11-21-robots-intent.md) a body is saved only through
+scripts/lh_fetch.py's save_body (which withholds email addresses, as before); where it may not be kept no
+.raw is written, `file` is empty and `error` ends "body_kept: no: <reason>". A kept body is unchanged.
+
+Moved onto the shared fetch path (lh_fetch urlopen and save_body) on 21 November 2026 under the keeper's decision
+(notes/keeper/2026-11-21-robots-intent.md); the evidence was collected by the earlier version, `git show 7523007:studies/LH018/scripts/collect.py`."""
 import csv,hashlib,json,sys,time,urllib.request,urllib.error
 import os as _os, sys as _sys
 _sys.path.insert(0, _os.path.join(_os.path.dirname(_os.path.abspath(__file__)), '..', '..', '..', 'scripts'))
-from lh_fetch import urlopen, check as robots_check, NotFetched, UA  # noqa: E402  robots.txt gate (the keeper, 8 November 2026)
-from redact_emails import redact_bytes  # noqa: E402  email addresses withheld from kept bodies
+from lh_fetch import urlopen, check as robots_check, NotFetched, UA, save_body  # noqa: E402  robots.txt gate (the keeper, 8 November 2026); one keep path (21 November)
 from datetime import datetime,timezone
 from pathlib import Path
 ROOT=Path(__file__).resolve().parents[1]
@@ -22,20 +29,21 @@ def now():return datetime.now(timezone.utc).isoformat(timespec='seconds').replac
 def save(kind,key,url,headers=None,limit=1024*1024):
  global calls,size
  if calls>=MAX_CALLS or size>=MAX_BYTES:raise RuntimeError('collection ceiling reached')
- calls+=1; started=now(); status=None; data=b''; hdr={}; error=''
+ calls+=1; started=now(); status=None; data=b''; hdr={}; error=''; final=url
  try:
   req=urllib.request.Request(url,headers={'User-Agent':UA,**(headers or {})})
   # robots.txt-gated (scripts/lh_fetch.py): a URL not allowed raises NotFetched, logged in 'error' as not fetched
   with urlopen(req,timeout=22) as r:
-   status=r.status;hdr=dict(r.headers);data=r.read(min(limit,MAX_BYTES-size)+1)
+   status=r.status;hdr=dict(r.headers);final=r.geturl() or url;data=r.read(min(limit,MAX_BYTES-size)+1)
    if len(data)>min(limit,MAX_BYTES-size):error='response exceeds byte limit; truncated';data=data[:min(limit,MAX_BYTES-size)]
  except urllib.error.HTTPError as e:
   status=e.code;hdr=dict(e.headers);data=e.read(min(limit,4096));error='HTTP error'
  except Exception as e:error=f'{type(e).__name__}: {e}'
  size+=len(data);digest=hashlib.sha256(data).hexdigest()
- path=OUT/f'{kind}_{key}.raw';path.write_bytes(redact_bytes(data)[0])  # sha256 is of the bytes received
+ path=OUT/f'{kind}_{key}.raw';kept,why=save_body(path,data,final,hdr)  # sha256 is of the bytes received
+ if not kept:error=(error+'; ' if error else '')+'body_kept: no: '+why
  row={'observed_at_utc':started,'kind':kind,'key':key,'url':url,'status':status or '',
-      'bytes':len(data),'sha256':digest,'file':path.relative_to(ROOT).as_posix(),
+      'bytes':len(data),'sha256':digest,'file':path.relative_to(ROOT).as_posix() if kept else '',
       'last_modified':hdr.get('Last-Modified',''),'etag':hdr.get('ETag',''),
       'ratelimit_remaining':hdr.get('Ratelimit-Remaining',hdr.get('RateLimit-Remaining','')),
       'error':error}

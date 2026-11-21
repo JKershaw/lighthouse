@@ -8,11 +8,19 @@ R00 only: the visit history around the window, and whether the visit snapshots
 hold the release tag v1.27.0 and the v1.x branch.
 
 Usage: python3 swh_check.py <scratch_dir> <study_dir>
+
+From 21 November 2026 (the keeper's decision, notes/keeper/2026-11-21-robots-intent.md) a body is cached
+only through scripts/lh_fetch.py's save_body (which withholds email addresses, as before); where it may not
+be kept nothing is written to the cache, the parsed body is used from memory in this run and the refusal
+is printed ("body_kept: no: <reason>"). A kept body is unchanged.
+
+Moved onto the shared fetch path (lh_fetch urlopen and save_body) on 21 November 2026 under the keeper's decision
+(notes/keeper/2026-11-21-robots-intent.md); the evidence was collected by the earlier version, `git show 7523007:studies/LH002/scripts/swh_check.py`.
 """
 import csv, json, os, subprocess, sys, time, urllib.request, urllib.error
 import os as _os, sys as _sys
 _sys.path.insert(0, _os.path.join(_os.path.dirname(_os.path.abspath(__file__)), '..', '..', '..', 'scripts'))
-from lh_fetch import urlopen, check as robots_check, NotFetched, UA  # noqa: E402  robots.txt gate (the keeper, 8 November 2026)
+from lh_fetch import urlopen, check as robots_check, NotFetched, UA, save_body  # noqa: E402  robots.txt gate (the keeper, 8 November 2026); one keep path (21 November)
 from redact_emails import redact_bytes  # noqa: E402  email addresses withheld from kept bodies
 S, STUDY = sys.argv[1:3]
 API = 'https://archive.softwareheritage.org/api/1'
@@ -27,9 +35,17 @@ def get(url, name):
             # robots.txt gate: a disallowed URL raises NotFetched and stops the run (a missing reading, never a negative)
             with urlopen(urllib.request.Request(url, headers={'User-Agent': UA}), timeout=60) as r:
                 body = {'_status': r.status, 'data': json.loads(redact_bytes(r.read())[0])}
+                final, hdrs = r.geturl() or url, r.headers
+            # the response body, re-serialised as before, saved only where it may be kept
+            kept, why = save_body(path, json.dumps(body).encode(), final, hdrs)
         except urllib.error.HTTPError as e:
             body = {'_status': e.code, 'data': None}
-        json.dump(body, open(path, 'w')); time.sleep(0.5)
+            json.dump(body, open(path, 'w'))  # Lighthouse's own record of the status, not a body
+            kept = True
+        time.sleep(0.5)
+        if not kept:
+            print('body_kept: no:', why, url, file=sys.stderr)
+            return body
     return json.load(open(path))
 
 state = {r['repo']: r for r in csv.DictReader(open(os.path.join(STUDY, 'data', 'mcp_state_window_start_end.csv'))) if r['at'] == 'end'}

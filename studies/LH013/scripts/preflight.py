@@ -1,14 +1,26 @@
 #!/usr/bin/env python3
-"""Read LH013 coverage and date presence only; never request download counts."""
+"""Read LH013 coverage and date presence only; never request download counts.
+
+The record of the preflight of 22 October 2026; it refuses to run again once its directory exists. From
+21 November 2026 (the keeper's decision, notes/keeper/2026-11-21-robots-intent.md) each query goes through
+scripts/lh_fetch.py's urlopen (before, the curl command, after the same robots.txt gate; urlopen asks the
+same cached gate), the response's header block is written as <label>.headers as curl -D wrote it, and the
+CSV body is saved only through lh_fetch's save_body; where it may not be kept no .csv is written and the
+log row gets body_kept "no: <reason>". The status logged is the HTTP code as text, '000' where no response
+came, 'not fetched' where robots.txt refused a redirect (each redirect is checked, check_redirects=True; curl
+-L followed them unchecked); stderr holds the exception or the refusal where there was one.
+
+Moved onto the shared fetch path (lh_fetch urlopen and save_body) on 21 November 2026 under the keeper's decision
+(notes/keeper/2026-11-21-robots-intent.md); the evidence was collected by the earlier version, `git show 7523007:studies/LH013/scripts/preflight.py`."""
 import csv
 import hashlib
 import io
 import json
-import subprocess
+import urllib.error
+import urllib.request
 import os as _os, sys as _sys
 _sys.path.insert(0, _os.path.join(_os.path.dirname(_os.path.abspath(__file__)), '..', '..', '..', 'scripts'))
-from lh_fetch import urlopen, check as robots_check, NotFetched, UA  # noqa: E402  robots.txt gate (the keeper, 8 November 2026)
-from redact_emails import redact_bytes  # noqa: E402  email addresses withheld from kept bodies
+from lh_fetch import urlopen, check as robots_check, NotFetched, UA, save_body  # noqa: E402  robots.txt gate (8 November 2026); one keep path (21 November)
 from datetime import datetime, timezone
 from pathlib import Path
 
@@ -34,16 +46,31 @@ def query(label, sql):
               info.get('robots_status'), info.get('decided_by', ''), info.get('rule', ''))
         log.append(dict(label=label, observed_at_utc=start, query=sql, status=why, bytes=0, sha256='', stderr=''))
         raise RuntimeError(f'{label}: {why}')
-    response = subprocess.run(['curl', '-A', UA, '--max-time', '90', '-sS', '-D', str(OUT / (label + '.headers')),
-                               '-w', '\nHTTP %{http_code}', 'https://sql-clickhouse.clickhouse.com/?user=demo',
-                               '--data-binary', '@-'], input=(sql + ' FORMAT CSVWithNames').encode(),
-                              capture_output=True, timeout=100)
-    body, _, status = response.stdout.rpartition(b'\nHTTP ')
-    (OUT / (label + '.csv')).write_bytes(redact_bytes(body)[0])
-    log.append(dict(label=label, observed_at_utc=start, query=sql, status=status.decode(errors='replace'),
-                    bytes=len(body), sha256=hashlib.sha256(body).hexdigest(), stderr=response.stderr.decode()))
-    if response.returncode or status != b'200':
-        raise RuntimeError(f'{label}: {status!r} {response.stderr[:200]!r}')
+    req = urllib.request.Request(endpoint, data=(sql + ' FORMAT CSVWithNames').encode(), headers={'User-Agent': UA})
+    body, status, stderr, final, hdrs = b'', b'000', '', endpoint, None
+    try:
+        try:
+            resp = urlopen(req, timeout=90, check_redirects=True)
+        except urllib.error.HTTPError as e:
+            resp = e
+        with resp:
+            body, status, final, hdrs = resp.read(), str(resp.status).encode(), resp.geturl() or endpoint, resp.headers
+        (OUT / (label + '.headers')).write_text('HTTP/1.1 %s %s\r\n%s\r\n' % (  # the response's header block, not its body
+            resp.status, getattr(resp, 'reason', ''), ''.join('%s: %s\r\n' % kv for kv in hdrs.items())))
+    except NotFetched as e:  # a redirect robots.txt refuses: not requested
+        status = b'not fetched'
+        stderr = str(e)
+    except Exception as e:
+        stderr = '%s: %s' % (type(e).__name__, e)
+    # no response (an error or a refused redirect): nothing to keep, no file
+    kept, why = save_body(OUT / (label + '.csv'), body, final, hdrs) if hdrs is not None else (True, '')
+    row = dict(label=label, observed_at_utc=start, query=sql, status=status.decode(errors='replace'),
+               bytes=len(body), sha256=hashlib.sha256(body).hexdigest(), stderr=stderr)
+    if not kept:
+        row['body_kept'] = 'no: ' + why
+    log.append(row)
+    if stderr or status != b'200':
+        raise RuntimeError(f'{label}: {status!r} {stderr[:200]!r}')
     return list(csv.DictReader(io.StringIO(body.decode())))
 
 

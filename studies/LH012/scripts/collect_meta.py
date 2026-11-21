@@ -14,7 +14,10 @@ top 500 is LH010's, reused); the schema read drops total_rows and covers every p
 coverage read covers the per-day tables as well as pypi_downloads_max_min; PyPI's JSON is kept per
 file (Requires-Python, name, type, tags, yanked, upload time) and per version for the 37 projects,
 and each top-500 project's declared requirements are parsed with the `packaging` library.
-Usage: python3 collect_meta.py clickpy | pypi | week"""
+Usage: python3 collect_meta.py clickpy | pypi | week
+
+Moved onto the shared fetch path (lh_fetch urlopen and save_body) on 21 November 2026 under the keeper's decision
+(notes/keeper/2026-11-21-robots-intent.md); the evidence was collected by the earlier version, `git show 7523007:studies/LH012/scripts/collect_meta.py`."""
 import csv, gzip, json, os, sys
 from packaging.version import Version, InvalidVersion
 from packaging.requirements import Requirement, InvalidRequirement
@@ -88,8 +91,12 @@ def stage_pypi():
         else:
             status, d = get_json('PyPI JSON API', f'P{i:03d} {name}', f'https://pypi.org/pypi/{name}/json',
                                  'versions.csv' if name in P37 else 'top500_screen.csv')
-            if d is not None:
-                json.dump(d, open(path, 'w'))
+            if d is not None:  # the scratch copy, only through lh_fetch's save_body (21 November 2026)
+                import common
+                kept, why = common.save_body(path, json.dumps(d).encode(), common.LAST.get('final') or
+                                             f'https://pypi.org/pypi/{name}/json', common.LAST.get('headers'))
+                if not kept:
+                    print('body_kept: no:', why, name)
         if d is None:
             screen.append(dict(rank=r['rank'], project=name, latest_version='', latest_requires_python='',
                                n_requirements='', names_one_of_37='', status='HTTP ' + status))

@@ -16,7 +16,10 @@
   pass         C  per project and week, one pass of pypi.pypi computing, server side, the totals by class and CI
                flag (amendment 3), and the sizes of the 1,001 largest cells of the six fields and of the five (and
                of the same over older downloads only), with each largest cell's values
-Usage: [LH013_PHASE=counts] python3 collect.py <stage> [project ...]"""
+Usage: [LH013_PHASE=counts] python3 collect.py <stage> [project ...]
+
+Moved onto the shared fetch path (lh_fetch urlopen and save_body) on 21 November 2026 under the keeper's decision
+(notes/keeper/2026-11-21-robots-intent.md); the evidence was collected by the earlier version, `git show 7523007:studies/LH013/scripts/collect.py`."""
 import csv, json, os, sys, datetime as dt
 import common
 from common import clickhouse, get_json, write_csv, read_csv, DATA
@@ -81,8 +84,11 @@ def stage_meta():
         if d is None:
             print('   HTTP', status, p)
             continue
-        with open(path, 'w') as f:
-            f.write(body)
+        # saved only through lh_fetch's save_body (21 November 2026), which withholds email addresses
+        kept, why = common.save_body(path, body.encode(), common.LAST.get('final') or f'https://pypi.org/pypi/{p}/json',
+                                     common.LAST.get('headers'))
+        if not kept:
+            print('   body_kept: no:', why, p)
 
 
 def stage_docs():
@@ -96,12 +102,13 @@ def stage_docs():
         t = common.now()
         status, body, _ = common.curl(url)  # robots.txt-gated: status "not fetched: ..." when not allowed
         sha = hashlib.sha256(body.encode()).hexdigest()  # of the text received; email addresses are withheld from the kept file
-        if not status.startswith('not fetched'):
-            with open(os.path.join(DATA, 'docs', fn), 'w') as f:
-                f.write(common.redact_bytes(body.encode())[0].decode())
+        kept, why = False, ''
+        if not status.startswith('not fetched'):  # saved only through lh_fetch's save_body (21 November 2026)
+            kept, why = common.save_body(os.path.join(DATA, 'docs', fn), body.encode(), common.LAST.get('final') or url,
+                                         common.LAST.get('headers'))
         common.log(dict(read_utc=t, source='Documentation', stage='docs', label=label, endpoint=url, http_status=status,
-                        read_bytes=len(body.encode()), output='docs/' + fn if not status.startswith('not fetched') else '',
-                        note='sha256 ' + sha))
+                        read_bytes=len(body.encode()), output='docs/' + fn if kept else '',
+                        note='sha256 ' + sha + ('; body_kept: no: ' + why if why and not kept else '')))
         print(label, status, len(body))
 
 

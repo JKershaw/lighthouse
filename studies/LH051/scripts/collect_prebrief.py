@@ -23,12 +23,22 @@ Withheld from every retained body (gate conditions 3 and 4, notes/horizon/2026-1
   words on a short list given here only as truncated SHA-256 hashes: the organisations, accounts, repositories and
   third-party app the posts name without a slash, and the Telegram chat and bot identifiers. So this script names
   no one. The withholding also catches some ordinary file paths and media types written as a/b; that is accepted.
+
+From 21 November 2026 (the keeper's decision, notes/keeper/2026-11-21-robots-intent.md; the reads above were
+made before it): the gate is scripts/lh_fetch.py's own (check, then lh_fetch's urlopen, which asks the same
+cached gate, so robots.txt is still read once per host and the rule is unchanged), and the withheld body is
+saved only through lh_fetch's save_body (which also decides on the page's own reservation); where it may not
+be kept nothing is written, the row has no `file` and gets body_kept "no: <reason>", and a later run into
+the same directory treats it as held. --rewithhold rewrites bodies already kept and fetches nothing.
+
+Moved onto the shared fetch path (lh_fetch urlopen and save_body) on 21 November 2026 under the keeper's decision
+(notes/keeper/2026-11-21-robots-intent.md); the evidence was collected by the earlier version, `git show 7523007:studies/LH051/scripts/collect_prebrief.py`.
 """
 from datetime import datetime, timezone
 from hashlib import sha256
 from pathlib import Path
 from urllib.error import HTTPError
-from urllib.request import Request, urlopen
+from urllib.request import Request
 import argparse
 import gzip
 import json
@@ -36,10 +46,8 @@ import re
 import sys
 
 sys.path.insert(0, str(Path(__file__).resolve().parents[3] / 'scripts'))
-from robots_gate import RobotsGate  # noqa: E402
+from lh_fetch import check, urlopen, save_body, UA  # noqa: E402  one gate, one keep path (21 November 2026)
 from redact_emails import redact_bytes  # noqa: E402
-
-UA = 'Mozilla/5.0 (compatible; Lighthouse-research/1.0; +https://lighthouse.harbour.cat)'
 ROOT = Path(__file__).resolve().parents[1]
 CEILING = 16 * 1024 * 1024
 MAX_REQUESTS = 8
@@ -146,18 +154,17 @@ def main():
         assert not any(f in url.lower() for f in FORBIDDEN), 'refused: ' + url
         assert url.split('/')[2] in ALLOWED_HOSTS, 'refused (not a vendor page): ' + url
     assert len(targets) <= MAX_REQUESTS
-    gate = RobotsGate(UA)
     out = ROOT / 'data' / ('pre-brief-' + a.read)
     out.mkdir(parents=True, exist_ok=True)
     log = out / 'read_log.json'
     rows = json.loads(log.read_text()) if log.exists() else []
-    held = {r['name'] for r in rows if r.get('file')}
+    held = {r['name'] for r in rows if r.get('file') or r.get('body_kept')}
     for name, url in targets:
         if name in held:
             continue
         row = {'name': name, 'url': url, 'method': 'GET',
                'start_utc': datetime.now(timezone.utc).isoformat(timespec='seconds')}
-        ok, info = gate.check(url)
+        ok, info = check(url)
         row['robots'] = info
         if not ok:
             row['error'] = 'not fetched: ' + info['reason']
@@ -175,8 +182,11 @@ def main():
                                sha256=sha256(data).hexdigest())
                     if len(data) <= CEILING:
                         red, counts = withhold(data)
-                        (out / (name + '.raw.gz')).write_bytes(gzip.compress(red, mtime=0))
-                        row.update(file=name + '.raw.gz', **counts)
+                        kept, why = save_body(out / (name + '.raw.gz'), red, resp.geturl() or url, resp.headers)
+                        if kept:
+                            row.update(file=name + '.raw.gz', **counts)
+                        else:
+                            row['body_kept'] = 'no: ' + why
             except Exception as err:
                 row.update(finish_utc=datetime.now(timezone.utc).isoformat(timespec='seconds'),
                            error=type(err).__name__ + ': ' + str(err)[:300])

@@ -1,3 +1,5 @@
+# Moved onto the shared fetch path (lh_fetch urlopen and save_body) on 21 November 2026 under the keeper's decision
+# (notes/keeper/2026-11-21-robots-intent.md); the evidence was collected by the earlier version, `git show 7523007:studies/LH050/data/2026-11-19T1417Z/collector.py`.
 import csv, hashlib, json, os, sys, time, urllib.request, urllib.error, datetime, socket
 REPO = "/home/user/lighthouse"
 sys.path.insert(0, os.path.join(REPO, "scripts"))
@@ -33,10 +35,15 @@ for row in csv.DictReader(open(os.path.join(REPO, "studies/LH050/panel.csv"))):
             red, n = redact_bytes(body)
             ext = ".pdf" if "pdf" in ctype else ".html"
             rp = "studies/LH050/data/%s/bodies/%s%s" % (label, nm, ext)
-            open(os.path.join(REPO, rp), "wb").write(red)
+            # saved only through lh_fetch's save_body (the keeper, 21 November 2026); this collector is the record
+            # of its read and is not run again; a kept body is unchanged
+            kept, why = lh_fetch.save_body(os.path.join(REPO, rp), body, final or url, r.headers)
             rec.update(status=status, final_url=final, content_type=ctype, received_bytes=len(body),
                        received_sha256=hashlib.sha256(body).hexdigest(), emails_redacted=n,
-                       retained_sha256=hashlib.sha256(red).hexdigest(), retained_path=rp, access="readable")
+                       retained_sha256=hashlib.sha256(red).hexdigest() if kept else "", retained_path=rp if kept else "",
+                       access="readable")
+            if not kept:
+                rec["body_kept"] = "no: " + why
             break
         except urllib.error.HTTPError as e:
             body = e.read() if hasattr(e, "read") else b""

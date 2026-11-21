@@ -9,11 +9,15 @@ that ClickHouse's read_rows and read_bytes are logged for every query (the brief
 counted in them); the log has columns read_rows and read_bytes; a running total of queries and rows
 read is checked against the brief's ceilings (600 queries, 60 billion rows) before each query;
 setting LH011_ONLY replaces LH005_ONLY; a binary download helper for the installers' source
-distributions was added; pepy.tech is not used."""
+distributions was added; pepy.tech is not used.
+
+Moved onto the shared fetch path (lh_fetch urlopen and save_body) on 21 November 2026 under the keeper's decision
+(notes/keeper/2026-11-21-robots-intent.md); the evidence was collected by the earlier version, `git show 7523007:studies/LH011/scripts/common.py`."""
 import csv, io, json, os, subprocess, time, datetime
 import os as _os, sys as _sys
 _sys.path.insert(0, _os.path.join(_os.path.dirname(_os.path.abspath(__file__)), '..', '..', '..', 'scripts'))
-from lh_fetch import urlopen, check as robots_check, NotFetched, UA  # noqa: E402  robots.txt gate (the keeper, 8 November 2026)
+import hashlib, urllib.error, urllib.request  # noqa: E402
+from lh_fetch import urlopen, check as robots_check, NotFetched, UA, save_body, write_derived, keep_decision  # noqa: E402  robots.txt gate (8 November 2026); one keep path (21 November)
 from redact_emails import redact_bytes  # noqa: E402  email addresses withheld from kept bodies
 
 STUDY = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
@@ -51,8 +55,17 @@ def spent():
     return q, r
 
 
+LAST = {}  # the latest response's final URL and headers, for save_body (21 November 2026)
+
+
 def curl(url, data=None, binary_out=None):
-    """Return (status, body, headers). curl is used because it reads the session's proxy settings."""
+    """Return (status, body, headers). Until 21 November 2026 this ran the curl command; it now requests through
+    scripts/lh_fetch.py's urlopen (the keeper's decision of that day, notes/keeper/2026-11-21-robots-intent.md:
+    one gated fetch path for every collector). The robots.txt gate is asked first, as before, and urlopen asks
+    the same cached gate, so robots.txt is read once. Return values are as before: the status as text ('000'
+    where no response came, curl's code), the body as text (for binary_out, the bytes, which the caller saves), and the response's header block as text.
+    One difference: curl here followed redirects only for binary_out (-L); urllib follows them always, each checked
+    against robots.txt first (check_redirects=True), and a refused redirect returns "not fetched: ..."."""
     # The robots.txt gate first (the keeper, 8 November 2026): a URL it does not allow, or whose robots.txt
     # cannot be read, is not requested; the status returned, and so logged, is "not fetched: ..." with the
     # deciding group and rule, a missing reading and never a negative.
@@ -60,21 +73,26 @@ def curl(url, data=None, binary_out=None):
     if not ok:
         return ('not fetched: %s (robots %s, status %s, group %s, rule %s)' % (info.get('reason'), info.get('robots_url'),
                 info.get('robots_status'), info.get('decided_by', ''), info.get('rule', ''))), '', ''
-    hdr = os.path.join(SCRATCH, '.headers')
-    cmd = ['curl', '-sS', '-A', UA, '-D', hdr, '-w', '\n%{http_code}', url]
-    if binary_out:
-        cmd = ['curl', '-sS', '-A', UA, '-L', '-D', hdr, '-o', binary_out, '-w', '%{http_code}', url]
-    if data is not None:
-        cmd += ['--data-binary', '@-']
-    p = subprocess.run(cmd, input=(data or '').encode(), capture_output=True, timeout=300)
-    out = p.stdout.decode('utf-8', 'replace')
-    if binary_out:
-        body, status = '', out.strip()
-    else:
-        body, _, status = out.rpartition('\n')
-    headers = open(hdr).read() if os.path.exists(hdr) else ''
-    return status.strip(), body, headers
-
+    req = urllib.request.Request(url, data=None if data is None else data.encode(),
+                                 headers={'User-Agent': UA})
+    LAST.clear()
+    LAST.update(final=url, headers=None)
+    try:
+        try:
+            resp = urlopen(req, timeout=300, check_redirects=True)
+        except urllib.error.HTTPError as e:
+            resp = e
+        with resp:
+            raw = resp.read()
+            LAST.update(final=resp.geturl() or url, headers=resp.headers)
+            status = str(resp.status)
+            head = 'HTTP/1.1 %s %s\r\n%s\r\n' % (resp.status, getattr(resp, 'reason', ''),
+                                                 ''.join('%s: %s\r\n' % kv for kv in resp.headers.items()))
+    except NotFetched as e:  # a redirect robots.txt refuses: not requested, logged as not fetched
+        return 'not fetched: ' + str(e).replace('not fetched: ', '', 1), (b'' if binary_out else ''), ''
+    except Exception:  # no response (curl reported 000)
+        return '000', (b'' if binary_out else ''), ''
+    return status, (raw if binary_out else raw.decode('utf-8', 'replace')), head
 
 def summary(headers):
     for line in headers.splitlines():
@@ -102,11 +120,22 @@ def clickhouse(label, sql, output=None):
     if status != '200':
         raise SystemExit(f'{label}: HTTP {status}: {body[:400]}')
     if output:
-        body = redact_bytes(body.encode())[0].decode()
-        with open(os.path.join(DATA, output), 'w') as f:
-            f.write(body if body.endswith('\n') else body + '\n')
+        _save_query(os.path.join(DATA, output), body, t, status, sql, rows)
     time.sleep(0.5)  # be gentle with a free public service
     return rows
+
+
+def _save_query(path, body, t, status, sql, rows):
+    """Write a ClickPy query's CSV only through lh_fetch's save_body (21 November 2026); where it may not be
+    kept, write path.derived.json (write_derived) with the read's metadata and the rows the study uses."""
+    data = (body if body.endswith('\n') else body + '\n').encode()
+    kept, why = save_body(path, data, LAST.get('final') or CLICKHOUSE, LAST.get('headers'))
+    if not kept:
+        write_derived(path + '.derived.json', LAST.get('final') or CLICKHOUSE, why, {'rows': rows}, read_utc=t,
+                      http_status=status, query=sql, bytes=len(body.encode()),
+                      sha256=hashlib.sha256(body.encode()).hexdigest())
+        print('body_kept: no:', why, path)
+    return kept
 
 
 def get_json(source, label, url, output=''):
@@ -121,10 +150,22 @@ def get_json(source, label, url, output=''):
 
 
 def download(source, label, url, path):
+    """A binary archive (a source distribution) into the scratchpad. From 21 November 2026 it is written only
+    where lh_fetch's keep_decision allows; it is not passed through save_body, whose email redaction would
+    corrupt an archive (curl -o wrote it unredacted before, too). Where it may not be kept, nothing is
+    written, the log's output column says "body_kept: no: <reason>" and the status is returned as before."""
     t = now()
-    status, _, _ = curl(url, binary_out=path)
+    status, raw, _ = curl(url, binary_out=path)
+    out = path
+    if raw:
+        kept, why = keep_decision(LAST.get('final') or url, raw, LAST.get('headers'))
+        if kept:
+            with open(path, 'wb') as f:
+                f.write(raw)
+        else:
+            out = 'body_kept: no: ' + why
     log(dict(read_utc=t, source=source, label=label, endpoint=url, http_status=status,
-             read_bytes=os.path.getsize(path) if os.path.exists(path) else '', output=path))
+             read_bytes=os.path.getsize(path) if os.path.exists(path) else '', output=out))
     return status
 
 

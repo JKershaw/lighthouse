@@ -3,12 +3,20 @@
 
 One GET per URL, bodies kept as fetched under data/raw-<label>/ with readlog.csv
 (url, UTC start, status, content type, size, SHA-256). Skips a label already held.
+From 21 November 2026 (the keeper's decision, notes/keeper/2026-11-21-robots-intent.md) a body is saved
+only through scripts/lh_fetch.py's save_body; where it may not be kept (W3Techs refuses an archiving
+crawler), nothing is written under <name>.body and <name>.derived.json (write_derived) holds the read's
+metadata, body_kept "no: <reason>" and the facts tabulate.py reads (derive_kept.py's extract).
+A "not fetched" or error note is Lighthouse's own text and is written as before.
 Usage: python3 studies/LH039/scripts/collect.py --read 2026-11-08T1415Z
+
+Moved onto the shared fetch path (lh_fetch urlopen and save_body) on 21 November 2026 under the keeper's decision
+(notes/keeper/2026-11-21-robots-intent.md); the evidence was collected by the earlier version, `git show 7523007:studies/LH039/scripts/collect.py`.
 """
 import argparse, csv, datetime, hashlib, os, sys, urllib.request
 import os as _os, sys as _sys
 _sys.path.insert(0, _os.path.join(_os.path.dirname(_os.path.abspath(__file__)), '..', '..', '..', 'scripts'))
-from lh_fetch import urlopen, redacted, UA  # noqa: E402  robots.txt gate (the keeper, 8 November 2026)
+from lh_fetch import urlopen, redacted, UA, save_body, write_derived  # noqa: E402  robots.txt gate (the keeper, 8 November 2026)
 
 URLS = [
     ("stats-1", "https://api.wordpress.org/stats/wordpress/1.0/"),
@@ -36,6 +44,13 @@ URLS = [
     ("dl-69", "https://wordpress.org/wp-json/wporg/v1/core-downloads/6.9"),
 ]
 
+def extract(name, body):
+    """The facts tabulate.py reads from a body, as derive_kept.py extracts them (empty for other names)."""
+    sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
+    from derive_kept import extract as _extract
+    return _extract(name, body)
+
+
 def main():
     ap = argparse.ArgumentParser()
     ap.add_argument("--read", required=True, help="UTC label YYYY-MM-DDTHHMMZ, the minute the collector starts")
@@ -50,14 +65,29 @@ def main():
         for name, url in URLS:
             t = datetime.datetime.now(datetime.timezone.utc).strftime("%Y-%m-%dT%H:%M:%SZ")
             req = urllib.request.Request(url, headers={"User-Agent": UA})
+            fetched = False
             try:
                 with urlopen(req, timeout=60) as r:
                     body = r.read(4 << 20); status = r.status; ct = r.headers.get("Content-Type", "")
+                    final, hdrs, fetched = r.geturl() or url, r.headers, True
             except Exception as e:
                 body = str(e).encode(); status = getattr(e, "code", "error"); ct = ""
-            open(os.path.join(d, name + ".body"), "wb").write(redacted(body))
-            w.writerow([name, url, t, status, ct, len(body), hashlib.sha256(body).hexdigest()])
-            print(name, status, len(body))
+            sha = hashlib.sha256(body).hexdigest()
+            note = ""
+            if not fetched:  # Lighthouse's own note of the failure, not a page body
+                open(os.path.join(d, name + ".body"), "wb").write(redacted(body))
+            else:
+                kept, why = save_body(os.path.join(d, name + ".body"), body, final, hdrs)
+                if not kept:
+                    try:
+                        ext = extract(name, body)
+                    except Exception as e:  # a body the extractor cannot read: metadata only
+                        ext = {"extract_error": type(e).__name__}
+                    write_derived(os.path.join(d, name + ".derived.json"), url, why, ext, read_utc=t,
+                                  http_status=status, content_type=ct, bytes=len(body), sha256=sha)
+                    note = "  body_kept: no: " + why
+            w.writerow([name, url, t, status, ct, len(body), sha])
+            print(name, status, len(body), note)
 
 if __name__ == "__main__":
     sys.exit(main())

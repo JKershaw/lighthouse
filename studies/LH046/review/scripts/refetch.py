@@ -7,10 +7,19 @@ Usage (from the repository root):
 Each file is streamed: the compressed bytes are hashed and decompressed as they arrive, each line parsed and counted,
 and nothing of the body is written. Pacing: one request at a time, at least 2 seconds between requests.
 Writes review/out/counts.csv (one row per file) and review/out/fetch-log.tsv (every request).
+It keeps no body, so it has no save_body call. From 21 November 2026 (the keeper's decision,
+notes/keeper/2026-11-21-robots-intent.md; the record of review R-0056, not run again) it fetches through
+scripts/lh_fetch.py's urlopen under the recurring rule, as LH046's own --recheck does (before, urllib's
+urlopen with no robots check), so a refused file is not requested and is logged with error "NotFetched".
+
+Moved onto the shared fetch path (lh_fetch urlopen and save_body) on 21 November 2026 under the keeper's decision
+(notes/keeper/2026-11-21-robots-intent.md); the evidence was collected by the earlier version, `git show 7523007:studies/LH046/review/scripts/refetch.py`.
 """
 import csv, datetime as dt, hashlib, json, os, random, sys, time, urllib.request, urllib.error, zlib
 
 HERE = os.path.dirname(os.path.abspath(__file__))
+sys.path.insert(0, os.path.join(HERE, "..", "..", "..", "..", "scripts"))
+from lh_fetch import urlopen  # noqa: E402  the robots.txt gate (21 November 2026)
 OUT = os.path.join(HERE, "..", "out")
 STUDY_DATA = os.path.join(HERE, "..", "..", "data")
 UA = "Lighthouse-research/1.0 (+https://lighthouse.harbour.cat)"
@@ -98,7 +107,7 @@ def read(label):
     h, n, c = hashlib.sha256(), 0, Counter(label)
     status, lm, err = None, "", ""
     try:
-        with urllib.request.urlopen(req, timeout=300) as r:
+        with urlopen(req, timeout=300) as r:
             status, lm = r.status, r.headers.get("Last-Modified", "")
             z = zlib.decompressobj(16 + zlib.MAX_WBITS)
             while True:

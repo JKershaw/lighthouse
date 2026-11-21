@@ -12,8 +12,17 @@ trap 'rm -rf "$TMP"' EXIT
 fail=0
 
 echo "1. snapshot: the brief and phase 1 files against the hashes posted on issue #14 (06:35 UTC, 29 September 2026)"
-# sources.md may grow after the snapshot: its part before "## Added after the snapshot" is what was hashed
-(cd "$HERE" && grep -v ' sources.md$' data/snapshot_sha256.txt | sha256sum -c -) > "$TMP/sha.log" 2>&1 && echo "   all $(grep -c ': OK' "$TMP/sha.log") files other than sources.md verify" || { echo "   SNAPSHOT DOES NOT VERIFY"; cat "$TMP/sha.log"; fail=1; }
+# sources.md may grow after the snapshot: its part before "## Added after the snapshot" is what was hashed.
+# The robots-sweep amendment of 9 November 2026 changed brief.md, by appending it, and scripts/common.py; the
+# shared-fetch-path change of 21 November 2026 (notes/keeper/robots-intent-2026-11-21/collectors_wired.md)
+# changed scripts/common.py again and scripts/collect_meta.py, after the reads. Their snapshotted versions are in
+# git history (collect_meta.py's at 7523007; common.py's before the 9 November sweep). So brief.md is verified up
+# to that amendment, and those two scripts are listed, not verified (fixed 21 November 2026, as LH013's on 19 November).
+want=$(grep '  brief.md$' "$HERE/data/snapshot_sha256.txt" | cut -d' ' -f1)
+got=$("$PY" -c "import hashlib,sys; s=open(sys.argv[1],'rb').read(); i=s.find(b'\n- **Amendment, 9 November 2026'); print(hashlib.sha256(s if i < 0 else s[:i]).hexdigest())" "$HERE/brief.md")
+[ "$want" = "$got" ] && echo "   brief.md verifies (text before the amendment of 9 November 2026)" || { echo "   brief.md DOES NOT VERIFY"; fail=1; }
+AMENDED='brief.md|sources.md|scripts/common.py|scripts/collect_meta.py'
+(cd "$HERE" && grep -Ev "  ($AMENDED)\$" data/snapshot_sha256.txt | sha256sum -c -) > "$TMP/sha.log" 2>&1 && echo "   $(grep -c ': OK' "$TMP/sha.log") other files verify; scripts/common.py (9 and 21 November) and scripts/collect_meta.py (21 November) changed after the snapshot, not verified" || { echo "   SNAPSHOT DOES NOT VERIFY"; cat "$TMP/sha.log"; fail=1; }
 "$PY" - "$HERE/sources.md" "$HERE/data/snapshot_sha256.txt" <<'PYEOF' || fail=1
 import hashlib, sys
 s = open(sys.argv[1], 'rb').read()

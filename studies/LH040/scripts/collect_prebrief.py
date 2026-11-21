@@ -11,6 +11,13 @@ Bodies are kept raw under data/pre-brief-<UTC label>/ with readlog.csv
 The label is the UTC minute the read starts. User-Agent "Lighthouse-research/1.0". No key, token
 or credential is read or sent.
 
+From 21 November 2026 (the keeper's decision, notes/keeper/2026-11-21-robots-intent.md; the reads above
+were made before it and are unchanged): every request goes through scripts/lh_fetch.py's urlopen, so
+robots.txt is asked first under the one-off rule, since each is a single targeted read (before, urllib's
+urlopen with no robots check), and a refused URL is logged as status "error: NotFetched: ..."; a body (also an HTTP error's) is saved only
+through lh_fetch's save_body, which withholds email addresses; where it may not be kept nothing is
+written and readlog.csv gains a body_kept column ("no: <reason>"); no later script reads these bodies.
+
 Stage 2 follows every vulnerability id the OSV query returns (GET /v1/vulns/<id>), once each,
 besides the two ids named below for the March 2026 compromise.
 
@@ -20,16 +27,23 @@ pointed to (LiteLLM's own incident posts, PyPI's report on the March compromise,
 of records for litellm, to check "the second compromise of 2026"); it follows no OSV ids. --third reads PANEL_3: the column definitions of two more ClickPy per-day
 tables, and deps.dev's version and dependents endpoints for an unrelated package (requests 2.32.3),
 to see whether they answer; nothing for litellm.
+
+Moved onto the shared fetch path (lh_fetch urlopen and save_body) on 21 November 2026 under the keeper's decision
+(notes/keeper/2026-11-21-robots-intent.md); the evidence was collected by the earlier version, `git show 7523007:studies/LH040/scripts/collect_prebrief.py`.
 """
 from datetime import datetime, timezone
 from hashlib import sha256
 from pathlib import Path
 from urllib.error import HTTPError
-from urllib.request import Request, urlopen
+from urllib.request import Request
 import csv
 import json
 import os
 import ssl
+import sys
+
+sys.path.insert(0, os.path.join(os.path.dirname(os.path.abspath(__file__)), '..', '..', '..', 'scripts'))
+from lh_fetch import urlopen, save_body  # noqa: E402  robots.txt gate (8 November 2026); one keep path (21 November)
 
 ROOT = Path(__file__).resolve().parents[1]
 UA = 'Lighthouse-research/1.0'
@@ -103,19 +117,23 @@ def fetch(name, url, method, body, headers, out, rows):
     data = body.encode() if body is not None else None
     req = Request(url, data=data, method=method, headers={'User-Agent': UA, **headers})
     payload = b''
+    final, hdrs = url, None
     try:
         try:
-            resp = urlopen(req, timeout=60, context=CTX)
+            resp = urlopen(req, timeout=60, context=CTX, access='oneoff')
         except HTTPError as err:
             resp = err
         with resp:
             payload = resp.read(CEILING + 1)
             row.update(status=resp.status, content_type=resp.headers.get('Content-Type', ''))
-    except Exception as err:  # network failure: recorded, nothing invented
+            final, hdrs = resp.geturl() or url, resp.headers
+    except Exception as err:  # network failure or robots.txt refusal (NotFetched): recorded, nothing invented
         row.update(status='error: ' + type(err).__name__ + ': ' + str(err)[:200], content_type='')
     row.update(size=len(payload), sha256=sha256(payload).hexdigest() if payload else '')
     if payload:
-        (out / (name + '.raw')).write_bytes(payload[:CEILING])
+        kept, why = save_body(out / (name + '.raw'), payload[:CEILING], final, hdrs)
+        if not kept:
+            row['body_kept'] = 'no: ' + why
     rows.append(row)
     print(json.dumps({k: row[k] for k in ('name', 'status', 'size')}), flush=True)
     return payload
@@ -126,7 +144,6 @@ def main():
     out = ROOT / 'data' / ('pre-brief-' + label)
     assert not out.exists(), 'label already held; not overwritten'
     out.mkdir(parents=True)
-    import sys
     rows = []
     follow = []
     for name, url, method, body, headers in (PANEL_2 if '--second' in sys.argv else PANEL_3 if '--third' in sys.argv else PANEL):
@@ -140,6 +157,8 @@ def main():
     for vid in follow:
         fetch('osv_' + vid, 'https://api.osv.dev/v1/vulns/' + vid, 'GET', None, {}, out, rows)
     fields = ['name', 'url', 'utc_start', 'status', 'content_type', 'size', 'sha256', 'method', 'request_body']
+    if any('body_kept' in r for r in rows):  # only when a body was not kept, so a kept read's log is as before
+        fields.append('body_kept')
     with open(out / 'readlog.csv', 'w', newline='') as f:
         w = csv.DictWriter(f, fieldnames=fields)
         w.writeheader()

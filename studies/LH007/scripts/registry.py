@@ -3,9 +3,13 @@
 Manifests, image indexes and configuration blobs are cached in the scratch directory so that a rerun
 does not repeat a counted Docker Hub pull. Layers are streamed, decompressed and walked as tar
 entries as they arrive, and the connection is closed as soon as the wanted entries are seen or the
-byte cap is reached; no layer is written to disk."""
+byte cap is reached; no layer is written to disk.
+
+Moved onto the shared fetch path (lh_fetch urlopen and save_body) on 21 November 2026 under the keeper's decision
+(notes/keeper/2026-11-21-robots-intent.md); the evidence was collected by the earlier version, `git show 7523007:studies/LH007/scripts/registry.py`."""
 import gzip, hashlib, io, json, os, re, tarfile, time, zlib
 from common import http, SCRATCH, log, now, S
+from lh_fetch import save_body  # noqa: E402  (scripts/ is on the path through common)
 
 ACCEPT = ', '.join(['application/vnd.oci.image.index.v1+json',
                     'application/vnd.docker.distribution.manifest.list.v2+json',
@@ -131,8 +135,17 @@ def manifest(host, name, ref):
     j = r.json()
     j['_digest'] = r.headers.get('docker-content-digest', '')
     j['_content_type'] = r.headers.get('content-type', '')
-    json.dump(j, open(path, 'w'))
+    _cache(path, j, r)
     return j
+
+
+def _cache(path, j, r):
+    """The scratchpad cache copy of a registry response, written only through lh_fetch's save_body
+    (21 November 2026; before, json.dump directly). Where it may not be kept, nothing is cached: this run
+    uses the parsed response from memory and a later run asks again."""
+    kept, why = save_body(path, json.dumps(j).encode(), r.url, r.headers)
+    if not kept:
+        print('body_kept: no:', why, r.url)
 
 
 def platform_manifest(host, name, index):
@@ -157,7 +170,7 @@ def blob_json(host, name, digest):
     if r.status_code != 200:
         return {'_status': r.status_code}
     j = r.json()
-    json.dump(j, open(path, 'w'))
+    _cache(path, j, r)
     return j
 
 

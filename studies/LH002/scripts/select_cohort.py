@@ -8,12 +8,19 @@ dependent's commit, tag or in-window release activity.
 
 Usage: python3 select_cohort.py <scratch_dir>
 Writes <scratch_dir>/raw/depsdev/* and <scratch_dir>/cohort_selection.json
+
+From 21 November 2026 (the keeper's decision, notes/keeper/2026-11-21-robots-intent.md) a body is cached
+only through scripts/lh_fetch.py's save_body (which withholds email addresses, as before); where it may not
+be kept nothing is written to the cache, the parsed body is used from memory in this run and the refusal
+is printed ("body_kept: no: <reason>"). A kept body is unchanged.
+
+Moved onto the shared fetch path (lh_fetch urlopen and save_body) on 21 November 2026 under the keeper's decision
+(notes/keeper/2026-11-21-robots-intent.md); the evidence was collected by the earlier version, `git show 7523007:studies/LH002/scripts/select_cohort.py`.
 """
 import hashlib, json, os, sys, time, urllib.request, urllib.parse
 import os as _os, sys as _sys
 _sys.path.insert(0, _os.path.join(_os.path.dirname(_os.path.abspath(__file__)), '..', '..', '..', 'scripts'))
-from lh_fetch import urlopen, check as robots_check, NotFetched, UA  # noqa: E402  robots.txt gate (the keeper, 8 November 2026)
-from redact_emails import redact_bytes  # noqa: E402  email addresses withheld from kept bodies
+from lh_fetch import urlopen, check as robots_check, NotFetched, UA, save_body  # noqa: E402  robots.txt gate (the keeper, 8 November 2026); one keep path (21 November)
 
 S = sys.argv[1]
 RAW = os.path.join(S, 'raw', 'depsdev')
@@ -27,8 +34,12 @@ def get(url, path):
     if not os.path.exists(path):
         # robots.txt gate: a disallowed URL raises NotFetched and stops the run (a missing reading, never a negative)
         with urlopen(urllib.request.Request(url, headers={'User-Agent': UA}), timeout=60) as r:
-            open(path, 'wb').write(redact_bytes(r.read())[0])
+            body = r.read()
+            kept, why = save_body(path, body, r.geturl() or url, r.headers)
         time.sleep(0.2)
+        if not kept:
+            print('body_kept: no:', why, url, file=sys.stderr)
+            return json.loads(body)
     return json.load(open(path))
 
 q = urllib.parse.quote

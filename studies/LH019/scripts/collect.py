@@ -1,5 +1,12 @@
 #!/usr/bin/env python3
-"""One immutable, bounded observation of four official PHP moving tags."""
+"""One immutable, bounded observation of four official PHP moving tags.
+
+From 21 November 2026 (the keeper's decision, notes/keeper/2026-11-21-robots-intent.md) a body is saved
+only through scripts/lh_fetch.py's save_body (which withholds email addresses, as before); where it may
+not be kept no .raw is written, `file` is empty and `error` ends "body_kept: no: <reason>". A kept body is unchanged.
+
+Moved onto the shared fetch path (lh_fetch urlopen and save_body) on 21 November 2026 under the keeper's decision
+(notes/keeper/2026-11-21-robots-intent.md); the evidence was collected by the earlier version, `git show 7523007:studies/LH019/scripts/collect.py`."""
 import argparse
 import csv
 import hashlib
@@ -8,8 +15,7 @@ import urllib.error
 import urllib.request
 import os as _os, sys as _sys
 _sys.path.insert(0, _os.path.join(_os.path.dirname(_os.path.abspath(__file__)), '..', '..', '..', 'scripts'))
-from lh_fetch import urlopen, check as robots_check, NotFetched, UA  # noqa: E402  robots.txt gate (the keeper, 8 November 2026)
-from redact_emails import redact_bytes  # noqa: E402  email addresses withheld from kept bodies
+from lh_fetch import urlopen, check as robots_check, NotFetched, UA, save_body  # noqa: E402  robots.txt gate (the keeper, 8 November 2026); one keep path (21 November)
 from datetime import datetime, timezone
 from pathlib import Path
 
@@ -52,6 +58,7 @@ def main():
         hdr = {}
         data = b''
         error = ''
+        final = url
         cap = min(1024 * 1024, ceiling - retained)
         try:
             request = urllib.request.Request(url, headers={
@@ -59,6 +66,7 @@ def main():
             with urlopen(request, timeout=22) as response:
                 status = response.status
                 hdr = dict(response.headers)
+                final = response.geturl() or url
                 data = response.read(cap + 1)
                 if len(data) > cap:
                     error = 'response exceeded cap; retained truncated prefix'
@@ -71,13 +79,16 @@ def main():
         except Exception as exc:
             error = f'{type(exc).__name__}: {exc}'
         path = out / (kind + '_' + tag.replace('.', '_').replace('-', '_') + '.raw')
+        kept = True
         if not ephemeral:
-            path.write_bytes(redact_bytes(data)[0])
+            kept, why = save_body(path, data, final, hdr)
+            if not kept:
+                error = (error + '; ' if error else '') + 'body_kept: no: ' + why
             retained += len(data)
         rows.append(dict(observed_at_utc=started, kind=kind, tag=tag, url=url,
                          status=status, bytes=len(data) if not ephemeral else '',
                          sha256=hashlib.sha256(data).hexdigest() if not ephemeral else '',
-                         file=path.relative_to(ROOT).as_posix() if not ephemeral else '[anonymous bearer discarded]',
+                         file=('' if not kept else path.relative_to(ROOT).as_posix()) if not ephemeral else '[anonymous bearer discarded]',
                          last_modified=hdr.get('Last-Modified', ''), etag=hdr.get('ETag', ''),
                          ratelimit_remaining=hdr.get('Ratelimit-Remaining', hdr.get('RateLimit-Remaining', '')),
                          error=error))

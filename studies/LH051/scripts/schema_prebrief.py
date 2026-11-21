@@ -6,13 +6,20 @@ scripts/robots_gate.py first, streams it in memory and writes only the JSON key 
 the value types and how many events carried each path. It keeps no value of any field, no repository, actor or
 organisation, and matches nothing: no count of any title, branch or commit message is made.
 
+It keeps no body, so it has no save_body call. From 21 November 2026 it fetches through scripts/lh_fetch.py
+(check, then lh_fetch's urlopen, which asks the same cached gate: the rule and the one robots.txt read are as
+before; the read of 13 November was made with robots_gate.py and urllib directly).
+
 Usage: python3 -I studies/LH051/scripts/schema_prebrief.py --hour 2026-11-08-12 --out <dir>
+
+Moved onto the shared fetch path (lh_fetch urlopen and save_body) on 21 November 2026 under the keeper's decision
+(notes/keeper/2026-11-21-robots-intent.md); the evidence was collected by the earlier version, `git show 7523007:studies/LH051/scripts/schema_prebrief.py`.
 """
 from datetime import datetime, timezone
 from hashlib import sha256
 from pathlib import Path
 from urllib.error import HTTPError
-from urllib.request import Request, urlopen
+from urllib.request import Request
 import argparse
 import gzip
 import io
@@ -20,9 +27,7 @@ import json
 import sys
 
 sys.path.insert(0, str(Path(__file__).resolve().parents[3] / 'scripts'))
-from robots_gate import RobotsGate  # noqa: E402
-
-UA = 'Mozilla/5.0 (compatible; Lighthouse-research/1.0; +https://lighthouse.harbour.cat)'
+from lh_fetch import check, urlopen, UA  # noqa: E402  one gate for every collector (21 November 2026)
 
 
 def paths(obj, prefix, acc):
@@ -45,8 +50,7 @@ def main():
     day = datetime.strptime(a.hour.rsplit('-', 1)[0], '%Y-%m-%d')
     assert day < datetime(2026, 11, 10), 'schema check only on an hour before the campaign'
     url = 'https://data.gharchive.org/%s.json.gz' % a.hour
-    gate = RobotsGate(UA)
-    ok, info = gate.check(url)
+    ok, info = check(url)
     row = {'url': url, 'robots': info, 'start_utc': datetime.now(timezone.utc).isoformat(timespec='seconds')}
     if not ok:
         row['error'] = 'not fetched: ' + info['reason']

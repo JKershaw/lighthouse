@@ -1,3 +1,5 @@
+# Moved onto the shared fetch path (lh_fetch urlopen and save_body) on 21 November 2026 under the keeper's decision
+# (notes/keeper/2026-11-21-robots-intent.md); the evidence was collected by the earlier version, `git show 7523007:studies/LH050/data/2026-11-21T1414Z/collector.py`.
 # LH050-policy-after collector (2026-11-21, label 2026-11-21T1414Z). Adapted from 2026-11-19T1417Z/collector.py: takes a JSON list of
 # {"source_id","name","url"} on argv[2] instead of the panel; same robots gate, redaction, one retry for
 # connection failures only, no retries around walls.
@@ -35,10 +37,15 @@ for it in items:
             red, n = redact_bytes(body)
             ext = ".pdf" if ("pdf" in ctype or body[:5] == b"%PDF-") else ".html"
             rp = "studies/LH050/data/%s/bodies/%s%s" % (label, nm, ext)
-            open(os.path.join(REPO, rp), "wb").write(red)
+            # saved only through lh_fetch's save_body (the keeper, 21 November 2026); this collector is the record
+            # of its read and is not run again; a kept body is unchanged
+            kept, why = lh_fetch.save_body(os.path.join(REPO, rp), body, final or url, r.headers)
             rec.update(status=status, final_url=final, content_type=ctype, received_bytes=len(body),
                        received_sha256=hashlib.sha256(body).hexdigest(), emails_redacted=n,
-                       retained_sha256=hashlib.sha256(red).hexdigest(), retained_path=rp, access="readable")
+                       retained_sha256=hashlib.sha256(red).hexdigest() if kept else "", retained_path=rp if kept else "",
+                       access="readable")
+            if not kept:
+                rec["body_kept"] = "no: " + why
             break
         except urllib.error.HTTPError as e:
             body = e.read() if hasattr(e, "read") else b""

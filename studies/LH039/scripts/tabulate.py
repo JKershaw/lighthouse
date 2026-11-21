@@ -212,6 +212,9 @@ def measure3(label, lines, csv_path):
     lines.append("== Measure 3: Packagist fixed share within a branch, per UTC day (read %s) ==" % label)
     log = list(csv.DictReader(open(os.path.join(d, "readlog.csv"))))
     bad = [r["name"] for r in log if r["status"] != "200"]
+    not_kept = [r["name"] for r in log if r["status"] == "200" and not os.path.exists(os.path.join(d, r["name"] + ".json"))]
+    if not_kept:  # a body not kept (save_body, 21 November 2026): stop rather than drop the release from a share
+        raise SystemExit("measure 3: readings unavailable (body not kept): " + ", ".join(not_kept))
     lines.append("requests: %d, HTTP 200: %d, other: %s" % (len(log), len(log) - len(bad), ", ".join(bad) or "none"))
     rows_out = []
     for pkg in ["roots", "johnpbloch"]:

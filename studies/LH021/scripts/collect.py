@@ -1,5 +1,12 @@
 #!/usr/bin/env python3
-"""A bounded, immutable first source-and-run snapshot for three PHP image publishers."""
+"""A bounded, immutable first source-and-run snapshot for three PHP image publishers.
+
+From 21 November 2026 (the keeper's decision, notes/keeper/2026-11-21-robots-intent.md) a body is saved
+only through scripts/lh_fetch.py's save_body (which withholds email addresses, as before); where it may
+not be kept no .raw is written, `file` is empty and `error` ends "body_kept: no: <reason>". A kept body is unchanged.
+
+Moved onto the shared fetch path (lh_fetch urlopen and save_body) on 21 November 2026 under the keeper's decision
+(notes/keeper/2026-11-21-robots-intent.md); the evidence was collected by the earlier version, `git show 7523007:studies/LH021/scripts/collect.py`."""
 import csv
 import hashlib
 import json
@@ -7,8 +14,7 @@ import urllib.error
 import urllib.request
 import os as _os, sys as _sys
 _sys.path.insert(0, _os.path.join(_os.path.dirname(_os.path.abspath(__file__)), '..', '..', '..', 'scripts'))
-from lh_fetch import urlopen, check as robots_check, NotFetched, UA  # noqa: E402  robots.txt gate (the keeper, 8 November 2026)
-from redact_emails import redact_bytes  # noqa: E402  email addresses withheld from kept bodies
+from lh_fetch import urlopen, check as robots_check, NotFetched, UA, save_body  # noqa: E402  robots.txt gate (the keeper, 8 November 2026); one keep path (21 November)
 from datetime import datetime, timezone
 from pathlib import Path
 
@@ -38,6 +44,7 @@ def fetch(key, url):
     body = b''
     hdr = {}
     error = ''
+    final = url
     cap = min(2 * 1024 * 1024, 12 * 1024 * 1024 - total)
     try:
         req = urllib.request.Request(url, headers={
@@ -47,6 +54,7 @@ def fetch(key, url):
         with urlopen(req, timeout=20) as response:
             status = response.status
             hdr = dict(response.headers)
+            final = response.geturl() or url
             body = response.read(cap + 1)
             if len(body) > cap:
                 error = 'response exceeded byte cap; retained truncated prefix'
@@ -60,16 +68,17 @@ def fetch(key, url):
         error = f'{type(exc).__name__}: {exc}'
     total += len(body)
     file = OUT / (key + '.raw')
-    file.write_bytes(redact_bytes(body)[0])
+    kept, why = save_body(file, body, final, hdr)
+    logged_error = error if kept else (error + '; ' if error else '') + 'body_kept: no: ' + why
     rows.append(dict(observed_at_utc=at, key=key, url=url, status=status,
                      bytes=len(body), sha256=hashlib.sha256(body).hexdigest(),
-                     file=file.relative_to(ROOT).as_posix(),
-                     remaining=hdr.get('X-RateLimit-Remaining', ''), error=error))
+                     file=file.relative_to(ROOT).as_posix() if kept else '',
+                     remaining=hdr.get('X-RateLimit-Remaining', ''), error=logged_error))
     with (OUT / 'read_log.csv').open('w', newline='') as handle:
         writer = csv.DictWriter(handle, FIELDS, lineterminator='\n')
         writer.writeheader()
         writer.writerows(rows)
-    print(key, status, len(body), error, flush=True)
+    print(key, status, len(body), logged_error, flush=True)
     if status == 200 and not error:
         try:
             return json.loads(body)

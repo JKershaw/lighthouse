@@ -25,13 +25,17 @@ echo "1. snapshots: brief.md and amendment 1"
 "$PY" - "$HERE" <<'PYEOF' || fail=1
 import hashlib, sys, os
 h = sys.argv[1]
-brief = hashlib.sha256(open(os.path.join(h, 'brief.md'), 'rb').read()).hexdigest()
+# brief.md gained the robots amendment of 9 November 2026 after the snapshot, so it is verified up to
+# that amendment, as LH013's replay is (fixed 21 November 2026).
+_b = open(os.path.join(h, 'brief.md'), 'rb').read()
+_i = _b.find(b'\n- **Amendment, 9 November 2026')
+brief = hashlib.sha256(_b if _i < 0 else _b[:_i]).hexdigest()
 snap = open(os.path.join(h, 'snapshot_sha256.txt')).read().split()[0]
 text = open(os.path.join(h, 'amendments.md'), 'rb').read()
 first = text.split(b'\n## Amendment 2')[0]
 a1 = hashlib.sha256(first).hexdigest()
 ok = brief == snap and a1 == 'ccb7a3460c9574ea933e869462d43ff99e168bd86c0860392559648d2020f7fa'
-print(f'   brief.md {"matches" if brief == snap else "DIFFERS from"} the snapshot; amendment 1 '
+print(f'   brief.md (text before the amendment of 9 November 2026) {"matches" if brief == snap else "DIFFERS from"} the snapshot; amendment 1 '
       f'{"matches" if a1.startswith("ccb7a346") else "DIFFERS from"} ccb7a346...')
 sys.exit(0 if ok else 1)
 PYEOF

@@ -20,23 +20,30 @@ Never requested (gate condition 6), refused by URL below: any file on files.pyth
 API, any PyPI user page, the webhook host the reports name, github.com and its content hosts, Azure
 DevOps, and any wheel or source distribution path.
 
+From 21 November 2026 (the keeper's decision, notes/keeper/2026-11-21-robots-intent.md; the reads above were
+made before it): the gate is scripts/lh_fetch.py's own (check, then lh_fetch's urlopen, which asks the same
+cached gate, so robots.txt is still read once per host and the rule is unchanged), and a body is saved only
+through lh_fetch's save_body; where it may not be kept nothing is written, the row has no `file`, and
+fetchlog.csv gains a body_kept column ("no: <reason>"), added only when some body was not kept.
+
 Usage: LIGHTHOUSE_PROVIDER=anthropic python3 -I studies/LH056/scripts/collect_prebrief.py [--closure]
+
+Moved onto the shared fetch path (lh_fetch urlopen and save_body) on 21 November 2026 under the keeper's decision
+(notes/keeper/2026-11-21-robots-intent.md); the evidence was collected by the earlier version, `git show 7523007:studies/LH056/scripts/collect_prebrief.py`.
 """
 from datetime import datetime, timezone
 from hashlib import sha256
 from pathlib import Path
 from urllib.error import HTTPError
-from urllib.request import Request, urlopen
+from urllib.request import Request
 import argparse
 import csv
 import json
 import sys
 
 sys.path.insert(0, str(Path(__file__).resolve().parents[3] / 'scripts'))
-from robots_gate import RobotsGate  # noqa: E402  the keeper's robots.txt rule, 8 November 2026
+from lh_fetch import check, urlopen, save_body, UA  # noqa: E402  the keeper's robots.txt rule (8 November), one keep path (21 November)
 from redact_emails import redact_bytes  # noqa: E402  email addresses withheld
-
-UA = 'Mozilla/5.0 (compatible; Lighthouse-research/1.0; +https://lighthouse.harbour.cat)'
 ROOT = Path(__file__).resolve().parents[1]
 CEILING = 16 * 1024 * 1024
 MAX_REQUESTS = 8   # gate condition 4: the event records at most eight requests each time
@@ -61,16 +68,17 @@ PLAN = [
 ]
 
 
-def fetch(gate, name, url, method, body, headers, out):
+def fetch(name, url, method, body, headers, out):
     row = {'name': name, 'url': url, 'method': method, 'request_body': body or '',
            'utc_start': datetime.now(timezone.utc).strftime('%Y-%m-%dT%H:%M:%SZ')}
-    ok, info = gate.check(url)
+    ok, info = check(url)
     row['robots'] = '%s (%s, group %s, rule %s)' % (info.get('reason'), info.get('robots_url'),
                                                      info.get('decided_by', ''), info.get('rule', ''))
     if not ok:
         row['status'] = 'NotFetched'
         return row, False
     payload = b''
+    final, hdrs = url, None
     try:
         req = Request(url, data=body.encode() if body is not None else None, method=method,
                       headers={'User-Agent': UA, **headers})
@@ -82,13 +90,17 @@ def fetch(gate, name, url, method, body, headers, out):
             payload = resp.read(CEILING + 1)
             row.update(status=resp.status, content_type=resp.headers.get('Content-Type', ''),
                        last_modified=resp.headers.get('Last-Modified', ''))
+            final, hdrs = resp.geturl() or url, resp.headers
     except Exception as err:  # recorded, never retried, nothing invented
         row['status'] = 'error: ' + type(err).__name__ + ': ' + str(err)[:200]
     row.update(bytes=len(payload), sha256=sha256(payload).hexdigest() if payload else '')
     if payload and len(payload) <= CEILING:
-        redacted, n = redact_bytes(payload)
-        (out / (name + '.raw')).write_bytes(redacted)
-        row.update(file=name + '.raw', emails_withheld=n)
+        n = redact_bytes(payload)[1]
+        kept, why = save_body(out / (name + '.raw'), payload, final, hdrs)
+        if kept:
+            row.update(file=name + '.raw', emails_withheld=n)
+        else:
+            row['body_kept'] = 'no: ' + why
     return row, True
 
 
@@ -104,17 +116,18 @@ def main():
     out = ROOT / 'data' / (('closure-' if a.closure else 'prebrief-') + label)
     assert not out.exists(), 'label already held; not overwritten'
     out.mkdir(parents=True)
-    gate = RobotsGate(UA)
     rows, made = [], 0
     for name, url, method, body, headers in PLAN:
         if made >= MAX_REQUESTS:
             sys.exit('ceiling of %d requests reached' % MAX_REQUESTS)
-        row, requested = fetch(gate, name, url, method, body, headers, out)
+        row, requested = fetch(name, url, method, body, headers, out)
         made += int(requested)
         rows.append(row)
         print(json.dumps({k: row.get(k) for k in ('name', 'status', 'bytes', 'emails_withheld')}), flush=True)
     fields = ['name', 'url', 'method', 'request_body', 'utc_start', 'status', 'content_type', 'last_modified',
               'bytes', 'sha256', 'emails_withheld', 'file', 'robots']
+    if any('body_kept' in r for r in rows):  # only when a body was not kept, so a kept read's log is as before
+        fields.append('body_kept')
     with open(out / 'fetchlog.csv', 'w', newline='') as f:
         w = csv.DictWriter(f, fieldnames=fields)
         w.writeheader()
