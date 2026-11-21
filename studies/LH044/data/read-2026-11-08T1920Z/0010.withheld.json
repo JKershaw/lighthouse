@@ -1,0 +1,28 @@
+{
+ "withheld": "body",
+ "why": "The site's robots.txt refuses AI-training or archiving crawlers (here ClaudeBot by name, read through scripts/robots_gate.py on 21 November 2026), so Lighthouse keeps no copy of the page in its public repository (the keeper's decision of 21 November 2026, notes/keeper/2026-11-21-robots-intent.md). Withheld by a subagent of the Watch run of that day.",
+ "date": "2026-11-21",
+ "sha256_received": "4cf8e2c7e307dd85a75f090ce2d97ab973f2b4bb00e167d64a2b2fe56ee0e771",
+ "bytes_received": 65536,
+ "by": "studies/LH044/scripts/derive_kept.py",
+ "url": "https://codeberg.org/forgejo/forgejo",
+ "service": "F06",
+ "kind": "probe",
+ "fetched_utc": "2026-11-08T19:19:12Z",
+ "http_status": 200,
+ "fetch_log": "studies/LH044/data/read-2026-11-08T1920Z/readlog.csv (n=10)",
+ "headers": "0010.h (kept unchanged)",
+ "extract": {
+  "title": "forgejo/forgejo: Beyond coding. We forge. - Codeberg.org"
+ },
+ "sha256_kept_until_withheld": "4385412e4625998a14bba1674e03bb581c97b4fd166047632500769d703c7ba9",
+ "bytes_kept_until_withheld": 65537,
+ "derived": {
+  "classifier": "0.2",
+  "class": "open",
+  "detail": "marker",
+  "marker_found": true,
+  "marker_in_context": "\t<meta name=\"viewport\" content=\"width=device-width, initial-scale=1\">\n\t\n\t<title>forgejo/forgejo: Beyond coding. We forge. - Codeberg.org</title>\n\t<link rel=\"manifest\" ",
+  "echoes": []
+ }
+}

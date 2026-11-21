@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
 """LH045 part B: weekly capture of Epoch AI's AI data-centre records, under brief.md (protocol 0.1, 8 November 2026).
 
-Checks robots.txt first and skips any URL it disallows. One GET per URL, about one a
+Checks robots.txt first, through scripts/robots_gate.py (from 21 November 2026), and skips any URL it refuses. One GET per URL, about one a
 second; bodies kept raw under data/epoch/raw-<label>/ with readlog.csv (name, url, UTC
 start, status, content type, size, SHA-256, note). Then derives updates.csv from the
 update log page's embedded data. Idempotent: a label already held is not fetched again;
@@ -12,10 +12,15 @@ Usage: python3 -I studies/LH045/scripts/collect_epoch.py --read 2026-11-08T1930Z
 import sys as _sys, os as _os
 _sys.path.insert(0, _os.path.join(_os.path.dirname(_os.path.abspath(__file__)), '..', '..', '..', 'scripts'))
 from redact_emails import redact_bytes  # noqa: E402
+from lh_fetch import save_body, UA  # noqa: E402  what may be kept (the keeper, 21 November 2026); Lighthouse's UA
+from robots_gate import RobotsGate  # noqa: E402  the keeper's robots.txt rule of 8 November 2026
 import argparse, csv, datetime, gzip, hashlib, html, json, os, re, sys, time
-import urllib.error, urllib.request, urllib.robotparser
+import urllib.error, urllib.request
 
-UA = "Lighthouse-research/1.0 (+https://lighthouse.harbour.cat)"
+# Brief amendment of 21 November 2026 (review R-0111): robots.txt is read once per run by scripts/robots_gate.py
+# with Lighthouse's User-Agent (was "Lighthouse-research/1.0 (+https://lighthouse.harbour.cat)" and
+# urllib.robotparser); a URL it refuses, or whose robots.txt answers 5xx or cannot be read, is not fetched.
+GATE = RobotsGate(UA)
 ROBOTS = "https://epoch.ai/robots.txt"
 URLS = [
     ("hub", "https://epoch.ai/data/data-centers"),
@@ -35,12 +40,12 @@ def get(url):
     for attempt in (1, 2):
         try:
             with urllib.request.urlopen(req, timeout=120) as r:
-                return r.status, r.headers.get("Content-Type", ""), r.read(64 << 20), ""
+                return r.status, r.headers.get("Content-Type", ""), r.read(64 << 20), "", r.geturl() or url, r.headers
         except urllib.error.HTTPError as e:
-            return e.code, e.headers.get("Content-Type", ""), e.read() or b"", "http error"
+            return e.code, e.headers.get("Content-Type", ""), e.read() or b"", "http error", url, e.headers
         except Exception as e:  # one retry after a connection reset, as the brief allows
             if attempt == 2 or "reset" not in repr(e).lower():
-                return "error", "", repr(e).encode(), "no response"
+                return "error", "", repr(e).encode(), "no response", url, None
             time.sleep(5)
 
 def unzip_body(b):
@@ -116,20 +121,23 @@ def main():
     os.makedirs(d)
     log = open(os.path.join(d, "readlog.csv"), "w", newline="")
     w = csv.writer(log)
-    w.writerow(["name", "url", "utc_start", "status", "content_type", "size", "sha256", "note"])
-    t = now(); st, ct, body, note = get(ROBOTS)
+    w.writerow(["name", "url", "utc_start", "status", "content_type", "size", "sha256", "note", "body_kept"])
+    t = now(); rec = GATE._robots(ROBOTS)  # the gate's one read of robots.txt, kept and logged as before
+    body = rec.get("body") or b""
     open(os.path.join(d, "robots.body"), "wb").write(redact_bytes(body)[0])
-    w.writerow(["robots", ROBOTS, t, st, ct, len(body), hashlib.sha256(body).hexdigest(), note])
-    rp = urllib.robotparser.RobotFileParser()
-    rp.parse(body.decode("utf-8", "replace").splitlines() if st == 200 else [])
+    w.writerow(["robots", ROBOTS, t, rec.get("status"), "", len(body), rec.get("sha256", ""),
+                "read by scripts/robots_gate.py" + ("; " + rec["error"] if rec.get("error") else ""), ""])
     for name, url in URLS:
         time.sleep(1)
         t = now()
-        if st == 200 and not rp.can_fetch(UA, url):
-            w.writerow([name, url, t, "skipped", "", 0, "", "disallowed by robots.txt"]); print(name, "skipped (robots)"); continue
-        s2, ct, body, note = get(url)
-        open(os.path.join(d, name + ".body"), "wb").write(redact_bytes(body)[0])
-        w.writerow([name, url, t, s2, ct, len(body), hashlib.sha256(body).hexdigest(), note])
+        ok, info = GATE.check(url)
+        if not ok:  # not fetched: a missing reading, never a negative
+            w.writerow([name, url, t, "not fetched", "", 0, "", "%s (robots %s, status %s, group %s, rule %s)" % (
+                info.get("reason"), info.get("robots_url"), info.get("robots_status"), info.get("decided_by", ""),
+                info.get("rule", "")), ""]); print(name, "not fetched (robots)"); continue
+        s2, ct, body, note, final, hdrs = get(url)
+        kept, why = save_body(os.path.join(d, name + ".body"), body, final, hdrs, gate=GATE)  # the keeper, 21 November 2026
+        w.writerow([name, url, t, s2, ct, len(body), hashlib.sha256(body).hexdigest(), note, "" if kept else "no: " + why])
         log.flush()
         print(name, s2, len(body))
     log.close()

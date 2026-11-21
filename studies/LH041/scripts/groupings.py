@@ -103,6 +103,8 @@ def assign(d, npm, pypi, posthoc):
     rows = []
     for l in gzip.open(os.path.join(d, "osv-selected.jsonl.gz"), "rt"):
         r = json.loads(l)
+        if r.get("raw") is None:  # body not kept (the keeper, 21 November 2026): readings unavailable, so no table
+            sys.exit("groupings not made: OSV record %s not kept (%s), readings unavailable" % (r.get("file"), r.get("body_kept")))
         rec = json.loads(r["raw"])
         if rec.get("withdrawn"):
             continue

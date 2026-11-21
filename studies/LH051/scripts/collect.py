@@ -39,7 +39,6 @@ from urllib.error import HTTPError
 from urllib.request import Request, urlopen
 import argparse
 import csv
-import gzip
 import json
 import re
 import subprocess
@@ -50,7 +49,8 @@ import zlib
 HERE = Path(__file__).resolve().parent
 sys.path.insert(0, str(HERE.parents[2] / 'scripts'))
 sys.path.insert(0, str(HERE))
-from robots_gate import RobotsGate  # noqa: E402  the keeper's robots.txt rule, 8 November 2026
+import lh_fetch  # noqa: E402  its robots.txt gate (the keeper's rule, 8 November 2026), used for fetching and keeping alike
+from lh_fetch import save_body  # noqa: E402  what may be kept (the keeper, 21 November 2026)
 from collect_prebrief import withhold  # noqa: E402  emails, GitHub paths, names and Telegram links withheld
 
 UA = 'Mozilla/5.0 (compatible; Lighthouse-research/1.0; +https://lighthouse.harbour.cat)'
@@ -256,7 +256,7 @@ def read_posts(gate, label):
     out.mkdir(parents=True, exist_ok=True)
     logp = out / 'read_log.json'
     rows = json.loads(logp.read_text()) if logp.exists() else []
-    held = {r['name'] for r in rows if r.get('file')}
+    held = {r['name'] for r in rows if r.get('file') or (r.get('body_kept') or '').startswith('no')}
     for name, url in POSTS:
         if name in held:
             continue
@@ -279,8 +279,11 @@ def read_posts(gate, label):
                                sha256=sha256(data).hexdigest())
                     if len(data) <= POST_CEILING:
                         red, n = withhold(data)
-                        (out / (name + '.raw.gz')).write_bytes(gzip.compress(red, mtime=0))
-                        row.update(file=name + '.raw.gz', **n)
+                        kept, why = save_body(out / (name + '.raw.gz'), red, resp.geturl() or url, resp.headers)
+                        if kept:  # the keeper, 21 November 2026: no body kept where robots.txt or the page refuses it
+                            row.update(file=name + '.raw.gz', **n)
+                        else:
+                            row['body_kept'] = 'no: ' + why
             except Exception as err:
                 row['error'] = type(err).__name__ + ': ' + str(err)[:300]
         rows.append(row)
@@ -309,7 +312,7 @@ def main():
     held = {r['hour'] for r in held_rows if r.get('http_status') == '200' and r.get('gzip_ok') == '1'}
     todo = [h for h in hours if label_hour(h) not in held]
     received = sum(int(r.get('bytes') or 0) for r in held_rows)
-    gate = RobotsGate(UA)
+    gate = lh_fetch  # lh_fetch.check(url): the same gate save_body asks
     if a.dry_run:
         decisions = {}
         for h in todo:

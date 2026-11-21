@@ -1,7 +1,1 @@
-<html>
-<head><title>502 Bad Gateway</title></head>
-<body>
-<center><h1>502 Bad Gateway</h1></center>
-<hr><center>nginx</center>
-</body>
-</html>
+[body withheld by Lighthouse: the site's robots.txt refuses AI-training or archiving crawlers or all bots, or the page reserves itself (the keeper's decision of 21 November 2026); hash, headers and extract in 0012.withheld.json]

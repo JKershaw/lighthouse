@@ -1,0 +1,4586 @@
+{
+ "studies": {
+  "LH030": {
+   "access.redhat.com": {
+    "urls": 1,
+    "refused": [],
+    "n_refused_of_checked": [
+     0,
+     1
+    ]
+   },
+   "alas.aws.amazon.com": {
+    "urls": 2,
+    "refused": [],
+    "n_refused_of_checked": [
+     0,
+     2
+    ]
+   },
+   "api.osv.dev": {
+    "urls": 1,
+    "refused": [],
+    "n_refused_of_checked": [
+     0,
+     1
+    ]
+   },
+   "blog.cloudflare.com": {
+    "urls": 1,
+    "refused": [],
+    "n_refused_of_checked": [
+     0,
+     1
+    ]
+   },
+   "cert.europa.eu": {
+    "urls": 1,
+    "refused": [],
+    "n_refused_of_checked": [
+     0,
+     1
+    ]
+   },
+   "cloud.google.com": {
+    "urls": 1,
+    "refused": [],
+    "n_refused_of_checked": [
+     0,
+     1
+    ]
+   },
+   "cveawg.mitre.org": {
+    "urls": 1,
+    "refused": [],
+    "n_refused_of_checked": [
+     0,
+     1
+    ]
+   },
+   "docs.cloud.google.com": {
+    "urls": 1,
+    "refused": [],
+    "n_refused_of_checked": [
+     0,
+     1
+    ]
+   },
+   "security-tracker.debian.org": {
+    "urls": 1,
+    "refused": [],
+    "n_refused_of_checked": [
+     0,
+     1
+    ]
+   },
+   "services.nvd.nist.gov": {
+    "urls": 1,
+    "refused": [],
+    "n_refused_of_checked": [
+     0,
+     1
+    ]
+   },
+   "ubuntu.com": {
+    "urls": 1,
+    "refused": [],
+    "n_refused_of_checked": [
+     0,
+     1
+    ]
+   },
+   "www.akamai.com": {
+    "urls": 1,
+    "refused": [],
+    "n_refused_of_checked": [
+     0,
+     1
+    ]
+   },
+   "www.cisa.gov": {
+    "urls": 1,
+    "refused": [],
+    "n_refused_of_checked": [
+     0,
+     1
+    ]
+   },
+   "www.fastly.com": {
+    "urls": 2,
+    "refused": [],
+    "n_refused_of_checked": [
+     0,
+     2
+    ]
+   },
+   "www.ncsc.gov.uk": {
+    "urls": 1,
+    "refused": [],
+    "n_refused_of_checked": [
+     0,
+     1
+    ]
+   },
+   "www.php.net": {
+    "urls": 1,
+    "refused": [],
+    "n_refused_of_checked": [
+     0,
+     1
+    ]
+   },
+   "www.suse.com": {
+    "urls": 1,
+    "refused": [],
+    "n_refused_of_checked": [
+     0,
+     1
+    ]
+   }
+  },
+  "LH031": {
+   "raw.githubusercontent.com": {
+    "urls": 1,
+    "refused": [],
+    "n_refused_of_checked": [
+     0,
+     1
+    ]
+   },
+   "security.paloaltonetworks.com": {
+    "urls": 2,
+    "refused": [],
+    "n_refused_of_checked": [
+     0,
+     2
+    ]
+   },
+   "unit42.paloaltonetworks.com": {
+    "urls": 1,
+    "refused": [],
+    "n_refused_of_checked": [
+     0,
+     1
+    ]
+   },
+   "www.cisa.gov": {
+    "urls": 4,
+    "refused": [],
+    "n_refused_of_checked": [
+     0,
+     4
+    ]
+   }
+  },
+  "LH032": {
+   "example.invalid": {
+    "urls": 2,
+    "refused": [
+     [
+      "https://example.invalid/advisory",
+      "not fetched"
+     ],
+     [
+      "https://example.invalid/new",
+      "not fetched"
+     ]
+    ],
+    "n_refused_of_checked": [
+     2,
+     2
+    ]
+   }
+  },
+  "LH033": {
+   "packagist.org": {
+    "urls": 1,
+    "refused": [],
+    "n_refused_of_checked": [
+     0,
+     1
+    ]
+   },
+   "php2shell.censys.com": {
+    "urls": 1,
+    "refused": [],
+    "n_refused_of_checked": [
+     0,
+     1
+    ]
+   },
+   "w3techs.com": {
+    "urls": 9,
+    "refused": [
+     [
+      "https://w3techs.com/technologies/",
+      "Bytespider (a training or archiving crawler) is refused at this path"
+     ],
+     [
+      "https://w3techs.com/technologies/details/pl-php/8.2",
+      "Bytespider (a training or archiving crawler) is refused at this path"
+     ],
+     [
+      "https://w3techs.com/technologies/details/pl-php/8.3",
+      "Bytespider (a training or archiving crawler) is refused at this path"
+     ],
+     [
+      "https://w3techs.com/technologies/details/pl-php/8.4",
+      "Bytespider (a training or archiving crawler) is refused at this path"
+     ],
+     [
+      "https://w3techs.com/technologies/details/pl-php/8.5",
+      "Bytespider (a training or archiving crawler) is refused at this path"
+     ]
+    ],
+    "n_refused_of_checked": [
+     9,
+     9
+    ]
+   },
+   "www.php.net": {
+    "urls": 4,
+    "refused": [],
+    "n_refused_of_checked": [
+     0,
+     4
+    ]
+   },
+   "www.w3.org": {
+    "urls": 1,
+    "refused": [],
+    "n_refused_of_checked": [
+     0,
+     1
+    ]
+   }
+  },
+  "LH034": {
+   "nodejs.org": {
+    "urls": 1,
+    "refused": [
+     [
+      "https://nodejs.org/dist/index.json",
+      "not fetched"
+     ]
+    ],
+    "n_refused_of_checked": [
+     1,
+     1
+    ]
+   },
+   "storage.googleapis.com": {
+    "urls": 7,
+    "refused": [],
+    "n_refused_of_checked": [
+     0,
+     7
+    ]
+   },
+   "www.w3.org": {
+    "urls": 1,
+    "refused": [],
+    "n_refused_of_checked": [
+     0,
+     1
+    ]
+   }
+  },
+  "LH036": {
+   "access.redhat.com": {
+    "urls": 1,
+    "refused": [],
+    "n_refused_of_checked": [
+     0,
+     1
+    ]
+   },
+   "almalinux.org": {
+    "urls": 1,
+    "refused": [],
+    "n_refused_of_checked": [
+     0,
+     1
+    ]
+   },
+   "api.first.org": {
+    "urls": 2,
+    "refused": [],
+    "n_refused_of_checked": [
+     0,
+     2
+    ]
+   },
+   "api.osv.dev": {
+    "urls": 1,
+    "refused": [],
+    "n_refused_of_checked": [
+     0,
+     1
+    ]
+   },
+   "cveawg.mitre.org": {
+    "urls": 1,
+    "refused": [],
+    "n_refused_of_checked": [
+     0,
+     1
+    ]
+   },
+   "git.kernel.org": {
+    "urls": 2,
+    "refused": [
+     [
+      "https://git.kernel.org/linus/e3f33b0a1d89d738e2b913dab519226eaf76e15b",
+      "not fetched"
+     ],
+     [
+      "https://git.kernel.org/pub/scm/linux/security/vulns.git/plain/cve/published/2026/CVE-2026-98432.mbox",
+      "not fetched"
+     ]
+    ],
+    "n_refused_of_checked": [
+     2,
+     2
+    ]
+   },
+   "security-tracker.debian.org": {
+    "urls": 1,
+    "refused": [],
+    "n_refused_of_checked": [
+     0,
+     1
+    ]
+   },
+   "services.nvd.nist.gov": {
+    "urls": 1,
+    "refused": [],
+    "n_refused_of_checked": [
+     0,
+     1
+    ]
+   },
+   "ubuntu.com": {
+    "urls": 1,
+    "refused": [],
+    "n_refused_of_checked": [
+     0,
+     1
+    ]
+   },
+   "www.anthropic.com": {
+    "urls": 1,
+    "refused": [],
+    "n_refused_of_checked": [
+     0,
+     1
+    ]
+   },
+   "www.cisa.gov": {
+    "urls": 1,
+    "refused": [],
+    "n_refused_of_checked": [
+     0,
+     1
+    ]
+   },
+   "www.openwall.com": {
+    "urls": 3,
+    "refused": [],
+    "n_refused_of_checked": [
+     0,
+     3
+    ]
+   },
+   "www.suse.com": {
+    "urls": 1,
+    "refused": [],
+    "n_refused_of_checked": [
+     0,
+     1
+    ]
+   }
+  },
+  "LH037": {
+   "advisory.splunk.com": {
+    "urls": 2,
+    "refused": [],
+    "n_refused_of_checked": [
+     0,
+     2
+    ]
+   },
+   "api.msrc.microsoft.com": {
+    "urls": 2,
+    "refused": [],
+    "n_refused_of_checked": [
+     0,
+     2
+    ]
+   },
+   "cloud.google.com": {
+    "urls": 4,
+    "refused": [],
+    "n_refused_of_checked": [
+     0,
+     4
+    ]
+   },
+   "docs.cloud.google.com": {
+    "urls": 6,
+    "refused": [],
+    "n_refused_of_checked": [
+     0,
+     6
+    ]
+   },
+   "filestore.fortinet.com": {
+    "urls": 2,
+    "refused": [],
+    "n_refused_of_checked": [
+     0,
+     2
+    ]
+   },
+   "fortiguard.fortinet.com": {
+    "urls": 1,
+    "refused": [],
+    "n_refused_of_checked": [
+     0,
+     1
+    ]
+   },
+   "helpx.adobe.com": {
+    "urls": 1,
+    "refused": [],
+    "n_refused_of_checked": [
+     0,
+     1
+    ]
+   },
+   "linux.oracle.com": {
+    "urls": 2,
+    "refused": [],
+    "n_refused_of_checked": [
+     0,
+     2
+    ]
+   },
+   "psirt.global.sonicwall.com": {
+    "urls": 1,
+    "refused": [],
+    "n_refused_of_checked": [
+     0,
+     1
+    ]
+   },
+   "roundcube.net": {
+    "urls": 2,
+    "refused": [],
+    "n_refused_of_checked": [
+     0,
+     2
+    ]
+   },
+   "sec.cloudapps.cisco.com": {
+    "urls": 2,
+    "refused": [],
+    "n_refused_of_checked": [
+     0,
+     2
+    ]
+   },
+   "security.paloaltonetworks.com": {
+    "urls": 2,
+    "refused": [],
+    "n_refused_of_checked": [
+     0,
+     2
+    ]
+   },
+   "security.samsungmobile.com": {
+    "urls": 1,
+    "refused": [],
+    "n_refused_of_checked": [
+     0,
+     1
+    ]
+   },
+   "source.android.com": {
+    "urls": 1,
+    "refused": [],
+    "n_refused_of_checked": [
+     0,
+     1
+    ]
+   },
+   "support.apple.com": {
+    "urls": 1,
+    "refused": [],
+    "n_refused_of_checked": [
+     0,
+     1
+    ]
+   },
+   "support.broadcom.com": {
+    "urls": 1,
+    "refused": [],
+    "n_refused_of_checked": [
+     0,
+     1
+    ]
+   },
+   "support.citrix.com": {
+    "urls": 2,
+    "refused": [],
+    "n_refused_of_checked": [
+     0,
+     2
+    ]
+   },
+   "supportannouncement.us.dlink.com": {
+    "urls": 2,
+    "refused": [],
+    "n_refused_of_checked": [
+     0,
+     2
+    ]
+   },
+   "wiki.zimbra.com": {
+    "urls": 1,
+    "refused": [],
+    "n_refused_of_checked": [
+     0,
+     1
+    ]
+   },
+   "www.adobe.com": {
+    "urls": 1,
+    "refused": [],
+    "n_refused_of_checked": [
+     0,
+     1
+    ]
+   },
+   "www.broadcom.com": {
+    "urls": 2,
+    "refused": [],
+    "n_refused_of_checked": [
+     0,
+     2
+    ]
+   },
+   "www.citrix.com": {
+    "urls": 1,
+    "refused": [],
+    "n_refused_of_checked": [
+     0,
+     1
+    ]
+   },
+   "www.cloud.com": {
+    "urls": 1,
+    "refused": [],
+    "n_refused_of_checked": [
+     0,
+     1
+    ]
+   },
+   "www.ivanti.com": {
+    "urls": 2,
+    "refused": [],
+    "n_refused_of_checked": [
+     0,
+     2
+    ]
+   },
+   "www.oracle.com": {
+    "urls": 2,
+    "refused": [],
+    "n_refused_of_checked": [
+     0,
+     2
+    ]
+   },
+   "www.php.net": {
+    "urls": 1,
+    "refused": [],
+    "n_refused_of_checked": [
+     0,
+     1
+    ]
+   },
+   "www.sonicwall.com": {
+    "urls": 3,
+    "refused": [],
+    "n_refused_of_checked": [
+     0,
+     3
+    ]
+   },
+   "www.vmware.com": {
+    "urls": 1,
+    "refused": [],
+    "n_refused_of_checked": [
+     0,
+     1
+    ]
+   },
+   "www.zyxel.com": {
+    "urls": 2,
+    "refused": [],
+    "n_refused_of_checked": [
+     0,
+     2
+    ]
+   }
+  },
+  "LH040": {
+   "api.deps.dev": {
+    "urls": 7,
+    "refused": [
+     [
+      "https://api.deps.dev/v3/systems/pypi/packages/litellm/versions/1.107.0",
+      "not fetched"
+     ],
+     [
+      "https://api.deps.dev/v3/systems/pypi/packages/requests/versions/2.32.3",
+      "not fetched"
+     ],
+     [
+      "https://api.deps.dev/v3alpha/systems/pypi/packages/litellm/versions/1.106.1:dependents",
+      "not fetched"
+     ],
+     [
+      "https://api.deps.dev/v3alpha/systems/pypi/packages/litellm/versions/1.106.2:dependents",
+      "not fetched"
+     ],
+     [
+      "https://api.deps.dev/v3alpha/systems/pypi/packages/litellm/versions/1.106.3:dependents",
+      "not fetched"
+     ]
+    ],
+    "n_refused_of_checked": [
+     7,
+     7
+    ]
+   },
+   "api.osv.dev": {
+    "urls": 4,
+    "refused": [],
+    "n_refused_of_checked": [
+     0,
+     4
+    ]
+   },
+   "blog.pypi.org": {
+    "urls": 3,
+    "refused": [],
+    "n_refused_of_checked": [
+     0,
+     3
+    ]
+   },
+   "cloudsmith.com": {
+    "urls": 1,
+    "refused": [],
+    "n_refused_of_checked": [
+     0,
+     1
+    ]
+   },
+   "docs.litellm.ai": {
+    "urls": 5,
+    "refused": [],
+    "n_refused_of_checked": [
+     0,
+     5
+    ]
+   },
+   "docs.pypi.org": {
+    "urls": 1,
+    "refused": [],
+    "n_refused_of_checked": [
+     0,
+     1
+    ]
+   },
+   "pypi.org": {
+    "urls": 7,
+    "refused": [
+     [
+      "https://pypi.org/pypi/litellm/1.106.7/json",
+      "not fetched"
+     ],
+     [
+      "https://pypi.org/pypi/litellm/1.107.0/json",
+      "not fetched"
+     ],
+     [
+      "https://pypi.org/pypi/litellm/1.108.0/json",
+      "not fetched"
+     ],
+     [
+      "https://pypi.org/pypi/litellm/json",
+      "not fetched"
+     ],
+     [
+      "https://pypi.org/simple/litellm/",
+      "not fetched"
+     ]
+    ],
+    "n_refused_of_checked": [
+     5,
+     7
+    ]
+   },
+   "pypistats.org": {
+    "urls": 1,
+    "refused": [],
+    "n_refused_of_checked": [
+     0,
+     1
+    ]
+   },
+   "securitylabs.datadoghq.com": {
+    "urls": 1,
+    "refused": [],
+    "n_refused_of_checked": [
+     0,
+     1
+    ]
+   },
+   "sql-clickhouse.clickhouse.com": {
+    "urls": 2,
+    "refused": [],
+    "n_refused_of_checked": [
+     0,
+     2
+    ]
+   },
+   "status.python.org": {
+    "urls": 1,
+    "refused": [],
+    "n_refused_of_checked": [
+     0,
+     1
+    ]
+   },
+   "www.aikido.dev": {
+    "urls": 2,
+    "refused": [],
+    "n_refused_of_checked": [
+     0,
+     2
+    ]
+   },
+   "www.stepsecurity.io": {
+    "urls": 1,
+    "refused": [],
+    "n_refused_of_checked": [
+     0,
+     1
+    ]
+   }
+  },
+  "LH041": {
+   "osv-vulnerabilities.storage.googleapis.com": {
+    "urls": 2,
+    "refused": [],
+    "n_refused_of_checked": [
+     0,
+     2
+    ]
+   },
+   "raw.githubusercontent.com": {
+    "urls": 1,
+    "refused": [],
+    "n_refused_of_checked": [
+     0,
+     1
+    ]
+   },
+   "registry.npmjs.org": {
+    "urls": 1,
+    "refused": [],
+    "n_refused_of_checked": [
+     0,
+     1
+    ]
+   }
+  },
+  "LH042": {
+   "arxiv.org": {
+    "urls": 6,
+    "refused": [],
+    "n_refused_of_checked": [
+     0,
+     6
+    ]
+   },
+   "blog.cyberdesserts.com": {
+    "urls": 2,
+    "refused": [],
+    "n_refused_of_checked": [
+     0,
+     2
+    ]
+   },
+   "blog.leakix.net": {
+    "urls": 2,
+    "refused": [],
+    "n_refused_of_checked": [
+     0,
+     2
+    ]
+   },
+   "blogs.cisco.com": {
+    "urls": 1,
+    "refused": [],
+    "n_refused_of_checked": [
+     0,
+     1
+    ]
+   },
+   "censys.com": {
+    "urls": 5,
+    "refused": [],
+    "n_refused_of_checked": [
+     0,
+     5
+    ]
+   },
+   "chlebda.de": {
+    "urls": 1,
+    "refused": [],
+    "n_refused_of_checked": [
+     0,
+     1
+    ]
+   },
+   "dashboard.shadowserver.org": {
+    "urls": 2,
+    "refused": [
+     [
+      "https://dashboard.shadowserver.org",
+      "not fetched"
+     ],
+     [
+      "https://dashboard.shadowserver.org/",
+      "not fetched"
+     ]
+    ],
+    "n_refused_of_checked": [
+     2,
+     2
+    ]
+   },
+   "declawed.io": {
+    "urls": 2,
+    "refused": [
+     [
+      "https://declawed.io/",
+      "not fetched"
+     ],
+     [
+      "https://declawed.io/api/stats",
+      "not fetched"
+     ]
+    ],
+    "n_refused_of_checked": [
+     2,
+     2
+    ]
+   },
+   "hunt.io": {
+    "urls": 1,
+    "refused": [],
+    "n_refused_of_checked": [
+     0,
+     1
+    ]
+   },
+   "insecurestack.substack.com": {
+    "urls": 1,
+    "refused": [],
+    "n_refused_of_checked": [
+     0,
+     1
+    ]
+   },
+   "labs.cloudsecurityalliance.org": {
+    "urls": 3,
+    "refused": [],
+    "n_refused_of_checked": [
+     0,
+     3
+    ]
+   },
+   "pluto.security": {
+    "urls": 1,
+    "refused": [],
+    "n_refused_of_checked": [
+     0,
+     1
+    ]
+   },
+   "research.opena2a.org": {
+    "urls": 11,
+    "refused": [],
+    "n_refused_of_checked": [
+     0,
+     11
+    ]
+   },
+   "securityaffairs.com": {
+    "urls": 1,
+    "refused": [],
+    "n_refused_of_checked": [
+     0,
+     1
+    ]
+   },
+   "securityscorecard.com": {
+    "urls": 3,
+    "refused": [],
+    "n_refused_of_checked": [
+     0,
+     3
+    ]
+   },
+   "synthient.com": {
+    "urls": 1,
+    "refused": [],
+    "n_refused_of_checked": [
+     0,
+     1
+    ]
+   },
+   "thehackernews.com": {
+    "urls": 1,
+    "refused": [],
+    "n_refused_of_checked": [
+     0,
+     1
+    ]
+   },
+   "threatfrontier.com": {
+    "urls": 1,
+    "refused": [],
+    "n_refused_of_checked": [
+     0,
+     1
+    ]
+   },
+   "vmblog.com": {
+    "urls": 1,
+    "refused": [],
+    "n_refused_of_checked": [
+     0,
+     1
+    ]
+   },
+   "www.axios.com": {
+    "urls": 1,
+    "refused": [
+     [
+      "https://www.axios.com/2026/10/13/censys-ai-vibe-coding-exposures",
+      "CCBot (a training or archiving crawler) is refused at this path"
+     ]
+    ],
+    "n_refused_of_checked": [
+     1,
+     1
+    ]
+   },
+   "www.helpnetsecurity.com": {
+    "urls": 1,
+    "refused": [],
+    "n_refused_of_checked": [
+     0,
+     1
+    ]
+   },
+   "www.infosecurity-magazine.com": {
+    "urls": 1,
+    "refused": [],
+    "n_refused_of_checked": [
+     0,
+     1
+    ]
+   },
+   "www.intruder.io": {
+    "urls": 1,
+    "refused": [],
+    "n_refused_of_checked": [
+     0,
+     1
+    ]
+   },
+   "www.knostic.ai": {
+    "urls": 1,
+    "refused": [],
+    "n_refused_of_checked": [
+     0,
+     1
+    ]
+   },
+   "www.malwarepatrol.net": {
+    "urls": 1,
+    "refused": [],
+    "n_refused_of_checked": [
+     0,
+     1
+    ]
+   },
+   "www.mysteriumvpn.com": {
+    "urls": 1,
+    "refused": [],
+    "n_refused_of_checked": [
+     0,
+     1
+    ]
+   },
+   "www.penligent.ai": {
+    "urls": 1,
+    "refused": [],
+    "n_refused_of_checked": [
+     0,
+     1
+    ]
+   },
+   "www.runzero.com": {
+    "urls": 1,
+    "refused": [],
+    "n_refused_of_checked": [
+     0,
+     1
+    ]
+   },
+   "www.sentinelone.com": {
+    "urls": 1,
+    "refused": [],
+    "n_refused_of_checked": [
+     0,
+     1
+    ]
+   },
+   "www.shadowserver.org": {
+    "urls": 1,
+    "refused": [],
+    "n_refused_of_checked": [
+     0,
+     1
+    ]
+   },
+   "www.trendmicro.com": {
+    "urls": 1,
+    "refused": [],
+    "n_refused_of_checked": [
+     0,
+     1
+    ]
+   },
+   "www.upguard.com": {
+    "urls": 1,
+    "refused": [],
+    "n_refused_of_checked": [
+     0,
+     1
+    ]
+   }
+  },
+  "LH044": {
+   "a.example": {
+    "urls": 1,
+    "refused": [
+     [
+      "https://a.example/x",
+      "not fetched"
+     ]
+    ],
+    "n_refused_of_checked": [
+     1,
+     1
+    ]
+   },
+   "about.readthedocs.com": {
+    "urls": 1,
+    "refused": [],
+    "n_refused_of_checked": [
+     0,
+     1
+    ]
+   },
+   "ambiente-sustentabilidad.org": {
+    "urls": 1,
+    "refused": [],
+    "n_refused_of_checked": [
+     0,
+     1
+    ]
+   },
+   "anaconda.org": {
+    "urls": 1,
+    "refused": [],
+    "n_refused_of_checked": [
+     0,
+     1
+    ]
+   },
+   "api.biorxiv.org": {
+    "urls": 1,
+    "refused": [],
+    "n_refused_of_checked": [
+     0,
+     1
+    ]
+   },
+   "api.bitbucket.org": {
+    "urls": 1,
+    "refused": [],
+    "n_refused_of_checked": [
+     0,
+     1
+    ]
+   },
+   "api.crossref.org": {
+    "urls": 1,
+    "refused": [],
+    "n_refused_of_checked": [
+     0,
+     1
+    ]
+   },
+   "api.github.com": {
+    "urls": 1,
+    "refused": [],
+    "n_refused_of_checked": [
+     0,
+     1
+    ]
+   },
+   "api.launchpad.net": {
+    "urls": 1,
+    "refused": [],
+    "n_refused_of_checked": [
+     0,
+     1
+    ]
+   },
+   "api.nuget.org": {
+    "urls": 1,
+    "refused": [],
+    "n_refused_of_checked": [
+     0,
+     1
+    ]
+   },
+   "api.openalex.org": {
+    "urls": 1,
+    "refused": [],
+    "n_refused_of_checked": [
+     0,
+     1
+    ]
+   },
+   "api.semanticscholar.org": {
+    "urls": 1,
+    "refused": [],
+    "n_refused_of_checked": [
+     0,
+     1
+    ]
+   },
+   "api.stackexchange.com": {
+    "urls": 1,
+    "refused": [],
+    "n_refused_of_checked": [
+     0,
+     1
+    ]
+   },
+   "api.worldbank.org": {
+    "urls": 1,
+    "refused": [],
+    "n_refused_of_checked": [
+     0,
+     1
+    ]
+   },
+   "archive.org": {
+    "urls": 3,
+    "refused": [],
+    "n_refused_of_checked": [
+     0,
+     3
+    ]
+   },
+   "archive.ubuntu.com": {
+    "urls": 1,
+    "refused": [
+     [
+      "http://archive.ubuntu.com/ubuntu/dists/noble/Release",
+      "not fetched"
+     ]
+    ],
+    "n_refused_of_checked": [
+     1,
+     1
+    ]
+   },
+   "arxiv.org": {
+    "urls": 1,
+    "refused": [],
+    "n_refused_of_checked": [
+     0,
+     1
+    ]
+   },
+   "b.example": {
+    "urls": 1,
+    "refused": [
+     [
+      "https://b.example/x",
+      "not fetched"
+     ]
+    ],
+    "n_refused_of_checked": [
+     1,
+     1
+    ]
+   },
+   "balimedicaljournal.org": {
+    "urls": 1,
+    "refused": [],
+    "n_refused_of_checked": [
+     0,
+     1
+    ]
+   },
+   "bdu.siu.edu.ar": {
+    "urls": 1,
+    "refused": [
+     [
+      "http://bdu.siu.edu.ar/bnmoai/oai2.php?verb=Identify",
+      "Amazonbot (a training or archiving crawler) is refused at this path"
+     ]
+    ],
+    "n_refused_of_checked": [
+     1,
+     1
+    ]
+   },
+   "c.example": {
+    "urls": 1,
+    "refused": [
+     [
+      "https://c.example/x",
+      "not fetched"
+     ]
+    ],
+    "n_refused_of_checked": [
+     1,
+     1
+    ]
+   },
+   "catalog.data.gov": {
+    "urls": 1,
+    "refused": [],
+    "n_refused_of_checked": [
+     0,
+     1
+    ]
+   },
+   "cdn.httparchive.org": {
+    "urls": 2,
+    "refused": [],
+    "n_refused_of_checked": [
+     0,
+     2
+    ]
+   },
+   "cdn.kernel.org": {
+    "urls": 1,
+    "refused": [],
+    "n_refused_of_checked": [
+     0,
+     1
+    ]
+   },
+   "central.sonatype.com": {
+    "urls": 1,
+    "refused": [
+     [
+      "https://central.sonatype.com/artifact/org.apache.commons/commons-lang3",
+      "not fetched"
+     ]
+    ],
+    "n_refused_of_checked": [
+     1,
+     1
+    ]
+   },
+   "coar-repositories.org": {
+    "urls": 1,
+    "refused": [
+     [
+      "https://coar-repositories.org/wp-content/uploads/2026/06/3.6.-Paul-Walk-Dealing-With-Bots.pdf",
+      "not fetched"
+     ]
+    ],
+    "n_refused_of_checked": [
+     1,
+     1
+    ]
+   },
+   "codeberg.org": {
+    "urls": 1,
+    "refused": [
+     [
+      "https://codeberg.org/forgejo/forgejo",
+      "not fetched"
+     ]
+    ],
+    "n_refused_of_checked": [
+     1,
+     1
+    ]
+   },
+   "crates.io": {
+    "urls": 1,
+    "refused": [],
+    "n_refused_of_checked": [
+     0,
+     1
+    ]
+   },
+   "ctujs.ctu.edu.vn": {
+    "urls": 1,
+    "refused": [],
+    "n_refused_of_checked": [
+     0,
+     1
+    ]
+   },
+   "data.gov.uk": {
+    "urls": 1,
+    "refused": [],
+    "n_refused_of_checked": [
+     0,
+     1
+    ]
+   },
+   "daten.digitale-sammlungen.de": {
+    "urls": 1,
+    "refused": [],
+    "n_refused_of_checked": [
+     0,
+     1
+    ]
+   },
+   "dealing-with-bots.coar-repositories.org": {
+    "urls": 1,
+    "refused": [
+     [
+      "https://dealing-with-bots.coar-repositories.org/context/",
+      "not fetched"
+     ]
+    ],
+    "n_refused_of_checked": [
+     1,
+     1
+    ]
+   },
+   "deb.debian.org": {
+    "urls": 1,
+    "refused": [],
+    "n_refused_of_checked": [
+     0,
+     1
+    ]
+   },
+   "debian.ludost.net": {
+    "urls": 1,
+    "refused": [],
+    "n_refused_of_checked": [
+     0,
+     1
+    ]
+   },
+   "debian.redparra.com": {
+    "urls": 1,
+    "refused": [],
+    "n_refused_of_checked": [
+     0,
+     1
+    ]
+   },
+   "developer.mozilla.org": {
+    "urls": 1,
+    "refused": [],
+    "n_refused_of_checked": [
+     0,
+     1
+    ]
+   },
+   "diff.wikimedia.org": {
+    "urls": 1,
+    "refused": [],
+    "n_refused_of_checked": [
+     0,
+     1
+    ]
+   },
+   "discourse.elpub.ru": {
+    "urls": 1,
+    "refused": [],
+    "n_refused_of_checked": [
+     0,
+     1
+    ]
+   },
+   "dl-cdn.alpinelinux.org": {
+    "urls": 1,
+    "refused": [],
+    "n_refused_of_checked": [
+     0,
+     1
+    ]
+   },
+   "doaj.org": {
+    "urls": 1,
+    "refused": [],
+    "n_refused_of_checked": [
+     0,
+     1
+    ]
+   },
+   "docs.python.org": {
+    "urls": 1,
+    "refused": [],
+    "n_refused_of_checked": [
+     0,
+     1
+    ]
+   },
+   "docs.rs": {
+    "urls": 2,
+    "refused": [],
+    "n_refused_of_checked": [
+     0,
+     2
+    ]
+   },
+   "drewdevault.com": {
+    "urls": 1,
+    "refused": [],
+    "n_refused_of_checked": [
+     0,
+     1
+    ]
+   },
+   "e-docs.geo-leo.de": {
+    "urls": 1,
+    "refused": [],
+    "n_refused_of_checked": [
+     0,
+     1
+    ]
+   },
+   "ec.europa.eu": {
+    "urls": 1,
+    "refused": [],
+    "n_refused_of_checked": [
+     0,
+     1
+    ]
+   },
+   "elpub.ru": {
+    "urls": 1,
+    "refused": [],
+    "n_refused_of_checked": [
+     0,
+     1
+    ]
+   },
+   "en.wikipedia.org": {
+    "urls": 1,
+    "refused": [],
+    "n_refused_of_checked": [
+     0,
+     1
+    ]
+   },
+   "example.com": {
+    "urls": 1,
+    "refused": [],
+    "n_refused_of_checked": [
+     0,
+     1
+    ]
+   },
+   "ftp.eq.uc.pt": {
+    "urls": 1,
+    "refused": [
+     [
+      "http://ftp.eq.uc.pt/software/Linux/debian/README",
+      "not fetched"
+     ]
+    ],
+    "n_refused_of_checked": [
+     1,
+     1
+    ]
+   },
+   "ftp.gnu.org": {
+    "urls": 1,
+    "refused": [],
+    "n_refused_of_checked": [
+     0,
+     1
+    ]
+   },
+   "ftp.osuosl.org": {
+    "urls": 1,
+    "refused": [],
+    "n_refused_of_checked": [
+     0,
+     1
+    ]
+   },
+   "ftp.psn.ru": {
+    "urls": 1,
+    "refused": [],
+    "n_refused_of_checked": [
+     0,
+     1
+    ]
+   },
+   "full.example": {
+    "urls": 1,
+    "refused": [
+     [
+      "https://full.example/x",
+      "not fetched"
+     ]
+    ],
+    "n_refused_of_checked": [
+     1,
+     1
+    ]
+   },
+   "geo.mirror.pkgbuild.com": {
+    "urls": 1,
+    "refused": [],
+    "n_refused_of_checked": [
+     0,
+     1
+    ]
+   },
+   "git.sr.ht": {
+    "urls": 1,
+    "refused": [
+     [
+      "https://git.sr.ht/~sircmpwn/scdoc",
+      "not fetched"
+     ]
+    ],
+    "n_refused_of_checked": [
+     1,
+     1
+    ]
+   },
+   "github.blog": {
+    "urls": 1,
+    "refused": [],
+    "n_refused_of_checked": [
+     0,
+     1
+    ]
+   },
+   "github.com": {
+    "urls": 1,
+    "refused": [],
+    "n_refused_of_checked": [
+     0,
+     1
+    ]
+   },
+   "gitlab.com": {
+    "urls": 1,
+    "refused": [],
+    "n_refused_of_checked": [
+     0,
+     1
+    ]
+   },
+   "gitlab.gnome.org": {
+    "urls": 1,
+    "refused": [],
+    "n_refused_of_checked": [
+     0,
+     1
+    ]
+   },
+   "har.fyi": {
+    "urls": 1,
+    "refused": [],
+    "n_refused_of_checked": [
+     0,
+     1
+    ]
+   },
+   "hex.pm": {
+    "urls": 1,
+    "refused": [],
+    "n_refused_of_checked": [
+     0,
+     1
+    ]
+   },
+   "httparchive.org": {
+    "urls": 5,
+    "refused": [],
+    "n_refused_of_checked": [
+     0,
+     5
+    ]
+   },
+   "hub.docker.com": {
+    "urls": 1,
+    "refused": [],
+    "n_refused_of_checked": [
+     0,
+     1
+    ]
+   },
+   "index.commoncrawl.org": {
+    "urls": 1,
+    "refused": [
+     [
+      "https://index.commoncrawl.org/collinfo.json",
+      "not fetched"
+     ]
+    ],
+    "n_refused_of_checked": [
+     1,
+     1
+    ]
+   },
+   "invent.kde.org": {
+    "urls": 1,
+    "refused": [],
+    "n_refused_of_checked": [
+     0,
+     1
+    ]
+   },
+   "journal.ldubgd.edu.ua": {
+    "urls": 1,
+    "refused": [],
+    "n_refused_of_checked": [
+     0,
+     1
+    ]
+   },
+   "journal.um.ac.id": {
+    "urls": 1,
+    "refused": [],
+    "n_refused_of_checked": [
+     0,
+     1
+    ]
+   },
+   "jpu.k-pin.org": {
+    "urls": 1,
+    "refused": [],
+    "n_refused_of_checked": [
+     0,
+     1
+    ]
+   },
+   "jurnal.itg.ac.id": {
+    "urls": 1,
+    "refused": [
+     [
+      "https://jurnal.itg.ac.id/index.php/algoritma/oai?verb=Identify",
+      "not fetched"
+     ]
+    ],
+    "n_refused_of_checked": [
+     1,
+     1
+    ]
+   },
+   "lethe.chinstrap.org": {
+    "urls": 1,
+    "refused": [],
+    "n_refused_of_checked": [
+     0,
+     1
+    ]
+   },
+   "loop.example": {
+    "urls": 1,
+    "refused": [
+     [
+      "https://loop.example/r%d",
+      "not fetched"
+     ]
+    ],
+    "n_refused_of_checked": [
+     1,
+     1
+    ]
+   },
+   "lwn.net": {
+    "urls": 1,
+    "refused": [
+     [
+      "https://lwn.net/Articles/1028558/",
+      "not fetched"
+     ]
+    ],
+    "n_refused_of_checked": [
+     1,
+     1
+    ]
+   },
+   "man7.org": {
+    "urls": 1,
+    "refused": [],
+    "n_refused_of_checked": [
+     0,
+     1
+    ]
+   },
+   "metacpan.org": {
+    "urls": 1,
+    "refused": [],
+    "n_refused_of_checked": [
+     0,
+     1
+    ]
+   },
+   "mirror.as43289.net": {
+    "urls": 1,
+    "refused": [],
+    "n_refused_of_checked": [
+     0,
+     1
+    ]
+   },
+   "mirror.duocast.net": {
+    "urls": 1,
+    "refused": [],
+    "n_refused_of_checked": [
+     0,
+     1
+    ]
+   },
+   "mirror.mirohost.net": {
+    "urls": 1,
+    "refused": [],
+    "n_refused_of_checked": [
+     0,
+     1
+    ]
+   },
+   "mirror.telepoint.bg": {
+    "urls": 1,
+    "refused": [],
+    "n_refused_of_checked": [
+     0,
+     1
+    ]
+   },
+   "mirrors.edge.kernel.org": {
+    "urls": 1,
+    "refused": [
+     [
+      "https://mirrors.edge.kernel.org/pub/linux/kernel/",
+      "not fetched"
+     ]
+    ],
+    "n_refused_of_checked": [
+     1,
+     1
+    ]
+   },
+   "mirrors.egr.msu.edu": {
+    "urls": 1,
+    "refused": [],
+    "n_refused_of_checked": [
+     0,
+     1
+    ]
+   },
+   "mirrors.vcea.wsu.edu": {
+    "urls": 1,
+    "refused": [],
+    "n_refused_of_checked": [
+     0,
+     1
+    ]
+   },
+   "ojs.philosophy.spbu.ru": {
+    "urls": 1,
+    "refused": [],
+    "n_refused_of_checked": [
+     0,
+     1
+    ]
+   },
+   "open.canada.ca": {
+    "urls": 1,
+    "refused": [],
+    "n_refused_of_checked": [
+     0,
+     1
+    ]
+   },
+   "opendata.swiss": {
+    "urls": 1,
+    "refused": [],
+    "n_refused_of_checked": [
+     0,
+     1
+    ]
+   },
+   "openlibrary.org": {
+    "urls": 1,
+    "refused": [
+     [
+      "https://openlibrary.org/works/OL45804W.json",
+      "not fetched"
+     ]
+    ],
+    "n_refused_of_checked": [
+     1,
+     1
+    ]
+   },
+   "packagist.org": {
+    "urls": 1,
+    "refused": [],
+    "n_refused_of_checked": [
+     0,
+     1
+    ]
+   },
+   "pbsi-upr.id": {
+    "urls": 1,
+    "refused": [],
+    "n_refused_of_checked": [
+     0,
+     1
+    ]
+   },
+   "people.kernel.org": {
+    "urls": 1,
+    "refused": [],
+    "n_refused_of_checked": [
+     0,
+     1
+    ]
+   },
+   "pip.pypa.io": {
+    "urls": 1,
+    "refused": [],
+    "n_refused_of_checked": [
+     0,
+     1
+    ]
+   },
+   "pkg.go.dev": {
+    "urls": 1,
+    "refused": [],
+    "n_refused_of_checked": [
+     0,
+     1
+    ]
+   },
+   "presentpasts.info": {
+    "urls": 1,
+    "refused": [],
+    "n_refused_of_checked": [
+     0,
+     1
+    ]
+   },
+   "prod-gw-2vzgiib6.ue.gateway.dev": {
+    "urls": 2,
+    "refused": [],
+    "n_refused_of_checked": [
+     0,
+     2
+    ]
+   },
+   "pub.dev": {
+    "urls": 1,
+    "refused": [],
+    "n_refused_of_checked": [
+     0,
+     1
+    ]
+   },
+   "pubmed.ncbi.nlm.nih.gov": {
+    "urls": 1,
+    "refused": [],
+    "n_refused_of_checked": [
+     0,
+     1
+    ]
+   },
+   "raw.githubusercontent.com": {
+    "urls": 4,
+    "refused": [],
+    "n_refused_of_checked": [
+     0,
+     4
+    ]
+   },
+   "rdap.arin.net": {
+    "urls": 1,
+    "refused": [],
+    "n_refused_of_checked": [
+     0,
+     1
+    ]
+   },
+   "readthedocs.org": {
+    "urls": 1,
+    "refused": [],
+    "n_refused_of_checked": [
+     0,
+     1
+    ]
+   },
+   "registry.npmjs.org": {
+    "urls": 1,
+    "refused": [],
+    "n_refused_of_checked": [
+     0,
+     1
+    ]
+   },
+   "release-assets.githubusercontent.com": {
+    "urls": 1,
+    "refused": [],
+    "n_refused_of_checked": [
+     0,
+     1
+    ]
+   },
+   "repo.packagist.org": {
+    "urls": 1,
+    "refused": [],
+    "n_refused_of_checked": [
+     0,
+     1
+    ]
+   },
+   "repo1.maven.org": {
+    "urls": 1,
+    "refused": [
+     [
+      "https://repo1.maven.org/maven2/org/apache/commons/commons-lang3/maven-metadata.xml",
+      "not fetched"
+     ]
+    ],
+    "n_refused_of_checked": [
+     1,
+     1
+    ]
+   },
+   "revistas.ustabuca.edu.co": {
+    "urls": 1,
+    "refused": [
+     [
+      "http://revistas.ustabuca.edu.co/index.php/ESPIRAL/oai?verb=Identify",
+      "not fetched"
+     ]
+    ],
+    "n_refused_of_checked": [
+     1,
+     1
+    ]
+   },
+   "rubygems.org": {
+    "urls": 1,
+    "refused": [],
+    "n_refused_of_checked": [
+     0,
+     1
+    ]
+   },
+   "runescape.wiki": {
+    "urls": 1,
+    "refused": [
+     [
+      "https://runescape.wiki/w/Lumbridge",
+      "not fetched"
+     ]
+    ],
+    "n_refused_of_checked": [
+     1,
+     1
+    ]
+   },
+   "salsa.debian.org": {
+    "urls": 1,
+    "refused": [],
+    "n_refused_of_checked": [
+     0,
+     1
+    ]
+   },
+   "scholarship.law.berkeley.edu": {
+    "urls": 1,
+    "refused": [
+     [
+      "https://scholarship.law.berkeley.edu/do/oai/?verb=Identify",
+      "not fetched"
+     ]
+    ],
+    "n_refused_of_checked": [
+     1,
+     1
+    ]
+   },
+   "scholarworks.wm.edu": {
+    "urls": 1,
+    "refused": [],
+    "n_refused_of_checked": [
+     0,
+     1
+    ]
+   },
+   "sourceforge.net": {
+    "urls": 1,
+    "refused": [],
+    "n_refused_of_checked": [
+     0,
+     1
+    ]
+   },
+   "stackoverflow.com": {
+    "urls": 1,
+    "refused": [],
+    "n_refused_of_checked": [
+     0,
+     1
+    ]
+   },
+   "web.archive.org": {
+    "urls": 3,
+    "refused": [
+     [
+      "https://web.archive.org/cdx/search/cdx?url=example.com&limit=3&output=json",
+      "not fetched"
+     ],
+     [
+      "https://web.archive.org/cdx/search/cdx?url=www.w3.org&from=2025&to=2025&limit=3&output=json",
+      "not fetched"
+     ],
+     [
+      "https://web.archive.org/web/20250101000000id_/https://www.w3.org/",
+      "not fetched"
+     ]
+    ],
+    "n_refused_of_checked": [
+     3,
+     3
+    ]
+   },
+   "wiki.archlinux.org": {
+    "urls": 1,
+    "refused": [],
+    "n_refused_of_checked": [
+     0,
+     1
+    ]
+   },
+   "wiki.debian.org": {
+    "urls": 1,
+    "refused": [],
+    "n_refused_of_checked": [
+     0,
+     1
+    ]
+   },
+   "wiki.gentoo.org": {
+    "urls": 1,
+    "refused": [
+     [
+      "https://wiki.gentoo.org/wiki/Portage",
+      "not fetched"
+     ]
+    ],
+    "n_refused_of_checked": [
+     1,
+     1
+    ]
+   },
+   "wikimedia.org": {
+    "urls": 3,
+    "refused": [],
+    "n_refused_of_checked": [
+     0,
+     3
+    ]
+   },
+   "www.cpan.org": {
+    "urls": 1,
+    "refused": [],
+    "n_refused_of_checked": [
+     0,
+     1
+    ]
+   },
+   "www.ctan.org": {
+    "urls": 1,
+    "refused": [],
+    "n_refused_of_checked": [
+     0,
+     1
+    ]
+   },
+   "www.data.gouv.fr": {
+    "urls": 1,
+    "refused": [],
+    "n_refused_of_checked": [
+     0,
+     1
+    ]
+   },
+   "www.debian.org": {
+    "urls": 1,
+    "refused": [],
+    "n_refused_of_checked": [
+     0,
+     1
+    ]
+   },
+   "www.ebi.ac.uk": {
+    "urls": 1,
+    "refused": [],
+    "n_refused_of_checked": [
+     0,
+     1
+    ]
+   },
+   "www.gutenberg.org": {
+    "urls": 1,
+    "refused": [
+     [
+      "https://www.gutenberg.org/ebooks/1342",
+      "not fetched"
+     ]
+    ],
+    "n_refused_of_checked": [
+     1,
+     1
+    ]
+   },
+   "www.jmolbiochem.com": {
+    "urls": 1,
+    "refused": [],
+    "n_refused_of_checked": [
+     0,
+     1
+    ]
+   },
+   "www.mediawiki.org": {
+    "urls": 1,
+    "refused": [],
+    "n_refused_of_checked": [
+     0,
+     1
+    ]
+   },
+   "www.medknow.com": {
+    "urls": 1,
+    "refused": [],
+    "n_refused_of_checked": [
+     0,
+     1
+    ]
+   },
+   "www.msjonline.org": {
+    "urls": 1,
+    "refused": [],
+    "n_refused_of_checked": [
+     0,
+     1
+    ]
+   },
+   "www.nuget.org": {
+    "urls": 1,
+    "refused": [],
+    "n_refused_of_checked": [
+     0,
+     1
+    ]
+   },
+   "www.openarchives.org": {
+    "urls": 4,
+    "refused": [],
+    "n_refused_of_checked": [
+     0,
+     4
+    ]
+   },
+   "www.openstreetmap.org": {
+    "urls": 1,
+    "refused": [],
+    "n_refused_of_checked": [
+     0,
+     1
+    ]
+   },
+   "www.wikidata.org": {
+    "urls": 1,
+    "refused": [],
+    "n_refused_of_checked": [
+     0,
+     1
+    ]
+   },
+   "x.example": {
+    "urls": 1,
+    "refused": [
+     [
+      "https://x.example/",
+      "not fetched"
+     ]
+    ],
+    "n_refused_of_checked": [
+     1,
+     1
+    ]
+   }
+  },
+  "LH045": {
+   "datatracker.ietf.org": {
+    "urls": 66,
+    "refused": [],
+    "n_refused_of_checked": [
+     0,
+     40
+    ]
+   },
+   "epoch.ai": {
+    "urls": 7,
+    "refused": [],
+    "n_refused_of_checked": [
+     0,
+     7
+    ]
+   },
+   "learn.microsoft.com": {
+    "urls": 2,
+    "refused": [],
+    "n_refused_of_checked": [
+     0,
+     2
+    ]
+   },
+   "news.metal.com": {
+    "urls": 1,
+    "refused": [
+     [
+      "https://news.metal.com/newscontent/104152219-smm-computing-power-midday-review-h100-rental-bidding-at-88000-h20-96g-annual-lease-at-43000",
+      "not fetched"
+     ]
+    ],
+    "n_refused_of_checked": [
+     1,
+     1
+    ]
+   },
+   "trustee.ietf.org": {
+    "urls": 2,
+    "refused": [],
+    "n_refused_of_checked": [
+     0,
+     2
+    ]
+   },
+   "vast.ai": {
+    "urls": 1,
+    "refused": [],
+    "n_refused_of_checked": [
+     0,
+     1
+    ]
+   },
+   "www.dramexchange.com": {
+    "urls": 3,
+    "refused": [],
+    "n_refused_of_checked": [
+     0,
+     3
+    ]
+   },
+   "www.metal.com": {
+    "urls": 1,
+    "refused": [
+     [
+      "https://www.metal.com/en/compliance-center/terms-and-conditions",
+      "not fetched"
+     ]
+    ],
+    "n_refused_of_checked": [
+     1,
+     1
+    ]
+   },
+   "www.silicondata.com": {
+    "urls": 4,
+    "refused": [],
+    "n_refused_of_checked": [
+     0,
+     4
+    ]
+   }
+  },
+  "LH046": {
+   "data.gharchive.org": {
+    "urls": 1,
+    "refused": [],
+    "n_refused_of_checked": [
+     0,
+     1
+    ]
+   }
+  },
+  "LH047": {
+   "anubis.techaro.lol": {
+    "urls": 1,
+    "refused": [],
+    "n_refused_of_checked": [
+     0,
+     1
+    ]
+   },
+   "blog.cloudflare.com": {
+    "urls": 4,
+    "refused": [],
+    "n_refused_of_checked": [
+     0,
+     4
+    ]
+   },
+   "cdn.jsdelivr.net": {
+    "urls": 2,
+    "refused": [],
+    "n_refused_of_checked": [
+     0,
+     2
+    ]
+   },
+   "contentsignals.org": {
+    "urls": 1,
+    "refused": [],
+    "n_refused_of_checked": [
+     0,
+     1
+    ]
+   },
+   "dashboard.shadowserver.org": {
+    "urls": 1,
+    "refused": [
+     [
+      "https://dashboard.shadowserver.org",
+      "not fetched"
+     ]
+    ],
+    "n_refused_of_checked": [
+     1,
+     1
+    ]
+   },
+   "developers.cloudflare.com": {
+    "urls": 8,
+    "refused": [],
+    "n_refused_of_checked": [
+     0,
+     8
+    ]
+   },
+   "developers.google.com": {
+    "urls": 3,
+    "refused": [],
+    "n_refused_of_checked": [
+     0,
+     3
+    ]
+   },
+   "developers.openai.com": {
+    "urls": 1,
+    "refused": [],
+    "n_refused_of_checked": [
+     0,
+     1
+    ]
+   },
+   "dl.acm.org": {
+    "urls": 1,
+    "refused": [
+     [
+      "https://dl.acm.org/doi/pdf/10.1145/3730567.3764471",
+      "GPTBot (a training or archiving crawler) is refused at this path"
+     ]
+    ],
+    "n_refused_of_checked": [
+     1,
+     1
+    ]
+   },
+   "docs.perplexity.ai": {
+    "urls": 2,
+    "refused": [],
+    "n_refused_of_checked": [
+     0,
+     2
+    ]
+   },
+   "docs.pypi.org": {
+    "urls": 1,
+    "refused": [],
+    "n_refused_of_checked": [
+     0,
+     1
+    ]
+   },
+   "ietf-wg-aipref.github.io": {
+    "urls": 2,
+    "refused": [],
+    "n_refused_of_checked": [
+     0,
+     2
+    ]
+   },
+   "llmstxt.org": {
+    "urls": 1,
+    "refused": [],
+    "n_refused_of_checked": [
+     0,
+     1
+    ]
+   },
+   "platform.openai.com": {
+    "urls": 1,
+    "refused": [],
+    "n_refused_of_checked": [
+     0,
+     1
+    ]
+   },
+   "rslstandard.org": {
+    "urls": 1,
+    "refused": [],
+    "n_refused_of_checked": [
+     0,
+     1
+    ]
+   },
+   "support.claude.com": {
+    "urls": 1,
+    "refused": [],
+    "n_refused_of_checked": [
+     0,
+     1
+    ]
+   },
+   "tollbit.com": {
+    "urls": 4,
+    "refused": [],
+    "n_refused_of_checked": [
+     0,
+     4
+    ]
+   },
+   "www.engadget.com": {
+    "urls": 1,
+    "refused": [],
+    "n_refused_of_checked": [
+     0,
+     1
+    ]
+   },
+   "www.ietf.org": {
+    "urls": 1,
+    "refused": [],
+    "n_refused_of_checked": [
+     0,
+     1
+    ]
+   },
+   "www.malwarepatrol.net": {
+    "urls": 1,
+    "refused": [],
+    "n_refused_of_checked": [
+     0,
+     1
+    ]
+   },
+   "www.perplexity.ai": {
+    "urls": 1,
+    "refused": [],
+    "n_refused_of_checked": [
+     0,
+     1
+    ]
+   },
+   "www.rfc-editor.org": {
+    "urls": 4,
+    "refused": [],
+    "n_refused_of_checked": [
+     0,
+     4
+    ]
+   },
+   "www.sysnet.ucsd.edu": {
+    "urls": 1,
+    "refused": [],
+    "n_refused_of_checked": [
+     0,
+     1
+    ]
+   },
+   "www.theregister.com": {
+    "urls": 1,
+    "refused": [
+     [
+      "https://www.theregister.com/2024/07/30/taming_ai_content_crawlers/",
+      "not fetched"
+     ]
+    ],
+    "n_refused_of_checked": [
+     1,
+     1
+    ]
+   },
+   "www.theverge.com": {
+    "urls": 1,
+    "refused": [
+     [
+      "https://www.theverge.com/2024/7/25/24205943/anthropic-ai-web-crawler-claudebot-ifixit-scraping-training-data",
+      "not fetched"
+     ]
+    ],
+    "n_refused_of_checked": [
+     1,
+     1
+    ]
+   },
+   "www.w3.org": {
+    "urls": 1,
+    "refused": [],
+    "n_refused_of_checked": [
+     0,
+     1
+    ]
+   }
+  },
+  "LH048": {
+   "api.first.org": {
+    "urls": 2,
+    "refused": [],
+    "n_refused_of_checked": [
+     0,
+     2
+    ]
+   },
+   "api.msrc.microsoft.com": {
+    "urls": 1,
+    "refused": [],
+    "n_refused_of_checked": [
+     0,
+     1
+    ]
+   },
+   "chromereleases.googleblog.com": {
+    "urls": 1,
+    "refused": [],
+    "n_refused_of_checked": [
+     0,
+     1
+    ]
+   },
+   "cveawg.mitre.org": {
+    "urls": 18,
+    "refused": [],
+    "n_refused_of_checked": [
+     0,
+     18
+    ]
+   },
+   "nvd.nist.gov": {
+    "urls": 1,
+    "refused": [],
+    "n_refused_of_checked": [
+     0,
+     1
+    ]
+   },
+   "services.nvd.nist.gov": {
+    "urls": 18,
+    "refused": [],
+    "n_refused_of_checked": [
+     0,
+     18
+    ]
+   },
+   "support.apple.com": {
+    "urls": 1,
+    "refused": [],
+    "n_refused_of_checked": [
+     0,
+     1
+    ]
+   },
+   "www.anthropic.com": {
+    "urls": 1,
+    "refused": [],
+    "n_refused_of_checked": [
+     0,
+     1
+    ]
+   },
+   "www.cisa.gov": {
+    "urls": 2,
+    "refused": [],
+    "n_refused_of_checked": [
+     0,
+     2
+    ]
+   },
+   "www.first.org": {
+    "urls": 1,
+    "refused": [],
+    "n_refused_of_checked": [
+     0,
+     1
+    ]
+   }
+  },
+  "LH049": {
+   "api.npmjs.org": {
+    "urls": 5,
+    "refused": [],
+    "n_refused_of_checked": [
+     0,
+     5
+    ]
+   },
+   "api.osv.dev": {
+    "urls": 1,
+    "refused": [],
+    "n_refused_of_checked": [
+     0,
+     1
+    ]
+   },
+   "blog.npmjs.org": {
+    "urls": 1,
+    "refused": [],
+    "n_refused_of_checked": [
+     0,
+     1
+    ]
+   },
+   "raw.githubusercontent.com": {
+    "urls": 1,
+    "refused": [],
+    "n_refused_of_checked": [
+     0,
+     1
+    ]
+   },
+   "registry.npmjs.org": {
+    "urls": 4,
+    "refused": [],
+    "n_refused_of_checked": [
+     0,
+     4
+    ]
+   },
+   "socket.dev": {
+    "urls": 2,
+    "refused": [
+     [
+      "https://socket.dev/blog",
+      "Bytespider (a training or archiving crawler) is refused at this path"
+     ],
+     [
+      "https://socket.dev/blog/bee-js-compromise",
+      "Bytespider (a training or archiving crawler) is refused at this path"
+     ]
+    ],
+    "n_refused_of_checked": [
+     2,
+     2
+    ]
+   },
+   "www.stepsecurity.io": {
+    "urls": 2,
+    "refused": [],
+    "n_refused_of_checked": [
+     0,
+     2
+    ]
+   }
+  },
+  "LH050": {
+   "docs-library.unoda.org": {
+    "urls": 1,
+    "refused": [],
+    "n_refused_of_checked": [
+     0,
+     1
+    ]
+   },
+   "docs.un.org": {
+    "urls": 1,
+    "refused": [],
+    "n_refused_of_checked": [
+     0,
+     1
+    ]
+   },
+   "eweek.com": {
+    "urls": 1,
+    "refused": [],
+    "n_refused_of_checked": [
+     0,
+     1
+    ]
+   },
+   "meetings.unoda.org": {
+    "urls": 1,
+    "refused": [],
+    "n_refused_of_checked": [
+     0,
+     1
+    ]
+   },
+   "thenextweb.com": {
+    "urls": 1,
+    "refused": [],
+    "n_refused_of_checked": [
+     0,
+     1
+    ]
+   },
+   "www.assemblymag.com": {
+    "urls": 1,
+    "refused": [
+     [
+      "https://www.assemblymag.com/articles/99717-start-up-aims-to-make-humanoid-robots-for-military",
+      "meta-externalagent (a training or archiving crawler) is refused at this path"
+     ]
+    ],
+    "n_refused_of_checked": [
+     1,
+     1
+    ]
+   },
+   "www.eweek.com": {
+    "urls": 1,
+    "refused": [],
+    "n_refused_of_checked": [
+     0,
+     1
+    ]
+   },
+   "www.gov.uk": {
+    "urls": 1,
+    "refused": [],
+    "n_refused_of_checked": [
+     0,
+     1
+    ]
+   },
+   "www.icrc.org": {
+    "urls": 1,
+    "refused": [],
+    "n_refused_of_checked": [
+     0,
+     1
+    ]
+   },
+   "www.techcentral.ie": {
+    "urls": 2,
+    "refused": [],
+    "n_refused_of_checked": [
+     0,
+     2
+    ]
+   },
+   "www.ungeneva.org": {
+    "urls": 1,
+    "refused": [],
+    "n_refused_of_checked": [
+     0,
+     1
+    ]
+   }
+  },
+  "LH051": {
+   "data.gharchive.org": {
+    "urls": 1,
+    "refused": [],
+    "n_refused_of_checked": [
+     0,
+     1
+    ]
+   },
+   "www.aikido.dev": {
+    "urls": 3,
+    "refused": [],
+    "n_refused_of_checked": [
+     0,
+     3
+    ]
+   },
+   "www.stepsecurity.io": {
+    "urls": 2,
+    "refused": [],
+    "n_refused_of_checked": [
+     0,
+     2
+    ]
+   }
+  },
+  "LH053": {
+   "api.npmjs.org": {
+    "urls": 5,
+    "refused": [],
+    "n_refused_of_checked": [
+     0,
+     5
+    ]
+   },
+   "api.osv.dev": {
+    "urls": 1,
+    "refused": [],
+    "n_refused_of_checked": [
+     0,
+     1
+    ]
+   },
+   "registry.npmjs.org": {
+    "urls": 3,
+    "refused": [],
+    "n_refused_of_checked": [
+     0,
+     3
+    ]
+   },
+   "www.stepsecurity.io": {
+    "urls": 1,
+    "refused": [],
+    "n_refused_of_checked": [
+     0,
+     1
+    ]
+   }
+  },
+  "LH054": {
+   "access.redhat.com": {
+    "urls": 1,
+    "refused": [],
+    "n_refused_of_checked": [
+     0,
+     1
+    ]
+   },
+   "api.first.org": {
+    "urls": 1,
+    "refused": [],
+    "n_refused_of_checked": [
+     0,
+     1
+    ]
+   },
+   "api.osv.dev": {
+    "urls": 1,
+    "refused": [],
+    "n_refused_of_checked": [
+     0,
+     1
+    ]
+   },
+   "cveawg.mitre.org": {
+    "urls": 1,
+    "refused": [],
+    "n_refused_of_checked": [
+     0,
+     1
+    ]
+   },
+   "security-tracker.debian.org": {
+    "urls": 1,
+    "refused": [],
+    "n_refused_of_checked": [
+     0,
+     1
+    ]
+   },
+   "services.nvd.nist.gov": {
+    "urls": 1,
+    "refused": [],
+    "n_refused_of_checked": [
+     0,
+     1
+    ]
+   },
+   "ubuntu.com": {
+    "urls": 1,
+    "refused": [],
+    "n_refused_of_checked": [
+     0,
+     1
+    ]
+   },
+   "www.openwall.com": {
+    "urls": 1,
+    "refused": [],
+    "n_refused_of_checked": [
+     0,
+     1
+    ]
+   },
+   "www.suse.com": {
+    "urls": 1,
+    "refused": [],
+    "n_refused_of_checked": [
+     0,
+     1
+    ]
+   }
+  },
+  "LH055": {
+   "aws.amazon.com": {
+    "urls": 1,
+    "refused": [],
+    "n_refused_of_checked": [
+     0,
+     1
+    ]
+   },
+   "blog.gitguardian.com": {
+    "urls": 1,
+    "refused": [],
+    "n_refused_of_checked": [
+     0,
+     1
+    ]
+   },
+   "blog.talosintelligence.com": {
+    "urls": 1,
+    "refused": [],
+    "n_refused_of_checked": [
+     0,
+     1
+    ]
+   },
+   "censys.com": {
+    "urls": 1,
+    "refused": [],
+    "n_refused_of_checked": [
+     0,
+     1
+    ]
+   },
+   "cloud.google.com": {
+    "urls": 1,
+    "refused": [],
+    "n_refused_of_checked": [
+     0,
+     1
+    ]
+   },
+   "equixly.com": {
+    "urls": 1,
+    "refused": [],
+    "n_refused_of_checked": [
+     0,
+     1
+    ]
+   },
+   "isc.sans.edu": {
+    "urls": 1,
+    "refused": [],
+    "n_refused_of_checked": [
+     0,
+     1
+    ]
+   },
+   "research.checkpoint.com": {
+    "urls": 1,
+    "refused": [],
+    "n_refused_of_checked": [
+     0,
+     1
+    ]
+   },
+   "securitylabs.datadoghq.com": {
+    "urls": 1,
+    "refused": [],
+    "n_refused_of_checked": [
+     0,
+     1
+    ]
+   },
+   "www.crowdstrike.com": {
+    "urls": 1,
+    "refused": [],
+    "n_refused_of_checked": [
+     0,
+     1
+    ]
+   },
+   "www.ic3.gov": {
+    "urls": 1,
+    "refused": [],
+    "n_refused_of_checked": [
+     0,
+     1
+    ]
+   },
+   "www.microsoft.com": {
+    "urls": 2,
+    "refused": [],
+    "n_refused_of_checked": [
+     0,
+     2
+    ]
+   },
+   "www.stepsecurity.io": {
+    "urls": 1,
+    "refused": [],
+    "n_refused_of_checked": [
+     0,
+     1
+    ]
+   },
+   "www.thestack.technology": {
+    "urls": 1,
+    "refused": [],
+    "n_refused_of_checked": [
+     0,
+     1
+    ]
+   }
+  },
+  "LH056": {
+   "api.osv.dev": {
+    "urls": 1,
+    "refused": [],
+    "n_refused_of_checked": [
+     0,
+     1
+    ]
+   },
+   "pypi.org": {
+    "urls": 2,
+    "refused": [
+     [
+      "https://pypi.org/simple/agent-framework/",
+      "not fetched"
+     ]
+    ],
+    "n_refused_of_checked": [
+     1,
+     2
+    ]
+   },
+   "pypistats.org": {
+    "urls": 1,
+    "refused": [],
+    "n_refused_of_checked": [
+     0,
+     1
+    ]
+   },
+   "socket.dev": {
+    "urls": 1,
+    "refused": [
+     [
+      "https://socket.dev/blog/agent-framework-pypi-package-compromised-with-credential-stealer",
+      "Bytespider (a training or archiving crawler) is refused at this path"
+     ]
+    ],
+    "n_refused_of_checked": [
+     1,
+     1
+    ]
+   },
+   "sql-clickhouse.clickhouse.com": {
+    "urls": 1,
+    "refused": [],
+    "n_refused_of_checked": [
+     0,
+     1
+    ]
+   },
+   "www.aikido.dev": {
+    "urls": 1,
+    "refused": [],
+    "n_refused_of_checked": [
+     0,
+     1
+    ]
+   },
+   "www.stepsecurity.io": {
+    "urls": 1,
+    "refused": [],
+    "n_refused_of_checked": [
+     0,
+     1
+    ]
+   }
+  }
+ },
+ "robots": {
+  "https://access.redhat.com/robots.txt": {
+   "status": 200,
+   "sha256": "b24da2e98556900cae0db111a470baa3672e3ed420eb66c9d48ca42a9cc96f02",
+   "error": null
+  },
+  "https://alas.aws.amazon.com/robots.txt": {
+   "status": 403,
+   "sha256": "a824bc7739e226e1b40ea0f8c4e4f4c6f796fc3b4abfa6e9abe3bd119a30d938",
+   "error": null
+  },
+  "https://api.osv.dev/robots.txt": {
+   "status": 404,
+   "sha256": "503279a5dae7a157195c221e6c9c6d33490eba8c6e57083c128328eb6eae1617",
+   "error": null
+  },
+  "https://blog.cloudflare.com/robots.txt": {
+   "status": 200,
+   "sha256": "be7719b89e5143917087ccbcafd370f035a8ff21e935b08825079b78643bda18",
+   "error": null
+  },
+  "https://cert.europa.eu/robots.txt": {
+   "status": 200,
+   "sha256": "13636a72a7a64be98f46925f36731c51895e346cb4ef30c7428393bb057344bf",
+   "error": null
+  },
+  "https://cloud.google.com/robots.txt": {
+   "status": 200,
+   "sha256": "37365b84bd6175aee6de59b4bf48768799cb05c8fb0425567c3fc25e0eefb13d",
+   "error": null
+  },
+  "https://cveawg.mitre.org/robots.txt": {
+   "status": 404,
+   "sha256": "fcc374e694086c781cb8aa809e10913dd195129d5d9efded031fe2761bb20244",
+   "error": null
+  },
+  "https://docs.cloud.google.com/robots.txt": {
+   "status": 200,
+   "sha256": "d2a82dea2accf230d9360bb98dfdeff622e9dd5bbef914302489f8de036b65b7",
+   "error": null
+  },
+  "https://security-tracker.debian.org/robots.txt": {
+   "status": 404,
+   "sha256": "503bdbc043e63a4e06173ef99fea784adcf9f7047eff8b6ef7f0de1c99074a2d",
+   "error": null
+  },
+  "https://services.nvd.nist.gov/robots.txt": {
+   "status": 404,
+   "sha256": "4457831418c9ed13d6c2cf445d266240bf18225eeff3d56893281762a98a4f95",
+   "error": null
+  },
+  "https://ubuntu.com/robots.txt": {
+   "status": 200,
+   "sha256": "aab936ae074e1cf70e1e9cd3ff99efa91cac964d37b8e6ae5b695580c9adb5ae",
+   "error": null
+  },
+  "https://www.akamai.com/robots.txt": {
+   "status": 403,
+   "sha256": "157593c35d781746f4415ac32723241e61dd775c993c737515b46098c7098615",
+   "error": null
+  },
+  "https://www.cisa.gov/robots.txt": {
+   "status": 403,
+   "sha256": "f1aab68d6419aae8fc26078961dd411cd834368f971028fbd0c70c529e3f3061",
+   "error": null
+  },
+  "https://www.fastly.com/robots.txt": {
+   "status": 200,
+   "sha256": "23afd0d2868ab27736e15dd91bfa2b061fff83da62d60d131f335d21311dc6f3",
+   "error": null
+  },
+  "https://www.ncsc.gov.uk/robots.txt": {
+   "status": 404,
+   "sha256": "97fe10036672a72ae2e503504e91841c156a057bed84d797e563e367ba53229b",
+   "error": null
+  },
+  "https://www.php.net/robots.txt": {
+   "status": 200,
+   "sha256": "f94f2698fb4ea74efc64b0b61afff9a2fb05982f38fe6fbd0e4521cf668cd2e4",
+   "error": null
+  },
+  "https://www.suse.com/robots.txt": {
+   "status": 200,
+   "sha256": "b4c0817fe99a48acb630f2c987aae548c755af5c783d5033ce71c7c62d2320af",
+   "error": null
+  },
+  "https://raw.githubusercontent.com/robots.txt": {
+   "status": 404,
+   "sha256": "d5558cd419c8d46bdc958064cb97f963d1ea793866414c025906ec15033512ed",
+   "error": null
+  },
+  "https://security.paloaltonetworks.com/robots.txt": {
+   "status": 200,
+   "sha256": "67ea9463910dceeaa10a88e626b7e7179ff95a61c90fa76e18ea10d1c01ebc86",
+   "error": null
+  },
+  "https://unit42.paloaltonetworks.com/robots.txt": {
+   "status": 200,
+   "sha256": "78648f4ec31e5a4855d60f5fe3dde990688a0946da01159959776e505e148883",
+   "error": null
+  },
+  "https://example.invalid/robots.txt": {
+   "status": "error",
+   "sha256": null,
+   "error": "URLError: <urlopen error Tunnel connection failed: 502 Bad Gateway>"
+  },
+  "https://packagist.org/robots.txt": {
+   "status": 200,
+   "sha256": "9889992f9c5745e0de9fd8150508a18998430bc31d211d0f6f97e085104adeff",
+   "error": null
+  },
+  "https://php2shell.censys.com/robots.txt": {
+   "status": 404,
+   "sha256": "e9639e3c4681ce85f852fbac48e2eeee5ba51296dbfec57c200d59b76237ab80",
+   "error": null
+  },
+  "https://w3techs.com/robots.txt": {
+   "status": 200,
+   "sha256": "091810797341af904de3b9ae9522786fa538769e774516b0e98cb166bf666c60",
+   "error": null
+  },
+  "http://www.w3.org/robots.txt": {
+   "status": 200,
+   "sha256": "444079f3a1dade59d593ff5968013596b910f004fcfb0d33eef897f322f914ab",
+   "error": null
+  },
+  "https://nodejs.org/robots.txt": {
+   "status": 200,
+   "sha256": "cbcd5e7d85caf581c61f7c0ffb148868b73ffa32e8426b37e08a21d145ce8f32",
+   "error": null
+  },
+  "https://storage.googleapis.com/robots.txt": {
+   "status": 404,
+   "sha256": "881aa5538ac02efb941f6cbef4e784f5e4a4a0c70611cc6b7e7e461f21c65f97",
+   "error": null
+  },
+  "https://almalinux.org/robots.txt": {
+   "status": 200,
+   "sha256": "d595966780c20fce31b90b5399ee20b7d86cd601bce87b45451e19617a1a3c39",
+   "error": null
+  },
+  "https://api.first.org/robots.txt": {
+   "status": 404,
+   "sha256": "cce5175a31fd82a059b98f131142084c7150f55a039c01d0bc7b6e8ecd0f81cc",
+   "error": null
+  },
+  "https://git.kernel.org/robots.txt": {
+   "status": 200,
+   "sha256": "e7c9d8ab803235ba162d0957c6be02270e11d8c79f2a457a650ebbb090130594",
+   "error": null
+  },
+  "https://www.anthropic.com/robots.txt": {
+   "status": 200,
+   "sha256": "b8bb03567cf862a9024bd464bd4bd7afaf054b1029de79727b2ba94711480ec7",
+   "error": null
+  },
+  "https://www.openwall.com/robots.txt": {
+   "status": 200,
+   "sha256": "6d99c383cd7cb1304fc20bbfe9a5f2bbe3abbacbda4ac102ac99c04eab4a170a",
+   "error": null
+  },
+  "https://advisory.splunk.com/robots.txt": {
+   "status": 404,
+   "sha256": "6e48ebd56250d3b79bcaafe3b0281bc9e81e6e31b756973c6d0ab4e23968f987",
+   "error": null
+  },
+  "https://api.msrc.microsoft.com/robots.txt": {
+   "status": 404,
+   "sha256": "3494d22a0b9ae1678a72df5841b7a6ec60e75499b91341f9763a556d6b8cb1f9",
+   "error": null
+  },
+  "https://filestore.fortinet.com/robots.txt": {
+   "status": 404,
+   "sha256": "55f7d9e99b8e2d4e0e193b2f0275501e6d9c1ebd29cadbea6a0da48a8587e3e0",
+   "error": null
+  },
+  "https://fortiguard.fortinet.com/robots.txt": {
+   "status": 200,
+   "sha256": "93cec6994983339475984dd4744ebe127d7f004aa048bdb37d27516f5277ed75",
+   "error": null
+  },
+  "https://helpx.adobe.com/robots.txt": {
+   "status": 403,
+   "sha256": "0e53836ab3df3848626a9f0d5c7091facd2f8b70214851a19869cce1da8d92a8",
+   "error": null
+  },
+  "https://linux.oracle.com/robots.txt": {
+   "status": 200,
+   "sha256": "0c1f6865669c81a891c1da0f0a4fe411a41640f971bbad4a60abe1aef3afb561",
+   "error": null
+  },
+  "https://psirt.global.sonicwall.com/robots.txt": {
+   "status": 200,
+   "sha256": "e7f0026e34e37ba03ee2ce84f89e1ebaa0933c4de6cba2228dcc1236436b09e1",
+   "error": null
+  },
+  "https://roundcube.net/robots.txt": {
+   "status": 200,
+   "sha256": "8fa3036c68bfcbd32365f6225d24333264093b7cd38d306e106b4dbdc934fd5b",
+   "error": null
+  },
+  "https://sec.cloudapps.cisco.com/robots.txt": {
+   "status": 410,
+   "sha256": "af3590446e8391fe7260f2ec7298f6e0f150a72a2df228053eaa604f016f1e88",
+   "error": null
+  },
+  "https://security.samsungmobile.com/robots.txt": {
+   "status": 404,
+   "sha256": "21ae2d5a19888a43b622a418274cfcda2e1b6dd5320b4111c1c9221673a7a337",
+   "error": null
+  },
+  "https://source.android.com/robots.txt": {
+   "status": 200,
+   "sha256": "ab5c7fddd43f4ce376d34279abcd27cfe1afcd446de4c603c72130637471bb4d",
+   "error": null
+  },
+  "https://support.apple.com/robots.txt": {
+   "status": 200,
+   "sha256": "d96234b630e2bde380f107a5fbbea09fbf304b415cfadf53b4f24f27633b2b83",
+   "error": null
+  },
+  "https://support.broadcom.com/robots.txt": {
+   "status": 200,
+   "sha256": "1a64ba72fb329dda8e1b4cada84d07776d28b86e3a4fc4df7e4d6688195b77bf",
+   "error": null
+  },
+  "https://support.citrix.com/robots.txt": {
+   "status": 200,
+   "sha256": "4f798362b834b1334b6f555e9c2c15e61349386366f9cec54e32d6f79e4b04bf",
+   "error": null
+  },
+  "https://supportannouncement.us.dlink.com/robots.txt": {
+   "status": 404,
+   "sha256": "dc1d54dab6ec8c00f70137927504e4f222c8395f10760b6beecfcfa94e08249f",
+   "error": null
+  },
+  "https://wiki.zimbra.com/robots.txt": {
+   "status": 200,
+   "sha256": "f85b6c60038cfbd277796fffc3e771b39231dab265e68e43f775f8d666a100e8",
+   "error": null
+  },
+  "https://www.adobe.com/robots.txt": {
+   "status": 200,
+   "sha256": "41081faa0fd323774e225ab51e8a73262055b24ecc7732557229fb93938f9d84",
+   "error": null
+  },
+  "https://www.broadcom.com/robots.txt": {
+   "status": 200,
+   "sha256": "9a5909af96840ea21725326bb3c54c8fc54d6d2228801e5afd27345238b883d2",
+   "error": null
+  },
+  "https://www.citrix.com/robots.txt": {
+   "status": 200,
+   "sha256": "b3b396af39e81fe48385278ec0ccd4c254ddee20e0f92dcc63eadf084efb639d",
+   "error": null
+  },
+  "https://www.cloud.com/robots.txt": {
+   "status": 200,
+   "sha256": "b2ae9bcaa45da4ad4666247461347092ad979bd1a2d727f84c0b55922f75ac21",
+   "error": null
+  },
+  "https://www.ivanti.com/robots.txt": {
+   "status": 200,
+   "sha256": "d7cdefc054ead39897fdf575e309c700f290d9bb5ded4e3b2834c57b5f7b5960",
+   "error": null
+  },
+  "https://www.oracle.com/robots.txt": {
+   "status": 403,
+   "sha256": "6078c3e71f3f2d4080274acb95537920a6be562ad4da21f8cae3d6d6f73633de",
+   "error": null
+  },
+  "https://www.sonicwall.com/robots.txt": {
+   "status": 200,
+   "sha256": "4bf59175b65024d4080add2e8abe980c4e7ce6105205c761950fb8a5d9423fa7",
+   "error": null
+  },
+  "https://www.vmware.com/robots.txt": {
+   "status": 200,
+   "sha256": "daca8b7be2926bfdaaa7db56d9fa74aed2bf2129cf3f92b49789ca77490bb1cf",
+   "error": null
+  },
+  "https://www.zyxel.com/robots.txt": {
+   "status": 200,
+   "sha256": "fd1fde32c43d627d363d478cf4fb7785807b9dc73ee4846bd9eaef5cefd73b04",
+   "error": null
+  },
+  "https://api.deps.dev/robots.txt": {
+   "status": 200,
+   "sha256": "331ea9090db0c9f6f597bd9840fd5b171830f6e0b3ba1cb24dfa91f0c95aedc1",
+   "error": null
+  },
+  "https://blog.pypi.org/robots.txt": {
+   "status": 200,
+   "sha256": "35e4b08b8c25daf91fe4f5552b5e777835740697e6fea16620e363446f8e482e",
+   "error": null
+  },
+  "https://cloudsmith.com/robots.txt": {
+   "status": 200,
+   "sha256": "2ab600fc96b4e48f448e4f17fcfda86be0c43301bb00b5488fe6c3087c429c79",
+   "error": null
+  },
+  "https://docs.litellm.ai/robots.txt": {
+   "status": 200,
+   "sha256": "262424eaee67eea53c27314fc243ed62fc3a2a1c8faf7ac5fa8750028459630f",
+   "error": null
+  },
+  "https://docs.pypi.org/robots.txt": {
+   "status": 200,
+   "sha256": "c8cd58e2ed2705d14c392c83e98181e6f6fce1337c0dc02f5140f74762820584",
+   "error": null
+  },
+  "https://pypi.org/robots.txt": {
+   "status": 200,
+   "sha256": "fd0059b266de42bdf36a90dabb5dc5dbb91bfdf1580bd950be234b7634b13821",
+   "error": null
+  },
+  "https://pypistats.org/robots.txt": {
+   "status": 404,
+   "sha256": "6b3c238ebcf1f3c07cf0e556faa82c6b8fe96840ff4b6b7e9962a2d855843a0b",
+   "error": null
+  },
+  "https://securitylabs.datadoghq.com/robots.txt": {
+   "status": 200,
+   "sha256": "f71530892c3118bdaa667cac8d6efe0e3dac7d97979b08698726f31e876599ba",
+   "error": null
+  },
+  "https://sql-clickhouse.clickhouse.com/robots.txt": {
+   "status": 401,
+   "sha256": "3bdb990b6fb5c1a75d72e1e184f62b3b3d1d4b70307c4b6f6fb41eb4dabc7412",
+   "error": null
+  },
+  "https://status.python.org/robots.txt": {
+   "status": 200,
+   "sha256": "5a0024467fe2c0539394b9fff28b0c20a7998f79f2eabd656a276f27c39e1aba",
+   "error": null
+  },
+  "https://www.aikido.dev/robots.txt": {
+   "status": 200,
+   "sha256": "e984366c2c5433c0e249a7f735b2d5ef3824ac537ee97f6c86dc3f91f2983398",
+   "error": null
+  },
+  "https://www.stepsecurity.io/robots.txt": {
+   "status": 200,
+   "sha256": "6151451306e53f6b4ce7328a3efc6e7917bf3be9fa557214db4985048aa1edba",
+   "error": null
+  },
+  "https://osv-vulnerabilities.storage.googleapis.com/robots.txt": {
+   "status": 404,
+   "sha256": "5c03f2e9617b252e6ef2fc748d09cd1767ae42a6610b4a6b6f8fcbd3ed4ca4a9",
+   "error": null
+  },
+  "https://registry.npmjs.org/robots.txt": {
+   "status": 200,
+   "sha256": "c64a5b4be2b97300c4a8036084ba082046f9f4c562febfe66c95419f193882d9",
+   "error": null
+  },
+  "https://arxiv.org/robots.txt": {
+   "status": 200,
+   "sha256": "eda2bc852443f3f29d31eb04d37b26476654dc33b29256fb882819da23d189a5",
+   "error": null
+  },
+  "https://blog.cyberdesserts.com/robots.txt": {
+   "status": 200,
+   "sha256": "71aec00864803eb4836eb0f917d17fb21b20b7fe4ad47d92e79b92d307c0b07d",
+   "error": null
+  },
+  "https://blog.leakix.net/robots.txt": {
+   "status": 200,
+   "sha256": "34a9214e0be9b70408b90386b7909f1c046dceab37fc7d5e0481f92325dd3c1c",
+   "error": null
+  },
+  "https://blogs.cisco.com/robots.txt": {
+   "status": 200,
+   "sha256": "511782216f870d8fed164ec7b192cd72ece2efb086b6dc6c40d21df3e617e738",
+   "error": null
+  },
+  "https://censys.com/robots.txt": {
+   "status": 200,
+   "sha256": "dab4e9aa6220afadd436838318f1cc3417616344a089de50ca28f784905a8138",
+   "error": null
+  },
+  "https://chlebda.de/robots.txt": {
+   "status": 404,
+   "sha256": "b9347f234dc3c8d56e015e86d88a1400415db8f7a5ad91f02b6a2323c10a4187",
+   "error": null
+  },
+  "https://dashboard.shadowserver.org/robots.txt": {
+   "status": "error",
+   "sha256": null,
+   "error": "URLError: <urlopen error [Errno 104] Connection reset by peer>"
+  },
+  "https://declawed.io/robots.txt": {
+   "status": 200,
+   "sha256": "0529896b903bb2a39268a27dce4e12f23c1fc1f3555841ab5a7f3bc2d91610b2",
+   "error": null
+  },
+  "https://hunt.io/robots.txt": {
+   "status": 200,
+   "sha256": "6058fca38e48262a70a7a4b1130be522652b9229ebb56b3ffe9ae980bde2a3ae",
+   "error": null
+  },
+  "https://insecurestack.substack.com/robots.txt": {
+   "status": 200,
+   "sha256": "017d10d77a9a75c6cf0b535197cb54abd144b1d037be5418c8678c001fae3b4f",
+   "error": null
+  },
+  "https://labs.cloudsecurityalliance.org/robots.txt": {
+   "status": 200,
+   "sha256": "dc59df7adc31f5830fde5ccd53035b594df6edb2ce71e604cb8a2c3b6910746b",
+   "error": null
+  },
+  "https://pluto.security/robots.txt": {
+   "status": 404,
+   "sha256": "55f7d9e99b8e2d4e0e193b2f0275501e6d9c1ebd29cadbea6a0da48a8587e3e0",
+   "error": null
+  },
+  "https://research.opena2a.org/robots.txt": {
+   "status": 200,
+   "sha256": "c78b75c94127f50cb4e7421106ee36e5bafc12bd9fd266a526c756831606bbe6",
+   "error": null
+  },
+  "https://securityaffairs.com/robots.txt": {
+   "status": 200,
+   "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+   "error": null
+  },
+  "https://securityscorecard.com/robots.txt": {
+   "status": 200,
+   "sha256": "5a95d0e32f23749292883a2d82d3aef3cf3f92a0a4bf423f0ec1cbd14dfdabb8",
+   "error": null
+  },
+  "https://synthient.com/robots.txt": {
+   "status": 200,
+   "sha256": "a7f8685c15fd57b70aab12de2a795a6b9be4228ee49805d34d151666c722ecad",
+   "error": null
+  },
+  "https://thehackernews.com/robots.txt": {
+   "status": 200,
+   "sha256": "4293d50530047b0b64f65902f3dcc412c2f15b9db80be302a90acb94b7696b5e",
+   "error": null
+  },
+  "https://threatfrontier.com/robots.txt": {
+   "status": 200,
+   "sha256": "045798f8891b2731695a62122b2bccdace440eb64c92813a032e7619e6f93dac",
+   "error": null
+  },
+  "https://vmblog.com/robots.txt": {
+   "status": 200,
+   "sha256": "f09fc60ca63de9df3a4ffd94b589018c597bfb3f9d49b403bdbd2cd886098efd",
+   "error": null
+  },
+  "https://www.axios.com/robots.txt": {
+   "status": 200,
+   "sha256": "9dbf5ea2259b2cb8a0236f5208c2bab2e0e83985be508732d648ca27fd32f9b5",
+   "error": null
+  },
+  "https://www.helpnetsecurity.com/robots.txt": {
+   "status": 200,
+   "sha256": "c3f41f3d8da237e3d8c4cbb6f0b7c55e8e35390ca8a875fc30127597b97909e0",
+   "error": null
+  },
+  "https://www.infosecurity-magazine.com/robots.txt": {
+   "status": 200,
+   "sha256": "46246fd5ebcbdc2be4c0b44f9173cdf28c80379b2ad90ce62ce9adcc2d806b27",
+   "error": null
+  },
+  "https://www.intruder.io/robots.txt": {
+   "status": 200,
+   "sha256": "e5d9716918db7a96b8a736b77e15ab27a7bf661d8f25541711cd3f3de96dd9ee",
+   "error": null
+  },
+  "https://www.knostic.ai/robots.txt": {
+   "status": 200,
+   "sha256": "d89ca9f57bf711421fcf94538eac571dd382c8766adb31f7b105d21fa5ba4230",
+   "error": null
+  },
+  "https://www.malwarepatrol.net/robots.txt": {
+   "status": 200,
+   "sha256": "799bd80d66d4f292744767ad3742ff68a59922051374a92b1f241321c402538c",
+   "error": null
+  },
+  "https://www.mysteriumvpn.com/robots.txt": {
+   "status": 200,
+   "sha256": "68589475c12fe5135fef2afc30c0466c8bc9ed13aa2095ae335b57c37bf76e65",
+   "error": null
+  },
+  "https://www.penligent.ai/robots.txt": {
+   "status": 200,
+   "sha256": "8ec8b27575d625420d45dd922788c56f09acd4138645967a58f434eeef8d719d",
+   "error": null
+  },
+  "https://www.runzero.com/robots.txt": {
+   "status": 200,
+   "sha256": "4dddfb82806a3ba6cde956af627304c304894acc7a53d9ef2a40414825ddb013",
+   "error": null
+  },
+  "https://www.sentinelone.com/robots.txt": {
+   "status": 200,
+   "sha256": "722ae9bdd9a947d3b81aaa4f3ba9d53630e08a077090c8f99167d93e476f17a8",
+   "error": null
+  },
+  "https://www.shadowserver.org/robots.txt": {
+   "status": 200,
+   "sha256": "5aba1f25a1e77d36539cf76479a4d08ccb7d30cd8ac85104130476af6f64cc35",
+   "error": null
+  },
+  "https://www.trendmicro.com/robots.txt": {
+   "status": 200,
+   "sha256": "c1043957d079629a6e2996b7cdcbfbe2ef9cf090d6ca1f3e4525cde83f67f23f",
+   "error": null
+  },
+  "https://www.upguard.com/robots.txt": {
+   "status": 200,
+   "sha256": "4efac8a30fc9c893a6df9fd41c15d36206b6f9ec3e98c6b9551927eb1f360f5a",
+   "error": null
+  },
+  "https://a.example/robots.txt": {
+   "status": "error",
+   "sha256": null,
+   "error": "URLError: <urlopen error Tunnel connection failed: 502 Bad Gateway>"
+  },
+  "https://about.readthedocs.com/robots.txt": {
+   "status": 200,
+   "sha256": "8b7386564ce7d417fbdc4e87df1dbd554b94bb969207f848499eb79a3c2ddecf",
+   "error": null
+  },
+  "https://ambiente-sustentabilidad.org/robots.txt": {
+   "status": 200,
+   "sha256": "645bb692547fc8a7f68012f02bc4b5e332954203019d6febe6e4efac390ed121",
+   "error": null
+  },
+  "https://anaconda.org/robots.txt": {
+   "status": 200,
+   "sha256": "87514b28775e0c0b008bb9031314f4d262014b9b5bbab9c8a276dddff5b7fb22",
+   "error": null
+  },
+  "https://api.biorxiv.org/robots.txt": {
+   "status": 404,
+   "sha256": "80c3fe2ae1062abf56456f52518bd670f9ec3917b7f85e152b347ac6b6faf880",
+   "error": null
+  },
+  "https://api.bitbucket.org/robots.txt": {
+   "status": 200,
+   "sha256": "55b309f9612780e0e7ce96a94737ff6fa2a755c89850a3a5c2d8cd9c667b0290",
+   "error": null
+  },
+  "https://api.crossref.org/robots.txt": {
+   "status": 429,
+   "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+   "error": null
+  },
+  "https://api.github.com/robots.txt": {
+   "status": 403,
+   "sha256": "7616419b9bf270d69874e3b82e043e4cb72f84772d301076751aa65fa9132be6",
+   "error": null
+  },
+  "https://api.launchpad.net/robots.txt": {
+   "status": 404,
+   "sha256": "80c3fe2ae1062abf56456f52518bd670f9ec3917b7f85e152b347ac6b6faf880",
+   "error": null
+  },
+  "https://api.nuget.org/robots.txt": {
+   "status": 404,
+   "sha256": "af1bfdc06e6d62e33a88a125eb178a45e268dd042fd63bcc74f89d9c869b1ea2",
+   "error": null
+  },
+  "https://api.openalex.org/robots.txt": {
+   "status": 200,
+   "sha256": "16ceb5ee3e0dc13aa9adf31a3ebbe45a1d965b8c2b9f72eaf84e5911e140ed95",
+   "error": null
+  },
+  "https://api.semanticscholar.org/robots.txt": {
+   "status": 404,
+   "sha256": "31f1da27f39e9c1952a0109580973ac05138ff366c21bf961b6bea58191bf786",
+   "error": null
+  },
+  "https://api.stackexchange.com/robots.txt": {
+   "status": 400,
+   "sha256": "1eb9aaf41e14d587784383acfa0526d19f3fa54771dd591a1c2d0aa46cafb0b5",
+   "error": null
+  },
+  "https://api.worldbank.org/robots.txt": {
+   "status": 404,
+   "sha256": "3494d22a0b9ae1678a72df5841b7a6ec60e75499b91341f9763a556d6b8cb1f9",
+   "error": null
+  },
+  "https://archive.org/robots.txt": {
+   "status": 200,
+   "sha256": "83e00f46c71e9fa872694af73fa9c15a615b9052b2f10820a3d146bc506c6161",
+   "error": null
+  },
+  "http://archive.ubuntu.com/robots.txt": {
+   "status": 200,
+   "sha256": "3073d1e371afb3271c7666148766fedc5145f7d8440f7114062db79b7bd58add",
+   "error": null
+  },
+  "https://b.example/robots.txt": {
+   "status": "error",
+   "sha256": null,
+   "error": "URLError: <urlopen error Tunnel connection failed: 502 Bad Gateway>"
+  },
+  "http://balimedicaljournal.org/robots.txt": {
+   "status": 202,
+   "sha256": "a9d6c062a7ae4ccb2eb2bc29219b707d5ac78cfd6482e2fc388746f4c4b4d2a2",
+   "error": null
+  },
+  "http://bdu.siu.edu.ar/robots.txt": {
+   "status": 200,
+   "sha256": "0bd168942c0b8facf8251e6c8c9b4ca3e58cf334cc4919e1bff4a9d9cb48246b",
+   "error": null
+  },
+  "https://c.example/robots.txt": {
+   "status": "error",
+   "sha256": null,
+   "error": "URLError: <urlopen error Tunnel connection failed: 502 Bad Gateway>"
+  },
+  "https://catalog.data.gov/robots.txt": {
+   "status": 200,
+   "sha256": "8c5ed3bd234a802efe10349b17749c514dd58315d5b7c1a8197cd589af93517d",
+   "error": null
+  },
+  "https://cdn.httparchive.org/robots.txt": {
+   "status": 200,
+   "sha256": "16ceb5ee3e0dc13aa9adf31a3ebbe45a1d965b8c2b9f72eaf84e5911e140ed95",
+   "error": null
+  },
+  "https://cdn.kernel.org/robots.txt": {
+   "status": 404,
+   "sha256": "55f7d9e99b8e2d4e0e193b2f0275501e6d9c1ebd29cadbea6a0da48a8587e3e0",
+   "error": null
+  },
+  "https://central.sonatype.com/robots.txt": {
+   "status": 200,
+   "sha256": "3073d1e371afb3271c7666148766fedc5145f7d8440f7114062db79b7bd58add",
+   "error": null
+  },
+  "https://coar-repositories.org/robots.txt": {
+   "status": 200,
+   "sha256": "bd10e282fc4faf25587fb85e2d38187ef698abed6766875e03e9b5e62087d12d",
+   "error": null
+  },
+  "https://codeberg.org/robots.txt": {
+   "status": 200,
+   "sha256": "7a9daf796e5f5f8b01e9f634a63e53031a14c6779abe10f66b2e0a7db2e8b33a",
+   "error": null
+  },
+  "https://crates.io/robots.txt": {
+   "status": 200,
+   "sha256": "b033243267bcbdab84cb01e940811d6d77a894d78f0470faaf0eb43f8e4efcc9",
+   "error": null
+  },
+  "https://ctujs.ctu.edu.vn/robots.txt": {
+   "status": 200,
+   "sha256": "6cfef1df93bdfdf0c17b735d2bfe6344136e0936c9014eb12efd7bacb80a72bf",
+   "error": null
+  },
+  "https://data.gov.uk/robots.txt": {
+   "status": 200,
+   "sha256": "1e72aed4e7ce49bce8261191b0a0bfda87afec68fccb604d847801ddb37dca6e",
+   "error": null
+  },
+  "http://daten.digitale-sammlungen.de/robots.txt": {
+   "status": 404,
+   "sha256": "ffbdf861894b4453c9a957a49c84f4275587fc1835fd3ae643c5c2ea671043a0",
+   "error": null
+  },
+  "https://dealing-with-bots.coar-repositories.org/robots.txt": {
+   "status": 200,
+   "sha256": "13c3729bdd59a6c0132ec8d5788fd45e46b79019f32aa6b060cfa06893872ec6",
+   "error": null
+  },
+  "https://deb.debian.org/robots.txt": {
+   "status": 404,
+   "sha256": "8e3f6c3259440204a1c778ed1fb396ee11e1697879c7521d400c7e2f614ebfff",
+   "error": null
+  },
+  "http://debian.ludost.net/robots.txt": {
+   "status": 404,
+   "sha256": "b18a8363b6ff35ca9a5329242d1cd56a681d507ebe1b34f265de0a63af10da2e",
+   "error": null
+  },
+  "http://debian.redparra.com/robots.txt": {
+   "status": 404,
+   "sha256": "18d710db58eddeb68c146b22798c7bc888d255b289c101b55bd02cc187c62bac",
+   "error": null
+  },
+  "https://developer.mozilla.org/robots.txt": {
+   "status": 200,
+   "sha256": "8f2712e11105e549aa4fa1ea4de6a9fd5292ee805d773d669ca98a9e0e54273a",
+   "error": null
+  },
+  "https://diff.wikimedia.org/robots.txt": {
+   "status": 200,
+   "sha256": "27fd6bc975ce9a22bdab49c7542eb079e88b787b07353352f6929a4de20d5569",
+   "error": null
+  },
+  "https://discourse.elpub.ru/robots.txt": {
+   "status": 200,
+   "sha256": "b2b137e0637283a8ca5522d49a57f06f168b8c6ecd395de269d82109c4cfde68",
+   "error": null
+  },
+  "https://dl-cdn.alpinelinux.org/robots.txt": {
+   "status": 404,
+   "sha256": "2cafb492d201e493579cdc4996479a43e217b06ba8e74534214816d9d10220df",
+   "error": null
+  },
+  "https://doaj.org/robots.txt": {
+   "status": 200,
+   "sha256": "122d50f643c623e8413e9fdfebf63ab5066d890591483395afa6c7a71369d05c",
+   "error": null
+  },
+  "https://docs.python.org/robots.txt": {
+   "status": 200,
+   "sha256": "ddf15edaeea82d5097df61da8e6f59ccdf66de0c20820f1367d0d076f5a9fd63",
+   "error": null
+  },
+  "https://docs.rs/robots.txt": {
+   "status": 200,
+   "sha256": "697a099693f339a4749b0dc2cef09b0a7ca00c5cb97e2381b3c58b7db3cd4869",
+   "error": null
+  },
+  "https://drewdevault.com/robots.txt": {
+   "status": 404,
+   "sha256": "b7e4233eec312c1ec53ea3fb3396b370d9e412df3e93e4683dcddd7e91c4bf06",
+   "error": null
+  },
+  "https://e-docs.geo-leo.de/robots.txt": {
+   "status": 200,
+   "sha256": "dc1442f81d8bd16ffead62193ca2c8839309f4688e9f6febd63a5fc1b60d26b8",
+   "error": null
+  },
+  "https://ec.europa.eu/robots.txt": {
+   "status": 200,
+   "sha256": "fc082fc26f8bfdd488e560b11a7e2cc4b774e03c7fd5b51a00bdd3e1e21f75e2",
+   "error": null
+  },
+  "https://elpub.ru/robots.txt": {
+   "status": 200,
+   "sha256": "78f8221ce4a61d19afde60b9ed47366a2ea2d14f0f8c4b8d55f1939abd788f7e",
+   "error": null
+  },
+  "https://en.wikipedia.org/robots.txt": {
+   "status": 200,
+   "sha256": "48b98d80c8444d37cdf50cc9a4d2257b66039477e581066d2356062a4cbd678f",
+   "error": null
+  },
+  "http://example.com/robots.txt": {
+   "status": 404,
+   "sha256": "25ddf2c883e0d1958ea971d279a7e4f0fd446724ee3db7db19dadabd4a62e484",
+   "error": null
+  },
+  "http://ftp.eq.uc.pt/robots.txt": {
+   "status": 200,
+   "sha256": "8be263cf48eb2ddc43e36c75691510c6abbf119dc0808a90313ad8595f397c87",
+   "error": null
+  },
+  "https://ftp.gnu.org/robots.txt": {
+   "status": 200,
+   "sha256": "b7fece6222aeb3feb5f1e9243616b1faf2790e2ff46597f8a9ecb668dc645b71",
+   "error": null
+  },
+  "https://ftp.osuosl.org/robots.txt": {
+   "status": 404,
+   "sha256": "7892cf7d53027ecb8cdc58937e249677f7a0c6e06b86eb2205f9ab702caf6be3",
+   "error": null
+  },
+  "http://ftp.psn.ru/robots.txt": {
+   "status": 404,
+   "sha256": "55f7d9e99b8e2d4e0e193b2f0275501e6d9c1ebd29cadbea6a0da48a8587e3e0",
+   "error": null
+  },
+  "https://full.example/robots.txt": {
+   "status": "error",
+   "sha256": null,
+   "error": "URLError: <urlopen error Tunnel connection failed: 502 Bad Gateway>"
+  },
+  "https://geo.mirror.pkgbuild.com/robots.txt": {
+   "status": 404,
+   "sha256": "55f7d9e99b8e2d4e0e193b2f0275501e6d9c1ebd29cadbea6a0da48a8587e3e0",
+   "error": null
+  },
+  "https://git.sr.ht/robots.txt": {
+   "status": 200,
+   "sha256": "97031a470cd5371700755fb16245301f1a73a8109521a69760a8b0e9c1382595",
+   "error": null
+  },
+  "https://github.blog/robots.txt": {
+   "status": 200,
+   "sha256": "8df48636a2542d5e497a1acfea9140526cc2bb55fd1d02934a3263cebf681eed",
+   "error": null
+  },
+  "https://github.com/robots.txt": {
+   "status": 403,
+   "sha256": "7616419b9bf270d69874e3b82e043e4cb72f84772d301076751aa65fa9132be6",
+   "error": null
+  },
+  "https://gitlab.com/robots.txt": {
+   "status": 200,
+   "sha256": "9e1e837e03b726eedb04c30b565e69068ccbb96c4d12c7c090d9affcf54f5eb0",
+   "error": null
+  },
+  "https://gitlab.gnome.org/robots.txt": {
+   "status": 200,
+   "sha256": "9e1e837e03b726eedb04c30b565e69068ccbb96c4d12c7c090d9affcf54f5eb0",
+   "error": null
+  },
+  "https://har.fyi/robots.txt": {
+   "status": 404,
+   "sha256": "0fa001c38a085626cfafe8ff70463b9f03ee5623aaec32f5783532cf78e03bfe",
+   "error": null
+  },
+  "https://hex.pm/robots.txt": {
+   "status": 200,
+   "sha256": "0393c7092d37ebc908c29468e7ac70d6c44d5c9e626fb8dd9a7307a9dd844886",
+   "error": null
+  },
+  "https://httparchive.org/robots.txt": {
+   "status": 200,
+   "sha256": "42616a7d9b39cc8e3a5b61b7de03918f888619a68dacd0d13164dceeafc8f407",
+   "error": null
+  },
+  "https://hub.docker.com/robots.txt": {
+   "status": 200,
+   "sha256": "e211402583b56e70b29de0b3776da4fe10180d9793b35d0766dc54c0c1150d8d",
+   "error": null
+  },
+  "https://index.commoncrawl.org/robots.txt": {
+   "status": "error",
+   "sha256": null,
+   "error": "URLError: <urlopen error [Errno 104] Connection reset by peer>"
+  },
+  "https://invent.kde.org/robots.txt": {
+   "status": 403,
+   "sha256": "32f2fa940d4b4fe19aca1e53a24e5aac29c57b7c5ee78588325b87f1b649c864",
+   "error": null
+  },
+  "https://journal.ldubgd.edu.ua/robots.txt": {
+   "status": 200,
+   "sha256": "6cfef1df93bdfdf0c17b735d2bfe6344136e0936c9014eb12efd7bacb80a72bf",
+   "error": null
+  },
+  "http://journal.um.ac.id/robots.txt": {
+   "status": 418,
+   "sha256": "ff768aab93b2b6c2cfd2fbee75e7dc48974a5f40be6316e6877730c09df7438b",
+   "error": null
+  },
+  "http://jpu.k-pin.org/robots.txt": {
+   "status": 404,
+   "sha256": "fcca46a4dfb613cb0a80d60887675165117d0ae9d3ec3e3f985f251575650d84",
+   "error": null
+  },
+  "https://jurnal.itg.ac.id/robots.txt": {
+   "status": 200,
+   "sha256": "98fd54fa5487f35f301b0b64ce1cbfbf7634f04374aa697384821b68d263fb67",
+   "error": null
+  },
+  "http://lethe.chinstrap.org/robots.txt": {
+   "status": 404,
+   "sha256": "e11048387b1adb79c81604d8e3718344e2c8b3688cd89c50e1d358a028f48cad",
+   "error": null
+  },
+  "https://loop.example/robots.txt": {
+   "status": "error",
+   "sha256": null,
+   "error": "URLError: <urlopen error Tunnel connection failed: 502 Bad Gateway>"
+  },
+  "https://lwn.net/robots.txt": {
+   "status": 200,
+   "sha256": "d7cd0ab2dfdb186599c8f7df392bb075ea8dc0bc710a373e6e978d6f57b29ccf",
+   "error": null
+  },
+  "https://man7.org/robots.txt": {
+   "status": 200,
+   "sha256": "cc5fdbcef407becbc2b99a879905ef735d3b51b20d3c8b0cad82af35ce859485",
+   "error": null
+  },
+  "https://metacpan.org/robots.txt": {
+   "status": 200,
+   "sha256": "da6bc3a8aaaf60a29635d62a1a424fcdcd5445c7010400560ca9ae7e6a93bf15",
+   "error": null
+  },
+  "http://mirror.as43289.net/robots.txt": {
+   "status": 404,
+   "sha256": "f33c27745f2bd87344be790465ef984a972fd539dc83bd4f61d4242c607ef1ee",
+   "error": null
+  },
+  "http://mirror.duocast.net/robots.txt": {
+   "status": 404,
+   "sha256": "9448f8a1159c9b14e3e1b9d8eab1a6ddf88d26e1f888a34cef430c756e4e6e1e",
+   "error": null
+  },
+  "http://mirror.mirohost.net/robots.txt": {
+   "status": 404,
+   "sha256": "55f7d9e99b8e2d4e0e193b2f0275501e6d9c1ebd29cadbea6a0da48a8587e3e0",
+   "error": null
+  },
+  "http://mirror.telepoint.bg/robots.txt": {
+   "status": 404,
+   "sha256": "55f7d9e99b8e2d4e0e193b2f0275501e6d9c1ebd29cadbea6a0da48a8587e3e0",
+   "error": null
+  },
+  "https://mirrors.edge.kernel.org/robots.txt": {
+   "status": "error",
+   "sha256": null,
+   "error": "URLError: <urlopen error [Errno 104] Connection reset by peer>"
+  },
+  "http://mirrors.egr.msu.edu/robots.txt": {
+   "status": 404,
+   "sha256": "e58731c64af31894a9767d7ef0d7e147d60b98055e30da6b276d1854af81b003",
+   "error": null
+  },
+  "http://mirrors.vcea.wsu.edu/robots.txt": {
+   "status": 404,
+   "sha256": "80c3fe2ae1062abf56456f52518bd670f9ec3917b7f85e152b347ac6b6faf880",
+   "error": null
+  },
+  "http://ojs.philosophy.spbu.ru/robots.txt": {
+   "status": 410,
+   "sha256": "1bb7fa48e4f8f659001f51039c599b2de32253d441eec5ea5688b7616f68f7b9",
+   "error": null
+  },
+  "https://open.canada.ca/robots.txt": {
+   "status": 200,
+   "sha256": "4790aba35e5672c471288c7f66005ba2a2387c51d89dd9c94d9a491f943ba2eb",
+   "error": null
+  },
+  "https://opendata.swiss/robots.txt": {
+   "status": 200,
+   "sha256": "6afae2aeb65d882e94f076c43d4347f605dcf4bca251cd9fffd847f3049d7f2b",
+   "error": null
+  },
+  "https://openlibrary.org/robots.txt": {
+   "status": "error",
+   "sha256": null,
+   "error": "URLError: <urlopen error [Errno 104] Connection reset by peer>"
+  },
+  "https://pbsi-upr.id/robots.txt": {
+   "status": 200,
+   "sha256": "82bf3a9e08f0e29121b264ee1682662f440efdaf6c0bc4f07fd582a44bd09763",
+   "error": null
+  },
+  "https://people.kernel.org/robots.txt": {
+   "status": 404,
+   "sha256": "b16e15764b8bc06c5c3f9f19bc8b99fa48e7894aa5a6ccdad65da49bbf564793",
+   "error": null
+  },
+  "https://pip.pypa.io/robots.txt": {
+   "status": 200,
+   "sha256": "cfdfd8bafda57ce8caec3c5e54b3e1f6897425184d23d4ebb58e71fafc5f9d75",
+   "error": null
+  },
+  "https://pkg.go.dev/robots.txt": {
+   "status": 200,
+   "sha256": "248cafe0824b6587b57c9a531d6d669684075f117fc988dda2269942a736b6e7",
+   "error": null
+  },
+  "https://presentpasts.info/robots.txt": {
+   "status": 200,
+   "sha256": "46835ba69dfed6c274617c477134b6efaf848b957bc4b5fa03d018a30b0c11bb",
+   "error": null
+  },
+  "https://prod-gw-2vzgiib6.ue.gateway.dev/robots.txt": {
+   "status": 404,
+   "sha256": "6b43b396ba4708e5ffe9da06909bc2059e55b300f2434bc4181ca3a842d83bd6",
+   "error": null
+  },
+  "https://pub.dev/robots.txt": {
+   "status": 200,
+   "sha256": "d664e30ed77b3f2ee587b08eb5343239cd5acefd0d1287e5e9f6f8cd24fefdb5",
+   "error": null
+  },
+  "https://pubmed.ncbi.nlm.nih.gov/robots.txt": {
+   "status": 200,
+   "sha256": "39e9504f6a6dc1cf592b030c14455a50862e2f029d7cadcc4557844beb55ee28",
+   "error": null
+  },
+  "https://rdap.arin.net/robots.txt": {
+   "status": 404,
+   "sha256": "e10aa5cfb3a2675cfb50f056b3c0b1b08e96f4ed5da21c4a7744773374e35fbe",
+   "error": null
+  },
+  "https://readthedocs.org/robots.txt": {
+   "status": 200,
+   "sha256": "e487fb28ff96a142113281b7d722e304561ac6c42048462af2b87941f7ac2abb",
+   "error": null
+  },
+  "https://release-assets.githubusercontent.com/robots.txt": {
+   "status": 404,
+   "sha256": "5fae45ec427b95e89d6ae362f8fc37c3dd59a0e26900329f99f99e79efe03e51",
+   "error": null
+  },
+  "https://repo.packagist.org/robots.txt": {
+   "status": 404,
+   "sha256": "392115b382d6c23d526906ca001ab18cc94e43607a022c0beeadb63a034cce85",
+   "error": null
+  },
+  "https://repo1.maven.org/robots.txt": {
+   "status": 200,
+   "sha256": "1b85cdce17e9bd41449ee2e1004a989f81c12a8d91b2c96f08253b9581f00409",
+   "error": null
+  },
+  "http://revistas.ustabuca.edu.co/robots.txt": {
+   "status": "error",
+   "sha256": null,
+   "error": "URLError: <urlopen error Tunnel connection failed: 502 Bad Gateway>"
+  },
+  "https://rubygems.org/robots.txt": {
+   "status": 200,
+   "sha256": "4f37f8e65190662eab04600b4120acf2da6cc273acae18146cdcd910d3a52d0b",
+   "error": null
+  },
+  "https://runescape.wiki/robots.txt": {
+   "status": 200,
+   "sha256": "8574e291faf303bea0b9757c786484d4286b12c84dc63db6d1427ce9c22c74ee",
+   "error": null
+  },
+  "https://salsa.debian.org/robots.txt": {
+   "status": 200,
+   "sha256": "e1ea01ebe99a968fd2b8f581518565c8e8191e5baf272020a9eef99353ebfae0",
+   "error": null
+  },
+  "https://scholarship.law.berkeley.edu/robots.txt": {
+   "status": "error",
+   "sha256": null,
+   "error": "URLError: <urlopen error [SSL: CERTIFICATE_VERIFY_FAILED] certificate verify failed: certificate has expired (_ssl.c:1018)>"
+  },
+  "https://scholarworks.wm.edu/robots.txt": {
+   "status": 200,
+   "sha256": "3e4292ca4e0bec4a7dc513083221cb7e0be9d37681b869bc58c499ab4e29d1c5",
+   "error": null
+  },
+  "https://sourceforge.net/robots.txt": {
+   "status": 200,
+   "sha256": "afd526e8de7f2ca5cdd22ddf349eebedaa08955be360917585e630f24f39373e",
+   "error": null
+  },
+  "https://stackoverflow.com/robots.txt": {
+   "status": 418,
+   "sha256": "da7453156d9b2849749e7455839e7a226e9688147bfa2d67f8f34248582ca26d",
+   "error": null
+  },
+  "https://web.archive.org/robots.txt": {
+   "status": "error",
+   "sha256": null,
+   "error": "URLError: <urlopen error [Errno 104] Connection reset by peer>"
+  },
+  "https://wiki.archlinux.org/robots.txt": {
+   "status": 200,
+   "sha256": "59820fad5dd95de9c160f0807e10c27916544503ad8e848f16d18096d68fdb70",
+   "error": null
+  },
+  "https://wiki.debian.org/robots.txt": {
+   "status": 200,
+   "sha256": "a10dfe2a059eba33d6437b5e1b2e30bca3fa16f0bdf6adddf09c1f5fbb898944",
+   "error": null
+  },
+  "https://wiki.gentoo.org/robots.txt": {
+   "status": 200,
+   "sha256": "5269f29865a0f3ea2528795bb1a1d3c4a8618343d9db389fd26fe588d5a406b8",
+   "error": null
+  },
+  "https://wikimedia.org/robots.txt": {
+   "status": 404,
+   "sha256": "5e0314feb746e1ccca688457c5baa5b5179fdb33dd38b1197122906aec3b62e1",
+   "error": null
+  },
+  "https://www.cpan.org/robots.txt": {
+   "status": 200,
+   "sha256": "e88414f2848d0cd31aaf9cf3e95ec6ef98587adb9881a63630ef29e9c945fbe1",
+   "error": null
+  },
+  "https://www.ctan.org/robots.txt": {
+   "status": 200,
+   "sha256": "11b7fc16f19a8f34cb218d02f9c053b6445f2b891631cd64aff0e3d2a419efdc",
+   "error": null
+  },
+  "https://www.data.gouv.fr/robots.txt": {
+   "status": 200,
+   "sha256": "1d0c291d00466190a6ea9a078a93067ee7ef01f170f09633616d8e93590960ed",
+   "error": null
+  },
+  "https://www.debian.org/robots.txt": {
+   "status": 404,
+   "sha256": "a43cde759fab2550ed17cf348db0f5782665018cf109a74b984ebb9ac54d4b4d",
+   "error": null
+  },
+  "https://www.ebi.ac.uk/robots.txt": {
+   "status": 200,
+   "sha256": "7323e61e8b2366dd673a609e50b7541d1f4bc05ab17cc69f6d563e450b470845",
+   "error": null
+  },
+  "https://www.gutenberg.org/robots.txt": {
+   "status": 503,
+   "sha256": "28c493eb3933b145b87c99536b263b8d10860069cf455b5b6ced4930518eafb9",
+   "error": null
+  },
+  "http://www.jmolbiochem.com/robots.txt": {
+   "status": 200,
+   "sha256": "645bb692547fc8a7f68012f02bc4b5e332954203019d6febe6e4efac390ed121",
+   "error": null
+  },
+  "https://www.mediawiki.org/robots.txt": {
+   "status": 200,
+   "sha256": "c2243c647fd8d9c59c03f08fb31bcaf80fc8388a3f08331a201017f37e3c8793",
+   "error": null
+  },
+  "http://www.medknow.com/robots.txt": {
+   "status": 404,
+   "sha256": "fb3ed6749127d0875b89638464656acdc641da4cd7101ccf7e4bccfaef8cc597",
+   "error": null
+  },
+  "https://www.msjonline.org/robots.txt": {
+   "status": 200,
+   "sha256": "911d7a0a47c77cc16954f33ba176dbb816db0866a57320bd4ccb87fa3454ddc8",
+   "error": null
+  },
+  "https://www.nuget.org/robots.txt": {
+   "status": 200,
+   "sha256": "fc99a22ff900db6c96d7db843b0a3fb5274b47c19117c379ca85de11e65c7bb4",
+   "error": null
+  },
+  "https://www.openarchives.org/robots.txt": {
+   "status": 200,
+   "sha256": "8aac1ea872b4c3b022d6c180d84eb668af9421be780dfd9e9560356b3ae3afb3",
+   "error": null
+  },
+  "https://www.openstreetmap.org/robots.txt": {
+   "status": 200,
+   "sha256": "125ecd90ae288efbe01fcad8008df1940dc9112d8b6b8932d57f59c07aeef24a",
+   "error": null
+  },
+  "https://www.wikidata.org/robots.txt": {
+   "status": 200,
+   "sha256": "31077e60ea72809fd71fdb414951397be2f141e1e23ea2408e69d77aefa62593",
+   "error": null
+  },
+  "https://x.example/robots.txt": {
+   "status": "error",
+   "sha256": null,
+   "error": "URLError: <urlopen error Tunnel connection failed: 502 Bad Gateway>"
+  },
+  "https://datatracker.ietf.org/robots.txt": {
+   "status": 200,
+   "sha256": "b78dba3cd417cda57157a0f20a73343adf799ff824bd1302320d4171f009d448",
+   "error": null
+  },
+  "https://epoch.ai/robots.txt": {
+   "status": 200,
+   "sha256": "6ff02e26d9fa4b2250e4d3e2b280c689821a1353e0dd43e1e6721b092e0e02c0",
+   "error": null
+  },
+  "https://learn.microsoft.com/robots.txt": {
+   "status": 200,
+   "sha256": "960054479af442fe1599ec890c8902fbe29786aa3fb948781042050063b4f327",
+   "error": null
+  },
+  "https://news.metal.com/robots.txt": {
+   "status": 200,
+   "sha256": "a14cda79c33fb764e5113822edf3ddbe5f59daa6ce20caf1e029073464e4bd58",
+   "error": null
+  },
+  "https://trustee.ietf.org/robots.txt": {
+   "status": 200,
+   "sha256": "1701844e75c1ade0b031d38da61da6edb16fbf87722328e2bde368d6e5ff309f",
+   "error": null
+  },
+  "https://vast.ai/robots.txt": {
+   "status": 200,
+   "sha256": "baf5aec80bdaa9f42ce9f3729ea704b67a1d525953f05aa9da41d3664faecad8",
+   "error": null
+  },
+  "https://www.dramexchange.com/robots.txt": {
+   "status": 404,
+   "sha256": "ed3ac283a02e22a7bfd2cfa006db7c9f81c2ad779a04151614c33e88a7967880",
+   "error": null
+  },
+  "https://www.metal.com/robots.txt": {
+   "status": 200,
+   "sha256": "349cfa48318ca0cf88d0be31ef5d92e2a54d1da640f64e0e3b03f76f205a67ae",
+   "error": null
+  },
+  "https://www.silicondata.com/robots.txt": {
+   "status": 200,
+   "sha256": "5fdc4f6c0eb24f59f295c3168dc32b1df0e12e64fc954dbeff5740bec72c4ab0",
+   "error": null
+  },
+  "https://data.gharchive.org/robots.txt": {
+   "status": 200,
+   "sha256": "8fa3036c68bfcbd32365f6225d24333264093b7cd38d306e106b4dbdc934fd5b",
+   "error": null
+  },
+  "https://anubis.techaro.lol/robots.txt": {
+   "status": 404,
+   "sha256": "2c8f113b3dc421d65383708ac4846ca8b7dd18f54ddb04c9202b21b854b2c176",
+   "error": null
+  },
+  "https://cdn.jsdelivr.net/robots.txt": {
+   "status": 400,
+   "sha256": "c693c9a1ed5a4eb5dc7cb0da280fe755efa3a0c0353788ad2873a3d7324c33aa",
+   "error": null
+  },
+  "https://contentsignals.org/robots.txt": {
+   "status": 200,
+   "sha256": "f86e78ed6f94bc59d001ae47625e25192edbc70a2e81adcd1d9dce86f6f3b6f0",
+   "error": null
+  },
+  "https://developers.cloudflare.com/robots.txt": {
+   "status": 200,
+   "sha256": "1d01a7ba34d49f51765541bf3391598f747c4c00be48bc79ddc088281ee01197",
+   "error": null
+  },
+  "https://developers.google.com/robots.txt": {
+   "status": 200,
+   "sha256": "169a788d82e6ec84ffb5bf5a0eabef6bf97a7766cb94ef473c7022901d596239",
+   "error": null
+  },
+  "https://developers.openai.com/robots.txt": {
+   "status": 200,
+   "sha256": "27c986047c50fafc73e861d7c3484f7791bcc06edd3c329860fe687b34910ee3",
+   "error": null
+  },
+  "https://dl.acm.org/robots.txt": {
+   "status": 200,
+   "sha256": "e6a90b696e70cd3c49df1b0c67e7a4e574d6a6f8ded3695cdcdc7c8a6e638456",
+   "error": null
+  },
+  "https://docs.perplexity.ai/robots.txt": {
+   "status": 200,
+   "sha256": "3ec29da634b2c332d619e38426765260c50dec6da38923b625072dc65e8e4e95",
+   "error": null
+  },
+  "https://ietf-wg-aipref.github.io/robots.txt": {
+   "status": 404,
+   "sha256": "b620507312c5e97566a3c6cfaf99144fefc18a0da7d941401dfa0f5f58fb0368",
+   "error": null
+  },
+  "https://llmstxt.org/robots.txt": {
+   "status": 200,
+   "sha256": "e3181e3237065b99466a626c9f575ff01bac5a1a29752d810901b083958dde9b",
+   "error": null
+  },
+  "https://platform.openai.com/robots.txt": {
+   "status": 200,
+   "sha256": "08fe58693356d17e32a97a54042776b57c3867944b187b3859293181488a26f0",
+   "error": null
+  },
+  "https://rslstandard.org/robots.txt": {
+   "status": 200,
+   "sha256": "92f262fba7b443804d16c7270a3aedb521a527625d30e3090a20240fb34b6598",
+   "error": null
+  },
+  "https://support.claude.com/robots.txt": {
+   "status": 200,
+   "sha256": "f7328293a5fa8d7b598cd1587b625e7def7479fe44fb2cb8e2b8e3e09ca3375a",
+   "error": null
+  },
+  "https://tollbit.com/robots.txt": {
+   "status": 200,
+   "sha256": "a9f213365a9b95dca4df79c09760bea7f3caf747d2e608c4c16999f0f9b9e3c5",
+   "error": null
+  },
+  "https://www.engadget.com/robots.txt": {
+   "status": 200,
+   "sha256": "af2a32ac7658d5ab0d2aaa1e6e34409e27c30fa6c696cb1f1890d087ac443c26",
+   "error": null
+  },
+  "https://www.ietf.org/robots.txt": {
+   "status": 200,
+   "sha256": "ab0325f3171f1f1e6e221b92ec6c86909ea782804d5cf35f1802542cd78ef377",
+   "error": null
+  },
+  "https://www.perplexity.ai/robots.txt": {
+   "status": 200,
+   "sha256": "b196c820c8ba56e2e37c3206249233ea80b19ef5301431108d927b13f5ddff1a",
+   "error": null
+  },
+  "https://www.rfc-editor.org/robots.txt": {
+   "status": 200,
+   "sha256": "df052cf390448ea2916ce4d3b5f6e42880cd246ea2bf1d5efce5596b1b2e3827",
+   "error": null
+  },
+  "https://www.sysnet.ucsd.edu/robots.txt": {
+   "status": 200,
+   "sha256": "bb74d358fe4606f10f6a8e3a36af6de1e31fc936bfbc6130733278496e75744f",
+   "error": null
+  },
+  "https://www.theregister.com/robots.txt": {
+   "status": 200,
+   "sha256": "fe0613a0fea268b74579892a25300825897a59a195c810c7cf70a2551458234c",
+   "error": null
+  },
+  "https://www.theverge.com/robots.txt": {
+   "status": 200,
+   "sha256": "ff4b9db74d523758c6ecb218322ef24986e9d0ca4a4abf7b0f8a051922dc6ae2",
+   "error": null
+  },
+  "https://www.w3.org/robots.txt": {
+   "status": 200,
+   "sha256": "444079f3a1dade59d593ff5968013596b910f004fcfb0d33eef897f322f914ab",
+   "error": null
+  },
+  "https://chromereleases.googleblog.com/robots.txt": {
+   "status": 200,
+   "sha256": "0edd41a3f4f8214f3202bf8739f6fd44bd8cfc5c8b9238faea8ee247b2695bfa",
+   "error": null
+  },
+  "https://nvd.nist.gov/robots.txt": {
+   "status": 200,
+   "sha256": "dae374bc32e6718c7d9ed1561d921a549d6dbeb35aea278c8ef48c34e49a07a9",
+   "error": null
+  },
+  "https://www.first.org/robots.txt": {
+   "status": 200,
+   "sha256": "1ef69a7cec8da2b7320ed9ecd0e806f81a90162e7c66ab4391c06d0b89960549",
+   "error": null
+  },
+  "https://api.npmjs.org/robots.txt": {
+   "status": 404,
+   "sha256": "18de7a4734651cb56ed10a375f751576a6e01d7d8fe12d3384db23a7d6302c4b",
+   "error": null
+  },
+  "https://blog.npmjs.org/robots.txt": {
+   "status": 404,
+   "sha256": "f83dd710fded3f1d4b38f8c716c8841eea9957c9c530b78cff552391ce9f4d25",
+   "error": null
+  },
+  "https://socket.dev/robots.txt": {
+   "status": 200,
+   "sha256": "d3a2476bf5c5a83fffc820156a8ba3da623a9291d36432d3722a8d39c5c2fe1b",
+   "error": null
+  },
+  "https://docs-library.unoda.org/robots.txt": {
+   "status": 403,
+   "sha256": "a824bc7739e226e1b40ea0f8c4e4f4c6f796fc3b4abfa6e9abe3bd119a30d938",
+   "error": null
+  },
+  "https://docs.un.org/robots.txt": {
+   "status": 200,
+   "sha256": "84cfe1ece4d30ebe2f7015f11c2c57eae484e5a2a344f89137b6987d6f700a81",
+   "error": null
+  },
+  "https://eweek.com/robots.txt": {
+   "status": 200,
+   "sha256": "88c461f89a1df9726fd2e37124e8a1fdb00c213d9e508b5e8fa2c2bfc15b5f90",
+   "error": null
+  },
+  "https://meetings.unoda.org/robots.txt": {
+   "status": 200,
+   "sha256": "8bf105e7048939b31a020ba1d6b525d019315d900bf0de458d0b30e9859256c7",
+   "error": null
+  },
+  "https://thenextweb.com/robots.txt": {
+   "status": 200,
+   "sha256": "fe5fa8a97e0d99f574f2f03cbedac7982543baaedcb158c0cb0cf01bb4351184",
+   "error": null
+  },
+  "https://www.assemblymag.com/robots.txt": {
+   "status": 200,
+   "sha256": "60af61fe6dd7da18446a5f77fb98fe3cf4d5899b10b5bd0046b473befe3ab0a2",
+   "error": null
+  },
+  "https://www.eweek.com/robots.txt": {
+   "status": 200,
+   "sha256": "88c461f89a1df9726fd2e37124e8a1fdb00c213d9e508b5e8fa2c2bfc15b5f90",
+   "error": null
+  },
+  "https://www.gov.uk/robots.txt": {
+   "status": 200,
+   "sha256": "459835d29527b9c00f00f6af00f45c73a909af1944e81fefa153f585e1857305",
+   "error": null
+  },
+  "https://www.icrc.org/robots.txt": {
+   "status": 200,
+   "sha256": "d9106ae94bff56aa981c1419be3d4d5ec6dc251e18cc44b40aacb61e31f64f14",
+   "error": null
+  },
+  "https://www.techcentral.ie/robots.txt": {
+   "status": 200,
+   "sha256": "b6b2c9b2675420c8a2a952142715e6d8936a97258ea8a87bd2f4c470cdeb25a2",
+   "error": null
+  },
+  "https://www.ungeneva.org/robots.txt": {
+   "status": 200,
+   "sha256": "91fa85594bd1795d4c78081fb01ff5ca45612615e2bc2bda05ee74e93c9fcde8",
+   "error": null
+  },
+  "https://aws.amazon.com/robots.txt": {
+   "status": 200,
+   "sha256": "79c6dfc2d432961b47ba3be2443992e962b17ec44b59cb3e101f0513f539a058",
+   "error": null
+  },
+  "https://blog.gitguardian.com/robots.txt": {
+   "status": 200,
+   "sha256": "e49ee20a674ea081e0b9a5d4f111f0e8fba46db65d613e90f8cb40bd2190d476",
+   "error": null
+  },
+  "https://blog.talosintelligence.com/robots.txt": {
+   "status": 200,
+   "sha256": "d5f43806c7f27d10249efb2b7ee093e2337057a7e42e130c24d87a8616056eca",
+   "error": null
+  },
+  "https://equixly.com/robots.txt": {
+   "status": 200,
+   "sha256": "669b379ebb05635a3d55bbb82dfbf4c68b3567047391699516f8cc63979dfebe",
+   "error": null
+  },
+  "https://isc.sans.edu/robots.txt": {
+   "status": 200,
+   "sha256": "8b08ba67ada9558aba7f47cf2b3e047ce9c9c0af8766178e66555b046a923ded",
+   "error": null
+  },
+  "https://research.checkpoint.com/robots.txt": {
+   "status": 200,
+   "sha256": "6e6c9873575a75bbb5e13f4467a046f7f40d480e4f956d5303cd577c41ae1d05",
+   "error": null
+  },
+  "https://www.crowdstrike.com/robots.txt": {
+   "status": 200,
+   "sha256": "cddfd843f0d2606952ac1b5039c22a825d235827f0f0c277bca7bb3e724d5c14",
+   "error": null
+  },
+  "https://www.ic3.gov/robots.txt": {
+   "status": 200,
+   "sha256": "9d3cb904ecfa10ecf1e7170e0f880214970f6bd86f807b9f38bcf7c78a43da67",
+   "error": null
+  },
+  "https://www.microsoft.com/robots.txt": {
+   "status": 200,
+   "sha256": "79a2a24e3e2c00deaba2fc1922b9113f5508e74133911eadea4ebb00b5de9768",
+   "error": null
+  },
+  "https://www.thestack.technology/robots.txt": {
+   "status": 200,
+   "sha256": "da69b55c7b55530230b4db109f3ae37debfc11a99520fe9f2c4fe5430983874c",
+   "error": null
+  }
+ }
+}

@@ -24,4 +24,4 @@ Count of kept bodies ([kept_bodies.py](robots-intent-2026-11-21/kept_bodies.py),
 
 ## Where it is carried out
 
-AGENTS.md, Rules that matter (the robots bullet); scripts/robots_rules.py, scripts/robots_gate.py, scripts/lh_fetch.py, scripts/robots_tokens.json (access modes, `may_keep`, `page_reservation`, the retention list); the replaced bodies and derived files under each study's data folder, with REMOVED.md notes; the reviews in notes/.
+AGENTS.md, Rules that matter (the robots bullet); scripts/robots_rules.py, scripts/robots_gate.py, scripts/lh_fetch.py, scripts/robots_tokens.json (access modes, `may_keep`, `page_reservation`, the retention list; and the one path every collector saves through, lh_fetch's `save_body`, `keep_decision` and `write_derived`, wired into every live collector the same day, notes/keeper/robots-intent-2026-11-21/collectors_wired.md, reviews R-0111 and its recheck); the replaced bodies and derived files under each study's data folder, with REMOVED.md notes; the reviews in notes/.

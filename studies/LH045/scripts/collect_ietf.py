@@ -7,7 +7,7 @@ Internet-Drafts from the IETF Datatracker's read-only API, under brief.md (proto
   name stratum: drafts whose name contains one of NAME_TOKENS, or ends with one of
   NAME_SUFFIXES (amendment 0.2 added "-dawn-", "-audit-", "-dawn" and "-audit").
 
-Checks robots.txt first and skips any URL it disallows. GETs paced at about one a second;
+Checks robots.txt first, through scripts/robots_gate.py (from 21 November 2026), and skips any URL it refuses. GETs paced at about one a second;
 every body kept under data/ietf/raw-<label>/ with readlog.csv, except that author records
 are kept with each email address replaced by a placeholder (the brief's one departure from
 raw retention). Derives census.csv and authors.csv. Idempotent: a label already held is
@@ -17,10 +17,15 @@ Usage: python3 -I studies/LH045/scripts/collect_ietf.py --read 2026-11-08T1945Z
 import sys as _sys, os as _os
 _sys.path.insert(0, _os.path.join(_os.path.dirname(_os.path.abspath(__file__)), '..', '..', '..', 'scripts'))
 from redact_emails import redact_bytes  # noqa: E402
+from lh_fetch import save_body, UA  # noqa: E402  what may be kept (the keeper, 21 November 2026); Lighthouse's UA
+from robots_gate import RobotsGate  # noqa: E402  the keeper's robots.txt rule of 8 November 2026
 import argparse, csv, datetime, hashlib, json, os, re, sys, time
-import urllib.error, urllib.parse, urllib.request, urllib.robotparser
+import urllib.error, urllib.parse, urllib.request
 
-UA = "Lighthouse-research/1.0 (+https://lighthouse.harbour.cat)"
+# Brief amendment of 21 November 2026 (review R-0111): robots.txt is read once per run by scripts/robots_gate.py
+# with Lighthouse's User-Agent (was "Lighthouse-research/1.0 (+https://lighthouse.harbour.cat)" and
+# urllib.robotparser); a URL it refuses, or whose robots.txt answers 5xx or cannot be read, is not fetched.
+GATE = RobotsGate(UA)
 BASE = "https://datatracker.ietf.org"
 GROUPS = ["aipref", "webbotauth", "agentproto", "dawn", "audit"]
 NAME_TOKENS = ["agent", "aipref", "ai-pref", "webbotauth", "web-bot-auth", "botauth", "bot-auth",
@@ -37,21 +42,36 @@ class Reader:
         self.d = d; self.n = 0
         self.log = open(os.path.join(d, "readlog.csv"), "w", newline="")
         self.w = csv.writer(self.log)
-        self.w.writerow(["file", "url", "utc_start", "status", "content_type", "size", "sha256", "note"])
-        self.rp = None
+        self.w.writerow(["file", "url", "utc_start", "status", "content_type", "size", "sha256", "note", "body_kept"])
+
+    def robots(self, url):
+        """robots.txt, read by the gate (one request) and kept as 000-robots.body, logged like any read."""
+        t = datetime.datetime.now(datetime.timezone.utc).strftime("%Y-%m-%dT%H:%M:%SZ")
+        fn = "%03d-robots.body" % self.n; self.n += 1
+        rec = GATE._robots(url)
+        body = rec.get("body") or b""
+        open(os.path.join(self.d, fn), "wb").write(redact_bytes(body)[0])  # robots.txt bodies may always be kept
+        self.w.writerow([fn, rec["robots_url"], t, rec.get("status"), "", len(body), rec.get("sha256", ""),
+                         "read by scripts/robots_gate.py" + ("; " + rec["error"] if rec.get("error") else ""), ""])
+        self.log.flush()
+        print(fn, rec.get("status"), len(body))
 
     def get(self, name, url, redact_email=False):
         time.sleep(1)
         t = datetime.datetime.now(datetime.timezone.utc).strftime("%Y-%m-%dT%H:%M:%SZ")
         fn = "%03d-%s.body" % (self.n, name); self.n += 1
-        if self.rp is not None and not self.rp.can_fetch(UA, url):
-            self.w.writerow([fn, url, t, "skipped", "", 0, "", "disallowed by robots.txt"]); return None, None
+        ok, info = GATE.check(url)
+        if not ok:  # not fetched: a missing reading, never a negative
+            self.w.writerow([fn, url, t, "not fetched", "", 0, "", "%s (robots %s, status %s, group %s, rule %s)" % (
+                info.get("reason"), info.get("robots_url"), info.get("robots_status"), info.get("decided_by", ""),
+                info.get("rule", "")), ""]); self.log.flush(); return None, None
         req = urllib.request.Request(url, headers={"User-Agent": UA, "Accept": "application/json, text/plain, */*"})
-        note = ""
+        note, final, hdrs = "", url, None
         for attempt in (1, 2):
             try:
                 with urllib.request.urlopen(req, timeout=120) as r:
                     st, ct, body = r.status, r.headers.get("Content-Type", ""), r.read(64 << 20)
+                    final, hdrs = r.geturl() or url, r.headers
                 break
             except urllib.error.HTTPError as e:
                 st, ct, body, note = e.code, e.headers.get("Content-Type", ""), e.read() or b"", "http error"; break
@@ -74,8 +94,8 @@ class Reader:
         body, n_red = redact_bytes(body)  # the keeper, 8 November 2026: email addresses withheld
         if n_red:
             note = (note + "; " if note else "") + "%d email addresses withheld; sha256 is of the bytes received" % n_red
-        open(os.path.join(self.d, fn), "wb").write(body)
-        self.w.writerow([fn, url, t, st, ct, len(body), sha_received, note]); self.log.flush()
+        kept, why = save_body(os.path.join(self.d, fn), body, final, hdrs, gate=GATE)  # the keeper, 21 November 2026
+        self.w.writerow([fn, url, t, st, ct, len(body), sha_received, note, "" if kept else "no: " + why]); self.log.flush()
         print(fn, st, len(body))
         return st, body
 
@@ -107,9 +127,7 @@ def main():
         print("already held:", d); return
     os.makedirs(d)
     R = Reader(d)
-    st, body = R.get("robots", BASE + "/robots.txt")
-    if st == 200:
-        R.rp = urllib.robotparser.RobotFileParser(); R.rp.parse(body.decode("utf-8", "replace").splitlines())
+    R.robots(BASE + "/")
     R.get("meeting127", BASE + "/api/v1/meeting/meeting/?format=json&number=127")
     R.get("agenda127", BASE + "/meeting/127/agenda.txt")
     st, body = R.get("groups", BASE + "/api/v1/group/group/?format=json&acronym__in=" + ",".join(GROUPS))
@@ -152,6 +170,10 @@ def main():
 def derive(d):
     files = sorted(f for f in os.listdir(d) if f.endswith(".body"))
     log = {r["file"]: r for r in csv.DictReader(open(os.path.join(d, "readlog.csv")))}
+    notkept = [f for f, r in log.items() if (r.get("body_kept") or "").startswith("no")]
+    if notkept:  # the keeper, 21 November 2026: a body not kept is an unavailable reading, never a zero, so no
+        # census is written that would look complete (R-0111; as LH040's tabulate.py)
+        sys.exit("census not derived: %d bodies not kept, readings unavailable: %s" % (len(notkept), ", ".join(notkept)))
     def objs(prefix):
         out = []
         for f in files:

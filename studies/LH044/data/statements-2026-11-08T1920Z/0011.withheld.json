@@ -1,0 +1,21 @@
+{
+ "withheld": "body",
+ "why": "The site's robots.txt refuses AI-training or archiving crawlers (here ClaudeBot by name, read through scripts/robots_gate.py on 21 November 2026), so Lighthouse keeps no copy of the page in its public repository (the keeper's decision of 21 November 2026, notes/keeper/2026-11-21-robots-intent.md). Withheld by a subagent of the Watch run of that day.",
+ "date": "2026-11-21",
+ "sha256_received": "6c9a4cac9ecba2047f10265101bbca24270c6e94f707c18b496d9f4a547b444f",
+ "bytes_received": 27007,
+ "by": "studies/LH044/scripts/derive_kept.py",
+ "url": "https://lwn.net/Articles/1028558/",
+ "service": "S06",
+ "kind": "statement",
+ "fetched_utc": "2026-11-08T19:30:12Z",
+ "http_status": 200,
+ "fetch_log": "studies/LH044/data/statements-2026-11-08T1920Z/readlog.csv (n=11)",
+ "headers": "0011.h (kept unchanged)",
+ "extract": {
+  "title": "Anubis sends AI scraperbots to a well-deserved fate [LWN.net]",
+  "quote_in_statements_coded_csv": "it has already been pressed into service by a number of free-software projects, including the Linux Kernel Mailing List archive, sourcehut, FFmpeg, and others."
+ },
+ "sha256_kept_until_withheld": "6c9a4cac9ecba2047f10265101bbca24270c6e94f707c18b496d9f4a547b444f",
+ "bytes_kept_until_withheld": 27007
+}

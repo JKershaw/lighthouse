@@ -215,3 +215,43 @@ identical  r0105
 identical  r0106
 identical  r0091
 timeline output identical to the retained timeline_output.txt
+
+=== Second sweep, 21 November 2026 (task 2: the files the first sweep left untied) ===
+Run by a subagent of the Watch session (Claude Code, Claude Opus 5.5). sweep_may_keep.py had two tie faults: a
+CSV log whose header has a column starting "http" (http_status, http_date) was read as headerless, so whole logs
+went untied (LH024's snapshots, LH035's reads, LH042's rounds); and a numbered log row (n = 1, 2, ...) tied to no
+NNN.body, NNN.b or NNN.txt. Both fixed in the script; untied_files.py lists what is still untied, offline.
+Re-run with LIGHTHOUSE_PROVIDER=anthropic, one robots.txt read per host (294 hosts): 2,428 tied bodies checked
+(was 2,015), output sweep_may_keep_output_2.json. Of its 81 "refused or unknown":
+- 11 bodies refused keeping (a training crawler named and refused) and removed or withheld here: LH044 9
+  (read-2026-11-08T1920Z 0010, 0012, 0040, 0070, 0106, 0113, 0228; read-2026-11-15T1413Z 0070; statements
+  0011; codeberg.org, git.sr.ht, repo1.maven.org, archive.ubuntu.com 2, runescape.wiki, wiki.gentoo.org,
+  ftp.eq.uc.pt, lwn.net), LH042 round1-2026-11-08/035.body (www.axios.com), LH047 reads/evidence-1/008.body
+  (dl.acm.org). LH042's and LH047's were bot challenge pages.
+- 8 are the placeholders and .withheld.json records of four bodies withheld on 9 November (LH042 dash 001,
+  LH044 0190, statements 0006 and 0008); no body of theirs is kept.
+- 62 have a robots.txt that did not answer in this run (unknown, not refused; nothing removed): access.redhat.com
+  52 (error; LH030, LH036, LH038, LH054 reads and LH030 feasibility), www.gutenberg.org 2 and debian.redparra.com
+  1 (503), www.exploit-db.com 1 (502), openlibrary.org 2, scholarship.law.berkeley.edu 2, elpub.ru 1 and
+  revistas.ustabuca.edu.co 1 (error). The first sweep read access.redhat.com without finding a refusal.
+Still untied after the fix (untied_files.py): extracted tables and our own outputs (LH005 to LH017 and LH012's
+346 ClickPy query results, LH030 classes.json, LH031 result.json, LH033 tables.json and the like), robots.txt
+copies (LH044 314, LH047 robots-*.txt, LH045 before-the-brief, notes/robots-tokens-2026-11-08), response
+headers, LH013's two 3 KB excerpts of cloud.google.com pages (keeping allowed), and four page bodies tied here
+by hand: LH039 raw-2026-11-07T1418Z cand-1.body (wordpress.org/download/counter/?ajaxupdate=1), meta-2.body
+(wordpress.org/news/category/releases/feed/), meta-3.body (cveawg.mitre.org), and LH047 catalogue-2/015.body
+(cdn.jsdelivr.net, the ai.robots.txt project's file); robots_gate.py allows keeping all four.
+
+Checks, before and after:
+- LH044: collect.py --classify for read-2026-11-08T1920Z and read-2026-11-15T1413Z with the bodies (baseline
+  copies taken first), then with the run copies (which saved each record's derived class, detail, marker and
+  echoes), then with no copy at all: classes.csv, robots.csv, echoes.csv, summary.json and usage_token.csv
+  byte-identical to the baseline in both reads. (read-2026-11-08T1920Z/summary.json as rebuilt differs from the
+  committed one by "robots_parsed_html": ["P04"] before any change, an amendment-7 field the committed file
+  predates; the committed file is left as it was.) test_lh044.py: 0 failed. review/ai_tokens_check.py,
+  amend7_replay.py, read1_check.py and robots_check.py: output identical to a worktree of HEAD; reclassify.py
+  fails identically in both (it shows commit 1789e54, absent from this clone). scripts/robots_rules.py
+  self-test: 0 failed.
+- LH042: replay.sh output identical before and after (problems: 0; 91 admitted counts; 57 series); no data
+  file changed.
+- LH047: replay.sh output identical before and after; no data file changed.

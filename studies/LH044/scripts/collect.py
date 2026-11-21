@@ -57,6 +57,7 @@ from classify import (classify, parse_robots, robots_allowed, AI_TOKENS, WALL_CL
                       USAGE_TOKEN, AMENDMENT6_FROM)
 import robots_rules  # noqa: E402  (scripts/robots_rules.py: amendment 5, the keeper's rule)
 import content_signal  # noqa: E402  (scripts/content_signal.py: amendment of 9 November 2026, use=reference)
+from lh_fetch import save_body  # noqa: E402  (the keeper, 21 November 2026: no body kept against robots.txt)
 import re  # noqa: E402
 
 ROOT = Path(__file__).resolve().parents[1]
@@ -93,7 +94,7 @@ HA_TECH = ['Cloudflare Bot Management', 'Cloudflare Turnstile', 'Akamai Bot Mana
            'PerimeterX', 'Kasada', 'AntiBot.Cloud', 'AWS WAF Captcha', 'hCaptcha', 'reCAPTCHA',
            'Friendly Captcha']
 LOG_FIELDS = ['n', 'service', 'kind', 'url', 'utc', 'status', 'error', 'error_detail', 'content_type',
-              'bytes', 'truncated', 'sha256', 'elapsed_ms', 'ua', 'route']
+              'bytes', 'truncated', 'sha256', 'elapsed_ms', 'ua', 'route', 'body_kept']
 
 
 def provider_label(provider):
@@ -177,14 +178,30 @@ class Recorder:
                                    'as_read': ('robots.txt kept as %04d.b' % rn) if sig['where'] == 'robots.txt'
                                    else 'response header'},
                 'extract': {'title': content_signal.title_of(body)}})
-        else:
+        kept, why = True, ''
+        if not sig['withhold'] and kind.startswith('robots'):  # robots.txt bodies may always be kept
             (self.dir / ('%04d.b' % self.n)).write_bytes(body)
+        elif not sig['withhold']:
+            # The keeper, 21 November 2026: no page body is kept where robots.txt refuses `*`, an AI-training
+            # or archiving crawler, or the page reserves itself; it is then withheld as for use=reference
+            # (placeholder, record with hash and title, this run's copy in <n>.b.withheld-local).
+            # robots.txt this run already read for the host is reused (None where it answered 4xx), so no
+            # robots.txt is requested twice (R-0111); a host it has not read goes to the gate
+            rk = {'robots_body': self.robots_for[h][0]} if h in self.robots_for else {}
+            kept, why = save_body(self.dir / ('%04d.b' % self.n), r['body'], url, r['headers'], **rk)
+            if not kept:
+                content_signal.write_withheld(self.dir / ('%04d.b' % self.n), r['body'], {
+                    'why': 'robots.txt or the page refuses keeping (the keeper, 21 November 2026): ' + why,
+                    'file': '%04d.b' % self.n, 'by': 'scripts/collect.py', 'sha256_received': r['sha256'],
+                    'url': url, 'service': service, 'kind': kind, 'fetched_utc': r['utc'],
+                    'http_status': r['status'], 'headers': '%04d.h' % self.n,
+                    'extract': {'title': content_signal.title_of(body)}}, keeper=True)
         self.w.writerow({'n': self.n, 'service': service, 'kind': kind, 'url': url, 'utc': r['utc'],
                          'status': r['status'] if r['status'] is not None else '', 'error': r['error'] or '',
                          'error_detail': r['error_detail'], 'content_type': header(r, 'content-type'),
                          'bytes': len(r['body']), 'truncated': r['truncated'], 'sha256': r['sha256'],
                          'elapsed_ms': r['elapsed_ms'], 'ua': 'compat' if ua == UA_COMPAT else 'plain',
-                         'route': route(url)})
+                         'route': route(url), 'body_kept': '' if kept else 'no: ' + why})
         self.f.flush()
         r['n'] = self.n
         time.sleep(PAUSE)
@@ -310,8 +327,8 @@ def do_read(label, provider=None):
             continue
         state, groups, pcls, pdet = robots_outcome(rr, version)
         row['robots_n'], row['robots_state'] = rr['n'], state
-        if state == 'parsed':
-            rec.robots_for[(u.hostname or '').lower()] = (rr['body'], rr['n'])
+        if state in ('parsed', 'unavailable'):  # unavailable (4xx): no rules, so None (R-0111: no second read)
+            rec.robots_for[(u.hostname or '').lower()] = (rr['body'] if state == 'parsed' else None, rr['n'])
         if pcls:
             row.update({'pre_class': pcls, 'pre_detail': pdet})
             services.append(row)
@@ -622,6 +639,7 @@ def do_wayback(label, provider=None):
         rec.robots_for['web.archive.org'] = (rb['body'], rb['n'])
     elif rb and rb['status'] and 400 <= rb['status'] < 500 and rb['status'] != 429:
         groups = []
+        rec.robots_for['web.archive.org'] = (None, rb['n'])  # 4xx: no rules
     if groups is None:
         state['stopped'] = state['stopped'] or 'robots.txt of web.archive.org unread'
 
@@ -713,8 +731,8 @@ def do_httparchive(label, provider=None):
     rec = Recorder(out, provider)
     rb, _, cut = fetch_robots(rec, '-', 'https://cdn.httparchive.org/robots.txt')
     state, groups, pcls, _ = robots_outcome(rb) if rb and not cut else ('unreachable', None, 'host_cap', '')
-    if state == 'parsed':
-        rec.robots_for['cdn.httparchive.org'] = (rb['body'], rb['n'])
+    if state in ('parsed', 'unavailable'):  # unavailable (4xx): no rules
+        rec.robots_for['cdn.httparchive.org'] = (rb['body'] if state == 'parsed' else None, rb['n'])
     url = ('https://cdn.httparchive.org/v1/adoption?technology=%s&geo=ALL&rank=ALL&start=2024-01-01'
            % quote(','.join(HA_TECH), safe=','))
     if state in ('parsed', 'unavailable') and obey(groups, url, provider).allowed:
@@ -737,8 +755,8 @@ def do_statements(label, listfile, provider=None):
         if key not in robots:
             rb, _, cut = fetch_robots(rec, row['id'], '%s://%s/robots.txt' % key)
             robots[key] = robots_outcome(rb) if rb and not cut else ('unreachable', None, 'host_cap', '')
-            if robots[key][0] == 'parsed':
-                rec.robots_for[(u.hostname or '').lower()] = (rb['body'], rb['n'])
+            if robots[key][0] in ('parsed', 'unavailable'):  # unavailable (4xx): no rules
+                rec.robots_for[(u.hostname or '').lower()] = (rb['body'] if robots[key][0] == 'parsed' else None, rb['n'])
         state, groups, pcls, _ = robots[key]
         if state not in ('parsed', 'unavailable') or not obey(groups, row['url'], provider).allowed:
             print('not read (robots %s %s): %s' % (state, pcls, row['url']))

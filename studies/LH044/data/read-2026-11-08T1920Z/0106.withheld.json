@@ -1,0 +1,28 @@
+{
+ "withheld": "body",
+ "why": "The site's robots.txt refuses AI-training or archiving crawlers (here ClaudeBot by name, read through scripts/robots_gate.py on 21 November 2026), so Lighthouse keeps no copy of the page in its public repository (the keeper's decision of 21 November 2026, notes/keeper/2026-11-21-robots-intent.md). Withheld by a subagent of the Watch run of that day.",
+ "date": "2026-11-21",
+ "sha256_received": "10ebdef4368a22214913457bc6b2851fe18df47ddb33c4fd66b5ffe622fcf2a1",
+ "bytes_received": 65536,
+ "by": "studies/LH044/scripts/derive_kept.py",
+ "url": "https://runescape.wiki/w/Lumbridge",
+ "service": "D11",
+ "kind": "probe",
+ "fetched_utc": "2026-11-08T19:22:13Z",
+ "http_status": 200,
+ "fetch_log": "studies/LH044/data/read-2026-11-08T1920Z/readlog.csv (n=106)",
+ "headers": "0106.h (kept unchanged)",
+ "extract": {
+  "title": "Lumbridge - The RuneScape Wiki"
+ },
+ "sha256_kept_until_withheld": "10ebdef4368a22214913457bc6b2851fe18df47ddb33c4fd66b5ffe622fcf2a1",
+ "bytes_kept_until_withheld": 65536,
+ "derived": {
+  "classifier": "0.2",
+  "class": "open",
+  "detail": "marker",
+  "marker_found": true,
+  "marker_in_context": "lass=\"client-nojs\" lang=\"en-GB\" dir=\"ltr\">\n<head>\n<meta charset=\"UTF-8\">\n<title>Lumbridge - The RuneScape Wiki</title>\n<script>(function(){var className=\"client-js\";var ",
+  "echoes": []
+ }
+}

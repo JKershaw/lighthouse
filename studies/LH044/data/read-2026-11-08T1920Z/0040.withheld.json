@@ -1,0 +1,28 @@
+{
+ "withheld": "body",
+ "why": "The site's robots.txt refuses AI-training or archiving crawlers (here ClaudeBot by name, read through scripts/robots_gate.py on 21 November 2026), so Lighthouse keeps no copy of the page in its public repository (the keeper's decision of 21 November 2026, notes/keeper/2026-11-21-robots-intent.md). Withheld by a subagent of the Watch run of that day.",
+ "date": "2026-11-21",
+ "sha256_received": "f95609e63b9b3b8daf7853f304b33eb5b04e1944d717f3684c62101210589013",
+ "bytes_received": 96,
+ "by": "studies/LH044/scripts/derive_kept.py",
+ "url": "https://repo1.maven.org/maven2/org/apache/commons/commons-lang3/maven-metadata.xml",
+ "service": "R06",
+ "kind": "probe",
+ "fetched_utc": "2026-11-08T19:20:07Z",
+ "http_status": 429,
+ "fetch_log": "studies/LH044/data/read-2026-11-08T1920Z/readlog.csv (n=40)",
+ "headers": "0040.h (kept unchanged)",
+ "extract": {
+  "title": ""
+ },
+ "sha256_kept_until_withheld": "f95609e63b9b3b8daf7853f304b33eb5b04e1944d717f3684c62101210589013",
+ "bytes_kept_until_withheld": 96,
+ "derived": {
+  "classifier": "0.2",
+  "class": "rate_limited",
+  "detail": "429",
+  "marker_found": false,
+  "marker_in_context": "",
+  "echoes": []
+ }
+}

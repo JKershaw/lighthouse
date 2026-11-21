@@ -11,11 +11,13 @@ from pathlib import Path
 from urllib.error import HTTPError
 from urllib.request import Request
 import argparse
-import gzip
 import json
 import os as _os, sys as _sys
 _sys.path.insert(0, _os.path.join(_os.path.dirname(_os.path.abspath(__file__)), '..', '..', '..', 'scripts'))
-from lh_fetch import urlopen, redacted, UA  # noqa: E402  robots.txt gate (the keeper, 8 November 2026)
+from lh_fetch import urlopen, UA, save_body, write_derived  # noqa: E402  robots.txt gate (the keeper, 8 November 2026)
+
+_sys.path.insert(0, _os.path.dirname(_os.path.abspath(__file__)))
+from derive_kept import dist_index_extract, USED  # noqa: E402  the extractor
 
 ROOT = Path(__file__).resolve().parents[1]
 BASE = 'https://storage.googleapis.com/access-logs-summaries-nodejs/nodejs.org-access.log.{}.json'
@@ -48,8 +50,16 @@ for name, url in jobs:
             row.update(finish_utc=datetime.now(timezone.utc).isoformat(), status=response.status, bytes=len(body),
                        sha256=sha256(body).hexdigest())
             if response.status == 200:
-                (OUT / (name + '.raw.gz')).write_bytes(gzip.compress(redacted(body), mtime=0))
-                row['file'] = name + '.raw.gz'
+                kept, why = save_body(OUT / (name + '.raw.gz'), body, response.geturl() or url, response.headers)
+                if kept:  # the keeper, 21 November 2026: no body kept where robots.txt or the page refuses it
+                    row['file'] = name + '.raw.gz'
+                else:
+                    row['body_kept'] = 'no: ' + why
+                    if name == 'dist-index':  # keep only the facts the study uses, as derive_kept.py does
+                        write_derived(OUT / 'dist-index.derived.json', url, why, dist_index_extract(body),
+                                      read_utc=row['start_utc'], finish_utc=row['finish_utc'], http_status=row['status'],
+                                      bytes=row['bytes'], sha256=row['sha256'], used_for=USED)
+                        row['file'] = 'dist-index.derived.json'
     except Exception as error:
         row.setdefault('finish_utc', datetime.now(timezone.utc).isoformat())
         row['error'] = type(error).__name__ + ': ' + str(error)[:200]

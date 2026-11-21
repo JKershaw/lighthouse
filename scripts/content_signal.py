@@ -144,9 +144,19 @@ def placeholder(record_name):
             'hash, headers and extract in %s]\n' % record_name).encode()
 
 
-def write_withheld(body_path, body, record):
+def keeper_placeholder(record_name):
+    """The placeholder for a body withheld under the keeper's decision of 21 November 2026 (robots.txt
+    refuses AI-training or archiving crawlers or all bots, or the page reserves itself), not Content-Signal."""
+    return ('[body withheld by Lighthouse: the site\'s robots.txt refuses AI-training or archiving crawlers or all '
+            'bots, or the page reserves itself (the keeper\'s decision of 21 November 2026); hash, headers and '
+            'extract in %s]\n' % record_name).encode()
+
+
+def write_withheld(body_path, body, record, keeper=False):
     """Write the placeholder at body_path, the record as <stem>.withheld.json beside it, and the
-    whole body to body_path + LOCAL_SUFFIX for this run only (git ignores it). Returns the record."""
+    whole body to body_path + LOCAL_SUFFIX for this run only (git ignores it). Returns the record.
+    keeper=True: withheld under the keeper's decision of 21 November 2026 (the record's 'why' says
+    which refusal), with that placeholder, rather than for Content-Signal."""
     body_path = Path(body_path)
     rec_path = body_path.with_name(body_path.stem + '.withheld.json')
     rec = {'withheld': 'body', 'why': 'Content-Signal use=reference (or use=immediate): '
@@ -157,7 +167,7 @@ def write_withheld(body_path, body, record):
     ex = rec.get('extract') or {}
     if sum(len(str(v)) for v in ex.values()) > EXTRACT_MAX:
         raise ValueError('extract longer than %d characters' % EXTRACT_MAX)
-    body_path.write_bytes(placeholder(rec_path.name))
+    body_path.write_bytes(keeper_placeholder(rec_path.name) if keeper else placeholder(rec_path.name))
     Path(str(body_path) + LOCAL_SUFFIX).write_bytes(body)
     rec_path.write_text(json.dumps(rec, indent=1, ensure_ascii=False) + '\n')
     return rec

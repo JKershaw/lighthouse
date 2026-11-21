@@ -5,7 +5,9 @@
 
 Asks scripts/robots_gate.py (through scripts/lh_fetch.py) immediately before the fetch; a refused URL
 is logged "not fetched" with the deciding group and rule. Reads at most 4 MiB, withholds email
-addresses with redact_bytes before saving, keeps the body gzipped as <read dir>/<name>.raw.gz and
+addresses with redact_bytes before saving, keeps the body gzipped as <read dir>/<name>.raw.gz (through lh_fetch.save_body: not where robots.txt
+refuses `*`, an AI-training or archiving crawler, or the page reserves itself, the keeper's decision of
+21 November 2026; the note then says "body_kept: no: <reason>") and
 appends a row to <read dir>/readlog.csv: URL, UTC start, status, Last-Modified, Date, length and the
 SHA-256 of the bytes received. No retry. Refuses to run once the read has used 30 GETs, counting one
 robots.txt per host as the gate fetches it. The driver chooses each URL from the indexes as the
@@ -13,7 +15,6 @@ amendment says; this script follows no link itself.
 """
 import csv
 import datetime
-import gzip
 import hashlib
 import os
 import sys
@@ -22,7 +23,7 @@ from urllib.parse import urlsplit
 
 sys.path.insert(0, os.path.join(os.path.dirname(os.path.abspath(__file__)), "..", "..", "..", "scripts"))
 import urllib.request  # noqa: E402
-from lh_fetch import urlopen, NotFetched, redact_bytes, UA  # noqa: E402
+from lh_fetch import urlopen, NotFetched, redact_bytes, UA, save_body  # noqa: E402
 
 CEILING = 30
 LIMIT = 4 * 1024 * 1024
@@ -42,10 +43,10 @@ def main(d, name, url):
     start = datetime.datetime.now(datetime.timezone.utc).strftime("%Y-%m-%dT%H:%M:%SZ")
     row = dict(name=name, url=url, utc_start=start, status="", last_modified="", date="", bytes="",
                sha256="", emails_withheld="", note="")
-    body = None
+    body, final, hdrs = None, url, None
     try:
         with urlopen(urllib.request.Request(url, headers={"User-Agent": UA}), timeout=60, check_redirects=True) as r:
-            body = r.read(LIMIT + 1)
+            body, final, hdrs = r.read(LIMIT + 1), r.geturl() or url, r.headers
             row.update(status=r.status, last_modified=r.headers.get("Last-Modified", ""),
                        date=r.headers.get("Date", ""))
     except NotFetched as e:
@@ -59,10 +60,10 @@ def main(d, name, url):
             body = body[:LIMIT]
             row["note"] = "cut at 4 MiB"
         row.update(bytes=len(body), sha256=hashlib.sha256(body).hexdigest())
-        clean, n = redact_bytes(body)
-        row["emails_withheld"] = n
-        with gzip.open(os.path.join(d, name + ".raw.gz"), "wb") as f:
-            f.write(clean)
+        row["emails_withheld"] = redact_bytes(body)[1]
+        kept, why = save_body(os.path.join(d, name + ".raw.gz"), body, final, hdrs)  # the keeper, 21 November 2026
+        if not kept:  # nothing kept where robots.txt or the page refuses it
+            row["note"] = (row["note"] + "; " if row["note"] else "") + "body_kept: no: " + why
     new = not os.path.exists(log)
     with open(log, "a", newline="") as f:
         w = csv.DictWriter(f, fieldnames=FIELDS, lineterminator="\n")

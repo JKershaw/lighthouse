@@ -38,7 +38,7 @@ def red(text):
 
 # Robots sweep, 9 November 2026: every request asks the robots.txt gate first (the keeper, 8 November 2026),
 # and the User-Agent is the one the gate reads robots.txt with (was "Lighthouse-research/1.0 (+https://lighthouse.harbour.cat)").
-from lh_fetch import check as robots_check, UA  # noqa: E402
+from lh_fetch import check as robots_check, UA, keep_decision  # noqa: E402  keep_decision: what may be kept (the keeper, 21 November 2026)
 EXPORTS = {"npm": "https://osv-vulnerabilities.storage.googleapis.com/npm/all.zip",
            "PyPI": "https://osv-vulnerabilities.storage.googleapis.com/PyPI/all.zip"}
 NPM_CEILING, PYPI_CEILING, SPOT = 3000, 300, 20
@@ -160,7 +160,10 @@ def main():
     iw.writerow(["id", "ecosystem", "package", "published", "modified", "withdrawn", "n_versions",
                  "has_ranges", "origin_sources", "first_import"])
     sel = gzip.open(os.path.join(out, "osv-selected.jsonl.gz"), "wt")
-    selected = []
+    selected, sel_lines = [], []
+    # The keeper, 21 November 2026: a record's raw JSON is kept only where the export's robots.txt allows keeping.
+    keep_export = {eco: keep_decision(url) for eco, url in EXPORTS.items()}
+    meta["exports_body_kept"] = {eco: "yes" if k else "no: " + why for eco, (k, why) in keep_export.items()}
     for eco in EXPORTS:
         z = zipfile.ZipFile(os.path.join(work, eco + "-all.zip"))
         for nm in z.namelist():
@@ -179,7 +182,11 @@ def main():
             h = matches(raw)
             seed = is_seed(eco, pkg)
             if h["lineage"] or h["specific"] or h["shared"] or seed:
-                sel.write(json.dumps({"ecosystem": eco, "file": nm, "match": h, "seed": seed, "raw": red(raw)}) + "\n")
+                line = {"ecosystem": eco, "file": nm, "match": h, "seed": seed, "raw": red(raw)}
+                sel_lines.append(json.dumps(line))
+                if not keep_export[eco][0]:
+                    line["raw"], line["body_kept"] = None, "no: " + keep_export[eco][1]
+                sel.write(json.dumps(line) + "\n")
                 selected.append((eco, pkg, vers))
     idx.close(); sel.close()
     meta["selected_records"] = len(selected)
@@ -243,7 +250,7 @@ def main():
 
     # 6. OpenSSF spot check
     random.seed(4101)
-    lines = gzip.open(os.path.join(out, "osv-selected.jsonl.gz"), "rt").read().splitlines()
+    lines = sel_lines  # as written to osv-selected.jsonl.gz, before any raw not kept was dropped
     sc = gzip.open(os.path.join(out, "openssf-spotcheck.jsonl.gz"), "wt")
     for ln in random.sample(lines, min(SPOT, len(lines))):
         r = json.loads(ln); rec = json.loads(r["raw"])
@@ -253,7 +260,11 @@ def main():
             sc.write(json.dumps({"id": rec["id"], "source": src, "status": "no source path"}) + "\n"); continue
         url = "https://raw.githubusercontent.com/ossf/malicious-packages/" + m.group(1)
         st, body, hd = get(url, log, note="OpenSSF spot check")
-        sc.write(json.dumps({"id": rec["id"], "url": url, "status": st, "raw": red(body.decode("utf-8", "replace"))}) + "\n")
+        keep, why = keep_decision(url, body, hd)  # the keeper, 21 November 2026
+        line = {"id": rec["id"], "url": url, "status": st, "raw": red(body.decode("utf-8", "replace"))}
+        if not keep:
+            line["raw"], line["body_kept"] = None, "no: " + why
+        sc.write(json.dumps(line) + "\n")
         time.sleep(PACE)
     sc.close()
     meta["ended"] = now()

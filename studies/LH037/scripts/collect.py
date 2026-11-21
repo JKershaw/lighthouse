@@ -11,10 +11,10 @@ from hashlib import sha256
 from pathlib import Path
 from urllib.error import HTTPError
 from urllib.request import Request
-import argparse, gzip, json, re
+import argparse, json, re
 import os as _os, sys as _sys
 _sys.path.insert(0, _os.path.join(_os.path.dirname(_os.path.abspath(__file__)), '..', '..', '..', 'scripts'))
-from lh_fetch import urlopen, redacted, UA  # noqa: E402  robots.txt gate (the keeper, 8 November 2026)
+from lh_fetch import urlopen, UA, save_body  # noqa: E402  robots.txt gate (the keeper, 8 November 2026)
 _sys.path.insert(0, _os.path.dirname(_os.path.abspath(__file__)))
 from mentions import counts  # noqa: E402  old and amended mention rules (amendment of 12 November 2026)
 
@@ -61,8 +61,11 @@ for stratum, vendor, kind, key, url in targets:
                        sha256=sha256(body).hexdigest(),
                        mentions=counts(body, PANEL['cves']))
             if len(body) <= CEILING:
-                (OUT / (name + '.raw.gz')).write_bytes(gzip.compress(redacted(body), mtime=0))
-                row['file'] = name + '.raw.gz'
+                kept, why = save_body(OUT / (name + '.raw.gz'), body, response.geturl() or url, response.headers)
+                if kept:  # the keeper, 21 November 2026: no body kept where robots.txt or the page refuses it
+                    row['file'] = name + '.raw.gz'
+                else:  # the mention counts above are still logged
+                    row['body_kept'] = 'no: ' + why
             else:
                 row['error'] = 'over the 4 MiB ceiling; no body retained'
     except Exception as error:

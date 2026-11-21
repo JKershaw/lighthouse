@@ -8,7 +8,12 @@ from hashlib import sha256
 from pathlib import Path
 from urllib.error import HTTPError
 from urllib.request import Request, urlopen
-import argparse, gzip, json
+import argparse, json, sys
+
+sys.path.insert(0, str(Path(__file__).resolve().parents[3] / 'scripts'))
+# The robots.txt gate (the keeper, 8 November 2026) and what may be kept (21 November 2026); these names were
+# used below but never imported, so the script could not run (found and fixed 21 November 2026).
+from lh_fetch import check as robots_check, save_body, UA  # noqa: E402
 
 ROOT = Path(__file__).resolve().parents[1]
 POLICIES = json.loads((ROOT / 'policies.json').read_text())['policies']
@@ -26,7 +31,7 @@ for key, url in POLICIES.items():
     if args.only and key not in args.only:
         continue
     row = {'name': key, 'url': url, 'start_utc': datetime.now(timezone.utc).isoformat()}
-    ok, rinfo = GATE.check(url)
+    ok, rinfo = robots_check(url)
     row['robots'] = rinfo
     if not ok:
         row['error'] = 'not fetched: ' + rinfo['reason']
@@ -46,8 +51,11 @@ for key, url in POLICIES.items():
                        last_modified=response.headers.get('Last-Modified', ''), bytes=len(body),
                        sha256=sha256(body).hexdigest())
             if len(body) <= CEILING:
-                (OUT / (key + '.raw.gz')).write_bytes(gzip.compress(redact_bytes(body)[0], mtime=0))
-                row['file'] = key + '.raw.gz'
+                kept, why = save_body(OUT / (key + '.raw.gz'), body, response.geturl() or url, response.headers)
+                if kept:
+                    row['file'] = key + '.raw.gz'
+                else:
+                    row['body_kept'] = 'no: ' + why
     except Exception as error:
         row.update(finish_utc=datetime.now(timezone.utc).isoformat(), error=type(error).__name__ + ': ' + str(error))
     rows.append(row)

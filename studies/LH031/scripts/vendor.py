@@ -11,7 +11,7 @@ import json
 import re
 import os as _os, sys as _sys
 _sys.path.insert(0, _os.path.join(_os.path.dirname(_os.path.abspath(__file__)), '..', '..', '..', 'scripts'))
-from lh_fetch import urlopen, redacted, UA  # noqa: E402  robots.txt gate (the keeper, 8 November 2026)
+from lh_fetch import urlopen, UA, save_body  # noqa: E402  robots.txt gate (the keeper, 8 November 2026)
 
 ROOT = Path(__file__).resolve().parents[1]
 SOURCES = [('advisory', 'https://security.paloaltonetworks.com/CVE-2026-109618'),
@@ -95,8 +95,11 @@ if __name__ == '__main__':
                 if len(body) > CEILING:
                     row['error'] = 'over 2 MiB ceiling; no body retained'
                 else:
-                    (OUT / (name + '.raw')).write_bytes(redacted(body))
-                    row['file'] = name + '.raw'
+                    kept, why = save_body(OUT / (name + '.raw'), body, response.geturl() or url, response.headers)
+                    if kept:  # the keeper, 21 November 2026: no body kept where robots.txt or the page refuses it
+                        row['file'] = name + '.raw'
+                    else:  # result.json still holds the extracted fields
+                        row['body_kept'] = 'no: ' + why
                     if response.status == 200:
                         result[name] = EXTRACT[name](body)
         except Exception as error:

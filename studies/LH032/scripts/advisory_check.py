@@ -12,7 +12,7 @@ import urllib.error
 import urllib.request
 import os as _os, sys as _sys
 _sys.path.insert(0, _os.path.join(_os.path.dirname(_os.path.abspath(__file__)), '..', '..', '..', 'scripts'))
-from lh_fetch import urlopen, redacted, UA  # noqa: E402  robots.txt gate (the keeper, 8 November 2026)
+from lh_fetch import urlopen, UA, save_body, write_derived  # noqa: E402  robots.txt gate (the keeper, 8 November 2026)
 
 ROOT = Path(__file__).resolve().parents[1]
 READ = ROOT / 'data' / ('read-' + sys.argv[1])
@@ -26,20 +26,26 @@ OUT.mkdir(exist_ok=False)
 now = lambda: datetime.now(timezone.utc).isoformat(timespec='seconds').replace('+00:00', 'Z')
 log = []
 for i, url in enumerate(urls):
-    at, status, body, final, error = now(), None, b'', '', ''
+    at, status, body, final, error, headers = now(), None, b'', '', '', None
     try:
         request = urllib.request.Request(url, headers={'User-Agent': UA})
         with urlopen(request, timeout=25) as response:
-            status, final, body = response.status, response.url, response.read(512 * 1024 + 1)
+            status, final, body, headers = response.status, response.url, response.read(512 * 1024 + 1), response.headers
     except urllib.error.HTTPError as exc:
-        status, final, body, error = exc.code, exc.url, exc.read(4096), 'HTTP error'
+        status, final, body, error, headers = exc.code, exc.url, exc.read(4096), 'HTTP error', exc.headers
     except Exception as exc:
         error = f'{type(exc).__name__}: {exc}'
     body = body[:512 * 1024]
-    saved = gzip.compress(redacted(body), mtime=0)
-    (OUT / f'page-{i + 1}.html.gz').write_bytes(saved)
-    log.append({'url': url, 'started_utc': at, 'finished_utc': now(), 'status': status, 'final_url': final,
-                'bytes_retained': len(body), 'sha256_retained_response': hashlib.sha256(body).hexdigest(),
-                'file': f'page-{i + 1}.html.gz', 'error': error})
+    kept, why = save_body(OUT / f'page-{i + 1}.html.gz', body, final or url, headers)  # the keeper, 21 November 2026
+    row = {'url': url, 'started_utc': at, 'finished_utc': now(), 'status': status, 'final_url': final,
+           'bytes_retained': len(body), 'sha256_retained_response': hashlib.sha256(body).hexdigest(),
+           'file': f'page-{i + 1}.html.gz', 'error': error}
+    if not kept:  # nothing kept but the facts the checkpoint uses (that the page answered)
+        row['body_kept'] = 'no: ' + why
+        row['file'] = f'page-{i + 1}.derived.json'
+        write_derived(OUT / row['file'], url, why, {}, read_utc=at, finish_utc=row['finished_utc'], http_status=status,
+                      final_url=final, bytes_retained=len(body), sha256_retained_response=row['sha256_retained_response'],
+                      used_for='Advisory check: one of the sampled advisory pages; the checkpoint records only that it answered.')
+    log.append(row)
     print(status, len(body), url, error, flush=True)
 (OUT / 'read_log.json').write_text(json.dumps(log, indent=1) + '\n')

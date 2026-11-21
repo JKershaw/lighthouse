@@ -9,7 +9,7 @@ import argparse
 import json
 import os as _os, sys as _sys
 _sys.path.insert(0, _os.path.join(_os.path.dirname(_os.path.abspath(__file__)), '..', '..', '..', 'scripts'))
-from lh_fetch import urlopen, redacted, UA  # noqa: E402  robots.txt gate (the keeper, 8 November 2026)
+from lh_fetch import urlopen, UA, save_body  # noqa: E402  robots.txt gate (the keeper, 8 November 2026)
 
 ROOT = Path(__file__).resolve().parents[1]
 PAGES = [('criteria', 'https://www.cisa.gov/known-exploited-vulnerabilities'),
@@ -35,8 +35,11 @@ for name, url in PAGES:
             body = response.read(CEILING + 1)
             row.update(finish_utc=datetime.now(timezone.utc).isoformat(), status=response.status, final_url=response.geturl(),
                        bytes=len(body), sha256=sha256(body).hexdigest(), content_type=response.headers.get('Content-Type', ''))
-            (OUT / (name + '.raw')).write_bytes(redacted(body[:CEILING]))
-            row['file'] = name + '.raw'
+            kept, why = save_body(OUT / (name + '.raw'), body[:CEILING], response.geturl() or url, response.headers)
+            if kept:  # the keeper, 21 November 2026: no body kept where robots.txt or the page refuses it
+                row['file'] = name + '.raw'
+            else:
+                row['body_kept'] = 'no: ' + why
     except Exception as error:
         row.setdefault('finish_utc', datetime.now(timezone.utc).isoformat())
         row['error'] = type(error).__name__ + ': ' + str(error)[:200]

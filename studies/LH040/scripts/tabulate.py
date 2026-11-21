@@ -145,8 +145,13 @@ def main():
     OUT.mkdir(exist_ok=True)
     log = {r['name']: r for r in read_csv(rd / 'readlog.csv')}
     # Each retained body is checked against the SHA-256 its read logged.
+    # A body not kept (the keeper, 21 November 2026) is an unavailable reading: measure 7 uses only the log,
+    # and every other measure needs its body, so the tables are not made rather than made with zeros.
+    unkept = {n for n, r in log.items() if (r.get('body_kept') or '').startswith('no')}
+    if unkept - {n for n in log if n.startswith('depsdev')}:
+        raise SystemExit('bodies not kept, readings unavailable: ' + ', '.join(sorted(unkept)))
     hashes = {n: hashlib.sha256((rd / (n + '.raw')).read_bytes()).hexdigest() == r['sha256']
-              for n, r in log.items() if r['size'] not in ('', '0')}
+              for n, r in log.items() if r['size'] not in ('', '0') and n not in unkept}
     assert all(hashes.values()), hashes
 
     # ---- Daily totals. CHOICE: ClickPy's pypi_downloads_per_day returned more than one row for some

@@ -1,1 +1,1 @@
-Your ip has exceeded rate limits. Find out more here https://central.sonatype.org/faq/429-error/
+[body withheld by Lighthouse: the site's robots.txt refuses AI-training or archiving crawlers or all bots, or the page reserves itself (the keeper's decision of 21 November 2026); hash, headers and extract in 0040.withheld.json]

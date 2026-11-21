@@ -29,6 +29,8 @@ MAIN_KERNEL = ('kernel-default', 'kernel-source', 'kernel-rt', 'kernel-64kb')
 def body(read, name):
     log = {r['name']: r for r in json.loads((read / 'read_log.json').read_text())}
     row = log.get(name)
+    if row and (row.get('body_kept') or '').startswith('no'):  # the keeper, 21 November 2026: not kept, not a zero
+        return None, 'unavailable (body not kept)'
     if not row or row.get('status') != 200 or not row.get('file'):
         return None, (row or {}).get('status')
     raw = gzip.decompress((read / row['file']).read_bytes())

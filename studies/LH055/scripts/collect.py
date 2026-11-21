@@ -7,18 +7,22 @@ For each id=url: ask scripts/robots_gate.py; if allowed, make exactly one GET (r
 urllib, no retry); keep the received-body sha256 and length; withhold email addresses, IPv4
 addresses, key-shaped strings and defanged indicators from the retained body and text; write
 data/<label>/bodies/<id>.raw.gz, data/<label>/text/<id>.txt, data/<label>/robots/<id>.json and one
-line per URL in data/<label>/fetch_log.jsonl. A wall (403, challenge, error) is logged, not retried.
+line per URL in data/<label>/fetch_log.jsonl. From 21 November 2026 (the keeper's decision) the body is
+written through scripts/lh_fetch.py's save_body: where robots.txt refuses `*`, an AI-training or archiving
+crawler, or the page reserves itself, neither body nor text is kept, and the log line carries body_kept
+"no: <reason>" with the text's sha256 and length; the text is held for this run only in
+text/<id>.txt.withheld-local (git ignores it) so claims and short quotes can be taken from it. A wall (403, challenge, error) is logged, not retried.
 Nothing fetched is executed. Text is extracted with pdftotext for PDFs and scripts/reader_view.py's
 parser for HTML.
 """
-import datetime, gzip, hashlib, json, os, re, subprocess, sys, tempfile
+import datetime, hashlib, json, os, re, subprocess, sys, tempfile
 from urllib.error import HTTPError, URLError
 from urllib.request import Request
 
 HERE = os.path.dirname(os.path.abspath(__file__))
 ROOT = os.path.abspath(os.path.join(HERE, "..", "..", ".."))
 sys.path.insert(0, os.path.join(ROOT, "scripts"))
-from lh_fetch import UA, NotFetched, check, urlopen  # noqa: E402
+from lh_fetch import UA, NotFetched, check, urlopen, save_body  # noqa: E402
 from redact_emails import redact_bytes  # noqa: E402
 from reader_view import View  # noqa: E402
 
@@ -78,11 +82,12 @@ def main(label, pairs):
             log.write(json.dumps(rec) + "\n"); log.flush()
             print(sid, "not fetched (robots)", info.get("reason"))
             continue
-        body, status, final, ctype, headers = b"", None, url, "", {}
+        body, status, final, ctype, headers, resp_headers = b"", None, url, "", {}, None
         try:
             with urlopen(Request(url, headers={"User-Agent": UA}), timeout=60) as r:
                 status, final, ctype = r.status, r.geturl(), r.headers.get("Content-Type", "")
                 headers = {k: r.headers.get(k) for k in ("Last-Modified", "ETag", "Date", "Content-Length")}
+                resp_headers = r.headers
                 body = r.read()
             rec["outcome"] = "received"
         except HTTPError as e:
@@ -96,13 +101,20 @@ def main(label, pairs):
                    received_bytes=len(body), received_sha256=hashlib.sha256(body).hexdigest() if body else "")
         if rec["outcome"] == "received":
             kept, counts = withhold(body)
-            gzip.open(os.path.join(out, "bodies", sid + ".raw.gz"), "wb").write(kept)
             text = to_text(body, ctype)
             ktext, tcounts = withhold(text.encode("utf-8"))
-            open(os.path.join(out, "text", sid + ".txt"), "wb").write(ktext)
-            rec.update(retained_body="bodies/%s.raw.gz" % sid, retained_text="text/%s.txt" % sid,
-                       retained_sha256=hashlib.sha256(kept).hexdigest(), withheld_body=counts,
-                       withheld_text=tcounts, text_chars=len(ktext))
+            # The keeper, 21 November 2026: neither the body nor its full text is kept where robots.txt refuses
+            # `*`, an AI-training or archiving crawler, or the page reserves itself; the hashes are.
+            ok_keep, why = save_body(os.path.join(out, "bodies", sid + ".raw.gz"), kept, final or url, resp_headers)
+            if ok_keep:
+                open(os.path.join(out, "text", sid + ".txt"), "wb").write(ktext)
+                rec.update(retained_body="bodies/%s.raw.gz" % sid, retained_text="text/%s.txt" % sid,
+                           retained_sha256=hashlib.sha256(kept).hexdigest(), withheld_body=counts,
+                           withheld_text=tcounts, text_chars=len(ktext))
+            else:
+                open(os.path.join(out, "text", sid + ".txt.withheld-local"), "wb").write(ktext)  # this run only; git ignores it
+                rec.update(body_kept="no: " + why, text_sha256=hashlib.sha256(ktext).hexdigest(), text_chars=len(ktext),
+                           local_text="text/%s.txt.withheld-local (this run only; not retained)" % sid)
         rec["finished"] = now()
         log.write(json.dumps(rec) + "\n"); log.flush()
         print(sid, rec["outcome"], status, final, ctype, len(body))

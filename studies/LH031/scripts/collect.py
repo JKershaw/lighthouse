@@ -9,7 +9,7 @@ import argparse
 import json
 import os as _os, sys as _sys
 _sys.path.insert(0, _os.path.join(_os.path.dirname(_os.path.abspath(__file__)), '..', '..', '..', 'scripts'))
-from lh_fetch import urlopen, redacted, UA  # noqa: E402  robots.txt gate (the keeper, 8 November 2026)
+from lh_fetch import urlopen, UA, save_body  # noqa: E402  robots.txt gate (the keeper, 8 November 2026)
 
 ROOT = Path(__file__).resolve().parents[1]
 SOURCES = [('feed', 'https://www.cisa.gov/sites/default/files/feeds/known_exploited_vulnerabilities.json'),
@@ -34,8 +34,11 @@ for name, url in SOURCES:
             body = response.read(16 * 1024 * 1024 + 1)
             row.update(finish_utc=datetime.now(timezone.utc).isoformat(), status=response.status, bytes=len(body),
                        sha256=sha256(body).hexdigest(), content_type=response.headers.get('Content-Type', ''))
-            (OUT / (name + '.raw')).write_bytes(redacted(body[:16 * 1024 * 1024]))
-            row['file'] = name + '.raw'
+            kept, why = save_body(OUT / (name + '.raw'), body[:16 * 1024 * 1024], response.geturl() or url, response.headers)
+            if kept:  # the keeper, 21 November 2026: no body kept where robots.txt or the page refuses it
+                row['file'] = name + '.raw'
+            else:  # result.json still holds the extracted entries
+                row['body_kept'] = 'no: ' + why
             data = json.loads(body)
             entries = {v['cveID']: v for v in data.get('vulnerabilities', [])}
             result = {'source': name, 'catalogVersion': data.get('catalogVersion'), 'dateReleased': data.get('dateReleased'),

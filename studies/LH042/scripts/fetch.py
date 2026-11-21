@@ -26,6 +26,12 @@ the gate read, or a response header, carries a Content-Signal asking for use=ref
 use=immediate, a 2xx body is not kept: NNN.body holds a placeholder, NNN.withheld.json the sha256
 of the bytes received, the signal as read and the page title, and NNN.body.withheld-local the whole
 redacted body for this run only (git ignores it), so the brief's extract can be taken from it.
+
+From 21 November 2026 (the keeper's decision, notes/keeper/2026-11-21-robots-intent.md): a body is written
+through scripts/lh_fetch.py's save_body, which keeps nothing where robots.txt refuses `*`, an AI-training or
+archiving crawler, or the page reserves itself; the body_kept column then says "no: <reason>" and the body is
+withheld in the same form as above (placeholder, NNN.withheld.json record, run copy). A quotation admitted
+from such a body is added to its record's extract, which check_quotes.py reads once the run copy is gone.
 """
 import argparse
 import csv
@@ -43,6 +49,7 @@ import urllib.request
 sys.path.insert(0, str(pathlib.Path(__file__).resolve().parents[3] / "scripts"))
 from redact_emails import redact_bytes  # noqa: E402
 from robots_gate import RobotsGate  # noqa: E402  the keeper's robots.txt rule, 8 November 2026
+from lh_fetch import save_body  # noqa: E402  what may be kept (the keeper, 21 November 2026)
 import content_signal  # noqa: E402  use=reference honoured from the next read (amendment, 9 November 2026)
 
 UA = "Mozilla/5.0 (compatible; Lighthouse-research/1.0; +https://lighthouse.harbour.cat)"  # was "Lighthouse-research/1.0 (+https://lighthouse.harbour.cat)" until 9 November 2026
@@ -88,7 +95,7 @@ def main():
         ok, rstate = robots_ok(url, cache, ctx)
         row = dict(n=n, url=url, start_utc=start, robots=rstate, http_status="", bytes="",
                    sha256_as_fetched="", sha256_saved="", final_url="", content_type="",
-                   ipv4_redacted="", emails_redacted="", error="")
+                   ipv4_redacted="", emails_redacted="", error="", body_kept="")
         if not ok:
             row["error"] = "not fetched: " + rstate
             rows.append(row)
@@ -119,12 +126,12 @@ def main():
         row["sha256_saved"] = hashlib.sha256(saved).hexdigest() if saved else ""
         st = row["http_status"]
         sig = {"withhold": False}
+        hpairs = [tuple(x.split(": ", 1)) for x in headers.splitlines() if ": " in x]
         if isinstance(st, int) and 200 <= st < 300:
             # Amendment of 9 November 2026: where the governing robots.txt (as the gate read it, no new
             # request) or a response header carries a Content-Signal asking for use=reference, keep the
             # hash, the headers and a bounded extract, not the body; the whole (redacted) body is held
             # in NNN.body.withheld-local for this run only, which git ignores, for the brief's extract.
-            hpairs = [tuple(x.split(": ", 1)) for x in headers.splitlines() if ": " in x]
             sig = content_signal.decide(GATE._robots(url).get("body"), hpairs, GATE.provider)
         if sig["withhold"]:
             content_signal.write_withheld(out / f"{n:03d}.body", saved, {
@@ -138,7 +145,16 @@ def main():
                 "extract": {"title": content_signal.title_of(saved)}})
             row["sha256_saved"] = hashlib.sha256((out / f"{n:03d}.body").read_bytes()).hexdigest()
         else:
-            (out / f"{n:03d}.body").write_bytes(saved)
+            kept, why = save_body(out / f"{n:03d}.body", saved, row["final_url"] or url, hpairs, gate=GATE)
+            if not kept:  # the keeper, 21 November 2026: withheld as for Content-Signal, so a record is retained
+                row["body_kept"] = "no: " + why
+                content_signal.write_withheld(out / f"{n:03d}.body", saved, {
+                    "why": "robots.txt or the page refuses keeping (the keeper, 21 November 2026): " + why,
+                    "file": f"{n:03d}.body", "by": "studies/LH042/scripts/fetch.py", "url": url,
+                    "fetched_utc": start, "http_status": st, "headers": f"{n:03d}.headers",
+                    "sha256_received": row["sha256_as_fetched"], "bytes_received": len(body),
+                    "extract": {"title": content_signal.title_of(saved)}}, keeper=True)
+                row["sha256_saved"] = hashlib.sha256((out / f"{n:03d}.body").read_bytes()).hexdigest()
         (out / f"{n:03d}.headers").write_text(headers)
         rows.append(row)
         time.sleep(a.pause)

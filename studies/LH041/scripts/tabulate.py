@@ -92,6 +92,9 @@ def main():
     withdrawn = 0
     for l in gzip.open(os.path.join(d, "osv-selected.jsonl.gz"), "rt"):
         r = json.loads(l)
+        if r.get("raw") is None:  # body not kept (the keeper, 21 November 2026): readings unavailable, so no table
+            # that would look complete is written (R-0111; as LH040's tabulate.py)
+            sys.exit("tables not made: OSV record %s not kept (%s), readings unavailable" % (r.get("file"), r.get("body_kept")))
         rec = json.loads(r["raw"])
         if rec.get("withdrawn"):
             withdrawn += 1
@@ -282,6 +285,9 @@ def main():
         o = selraw.get(r["id"]) or {}
         if r.get("status") != 200:
             spot.append([r["id"], r.get("status"), "", ""])
+            continue
+        if r.get("raw") is None:  # OpenSSF's file not kept: marked so in the spot-check table itself
+            spot.append([r["id"], 200, "body not kept", ""])
             continue
         try:
             g = json.loads(r["raw"])

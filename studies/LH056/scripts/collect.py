@@ -113,6 +113,7 @@ def brief_committed():
 
 def attempt(gate, name, url, body, out, n):
     from redact_emails import redact_bytes  # noqa: E402  email addresses withheld
+    from lh_fetch import save_body  # noqa: E402  what may be kept (the keeper, 21 November 2026)
     row = {'name': name, 'url': url, 'method': 'POST' if body else 'GET', 'request_body': body or '', 'attempt': n,
            'utc_start': datetime.now(timezone.utc).strftime('%Y-%m-%dT%H:%M:%SZ')}
     ok, info = gate.check(url)
@@ -122,7 +123,7 @@ def attempt(gate, name, url, body, out, n):
         row['status'] = 'NotFetched'
         return row, False
     retryable = False
-    payload = b''
+    payload, final, headers = b'', url, None
     try:
         req = Request(url, data=body.encode() if body else None, headers={'User-Agent': UA})
         try:
@@ -130,7 +131,7 @@ def attempt(gate, name, url, body, out, n):
         except HTTPError as err:
             resp = err
         with resp:
-            payload = resp.read(CEILING_BYTES + 1)
+            payload, final, headers = resp.read(CEILING_BYTES + 1), resp.geturl() or url, resp.headers
             summary = resp.headers.get('X-ClickHouse-Summary', '')
             try:
                 s = json.loads(summary) if summary else {}
@@ -147,9 +148,11 @@ def attempt(gate, name, url, body, out, n):
     row.update(utc_finish=datetime.now(timezone.utc).strftime('%Y-%m-%dT%H:%M:%SZ'), bytes=len(payload),
                sha256=sha256(payload).hexdigest() if payload else '')
     if payload and len(payload) <= CEILING_BYTES:
-        redacted, k = redact_bytes(payload)
-        (out / ('%s.attempt%d.raw' % (name, n))).write_bytes(redacted)
-        row.update(file='%s.attempt%d.raw' % (name, n), emails_withheld=k)
+        kept, why = save_body(out / ('%s.attempt%d.raw' % (name, n)), payload, final, headers)
+        if kept:  # the keeper, 21 November 2026: no body kept where robots.txt or the page refuses it
+            row.update(file='%s.attempt%d.raw' % (name, n), emails_withheld=redact_bytes(payload)[1])
+        else:
+            row['body_kept'] = 'no: ' + why
     elif payload:
         row['status'] = str(row.get('status')) + ' (over the 16 MiB ceiling; no body retained)'
     return row, retryable
@@ -178,13 +181,13 @@ def main():
         return
     if not brief_committed():
         sys.exit('brief.md is not committed (or has uncommitted changes): no read before the protocol is fixed')
-    from robots_gate import RobotsGate  # noqa: E402  the keeper's robots.txt rule, 8 November 2026
+    import lh_fetch  # noqa: E402  its robots.txt gate (the keeper's rule, 8 November 2026), for fetching and keeping alike
     out = ROOT / 'data' / ('read-' + a.read)
     if out.exists():
         print('label already held; skipped:', out)
         return
     out.mkdir(parents=True)
-    gate = RobotsGate(UA)
+    gate = lh_fetch  # lh_fetch.check(url): the same gate save_body asks
     rows, rows_read = [], 0
     for name, url, body in p:
         if url == CH and rows_read > ROWS_CEILING:
@@ -201,7 +204,7 @@ def main():
                 pass
             print(json.dumps({k: row.get(k) for k in ('name', 'attempt', 'status', 'bytes', 'read_rows')}), flush=True)
     fields = ['name', 'url', 'method', 'request_body', 'attempt', 'utc_start', 'utc_finish', 'status', 'content_type',
-              'bytes', 'sha256', 'emails_withheld', 'file', 'read_rows', 'read_bytes', 'robots']
+              'bytes', 'sha256', 'emails_withheld', 'file', 'read_rows', 'read_bytes', 'robots', 'body_kept']
     with open(out / 'fetchlog.csv', 'w', newline='') as f:
         w = csv.DictWriter(f, fieldnames=fields)
         w.writeheader()

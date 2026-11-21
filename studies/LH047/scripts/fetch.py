@@ -10,7 +10,10 @@ its /robots.txt (the brief: no other request to an audited site).
 Usage: python3 -I studies/LH047/scripts/fetch.py <label> <url-file>
 Writes studies/LH047/data/reads/<label>/NNN.body (email addresses withheld), robots copies,
 and readlog.csv (n, url, utc, robots_verdict, status, bytes, sha256 of bytes received,
-final_url, content_type, note). Two seconds between requests.
+final_url, content_type, note). Two seconds between requests. From 21 November 2026 a page body is
+written through scripts/lh_fetch.py's save_body, which keeps nothing where robots.txt refuses `*`, an
+AI-training or archiving crawler, or the page reserves itself (the keeper's decision of that day); the
+note then reads "body_kept: no: <reason>". robots.txt copies are always kept.
 """
 import csv, hashlib, os, sys, time, ssl, urllib.request, urllib.error
 from datetime import datetime, timezone
@@ -21,6 +24,7 @@ sys.path.insert(0, HERE)
 sys.path.insert(0, os.path.join(HERE, '..', '..', '..', 'scripts'))
 import robots9309  # noqa: E402
 from redact_emails import redact_bytes  # noqa: E402
+from lh_fetch import save_body  # noqa: E402  what may be kept (the keeper, 21 November 2026)
 
 UA = 'Lighthouse-research/1.0 (+https://lighthouse.harbour.cat)'
 TOKEN = 'Lighthouse-research'
@@ -124,10 +128,21 @@ def main(label, urlfile):
                 log.writerow([n, url, now(), verdict, '', '', '', '', '', 'not sent']); continue
             t = now()
             st, hd, body, final, err = get(url)
-            with open(os.path.join(outdir, '%03d.body' % n), 'wb') as b:
-                b.write(redact_bytes(body)[0])
+            # the robots.txt this collector already read for the host (None where it answered 4xx), so no
+            # robots.txt is requested twice (R-0111); a redirect to another host is judged by its own file, read
+            # the same way
+            fh = urlsplit(final or url)
+            fsh = '%s://%s' % (fh.scheme, fh.netloc)
+            if fsh not in cache:
+                cache[fsh] = robots_for(fsh, outdir, log)
+            fstate, ftext = cache[fsh]
+            if fstate == 'disallow-all':
+                kept, why = False, 'robots.txt of the final host unreachable: not kept'
+            else:
+                kept, why = save_body(os.path.join(outdir, '%03d.body' % n), body, final or url, hd,
+                                      robots_body=ftext if fstate == 'parsed' else None)
             log.writerow([n, url, t, verdict, st or err, len(body), hashlib.sha256(body).hexdigest(), final,
-                          (hd.get('content-type') if hd else ''), ''])
+                          (hd.get('content-type') if hd else ''), '' if kept else 'body_kept: no: ' + why])
             print(n, st or err, len(body), url)
             time.sleep(2)
 

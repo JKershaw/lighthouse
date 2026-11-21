@@ -19,6 +19,15 @@ NOTE = ("Body removed on 21 November 2026 under the keeper's decision (notes/kee
         "URL, read time, status, SHA-256 of the bytes received and the facts its records use, not the page.")
 
 
+USED = "Release order and dates (tabulate.py); dates and security flags (review/R-0039_checks.py, measure 4)."
+
+
+def dist_index_extract(body):
+    """The facts the study uses from dist/index.json: each release's version, date and security flag, in order."""
+    return {"fields": ["version", "date", "security"],
+            "releases": [[r["version"], r["date"], r.get("security")] for r in json.loads(body)]}
+
+
 def main():
     n = 0
     for d in sorted(glob.glob(os.path.join(DATA, "read-*"))):
@@ -26,13 +35,10 @@ def main():
         if not os.path.exists(p):
             continue
         row = next(r for r in json.load(open(os.path.join(d, "read_log.json"))) if r.get("source") == "dist-index")
-        idx = json.loads(gzip.decompress(open(p, "rb").read()))
         rec = {"url": row["url"], "read_utc": row.get("start_utc"), "finish_utc": row.get("finish_utc"),
                "http_status": row.get("status"), "bytes": row.get("bytes"), "sha256": row.get("sha256"),
                "robots_class": "B: * refuses all bots (no AI token named)", "body_removed": NOTE,
-               "used_for": "Release order and dates (tabulate.py); dates and security flags (review/R-0039_checks.py, measure 4).",
-               "extracted": {"fields": ["version", "date", "security"],
-                             "releases": [[r["version"], r["date"], r.get("security")] for r in idx]}}
+               "used_for": USED, "extracted": dist_index_extract(gzip.decompress(open(p, "rb").read()))}
         open(os.path.join(d, "dist-index.derived.json"), "w").write(json.dumps(rec, ensure_ascii=False) + "\n")
         n += 1
     print("derived files written:", n)

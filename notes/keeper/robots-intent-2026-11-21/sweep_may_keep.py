@@ -11,7 +11,7 @@ Files in a log's folder that no logged URL ties to are counted by study.
 Usage, from the repository root: LIGHTHOUSE_PROVIDER=anthropic python3 -I notes/keeper/robots-intent-2026-11-21/sweep_may_keep.py OUT.json
 Network: one GET of robots.txt per host, nothing else.
 """
-import csv, json, os, sys
+import csv, json, os, re, sys
 from collections import Counter, defaultdict
 from urllib.parse import urlsplit
 
@@ -43,7 +43,9 @@ def records(p):
             rows = list(csv.reader(open(p, newline='', errors='replace')))
             if not rows:
                 return []
-            if any(c.startswith('http') for c in rows[0]):  # no header row: positional
+            # no header row: positional (fixed 21 November 2026, task 2: a header such as http_status or http_date
+            # was taken for a URL, so whole logs went untied)
+            if any(c.startswith(('http://', 'https://')) for c in rows[0]):
                 return [{'_cols': r} for r in rows]
             return [dict(zip(rows[0], r)) for r in rows[1:]]
         if p.endswith('.jsonl'):
@@ -83,8 +85,8 @@ def stem_of(fp):
     return fp
 
 
-def main():
-    out = sys.argv[1]
+def tie_all():
+    """(tied, log_dirs): each kept body file tied to its logged URL, and every folder holding a log."""
     allrecs = [(p, r) for p in logs() for r in records(p)]
     # url -> names used for it in headed logs, to tie positional (headerless) rows to files
     names_for = defaultdict(set)
@@ -116,6 +118,22 @@ def main():
                 if fp not in seen:
                     seen.add(fp); tied.append((fp, u))
                 break
+        # a numbered log row (n = 1, 2, ...) ties every NNN.* body or text file beside it, such as NNN.body
+        # and its text extract NNN.txt or NNN-section4.txt (added 21 November 2026, task 2)
+        if str(r.get('n', '')).isdigit():
+            for f in files:
+                head = re.split(r'[.-]', f, maxsplit=1)[0]
+                if head.isdigit() and int(head) == int(r['n']) and is_body(d, f) and not f.endswith(('.h', '.headers')):
+                    fp = os.path.join(d, f)
+                    if fp not in seen:
+                        seen.add(fp); tied.append((fp, u))
+    return tied, log_dirs
+
+
+def main():
+    out = sys.argv[1]
+    tied, log_dirs = tie_all()
+    seen = {fp for fp, _ in tied}
     gate = robots_gate.RobotsGate(UA)
     res, notkeep = [], []
     for fp, u in sorted(tied):

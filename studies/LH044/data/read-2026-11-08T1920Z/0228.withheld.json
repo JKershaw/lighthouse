@@ -1,0 +1,28 @@
+{
+ "withheld": "body",
+ "why": "The site's robots.txt refuses AI-training or archiving crawlers (here ClaudeBot by name, read through scripts/robots_gate.py on 21 November 2026), so Lighthouse keeps no copy of the page in its public repository (the keeper's decision of 21 November 2026, notes/keeper/2026-11-21-robots-intent.md). Withheld by a subagent of the Watch run of that day.",
+ "date": "2026-11-21",
+ "sha256_received": "a0c66a1fe046f008b6db9584d05347dd8ded2b78250851b61d3861c213ac361e",
+ "bytes_received": 1198,
+ "by": "studies/LH044/scripts/derive_kept.py",
+ "url": "http://ftp.eq.uc.pt/software/Linux/debian/README",
+ "service": "Q07",
+ "kind": "probe",
+ "fetched_utc": "2026-11-08T19:26:27Z",
+ "http_status": 200,
+ "fetch_log": "studies/LH044/data/read-2026-11-08T1920Z/readlog.csv (n=228)",
+ "headers": "0228.h (kept unchanged)",
+ "extract": {
+  "title": ""
+ },
+ "sha256_kept_until_withheld": "a0c66a1fe046f008b6db9584d05347dd8ded2b78250851b61d3861c213ac361e",
+ "bytes_kept_until_withheld": 1198,
+ "derived": {
+  "classifier": "0.2",
+  "class": "open",
+  "detail": "marker",
+  "marker_found": true,
+  "marker_in_context": "See http://www.debian.org/ for information about Debian GNU/Linux.\nFour Debian releases are available on the main site:\n\nDebian 11.11, ",
+  "echoes": []
+ }
+}

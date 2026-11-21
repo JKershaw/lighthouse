@@ -1,0 +1,28 @@
+{
+ "withheld": "body",
+ "why": "The site's robots.txt refuses AI-training or archiving crawlers (here ClaudeBot by name, read through scripts/robots_gate.py on 21 November 2026), so Lighthouse keeps no copy of the page in its public repository (the keeper's decision of 21 November 2026, notes/keeper/2026-11-21-robots-intent.md). Withheld by a subagent of the Watch run of that day.",
+ "date": "2026-11-21",
+ "sha256_received": "61b30d408583991fd69f3dec694e154cb652471e663328ad9c8482c9021ab5db",
+ "bytes_received": 150,
+ "by": "studies/LH044/scripts/derive_kept.py",
+ "url": "https://git.sr.ht/~sircmpwn/scdoc",
+ "service": "F07",
+ "kind": "probe",
+ "fetched_utc": "2026-11-08T19:19:16Z",
+ "http_status": 502,
+ "fetch_log": "studies/LH044/data/read-2026-11-08T1920Z/readlog.csv (n=12)",
+ "headers": "0012.h (kept unchanged)",
+ "extract": {
+  "title": "502 Bad Gateway"
+ },
+ "sha256_kept_until_withheld": "61b30d408583991fd69f3dec694e154cb652471e663328ad9c8482c9021ab5db",
+ "bytes_kept_until_withheld": 150,
+ "derived": {
+  "classifier": "0.2",
+  "class": "server_error",
+  "detail": "502",
+  "marker_found": false,
+  "marker_in_context": "",
+  "echoes": []
+ }
+}

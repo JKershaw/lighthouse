@@ -1,0 +1,28 @@
+{
+ "withheld": "body",
+ "why": "The site's robots.txt refuses AI-training or archiving crawlers (here ClaudeBot by name, read through scripts/robots_gate.py on 21 November 2026), so Lighthouse keeps no copy of the page in its public repository (the keeper's decision of 21 November 2026, notes/keeper/2026-11-21-robots-intent.md). Withheld by a subagent of the Watch run of that day.",
+ "date": "2026-11-21",
+ "sha256_received": "ccf3dd05d3e30b7aad38e236a8cfd9a12fff1a523ecf163cb5eb996b89a4b3b9",
+ "bytes_received": 65536,
+ "by": "studies/LH044/scripts/derive_kept.py",
+ "url": "https://wiki.gentoo.org/wiki/Portage",
+ "service": "D15",
+ "kind": "probe",
+ "fetched_utc": "2026-11-08T19:22:26Z",
+ "http_status": 200,
+ "fetch_log": "studies/LH044/data/read-2026-11-08T1920Z/readlog.csv (n=113)",
+ "headers": "0113.h (kept unchanged)",
+ "extract": {
+  "title": "Portage - Gentoo wiki"
+ },
+ "sha256_kept_until_withheld": "ccf3dd05d3e30b7aad38e236a8cfd9a12fff1a523ecf163cb5eb996b89a4b3b9",
+ "bytes_kept_until_withheld": 65536,
+ "derived": {
+  "classifier": "0.2",
+  "class": "open",
+  "detail": "marker",
+  "marker_found": true,
+  "marker_in_context": "l class=\"client-nojs\" lang=\"en\" dir=\"ltr\">\n<head>\n<meta charset=\"UTF-8\">\n<title>Portage - Gentoo wiki</title>\n<script>document.documentElement.className=\"client-js\";RL",
+  "echoes": []
+ }
+}

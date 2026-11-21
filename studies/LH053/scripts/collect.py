@@ -37,13 +37,13 @@ from pathlib import Path
 from urllib.error import HTTPError
 from urllib.request import Request, urlopen
 import argparse
-import gzip
 import json
 import subprocess
 import sys
 
 sys.path.insert(0, str(Path(__file__).resolve().parents[3] / 'scripts'))
-from robots_gate import RobotsGate  # noqa: E402  the keeper's robots.txt rule, 8 November 2026
+import lh_fetch  # noqa: E402  its robots.txt gate (the keeper's rule, 8 November 2026), used for fetching and keeping alike
+from lh_fetch import save_body  # noqa: E402  what may be kept (the keeper, 21 November 2026)
 from redact_emails import redact_bytes  # noqa: E402  email addresses withheld
 
 UA = 'Mozilla/5.0 (compatible; Lighthouse-research/1.0; +https://lighthouse.harbour.cat)'
@@ -132,9 +132,11 @@ def fetch(gate, name, url, body, out):
                        last_modified=response.headers.get('Last-Modified', ''), bytes=len(data),
                        sha256=sha256(data).hexdigest())
             if len(data) <= CEILING:
-                redacted, n = redact_bytes(data)
-                (out / (name + '.raw.gz')).write_bytes(gzip.compress(redacted, mtime=0))
-                row.update(file=name + '.raw.gz', emails_withheld=n)
+                kept, why = save_body(out / (name + '.raw.gz'), data, response.geturl() or url, response.headers)
+                if kept:  # the keeper, 21 November 2026: no body kept where robots.txt or the page refuses it
+                    row.update(file=name + '.raw.gz', emails_withheld=redact_bytes(data)[1])
+                else:  # the window facts below are still logged
+                    row['body_kept'] = 'no: ' + why
                 if '_range_' in name:
                     row.update(window(data))
             else:
@@ -149,7 +151,7 @@ def run(plan, out, forbidden):
     for _, url, _ in plan:
         assert not any(f in url for f in forbidden), 'refused: ' + url
     assert len(plan) <= MAX_REQUESTS
-    gate = RobotsGate(UA)
+    gate = lh_fetch  # lh_fetch.check(url): the same gate save_body asks
     log = out / 'read_log.json'
     rows = json.loads(log.read_text()) if log.exists() else []
     attempted = {r['name'] for r in rows}
@@ -186,7 +188,7 @@ def main():
     if a.dry_run:
         for _, url, _ in plan:
             assert not any(f in url for f in FORBIDDEN), 'refused: ' + url
-        gate = RobotsGate(UA)
+        gate = lh_fetch  # lh_fetch.check(url): the same gate save_body asks
         for name, url, body in plan:
             ok, info = gate.check(url)
             print(json.dumps({'name': name, 'url': url, 'method': 'POST' if body else 'GET',

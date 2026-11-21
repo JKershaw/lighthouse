@@ -34,7 +34,9 @@ def main(d):
             row["fetched_utc"] = r["start_utc"]
             row["body_sha256"] = r["sha256_saved"]
             if r["http_status"] == "200":
-                s = json.loads((d / f"{int(r['n']):03d}.body").read_text())
+                body = d / f"{int(r['n']):03d}.body"
+                local = pathlib.Path(str(body) + ".withheld-local")  # a body not kept: this run's copy (fetch.py)
+                s = json.loads((local if local.exists() else body).read_text())
                 for k in ["last_sync", "total_hits", "active_count", "unique_ips", "vulnerable_count", "rce_count"]:
                     row[k] = s.get(k, "")
                 if isinstance(s.get("total_hits"), int) and isinstance(s.get("active_count"), int):

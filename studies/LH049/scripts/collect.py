@@ -24,7 +24,7 @@ their SHA-256, emails withheld, the robots decision, and for the point and range
 end dates. No tarball, script or payload is ever requested (refused below by URL). No key, token or credential.
 
 A read already held is resumed, never overwritten: a target whose body is saved in data/read-<label>/ with an
-HTTP status is not requested again. Ceiling: 6 requests per read plus at most one retry each (12), robots.txt
+HTTP status (or logged body_kept "no: <reason>", from 21 November 2026) is not requested again. Ceiling: 6 requests per read plus at most one retry each (12), robots.txt
 fetches not counted; bodies over 16 MiB are not kept.
 """
 from datetime import datetime, timezone
@@ -33,13 +33,13 @@ from pathlib import Path
 from urllib.error import HTTPError
 from urllib.request import Request, urlopen
 import argparse
-import gzip
 import json
 import subprocess
 import sys
 
 sys.path.insert(0, str(Path(__file__).resolve().parents[3] / 'scripts'))
-from robots_gate import RobotsGate  # noqa: E402  the keeper's robots.txt rule, 8 November 2026
+import lh_fetch  # noqa: E402  its robots.txt gate (the keeper's rule, 8 November 2026), used for fetching and keeping alike
+from lh_fetch import save_body  # noqa: E402  what may be kept (the keeper, 21 November 2026)
 from redact_emails import redact_bytes  # noqa: E402  email addresses withheld
 
 UA = 'Mozilla/5.0 (compatible; Lighthouse-research/1.0; +https://lighthouse.harbour.cat)'
@@ -108,9 +108,11 @@ def fetch(gate, name, url, body, out):
                        last_modified=response.headers.get('Last-Modified', ''), bytes=len(data),
                        sha256=sha256(data).hexdigest())
             if len(data) <= CEILING:
-                redacted, n = redact_bytes(data)
-                (out / (name + '.raw.gz')).write_bytes(gzip.compress(redacted, mtime=0))
-                row.update(file=name + '.raw.gz', emails_withheld=n)
+                kept, why = save_body(out / (name + '.raw.gz'), data, response.geturl() or url, response.headers)
+                if kept:  # the keeper, 21 November 2026: no body kept where robots.txt or the page refuses it
+                    row.update(file=name + '.raw.gz', emails_withheld=redact_bytes(data)[1])
+                else:  # the window facts below are still logged
+                    row['body_kept'] = 'no: ' + why
                 if name.startswith('point') or name == 'range':
                     row.update(window(data))
             else:
@@ -131,7 +133,7 @@ def main():
     plan = targets(label.strftime('%Y-%m-%d'))
     for _, url, _ in plan:
         assert not any(f in url for f in FORBIDDEN), 'refused: ' + url
-    gate = RobotsGate(UA)
+    gate = lh_fetch  # lh_fetch.check(url): the same gate save_body asks
     if a.dry_run:
         for name, url, body in plan:
             ok, info = gate.check(url)
@@ -145,7 +147,8 @@ def main():
     out = ROOT / 'data' / ('read-' + a.read)
     log = out / 'read_log.json'
     rows = json.loads(log.read_text()) if log.exists() else []
-    held = {r['name'] for r in rows if r.get('file') and isinstance(r.get('status'), int) and (out / r['file']).exists()}
+    held = {r['name'] for r in rows if isinstance(r.get('status'), int) and (
+        (r.get('file') and (out / r['file']).exists()) or (r.get('body_kept') or '').startswith('no'))}
     attempts = {}
     for r in rows:
         attempts[r['name']] = attempts.get(r['name'], 0) + 1

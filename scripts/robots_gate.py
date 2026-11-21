@@ -91,10 +91,17 @@ class RobotsGate:
         return bool(d.allowed), info
 
     def may_keep(self, url, access=None):
-        """(keep, reason) for a body fetched from url, from the cached robots.txt. Pass the access
-        mode the URL was read under, and the final URL after any redirect."""
-        ok, info = self.check(url, access)
-        return info["keep_body"], info["keep_reason"]
+        """(keep, reason) for a body fetched from url (the final URL after any redirect), from the
+        cached robots.txt. Independent of whether this gate would fetch the URL in a given access
+        mode: keeping depends only on what the site refuses (robots_rules.may_keep). access is
+        accepted for symmetry with check() and does not change the answer."""
+        rec = self._robots(url)
+        st = rec.get("status")
+        if st == "error" or (isinstance(st, int) and st >= 500) or rec.get("truncated"):
+            return False, "robots.txt unreadable in this run; not kept"
+        if isinstance(st, int) and 400 <= st < 500:
+            return True, "robots.txt answered %d: no rules" % st
+        return robots_rules.may_keep(rec["body"], url)
 
 
 if __name__ == "__main__":

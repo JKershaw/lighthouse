@@ -1,0 +1,28 @@
+{
+ "withheld": "body",
+ "why": "The site's robots.txt refuses AI-training or archiving crawlers (here ClaudeBot by name, read through scripts/robots_gate.py on 21 November 2026), so Lighthouse keeps no copy of the page in its public repository (the keeper's decision of 21 November 2026, notes/keeper/2026-11-21-robots-intent.md). Withheld by a subagent of the Watch run of that day.",
+ "date": "2026-11-21",
+ "sha256_received": "6eb18bb28399f74481a0f09dfaeeab76b2da47f8cc7151d38630e48ba7feb33e",
+ "bytes_received": 65536,
+ "by": "studies/LH044/scripts/derive_kept.py",
+ "url": "http://archive.ubuntu.com/ubuntu/dists/noble/Release",
+ "service": "M02",
+ "kind": "probe",
+ "fetched_utc": "2026-11-15T14:15:26Z",
+ "http_status": 200,
+ "fetch_log": "studies/LH044/data/read-2026-11-15T1413Z/readlog.csv (n=70)",
+ "headers": "0070.h (kept unchanged)",
+ "extract": {
+  "title": ""
+ },
+ "sha256_kept_until_withheld": "b0cd304241160816ca554d6f9907e80170ca3c7c731b8d592e0c3aefb8139c2d",
+ "bytes_kept_until_withheld": 65731,
+ "derived": {
+  "classifier": "0.3",
+  "class": "open",
+  "detail": "marker",
+  "marker_found": true,
+  "marker_in_context": "Origin: Ubuntu\nLabel: Ubuntu\nSuite: noble\nVersion: 24.04\nCodename: noble\nDate: Thu, 25 Apr 202",
+  "echoes": []
+ }
+}
