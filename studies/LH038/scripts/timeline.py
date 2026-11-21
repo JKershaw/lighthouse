@@ -1,7 +1,11 @@
 """LH038 record: extract each event's clock from the retained read of
 2026-11-17T1419Z and compute elapsed UTC calendar days against the policy
-intervals the brief names. Standard library only; reads retained bodies,
-fetches nothing.
+intervals the brief names. From version 0.4 (21 November 2026) it also applies
+the decision rule of the brief's amendment of 20 November per SUSE advisory,
+from the retained SUSE clocks read (data/suse-clocks-2026-11-21T1420Z/) and
+LH036's retained SUSE CVE page of 16 November (reuse); the output up to that
+section is unchanged from version 0.3. Standard library only; reads retained
+bodies, fetches nothing.
 
 Replay: python3 -I studies/LH038/scripts/timeline.py > studies/LH038/scripts/timeline_output.txt
 """
@@ -128,3 +132,87 @@ print(f"first stable -> earliest followed SUSE ({fsd:%Y-%m-%d}): {days(first_sta
 print(f"first stable -> earliest followed Red Hat ({fr}): {days(first_stable, fr)} days; last stable -> it: {days(last_stable, fr)} days")
 print(f"T6 post -> earliest followed SUSE: {days(t6, fsd)} days; -> earliest followed Red Hat: {days(t6, fr)} days")
 print("T0 (report) unknown: no pair with T0 computed. P4 (linux-distros 14 days): no use known, not computed.")
+print()
+
+# Version 0.4 (21 November 2026): the amendment of 20 November, its decision rule applied per advisory.
+# Three SUSE dates for each followed advisory, all from retained bodies:
+#   Release Date: the advisory page of the read of 17 November (parsed above, `suse`);
+#   CVE-page stamp: SUSE's CVE page as retained by LH036's read of 16 November (reuse, post hoc);
+#   list message: the archive's date for the message on sle-security-updates, read 21 November.
+# OSV's published and modified are printed beside them, classed as SUSE's data relayed by OSV,
+# and are never used in the rule. The rule compares UTC calendar days only, and the post's date
+# plays no part in it.
+print("== T5 SUSE: the amendment of 20 November, decision rule per advisory (version 0.4)")
+LH036_SUSE = HERE.parent / "LH036" / "data" / "read-2026-11-16T1419Z" / "suse.raw.gz"
+CLOCKS = HERE / "data" / "suse-clocks-2026-11-21T1420Z"
+page = gzip.open(LH036_SUSE).read().decode("utf-8", "replace")
+OFF = {"CET": 1, "CEST": 2, "UTC": 0}
+stamp = {}
+for ident, s, tz, yr in re.findall(
+        r">([A-Z]+-[A-Z0-9:-]+)</a>, published (\w{3} \w{3} +\d+ [\d:]+) (CET|CEST|UTC) (\d{4})", page):
+    d = dt.datetime.strptime(re.sub(" +", " ", s) + " " + yr, "%a %b %d %H:%M:%S %Y") - dt.timedelta(hours=OFF[tz])
+    stamp.setdefault(ident, []).append(d.replace(tzinfo=dt.timezone.utc))
+lm = {}
+import csv  # noqa: E402
+for row in csv.DictReader(open(CLOCKS / "readlog.csv")):
+    lm[row["name"]] = row["last_modified"]
+groups, rows = {}, []
+for name in sorted(suse):
+    num = int(re.search(r"suse_su_2026(\d{5})_1", name).group(1))
+    ident = f"SUSE-SU-2026:{num}-1"
+    rd = suse[name]
+    assert len(stamp.get(ident, [])) == 1, ident
+    cp = stamp[ident][0]
+    m = gzip.open(CLOCKS / f"msg-{num}.raw.gz").read().decode("utf-8", "replace")
+    arch = re.findall(r"<I>([^<]*\d{4})</I>", m)
+    arch_dt = [dt.datetime.strptime(" ".join(x.split()), "%a %b %d %H:%M:%S UTC %Y").replace(tzinfo=dt.timezone.utc)
+               for x in arch]
+    rel_in_msg = re.findall(r"Release Date:\s*(\S+)", m)
+    assert rel_in_msg and rel_in_msg[0] == f"{rd:%Y-%m-%dT%H:%M:%SZ}", (ident, rel_in_msg)
+    refs = m.split("<PRE>", 1)[1].split("CVSS scores", 1)[0]
+    listed = "listed in References" if "* CVE-2026-98432" in refs else ("appears" if "CVE-2026-98432" in m else "not shown")
+    lmd = email.utils.parsedate_to_datetime(lm[f"msg-{num}"]).astimezone(dt.timezone.utc)
+    o = json.loads(gzip.open(CLOCKS / f"osv-{num}.raw.gz").read())
+    days_shown = {d.date() for d in arch_dt}
+    if len(days_shown) != 1:
+        verdict = "unclassed (archive dates on more than one UTC day)"
+    else:
+        ld = days_shown.pop()
+        r, c = ld == rd.date(), ld == cp.date()
+        verdict = ("supports Release Date" if r and not c else "supports CVE-page stamp" if c and not r
+                   else "agrees with neither: all three kept" if not (r or c) else "agrees with both")
+    group = "24 October" if rd.date() == dt.date(2026, 10, 24) else "2 November"
+    groups.setdefault(group, {}).setdefault(verdict, 0)
+    groups[group][verdict] += 1
+    rows.append((ident, rd, cp, arch_dt[0], group))
+    print(f"{ident} [{group}]: Release Date {rd:%Y-%m-%d %H:%M:%S}Z (same in message); CVE-page stamp {cp:%Y-%m-%d %H:%M:%S}Z; "
+          f"list message (archive) {'; '.join(f'{d:%Y-%m-%d %H:%M:%S}Z' for d in arch_dt)} "
+          f"(page Last-Modified {lmd:%Y-%m-%d %H:%M:%S}Z); CVE-2026-98432 {listed}; "
+          f"OSV published {o.get('published')} modified {o.get('modified')} (SUSE's data relayed, not used) -> {verdict}; "
+          f"Release Date to list message {(arch_dt[0] - rd).total_seconds() / 86400:.2f} days")
+osv_src = set()
+for name in suse:
+    num = int(re.search(r"suse_su_2026(\d{5})_1", name).group(1))
+    o = json.loads(gzip.open(CLOCKS / f"osv-{num}.raw.gz").read())
+    osv_src |= {(af.get("database_specific") or {}).get("source", "").split("/pub/")[0] for af in o.get("affected", [])}
+print("OSV records' stated source hosts (affected[].database_specific.source):", sorted(osv_src))
+print("counts by group:", {g: v for g, v in groups.items()})
+gaps = [(r[2] - r[3]).total_seconds() / 3600 for r in rows]
+print(f"CVE-page stamp minus list message, hours (all twelve): min {min(gaps):.2f}, max {max(gaps):.2f}; "
+      f"list message before stamp in {sum(g > 0 for g in gaps)} of {len(gaps)}")
+print()
+print("== Elapsed UTC calendar days, with the list's announcement day (version 0.4)")
+for group in ("24 October", "2 November"):
+    gr = [r for r in rows if r[4] == group]
+    first_list = min(r[3] for r in gr)
+    last_list = max(r[3] for r in gr)
+    rdmin = min(r[1] for r in gr)
+    print(f"{group} group: list messages {first_list:%Y-%m-%d %H:%M}Z to {last_list:%Y-%m-%d %H:%M}Z; "
+          f"post {t6} -> list day: {days(t6, first_list)} days; Release Date {rdmin:%Y-%m-%d} -> post: {days(rdmin, t6)} days")
+earliest_list = min(r[3] for r in rows)
+print(f"Earliest followed SUSE announcement on the list {earliest_list:%Y-%m-%d %H:%M}Z -> T6 post {t6}: {days(earliest_list, t6)} days; "
+      f"+7 = {(earliest_list.date() + dt.timedelta(7))}; +45 = {(earliest_list.date() + dt.timedelta(45))}; "
+      f"+90 = {(earliest_list.date() + dt.timedelta(90))}")
+print(f"first stable -> earliest list announcement: {days(first_stable, earliest_list)} days; "
+      f"last stable -> it: {days(last_stable, earliest_list)} days")
+print("No clock is chosen by its distance from the post: the rule above compares the list day with the two SUSE clocks only.")
