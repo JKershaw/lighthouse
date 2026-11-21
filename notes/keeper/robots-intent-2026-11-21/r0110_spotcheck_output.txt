@@ -1,0 +1,174 @@
+== studies/LH032/data/read-2026-10-29T0634Z/advisory-check/page-4.derived.json
+   keys: ['body_removed', 'bytes_retained', 'extracted', 'final_url', 'finish_utc', 'http_status', 'read_utc', 'robots_class', 'sha256_retained_response', 'url', 'used_for']
+   emails in derived: 0 | longest extracted string: 0 
+   body: page-4.html.gz | sha(body as received) == derived: True | sha(file) == derived: False
+   read log read_log.json | url in record: True | read time in record: True | records with this sha: 1
+   extracted leaves: 0 | not found verbatim in body: 0 []
+== studies/LH032/data/read-2026-11-02T1526Z/advisory-check/page-5.derived.json
+   keys: ['body_removed', 'bytes_retained', 'extracted', 'final_url', 'finish_utc', 'http_status', 'read_utc', 'robots_class', 'sha256_retained_response', 'url', 'used_for']
+   emails in derived: 0 | longest extracted string: 0 
+   body: page-5.html.gz | sha(body as received) == derived: True | sha(file) == derived: False
+   read log read_log.json | url in record: True | read time in record: True | records with this sha: 1
+   extracted leaves: 0 | not found verbatim in body: 0 []
+== studies/LH033/data/read-2026-11-02T1530Z/w3techs-history_details-8.4.derived.json
+   keys: ['body_removed', 'bytes', 'content_type', 'extracted', 'finish_utc', 'http_status', 'read_utc', 'robots_class', 'sha256', 'url', 'used_for']
+   emails in derived: 0 | longest extracted string: 14 'version 8.4.26'
+   body: w3techs-history_details-8.4.raw.gz | sha(body as received) == derived: True | sha(file) == derived: False
+   read log read_log.json | url in record: True | read time in record: True | records with this sha: 1
+   extracted leaves: 194 | not found verbatim in body: 2 ['1 Dec 2025', '2 Nov 2026']
+   extracted (first 400 chars): {"history": {"columns": ["1 Nov 2025", "1 Dec 2025", "1 Jan 2026", "1 Feb 2026", "1 Mar 2026", "1 Apr 2026", "1 May 2026", "1 Jun 2026", "1 Jul 2026", "1 Aug 2026", "1 Sep 2026", "1 Oct 2026", "1 Nov 2026", "2 Nov 2026"], "rows": [["version 8.4.26", {"1 Nov 2025": "", "1 Dec 2025": "", "1 Jan 2026": "", "1 Feb 2026": "", "1 Mar 2026": "", "1 Apr 2026": "", "1 May 2026": "", "1 Jun 2026": "", "1 Ju
+== studies/LH033/data/read-2026-11-16T1419Z/w3techs-history_details-8.4.derived.json
+   keys: ['body_removed', 'bytes', 'content_type', 'extracted', 'finish_utc', 'http_status', 'read_utc', 'robots_class', 'sha256', 'url', 'used_for']
+   emails in derived: 0 | longest extracted string: 14 'version 8.4.27'
+   body: w3techs-history_details-8.4.raw.gz | sha(body as received) == derived: True | sha(file) == derived: False
+   read log read_log.json | url in record: True | read time in record: True | records with this sha: 1
+   extracted leaves: 194 | not found verbatim in body: 2 ['1 Dec 2025', '16 Nov 2026']
+   extracted (first 400 chars): {"history": {"columns": ["1 Nov 2025", "1 Dec 2025", "1 Jan 2026", "1 Feb 2026", "1 Mar 2026", "1 Apr 2026", "1 May 2026", "1 Jun 2026", "1 Jul 2026", "1 Aug 2026", "1 Sep 2026", "1 Oct 2026", "1 Nov 2026", "16 Nov 2026"], "rows": [["version 8.4.27", {"1 Nov 2025": "", "1 Dec 2025": "", "1 Jan 2026": "", "1 Feb 2026": "", "1 Mar 2026": "", "1 Apr 2026": "", "1 May 2026": "", "1 Jun 2026": "", "1 J
+== studies/LH033/data/read-2026-10-25T0855Z/w3techs-history_details-8.3.derived.json
+   keys: ['body_removed', 'bytes', 'content_type', 'extracted', 'finish_utc', 'http_status', 'read_utc', 'robots_class', 'sha256', 'url', 'used_for']
+   emails in derived: 0 | longest extracted string: 14 'version 8.3.33'
+   body: w3techs-history_details-8.3.raw.gz | sha(body as received) == derived: True | sha(file) == derived: False
+   read log read_log.json | url in record: True | read time in record: True | records with this sha: 1
+   extracted leaves: 194 | not found verbatim in body: 2 ['1 Dec 2025', '25 Oct 2026']
+   extracted (first 400 chars): {"history": {"columns": ["1 Oct 2025", "1 Nov 2025", "1 Dec 2025", "1 Jan 2026", "1 Feb 2026", "1 Mar 2026", "1 Apr 2026", "1 May 2026", "1 Jun 2026", "1 Jul 2026", "1 Aug 2026", "1 Sep 2026", "1 Oct 2026", "25 Oct 2026"], "rows": [["version 8.3.33", {"1 Oct 2025": "", "1 Nov 2025": "", "1 Dec 2025": "", "1 Jan 2026": "", "1 Feb 2026": "", "1 Mar 2026": "", "1 Apr 2026": "", "1 May 2026": "", "1 J
+== studies/LH033/data/read-2026-11-02T1530Z/w3techs-history_details-8.3.derived.json
+   keys: ['body_removed', 'bytes', 'content_type', 'extracted', 'finish_utc', 'http_status', 'read_utc', 'robots_class', 'sha256', 'url', 'used_for']
+   emails in derived: 0 | longest extracted string: 14 'version 8.3.33'
+   body: w3techs-history_details-8.3.raw.gz | sha(body as received) == derived: True | sha(file) == derived: False
+   read log read_log.json | url in record: True | read time in record: True | records with this sha: 1
+   extracted leaves: 194 | not found verbatim in body: 2 ['1 Dec 2025', '2 Nov 2026']
+   extracted (first 400 chars): {"history": {"columns": ["1 Nov 2025", "1 Dec 2025", "1 Jan 2026", "1 Feb 2026", "1 Mar 2026", "1 Apr 2026", "1 May 2026", "1 Jun 2026", "1 Jul 2026", "1 Aug 2026", "1 Sep 2026", "1 Oct 2026", "1 Nov 2026", "2 Nov 2026"], "rows": [["version 8.3.33", {"1 Nov 2025": "", "1 Dec 2025": "", "1 Jan 2026": "", "1 Feb 2026": "", "1 Mar 2026": "", "1 Apr 2026": "", "1 May 2026": "", "1 Jun 2026": "", "1 Ju
+== studies/LH033/data/read-2026-10-25T0855Z/w3techs-history_details-8.2.derived.json
+   keys: ['body_removed', 'bytes', 'content_type', 'extracted', 'finish_utc', 'http_status', 'read_utc', 'robots_class', 'sha256', 'url', 'used_for']
+   emails in derived: 0 | longest extracted string: 14 'version 8.2.33'
+   body: w3techs-history_details-8.2.raw.gz | sha(body as received) == derived: True | sha(file) == derived: False
+   read log read_log.json | url in record: True | read time in record: True | records with this sha: 1
+   extracted leaves: 194 | not found verbatim in body: 2 ['1 Dec 2025', '25 Oct 2026']
+   extracted (first 400 chars): {"history": {"columns": ["1 Oct 2025", "1 Nov 2025", "1 Dec 2025", "1 Jan 2026", "1 Feb 2026", "1 Mar 2026", "1 Apr 2026", "1 May 2026", "1 Jun 2026", "1 Jul 2026", "1 Aug 2026", "1 Sep 2026", "1 Oct 2026", "25 Oct 2026"], "rows": [["version 8.2.33", {"1 Oct 2025": "", "1 Nov 2025": "", "1 Dec 2025": "", "1 Jan 2026": "", "1 Feb 2026": "", "1 Mar 2026": "", "1 Apr 2026": "", "1 May 2026": "", "1 J
+== studies/LH034/data/read-2026-10-27T1811Z/dist-index.derived.json
+   keys: ['body_removed', 'bytes', 'extracted', 'finish_utc', 'http_status', 'read_utc', 'robots_class', 'sha256', 'url', 'used_for']
+   emails in derived: 0 | longest extracted string: 10 '2026-10-21'
+   body: dist-index.raw.gz | sha(body as received) == derived: True | sha(file) == derived: False
+   read log read_log.json | url in record: True | read time in record: True | records with this sha: 1
+   extracted leaves: 1753 | not found verbatim in body: 0 []
+== studies/LH034/data/read-2026-10-28T0638Z/dist-index.derived.json
+   keys: ['body_removed', 'bytes', 'extracted', 'finish_utc', 'http_status', 'read_utc', 'robots_class', 'sha256', 'url', 'used_for']
+   emails in derived: 0 | longest extracted string: 10 '2026-10-21'
+   body: dist-index.raw.gz | sha(body as received) == derived: True | sha(file) == derived: False
+   read log read_log.json | url in record: True | read time in record: True | records with this sha: 1
+   extracted leaves: 1753 | not found verbatim in body: 0 []
+== studies/LH035/data/reads-2026-11-06/07-I05-routeviews-org-routeviews.derived.json
+   keys: ['body_removed', 'bytes', 'cited_by_rows', 'extracted', 'final_url', 'http_status', 'read_utc', 'robots_class', 'sha256', 'url', 'used_for']
+   emails in derived: 0 | longest extracted string: 178 'Only the quotations and figures of the rows that cite this page, as of the instruments.json read on 21 November 2026; a '
+   body: 07-I05-routeviews-org-routeviews.html | sha(body as received) == derived: True | sha(file) == derived: True
+   read log readlog.csv | url in record: True | read time in record: True | records with this sha: 1
+   extracted leaves: 18 | not found verbatim in body: 4 ['internet exchange points (ixps) and partner networks worldwide  [found ignoring case]', 'real-time bgp data access  [found ignoring case]', 'real-time bgp data access  [found ignoring case]', 'Only the quotations and figures of the rows that cite this page, as of the instruments.json read on 21 November 2026; a quotation added later cannot be checked against this file.']
+   extracted (first 400 chars): {"quoted_segments_in_text": ["internet exchange points (ixps) and partner networks worldwide", "over a thousand peers", "second by second", "continuously growing", "real-time bgp data access", "from the 1990s to today", "1 week ago"], "quoted_segments_in_markup": ["over a thousand peers", "second by second", "continuously growing", "real-time bgp data access", "from the 1990s to today", "1 week ag
+== studies/LH035/data/reads-2026-11-06/12-I07-downloads-pch-net-bgp-routing-data.derived.json
+   keys: ['body_removed', 'bytes', 'cited_by_rows', 'extracted', 'final_url', 'http_status', 'read_utc', 'robots_class', 'sha256', 'url', 'used_for']
+   emails in derived: 0 | longest extracted string: 178 'Only the quotations and figures of the rows that cite this page, as of the instruments.json read on 21 November 2026; a '
+   body: 12-I07-downloads-pch-net-bgp-routing-data.html | sha(body as received) == derived: True | sha(file) == derived: True
+   read log readlog.csv | url in record: True | read time in record: True | records with this sha: 2
+   extracted leaves: 7 | not found verbatim in body: 6 ['daily routing snapshots  [found ignoring case]', 'mrt routing updates  [found ignoring case]', 'this work is licensed under a creative commons attribution sharealike 4.0 license  [found ignoring case]', 'daily routing snapshots  [found ignoring case]', 'mrt routing updates  [found ignoring case]', 'Only the quotations and figures of the rows that cite this page, as of the instruments.json read on 21 November 2026; a quotation added later cannot be checked against this file.']
+   extracted (first 400 chars): {"quoted_segments_in_text": ["daily routing snapshots", "mrt routing updates", "this work is licensed under a creative commons attribution sharealike 4.0 license"], "quoted_segments_in_markup": ["daily routing snapshots", "mrt routing updates"], "figures_found": ["4.0"], "note": "Only the quotations and figures of the rows that cite this page, as of the instruments.json read on 21 November 2026; a
+== studies/LH036/data/read-2026-11-02T1526Z/kernel_announcement.derived.json
+   keys: ['body_removed', 'bytes', 'extracted', 'finish_utc', 'http_status', 'read_utc', 'robots_class', 'sha256', 'url', 'used_for']
+   emails in derived: 0 | longest extracted string: 64 'a307f71b1958e26b4024796b8579a602fd3b2e8aef4acaf4e3bdbf08b1f7137f'
+   body: kernel_announcement.raw.gz | sha(body as received) == derived: True | sha(file) == derived: False
+   read log read_log.json | url in record: True | read time in record: True | records with this sha: 1
+   extracted leaves: 2 | not found verbatim in body: 1 ['a307f71b1958e26b4024796b8579a602fd3b2e8aef4acaf4e3bdbf08b1f7137f']
+   extracted (first 400 chars): {"challenge_page": true, "short_body": false, "title": "Making sure you&#39;re not a bot!", "dateModified": null, "text_sha256": "a307f71b1958e26b4024796b8579a602fd3b2e8aef4acaf4e3bdbf08b1f7137f"}
+== studies/LH036/data/read-2026-11-01T0830Z/kernel_announcement.derived.json
+   keys: ['body_removed', 'bytes', 'extracted', 'finish_utc', 'http_status', 'read_utc', 'robots_class', 'sha256', 'url', 'used_for']
+   emails in derived: 0 | longest extracted string: 64 'a307f71b1958e26b4024796b8579a602fd3b2e8aef4acaf4e3bdbf08b1f7137f'
+   body: kernel_announcement.raw.gz | sha(body as received) == derived: True | sha(file) == derived: False
+   read log read_log.json | url in record: True | read time in record: True | records with this sha: 1
+   extracted leaves: 2 | not found verbatim in body: 1 ['a307f71b1958e26b4024796b8579a602fd3b2e8aef4acaf4e3bdbf08b1f7137f']
+   extracted (first 400 chars): {"challenge_page": true, "short_body": false, "title": "Making sure you&#39;re not a bot!", "dateModified": null, "text_sha256": "a307f71b1958e26b4024796b8579a602fd3b2e8aef4acaf4e3bdbf08b1f7137f"}
+== studies/LH038/data/policies-2026-11-04T1415Z/kernel_security_bugs.derived.json
+   keys: ['body_removed', 'bytes', 'extracted', 'final_url', 'finish_utc', 'http_status', 'read_utc', 'robots_class', 'sha256', 'url', 'used_for']
+   emails in derived: 0 | longest extracted string: 33 'Making sure you&#39;re not a bot!'
+   body: kernel_security_bugs.raw.gz | sha(body as received) == derived: True | sha(file) == derived: False
+   read log read_log.json | url in record: True | read time in record: True | records with this sha: 1
+   extracted leaves: 1 | not found verbatim in body: 0 []
+== studies/LH038/data/policies-2026-11-04T1415Z/linux_distros.derived.json
+   keys: ['body_removed', 'bytes', 'extracted', 'final_url', 'finish_utc', 'http_status', 'read_utc', 'robots_class', 'sha256', 'url', 'used_for']
+   emails in derived: 0 | longest extracted string: 39 'mailing-lists:distros    [OSS-Security]'
+   body: linux_distros.raw.gz | sha(body as received) == derived: True | sha(file) == derived: False
+   read log read_log.json | url in record: True | read time in record: True | records with this sha: 1
+   extracted leaves: 2 | not found verbatim in body: 0 []
+== studies/LH039/data/raw-2026-11-12T1415Z/w3h-70.derived.json
+   keys: ['body_removed', 'bytes', 'content_type', 'extracted', 'http_status', 'read_utc', 'robots_class', 'sha256', 'url', 'used_for']
+   emails in derived: 0 | longest extracted string: 13 'version 7.0.7'
+   body: w3h-70.body | sha(body as received) == derived: True | sha(file) == derived: True
+   read log readlog.csv | url in record: True | read time in record: True | records with this sha: 1
+   extracted leaves: 71 | not found verbatim in body: 1 ['12 Nov 2026']
+   extracted (first 400 chars): {"history": {"columns": ["1 Jun 2026", "1 Jul 2026", "1 Aug 2026", "1 Sep 2026", "1 Oct 2026", "1 Nov 2026", "12 Nov 2026"], "rows": [["version 7.0.7", {"1 Jun 2026": "", "1 Jul 2026": "", "1 Aug 2026": "", "1 Sep 2026": "", "1 Oct 2026": "", "1 Nov 2026": "20.0%", "12 Nov 2026": "24.3%"}], ["version 7.0.4", {"1 Jun 2026": "", "1 Jul 2026": "", "1 Aug 2026": "", "1 Sep 2026": "18.8%", "1 Oct 2026"
+== studies/LH039/data/raw-2026-11-13T1452Z/w3-69.derived.json
+   keys: ['body_removed', 'bytes', 'content_type', 'extracted', 'http_status', 'read_utc', 'robots_class', 'sha256', 'url', 'used_for']
+   emails in derived: 0 | longest extracted string: 79 'percentage of websites using WordPress version 6.9 as content management system'
+   body: w3-69.body | sha(body as received) == derived: True | sha(file) == derived: True
+   read log readlog.csv | url in record: True | read time in record: True | records with this sha: 1
+   extracted leaves: 37 | not found verbatim in body: 0 []
+== studies/LH039/data/raw-2026-11-12T1415Z/w3-71.derived.json
+   keys: ['body_removed', 'bytes', 'content_type', 'extracted', 'http_status', 'read_utc', 'robots_class', 'sha256', 'url', 'used_for']
+   emails in derived: 0 | longest extracted string: 79 'percentage of websites using WordPress version 7.1 as content management system'
+   body: w3-71.body | sha(body as received) == derived: True | sha(file) == derived: True
+   read log readlog.csv | url in record: True | read time in record: True | records with this sha: 1
+   extracted leaves: 27 | not found verbatim in body: 0 []
+== studies/LH039/data/raw-2026-11-16T1418Z/w3h-69.derived.json
+   keys: ['body_removed', 'bytes', 'content_type', 'extracted', 'http_status', 'read_utc', 'robots_class', 'sha256', 'url', 'used_for']
+   emails in derived: 0 | longest extracted string: 14 'version 6.9.10'
+   body: w3h-69.body | sha(body as received) == derived: True | sha(file) == derived: True
+   read log readlog.csv | url in record: True | read time in record: True | records with this sha: 1
+   extracted leaves: 179 | not found verbatim in body: 2 ['1 Dec 2025', '16 Nov 2026']
+   extracted (first 400 chars): {"history": {"columns": ["1 Nov 2025", "1 Dec 2025", "1 Jan 2026", "1 Feb 2026", "1 Mar 2026", "1 Apr 2026", "1 May 2026", "1 Jun 2026", "1 Jul 2026", "1 Aug 2026", "1 Sep 2026", "1 Oct 2026", "1 Nov 2026", "16 Nov 2026"], "rows": [["version 6.9.10", {"1 Nov 2025": "", "1 Dec 2025": "", "1 Jan 2026": "", "1 Feb 2026": "", "1 Mar 2026": "", "1 Apr 2026": "", "1 May 2026": "", "1 Jun 2026": "", "1 J
+== studies/LH039/data/raw-2026-11-21T1411Z/w3-70.derived.json
+   keys: ['body_removed', 'bytes', 'content_type', 'extracted', 'http_status', 'read_utc', 'robots_class', 'sha256', 'url', 'used_for']
+   emails in derived: 0 | longest extracted string: 79 'percentage of websites using WordPress version 7.0 as content management system'
+   body: w3-70.body | sha(body as received) == derived: True | sha(file) == derived: True
+   read log readlog.csv | url in record: True | read time in record: True | records with this sha: 1
+   extracted leaves: 33 | not found verbatim in body: 0 []
+== studies/LH039/data/raw-2026-11-08T1411Z/stats-3.derived.json
+   keys: ['body_removed', 'bytes', 'content_type', 'extracted', 'http_status', 'read_utc', 'robots_class', 'sha256', 'url', 'used_for']
+   emails in derived: 0 | longest extracted string: 0 
+   body: stats-3.body | sha(body as received) == derived: True | sha(file) == derived: True
+   read log readlog.csv | url in record: True | read time in record: True | records with this sha: 1
+   extracted leaves: 0 | not found verbatim in body: 0 []
+== studies/LH039/data/raw-2026-11-10T1416Z/w3h-71.derived.json
+   keys: ['body_removed', 'bytes', 'content_type', 'extracted', 'http_status', 'read_utc', 'robots_class', 'sha256', 'url', 'used_for']
+   emails in derived: 0 | longest extracted string: 13 'version 7.1.3'
+   body: w3h-71.body | sha(body as received) == derived: True | sha(file) == derived: True
+   read log readlog.csv | url in record: True | read time in record: True | records with this sha: 1
+   extracted leaves: 24 | not found verbatim in body: 1 ['10 Nov 2026']
+   extracted (first 400 chars): {"history": {"columns": ["1 Sep 2026", "1 Oct 2026", "1 Nov 2026", "10 Nov 2026"], "rows": [["version 7.1.3", {"1 Sep 2026": "", "1 Oct 2026": "<0.1%", "1 Nov 2026": "54.7%", "10 Nov 2026": "46.2%"}], ["version 7.1.2", {"1 Sep 2026": "", "1 Oct 2026": "69.7%", "1 Nov 2026": "31.2%", "10 Nov 2026": "26.1%"}], ["version 7.1.4", {"1 Sep 2026": "", "1 Oct 2026": "", "1 Nov 2026": "6.6%", "10 Nov 2026"
+== studies/LH040/data/pre-brief-2026-11-08T1414Z/pypi_project_json.derived.json
+   keys: ['body_removed', 'bytes', 'content_type', 'extracted', 'http_status', 'read_utc', 'robots_class', 'sha256', 'url', 'used_for']
+   emails in derived: 0 | longest extracted string: 27 '2023-07-27T00:36:16.462525Z'
+   body: pypi_project_json.raw | sha(body as received) == derived: True | sha(file) == derived: True
+   read log readlog.csv | url in record: True | read time in record: True | records with this sha: 1
+   extracted leaves: 1757 | not found verbatim in body: 0 []
+== studies/LH040/data/pre-brief-2026-11-08T1414Z/pypi_1.106.7_json.derived.json
+   keys: ['body_removed', 'bytes', 'content_type', 'extracted', 'http_status', 'read_utc', 'robots_class', 'sha256', 'url', 'used_for']
+   emails in derived: 0 | longest extracted string: 27 '2026-11-04T04:16:49.153944Z'
+   body: pypi_1.106.7_json.raw | sha(body as received) == derived: True | sha(file) == derived: True
+   read log readlog.csv | url in record: True | read time in record: True | records with this sha: 1
+   extracted leaves: 3 | not found verbatim in body: 0 []
+== studies/LH049/data/pre-brief-2026-11-10T1438Z/socket_post.derived.json
+   keys: ['body_removed', 'bytes', 'extracted', 'final_url', 'finish_utc', 'http_status', 'read_utc', 'robots_class', 'sha256', 'url', 'used_for']
+   emails in derived: 0 | longest extracted string: 0 
+   body: socket_post.raw.gz | sha(body as received) == derived: False | sha(file) == derived: False
+   read log read_log.json | url in record: True | read time in record: True | records with this sha: 1
+   extracted leaves: 0 | not found verbatim in body: 0 []
+== studies/LH049/data/pre-brief-2026-11-10T1437Z/socket_blog.derived.json
+   keys: ['body_removed', 'bytes', 'extracted', 'final_url', 'finish_utc', 'http_status', 'read_utc', 'robots_class', 'sha256', 'url', 'used_for']
+   emails in derived: 0 | longest extracted string: 0 
+   body: socket_blog.raw.gz | sha(body as received) == derived: True | sha(file) == derived: False
+   read log read_log.json | url in record: True | read time in record: True | records with this sha: 1
+   extracted leaves: 0 | not found verbatim in body: 0 []
+== studies/LH056/data/prebrief-2026-11-18T1319Z/socket_post.derived.json
+   keys: ['body_removed', 'bytes', 'content_type', 'extracted', 'http_status', 'read_utc', 'robots_class', 'sha256', 'url', 'used_for']
+   emails in derived: 0 | longest extracted string: 24 '2026-11-17T23:05:25.054Z'
+   body: socket_post.raw | sha(body as received) == derived: True | sha(file) == derived: True
+   read log fetchlog.csv | url in record: True | read time in record: True | records with this sha: 1
+   extracted leaves: 2 | not found verbatim in body: 0 []
