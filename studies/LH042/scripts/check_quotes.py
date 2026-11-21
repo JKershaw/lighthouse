@@ -2,6 +2,11 @@
 """LH042: check that every quotation in data/counts.csv and data/relayed.csv is in
 its retained body (after converting HTML to text and collapsing whitespace and
 quote marks), and that each admitted count's figure appears in its quotation.
+For a body not kept (withheld for use=reference, amendment of 9 November 2026, or under the keeper's
+decision of 21 November 2026), the check reads this run's local copy while it exists and copies each
+quotation it finds there into the record's extract (.withheld.json, "quotes", at most 2,000 characters
+in all, as the brief's amendment sets), so a later run, after the local copy is gone, still finds it:
+a real quotation is never reported missing only because its body was not kept.
 Usage: python3 -I studies/LH042/scripts/check_quotes.py"""
 import csv, json, pathlib, re, sys
 HERE = pathlib.Path(__file__).resolve().parent
@@ -28,6 +33,27 @@ def body_text(src):
             cache[src] = norm(text_of((local if local.exists() else body).read_bytes()))
     return cache[src]
 
+QUOTE_CAP = 2000
+
+
+def keep_quote(src, quote):
+    """Copy a quotation found in this run's local copy into the record's extract, once, within the cap."""
+    rec_p = DATA / (src + ".withheld.json")
+    local = pathlib.Path(str(DATA / (src + ".body")) + ".withheld-local")
+    if not (rec_p.exists() and local.exists()):
+        return
+    rec = json.loads(rec_p.read_text())
+    ext = rec.setdefault("extract", {})
+    quotes = ext.setdefault("quotes", [])
+    if quote in quotes:
+        return
+    if sum(len(q) for q in quotes) + len(quote) > QUOTE_CAP:
+        print(f"note\t{src}\tquotation not copied to the record: the {QUOTE_CAP}-character cap is reached", file=sys.stderr)
+        return
+    quotes.append(quote)
+    rec_p.write_text(json.dumps(rec, indent=1, ensure_ascii=False) + "\n")
+
+
 bad = 0
 for fname in ["counts.csv", "relayed.csv"]:
     p = DATA / fname
@@ -37,6 +63,8 @@ for fname in ["counts.csv", "relayed.csv"]:
         if not r.get("source") or not r.get("quote"):
             continue
         ok = norm(r["quote"]) in body_text(r["source"])
+        if ok:
+            keep_quote(r["source"], r["quote"])
         fig = True
         if fname == "counts.csv":
             c = int(r["count"])
