@@ -73,6 +73,8 @@ summaries:
 - studies/LH054 | A kernel flaw found by a person, for comparison
 - studies/LH055 | ARTEX and the reported stolen-key loop
 - studies/LH056 | The quarantined agent-framework releases on PyPI
+- studies/LH057 | GreyNoise's count of attacks on October's PHP flaws
+- studies/LH058 | November's outages and their stated causes
 - studies/LH043 | Evaluation agents on the open internet
 - studies/LH042 | Published counts of exposed AI services
 - studies/LH035 | Who watches each layer of the internet

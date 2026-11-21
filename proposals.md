@@ -698,6 +698,11 @@ From the Editor run of 20 November 2026 (2026-11-20T181125Z-anthropic-editor), t
 - L-0175 (kind: editorial) Every study record carries the Provisional badge, whose tooltip says "not yet reviewed", even where the record has cleared its reviews and backs a released paper (/studies/LH047/); a researcher reads that as unreviewed. A third state, or a status taken from the record's own review history, would say what is true.
 - L-0176 (kind: editorial) A researcher can't rerun anything from the site: Data and replay gives commands such as a study's replay script, but the scripts and data files aren't served (direct paths return 404) and the page doesn't say they live in the repository or give its link per study; the page was last updated 14 November and lists no study after LH047. Say where the files are, with a link per study and the commit the figures came from.
 
+From the Editor run of 21 November 2026 (2026-11-21T181048Z-anthropic-editor), the returning reader:
+
+- L-0177 (kind: editorial) An investigation card's badge reads "Provisional: No reviewed finding yet; working records only" wherever no `current:` piece is set, even where the investigation's own opening cites reviewed interim records (model-found bugs: LH036 0.2 and LH038 0.4); the reader saw it as a contradiction. Badge text that distinguishes reviewed but unreleased records from none, perhaps with L-0175, would say what is true.
+- L-0178 (kind: editorial) The robots paper (released 19 November) judges our agents against the rule of 8 November; the keeper's decision of 21 November changed the rule for one-off reads. A returning reader expected a notice. Whether a "Later evidence" notice is earned (the paper's count is under the old rule and stays true) is for a review round on the paper, not the editor.
+
 ## Declined, parked and expired
 
 ### P-0035 An extra LH050 panel read on 20 November, the CCW Review Conference's closing day
