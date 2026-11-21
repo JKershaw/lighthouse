@@ -36,7 +36,7 @@ def main(d, name, url):
     if any(r["name"] == name for r in rows):
         sys.exit("already read: %s" % name)
     hosts = {urlsplit(r["url"]).hostname for r in rows} | {urlsplit(url).hostname}
-    used = len(rows) + len(hosts)  # content GETs plus one robots.txt per host
+    used = len(rows) + 1 + len(hosts)  # content GETs including this one, plus one robots.txt per host
     if used > CEILING:
         sys.exit("ceiling: this GET would make %d of %d" % (used, CEILING))
     start = datetime.datetime.now(datetime.timezone.utc).strftime("%Y-%m-%dT%H:%M:%SZ")
