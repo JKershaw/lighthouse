@@ -66,3 +66,21 @@ Admitted by [the brief's Amendment 1](brief.md) (the keeper's agreement of P-003
 | PA-S32 | https://mod.gov.ua/en/news/ug-vs-have-performed-over-100-000-frontline-missions-in-place-of-ukrainian-military-personnel-since-the-start-of-the-year | Scout 7, row 19 | 24 August 2026, 1:18 PM EET per page | Ukrainian government (Ministry of Defence), English edition | readable |
 
 The next monthly notice (expected early December, with the November figure) takes the next free ID when read, with its Ukrainian version under its own ID if published. Same family throughout: repetition across these notices adds no corroboration.
+
+## Added at the post-conference policy read, 21 November 2026 (read label 2026-11-21T1414Z)
+
+Row LH050-policy-after. Each is one reference step from PA-S16, the conference page, an admitted baseline source; listed there under Documents on 21 November 2026. Selected as the conference's draft outcome texts and the working papers of States, groups of States and international organisations listed on the page; the NGO and youth working papers (WP.4, WP.5, WP.8) and the meeting's administrative documents were left out. Selection was made after the 19 November checkpoint had listed the drafts, and while the 21 November page was open; the drafts' contents were not known when it was made.
+
+| ID | URL | Discovery route | Publication date | Source family | Access at this read |
+| --- | --- | --- | --- | --- | --- |
+| PA-S33 | https://docs-library.unoda.org/Convention_on_Certain_Conventional_Weapons_-SeventhReview_Conference_(2026)/CCW-CONF.VII-CRP.1_Draft_Final_Report.pdf | PA-S16 | circulated 13 November 2026 per PA-S16; face reads "Date of submission" | UN (UNODA; conference draft) | readable |
+| PA-S34 | https://docs-library.unoda.org/Convention_on_Certain_Conventional_Weapons_-SeventhReview_Conference_(2026)/CCW-CONF.VII-CRP.1-Rev.1_Draft_Final_Document.pdf | PA-S16 | circulated 19 November 2026 per PA-S16 | UN (UNODA; conference draft) | readable |
+| PA-S35 | https://docs-library.unoda.org/Convention_on_Certain_Conventional_Weapons_-SeventhReview_Conference_(2026)/CCW-CONF.VII-CRP.1-Rev.2.pdf | PA-S16 | 20 November 2026 on its face | UN (UNODA; conference draft) | readable |
+| PA-S36 | https://docs-library.unoda.org/Convention_on_Certain_Conventional_Weapons_-SeventhReview_Conference_(2026)/CCW-CONF.VII-MC.I-CRP.1_Draft_Final_Declaration.pdf | PA-S16 | circulated 13 November 2026 per PA-S16 | UN (UNODA; Main Committee I draft) | readable |
+| PA-S37 | https://docs-library.unoda.org/Convention_on_Certain_Conventional_Weapons_-SeventhReview_Conference_(2026)/CCW-CONF.VII-WP.3.pdf | PA-S16 | 17 November 2026 | State (Austria), working paper | readable |
+| PA-S38 | https://docs-library.unoda.org/Convention_on_Certain_Conventional_Weapons_-SeventhReview_Conference_(2026)/CCW-CONF.VII-WP.6_(EN).pdf | PA-S16 | 17 November 2026 | State (Russian Federation), working paper | readable |
+| PA-S39 | https://docs-library.unoda.org/Convention_on_Certain_Conventional_Weapons_-SeventhReview_Conference_(2026)/CCW-CONF.VII-WP.7.pdf | PA-S16 | 18 November 2026 (text signed off 13 November 2026) | States (Austria, Belgium, Brazil, Ireland, New Zealand, Panama, Mexico), working paper | readable |
+| PA-S40 | https://docs-library.unoda.org/Convention_on_Certain_Conventional_Weapons_-SeventhReview_Conference_(2026)/CCW-CONF.VII-WP.9.pdf | PA-S16 | 18 November 2026 | international organisation (ICRC), working paper | readable |
+| PA-S41 | https://docs-library.unoda.org/Convention_on_Certain_Conventional_Weapons_-SeventhReview_Conference_(2026)/CCW-CONF.VII-WP.10.pdf | PA-S16 | 19 November 2026 | observer State (Holy See), working paper | readable |
+| PA-S42 | https://docs-library.unoda.org/Convention_on_Certain_Conventional_Weapons_-SeventhReview_Conference_(2026)/CCW-CONF.VII-WP.18.pdf | PA-S16 | 20 November 2026 | States (Uganda for NAM and other States), working paper | readable |
+| PA-S43 | https://docs.un.org/CCW/CONF.VII/11 | Symbol the drafts give the final document (PA-S35, para 30) | not shown | UN (documents) | language shell readable, no text; document route documents.un.org disallowed by robots.txt |
