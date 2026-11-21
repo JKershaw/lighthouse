@@ -81,3 +81,27 @@ def urlopen(request, *args, check_redirects=False, access=None, **kwargs):
         opener = urllib.request.build_opener(_RobotsCheckedRedirect(access))
         return opener.open(request, *args, **kwargs)
     return urllib.request.urlopen(request, *args, **kwargs)
+
+
+def save_body(path, body, url, headers=None, access=None, gzip_body=None):
+    """Save a fetched body only if it may be kept (the keeper, 21 November 2026). Returns
+    (kept, reason). url is the final URL after any redirect; headers the response headers (for a
+    page's own noai / TDM reservation). Where the body may not be kept, nothing is written: the
+    caller logs URL, read time, status, size, the SHA-256 of the bytes received and the reason, and
+    keeps only the facts its measures use; a later script that finds no body treats the reading as
+    unavailable, never as zero. Email addresses are withheld from a kept body. gzip_body defaults to
+    whether path ends in .gz."""
+    import gzip as _gzip
+    from robots_rules import page_reservation
+    keep, why = may_keep(url, access)
+    reserved = page_reservation(body, headers) if keep else None
+    if not keep or reserved:
+        return False, reserved or why
+    data = redacted(body)
+    if gzip_body is None:
+        gzip_body = str(path).endswith('.gz')
+    if gzip_body:
+        data = _gzip.compress(data, mtime=0)
+    with open(path, 'wb') as f:
+        f.write(data)
+    return True, why
