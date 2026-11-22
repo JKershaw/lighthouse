@@ -122,3 +122,27 @@ johnpbloch 7.0 2026-11-19 (day 22): fixed 130 of 342 = 38.0%
 johnpbloch 6.9 2026-11-17 (day 20): fixed 1146 of 2106 = 54.4%
 johnpbloch 6.9 2026-11-18 (day 21): fixed 531 of 1425 = 37.3%
 johnpbloch 6.9 2026-11-19 (day 22): fixed 385 of 1268 = 30.4%
+
+== Part E (added in record 1.1, 22 November 2026): measure 2 position, WordPress 7.1 against each PHP branch ==
+above = WordPress's lower bound above PHP's tabulated value; below = WordPress's upper bound below it
+WordPress day 12 (19.58% to 19.60%) vs PHP day 12: 8.2 above, 8.3 above, 8.4 above, 8.5 below
+WordPress day 19 (31.97% to 32.00%) vs PHP day 19: 8.2 above, 8.3 above, 8.4 above, 8.5 below
+WordPress day 14 (23.70% to 23.72%) vs PHP day 12: 8.2 above, 8.3 above, 8.4 above, 8.5 below
+WordPress day 14 (23.70% to 23.72%) vs PHP day 19: 8.2 above, 8.3 above, 8.4 below, 8.5 below
+WordPress day 24 (43.16% to 43.26%) vs PHP day 19: 8.2 above, 8.3 above, 8.4 above, 8.5 above
+WordPress day 24 (43.16% to 43.26%) vs PHP day 26: 8.2 above, 8.3 above, 8.4 above, 8.5 below
+
+== Part F (added in record 1.1): Packagist days below half, counting only days with full coverage (to 17 November) ==
+roots 7.1, 28 October to 17 November: below half on 1 of 21 days
+roots 7.0, 28 October to 17 November: below half on 21 of 21 days
+roots 6.9, 28 October to 17 November: below half on 19 of 21 days
+johnpbloch 7.1, 28 October to 17 November: below half on 7 of 21 days
+johnpbloch 7.0, 28 October to 17 November: below half on 21 of 21 days
+johnpbloch 6.9, 28 October to 17 November: below half on 17 of 21 days
+Weekend dips (both Saturday and Sunday branch totals below the Friday and the Monday), 5 weekends from 17 October:
+roots 7.1: 10-17 dip, 10-24 dip, 10-31 dip, 11-07 dip, 11-14 dip
+roots 7.0: 10-17 dip, 10-24 dip, 10-31 dip, 11-07 dip, 11-14 dip
+roots 6.9: 10-17 dip, 10-24 dip, 10-31 dip, 11-07 dip, 11-14 dip
+johnpbloch 7.1: 10-17 dip, 10-24 dip, 10-31 no dip, 11-07 dip, 11-14 dip
+johnpbloch 7.0: 10-17 dip, 10-24 dip, 10-31 dip, 11-07 dip, 11-14 dip
+johnpbloch 6.9: 10-17 dip, 10-24 dip, 10-31 no dip, 11-07 dip, 11-14 dip

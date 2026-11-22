@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""LH039 record 1.0 (22 November 2026): measure 1 and measure 2 with E3 settled, and the post hoc treatments.
+"""LH039 record 1.0 and 1.1 (22 November 2026): measure 1 and measure 2 with E3 settled, and the post hoc treatments.
 
 Offline: reads only retained files under studies/LH039/data/ (and LH033's tables.json for measure 2);
 fetches nothing. Uses tabulate.py's parser and branch rule.
@@ -20,7 +20,7 @@ and 6.9.12 on 18 November 2026 (release archive, date only). No 7.1.6 on either 
     for PHP 8.2 to 8.5 at its reads of PHP day 12, 19 and 26 (reuse disclosed; recomputation by LH039's
     rule is in checkpoints/2026-11-21-extra.txt, Part A).
   Part D, Packagist (measure 3) on 18 and 19 November from the checkpoint CSV, with the coverage note.
-Usage: python3 -I studies/LH039/scripts/record_measures.py   (writes studies/LH039/record-1.0-output.txt)
+Usage: python3 -I studies/LH039/scripts/record_measures.py   (writes studies/LH039/record-1.1-output.txt; record 1.0's output, record-1.0-output.txt, is in git at 8818067)
 """
 import csv, datetime, glob, json, os, sys
 
@@ -131,6 +131,39 @@ for r in cs:
         p("%s %s %s (day %s): fixed %s of %s = %.1f%%" % (r["package"], r["branch"], r["utc_day"], r["days_since_E0"],
           r["fixed_downloads"], r["branch_downloads"], 100 * float(r["fixed_share"])))
 
+p("")
+p("== Part E (added in record 1.1, 22 November 2026): measure 2 position, WordPress 7.1 against each PHP branch ==")
+p("above = WordPress's lower bound above PHP's tabulated value; below = WordPress's upper bound below it")
+PHP = {}
+for lab, day in (("2026-11-02T1530Z", 12), ("2026-11-09T1427Z", 19), ("2026-11-16T1419Z", 26)):
+    t = json.load(open(os.path.join(LH033, "read-" + lab, "tables.json")))["m4_w3techs_within_minor"]
+    PHP[day] = {m: t[m]["share_at_or_above_fixed_pct"] for m in ("8.2", "8.3", "8.4", "8.5")}
+for wlab, wday, pdays in (("2026-11-09T1431Z", 12, (12,)), ("2026-11-16T1418Z", 19, (19,)),
+                          ("2026-11-11T1415Z", 14, (12, 19)), ("2026-11-21T1411Z", 24, (19, 26))):
+    lo, hi = (100 * x for x in A[("7.1", wlab)])
+    for pd in pdays:
+        pos = ", ".join("%s %s" % (m, "above" if lo > v else "below" if hi < v else "overlaps")
+                        for m, v in PHP[pd].items())
+        p("WordPress day %d (%s) vs PHP day %d: %s" % (wday, rng(A[("7.1", wlab)]), pd, pos))
+
+p("")
+p("== Part F (added in record 1.1): Packagist days below half, counting only days with full coverage (to 17 November) ==")
+for pk in ("roots", "johnpbloch"):
+    for b in T.BRANCHES:
+        d = [r for r in cs if r["package"] == pk and r["branch"] == b and 0 <= int(r["days_since_E0"]) and r["utc_day"] <= "2026-11-17"]
+        below = sum(1 for r in d if float(r["fixed_share"]) < 0.5)
+        p("%s %s, 28 October to 17 November: below half on %d of %d days" % (pk, b, below, len(d)))
+p("Weekend dips (both Saturday and Sunday branch totals below the Friday and the Monday), 5 weekends from 17 October:")
+for pk in ("roots", "johnpbloch"):
+    for b in T.BRANCHES:
+        s = {r["utc_day"]: int(r["branch_downloads"]) for r in cs if r["package"] == pk and r["branch"] == b}
+        res = []
+        for sat in ("2026-10-17", "2026-10-24", "2026-10-31", "2026-11-07", "2026-11-14"):
+            d0 = datetime.date.fromisoformat(sat)
+            f, su, m = (str(d0 + datetime.timedelta(k)) for k in (-1, 1, 2))
+            res.append("%s %s" % (sat[5:], "dip" if max(s[sat], s[su]) < min(s[f], s[m]) else "no dip"))
+        p("%s %s: %s" % (pk, b, ", ".join(res)))
+
 txt = "\n".join(out) + "\n"
-open(os.path.join(HERE, "..", "record-1.0-output.txt"), "w").write(txt)
+open(os.path.join(HERE, "..", "record-1.1-output.txt"), "w").write(txt)
 print(txt)
