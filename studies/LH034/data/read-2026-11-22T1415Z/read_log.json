@@ -1,0 +1,29 @@
+[
+  {
+    "source": "dist-index",
+    "url": "https://nodejs.org/dist/index.json",
+    "start_utc": "2026-11-22T14:15:09.608026+00:00",
+    "finish_utc": "2026-11-22T14:15:09.845254+00:00",
+    "error": "NotFetched: not fetched: disallowed by robots.txt (robots https://nodejs.org/robots.txt, status 200, group *, rule Disallow: /dist/, sha256 cbcd5e7d85caf581)"
+  },
+  {
+    "source": "day-20261119",
+    "url": "https://storage.googleapis.com/access-logs-summaries-nodejs/nodejs.org-access.log.20261119.json",
+    "start_utc": "2026-11-22T14:15:09.845274+00:00",
+    "finish_utc": "2026-11-22T14:15:10.391472+00:00",
+    "status": 200,
+    "bytes": 15288,
+    "sha256": "a5718d639364a44bb2a0b16ffa5ab98db6158c8e7eafcca4739ce889bf04cb94",
+    "file": "day-20261119.raw.gz"
+  },
+  {
+    "source": "day-20261120",
+    "url": "https://storage.googleapis.com/access-logs-summaries-nodejs/nodejs.org-access.log.20261120.json",
+    "start_utc": "2026-11-22T14:15:10.394349+00:00",
+    "finish_utc": "2026-11-22T14:15:10.655755+00:00",
+    "status": 200,
+    "bytes": 15255,
+    "sha256": "b1060e0bd87b51adb1a81fe260f3a5157d2a78361fda396a102d72dbddf85551",
+    "file": "day-20261120.raw.gz"
+  }
+]
