@@ -1,0 +1,11 @@
+# Pages opened for the 22 November 2026 statement searches (read 2)
+
+Read through Claude Code's WebFetch tool, which returns a model's summary of the page, not the page itself; the quotations below are as that tool returned them and were not checked against a raw copy. No copy of either page is kept. Before each, scripts/lh_fetch.py's `check(url, 'oneoff')` (LIGHTHOUSE_PROVIDER=anthropic) found the page allowed by www.mediawiki.org's robots.txt (`*` group, status 200). The same check found gutenberg.org's robots.txt answering 503 (about 14:31 UTC), so no gutenberg.org page was opened. Read 2026-11-22, about 14:31 UTC.
+
+## www.mediawiki.org/wiki/Wikimedia_APIs/Changelog (S13)
+
+"This page was last edited on 12 November 2026, at 10:54." November 2026: no entries in any subsection. October 2026, All APIs, Fixed: "Fix issue with OAuth 2 client credentials being treated as anonymous requests." "The fix will only apply to apps registered on or after 2026-10-19." The latest rate-limit entries are April 2026, All APIs, Changed: "Identified requests are now also subject to rate limits." "Bots running in Toolforge/Wikimedia Cloud Services or with the bot user right on any wiki should not be affected." The tool reports no entry dated September to November 2026 that mentions rate limits, bots, scrapers, crawlers or AI.
+
+## www.mediawiki.org/wiki/Wikimedia_APIs/Rate_limits (re-read of S02)
+
+"This page was last edited on 8 November 2026, at 20:04." (S02's reading at the baseline, 19:29:34 UTC on 8 November, was of a revision scout 7 dated 15 October; whether the 20:04 edit changed the limits wasn't checked.) Unidentified clients, "Requests with no identifying characteristics other than IP address": 10 requests a minute. Web browser, unauthenticated user: 200 a minute. User-Agent only (unauthenticated bots with a compliant User-Agent): 200 a minute. "API rate limits are being deployed in 2026"; the limits are "new in 2026 and are subject to experimentation and change". Reason, as the tool summarised it, with quoted fragments: to reduce "unauthenticated, automated API requests" and stop "high-volume commercial consumers from putting undue load" on infrastructure; "a small number of bots and other tools which operate at a very high rate may get rate limited". The tool reports no use of "scrapers" or "AI".
