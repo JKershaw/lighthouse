@@ -280,7 +280,8 @@ def robots_outcome(res, version=CLASSIFIER_VERSION):
         return 'unreachable', None, 'robots_unreachable', det
     if cls == 'rate_limited' and st >= 500:
         # amendment 10 (22 November 2026): the brief's robots.txt rule governs; a 5xx (e.g. 503 with
-        # Retry-After) at robots.txt is robots_unreachable, unknown; only a challenge or a 429 is a wall
+        # Retry-After) at robots.txt is robots_unreachable, unknown; a challenge, a 429, or a 4xx the classifier
+        # reads as rate limiting stays a wall, as before (narrowed after review R-0113)
         return 'unreachable', None, 'robots_unreachable', str(st) + ' (' + cls + ':' + det + ')'
     if cls in ('challenge', 'rate_limited'):
         return 'wall', None, 'wall_at_robots', cls + ':' + det
