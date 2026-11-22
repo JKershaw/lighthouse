@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""LH039 record 1.0 and 1.1 (22 November 2026): measure 1 and measure 2 with E3 settled, and the post hoc treatments.
+"""LH039 record 1.0 to 1.2 (22 November 2026): measure 1 and measure 2 with E3 settled, and the post hoc treatments.
 
 Offline: reads only retained files under studies/LH039/data/ (and LH033's tables.json for measure 2);
 fetches nothing. Uses tabulate.py's parser and branch rule.
@@ -20,7 +20,7 @@ and 6.9.12 on 18 November 2026 (release archive, date only). No 7.1.6 on either 
     for PHP 8.2 to 8.5 at its reads of PHP day 12, 19 and 26 (reuse disclosed; recomputation by LH039's
     rule is in checkpoints/2026-11-21-extra.txt, Part A).
   Part D, Packagist (measure 3) on 18 and 19 November from the checkpoint CSV, with the coverage note.
-Usage: python3 -I studies/LH039/scripts/record_measures.py   (writes studies/LH039/record-1.1-output.txt; record 1.0's output, record-1.0-output.txt, is in git at 8818067)
+Usage: python3 -I studies/LH039/scripts/record_measures.py   (writes studies/LH039/record-1.2-output.txt; record 1.0's and 1.1's outputs are in git history)
 """
 import csv, datetime, glob, json, os, sys
 
@@ -164,6 +164,54 @@ for pk in ("roots", "johnpbloch"):
             res.append("%s %s" % (sat[5:], "dip" if max(s[sat], s[su]) < min(s[f], s[m]) else "no dip"))
         p("%s %s: %s" % (pk, b, ", ".join(res)))
 
+p("")
+p("== Part G (added in record 1.2, after R-0118; all post hoc, chosen after the reads were seen) ==")
+p("G1. Least-squares line through the E0 release's share of its branch as W3Techs gives it (0.1-point precision),")
+p("    reads of days 12 to 21 (9 to 18 November, before the second release); the day at which the line crosses zero.")
+first = [lab for lab in reads if T.lab_dt(lab) < E3]
+for b, r0 in (("7.1", "7.1.4"), ("7.0", "7.0.8"), ("6.9", "6.9.11")):
+    xs, ys = [], []
+    for lab in first:
+        rows, _ = rows_of(lab, b)
+        v = [hi for (rv, lo, hi, g) in rows if rv == r0]
+        xs.append((T.lab_dt(lab).date() - T.E0).days); ys.append(v[0])
+    n = len(xs); mx = sum(xs) / n; my = sum(ys) / n
+    sl = sum((x - mx) * (y - my) for x, y in zip(xs, ys)) / sum((x - mx) ** 2 for x in xs)
+    ic = my - sl * mx
+    res = max(abs(y - (ic + sl * x)) for x, y in zip(xs, ys))
+    p("    %s: values %s; slope %.2f points a day, intercept %.2f, zero at day %.1f, largest residual %.2f; line at day 4: %.1f" % (
+        r0, ", ".join("%.1f" % y for y in ys), sl, ic, -ic / sl, res, ic + 4 * sl))
+p("G2. W3Techs history pages, read 21 November: releases the fix replaced, 1 November -> 21 November (share of branch)")
+for b in T.BRANCHES:
+    h = T.history_of(os.path.join(T.DATA, "raw-2026-11-21T1411Z"), "w3h-%s" % b.replace(".", ""))
+    cols, hrows = h
+    for name, cells in hrows:
+        v = name.replace("version ", "")
+        if T.vt(v)[:2] == T.vt(b)[:2] and T.vt(v) < T.FIXED[b]:
+            first_col = next((c for c in cols if cells.get(c)), "")
+            p("    %s: 1 Nov %s -> 21 Nov %s (first column with a value: %s)" % (
+                v, cells.get("1 Nov 2026") or "(blank)", cells.get("21 Nov 2026") or "(blank)", first_col))
+p("G3. Branch-matched comparison with PHP (LH033 tabulated): each WordPress branch at each pairing, 9 comparisons")
+p("    (WordPress day 12 v PHP day 12, day 19 v day 19, day 24 v day 26), plus 7.1 v 8.5 at the record's other pairings")
+pairs = (("2026-11-09T1431Z", 12, 12), ("2026-11-16T1418Z", 19, 19), ("2026-11-21T1411Z", 24, 26))
+for lab, wd, pd in pairs:
+    for b in T.BRANCHES:
+        lo, hi = (100 * x for x in A[(b, lab)])
+        below = [m for m, v in PHP[pd].items() if hi < v]
+        above = [m for m, v in PHP[pd].items() if lo > v]
+        p("    WordPress %s day %d (%s) v PHP day %d: below %s; above %s; v 8.5: %+.1f to %+.1f points" % (
+            b, wd, rng(A[(b, lab)]), pd, ",".join(below) or "none", ",".join(above) or "none",
+            lo - PHP[pd]["8.5"], hi - PHP[pd]["8.5"]))
+for lab, wd, pd in (("2026-11-11T1415Z", 14, 12), ("2026-11-11T1415Z", 14, 19), ("2026-11-21T1411Z", 24, 19)):
+    lo, hi = (100 * x for x in A[("7.1", lab)])
+    p("    WordPress 7.1 day %d v PHP 8.5 day %d: %+.2f to %+.2f points" % (wd, pd, lo - PHP[pd]["8.5"], hi - PHP[pd]["8.5"]))
+p("G4. Within-branch movements on 7.0 between the reads of 9 and 21 November (W3Techs as given)")
+r9 = {v: g for v, lo, hi, g in rows_of("2026-11-09T1431Z", "7.0")[0]}
+r21 = {v: g for v, lo, hi, g in rows_of("2026-11-21T1411Z", "7.0")[0]}
+for v in ("7.0.4", "7.0.6", "7.0.7"):
+    a, z = float(r9[v].rstrip("%")), float(r21[v].rstrip("%"))
+    p("    %s: %s -> %s (factor %.2f)" % (v, r9[v], r21[v], z / a))
+
 txt = "\n".join(out) + "\n"
-open(os.path.join(HERE, "..", "record-1.1-output.txt"), "w").write(txt)
+open(os.path.join(HERE, "..", "record-1.2-output.txt"), "w").write(txt)
 print(txt)
