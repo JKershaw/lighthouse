@@ -40,7 +40,7 @@ studies:
 - studies/LH033/LH033.md
 - studies/LH034/LH034.md
 - studies/LH037/brief.md
-- studies/LH039/brief.md
+- studies/LH039/LH039.md
 - studies/LH040/LH040.md
 - studies/LH046/LH046.md
 pieces:
