@@ -1,0 +1,1 @@
+<html><head><link rel="icon" href="data:;"><meta http-equiv="refresh" content="0;/.well-known/sgcaptcha/?r=%2Frobots.txt&y=ipr:3.149.170.220:1795357397.076"></meta></head></html>

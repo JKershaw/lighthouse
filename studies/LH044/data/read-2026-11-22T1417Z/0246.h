@@ -1,0 +1,7 @@
+HTTP 301
+date: Sun, 22 Nov 2026 14:26:48 GMT
+server: Apache
+location: https://debian.redparra.com/robots.txt
+content-length: 286
+content-type: text/html; charset=iso-8859-1
+connection: close

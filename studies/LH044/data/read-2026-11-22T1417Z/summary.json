@@ -1,0 +1,104 @@
+{
+ "label": "2026-11-22T1417Z",
+ "classifier": "0.4",
+ "requests": 273,
+ "bytes_retained": 2592048,
+ "by_stratum": {
+  "named": {
+   "robots_disallowed": 30,
+   "unread_proxy": 2,
+   "open": 47,
+   "challenge": 2,
+   "refused": 2,
+   "wall_at_robots": 8,
+   "robots_unreachable": 1,
+   "open_unconfirmed": 1,
+   "rate_limited": 1,
+   "redirect_other": 3,
+   "unreachable": 2,
+   "gone": 2
+  },
+  "drawn": {
+   "robots_unreachable": 16,
+   "gone": 4,
+   "wall_at_robots": 3,
+   "robots_disallowed": 15,
+   "redirect_other": 6,
+   "open": 14,
+   "unreachable": 1,
+   "open_unconfirmed": 1
+  }
+ },
+ "robots_parsed_html": [
+  "O13"
+ ],
+ "robots_rules": "amendment 5 (scripts/robots_rules.py)",
+ "provider": "anthropic",
+ "max_requests_to_one_host": 4,
+ "routes": {
+  "egress-proxy": 206,
+  "direct": 4,
+  "direct-http": 63
+ },
+ "by_stratum_route": {
+  "named|egress-proxy": {
+   "robots_disallowed": 28,
+   "unread_proxy": 2,
+   "open": 45,
+   "challenge": 2,
+   "refused": 2,
+   "wall_at_robots": 8,
+   "robots_unreachable": 1,
+   "open_unconfirmed": 1,
+   "rate_limited": 1,
+   "redirect_other": 3,
+   "unreachable": 2,
+   "gone": 2
+  },
+  "named|direct": {
+   "robots_disallowed": 2,
+   "open": 1
+  },
+  "named|direct-http": {
+   "open": 1
+  },
+  "drawn|direct-http": {
+   "robots_unreachable": 8,
+   "wall_at_robots": 1,
+   "redirect_other": 5,
+   "robots_disallowed": 10,
+   "gone": 2,
+   "open": 10
+  },
+  "drawn|egress-proxy": {
+   "gone": 2,
+   "robots_disallowed": 5,
+   "open": 4,
+   "unreachable": 1,
+   "redirect_other": 1,
+   "robots_unreachable": 8,
+   "wall_at_robots": 2,
+   "open_unconfirmed": 1
+  }
+ },
+ "egress_ip_echoed": {
+  "egress-proxy": [
+   "160.79.106.16",
+   "160.79.106.19",
+   "160.79.106.227",
+   "160.79.106.235",
+   "160.79.106.25"
+  ],
+  "direct-http": [
+   "3.149.170.220"
+  ]
+ },
+ "echoed_blocks_16": {
+  "egress-proxy": [
+   "160.79.0.0/16"
+  ],
+  "direct-http": [
+   "3.149.0.0/16"
+  ]
+ }
+}

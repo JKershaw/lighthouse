@@ -1,0 +1,26 @@
+{
+ "withheld": "body",
+ "why": "robots.txt or the page refuses keeping (the keeper, 21 November 2026): Amazonbot (a training or archiving crawler) is refused at this path",
+ "date": "2026-11-22",
+ "sha256_received": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+ "bytes_received": 0,
+ "file": "0183.b",
+ "by": "scripts/collect.py",
+ "url": "http://bdu.siu.edu.ar/bnmoai/oai2.php?verb=Identify",
+ "service": "P06",
+ "kind": "probe",
+ "fetched_utc": "2026-11-22T14:23:27Z",
+ "http_status": 308,
+ "headers": "0183.h",
+ "extract": {
+  "title": ""
+ },
+ "derived": {
+  "classifier": "0.4",
+  "class": "redirect_other",
+  "detail": "same-host:https://bdu.siu.edu.ar/bnmoai/oai2.php?verb=Identify",
+  "marker_found": false,
+  "marker_in_context": "",
+  "echoes": []
+ }
+}

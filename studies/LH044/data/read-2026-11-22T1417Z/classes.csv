@@ -1,0 +1,162 @@
+id,stratum,class_group,host,surface,prior,robots_state,status,class,detail,wall,retry_after_until,classifier,route
+F01,named,forge,git.kernel.org,page,reported,parsed,,robots_disallowed,by ClaudeBot: Disallow: / (line 164; provider anthropic),no,,0.4,egress-proxy
+F02,named,forge,lore.kernel.org,page,candidate,parsed,,robots_disallowed,by ClaudeBot: Disallow: / (line 95; provider anthropic),no,,0.4,egress-proxy
+F03,named,forge,github.com,page,,unavailable,403,unread_proxy,container-github-policy,no,,0.4,egress-proxy
+F04,named,forge,api.github.com,api,,unavailable,403,unread_proxy,container-github-policy,no,,0.4,egress-proxy
+F05,named,forge,gitlab.com,page,,parsed,200,open,marker,no,,0.4,egress-proxy
+F06,named,forge,codeberg.org,page,candidate,parsed,,robots_disallowed,by ClaudeBot: Disallow: / (line 103; provider anthropic),no,,0.4,egress-proxy
+F07,named,forge,git.sr.ht,page,,parsed,,robots_disallowed,by ClaudeBot: Disallow: / (line 95; provider anthropic),no,,0.4,egress-proxy
+F08,named,forge,api.bitbucket.org,api,,parsed,200,open,marker,no,,0.4,egress-proxy
+F09,named,forge,gitlab.gnome.org,page,candidate,parsed,200,open,marker,no,,0.4,egress-proxy
+F10,named,forge,gitlab.freedesktop.org,page,candidate,parsed,,robots_disallowed,by ClaudeBot: Disallow: / (line 164; provider anthropic),no,,0.4,egress-proxy
+F11,named,forge,salsa.debian.org,page,,parsed,302,challenge,redirect:/.internal/challenge.html?original=%2fdebian%2fdevscripts&referer=,yes,,0.4,egress-proxy
+F12,named,forge,src.fedoraproject.org,page,,parsed,,robots_disallowed,by ClaudeBot: Disallow: / (line 8; provider anthropic),no,,0.4,egress-proxy
+F13,named,forge,invent.kde.org,page,,parsed,403,refused,403,yes,,0.4,egress-proxy
+F14,named,forge,git.savannah.gnu.org,page,,parsed,,robots_disallowed,by *: Disallow: / (line 2; provider anthropic),no,,0.4,egress-proxy
+F15,named,forge,sourceforge.net,page,,parsed,200,open,marker,no,,0.4,egress-proxy
+F16,named,forge,gitea.com,api,,parsed,,robots_disallowed,by ClaudeBot: Disallow: / (line 87; provider anthropic),no,,0.4,egress-proxy
+F17,named,forge,hg.mozilla.org,page,,parsed,,robots_disallowed,by *: Disallow: / (line 13; provider anthropic),no,,0.4,egress-proxy
+F18,named,forge,api.launchpad.net,api,,unavailable,200,open,marker,no,,0.4,egress-proxy
+F19,named,forge,sourceware.org,page,,parsed,,robots_disallowed,by *: Disallow: /git/ (line 10; provider anthropic),no,,0.4,egress-proxy
+R01,named,registry,pypi.org,api,,parsed,,robots_disallowed,by *: Disallow: /pypi/*/json (line 8; provider anthropic),no,,0.4,direct
+R02,named,registry,www.npmjs.com,page,,wall,,wall_at_robots,challenge:cloudflare,yes,,0.4,egress-proxy
+R03,named,registry,registry.npmjs.org,api,,parsed,200,open,marker,no,,0.4,direct
+R04,named,registry,crates.io,api,,parsed,200,open,marker,no,,0.4,egress-proxy
+R05,named,registry,rubygems.org,page,,parsed,200,open,marker,no,,0.4,egress-proxy
+R06,named,registry,repo1.maven.org,file,,parsed,,robots_disallowed,by ClaudeBot: Disallow: / (line 48; provider anthropic),no,,0.4,egress-proxy
+R07,named,registry,central.sonatype.com,page,,parsed,,robots_disallowed,by ClaudeBot: Disallow: / (line 48; provider anthropic),no,,0.4,egress-proxy
+R08,named,registry,packagist.org,page,,parsed,200,open,marker,no,,0.4,egress-proxy
+R09,named,registry,repo.packagist.org,api,,unavailable,200,open,marker,no,,0.4,egress-proxy
+R10,named,registry,metacpan.org,page,,parsed,200,open,marker,no,,0.4,egress-proxy
+R11,named,registry,fastapi.metacpan.org,api,,parsed,,robots_disallowed,by *: Disallow: / (line 2; provider anthropic),no,,0.4,egress-proxy
+R12,named,registry,cran.r-project.org,page,,truncated,,robots_unreachable,robots.txt longer than 524288 bytes,no,,0.4,egress-proxy
+R13,named,registry,hackage.haskell.org,page,,parsed,,robots_disallowed,by ClaudeBot: Disallow: / (line 210; provider anthropic),no,,0.4,egress-proxy
+R14,named,registry,www.nuget.org,page,,parsed,200,open,marker,no,,0.4,egress-proxy
+R15,named,registry,api.nuget.org,api,,unavailable,200,open,marker,no,,0.4,egress-proxy
+R16,named,registry,pkg.go.dev,page,,parsed,200,open,marker,no,,0.4,egress-proxy
+R17,named,registry,proxy.golang.org,api,,parsed,,robots_disallowed,by *: Disallow: / (line 2; provider anthropic),no,,0.4,direct
+R18,named,registry,hex.pm,api,,parsed,200,open,marker,no,,0.4,egress-proxy
+R19,named,registry,pub.dev,api,,parsed,200,open,marker,no,,0.4,egress-proxy
+R20,named,registry,anaconda.org,page,,parsed,200,open,marker,no,,0.4,egress-proxy
+R21,named,registry,hub.docker.com,api,,parsed,200,open,marker,no,,0.4,egress-proxy
+M01,named,mirror,deb.debian.org,file,,unavailable,200,open,marker,no,,0.4,egress-proxy
+M02,named,mirror,archive.ubuntu.com,file,,unavailable,200,open,marker,no,,0.4,direct-http
+M03,named,mirror,ftp.gnu.org,page,,parsed,200,open,marker,no,,0.4,egress-proxy
+M04,named,mirror,mirrors.edge.kernel.org,page,,unavailable,200,open,marker,no,,0.4,egress-proxy
+M05,named,mirror,cdn.kernel.org,file,,unavailable,200,open,marker,no,,0.4,egress-proxy
+M06,named,mirror,dl-cdn.alpinelinux.org,file,,unavailable,200,open,marker,no,,0.4,egress-proxy
+M07,named,mirror,www.ctan.org,page,,parsed,200,open,marker,no,,0.4,egress-proxy
+M08,named,mirror,www.cpan.org,page,,parsed,200,open,marker,no,,0.4,egress-proxy
+M09,named,mirror,dl.fedoraproject.org,page,,parsed,,robots_disallowed,by ClaudeBot: Disallow: / (line 94; provider anthropic),no,,0.4,egress-proxy
+M10,named,mirror,geo.mirror.pkgbuild.com,file,,unavailable,200,open,no-marker-set,no,,0.4,egress-proxy
+M11,named,mirror,ftp.osuosl.org,page,,unavailable,200,open_unconfirmed,marker-absent,no,,0.4,egress-proxy
+D01,named,docs,en.wikipedia.org,page,candidate,parsed,200,open,marker,no,,0.4,egress-proxy
+D02,named,docs,wikimedia.org,api,reported,unavailable,429,rate_limited,429,yes,2026-11-22T14:21:00+00:00,0.4,egress-proxy
+D03,named,docs,www.wikidata.org,api,candidate,parsed,200,open,marker,no,,0.4,egress-proxy
+D04,named,docs,developer.mozilla.org,page,,parsed,301,redirect_other,same-host:/en-US/docs/Web/HTML/Reference/Elements/a,no,,0.4,egress-proxy
+D05,named,docs,docs.python.org,page,,parsed,200,open,marker,no,,0.4,egress-proxy
+D06,named,docs,wiki.archlinux.org,page,,parsed,200,open,marker,no,,0.4,egress-proxy
+D07,named,docs,pip.pypa.io,page,,parsed,200,open,marker,no,,0.4,egress-proxy
+D08,named,docs,readthedocs.org,page,,parsed,307,redirect_other,cross-host:https://app.readthedocs.org/projects/pip/,no,,0.4,egress-proxy
+D09,named,docs,stackoverflow.com,page,,wall,,wall_at_robots,challenge:cloudflare,yes,,0.4,egress-proxy
+D10,named,docs,api.stackexchange.com,api,,unavailable,200,open,marker,no,,0.4,egress-proxy
+D11,named,docs,runescape.wiki,page,title,parsed,,robots_disallowed,by ClaudeBot: Disallow: / (line 148; provider anthropic),no,,0.4,egress-proxy
+D12,named,docs,man7.org,page,,parsed,200,open,marker,no,,0.4,egress-proxy
+D13,named,docs,wiki.debian.org,page,,parsed,302,challenge,redirect:/.internal/challenge.html?original=%2fDebianTesting&referer=,yes,,0.4,egress-proxy
+D14,named,docs,docs.rs,page,,parsed,200,open,marker,no,,0.4,egress-proxy
+D15,named,docs,wiki.gentoo.org,page,,parsed,,robots_disallowed,by ClaudeBot: Disallow: / (line 94; provider anthropic),no,,0.4,egress-proxy
+A01,named,archive,archive.org,api,,parsed,200,open,marker,no,,0.4,egress-proxy
+A02,named,archive,www.gutenberg.org,page,reported,wall,,wall_at_robots,rate_limited:503+retry-after,yes,,0.4,egress-proxy
+A03,named,archive,arxiv.org,page,candidate,parsed,200,open,marker,no,,0.4,egress-proxy
+A04,named,archive,export.arxiv.org,api,,parsed,,robots_disallowed,by *: Disallow: / (line 2; provider anthropic),no,,0.4,egress-proxy
+A05,named,archive,archive.softwareheritage.org,api,,parsed,,robots_disallowed,by *: Disallow: /api/ (line 2; provider anthropic),no,,0.4,egress-proxy
+A06,named,archive,zenodo.org,api,,parsed,,robots_disallowed,by *: Disallow: /api (line 3; provider anthropic),no,,0.4,egress-proxy
+A07,named,archive,openlibrary.org,api,,parsed,,unreachable,reset,no,,0.4,egress-proxy
+A08,named,archive,catalog.hathitrust.org,api,,wall,,wall_at_robots,challenge:cloudflare,yes,,0.4,egress-proxy
+A09,named,archive,babel.hathitrust.org,page,,wall,,wall_at_robots,challenge:cloudflare,yes,,0.4,egress-proxy
+A10,named,archive,www.loc.gov,page,,parsed,,robots_disallowed,by *: Disallow: /search (line 22; provider anthropic),no,,0.4,egress-proxy
+A11,named,archive,pubmed.ncbi.nlm.nih.gov,page,,unavailable,403,refused,403,yes,,0.4,egress-proxy
+A12,named,archive,eutils.ncbi.nlm.nih.gov,api,,parsed,,robots_disallowed,by *: Disallow: / (line 5; provider anthropic),no,,0.4,egress-proxy
+A13,named,archive,api.crossref.org,api,,unavailable,200,open,marker,no,,0.4,egress-proxy
+A14,named,archive,api.openalex.org,api,,parsed,200,open,marker,no,,0.4,egress-proxy
+A15,named,archive,www.europeana.eu,page,,wall,,wall_at_robots,challenge:cloudflare,yes,,0.4,egress-proxy
+A16,named,archive,www.biorxiv.org,page,,wall,,wall_at_robots,rate_limited:429,yes,,0.4,egress-proxy
+A17,named,archive,api.biorxiv.org,api,,unavailable,200,open,marker,no,,0.4,egress-proxy
+A18,named,archive,api.archives-ouvertes.fr,api,,parsed,,robots_disallowed,by *: Disallow: /search/ (line 3; provider anthropic),no,,0.4,egress-proxy
+A19,named,archive,doaj.org,api,,parsed,200,open,marker,no,,0.4,egress-proxy
+A20,named,archive,api.semanticscholar.org,api,,unavailable,404,gone,404,no,,0.4,egress-proxy
+A21,named,archive,www.ebi.ac.uk,api,,parsed,200,open,marker,no,,0.4,egress-proxy
+A22,named,archive,core.ac.uk,page,,parsed,,robots_disallowed,by *: Disallow: /search (line 28; provider anthropic),no,,0.4,egress-proxy
+O01,named,opendata,catalog.data.gov,api,,parsed,404,gone,404,no,,0.4,egress-proxy
+O02,named,opendata,data.gov.uk,api,,parsed,301,redirect_other,cross-host:https://www.data.gov.uk/api/3/action/package_search?q=lighthouse&rows=1,no,,0.4,egress-proxy
+O03,named,opendata,data.europa.eu,api,,parsed,,robots_disallowed,by *: Disallow: /*search?* (line 66; provider anthropic),no,,0.4,egress-proxy
+O04,named,opendata,open.canada.ca,api,,parsed,200,open,marker,no,,0.4,egress-proxy
+O05,named,opendata,data.gov.au,api,,parsed,,robots_disallowed,by *: Disallow: / (line 17; provider anthropic),no,,0.4,egress-proxy
+O06,named,opendata,www.data.gouv.fr,api,,parsed,,unreachable,reset,no,,0.4,egress-proxy
+O07,named,opendata,data.humdata.org,api,,wall,,wall_at_robots,challenge:aws-waf,yes,,0.4,egress-proxy
+O08,named,opendata,www.openstreetmap.org,page,,parsed,200,open,marker,no,,0.4,egress-proxy
+O09,named,opendata,api.openstreetmap.org,api,,parsed,,robots_disallowed,by *: Disallow: /api/ (line 12; provider anthropic),no,,0.4,egress-proxy
+O10,named,opendata,nominatim.openstreetmap.org,api,,parsed,,robots_disallowed,by *: Disallow: /search (line 6; provider anthropic),no,,0.4,egress-proxy
+O11,named,opendata,api.worldbank.org,api,,unavailable,200,open,marker,no,,0.4,egress-proxy
+O12,named,opendata,ec.europa.eu,api,,parsed,200,open,marker,no,,0.4,egress-proxy
+O13,named,opendata,opendata.swiss,api,,parsed,200,open,marker,no,,0.4,egress-proxy
+P01,drawn,repository,82.223.10.68,api,,unreachable,,robots_unreachable,conn_refused,no,,0.4,direct-http
+P02,drawn,repository,agriscience.scientific-work.org,api,,unreachable,,robots_unreachable,dns,no,,0.4,direct-http
+P03,drawn,repository,ambiente-sustentabilidad.org,api,,parsed,404,gone,404,no,,0.4,egress-proxy
+P04,drawn,repository,balimedicaljournal.org,api,,wall,,wall_at_robots,challenge:captcha-refresh,yes,,0.4,direct-http
+P05,drawn,repository,barrel.repo.nii.ac.jp,api,,parsed,,robots_disallowed,by *: Disallow: /oai (line 4; provider anthropic),no,,0.4,egress-proxy
+P06,drawn,repository,bdu.siu.edu.ar,api,,parsed,308,redirect_other,same-host:https://bdu.siu.edu.ar/bnmoai/oai2.php?verb=Identify,no,,0.4,direct-http
+P07,drawn,repository,bibdigital.sid.inpe.br,api,,parsed,,robots_disallowed,by *: Disallow: /col/iconet.com.br/banon/2003/11.21.21.08 (line 10; provider anthropic),no,,0.4,direct-http
+P08,drawn,repository,ctujs.ctu.edu.vn,api,,parsed,200,open,marker,no,,0.4,egress-proxy
+P09,drawn,repository,daten.digitale-sammlungen.de,api,,parsed,301,redirect_other,same-host:https://daten.digitale-sammlungen.de/~db/OAI/oai2.php?verb=Identify,no,,0.4,direct-http
+P10,drawn,repository,discourse.elpub.ru,api,,parsed,,unreachable,reset,no,,0.4,egress-proxy
+P11,drawn,repository,e-docs.geo-leo.de,api,,parsed,301,redirect_other,same-host:https://e-docs.geo-leo.de/server/oai,no,,0.4,egress-proxy
+P12,drawn,repository,idea.library.drexel.edu,api,,unreachable,,robots_unreachable,reset,no,,0.4,egress-proxy
+P13,drawn,repository,ijptm.com,api,,unreachable,,robots_unreachable,dns,no,,0.4,direct-http
+P14,drawn,repository,irl.umsl.edu,api,,parsed,,robots_disallowed,by *: Disallow: /do/ (line 72; provider anthropic),no,,0.4,egress-proxy
+P15,drawn,repository,journal.ldubgd.edu.ua,api,,parsed,200,open,marker,no,,0.4,egress-proxy
+P16,drawn,repository,journal.um.ac.id,api,,unavailable,301,redirect_other,same-host:https://journal.um.ac.id/index.php/bk/oai?verb=Identify,no,,0.4,direct-http
+P17,drawn,repository,jpu.k-pin.org,api,,unavailable,404,gone,404,no,,0.4,direct-http
+P18,drawn,repository,jurnal.itg.ac.id,api,,parsed,,robots_disallowed,by ClaudeBot: Disallow: / (line 48; provider anthropic),no,,0.4,egress-proxy
+P19,drawn,repository,jurnal.primagraha.ac.id,api,,unreachable,,robots_unreachable,dns,no,,0.4,direct-http
+P20,drawn,repository,korpus21.cmq.edu.mx,api,,unreachable,,robots_unreachable,tls,no,,0.4,egress-proxy
+P21,drawn,repository,meri.iuav.it,api,,unreachable,,robots_unreachable,dns,no,,0.4,direct-http
+P22,drawn,repository,nipr.repo.nii.ac.jp,api,,parsed,,robots_disallowed,by *: Disallow: /oai (line 4; provider anthropic),no,,0.4,egress-proxy
+P23,drawn,repository,oai.ukdataservice.ac.uk,api,,unreachable,,robots_unreachable,reset,no,,0.4,egress-proxy
+P24,drawn,repository,ojs.philosophy.spbu.ru,api,,unavailable,410,gone,410,no,,0.4,direct-http
+P25,drawn,repository,ojs.umsida.ac.id,api,,unreachable,,robots_unreachable,dns,no,,0.4,direct-http
+P26,drawn,repository,pbsi-upr.id,api,,parsed,200,open,marker,no,,0.4,egress-proxy
+P27,drawn,repository,presentpasts.info,api,,parsed,404,gone,404,no,,0.4,egress-proxy
+P28,drawn,repository,repozytorium.lectorium.edu.pl,api,,unreachable,,robots_unreachable,503,no,,0.4,direct-http
+P29,drawn,repository,revistaaen.es,api,,parsed,,robots_disallowed,by *: Disallow: /index.ph (line 861; provider anthropic),no,,0.4,direct-http
+P30,drawn,repository,revistas.ustabuca.edu.co,api,,unreachable,,robots_unreachable,proxy_refused,no,,0.4,egress-proxy
+P31,drawn,repository,saebipcas.elpub.ru,api,,wall,,wall_at_robots,challenge:recaptcha,yes,,0.4,egress-proxy
+P32,drawn,repository,scholarship.law.berkeley.edu,api,,unreachable,,robots_unreachable,tls,no,,0.4,egress-proxy
+P33,drawn,repository,scholarworks.wm.edu,api,,parsed,200,open_unconfirmed,marker-absent,no,,0.4,egress-proxy
+P34,drawn,repository,skripsi.sttjaffray.ac.id,api,,wall,,wall_at_robots,challenge:cloudflare,yes,,0.4,egress-proxy
+P35,drawn,repository,voprstat.elpub.ru,api,,unreachable,,robots_unreachable,503,no,,0.4,direct-http
+P36,drawn,repository,www.crimejusticejournal.com,api,,unreachable,,robots_unreachable,reset,no,,0.4,egress-proxy
+P37,drawn,repository,www.ejlse.com,api,,unreachable,,robots_unreachable,proxy_refused,no,,0.4,egress-proxy
+P38,drawn,repository,www.jmolbiochem.com,api,,parsed,200,open,marker,no,,0.4,direct-http
+P39,drawn,repository,www.medknow.com,api,,unavailable,301,redirect_other,same-host:https://www.medknow.com/oai2/?verb=Identify,no,,0.4,direct-http
+P40,drawn,repository,www.msjonline.org,api,,parsed,200,open,marker,no,,0.4,egress-proxy
+Q01,drawn,mirror-drawn,debian.anexia.at,file,,parsed,,robots_disallowed,by *: Disallow: / (line 2; provider anthropic),no,,0.4,direct-http
+Q02,drawn,mirror-drawn,debian.lagis.at,file,,parsed,,robots_disallowed,by *: Disallow: * (line 2; provider anthropic),no,,0.4,direct-http
+Q03,drawn,mirror-drawn,debian.ludost.net,file,,unavailable,200,open,marker,no,,0.4,direct-http
+Q04,drawn,mirror-drawn,debian.mirror.lrz.de,file,,parsed,,robots_disallowed,by *: Disallow: / (line 2; provider anthropic),no,,0.4,direct-http
+Q05,drawn,mirror-drawn,debian.redparra.com,file,,unavailable,301,redirect_other,same-host:https://debian.redparra.com/debian/README,no,,0.4,direct-http
+Q06,drawn,mirror-drawn,ftp.br.debian.org,file,,parsed,,robots_disallowed,by *: Disallow: / (line 2; provider anthropic),no,,0.4,direct-http
+Q07,drawn,mirror-drawn,ftp.eq.uc.pt,file,,parsed,,robots_disallowed,by ClaudeBot: Disallow: / (line 167; provider anthropic),no,,0.4,direct-http
+Q08,drawn,mirror-drawn,ftp.lanet.kr,file,,unreachable,,robots_unreachable,reset,no,,0.4,egress-proxy
+Q09,drawn,mirror-drawn,ftp.psn.ru,file,,unavailable,200,open,marker,no,,0.4,direct-http
+Q10,drawn,mirror-drawn,lethe.chinstrap.org,file,,unavailable,200,open,marker,no,,0.4,direct-http
+Q11,drawn,mirror-drawn,linuxsoft.cern.ch,file,,parsed,,robots_disallowed,by ClaudeBot: Disallow: / (line 27; provider anthropic),no,,0.4,direct-http
+Q12,drawn,mirror-drawn,mirror.as43289.net,file,,unavailable,200,open,marker,no,,0.4,direct-http
+Q13,drawn,mirror-drawn,mirror.braindrainlan.nu,file,,parsed,,robots_disallowed,by *: Disallow: /debian (line 3; provider anthropic),no,,0.4,direct-http
+Q14,drawn,mirror-drawn,mirror.duocast.net,file,,unavailable,200,open,marker,no,,0.4,direct-http
+Q15,drawn,mirror-drawn,mirror.ipb.de,file,,parsed,,robots_disallowed,by *: Disallow: / (line 2; provider anthropic),no,,0.4,egress-proxy
+Q16,drawn,mirror-drawn,mirror.mirohost.net,file,,unavailable,200,open,marker,no,,0.4,direct-http
+Q17,drawn,mirror-drawn,mirror.telepoint.bg,file,,unavailable,200,open,marker,no,,0.4,direct-http
+Q18,drawn,mirror-drawn,mirror.tzulo.com,file,,parsed,,robots_disallowed,by *: Disallow: / (line 7; provider anthropic),no,,0.4,direct-http
+Q19,drawn,mirror-drawn,mirrors.egr.msu.edu,file,,unavailable,200,open,marker,no,,0.4,direct-http
+Q20,drawn,mirror-drawn,mirrors.vcea.wsu.edu,file,,unavailable,200,open,marker,no,,0.4,direct-http
