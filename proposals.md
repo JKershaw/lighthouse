@@ -317,6 +317,14 @@ Ranked by the sweep of 20 November 2026 (scientific value, decision relevance, e
 - Next step: a brief fixed before any distribution or KEV status for the five CVEs is read, reusing LH054's design and saying what the writer already knows (this paragraph); its overlap with LH054 is the design, not the data.
 
 
+### P-0045 Does W3Techs's survey lag set the pace of WordPress's fix? Earlier patch releases at the same ages as a baseline
+
+- Kind: repair of method (a deepening of LH039). Priority: normal (W3Techs's history pages keep monthly points; the 1 December point comes on 1 to 3 December). Status: backlog (proposed by LH039's record, version 1.2, 22 November 2026, from reader review R-0118; for the next sweep to gate). Investigation: where software updates go.
+- Source: [studies/LH039/LH039.md](studies/LH039/LH039.md), Findings 7 and Next; [notes/R-0118-lh039-reader.md](notes/R-0118-lh039-reader.md), Next step. Post hoc: the history rows it would use have been seen (for example, 7.1.3 under 0.1% on 1 October and 54.7% on 1 November, as LH039's retained W3Techs files show).
+- Why: LH039's W3Techs shares climbed steadily, which is what a survey visiting each site about once a month would show even if sites updated at once; releases already replaced by the fix kept gaining share in November. Comparing 7.1.4, 7.0.8 and 6.9.11 on 1 November and 1 December with each earlier WordPress patch release at the same ages, and checking whether 7.1.4 levels off after about day 30, separates survey lag from site behaviour better than the 1 December point alone. LH033's measure 6 makes the same comparison for PHP, so it also bears on any WordPress and PHP sentence.
+- Cost: small: one one-off read of WordPress's release archive for the earlier releases' dates (the archive body wasn't kept), the 1 December W3Techs history pages, offline tabulation.
+- Next step: a dated amendment to LH039 or a short brief, labelled post hoc, fixed before the 1 December point is read; until then no public surface compares WordPress with PHP (LH039, Next).
+
 ### P-0012 GitHub blocks `pull_request_target` by default in public repositories: what breaks, what changes
 
 - Kind: watch. Priority: normal (the gate found nothing is lost by waiting: workflow history is kept in git and brownout failures stay on record). Status: backlog. Investigation: none yet; fits P-0014 if agreed, else software updates.
