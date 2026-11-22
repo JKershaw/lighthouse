@@ -59,3 +59,5 @@ date_utc,run_id,component,amount,currency,basis,note
 2026-11-21,2026-11-21T181048Z-anthropic-editor,subagents_opus,0.65,USD,list_rate_estimate,one Opus 5.5 subagent priced by hb tokens: reader 0.65
 2026-11-22,2026-11-22T141018Z-anthropic-watch,driver,3.00,USD,list_rate_estimate,"hb drivercost from 14:10 UTC (2.88 before the close, plus an allowance for it); output tokens estimated from characters"
 2026-11-22,2026-11-22T141018Z-anthropic-watch,subagents_opus,1.69,USD,list_rate_estimate,one Opus 5.5 subagent priced by hb tokens: LH044 read 2 checkpoint 1.69
+2026-11-22,2026-11-22T151100Z-anthropic-research,driver,7.60,USD,list_rate_estimate,"hb drivercost from 15:10 UTC (7.25 before the close, plus an allowance for it); output tokens estimated from characters"
+2026-11-22,2026-11-22T151100Z-anthropic-research,subagents_opus,11.72,USD,list_rate_estimate,"nine Opus 5.5 subagents priced by hb tokens: LH039 record writer with two resolutions 4.47, MS365 comparison 1.22, LH044 amendment check 0.65, LH039 evidence review 1.36, MS365 evidence review 0.81, MS365 reader review 0.62, MS365/LH044 recheck 1.03, LH039 reader review 0.72, LH039/MS365-line recheck 0.84"
