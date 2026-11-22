@@ -66,7 +66,7 @@ D13,named,docs,wiki.debian.org,page,,parsed,302,challenge,redirect:/.internal/ch
 D14,named,docs,docs.rs,page,,parsed,200,open,marker,no,,0.4,egress-proxy
 D15,named,docs,wiki.gentoo.org,page,,parsed,,robots_disallowed,by ClaudeBot: Disallow: / (line 94; provider anthropic),no,,0.4,egress-proxy
 A01,named,archive,archive.org,api,,parsed,200,open,marker,no,,0.4,egress-proxy
-A02,named,archive,www.gutenberg.org,page,reported,wall,,wall_at_robots,rate_limited:503+retry-after,yes,,0.4,egress-proxy
+A02,named,archive,www.gutenberg.org,page,reported,wall,,robots_unreachable,503 (rate_limited:503+retry-after),no,,0.4,egress-proxy
 A03,named,archive,arxiv.org,page,candidate,parsed,200,open,marker,no,,0.4,egress-proxy
 A04,named,archive,export.arxiv.org,api,,parsed,,robots_disallowed,by *: Disallow: / (line 2; provider anthropic),no,,0.4,egress-proxy
 A05,named,archive,archive.softwareheritage.org,api,,parsed,,robots_disallowed,by *: Disallow: /api/ (line 2; provider anthropic),no,,0.4,egress-proxy

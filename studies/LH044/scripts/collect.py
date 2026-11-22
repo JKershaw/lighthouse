@@ -278,6 +278,10 @@ def robots_outcome(res, version=CLASSIFIER_VERSION):
     if cls == 'unread_proxy':
         # this container's own refusal, e.g. a redirect onto github.com: not the origin's answer
         return 'unreachable', None, 'robots_unreachable', det
+    if cls == 'rate_limited' and st != 429:
+        # amendment 10 (22 November 2026): the brief's robots.txt rule governs; a 5xx (e.g. 503 with
+        # Retry-After) at robots.txt is robots_unreachable, unknown; only a challenge or a 429 is a wall
+        return 'unreachable', None, 'robots_unreachable', str(st) + ' (' + cls + ':' + det + ')'
     if cls in ('challenge', 'rate_limited'):
         return 'wall', None, 'wall_at_robots', cls + ':' + det
     if 200 <= st < 300:

@@ -1,0 +1,145 @@
+LH044 compare_reads: 2026-11-22T1417Z against 2026-11-15T1413Z
+classifier: 0.3 then 0.4
+provider at later read: anthropic
+
+== Measure 1 and 2: tally by stratum (later read; earlier in brackets) ==
+named: services 101 (101), probe_answered 58 (61), wall_at_robots 7 (7), state_read 65 (68), walled 12 (11), open 47 (51), open_unconfirmed_or_js 1 (1), robots_disallowed 30 (30), unknown 6 (3)
+   unknown:robots_unreachable 2 (1), unknown:unreachable 2 (0), unknown:unread_proxy 2 (2)
+   unknown share 6/101 = 0.059 (inconclusive above 0.2)
+drawn: services 60 (60), probe_answered 25 (28), wall_at_robots 3 (3), state_read 28 (31), walled 3 (6), open 14 (13), open_unconfirmed_or_js 1 (1), robots_disallowed 15 (14), unknown 17 (15)
+   unknown:robots_unreachable 16 (15), unknown:unreachable 1 (0)
+   unknown share 17/60 = 0.283 (inconclusive above 0.2)
+panel unknown share 23/161 = 0.143
+open_unconfirmed or js_notice among read: 2/93
+
+By class of service, walled/read (later; earlier in brackets):
+  drawn mirror-drawn: 0/10 (0/10)
+  drawn repository: 3/18 (6/21)
+  named archive: 5/13 (5/15)
+  named docs: 3/13 (2/13)
+  named forge: 2/7 (2/7)
+  named mirror: 0/10 (0/10)
+  named opendata: 1/8 (1/9)
+  named registry: 1/14 (1/14)
+
+By stratum and route of the later read (class counts):
+  drawn|direct-http: walled 1 of 18 read; {'gone': 2, 'open': 10, 'redirect_other': 5, 'robots_disallowed': 10, 'robots_unreachable': 8, 'wall_at_robots': 1}
+  drawn|egress-proxy: walled 2 of 10 read; {'gone': 2, 'open': 4, 'open_unconfirmed': 1, 'redirect_other': 1, 'robots_disallowed': 5, 'robots_unreachable': 8, 'unreachable': 1, 'wall_at_robots': 2}
+  named|direct: walled 0 of 1 read; {'open': 1, 'robots_disallowed': 2}
+  named|direct-http: walled 0 of 1 read; {'open': 1}
+  named|egress-proxy: walled 12 of 63 read; {'challenge': 2, 'gone': 2, 'open': 45, 'open_unconfirmed': 1, 'rate_limited': 1, 'redirect_other': 3, 'refused': 2, 'robots_disallowed': 28, 'robots_unreachable': 2, 'unreachable': 2, 'unread_proxy': 2, 'wall_at_robots': 7}
+
+== Walls at the later read ==
+  A08 named catalog.hathitrust.org wall_at_robots status= was=wall_at_robots | challenge:cloudflare
+  A09 named babel.hathitrust.org wall_at_robots status= was=wall_at_robots | challenge:cloudflare
+  A11 named pubmed.ncbi.nlm.nih.gov refused status=403 was=refused | 403
+  A15 named www.europeana.eu wall_at_robots status= was=wall_at_robots | challenge:cloudflare
+  A16 named www.biorxiv.org wall_at_robots status= was=wall_at_robots | rate_limited:429
+  D02 named wikimedia.org rate_limited status=429 was=open | 429
+  D09 named stackoverflow.com wall_at_robots status= was=wall_at_robots | challenge:cloudflare
+  D13 named wiki.debian.org challenge status=302 was=challenge | redirect:/.internal/challenge.html?original=%2fDebianTesting&referer=
+  F11 named salsa.debian.org challenge status=302 was=challenge | redirect:/.internal/challenge.html?original=%2fdebian%2fdevscripts&referer=
+  F13 named invent.kde.org refused status=403 was=refused | 403
+  O07 named data.humdata.org wall_at_robots status= was=wall_at_robots | challenge:aws-waf
+  P04 drawn balimedicaljournal.org wall_at_robots status= was=wall_at_robots | challenge:captcha-refresh
+  P31 drawn saebipcas.elpub.ru wall_at_robots status= was=wall_at_robots | challenge:recaptcha
+  P34 drawn skripsi.sttjaffray.ac.id wall_at_robots status= was=wall_at_robots | challenge:cloudflare
+  R02 named www.npmjs.com wall_at_robots status= was=wall_at_robots | challenge:cloudflare
+
+== Measure 3: changes (both bracketing reads known) ==
+closings: 1
+  D02 named wikimedia.org: open -> rate_limited
+openings: 2
+  P38 drawn www.jmolbiochem.com: refused -> open
+  P40 drawn www.msjonline.org: refused -> open
+walled now, not walled at earlier read (any earlier class): 1
+  D02 named wikimedia.org: open -> rate_limited
+walled at earlier read, not walled now (any later class): 3
+  P17 drawn jpu.k-pin.org: refused -> gone | 404
+  P38 drawn www.jmolbiochem.com: refused -> open | marker
+  P40 drawn www.msjonline.org: refused -> open | marker
+
+All class changes: 14
+  open -> unreachable: 3  [A07 O06 P10]
+  refused -> open: 2  [P38 P40]
+  robots_unreachable -> robots_disallowed: 2  [P05 P22]
+  client_error_other -> redirect_other: 1  [P16]
+  gone -> robots_unreachable: 1  [P32]
+  open -> rate_limited: 1  [D02]
+  open -> robots_unreachable: 1  [A02]
+  redirect_other -> robots_unreachable: 1  [P30]
+  refused -> gone: 1  [P17]
+  robots_disallowed -> robots_unreachable: 1  [Q08]
+
+== Measure 4: robots.txt declarations ==
+  parsed: 100 (101)
+  probe_disallowed_lighthouse_or_star: 35 (34)
+  probe_disallowed_obeyed: 45 (44)
+  star_allows_root_but_ai_token_disallowed: 13 (13)
+  star_root_disallowed: 16 (16)
+  parsed at both reads: 97; only earlier: A02 P17 P30 Q08; only later: P05 P09 P22
+  services parsed at both reads with any measure-4 change: 0
+  later read, among files allowing * at /, files disallowing each token at /: {'GPTBot': 11, 'ClaudeBot': 11, 'Amazonbot': 11, 'CCBot': 9, 'Google-Extended': 9, 'Bytespider': 9, 'meta-externalagent': 9, 'anthropic-ai': 8, 'cohere-ai': 8, 'OAI-SearchBot': 7, 'PerplexityBot': 7, 'Applebot-Extended': 7, 'Diffbot': 7, 'ChatGPT-User': 6, 'Claude-SearchBot': 4, 'Claude-User': 3, 'Perplexity-User': 3}
+  later read, probe withheld under the obeyed rule (amendment 5): 45
+    A04 named export.arxiv.org | *
+    A05 named archive.softwareheritage.org | *
+    A06 named zenodo.org | *
+    A10 named www.loc.gov | *
+    A12 named eutils.ncbi.nlm.nih.gov | *
+    A18 named api.archives-ouvertes.fr | *
+    A22 named core.ac.uk | *
+    D11 named runescape.wiki | ClaudeBot
+    D15 named wiki.gentoo.org | ClaudeBot
+    F01 named git.kernel.org | ClaudeBot
+    F02 named lore.kernel.org | ClaudeBot
+    F06 named codeberg.org | ClaudeBot
+    F07 named git.sr.ht | ClaudeBot
+    F10 named gitlab.freedesktop.org | ClaudeBot
+    F12 named src.fedoraproject.org | ClaudeBot
+    F14 named git.savannah.gnu.org | *
+    F16 named gitea.com | ClaudeBot
+    F17 named hg.mozilla.org | *
+    F19 named sourceware.org | *
+    M09 named dl.fedoraproject.org | ClaudeBot
+    O03 named data.europa.eu | *
+    O05 named data.gov.au | *
+    O09 named api.openstreetmap.org | *
+    O10 named nominatim.openstreetmap.org | *
+    P05 drawn barrel.repo.nii.ac.jp | *
+    P07 drawn bibdigital.sid.inpe.br | *
+    P14 drawn irl.umsl.edu | *
+    P18 drawn jurnal.itg.ac.id | ClaudeBot
+    P22 drawn nipr.repo.nii.ac.jp | *
+    P29 drawn revistaaen.es | *
+    Q01 drawn debian.anexia.at | *
+    Q02 drawn debian.lagis.at | *
+    Q04 drawn debian.mirror.lrz.de | *
+    Q06 drawn ftp.br.debian.org | *
+    Q07 drawn ftp.eq.uc.pt | ClaudeBot
+    Q11 drawn linuxsoft.cern.ch | ClaudeBot
+    Q13 drawn mirror.braindrainlan.nu | *
+    Q15 drawn mirror.ipb.de | *
+    Q18 drawn mirror.tzulo.com | *
+    R01 named pypi.org | *
+    R06 named repo1.maven.org | ClaudeBot
+    R07 named central.sonatype.com | ClaudeBot
+    R11 named fastapi.metacpan.org | *
+    R13 named hackage.haskell.org | ClaudeBot
+    R17 named proxy.golang.org | *
+
+== Measure 4, entry 18: __usage_ai-training ==
+  2026-11-15T1413Z: 101 files parsed, 0 with a group naming the token, 0 mentioning it anywhere
+  2026-11-22T1417Z: 100 files parsed, 1 with a group naming the token, 1 mentioning it anywhere
+    R13 named hackage.haskell.org root_allowed=False rules=Disallow: /
+
+== Measure 8: our own load (later read) ==
+  requests 273 (readlog rows 273), bytes retained 2592048, max to one host 4 (readlog: 4), routes {'egress-proxy': 206, 'direct': 4, 'direct-http': 63}
+  kinds: {'robots': 161, 'probe': 88, 'robots-redirect-1': 22, 'robots-redirect-2': 1, 'robots-redirect-3': 1}
+  earlier read: requests 274, bytes 2627767, max 4
+
+== Egress (inconclusive rule, within route) ==
+  earlier: {'egress-proxy': ['160.79.0.0/16'], 'direct-http': ['35.184.0.0/16']} {'egress-proxy': ['160.79.106.131', '160.79.106.133', '160.79.106.134', '160.79.106.234', '160.79.106.236', '160.79.106.241'], 'direct-http': ['35.184.25.35']}
+  later:   {'egress-proxy': ['160.79.0.0/16'], 'direct-http': ['3.149.0.0/16']} {'egress-proxy': ['160.79.106.16', '160.79.106.19', '160.79.106.227', '160.79.106.235', '160.79.106.25'], 'direct-http': ['3.149.170.220']}
+  amendment 9 (registrant organisation of each echoed address, from kept RDAP records):
+    direct-http: earlier ['GOOGL-2 (Google LLC)']; later ['AT-88-Z (Amazon Technologies Inc.)'] -> CHANGED: classes on this route are not compared
+    egress-proxy: earlier ['AP-2440 (Anthropic, PBC)']; later ['AP-2440 (Anthropic, PBC)'] -> unchanged
