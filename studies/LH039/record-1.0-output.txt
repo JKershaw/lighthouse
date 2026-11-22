@@ -1,0 +1,124 @@
+LH039 record 1.0, offline tables. Reads only retained files.
+
+== E3 (supply), one-off read after collection stopped, 2026-11-22T15:14:54Z and 2026-11-22T15:14:57Z ==
+release feed item: WordPress 7.1.5 Release, pubDate Wed, 18 Nov 2026 17:08:59 +0000, link https://wordpress.org/news/2026/11/wordpress-7-1-5-release/
+release archive 7.1.4: 7.1.4 October 28, 2026 zip ( md5 · sha1 ) tar.gz ( md5 · sha1 ) 7
+release archive 7.1.5: 7.1.5 November 18, 2026 zip ( md5 · sha1 ) tar.gz ( md5 · sha1 )
+release archive 7.1.6: not on the page
+release archive 7.0.8: 7.0.8 October 28, 2026 zip ( md5 · sha1 ) tar.gz ( md5 · sha1 ) 7
+release archive 7.0.9: 7.0.9 November 18, 2026 zip ( md5 · sha1 ) tar.gz ( md5 · sha1 )
+release archive 6.9.11: 6.9.11 October 28, 2026 zip ( md5 · sha1 ) tar.gz ( md5 · sha1 ) 6
+release archive 6.9.12: 6.9.12 November 18, 2026 zip ( md5 · sha1 ) tar.gz ( md5 · sha1 )
+E3 used here: 2026-11-18T17:08:59Z (7.1.5, feed); 7.0.9 and 6.9.12 dated 18 November 2026 by the archive (no time).
+Day of E3 after E0 (28 October): 21
+
+== Part A: measure 1 as the brief wrote it, E3 settled (7.1.5 apart before E3, fixed after; 7.1.6 fixed) ==
+7.1 2026-11-09T1431Z (day 12, page date 9 November 2026): 19.58% to 19.60%  [7.1.5 apart: read before E3]  labels after E0 release: 7.1.5 less than 0.1%
+7.1 2026-11-10T1416Z (day 13, page date 10 November 2026): 21.40% to 21.42%  [7.1.5 apart: read before E3]  labels after E0 release: 7.1.5 less than 0.1%
+7.1 2026-11-11T1415Z (day 14, page date 11 November 2026): 23.70% to 23.72%  [7.1.5 apart: read before E3]  labels after E0 release: 7.1.5 less than 0.1%
+7.1 2026-11-12T1415Z (day 15, page date 12 November 2026): 25.07% to 25.10%  [7.1.5 apart: read before E3]  labels after E0 release: 7.1.5 less than 0.1%
+7.1 2026-11-13T1452Z (day 16, page date 13 November 2026): 26.67% to 26.70%  [7.1.5 apart: read before E3]  labels after E0 release: 7.1.5 less than 0.1%
+7.1 2026-11-14T1412Z (day 17, page date 14 November 2026): 28.84% to 28.87%  [7.1.5 apart: read before E3]  labels after E0 release: 7.1.5 less than 0.1%
+7.1 2026-11-15T1411Z (day 18, page date 15 November 2026): 30.54% to 30.57%  [7.1.5 apart: read before E3]  labels after E0 release: 7.1.5 less than 0.1%
+7.1 2026-11-16T1418Z (day 19, page date 16 November 2026): 31.97% to 32.00%  [7.1.5 apart: read before E3]  labels after E0 release: 7.1.5 less than 0.1%
+7.1 2026-11-17T1415Z (day 20, page date 17 November 2026): 34.37% to 34.40%  [7.1.5 apart: read before E3]  labels after E0 release: 7.1.5 less than 0.1%
+7.1 2026-11-18T1415Z (day 21, page date 18 November 2026): 36.26% to 36.30%  [7.1.5 apart: read before E3]  labels after E0 release: 7.1.5 less than 0.1%
+7.1 2026-11-19T1417Z (day 22, page date 19 November 2026): 38.00% to 38.04%  labels after E0 release: 7.1.5 0.4%
+7.1 2026-11-20T1414Z (day 23, page date 20 November 2026): 41.06% to 41.16%  labels after E0 release: 7.1.5 2.9%; 7.1.6 less than 0.1%
+7.1 2026-11-21T1411Z (day 24, page date 21 November 2026): 43.16% to 43.26%  labels after E0 release: 7.1.5 4.9%; 7.1.6 less than 0.1%
+7.0 2026-11-09T1431Z (day 12, page date 9 November 2026): 7.30% to 7.31%
+7.0 2026-11-10T1416Z (day 13, page date 10 November 2026): 8.39% to 8.40%
+7.0 2026-11-11T1415Z (day 14, page date 11 November 2026): 10.50% to 10.51%
+7.0 2026-11-12T1415Z (day 15, page date 12 November 2026): 11.40% to 11.41%
+7.0 2026-11-13T1452Z (day 16, page date 13 November 2026): 12.70% to 12.71%
+7.0 2026-11-14T1412Z (day 17, page date 14 November 2026): 13.97% to 13.99%
+7.0 2026-11-15T1411Z (day 18, page date 15 November 2026): 15.38% to 15.40%
+7.0 2026-11-16T1418Z (day 19, page date 16 November 2026): 16.77% to 16.78%
+7.0 2026-11-17T1415Z (day 20, page date 17 November 2026): 18.40%
+7.0 2026-11-18T1415Z (day 21, page date 18 November 2026): 19.74%
+7.0 2026-11-19T1417Z (day 22, page date 19 November 2026): 20.88%  labels after E0 release: 7.0.9 0.2%
+7.0 2026-11-20T1414Z (day 23, page date 20 November 2026): 23.50%  labels after E0 release: 7.0.9 1.5%
+7.0 2026-11-21T1411Z (day 24, page date 21 November 2026): 24.90%  labels after E0 release: 7.0.9 2.5%
+6.9 2026-11-09T1431Z (day 12, page date 9 November 2026): 8.31%
+6.9 2026-11-10T1416Z (day 13, page date 10 November 2026): 9.30%
+6.9 2026-11-11T1415Z (day 14, page date 11 November 2026): 10.70%
+6.9 2026-11-12T1415Z (day 15, page date 12 November 2026): 11.70%
+6.9 2026-11-13T1452Z (day 16, page date 13 November 2026): 12.89%
+6.9 2026-11-14T1412Z (day 17, page date 14 November 2026): 13.99%
+6.9 2026-11-15T1411Z (day 18, page date 15 November 2026): 15.50%
+6.9 2026-11-16T1418Z (day 19, page date 16 November 2026): 16.92%
+6.9 2026-11-17T1415Z (day 20, page date 17 November 2026): 19.40%
+6.9 2026-11-18T1415Z (day 21, page date 18 November 2026): 20.86%
+6.9 2026-11-19T1417Z (day 22, page date 19 November 2026): 22.08%  labels after E0 release: 6.9.12 0.2%
+6.9 2026-11-20T1414Z (day 23, page date 20 November 2026): 24.40%  labels after E0 release: 6.9.12 1.4%
+6.9 2026-11-21T1411Z (day 24, page date 21 November 2026): 25.87%  labels after E0 release: 6.9.12 2.5%
+
+== Part B: post hoc treatments (chosen after the reads were seen; 6 in all) ==
+7.1 2026-11-09T1431Z  brief 19.58% to 19.60% | (i) 7.1.6 apart 19.58% to 19.60% | (ii) 7.1.5 apart throughout 19.58% to 19.60% | (iii) 7.1.5 fixed throughout 19.58% to 19.68% | (iv) 7.1.4 alone 19.56% to 19.60%
+7.1 2026-11-10T1416Z  brief 21.40% to 21.42% | (i) 7.1.6 apart 21.40% to 21.42% | (ii) 7.1.5 apart throughout 21.40% to 21.42% | (iii) 7.1.5 fixed throughout 21.40% to 21.50% | (iv) 7.1.4 alone 21.38% to 21.42%
+7.1 2026-11-11T1415Z  brief 23.70% to 23.72% | (i) 7.1.6 apart 23.70% to 23.72% | (ii) 7.1.5 apart throughout 23.70% to 23.72% | (iii) 7.1.5 fixed throughout 23.70% to 23.80% | (iv) 7.1.4 alone 23.68% to 23.72%
+7.1 2026-11-12T1415Z  brief 25.07% to 25.10% | (i) 7.1.6 apart 25.07% to 25.10% | (ii) 7.1.5 apart throughout 25.07% to 25.10% | (iii) 7.1.5 fixed throughout 25.07% to 25.17% | (iv) 7.1.4 alone 25.05% to 25.10%
+7.1 2026-11-13T1452Z  brief 26.67% to 26.70% | (i) 7.1.6 apart 26.67% to 26.70% | (ii) 7.1.5 apart throughout 26.67% to 26.70% | (iii) 7.1.5 fixed throughout 26.67% to 26.77% | (iv) 7.1.4 alone 26.65% to 26.70%
+7.1 2026-11-14T1412Z  brief 28.84% to 28.87% | (i) 7.1.6 apart 28.84% to 28.87% | (ii) 7.1.5 apart throughout 28.84% to 28.87% | (iii) 7.1.5 fixed throughout 28.84% to 28.94% | (iv) 7.1.4 alone 28.81% to 28.87%
+7.1 2026-11-15T1411Z  brief 30.54% to 30.57% | (i) 7.1.6 apart 30.54% to 30.57% | (ii) 7.1.5 apart throughout 30.54% to 30.57% | (iii) 7.1.5 fixed throughout 30.54% to 30.64% | (iv) 7.1.4 alone 30.51% to 30.57%
+7.1 2026-11-16T1418Z  brief 31.97% to 32.00% | (i) 7.1.6 apart 31.97% to 32.00% | (ii) 7.1.5 apart throughout 31.97% to 32.00% | (iii) 7.1.5 fixed throughout 31.97% to 32.07% | (iv) 7.1.4 alone 31.94% to 32.00%
+7.1 2026-11-17T1415Z  brief 34.37% to 34.40% | (i) 7.1.6 apart 34.37% to 34.40% | (ii) 7.1.5 apart throughout 34.37% to 34.40% | (iii) 7.1.5 fixed throughout 34.37% to 34.47% | (iv) 7.1.4 alone 34.33% to 34.40%
+7.1 2026-11-18T1415Z  brief 36.26% to 36.30% | (i) 7.1.6 apart 36.26% to 36.30% | (ii) 7.1.5 apart throughout 36.26% to 36.30% | (iii) 7.1.5 fixed throughout 36.26% to 36.36% | (iv) 7.1.4 alone 36.23% to 36.30%
+7.1 2026-11-19T1417Z  brief 38.00% to 38.04% | (i) 7.1.6 apart 38.00% to 38.04% | (ii) 7.1.5 apart throughout 37.75% to 37.79% | (iii) 7.1.5 fixed throughout 38.00% to 38.04% | (iv) 7.1.4 alone 37.60% to 37.64%
+7.1 2026-11-20T1414Z  brief 41.06% to 41.16% | (i) 7.1.6 apart 41.06% to 41.10% | (ii) 7.1.5 apart throughout 39.30% to 39.40% | (iii) 7.1.5 fixed throughout 41.06% to 41.16% | (iv) 7.1.4 alone 38.12% to 38.20%
+7.1 2026-11-21T1411Z  brief 43.16% to 43.26% | (i) 7.1.6 apart 43.16% to 43.20% | (ii) 7.1.5 apart throughout 40.23% to 40.34% | (iii) 7.1.5 fixed throughout 43.16% to 43.26% | (iv) 7.1.4 alone 38.22% to 38.30%
+7.0 2026-11-09T1431Z  brief 7.30% to 7.31% | 7.0.8 alone 7.30% to 7.31%
+7.0 2026-11-10T1416Z  brief 8.39% to 8.40% | 7.0.8 alone 8.39% to 8.40%
+7.0 2026-11-11T1415Z  brief 10.50% to 10.51% | 7.0.8 alone 10.50% to 10.51%
+7.0 2026-11-12T1415Z  brief 11.40% to 11.41% | 7.0.8 alone 11.40% to 11.41%
+7.0 2026-11-13T1452Z  brief 12.70% to 12.71% | 7.0.8 alone 12.70% to 12.71%
+7.0 2026-11-14T1412Z  brief 13.97% to 13.99% | 7.0.8 alone 13.97% to 13.99%
+7.0 2026-11-15T1411Z  brief 15.38% to 15.40% | 7.0.8 alone 15.38% to 15.40%
+7.0 2026-11-16T1418Z  brief 16.77% to 16.78% | 7.0.8 alone 16.77% to 16.78%
+7.0 2026-11-17T1415Z  brief 18.40% | 7.0.8 alone 18.40%
+7.0 2026-11-18T1415Z  brief 19.74% | 7.0.8 alone 19.74%
+7.0 2026-11-19T1417Z  brief 20.88% | 7.0.8 alone 20.68%
+7.0 2026-11-20T1414Z  brief 23.50% | 7.0.8 alone 22.00%
+7.0 2026-11-21T1411Z  brief 24.90% | 7.0.8 alone 22.40%
+6.9 2026-11-09T1431Z  brief 8.31% | 6.9.11 alone 8.31%
+6.9 2026-11-10T1416Z  brief 9.30% | 6.9.11 alone 9.30%
+6.9 2026-11-11T1415Z  brief 10.70% | 6.9.11 alone 10.70%
+6.9 2026-11-12T1415Z  brief 11.70% | 6.9.11 alone 11.70%
+6.9 2026-11-13T1452Z  brief 12.89% | 6.9.11 alone 12.89%
+6.9 2026-11-14T1412Z  brief 13.99% | 6.9.11 alone 13.99%
+6.9 2026-11-15T1411Z  brief 15.50% | 6.9.11 alone 15.50%
+6.9 2026-11-16T1418Z  brief 16.92% | 6.9.11 alone 16.92%
+6.9 2026-11-17T1415Z  brief 19.40% | 6.9.11 alone 19.40%
+6.9 2026-11-18T1415Z  brief 20.86% | 6.9.11 alone 20.86%
+6.9 2026-11-19T1417Z  brief 22.08% | 6.9.11 alone 21.88%
+6.9 2026-11-20T1414Z  brief 24.40% | 6.9.11 alone 23.00%
+6.9 2026-11-21T1411Z  brief 25.87% | 6.9.11 alone 23.38%
+
+== Part C: measure 2, the comparison named in advance (LH033 reuse disclosed) ==
+WordPress 7.1, read 2026-11-11T1415Z (day 14): brief, E3 settled 23.70% to 23.72%; checkpoint 2 (7.1.5 apart throughout) 23.70% to 23.72%
+WordPress 7.1, read 2026-11-21T1411Z (day 24): brief, E3 settled 43.16% to 43.26%; checkpoint 2 (7.1.5 apart throughout) 40.23% to 40.34%
+PHP, LH033 read 2026-11-02T1530Z (PHP day 12), tabulated share at or above the fixed patch: 8.2 10.7%, 8.3 12.1%, 8.4 16.0%, 8.5 23.8%
+PHP, LH033 read 2026-11-09T1427Z (PHP day 19), tabulated share at or above the fixed patch: 8.2 20.0%, 8.3 21.4%, 8.4 27.2%, 8.5 38.9%
+PHP, LH033 read 2026-11-16T1419Z (PHP day 26), tabulated share at or above the fixed patch: 8.2 32.5%, 8.3 36.6%, 8.4 41.8%, 8.5 55.4%
+
+== Part D: Packagist (measure 3), 17 to 19 November, from checkpoints/2026-11-21-packagist.csv ==
+7.1.5, 7.0.9 and 6.9.12 were not among the releases read; WordPress published them on 18 November (7.1.5 at 17:08:59Z),
+so 18 November's shares cover about 17 of its 24 hours fully and are a lower bound after that, and 19 November's are a lower bound.
+roots 7.1 2026-11-17 (day 20): fixed 25714 of 27826 = 92.4%
+roots 7.1 2026-11-18 (day 21): fixed 19327 of 21663 = 89.2%
+roots 7.1 2026-11-19 (day 22): fixed 6567 of 8608 = 76.3%
+roots 7.0 2026-11-17 (day 20): fixed 563 of 1782 = 31.6%
+roots 7.0 2026-11-18 (day 21): fixed 246 of 1550 = 15.9%
+roots 7.0 2026-11-19 (day 22): fixed 169 of 1472 = 11.5%
+roots 6.9 2026-11-17 (day 20): fixed 1087 of 2802 = 38.8%
+roots 6.9 2026-11-18 (day 21): fixed 895 of 2562 = 34.9%
+roots 6.9 2026-11-19 (day 22): fixed 372 of 2633 = 14.1%
+johnpbloch 7.1 2026-11-17 (day 20): fixed 5786 of 6854 = 84.4%
+johnpbloch 7.1 2026-11-18 (day 21): fixed 4464 of 5790 = 77.1%
+johnpbloch 7.1 2026-11-19 (day 22): fixed 2062 of 3437 = 60.0%
+johnpbloch 7.0 2026-11-17 (day 20): fixed 145 of 392 = 37.0%
+johnpbloch 7.0 2026-11-18 (day 21): fixed 84 of 395 = 21.3%
+johnpbloch 7.0 2026-11-19 (day 22): fixed 130 of 342 = 38.0%
+johnpbloch 6.9 2026-11-17 (day 20): fixed 1146 of 2106 = 54.4%
+johnpbloch 6.9 2026-11-18 (day 21): fixed 531 of 1425 = 37.3%
+johnpbloch 6.9 2026-11-19 (day 22): fixed 385 of 1268 = 30.4%

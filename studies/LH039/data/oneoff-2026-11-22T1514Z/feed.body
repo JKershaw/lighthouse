@@ -1,0 +1,1452 @@
+<?xml version="1.0" encoding="UTF-8"?><rss version="2.0"
+	xmlns:content="http://purl.org/rss/1.0/modules/content/"
+	xmlns:wfw="http://wellformedweb.org/CommentAPI/"
+	xmlns:dc="http://purl.org/dc/elements/1.1/"
+	xmlns:atom="http://www.w3.org/2005/Atom"
+	xmlns:sy="http://purl.org/rss/1.0/modules/syndication/"
+	xmlns:slash="http://purl.org/rss/1.0/modules/slash/"
+	>
+
+<channel>
+	<title>Releases &#124; WordPress News</title>
+	<atom:link href="https://wordpress.org/news/category/releases/feed/" rel="self" type="application/rss+xml" />
+	<link>https://wordpress.org/news</link>
+	<description>The latest news about WordPress and the WordPress community</description>
+	<lastBuildDate>Fri, 20 Nov 2026 14:34:50 +0000</lastBuildDate>
+	<language>en-US</language>
+	<sy:updatePeriod>
+	hourly	</sy:updatePeriod>
+	<sy:updateFrequency>
+	1	</sy:updateFrequency>
+	<generator>https://wordpress.org/?v=7.2-RC2-65733</generator>
+
+<image>
+	<url>https://s.w.org/favicon.ico?2</url>
+	<title>Releases &#124; WordPress News</title>
+	<link>https://wordpress.org/news</link>
+	<width>32</width>
+	<height>32</height>
+</image> 
+<site xmlns="com-wordpress:feed-additions:1">14607090</site>	<item>
+		<title>WordPress 7.1.5 Release</title>
+		<link>https://wordpress.org/news/2026/11/wordpress-7-1-5-release/</link>
+		
+		<dc:creator><![CDATA[Jeremy Felt]]></dc:creator>
+		<pubDate>Wed, 18 Nov 2026 17:08:59 +0000</pubDate>
+				<category><![CDATA[Releases]]></category>
+		<category><![CDATA[Security]]></category>
+		<guid isPermaLink="false">https://wordpress.org/news/?p=22035</guid>
+
+					<description><![CDATA[This security release features fixes for multiple issues. Because this is a security release, it is recommended that you update your sites immediately. You can download WordPress 7.1.5 from WordPress.org, or visit your WordPress Dashboard, click “Updates,” and then click “Update Now.” If you have sites that support automatic background updates, the update process will [&#8230;]]]></description>
+										<content:encoded><![CDATA[
+<p class="wp-block-paragraph">This security release features fixes for multiple issues.</p>
+
+
+
+<p class="wp-block-paragraph">Because this is a security release, it is recommended that you update your sites immediately.</p>
+
+
+
+<p class="wp-block-paragraph">You can <a href="https://wordpress.org/download/">download WordPress 7.1.5 from WordPress.org</a>, or visit your WordPress Dashboard, click “Updates,” and then click “Update Now.” If you have sites that support automatic background updates, the update process will begin automatically.</p>
+
+
+
+<p class="wp-block-paragraph">WordPress 7.1.5 is a short-cycle release. The next major release will be version 7.2, currently planned for December 8, 2026.</p>
+
+
+
+<p class="wp-block-paragraph">For more information, please visit the WordPress 7.1.5 <a href="https://wordpress.org/documentation/wordpress-version/version-7-1-5/">HelpHub site</a>.</p>
+
+
+
+<h2 class="wp-block-heading">Security updates included in this release</h2>
+
+
+
+<ul class="wp-block-list">
+<li>A malformed regular expression that broadened JSON media type matching, fixed as a hardening measure, reported by <a href="https://w.org/@batmoo">Mo Jangda</a> of the WordPress Security Team.</li>
+
+
+
+<li>A multisite privilege escalation issue letting a site Administrator take over a Super Admin account via Customizer menu previews, reported by Yuval Miller.</li>
+
+
+
+<li>A reflected XSS in the legacy media library popup, reported by <a href="https://www.anthropic.com/">Anthropic</a>.</li>
+
+
+
+<li>An XSS in wp_interactivity_data_wp_context() via the store namespace, reported by <a data-id="w.org/@jrf/" data-type="link" href="https://w.org/@jrf">Juliette Reinders Folmer</a>.</li>
+
+
+
+<li>SQL injection in WP_Meta_Query via nested relation values, reported by <a href="https://w.org/@yougina">Christiaan Swiers</a>.</li>
+
+
+
+<li>Unauthenticated information disclosure exposing private taxonomy terms via the REST API search endpoint, reported by Anthropic.</li>
+
+
+
+<li>Author+ information disclosure exposing user email addresses via the REST API comments endpoint, reported by Ben Bidner of the WordPress Security Team.</li>
+
+
+
+<li>SQL injection via the front page setting in Customizer changeset previews, reported by Rudy Faile of the WordPress Security Team.</li>
+
+
+
+<li>Contributor+ XSS via scripts in oEmbed provider responses, reported by vvh1te3zz.</li>
+
+
+
+<li>Unauthenticated stored XSS via shortcode attributes in comments, reported by <a href="https://w.org/@rafiem">Rafie Muhammad</a> (Awesome Motive, Inc.).</li>
+
+
+
+<li>Unauthenticated denial of service via batched XML-RPC pingbacks, reported by <a href="https://w.org/@giovannicintolo">Giovanni Cintolo</a>.</li>
+
+
+
+<li>Editor+ information disclosure via post and template author assignment in the REST API, reported by Jarda Snajdr of the WordPress Security Team.</li>
+
+
+
+<li>Administrator stored XSS via Customizer previews, reported by Weston Ruter of the WordPress Security Team.</li>
+
+
+
+<li>Author+ authorization bypass via comment editing in the admin, reported by Jesse McNeil.</li>
+
+
+
+<li>Subscriber+ information disclosure via XML-RPC wp.getComments, reported by <a href="https://github.com/dlwodnr59">Jaewook Lee (grze0)</a>.</li>
+
+
+
+<li>A hardening change that removes the block editor&#8217;s Imgur embed variation, whose server-side provider is already gone, reported by Zhengyu Liu, <a href="https://jesse-yang.com/">Jingcheng Yang</a>, and <a href="https://gvzhong.github.io/">Gavin Zhong</a>.</li>
+
+
+
+<li>Contributor+ stored XSS in the Comment Date block via its date format, reported by Weston Ruter and Jeremy Felt of the WordPress Security Team.</li>
+
+
+
+<li>Unauthenticated privilege escalation via Template Part block attributes that could lead to remote code execution, reported by <a href="https://w.org/@logano">Logan Homolka</a>.</li>
+
+
+
+<li>XSS in the block editor via Openverse image metadata, reported by <a href="https://w.org/@kq5y">Shu Takahashi</a> of Velcore Consulting Inc.</li>
+
+
+
+<li>Contributor+ stored XSS in the block editor via media filenames when converting a media block to a File block, reported by CryptoFox.</li>
+</ul>
+
+
+
+<h2 class="wp-block-heading">Thank you to these WordPress contributors</h2>
+
+
+
+<p class="wp-block-paragraph">This release was led by <a href="https://w.org/@jeremyfelt">Jeremy Felt</a>, <a href="https://w.org/@jeryj">Jerry Jones</a>, and <a href="https://w.org/@jsnajdr">Jarda Snajdr</a>. WordPress 7.1.5 would not have been possible without the contributions of the following people:</p>
+
+
+
+<p class="wp-block-paragraph"><a href="https://w.org/@jorbin">Aaron Jorbin</a>, <a href="https://w.org/@adamsilverstein">Adam Silverstein</a>, <a href="https://w.org/@xknown">Alex Concha</a>, <a href="https://w.org/@aduth">Andrew Duthie</a>, <a href="https://w.org/@andrewserong">Andrew Serong</a>, <a href="https://w.org/@vortfu">Ben Bidner</a>, <a href="https://w.org/@yougina">Christiaan Swiers</a>, <a href="https://w.org/@villanovachile">Daniel Rodriguez</a>, <a href="https://w.org/@dmsnell">Dennis Snell</a>, <a href="https://w.org/@ehtis">Ehtisham Siddiqui</a>, <a href="https://w.org/@mamaduka">George Mamadashvili</a>, <a href="https://w.org/@giovannicintolo">Giovanni Cintolo</a>, <a href="https://w.org/@gziolo">Greg Ziółkowski</a>, <a href="https://w.org/@isabel_brison">Isabel Brison</a>, <a href="https://w.org/@jsnajdr">Jarda Snajdr</a>, <a href="https://w.org/@jeremyfelt">Jeremy Felt</a>, <a href="https://w.org/@jeryj">jeryj</a>, <a href="https://w.org/@buffer1024">Jesse McNeil</a>, <a href="https://w.org/@johnbillion">John Blackbourn</a>, <a href="https://w.org/@jonsurrell">Jon Surrell</a>, <a href="https://w.org/@desrosj">Jonathan Desrosiers</a>, <a href="https://w.org/@jrf">Juliette Reinders Folmer</a>, <a href="https://w.org/@kirasong">Kira Schroder</a>, <a href="https://w.org/@lancewillett">Lance Willett</a>, <a href="https://w.org/@logano">Logan Homolka</a>, <a href="https://w.org/@lucatume">Luca Tumedei</a>, <a href="https://w.org/@luisherranz">luisherranz</a>, <a href="https://w.org/@marcs0h">Marc Montpas</a>, <a href="https://w.org/@tyxla">Marin Atanasov</a>, <a href="https://w.org/@batmoo">Mohammad Jangda</a>, <a href="https://w.org/@ntsekouras">Nik Tsekouras</a>, <a href="https://w.org/@peterwilsoncc">Peter Wilson</a>, <a href="https://w.org/@rafiem">Rafie Muhammad</a>, <a href="https://w.org/@ramonopoly">ramonopoly</a>, <a href="https://w.org/@rfaile313">Rudy Faile</a>, <a href="https://w.org/@sergey">Sergey Biryukov</a>, <a href="https://w.org/@kq5y">Shu Takahashi</a>, <a href="https://w.org/@westonruter">Weston Ruter</a></p>
+
+
+
+<h2 class="wp-block-heading">Backports</h2>
+
+
+
+<p class="wp-block-paragraph">As a courtesy, the security fixes were backported to all branches eligible to receive security fixes (currently through 4.7). As a reminder, only the most recent version of WordPress is actively supported. The backports are in progress and will ship as they become ready.</p>
+
+
+
+<p class="wp-block-paragraph">In WordPress 7.0, 1024 bit certificates were removed from bundled root certificates. This change has been applied to 6.9.12 and earlier as part of this release.</p>
+
+
+
+<p class="wp-block-paragraph">WordPress 7.2 RC 2 has also been released, containing all applicable fixes.</p>
+]]></content:encoded>
+					
+		
+		
+		<post-id xmlns="com-wordpress:feed-additions:1">22035</post-id>	</item>
+		<item>
+		<title>WordPress 7.2 Release Candidate 1</title>
+		<link>https://wordpress.org/news/2026/11/wordpress-7-2-release-candidate-1/</link>
+		
+		<dc:creator><![CDATA[David Baumwald]]></dc:creator>
+		<pubDate>Tue, 17 Nov 2026 16:04:13 +0000</pubDate>
+				<category><![CDATA[General]]></category>
+		<category><![CDATA[Releases]]></category>
+		<category><![CDATA[7.2]]></category>
+		<category><![CDATA[development]]></category>
+		<category><![CDATA[release]]></category>
+		<guid isPermaLink="false">https://wordpress.org/news/?p=22019</guid>
+
+					<description><![CDATA[The first Release Candidate (“RC1”) for WordPress 7.2 is ready for download and testing! This version of the WordPress software is still under development. Please do not install, run, or test this version of WordPress on production or mission-critical websites. Instead, it’s recommended to evaluate RC1 on a test server and site. WordPress 7.2 RC1 [&#8230;]]]></description>
+										<content:encoded><![CDATA[
+<p class="wp-block-paragraph">The first Release Candidate (“RC1”) for WordPress 7.2 is ready for download and testing!</p>
+
+
+
+<p class="wp-block-paragraph"><strong>This version of the WordPress software is still under development</strong>. Please do not install, run, or test this version of WordPress on production or mission-critical websites. Instead, it’s recommended to evaluate RC1 on a test server and site.</p>
+
+
+
+<p class="wp-block-paragraph">WordPress 7.2 RC1 can be tested using any of the following methods:</p>
+
+
+
+<figure class="wp-block-table"><table class="has-fixed-layout"><tbody><tr><td><strong>Plugin</strong></td><td>Install and activate the <a href="https://wordpress.org/plugins/wordpress-beta-tester/" rel="noopener" target="_blank">WordPress Beta Tester</a> plugin on a WordPress install. (Select the “Bleeding edge” channel and “Beta/RC Only” stream.)</td></tr><tr><td><strong>Direct Download</strong></td><td>Download the <a href="https://wordpress.org/wordpress-7.2-RC1.zip">RC1 version (zip)</a> and install it on a WordPress website.</td></tr><tr><td><strong>Command Line</strong></td><td>Use this <a href="https://make.wordpress.org/cli/">WP-CLI</a> command: <br><code>wp core update --version=7.2-RC1</code></td></tr><tr><td><strong>WordPress Playground</strong></td><td>Use the <a href="http://playground.wordpress.net/release" rel="noopener" target="_blank">WordPress Playground instance</a> to test the software directly in your browser.  No setup required – just click and go!</td></tr></tbody></table></figure>
+
+
+
+<p class="wp-block-paragraph">The scheduled final release date for WordPress 7.2 is <strong>December 8, 2026</strong>. The full <a href="https://make.wordpress.org/core/2026/10/06/wordpress-7-2-release-party-schedule/" rel="noopener" target="_blank">release schedule can be found here</a>. Your help testing Beta and RC versions is vital to making this release as stable and powerful as possible. Thank you to everyone who contributes by testing!</p>
+
+
+
+<p class="wp-block-paragraph">Please continue checking the <a href="https://make.wordpress.org/core/" rel="noopener" target="_blank">Make WordPress Core blog</a> for <a href="https://make.wordpress.org/core/tag/7-2" rel="noopener" target="_blank">7.2-related posts</a> in the coming weeks for more information.</p>
+
+
+
+<h3 class="wp-block-heading">Core Changes Since Beta 5</h3>
+
+
+
+<p class="wp-block-paragraph">Check out the <a href="https://wordpress.org/news/2026/10/wordpress-7-2-beta-1-is-ready-for-download-and-testing/">Beta 1 announcement</a> for details on WordPress 7.2.</p>
+
+
+
+<p class="wp-block-paragraph">You can browse the technical details for all issues addressed since Beta 5 using these links:</p>
+
+
+
+<ul class="wp-block-list">
+<li><a href="https://core.trac.wordpress.org/query?changetime=11%2F10%2F2026..11%2F17%2F2026&amp;milestone=7.2&amp;status=closed&amp;group=component&amp;order=id&amp;col=id&amp;col=milestone&amp;col=owner&amp;col=type&amp;col=priority">Closed 7.2 WordPress Core Trac tickets</a> since November 10, 2026</li>
+
+
+
+<li><a href="https://github.com/WordPress/gutenberg/commits/wp/7.2?since=2026-11-10&amp;until=2026-11-17">7.2 Gutenberg commits</a> since November 10, 2026</li>
+</ul>
+
+
+
+<p class="wp-block-paragraph">WordPress 7.2 Release Candidate 1 brings additional bug fixes, accessibility improvements, and compatibility updates as the release moves closer to its December 8 launch.</p>
+
+
+
+<p class="wp-block-paragraph">Recent refinements include fixes to client-side media uploads, improvements to the new random-content redirect feature, and better keyboard navigation through a skip link in the WordPress admin bar. Additional updates improve plugin dependency messaging, script module translations, and the reliability of the HTML and Interactivity APIs.</p>
+
+
+
+<p class="wp-block-paragraph">Developers will also benefit from continued Abilities API refinements and updates to bundled libraries, including PHPMailer, Requests, getID3, and sodium_compat.</p>
+
+
+
+<p class="wp-block-paragraph"><strong>Learn more:</strong> <a href="https://core.trac.wordpress.org/ticket/66490">Trac #66490</a>, <a href="https://core.trac.wordpress.org/ticket/66681">Trac #66681</a>, <a href="https://core.trac.wordpress.org/ticket/66625">Trac #66625</a>, <a href="https://core.trac.wordpress.org/ticket/66331">Trac #66331</a>, <a href="https://core.trac.wordpress.org/ticket/66591">Trac #66591</a>, <a href="https://core.trac.wordpress.org/ticket/65984">Trac #65984</a></p>
+
+
+
+<h3 class="wp-block-heading">Additional Block Editor Improvements</h3>
+
+
+
+<p class="wp-block-paragraph">WordPress 7.2 RC1 includes further refinements to the block editor, addressing issues with duplicated block content, keyboard interactions on iOS, and revision previews. Improvements to the Interactivity API prevent outdated navigation responses from replacing newer content, while additional fixes improve plugin installation workflows, featured image compatibility, and link suggestions. The transition to modern SVG icons also continues throughout WordPress administration.</p>
+
+
+
+<p class="wp-block-paragraph"><strong>Learn more:</strong> <a href="https://github.com/WordPress/gutenberg/pull/86839">GitHub #86839</a>, <a href="https://github.com/WordPress/gutenberg/pull/86703">GitHub #86703</a>, <a href="https://github.com/WordPress/gutenberg/pull/86608">GitHub #86608</a>, <a href="https://github.com/WordPress/gutenberg/pull/78367">GitHub #78367</a>, <a href="https://github.com/WordPress/gutenberg/pull/86854">GitHub #86854</a></p>
+
+
+
+<p class="wp-block-paragraph">Want to know more about this release? Here are some highlights:</p>
+
+
+
+<ul class="wp-block-list">
+<li>New Ipsum default theme</li>
+
+
+
+<li>Expanded responsive design and Gallery controls</li>
+
+
+
+<li>Improved Global Styles and typography tools</li>
+
+
+
+<li>Enhanced Canvas Notes and collaboration</li>
+
+
+
+<li>New DataForm block settings inspector</li>
+
+
+
+<li>Faster media uploads and image processing</li>
+
+
+
+<li>Modernized WordPress admin with SVG icons</li>
+
+
+
+<li>Faster admin navigation and asset loading</li>
+
+
+
+<li>New “On This Day” widget and random post discovery</li>
+
+
+
+<li>Improved translation update management</li>
+
+
+
+<li>Accessibility, security, and PHP 8.6 compatibility improvements</li>
+</ul>
+
+
+
+<h3 class="wp-block-heading">How you can contribute</h3>
+
+
+
+<p class="wp-block-paragraph">WordPress is open source software made possible by a passionate community of people collaborating on and contributing to its development. The resources below outline various ways you can help the world’s most popular open source web platform, regardless of your technical expertise.</p>
+
+
+
+<h3 class="wp-block-heading">Get involved in testing</h3>
+
+
+
+<p class="wp-block-paragraph">Testing for issues is crucial to the development of any software. It’s also a meaningful way for anyone to contribute. </p>
+
+
+
+<p class="wp-block-paragraph">Your help testing the WordPress 7.2 RC1 version is key to ensuring that the final release is the best it can be. While testing the upgrade process is essential, trying out new features is equally important. This <a href="https://make.wordpress.org/test/2026/10/20/help-test-wordpress-7-2/" rel="noopener" target="_blank">detailed guide</a> will walk you through testing features in WordPress 7.2.</p>
+
+
+
+<h3 class="wp-block-heading">Update your theme or plugin</h3>
+
+
+
+<p class="wp-block-paragraph">For plugin and theme authors, your products play an integral role in extending the functionality and value of WordPress for all users.</p>
+
+
+
+<p class="wp-block-paragraph">Thanks for continuing to test your themes and plugins with the WordPress 7.2 beta releases. With RC1, you’ll want to conclude your testing and update the <em>“Tested up to”</em> version in your <a href="https://developer.wordpress.org/plugins/wordpress-org/how-your-readme-txt-works/" rel="noopener" target="_blank">plugin’s readme file</a> to 7.2.</p>
+
+
+
+<p class="wp-block-paragraph">If you find compatibility issues, please post detailed information to the <a href="https://wordpress.org/support/forum/alphabeta/" rel="noopener" target="_blank">support forum</a>.</p>
+
+
+
+<h3 class="wp-block-heading">Test on your hosting platforms</h3>
+
+
+
+<p class="wp-block-paragraph">Web hosts provide vital infrastructure for supporting WordPress and its users. Testing on hosting systems helps inform the development process while ensuring that WordPress and hosting platforms are fully compatible, free of errors, optimized for the best possible user experience, and that updates roll out to customer sites without issue.</p>
+
+
+
+<p class="wp-block-paragraph">Want to test WordPress on your hosting system? <a href="https://make.wordpress.org/hosting/test-results-getting-started/" rel="noopener" target="_blank">Get started with configuring distributed hosting tests here</a>. Thank you to all <a href="https://make.wordpress.org/hosting/test-results/" rel="noopener" target="_blank">web hosts who help test WordPress</a>!</p>
+
+
+
+<p class="wp-block-paragraph">Curious about testing releases in general? Follow along with the <a href="https://make.wordpress.org/test/" rel="noopener" target="_blank">testing initiatives in Make Core</a> and join the <a href="https://wordpress.slack.com/messages/core-test/" rel="noopener" target="_blank">#core-test channel</a> on <a href="https://wordpress.slack.com/" rel="noopener" target="_blank">Making WordPress Slack</a>.</p>
+
+
+
+<h3 class="wp-block-heading">An RC1 haiku</h3>
+
+
+
+<p class="wp-block-paragraph"><em>The final bugs fall</em><br><em>Release candidate takes flight</em><br><em>Launch day draws nearer</em></p>
+
+
+
+<p class="has-text-align-right wp-block-paragraph"><em>Props to <a href='https://profiles.wordpress.org/audrasjb/' class='mention'><span class='mentions-prefix'>@</span>audrasjb</a>, <a href='https://profiles.wordpress.org/r1k0/' class='mention'><span class='mentions-prefix'>@</span>r1k0</a>, and <a href='https://profiles.wordpress.org/courane01/' class='mention'><span class='mentions-prefix'>@</span>courane01</a> for collaboration and review.</em></p>
+]]></content:encoded>
+					
+		
+		
+		<post-id xmlns="com-wordpress:feed-additions:1">22019</post-id>	</item>
+		<item>
+		<title>WordPress 7.2 Beta 5</title>
+		<link>https://wordpress.org/news/2026/11/wordpress-7-2-beta-5/</link>
+		
+		<dc:creator><![CDATA[David Baumwald]]></dc:creator>
+		<pubDate>Tue, 10 Nov 2026 16:59:09 +0000</pubDate>
+				<category><![CDATA[Development]]></category>
+		<category><![CDATA[Releases]]></category>
+		<category><![CDATA[7.2]]></category>
+		<category><![CDATA[development]]></category>
+		<category><![CDATA[releases]]></category>
+		<guid isPermaLink="false">https://wordpress.org/news/?p=21967</guid>
+
+					<description><![CDATA[WordPress 7.2 Beta 5 is ready for download and testing! This beta release is intended for testing and development only. Please do not install, run, or test this version of WordPress on production or mission-critical websites. Instead, use a test environment or local site to explore the new features. How to Test WordPress 7.2 Beta [&#8230;]]]></description>
+										<content:encoded><![CDATA[
+<p class="wp-block-paragraph">WordPress 7.2 Beta 5 is ready for download and testing!</p>
+
+
+
+<p class="wp-block-paragraph"><strong>This beta release is intended for testing and development</strong> only. Please do not install, run, or test this version of WordPress on production or mission-critical websites. Instead, use a test environment or local site to explore the new features.</p>
+
+
+
+<h2 class="wp-block-heading">How to Test WordPress 7.2 Beta 5</h2>
+
+
+
+<p class="wp-block-paragraph">You can test WordPress 7.2 Beta 5 in any of the following ways:</p>
+
+
+
+<figure class="wp-block-table"><table class="has-fixed-layout"><tbody><tr><td><strong>WordPress Beta Tester Plugin</strong></td><td>Install and activate the <a href="https://wordpress.org/plugins/wordpress-beta-tester/" rel="noreferrer noopener" target="_blank">WordPress Beta Tester</a> plugin on a WordPress install. Select the “Bleeding edge” channel and “Beta/RC Only” stream.</td></tr><tr><td><strong>Direct Download</strong></td><td>Download the <a href="https://wordpress.org/wordpress-7.2-beta5.zip">Beta 5 version (zip)</a> and install it on a WordPress website.</td></tr><tr><td><strong>Command Line (WP-CLI)</strong></td><td>Use this <a href="https://make.wordpress.org/cli/" rel="noreferrer noopener" target="_blank">WP-CLI</a> command: <br><code>wp core update --version=7.2-beta5</code></td></tr><tr><td><strong>WordPress Playground</strong></td><td>Use a <a href="https://playground.wordpress.net/release" rel="noopener" target="_blank">7.2 Beta 5 WordPress Playground instance</a> to test the software directly in your browser. No setup required-just click and go!</td></tr></tbody></table></figure>
+
+
+
+<p class="wp-block-paragraph">The scheduled final release date for WordPress 7.2 is <strong><strong>December 8, 2026</strong></strong>. The full <a href="https://make.wordpress.org/core/2026/10/06/wordpress-7-2-release-party-schedule/">release schedule can be found here</a>. Your help testing Beta and RC versions is vital to making this release as stable and powerful as possible. Thank you to everyone who contributes by testing!</p>
+
+
+
+<h2 class="wp-block-heading">What&#8217;s in WordPress 7.2 Beta 5?</h2>
+
+
+
+<p class="wp-block-paragraph">For technical details on the issues addressed since Beta 4, see the following links:</p>
+
+
+
+<ul class="wp-block-list">
+<li><a href="https://core.trac.wordpress.org/query?status=closed&amp;changetime=11%2F03%2F2026..11%2F10%2F2026&amp;milestone=7.2&amp;group=component&amp;col=id&amp;col=milestone&amp;col=owner&amp;col=type&amp;col=priority&amp;order=id">Closed 7.2 WordPress Core Trac tickets</a> since November 3, 2026</li>
+
+
+
+<li><a href="https://github.com/WordPress/gutenberg/commits/wp/7.2?since=2026-11-03&amp;until=2026-11-10">7.2 Gutenberg commits</a> since November 3, 2026</li>
+</ul>
+
+
+
+<h3 class="wp-block-heading">Continued Improvements to WordPress 7.2</h3>
+
+
+
+<p class="wp-block-paragraph">WordPress 7.2 Beta 5 continues refining the upcoming release with additional security, accessibility, and compatibility improvements.</p>
+
+
+
+<p class="wp-block-paragraph">Recent changes include email notifications when application passwords are created, improved keyboard navigation in the WordPress admin toolbar, and accessibility refinements to Visual History. Additional fixes strengthen permissions for Notes reactions, improve compatibility with MP3 uploads, and address automatic update behavior in Git worktree installations.</p>
+
+
+
+<p class="wp-block-paragraph"><strong>Learn more:</strong> <a href="https://core.trac.wordpress.org/ticket/63927">Trac #63927</a>, <a href="https://core.trac.wordpress.org/ticket/66331">Trac #66331</a>, <a href="https://core.trac.wordpress.org/ticket/65122">Trac #65122</a>, <a href="https://core.trac.wordpress.org/ticket/66447">Trac #66447</a>, <a href="https://core.trac.wordpress.org/ticket/46544">Trac #46544</a>, <a href="https://core.trac.wordpress.org/ticket/66460">Trac #66460</a></p>
+
+
+
+<h3 class="wp-block-heading">Further Refinements to Ipsum</h3>
+
+
+
+<p class="wp-block-paragraph">The new default theme, Ipsum, receives another round of improvements in WordPress 7.2 Beta 5. Accessibility enhancements include improved keyboard focus indicators and view transitions that respect reduced-motion preferences. Additional refinements to block styles and patterns provide greater design flexibility, while optimized stylesheets and other under-the-hood improvements help prepare the theme for its final release.</p>
+
+
+
+<p class="wp-block-paragraph"><strong>Learn more:</strong> <a href="https://core.trac.wordpress.org/ticket/66631">Trac #66631</a>, <a href="https://github.com/WordPress/ipsum/pull/198">GitHub #198</a>, <a href="https://github.com/WordPress/ipsum/pull/187">GitHub #187</a>, <a href="https://github.com/WordPress/ipsum/pull/180">GitHub #180</a></p>
+
+
+
+<h3 class="wp-block-heading">PHP 8.6 Compatibility Improvements</h3>
+
+
+
+<p class="wp-block-paragraph">WordPress 7.2 aims to fully support PHP 8.6, which is scheduled to be released on November 19, 2026. The WordPress project has a long history of being compatible with new versions of PHP as soon as possible, and this release is no different.</p>
+
+
+
+<p class="wp-block-paragraph">As of the Beta 5 release, all known compatibility issues with PHP 8.6 have been resolved.</p>
+
+
+
+<p class="wp-block-paragraph">While all of the known issues in WordPress have been addressed, you will need to verify that all of your plugins and themes are also compatible with PHP 8.6 prior to upgrading. Keep an eye on the Making WordPress Core blog in the coming days for more detailed information about what to look for.</p>
+
+
+
+<p class="wp-block-paragraph">WordPress continues to encourage all users to run the latest and greatest versions of PHP.</p>
+
+
+
+<p class="wp-block-paragraph"><strong>Learn more:</strong> <a href="https://core.trac.wordpress.org/ticket/66648">Trac #66648</a></p>
+
+
+
+<h2 class="wp-block-heading">How important is your testing?</h2>
+
+
+
+<p class="wp-block-paragraph">Testing for issues is a critical part of developing any software, and it’s a meaningful way for anyone to contribute – whether or not you have experience. <a href="https://make.wordpress.org/test/2026/10/20/help-test-wordpress-7-2/">Details on what to test in WordPress 7.2 are available here</a>.</p>
+
+
+
+<p class="wp-block-paragraph">If you encounter an issue, please share it in the <a href="https://wordpress.org/support/forum/alphabeta/" rel="noopener" target="_blank">Alpha/Beta area</a> of the support forums. If you are comfortable submitting a reproducible bug report, you can do so <a href="https://core.trac.wordpress.org/newticket" rel="noopener" target="_blank">via WordPress Trac</a>. You can also check your issue against this list of <a href="https://core.trac.wordpress.org/tickets/major" rel="noopener" target="_blank">known bugs</a>.</p>
+
+
+
+<p class="wp-block-paragraph">Curious about testing releases in general and how to get started? Follow along with the <a href="https://make.wordpress.org/test/">testing initiatives in Make Core</a> and join the <a href="https://wordpress.slack.com/messages/core-test/">#core-test channel</a> on <a href="https://wordpress.slack.com/">Making WordPress Slack</a>.</p>
+
+
+
+<h2 class="wp-block-heading">A Beta 5 haiku</h2>
+
+
+
+<p class="wp-block-paragraph"><em>One last beta blooms<br>Release candidate awaits<br>The finish draws near</em></p>
+
+
+
+<p class="has-text-align-right wp-block-paragraph"><em>Props to <a href='https://profiles.wordpress.org/audrasjb/' class='mention'><span class='mentions-prefix'>@</span>audrasjb</a> and <a href='https://profiles.wordpress.org/desrosj/' class='mention'><span class='mentions-prefix'>@</span>desrosj</a> for pre-publish review.</em></p>
+
+
+
+<p class="wp-block-paragraph"></p>
+]]></content:encoded>
+					
+		
+		
+		<post-id xmlns="com-wordpress:feed-additions:1">21967</post-id>	</item>
+		<item>
+		<title>WordPress 7.2 Beta 4</title>
+		<link>https://wordpress.org/news/2026/11/wordpress-7-2-beta-4/</link>
+		
+		<dc:creator><![CDATA[David Baumwald]]></dc:creator>
+		<pubDate>Tue, 03 Nov 2026 15:45:29 +0000</pubDate>
+				<category><![CDATA[Development]]></category>
+		<category><![CDATA[Releases]]></category>
+		<category><![CDATA[7.2]]></category>
+		<category><![CDATA[development]]></category>
+		<category><![CDATA[release]]></category>
+		<guid isPermaLink="false">https://wordpress.org/news/?p=21907</guid>
+
+					<description><![CDATA[WordPress 7.2 Beta 4 is ready for download and testing! This beta release is intended for testing and development only. Please do not install, run, or test this version of WordPress on production or mission-critical websites. Instead, use a test environment or local site to explore the new features. Wait, what happened to 7.2 Beta [&#8230;]]]></description>
+										<content:encoded><![CDATA[
+<p class="wp-block-paragraph">WordPress 7.2 Beta 4 is ready for download and testing!</p>
+
+
+
+<p class="wp-block-paragraph"><strong>This beta release is intended for testing and development</strong> only. Please do not install, run, or test this version of WordPress on production or mission-critical websites. Instead, use a test environment or local site to explore the new features.</p>
+
+
+
+<h3 class="wp-block-heading">Wait, what happened to 7.2 Beta 3???</h3>
+
+
+
+<p class="wp-block-paragraph"><a href="https://wordpress.org/news/2026/10/wordpress-7-1-4/">WordPress 7.1.4 was released on October 28</a> which included WordPress 7.2 Beta 3.</p>
+
+
+
+<h2 class="wp-block-heading">How to Test WordPress 7.2 Beta 4</h2>
+
+
+
+<p class="wp-block-paragraph">You can test WordPress 7.2 Beta 4 in any of the following ways:</p>
+
+
+
+<figure class="wp-block-table"><table class="has-fixed-layout"><tbody><tr><td><strong>WordPress Beta Tester Plugin</strong></td><td>Install and activate the <a href="https://wordpress.org/plugins/wordpress-beta-tester/" rel="noreferrer noopener" target="_blank">WordPress Beta Tester</a> plugin on a WordPress install. Select the “Bleeding edge” channel and “Beta/RC Only” stream.</td></tr><tr><td><strong>Direct Download</strong></td><td>Download the <a href="https://wordpress.org/wordpress-7.2-beta4.zip">Beta 4 version (zip)</a> and install it on a WordPress website.</td></tr><tr><td><strong>Command Line (WP-CLI)</strong></td><td>Use this <a href="https://make.wordpress.org/cli/" rel="noreferrer noopener" target="_blank">WP-CLI</a> command: <br><code>wp core update --version=7.2-beta4</code></td></tr><tr><td><strong>WordPress Playground</strong></td><td>Use a <a href="https://playground.wordpress.net/release" rel="noopener" target="_blank">7.2 Beta 4 WordPress Playground instance</a> to test the software directly in your browser. No setup required-just click and go!</td></tr></tbody></table></figure>
+
+
+
+<p class="wp-block-paragraph">The scheduled final release date for WordPress 7.2 is <strong><strong>December 8, 2026</strong></strong>. The full <a href="https://make.wordpress.org/core/2026/10/06/wordpress-7-2-release-party-schedule/">release schedule can be found here</a>. Your help testing Beta and RC versions is vital to making this release as stable and powerful as possible. Thank you to everyone who contributes by testing!</p>
+
+
+
+<h2 class="wp-block-heading">What&#8217;s in WordPress 7.2 Beta 4?</h2>
+
+
+
+<p class="wp-block-paragraph">For technical details on the issues addressed since Beta 2, see the following links:</p>
+
+
+
+<ul class="wp-block-list">
+<li><a href="https://core.trac.wordpress.org/query?status=closed&amp;changetime=10%2F27%2F2026..11%2F03%2F2026&amp;milestone=7.2&amp;group=component&amp;col=id&amp;col=milestone&amp;col=owner&amp;col=type&amp;col=priority&amp;order=id">Closed 7.2 WordPress Core Trac tickets</a> since October 27, 2026</li>
+
+
+
+<li><a href="https://github.com/WordPress/gutenberg/commits/wp/7.2?since=2026-10-27&amp;until=2026-11-03">7.2 Gutenberg commits</a> since October 27, 2026</li>
+</ul>
+
+
+
+<h3 class="wp-block-heading">Continued Improvements to WordPress 7.2</h3>
+
+
+
+<p class="wp-block-paragraph">WordPress 7.2 Beta 4 continues refining the upcoming release with improvements to accessibility, editor reliability, and developer APIs, alongside additional bug fixes and compatibility updates.</p>
+
+
+
+<p class="wp-block-paragraph">Recent work includes improved keyboard focus visibility in Windows High Contrast mode, refinements to administration interfaces, and fixes for right-to-left block alignment and custom block spacing.</p>
+
+
+
+<p class="wp-block-paragraph">Developers will also benefit from continued improvements to the Abilities API, DataViews extensibility, and REST API behavior. Additional fixes strengthen revision handling, input validation, and compatibility across supported environments.</p>
+
+
+
+<p class="wp-block-paragraph"><strong>Learn more:</strong> <a href="https://core.trac.wordpress.org/ticket/45910">Trac #45910</a>, <a href="https://core.trac.wordpress.org/ticket/66382">Trac #66382</a>, <a href="https://core.trac.wordpress.org/ticket/66427">Trac #66427</a>, <a href="https://core.trac.wordpress.org/ticket/66383">Trac #66383</a>, <a href="https://core.trac.wordpress.org/ticket/66343">Trac #66343</a>, <a href="https://core.trac.wordpress.org/ticket/66329">Trac #66329</a></p>
+
+
+
+<h3 class="wp-block-heading">Continued Improvements to Ipsum</h3>
+
+
+
+<p class="wp-block-paragraph">The new default theme, Ipsum, continues to receive refinements ahead of WordPress 7.2&#8217;s final release. Recent updates improve accessibility with clearer keyboard focus indicators, more descriptive screen reader links, and better support for right-to-left languages. Additional improvements refine block patterns, touch target spacing, and color palette compatibility with other default themes.</p>
+
+
+
+<p class="wp-block-paragraph"><strong>Learn more:</strong> <a href="https://core.trac.wordpress.org/ticket/66352">Trac #66352</a>, <a href="https://github.com/WordPress/wordpress-develop/pull/15113">GitHub #15113</a></p>
+
+
+
+<h3 class="wp-block-heading">Improved Translation Update Management</h3>
+
+
+
+<p class="wp-block-paragraph">WordPress 7.2 makes managing translation updates easier by displaying individual available updates on the Updates screen. Administrators can now review and selectively install translation updates, bringing language management in line with the familiar plugin and theme update experience.</p>
+
+
+
+<p class="wp-block-paragraph"><strong>Learn more:</strong> <a href="https://core.trac.wordpress.org/ticket/42281">Trac #42281</a>, <a href="https://github.com/WordPress/wordpress-develop/pull/11610">GitHub #11610</a></p>
+
+
+
+<h2 class="wp-block-heading">How important is your testing?</h2>
+
+
+
+<p class="wp-block-paragraph">Testing for issues is a critical part of developing any software, and it’s a meaningful way for anyone to contribute – whether or not you have experience. <a href="https://make.wordpress.org/test/2026/10/20/help-test-wordpress-7-2/">Details on what to test in WordPress 7.2 are available here</a>.</p>
+
+
+
+<p class="wp-block-paragraph">If you encounter an issue, please share it in the <a href="https://wordpress.org/support/forum/alphabeta/" rel="noopener" target="_blank">Alpha/Beta area</a> of the support forums. If you are comfortable submitting a reproducible bug report, you can do so <a href="https://core.trac.wordpress.org/newticket" rel="noopener" target="_blank">via WordPress Trac</a>. You can also check your issue against this list of <a href="https://core.trac.wordpress.org/tickets/major" rel="noopener" target="_blank">known bugs</a>.</p>
+
+
+
+<p class="wp-block-paragraph">Curious about testing releases in general and how to get started? Follow along with the <a href="https://make.wordpress.org/test/">testing initiatives in Make Core</a> and join the <a href="https://wordpress.slack.com/messages/core-test/">#core-test channel</a> on <a href="https://wordpress.slack.com/">Making WordPress Slack</a>.</p>
+
+
+
+<h2 class="wp-block-heading">A Beta 4 haiku</h2>
+
+
+
+<p class="wp-block-paragraph"><em>Where did Beta Three go?<br>A surprise along the way<br>Four arrives on cue</em>.</p>
+
+
+
+<p class="has-text-align-right wp-block-paragraph"><em>Props to <a href='https://profiles.wordpress.org/audrasjb/' class='mention'><span class='mentions-prefix'>@</span>audrasjb</a>, <a href='https://profiles.wordpress.org/courane01/' class='mention'><span class='mentions-prefix'>@</span>courane01</a>, <a href='https://profiles.wordpress.org/huzaifaalmesbah/' class='mention'><span class='mentions-prefix'>@</span>huzaifaalmesbah</a> for pre-publish review</em>.</p>
+]]></content:encoded>
+					
+		
+		
+		<post-id xmlns="com-wordpress:feed-additions:1">21907</post-id>	</item>
+		<item>
+		<title>WordPress 7.1.4</title>
+		<link>https://wordpress.org/news/2026/10/wordpress-7-1-4/</link>
+		
+		<dc:creator><![CDATA[Aaron Jorbin]]></dc:creator>
+		<pubDate>Wed, 28 Oct 2026 17:13:02 +0000</pubDate>
+				<category><![CDATA[Releases]]></category>
+		<category><![CDATA[Security]]></category>
+		<guid isPermaLink="false">https://wordpress.org/news/?p=21896</guid>
+
+					<description><![CDATA[This security release features fixes for multiple issues. Because this is a security release, it is recommended that you update your sites immediately. You can download WordPress 7.1.4 from WordPress.org, or visit your WordPress Dashboard, click “Updates”, and then click “Update Now”. If you have sites that support automatic background updates, the update process will [&#8230;]]]></description>
+										<content:encoded><![CDATA[
+<p class="wp-block-paragraph">This security release features fixes for multiple issues.</p>
+
+
+
+<p class="wp-block-paragraph"><strong>Because this is a security release, it is recommended that you update your sites immediately.</strong></p>
+
+
+
+<p class="wp-block-paragraph">You can <a href="https://wordpress.org/download/">download WordPress 7.1.4 from WordPress.org</a>, or visit your WordPress Dashboard, click “Updates”, and then click “Update Now”. If you have sites that support automatic background updates, the update process will begin automatically.<br>WordPress 7.1.4 is a short-cycle release. The next major release will be <a href="https://make.wordpress.org/core/7-2/">version 7.2</a>, currently planned for December 8th.</p>
+
+
+
+<p class="wp-block-paragraph">For more information, please visit the <a href="https://wordpress.org/documentation/wordpress-version/version-7-1-4/">WordPress 7.1.4 HelpHub site</a>.</p>
+
+
+
+<h2 class="wp-block-heading">Security updates included in this release</h2>
+
+
+
+<p class="wp-block-paragraph">The security team would like to thank the following people and organizations for responsibly reporting vulnerabilities, and allowing them to be fixed in this release:</p>
+
+
+
+<ul class="wp-block-list">
+<li>A weakness in the WordPress upgrade process which can lead to remote code execution during the upgrade window, reported by <a href="https://www.picussecurity.com/resource/author/umut-bayram">Umut Bayram</a>.</li>
+
+
+
+<li>A stored XSS with specially crafted block markup, reported by <a href="https://www.linkedin.com/in/rafiemuhammad/">Rafie Muhammad</a> (Awesome Motive, Inc.).</li>
+
+
+
+<li>Privacy Data Removal Requests can be created in a way that leads to stored XSS, reported by Anthropic.</li>
+
+
+
+<li>Multiple stored XSS issues in the Interactivity API independently discovered by AnC and DatNLQ from VietSunshine Cyber Security, rekter0 and Anas cherni, <a href="https://decentsecurity.io/">Marcel Karlsson (whoismarcel)</a>, and Weston Ruter, Jon Surrell, Alex Concha, and Luis Herranz of the WordPress Security Team.</li>
+
+
+
+<li>A stored denial of service issue in the Interactivity API, reported by Jon Surrell of the WordPress Security Team.</li>
+
+
+
+<li>A stored XSS in Customizer selective refresh, reported by <a href="https://www.linkedin.com/in/rafiemuhammad/">Rafie Muhammad</a> (Awesome Motive, Inc.).</li>
+
+
+
+<li>A Stored XSS in the Categories block reported by Ben Bidner of the WordPress Security Team.</li>
+
+
+
+<li>Specially crafted User Logins can lead to a stored XSS reported by Anthropic.</li>
+
+
+
+<li>Unpublished customizer changesets can be discovered by unauthenticated users, reported by <a href="https://www.linkedin.com/in/antoniolorensius/">Antonio Lorensius Silaban</a>.</li>
+
+
+
+<li>A Stored XSS in Playlist and image blocks, reported by Ben Bidner of the WordPress Security Team.</li>
+
+
+
+<li>Stored XSS in <code>core/comments-pagination-next</code> and <code>core/comments-pagination-previous</code> blocks, reported by Alex Concha of the WordPress Security Team.</li>
+
+
+
+<li>Notes can be read by privileged users that lack access to edit the post the note is attached to, reported by Ramon of the WordPress Security Team.</li>
+
+
+
+<li>An update to the bundled root certificates due to the eMudhra revocation.</li>
+</ul>
+
+
+
+<h2 class="wp-block-heading">Thank you to these WordPress contributors</h2>
+
+
+
+<p class="wp-block-paragraph">This release was led by <a href="https://profiles.wordpress.org/jorbin/">Aaron Jorbin</a> and <a href="https://profiles.wordpress.org/ntsekouras/">Nik Tsekouras</a>. WordPress 7.1.4 would not have been possible without the contributions of the following people:</p>
+
+
+
+<p class="is-style-wporg-props-medium wp-block-paragraph"><a href="https://w.org/@jorbin">Aaron Jorbin</a>, <a href="https://w.org/@adamsilverstein">Adam Silverstein</a>, <a href="https://w.org/@xknown">Alex Concha</a>, <a href="https://w.org/@aduth">Andrew Duthie</a>, <a href="https://w.org/@andrewserong">Andrew Serong</a>, <a href="https://w.org/@darerodz">David Arenas</a>, <a href="https://w.org/@dmsnell">Dennis Snell</a>, <a href="https://w.org/@ellatrix">Ella Van Durpe</a>, <a href="https://w.org/@mamaduka">George Mamadashvili</a>, <a href="https://w.org/@isabel_brison">Isabel Brison</a>, <a href="https://w.org/@whyisjake">Jake Spurlock</a>, <a href="https://w.org/@audrasjb">Jb Audras</a>, <a href="https://w.org/@jeremyfelt">Jeremy Felt</a>, <a href="https://w.org/@johnbillion">John Blackbourn</a>, <a href="https://w.org/@jonsurrell">Jon Surrell</a>, <a href="https://w.org/@desrosj">Jonathan Desrosiers</a>, <a href="https://profiles.wordpress.org/kirasong/">Kira Song,</a><a href="https://w.org/@lancewillett">Lance Willett</a>, <a href="https://w.org/@luisherranz">luisherranz</a>, <a href="https://w.org/@mciampini">Marco Ciampini</a>, <a href="https://w.org/@marcs0h">marcs0h</a>, <a href="https://w.org/@tyxla">Marin Atanasov</a>, <a href="https://w.org/@santosguillamot">Mario Santos</a>, <a href="https://w.org/@mcsf">Miguel Fonseca</a>, <a href="https://w.org/@ntsekouras">Nik Tsekouras</a>, <a href="https://w.org/@peterwilsoncc">Peter Wilson</a>, <a href="https://w.org/@ramonopoly">ramonopoly</a>, <a href="https://w.org/@rfaile313">Rudy Faile</a>, <a href="https://w.org/@sergeybiryukov">Sergey Biryukov</a>, <a href="https://w.org/@umut3806">umut3806</a>, <a href="https://w.org/@westonruter">Weston Ruter</a></p>
+
+
+
+<h2 class="wp-block-heading">Backports</h2>
+
+
+
+<p class="wp-block-paragraph">As a courtesy, the security fixes were backported to all branches eligible to receive security fixes (currently through 4.7). As a reminder, <strong>only the most recent version of WordPress is actively supported</strong>. The backports are in progress and will ship as they become ready.</p>
+
+
+
+<p class="wp-block-paragraph">WordPress 7.2 Beta 3 has also been released, containing all applicable fixes.</p>
+]]></content:encoded>
+					
+		
+		
+		<post-id xmlns="com-wordpress:feed-additions:1">21896</post-id>	</item>
+		<item>
+		<title>WordPress 7.2 Beta 2 </title>
+		<link>https://wordpress.org/news/2026/10/wordpress-7-2-beta-2/</link>
+		
+		<dc:creator><![CDATA[David Baumwald]]></dc:creator>
+		<pubDate>Tue, 27 Oct 2026 15:49:21 +0000</pubDate>
+				<category><![CDATA[Development]]></category>
+		<category><![CDATA[Releases]]></category>
+		<category><![CDATA[7.2]]></category>
+		<category><![CDATA[development]]></category>
+		<category><![CDATA[release]]></category>
+		<guid isPermaLink="false">https://wordpress.org/news/?p=21890</guid>
+
+					<description><![CDATA[WordPress 7.2 Beta 2 is ready for download and testing!  This beta release is intended for testing and development only. Please do not install, run, or test this version of WordPress on production or mission-critical websites. Instead, use a test environment or local site to explore the new features. How to Test WordPress 7.2 Beta [&#8230;]]]></description>
+										<content:encoded><![CDATA[
+<p class="wp-block-paragraph">WordPress 7.2 Beta 2 is ready for download and testing! </p>
+
+
+
+<p class="wp-block-paragraph"><strong>This beta release is intended for testing and development</strong> only. Please do not install, run, or test this version of WordPress on production or mission-critical websites. Instead, use a test environment or local site to explore the new features.</p>
+
+
+
+<h2 class="wp-block-heading">How to Test WordPress 7.2 Beta 2</h2>
+
+
+
+<p class="wp-block-paragraph">You can test WordPress 7.2 Beta 2 in any of the following ways:</p>
+
+
+
+<figure class="wp-block-table"><table class="has-fixed-layout"><tbody><tr><td><strong>WordPress Beta Tester Plugin</strong></td><td>Install and activate the <a href="https://wordpress.org/plugins/wordpress-beta-tester/" rel="noreferrer noopener" target="_blank">WordPress Beta Tester</a> plugin on a WordPress install. Select the “Bleeding edge” channel and “Beta/RC Only” stream.</td></tr><tr><td><strong>Direct Download</strong></td><td>Download the <a href="https://wordpress.org/wordpress-7.2-beta2.zip">Beta 2 version (zip)</a> and install it on a WordPress website.</td></tr><tr><td><strong>Command Line (WP-CLI)</strong></td><td>Use this <a href="https://make.wordpress.org/cli/" rel="noreferrer noopener" target="_blank">WP-CLI</a> command: <br><code>wp core update --version=7.2-beta2</code></td></tr><tr><td><strong>WordPress Playground</strong></td><td>Use a <a href="https://playground.wordpress.net/?site-slug=kind-classic-mountain&amp;networking=no&amp;php=8.3&amp;wp=beta&amp;language=&amp;multisite=no" rel="noopener" target="_blank">7.2 Beta 2 WordPress Playground instance</a> to test the software directly in your browser. No setup required-just click and go!</td></tr></tbody></table></figure>
+
+
+
+<p class="wp-block-paragraph">The scheduled final release date for WordPress 7.2 is <strong><strong>December 8, 2026</strong></strong>. The full <a href="https://make.wordpress.org/core/2026/10/06/wordpress-7-2-release-party-schedule/">release schedule can be found here</a>. Your help testing Beta and RC versions is vital to making this release as stable and powerful as possible. Thank you to everyone who contributes by testing!</p>
+
+
+
+<h2 class="wp-block-heading">What&#8217;s in WordPress 7.2 Beta 2?</h2>
+
+
+
+<p class="wp-block-paragraph">For technical details on the issues addressed since Beta 1, see the following links:</p>
+
+
+
+<ul class="wp-block-list">
+<li><a href="https://core.trac.wordpress.org/query?status=closed&amp;changetime=10%2F21%2F2026..10%2F28%2F2026&amp;milestone=7.2&amp;group=component&amp;col=id&amp;col=milestone&amp;col=owner&amp;col=type&amp;col=priority&amp;order=id">Closed 7.2 WordPress Core Trac tickets</a> since October 20, 2026</li>
+
+
+
+<li><a href="https://github.com/WordPress/gutenberg/commits/wp/7.2?since=2026-10-21&amp;until=2026-10-28">7.2 Gutenberg commits</a> since October 20, 2026</li>
+</ul>
+
+
+
+<h3 class="wp-block-heading">Continued Improvements to WordPress 7.2</h3>
+
+
+
+<p class="wp-block-paragraph">WordPress 7.2 Beta 2 builds on the first beta with additional enhancements, bug fixes, and refinements across the administration experience and developer APIs.</p>
+
+
+
+<p class="wp-block-paragraph">Development continues on the <strong>Abilities API</strong>, including content querying, capability requirements, and improvements to schema handling and permissions. New server-side registration capabilities for <strong>DataViews and DataForm</strong> also provide developers with more ways to extend WordPress interfaces.</p>
+
+
+
+<p class="wp-block-paragraph">Additional work includes improvements to REST API flexibility, admin asset loading, and the transition to modern SVG icons throughout WordPress administration.</p>
+
+
+
+<p class="wp-block-paragraph"><strong>Learn more:</strong> <a href="https://core.trac.wordpress.org/ticket/66268">Trac #66268</a>, <a href="https://core.trac.wordpress.org/ticket/66325">Trac #66325</a>, <a href="https://core.trac.wordpress.org/ticket/66229">Trac #66229</a>, <a href="https://core.trac.wordpress.org/ticket/66343">Trac #66343</a>, <a href="https://core.trac.wordpress.org/ticket/57548">Trac #57548</a>, <a href="https://core.trac.wordpress.org/ticket/65089">Trac #65089</a></p>
+
+
+
+<h2 class="wp-block-heading">How important is your testing?</h2>
+
+
+
+<p class="wp-block-paragraph">Testing for issues is a critical part of developing any software, and it’s a meaningful way for anyone to contribute – whether or not you have experience. <a href="https://make.wordpress.org/test/2026/10/20/help-test-wordpress-7-2/">Details on what to test in WordPress 7.2 are available here</a>.</p>
+
+
+
+<p class="wp-block-paragraph">If you encounter an issue, please share it in the <a href="https://wordpress.org/support/forum/alphabeta/" rel="noopener" target="_blank">Alpha/Beta area</a> of the support forums. If you are comfortable submitting a reproducible bug report, you can do so <a href="https://core.trac.wordpress.org/newticket" rel="noopener" target="_blank">via WordPress Trac</a>. You can also check your issue against this list of <a href="https://core.trac.wordpress.org/tickets/major" rel="noopener" target="_blank">known bugs</a>.</p>
+
+
+
+<p class="wp-block-paragraph">Curious about testing releases in general and how to get started? Follow along with the <a href="https://make.wordpress.org/test/">testing initiatives in Make Core</a> and join the <a href="https://wordpress.slack.com/messages/core-test/">#core-test channel</a> on <a href="https://wordpress.slack.com/">Making WordPress Slack</a>.</p>
+
+
+
+<h2 class="wp-block-heading">A Beta 2 haiku</h2>
+
+
+
+<p class="wp-block-paragraph"><em>Second beta takes shape<br>New abilities take root<br>WordPress grows stronger</em></p>
+
+
+
+<p class="has-text-align-right wp-block-paragraph"><em>Props to <a href='https://profiles.wordpress.org/mamaduka/' class='mention'><span class='mentions-prefix'>@</span>mamaduka</a> for pre-publish review</em>.</p>
+]]></content:encoded>
+					
+		
+		
+		<post-id xmlns="com-wordpress:feed-additions:1">21890</post-id>	</item>
+		<item>
+		<title>WordPress 7.2 Beta 1 is Ready for Download and Testing</title>
+		<link>https://wordpress.org/news/2026/10/wordpress-7-2-beta-1-is-ready-for-download-and-testing/</link>
+		
+		<dc:creator><![CDATA[David Baumwald]]></dc:creator>
+		<pubDate>Tue, 20 Oct 2026 16:02:09 +0000</pubDate>
+				<category><![CDATA[Development]]></category>
+		<category><![CDATA[Releases]]></category>
+		<category><![CDATA[7.2]]></category>
+		<category><![CDATA[development]]></category>
+		<category><![CDATA[release]]></category>
+		<guid isPermaLink="false">https://wordpress.org/news/?p=21813</guid>
+
+					<description><![CDATA[This beta release is intended for testing and development only. Please do not install, run, or test this version of WordPress on production or mission-critical websites. Instead, use a test environment or local site to explore the new features. How to Test WordPress 7.2 Beta 1 You can test WordPress 7.2 Beta 1 in any of [&#8230;]]]></description>
+										<content:encoded><![CDATA[
+<p class="wp-block-paragraph"><strong>This beta release is intended for testing and development</strong> only. Please do not install, run, or test this version of WordPress on production or mission-critical websites. Instead, use a test environment or local site to explore the new features.</p>
+
+
+
+<h2 class="wp-block-heading">How to Test WordPress 7.2 Beta 1</h2>
+
+
+
+<p class="wp-block-paragraph">You can test WordPress 7.2 Beta 1 in any of the following ways:</p>
+
+
+
+<figure class="wp-block-table"><table class="has-fixed-layout"><tbody><tr><td><strong>WordPress Beta Tester Plugin</strong></td><td>Install and activate the <a href="https://wordpress.org/plugins/wordpress-beta-tester/" rel="noreferrer noopener" target="_blank">WordPress Beta Tester</a> plugin on a WordPress install. Select the “Bleeding edge” channel and “Beta/RC Only” stream.</td></tr><tr><td><strong>Direct Download</strong></td><td>Download the <a href="https://wordpress.org/wordpress-7.2-beta1.zip">Beta 1 version (zip)</a> and install it on a WordPress website.</td></tr><tr><td><strong>Command Line (WP-CLI)</strong></td><td>Use this <a href="https://make.wordpress.org/cli/" rel="noreferrer noopener" target="_blank">WP-CLI</a> command: <br><code>wp core update --version=7.2-beta1</code></td></tr><tr><td><strong>WordPress Playground</strong></td><td>Use a <a data-id="https://playground.wordpress.net/?php=8.3&amp;wp=beta&amp;language=&amp;multisite=no" data-type="link" href="https://playground.wordpress.net/?php=8.3&amp;wp=beta&amp;language=&amp;multisite=no" rel="noopener" target="_blank">7.2 Beta 1 WordPress Playground instance</a> to test the software directly in your browser. No setup required-just click and go!</td></tr></tbody></table></figure>
+
+
+
+<p class="wp-block-paragraph">The scheduled final release date for WordPress 7.2 is <strong>December 8, 2026</strong>. The full <a data-id="https://make.wordpress.org/core/2026/07/03/wordpress-7-1-release-party-schedule/" data-type="link" href="https://make.wordpress.org/core/2026/10/06/wordpress-7-2-release-party-schedule/" rel="noopener" target="_blank">release schedule can be found here</a>. Your help testing Beta and RC versions is vital to making this release as stable and powerful as possible. Thank you to everyone who contributes by testing!</p>
+
+
+
+<h2 class="wp-block-heading">Editing Experience</h2>
+
+
+
+<h3 class="wp-block-heading">Responsive Design Controls</h3>
+
+
+
+<p class="wp-block-paragraph">Building on the responsive design improvements introduced in WordPress 7.1, WordPress 7.2 expands viewport-specific styling to additional design tools and blocks. Creators gain more granular control over how layouts and visual settings adapt across screen sizes, including responsive Gallery settings for columns, image cropping, and aspect ratios.</p>
+
+
+
+<p class="wp-block-paragraph"><strong>Learn more:</strong> <a href="https://github.com/WordPress/gutenberg/issues/80388">GitHub #80388</a>, <a href="https://github.com/WordPress/gutenberg/pull/82003">#82003</a></p>
+
+
+
+<h3 class="wp-block-heading">Improved Global Styles and Design Tools</h3>
+
+
+
+<figure class="wp-block-image size-large"><img data-recalc-dims="1" fetchpriority="high" decoding="async" width="1024" height="576" alt="" class="wp-image-21825" role="none" src="https://i0.wp.com/wordpress.org/news/files/2026/10/Forms-Global-1.webp?resize=1024%2C576&#038;ssl=1" srcset="https://i0.wp.com/wordpress.org/news/files/2026/10/Forms-Global-1.webp?resize=1024%2C576&amp;ssl=1 1024w, https://i0.wp.com/wordpress.org/news/files/2026/10/Forms-Global-1.webp?resize=300%2C169&amp;ssl=1 300w, https://i0.wp.com/wordpress.org/news/files/2026/10/Forms-Global-1.webp?resize=768%2C432&amp;ssl=1 768w, https://i0.wp.com/wordpress.org/news/files/2026/10/Forms-Global-1.webp?resize=1536%2C864&amp;ssl=1 1536w, https://i0.wp.com/wordpress.org/news/files/2026/10/Forms-Global-1.webp?w=1920&amp;ssl=1 1920w" sizes="(max-width: 1000px) 100vw, 1000px" /></figure>
+
+
+
+<p class="wp-block-paragraph">WordPress 7.2 makes site-wide styling easier to manage with a new <em>Customized</em> filter for finding blocks with modified styles and inherited Global Styles values displayed directly in block inspector controls. Expanded design tools and support for styling form elements provide additional flexibility when creating a consistent visual identity across a site.</p>
+
+
+
+<p class="wp-block-paragraph"><strong>Learn more:</strong> <a href="https://github.com/WordPress/gutenberg/issues/82520">GitHub #82520</a>, <a href="https://github.com/WordPress/gutenberg/issues/76525">#76525</a>, <a href="https://github.com/WordPress/gutenberg/issues/34198">#34198</a>, <a href="https://github.com/WordPress/gutenberg/pull/84657">#84657</a></p>
+
+
+
+<h3 class="wp-block-heading">Text Shadow Support</h3>
+
+
+
+<p class="wp-block-paragraph">WordPress 7.2 introduces new text shadow controls, giving creators more ways to add depth and emphasis to their content. Text shadows can be customized through block settings and defined as presets in <code>theme.json</code>, making it easier to maintain consistent typography across a site.</p>
+
+
+
+<p class="wp-block-paragraph"><strong>Learn more:</strong> <a href="https://github.com/WordPress/gutenberg/pull/73320">GitHub #73320</a>, <a href="https://github.com/WordPress/gutenberg/pull/79584">GitHub #79584</a>, <a href="https://core.trac.wordpress.org/ticket/65869">Trac #65869</a></p>
+
+
+
+<h3 class="wp-block-heading">Easier Navigation Management</h3>
+
+
+
+<p class="wp-block-paragraph">Improvements to the Site Editor make managing navigation links more intuitive. Creators can add, organize, and edit navigation items directly from the editor sidebar, making it easier to maintain site menus without interrupting their editing workflow.</p>
+
+
+
+<p class="wp-block-paragraph"><strong>Learn more:</strong> <a href="https://github.com/WordPress/gutenberg/issues/77069">GitHub #77069</a></p>
+
+
+
+<h3 class="wp-block-heading">Better Collaboration with Notes</h3>
+
+
+
+<figure class="wp-block-image size-large"><img data-recalc-dims="1" decoding="async" width="1024" height="576" alt="" class="wp-image-21820" role="none" src="https://i0.wp.com/wordpress.org/news/files/2026/10/Emojis-in-Notes.webp?resize=1024%2C576&#038;ssl=1" srcset="https://i0.wp.com/wordpress.org/news/files/2026/10/Emojis-in-Notes.webp?resize=1024%2C576&amp;ssl=1 1024w, https://i0.wp.com/wordpress.org/news/files/2026/10/Emojis-in-Notes.webp?resize=300%2C169&amp;ssl=1 300w, https://i0.wp.com/wordpress.org/news/files/2026/10/Emojis-in-Notes.webp?resize=768%2C432&amp;ssl=1 768w, https://i0.wp.com/wordpress.org/news/files/2026/10/Emojis-in-Notes.webp?resize=1536%2C864&amp;ssl=1 1536w, https://i0.wp.com/wordpress.org/news/files/2026/10/Emojis-in-Notes.webp?w=1920&amp;ssl=1 1920w" sizes="(max-width: 1000px) 100vw, 1000px" /></figure>
+
+
+
+<p class="wp-block-paragraph">WordPress 7.2 introduces Emoji reactions on notes and a new toolbar icon that makes Notes easier to access and manage. Notes move to the editor canvas, bringing conversations directly into the margin. Users can now keep Notes and the block settings sidebar open simultaneously, making it easier to review feedback while editing content.</p>
+
+
+
+<p class="wp-block-paragraph">A new minimized Notes mode reduces visual clutter, while improvements to positioning and display create a smoother, more consistent collaboration experience.</p>
+
+
+
+<p class="wp-block-paragraph"><strong>Learn more:</strong> <a href="https://github.com/WordPress/gutenberg/issues/79970">GitHub #79970</a>, <a href="https://github.com/WordPress/gutenberg/pull/83786">GitHub #83786</a>, <a href="https://github.com/WordPress/gutenberg/issues/80015">GitHub #80015</a>, <a href="https://core.trac.wordpress.org/ticket/64638">Trac #64638</a></p>
+
+
+
+<h3 class="wp-block-heading">Faster, More Efficient Media Uploads</h3>
+
+
+
+<p class="wp-block-paragraph">WordPress 7.2 expands client-side media processing to the Media Library, allowing images to be resized, compressed, and converted directly in the browser before being uploaded. This can improve upload performance, reduce server resource usage, and provide better support for modern image formats, particularly on hosting environments with limited image-processing capabilities.</p>
+
+
+
+<p class="wp-block-paragraph"><strong>Learn more:</strong> <a href="https://core.trac.wordpress.org/ticket/65661">Trac #65661</a>, <a href="https://github.com/WordPress/wordpress-develop/pull/12585">GitHub #12585</a></p>
+
+
+
+<h3 class="wp-block-heading">New “On This Day” Dashboard Widget</h3>
+
+
+
+<p class="wp-block-paragraph">WordPress 7.2 introduces a new <strong>On This Day</strong> dashboard widget that helps users rediscover content published on the same date in previous years. By highlighting posts from the site&#8217;s history, the widget makes it easier to revisit past content, celebrate milestones, and find opportunities to refresh or reshare older posts.</p>
+
+
+
+<p class="wp-block-paragraph"><strong>Learn more:</strong> <a href="https://core.trac.wordpress.org/ticket/65116">Trac #65116</a></p>
+
+
+
+<h3 class="wp-block-heading">Block Editor Usability Improvements</h3>
+
+
+
+<p class="wp-block-paragraph">WordPress 7.2 includes a collection of smaller improvements aimed at reducing friction in everyday editing. These changes include clearer error messages, more helpful feedback when something goes wrong, and refinements to common editor interactions, making the editing experience more predictable and approachable.</p>
+
+
+
+<figure class="wp-block-image size-large"><img data-recalc-dims="1" decoding="async" width="1024" height="576" alt="" class="wp-image-21821" role="none" src="https://i0.wp.com/wordpress.org/news/files/2026/10/Error-message-update.webp?resize=1024%2C576&#038;ssl=1" srcset="https://i0.wp.com/wordpress.org/news/files/2026/10/Error-message-update.webp?resize=1024%2C576&amp;ssl=1 1024w, https://i0.wp.com/wordpress.org/news/files/2026/10/Error-message-update.webp?resize=300%2C169&amp;ssl=1 300w, https://i0.wp.com/wordpress.org/news/files/2026/10/Error-message-update.webp?resize=768%2C432&amp;ssl=1 768w, https://i0.wp.com/wordpress.org/news/files/2026/10/Error-message-update.webp?resize=1536%2C864&amp;ssl=1 1536w, https://i0.wp.com/wordpress.org/news/files/2026/10/Error-message-update.webp?w=1920&amp;ssl=1 1920w" sizes="(max-width: 1000px) 100vw, 1000px" /></figure>
+
+
+
+<p class="wp-block-paragraph"><strong>Learn more:</strong> <a href="https://github.com/WordPress/gutenberg/issues/81453">GitHub #81453</a>, <a href="https://github.com/WordPress/gutenberg/pull/82496">#82496</a>, <a href="https://github.com/WordPress/gutenberg/pull/84656">#84656</a>, <a href="https://github.com/WordPress/gutenberg/pull/84649">#84649</a></p>
+
+
+
+<h3 class="wp-block-heading">A More Consistent WordPress Admin</h3>
+
+
+
+<p class="wp-block-paragraph">WordPress 7.2 continues modernizing the administration experience by replacing legacy Dashicons in the admin bar and sidebar with icons from the WordPress icon library. The updated icons bring greater visual consistency between the traditional WordPress dashboard and newer editing interfaces.</p>
+
+
+
+<p class="wp-block-paragraph"><strong>Learn more:</strong> <a href="https://github.com/WordPress/wordpress-develop/pull/12270">GitHub #12270</a></p>
+
+
+
+<h3 class="wp-block-heading">An Updated Block Settings Experience</h3>
+
+
+
+<figure class="wp-block-image size-large"><img data-recalc-dims="1" loading="lazy" decoding="async" width="1024" height="576" alt="" class="wp-image-21822" role="none" src="https://i0.wp.com/wordpress.org/news/files/2026/10/Forms-Global.webp?resize=1024%2C576&#038;ssl=1" srcset="https://i0.wp.com/wordpress.org/news/files/2026/10/Forms-Global.webp?resize=1024%2C576&amp;ssl=1 1024w, https://i0.wp.com/wordpress.org/news/files/2026/10/Forms-Global.webp?resize=300%2C169&amp;ssl=1 300w, https://i0.wp.com/wordpress.org/news/files/2026/10/Forms-Global.webp?resize=768%2C432&amp;ssl=1 768w, https://i0.wp.com/wordpress.org/news/files/2026/10/Forms-Global.webp?resize=1536%2C864&amp;ssl=1 1536w, https://i0.wp.com/wordpress.org/news/files/2026/10/Forms-Global.webp?w=1920&amp;ssl=1 1920w" sizes="auto, (max-width: 1000px) 100vw, 1000px" /></figure>
+
+
+
+<p class="wp-block-paragraph">A new DataForm-powered inspector introduces a refreshed approach to managing block settings in the editor. Built on the DataForm component system, this work aims to provide more consistent controls and a more extensible foundation for future block editing improvements.</p>
+
+
+
+<p class="wp-block-paragraph"><strong>Learn more:</strong> <a href="https://github.com/WordPress/gutenberg">GitHub Gutenberg</a> · <a href="https://make.wordpress.org/core/2026/09/17/call-for-testing-dataform-editor-inspector/">Call for Testing</a></p>
+
+
+
+<h3 class="wp-block-heading">Faster WordPress Administration</h3>
+
+
+
+<p class="wp-block-paragraph">WordPress 7.2 improves admin performance by modernizing how scripts and stylesheets are loaded. Instead of combining assets into large files, WordPress now loads them individually for better browser caching. A new prefetching mechanism also anticipates which admin screen users are likely to visit next, loading its resources in advance to make navigation between the dashboard, post lists, and editor faster.</p>
+
+
+
+<p class="wp-block-paragraph"><strong>Learn more:</strong> <a href="https://core.trac.wordpress.org/ticket/57548">Trac #57548</a></p>
+
+
+
+<h2 class="wp-block-heading">For Developers</h2>
+
+
+
+<h3 class="wp-block-heading">New Secrets API</h3>
+
+
+
+<p class="wp-block-paragraph">WordPress 7.2 introduces a <strong>Secrets API</strong>, providing developers with a standardized, secure way to store sensitive credentials such as API keys and authentication tokens. The API supports encryption at rest, credential rotation, and customizable storage providers, helping plugins and integrations manage sensitive information more securely.</p>
+
+
+
+<p class="wp-block-paragraph"><a href="https://core.trac.wordpress.org/ticket/66187">Learn more (Trac #66187)</a></p>
+
+
+
+<h3 class="wp-block-heading">Random Content Redirects</h3>
+
+
+
+<p class="wp-block-paragraph">WordPress 7.2 adds support for random content redirects, allowing visitors to discover a randomly selected post through a dedicated URL. This provides a simple way to encourage content exploration and help readers rediscover older posts.</p>
+
+
+
+<p class="wp-block-paragraph"><strong>Learn more:</strong> <a href="https://core.trac.wordpress.org/ticket/64498">Trac #64498</a></p>
+
+
+
+<h3 class="wp-block-heading">More Powerful APIs for Developers</h3>
+
+
+
+<p class="wp-block-paragraph">WordPress 7.2 expands the <strong>Abilities API</strong> with new capabilities for accessing and querying WordPress data, providing a more consistent foundation for integrations, automation, and AI-powered tools. (<a href="https://core.trac.wordpress.org/ticket/66268">Trac #66268</a>, <a href="https://core.trac.wordpress.org/ticket/64605">#64605</a>, <a href="https://core.trac.wordpress.org/ticket/64657">#64657</a>)</p>
+
+
+
+<p class="wp-block-paragraph">Enhancements to the <strong>Interactivity API</strong> introduce new ways to render trusted HTML and manage reactive navigation, giving developers more flexibility when building dynamic, interactive blocks. (<a href="https://core.trac.wordpress.org/ticket/66246">Trac #66246</a>, <a href="https://github.com/WordPress/gutenberg/pull/83092">Gutenberg PR #83092</a>)</p>
+
+
+
+<p class="wp-block-paragraph">Additional improvements to the <strong>HTML API</strong>, block supports, and responsive design tools provide more reliable markup processing and greater control over how custom blocks are styled and displayed across devices. (<a href="https://core.trac.wordpress.org/ticket/65824">Trac #65824</a>, <a href="https://core.trac.wordpress.org/ticket/66150">#66150</a>, <a href="https://core.trac.wordpress.org/ticket/65869">#65869</a>)</p>
+
+
+
+<h2 class="wp-block-heading">How important is your testing?</h2>
+
+
+
+<p class="wp-block-paragraph">Testing for issues is a critical part of developing any software, and it’s a meaningful way for anyone to contribute – whether or not you have experience. <a href="https://make.wordpress.org/test/2026/10/20/help-test-wordpress-7-2/">Details on what to test in WordPress 7.2 are available here</a>.</p>
+
+
+
+<p class="wp-block-paragraph">If you encounter an issue, please share it in the <a href="https://wordpress.org/support/forum/alphabeta/" rel="noopener" target="_blank">Alpha/Beta area</a> of the support forums. If you are comfortable submitting a reproducible bug report, you can do so <a href="https://core.trac.wordpress.org/newticket" rel="noopener" target="_blank">via WordPress Trac</a>. You can also check your issue against this list of <a href="https://core.trac.wordpress.org/tickets/major" rel="noopener" target="_blank">known bugs</a>.</p>
+
+
+
+<p class="wp-block-paragraph">Curious about testing releases in general and how to get started? Follow along with the<a href="https://make.wordpress.org/test/"> testing initiatives in Make Core</a> and join the <a href="https://wordpress.slack.com/messages/core-test/">#core-test channel</a> on <a href="https://wordpress.slack.com/">Making WordPress Slack</a>.</p>
+
+
+
+<p class="wp-block-paragraph">WordPress 7.2 will include new features that were previously only available in the Gutenberg plugin. Learn more about Gutenberg updates since WordPress 7.1 in the <a href="https://make.wordpress.org/core/tag/gutenberg-new/">What’s New in Gutenberg</a> posts for versions <a href="https://make.wordpress.org/core/2026/08/06/whats-new-in-gutenberg-23-7-05-august/">23.7</a>, <a href="https://make.wordpress.org/core/2026/08/19/whats-new-in-gutenberg-23-8-19-august/">23.8</a>, <a href="https://make.wordpress.org/core/2026/09/02/whats-new-in-gutenberg-23-9-2-september/">23.9</a>, <a href="https://make.wordpress.org/core/2026/09/16/whats-new-in-gutenberg-24-0-16-september/">24.0</a>, <a href="https://make.wordpress.org/core/2026/09/30/whats-new-in-gutenberg-24-1-30-september/">24.1</a>, <a href="https://make.wordpress.org/core/2026/10/14/whats-new-in-gutenberg-24-2-14-october/">24.2</a>, and 24.3.</p>
+
+
+
+<h2 class="wp-block-heading">What’s new in WordPress 7.2?</h2>
+
+
+
+<p class="wp-block-paragraph">With so much in progress for WordPress 7.2 Beta 1, this is still only the beginning; expect continued refinement with each Beta and RC release ahead of the final release on <strong>December 8, 2026</strong></p>
+
+
+
+<h2 class="wp-block-heading">Just for you: a Beta 1 haiku:</h2>
+
+
+
+<p class="wp-block-paragraph"><em>Ipsum takes the stage<br>Secrets bloom, designs take shape<br>New blocks come alive</em></p>
+
+
+
+<p class="has-text-align-right wp-block-paragraph"><em>Props to </em><a href='https://profiles.wordpress.org/audrasjb/' class='mention'><span class='mentions-prefix'>@</span>audrasjb</a>, <a href='https://profiles.wordpress.org/annezazu/' class='mention'><span class='mentions-prefix'>@</span>annezazu</a>, <a href='https://profiles.wordpress.org/adamsilverstein/' class='mention'><span class='mentions-prefix'>@</span>adamsilverstein</a>, <a href='https://profiles.wordpress.org/westonruter/' class='mention'><span class='mentions-prefix'>@</span>westonruter</a>, <a href='https://profiles.wordpress.org/markoserb/' class='mention'><span class='mentions-prefix'>@</span>markoserb</a>, <a href='https://profiles.wordpress.org/im3dabasia1/' class='mention'><span class='mentions-prefix'>@</span>im3dabasia1</a>, <a href='https://profiles.wordpress.org/jorbin/' class='mention'><span class='mentions-prefix'>@</span>jorbin</a>, and <a href='https://profiles.wordpress.org/noruzzaman/' class='mention'><span class='mentions-prefix'>@</span>noruzzaman</a><em> for proofreading and review.</em></p>
+]]></content:encoded>
+					
+		
+		
+		<post-id xmlns="com-wordpress:feed-additions:1">21813</post-id>	</item>
+		<item>
+		<title>WordPress 7.1.3 Maintenance and Security Release</title>
+		<link>https://wordpress.org/news/2026/10/wordpress-7-1-3-maintenance-and-security-release/</link>
+		
+		<dc:creator><![CDATA[Jake Spurlock]]></dc:creator>
+		<pubDate>Tue, 06 Oct 2026 17:00:00 +0000</pubDate>
+				<category><![CDATA[Releases]]></category>
+		<category><![CDATA[Security]]></category>
+		<guid isPermaLink="false">https://wordpress.org/news/?p=21753</guid>
+
+					<description><![CDATA[This security and maintenance release features 7 security fixes and 4 bug fixes. Because this is a security release, it is recommended that you update your sites immediately. You can download WordPress 7.1.3 from WordPress.org, or visit your WordPress Dashboard, click “Updates”, and then click “Update Now”. If you have sites that support automatic background [&#8230;]]]></description>
+										<content:encoded><![CDATA[
+<p class="wp-block-paragraph">This security and maintenance release features 7 security fixes and <a href="https://core.trac.wordpress.org/query?milestone=7.1.3&amp;status=closed&amp;order=priority&amp;col=id&amp;col=summary&amp;col=status&amp;col=milestone&amp;col=owner&amp;col=type&amp;col=priority">4 bug fixes</a>.</p>
+
+
+
+<p class="wp-block-paragraph"><strong>Because this is a security release, it is recommended that you update your sites immediately.</strong></p>
+
+
+
+<p class="wp-block-paragraph">You can <a href="https://wordpress.org/wordpress-7.1.3.zip">download WordPress 7.1.3 from WordPress.org</a>, or visit your WordPress Dashboard, click “Updates”, and then click “Update Now”. If you have sites that support automatic background updates, the update process will begin automatically.</p>
+
+
+
+<h2 class="wp-block-heading">Security updates included in this release</h2>
+
+
+
+<p class="wp-block-paragraph">The security team would like to thank the following people and organizations for responsibly reporting vulnerabilities, and allowing them to be fixed in this release:</p>
+
+
+
+<ul class="wp-block-list">
+<li>A stored XSS on the Comments administration page, exploitable via pending comments, reported by <a href="https://trailofbits.com/">Trail of Bits</a> in collaboration with OpenAI.</li>
+
+
+
+<li>A DoS issue in the <code>WP_Http::make_absolute_url()</code> method, reported by Anthropic</li>
+
+
+
+<li>A second-Order SQL injection in WordPress WXR export, reported by Anthropic</li>
+
+
+
+<li>A weakness allowing Author role users to sticky posts, reported by Anthropic</li>
+
+
+
+<li>Unauthenticated disclosure of comments on private &amp; unpublished posts, reported by <a href="https://patchstack.com/">Ananda Dhakal from Patchstack</a></li>
+
+
+
+<li>Imgur embeds are vulnerable to XSS, reported by <a href="https://jackfromeast.github.io/">Zhengyu Liu</a>, <a href="https://jesse-yang.com/">Jingcheng Yang</a>, and <a href="https://gvzhong.github.io/">Gavin Zhong</a></li>
+
+
+
+<li>Forgeable parameters passed to the <code>{status}_{type}</code> hook can lead to action name collision, reported by Alex Concha of the WordPress security team</li>
+</ul>
+
+
+
+<h2 class="wp-block-heading">Thank you to these WordPress contributors</h2>
+
+
+
+<p class="wp-block-paragraph">This release was led by <a href="https://profiles.wordpress.org/whyisjake/">Jake Spurlock</a>.</p>
+
+
+
+<p class="wp-block-paragraph">WordPress 7.1.3 would not have been possible without the contributions of the following people. Their asynchronous coordination to deliver maintenance and security fixes into a stable release is a testament to the power and capability of the WordPress community.</p>
+
+
+
+<p class="wp-block-paragraph"><a href="https://w.org/@jorbin">Aaron Jorbin</a>, <a href="https://w.org/@adamsilverstein">Adam Silverstein</a>, <a href="https://w.org/@adrianmoldovanwp">Adi Moldovan</a>, <a href="https://w.org/@adrianduffell">Adrian Duffell</a>, <a href="https://w.org/@xknown">Alex Concha</a>, <a href="https://w.org/@arkaprabhachowdhury">Arkaprabha Chowdhury</a>, <a href="https://w.org/@iamchitti">Deepak Kumar</a>, <a href="https://w.org/@donniam">donniam</a>, <a href="https://w.org/@ehtis">Ehtisham Siddiqui</a>, <a href="https://w.org/@whyisjake">Jake Spurlock</a>, <a href="https://w.org/@audrasjb">Jb Audras</a>, <a href="https://w.org/@jeremyfelt">Jeremy Felt</a>, <a href="https://w.org/@joedolson">Joe Dolson</a>, <a href="https://w.org/@johnbillion">John Blackbourn</a>, <a href="https://w.org/@jonsurrell">Jon Surrell</a>, <a href="https://w.org/@desrosj">Jonathan Desrosiers</a>, <a href="https://w.org/@kgagne">Ken Gagne</a>, <a href="https://w.org/@khokansardar">Khokan Sardar</a>, <a href="https://w.org/@lancewillett">Lance Willett</a>, <a href="https://w.org/@lucatume">lucatume</a>, <a href="https://w.org/@marcs0h">marcs0h</a>, <a href="https://w.org/@peterwilsoncc">Peter Wilson</a>, <a href="https://w.org/@paulkevan">Paul Kevan</a>, <a href="https://w.org/@therssoftware">RS Software</a>, <a href="https://w.org/@rfaile313">Rudy Faile</a>, <a href="https://w.org/@sergeybiryukov">Sergey Biryukov</a>, <a href="https://w.org/@siliconforks">siliconforks</a>, <a href="https://w.org/@smerriman">smerriman</a>, <a href="https://w.org/@sabernhardt">Stephen Bernhardt</a>, <a href="https://w.org/@suryakantupadhyay">Suryakant Upadhyay</a>, <a href="https://w.org/@vortfu">vortfu</a>, <a href="https://w.org/@webverts">webVerts</a>, <a href="https://w.org/@westonruter">Weston Ruter</a>, <a href="https://w.org/@yogeshbhutkar">Yogesh Bhutkar</a></p>
+
+
+
+<h2 class="wp-block-heading">Backports</h2>
+
+
+
+<p class="wp-block-paragraph">As a courtesy, the security fixes are being backported, where necessary, to all branches eligible to receive security fixes (currently through 4.7). As a reminder, <strong>only the most recent version of WordPress is actively supported</strong>. The backports are in progress and will ship as they become ready.</p>
+
+
+
+<h2 class="wp-block-heading">How to contribute</h2>
+
+
+
+<p class="wp-block-paragraph">To get involved in WordPress core development, head over to Trac, <a href="https://core.trac.wordpress.org/report/6">pick a ticket</a>, and join the conversation in the <a href="https://wordpress.slack.com/archives/C02RQBWTW">#core</a> channel. Need help? Check out the <a href="https://make.wordpress.org/core/handbook/">Core Contributor Handbook</a>.</p>
+]]></content:encoded>
+					
+		
+		
+		<post-id xmlns="com-wordpress:feed-additions:1">21753</post-id>	</item>
+		<item>
+		<title>WordPress 7.1.2 Release</title>
+		<link>https://wordpress.org/news/2026/09/wordpress-7-1-2-release/</link>
+		
+		<dc:creator><![CDATA[John Blackbourn]]></dc:creator>
+		<pubDate>Tue, 22 Sep 2026 14:01:20 +0000</pubDate>
+				<category><![CDATA[Releases]]></category>
+		<category><![CDATA[Security]]></category>
+		<guid isPermaLink="false">https://wordpress.org/news/?p=21731</guid>
+
+					<description><![CDATA[This security release features a fix for a critical severity security vulnerability. Because this is a security release, it is recommended that you update your sites immediately. You can download WordPress 7.1.2 from WordPress.org, or visit your WordPress Dashboard, click “Updates”, and then click “Update Now”. If you have sites that support automatic background updates, [&#8230;]]]></description>
+										<content:encoded><![CDATA[
+<p class="wp-block-paragraph">This security release features a fix for a critical severity security vulnerability.</p>
+
+
+
+<p class="wp-block-paragraph"><strong>Because this is a security release, it is recommended that you update your sites immediately.</strong></p>
+
+
+
+<p class="wp-block-paragraph">You can <a href="https://wordpress.org/download/">download WordPress 7.1.2 from WordPress.org</a>, or visit your WordPress Dashboard, click “Updates”, and then click “Update Now”. If you have sites that support automatic background updates, the update process will begin automatically.</p>
+
+
+
+<h2 class="wp-block-heading">Security update included in this release</h2>
+
+
+
+<p class="wp-block-paragraph">The security team would like to thank <a href="https://ressl.ch/">Robert Ressl</a> for responsibly disclosing that an unauthenticated attacker can, under certain conditions, make page template resolution include a chosen readable local PHP file outside the active theme directories. If relevant pre-conditions for both the server environment and the active theme are met, this can lead to remote code execution (RCE).</p>
+
+
+
+<h2 class="wp-block-heading">Thank you to these WordPress contributors</h2>
+
+
+
+<p class="wp-block-paragraph">This release was led by <a href="https://w.org/@johnbillion">John Blackbourn</a>. WordPress 7.1.2 would not have been possible without the contributions of the following people:</p>
+
+
+
+<p class="wp-block-paragraph"><a href="https://w.org/@jorbin">Aaron Jorbin</a>, <a href="https://w.org/@wildworks">Aki Hamano</a>, <a href="https://w.org/@xknown">Alex Concha</a>, <a href="https://w.org/@ehti">Ehtisham Siddiqui</a>, <a href="https://w.org/@fiocavallari">fiocavallari</a>, <a href="https://w.org/@audrasjb">Jb Audras</a>, <a href="https://w.org/@jeffpaul">Jeffrey Paul</a>, <a href="https://w.org/@jeremyfelt">Jeremy Felt</a>, <a href="https://w.org/@joemcgill">Joe McGill</a>, <a href="https://w.org/@johnbillion">John Blackbourn</a>, <a href="https://w.org/@jonsurrell">Jon Surrell</a>, <a href="https://w.org/@lancewillett">Lance Willett</a>, <a href="https://w.org/@sirlouen">Manuel Camargo</a>, <a href="https://w.org/@marcs0h">marcs0h</a>, <a href="https://w.org/@martinkrcho">martin.krcho</a>, <a href="https://w.org/@mukesh27">Mukesh Panchal</a>, <a href="https://w.org/@oglekler">Olga Gleckler</a>, <a href="https://w.org/@swissspidy">Pascal Birchler</a>, <a href="https://w.org/@peterwilsoncc">Peter Wilson</a>, <a href="https://w.org/@rajinsharwar">Rajin Sharwar</a>, <a href="https://w.org/@ressl">Ressl</a>, <a href="https://w.org/@rfaile313">Rudy Faile</a>, <a href="https://w.org/@sergeybiryukov">Sergey Biryukov</a>, <a href="https://w.org/@shailu25">Shail Mehta</a>, <a href="https://w.org/@pypwalters">Stephanie Walters</a>, and <a href="https://w.org/@vortfu">vortfu</a>.</p>
+
+
+
+<h2 class="wp-block-heading">CVE and GHSA references</h2>
+
+
+
+<p class="wp-block-paragraph">Further details can be found in the advisory: <a href="https://github.com/WordPress/wordpress-develop/security/advisories/GHSA-7hp8-65ch-5whp">CVE-2026-87902 / GHSA-7hp8-65ch-5whp</a>.</p>
+
+
+
+<h2 class="wp-block-heading">Backports</h2>
+
+
+
+<p class="wp-block-paragraph">As a courtesy, the security fix was backported to all branches eligible to receive security fixes (currently through 4.7). As a reminder, <strong>only the most recent version of WordPress is actively supported</strong>.</p>
+]]></content:encoded>
+					
+		
+		
+		<post-id xmlns="com-wordpress:feed-additions:1">21731</post-id>	</item>
+		<item>
+		<title>WordPress 7.1.1 Maintenance and Security Release</title>
+		<link>https://wordpress.org/news/2026/09/wordpress-7-1-1-maintenance-and-security-release/</link>
+		
+		<dc:creator><![CDATA[Aaron Jorbin]]></dc:creator>
+		<pubDate>Thu, 17 Sep 2026 19:53:09 +0000</pubDate>
+				<category><![CDATA[Releases]]></category>
+		<category><![CDATA[Security]]></category>
+		<guid isPermaLink="false">https://wordpress.org/news/?p=21717</guid>
+
+					<description><![CDATA[This security and maintenance release features 17 bug fixes on Core, 19 bug fixes for the Block Editor, and 11 security fixes. Because this is a security release, it is recommended that you update your sites immediately. You can download WordPress 7.1.1 from WordPress.org, or visit your WordPress Dashboard, click “Updates”, and then click “Update [&#8230;]]]></description>
+										<content:encoded><![CDATA[
+<p class="wp-block-paragraph">This security and maintenance release features <a href="https://core.trac.wordpress.org/query?milestone=7.1.1&amp;status=closed&amp;group=status&amp;order=priority">17 bug fixes on Core</a>, <a href="https://github.com/WordPress/gutenberg/pull/82383">19 bug fixes for the Block Editor</a>, and 11 security fixes.</p>
+
+
+
+<p class="wp-block-paragraph"><strong>Because this is a security release, it is recommended that you update your sites immediately.</strong></p>
+
+
+
+<p class="wp-block-paragraph">You can <a href="https://wordpress.org/wordpress-7.1.1.zip">download WordPress 7.1.1 from WordPress.org</a>, or visit your WordPress Dashboard, click “Updates”, and then click “Update Now”. If you have sites that support automatic background updates, the update process will begin automatically.</p>
+
+
+
+<p class="wp-block-paragraph">WordPress 7.1.1 is a short-cycle release. The next major release will be <a href="https://make.wordpress.org/core/7-2/">version 7.2</a> and is currently planned for December.</p>
+
+
+
+<p class="wp-block-paragraph">For more information, please visit the&nbsp;<a href="https://wordpress.org/documentation/wordpress-version/version-7-1-1/" data-type="link" data-id="https://wordpress.org/documentation/wordpress-version/version-7-1-1/">WordPress 7.1.1 HelpHub site</a>.</p>
+
+
+
+<h2 class="wp-block-heading">Security updates included in this release</h2>
+
+
+
+<p class="wp-block-paragraph">The security team would like to thank the following people for responsibly reporting vulnerabilities, and allowing them to be fixed in this release:</p>
+
+
+
+<ul class="wp-block-list">
+<li>Stored cross-site scripting in <code>wpautop()</code> allows an unauthenticated visitor to inject script (subject to comment approval), reported by <a href="https://www.linkedin.com/in/rafiemuhammad/">Rafie Muhammad</a> (Awesome Motive, Inc.).</li>
+
+
+
+<li>HTML API: <code>set_modifiable_text()</code> allows breaking out of a comment via abrupt-closing sequences, reported by <a href="https://happyprime.co/">Jeremy Felt</a> of the WordPress Security Team.</li>
+
+
+
+<li>Stored XSS in some themes that support custom headers, reported by <a href="https://happyprime.co/">Jeremy Felt</a> of the WordPress Security Team.</li>
+
+
+
+<li>Specially crafted URLs can automatically install and preview an inactive theme from WordPress.org, reported by Paulos Yibelo and <a href="https://pwn.ai/">pwn.ai</a>.</li>
+
+
+
+<li>Site Administrator can network-activate an installed Network-only plugin, reported by <a href="https://profiles.wordpress.org/buffer1024/">Jesse McNeil</a>.</li>
+
+
+
+<li>Authenticated Path Traversal in WP REST Templates Controller, reported by Anthropic.</li>
+
+
+
+<li>XML-RPC can be used to publish <code>customize_changeset</code> posts that bypass checks for <code>edit_css</code>, reported by Ben Bidner of the WordPress Security Team.</li>
+
+
+
+<li>Contributor+ Arbitrary Post Overwrite, reported by Anthropic.</li>
+
+
+
+<li>Missing <code>read_post</code> check in <code>attachment_submitbox_metadata()</code> leaks a private parent-post title, reported by <a href="https://hdwsec.fr/">HDWSec</a>.</li>
+
+
+
+<li>Missing Authorization leads to Draft/Pending Post Slug Disclosure by Contributor+, reported by Jakub Herman.</li>
+
+
+
+<li>Comments, including notes, can be reparented by any authenticated user, reported by Justin Hart, Viridis Security.</li>
+</ul>
+
+
+
+<h2 class="wp-block-heading">Thank you to these WordPress contributors</h2>
+
+
+
+<p class="wp-block-paragraph">This release was led by <a href="https://profiles.wordpress.org/adamsilverstein/">Adam Silverstein</a>, <a href="https://profiles.wordpress.org/adrianduffell/">Adrian Duffell</a>, <a href="https://profiles.wordpress.org/andraganescu/">Andrei Draganescu</a>, and <a href="https://profiles.wordpress.org/jorbin/">Aaron Jorbin</a>.</p>
+
+
+
+<p class="wp-block-paragraph">WordPress 7.1.1 would not have been possible without the contributions of the following people. Their asynchronous coordination to deliver maintenance and security fixes into a stable release is a testament to the power and capability of the WordPress community.</p>
+
+
+
+<p class="is-style-wporg-props-long wp-block-paragraph"><a href="https://profiles.wordpress.org/jorbin/">Aaron Jorbin</a>, <a href="https://profiles.wordpress.org/abrahamfariaz/">abrahamfariaz</a>, <a href="https://profiles.wordpress.org/adamsilverstein/">Adam Silverstein</a>, <a href="https://profiles.wordpress.org/adrianmoldovanwp/">Adi Moldovan</a>, <a href="https://profiles.wordpress.org/adrianduffell/">Adrian Duffell</a>, <a href="https://profiles.wordpress.org/wildworks/">Aki Hamano</a>, <a href="https://profiles.wordpress.org/xknown/">Alex Concha</a>, <a href="https://profiles.wordpress.org/afercia/">Andrea Fercia</a>, <a href="https://profiles.wordpress.org/andreasca/">andreasca</a>, <a href="https://profiles.wordpress.org/andraganescu/">Andrei Draganescu</a>, <a href="https://profiles.wordpress.org/aduth/">Andrew Duthie</a>, <a href="https://profiles.wordpress.org/andrewserong/">Andrew Serong</a>, <a href="https://profiles.wordpress.org/oandregal/">André Maneiro</a>, <a href="https://profiles.wordpress.org/annezazu/">annezazu</a>, <a href="https://profiles.wordpress.org/antwonw/">Anthony White</a>, <a href="https://profiles.wordpress.org/arkaprabhachowdhury/">Arkaprabha Chowdhury</a>, <a href="https://profiles.wordpress.org/fushar/">Ashar Fuadi</a>, <a href="https://profiles.wordpress.org/azragh/">Azragh</a>, <a href="https://profiles.wordpress.org/barry/">Barry</a>, <a href="https://profiles.wordpress.org/buffer1024/">buffer1024</a>, <a href="https://profiles.wordpress.org/jack960330/">Chunhui Ouyang</a>, <a href="https://profiles.wordpress.org/courane01/">Courtney Robertson</a>, <a href="https://profiles.wordpress.org/dugi-digitaly/">Dagan</a>, <a href="https://profiles.wordpress.org/talldanwp/">Daniel Richards</a>, <a href="https://profiles.wordpress.org/villanovachile/">Daniel Rodriguez</a>, <a href="https://profiles.wordpress.org/darshitrajyaguru97/">Darshit Rajyaguru</a>, <a href="https://profiles.wordpress.org/davidbinda/">David Biňovec</a>, <a href="https://profiles.wordpress.org/iamchitti/">Deepak Kumar</a>, <a href="https://profiles.wordpress.org/dmsnell/">Dennis Snell</a>, <a href="https://profiles.wordpress.org/saiful09/">DevSaiful</a>, <a href="https://profiles.wordpress.org/dhruvang21/">Dhruvang21</a>, <a href="https://profiles.wordpress.org/ocean90/">Dominik Schilling</a>, <a href="https://profiles.wordpress.org/ehtis/">Ehtisham Siddiqui</a>, <a href="https://profiles.wordpress.org/ellatrix/">Ella Van Durpe</a>, <a href="https://profiles.wordpress.org/r1k0/">Erick Wambua</a>, <a href="https://profiles.wordpress.org/fahimmurshed/">FahimMurshed</a>, <a href="https://profiles.wordpress.org/fernandot/">Fernando Tellado</a>, <a href="https://profiles.wordpress.org/fiocavallari/">fiocavallari</a>, <a href="https://profiles.wordpress.org/mamaduka/">George Mamadashvili</a>, <a href="https://profiles.wordpress.org/poseidonas/">George Vasiliades</a>, <a href="https://profiles.wordpress.org/gregbenz/">gregbenz</a>, <a href="https://profiles.wordpress.org/harishtewari/">Harish Tewari</a>, <a href="https://profiles.wordpress.org/hbhalodia/">Hit Bhalodia</a>, <a href="https://profiles.wordpress.org/isabel_brison/">Isabel Brison</a>, <a href="https://profiles.wordpress.org/whyisjake/">Jake Spurlock</a>, <a href="https://profiles.wordpress.org/jdab/">Jamie Dąbrowiecki</a>, <a href="https://profiles.wordpress.org/audrasjb/">Jb Audras</a>, <a href="https://profiles.wordpress.org/jeffpaul/">Jeffrey Paul</a>, <a href="https://profiles.wordpress.org/jeremyfelt/">Jeremy Felt</a>, <a href="https://profiles.wordpress.org/kimjiwoon/">Jiwoon Kim</a>, <a href="https://profiles.wordpress.org/joedolson/">Joe Dolson</a>, <a href="https://profiles.wordpress.org/joehoyle/">Joe Hoyle</a>, <a href="https://profiles.wordpress.org/joemcgill/">Joe McGill</a>, <a href="https://profiles.wordpress.org/joen/">Joen Asmussen</a>, <a href="https://profiles.wordpress.org/timse201/">Johannes Jülg</a>, <a href="https://profiles.wordpress.org/johnbillion/">John Blackbourn</a>, <a href="https://profiles.wordpress.org/jonsurrell/">Jon Surrell</a>, <a href="https://profiles.wordpress.org/desrosj/">Jonathan Desrosiers</a>, <a href="https://profiles.wordpress.org/jmccallweb/">Josh</a>, <a href="https://profiles.wordpress.org/ekamran/">Kamran Abdul Aziz</a>, <a href="https://profiles.wordpress.org/khokansardar/">Khokan Sardar</a>, <a href="https://profiles.wordpress.org/kirasong/">Kira Schroder</a>, <a href="https://profiles.wordpress.org/kleisauke/">kleisauke</a>, <a href="https://profiles.wordpress.org/kush123/">Kushagra Goyal</a>, <a href="https://profiles.wordpress.org/l1onofjudah/">l1onofjudah</a>, <a href="https://profiles.wordpress.org/lancewillett/">Lance Willett</a>, <a href="https://profiles.wordpress.org/luksusspokoju/">luksusspokoju</a>, <a href="https://profiles.wordpress.org/manzoorwanijk/">Manzoor Wani</a>, <a href="https://profiles.wordpress.org/mciampini/">Marco Ciampini</a>, <a href="https://profiles.wordpress.org/marcs0h/">marcs0h</a>, <a href="https://profiles.wordpress.org/tyxla/">Marin Atanasov</a>, <a href="https://profiles.wordpress.org/mgyura/">Michael</a>, <a href="https://profiles.wordpress.org/batmoo/">Mohammad Jangda</a>, <a href="https://profiles.wordpress.org/mrkenobi/">mrkenobi</a>, <a href="https://profiles.wordpress.org/mukesh27/">Mukesh Panchal</a>, <a href="https://profiles.wordpress.org/nkpathan/">Nawazkhan Pathan</a>, <a href="https://profiles.wordpress.org/ntsekouras/">Nik Tsekouras</a>, <a href="https://profiles.wordpress.org/parthjoginyusoft/">Parth Jogi</a>, <a href="https://profiles.wordpress.org/swissspidy/">Pascal Birchler</a>, <a href="https://profiles.wordpress.org/pbiron/">Paul Biron</a>, <a href="https://profiles.wordpress.org/paulkevan/">Paul Kevan</a>, <a href="https://profiles.wordpress.org/peterwilsoncc/">Peter Wilson</a>, <a href="https://profiles.wordpress.org/rafiem/">Rafie Muhammad</a>, <a href="https://profiles.wordpress.org/ramonopoly/">ramonopoly</a>, <a href="https://profiles.wordpress.org/wprashed/">Rashed Hossain</a>, <a href="https://profiles.wordpress.org/ressl/">Ressl</a>, <a href="https://profiles.wordpress.org/youknowriad/">Riad Benguella</a>, <a href="https://profiles.wordpress.org/rfaile313/">Rudy Faile</a>, <a href="https://profiles.wordpress.org/sainathpoojary/">Sainath Poojary</a>, <a href="https://profiles.wordpress.org/sc0ttkclark/">Scott Kingsley Clark</a>, <a href="https://profiles.wordpress.org/sergeybiryukov/">Sergey Biryukov</a>, <a href="https://profiles.wordpress.org/shailu25/">Shail Mehta</a>, <a href="https://profiles.wordpress.org/shameemreza/">Shameem – a11n</a>, <a href="https://profiles.wordpress.org/siliconforks/">siliconforks</a>, <a href="https://profiles.wordpress.org/slaffik/">Slava Abakumov</a>, <a href="https://profiles.wordpress.org/sabernhardt/">Stephen Bernhardt</a>, <a href="https://profiles.wordpress.org/sukhendu2002/">Sukhendu Sekhar Guria</a>, <a href="https://profiles.wordpress.org/ugyensupport/">Ugyen Dorji</a>, <a href="https://profiles.wordpress.org/utsavladani/">Utsav Ladani</a>, <a href="https://profiles.wordpress.org/vortfu/">vortfu</a>, <a href="https://profiles.wordpress.org/westonruter/">Weston Ruter</a>, <a href="https://profiles.wordpress.org/w3bdsgn/">w3bdsgn</a>, <a href="https://profiles.wordpress.org/wolf45/">wolf45</a> plus representatives from Automattic, Bluehost, GoDaddy, Pantheon, and WP Engine.</p>
+
+
+
+<h2 class="wp-block-heading">Backports</h2>
+
+
+
+<p class="wp-block-paragraph">As a courtesy, the security fixes are being backported, where necessary, to all branches eligible to receive security fixes (currently through 4.7). As a reminder, <strong>only the most recent version of WordPress is actively supported</strong>. The backports are in progress and will ship as they become ready.</p>
+
+
+
+<h2 class="wp-block-heading">How to contribute</h2>
+
+
+
+<p class="wp-block-paragraph">To get involved in WordPress core development, head over to Trac, <a href="https://core.trac.wordpress.org/report/6">pick a ticket</a>, and join the conversation in the <a href="https://wordpress.slack.com/archives/C02RQBWTW">#core</a> channel. Need help? Check out the <a href="https://make.wordpress.org/core/handbook/">Core Contributor Handbook</a>.</p>
+
+
+
+<p class="wp-block-paragraph"><em>Props to <a href="https://profiles.wordpress.org/ehtis/">Ehtisham Siddiqui</a>, <a href="https://profiles.wordpress.org/lancewillett/">Lance Willett</a>, <a href="https://profiles.wordpress.org/westonruter/">Weston Ruter</a>, and <a href="https://profiles.wordpress.org/adamsilverstein/">Adam Silverstein</a> for proofreading.</em></p>
+
+
+
+<p class="wp-block-paragraph"></p>
+]]></content:encoded>
+					
+		
+		
+		<post-id xmlns="com-wordpress:feed-additions:1">21717</post-id>	</item>
+	</channel>
+</rss>
