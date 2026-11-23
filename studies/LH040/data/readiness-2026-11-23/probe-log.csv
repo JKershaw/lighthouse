@@ -1,0 +1,5 @@
+utc_start,2026-11-23T14:33:37Z
+query,SELECT max(date) AS last_day FROM pypi.pypi_downloads_per_day WHERE project = 'requests'
+status,200
+sha256,789b7f2cbef91d204ae407977307e928d17c0cf3aa8c212182431eeb7ffe520c
+purpose,"readiness probe for LH040 read 2: last UTC day ClickPy holds, read on an unrelated package (requests) so no litellm count is touched"
