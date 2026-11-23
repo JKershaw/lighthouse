@@ -1,0 +1,600 @@
+{
+ "reads_used": [
+  "read-2026-10-25T0855Z",
+  "read-2026-10-26T0637Z",
+  "read-2026-10-27T0637Z",
+  "read-2026-10-28T0637Z",
+  "read-2026-10-29T0635Z",
+  "read-2026-10-30T0635Z",
+  "read-2026-11-02T1530Z",
+  "read-2026-11-05T1415Z",
+  "read-2026-11-09T1427Z",
+  "read-2026-11-12T1416Z",
+  "read-2026-11-16T1419Z",
+  "read-2026-11-19T1422Z",
+  "read-2026-11-21T1414Z"
+ ],
+ "revisions": [],
+ "m1_summary": {
+  "8.2": {
+   "days_held": 31,
+   "first_day_at_half": 6,
+   "day1": 22.1,
+   "day2": 41.2,
+   "day7": 53.0,
+   "day14": 73.4,
+   "day30": 78.2,
+   "not_patched_day30_pct": 21.8,
+   "targets_day30": 6018074
+  },
+  "8.3": {
+   "days_held": 31,
+   "first_day_at_half": 6,
+   "day1": 23.8,
+   "day2": 42.2,
+   "day7": 52.4,
+   "day14": 70.4,
+   "day30": 75.0,
+   "not_patched_day30_pct": 25.0,
+   "targets_day30": 7594718
+  },
+  "8.4": {
+   "days_held": 31,
+   "first_day_at_half": 2,
+   "day1": 35.3,
+   "day2": 58.5,
+   "day7": 67.8,
+   "day14": 81.0,
+   "day30": 86.5,
+   "not_patched_day30_pct": 13.5,
+   "targets_day30": 3594071
+  },
+  "8.5": {
+   "days_held": 31,
+   "first_day_at_half": 2,
+   "day1": 36.1,
+   "day2": 70.5,
+   "day7": 78.8,
+   "day14": 89.7,
+   "day30": 92.2,
+   "not_patched_day30_pct": 7.8,
+   "targets_day30": 3712086
+  }
+ },
+ "m2_unfixed_tail": {
+  "0": {
+   "day": "2026-10-21",
+   "nofix": 23311748,
+   "versioned": 40737497,
+   "nofix_pct_of_versioned": 57.2,
+   "unknown_pct_of_all": 28.4,
+   "read": "read-2026-10-25T0855Z"
+  },
+  "1": {
+   "day": "2026-10-22",
+   "nofix": 23336842,
+   "versioned": 41670536,
+   "nofix_pct_of_versioned": 56.0,
+   "unknown_pct_of_all": 32.1,
+   "read": "read-2026-10-25T0855Z"
+  },
+  "2": {
+   "day": "2026-10-23",
+   "nofix": 23317219,
+   "versioned": 42187853,
+   "nofix_pct_of_versioned": 55.3,
+   "unknown_pct_of_all": 56.0,
+   "read": "read-2026-10-25T0855Z"
+  },
+  "7": {
+   "day": "2026-10-28",
+   "nofix": 24386744,
+   "versioned": 44881914,
+   "nofix_pct_of_versioned": 54.3,
+   "unknown_pct_of_all": 59.5,
+   "read": "read-2026-10-29T0635Z"
+  },
+  "14": {
+   "day": "2026-11-04",
+   "nofix": 24226778,
+   "versioned": 45827427,
+   "nofix_pct_of_versioned": 52.9,
+   "unknown_pct_of_all": 62.0,
+   "read": "read-2026-11-05T1415Z"
+  },
+  "28": {
+   "day": "2026-11-18",
+   "nofix": 22886177,
+   "versioned": 44213010,
+   "nofix_pct_of_versioned": 51.8,
+   "unknown_pct_of_all": 62.2,
+   "read": "read-2026-11-19T1422Z"
+  },
+  "29": {
+   "day": "2026-11-19",
+   "nofix": 22450131,
+   "versioned": 43269653,
+   "nofix_pct_of_versioned": 51.9,
+   "unknown_pct_of_all": 62.3,
+   "read": "read-2026-11-21T1414Z"
+  },
+  "30": {
+   "day": "2026-11-20",
+   "nofix": 22516583,
+   "versioned": 43438950,
+   "nofix_pct_of_versioned": 51.8,
+   "unknown_pct_of_all": 62.3,
+   "read": "read-2026-11-21T1414Z"
+  }
+ },
+ "m3_snapshot_refreshed_at": "2026-11-21 13:15:26.857137+00:00",
+ "m3_distance_behind": {
+  "8.2": {
+   "version_reporting_in_branch_versions": 6035973,
+   "branch_history_day30_targets": 6018074,
+   "at_or_above_fixed": 4725535,
+   "one_behind": 284963,
+   "two_to_four_behind": 238183,
+   "five_or_more_behind": 787292,
+   "unparsed_version_rows": 0,
+   "at_or_above_fixed_pct": 78.3,
+   "one_behind_pct": 4.7,
+   "two_to_four_behind_pct": 3.9,
+   "five_or_more_behind_pct": 13.0,
+   "unparsed_version_rows_pct": 0.0,
+   "largest_below_fixed": [
+    {
+     "version": "8.2.34",
+     "targets": 284963,
+     "pct": 4.7
+    },
+    {
+     "version": "8.2.33",
+     "targets": 176725,
+     "pct": 2.9
+    },
+    {
+     "version": "8.2.12",
+     "targets": 148569,
+     "pct": 2.5
+    }
+   ],
+   "above_fixed_versions": [
+    "8.2.36",
+    "8.2.37"
+   ]
+  },
+  "8.3": {
+   "version_reporting_in_branch_versions": 7595362,
+   "branch_history_day30_targets": 7594718,
+   "at_or_above_fixed": 5699157,
+   "one_behind": 335292,
+   "two_to_four_behind": 207220,
+   "five_or_more_behind": 1353693,
+   "unparsed_version_rows": 0,
+   "at_or_above_fixed_pct": 75.0,
+   "one_behind_pct": 4.4,
+   "two_to_four_behind_pct": 2.7,
+   "five_or_more_behind_pct": 17.8,
+   "unparsed_version_rows_pct": 0.0,
+   "largest_below_fixed": [
+    {
+     "version": "8.3.8",
+     "targets": 844547,
+     "pct": 11.1
+    },
+    {
+     "version": "8.3.35",
+     "targets": 335292,
+     "pct": 4.4
+    },
+    {
+     "version": "8.3.33",
+     "targets": 171107,
+     "pct": 2.3
+    }
+   ],
+   "above_fixed_versions": [
+    "8.3.37",
+    "8.3.38"
+   ]
+  },
+  "8.4": {
+   "version_reporting_in_branch_versions": 3593407,
+   "branch_history_day30_targets": 3594071,
+   "at_or_above_fixed": 3108676,
+   "one_behind": 168474,
+   "two_to_four_behind": 67831,
+   "five_or_more_behind": 248426,
+   "unparsed_version_rows": 0,
+   "at_or_above_fixed_pct": 86.5,
+   "one_behind_pct": 4.7,
+   "two_to_four_behind_pct": 1.9,
+   "five_or_more_behind_pct": 6.9,
+   "unparsed_version_rows_pct": 0.0,
+   "largest_below_fixed": [
+    {
+     "version": "8.4.26",
+     "targets": 168474,
+     "pct": 4.7
+    },
+    {
+     "version": "8.4.25",
+     "targets": 32750,
+     "pct": 0.9
+    },
+    {
+     "version": "8.4.21",
+     "targets": 31759,
+     "pct": 0.9
+    }
+   ],
+   "above_fixed_versions": [
+    "8.4.28",
+    "8.4.29"
+   ]
+  },
+  "8.5": {
+   "version_reporting_in_branch_versions": 3711273,
+   "branch_history_day30_targets": 3712086,
+   "at_or_above_fixed": 3423955,
+   "one_behind": 78606,
+   "two_to_four_behind": 111077,
+   "five_or_more_behind": 97635,
+   "unparsed_version_rows": 0,
+   "at_or_above_fixed_pct": 92.3,
+   "one_behind_pct": 2.1,
+   "two_to_four_behind_pct": 3.0,
+   "five_or_more_behind_pct": 2.6,
+   "unparsed_version_rows_pct": 0.0,
+   "largest_below_fixed": [
+    {
+     "version": "8.5.11",
+     "targets": 78606,
+     "pct": 2.1
+    },
+    {
+     "version": "8.5.9",
+     "targets": 74912,
+     "pct": 2.0
+    },
+    {
+     "version": "8.5.3",
+     "targets": 31514,
+     "pct": 0.8
+    }
+   ],
+   "above_fixed_versions": [
+    "8.5.13",
+    "8.5.14"
+   ]
+  }
+ },
+ "m4_w3techs_by_read": {
+  "read-2026-10-25T0855Z": {
+   "8.2": [
+    "25 October 2026",
+    1.9
+   ],
+   "8.3": [
+    "25 October 2026",
+    2.6
+   ],
+   "8.4": [
+    "25 October 2026",
+    4.2
+   ],
+   "8.5": [
+    "25 October 2026",
+    5.9
+   ]
+  },
+  "read-2026-10-26T0637Z": {
+   "8.2": [
+    "26 October 2026",
+    2.8
+   ],
+   "8.3": [
+    "26 October 2026",
+    3.8
+   ],
+   "8.4": [
+    "26 October 2026",
+    6.0
+   ],
+   "8.5": [
+    "26 October 2026",
+    8.3
+   ]
+  },
+  "read-2026-11-02T1530Z": {
+   "8.2": [
+    "2 November 2026",
+    10.7
+   ],
+   "8.3": [
+    "2 November 2026",
+    12.1
+   ],
+   "8.4": [
+    "2 November 2026",
+    16.0
+   ],
+   "8.5": [
+    "2 November 2026",
+    23.8
+   ]
+  },
+  "read-2026-11-09T1427Z": {
+   "8.2": [
+    "9 November 2026",
+    20.0
+   ],
+   "8.3": [
+    "9 November 2026",
+    21.4
+   ],
+   "8.4": [
+    "9 November 2026",
+    27.2
+   ],
+   "8.5": [
+    "9 November 2026",
+    38.9
+   ]
+  },
+  "read-2026-11-16T1419Z": {
+   "8.2": [
+    "16 November 2026",
+    32.5
+   ],
+   "8.3": [
+    "16 November 2026",
+    36.6
+   ],
+   "8.4": [
+    "16 November 2026",
+    41.8
+   ],
+   "8.5": [
+    "16 November 2026",
+    55.4
+   ]
+  },
+  "read-2026-11-21T1414Z": {
+   "8.2": [
+    "21 November 2026",
+    43.9
+   ],
+   "8.3": [
+    "21 November 2026",
+    49.2
+   ],
+   "8.4": [
+    "21 November 2026",
+    53.3
+   ],
+   "8.5": [
+    "21 November 2026",
+    65.8
+   ]
+  }
+ },
+ "m4_w3techs_monthly": {
+  "8.2": {
+   "1 Oct 2026": {
+    "listed_at_or_above_fixed": {},
+    "sum_pct": null
+   },
+   "1 Nov 2026": {
+    "listed_at_or_above_fixed": {
+     "8.2.35": 10.1
+    },
+    "sum_pct": 10.1
+   }
+  },
+  "8.3": {
+   "1 Oct 2026": {
+    "listed_at_or_above_fixed": {},
+    "sum_pct": null
+   },
+   "1 Nov 2026": {
+    "listed_at_or_above_fixed": {
+     "8.3.36": 11.5
+    },
+    "sum_pct": 11.5
+   }
+  },
+  "8.4": {
+   "1 Oct 2026": {
+    "listed_at_or_above_fixed": {
+     "8.4.28": 0.0
+    },
+    "sum_pct": 0.0
+   },
+   "1 Nov 2026": {
+    "listed_at_or_above_fixed": {
+     "8.4.27": 15.4,
+     "8.4.28": 0.0
+    },
+    "sum_pct": 15.4
+   }
+  },
+  "8.5": {
+   "1 Oct 2026": {
+    "listed_at_or_above_fixed": {},
+    "sum_pct": null
+   },
+   "1 Nov 2026": {
+    "listed_at_or_above_fixed": {
+     "8.5.12": 22.8,
+     "8.5.13": 0.0
+    },
+    "sum_pct": 22.8
+   }
+  }
+ },
+ "m5_packagist": {
+  "installs": 5809870614,
+  "from_8_1_or_older": 583656921,
+  "share": 0.1005,
+  "note": "minor versions as Packagist publishes them"
+ },
+ "python": {
+  "four_security_fixes": {
+   "cryptography 48.0.1": {
+    "1": 0.546653,
+    "2": 0.537857,
+    "7": 0.556428,
+    "14": 0.580213,
+    "30": 0.600511
+   },
+   "pyjwt 2.13.0": {
+    "1": 0.576021,
+    "2": 0.637096,
+    "7": 0.576547,
+    "14": 0.598508,
+    "30": 0.722881
+   },
+   "starlette 1.1.0": {
+    "1": 0.538416,
+    "2": 0.526552,
+    "7": 0.595307,
+    "14": 0.59078,
+    "30": 0.572757
+   },
+   "urllib3 2.7.0": {
+    "1": 0.607603,
+    "2": 0.600918,
+    "7": 0.584495,
+    "14": 0.641446,
+    "30": 0.663465
+   }
+  },
+  "median_of_project_medians_37": {
+   "1": {
+    "median": 0.576,
+    "projects": 37
+   },
+   "2": {
+    "median": 0.5719,
+    "projects": 37
+   },
+   "7": {
+    "median": 0.5786,
+    "projects": 37
+   },
+   "14": {
+    "median": 0.5887,
+    "projects": 37
+   },
+   "30": {
+    "median": 0.6155,
+    "projects": 37
+   }
+  },
+  "lh008_fix_pairs_moved_within": {
+   "pairs": 102,
+   "7 days": 18,
+   "30 days": 50,
+   "clock": "committer time after release, as LH008 data/lags.csv"
+  }
+ },
+ "amendment2": {
+  "php": {
+   "8.2": {
+    "S7": 51.26,
+    "S30": 77.74,
+    "L": 0.3406,
+    "rise_day23_to_30_pts": 2.97
+   },
+   "8.3": {
+    "S7": 50.67,
+    "S30": 74.33,
+    "L": 0.3183,
+    "rise_day23_to_30_pts": 2.19
+   },
+   "8.4": {
+    "S7": 66.11,
+    "S30": 86.04,
+    "L": 0.2316,
+    "rise_day23_to_30_pts": 2.36
+   },
+   "8.5": {
+    "S7": 77.33,
+    "S30": 91.89,
+    "L": 0.1584,
+    "rise_day23_to_30_pts": 1.31
+   }
+  },
+  "node": {
+   "as_written": {
+    "22": {
+     "S7": 53.3,
+     "S30": 43.34,
+     "L": -0.2298
+    },
+    "24": {
+     "S7": 70.81,
+     "S30": 62.17,
+     "L": -0.139
+    },
+    "26": {
+     "S7": 67.54,
+     "S30": 85.75,
+     "L": 0.2124
+    }
+   },
+   "amended_post_hoc": {
+    "22": {
+     "S7": 53.3,
+     "S30": 66.28,
+     "L": 0.1959
+    },
+    "24": {
+     "S7": 70.81,
+     "S30": 74.32,
+     "L": 0.0471
+    },
+    "26": {
+     "S7": 67.54,
+     "S30": 96.36,
+     "L": 0.2991
+    }
+   }
+  },
+  "A": {
+   "php_median_L": 0.27495,
+   "php_branches_rising_ge_1pt_day23_to_30": 4,
+   "as_written": {
+    "node_median_L": -0.139,
+    "php_median_L_greater": true
+   },
+   "amended_post_hoc": {
+    "node_median_L": 0.1959,
+    "php_median_L_greater": true
+   },
+   "php_rise_part_holds": true
+  },
+  "B": {
+   "php": {
+    "higher_of_8.2_8.3": 77.74,
+    "lower_of_8.4_8.5": 86.04,
+    "gap_pts": 8.3,
+    "holds": true
+   },
+   "node_as_written": {
+    "line22": 43.34,
+    "lower_of_24_26": 62.17,
+    "gap_pts": 18.83,
+    "holds": true
+   },
+   "node_amended_post_hoc": {
+    "line22": 66.28,
+    "lower_of_24_26": 74.32,
+    "gap_pts": 8.04,
+    "holds": true
+   }
+  }
+ }
+}
