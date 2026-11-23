@@ -284,6 +284,14 @@ Ranked by the sweep of 20 November 2026 (scientific value, decision relevance, e
 
 
 
+### P-0046 What evidence shows that incident-containment measures work in practice?
+
+- Kind: new question. Priority: normal. Status: backlog (keeper direction, 23 November 2026; not commissioned). Investigation: none proposed yet.
+- Source: the keeper's direction of 23 November 2026; [research design](design.md), especially risk assessment and recovery.
+- Why: advice about containment is easier to find than independent evidence of its outcomes. A bounded comparison of published evaluations and incident reports could distinguish tested effectiveness, limitations and unmeasured claims.
+- Cost: initially a small literature and methods survey of public, aggregate results; no live tests or operator contact.
+- Next step: Horizon applies the research-safety assessment, checks for overlap, and proposes one narrow question with a fixed comparison and stopping rule. Do not reconstruct intrusion routes, identify vulnerable systems, or turn the results into an operational scenario.
+
 ### P-0023 One shared fetcher for every collector and ad hoc read
 
 - Kind: repair of method. Priority: high. Status: backlog (proposed by LH047, 8 November 2026, for the next sweep to gate). Investigation: none; every study that reads other people's sites.
@@ -334,6 +342,14 @@ Ranked by the sweep of 20 November 2026 (scientific value, decision relevance, e
 - Next step: a brief fixed before outcomes: a sample of public repositories whose workflows use the trigger, read before, during and after each date.
 - Gate's notes (GitHub's changelog read raw, 09:22 UTC): blocked by default, re-enabled by a repository's event policy, so not "switched off"; enforcement already moved once, from 2 November; the trigger is one reported worm entry point among several; no sampling frame for affected repositories is named yet.
 
+### P-0048 What do published exercises show about cross-organisation cyber recovery?
+
+- Kind: new question. Priority: normal. Status: backlog (keeper direction, 23 November 2026; not commissioned). Investigation: none proposed yet.
+- Source: the keeper's direction of 23 November 2026; Lighthouse's [research design](design.md) on recovery and risk assessment.
+- Why: preparedness plans and tabletop exercises are not evidence that services can be restored under pressure. Public after-action evaluations may show which coordination and recovery practices were exercised, what was measured, and what remains untested.
+- Cost: small desk study using voluntarily published, non-sensitive exercise outcomes and existing evaluations.
+- Next step: Horizon scopes a bounded comparison of documented outcomes rather than institutional assurances. Avoid compiling sensitive dependency maps, naming weak operators or creating a combined infrastructure-failure scenario.
+
 ### P-0032 Operators' terms that bar third-party AI agents: a dated ledger from United's ban of 11 November
 
 - Kind: deepening (of the closing web and the rules of the road). Priority: high (United gave no policy text or effective date with its announcement, so the date its terms first carry the ban is best read soon; terms usually state their own dates, so nothing is known to be lost, and it is not urgent by the plan's test). Status: backlog (gate of 13 November 2026, notes/horizon/2026-11-13T1452Z.md). Investigation: what AI activity costs the shared internet.
@@ -350,6 +366,14 @@ Ranked by the sweep of 20 November 2026 (scientific value, decision relevance, e
 - Cost: small: urlscan's brief and documentation read raw under the robots.txt gate, and whether its public search, read within its terms, can give an aggregate count of scans by day around 16 to 19 June. No indicator used to find or name an account, a customer, a lab or a target; no contact with urlscan.
 - Next step: the gate decides; it may fold into P-0024 if the keeper takes that up. urlscan does not name the lab, and Lighthouse does not try to learn it; if a later source names one, the model disclosure applies.
 - Sweep of 17 November 2026: Epoch AI's incident report of 13 November is a second host naming itself as reached by agents (see P-0024's note); a ledger of such self-reports could hold both.
+
+### P-0047 What prevents small operators from deploying available security improvements?
+
+- Kind: deepening. Priority: normal. Status: backlog (keeper direction, 23 November 2026; not commissioned). Investigation: [where software updates go](investigations/software-updates.md).
+- Source: [software-updates investigation](investigations/software-updates.md) and its existing distinction between published fixes, fetched packages and software actually running.
+- Why: time-to-release is not time-to-protection. Operator capacity, compatibility, testing and maintenance may explain why availability of a fix does not establish its deployment, especially outside large managed fleets.
+- Cost: one bounded, aggregate or literature-based follow-up; no enumeration of exposed or unpatched hosts.
+- Next step: Horizon checks existing briefs and avoids duplicating active work; if worthwhile, frame a focused study around defender-reported adoption and deployment constraints, with safe retention and clear population limits.
 
 ### P-0027 Discovery outruns repair: a dated ledger of bug-bounty and disclosure programmes paused, closed or reopened
 
