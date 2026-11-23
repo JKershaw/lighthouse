@@ -1,0 +1,122 @@
+rows 1837
+counted: Counter({'audited': 1649, 'apart: refused by the gate': 75, 'apart: search': 75, 'apart: no: same gate call (robots.txt read once)': 38})
+audited 1649
+kind x sent: Counter({('page', 'yes'): 969, ('robots', 'yes'): 372, ('robots', 'implicit robots read'): 308})
+logs (audited): 70 hosts: 353 practices: 34
+R1 {'complies': 1632, 'unknown': 15, 'does not comply': 2}
+R2 {'complies': 1631, 'unknown': 15, 'does not comply': 3}
+K8 {'complies': 1631, 'unknown': 15, 'does not comply': 3}
+R4 {'not applicable': 1634, 'complies': 15}
+R5 {'complies': 1587, 'unknown': 22, 'does not comply (advisory)': 40}
+R5_excl_robots {'complies': 1622, 'does not comply (advisory)': 27}
+R6 {'complies': 1638, 'does not comply': 11}
+R7 {'terms not read': 1641, 'complies': 8}
+R8 {'complies': 1499, 'unknown': 150}
+overall_A {'complies': 1437, 'unknown': 159, 'does not comply': 53}
+overall_B {'complies': 1437, 'unknown': 158, 'does not comply': 54}
+overall_K8 {'complies': 1437, 'unknown': 158, 'does not comply': 54}
+recomputed overall A (any rule unknown -> unknown): {'ok': 1437, 'unk': 159, 'nc': 53}
+recomputed overall A (brief s5 literal: unknown only if R1 unknown): {'ok': 1581, 'unk': 15, 'nc': 53}
+recomputed overall B (any unknown): {'ok': 1437, 'unk': 158, 'nc': 54}
+overall_A nc mismatches: []
+overall A nc with R5 excl robots: 40
+fail A 53 fail B 54
+by practice A:
+   19 Horizon 2026-11-20 scouts
+   14 LH038 collect.py
+   9 LH044 collect.py
+   5 LH055 collect.py
+   4 Microsoft report watch (notes)
+   2 LH053 collect.py
+by practice B:
+   20 Horizon 2026-11-20 scouts
+   14 LH038 collect.py
+   9 LH044 collect.py
+   5 LH055 collect.py
+   4 Microsoft report watch (notes)
+   2 LH053 collect.py
+by practice x rule (A):
+   2 ('Horizon 2026-11-20 scouts', 'R1')
+   17 ('Horizon 2026-11-20 scouts', 'R5')
+   14 ('LH038 collect.py', 'R5')
+   9 ('LH044 collect.py', 'R5')
+   2 ('LH053 collect.py', 'R6')
+   5 ('LH055 collect.py', 'R6')
+   4 ('Microsoft report watch (notes)', 'R6')
+statuses fail A: Counter({'2xx': 28, 'none': 19, '403': 4, '3xx': 1, '404': 1})
+statuses fail A by practice:
+   19 ('Horizon 2026-11-20 scouts', 'none')
+   14 ('LH038 collect.py', '2xx')
+   7 ('LH044 collect.py', '2xx')
+   1 ('LH044 collect.py', '3xx')
+   1 ('LH044 collect.py', '404')
+   2 ('LH053 collect.py', '2xx')
+   5 ('LH055 collect.py', '2xx')
+   4 ('Microsoft report watch (notes)', '403')
+R5 robots-read-only failures (R5 nc but R5_excl ok): 13
+R5 nc by practice: Counter({'Horizon 2026-11-20 scouts': 17, 'LH038 collect.py': 14, 'LH044 collect.py': 9})
+R5 nc by host: Counter({'arxiv.org': 16, 'access.redhat.com': 14, 'www.washingtonsun.com': 2, 'ftp.gnu.org': 1, 'en.wikipedia.org': 1, 'www.wikidata.org': 1, 'wiki.debian.org': 1, 'www.ebi.ac.uk': 1, 'catalog.data.gov': 1, 'open.canada.ca': 1, 'scholarworks.wm.edu': 1})
+R1 nc rows:
+   W01185 Horizon 2026-11-20 scouts https://www.theregister.com/research/2026/11/16/google-ai-agent-turned-a-security-patch-into-a-working-exploit-with-no-human-help/5309926  current re-read (not the file in force at the time)
+   W01223 Horizon 2026-11-20 scouts https://www.theregister.com/research/2026/11/16/google-ai-agent-turned-a-security-patch-into-a-working-exploit-with-no-human-help/5309926  current re-read (not the file in force at the time)
+R2 nc rows:
+   W00967 Horizon 2026-11-20 scouts https://next.ink/wp-content/uploads/2026/11/PostIncidentReport.pdf complies
+   W01185 Horizon 2026-11-20 scouts https://www.theregister.com/research/2026/11/16/google-ai-agent-turned-a-security-patch-into-a-working-exploit-with-no-human-help/5309926 does not comply
+   W01223 Horizon 2026-11-20 scouts https://www.theregister.com/research/2026/11/16/google-ai-agent-turned-a-security-patch-into-a-working-exploit-with-no-human-help/5309926 does not comply
+R6 nc rows:
+   W00326 Microsoft report watch (notes) 2026-11-17T14:17:24Z 403 same URL after wall (403, challenge named in the log) at 2026-11-16T14:19:05Z (Microsoft r
+   W00529 Microsoft report watch (notes) 2026-11-18T14:17:17Z 403 same URL after wall (403, challenge named in the log) at 2026-11-16T14:19:05Z (Microsoft r
+   W00539 LH055 collect.py 2026-11-18T14:17:33Z 200 same URL after wall (429) at 2026-11-17T20:30:52Z (LH055 collect.py; a later day)
+   W00609 LH055 collect.py 2026-11-19T14:17:35Z 200 same URL after wall (429) at 2026-11-17T20:30:52Z (LH055 collect.py; a later day)
+   W00718 Microsoft report watch (notes) 2026-11-19T14:21:15Z 403 same URL after wall (403, challenge named in the log) at 2026-11-16T14:19:05Z (Microsoft r
+   W01322 LH055 collect.py 2026-11-20T14:16:36Z 200 same URL after wall (429) at 2026-11-17T20:30:52Z (LH055 collect.py; a later day)
+   W01328 Microsoft report watch (notes) 2026-11-20T14:16:54Z 403 same URL after wall (403, challenge named in the log) at 2026-11-16T14:19:05Z (Microsoft r
+   W01395 LH055 collect.py 2026-11-21T14:14:22Z 200 same URL after wall (429) at 2026-11-17T20:30:52Z (LH055 collect.py; a later day)
+   W01509 LH053 collect.py 2026-11-22T14:11:24Z 200 same URL after wall (429) at 2026-11-21T14:11:56Z (LH053 collect.py; a later day)
+   W01513 LH053 collect.py 2026-11-22T14:11:25Z 200 same URL after wall (429) at 2026-11-21T14:11:56Z (LH053 collect.py; a later day)
+   W01524 LH055 collect.py 2026-11-22T14:12:10Z 200 same URL after wall (429) at 2026-11-17T20:30:52Z (LH055 collect.py; a later day)
+non-robots audited: 969 Counter({'page': 969})
+robots_prov among non-robots:
+   596 current re-read (not the file in force at the time)
+   148 robots.txt status logged at the time by the same log
+   97 retained in the week, other study
+   66 retained, same study
+   57 current re-read, bytes identical to the file read at the time (sha256)
+   5 current re-read, bytes differ from the file read at the time (sha256)
+unknown A 159 R8 unk 150 R1 unk 15 R5 unk 22
+R8 values: Counter({'complies': 1499, 'unknown': 150})
+R4 applicable: Counter({'not applicable': 1634, 'complies': 15})
+overall A under the 8 November audit.py rule (unknown if R1 or R8 unknown): {'ok': 1454, 'unk': 142, 'nc': 53}
+R5 nc only when robots reads counted:
+   W00885 Horizon 2026-11-20 scouts page arxiv.org Crawl-delay 15; 4 s after the previous request
+   W01035 Horizon 2026-11-20 scouts robots arxiv.org Crawl-delay 15; 14 s after the previous request
+   W01036 Horizon 2026-11-20 scouts page arxiv.org Crawl-delay 15; 3 s after the previous request
+   W01195 Horizon 2026-11-20 scouts page www.washingtonsun.com Crawl-delay 10; 4 s after the previous request
+   W01631 LH044 collect.py page ftp.gnu.org Crawl-delay 60; 2 s after the previous request
+   W01648 LH044 collect.py page en.wikipedia.org Crawl-delay 5; 1 s after the previous request
+   W01653 LH044 collect.py page www.wikidata.org Crawl-delay 5; 2 s after the previous request
+   W01672 LH044 collect.py page wiki.debian.org Crawl-delay 20; 2 s after the previous request
+   W01681 LH044 collect.py page arxiv.org Crawl-delay 15; 1 s after the previous request
+   W01707 LH044 collect.py page www.ebi.ac.uk Crawl-delay 0 10; 2 s after the previous request
+   W01710 LH044 collect.py page catalog.data.gov Crawl-delay 10; 2 s after the previous request
+   W01716 LH044 collect.py page open.canada.ca Crawl-delay 20; 2 s after the previous request
+   W01787 LH044 collect.py page scholarworks.wm.edu Crawl-delay 10 10; 3 s after the previous request
+
+== 8 November audit ==
+rows 3497
+R1: Counter({'complies': 3390, 'does not comply': 97, 'unknown': 10})
+status values (non-numeric or blank): {'reset': 8, 'error': 1, '': 3, 'tls': 1, 'conn_refused': 1, 'dns': 5, 'proxy_refused': 1, 'timeout': 2}
+172? 172 Counter({'404': 90, '200': 74, 'reset': 4, '405': 1, '': 1, '302': 1, '403': 1})
+  shadowserver: {'source': 'transcript', 'reached': 'no (no answer)', 'log': 'transcript:a6843267 (LH042 research)', 'who': 'LH042 research', 'url': 'https://dashboard.shadowserver.org/', 'status': 'reset', 'R1': 'does not comply', 'overall_A': 'does not comply'}
+  shadowserver: {'source': 'transcript', 'reached': 'no (no answer)', 'log': 'transcript:a6843267 (LH042 research)', 'who': 'LH042 research', 'url': 'https://dashboard.shadowserver.org/robots.txt', 'status': 'reset', 'R1': 'complies', 'overall_A': 'complies'}
+  shadowserver: {'source': 'log', 'reached': 'status not recorded', 'log': 'studies/LH042/data/dash-2026-11-08T1909Z/readlog.csv', 'who': 'LH042', 'url': 'https://dashboard.shadowserver.org/', 'status': '', 'R1': 'does not comply', 'overall_A': 'does not comply'}
+  shadowserver: {'source': 'log', 'reached': 'yes', 'log': 'studies/LH042/data/round1-2026-11-08/readlog.csv', 'who': 'LH042', 'url': 'https://www.shadowserver.org/what-we-do/network-reporting/accessible-adb-report/', 'status': '200', 'R1': 'complies', 'overall_A': 'complies'}
+8 Nov reached: Counter({'yes': 3473, 'no (no answer)': 11, 'no (refused by the container)': 10, 'status not recorded': 3})
+8 Nov reached x status for not-yes: Counter({('no (refused by the container)', '403'): 10, ('no (no answer)', 'reset'): 8, ('status not recorded', ''): 3, ('no (no answer)', 'timeout'): 2, ('no (no answer)', 'error'): 1})
+172 reached: Counter({'yes': 166, 'no (no answer)': 4, 'status not recorded': 1, 'no (refused by the container)': 1})
+blank-status rows: [('transcript:a6843267 (LH042 research)', 'https://www.anthropic.com/research/self-replicating-ai', 'status not recorded'), ('studies/LH042/data/dash-2026-11-08T1909Z/readlog.csv', 'https://dashboard.shadowserver.org/', 'status not recorded'), ('transcript:2942f8fb (driving session)', 'https://data.gharchive.org/2026-11-05-03.json.gz', 'status not recorded')]
+
+== R8 by User-Agent string (audited) ==
+   1254 complies 'Mozilla/5.0 (compatible; Lighthouse-research/1.0; +https://lighthouse.'
+   245 complies 'Lighthouse-research/1.0 (+https://lighthouse.harbour.cat/...)'
+   150 unknown ''
