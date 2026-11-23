@@ -1,0 +1,82 @@
+[
+ {
+  "id": "urn:php2shell:inventory:package:PHP-0395",
+  "supplier": "aaPanel",
+  "product": "aaPanel PHP Project hosting and CLI selection",
+  "status": [
+   "Fix",
+   "Fix"
+  ],
+  "urls": [
+   "https://www.aapanel.com/docs/Function/php.html",
+   "https://www.aapanel.com/forum/d/26249-critical-php-security-update"
+  ],
+  "advisory_urls": [
+   "https://www.aapanel.com/forum/d/26249-critical-php-security-update"
+  ]
+ },
+ {
+  "id": "urn:php2shell:inventory:package:PHP-0402",
+  "supplier": "Acquia",
+  "product": "Acquia Cloud Platform PHP hosting",
+  "status": [
+   "Fix",
+   "Fix"
+  ],
+  "urls": [
+   "https://docs.acquia.com/acquia-cloud-platform/configuring-php-settings",
+   "https://docs.acquia.com/acquia-cloud-platform/release/2026-10-22/100321-cloud-platform-october-22-2026",
+   "https://github.com/php/php-src/security/advisories/GHSA-w8hw-w9fx-j79w",
+   "https://github.com/php/php-src/security/advisories/GHSA-6wmf-4rv5-p3rp"
+  ],
+  "advisory_urls": [
+   "https://github.com/php/php-src/security/advisories/GHSA-w8hw-w9fx-j79w",
+   "https://github.com/php/php-src/security/advisories/GHSA-6wmf-4rv5-p3rp"
+  ]
+ },
+ {
+  "id": "urn:php2shell:inventory:package:PHP-0960",
+  "supplier": "AlmaLinux",
+  "product": "AlmaLinux 10 PHP 8.3 packages",
+  "status": [
+   "Fix",
+   "Fix"
+  ],
+  "urls": [
+   "https://errata.almalinux.org/10/ALSA-2026-87070.html"
+  ],
+  "advisory_urls": [
+   "https://errata.almalinux.org/10/ALSA-2026-87070.html"
+  ]
+ },
+ {
+  "id": "urn:php2shell:inventory:package:PHP-0961",
+  "supplier": "AlmaLinux",
+  "product": "AlmaLinux 10 PHP 8.4 packages (php8.4)",
+  "status": [
+   "Fix",
+   "Fix"
+  ],
+  "urls": [
+   "https://errata.almalinux.org/10/ALSA-2026-87071.html"
+  ],
+  "advisory_urls": [
+   "https://errata.almalinux.org/10/ALSA-2026-87071.html"
+  ]
+ },
+ {
+  "id": "urn:php2shell:inventory:package:PHP-0951",
+  "supplier": "AlmaLinux",
+  "product": "AlmaLinux 8 php:7.2 module",
+  "status": [
+   "Fix",
+   "Fix"
+  ],
+  "urls": [
+   "https://errata.almalinux.org/8/ALSA-2026-A011.html"
+  ],
+  "advisory_urls": [
+   "https://errata.almalinux.org/8/ALSA-2026-A011.html"
+  ]
+ }
+]
