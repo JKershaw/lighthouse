@@ -38,6 +38,8 @@ The words you'll meet on Lighthouse's pieces, investigation pages and front page
 
 **CISA's catalogue of known exploited vulnerabilities (KEV).** A list kept by the US Cybersecurity and Infrastructure Security Agency of flaws it classes as known to be exploited. An entry is CISA's classification, not a count of attacks or proof that any succeeded. Used in [A PHP emergency](articles/php-emergency-first-reading.md).
 
+**EPSS (exploit-prediction score).** A public model's daily estimate of how likely a flaw is to be exploited in the next 30 days. It's a prediction, not a report of attacks, and the inputs behind each flaw's score aren't published, so a jump in it doesn't say why. Used on [When a model finds the bug](investigations/model-found-bugs.md).
+
 **Decoy server (honeypot).** A server set up to attract attacks so they can be recorded. Code reaching a decoy is an attempt, not an intrusion into a real system. Used in [A PHP emergency](articles/php-emergency-first-reading.md).
 
 **GH Archive.** A public project that keeps hourly files of GitHub's public events. In 2026 some hours we read lacked whole kinds of event, so a file being there doesn't mean it is complete. Used in [Every layer of the internet had a public watcher](articles/who-watches-the-internet.md).

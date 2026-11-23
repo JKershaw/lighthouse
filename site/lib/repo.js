@@ -582,7 +582,7 @@ export function scanRepo(root, { siteFile = path.join(root, "site", "site.json")
       // last change counted over the whole folder, so a read moves the date.
       const below = pages.filter((p) => p.path.startsWith(`${d}/`));
       const checkpoints = below
-        .filter((p) => path.posix.dirname(p.path) === `${d}/checkpoints`)
+        .filter((p) => [`${d}/checkpoints`, `${d}/readings`].includes(path.posix.dirname(p.path)))
         .map((p) => ({ ...link(p), ...checkpointWhen(p), inShort: p.inShortFrom === "in short" ? p.inShort : "" }))
         .sort((a, b) => b.key.localeCompare(a.key) || b.path.localeCompare(a.path));
       const time = Math.max(0, ...below.map((p) => p.time));
