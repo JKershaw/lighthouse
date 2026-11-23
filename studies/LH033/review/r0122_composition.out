@@ -1,0 +1,66 @@
+branch 8.2: day, patched, targets, unpatched(targets-patched), share%
+   0    113,939  5,315,086  5,201,147   2.1
+   1  1,219,271  5,516,696  4,297,425  22.1
+   2  2,330,429  5,659,481  3,329,052  41.2
+   7  3,186,252  6,010,022  2,823,770  53.0
+  14  4,648,169  6,329,823  1,681,654  73.4
+  23  4,517,073  6,008,061  1,490,988  75.2
+  28  4,732,166  6,130,330  1,398,164  77.2
+  29  4,655,191  5,978,559  1,323,368  77.9
+  30  4,703,590  6,018,074  1,314,484  78.2
+  day7->30: patched +1,517,338  targets +8,052  unpatched -1,509,286
+  share at day 30 if targets had stayed at day-7 level: 78.3%
+branch 8.3: day, patched, targets, unpatched(targets-patched), share%
+   0    121,448  6,896,112  6,774,664   1.8
+   1  1,705,588  7,177,861  5,472,273  23.8
+   2  3,071,109  7,285,788  4,214,679  42.2
+   7  4,117,523  7,860,923  3,743,400  52.4
+  14  5,649,414  8,024,163  2,374,749  70.4
+  23  5,632,972  7,735,858  2,102,886  72.8
+  28  5,716,158  7,804,264  2,088,106  73.2
+  29  5,652,481  7,562,853  1,910,372  74.7
+  30  5,696,310  7,594,718  1,898,408  75.0
+  day7->30: patched +1,578,787  targets -266,205  unpatched -1,844,992
+  share at day 30 if targets had stayed at day-7 level: 72.5%
+branch 8.4: day, patched, targets, unpatched(targets-patched), share%
+   0    120,743  2,784,890  2,664,147   4.3
+   1  1,027,238  2,910,999  1,883,761  35.3
+   2  1,760,377  3,008,583  1,248,206  58.5
+   7  2,197,493  3,241,669  1,044,176  67.8
+  14  2,795,655  3,451,698    656,043  81.0
+  23  2,904,134  3,453,193    549,059  84.1
+  28  3,111,579  3,632,064    520,485  85.7
+  29  3,073,479  3,573,779    500,300  86.0
+  30  3,107,403  3,594,071    486,668  86.5
+  day7->30: patched +909,910  targets +352,402  unpatched -557,508
+  share at day 30 if targets had stayed at day-7 level: 95.9%
+branch 8.5: day, patched, targets, unpatched(targets-patched), share%
+   0     45,431  2,429,661  2,384,230   1.9
+   1    983,600  2,727,405  1,743,805  36.1
+   2  2,054,947  2,915,945    860,998  70.5
+   7  2,665,446  3,381,503    716,057  78.8
+  14  3,403,363  3,793,671    390,308  89.7
+  23  3,401,589  3,741,834    340,245  90.9
+  28  3,433,456  3,758,624    325,168  91.3
+  29  3,409,819  3,702,305    292,486  92.1
+  30  3,423,244  3,712,086    288,842  92.2
+  day7->30: patched +757,798  targets +330,583  unpatched -427,215
+  share at day 30 if targets had stayed at day-7 level: 101.2%
+history statuses, days 0, 7, 14, 30:
+  0 {'affected': 17024188, 'affected_nofix': 23311748, 'patched': 401561, 'unknown': 16167585}
+  7 {'affected': 8327403, 'affected_nofix': 24386744, 'patched': 12167767, 'unknown': 66063032}
+  14 {'affected': 5102754, 'affected_nofix': 24226778, 'patched': 16497895, 'unknown': 74917550}
+  30 {'unknown': 71655447, 'affected_nofix': 22516583, 'patched': 16933965, 'affected': 3988402}
+decomposition of share change: (a) from patched-count change at fixed denominator, (b) remainder from denominator change
+  8.2 day7->14: share +20.42 pts; patched-count part +24.32; denominator part -3.91; patched +1,461,917 targets +319,801
+  8.2 day14->30: share +4.72 pts; patched-count part +0.88; denominator part +3.85; patched +55,421 targets -311,749
+  8.2 day23->30: share +2.97 pts; patched-count part +3.10; denominator part -0.13; patched +186,517 targets +10,013
+  8.3 day7->14: share +18.03 pts; patched-count part +19.49; denominator part -1.46; patched +1,531,891 targets +163,240
+  8.3 day14->30: share +4.60 pts; patched-count part +0.58; denominator part +4.01; patched +46,896 targets -429,445
+  8.3 day23->30: share +2.19 pts; patched-count part +0.82; denominator part +1.37; patched +63,338 targets -141,140
+  8.4 day7->14: share +13.20 pts; patched-count part +18.45; denominator part -5.25; patched +598,162 targets +210,029
+  8.4 day14->30: share +5.47 pts; patched-count part +9.03; denominator part -3.57; patched +311,748 targets +142,373
+  8.4 day23->30: share +2.36 pts; patched-count part +5.89; denominator part -3.53; patched +203,269 targets +140,878
+  8.5 day7->14: share +10.89 pts; patched-count part +21.82; denominator part -10.93; patched +737,917 targets +412,168
+  8.5 day14->30: share +2.51 pts; patched-count part +0.52; denominator part +1.98; patched +19,881 targets -81,585
+  8.5 day23->30: share +1.31 pts; patched-count part +0.58; denominator part +0.73; patched +21,655 targets -29,748

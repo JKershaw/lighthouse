@@ -70,6 +70,14 @@ for b, v in m1.items():
                'not_patched_day30_pct': round((1 - v[30]['share']) * 100, 1),
                'targets_day30': v[30]['targets']}
 out['m1_summary'] = summ
+# Added in version 1.2 (after the reader review R-0122): patched and branch counts, to say how much of
+# each later rise in share is more services counted patched and how much fewer services in the branch.
+out['m1_counts'] = {b: {n: {'patched': v[n]['patched'], 'targets': v[n]['targets']} for n in (7, 14, 23, 30)}
+                    for b, v in m1.items()}
+out['m1_count_changes'] = {b: {f'{a}_to_{c}': {'patched': v[c]['patched'] - v[a]['patched'],
+                                                'targets': v[c]['targets'] - v[a]['targets'],
+                                                'patched_change_pts_of_day_a_targets': round((v[c]['patched'] - v[a]['patched']) / v[a]['targets'] * 100, 1)}
+                                for a, c in ((7, 14), (7, 30), (14, 30), (23, 30))} for b, v in m1.items()}
 
 m2 = {}
 for d, (st, rn) in sorted(hist.items()):

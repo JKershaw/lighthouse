@@ -61,6 +61,170 @@
    "targets_day30": 3712086
   }
  },
+ "m1_counts": {
+  "8.2": {
+   "7": {
+    "patched": 3186252,
+    "targets": 6010022
+   },
+   "14": {
+    "patched": 4648169,
+    "targets": 6329823
+   },
+   "23": {
+    "patched": 4517073,
+    "targets": 6008061
+   },
+   "30": {
+    "patched": 4703590,
+    "targets": 6018074
+   }
+  },
+  "8.3": {
+   "7": {
+    "patched": 4117523,
+    "targets": 7860923
+   },
+   "14": {
+    "patched": 5649414,
+    "targets": 8024163
+   },
+   "23": {
+    "patched": 5632972,
+    "targets": 7735858
+   },
+   "30": {
+    "patched": 5696310,
+    "targets": 7594718
+   }
+  },
+  "8.4": {
+   "7": {
+    "patched": 2197493,
+    "targets": 3241669
+   },
+   "14": {
+    "patched": 2795655,
+    "targets": 3451698
+   },
+   "23": {
+    "patched": 2904134,
+    "targets": 3453193
+   },
+   "30": {
+    "patched": 3107403,
+    "targets": 3594071
+   }
+  },
+  "8.5": {
+   "7": {
+    "patched": 2665446,
+    "targets": 3381503
+   },
+   "14": {
+    "patched": 3403363,
+    "targets": 3793671
+   },
+   "23": {
+    "patched": 3401589,
+    "targets": 3741834
+   },
+   "30": {
+    "patched": 3423244,
+    "targets": 3712086
+   }
+  }
+ },
+ "m1_count_changes": {
+  "8.2": {
+   "7_to_14": {
+    "patched": 1461917,
+    "targets": 319801,
+    "patched_change_pts_of_day_a_targets": 24.3
+   },
+   "7_to_30": {
+    "patched": 1517338,
+    "targets": 8052,
+    "patched_change_pts_of_day_a_targets": 25.2
+   },
+   "14_to_30": {
+    "patched": 55421,
+    "targets": -311749,
+    "patched_change_pts_of_day_a_targets": 0.9
+   },
+   "23_to_30": {
+    "patched": 186517,
+    "targets": 10013,
+    "patched_change_pts_of_day_a_targets": 3.1
+   }
+  },
+  "8.3": {
+   "7_to_14": {
+    "patched": 1531891,
+    "targets": 163240,
+    "patched_change_pts_of_day_a_targets": 19.5
+   },
+   "7_to_30": {
+    "patched": 1578787,
+    "targets": -266205,
+    "patched_change_pts_of_day_a_targets": 20.1
+   },
+   "14_to_30": {
+    "patched": 46896,
+    "targets": -429445,
+    "patched_change_pts_of_day_a_targets": 0.6
+   },
+   "23_to_30": {
+    "patched": 63338,
+    "targets": -141140,
+    "patched_change_pts_of_day_a_targets": 0.8
+   }
+  },
+  "8.4": {
+   "7_to_14": {
+    "patched": 598162,
+    "targets": 210029,
+    "patched_change_pts_of_day_a_targets": 18.5
+   },
+   "7_to_30": {
+    "patched": 909910,
+    "targets": 352402,
+    "patched_change_pts_of_day_a_targets": 28.1
+   },
+   "14_to_30": {
+    "patched": 311748,
+    "targets": 142373,
+    "patched_change_pts_of_day_a_targets": 9.0
+   },
+   "23_to_30": {
+    "patched": 203269,
+    "targets": 140878,
+    "patched_change_pts_of_day_a_targets": 5.9
+   }
+  },
+  "8.5": {
+   "7_to_14": {
+    "patched": 737917,
+    "targets": 412168,
+    "patched_change_pts_of_day_a_targets": 21.8
+   },
+   "7_to_30": {
+    "patched": 757798,
+    "targets": 330583,
+    "patched_change_pts_of_day_a_targets": 22.4
+   },
+   "14_to_30": {
+    "patched": 19881,
+    "targets": -81585,
+    "patched_change_pts_of_day_a_targets": 0.5
+   },
+   "23_to_30": {
+    "patched": 21655,
+    "targets": -29748,
+    "patched_change_pts_of_day_a_targets": 0.6
+   }
+  }
+ },
  "m2_unfixed_tail": {
   "0": {
    "day": "2026-10-21",
