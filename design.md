@@ -94,6 +94,8 @@ Separate exploratory findings from tests specified in advance. Preserve failed r
 
 Start from metadata sufficient to answer the question. Contents, personal data, secrets and customer material require a specific research need and a recorded handling decision. Published datasets use a reviewed subset or aggregation, with restrictions described. The Menlo Report's principles for research on information and communication technology are the reference for these decisions [S9].
 
+Assess what the work itself could enable before commissioning, collection or materially broader analysis. Follow the [research safety assessment](schedule/research-safety.md) for public retention and the combined effect of records, links and releases.
+
 The outward map covers the luminous fraction: what emits into public data. Provider compute, private repositories and internal infrastructure are dark and are inferred from their effects. Every outward view states its luminous fraction where it can be estimated and says unknown where it cannot. A dark region is not an empty one, and a bright one is not necessarily important.
 
 A visually important node may be a measurement artefact. A central node in an incomplete graph may simply be better observed. Test claims about criticality against dependency records or authorised controlled tests before describing a node as essential.
