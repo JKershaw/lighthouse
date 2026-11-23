@@ -1,0 +1,30 @@
+User-agent: Baiduspider
+Disallow: /
+User-agent: Baiduspider-video
+Disallow: /
+User-agent: Baiduspider-image
+Disallow: /
+User-agent: istellabot
+Disallow: /
+User-agent: SemrushBot
+Disallow: /
+User-agent: DotBot
+Disallow: / 
+
+#User-agent: bingbot
+#Disallow: /
+
+User-agent: Twitterbot
+Crawl-delay: 25
+
+User-agent: *
+Disallow: /*page=
+Disallow: /ajax/
+Disallow: /search/
+Disallow: /digital
+Disallow: /*.pdf
+Crawl-delay: 10
+
+Sitemap: https://saudigazette.com.sa/sitemaps/sitemap_0.xml
+Sitemap: https://saudigazette.com.sa/sitemaps/news_sitemap.xml
+

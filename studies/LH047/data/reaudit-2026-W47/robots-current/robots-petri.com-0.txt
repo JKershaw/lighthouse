@@ -1,0 +1,12 @@
+User-agent: *
+Disallow: /wp-admin/
+Disallow: /cdn-cgi/
+Allow: /wp-admin/admin-ajax.php
+
+User-agent: Opebot-v
+Allow: /
+
+User-agent: BomboraBot
+Allow: /
+
+Sitemap: https://petri.com/sitemap_index.xml

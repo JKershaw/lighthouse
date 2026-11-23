@@ -1,0 +1,215 @@
+{
+ "apart": {
+  "apart: no: same gate call (robots.txt read once)": 38,
+  "apart: refused by the gate": 75,
+  "apart: search": 75
+ },
+ "audited": 1649,
+ "by_rule": {
+  "K8": {
+   "complies": 1631,
+   "does not comply": 3,
+   "unknown": 15
+  },
+  "R1": {
+   "complies": 1632,
+   "does not comply": 2,
+   "unknown": 15
+  },
+  "R2": {
+   "complies": 1631,
+   "does not comply": 3,
+   "unknown": 15
+  },
+  "R2_agent": {
+   "complies": 1632,
+   "does not comply": 2,
+   "unknown": 15
+  },
+  "R4": {
+   "complies": 15,
+   "not applicable": 1634
+  },
+  "R5": {
+   "complies": 1587,
+   "does not comply (advisory)": 40,
+   "unknown": 22
+  },
+  "R5_excl_robots": {
+   "complies": 1622,
+   "does not comply (advisory)": 27
+  },
+  "R6": {
+   "complies": 1638,
+   "does not comply": 11
+  },
+  "R7": {
+   "complies": 8,
+   "terms not read": 1641
+  },
+  "R8": {
+   "complies": 1499,
+   "unknown": 150
+  },
+  "overall_A": {
+   "complies": 1437,
+   "does not comply": 53,
+   "unknown": 159
+  },
+  "overall_B": {
+   "complies": 1437,
+   "does not comply": 54,
+   "unknown": 158
+  },
+  "overall_K8": {
+   "complies": 1437,
+   "does not comply": 54,
+   "unknown": 158
+  }
+ },
+ "by_rule_on_reread": {
+  "K8": {
+   "complies": 652,
+   "does not comply": 3,
+   "unknown": 3
+  },
+  "R1": {
+   "complies": 653,
+   "does not comply": 2,
+   "unknown": 3
+  },
+  "R2": {
+   "complies": 652,
+   "does not comply": 3,
+   "unknown": 3
+  },
+  "R2_agent": {
+   "complies": 653,
+   "does not comply": 2,
+   "unknown": 3
+  },
+  "R4": {
+   "complies": 14,
+   "not applicable": 644
+  },
+  "R5": {
+   "complies": 620,
+   "does not comply (advisory)": 16,
+   "unknown": 22
+  },
+  "R5_excl_robots": {
+   "complies": 643,
+   "does not comply (advisory)": 15
+  },
+  "R6": {
+   "complies": 649,
+   "does not comply": 9
+  },
+  "R7": {
+   "terms not read": 658
+  },
+  "R8": {
+   "complies": 531,
+   "unknown": 127
+  },
+  "overall_A": {
+   "complies": 493,
+   "does not comply": 27,
+   "unknown": 138
+  },
+  "overall_B": {
+   "complies": 493,
+   "does not comply": 28,
+   "unknown": 137
+  },
+  "overall_K8": {
+   "complies": 493,
+   "does not comply": 28,
+   "unknown": 137
+  }
+ },
+ "by_rule_week_evidence_or_robots_reads": {
+  "K8": {
+   "complies": 979,
+   "unknown": 12
+  },
+  "R1": {
+   "complies": 979,
+   "unknown": 12
+  },
+  "R2": {
+   "complies": 979,
+   "unknown": 12
+  },
+  "R2_agent": {
+   "complies": 979,
+   "unknown": 12
+  },
+  "R4": {
+   "complies": 1,
+   "not applicable": 990
+  },
+  "R5": {
+   "complies": 967,
+   "does not comply (advisory)": 24
+  },
+  "R5_excl_robots": {
+   "complies": 979,
+   "does not comply (advisory)": 12
+  },
+  "R6": {
+   "complies": 989,
+   "does not comply": 2
+  },
+  "R7": {
+   "complies": 8,
+   "terms not read": 983
+  },
+  "R8": {
+   "complies": 968,
+   "unknown": 23
+  },
+  "overall_A": {
+   "complies": 944,
+   "does not comply": 26,
+   "unknown": 21
+  },
+  "overall_B": {
+   "complies": 944,
+   "does not comply": 26,
+   "unknown": 21
+  },
+  "overall_K8": {
+   "complies": 944,
+   "does not comply": 26,
+   "unknown": 21
+  }
+ },
+ "implicit_robots": 308,
+ "practices_failing": {
+  "overall_A": [
+   "Horizon 2026-11-20 scouts",
+   "LH038 collect.py",
+   "LH044 collect.py",
+   "LH053 collect.py",
+   "LH055 collect.py",
+   "Microsoft report watch (notes)"
+  ],
+  "overall_B": [
+   "Horizon 2026-11-20 scouts",
+   "LH038 collect.py",
+   "LH044 collect.py",
+   "LH053 collect.py",
+   "LH055 collect.py",
+   "Microsoft report watch (notes)"
+  ],
+  "overall_K8": [
+   "Horizon 2026-11-20 scouts",
+   "LH038 collect.py",
+   "LH044 collect.py",
+   "LH053 collect.py",
+   "LH055 collect.py",
+   "Microsoft report watch (notes)"
+  ]
+ }
+}

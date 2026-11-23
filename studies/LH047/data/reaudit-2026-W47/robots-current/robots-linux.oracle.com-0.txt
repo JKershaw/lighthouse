@@ -1,0 +1,27 @@
+User-agent: Netscape-Proxy
+Disallow: /
+
+User-agent: Yandex
+Disallow: /
+
+User-agent: Baiduspider
+Disallow: /
+
+User-agent: Googlebot
+Disallow: /
+Allow: /security/*
+Allow: /switch*
+Allow: /errata
+Allow: /cve
+Allow: /uln_faq.html
+Allow: /hardware-certifications
+Allow: /supported.html
+Allow: /pls/apex/f?p=130:21
+Allow: /pls/apex/f?p=117
+Allow: /pls/apex/f?p=102
+
+User-agent: 008
+Disallow: /
+
+User-Agent: SputnikBot
+Disallow: /

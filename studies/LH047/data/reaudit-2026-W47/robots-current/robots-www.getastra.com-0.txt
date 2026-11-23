@@ -1,0 +1,32 @@
+Sitemap: https://www.getastra.com/sitemap.xml
+Sitemap: https://www.getastra.com/sitemap_index.xml
+Sitemap: https://www.getastra.com/blog/sitemap_index.xml
+Agentmap: https://www.getastra.com/.well-known/ai-catalog.json
+
+User-agent: *
+Content-Signal: ai-train=yes, search=yes, ai-input=yes
+Allow: /
+
+User-agent: *
+Disallow: *?s=
+
+User-agent: *
+Disallow: /cdn-cgi/
+Allow: /cdn-cgi/image/
+
+User-agent: *
+Disallow: /a/
+Allow: /a/seal/*
+Allow: /a/assets/seal/*
+Disallow: /r/*
+Disallow: /r/
+
+User-agent: SemrushBot
+User-agent: SemrushBot-SA
+User-agent: SemrushBot-BA
+User-agent: SemrushBot-SI
+User-agent: SemrushBot-SWA
+User-agent: SemrushBot-CT
+User-agent: SemrushBot-BM
+User-agent: UptimeRobot
+Disallow: /

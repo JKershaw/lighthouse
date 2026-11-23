@@ -1,0 +1,7 @@
+User-agent: *
+Disallow: /json
+Disallow: /json/*
+Disallow: /css/*
+Allow: /sitemap.txt
+Sitemap: /sitemap.txt
+Allow: /.well_known/security.txt

@@ -1,0 +1,27 @@
+User-agent: *
+Allow: /
+Disallow: /admin.php
+Disallow: /install/
+Disallow: /_wf-failover/
+Disallow: /pong/
+Disallow: /.footer/
+Disallow: /account/
+Disallow: /login/
+Disallow: /register/
+Disallow: /lost-password/
+Disallow: /goto/
+Disallow: /search/
+Disallow: /whats-new/
+Disallow: /posts/
+Disallow: /*?*order=
+Disallow: /*?*direction=
+Disallow: /*?*last_days=
+Disallow: /*?*prefix_id=
+Disallow: /*?*starter_id=
+
+Sitemap: https://windowsforum.com/sitemap.xml
+Sitemap: https://windowsforum.com/sitemap-news.xml
+Sitemap: https://windowsforum.com/video_sitemap.xml
+Sitemap: https://windowsforum.com/builds/sitemap.xml
+Sitemap: https://windowsforum.com/docs/ai/sitemap.xml
+Sitemap: https://windowsforum.com/store-sitemap.xml

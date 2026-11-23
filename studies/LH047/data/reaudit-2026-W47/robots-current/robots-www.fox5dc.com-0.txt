@@ -1,0 +1,40 @@
+User-agent: GPTBot
+Disallow: /
+
+User-agent: AmazonAdBot
+Allow: /
+
+User-agent: *
+
+Disallow: /search
+Disallow: /maintenance/
+Disallow: /_wzln
+Disallow: /_wzln/
+Disallow: /*mailto:*
+Disallow: /*@*
+Disallow: /*%40*
+Disallow: /*email=*
+Disallow: /*contact=*
+Disallow: /news/mailto:
+Disallow: /news/@
+
+Sitemap: https://www.fox5dc.com/sitemap.xml
+Sitemap: https://www.fox5dc.com/sitemap.xml?type=fastchanging
+Sitemap: https://www.fox5dc.com/sitemap.xml?type=articles
+Sitemap: https://www.fox5dc.com/sitemap.xml?type=videos
+
+User-agent: ia_archiver
+Disallow: /
+
+User-agent: archive.org_bot
+Disallow: /
+
+User-agent: wayback
+Disallow: /
+
+User-agent: Googlebot
+Disallow: /rss/
+Disallow: /apple-app-site-association
+Disallow: /social-media/link-icon.svg
+Disallow: /social-media/yt-icon.svg
+Disallow: /taboola/

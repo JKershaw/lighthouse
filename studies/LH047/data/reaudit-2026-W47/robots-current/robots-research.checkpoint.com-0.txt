@@ -1,0 +1,17 @@
+# Check Point Research
+# AI and Search Discovery Policy
+
+User-agent: *
+Crawl-delay: 10
+Content-Signal: ai-train=yes, search=yes, ai-input=yes
+
+Allow: /
+Disallow: /wp-admin/
+Allow: /wp-admin/admin-ajax.php
+Disallow: /wp-login.php
+Disallow: /tag/
+Disallow: /author/
+Disallow: /search/
+Disallow: /*?s=
+
+Sitemap: https://research.checkpoint.com/sitemap_index.xml

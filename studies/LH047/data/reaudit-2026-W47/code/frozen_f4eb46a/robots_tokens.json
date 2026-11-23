@@ -1,0 +1,148 @@
+{
+ "_about": "Robots.txt product tokens Lighthouse obeys (the keeper, 8 November 2026; AGENTS.md, Rules that matter). scripts/robots_rules.py reads this file: a group naming \"lighthouse\" or the running provider's applied tokens (every provider's when it cannot tell) applies, else \"*\"; the strictest applicable group wins. \"documented\" means the provider's own page lists the token; \"seen in the wild\" means a robots.txt Lighthouse read addresses the provider's agents by that name and no provider page read lists it. Entries with \"applied\": false would be recorded, not obeyed; none is. Pages retained under notes/robots-tokens-2026-11-08/sources/ (fetchlog.csv gives URL, UTC time, status and sha256). Written 8 November 2026.",
+ "lighthouse": [
+  "Lighthouse-research"
+ ],
+ "anthropic": [
+  {
+   "token": "ClaudeBot",
+   "kind": "crawler (training)",
+   "basis": "documented",
+   "source": "https://support.claude.com/en/articles/8896518-does-anthropic-crawl-data-from-the-web-and-how-can-site-owners-block-the-crawler",
+   "read": "2026-11-08T20:41:51Z",
+   "applied": true
+  },
+  {
+   "token": "Claude-User",
+   "kind": "user-triggered fetcher",
+   "basis": "documented",
+   "source": "https://support.claude.com/en/articles/8896518-does-anthropic-crawl-data-from-the-web-and-how-can-site-owners-block-the-crawler",
+   "read": "2026-11-08T20:41:51Z",
+   "applied": true
+  },
+  {
+   "token": "Claude-SearchBot",
+   "kind": "crawler (search)",
+   "basis": "documented",
+   "source": "https://support.claude.com/en/articles/8896518-does-anthropic-crawl-data-from-the-web-and-how-can-site-owners-block-the-crawler",
+   "read": "2026-11-08T20:41:51Z",
+   "applied": true
+  },
+  {
+   "token": "Claude-Agent",
+   "kind": "user-directed hosted browser",
+   "basis": "documented",
+   "source": "https://support.claude.com/en/articles/18234133-how-do-anthropic-hosted-browsers-identify-themselves-when-they-browse-the-web-on-a-user-s-behalf",
+   "read": "2026-11-08T20:42:25Z",
+   "applied": true,
+   "note": "Token added to a real browser's User-Agent when a hosted Claude agent drives it (Claude Duet named); the page says allowing or disallowing it controls such tasks but does not mention robots.txt."
+  },
+  {
+   "token": "Claude-Code",
+   "kind": "harness (Claude Code)",
+   "basis": "seen in the wild, not documented",
+   "source": "studies/LH044/data/read-2026-11-08T1920Z",
+   "files": {
+    "F01 git.kernel.org": "0001.b, 2026-11-08T19:18:56Z",
+    "F10 gitlab.freedesktop.org": "0017.b, 2026-11-08T19:19:25Z",
+    "Q07 ftp.eq.uc.pt": "0227.b, 2026-11-08T19:26:25Z"
+   },
+   "read": "2026-11-08 (LH044 baseline read)",
+   "applied": true,
+   "note": "Names the harness Lighthouse runs in. Neither Anthropic page read lists it."
+  },
+  {
+   "token": "anthropic-ai",
+   "kind": "older Anthropic token",
+   "basis": "seen in the wild, not documented",
+   "source": "studies/LH044/data/read-2026-11-08T1920Z",
+   "files": {
+    "F01 git.kernel.org": "0001.b",
+    "F06 codeberg.org": "0009.b",
+    "R06 repo1.maven.org": "0039.b",
+    "D15 wiki.gentoo.org": "0112.b"
+   },
+   "read": "2026-11-08 (LH044 baseline read)",
+   "applied": true,
+   "note": "Named in 12 of the baseline's robots.txt files as Anthropic's; not on Anthropic's current page."
+  },
+  {
+   "token": "Claude-Web",
+   "kind": "older Anthropic token",
+   "basis": "seen in the wild, not documented",
+   "source": "studies/LH044/data/read-2026-11-08T1920Z",
+   "files": {
+    "F01 git.kernel.org": "0001.b",
+    "F06 codeberg.org": "0009.b",
+    "R06 repo1.maven.org": "0039.b",
+    "D15 wiki.gentoo.org": "0112.b"
+   },
+   "read": "2026-11-08 (LH044 baseline read)",
+   "applied": true,
+   "note": "Named in 11 of the baseline's robots.txt files; not on Anthropic's current page."
+  }
+ ],
+ "openai": [
+  {
+   "token": "GPTBot",
+   "kind": "crawler (training)",
+   "basis": "documented",
+   "source": "https://developers.openai.com/api/docs/bots",
+   "read": "2026-11-08T20:41:59Z",
+   "applied": true
+  },
+  {
+   "token": "OAI-SearchBot",
+   "kind": "crawler (search)",
+   "basis": "documented",
+   "source": "https://developers.openai.com/api/docs/bots",
+   "read": "2026-11-08T20:41:59Z",
+   "applied": true
+  },
+  {
+   "token": "OAI-AdsBot",
+   "kind": "fetcher (ad landing pages)",
+   "basis": "documented",
+   "source": "https://developers.openai.com/api/docs/bots",
+   "read": "2026-11-08T20:41:59Z",
+   "applied": true
+  },
+  {
+   "token": "ChatGPT-User",
+   "kind": "user-triggered fetcher",
+   "basis": "documented",
+   "source": "https://developers.openai.com/api/docs/bots",
+   "read": "2026-11-08T20:41:59Z",
+   "applied": true,
+   "note": "The page says robots.txt rules \"may not apply\" to it because actions are user-initiated; Lighthouse obeys it all the same."
+  },
+  {
+   "token": "ChatGPT",
+   "kind": "product name",
+   "basis": "seen in the wild, not documented",
+   "source": "studies/LH044/data/read-2026-11-08T1920Z",
+   "files": {
+    "A07 openlibrary.org": "0123.b (User-agent: ChatGPT)",
+    "F01 git.kernel.org": "0001.b (User-agent: ChatGPT Agent)",
+    "D15 wiki.gentoo.org": "0112.b (User-agent: ChatGPT Agent)"
+   },
+   "read": "2026-11-08 (LH044 baseline read)",
+   "applied": true,
+   "note": "\"ChatGPT Agent\" is read as the product token ChatGPT (RFC 9309 tokens are letters, \"_\" and \"-\"). No OpenAI page read lists ChatGPT or a token for Codex."
+  },
+  {
+   "token": "OpenAI",
+   "kind": "company name",
+   "basis": "seen in the wild, not documented",
+   "source": "studies/LH044/data/read-2026-11-08T1920Z",
+   "files": {
+    "F01 git.kernel.org": "0001.b",
+    "D15 wiki.gentoo.org": "0112.b",
+    "A16 www.biorxiv.org": "0135.b (openai)"
+   },
+   "read": "2026-11-08 (LH044 baseline read)",
+   "applied": true,
+   "note": "Addresses OpenAI's agents by the company's name."
+  }
+ ]
+}

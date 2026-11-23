@@ -1,0 +1,9 @@
+User-agent: Googlebot
+Disallow: /cgi/
+Disallow: /wiki/*?*=
+
+User-agent: meta-externalagent
+Disallow: /
+
+User-agent: *
+Disallow: /cgi/

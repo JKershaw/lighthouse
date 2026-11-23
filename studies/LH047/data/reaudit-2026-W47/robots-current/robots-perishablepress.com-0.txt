@@ -1,0 +1,10 @@
+User-agent: *
+Disallow: /wp-admin/
+Disallow: /trackback/
+Disallow: /xmlrpc.php
+Disallow: /feed/
+Disallow: /blackhole/
+Disallow: /sdc_download
+Allow: /wp-admin/admin-ajax.php
+
+Sitemap: https://perishablepress.com/wp-sitemap.xml

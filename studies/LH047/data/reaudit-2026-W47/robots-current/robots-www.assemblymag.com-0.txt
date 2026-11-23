@@ -1,0 +1,35 @@
+# See http://www.robotstxt.org/wc/norobots.html for documentation on how to use the robots.txt file
+#
+# To ban all spiders from the entire site uncomment the next two lines:
+# User-agent: *
+# Disallow: /
+
+User-agent: *
+Crawl-delay: 10
+Sitemap: https://www.assemblymag.com/sitemap.xml
+
+Disallow: /comments/flag/
+Disallow: /search
+Disallow: /articles/comment/abuse
+Disallow: /articles/email
+Disallow: /articles/preview
+Disallow: /articles/print
+Disallow: /products/email
+Disallow: /products/print
+Disallow: /cart
+Disallow: /user/*
+Disallow: /*/log_view
+Disallow: /query/*
+Disallow: /media/video/
+Allow: /media/video/*/embed
+Allow: /media/videos/play/*
+# Added by Continuum
+
+User-agent: FacebookBot
+Disallow: /
+
+User-agent: Meta-ExternalAgent
+Disallow: /
+
+User-agent: Meta-ExternalFetcher
+Disallow: /

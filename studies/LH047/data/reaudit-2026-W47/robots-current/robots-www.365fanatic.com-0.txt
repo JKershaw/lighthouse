@@ -1,0 +1,37 @@
+User-agent: *
+Disallow: /?wordfence_lh=
+Disallow: /*?wordfence_lh=
+Disallow: /*&wordfence_lh=
+Disallow: /*?rm=
+Disallow: /*&rm=
+Disallow: /*?product=
+Disallow: /*&product=
+Disallow: /*?status=
+Disallow: /*&status=
+Disallow: /?s=
+Disallow: /*?s=
+Disallow: /*&s=
+Disallow: /cdn-cgi/
+Disallow: /wp-admin/
+Allow: /wp-admin/admin-ajax.php
+Disallow: /tv/
+
+User-agent: QlyzeBot
+Disallow: /
+
+User-agent: ElevenlabsCrawler
+Disallow: /
+
+User-agent: ExaSearchBot
+Disallow: /
+
+Sitemap: https://www.365fanatic.com/sitemap_index.xml
+
+# START YOAST BLOCK
+# ---------------------------
+User-agent: *
+Disallow:
+
+Sitemap: https://www.365fanatic.com/sitemap_index.xml
+# ---------------------------
+# END YOAST BLOCK
