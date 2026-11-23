@@ -1,0 +1,399 @@
+[
+  {
+    "group": "reference",
+    "source": "php",
+    "name": "php_0",
+    "status": 200,
+    "bytes": 126155,
+    "sha256": "ef6874062e55cbc38356b077c6a798fe79166df424c5ee613e946d6b1bbe3555",
+    "access": "read",
+    "I": true,
+    "II": [
+      "es are available on the downloads page . 23 Oct 2026 Informational advisory: Session upload progress We suggest you set session.upload_progress.enabled=0 until the next regular bugfix release, to fully protect from an unlikely RCE vector. This setting was already listed as"
+    ],
+    "III": [
+      "nder an unusual combination of configuration and application code. An application must set session.serialize_handler to php_binary or php_serialize in its configuration and then switch it to php at runtime with ini_set() before calling session_start(",
+      "l combination of configuration and application code. An application must set session.serialize_handler to php_binary or php_serialize in its configuration and then switch it to php at runtime with ini_set() before calling session_start() . Session uploa"
+    ],
+    "IV": [
+      "60 with the next release. 21 Oct 2026 Security advisory: Critical remote code execution vulnerabilities, update now PHP 8.5.12, 8.4.27, 8.3.36 and 8.2.35 fix two critical vulnerabilities that can allow unauthenticated remote code execution. All P",
+      "the next release. 21 Oct 2026 Security advisory: Critical remote code execution vulnerabilities, update now PHP 8.5.12, 8.4.27, 8.3.36 and 8.2.35 fix two critical vulnerabilities that can allow unauthenticated remote code execution. All PHP users",
+      " release. 21 Oct 2026 Security advisory: Critical remote code execution vulnerabilities, update now PHP 8.5.12, 8.4.27, 8.3.36 and 8.2.35 fix two critical vulnerabilities that can allow unauthenticated remote code execution. All PHP users are str",
+      "1 Oct 2026 Security advisory: Critical remote code execution vulnerabilities, update now PHP 8.5.12, 8.4.27, 8.3.36 and 8.2.35 fix two critical vulnerabilities that can allow unauthenticated remote code execution. All PHP users are strongly encou",
+      "andled by the same worker may use that stale state before normal initialization resets it. How to update: Update to PHP 8.5.12, 8.4.27, 8.3.36 or 8.2.35. Source downloads are on our downloads page . Windows source and binaries are on the same pag",
+      "y the same worker may use that stale state before normal initialization resets it. How to update: Update to PHP 8.5.12, 8.4.27, 8.3.36 or 8.2.35. Source downloads are on our downloads page . Windows source and binaries are on the same page . Linu",
+      "me worker may use that stale state before normal initialization resets it. How to update: Update to PHP 8.5.12, 8.4.27, 8.3.36 or 8.2.35. Source downloads are on our downloads page . Windows source and binaries are on the same page . Linux distri",
+      "may use that stale state before normal initialization resets it. How to update: Update to PHP 8.5.12, 8.4.27, 8.3.36 or 8.2.35. Source downloads are on our downloads page . Windows source and binaries are on the same page . Linux distributions an"
+    ],
+    "V": [
+      "https://www.php.net/archive/2026.php#2026-10-23-1"
+    ],
+    "II_yes": true,
+    "III_yes": true,
+    "IV_yes": true
+  },
+  {
+    "group": "records",
+    "source": "cve_org",
+    "name": "cve_org_0",
+    "status": 200,
+    "bytes": 5483,
+    "sha256": "68d39f46bdef4d03b6ac183dd98bb98342d093ecd80114932f9bf42a4fa8d33f",
+    "access": "read",
+    "I": true,
+    "II": [],
+    "III": [
+      "e code execution.  Session upload progress, when enabled, can store attacker-controlled data in a session key using the php_binary or php_serialize session serializer. If the same session is later read with the php serializer, because session.seriali",
+      "on.  Session upload progress, when enabled, can store attacker-controlled data in a session key using the php_binary or php_serialize session serializer. If the same session is later read with the php serializer, because session.serialize_handler is cha",
+      "e execution.</p><p>Session upload progress, when enabled, can store attacker-controlled data in a session key using the php_binary or php_serialize session serializer. If the same session is later read with the php serializer, because session.seriali",
+      "p><p>Session upload progress, when enabled, can store attacker-controlled data in a session key using the php_binary or php_serialize session serializer. If the same session is later read with the php serializer, because session.serialize_handler is cha"
+    ],
+    "IV": [],
+    "V": [
+      "https://access.redhat.com/security/cve/cve-2026-115560",
+      "https://ubuntu.com/security/CVE-2026-115560"
+    ],
+    "II_yes": false,
+    "III_yes": true,
+    "IV_yes": false
+  },
+  {
+    "group": "records",
+    "source": "nvd",
+    "name": "nvd_0",
+    "status": 200,
+    "bytes": 4128,
+    "sha256": "3ff4fbd5d294b81d6ac67be0b89a58a11c451cb9d3d6c786be0b46590ad30c32",
+    "access": "read",
+    "I": true,
+    "II": [],
+    "III": [
+      "e code execution.  Session upload progress, when enabled, can store attacker-controlled data in a session key using the php_binary or php_serialize session serializer. If the same session is later read with the php serializer, because session.seriali",
+      "on.  Session upload progress, when enabled, can store attacker-controlled data in a session key using the php_binary or php_serialize session serializer. If the same session is later read with the php serializer, because session.serialize_handler is cha"
+    ],
+    "IV": [],
+    "V": [
+      "https://access.redhat.com/security/cve/cve-2026-115560",
+      "https://ubuntu.com/security/CVE-2026-115560"
+    ],
+    "II_yes": false,
+    "III_yes": true,
+    "IV_yes": false
+  },
+  {
+    "group": "records",
+    "source": "osv",
+    "name": "osv_0",
+    "status": 404,
+    "bytes": 46,
+    "sha256": "eff9d6063693b72bd0cbba8a64cbc29e0d38b4fb05e86450909fe741c83f9253",
+    "access": "unavailable"
+  },
+  {
+    "group": "records",
+    "source": "debian",
+    "name": "debian_0",
+    "status": 200,
+    "bytes": 5364,
+    "sha256": "9dacd1f3d4c336d1152dfc52efe96b93235e58c15e706c41a65954901ab90b83",
+    "access": "read",
+    "I": true,
+    "II": [],
+    "III": [
+      "te code execution. Session upload progress, when enabled, can store attacker-controlled data in a session key using the php_binary or php_serialize session serializer. If the same session is later read with the php serializer, because session.seriali",
+      "ion. Session upload progress, when enabled, can store attacker-controlled data in a session key using the php_binary or php_serialize session serializer. If the same session is later read with the php serializer, because session.serialize_handler is cha"
+    ],
+    "IV": [
+      "us php8.2 ( PTS ) bookworm 8.2.32-1~deb12u1 vulnerable bookworm (security) 8.2.36-1~deb12u1 fixed php8.4 ( PTS ) trixie 8.4.27-1~deb13u1 vulnerable trixie (security) 8.4.28-1~deb13u1 fixed forky, sid 8.4.28-3 fixed The information below is based "
+    ],
+    "V": [
+      "https://bugs.gentoo.org/show_bug.cgi?id=CVE-2026-115560",
+      "https://bugzilla.redhat.com/show_bug.cgi?id=CVE-2026-115560",
+      "https://bugzilla.suse.com/show_bug.cgi?id=CVE-2026-115560",
+      "https://deb.freexian.com/extended-lts/tracker/CVE-2026-115560",
+      "https://duckduckgo.com/html?q=%22CVE-2026-115560%22",
+      "https://euvd.enisa.europa.eu/vulnerability/CVE-2026-115560",
+      "https://github.com/advisories?query=CVE-2026-115560",
+      "https://github.com/search?type=Code&q=%22CVE-2026-115560%22",
+      "https://github.com/search?type=Issues&q=%22CVE-2026-115560%22",
+      "https://lwn.net/Search/DoSearch?words=CVE-2026-115560",
+      "https://marc.info/?l=full-disclosure&s=CVE-2026-115560",
+      "https://marc.info/?l=oss-security&s=CVE-2026-115560",
+      "https://nvd.nist.gov/vuln/detail/CVE-2026-115560",
+      "https://ubuntu.com/security/CVE-2026-115560",
+      "https://www.cve.org/CVERecord?id=CVE-2026-115560",
+      "https://www.kb.cert.org/vuls/byid?searchview=&query=CVE-2026-115560",
+      "https://www.suse.com/security/cve/CVE-2026-115560/"
+    ],
+    "II_yes": false,
+    "III_yes": true,
+    "IV_yes": true
+  },
+  {
+    "group": "records",
+    "source": "ubuntu",
+    "name": "ubuntu_0",
+    "status": 200,
+    "bytes": 7515,
+    "sha256": "7da78ce9e6400e6922fdc02a89debba4d87e5f1b8b586647ffab2ba53ca0e6f6",
+    "access": "read",
+    "I": true,
+    "II": [],
+    "III": [],
+    "IV": [],
+    "V": [
+      "https://www.cve.org/CVERecord?id=CVE-2026-115560"
+    ],
+    "II_yes": false,
+    "III_yes": false,
+    "IV_yes": false
+  },
+  {
+    "group": "records",
+    "source": "redhat",
+    "name": "redhat_0",
+    "status": 200,
+    "bytes": 5734,
+    "sha256": "4a74fe4f3e4eb1e3323f1560ae0ae59822d0f9d2025cefd6e08d39b27fdc036c",
+    "access": "read",
+    "I": true,
+    "II": [
+      "E-2026-109618 and CVE-2026-109619 for PHP versions 8.0 and below as shipped in Red Hat Enterprise Linux unconditionally disabled the Session Upload Progress functionality affected by this issue. That change provides a mitigation for this issue as well, and therefore those pac",
+      "e those packages are not affected by this CVE-2026-115560 issue. The following PHP versions in Red Hat Enterprise Linux disabled Session Upload Progress via previous updates: * php (8.0) packages in Red Hat Enterprise Linux 9 * php:7.4 module in in Red Hat Enterprise Linu"
+    ],
+    "III": [
+      "te code execution. Session upload progress, when enabled, can store attacker-controlled data in a session key using the php_binary or php_serialize session serializer. If the same session is later read with the php serializer, because session.seriali",
+      "ion. Session upload progress, when enabled, can store attacker-controlled data in a session key using the php_binary or php_serialize session serializer. If the same session is later read with the php serializer, because session.serialize_handler is cha"
+    ],
+    "IV": [],
+    "V": [
+      "https://www.cve.org/CVERecord?id=CVE-2026-115560\nhttps://nvd.nist.gov/vuln/detail/CVE-2026-115560\nhttps://github.com/php/php-src/security/advisories/GHSA-658j-r8rw-q6mx"
+    ],
+    "II_yes": true,
+    "III_yes": true,
+    "IV_yes": false
+  },
+  {
+    "group": "records",
+    "source": "suse",
+    "name": "suse_0",
+    "status": 200,
+    "bytes": 290957,
+    "sha256": "5965c00ce2d0e850c590b940705c13231024ad6ef04e568a48afda68f005dd37",
+    "access": "read",
+    "I": true,
+    "II": [],
+    "III": [
+      "te code execution. Session upload progress, when enabled, can store attacker-controlled data in a session key using the php_binary or php_serialize session serializer. If the same session is later read with the php serializer, because session.seriali",
+      "ion. Session upload progress, when enabled, can store attacker-controlled data in a session key using the php_binary or php_serialize session serializer. If the same session is later read with the php serializer, because session.serialize_handler is cha"
+    ],
+    "IV": [],
+    "V": [
+      "http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2026-115560",
+      "https://www.suse.com/de-de/security/cve/CVE-2026-115560.html",
+      "https://www.suse.com/es-es/security/cve/CVE-2026-115560.html",
+      "https://www.suse.com/fr-fr/security/cve/CVE-2026-115560.html",
+      "https://www.suse.com/ja-jp/security/cve/CVE-2026-115560.html",
+      "https://www.suse.com/ko-kr/security/cve/CVE-2026-115560.html",
+      "https://www.suse.com/pt-br/security/cve/CVE-2026-115560.html",
+      "https://www.suse.com/security/cve/CVE-2026-115560.html",
+      "https://www.suse.com/zh-cn/security/cve/CVE-2026-115560.html"
+    ],
+    "II_yes": false,
+    "III_yes": true,
+    "IV_yes": false
+  },
+  {
+    "group": "notices",
+    "source": "ncsc_uk",
+    "name": "ncsc_uk_0",
+    "status": 200,
+    "bytes": 225354,
+    "sha256": "caa00354ce059b639fef3b403186d105ddd5b5a25f6484935fc916d54850ff58",
+    "access": "read",
+    "I": false,
+    "II": [],
+    "III": [],
+    "IV": [],
+    "V": [],
+    "II_yes": false,
+    "III_yes": false,
+    "IV_yes": false
+  },
+  {
+    "group": "notices",
+    "source": "cisa",
+    "name": "cisa_0",
+    "status": 403,
+    "bytes": 495,
+    "sha256": "c372b8079bef2f30aa4cc2f0a2fd4c579ba5d30c9665ec4cabd486bbdfb13d21",
+    "access": "unavailable"
+  },
+  {
+    "group": "notices",
+    "source": "cert_eu",
+    "name": "cert_eu_0",
+    "status": 200,
+    "bytes": 25613,
+    "sha256": "ab6ca243aa4f5a6c39b31f91845082e03fa3a0b21d85786e467ab9268b92402e",
+    "access": "read",
+    "I": true,
+    "II": [
+      "MIT_DATA instead, because they can trigger the vulnerable allocation failure. CVE-2026-109619 (stale global state): Set session.upload_progress.enabled=0 and restart every worker. Apply this in php.ini , an FPM pool or a server configuration that takes effect before reques",
+      "ackers can reach, including failures in callbacks, upload or import processing, and cleanup. [New] CVE-2026-115560: Set session.upload_progress.enabled=0 and restart every worker until the next regular bugfix release, to fully protect from CVE-2026-115560. References [1] h"
+    ],
+    "III": [],
+    "IV": [
+      "execution. The PHP team will publish a full advisory with the next release. Affected Products PHP 8.5 versions prior to 8.5.12 PHP 8.4 versions prior to 8.4.27 PHP 8.3 versions prior to 8.3.36 PHP 8.2 versions prior to 8.2.35 End-of-life branches",
+      "ish a full advisory with the next release. Affected Products PHP 8.5 versions prior to 8.5.12 PHP 8.4 versions prior to 8.4.27 PHP 8.3 versions prior to 8.3.36 PHP 8.2 versions prior to 8.2.35 End-of-life branches (PHP 8.1 and older), which no lo",
+      " release. Affected Products PHP 8.5 versions prior to 8.5.12 PHP 8.4 versions prior to 8.4.27 PHP 8.3 versions prior to 8.3.36 PHP 8.2 versions prior to 8.2.35 End-of-life branches (PHP 8.1 and older), which no longer receive updates from the PHP",
+      ".5 versions prior to 8.5.12 PHP 8.4 versions prior to 8.4.27 PHP 8.3 versions prior to 8.3.36 PHP 8.2 versions prior to 8.2.35 End-of-life branches (PHP 8.1 and older), which no longer receive updates from the PHP project [4] Many commercial and ",
+      "ies [5]. Recommendations CERT-EU strongly recommends updating all affected PHP installations as soon as possible to PHP 8.5.12, 8.4.27, 8.3.36 or 8.2.35 [4]. Distribution packages: Linux distributions and LTS vendors received the patches in advan",
+      " Recommendations CERT-EU strongly recommends updating all affected PHP installations as soon as possible to PHP 8.5.12, 8.4.27, 8.3.36 or 8.2.35 [4]. Distribution packages: Linux distributions and LTS vendors received the patches in advance. Chec",
+      "ndations CERT-EU strongly recommends updating all affected PHP installations as soon as possible to PHP 8.5.12, 8.4.27, 8.3.36 or 8.2.35 [4]. Distribution packages: Linux distributions and LTS vendors received the patches in advance. Check with y",
+      "ERT-EU strongly recommends updating all affected PHP installations as soon as possible to PHP 8.5.12, 8.4.27, 8.3.36 or 8.2.35 [4]. Distribution packages: Linux distributions and LTS vendors received the patches in advance. Check with your vendor"
+    ],
+    "V": [],
+    "II_yes": true,
+    "III_yes": false,
+    "IV_yes": true
+  },
+  {
+    "group": "notices",
+    "source": "cloudflare",
+    "name": "cloudflare_0",
+    "status": 200,
+    "bytes": 309440,
+    "sha256": "01f3368409bce052a6f4aa1a6eb60d2769901846107ca7d4aea53484896f6b73",
+    "access": "read",
+    "I": true,
+    "II": [],
+    "III": [],
+    "IV": [
+      "formational advisory for a related vulnerability, CVE-2026-115560, in PHP's session upload progress feature. It affects fully patched PHP releases, including 8.5.12, and will be fixed in PHP's next regular release. All Cloudflare WAF customers are prote",
+      "nerability, CVE-2026-115560, in PHP's session upload progress feature. It affects fully patched PHP releases, including 8.5.12, and will be fixed in PHP's next regular release. All Cloudflare WAF customers are protected against known exploit atte"
+    ],
+    "V": [
+      "https://www.php.net/archive/2026.php#2026-10-23-1"
+    ],
+    "II_yes": false,
+    "III_yes": false,
+    "IV_yes": true
+  },
+  {
+    "group": "notices",
+    "source": "fastly",
+    "name": "fastly_0",
+    "status": 200,
+    "bytes": 165028,
+    "sha256": "6e8694a3f8018aa5d132045c9e740de6c3ed19d9c14c377d8fe84f71788d7de9",
+    "access": "read",
+    "I": false,
+    "II": [],
+    "III": [],
+    "IV": [],
+    "V": [],
+    "II_yes": false,
+    "III_yes": false,
+    "IV_yes": false
+  },
+  {
+    "group": "notices",
+    "source": "fastly",
+    "name": "fastly_1",
+    "status": 200,
+    "bytes": 99734,
+    "sha256": "92b52016e6b12f91e668ccf609896cd32b3088715b7a5697875cbef133a0e20b",
+    "access": "read",
+    "I": true,
+    "II": [],
+    "III": [],
+    "IV": [
+      "mote code execution (RCE) or cause a denial of service (DoS). You may be affected if you run a PHP version earlier than 8.5.12, 8.4.27, 8.3.36, or 8.2.35, including all releases of 8.1 and earlier. Fastly has combined both CVE-2026-109618 and CVE",
+      "e execution (RCE) or cause a denial of service (DoS). You may be affected if you run a PHP version earlier than 8.5.12, 8.4.27, 8.3.36, or 8.2.35, including all releases of 8.1 and earlier. Fastly has combined both CVE-2026-109618 and CVE-2026-10",
+      "ion (RCE) or cause a denial of service (DoS). You may be affected if you run a PHP version earlier than 8.5.12, 8.4.27, 8.3.36, or 8.2.35, including all releases of 8.1 and earlier. Fastly has combined both CVE-2026-109618 and CVE-2026-109619 int",
+      "r cause a denial of service (DoS). You may be affected if you run a PHP version earlier than 8.5.12, 8.4.27, 8.3.36, or 8.2.35, including all releases of 8.1 and earlier. Fastly has combined both CVE-2026-109618 and CVE-2026-109619 into one virtu"
+    ],
+    "V": [],
+    "II_yes": false,
+    "III_yes": false,
+    "IV_yes": true
+  },
+  {
+    "group": "notices",
+    "source": "akamai",
+    "name": "akamai_0",
+    "status": 403,
+    "bytes": 482,
+    "sha256": "501d7861824a2592c7eefbf702b970150856947e3a79b1ab015406c659e89319",
+    "access": "unavailable"
+  },
+  {
+    "group": "notices",
+    "source": "aws",
+    "name": "aws_0",
+    "status": 200,
+    "bytes": 18031,
+    "sha256": "ada0edb5e378d0256448893ca0b5e0f0be71344e333943d8db2b83c194dda44b",
+    "access": "read",
+    "I": false,
+    "II": [],
+    "III": [],
+    "IV": [],
+    "V": [],
+    "II_yes": false,
+    "III_yes": false,
+    "IV_yes": false
+  },
+  {
+    "group": "notices",
+    "source": "aws",
+    "name": "aws_1",
+    "status": 200,
+    "bytes": 18615,
+    "sha256": "782d28dc18fae8b02beca13892ea0c6d4e831118b70058c8f17b28f135c94ea8",
+    "access": "read",
+    "I": false,
+    "II": [],
+    "III": [],
+    "IV": [],
+    "V": [],
+    "II_yes": false,
+    "III_yes": false,
+    "IV_yes": false
+  },
+  {
+    "group": "notices",
+    "source": "google_cloud",
+    "name": "google_cloud_0",
+    "status": 200,
+    "bytes": 321647,
+    "sha256": "b181949340f6a053a06238bd128359969f913209167414ff9390247e3ac1d601",
+    "access": "read",
+    "I": false,
+    "II": [],
+    "III": [],
+    "IV": [],
+    "V": [],
+    "II_yes": false,
+    "III_yes": false,
+    "IV_yes": false
+  },
+  {
+    "group": "notices",
+    "source": "google_cloud",
+    "name": "google_cloud_1",
+    "status": 200,
+    "bytes": 802269,
+    "sha256": "b9ab5ba538b2ff079f8b1dc1a613fa284df6a300621b0d818f11365eecc3e72a",
+    "access": "read",
+    "I": false,
+    "II": [],
+    "III": [],
+    "IV": [],
+    "V": [],
+    "II_yes": false,
+    "III_yes": false,
+    "IV_yes": false
+  }
+]
