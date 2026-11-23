@@ -1,0 +1,41 @@
+audited 1649
+page requests 969
+pages by gated_in_code x R1:
+  ('n/a', 'complies') 147
+  ('n/a', 'does not comply') 2
+  ('n/a', 'unknown') 1
+  ('no', 'complies') 86
+  ('no', 'unknown') 2
+  ('yes', 'complies') 719
+  ('yes', 'unknown') 12
+all audited by gated_in_code x overall_A:
+  ('n/a', 'complies') 215
+  ('n/a', 'does not comply') 23
+  ('n/a', 'unknown') 128
+  ('no', 'complies') 263
+  ('no', 'does not comply') 9
+  ('no', 'unknown') 2
+  ('yes', 'complies') 959
+  ('yes', 'does not comply') 21
+  ('yes', 'unknown') 29
+failing (overall A) by practice x gated x rule:
+  ('Horizon 2026-11-20 scouts', 'n/a', 'R1') 2
+  ('Horizon 2026-11-20 scouts', 'n/a', 'R5') 17
+  ('LH038 collect.py', 'yes', 'R5') 14
+  ('LH044 collect.py', 'no', 'R5') 9
+  ('LH053 collect.py', 'yes', 'R6') 2
+  ('LH055 collect.py', 'yes', 'R6') 5
+  ('Microsoft report watch (notes)', 'n/a', 'R6') 4
+pypi JSON-path requests: 0
+gate refusals (not sent) by practice:
+  LH034 collect.py 4
+  LH036 collect.py 2
+  LH038 collect.py 19
+  LH039 collect.py 36
+  LH056 collect_prebrief.py 1
+  Microsoft report watch (notes) 5
+  PHP media sweep (notes) 8
+pages, gated=no, by practice:
+  LH044 collect.py 88
+audited rows by study LH041: 0
+pypi.org audited rows: Counter({'/robots.txt': 2, '/project/age': 1})
