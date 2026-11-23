@@ -1,0 +1,119 @@
+reads with Censys body: 13 ['read-2026-10-25T0855Z', 'read-2026-10-26T0637Z', 'read-2026-10-27T0637Z', 'read-2026-10-28T0637Z', 'read-2026-10-29T0635Z', 'read-2026-10-30T0635Z', 'read-2026-11-02T1530Z', 'read-2026-11-05T1415Z', 'read-2026-11-09T1427Z', 'read-2026-11-12T1416Z', 'read-2026-11-16T1419Z', 'read-2026-11-19T1422Z', 'read-2026-11-21T1414Z']
+revisions found: 0
+history statuses seen: ['affected', 'affected_nofix', 'patched', 'unknown']
+
+== Measure 1 ==
+8.2 days held 31 day0 2.14 d1=22.1 d2=41.18 d7=53.02 d14=73.43 d23=75.18 d28=77.19 d29=77.86 d30=78.16 half day 6 targets d30 6018074 not patched d30 21.84 rise14-30 4.72 rise23-30 2.97 share of rise 0-30 by day2 0.514
+8.3 days held 31 day0 1.76 d1=23.76 d2=42.15 d7=52.38 d14=70.41 d23=72.82 d28=73.24 d29=74.74 d30=75.0 half day 6 targets d30 7594718 not patched d30 25.0 rise14-30 4.6 rise23-30 2.19 share of rise 0-30 by day2 0.551
+8.4 days held 31 day0 4.34 d1=35.29 d2=58.51 d7=67.79 d14=80.99 d23=84.1 d28=85.67 d29=86.0 d30=86.46 half day 2 targets d30 3594071 not patched d30 13.54 rise14-30 5.47 rise23-30 2.36 share of rise 0-30 by day2 0.66
+8.5 days held 31 day0 1.87 d1=36.06 d2=70.47 d7=78.82 d14=89.71 d23=90.91 d28=91.35 d29=92.1 d30=92.22 half day 2 targets d30 3712086 not patched d30 7.78 rise14-30 2.51 rise23-30 1.31 share of rise 0-30 by day2 0.759
+older both below newer both, every day 1..30: True ; day0: False
+monotone non-decreasing days 0..30 per branch: {'8.2': False, '8.3': False, '8.4': False, '8.5': False}
+day 29 change in targets and patched: {'8.2': (-151771, -76975), '8.3': (-241411, -63677), '8.4': (-58285, -38100), '8.5': (-56319, -23637)}
+
+== Measure 2 ==
+day 0: nofix 23,311,748 of versioned 40,737,497 = 57.22%; unknown 16,167,585 of 56,905,082 = 28.41%
+day 1: nofix 23,336,842 of versioned 41,670,536 = 56.0%; unknown 19,715,918 of 61,386,454 = 32.12%
+day 2: nofix 23,317,219 of versioned 42,187,853 = 55.27%; unknown 53,596,493 of 95,784,346 = 55.96%
+day 7: nofix 24,386,744 of versioned 44,881,914 = 54.34%; unknown 66,063,032 of 110,944,946 = 59.55%
+day 14: nofix 24,226,778 of versioned 45,827,427 = 52.87%; unknown 74,917,550 of 120,744,977 = 62.05%
+day 28: nofix 22,886,177 of versioned 44,213,010 = 51.76%; unknown 72,790,601 of 117,003,611 = 62.21%
+day 29: nofix 22,450,131 of versioned 43,269,653 = 51.88%; unknown 71,592,006 of 114,861,659 = 62.33%
+day 30: nofix 22,516,583 of versioned 43,438,950 = 51.84%; unknown 71,655,447 of 115,094,397 = 62.26%
+nofix fall day14->30: 1710195
+
+== Measure 3 (read 2026-11-21T1414Z) ==
+refreshed 2026-11-21 13:15:26.857137+00:00
+8.2 total 6035973 vs d30 bar 6018074 diff % 0.297 {'at/above': 78.29, 'one': 4.72, '2-4': 3.95, '5+': 13.04, 'unparsed': 0.0} top below [('8.2.34', 284963, 4.72), ('8.2.33', 176725, 2.93), ('8.2.12', 148569, 2.46)]
+8.3 total 7595362 vs d30 bar 7594718 diff % 0.008 {'at/above': 75.03, 'one': 4.41, '2-4': 2.73, '5+': 17.82, 'unparsed': 0.0} top below [('8.3.8', 844547, 11.12), ('8.3.35', 335292, 4.41), ('8.3.33', 171107, 2.25)]
+8.4 total 3593407 vs d30 bar 3594071 diff % -0.018 {'at/above': 86.51, 'one': 4.69, '2-4': 1.89, '5+': 6.91, 'unparsed': 0.0} top below [('8.4.26', 168474, 4.69), ('8.4.25', 32750, 0.91), ('8.4.21', 31759, 0.88)]
+8.5 total 3711273 vs d30 bar 3712086 diff % -0.022 {'at/above': 92.26, 'one': 2.12, '2-4': 2.99, '5+': 2.63, 'unparsed': 0.0} top below [('8.5.11', 78606, 2.12), ('8.5.9', 74912, 2.02), ('8.5.3', 31514, 0.85)]
+
+== php.net release dates (day-30 read) ==
+  8.2.34 24 Sep 2026
+  8.2.35 21 Oct 2026
+  8.2.36 19 Nov 2026
+  8.3.35 24 Sep 2026
+  8.3.36 21 Oct 2026
+  8.3.37 19 Nov 2026
+  8.3.8 06 Jun 2024
+  8.4.26 24 Sep 2026
+  8.4.27 21 Oct 2026
+  8.4.28 19 Nov 2026
+  8.5.11 24 Sep 2026
+  8.5.12 21 Oct 2026
+  8.5.13 19 Nov 2026
+
+== Measure 4: W3Techs details pages, share within minor at or above fix ==
+read-2026-10-25T0855Z 8.2 1.9 (25 October 2026); 8.3 2.6 (25 October 2026); 8.4 4.2 (25 October 2026); 8.5 5.9 (25 October 2026)
+read-2026-10-26T0637Z 8.2 2.8 (26 October 2026); 8.3 3.8 (26 October 2026); 8.4 6.0 (26 October 2026); 8.5 8.3 (26 October 2026)
+read-2026-11-02T1530Z 8.2 10.7 (2 November 2026); 8.3 12.1 (2 November 2026); 8.4 16.0 (2 November 2026); 8.5 23.8 (2 November 2026)
+read-2026-11-09T1427Z 8.2 20.0 (9 November 2026); 8.3 21.4 (9 November 2026); 8.4 27.2 (9 November 2026); 8.5 38.9 (9 November 2026)
+read-2026-11-16T1419Z 8.2 32.5 (16 November 2026); 8.3 36.6 (16 November 2026); 8.4 41.8 (16 November 2026); 8.5 55.4 (16 November 2026)
+read-2026-11-21T1414Z 8.2 43.9 (21 November 2026); 8.3 49.2 (21 November 2026); 8.4 53.3 (21 November 2026); 8.5 65.8 (21 November 2026)
+monthly (day-30 history pages):
+  8.2 1 Oct 2026 {} not listed
+  8.2 1 Nov 2026 {'version 8.2.35': '10.1%'} 10.1
+  8.3 1 Oct 2026 {} not listed
+  8.3 1 Nov 2026 {'version 8.3.36': '11.5%'} 11.5
+  8.4 1 Oct 2026 {'version 8.4.28': '<0.1%'} 0
+  8.4 1 Nov 2026 {'version 8.4.27': '15.4%', 'version 8.4.28': '<0.1%'} 15.4
+  8.5 1 Oct 2026 {} not listed
+  8.5 1 Nov 2026 {'version 8.5.12': '22.8%', 'version 8.5.13': '<0.1%'} 22.8
+
+== Measure 5: Packagist, September 2026 ==
+583,656,921 of 5,809,870,614 = 10.05%
+
+== Python comparators, recomputed from LH011 release_days.csv and LH008 lags.csv ==
+day 1: fixes 4 range 53.84 to 60.76; median of 37 project medians 57.6
+   PHP range 22.1 to 36.06; all PHP below all fixes: True; all above: False
+day 2: fixes 4 range 52.66 to 63.71; median of 37 project medians 57.19
+   PHP range 41.18 to 70.47; all PHP below all fixes: False; all above: False
+day 7: fixes 4 range 55.64 to 59.53; median of 37 project medians 57.86
+   PHP range 52.38 to 78.82; all PHP below all fixes: False; all above: False
+day 14: fixes 4 range 58.02 to 64.14; median of 37 project medians 58.87
+   PHP range 70.41 to 89.71; all PHP below all fixes: False; all above: True
+day 30: fixes 4 range 57.28 to 72.29; median of 37 project medians 61.55
+   PHP range 75.0 to 92.22; all PHP below all fixes: False; all above: True
+LH008 fix pairs 102 moved within 7 18 within 30 50 negative lags 0
+
+== Amendment 2 ==
+PHP 8.2: S7 51.26 S30 77.74 L 0.3406 rise23-30 2.97
+PHP 8.3: S7 50.67 S30 74.33 L 0.3183 rise23-30 2.19
+PHP 8.4: S7 66.11 S30 86.04 L 0.2316 rise23-30 2.36
+PHP 8.5: S7 77.33 S30 91.89 L 0.1584 rise23-30 1.31
+as written day0 2026-10-21
+  Node 22: S7 53.3 S30 43.34 L -0.2298 reads ['read-2026-10-27T1811Z', 'read-2026-10-29T0635Z', 'read-2026-10-30T0635Z', 'read-2026-11-19T1423Z', 'read-2026-11-22T1415Z']
+  Node 24: S7 70.81 S30 62.17 L -0.139 reads ['read-2026-10-27T1811Z', 'read-2026-10-29T0635Z', 'read-2026-10-30T0635Z', 'read-2026-11-19T1423Z', 'read-2026-11-22T1415Z']
+  Node 26: S7 67.54 S30 85.75 L 0.2124 reads ['read-2026-10-27T1811Z', 'read-2026-10-29T0635Z', 'read-2026-10-30T0635Z', 'read-2026-11-19T1423Z', 'read-2026-11-22T1415Z']
+  Test A: PHP median L 0.275 > Node median L -0.139: True
+  Test B Node: lower of 24/26 62.17 minus 22 43.34 = 18.83 pts; >5: True
+amended day0 2026-10-21
+  Node 22: S7 53.3 S30 66.28 L 0.1959 reads ['read-2026-10-27T1811Z', 'read-2026-10-29T0635Z', 'read-2026-10-30T0635Z', 'read-2026-11-19T1423Z', 'read-2026-11-22T1415Z']
+  Node 24: S7 70.81 S30 74.32 L 0.0471 reads ['read-2026-10-27T1811Z', 'read-2026-10-29T0635Z', 'read-2026-10-30T0635Z', 'read-2026-11-19T1423Z', 'read-2026-11-22T1415Z']
+  Node 26: S7 67.54 S30 96.36 L 0.2991 reads ['read-2026-10-27T1811Z', 'read-2026-10-29T0635Z', 'read-2026-10-30T0635Z', 'read-2026-11-19T1423Z', 'read-2026-11-22T1415Z']
+  Test A: PHP median L 0.275 > Node median L 0.1959: True
+  Test B Node: lower of 24/26 74.32 minus 22 66.28 = 8.03 pts; >5: True
+Test A rise part: branches up >=1pt d23-30: 4
+Test B PHP: gap 8.3 pts (>5: True)
+
+== Fixed-version boundary in each read (top_versions, top 20 rows only) ==
+read-2026-10-25T0855Z lowest patched patch number per branch {'8.2': 35, '8.3': 36, '8.4': 27, '8.5': 12}
+read-2026-10-26T0637Z lowest patched patch number per branch {'8.2': 35, '8.3': 36, '8.4': 27, '8.5': 12}
+read-2026-10-27T0637Z lowest patched patch number per branch {'8.2': 35, '8.3': 36, '8.4': 27, '8.5': 12}
+read-2026-10-28T0637Z lowest patched patch number per branch {'8.2': 35, '8.3': 36, '8.4': 27, '8.5': 12}
+read-2026-10-29T0635Z lowest patched patch number per branch {'8.2': 35, '8.3': 36, '8.4': 27, '8.5': 12}
+read-2026-10-30T0635Z lowest patched patch number per branch {'8.2': 35, '8.3': 36, '8.4': 27, '8.5': 12}
+read-2026-11-02T1530Z lowest patched patch number per branch {'8.2': 35, '8.3': 36, '8.4': 27, '8.5': 12}
+read-2026-11-05T1415Z lowest patched patch number per branch {'8.2': 35, '8.3': 36, '8.4': 27, '8.5': 12}
+read-2026-11-09T1427Z lowest patched patch number per branch {'8.2': 35, '8.3': 36, '8.4': 27, '8.5': 12}
+read-2026-11-12T1416Z lowest patched patch number per branch {'8.2': 35, '8.3': 36, '8.4': 27, '8.5': 12}
+read-2026-11-16T1419Z lowest patched patch number per branch {'8.2': 35, '8.3': 36, '8.4': 27, '8.5': 12}
+read-2026-11-19T1422Z lowest patched patch number per branch {'8.2': 35, '8.3': 36, '8.4': 27, '8.5': 12}
+read-2026-11-21T1414Z lowest patched patch number per branch {'8.2': 35, '8.3': 36, '8.4': 27, '8.5': 12}
+
+== Per-branch status in the day-30 snapshot (branches): is "unknown" inside measure 1's denominator? ==
+8.2 {'unknown': 253987, 'affected': 1310438, 'patched': 4725535} affected+patched 6035973 d30 bar 6018074
+8.3 {'affected': 1896205, 'patched': 5699157, 'unknown': 302886} affected+patched 7595362 d30 bar 7594718
+8.4 {'unknown': 369144, 'affected': 484731, 'patched': 3108676} affected+patched 3593407 d30 bar 3594071
+8.5 {'patched': 3423955, 'affected': 287318, 'unknown': 282104} affected+patched 3711273 d30 bar 3712086
