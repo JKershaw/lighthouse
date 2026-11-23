@@ -18,6 +18,7 @@ FIELDS = ['id', 'study', 'task', 'earliest', 'latest', 'status', 'updated',
 STATUSES = {'open', 'running', 'done', 'missed', 'blocked', 'keeper', 'cancelled'}
 KINDS = {'plan', 'observe', 'analyse', 'review', 'publish', 'maintain'}
 TERMINAL = {'done', 'missed', 'cancelled'}
+SCOPE_HOLD = 'Work deferred pending a scope review.'
 STALE = timedelta(hours=6)
 UTC = timezone.utc
 
@@ -302,6 +303,11 @@ def evaluate(root: Path | str, now: datetime) -> dict:
     by_id = _validate(root, rows, diagnostics)
     valid = not diagnostics
     groups = {key: [] for key in ('ready', 'overdue', 'upcoming', 'stale', 'gaps', 'warnings')}
+    held_studies = {
+        row['study'] for row in rows
+        if row['status'] == 'blocked' and row['note'] == SCOPE_HOLD
+        and re.fullmatch(r'LH[0-9]+', row['study'])
+    }
     public_rows = []
     for row in rows:
         earliest, latest = row['_earliest'], row['_latest']
@@ -325,9 +331,14 @@ def evaluate(root: Path | str, now: datetime) -> dict:
             reasons.insert(0, row['note'] or ('Waiting for the keeper' if status == 'keeper' else 'Manually blocked'))
         elif status == 'running':
             state = 'recovery' if stale else 'running'
+            if row['study'] in held_studies:
+                reasons.append(SCOPE_HOLD)
             reasons.insert(0, 'Claim needs reconciliation before reopening; elapsed time does not authorise duplicate work' if stale else 'Owned by a running claim')
         elif status != 'open':
             state = 'invalid'
+        elif row['study'] in held_studies:
+            state = 'blocked'
+            reasons.insert(0, SCOPE_HOLD)
         elif unmet:
             state = 'dependency_wait'
         elif earliest and earliest > today:
@@ -347,7 +358,7 @@ def evaluate(root: Path | str, now: datetime) -> dict:
         public_rows.append(item)
         if actionable:
             groups['overdue' if calendar == 'overdue' else 'ready'].append(row['id'])
-        if status == 'open' and calendar == 'upcoming':
+        if status == 'open' and calendar == 'upcoming' and row['study'] not in held_studies:
             groups['upcoming'].append(row['id'])
         if stale:
             groups['stale'].append(row['id'])

@@ -10,7 +10,7 @@ import unittest
 from unittest.mock import patch
 
 import claim as claims
-from model import FIELDS, evaluate, iso_utc
+from model import FIELDS, SCOPE_HOLD, evaluate, iso_utc
 from roles import selection, task_role
 
 
@@ -177,6 +177,52 @@ class RunnerTests(unittest.TestCase):
         self.assertIn('publish', selection(self.report(), 'research')['ready'])
         # The model is deliberately not a scientific verdict reader: the runner
         # must check the actual version and review notes before release.
+
+    def test_scope_hold_blocks_independent_study_rows_but_preserves_claims(self):
+        self.change('read', study='LH001')
+        self.change('analyse', study='LH001', depends_on='')
+        self.change('review', study='LH001', depends_on='')
+        self.change('publish', study='LH001', depends_on='review')
+        self.commit(self.a, 'Fixture study')
+        self.git(self.a, 'push', 'origin', 'HEAD:main')
+        claims.claim(self.b, 'analyse', 'analyst', 'Fixture', 'research')
+        claims.claim(self.a, 'read', 'watcher', 'Fixture', 'watch')
+
+        # Only the disposition is published. The innocuous stand-in for a
+        # finding never becomes an outcome or a reference in the public queue.
+        local_material = self.a / 'scratch-result.txt'
+        local_material.write_text('Synthetic detail\n')
+        self.change('read', status='blocked', note=SCOPE_HOLD)
+        self.git(self.a, 'add', 'schedule/due.csv')
+        self.git(self.a, 'commit', '-m', 'Defer scheduled work')
+        self.git(self.a, 'push', 'origin', 'HEAD:main')
+        self.git(self.b, 'pull', '--ff-only')
+        self.assertFalse((self.b / local_material.name).exists())
+        self.assertNotIn(local_material.read_text().strip(), self.git(self.b, 'show', 'HEAD:schedule/due.csv'))
+
+        report = self.report(self.b)
+        rows = {row['id']: row for row in report['rows']}
+        self.assertEqual((rows['analyse']['status'], rows['analyse']['run_id']), ('running', 'analyst'))
+        self.assertIn(SCOPE_HOLD, rows['analyse']['reasons'])
+        self.assertEqual((rows['review']['status'], rows['review']['state']), ('open', 'blocked'))
+        self.assertFalse(rows['publish']['actionable'])
+        with self.assertRaisesRegex(claims.ClaimError, SCOPE_HOLD):
+            claims.claim(self.b, 'review', 'reviewer', 'Fixture', 'research')
+        claims.claim(self.b, 'editor', 'editor', 'Fixture', 'editor')
+
+        local_material.unlink()
+        self.git(self.a, 'pull', '--ff-only')
+        self.change('read', status='blocked', note='Source temporarily unavailable')
+        self.commit(self.a, 'Clear scope hold after review; observation still unavailable')
+        self.git(self.a, 'push', 'origin', 'HEAD:main')
+        claims.claim(self.b, 'review', 'reviewer', 'Fixture', 'research')
+
+    def test_scope_hold_on_non_study_row_does_not_pause_shared_bucket(self):
+        self.change('horizon', status='blocked', note=SCOPE_HOLD)
+        with (self.a / 'schedule/due.csv').open('a', newline='') as stream:
+            writer = csv.DictWriter(stream, fieldnames=FIELDS, lineterminator='\n')
+            writer.writerow(self.row('next-sweep', study='horizon', kind='plan'))
+        self.assertEqual(selection(self.report(), 'horizon')['ready'], ['next-sweep'])
 
     def test_original_runner_default_and_cli_contract_remain_compatible(self):
         report = self.report()
