@@ -1,0 +1,51 @@
+# R-0133 recheck, post hoc and descriptive; amended rule
+
+## Days 13-20 vs 21-30
+L22: A 4,515,252->5,348,176 (+18.4%), B 2,783,934->2,673,397 (-4.0%), share 61.86->66.67 (+4.81 pts); from A +3.91, from B +0.95 (other side held early); symmetric A +3.88, B +0.93; A part of rise 81%
+L24: A 6,136,427->6,928,260 (+12.9%), B 2,676,733->2,541,268 (-5.1%), share 69.63->73.16 (+3.54 pts); from A +2.50, from B +1.09 (other side held early); symmetric A +2.48, B +1.06; A part of rise 70%
+L26: A 5,848,083->7,356,501 (+25.8%), B 314,344->293,786 (-6.5%), share 94.90->96.16 (+1.26 pts); from A +1.00, from B +0.32 (other side held early); symmetric A +0.97, B +0.29; A part of rise 77%
+
+## Weekdays 16,19,20 vs 28,29,30
+L22: A 4,866,141->5,842,937 (+20.1%), B 2,937,211->2,966,818 (+1.0%), share 62.36->66.32 (+3.96 pts); from A +4.19, from B -0.24 (other side held early); symmetric A +4.19, B -0.23; A part of rise 106%
+L24: A 7,066,017->7,765,520 (+9.9%), B 2,889,813->2,684,487 (-7.1%), share 70.97->74.31 (+3.34 pts); from A +1.91, from B +1.49 (other side held early); symmetric A +1.87, B +1.46; A part of rise 56%
+L26: A 6,103,991->7,682,842 (+25.9%), B 311,318->290,235 (-6.8%), share 95.15->96.36 (+1.21 pts); from A +0.96, from B +0.31 (other side held early); symmetric A +0.93, B +0.28; A part of rise 77%
+
+## Days 5-7 vs 28-30
+L22: A 4,642,530->5,842,937 (+25.9%), B 4,064,633->2,966,818 (-27.0%), share 53.32->66.32 (+13.00 pts); from A +5.66, from B +7.69 (other side held early); symmetric A +5.48, B +7.52; A part of rise 42%
+L24: A 10,100,087->7,765,520 (-23.1%), B 4,168,694->2,684,487 (-35.6%), share 70.78->74.31 (+3.53 pts); from A -5.72, from B +8.22 (other side held early); symmetric A -5.20, B +8.73; A part of rise -148%
+L26: A 2,521,535->7,682,842 (+204.7%), B 1,253,240->290,235 (-76.8%), share 66.80->96.36 (+29.56 pts); from A +19.18, from B +22.88 (other side held early); symmetric A +12.93, B +16.63; A part of rise 44%
+
+## Below-fix ranges
+L22: days 5-7 (3923625, 4201882); weekdays 12-30 (2635735, 3560644); all days 12-30 (1590420, 3560644); weekdays 8-11 (3314361, 3469890)
+      below / attributed, days 13-20: 10.43-11.89; days 21-30: 8.79-10.28
+      Tue 13,20,27 below: [3154169, 3119227, 2882777]; Fri 16,23,30: [2871612, 2843463, 2764140]
+      day 20 listed at/above 5,350,355 below 3,119,227; day 30 listed at/above 1,829,805 below 2,764,140
+L24: days 5-7 (3808914, 4489884); weekdays 12-30 (2424313, 3364763); all days 12-30 (1376964, 3364763); weekdays 8-11 (2941016, 3315620)
+      below / attributed, days 13-20: 8.85-11.31; days 21-30: 8.14-9.75
+      Tue 13,20,27 below: [3300144, 3068021, 3167338]; Fri 16,23,30: [2816109, 2809388, 2424313]
+      day 20 listed at/above 7,689,526 below 3,068,021; day 30 listed at/above 3,725,941 below 2,424,313
+L26: days 5-7 (720268, 1595668); weekdays 12-30 (271690, 376965); all days 12-30 (238970, 376965); weekdays 8-11 (1610278, 2304360)
+      below / attributed, days 13-20: 1.08-1.57; days 21-30: 0.89-1.55
+      Tue 13,20,27 below: [366636, 316626, 290758]; Fri 16,23,30: [304318, 306354, 271690]
+      day 20 listed at/above 6,203,465 below 316,626; day 30 listed at/above 1,646,875 below 271,690
+
+## Amended share by day, and all-attributed total, days 12-30
+12 Mon L22 60.0 L24 66.5 L26 95.2 att 27,273,170
+13 Tue L22 62.4 L24 67.4 L26 94.7 att 29,185,881
+14 Wed L22 62.6 L24 69.6 L26 95.0 att 29,749,988
+15 Thu L22 59.9 L24 69.4 L26 94.7 att 31,615,051
+16 Fri L22 61.8 L24 70.2 L26 95.2 att 26,732,741
+17 Sat L22 60.9 L24 67.7 L26 94.9 att 15,698,412
+18 Sun L22 61.8 L24 68.2 L26 94.4 att 15,561,322
+19 Mon L22 62.0 L24 71.2 L26 95.1 att 27,032,545
+20 Tue L22 63.2 L24 71.5 L26 95.1 att 29,364,488
+21 Wed L22 64.6 L24 72.1 L26 95.4 att 28,504,514
+22 Thu L22 68.8 L24 73.5 L26 96.7 att 35,069,622
+23 Fri L22 66.8 L24 73.4 L26 96.0 att 30,163,185
+24 Sat L22 65.4 L24 71.1 L26 94.9 att 18,081,824
+25 Sun L22 66.9 L24 69.3 L26 95.5 att 16,836,536
+26 Mon L22 67.1 L24 73.7 L26 96.5 att 29,983,033
+27 Tue L22 67.3 L24 72.4 L26 96.6 att 32,497,073
+28 Wed L22 67.1 L24 74.0 L26 96.5 att 32,425,497
+29 Thu L22 66.3 L24 74.6 L26 96.2 att 31,480,762
+30 Fri L22 65.5 L24 74.3 L26 96.3 att 28,110,225
