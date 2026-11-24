@@ -20,6 +20,18 @@ Outputs (tables/, overwritten on each run):
   m7_depsdev.csv, checks.json, summary.txt
 
 Replay: python3 -I studies/LH040/scripts/tabulate.py --read 2026-11-09T1432Z
+
+Extended on 24 November 2026 for the record, version 1.0 (schedule row LH040-record), after read 2
+(data/read-2026-11-23T1433Z/) was collected; the writer had seen read 1's tables and the 0.1 record.
+Additions only; no measure, rule or earlier CHOICE changed:
+  --compare <label>  re-read comparison (brief, read 2: "a re-read of day 0 ... any change is
+                     reported"): every cell held by both reads in Q1, Q2, Q4, Q5, Q6 and Q7 is
+                     compared, day 0 (2026-10-21) first; the earlier read's bodies are hash-checked too.
+  Measure 2 is reported to day 30 (2026-11-20, the brief's horizon) and to the last day held.
+  The pypistats check is also counted, as a description, on the days after 4 November held by both.
+  The summary prints the figures the record cites (day-0 counts by category, ranks, duplicate dates).
+Replay for the record: python3 -I studies/LH040/scripts/tabulate.py --read 2026-11-23T1433Z \
+  --compare 2026-11-09T1432Z > studies/LH040/data/record_v1_output.txt
 """
 from collections import defaultdict
 from datetime import datetime, timedelta, timezone
@@ -137,9 +149,61 @@ def hours_newest(rel, up, end):
     return total / 3600
 
 
+def check_hashes(rd, log):
+    unkept = {n for n, r in log.items() if (r.get('body_kept') or '').startswith('no')}
+    if unkept - {n for n in log if n.startswith('depsdev')}:
+        raise SystemExit('bodies not kept, readings unavailable: ' + ', '.join(sorted(unkept)))
+    hashes = {n: hashlib.sha256((rd / (n + '.raw')).read_bytes()).hexdigest() == r['sha256']
+              for n, r in log.items() if r['size'] not in ('', '0') and n not in unkept}
+    assert all(hashes.values()), hashes
+    return hashes, unkept
+
+
+def cells(rd):
+    """Every cell of Q1, Q2, Q4, Q5, Q6 and Q7 as {(query, key...): count}, duplicate rows summed."""
+    out = defaultdict(int)
+    keys = {'Q1_daily_totals': ['date'], 'Q2_daily_by_version_oct_nov': ['date', 'version'],
+            'Q4_installer': ['date', 'version', 'installer'], 'Q5_system': ['date', 'version', 'system'],
+            'Q6_ci': ['date', 'version', 'installer', 'ci'], 'Q7_file_type': ['date', 'version', 'type']}
+    for q, ks in keys.items():
+        for r in read_csv(rd / (q + '.raw')):
+            out[(q,) + tuple(r[k] for k in ks)] += int(r['count'])
+    return out
+
+
+def compare_reads(new_rd, old_rd, old_last):
+    """Brief, read 2: re-read of day 0, any change reported. Compares every cell either read holds on a
+    date the earlier read held (to its last day). A cell present in one read only is reported as such."""
+    old_log = {r['name']: r for r in read_csv(old_rd / 'readlog.csv')}
+    old_hashes, _ = check_hashes(old_rd, old_log)
+    new, old = cells(new_rd), cells(old_rd)
+    L = ['Re-read comparison, %s against %s (dates to %s, the earlier read\'s last day held):'
+         % (new_rd.name, old_rd.name, old_last),
+         '  earlier read\'s retained bodies match their logged SHA-256: %s (%d checked)'
+         % (all(old_hashes.values()), len(old_hashes))]
+    for q in ['Q1_daily_totals', 'Q2_daily_by_version_oct_nov', 'Q4_installer', 'Q5_system', 'Q6_ci',
+              'Q7_file_type']:
+        ks = sorted({k for k in list(new) + list(old) if k[0] == q and k[1] <= old_last})
+        changed = [(k, old.get(k), new.get(k)) for k in ks if old.get(k) != new.get(k)]
+        d0 = [k for k in ks if k[1] == CASE_DAY0]
+        d0c = [c for c in changed if c[0][1] == CASE_DAY0]
+        L.append('  %s: %d cells compared, %d differ; on 2026-10-21: %d cells, %d differ'
+                 % (q, len(ks), len(changed), len(d0), len(d0c)))
+        for k, o, n in changed[:40]:
+            L.append('    %s: earlier %s, later %s' % ('/'.join(k[1:]), o, n))
+        if len(changed) > 40:
+            L.append('    ... %d more' % (len(changed) - 40))
+    q = 'Q2_daily_by_version_oct_nov'
+    L.append('  1.107.0 tail, 2026-10-22 to %s: earlier read %d, later read %d (days with a row)' % (
+        old_last, sum(n for k, n in old.items() if k[0] == q and k[2] == CASE and '2026-10-22' <= k[1] <= old_last),
+        sum(n for k, n in new.items() if k[0] == q and k[2] == CASE and '2026-10-22' <= k[1] <= old_last)))
+    return L
+
+
 def main():
     ap = argparse.ArgumentParser()
     ap.add_argument('--read', default='2026-11-09T1432Z')
+    ap.add_argument('--compare', default=None, help='an earlier read label, for the re-read comparison')
     a = ap.parse_args()
     rd = ROOT / 'data' / ('read-' + a.read)
     OUT.mkdir(exist_ok=True)
@@ -147,12 +211,7 @@ def main():
     # Each retained body is checked against the SHA-256 its read logged.
     # A body not kept (the keeper, 21 November 2026) is an unavailable reading: measure 7 uses only the log,
     # and every other measure needs its body, so the tables are not made rather than made with zeros.
-    unkept = {n for n, r in log.items() if (r.get('body_kept') or '').startswith('no')}
-    if unkept - {n for n in log if n.startswith('depsdev')}:
-        raise SystemExit('bodies not kept, readings unavailable: ' + ', '.join(sorted(unkept)))
-    hashes = {n: hashlib.sha256((rd / (n + '.raw')).read_bytes()).hexdigest() == r['sha256']
-              for n, r in log.items() if r['size'] not in ('', '0') and n not in unkept}
-    assert all(hashes.values()), hashes
+    hashes, unkept = check_hashes(rd, log)
 
     # ---- Daily totals. CHOICE: ClickPy's pypi_downloads_per_day returned more than one row for some
     # dates (unmerged parts of a summing table); Q1 did not sum, so rows for a date are summed here.
@@ -183,6 +242,7 @@ def main():
     ps = json.loads((rd / 'pypistats_overall.raw').read_bytes())
     pmap = {(x['category'], x['date']): x['downloads'] for x in ps['data']}
     trows, nbad, nchk = [], 0, 0
+    maxdiff, later_chk, later_bad, later_max = ('', 0.0), 0, 0, ('', 0.0)
     for d in all_days(days[0], last_day):
         w, wo = pmap.get(('with_mirrors', d)), pmap.get(('without_mirrors', d))
         c = total.get(d)
@@ -191,6 +251,13 @@ def main():
             nchk += 1
             if diff is None or abs(diff) > 0.05:
                 nbad += 1
+            if diff is not None and abs(diff) > abs(maxdiff[1]):
+                maxdiff = (d, diff)
+        elif d > '2026-11-04' and diff is not None:
+            later_chk += 1
+            later_bad += abs(diff) > 0.05
+            if abs(diff) > abs(later_max[1]):
+                later_max = (d, diff)
         trows.append(dict(date=d, clickpy_total=c, clickpy_rows=len(tot_rows.get(d, [])),
                           pypistats_with_mirrors=w, pypistats_without_mirrors=wo,
                           clickpy_over_with_mirrors_minus_1=r6(diff), gap=gap.get(d, True)))
@@ -254,6 +321,17 @@ def main():
                 tail_inst[k] += n
             for k, n in ftd.items():
                 tail_ft[k] += n
+    DAY30 = '2026-11-20'
+    t30 = [r for r in tail if r['date'] <= DAY30]
+    t30_sum = sum(r['count'] for r in t30 if r['count'] is not None)
+    t30_unknown = [r['date'] + ' (' + r['status'] + ')' for r in t30 if r['count'] is None]
+    t30_inst, t30_ft = defaultdict(int), defaultdict(int)
+    for r in t30:
+        if r['count'] is not None:
+            for k, n in q4.get((r['date'], CASE), {}).items():
+                t30_inst[k] += n
+            for k, n in ft_all.get((r['date'], CASE), {}).items():
+                t30_ft[k] += n
     write_csv('m2_tail.csv', tail, ['date', 'day', 'count', 'status', 'litellm_total', 'gap',
                                     'installer_sum', 'file_type_sum'])
     write_csv('m2_tail_by_installer.csv',
@@ -411,9 +489,16 @@ def main():
     L = []
     p = L.append
     p('LH040 tabulation of read %s (last day held %s). Counts are fetches logged by PyPI as ClickPy holds them.' % (a.read, last_day))
-    p('Retained bodies match their logged SHA-256: %s' % all(hashes.values()))
+    p('Retained bodies match their logged SHA-256: %s (%d checked)' % (all(hashes.values()), len(hashes)))
     p('Gap days in Q1 span: %s' % ([d for d, g in gap.items() if g] or 'none'))
-    p('pypistats check, 14 Oct to 4 Nov: %d of %d days differ by more than 5%% (rule fails if more than a fifth).' % (nbad, nchk))
+    p('pypistats check, 14 Oct to 4 Nov: %d of %d days differ by more than 5%% (rule fails if more than a fifth); largest difference %+.4f on %s.' % (nbad, nchk, maxdiff[1], maxdiff[0]))
+    p('  described, not a rule: 5 Nov to %s, %d days held by both, %d differ by more than 5%%; largest %+.4f on %s.'
+      % (last_day, later_chk, later_bad, later_max[1], later_max[0]))
+    p('  dates with more than one Q1 row (summed): ' + ', '.join(
+        '%s (%d rows, sum %d, pypistats with mirrors %s)' % (d, len(v), sum(v), pmap.get(('with_mirrors', d)))
+        for d, v in sorted(tot_rows.items()) if len(v) > 1))
+    p('  litellm total on 2026-10-21: ClickPy %d, pypistats with mirrors %s, without %s.'
+      % (total[CASE_DAY0], pmap.get(('with_mirrors', CASE_DAY0)), pmap.get(('without_mirrors', CASE_DAY0))))
     p('')
     p('Measure 1. C0 = %s fetches of 1.107.0 on 2026-10-21 (%s); wheel %s, sdist %s; litellm total %s; S0 = %.4f.'
       % (c0, c0_status, ft.get('bdist_wheel'), ft.get('sdist'), total[CASE_DAY0], s0))
@@ -424,11 +509,17 @@ def main():
     p('  by day: ' + ', '.join('%s:%s' % (r['date'][5:], r['count']) for r in tail))
     p('  by installer: ' + ', '.join('%s %d' % (k or '(none)', n) for k, n in sorted(tail_inst.items(), key=lambda x: -x[1])))
     p('  by file type: ' + ', '.join('%s %d' % kv for kv in sorted(tail_ft.items())))
+    p('Measure 2 to day 30 (22 Oct to %s): %d fetches over %d days; unknown days: %s.'
+      % (DAY30, t30_sum, len(t30), t30_unknown or 'none'))
+    p('  by installer: ' + ', '.join('%s %d (%.4f)' % (k or '(none)', n, n / t30_sum)
+                                    for k, n in sorted(t30_inst.items(), key=lambda x: -x[1])))
+    p('  by file type: ' + ', '.join('%s %d' % kv for kv in sorted(t30_ft.items())))
+    p('  pip fetches of 1.107.0 after day 0 (any day held): %d' % tail_inst.get('pip', 0))
     p('')
     p('Measure 3, I(R) = S0(R) / (h(R)/24):')
     for row in m3:
-        p('  %-8s day0 %s count %8s S0 %.5f  h %s  I %s' % (
-            row['release'], row['day0'], row['count_day0'], row['S0'],
+        p('  %-8s up %s count %8s S0 %.5f  h %s  I %s' % (
+            row['release'], row['upload_utc'][:19], row['count_day0'], row['S0'],
             '/'.join('%.2f' % row['h_' + e] for e in ENDS), '/'.join('%.4f' % row['I_' + e] for e in ENDS)))
     for e, s in summ3.items():
         p('  end %s: case I %.4f, comparison range %.4f to %.4f, median %.4f, ratio %.2f, rank %d of %d'
@@ -443,16 +534,27 @@ def main():
     p('Measure 5, day-0 shares (case; comparison median, min to max):')
     for rows, lab in ((inst_g, 'installer_group'), (sys_rows, 'system')):
         for r in rows:
-            p('  %-14s %-12s %s; %s, %s to %s' % (lab.split('_')[0], r[lab], r['case_share'], r['comparison_median'],
-                                                r['comparison_min'], r['comparison_max']))
+            p('  %-14s %-12s %s (%s fetches; rank %s of 18); %s, %s to %s' % (
+                lab.split('_')[0], r[lab], r['case_share'], r['case_count'], r['case_rank_high_of_18'],
+                r['comparison_median'], r['comparison_min'], r['comparison_max']))
+    p('  installers by name, 1.107.0 day 0: ' + ', '.join('%s %s' % (r['installer'], r['case_count'])
+                                                       for r in inst_n if r['case_count']))
+    p('  installer names with no day-0 fetch of any of the 18 releases: pdm %s'
+      % ('none recorded' if not any(r['installer'] == 'pdm' for r in inst_n) else 'present'))
     p('  CI share (pip and uv only): case %s (%d of %d; flag not known %d of %d); comparison median %.4f, %.4f to %.4f'
       % (case_ci['ci_share'], case_ci['pip_uv_ci_true'], case_ci['pip_uv'], case_ci['flag_not_known'],
          case_ci['q6_total'], median(comp_ci), min(comp_ci), max(comp_ci)))
     p('')
     p('Measure 6: 1.82.7 and 1.82.8, 24 Mar to 30 Apr: %d fetches (day 0: %d); unknown days: %s; PyPI "over 119k"; within a factor of two: %s.'
       % (m6_sum, m6_day0, m6_unknown or 'none', m6_pass))
+    p('  day 0 by version: ' + ', '.join('%s %s' % (v, q3.get((MARCH_DAY0, v), 'no record')) for v in MARCH))
     p('')
     p('Measure 7: deps.dev: ' + '; '.join('%s %s' % (r['name'], r['status'][:60]) for r in m7))
+    if a.compare:
+        old_rd = ROOT / 'data' / ('read-' + a.compare)
+        old_last = max(r['date'] for r in read_csv(old_rd / 'Q1_daily_totals.raw'))
+        p('')
+        L.extend(compare_reads(rd, old_rd, old_last))
     (OUT / 'summary.txt').write_text('\n'.join(L) + '\n')
     print('\n'.join(L))
 
