@@ -1,0 +1,68 @@
+LH034 record_v1: figures from retained files; 90 days held, 2026-07-28 to 2026-11-20
+check against tables.json, mismatches: [] | measure 4 identical under both rules: True
+release list checks: {"22": {"listed_in_line": 37, "list_order_matches_semver": true, "fixed_and_neighbours_newest_first": ["v22.23.4", "v22.23.3", "v22.23.2", "v22.23.1", "v22.23.0", "v22.22.3", "v22.22.2", "v22.22.1"]}, "24": {"listed_in_line": 32, "list_order_matches_semver": true, "fixed_and_neighbours_newest_first": ["v24.22.2", "v24.22.1", "v24.22.0", "v24.21.0", "v24.20.0", "v24.19.0", "v24.18.1", "v24.18.0"]}, "26": {"listed_in_line": 20, "list_order_matches_semver": true, "fixed_and_neighbours_newest_first": ["v26.13.0", "v26.12.1", "v26.12.0", "v26.11.1", "v26.11.0", "v26.10.0", "v26.9.0", "v26.8.2"]}}
+
+Measure 1, share at or above the fix, per cent, days 0 to 30
+ line 22 as_written         16.0  41.0  51.7  48.1  49.3  52.7  53.3  53.9  62.2  58.6  56.6  58.1  60.0  62.4  62.6  59.9  61.8  60.9  61.8  62.0  63.2  61.4  50.2  47.9  42.3  43.7  47.8  49.0  46.4  43.8  39.8
+ line 22 amended_post_hoc   16.0  41.0  51.7  48.1  49.3  52.7  53.3  53.9  62.2  58.6  56.6  58.1  60.0  62.4  62.6  59.9  61.8  60.9  61.8  62.0  63.2  64.6  68.8  66.8  65.4  66.9  67.1  67.3  67.1  66.3  65.5
+ line 24 as_written         14.0  45.8  72.4  71.4  71.3  69.3  70.9  72.2  66.2  66.7  63.1  63.7  66.5  67.4  69.6  69.4  70.2  67.7  68.2  71.2  71.5  70.6  66.4  63.8  61.0  58.3  64.0  61.9  63.3  62.6  60.6
+ line 24 amended_post_hoc   14.0  45.8  72.4  71.4  71.3  69.3  70.9  72.2  66.2  66.7  63.1  63.7  66.5  67.4  69.6  69.4  70.2  67.7  68.2  71.2  71.5  72.1  73.5  73.4  71.1  69.3  73.7  72.4  74.0  74.6  74.3
+ line 26 as_written         18.1  45.4  79.7  76.9  77.3  61.5  76.4  64.7  85.0  80.1  89.6  90.2  95.2  94.7  95.0  94.7  95.2  94.9  94.4  95.1  95.1  94.5  85.7  86.3  82.5  84.8  87.7  87.4  87.2  84.2  85.8
+ line 26 amended_post_hoc   18.1  45.4  79.7  76.9  77.3  61.5  76.4  64.7  85.0  80.1  89.6  90.2  95.2  94.7  95.0  94.7  95.2  94.9  94.4  95.1  95.1  95.4  96.7  96.0  94.9  95.5  96.5  96.6  96.5  96.2  96.3
+ as_written        line 22: first day at half 2, below half after: [3, 4, 23, 24, 25, 26, 27, 28, 29, 30]; d1 41.0, d2 51.7, d7 53.9, d14 62.6, d30 39.8 ; 1 - d30 = 60.2; d8-30 range [39.8, 63.2]; d13-20 [59.9, 63.2]; d21-30 [39.8, 61.4]
+ as_written        line 24: first day at half 2, below half after: []; d1 45.8, d2 72.4, d7 72.2, d14 69.6, d30 60.6 ; 1 - d30 = 39.4; d8-30 range [58.3, 71.5]; d13-20 [67.4, 71.5]; d21-30 [58.3, 70.6]
+ as_written        line 26: first day at half 2, below half after: []; d1 45.4, d2 79.7, d7 64.7, d14 95.0, d30 85.8 ; 1 - d30 = 14.2; d8-30 range [80.1, 95.2]; d13-20 [94.4, 95.2]; d21-30 [82.5, 94.5]
+ amended_post_hoc  line 22: first day at half 2, below half after: [3, 4]; d1 41.0, d2 51.7, d7 53.9, d14 62.6, d30 65.5 ; 1 - d30 = 34.5; d8-30 range [56.6, 68.8]; d13-20 [59.9, 63.2]; d21-30 [64.6, 68.8]
+ amended_post_hoc  line 24: first day at half 2, below half after: []; d1 45.8, d2 72.4, d7 72.2, d14 69.6, d30 74.3 ; 1 - d30 = 25.7; d8-30 range [63.1, 74.6]; d13-20 [67.4, 71.5]; d21-30 [69.3, 74.6]
+ amended_post_hoc  line 26: first day at half 2, below half after: []; d1 45.4, d2 79.7, d7 64.7, d14 95.0, d30 96.3 ; 1 - d30 = 3.7; d8-30 range [80.1, 96.7]; d13-20 [94.4, 95.2]; d21-30 [94.9, 96.7]
+ days the rules differ: {'22': [21, 22, 23, 24, 25, 26, 27, 28, 29, 30], '24': [21, 22, 23, 24, 25, 26, 27, 28, 29, 30], '26': [21, 22, 23, 24, 25, 26, 27, 28, 29, 30]}
+ unlisted above fix: {"v22.23.5": {"21": {"downloads": 655951, "pct_of_line_amended": 8.2}, "22": {"downloads": 3848219, "pct_of_line_amended": 37.4}, "25": {"downloads": 1982490, "pct_of_line_amended": 41.2}, "28": {"downloads": 3600850, "pct_of_line_amended": 38.5}, "29": {"downloads": 3640442, "pct_of_line_amended": 40.1}, "30": {"downloads": 3410934, "pct_of_line_amended": 42.6}}, "v24.22.3": {"21": {"downloads": 520002, "pct_of_line_amended": 5.2}, "22": {"downloads": 2321987, "pct_of_line_amended": 21.0}, "25": {"downloads": 1253712, "pct_of_line_amended": 26.3}, "28": {"downloads": 3269613, "pct_of_line_amended": 29.1}, "29": {"downloads": 3439709, "pct_of_line_amended": 32.2}, "30": {"downloads": 3283185, "pct_of_line_amended": 34.8}}, "v26.13.1": {"21": {"downloads": 1193471, "pct_of_line_amended": 16.6}, "22": {"downloads": 7772269, "pct_of_line_amended": 76.9}, "25": {"downloads": 3822643, "pct_of_line_amended": 70.3}, "28": {"downloads": 6006783, "pct_of_line_amended": 72.5}, "29": {"downloads": 6242692, "pct_of_line_amended": 76.2}, "30": {"downloads": 5524422, "pct_of_line_amended": 74.2}}}
+ other unlisted keys in fixed lines (excluded under both rules): none
+ unlisted outside fixed lines, day 30: {'v27.0.0': 78426, 'v0.11.14.20140819': 3}
+double rounding cases: {"measure_4_line22_day7": {"tables_json_share": 0.3105, "exact_pct_rounded_once": 31.0}, "measure_1_amended_line26_day30": {"tables_json_share": 0.9635, "exact_pct_rounded_once": 96.3}}
+
+Measure 2 summary: {"late_september_23_to_30_unfixed_pct": [17.8, 20.3], "days_minus7_to_minus1_unfixed_pct": [12.7, 16.5], "days_0_to_7_unfixed_pct": [11.8, 14.8], "days_8_to_30_unfixed_pct": [10.4, 15.8], "day0_unfixed_pct": 14.3, "day2_unfixed_pct": 11.8, "day7_unfixed_pct": 14.7, "day14_unfixed_pct": 12.6, "day30_unfixed_pct": 11.5, "days_minus7_to_7_line20_pct": [5.2, 8.5], "days_minus7_to_7_line25_pct": [0.7, 1.1], "days_0_to_30_line20_pct": [5.5, 8.9], "days_0_to_30_line25_pct": [0.6, 1.0], "day30_line20_pct": 6.1, "days_0_to_30_line27_pct_max": 4.28, "day30_line27_pct": 0.28, "day30_line25_pct": 0.8, "max_no_version_pct_of_total_sep23_to_day30": 0.01, "weekend_totals_days_0_to_30_millions": [15.6, 18.1], "weekday_totals_days_0_to_30_millions": [26.7, 38.9], "day30_total": 28111796, "day30_attributed": 28110225}
+
+Measure 3, day 30:
+ line 22: one behind ['v22.23.3'], two to four ['v22.23.2', 'v22.23.1', 'v22.23.0'], excluded {}
+   as_written: {"line_downloads": 4593945, "at_or_above_pct": 39.8, "one_behind_pct": 5.5, "two_to_four_behind_pct": 6.4, "five_or_more_behind_pct": 48.3, "largest_below_pct": [8.0, 5.5, 5.2]}
+   amended_post_hoc: {"line_downloads": 8004879, "at_or_above_pct": 65.5, "one_behind_pct": 3.1, "two_to_four_behind_pct": 3.7, "five_or_more_behind_pct": 27.7, "largest_below_pct": [4.6, 3.1, 3.0]}
+   largest below: [{'version': 'v22.14.0', 'releases_behind': 19, 'downloads': 368477}, {'version': 'v22.23.3', 'releases_behind': 1, 'downloads': 251099}, {'version': 'v22.19.0', 'releases_behind': 12, 'downloads': 236635}]
+ line 24: one behind ['v24.22.0'], two to four ['v24.21.0', 'v24.20.0', 'v24.19.0'], excluded {}
+   as_written: {"line_downloads": 6150254, "at_or_above_pct": 60.6, "one_behind_pct": 1.3, "two_to_four_behind_pct": 16.1, "five_or_more_behind_pct": 22.0, "largest_below_pct": [7.7, 6.4, 4.0]}
+   amended_post_hoc: {"line_downloads": 9433439, "at_or_above_pct": 74.3, "one_behind_pct": 0.8, "two_to_four_behind_pct": 10.5, "five_or_more_behind_pct": 14.3, "largest_below_pct": [5.0, 4.2, 2.6]}
+   largest below: [{'version': 'v24.19.0', 'releases_behind': 4, 'downloads': 473212}, {'version': 'v24.21.0', 'releases_behind': 2, 'downloads': 392517}, {'version': 'v24.18.0', 'releases_behind': 6, 'downloads': 244659}]
+ line 26: one behind ['v26.12.0'], two to four ['v26.11.1', 'v26.11.0', 'v26.10.0'], excluded {}
+   as_written: {"line_downloads": 1918565, "at_or_above_pct": 85.8, "one_behind_pct": 0.6, "two_to_four_behind_pct": 1.9, "five_or_more_behind_pct": 11.6, "largest_below_pct": [6.0, 1.0, 1.0]}
+   amended_post_hoc: {"line_downloads": 7442987, "at_or_above_pct": 96.3, "one_behind_pct": 0.2, "two_to_four_behind_pct": 0.5, "five_or_more_behind_pct": 3.0, "largest_below_pct": [1.5, 0.3, 0.3]}
+   largest below: [{'version': 'v26.7.0', 'releases_behind': 9, 'downloads': 114693}, {'version': 'v26.10.0', 'releases_behind': 4, 'downloads': 20026}, {'version': 'v26.3.0', 'releases_behind': 15, 'downloads': 18693}]
+
+Measure 4 (July):
+ line 22: first day at half 18; d1 13.6, d2 30.7, d7 31.0, d14 34.8, d30 43.2
+ line 24: first day at half 4; d1 4.3, d2 15.1, d7 29.4, d14 30.1, d30 61.4
+ line 26: first day at half 2; d1 41.6, d2 69.9, d7 89.0, d14 91.0, d30 94.2
+ later listed releases within July day 30: {'22': [], '24': [['v24.20.0', '2026-08-26'], ['v24.19.0', '2026-08-03']], '26': [['v26.8.1', '2026-08-26'], ['v26.8.0', '2026-08-25'], ['v26.7.0', '2026-08-05'], ['v26.6.0', '2026-08-03']]}
+ posting-day alignment (post hoc): {"22": {"oct_day1": 30.7, "oct_day2": 31.9, "oct_day7": 31.0, "oct_day14": 28.4}, "24": {"oct_day1": 15.1, "oct_day2": 46.0, "oct_day7": 26.8, "oct_day14": 30.1}, "26": {"oct_day1": 69.9, "oct_day2": 89.1, "oct_day7": 89.4, "oct_day14": 90.8}}
+
+Re-read of days 0 to 7: all identical = True
+ 2026-10-21 (day 0) vs read-2026-10-27T1811Z: bytes True, log sha True, total True, versions True
+ 2026-10-22 (day 1) vs read-2026-10-27T1811Z: bytes True, log sha True, total True, versions True
+ 2026-10-23 (day 2) vs read-2026-10-27T1811Z: bytes True, log sha True, total True, versions True
+ 2026-10-24 (day 3) vs read-2026-10-27T1811Z: bytes True, log sha True, total True, versions True
+ 2026-10-25 (day 4) vs read-2026-10-27T1811Z: bytes True, log sha True, total True, versions True
+ 2026-10-26 (day 5) vs read-2026-10-27T1811Z: bytes True, log sha True, total True, versions True
+ 2026-10-27 (day 6) vs read-2026-10-29T0635Z: bytes True, log sha True, total True, versions True
+ 2026-10-28 (day 7) vs read-2026-10-30T0635Z: bytes True, log sha True, total True, versions True
+
+Amendment 1 tests:
+ PHP median L (LH033): 0.27495
+ as_written: {"22": {"S7": 53.3, "S30": 43.34, "L": -0.2298}, "24": {"S7": 70.81, "S30": 62.17, "L": -0.139}, "26": {"S7": 67.54, "S30": 85.75, "L": 0.2124}}; median L -0.139; A (Node median L < PHP) True; B gap 18.83 points, holds True
+ amended_post_hoc: {"22": {"S7": 53.3, "S30": 66.28, "L": 0.1959}, "24": {"S7": 70.81, "S30": 74.32, "L": 0.0471}, "26": {"S7": 67.54, "S30": 96.36, "L": 0.2991}}; median L 0.1959; A (Node median L < PHP) True; B gap 8.04 points, holds True
+ agrees with LH033 record: {'as_written_22': True, 'as_written_24': True, 'as_written_26': True, 'amended_post_hoc_22': True, 'amended_post_hoc_24': True, 'amended_post_hoc_26': True}
+
+Comparators:
+ day 1: {"node_as_written_pct": {"22": 41.0, "24": 45.8, "26": 45.4}, "node_amended_post_hoc_pct": {"22": 41.0, "24": 45.8, "26": 45.4}, "python_four_fixes_range_pct": [53.8, 60.8], "python_median_of_37_pct": 57.6, "php_censys_range_pct": [22.1, 36.1], "node_as_written_vs_python_range": {"22": "below", "24": "below", "26": "below"}, "node_as_written_vs_php_range": {"22": "above", "24": "above", "26": "above"}, "node_amended_post_hoc_vs_python_range": {"22": "below", "24": "below", "26": "below"}, "node_amended_post_hoc_vs_php_range": {"22": "above", "24": "above", "26": "above"}}
+ day 2: {"node_as_written_pct": {"22": 51.7, "24": 72.4, "26": 79.7}, "node_amended_post_hoc_pct": {"22": 51.7, "24": 72.4, "26": 79.7}, "python_four_fixes_range_pct": [52.7, 63.7], "python_median_of_37_pct": 57.2, "php_censys_range_pct": [41.2, 70.5], "node_as_written_vs_python_range": {"22": "below", "24": "above", "26": "above"}, "node_as_written_vs_php_range": {"22": "within", "24": "above", "26": "above"}, "node_amended_post_hoc_vs_python_range": {"22": "below", "24": "above", "26": "above"}, "node_amended_post_hoc_vs_php_range": {"22": "within", "24": "above", "26": "above"}}
+ day 7: {"node_as_written_pct": {"22": 53.9, "24": 72.2, "26": 64.7}, "node_amended_post_hoc_pct": {"22": 53.9, "24": 72.2, "26": 64.7}, "python_four_fixes_range_pct": [55.6, 59.5], "python_median_of_37_pct": 57.9, "php_censys_range_pct": [52.4, 78.8], "node_as_written_vs_python_range": {"22": "below", "24": "above", "26": "above"}, "node_as_written_vs_php_range": {"22": "within", "24": "within", "26": "within"}, "node_amended_post_hoc_vs_python_range": {"22": "below", "24": "above", "26": "above"}, "node_amended_post_hoc_vs_php_range": {"22": "within", "24": "within", "26": "within"}}
+ day 14: {"node_as_written_pct": {"22": 62.6, "24": 69.6, "26": 95.0}, "node_amended_post_hoc_pct": {"22": 62.6, "24": 69.6, "26": 95.0}, "python_four_fixes_range_pct": [58.0, 64.1], "python_median_of_37_pct": 58.9, "php_censys_range_pct": [70.4, 89.7], "node_as_written_vs_python_range": {"22": "within", "24": "above", "26": "above"}, "node_as_written_vs_php_range": {"22": "below", "24": "below", "26": "above"}, "node_amended_post_hoc_vs_python_range": {"22": "within", "24": "above", "26": "above"}, "node_amended_post_hoc_vs_php_range": {"22": "below", "24": "below", "26": "above"}}
+ day 30: {"node_as_written_pct": {"22": 39.8, "24": 60.6, "26": 85.8}, "node_amended_post_hoc_pct": {"22": 65.5, "24": 74.3, "26": 96.3}, "python_four_fixes_range_pct": [57.3, 72.3], "python_median_of_37_pct": 61.6, "php_censys_range_pct": [75.0, 92.2], "node_as_written_vs_python_range": {"22": "below", "24": "within", "26": "above"}, "node_as_written_vs_php_range": {"22": "below", "24": "below", "26": "within"}, "node_amended_post_hoc_vs_python_range": {"22": "within", "24": "above", "26": "above"}, "node_amended_post_hoc_vs_php_range": {"22": "below", "24": "below", "26": "above"}}
