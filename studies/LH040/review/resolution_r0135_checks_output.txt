@@ -1,0 +1,19 @@
+Measure 3 (from tables/m3_index.csv)
+  end 13:23: case I 0.1976; comparison min 0.1722 median 0.2921 max 0.4052; band 0.59 to 1.39 x median; case 0.68 x median; rank 17 of 18; comparison releases below case: 1
+    a release at the median, held down by up to 41%, would still read 'within range'
+  end 13:20: case I 0.2035; comparison min 0.1722 median 0.2921 max 0.4052; band 0.59 to 1.39 x median; case 0.70 x median; rank 17 of 18; comparison releases below case: 1
+    a release at the median, held down by up to 41%, would still read 'within range'
+  end 12:47: case I 0.3035; comparison min 0.1722 median 0.2921 max 0.4052; band 0.59 to 1.39 x median; case 1.04 x median; rank 8 of 18; comparison releases below case: 10
+    a release at the median, held down by up to 41%, would still read 'within range'
+  13:23: case sits 11% of the way from the band's floor to its top
+
+Measure 2 installers, days 1 to 30 (22 Oct to 20 Nov), from raw Q4
+  (none): 954 (63.5%)
+  Browser: 489 (32.6%)
+  uv: 33 (2.2%)
+  requests: 16 (1.1%)
+  Nexus: 9 (0.6%)
+  devpi: 1 (0.1%)
+  total 1502; pip 0; no name or Browser 1443 (96.1%)
+  Q2 by-version sum, same days: 1502
+  uv by day after day 0: [('2026-10-22', 13), ('2026-10-26', 7), ('2026-10-27', 3), ('2026-10-28', 2), ('2026-11-06', 6), ('2026-11-09', 1), ('2026-11-10', 1)]
