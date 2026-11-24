@@ -1,0 +1,13 @@
+end 13:23: comparison median 0.2921; 'within range' admits ratios 0.59 to 1.39 of the median; case ratio 0.68
+end 13:20: comparison median 0.2921; 'within range' admits ratios 0.59 to 1.39 of the median; case ratio 0.70
+end 12:47: comparison median 0.2921; 'within range' admits ratios 0.59 to 1.39 of the median; case ratio 1.04
+
+Comparison I (13:23) by hours newest on day 0:
+  h < 2.5 (all uploaded after 22:00 UTC): n=5, I = 0.172, 0.246, 0.301, 0.308, 0.405
+  2.5 <= h < 10: n=3, I = 0.240, 0.249, 0.305
+  h >= 10 (uploaded before 13:00 UTC): n=9, I = 0.249, 0.269, 0.282, 0.291, 0.292, 0.320, 0.332, 0.337, 0.344
+  case 1.107.0: h=1.72, I=0.1976
+
+If day 0 after 13:23 ran at day 1's rate (331/day): about 146 fetches, 0.30% of C0; I under 13:23 would be 0.1970
+
+Q4 versions held on 2026-10-21: ['1.106.2', '1.107.0'] -> installer-only index not computable from retained data
