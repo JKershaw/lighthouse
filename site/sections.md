@@ -71,10 +71,13 @@ summaries:
 - studies/LH052 | AI, organisational capacity and reliability
 - studies/LH053 | WPPConnect's compromised npm releases
 - studies/LH054 | A kernel flaw found by a person, for comparison
-- studies/LH055 | ARTEX and the reported stolen-key loop
+- studies/LH055 | The reported stolen-key loop in an AI-agent attack
 - studies/LH056 | The quarantined agent-framework releases on PyPI
 - studies/LH057 | GreyNoise's count of attacks on October's PHP flaws
 - studies/LH058 | November's outages and their stated causes
+- studies/LH059 | Amazon's report of AI agents finding a flaw
+- studies/LH060 | What research measures about fixes by operator size
+- studies/LH061 | What evidence measures about containment and recovery
 - studies/LH043 | Evaluation agents on the open internet
 - studies/LH042 | Published counts of exposed AI services
 - studies/LH035 | Who watches each layer of the internet
