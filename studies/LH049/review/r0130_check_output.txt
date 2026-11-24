@@ -1,0 +1,24 @@
+1. per-version change between consecutive daily reads, versions whose change differs from 13.3.0 pattern
+  2026-11-10T1444Z->2026-11-11T1415Z: point change +407, per-version sum change +407, gap change +0; largest key changes [(66, '13.1.0'), (65, '13.0.0'), (-51, '8.3.1'), (18, '9.8.1')]
+  2026-11-11T1415Z->2026-11-12T1415Z: point change +356, per-version sum change +356, gap change +0; largest key changes [(266, '13.2.0'), (-51, '13.1.0'), (-48, '8.3.1'), (35, '13.0.0')]
+  2026-11-12T1415Z->2026-11-13T1452Z: point change +521, per-version sum change +311, gap change -210; largest key changes [(153, '13.2.0'), (-142, '3.2.0'), (39, '8.3.0'), (-34, '8.3.1')]
+  2026-11-13T1452Z->2026-11-14T1412Z: point change -166, per-version sum change -166, gap change +0; largest key changes [(-165, '3.2.0'), (-63, '13.2.0'), (-27, '12.3.1'), (26, '10.4.0')]
+  2026-11-14T1412Z->2026-11-15T1411Z: point change +628, per-version sum change +628, gap change +0; largest key changes [(451, '13.2.0'), (-21, '13.1.0'), (15, '9.8.1'), (12, '9.3.0')]
+  2026-11-15T1411Z->2026-11-16T1419Z: point change +526, per-version sum change +526, gap change +0; largest key changes [(379, '13.2.0'), (64, '13.1.0'), (20, '9.8.1'), (-16, '8.3.0')]
+  2026-11-16T1419Z->2026-11-17T1415Z: point change -387, per-version sum change -387, gap change +0; largest key changes [(-202, '13.3.0'), (-106, '13.2.0'), (-48, '13.3.0-upcoming.g4568f7a'), (-33, '6.9.1')]
+2. package daily totals for 9-16 Nov at each read that held them
+  2026-11-09: [1144] over 9 reads
+  2026-11-10: [923] over 8 reads
+  2026-11-11: [750] over 7 reads
+  2026-11-12: [1070] over 6 reads
+  2026-11-13: [687] over 5 reads
+  2026-11-14: [1017] over 4 reads
+  2026-11-15: [707] over 3 reads
+  2026-11-16: [757] over 2 reads
+3. W(16 Nov): ('2026-11-10', '2026-11-16', 5911) per-version sum 5911 13.3.0 key present: False
+   package daily totals 10..16 summed at that read 5911
+   W(12 Nov) 13.3.0 = 202 = d9+d10+d11+d12
+   If per-version and package tables count the same fetches in a balanced window (the clock rule's premise),
+   13.3.0 has 0 counted fetches in 10..16 Nov as tabled at 17 Nov; days 10..15 had the same package totals at
+   every earlier read, so no counted fetch was later removed from them; hence d10=d11=d12=0 and d9=202,
+   unless npm re-attributed 13.3.0 fetches to another version key without changing any total. (post hoc)
