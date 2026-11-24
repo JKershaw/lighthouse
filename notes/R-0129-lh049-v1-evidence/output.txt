@@ -1,0 +1,103 @@
+reads: 9
+
+== Clock rule per read
+2026-11-10T1444Z statuses=[200] window 2026-11-03..2026-11-09 agree=True seven=True point=4026 vsum=4236 diff=+210 held=False V(13.3.0)=202 versions-answer extra fields=[]
+   hash checks: {'point_before': True, 'versions': True, 'point_after': True, 'range': True, 'packument': 'withheld 536', 'osv': True}
+2026-11-11T1415Z statuses=[200] window 2026-11-04..2026-11-10 agree=True seven=True point=4433 vsum=4643 diff=+210 held=False V(13.3.0)=202 versions-answer extra fields=[]
+   hash checks: {'point_before': True, 'versions': True, 'point_after': True, 'range': True, 'packument': 'withheld 536', 'osv': True}
+2026-11-12T1415Z statuses=[200] window 2026-11-05..2026-11-11 agree=True seven=True point=4789 vsum=4999 diff=+210 held=False V(13.3.0)=202 versions-answer extra fields=[]
+   hash checks: {'point_before': True, 'versions': True, 'point_after': True, 'range': True, 'packument': 'withheld 536', 'osv': 'withheld 1'}
+2026-11-13T1452Z statuses=[200] window 2026-11-06..2026-11-12 agree=True seven=True point=5310 vsum=5310 diff=+0 held=True V(13.3.0)=202 versions-answer extra fields=[]
+   hash checks: {'point_before': True, 'versions': True, 'point_after': True, 'range': True, 'packument': 'withheld 536', 'osv': 'withheld 1'}
+2026-11-14T1412Z statuses=[200] window 2026-11-07..2026-11-13 agree=True seven=True point=5144 vsum=5144 diff=+0 held=True V(13.3.0)=202 versions-answer extra fields=[]
+   hash checks: {'point_before': True, 'versions': True, 'point_after': True, 'range': True, 'packument': 'withheld 536', 'osv': 'withheld 1'}
+2026-11-15T1411Z statuses=[200] window 2026-11-08..2026-11-14 agree=True seven=True point=5772 vsum=5772 diff=+0 held=True V(13.3.0)=202 versions-answer extra fields=[]
+   hash checks: {'point_before': True, 'versions': True, 'point_after': True, 'range': True, 'packument': 'withheld 536', 'osv': 'withheld 1'}
+2026-11-16T1419Z statuses=[200] window 2026-11-09..2026-11-15 agree=True seven=True point=6298 vsum=6298 diff=+0 held=True V(13.3.0)=202 versions-answer extra fields=[]
+   hash checks: {'point_before': True, 'versions': True, 'point_after': True, 'range': True, 'packument': 'withheld 536', 'osv': 'withheld 1'}
+2026-11-17T1415Z statuses=[200] window 2026-11-10..2026-11-16 agree=True seven=True point=5911 vsum=5911 diff=+0 held=True V(13.3.0)=NO KEY versions-answer extra fields=[]
+   hash checks: {'point_before': True, 'versions': True, 'point_after': True, 'range': True, 'packument': 'withheld 536', 'osv': 'withheld 1'}
+2026-11-24T1415Z statuses=[200] window 2026-11-17..2026-11-23 agree=True seven=True point=2645 vsum=2645 diff=+0 held=True V(13.3.0)=NO KEY versions-answer extra fields=[]
+   hash checks: {'point_before': True, 'versions': True, 'point_after': True, 'range': True, 'packument': 'withheld 536', 'osv': 'withheld 1'}
+bodies with no email withheld whose SHA-256 matched: 38; mismatches: 0
+
+== Excess and whether window contains 2026-11-05
+  2026-11-09: contains 5 Nov=True, excess=210
+  2026-11-10: contains 5 Nov=True, excess=210
+  2026-11-11: contains 5 Nov=True, excess=210
+  2026-11-12: contains 5 Nov=False, excess=0
+  2026-11-13: contains 5 Nov=False, excess=0
+  2026-11-14: contains 5 Nov=False, excess=0
+  2026-11-15: contains 5 Nov=False, excess=0
+  2026-11-16: contains 5 Nov=False, excess=0
+  2026-11-23: contains 5 Nov=False, excess=0
+
+== Descriptive: per-version entries in failing windows vs window ending 12 Nov (not used by any measure)
+  2026-11-09 top5 [('13.2.0', 1457), ('13.1.0', 568), ('3.2.0', 366), ('13.3.0', 202), ('8.3.1', 185)]
+  2026-11-10 top5 [('13.2.0', 1454), ('13.1.0', 634), ('3.2.0', 366), ('13.0.0', 203), ('13.3.0', 202)]
+  2026-11-11 top5 [('13.2.0', 1720), ('13.1.0', 583), ('3.2.0', 375), ('13.0.0', 238), ('13.3.0', 202)]
+  2026-11-12 top5 [('13.2.0', 1873), ('13.1.0', 565), ('13.0.0', 254), ('3.2.0', 233), ('13.3.0', 202)]
+
+== Package daily totals
+  disagreements: none
+  1=245, 2=614, 3=516, 4=394, 5=549, 6=853, 7=389, 8=181, 9=1144, 10=923, 11=750, 12=1070, 13=687, 14=1017, 15=707, 16=757, 17=372, 18=410, 19=460, 20=441, 21=288, 22=335, 23=339
+  window 2026-11-03..2026-11-09: daily sum 4026 vs point 4026 equal=True
+  window 2026-11-04..2026-11-10: daily sum 4433 vs point 4433 equal=True
+  window 2026-11-05..2026-11-11: daily sum 4789 vs point 4789 equal=True
+  window 2026-11-06..2026-11-12: daily sum 5310 vs point 5310 equal=True
+  window 2026-11-07..2026-11-13: daily sum 5144 vs point 5144 equal=True
+  window 2026-11-08..2026-11-14: daily sum 5772 vs point 5772 equal=True
+  window 2026-11-09..2026-11-15: daily sum 6298 vs point 6298 equal=True
+  window 2026-11-10..2026-11-16: daily sum 5911 vs point 5911 equal=True
+  window 2026-11-17..2026-11-23: daily sum 2645 vs point 2645 equal=True
+
+== Day counts (brief formulas; held windows only; no key = no record, not zero)
+  d(9 Nov) = unknown
+  d(10 Nov) = unknown
+  d(11 Nov) = unknown
+  d(12 Nov) = unknown
+  d(13 Nov) = 0
+  d(14 Nov) = 0
+  d(15 Nov) = 0
+  d(16 Nov) = unknown
+  V held: {'2026-11-12': 202, '2026-11-13': 202, '2026-11-14': 202, '2026-11-15': 202, '2026-11-16': 'no record', '2026-11-23': 'no record'}
+  Sums formed: d(9..12)=202; d(9..13)=202; d(9..14)=202; d(9..15)=202
+
+== Measure 1: earliest held window with value ends 2026-11-12; upper=202; brief lower formable=False
+  package 9 Nov = 1144; S0 upper = 202/1144 = 0.1766 (17.7%)
+== Measure 3: minutes share 0.05215; I upper = 3.386
+== Measure 4: n=14 median=697.0 min=(181, 8) max=(1070, 12)
+  17..23 Nov: [372, 410, 460, 441, 288, 335, 339] min 288 max 460 sum 2645
+== Measure 2 tail: window 2026-11-17..2026-11-23 held=True point 2645 vsum 2645 V=no record
+== Measure 6: bound [0,202] wholly inside 4..31=False, wholly outside=False -> reading not made
+
+== Outside the protocol (observation)
+  2026-11-09: V=202 keys=178 zeros=0 smallest=1 listed=177 listed-without-key=0 keys-not-listed=['13.3.0']
+  2026-11-10: V=202 keys=178 zeros=0 smallest=2 listed=177 listed-without-key=0 keys-not-listed=['13.3.0']
+  2026-11-11: V=202 keys=178 zeros=0 smallest=2 listed=177 listed-without-key=0 keys-not-listed=['13.3.0']
+  2026-11-12: V=202 keys=178 zeros=0 smallest=3 listed=177 listed-without-key=0 keys-not-listed=['13.3.0']
+  2026-11-13: V=202 keys=178 zeros=0 smallest=3 listed=177 listed-without-key=0 keys-not-listed=['13.3.0']
+  2026-11-14: V=202 keys=178 zeros=0 smallest=4 listed=177 listed-without-key=0 keys-not-listed=['13.3.0']
+  2026-11-15: V=202 keys=178 zeros=0 smallest=4 listed=177 listed-without-key=0 keys-not-listed=['13.3.0']
+  2026-11-16: V=no key keys=177 zeros=0 smallest=5 listed=177 listed-without-key=0 keys-not-listed=[]
+  2026-11-23: V=no key keys=111 zeros=0 smallest=1 listed=177 listed-without-key=66 keys-not-listed=[]
+
+== Measure 5 / 7
+  2026-11-10T1444Z: listed13.3.0=False time=2026-11-09T00:09:50.630Z latest=13.2.0 deprecated=[] unpublished=False modified=2026-11-09T01:24:58.830Z n=177 new=None gone=None time entries >=9 Nov=['13.3.0'] qualifying=[]
+     osv [('MAL-2026-18773', ['GHSA-hh7j-5m3j-23pf'], '2026-11-09T02:30:04.721125821Z', None, ['ghsa-malware'])]
+  2026-11-11T1415Z: listed13.3.0=False time=2026-11-09T00:09:50.630Z latest=13.2.0 deprecated=[] unpublished=False modified=2026-11-09T01:24:58.830Z n=177 new=[] gone=[] time entries >=9 Nov=['13.3.0'] qualifying=[]
+     osv [('MAL-2026-18773', ['GHSA-hh7j-5m3j-23pf'], '2026-11-09T02:30:04.721125821Z', None, ['ghsa-malware'])]
+  2026-11-12T1415Z: listed13.3.0=False time=2026-11-09T00:09:50.630Z latest=13.2.0 deprecated=[] unpublished=False modified=2026-11-09T01:24:58.830Z n=177 new=[] gone=[] time entries >=9 Nov=['13.3.0'] qualifying=[]
+     osv [('MAL-2026-18773', ['GHSA-hh7j-5m3j-23pf'], '2026-11-11T21:15:15.105411171Z', None, ['ghsa-malware', 'amazon-inspector'])]
+  2026-11-13T1452Z: listed13.3.0=False time=2026-11-09T00:09:50.630Z latest=13.2.0 deprecated=[] unpublished=False modified=2026-11-09T01:24:58.830Z n=177 new=[] gone=[] time entries >=9 Nov=['13.3.0'] qualifying=[]
+     osv [('MAL-2026-18773', ['GHSA-hh7j-5m3j-23pf'], '2026-11-11T21:15:15.105411171Z', None, ['ghsa-malware', 'amazon-inspector'])]
+  2026-11-14T1412Z: listed13.3.0=False time=2026-11-09T00:09:50.630Z latest=13.2.0 deprecated=[] unpublished=False modified=2026-11-09T01:24:58.830Z n=177 new=[] gone=[] time entries >=9 Nov=['13.3.0'] qualifying=[]
+     osv [('MAL-2026-18773', ['GHSA-hh7j-5m3j-23pf'], '2026-11-11T21:15:15.105411171Z', None, ['ghsa-malware', 'amazon-inspector'])]
+  2026-11-15T1411Z: listed13.3.0=False time=2026-11-09T00:09:50.630Z latest=13.2.0 deprecated=[] unpublished=False modified=2026-11-09T01:24:58.830Z n=177 new=[] gone=[] time entries >=9 Nov=['13.3.0'] qualifying=[]
+     osv [('MAL-2026-18773', ['GHSA-hh7j-5m3j-23pf'], '2026-11-11T21:15:15.105411171Z', None, ['ghsa-malware', 'amazon-inspector'])]
+  2026-11-16T1419Z: listed13.3.0=False time=2026-11-09T00:09:50.630Z latest=13.2.0 deprecated=[] unpublished=False modified=2026-11-09T01:24:58.830Z n=177 new=[] gone=[] time entries >=9 Nov=['13.3.0'] qualifying=[]
+     osv [('MAL-2026-18773', ['GHSA-hh7j-5m3j-23pf'], '2026-11-11T21:15:15.105411171Z', None, ['ghsa-malware', 'amazon-inspector'])]
+  2026-11-17T1415Z: listed13.3.0=False time=2026-11-09T00:09:50.630Z latest=13.2.0 deprecated=[] unpublished=False modified=2026-11-09T01:24:58.830Z n=177 new=[] gone=[] time entries >=9 Nov=['13.3.0'] qualifying=[]
+     osv [('MAL-2026-18773', ['GHSA-hh7j-5m3j-23pf'], '2026-11-11T21:15:15.105411171Z', None, ['ghsa-malware', 'amazon-inspector'])]
+  2026-11-24T1415Z: listed13.3.0=False time=2026-11-09T00:09:50.630Z latest=13.2.0 deprecated=[] unpublished=False modified=2026-11-09T01:24:58.830Z n=177 new=[] gone=[] time entries >=9 Nov=['13.3.0'] qualifying=[]
+     osv [('MAL-2026-18773', ['GHSA-hh7j-5m3j-23pf'], '2026-11-11T21:15:15.105411171Z', None, ['ghsa-malware', 'amazon-inspector'])]

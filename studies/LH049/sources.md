@@ -31,3 +31,17 @@ Read logs: `data/pre-brief-2026-11-10T1437Z/read_log.json` (E1 to E7) and `data/
 ## Outcome reads
 
 Listed here as they happen, by read label, from `data/read-<label>/read_log.json`.
+
+Filled on 24 November 2026 by the evidence review (notes/R-0129-lh049-v1-evidence.md) from each read's `read_log.json`. Each read made the brief's six requests (point, per-version, point, range, registry document, OSV query) through scripts/collect.py, with no retry; times are each read's first start and last finish; the stated window is the one requests 1 and 3 gave; email addresses were withheld from the registry document at every read and from OSV's answer from 12 November on.
+
+| Read label | Read (UTC) | Requests | Status | Stated seven-day window | Bytes received | Emails withheld |
+|---|---|---|---|---|---|---|
+| 2026-11-10T1444Z | 10 November, 14:44:48 to 14:44:51 | 6 | all 200 | 3 to 9 November | 889,468 | 536 |
+| 2026-11-11T1415Z | 11 November, 14:15:40 to 14:15:42 | 6 | all 200 | 4 to 10 November | 889,512 | 536 |
+| 2026-11-12T1415Z | 12 November, 14:15:34 to 14:15:37 | 6 | all 200 | 5 to 11 November | 891,944 | 537 |
+| 2026-11-13T1452Z | 13 November, 14:52:55 to 14:52:58 | 6 | all 200 | 6 to 12 November | 892,000 | 537 |
+| 2026-11-14T1412Z | 14 November, 14:12:13 to 14:12:16 | 6 | all 200 | 7 to 13 November | 892,045 | 537 |
+| 2026-11-15T1411Z | 15 November, 14:11:33 to 14:11:36 | 6 | all 200 | 8 to 14 November | 892,096 | 537 |
+| 2026-11-16T1419Z | 16 November, 14:19:07 to 14:19:10 | 6 | all 200 | 9 to 15 November | 892,147 | 537 |
+| 2026-11-17T1415Z | 17 November, 14:15:31 to 14:15:34 | 6 | all 200 | 10 to 16 November | 892,176 | 537 |
+| 2026-11-24T1415Z | 24 November, 14:15:31 to 14:15:34 | 6 | all 200 | 17 to 23 November | 890,925 | 537 |
