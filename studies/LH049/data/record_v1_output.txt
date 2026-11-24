@@ -1,0 +1,60 @@
+LH049 tabulation (brief protocol 0.1; tabulator 17 November 2026, extended 24 November 2026), 9 retained reads
+
+Clocks: windows held
+  2026-11-10T1444Z stated 2026-11-03..2026-11-09 point 4026 per-version sum 4236  13.3.0 202  UNKNOWN: per-version sum 4236 != point total 4026 (difference +210)  bodies hash-checked 5 ok=True
+  2026-11-11T1415Z stated 2026-11-04..2026-11-10 point 4433 per-version sum 4643  13.3.0 202  UNKNOWN: per-version sum 4643 != point total 4433 (difference +210)  bodies hash-checked 5 ok=True
+  2026-11-12T1415Z stated 2026-11-05..2026-11-11 point 4789 per-version sum 4999  13.3.0 202  UNKNOWN: per-version sum 4999 != point total 4789 (difference +210)  bodies hash-checked 4 ok=True
+  2026-11-13T1452Z stated 2026-11-06..2026-11-12 point 5310 per-version sum 5310  13.3.0 202  HELD W(2026-11-12)  bodies hash-checked 4 ok=True
+  2026-11-14T1412Z stated 2026-11-07..2026-11-13 point 5144 per-version sum 5144  13.3.0 202  HELD W(2026-11-13)  bodies hash-checked 4 ok=True
+  2026-11-15T1411Z stated 2026-11-08..2026-11-14 point 5772 per-version sum 5772  13.3.0 202  HELD W(2026-11-14)  bodies hash-checked 4 ok=True
+  2026-11-16T1419Z stated 2026-11-09..2026-11-15 point 6298 per-version sum 6298  13.3.0 202  HELD W(2026-11-15)  bodies hash-checked 4 ok=True
+  2026-11-17T1415Z stated 2026-11-10..2026-11-16 point 5911 per-version sum 5911  13.3.0 no record  HELD W(2026-11-16)  bodies hash-checked 4 ok=True
+  2026-11-24T1415Z stated 2026-11-17..2026-11-23 point 2645 per-version sum 2645  13.3.0 no record  HELD W(2026-11-23)  bodies hash-checked 4 ok=True
+
+V(t), held windows only: 2026-11-12=202, 2026-11-13=202, 2026-11-14=202, 2026-11-15=202, 2026-11-16=no record, 2026-11-23=no record
+
+Day counts d(t): 11-09=unknown, 11-10=unknown, 11-11=unknown, 11-12=unknown, 11-13=0, 11-14=0, 11-15=0, 11-16=unknown
+Sums still formed: d(2026-11-09 to 2026-11-12) = 202 [V(2026-11-12)]; d(2026-11-09 to 2026-11-13) = 202 [V(2026-11-13)]; d(2026-11-09 to 2026-11-14) = 202 [V(2026-11-14)]; d(2026-11-09 to 2026-11-15) = 202 [V(2026-11-15)]
+
+Measure 1: d(9 Nov) {"exact": null, "upper": 202, "upper_from_window_ending": "2026-11-12", "lower": null, "lower_note": "V(15 Nov) - V(16 Nov) cannot be formed: W(16 Nov) has no record of 13.3.0"}; package total 9 Nov = 1144
+  S0 upper 0.1766, lower unknown
+Measure 2: d(10..16) = 11-10=unknown, 11-11=unknown, 11-12=unknown, 11-13=0, 11-14=0, 11-15=0, 11-16=unknown; sum unknown; any day above zero: unknown; V(23 Nov) = no record
+Measure 3: minutes share 0.05215; I upper 3.386, lower unknown
+Measure 4: package 9 Nov 1144; other days 2..16 Nov held: n=14, median 697.0, range 181 to 1070
+  daily totals: 11-01=245, 11-02=614, 11-03=516, 11-04=394, 11-05=549, 11-06=853, 11-07=389, 11-08=181, 11-09=1144, 11-10=923, 11-11=750, 11-12=1070, 11-13=687, 11-14=1017, 11-15=707, 11-16=757, 11-17=372, 11-18=410, 11-19=460, 11-20=441, 11-21=288, 11-22=335, 11-23=339
+  disagreements between reads on a loaded day: none
+  package daily totals 17..23 Nov (description, not a measure): n=7, min 288, max 460, sum 2645
+Measure 5: qualifying comparison releases: none -> not made
+Measure 6: {"reading": "not made: the bound on d(9 Nov) is not wholly inside or outside 4 to 31", "bound_used": [0, 202], "brief_lower_formed": false}
+Measure 7:
+  2026-11-10T1444Z listed=False time_kept=True time=2026-11-09T00:09:50.630Z latest=13.2.0 deprecated=[] unpublished=False modified=2026-11-09T01:24:58.830Z n_listed=177 new=None gone=None
+      osv MAL-2026-18773 ['GHSA-hh7j-5m3j-23pf'] modified 2026-11-09T02:30:04.721125821Z withdrawn None sources ['ghsa-malware']
+  2026-11-11T1415Z listed=False time_kept=True time=2026-11-09T00:09:50.630Z latest=13.2.0 deprecated=[] unpublished=False modified=2026-11-09T01:24:58.830Z n_listed=177 new=[] gone=[]
+      osv MAL-2026-18773 ['GHSA-hh7j-5m3j-23pf'] modified 2026-11-09T02:30:04.721125821Z withdrawn None sources ['ghsa-malware']
+  2026-11-12T1415Z listed=False time_kept=True time=2026-11-09T00:09:50.630Z latest=13.2.0 deprecated=[] unpublished=False modified=2026-11-09T01:24:58.830Z n_listed=177 new=[] gone=[]
+      osv MAL-2026-18773 ['GHSA-hh7j-5m3j-23pf'] modified 2026-11-11T21:15:15.105411171Z withdrawn None sources ['amazon-inspector', 'ghsa-malware']
+  2026-11-13T1452Z listed=False time_kept=True time=2026-11-09T00:09:50.630Z latest=13.2.0 deprecated=[] unpublished=False modified=2026-11-09T01:24:58.830Z n_listed=177 new=[] gone=[]
+      osv MAL-2026-18773 ['GHSA-hh7j-5m3j-23pf'] modified 2026-11-11T21:15:15.105411171Z withdrawn None sources ['amazon-inspector', 'ghsa-malware']
+  2026-11-14T1412Z listed=False time_kept=True time=2026-11-09T00:09:50.630Z latest=13.2.0 deprecated=[] unpublished=False modified=2026-11-09T01:24:58.830Z n_listed=177 new=[] gone=[]
+      osv MAL-2026-18773 ['GHSA-hh7j-5m3j-23pf'] modified 2026-11-11T21:15:15.105411171Z withdrawn None sources ['amazon-inspector', 'ghsa-malware']
+  2026-11-15T1411Z listed=False time_kept=True time=2026-11-09T00:09:50.630Z latest=13.2.0 deprecated=[] unpublished=False modified=2026-11-09T01:24:58.830Z n_listed=177 new=[] gone=[]
+      osv MAL-2026-18773 ['GHSA-hh7j-5m3j-23pf'] modified 2026-11-11T21:15:15.105411171Z withdrawn None sources ['amazon-inspector', 'ghsa-malware']
+  2026-11-16T1419Z listed=False time_kept=True time=2026-11-09T00:09:50.630Z latest=13.2.0 deprecated=[] unpublished=False modified=2026-11-09T01:24:58.830Z n_listed=177 new=[] gone=[]
+      osv MAL-2026-18773 ['GHSA-hh7j-5m3j-23pf'] modified 2026-11-11T21:15:15.105411171Z withdrawn None sources ['amazon-inspector', 'ghsa-malware']
+  2026-11-17T1415Z listed=False time_kept=True time=2026-11-09T00:09:50.630Z latest=13.2.0 deprecated=[] unpublished=False modified=2026-11-09T01:24:58.830Z n_listed=177 new=[] gone=[]
+      osv MAL-2026-18773 ['GHSA-hh7j-5m3j-23pf'] modified 2026-11-11T21:15:15.105411171Z withdrawn None sources ['amazon-inspector', 'ghsa-malware']
+  2026-11-24T1415Z listed=False time_kept=True time=2026-11-09T00:09:50.630Z latest=13.2.0 deprecated=[] unpublished=False modified=2026-11-09T01:24:58.830Z n_listed=177 new=[] gone=[]
+      osv MAL-2026-18773 ['GHSA-hh7j-5m3j-23pf'] modified 2026-11-11T21:15:15.105411171Z withdrawn None sources ['amazon-inspector', 'ghsa-malware']
+
+Outside the protocol (observation only, not used by any measure): 13.3.0 as answered in every per-version window by stated end: 11-09=202, 11-10=202, 11-11=202, 11-12=202, 11-13=202, 11-14=202, 11-15=202, 11-16=no record, 11-23=no record
+
+Descriptive checks (added 24 November 2026; no measure uses them):
+  2026-11-10T1444Z package daily totals summed over the stated window 4026, point total 4026; per-version keys 178 (zero values 0, smallest 1); registry lists 177, listed without a key 0; keys not listed ['13.3.0']
+  2026-11-11T1415Z package daily totals summed over the stated window 4433, point total 4433; per-version keys 178 (zero values 0, smallest 2); registry lists 177, listed without a key 0; keys not listed ['13.3.0']
+  2026-11-12T1415Z package daily totals summed over the stated window 4789, point total 4789; per-version keys 178 (zero values 0, smallest 2); registry lists 177, listed without a key 0; keys not listed ['13.3.0']
+  2026-11-13T1452Z package daily totals summed over the stated window 5310, point total 5310; per-version keys 178 (zero values 0, smallest 3); registry lists 177, listed without a key 0; keys not listed ['13.3.0']
+  2026-11-14T1412Z package daily totals summed over the stated window 5144, point total 5144; per-version keys 178 (zero values 0, smallest 3); registry lists 177, listed without a key 0; keys not listed ['13.3.0']
+  2026-11-15T1411Z package daily totals summed over the stated window 5772, point total 5772; per-version keys 178 (zero values 0, smallest 4); registry lists 177, listed without a key 0; keys not listed ['13.3.0']
+  2026-11-16T1419Z package daily totals summed over the stated window 6298, point total 6298; per-version keys 178 (zero values 0, smallest 4); registry lists 177, listed without a key 0; keys not listed ['13.3.0']
+  2026-11-17T1415Z package daily totals summed over the stated window 5911, point total 5911; per-version keys 177 (zero values 0, smallest 5); registry lists 177, listed without a key 0; keys not listed []
+  2026-11-24T1415Z package daily totals summed over the stated window 2645, point total 2645; per-version keys 111 (zero values 0, smallest 1); registry lists 177, listed without a key 66; keys not listed []

@@ -9,6 +9,11 @@ Written at the checkpoint of 17 November 2026, after the counts were seen. It im
 changes none of them. Where the brief can be read more than one way, the reading taken is commented here
 ("READING:") and listed under "Method" and "Limits" in LH049.md.
 
+Extended on 24 November 2026 for record version 1.0, after the weekly read, changing no rule: measure 2 now reports
+V(23 Nov) from the held window ending 23 November (the brief's tail), and four descriptive lines were added (each
+read's package daily totals summed over its stated window beside the point total; each per-version answer's key
+count against the registry's listed versions; the package's daily totals 17 to 23 November; 13.3.0's time entry).
+
 Rules implemented, by the brief's section:
   Clocks       A read's per-version window W(t) is held only if point_before and point_after both answered 200,
                state the same start, end and total, end - start = 6 days, and the per-version totals of the
@@ -38,6 +43,7 @@ CASE = '13.3.0'
 DAY0 = date(2026, 11, 9)
 MINUTES = 75.1                       # brief: 00:09:50.630 to 01:24:58 UTC (Socket's end, as reported)
 SOCKET_RANGE = (4, 31)               # brief, measure 6
+TABULATOR = '17 November 2026, extended 24 November 2026'
 COMPARISON_FROM, COMPARISON_TO = '2026-11-10T00:00', '2026-11-16T23:59'
 
 
@@ -214,7 +220,7 @@ def main():
     after = {k: v for k, v in dcounts.items() if k != str(DAY0)}
     m2 = {'d': after, 'sum_10_to_16': sum(after.values()) if all(v is not None for v in after.values()) else None,
           'any_day_above_zero': any(v for v in after.values() if v is not None) or None,
-          'V_23_nov': 'waits for the weekly read (row LH049-2026-11-24)'}
+          'V_23_nov': V.get(date(2026, 11, 23), 'not held')}
     if m2['any_day_above_zero'] is None and all(v is not None for v in after.values()):
         m2['any_day_above_zero'] = False
 
@@ -284,6 +290,27 @@ def main():
             row['osv'] = 'unavailable'
         m7.append(row)
 
+    # ---- descriptive lines added 24 November 2026 (no measure uses them)
+    extra = []
+    for r in reads:
+        e = {'label': r['label']}
+        if r['point_before_ok'] and r.get('range_ok'):
+            pb = body(r['dir'], 'point_before')
+            e['range_sum_over_stated_window'] = sum(row['downloads'] for row in body(r['dir'], 'range')['downloads']
+                                                    if pb['start'] <= row['day'] <= pb['end'])
+            e['point_total'] = pb['downloads']
+        if r['versions_ok'] and r.get('packument_ok'):
+            vs = body(r['dir'], 'versions')['downloads']
+            listed = set(body(r['dir'], 'packument').get('versions', {}))
+            e.update(keys=len(vs), zero_values=sum(1 for x in vs.values() if x == 0), min_value=min(vs.values()),
+                     listed=len(listed), listed_without_key=len(listed - set(vs)),
+                     keys_not_listed=sorted(set(vs) - listed))
+        extra.append(e)
+    late = {k: v for k, v in pkg.items() if '2026-11-17' <= k <= '2026-11-23'}
+    late_desc = {'n': len(late), 'min': min(late.values()) if late else None,
+                 'max': max(late.values()) if late else None, 'sum': sum(late.values()) if late else None}
+
+    out.update(extra_per_read=extra, package_daily_17_to_23=late_desc)
     out.update(V={str(k): v for k, v in sorted(V.items())}, raw_case_by_stated_end=raw_case, d=dcounts,
                sums_formed=sums, package_daily=pkg, package_daily_disagreements=pkg_disagree,
                m1=m1, m2=m2, m3=m3, m4=m4, m5=m5, m6=m6, m7=m7)
@@ -293,7 +320,7 @@ def main():
         return
 
     P = print
-    P('LH049 tabulation (brief protocol 0.1), %d retained reads' % len(reads))
+    P('LH049 tabulation (brief protocol 0.1; tabulator %s), %d retained reads' % (TABULATOR, len(reads)))
     P('\nClocks: windows held')
     for r in out['reads']:
         P('  %-16s stated %s..%s point %s per-version sum %s  13.3.0 %s  %s  bodies hash-checked %d ok=%s'
@@ -307,7 +334,7 @@ def main():
     P('  S0 ' + ('= %.4f' % m1['S0'] if 'S0' in m1 else 'upper %s, lower %s' % (
         'unknown' if m1['S0_upper'] is None else '%.4f' % m1['S0_upper'],
         'unknown' if m1['S0_lower'] is None else '%.4f' % m1['S0_lower'])))
-    P('Measure 2: d(10..16) = %s; sum %s; any day above zero: %s; V(23 Nov) %s'
+    P('Measure 2: d(10..16) = %s; sum %s; any day above zero: %s; V(23 Nov) = %s'
       % (', '.join('%s=%s' % (k[5:], 'unknown' if v is None else v) for k, v in after.items()),
          'unknown' if m2['sum_10_to_16'] is None else m2['sum_10_to_16'],
          'unknown' if m2['any_day_above_zero'] is None else m2['any_day_above_zero'], m2['V_23_nov']))
@@ -318,12 +345,14 @@ def main():
       % (p9, m4['other_days_n'], m4['median'], m4['min'], m4['max']))
     P('  daily totals: ' + ', '.join('%s=%s' % (k[5:], v) for k, v in pkg.items()))
     P('  disagreements between reads on a loaded day: %s' % (pkg_disagree or 'none'))
+    P('  package daily totals 17..23 Nov (description, not a measure): n=%s, min %s, max %s, sum %s'
+      % (late_desc['n'], late_desc['min'], late_desc['max'], late_desc['sum']))
     P('Measure 5: qualifying comparison releases: %s -> %s' % (m5['qualifying'] or 'none', 'made' if m5['made'] else 'not made'))
     P('Measure 6: %s' % json.dumps(m6))
     P('Measure 7:')
     for row in m7:
-        P('  %s listed=%s time_kept=%s latest=%s deprecated=%s unpublished=%s modified=%s n_listed=%s new=%s gone=%s'
-          % (row['label'], row.get('listed'), row.get('time_kept'), row.get('latest'), row.get('deprecated'),
+        P('  %s listed=%s time_kept=%s time=%s latest=%s deprecated=%s unpublished=%s modified=%s n_listed=%s new=%s gone=%s'
+          % (row['label'], row.get('listed'), row.get('time_kept'), row.get('time'), row.get('latest'), row.get('deprecated'),
              row.get('unpublished'), row.get('modified'), row.get('n_listed'), row.get('new_since_last'),
              row.get('gone_since_last')))
         for o in row['osv'] if isinstance(row['osv'], list) else []:
@@ -331,6 +360,13 @@ def main():
                                                                      o['withdrawn'], o['sources']))
     P('\nOutside the protocol (observation only, not used by any measure): 13.3.0 as answered in every '
       'per-version window by stated end: ' + ', '.join('%s=%s' % (k[5:], v) for k, v in sorted(raw_case.items())))
+    P('\nDescriptive checks (added 24 November 2026; no measure uses them):')
+    for e in extra:
+        P('  %s package daily totals summed over the stated window %s, point total %s; per-version keys %s '
+          '(zero values %s, smallest %s); registry lists %s, listed without a key %s; keys not listed %s'
+          % (e['label'], e.get('range_sum_over_stated_window'), e.get('point_total'), e.get('keys'),
+             e.get('zero_values'), e.get('min_value'), e.get('listed'), e.get('listed_without_key'),
+             e.get('keys_not_listed')))
 
 
 if __name__ == '__main__':
