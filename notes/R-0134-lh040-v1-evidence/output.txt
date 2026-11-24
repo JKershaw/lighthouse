@@ -1,0 +1,94 @@
+== Hash checks
+read-2026-11-09T1432Z bodies matching logged SHA-256: 8 ; non-200: [('depsdev_1.107.0', 'error: NotFetched: not fetched: disallowed by robots.txt (ro'), ('depsdev_dependents_1.107.0', 'error: NotFetched: not fetched: disallowed by robots.txt (ro'), ('depsdev_dependents_1.106.2', 'error: NotFetched: not fetched: disallowed by robots.txt (ro'), ('depsdev_dependents_1.106.1', 'error: NotFetched: not fetched: disallowed by robots.txt (ro'), ('depsdev_dependents_1.106.3', 'error: NotFetched: not fetched: disallowed by robots.txt (ro')]
+read-2026-11-23T1433Z bodies matching logged SHA-256: 8 ; non-200: [('depsdev_1.107.0', 'error: NotFetched: not fetched: disallowed by robots.txt (ro'), ('depsdev_dependents_1.107.0', 'error: NotFetched: not fetched: disallowed by robots.txt (ro'), ('depsdev_dependents_1.106.2', 'error: NotFetched: not fetched: disallowed by robots.txt (ro'), ('depsdev_dependents_1.106.1', 'error: NotFetched: not fetched: disallowed by robots.txt (ro'), ('depsdev_dependents_1.106.3', 'error: NotFetched: not fetched: disallowed by robots.txt (ro')]
+
+== Daily totals and gaps (read 2)
+days 2026-03-17 to 2026-11-22 n = 251 ; missing dates: [] ; gap days: []
+dates with >1 row: {'2026-04-09': 2, '2026-08-02': 2, '2026-10-19': 2, '2026-11-02': 2, '2026-11-21': 2, '2026-11-22': 3}
+read 1 dates with >1 row: {'2026-04-09': 2, '2026-08-02': 2, '2026-10-19': 2, '2026-11-02': 2, '2026-11-05': 2, '2026-11-08': 5}
+   2026-04-09 sum 7396791 pypistats with None
+   2026-08-02 sum 19117829 pypistats with 19117829
+   2026-10-19 sum 3339530 pypistats with 3302031
+   2026-11-02 sum 3177446 pypistats with 3177446
+   2026-11-21 sum 2967904 pypistats with 2967904
+   2026-11-22 sum 3175868 pypistats with 3175868
+   2026-11-05 read1 3636257 2 rows; read2 3636257 1 rows
+   2026-11-08 read1 2366947 5 rows; read2 2366947 1 rows
+
+== Measure 1
+C0 49043 read1 49043 ; litellm total 3465646 read1 3465646 ; S0 = 1.4151%
+file types day 0: {'bdist_wheel': 48683, 'sdist': 360}
+C0 - 49000 = 43
+pypistats 21 Oct with/without: 3465646 3431091
+
+== pypistats agreement
+2026-10-14 to 2026-11-04 : days compared 22 ; >5%: 0 ; largest 2026-10-19 +1.14%
+2026-11-05 to 2026-11-22 : days compared 18 ; >5%: 0 ; largest 2026-11-17 -1.93%
+pypistats dates 2026-05-26 2026-11-22
+
+== Timeline and measure 3
+qualifying releases from L1: ['1.103.2', '1.104.0', '1.104.1', '1.104.2', '1.105.0', '1.105.1', '1.106.0', '1.106.1', '1.106.2', '1.106.3', '1.106.4', '1.106.5', '1.106.6', '1.108.0', '1.108.1', '1.108.2', '1.108.3'] n = 17 ; equals brief set: True
+day 0 agrees with collector: True
+  upload 1.106.2 2026-10-21T10:44:22.902887+00:00
+  upload 1.106.3 2026-10-24T09:14:52.573766+00:00
+  upload 1.108.1 2026-11-05T23:37:04.948421+00:00
+end 13:23 (maintainers): h(1.107.0)=1.7192 I=0.1976; comp min 0.1722 median 0.2921 max 0.4052; ratio 0.676; rank 17 of 18; inside=True
+    1.103.2 0.292 (h 17.65), 1.104.0 0.405 (h 1.28), 1.104.1 0.305 (h 3.79), 1.104.2 0.320 (h 15.42), 1.105.0 0.337 (h 14.20), 1.105.1 0.332 (h 19.54), 1.106.0 0.344 (h 18.17), 1.106.1 0.249 (h 5.10), 1.106.2 0.269 (h 11.54), 1.106.3 0.291 (h 14.75), 1.106.4 0.282 (h 14.45), 1.106.5 0.240 (h 4.25), 1.106.6 0.301 (h 1.18), 1.108.0 0.249 (h 20.48), 1.108.1 0.172 (h 0.38), 1.108.2 0.246 (h 1.95), 1.108.3 0.308 (h 1.57)
+   below 1.107.0: ['1.108.1'] ; 1.106.2 h 11.54
+   h<2: ['1.104.0', '1.106.6', '1.108.1', '1.108.2', '1.108.3'] uploads ['22:42', '22:48', '23:37', '22:03', '22:25'] I range 0.172-0.405
+end 13:20 (Datadog): h(1.107.0)=1.6692 I=0.2035; comp min 0.1722 median 0.2921 max 0.4052; ratio 0.697; rank 17 of 18; inside=True
+    1.103.2 0.292 (h 17.65), 1.104.0 0.405 (h 1.28), 1.104.1 0.305 (h 3.79), 1.104.2 0.320 (h 15.42), 1.105.0 0.337 (h 14.20), 1.105.1 0.332 (h 19.54), 1.106.0 0.344 (h 18.17), 1.106.1 0.249 (h 5.10), 1.106.2 0.268 (h 11.59), 1.106.3 0.291 (h 14.75), 1.106.4 0.282 (h 14.45), 1.106.5 0.240 (h 4.25), 1.106.6 0.301 (h 1.18), 1.108.0 0.249 (h 20.48), 1.108.1 0.172 (h 0.38), 1.108.2 0.246 (h 1.95), 1.108.3 0.308 (h 1.57)
+   below 1.107.0: ['1.108.1'] ; 1.106.2 h 11.59
+end 12:47 (Aikido): h(1.107.0)=1.1192 I=0.3035; comp min 0.1722 median 0.2921 max 0.4052; ratio 1.039; rank 8 of 18; inside=True
+    1.103.2 0.292 (h 17.65), 1.104.0 0.405 (h 1.28), 1.104.1 0.305 (h 3.79), 1.104.2 0.320 (h 15.42), 1.105.0 0.337 (h 14.20), 1.105.1 0.332 (h 19.54), 1.106.0 0.344 (h 18.17), 1.106.1 0.249 (h 5.10), 1.106.2 0.256 (h 12.14), 1.106.3 0.291 (h 14.75), 1.106.4 0.282 (h 14.45), 1.106.5 0.240 (h 4.25), 1.106.6 0.301 (h 1.18), 1.108.0 0.249 (h 20.48), 1.108.1 0.172 (h 0.38), 1.108.2 0.246 (h 1.95), 1.108.3 0.308 (h 1.57)
+   below 1.107.0: ['1.103.2', '1.106.1', '1.106.2', '1.106.3', '1.106.4', '1.106.5', '1.106.6', '1.108.0', '1.108.1', '1.108.2'] ; 1.106.2 h 12.14
+
+== Measure 2 (read 2)
+  no row 2026-11-16 day 26 total held True gap False
+  no row 2026-11-19 day 29 total held True gap False
+by day: [331, 419, 57, 52, 51, 76, 60, 12, 18, 29, 242, 39, 3, 6, 17, 10, 1, 8, 15, 3, 9, 1, 10, 3, 4, None, 6, 5, None, 15, 35, 4]
+days 1-30 with record 28 sum 1502 ; to 22 Nov sum 1541 ; first 18 days 1431
+read 1 tail to 8 Nov: 1431
+installers days 1-30: {'(none)': (954, 63.5), 'Browser': (489, 32.6), 'uv': (33, 2.2), 'requests': (16, 1.1), 'Nexus': (9, 0.6), 'devpi': (1, 0.1)} sum 1502
+file types days 1-30: {'bdist_wheel': 1407, 'sdist': 95}
+pip after day 0 any day: 0
+
+== Measure 4
+2026-10-20 [194725, None, None]
+2026-10-21 [411616, 448846, 49043]
+2026-10-22 [9014, 796842, 331]
+2026-10-23 [8016, 771314, 419]
+
+== Measure 5
+  1.107.0 installer sum 49043 system sum 49043 day0 49043
+1.107.0 named installers day 0: {'': 1440, 'Browser': 461, 'Nexus': 26, 'bandersnatch': 29, 'devpi': 2, 'pip': 10654, 'poetry': 22, 'requests': 97, 'uv': 36312}
+mirror         case     57 0.116% | median 0.047% range 0.023%-0.090% ABOVE
+none           case   1440 2.936% | median 0.814% range 0.265%-7.475% 
+other          case    558 1.138% | median 0.183% range 0.070%-30.966% 
+pip            case  10654 21.724% | median 30.672% range 20.811%-45.651% 
+poetry         case     22 0.045% | median 0.032% range 0.000%-0.095% 
+sys:Android    case      2 0.004% | median 0.008% range 0.002%-0.015% 
+sys:Darwin     case   1298 2.647% | median 1.144% range 0.970%-2.187% ABOVE
+sys:FreeBSD    case      0 0.000% | median 0.000% range 0.000%-0.001% 
+sys:Linux      case  44368 90.468% | median 96.295% range 65.299%-97.587% 
+sys:OpenBSD    case      0 0.000% | median 0.000% range 0.000%-0.000% 
+sys:Windows    case   1320 2.692% | median 1.251% range 0.713%-3.100% 
+sys:iOS        case      0 0.000% | median 0.000% range 0.000%-0.000% 
+sys:iPadOS     case      0 0.000% | median 0.000% range 0.000%-0.000% 
+sys:none       case   2055 4.190% | median 0.982% range 0.402%-32.771% 
+sys:wasi       case      0 0.000% | median 0.000% range 0.000%-0.000% 
+uv             case  36312 74.041% | median 67.445% range 44.667%-78.081% 
+CI: 1.107.0 10153 of 46966 = 21.62%; not known 2077 of 49043 (4.24%); comp median 12.32% range 8.48%-17.74%
+
+== Measure 6
+24 March {'1.82.7': 16930, '1.82.8': 102391} together 119321 ; 24 Mar-30 Apr 120633 ; ratio to 119000 1.014 ; dates with rows ['2026-03-24', '2026-03-25', '2026-03-26', '2026-03-27', '2026-03-28', '2026-03-29', '2026-03-30', '2026-03-31', '2026-04-01', '2026-04-02', '2026-04-03', '2026-04-04', '2026-04-05', '2026-04-06', '2026-04-07', '2026-04-08', '2026-04-09', '2026-04-10', '2026-04-11', '2026-04-12', '2026-04-13', '2026-04-14', '2026-04-15', '2026-04-16', '2026-04-17', '2026-04-18', '2026-04-19', '2026-04-20', '2026-04-21', '2026-04-22', '2026-04-23', '2026-04-24', '2026-04-25', '2026-04-26', '2026-04-27', '2026-04-28', '2026-04-29', '2026-04-30']
+gap days in 24 Mar-30 Apr: []
+
+== Re-read comparison (cells both reads hold, dates to 2026-11-08)
+tot  common 237, differ 0, only in read 1 0, on 21 Oct 1
+ver  common 2721, differ 0, only in read 1 0, on 21 Oct 75
+ins  common 700, differ 0, only in read 1 0, on 21 Oct 19
+sys  common 125, differ 0, only in read 1 0, on 21 Oct 11
+ci   common 203, differ 0, only in read 1 0, on 21 Oct 23
+ft   common 276, differ 0, only in read 1 0, on 21 Oct 4
+mar  common 115, differ 0, only in read 1 0, on 21 Oct 0
