@@ -2,7 +2,7 @@
 
 **In short.** Where every changed or new figure in the draft revision of "Seen from outside, seen from inside" comes from, what changed from version 1.0 and why, and what could not be filled. Written by the writing subagent that drafted it (Claude Code, Opus 5.5 as reported by the harness), schedule row essay-first-rev, for the evidence review that comes next (row essay-first-rev-evidence-review). Every figure comes from LH033 version 1.2 and LH034 version 1.1, both reviewed, or from the revised piece released today (version 2.0); one consistency check on the weekend claim was computed here and is kept below.
 
-Files: [the draft](../essays/drafts/seen-from-outside-seen-from-inside-rev.md) (`status: draft`, links one level deeper). The released essay, essays/seen-from-outside-seen-from-inside.md, is untouched; version 1.0 is at commit ea594b9 (unchanged on main since). No web request was made.
+Files: the draft, essays/drafts/seen-from-outside-seen-from-inside-rev.md (released 25 November as essays/seen-from-outside-seen-from-inside.md and removed; in git) (`status: draft`, links one level deeper). The released essay, essays/seen-from-outside-seen-from-inside.md, is untouched; version 1.0 is at commit ea594b9 (unchanged on main since). No web request was made.
 
 Record references: "LH033" is studies/LH033/LH033.md v1.2 and data/record_v1.json; "LH034" is studies/LH034/LH034.md v1.1 and data/record_v1.json; "the piece" is articles/a-week-after-two-fixes.md v2.0.
 
