@@ -1,5 +1,5 @@
 published: 2026-10-30
-summary: A month after the PHP and Node.js fixes of 21 October 2026, both counts we followed had done most of their rising within two weeks, and what rose after came mostly from fewer PHP services counted and more Node.js downloads of newer versions, not from fewer left behind; more than half the PHP services showing a version ran branches PHP no longer fixes, though distributions may patch some under the old number.
+summary: A month after the PHP and Node.js fixes of 21 October 2026, both counts we followed had done most of their rising within two weeks, and what rose after came mostly from fewer PHP services counted, nearly all of them ones not counted patched, rather than more patched, and from more Node.js downloads of newer versions rather than fewer below the fix; more than half the PHP services showing a version ran branches PHP no longer fixes, though distributions may patch some under the old number.
 status: draft
 investigation: software-updates
 revised:
