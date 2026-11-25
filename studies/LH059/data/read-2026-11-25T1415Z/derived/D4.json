@@ -1,0 +1,30 @@
+{
+ "url": "https://services.nvd.nist.gov/rest/json/cves/2.0?cveId=CVE-2026-133968",
+ "read_utc": "2026-11-25T14:16:17Z",
+ "finish_utc": "2026-11-25T14:16:17Z",
+ "http_status": 200,
+ "content_type": "application/json",
+ "bytes": 3617,
+ "sha256": "8373cf3de01d466bd8b97120878fdc745be922a9015877cb9d38846d6812e9fe",
+ "used_for": "LH059 D4, brief protocol 0.1",
+ "body_kept": "no: derived only under the brief (D2 to D8 keep no body)",
+ "body_removed": "Body not kept under the keeper's decision of 21 November 2026 (notes/keeper/2026-11-21-robots-intent.md): the site's robots.txt refuses AI-training or archiving crawlers, or all bots, or the page reserves itself from AI use, so Lighthouse keeps the URL, read time, status, SHA-256 of the bytes received and the facts its records use, not the page.",
+ "extracted": {
+  "totalResults": 1,
+  "timestamp": "2026-11-25T14:16:17.223",
+  "id": "CVE-2026-133968",
+  "published": "2026-11-20T19:18:51.670",
+  "lastModified": "2026-11-24T15:17:20.847",
+  "vulnStatus": "Analyzed",
+  "sourceIdentifier": "[email withheld by Lighthouse]",
+  "cisaExploitAdd": "2026-11-23",
+  "cisaActionDue": "2026-11-26",
+  "cisaVulnerabilityName": "Project MONAI MONAI Label Path Traversal Vulnerability",
+  "weaknesses": [
+   [
+    "CWE-24"
+   ]
+  ],
+  "references_count": 6
+ }
+}

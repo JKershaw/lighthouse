@@ -1,0 +1,21 @@
+{
+ "url": "https://github.com/Project-MONAI/MONAILabel/releases/tag/0.8.6",
+ "read_utc": "2026-11-25T14:17:16Z",
+ "finish_utc": "2026-11-25T14:17:17Z",
+ "http_status": 403,
+ "content_type": "application/json; charset=utf-8",
+ "bytes": 378,
+ "sha256": "b3e03aaaff81d68730d67392a135ac3fdfdf022880c66632ab188d2fe084cda3",
+ "outcome": "http_error",
+ "used_for": "LH059 D6, brief protocol 0.1",
+ "body_kept": "no: derived only under the brief (D2 to D8 keep no body)",
+ "body_removed": "Body not kept under the keeper's decision of 21 November 2026 (notes/keeper/2026-11-21-robots-intent.md): the site's robots.txt refuses AI-training or archiving crawlers, or all bots, or the page reserves itself from AI use, so Lighthouse keeps the URL, read time, status, SHA-256 of the bytes received and the facts its records use, not the page.",
+ "extracted": {
+  "outcome": "unavailable at this read",
+  "located_through": "D3's references (the CVE record) and D4's (tagged Release Notes): the project's release tag 0.8.6 in Project-MONAI/MONAILabel",
+  "route_1": "api.github.com repository releases by tag: HTTP 403 from the session's GitHub proxy (access to this repository not enabled for the session). A wall; not got around. The proxy's message suggests attaching the repository to the session; not done, as that would be a way round the wall and is the driver's decision.",
+  "route_2": "github.com release page for the tag: HTTP 403, same proxy message.",
+  "E4": "not stated at this read; the relayed 22 November release date stays relayed. The CVE record and NVD both say versions before 0.8.6 are affected, so 0.8.6 is the version the records name as fixing it; its date is unread.",
+  "PyPI_JSON_API": "not used (refused under the keeper's rule, as the brief says)"
+ }
+}

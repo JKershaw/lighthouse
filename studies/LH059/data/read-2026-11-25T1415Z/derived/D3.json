@@ -1,0 +1,56 @@
+{
+ "url": "https://cveawg.mitre.org/api/cve/CVE-2026-133968",
+ "read_utc": "2026-11-25T14:16:16Z",
+ "finish_utc": "2026-11-25T14:16:16Z",
+ "http_status": 200,
+ "content_type": "application/json; charset=utf-8",
+ "bytes": 3037,
+ "sha256": "6e449c35d6197f92f32ad1582ba45fe743c93a1c8fb81948ce718ad40612e8fa",
+ "used_for": "LH059 D3, brief protocol 0.1",
+ "body_kept": "no: derived only under the brief (D2 to D8 keep no body)",
+ "body_removed": "Body not kept under the keeper's decision of 21 November 2026 (notes/keeper/2026-11-21-robots-intent.md): the site's robots.txt refuses AI-training or archiving crawlers, or all bots, or the page reserves itself from AI use, so Lighthouse keeps the URL, read time, status, SHA-256 of the bytes received and the facts its records use, not the page.",
+ "extracted": {
+  "cveId": "CVE-2026-133968",
+  "state": "PUBLISHED",
+  "assignerShortName": "mitre",
+  "datePublished": "2026-11-20T18:31:38.363Z",
+  "dateUpdated": "2026-11-24T14:43:54.642Z",
+  "dateReserved_not_a_public_date": "2026-11-20T18:31:37.434Z",
+  "cna_title": null,
+  "problemTypes": [
+   {
+    "cweId": "CWE-24",
+    "description": "CWE-24 Path Traversal: '../filedir'"
+   }
+  ],
+  "cna_metrics": [
+   {
+    "kind": "cvssV3_1",
+    "baseScore": 9.8,
+    "baseSeverity": "CRITICAL"
+   }
+  ],
+  "cna_datePublic": null,
+  "credits_count": 0,
+  "credit_types": [],
+  "references_count": 4,
+  "adp_containers": [
+   "CISA-ADP",
+   "CVE"
+  ],
+  "added_by_hand_from_the_local_copy_at_this_read": {
+   "description_short_quotes": [
+    "\"before 0.8.6 allows directory traversal, with resultant remote code execution\"",
+    "\"as exploited in the wild starting in September 2026\""
+   ],
+   "description_withheld": "the endpoint and parameter the description names (mechanism detail, withheld under the brief's research safety)",
+   "affected": "package pkg:pypi/monailabel, versions from 0 to less than 0.8.6 affected; vendor field as written in the record: \"Project-MONIA\"",
+   "references_kinds": "the project's repository advisory (GHSA-qc22-rmgc-vg94), the project's release tag 0.8.6, one project pull request, and one press article (The Register, 20 November); none followed",
+   "adp_dateUpdated": {
+    "CVE": "2026-11-22T20:32:06.529Z",
+    "CISA-ADP": "2026-11-24T14:43:54.642Z"
+   },
+   "states_who_found_or_used": "no: no credit, and no finder named; \"exploited in the wild starting in September 2026\" gives no basis"
+  }
+ }
+}

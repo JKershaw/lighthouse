@@ -1,0 +1,13 @@
+event,item,value,source,read_utc,note
+E1,campaign start,"2026-09-08 (""an approximately 48-hour period beginning September 8, 2026"")",D1,2026-11-25T14:16:15Z,Amazon's statement
+E1,Amazon's discovery of the exposed instance,2026-09-10,D1,2026-11-25T14:16:15Z,Amazon's statement
+E1,date of the operation against MONAI Label,not stated,D1,2026-11-25T14:16:15Z,"the post dates its indicator records ""September 8 to 10, 2026"" but gives no date for the operation; not inferred"
+E1,Amazon's notification of the maintainers,not stated,D1,2026-11-25T14:16:15Z,
+E2,Amazon's post published,2026-11-20T10:30:13-07:00 (17:30:13 UTC),D1,2026-11-25T14:16:15Z,"page time element and article:published_time; byline CJ Moses"
+E2,Amazon's post modified,2026-11-20T10:30:13-07:00 (same as published),D1,2026-11-25T14:16:15Z,article:modified_time
+E3,advisory published and modified,unavailable,D2,2026-11-25T14:16:16Z and 14:16:45Z,"api.github.com 403 (session proxy); OSV 404 for GHSA-qc22-rmgc-vg94"
+E4,fix release published,not stated (unavailable),D6,2026-11-25T14:16:46Z and 14:17:16Z,"both routes 403 (session proxy); records name 0.8.6 as the first unaffected version; relayed 22 November date stays relayed"
+E5,CVE datePublished,2026-11-20T18:31:38.363Z,D3,2026-11-25T14:16:16Z,"assigner mitre; dateUpdated 2026-11-24T14:43:54.642Z; dateReserved (not a public date) 2026-11-20T18:31:37.434Z"
+E6,KEV dateAdded,2026-11-23,D5,2026-11-25T14:16:46Z,"catalogue 2026.11.24 released 2026-11-24T17:47:46.199Z, 1,795 entries; dueDate 2026-11-26; knownRansomwareCampaignUse Unknown; no basis stated"
+E7,NVD published,2026-11-20T19:18:51.670 (zone not given in the record),D4,2026-11-25T14:16:17Z,"lastModified 2026-11-24T15:17:20.847; vulnStatus Analyzed; cisaExploitAdd 2026-11-23"
+before-8-Sep,any of E3 E4 E5 or a release note dated before 2026-09-08,"none found among what was read (E5 is 2026-11-20); E3 and E4 not read",D2 D3 D6,2026-11-25,"not a confirmation of the zero-day assessment"

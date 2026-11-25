@@ -1,0 +1,36 @@
+{
+ "url": "https://gambit.security/blog-posts/autonomous-ai-agents-online-retailers-25-a-company",
+ "read_utc": "2026-11-25T14:17:20Z",
+ "finish_utc": "2026-11-25T14:17:20Z",
+ "http_status": 200,
+ "content_type": "text/html; charset=utf-8",
+ "bytes": 159397,
+ "sha256": "9d6f59e0ed034ac1cd4931a20f420eb98ec47a71c9b5e071e9626c2f174f6d6a",
+ "outcome": "received",
+ "used_for": "LH059 D8, brief protocol 0.1",
+ "body_kept": "no: derived only under the brief (D2 to D8 keep no body)",
+ "body_removed": "Body not kept under the keeper's decision of 21 November 2026 (notes/keeper/2026-11-21-robots-intent.md): the site's robots.txt refuses AI-training or archiving crawlers, or all bots, or the page reserves itself from AI use, so Lighthouse keeps the URL, read time, status, SHA-256 of the bytes received and the facts its records use, not the page.",
+ "extracted": {
+  "publisher": "Gambit Security (byline: Director of Threat Intelligence)",
+  "date_shown": "September 22, 2026",
+  "jsonld_datePublished": "2026-11-23T13:29:11.564Z",
+  "jsonld_dateModified": "2026-11-23T13:27:25.347Z",
+  "date_note": "the visible date and the page's structured data disagree; both recorded, not reconciled (the structured data may reflect a site republish; not known). The page calls itself \"an interim report of our findings\".",
+  "time_window": "\"The activity goes back to July 2026 and is still running\"; Strix runs 23 to 31 August 2026; Cairn: \"Between 10 and 15 September, 105 attack projects were launched\" (state of 48 shown; \"The other 57 were deleted and not available for analysis\")",
+  "autonomy_passages": [
+   "\"Three AI harnesses ran almost the entire attack chain autonomously, working up to tens of companies a day.\"",
+   "Hermes, the operator's console, with \"1,951 prompts typed by the human across 260 sessions - only a few prompts per target\"",
+   "\"Each attack path was chosen by the harness in real time\"",
+   "\"The harnesses ran at a tempo no human operator sustains, with the person reduced to short instructions between autonomous runs.\""
+  ],
+  "basis_of_outcomes": "\"We base the claim of compromise and impact on three sources\": direct evidence on the attacker's staging server (exfiltrated data and tooling); \"live compromises we verified in the wild\" (skimmers on sites, or logged by scanners); and \"logs and AI claims found on the attacker's server\", relied on where unverified \"because we could verify substantial parts of the claims by the first two methods\". \"a few errors or inaccuracies are possible.\" How the staging server was recovered is stated only as \"recovered the operator's staging server\".",
+  "figures_as_gambit_states": "\"at least 27 companies were compromised to varying degrees\" (10 to 15 September); \"at least 600,000 unexpired credit card details from two companies\"; skimmer scripts on \"the websites of five\" (summary); OpenRouter spend $7,005.71 to 25 August, full cost \"likely between $12,000 and $18,000\"; operator's own cost review \"a mean of $25.46 over 101 completed scans\". Kept in Gambit's units; not reconciled with secondary reports' figures (19 and 27 victims).",
+  "models_named": "Hermes \"used Anthropic’s opus-4.6 (after newer models refused its requests)\"; Strix through OpenRouter on GLM 5.2 and later DeepSeek v4 Pro; \"DeepSeek v4.1 Flash was used in the Cairn attacks\" (Gambit's statements; relevant to the brief's model and interest disclosure)",
+  "attribution": "\"A financially motivated threat actor\"; a Chinese system persona and Chinese-language prompts are described; no state attribution",
+  "names_MONAI_Label": false,
+  "names_Amazon_or_its_campaign": false,
+  "same_exposed_instance_or_records_as_Amazon": "no: Gambit describes the operator's staging server with Hermes, Strix and Cairn against online retailers; its indicator addresses are not the two in Amazon's post (compared at this read; neither set retained)",
+  "bearing_on_LH059": "context only: a separate, financially motivated Cairn user, as Amazon's post itself says; not corroboration of C1 to C8. Its date shown (22 September) is consistent with Amazon calling Gambit \"one of the first organizations in the industry to document the use of Cairn by a threat group\".",
+  "withheld": "every indicator in the page's indicator table (addresses, domains, URLs), the documented attack chain, skimmer placements and prompt texts beyond the short quotations above, victim descriptions beyond sector counts"
+ }
+}

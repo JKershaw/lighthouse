@@ -1,0 +1,43 @@
+{
+ "url": "https://unit42.paloaltonetworks.com/cairn-framework-ai-autonomous-attacks/",
+ "read_utc": "2026-11-25T14:17:17Z",
+ "finish_utc": "2026-11-25T14:17:19Z",
+ "http_status": 200,
+ "content_type": "text/html; charset=UTF-8",
+ "bytes": 256729,
+ "sha256": "ac26fbae2e6313840b2bb9900845f2b962850961dc780b5b775eea22ad37c56c",
+ "outcome": "received",
+ "used_for": "LH059 D7, brief protocol 0.1",
+ "body_kept": "no: derived only under the brief (D2 to D8 keep no body)",
+ "body_removed": "Body not kept under the keeper's decision of 21 November 2026 (notes/keeper/2026-11-21-robots-intent.md): the site's robots.txt refuses AI-training or archiving crawlers, or all bots, or the page reserves itself from AI use, so Lighthouse keeps the URL, read time, status, SHA-256 of the bytes received and the facts its records use, not the page.",
+ "extracted": {
+  "publisher": "Unit 42, Palo Alto Networks",
+  "title": "(page title not used; locator from LH055 R02 and R04)",
+  "date_shown": "Published: November 12, 2026",
+  "meta_published_time": "2026-11-12T15:00:31+00:00",
+  "jsonld_datePublished": "2026-11-12T00:00:00+00:00",
+  "modified_date": "not stated on the page",
+  "time_window": "\"From August–September 2026\"; \"simultaneous intrusion attempts against 19 organizations in two weeks\"; \"Individual operations ran from 20 minutes to more than 50 hours\"",
+  "autonomy_passages": [
+   "\"Chinese-speaking attackers used an open-source AI penetration testing framework called Cairn to autonomously conduct 25 operations against at least 19 organizations\"",
+   "\"The attackers supplied a target and a goal, then Cairn planned, executed and recorded results on its own.\"",
+   "\"human operators can inject “hints” at any time to help guide the operations if needed\" (framework description)",
+   "\"In some tasks, the attackers added information specific to the target environment, to help guide initial access.\" One task included access details \"gathered beforehand\" (paraphrase: the attackers supplied prior intelligence)",
+   "\"Attackers set targets and goals, and the framework pursued the objective autonomously.\""
+  ],
+  "basis_of_outcomes": [
+   "\"Our investigation shows that Cairn confirmed unauthorized access or data retrieval at 10 targeted organizations.\"",
+   "\"The framework logged access to more than one million member records\" (one case)",
+   "No statement read of how Unit 42 obtained the framework's records; the report shows a screenshot of the attacker-operated Cairn login page and two indicator addresses (withheld here). Victim confirmation is not described."
+  ],
+  "models_named": "Zhipu GLM 5.2 (13 operations), DeepSeek V4 Flash (8), DeepSeek V4 Pro (4), as Unit 42 states",
+  "attribution": "\"moderate confidence\" that CL-STA-1238 \"represents a China-nexus intelligence collection campaign\"; basis stated as artifact language, Chinese AI models used, and target selection",
+  "flaws_exploited": "\"However, the vulnerabilities the attackers exploited were known\", listed by class only, including \"Dated public CVEs\"; no zero-day is claimed",
+  "targets_described": "semiconductor and advanced-manufacturing supply chain (7 organisations), defence and defence policy (3), human rights and civil society (4); no universities and no medical-imaging application named",
+  "names_MONAI_Label": false,
+  "names_Amazon_or_its_campaign": false,
+  "same_exposed_instance_or_records_as_Amazon": "not stated; the report's two indicator addresses are not the two addresses in Amazon's post (compared at this read; neither set retained); Unit 42 describes a customised fork run from its own hosting server",
+  "bearing_on_LH059": "context only under the brief's dependence rule: another Cairn campaign (CL-STA-1238), Aug to Sep 2026, also a Chinese-language operator assessed at moderate confidence; not corroboration of Amazon's claims C1 to C8",
+  "withheld": "two indicator addresses with hosting details, prompt and pretext texts beyond the short quotations above, the skill-pack and file names' details, and all exploitation detail"
+ }
+}

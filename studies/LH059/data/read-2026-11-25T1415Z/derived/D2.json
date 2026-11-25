@@ -1,0 +1,20 @@
+{
+ "url": "https://api.osv.dev/v1/vulns/GHSA-qc22-rmgc-vg94",
+ "read_utc": "2026-11-25T14:16:45Z",
+ "finish_utc": "2026-11-25T14:16:46Z",
+ "http_status": 404,
+ "content_type": "application/json",
+ "bytes": 111,
+ "sha256": "773b741f918cea19ec1d26dc39f06f2bc05e7a0f402591dc3e5b67b1478e9a3c",
+ "outcome": "http_error",
+ "used_for": "LH059 D2, brief protocol 0.1",
+ "body_kept": "no: derived only under the brief (D2 to D8 keep no body)",
+ "body_removed": "Body not kept under the keeper's decision of 21 November 2026 (notes/keeper/2026-11-21-robots-intent.md): the site's robots.txt refuses AI-training or archiving crawlers, or all bots, or the page reserves itself from AI use, so Lighthouse keeps the URL, read time, status, SHA-256 of the bytes received and the facts its records use, not the page.",
+ "extracted": {
+  "outcome": "unavailable at this read",
+  "route_1": "api.github.com global advisories by CVE id: HTTP 403 from the session's GitHub proxy (message: this API path is not available because sessions are bound to their configured repositories). A wall; not retried or got around.",
+  "route_2": "OSV by the advisory id named in the CVE record's references (GHSA-qc22-rmgc-vg94): HTTP 404. OSV's message said the advisory id was not found but that the aliases CVE-2026-133968 and PYSEC-2026-4401 were. Neither alias record was fetched: neither is GitHub's advisory record, and the ceiling was reached.",
+  "advisory_id_seen": "GHSA-qc22-rmgc-vg94, as a repository advisory URL in the CVE record's references, NVD's references (tagged Vendor Advisory), KEV's notes and the link target of \"GitHub Security Advisory\" in Amazon's post. Its dates were not read.",
+  "E3": "unavailable (published and modified dates not read)"
+ }
+}
