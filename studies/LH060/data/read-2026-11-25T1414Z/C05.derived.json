@@ -1,0 +1,24 @@
+{
+ "url": "https://www.cyentia.com/publication/prioritization-to-prediction-vol-3/",
+ "requested_url": "https://www.cyentia.com/?p=24352",
+ "read_utc": "2026-11-25T14:16:58Z",
+ "finish_utc": "2026-11-25T14:16:59Z",
+ "http_status": "200",
+ "content_type": "text/html; charset=UTF-8",
+ "bytes": "197314",
+ "sha256": "824be924da2365e1f8c4dafe0e41f4fd9a4b1815fcc4961f918afdf795f9beda",
+ "used_for": "LH060 search-read: inclusion and claim classes",
+ "body_kept": "no: no redistribution licence stated in the document",
+ "body_removed": "Body not kept under the keeper's decision of 21 November 2026 (notes/keeper/2026-11-21-robots-intent.md): the site's robots.txt refuses AI-training or archiving crawlers, or all bots, or the page reserves itself from AI use, so Lighthouse keeps the URL, read time, status, SHA-256 of the bytes received and the facts its records use, not the page.",
+ "extracted": {
+  "title": "Prioritization to Prediction, Vol. 3: Winning the Remediation Race (publisher's summary page)",
+  "publisher": "Cyentia Institute, partner Kenna Security",
+  "read": "the GET returned the publisher's summary page, not the report; the report PDF it links was not fetched (one GET per document)",
+  "summary_page_says": [
+   "\"nearly 300 organizations\" ... \"Kenna Security customers\"",
+   "\"smaller firms tend to fix faster than larger ones\"",
+   "\"Whatever their size, firms close about one in 10 open vulnerabilities per month\""
+  ],
+  "decision": "excluded: full text not retrieved. The summary page's statements are context only, vendor sample, asserted on the page without method or period; nothing counted."
+ }
+}

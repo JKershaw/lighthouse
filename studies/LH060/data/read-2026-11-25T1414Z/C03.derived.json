@@ -1,0 +1,22 @@
+{
+ "url": "https://files.usenix.org/s3fs-public/cdn/sec16_paper_stock.pdf",
+ "requested_url": "https://www.usenix.org/system/files/conference/usenixsecurity16/sec16_paper_stock.pdf",
+ "read_utc": "2026-11-25T14:16:48Z",
+ "finish_utc": "2026-11-25T14:16:49Z",
+ "http_status": "200",
+ "content_type": "application/pdf",
+ "bytes": "346704",
+ "sha256": "2c281fc98706be6455675895ba0510b5618bb5153c57cc6a82cd9a851a51dd0f",
+ "used_for": "LH060 search-read: inclusion and claim classes",
+ "body_kept": "no: no redistribution licence stated in the document",
+ "body_removed": "Body not kept under the keeper's decision of 21 November 2026 (notes/keeper/2026-11-21-robots-intent.md): the site's robots.txt refuses AI-training or archiving crawlers, or all bots, or the page reserves itself from AI use, so Lighthouse keeps the URL, read time, status, SHA-256 of the bytes received and the facts its records use, not the page.",
+ "extracted": {
+  "title": "Hey, You Have a Problem: On the Feasibility of Large-Scale Web Vulnerability Notification",
+  "authors": "Stock, Pellegrino, Rossow, Johns, Backes",
+  "venue": "25th USENIX Security Symposium, 2016 (peer reviewed)",
+  "population": "WordPress sites with a known flaw (Alexa top 1 million) and sites with client-side XSS (Alexa top 10,000), notified through direct and indirect channels",
+  "outcome": "fixed domains after notification, by channel; reachability and report views",
+  "size_fragment": "popularity is discussed only for bounce and reach: \"As popular Web sites may have a more structured staff, they may tend to adhere to standards like RFC-2142\" (authors' interpretation of bounce rates, not of fixes)",
+  "decision": "excluded: fails criterion 2 (outcome broken down by channel, not by operator size, capacity or type)"
+ }
+}

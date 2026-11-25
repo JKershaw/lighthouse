@@ -1,0 +1,29 @@
+{
+ "url": "https://files.usenix.org/s3fs-public/cdn/sec16_paper_li.pdf",
+ "requested_url": "https://www.usenix.org/system/files/conference/usenixsecurity16/sec16_paper_li.pdf",
+ "read_utc": "2026-11-25T14:16:43Z",
+ "finish_utc": "2026-11-25T14:16:45Z",
+ "http_status": "200",
+ "content_type": "application/pdf",
+ "bytes": "1285313",
+ "sha256": "0853109843d0851a34f5b49215fce546d4e5cecf71408c3c8c6f2211b78652b2",
+ "used_for": "LH060 search-read: inclusion and claim classes",
+ "body_kept": "no: no redistribution licence stated in the document",
+ "body_removed": "Body not kept under the keeper's decision of 21 November 2026 (notes/keeper/2026-11-21-robots-intent.md): the site's robots.txt refuses AI-training or archiving crawlers, or all bots, or the page reserves itself from AI use, so Lighthouse keeps the URL, read time, status, SHA-256 of the bytes received and the facts its records use, not the page.",
+ "extracted": {
+  "title": "You've Got Vulnerability: Exploring Effective Vulnerability Notifications",
+  "authors": "Li, Durumeric, Czyz, Karami, Bailey, McCoy, Savage, Paxson",
+  "venue": "25th USENIX Security Symposium, 2016 (peer reviewed)",
+  "population": "abuse contacts and CERTs responsible for hosts with three exposures found by IPv4/IPv6 scans: misconfigured IPv6 firewall policies, DDoS amplifiers, publicly accessible ICS services; ICS scan 22 to 24 January 2016",
+  "outcome": "remediation (host no longer vulnerable on daily rescans) after notification, by message, channel, language, country, protocol and device type",
+  "breakdowns_seen": [
+   "notification route and message",
+   "country / national CERT",
+   "protocol",
+   "device type: servers versus routers (\"network administrators respond to vulnerabilities in servers and routers about equally\")"
+  ],
+  "size_fragment": "\"30% of groups with 100% remediation were only responsible for fixing one or two hosts\" (a description of full remediators, not the outcome broken down by size)",
+  "type_fragment": "no DNP3 system patched within 10 days; \"these five contact groups belonged to Internet service providers—not individual organizations\" (five contacts, one protocol, no comparison group)",
+  "decision": "excluded: fails criterion 2 (no breakdown of the outcome by operator size, capacity or type; device type and country are not operator size or type under the brief). Borderline, flagged for review."
+ }
+}

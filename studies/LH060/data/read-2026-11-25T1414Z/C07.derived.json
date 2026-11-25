@@ -1,0 +1,60 @@
+{
+ "url": "https://arxiv.org/pdf/2611.09703",
+ "requested_url": "https://arxiv.org/pdf/2611.09703",
+ "read_utc": "2026-11-25T14:17:07Z",
+ "finish_utc": "2026-11-25T14:17:09Z",
+ "http_status": "200",
+ "content_type": "application/pdf",
+ "bytes": "1380498",
+ "sha256": "ff05f1d93578e2555ebb60062c9cdbe9108ecca3c206d448655d2c6a76e85a01",
+ "used_for": "LH060 search-read: inclusion and claim classes",
+ "body_kept": "no: no redistribution licence stated in the document",
+ "body_removed": "Body not kept under the keeper's decision of 21 November 2026 (notes/keeper/2026-11-21-robots-intent.md): the site's robots.txt refuses AI-training or archiving crawlers, or all bots, or the page reserves itself from AI use, so Lighthouse keeps the URL, read time, status, SHA-256 of the bytes received and the facts its records use, not the page.",
+ "extracted": {
+  "title": "Empirical Study of Post-Quantum Cryptography Adoption Status in SSH Infrastructure",
+  "arxiv": "2611.09703v1, 6 November 2026",
+  "authors": "Haque, Vinberg, Edwards, Cruz (Bitsight Technologies)",
+  "venue": "arXiv preprint (no publication stated)",
+  "population": "1,523,998 SSH services on port 22 in the authors' company's scan data for one scan day, 16 February 2026, mapped to 27,012 entities (organisations) by the company's attribution engine",
+  "outcome": "entity offers a post-quantum key exchange on at least one SSH server; share of an entity's IPs offering one",
+  "measures": "revenue and employee count (firmographic data \"from our service providers\"); SSL active count and IPv4 count (company pipelines); sector (23); region",
+  "headline": "45.2% of hosts and 39.9% of entities (10,788 of 27,012) offer a post-quantum key exchange",
+  "claims": [
+   {
+    "id": "C07-a",
+    "measure": "revenue, employees",
+    "direction": "no difference",
+    "quote": "\"Both small-scale organizations and multi-billion dollar enterprises show similar median distributions\"",
+    "class": "measured; vendor",
+    "note": "read from box plots; no test stated"
+   },
+   {
+    "id": "C07-b",
+    "measure": "SSL active count",
+    "direction": "larger more (adoption)",
+    "quote": "\"entities with more mature web presences (i.e., higher SSL active counts) show a slightly higher propensity to initiate PQC deployment\"",
+    "class": "measured; vendor",
+    "note": "no test stated"
+   },
+   {
+    "id": "C07-c",
+    "measure": "IPv4 count",
+    "direction": "larger less (share of an entity's IPs)",
+    "quote": "\"adoption density thins as network size increases\"",
+    "class": "measured; vendor",
+    "note": "authors read it as a \"complexity penalty\"; that reading is asserted"
+   },
+   {
+    "id": "C07-d",
+    "measure": "sector (type)",
+    "direction": "differs by sector",
+    "quote": "\"Adoption maturity is currently driven by research-oriented and infrastructure-heavy sectors like 'Education' and 'Telecommunications'\"",
+    "class": "measured; vendor"
+   }
+  ],
+  "data_public": "not stated (company scan and firmographic data)",
+  "interest": "authors employed by a security ratings company whose scan data are used",
+  "note_feature": "the authors suggest many entities are \"unintentionally PQC-ready\" through an SSH server upgrade with the algorithm on by default",
+  "decision": "included (all three criteria)"
+ }
+}

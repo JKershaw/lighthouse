@@ -1,0 +1,36 @@
+{
+ "url": "https://arxiv.org/pdf/2405.19871",
+ "requested_url": "https://arxiv.org/pdf/2405.19871",
+ "read_utc": "2026-11-25T14:17:18Z",
+ "finish_utc": "2026-11-25T14:17:19Z",
+ "http_status": "200",
+ "content_type": "application/pdf",
+ "bytes": "388863",
+ "sha256": "2d1135defb9b1511cb627dc8af4312d65ef58c14e36708902581eedd6077a22c",
+ "used_for": "LH060 search-read: inclusion and claim classes",
+ "body_kept": "no: no redistribution licence stated in the document",
+ "body_removed": "Body not kept under the keeper's decision of 21 November 2026 (notes/keeper/2026-11-21-robots-intent.md): the site's robots.txt refuses AI-training or archiving crawlers, or all bots, or the page reserves itself from AI use, so Lighthouse keeps the URL, read time, status, SHA-256 of the bytes received and the facts its records use, not the page.",
+ "extracted": {
+  "title": "Don't Get Hijacked: Prevalence, Mitigation, and Impact of Non-Secure DNS Dynamic Updates",
+  "arxiv": "2405.19871v1, 30 May 2024",
+  "authors": "Nosyk, Korczyński, Gañán, Król, Lone, Duda",
+  "venue": "arXiv preprint (no publication stated in the text read)",
+  "population": "nameservers accepting non-secure dynamic updates found in a February to March 2017 scan; Phase 1 notified 44 CSIRTs of the Trusted Introducer community (7 September to 19 October 2017), compared with 36 non-notified CSIRTs; Phase 2 national CSIRTs in 2018; rescan in 2022",
+  "outcome": "nameserver and domain remediation on rescans, Kaplan-Meier survival from notification",
+  "claims": [
+   {
+    "id": "C10-a",
+    "measure": "CSIRT constituency type (CIIP, government, military, national, non-commercial, research and education)",
+    "direction": "differs by type",
+    "quote": "\"Military CSIRTs are particularly fast and efficient in remediation, contrary to research and educational entities that exhibit the slowest and worst patching rates\"",
+    "stat": "Gehan-Breslow-Wilcoxon test, p = 0.00076 (figure 5)",
+    "class": "measured",
+    "note": "type is the CSIRT's constituency, read here as the operators it serves; a judgement, flagged"
+   }
+  ],
+  "other": "Phase 1: notified CSIRTs remediated 20.4% of nameservers and 14.24% of domains, similar to non-notified; average per-CSIRT rate 26.2%. Figure 3 relates vulnerable counts per national CSIRT to IPv4 addresses (prevalence, not remediation; not counted).",
+  "data_public": "not stated in the text read",
+  "interest": "academic; one author at RIPE NCC",
+  "decision": "included (all three criteria; operator type via CSIRT constituency, flagged)"
+ }
+}

@@ -1,0 +1,21 @@
+{
+ "url": "https://www.verizon.com/business/resources/reports/2025-dbir-data-breach-investigations-report.pdf",
+ "requested_url": "https://www.verizon.com/business/resources/reports/2025-dbir-data-breach-investigations-report.pdf",
+ "read_utc": "2026-11-25T14:16:52Z",
+ "finish_utc": "2026-11-25T14:16:55Z",
+ "http_status": "200",
+ "content_type": "application/pdf",
+ "bytes": "11102454",
+ "sha256": "6e0affcc35112764b60cb2d24659366d5eb40b634e88e360a0a395da3d7d02f0",
+ "used_for": "LH060 search-read: inclusion and claim classes",
+ "body_kept": "no: no redistribution licence stated in the document",
+ "body_removed": "Body not kept under the keeper's decision of 21 November 2026 (notes/keeper/2026-11-21-robots-intent.md): the site's robots.txt refuses AI-training or archiving crawlers, or all bots, or the page reserves itself from AI use, so Lighthouse keeps the URL, read time, status, SHA-256 of the bytes received and the facts its records use, not the page.",
+ "extracted": {
+  "title": "2025 Data Breach Investigations Report",
+  "publisher": "Verizon",
+  "venue": "report (listed publisher)",
+  "outcome_seen": "edge-device vulnerabilities (17 CISA KEV entries across seven vendors): \"only about 54% of those were fully remediated throughout the year, and it took a median of 32 days\"; whole KEV catalogue median 38 days; data from vulnerability management contributors covering \"10,000 companies\"",
+  "size_sections": "the SMB focus section and size tables concern incidents, breaches, actors and ransomware; no vulnerability remediation outcome is broken down by organisation size in the text read",
+  "decision": "excluded: fails criterion 2 (remediation reported overall, not by size, capacity or type)"
+ }
+}

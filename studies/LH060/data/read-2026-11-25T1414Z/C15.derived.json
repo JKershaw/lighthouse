@@ -1,0 +1,20 @@
+{
+ "url": "https://arxiv.org/pdf/1708.06693",
+ "requested_url": "https://arxiv.org/pdf/1708.06693",
+ "read_utc": "2026-11-25T14:17:36Z",
+ "finish_utc": "2026-11-25T14:17:37Z",
+ "http_status": "200",
+ "content_type": "application/pdf",
+ "bytes": "1110461",
+ "sha256": "915a1d3c5666da491feb5ed5e078ab178cfb707064f1988e1e65e9c1a1851503",
+ "used_for": "LH060 search-read: inclusion and claim classes",
+ "body_kept": "no: no redistribution licence stated in the document",
+ "body_removed": "Body not kept under the keeper's decision of 21 November 2026 (notes/keeper/2026-11-21-robots-intent.md): the site's robots.txt refuses AI-training or archiving crawlers, or all bots, or the page reserves itself from AI use, so Lighthouse keeps the URL, read time, status, SHA-256 of the bytes received and the facts its records use, not the page.",
+ "extracted": {
+  "title": "Herding Vulnerable Cats: A Statistical Approach to Disentangle Joint Responsibility for Web Security in Shared Hosting",
+  "arxiv": "1708.06693v1, 22 August 2017",
+  "population": "1,259 shared hosting providers, indicators from 442,684 domains",
+  "outcome_seen": "patched or unpatched versions of CMS, admin panels, web servers, PHP, SSH and SSL per domain and per provider; size (shared IP and domain counts) used as a control in abuse regressions; \"the combined model explains 19% of the variance for phishing prevalence and 10% for malware prevalence among providers, beyond the baseline of 71%\"",
+  "decision": "excluded: fails criterion 2 (patching is described across providers, not broken down by provider size or type; size enters as a control for abuse, the outcome of the regressions). Borderline, flagged for review. Providers named in the source are not named here."
+ }
+}
