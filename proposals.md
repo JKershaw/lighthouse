@@ -334,6 +334,14 @@ Ranked by the sweep of 20 November 2026 (scientific value, decision relevance, e
 - Research safety (for the gate): the table names networks beside counts of unpatched services. Offered narrowing: size bands only (by `services` or `ips` per network), no network named in anything kept or published, no host looked up, and nothing ranked by how vulnerable a network is.
 - Next step: the gate decides between started (a deepening of an active investigation), backlog, or declined on safety grounds; first establish from Censys's own documentation whether the list is complete.
 
+### P-0051 Standing and rebuilt inside one unit: build-server fetches against the rest, day by day, for one fix in PyPI's logs
+
+- Kind: new question (a deepening of where software updates go). Priority: normal. Status: backlog (proposed by the reader-and-inference review of the essay's revision, notes/R-0142-essay-rev-reader.md, 25 November 2026, for the next sweep's fresh gate). Investigation: [where software updates go](investigations/software-updates.md).
+- Source: the essay [Seen from outside, seen from inside](essays/seen-from-outside-seen-from-inside.md) reads PHP's and Node.js's counts as two ways for software to exist, standing and rebuilt; at day 30 its test of that passed but may follow from the units alone (LH034 1.1, test A; the essay's version 1.1). LH011's data already flag fetches from build servers in PyPI's logs.
+- Why: none of the tests the essay names can tell "two ways to exist" from "two units of count". A comparison inside one unit, the same fix's fetches split by whether the requester declares itself a build server, could show standing and rebuilt behaviour apart.
+- Cost: small if ClickPy's public copy carries the flag by day (to be checked before a brief); otherwise needs BigQuery, which waits for the keeper (P-0002).
+- Next step: the gate decides; a brief would fix the fix, the flag's definition, the window and the comparison before reading any outcome, disclosing LH011's overlap.
+
 ### P-0023 One shared fetcher for every collector and ad hoc read
 
 - Kind: repair of method. Priority: high. Status: backlog (proposed by LH047, 8 November 2026, for the next sweep to gate). Investigation: none; every study that reads other people's sites.
