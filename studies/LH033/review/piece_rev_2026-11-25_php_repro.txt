@@ -1,0 +1,26 @@
+== patched share by branch
+1 8.2 22.1 8.3 23.8 8.4 35.3 8.5 36.1
+2 8.2 41.2 8.3 42.2 8.4 58.5 8.5 70.5
+7 8.2 53.0 8.3 52.4 8.4 67.8 8.5 78.8
+14 8.2 73.4 8.3 70.4 8.4 81.0 8.5 89.7
+30 8.2 78.2 8.3 75.0 8.4 86.5 8.5 92.2
+first day at half: {'8.2': 6, '8.3': 6, '8.4': 2, '8.5': 2}
+older two below newer two every day 1..30: True
+== counts
+8.2 patched d7->14 1461917 d14->30 55421 branch d14->30 -311749
+8.3 patched d7->14 1531891 d14->30 46896 branch d14->30 -429445
+8.4 patched d7->14 598162 d14->30 311748 branch d14->30 142373
+8.5 patched d7->14 737917 d14->30 19881 branch d14->30 -81585
+== unfixed tail (affected_nofix over affected+affected_nofix+patched)
+0 23311748 40737497 57.2% no-version share of all 28.4%
+7 24386744 44881914 54.3% no-version share of all 59.5%
+14 24226778 45827427 52.9% no-version share of all 62.0%
+30 22516583 43438950 51.8% no-version share of all 62.3%
+== 8.3.8 in branch_versions (snapshot)
+8.3.8 844547 of 7595362 11.1%
+== five or more behind, 8.2 and 8.3 (share of not-at-or-above)
+8.2 below 21.7% five+ 13.0%  five+ as share of below 60%
+8.3 below 25.0% five+ 17.8%  five+ as share of below 71%
+== check day 7 against the earliest read holding it
+read-2026-10-29T0635Z True
+read-2026-10-30T0635Z True
