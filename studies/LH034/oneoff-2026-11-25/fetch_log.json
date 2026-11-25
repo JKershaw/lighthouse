@@ -1,0 +1,64 @@
+{
+ "provider": "anthropic",
+ "access": "oneoff",
+ "user_agent": "Mozilla/5.0 (compatible; Lighthouse-research/1.0; +https://lighthouse.harbour.cat)",
+ "reads": [
+  {
+   "version": "v22.23.5",
+   "url": "https://nodejs.org/en/blog/release/v22.23.5",
+   "read_utc": "2026-11-25T15:15:06Z",
+   "robots": {
+    "reason": "allowed by robots.txt",
+    "decided_by": "*",
+    "rule": "None",
+    "robots_status": 200,
+    "robots_sha256": "cbcd5e7d85caf581c61f7c0ffb148868b73ffa32e8426b37e08a21d145ce8f32"
+   },
+   "http_status": 200,
+   "final_url": "https://nodejs.org/en/blog/release/v22.23.5",
+   "content_type": "text/html; charset=utf-8",
+   "bytes": 292083,
+   "sha256": "0854fe0cdf4153d08fe459d3bc2f61dcd7c3751527b3c534da8f701fc5bcaedd",
+   "body_kept": "yes: no training, archiving or * refusal at this path",
+   "finish_utc": "2026-11-25T15:15:06Z"
+  },
+  {
+   "version": "v24.22.3",
+   "url": "https://nodejs.org/en/blog/release/v24.22.3",
+   "read_utc": "2026-11-25T15:15:06Z",
+   "robots": {
+    "reason": "allowed by robots.txt",
+    "decided_by": "*",
+    "rule": "None",
+    "robots_status": 200,
+    "robots_sha256": "cbcd5e7d85caf581c61f7c0ffb148868b73ffa32e8426b37e08a21d145ce8f32"
+   },
+   "http_status": 200,
+   "final_url": "https://nodejs.org/en/blog/release/v24.22.3",
+   "content_type": "text/html; charset=utf-8",
+   "bytes": 295360,
+   "sha256": "377c9e43a6e227f1488958ab785481ea3aea0fa2a8919eaf36c14a08f5bc1f70",
+   "body_kept": "yes: no training, archiving or * refusal at this path",
+   "finish_utc": "2026-11-25T15:15:07Z"
+  },
+  {
+   "version": "v26.13.1",
+   "url": "https://nodejs.org/en/blog/release/v26.13.1",
+   "read_utc": "2026-11-25T15:15:07Z",
+   "robots": {
+    "reason": "allowed by robots.txt",
+    "decided_by": "*",
+    "rule": "None",
+    "robots_status": 200,
+    "robots_sha256": "cbcd5e7d85caf581c61f7c0ffb148868b73ffa32e8426b37e08a21d145ce8f32"
+   },
+   "http_status": 200,
+   "final_url": "https://nodejs.org/en/blog/release/v26.13.1",
+   "content_type": "text/html; charset=utf-8",
+   "bytes": 295247,
+   "sha256": "f17280cb187b20e22da85a39800cfc605dd62c3597c3abf1622c15f9a404fdd8",
+   "body_kept": "yes: no training, archiving or * refusal at this path",
+   "finish_utc": "2026-11-25T15:15:07Z"
+  }
+ ]
+}
