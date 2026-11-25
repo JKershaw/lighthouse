@@ -325,6 +325,15 @@ Ranked by the sweep of 20 November 2026 (scientific value, decision relevance, e
 
 
 
+### P-0050 Patched shares by network size in Censys's PHP counts, on reads not yet taken
+
+- Kind: deepening (of LH060's narrow question, and of what makes software take a fix up). Priority: normal. Status: backlog (proposed by LH060's structure-only check, 25 November 2026, for the next sweep's fresh gate). Investigation: [where software updates go](investigations/software-updates.md).
+- Source: [studies/LH060/structure.md](studies/LH060/structure.md) and [structure.txt](studies/LH060/structure.txt), 25 November 2026: Censys's dashboard data, kept with every LH033 read (`censys.raw.gz`), carries a list by autonomous system (labels `asn`, `as_name`, `services`, `ips`, `patched`, `affected`, `affected_nofix`, `affected_services`, `unknown`) in all thirteen reads. Only key names and types were looked at; no value has been read, so whether the list is complete or a top few is unknown.
+- Why: LH060's brief asks whether any aggregate Lighthouse holds lets it see operator size in its own uptake series. This is the one candidate. A per-network table is Censys's own aggregate, not a join of hosts to operators (which the gate of 24 November ruled out), but a network is not an operator's size: a hosting network holds many customers' services.
+- Cost: small, if Censys's dashboard still answers: a brief fixed before any value is read, then dated reads of the same public JSON for a future fix, or (if the gate allows) a pre-registered test on values already retained, labelled as a reading of data whose other fields were seen. LH060's brief forbids splitting data already seen inside LH060 itself.
+- Research safety (for the gate): the table names networks beside counts of unpatched services. Offered narrowing: size bands only (by `services` or `ips` per network), no network named in anything kept or published, no host looked up, and nothing ranked by how vulnerable a network is.
+- Next step: the gate decides between started (a deepening of an active investigation), backlog, or declined on safety grounds; first establish from Censys's own documentation whether the list is complete.
+
 ### P-0023 One shared fetcher for every collector and ad hoc read
 
 - Kind: repair of method. Priority: high. Status: backlog (proposed by LH047, 8 November 2026, for the next sweep to gate). Investigation: none; every study that reads other people's sites.

@@ -1,0 +1,535 @@
+== LH033 studies/LH033/data/read-2026-11-21T1414Z/censys.raw.gz
+   $: object
+   .cve: object
+   .cve.advisory: str
+   .cve.fixed: object
+   .cve.fixed.#.#: str
+   .cve.title: str
+   .snapshot: object
+   .snapshot.asns: list
+   .snapshot.asns[*]: object
+   .snapshot.asns[*].affected: int
+   .snapshot.asns[*].affected_nofix: int
+   .snapshot.asns[*].affected_services: int
+   .snapshot.asns[*].as_name: str
+   .snapshot.asns[*].asn: int
+   .snapshot.asns[*].ips: int
+   .snapshot.asns[*].patched: int
+   .snapshot.asns[*].services: int
+   .snapshot.asns[*].unknown: int
+   .snapshot.branch_history: list
+   .snapshot.branch_history[*]: object
+   .snapshot.branch_history[*].branch: str
+   .snapshot.branch_history[*].day: str
+   .snapshot.branch_history[*].patched: int
+   .snapshot.branch_history[*].targets: int
+   .snapshot.branch_versions: list
+   .snapshot.branch_versions[*]: object
+   .snapshot.branch_versions[*].branch: str
+   .snapshot.branch_versions[*].targets: int
+   .snapshot.branch_versions[*].version: str
+   .snapshot.branches: list
+   .snapshot.branches[*]: object
+   .snapshot.branches[*].branch: str
+   .snapshot.branches[*].status: str
+   .snapshot.branches[*].targets: int
+   .snapshot.countries: list
+   .snapshot.countries[*]: object
+   .snapshot.countries[*].affected: int
+   .snapshot.countries[*].country_code: str
+   .snapshot.countries[*].fixed: int
+   .snapshot.countries[*].fixed_##h: int
+   .snapshot.countries[*].patched: int
+   .snapshot.countries[*].targets: int
+   .snapshot.countries[*].versioned: int
+   .snapshot.countries[*].were_vulnerable: int
+   .snapshot.history: list
+   .snapshot.history[*]: object
+   .snapshot.history[*].day: str
+   .snapshot.history[*].status: str
+   .snapshot.history[*].targets: int
+   .snapshot.kpi: object
+   .snapshot.kpi.affected: int
+   .snapshot.kpi.affected_nofix: int
+   .snapshot.kpi.countries: int
+   .snapshot.kpi.fixed_##h: int
+   .snapshot.kpi.implausible: int
+   .snapshot.kpi.patched: int
+   .snapshot.kpi.patched_total: int
+   .snapshot.kpi.php_targets: int
+   .snapshot.kpi.phpinfo_targets: int
+   .snapshot.kpi.tracking_since: str
+   .snapshot.kpi.unknown: int
+   .snapshot.kpi.were_vulnerable: int
+   .snapshot.patched_daily: list
+   .snapshot.patched_daily[*]: object
+   .snapshot.patched_daily[*].day: str
+   .snapshot.patched_daily[*].targets: int
+   .snapshot.per_minute: list
+   .snapshot.per_minute[*]: object
+   .snapshot.per_minute[*].affected: int
+   .snapshot.per_minute[*].affected_nofix: int
+   .snapshot.per_minute[*].minute: str
+   .snapshot.per_minute[*].patched: int
+   .snapshot.per_minute[*].php: int
+   .snapshot.per_minute[*].unknown: int
+   .snapshot.refreshed_at: str
+   .snapshot.top_versions: list
+   .snapshot.top_versions[*]: object
+   .snapshot.top_versions[*].status: str
+   .snapshot.top_versions[*].targets: int
+   .snapshot.top_versions[*].version: str
+   same-name files in other reads: 12; same key paths: 12; different: 0
+== LH033 studies/LH033/data/read-2026-11-21T1414Z/tables.json
+   $: object
+   .censys_refreshed_at: str
+   .m#_first_day_at_half: object
+   .m#_first_day_at_half.#.#: int
+   .m#_patched_share_by_branch: object
+   .m#_patched_share_by_branch.#.#: object
+   .m#_patched_share_by_branch.#.#.#: object
+   .m#_patched_share_by_branch.#.#.##: object
+   .m#_patched_share_by_branch.#.#.##.day: str
+   .m#_patched_share_by_branch.#.#.##.patched: int
+   .m#_patched_share_by_branch.#.#.##.share: float
+   .m#_patched_share_by_branch.#.#.##.targets: int
+   .m#_patched_share_by_branch.#.#.#.day: str
+   .m#_patched_share_by_branch.#.#.#.patched: int
+   .m#_patched_share_by_branch.#.#.#.share: float
+   .m#_patched_share_by_branch.#.#.#.targets: int
+   .m#_unfixed_tail: object
+   .m#_unfixed_tail.#: object
+   .m#_unfixed_tail.##: object
+   .m#_unfixed_tail.##.affected: int
+   .m#_unfixed_tail.##.affected_nofix: int
+   .m#_unfixed_tail.##.all: int
+   .m#_unfixed_tail.##.day: str
+   .m#_unfixed_tail.##.nofix_share_of_versioned: float
+   .m#_unfixed_tail.##.patched: int
+   .m#_unfixed_tail.##.unknown: int
+   .m#_unfixed_tail.##.unknown_share_of_all: float
+   .m#_unfixed_tail.##.versioned: int
+   .m#_unfixed_tail.#.affected: int
+   .m#_unfixed_tail.#.affected_nofix: int
+   .m#_unfixed_tail.#.all: int
+   .m#_unfixed_tail.#.day: str
+   .m#_unfixed_tail.#.nofix_share_of_versioned: float
+   .m#_unfixed_tail.#.patched: int
+   .m#_unfixed_tail.#.unknown: int
+   .m#_unfixed_tail.#.unknown_share_of_all: float
+   .m#_unfixed_tail.#.versioned: int
+   .m#_w#techs_within_minor: object
+   .m#_w#techs_within_minor.#.#: object
+   .m#_w#techs_within_minor.#.#.fixed_patch: int
+   .m#_w#techs_within_minor.#.#.listed_rows: int
+   .m#_w#techs_within_minor.#.#.note: str
+   .m#_w#techs_within_minor.#.#.share_at_or_above_fixed_pct: float
+   .m#_w#techs_within_minor.#.#.w#techs_date: str
+   .read: str
+   same-name files in other reads: 12; same key paths: 3; different: 9
+== LH033 studies/LH033/data/read-2026-11-21T1414Z/read_log.json
+   $: list
+   [*]: object
+   [*].bytes: int
+   [*].content_type: str
+   [*].file: str
+   [*].finish_utc: str
+   [*].sha###: str
+   [*].source: str
+   [*].start_utc: str
+   [*].status: int
+   [*].url: str
+   same-name files in other reads: 13; same key paths: 13; different: 0
+== LH033 studies/LH033/data/read-2026-11-21T1414Z/w3techs-details-8.3.derived.json
+   $: object
+   .body_removed: str
+   .bytes: int
+   .content_type: str
+   .extracted: object
+   .extracted.diagrams: list
+   .extracted.diagrams[*]: object
+   .extracted.diagrams[*].caption: str
+   .extracted.diagrams[*].date: str
+   .extracted.diagrams[*].rows: list
+   .extracted.diagrams[*].rows[*]: list
+   .extracted.diagrams[*].rows[*][*]: str
+   .extracted.headline: object
+   .extracted.headline.of: str
+   .extracted.headline.share_of_all_websites: null
+   .extracted.headline.share_of_known: str
+   .extracted.page_dates: list
+   .extracted.page_dates[*]: str
+   .finish_utc: str
+   .http_status: int
+   .read_utc: str
+   .robots_class: str
+   .sha###: str
+   .url: str
+   .used_for: str
+   same-name files in other reads: 5; same key paths: 5; different: 0
+== LH033 studies/LH033/data/read-2026-11-21T1414Z/w3techs-history_details-8.3.derived.json
+   $: object
+   .body_removed: str
+   .bytes: int
+   .content_type: str
+   .extracted: object
+   .extracted.history: object
+   .extracted.history.columns: list
+   .extracted.history.columns[*]: str
+   .extracted.history.rows: list
+   .extracted.history.rows[*]: list
+   .extracted.history.rows[*][*]: object/str
+   .extracted.history.rows[*][*].# Apr ####: str
+   .extracted.history.rows[*][*].# Aug ####: str
+   .extracted.history.rows[*][*].# Dec ####: str
+   .extracted.history.rows[*][*].# Feb ####: str
+   .extracted.history.rows[*][*].# Jan ####: str
+   .extracted.history.rows[*][*].# Jul ####: str
+   .extracted.history.rows[*][*].# Jun ####: str
+   .extracted.history.rows[*][*].# Mar ####: str
+   .extracted.history.rows[*][*].# May ####: str
+   .extracted.history.rows[*][*].# Nov ####: str
+   .extracted.history.rows[*][*].# Oct ####: str
+   .extracted.history.rows[*][*].# Sep ####: str
+   .extracted.history.rows[*][*].## Nov ####: str
+   .finish_utc: str
+   .http_status: int
+   .read_utc: str
+   .robots_class: str
+   .sha###: str
+   .url: str
+   .used_for: str
+   same-name files in other reads: 5; same key paths: 1; different: 4
+== LH033 studies/LH033/data/read-2026-10-25T0855Z/packagist.json
+   $: object
+   .daily: object
+   .daily.labels: list
+   .daily.labels[*]: str
+   .daily.values: object
+   .daily.values.#.#: list
+   .daily.values.#.#[*]: int
+   .monthly: object
+   .monthly.labels: list
+   .monthly.labels[*]: str
+   .monthly.values: object
+   .monthly.values.#.#: list
+   .monthly.values.#.#[*]: int
+== LH033 studies/LH033/data/record_v1.json
+   $: object
+   .amendment#: object
+   .amendment#.A: object
+   .amendment#.A.amended_post_hoc: object
+   .amendment#.A.amended_post_hoc.node_median_L: float
+   .amendment#.A.amended_post_hoc.php_median_L_greater: bool
+   .amendment#.A.as_written: object
+   .amendment#.A.as_written.node_median_L: float
+   .amendment#.A.as_written.php_median_L_greater: bool
+   .amendment#.A.php_branches_rising_ge_#pt_day##_to_##: int
+   .amendment#.A.php_median_L: float
+   .amendment#.A.php_rise_part_holds: bool
+   .amendment#.B: object
+   .amendment#.B.node_amended_post_hoc: object
+   .amendment#.B.node_amended_post_hoc.gap_pts: float
+   .amendment#.B.node_amended_post_hoc.holds: bool
+   .amendment#.B.node_amended_post_hoc.line##: float
+   .amendment#.B.node_amended_post_hoc.lower_of_##_##: float
+   .amendment#.B.node_as_written: object
+   .amendment#.B.node_as_written.gap_pts: float
+   .amendment#.B.node_as_written.holds: bool
+   .amendment#.B.node_as_written.line##: float
+   .amendment#.B.node_as_written.lower_of_##_##: float
+   .amendment#.B.php: object
+   .amendment#.B.php.gap_pts: float
+   .amendment#.B.php.higher_of_#.#_#.#: float
+   .amendment#.B.php.holds: bool
+   .amendment#.B.php.lower_of_#.#_#.#: float
+   .amendment#.node: object
+   .amendment#.node.amended_post_hoc: object
+   .amendment#.node.amended_post_hoc.##: object
+   .amendment#.node.amended_post_hoc.##.L: float
+   .amendment#.node.amended_post_hoc.##.S#: float
+   .amendment#.node.amended_post_hoc.##.S##: float
+   .amendment#.node.as_written: object
+   .amendment#.node.as_written.##: object
+   .amendment#.node.as_written.##.L: float
+   .amendment#.node.as_written.##.S#: float
+   .amendment#.node.as_written.##.S##: float
+   .amendment#.php: object
+   .amendment#.php.#.#: object
+   .amendment#.php.#.#.L: float
+   .amendment#.php.#.#.S#: float
+   .amendment#.php.#.#.S##: float
+   .amendment#.php.#.#.rise_day##_to_##_pts: float
+   .m#_count_changes: object
+   .m#_count_changes.#.#: object
+   .m#_count_changes.#.#.##_to_##: object
+   .m#_count_changes.#.#.##_to_##.patched: int
+   .m#_count_changes.#.#.##_to_##.patched_change_pts_of_day_a_targets: float
+   .m#_count_changes.#.#.##_to_##.targets: int
+   .m#_count_changes.#.#.#_to_##: object
+   .m#_count_changes.#.#.#_to_##.patched: int
+   .m#_count_changes.#.#.#_to_##.patched_change_pts_of_day_a_targets: float
+   .m#_count_changes.#.#.#_to_##.targets: int
+   .m#_counts: object
+   .m#_counts.#.#: object
+   .m#_counts.#.#.#: object
+   .m#_counts.#.#.##: object
+   .m#_counts.#.#.##.patched: int
+   .m#_counts.#.#.##.targets: int
+   .m#_counts.#.#.#.patched: int
+   .m#_counts.#.#.#.targets: int
+   .m#_distance_behind: object
+   .m#_distance_behind.#.#: object
+   .m#_distance_behind.#.#.above_fixed_versions: list
+   .m#_distance_behind.#.#.above_fixed_versions[*]: str
+   .m#_distance_behind.#.#.at_or_above_fixed: int
+   .m#_distance_behind.#.#.at_or_above_fixed_pct: float
+   .m#_distance_behind.#.#.branch_history_day##_targets: int
+   .m#_distance_behind.#.#.five_or_more_behind: int
+   .m#_distance_behind.#.#.five_or_more_behind_pct: float
+   .m#_distance_behind.#.#.largest_below_fixed: list
+   .m#_distance_behind.#.#.largest_below_fixed[*]: object
+   .m#_distance_behind.#.#.largest_below_fixed[*].pct: float
+   .m#_distance_behind.#.#.largest_below_fixed[*].targets: int
+   .m#_distance_behind.#.#.largest_below_fixed[*].version: str
+   .m#_distance_behind.#.#.one_behind: int
+   .m#_distance_behind.#.#.one_behind_pct: float
+   .m#_distance_behind.#.#.two_to_four_behind: int
+   .m#_distance_behind.#.#.two_to_four_behind_pct: float
+   .m#_distance_behind.#.#.unparsed_version_rows: int
+   .m#_distance_behind.#.#.unparsed_version_rows_pct: float
+   .m#_distance_behind.#.#.version_reporting_in_branch_versions: int
+   .m#_packagist: object
+   .m#_packagist.from_#_#_or_older: int
+   .m#_packagist.installs: int
+   .m#_packagist.note: str
+   .m#_packagist.share: float
+   .m#_snapshot_refreshed_at: str
+   .m#_summary: object
+   .m#_summary.#.#: object
+   .m#_summary.#.#.day#: float
+   .m#_summary.#.#.day##: float
+   .m#_summary.#.#.days_held: int
+   .m#_summary.#.#.first_day_at_half: int
+   .m#_summary.#.#.not_patched_day##_pct: float
+   .m#_summary.#.#.targets_day##: int
+   .m#_unfixed_tail: object
+   .m#_unfixed_tail.#: object
+   .m#_unfixed_tail.##: object
+   .m#_unfixed_tail.##.day: str
+   .m#_unfixed_tail.##.nofix: int
+   .m#_unfixed_tail.##.nofix_pct_of_versioned: float
+   .m#_unfixed_tail.##.read: str
+   .m#_unfixed_tail.##.unknown_pct_of_all: float
+   .m#_unfixed_tail.##.versioned: int
+   .m#_unfixed_tail.#.day: str
+   .m#_unfixed_tail.#.nofix: int
+   .m#_unfixed_tail.#.nofix_pct_of_versioned: float
+   .m#_unfixed_tail.#.read: str
+   .m#_unfixed_tail.#.unknown_pct_of_all: float
+   .m#_unfixed_tail.#.versioned: int
+   .m#_w#techs_by_read: object
+   .m#_w#techs_by_read.read-####-##-##T####Z: object
+   .m#_w#techs_by_read.read-####-##-##T####Z.#.#: list
+   .m#_w#techs_by_read.read-####-##-##T####Z.#.#[*]: float/str
+   .m#_w#techs_monthly: object
+   .m#_w#techs_monthly.#.#: object
+   .m#_w#techs_monthly.#.#.# Nov ####: object
+   .m#_w#techs_monthly.#.#.# Nov ####.listed_at_or_above_fixed: object
+   .m#_w#techs_monthly.#.#.# Nov ####.listed_at_or_above_fixed.#.#.##: float
+   .m#_w#techs_monthly.#.#.# Nov ####.sum_pct: float
+   .m#_w#techs_monthly.#.#.# Oct ####: object
+   .m#_w#techs_monthly.#.#.# Oct ####.listed_at_or_above_fixed: object
+   .m#_w#techs_monthly.#.#.# Oct ####.listed_at_or_above_fixed.#.#.##: float
+   .m#_w#techs_monthly.#.#.# Oct ####.sum_pct: float/null
+   .python: object
+   .python.four_security_fixes: object
+   .python.four_security_fixes.cryptography ##.#.#: object
+   .python.four_security_fixes.cryptography ##.#.#.#: float
+   .python.four_security_fixes.cryptography ##.#.#.##: float
+   .python.four_security_fixes.pyjwt #.##.#: object
+   .python.four_security_fixes.pyjwt #.##.#.#: float
+   .python.four_security_fixes.pyjwt #.##.#.##: float
+   .python.four_security_fixes.starlette #.#.#: object
+   .python.four_security_fixes.starlette #.#.#.#: float
+   .python.four_security_fixes.starlette #.#.#.##: float
+   .python.four_security_fixes.urllib# #.#.#: object
+   .python.four_security_fixes.urllib# #.#.#.#: float
+   .python.four_security_fixes.urllib# #.#.#.##: float
+   .python.lh###_fix_pairs_moved_within: object
+   .python.lh###_fix_pairs_moved_within.# days: int
+   .python.lh###_fix_pairs_moved_within.## days: int
+   .python.lh###_fix_pairs_moved_within.clock: str
+   .python.lh###_fix_pairs_moved_within.pairs: int
+   .python.median_of_project_medians_##: object
+   .python.median_of_project_medians_##.#: object
+   .python.median_of_project_medians_##.##: object
+   .python.median_of_project_medians_##.##.median: float
+   .python.median_of_project_medians_##.##.projects: int
+   .python.median_of_project_medians_##.#.median: float
+   .python.median_of_project_medians_##.#.projects: int
+   .reads_used: list
+   .reads_used[*]: str
+   .revisions: list
+== LH033 studies/LH033/data/python_side.json
+   $: object
+   .four_security_fixes: object
+   .four_security_fixes.cryptography ##.#.#: object
+   .four_security_fixes.cryptography ##.#.#.#: float
+   .four_security_fixes.cryptography ##.#.#.##: float
+   .four_security_fixes.pyjwt #.##.#: object
+   .four_security_fixes.pyjwt #.##.#.#: float
+   .four_security_fixes.pyjwt #.##.#.##: float
+   .four_security_fixes.starlette #.#.#: object
+   .four_security_fixes.starlette #.#.#.#: float
+   .four_security_fixes.starlette #.#.#.##: float
+   .four_security_fixes.urllib# #.#.#: object
+   .four_security_fixes.urllib# #.#.#.#: float
+   .four_security_fixes.urllib# #.#.#.##: float
+   .lh###_fix_pairs_moved_within: object
+   .lh###_fix_pairs_moved_within.# days: int
+   .lh###_fix_pairs_moved_within.## days: int
+   .lh###_fix_pairs_moved_within.clock: str
+   .lh###_fix_pairs_moved_within.pairs: int
+   .median_of_project_medians_##: object
+   .median_of_project_medians_##.#: object
+   .median_of_project_medians_##.##: object
+   .median_of_project_medians_##.##.median: float
+   .median_of_project_medians_##.##.projects: int
+   .median_of_project_medians_##.#.median: float
+   .median_of_project_medians_##.#.projects: int
+== LH039 studies/LH039/data/raw-2026-11-21T1411Z/w3-71.derived.json
+   $: object
+   .body_removed: str
+   .bytes: int
+   .content_type: str
+   .extracted: object
+   .extracted.diagrams: list
+   .extracted.diagrams[*]: object
+   .extracted.diagrams[*].caption: str
+   .extracted.diagrams[*].date: str
+   .extracted.diagrams[*].rows: list
+   .extracted.diagrams[*].rows[*]: list
+   .extracted.diagrams[*].rows[*][*]: str
+   .extracted.headline: object
+   .extracted.headline.of: str
+   .extracted.headline.share_of_all_websites: str
+   .extracted.headline.share_of_known: str
+   .extracted.page_dates: list
+   .extracted.page_dates[*]: str
+   .http_status: str
+   .read_utc: str
+   .robots_class: str
+   .sha###: str
+   .url: str
+   .used_for: str
+   same-name files in other reads: 12; same key paths: 12; different: 0
+== LH039 studies/LH039/data/raw-2026-11-21T1411Z/w3h-71.derived.json
+   $: object
+   .body_removed: str
+   .bytes: int
+   .content_type: str
+   .extracted: object
+   .extracted.history: object
+   .extracted.history.columns: list
+   .extracted.history.columns[*]: str
+   .extracted.history.rows: list
+   .extracted.history.rows[*]: list
+   .extracted.history.rows[*][*]: object/str
+   .extracted.history.rows[*][*].# Nov ####: str
+   .extracted.history.rows[*][*].# Oct ####: str
+   .extracted.history.rows[*][*].# Sep ####: str
+   .extracted.history.rows[*][*].## Nov ####: str
+   .http_status: str
+   .read_utc: str
+   .robots_class: str
+   .sha###: str
+   .url: str
+   .used_for: str
+   same-name files in other reads: 12; same key paths: 11; different: 1
+== LH039 studies/LH039/data/raw-2026-11-21T1411Z/cand-3.derived.json
+   $: object
+   .body_removed: str
+   .bytes: int
+   .content_type: str
+   .extracted: object
+   .extracted.diagrams: list
+   .extracted.diagrams[*]: object
+   .extracted.diagrams[*].caption: str
+   .extracted.diagrams[*].date: str
+   .extracted.diagrams[*].rows: list
+   .extracted.diagrams[*].rows[*]: list
+   .extracted.diagrams[*].rows[*][*]: str
+   .extracted.headline: object
+   .extracted.headline.of: str
+   .extracted.headline.share_of_all_websites: str
+   .extracted.headline.share_of_known: str
+   .extracted.page_dates: list
+   .extracted.page_dates[*]: str
+   .http_status: str
+   .read_utc: str
+   .robots_class: str
+   .sha###: str
+   .url: str
+   .used_for: str
+   same-name files in other reads: 14; same key paths: 14; different: 0
+== LH039 studies/LH039/data/raw-2026-11-21T1411Z/readlog.csv
+   csv header: name | url | utc_start | status | content_type | size | sha###
+   same-name files in other reads: 14; same header: 13; different: 1
+== LH039 studies/LH039/data/packagist-2026-11-21T1415Z/roots-7.1.4.json
+   $: object
+   .average: str
+   .labels: list
+   .labels[*]: str
+   .values: object
+   .values.#.#.#: list
+   .values.#.#.#[*]: int
+   same-name files in other reads: 1; same key paths: 1; different: 0
+== LH039 studies/LH039/data/packagist-2026-11-21T1415Z/johnpbloch-7.1.4.json
+   $: object
+   .average: str
+   .labels: list
+   .labels[*]: str
+   .values: object
+   .values.#.#.#: list
+   .values.#.#.#[*]: int
+   same-name files in other reads: 1; same key paths: 1; different: 0
+== LH039 studies/LH039/data/packagist-2026-11-21T1415Z/readlog.csv
+   csv header: name | url | utc_start | status | content_type | size | sha###
+   same-name files in other reads: 1; same header: 1; different: 0
+== LH039 studies/LH039/data/oneoff-2026-11-22T1514Z/archive.facts.json
+   $: object
+   .body_kept: str
+   .extracted: object
+   .extracted.rows_by_release: object
+   .extracted.rows_by_release.#.#.#: null/str
+   .extracted.rows_by_release.#.#.##: str
+   .final_url: str
+   .http_status: int
+   .read_utc: str
+   .sha###: str
+   .url: str
+== LH039 studies/LH039/data/oneoff-2026-11-22T1514Z/feed.facts.json
+   $: object
+   .body_kept: str
+   .extracted: object
+   .extracted.items: list
+   .extracted.items[*]: object
+   .extracted.items[*].link: str
+   .extracted.items[*].mentions_security: bool
+   .extracted.items[*].pubDate: str
+   .extracted.items[*].title: str
+   .extracted.items[*].watched_releases_named: list
+   .extracted.items[*].watched_releases_named[*]: str
+   .extracted.items_in_feed: int
+   .final_url: str
+   .http_status: int
+   .read_utc: str
+   .sha###: str
+   .url: str
+== LH039 studies/LH039/data/oneoff-2026-11-22T1514Z/readlog.csv
+   csv header: name | url | utc_start | status | content_type | size | sha### | body_kept
+== LH039 studies/LH039/record-1.0-packagist.csv
+   csv header: package | branch | utc_day | days_since_E# | fixed_downloads | branch_downloads | fixed_share
+== LH039 studies/LH039/checkpoints/2026-11-21-packagist.csv
+   csv header: package | branch | utc_day | days_since_E# | fixed_downloads | branch_downloads | fixed_share
