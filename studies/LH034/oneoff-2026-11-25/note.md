@@ -15,8 +15,8 @@
 ## What each announcement says (observation, the project's own words)
 
 - **v22.23.5:** "2026-11-11, Version 22.23.5 'Jod' (LTS)"; "This is a security release." Its notable changes list 16 entries tagged with 14 distinct CVE identifiers (CVE-2026-123828 to CVE-2026-123877; three entries share CVE-2026-123872), rated High, Medium or Low, plus updates to llhttp (9.4.4) and sqlite (3.54.1).
-- **v24.22.3:** "2026-11-11, Version 24.22.3 'Krypton' (LTS)"; "This is a security release." The same list plus CVE-2026-126051 ("tls: fix remotely reachable TLS server crash", High): 15 distinct CVE identifiers.
-- **v26.13.1:** "2026-11-11, Version 26.13.1 'Lithium' (LTS)"; "This is a security release." The same 15 distinct CVE identifiers as v24.22.3, CVE-2026-126051 among them, and updates to brotli and undici. (Corrected 25 November after the evidence review, notes/R-0138-week-one-rev-evidence.md, should-fix 5: an earlier wording implied CVE-2026-126051 was in v26.13.1 alone; the kept bodies show it in v24.22.3 too.)
+- **v24.22.3:** "2026-11-11, Version 24.22.3 'Krypton' (LTS)"; "This is a security release." The same list plus CVE-2026-126051 ("tls: fix remotely reachable TLS server crash", High): 15 distinct CVE identifiers; the same llhttp and sqlite updates, plus updates to brotli (1.2.1) and undici (7.30.2).
+- **v26.13.1:** "2026-11-11, Version 26.13.1 'Lithium' (LTS)"; "This is a security release." The same 15 distinct CVE identifiers as v24.22.3, CVE-2026-126051 among them, and the same dependency updates, except undici to 8.12.4. (Corrected 25 November after the evidence review, notes/R-0138-week-one-rev-evidence.md, should-fix 5: an earlier wording implied CVE-2026-126051 was in v26.13.1 alone; the kept bodies show it in v24.22.3 too.)
 - Each page's footer reads "Last Updated Nov 11, 2026".
 
 ## What it settles, and what it doesn't
