@@ -1,0 +1,25 @@
+{
+ "url": "https://arxiv.org/pdf/2104.01631",
+ "read_utc": "2026-11-25T14:19:52Z",
+ "final_url": "https://arxiv.org/pdf/2104.01631",
+ "http_status": 200,
+ "content_type": "application/pdf",
+ "bytes": 5498363,
+ "sha256": "3a2766109ba7cbfad1482f64cadbe67050384a34c7b3d29552d305b22b239f86",
+ "used_for": "LH061 search-and-read row, 25 November 2026: inclusion decision and claims (claims.csv)",
+ "body_kept": "no: no licence allowing redistribution, and no public-domain statement, found in the document read",
+ "body_removed": "Body not kept under the keeper's decision of 21 November 2026 (notes/keeper/2026-11-21-robots-intent.md): the site's robots.txt refuses AI-training or archiving crawlers, or all bots, or the page reserves itself from AI use, so Lighthouse keeps the URL, read time, status, SHA-256 of the bytes received and the facts its records use, not the page.",
+ "extracted": {
+  "title": "Marked for Disruption: Tracing the Evolution of Malware Delivery Operations Targeted for Takedown",
+  "venue": "arXiv 2104.01631 v3, 7 July 2021; the text states publication at RAID '21 (6 to 8 October 2021). Screened as an arXiv preprint on search metadata",
+  "licence_statement_found": "ACM notice; redistribution requires permission",
+  "inclusion": "included (Part A): DNS sinkhole and seizure operations against three malware delivery operations in late 2015; outcome is the operations' download and network activity over the following year; method stated",
+  "population": "global download metadata from a security vendor's product telemetry, October 2015 to September 2016",
+  "data_public": "no: vendor telemetry; one author employed by the vendor",
+  "outcome_facts": [
+   "\"Dridex exhibits consistent growth in network activity during the DNS sinkhole, while Dorkbot and Upatre both exhibit significant, short-term drops in network activity after their respective takedowns with varying long-term responses\" (Figure 2 caption)",
+   "One operation's network activity, after falling for several weeks after the takedown, was stable for months and then rose and fluctuated at a raised level from mid-April 2016 (Section 6)"
+  ],
+  "safety_note": "The paper describes how the operations responded; under the brief those behaviours and reasons are not restated, and no host or domain detail is kept."
+ }
+}

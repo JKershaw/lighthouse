@@ -1,0 +1,24 @@
+{
+ "url": "https://www.ndss-symposium.org/wp-content/uploads/2019/02/ndss2019_04B-3_Meli_paper.pdf",
+ "read_utc": "2026-11-25T14:19:16Z",
+ "final_url": "https://www.ndss-symposium.org/wp-content/uploads/2019/02/ndss2019_04B-3_Meli_paper.pdf",
+ "http_status": 200,
+ "content_type": "application/pdf",
+ "bytes": 423795,
+ "sha256": "b660895aa0b5fa61577b06173ca1daf009a08779f5d9df6988eed496e7c3cba9",
+ "used_for": "LH061 search-and-read row, 25 November 2026: inclusion decision and claims (claims.csv)",
+ "body_kept": "no: no licence allowing redistribution, and no public-domain statement, found in the document read",
+ "body_removed": "Body not kept under the keeper's decision of 21 November 2026 (notes/keeper/2026-11-21-robots-intent.md): the site's robots.txt refuses AI-training or archiving crawlers, or all bots, or the page reserves itself from AI use, so Lighthouse keeps the URL, read time, status, SHA-256 of the bytes received and the facts its records use, not the page.",
+ "extracted": {
+  "title": "How Bad Can It Git? Characterizing Secret Leakage in Public GitHub Repositories",
+  "venue": "NDSS Symposium 2019 (peer reviewed); copy read from the symposium's site",
+  "licence_statement_found": "none in the copy read",
+  "inclusion": "included (Part A), a judgement for review: the measure is the repository owner's removal of a leaked secret (taking content down); the outcome is how long secrets stayed exposed and whether removal ended exposure; method stated. The paper does not measure providers' revocation (the gate's recollection confirmed)",
+  "population": "secrets found through GitHub's Search API and monitored from 4 April 2018 (count not stated in the section read); collection ran 31 October 2017 to 20 April 2018",
+  "data_public": "inputs public (GitHub Search API, BigQuery public snapshot); derived data not stated",
+  "outcome_facts": [
+   "\"about 6% of all detected secrets were removed\" in the first hour; \"at the end of the first day, over 12% of secrets were gone, while only 19% were gone after 16 days\"; \"81% of the secrets we discover were not removed\" (Section V-E)",
+   "\"none of the monitored repos had their history rewritten, meaning the secrets were trivially accessible via Git history\" (Section V-E)"
+  ]
+ }
+}

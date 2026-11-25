@@ -1,0 +1,29 @@
+{
+ "url": "https://cse.buffalo.edu/faculty/xmi/files/ndss19_domain_takedown.pdf",
+ "read_utc": "2026-11-25T14:19:13Z",
+ "final_url": "https://cse.buffalo.edu/faculty/xmi/files/ndss19_domain_takedown.pdf",
+ "http_status": 200,
+ "content_type": "application/pdf",
+ "bytes": 2281755,
+ "sha256": "87c3432a1eaed781f38a377e8c19b8c727aa6e3a531d463bbd007413621ac42b",
+ "used_for": "LH061 search-and-read row, 25 November 2026: inclusion decision and claims (claims.csv)",
+ "body_kept": "no: no licence allowing redistribution, and no public-domain statement, found in the document read",
+ "body_removed": "Body not kept under the keeper's decision of 21 November 2026 (notes/keeper/2026-11-21-robots-intent.md): the site's robots.txt refuses AI-training or archiving crawlers, or all bots, or the page reserves itself from AI use, so Lighthouse keeps the URL, read time, status, SHA-256 of the bytes received and the facts its records use, not the page.",
+ "extracted": {
+  "title": "Cracking the Wall of Confinement: Understanding and Analyzing Malicious Domain Take-downs",
+  "venue": "NDSS Symposium 2019 (peer reviewed), 24 to 27 February 2019; copy read from an author's university page",
+  "licence_statement_found": "none in the copy read",
+  "inclusion": "included (Part A): domain takedown and sinkholing; outcome is the duration of the measure and release and re-registration of taken-down domains; method stated (sinkhole feeds, eight blacklists, passive DNS over about six years, historical WHOIS; registrar availability queried twice weekly October 2017 to May 2018)",
+  "population": "625,692 seized domains identified (608,557 sinkholed, 21,757 delisted)",
+  "data_public": "no: commercial passive DNS (Farsight) and WHOIS from an industry collaborator",
+  "funder": "US National Science Foundation grants, as stated",
+  "outcome_facts": [
+   "\"On average, malicious domains have been taken-down for two years\" (Section I)",
+   "\"350K domains (56.46%) of all the taken-down domains in the past six years have been released\"; \"7,148 (14.14%) of the domains taken down in the past ten months have been released back to the public registry domain pools\" (Section V-A)",
+   "\"4,418 domains were sinkholed more than once\"; \"340 domains seem to be re-registered domains, with an average release time of 237.5 days\" (Section IV)",
+   "Of 133 domains active between two sinkholings by different parties, 28 had archived snapshots; authors \"found two confirmed cases\" of malicious reuse (Section V-B)",
+   "Sinkhole durations vary by the party taking the domain down; Discussion: one technology company \"maintains an average take-down duration of three years, while registrars average one year\""
+  ],
+  "safety_note": "The paper also reports weaknesses in how some takedowns were administered; under the brief these are not restated, and no host, domain or operator detail is kept."
+ }
+}

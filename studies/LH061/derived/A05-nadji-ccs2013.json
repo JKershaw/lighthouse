@@ -1,0 +1,26 @@
+{
+ "url": "https://coeus.ece.gatech.edu/articles/rza-ccs2013.pdf",
+ "read_utc": "2026-11-25T14:19:26Z",
+ "final_url": "https://coeus.ece.gatech.edu/articles/rza-ccs2013.pdf",
+ "http_status": 200,
+ "content_type": "application/pdf",
+ "bytes": 576571,
+ "sha256": "d24b6ca0719c9db06c67d11d26b526bd493c084b285913ea17b74e069d49b663",
+ "used_for": "LH061 search-and-read row, 25 November 2026: inclusion decision and claims (claims.csv)",
+ "body_kept": "no: no licence allowing redistribution, and no public-domain statement, found in the document read",
+ "body_removed": "Body not kept under the keeper's decision of 21 November 2026 (notes/keeper/2026-11-21-robots-intent.md): the site's robots.txt refuses AI-training or archiving crawlers, or all bots, or the page reserves itself from AI use, so Lighthouse keeps the URL, read time, status, SHA-256 of the bytes received and the facts its records use, not the page.",
+ "extracted": {
+  "title": "Beheading Hydras: Performing Effective Botnet Takedowns",
+  "venue": "ACM CCS 2013 (peer reviewed), 4 to 8 November 2013; copy read from the authors' institution",
+  "licence_statement_found": "ACM notice permits personal or classroom copies; republishing or redistribution requires permission: not a licence allowing redistribution",
+  "inclusion": "included (Part A): botnet takedowns (domain seizure and sinkholing); outcome is successful DNS lookups to the takedown's domains and to related infrastructure, 14 days around each takedown; method stated",
+  "population": "aggregate daily successful DNS resolutions at one large North American ISP's passive DNS (appendix repeats with another passive DNS source); three takedowns dated 26 September 2011, 25 March 2012 and 11 September 2012; 45 active botnets for the recommendation analysis",
+  "data_public": "no: ISP passive DNS; one author's employer a security company tracking the 45 botnets",
+  "outcome_facts": [
+   "First takedown (late 2011): \"The day Kelihos was taken down, we see lookups to the seed domains completely stop\"; the authors judge it \"largely a success\" and add that new variants \"emerged soon after\" (not measured in their data)",
+   "Second takedown (March 2012): lookups to sinkholed domains dropped; improvement ratios indicate related malicious domains were left untouched",
+   "Third takedown (September 2012): \"We notice a drop in lookups\" to malware-associated and low-reputation domains, \"however, the lookups to remaining infrastructure identified by rza are still frequent\"",
+   "Recommendation analysis: \"42 of them can likely be disabled entirely by using a DNS-based takedown strategy only\" (of 45 active botnets; a system estimate)"
+  ]
+ }
+}

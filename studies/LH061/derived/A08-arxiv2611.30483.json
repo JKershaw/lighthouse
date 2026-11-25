@@ -1,0 +1,24 @@
+{
+ "url": "https://arxiv.org/pdf/2611.30483",
+ "read_utc": "2026-11-25T14:19:48Z",
+ "final_url": "https://arxiv.org/pdf/2611.30483",
+ "http_status": 200,
+ "content_type": "application/pdf",
+ "bytes": 452625,
+ "sha256": "a3d646eb856c40b66edfae0d80f2d0430f8fdee318d31da851d749a4ace75019",
+ "used_for": "LH061 search-and-read row, 25 November 2026: inclusion decision and claims (claims.csv)",
+ "body_kept": "no: no licence allowing redistribution, and no public-domain statement, found in the document read",
+ "body_removed": "Body not kept under the keeper's decision of 21 November 2026 (notes/keeper/2026-11-21-robots-intent.md): the site's robots.txt refuses AI-training or archiving crawlers, or all bots, or the page reserves itself from AI use, so Lighthouse keeps the URL, read time, status, SHA-256 of the bytes received and the facts its records use, not the page.",
+ "extracted": {
+  "title": "When an AI agent makes a mistake in a database, what decides the damage?",
+  "venue": "arXiv 2611.30483 v1, 23 November 2026, cs.SE; preregistered (OSF); harness, records and scripts on Zenodo, as stated",
+  "licence_statement_found": "none in the text read",
+  "inclusion": "included (Part A), a judgement for review, recorded for its recoverability outcome only as the brief directs: engine-native undo and vendors' minimum backup setups tested in a laboratory against a fixed library of mistakes",
+  "population": "Layer A: 22 scripted mistakes on four relational engines, 792 cells, 874 drill runs; Layer B: agent trials on nine engines with six small open-weight models (not Anthropic's or OpenAI's)",
+  "data_public": "yes, as stated (Zenodo)",
+  "outcome_facts": [
+   "\"Permanent loss of protected rows ranged from 0 of 432 trials on Apache Cassandra, whose default snapshots before TRUNCATE and DROP undid every such loss (measured with a recovery drill added after the first tables and run seconds after the mistake), to 15% on MySQL and SQLite\" (abstract)",
+   "\"The vendors' minimum backup setup (R1) undid every loss of protected rows in the model-free layer on the four relational engines\" (abstract); Section 4.3: R1 \"removed all permanent canary loss on all four engines\""
+  ]
+ }
+}

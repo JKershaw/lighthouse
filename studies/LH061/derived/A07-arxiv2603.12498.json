@@ -1,0 +1,26 @@
+{
+ "url": "https://arxiv.org/pdf/2603.12498",
+ "read_utc": "2026-11-25T14:19:44Z",
+ "final_url": "https://arxiv.org/pdf/2603.12498",
+ "http_status": 200,
+ "content_type": "application/pdf",
+ "bytes": 1034943,
+ "sha256": "800ed93fdbee6b8d852997973b7bbfe24142de1169d8cafbcc18c7054ab226ce",
+ "used_for": "LH061 search-and-read row, 25 November 2026: inclusion decision and claims (claims.csv)",
+ "body_kept": "no: the licence (\"This work is licensed under a Creative Commons Attribution 4.0 International License\" (first page, v3)) and keep_decision allowed keeping, but a PDF's compressed streams can hold email addresses that redact_bytes cannot reach, so the body is not kept",
+ "body_removed": "Body not kept under the keeper's decision of 21 November 2026 (notes/keeper/2026-11-21-robots-intent.md): the site's robots.txt refuses AI-training or archiving crawlers, or all bots, or the page reserves itself from AI use, so Lighthouse keeps the URL, read time, status, SHA-256 of the bytes received and the facts its records use, not the page.",
+ "extracted": {
+  "title": "Keys on Doormats: Exposed API Credentials on the Web",
+  "venue": "arXiv 2603.12498, v3 of 14 September 2026; the v3 text states publication in the proceedings of ACM CCS '26 (15 to 19 November 2026). Screened as an arXiv preprint on search metadata",
+  "inclusion": "included (Part A): removal and revocation of exposed API credentials, with and without notification by the authors; outcomes are exposure persistence and counts removed or revoked; method stated. The notification's outcome is credential removal or revocation, not patching, so the LH060 exclusion does not apply",
+  "population": "1,748 verified credentials for 14 providers found in HTTP Archive's September 2025 crawl of about 10 million websites; persistence from nine HTTP Archive snapshots; disclosure monitoring daily for 14 days and on day 172",
+  "data_public": "input crawl public (HTTP Archive); credential data not public, as expected",
+  "outcome_facts": [
+   "\"exposed credentials remain publicly accessible for an average of 12 months (min: 1; SD: 14; max: 60)\"; \"In the first month after exposure, we observe a 10% reduction in the number of active credentials\" (Section 5.6)",
+   "After disclosure: \"exposures reducing 50% from 1,405 (Day 0) to 706 (Day 14)\"; verified credential exposures \"dropping from 1,175 to 865\", \"about 26% within 14 days\" (Section 6.1)",
+   "\"total non-removed exposures increase from 706 (Day 14) to 1,019 (Day 172) but non-revoked exposure counts show a further decrease from 865 (Day 14) to 660 (Day 172)\" (Section 6.1)",
+   "\"AWS credentials have the highest revocations (122 revocations or 55%) while Telegram and Bitly credentials are the two least revoked ones, with only 1 revocation each\" (Section 6.1)"
+  ],
+  "anonymisation_note": "The paper describes affected organisations at a general level; Lighthouse records nothing that could identify them."
+ }
+}

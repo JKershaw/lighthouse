@@ -1,0 +1,17 @@
+{
+ "url": "https://users.umiacs.umd.edu/~tdumitra/signedmalware/usenix18/usenix18.html",
+ "read_utc": "2026-11-25T14:19:19Z",
+ "final_url": "http://users.umiacs.umd.edu/~tudor/signedmalware/usenix18/usenix18.html",
+ "http_status": 200,
+ "content_type": "text/html",
+ "bytes": 8522,
+ "sha256": "4546ba7ec595d67cf9e99e772efdfdbaf6ee028c33613c097a83a827203b4810",
+ "used_for": "LH061 search-and-read row, 25 November 2026: inclusion decision and claims (claims.csv)",
+ "body_kept": "no: no licence allowing redistribution, and no public-domain statement, found in the document read",
+ "body_removed": "Body not kept under the keeper's decision of 21 November 2026 (notes/keeper/2026-11-21-robots-intent.md): the site's robots.txt refuses AI-training or archiving crawlers, or all bots, or the page reserves itself from AI use, so Lighthouse keeps the URL, read time, status, SHA-256 of the bytes received and the facts its records use, not the page.",
+ "extracted": {
+  "title": "The Broken Shield: Measuring Revocation Effectiveness in the Windows Code-Signing PKI (USENIX Security 2018), as the page names it",
+  "what_was_received": "the authors' project page with the abstract and links, not the paper's full text (the search result URL redirected to the project page)",
+  "inclusion": "excluded: full text unavailable through the one GET allowed; no second GET made. Nothing claimed from the abstract"
+ }
+}
