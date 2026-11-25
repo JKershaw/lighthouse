@@ -1,0 +1,19 @@
+2026-10-21 (read-2026-10-25T0855Z): all 56,905,082  version-reporting 71.6%  unknown 28.4%  nofix of versioned 57.2%  nofix of ALL services 41.0%
+2026-10-22 (read-2026-10-25T0855Z): all 61,386,454  version-reporting 67.9%  unknown 32.1%  nofix of versioned 56.0%  nofix of ALL services 38.0%
+2026-10-23 (read-2026-10-25T0855Z): all 95,784,346  version-reporting 44.0%  unknown 56.0%  nofix of versioned 55.3%  nofix of ALL services 24.3%
+2026-10-28 (read-2026-10-28T0637Z): all 108,548,268  version-reporting 40.9%  unknown 59.1%  nofix of versioned 54.5%  nofix of ALL services 22.3%
+2026-11-20 (read-2026-11-21T1414Z): all 115,094,397  version-reporting 37.7%  unknown 62.3%  nofix of versioned 51.8%  nofix of ALL services 19.6%
+growth 22->23 Oct: 56.0%
+largest no-fix branches, 25 Oct: [('7.4', 7933008), ('8.1', 2685299), ('7.2', 2314329), ('5.6', 2064165), ('5.2', 1998797), ('8.0', 1569770)]
+LH034 record keys: ['inputs', 'release_list_checks', 'check_against_tables_json', 'measure_1', 'measure_1_days_rules_differ', 'unlisted_above_fix_by_version', 'unlisted_in_fixed_lines_not_plain_or_at_or_below_fix', 'unlisted_outside_fixed_lines_day30', 'measure_2', 'measure_3_day30', 'measure_4_later_listed_releases_within_30_days', 'measure_4', 'measure_4_posting_day_alignment_post_hoc', 'reread_days_0_to_7', 'amendment_1_tests', 'comparators', 'double_rounding_cases']
+day 7 from read-2026-10-29T0635Z: all 110,944,946  version-reporting 40.5%  nofix of ALL 22.0%
+Node.js: max weekend total 18,082,722, min weekday total (excl. part day 0) 19,912,263
+  2026-10-22 Thu 30,275,631
+  2026-10-23 Fri 35,067,983
+  2026-10-24 Sat 16,160,235
+  2026-10-25 Sun 16,115,488
+  2026-10-26 Mon 30,454,510
+  2026-10-27 Tue 30,221,907
+unfixed share days -7..7: min 11.8 max 16.5 [(-7, 16.2), (-6, 15.1), (-5, 14.9), (-4, 12.7), (-3, 14.1), (-2, 16.5), (-1, 15.6), (0, 14.3), (1, 13.3), (2, 11.8), (3, 13.0), (4, 14.8), (5, 12.4), (6, 13.2), (7, 14.7)]
+unfixed share days 8..30: min 10.4 max 15.8
+weekdays 19 Oct to 30 Oct: [('10-19', 'Mon', 24.6), ('10-20', 'Tue', 26.3), ('10-21', 'Wed', 27.4), ('10-22', 'Thu', 30.3), ('10-23', 'Fri', 35.1), ('10-24', 'Sat', 16.2), ('10-25', 'Sun', 16.1), ('10-26', 'Mon', 30.5), ('10-27', 'Tue', 30.2), ('10-28', 'Wed', 32.1), ('10-29', 'Thu', 38.9), ('10-30', 'Fri', 29.6)]
