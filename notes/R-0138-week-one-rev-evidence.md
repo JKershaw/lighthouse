@@ -78,3 +78,15 @@ No other file under review was edited. I didn't touch the records or the schedul
 ## Verdict
 
 **Not cleared.** Must-fix 1 to 3 are small edits. After them, and after the reader-and-inference review, a fresh agent should read what the resolution writes once, as AGENTS.md step 4 requires.
+
+## Clearance check, 25 November
+
+Checked at commit 3281f40, by the same reviewer. I compared the draft, the short form and the one-off note against 01bf397 (`git diff 01bf397 3281f40`).
+
+- **Must-fix 1 (Apigee): met.** The sentence now reads "a piece of the old layer for which, by the vendor's account, no packaged fix was available when it wrote, on 24 October". That matches the retained bulletin text (apigee_check.txt).
+- **Must-fix 2 (post hoc readings): met.** The late-rise split is now "one of three ways the study split the days, all chosen then; collection has closed, so nothing will test it on fresh data", which matches LH034 Findings' three pairs of windows. The amended rule is "the one counting rule the study added after seeing outcomes", which matches LH034's "one post hoc rule", and the piece now says what would settle it and that nothing scheduled will. The crossing with Python is labelled post hoc and untestable now. The two predictions get "no later count from these studies will test them further".
+- **Must-fix 3 (summary): met.** The full summary now says the rule "assumes, unchecked, that they carry October's fix".
+- **The changed sentences, against the records.** "On an average day … 18.4, 12.9 and 25.8 per cent higher … 4.0, 5.1 and 6.5 per cent lower" matches node_repro.txt (per-day means). "On 25 and 26 October" is right for the W3Techs figure. The distribution caveat restored in both summaries is the body's own. The short form's new summary ("fewer PHP services counted and more Node.js downloads of newer versions, not from fewer left behind") matches both records. The one-off note's corrected CVE lines are right: the kept bodies give 14 distinct CVE identifiers for v22.23.5, and v24.22.3 and v26.13.1 have identical sets of 15, which add CVE-2026-126051 (checked in memory). Its "can't be checked" wording on October's flaws is right. No em or en dashes were added. I found no new factual error.
+- Should-fix 6 and 7 (aligning programme.md and the investigation page, and the essay's notice) remain release-time work, as the check note says. They don't block clearance of the draft.
+
+**Verdict: cleared.** Nothing in the evidence review must still be fixed. The reader-and-inference review and the single fresh-agent reading of its resolution still come before release.
