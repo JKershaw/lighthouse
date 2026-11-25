@@ -58,3 +58,16 @@ No figure changed.
 
 - **Must-fix 1, accepted, in both the essay draft and the released piece.** The unrounded ends are 11.794 and 16.462 (studies/LH034/review/essay-rev-2026-11-25/repro_node.txt), which round to 12 and 16, so neither first edition was wrong. Essay draft: the Correction blockquote removed; the `revised` item now says it gives the range to one decimal, which is 12 to 16 in whole numbers as 1.0 had it. Released piece (articles/a-week-after-two-fixes.md, 2.0): the `revised` item reworded the same way, and the colophon's Corrections line now says "None", gives the range to one decimal with the unrounded ends, and says that an earlier wording of that line on 25 November wrongly called it a correction. The same wording fixed in investigations/software-updates.md and releases.md. The error came from R-0128's remark about rounding the printed 16.5, carried into the revision's brief.
 - **Should-fixes:** test B's shortened gaps left as they are (the body is exact, and the piece uses the same wording); issues not searched (Harbour isn't named for this run), so the "nothing scheduled" claims rest on proposals.md and due.csv, as the note says.
+
+## Clearance check, 25 November
+
+By the same reviewer, at commit 44b9d4b, no web request. Must-fix 1 is met in every place named:
+
+- Essay draft: no Correction blockquote remains; the `revised` item now says it gives Node.js's unfixed lines to one decimal, 11.8 to 16.5 per cent, "12 to 16 in whole numbers as version 1.0 had it". No "corrects" or "12 to 17" left.
+- Released piece (2.0): the `revised` item says the same; the Corrections line says "None", gives 11.794 and 16.462 before rounding, and says an earlier wording wrongly called it a correction and that the range rounds to 12 to 16. Both ends match studies/LH034/review/essay-rev-2026-11-25/repro_node.txt (11.794 on day 2, 16.462 on day −2).
+- investigations/software-updates.md and releases.md: the same wording, "12 to 16 in whole numbers, as the first edition had it"; releases.md notes the first wording called it a correction wrongly.
+- No "12 to 17" remains in any of these files or the piece's short form.
+
+The new sentences are accurate against the reproduction. The should-fixes were left by the driving session with reasons given; neither blocks.
+
+**Verdict: cleared** (for this evidence review, at 44b9d4b).
