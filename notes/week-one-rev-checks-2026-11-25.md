@@ -112,3 +112,7 @@ By the writing subagent that drafted the revision, after reading notes/R-0138-we
 **Should-fix 10.** "up from 2 to 8 per cent at the end of October" became "up from 2 to 8 per cent on 25 and 26 October".
 
 **Should-fix 6 and 7:** left for release, listed above. No figure changed. What this resolution wrote should be read once by a fresh agent before release (AGENTS.md step 4).
+
+## Released
+
+25 November 2026: released as version 2.0 at articles/a-week-after-two-fixes.md, articles/short/a-week-after-two-fixes.md and articles/a-week-after-two-fixes.svg (the draft files removed; git holds them). Links changed from ../../ to ../, the figure renamed, the colophon given its reviews (R-0138, R-0139, R-0140).

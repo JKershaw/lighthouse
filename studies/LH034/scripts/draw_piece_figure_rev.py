@@ -9,7 +9,7 @@ Bottom panel, services seen from outside: Censys's patched share of version-repo
 branch (LH033 version 1.2; the day-30 read of 21 November 2026, which holds every day 0 to 30 unrevised).
 Two panels, each with its own unit, so that a request share and a service share never sit on one scale.
 Usage: python3 -I studies/LH034/scripts/draw_piece_figure_rev.py [out.svg]
-       (default: articles/drafts/a-week-after-two-fixes-rev.svg); prints the plotted day 1, 7, 14 and 30 values.
+       (default: articles/a-week-after-two-fixes.svg); prints the plotted day 1, 7, 14 and 30 values.
 """
 from collections import defaultdict
 from html import escape
@@ -25,7 +25,7 @@ from chart_style import css, DASHES  # noqa: E402
 
 PHP_READ = ROOT / 'studies/LH033/data/read-2026-11-21T1414Z/tables.json'
 NODE = ROOT / 'studies/LH034/data/record_v1.json'
-out = Path(sys.argv[1]) if len(sys.argv) > 1 else ROOT / 'articles/drafts/a-week-after-two-fixes-rev.svg'
+out = Path(sys.argv[1]) if len(sys.argv) > 1 else ROOT / 'articles/a-week-after-two-fixes.svg'
 LAST = 30
 days = range(LAST + 1)
 

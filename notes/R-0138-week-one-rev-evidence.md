@@ -14,7 +14,7 @@ At commit 01bf397 (`git log -1 --format=%h`, 25 November 2026):
 - articles/drafts/a-week-after-two-fixes-rev.md (version 2.0 draft)
 - articles/drafts/a-week-after-two-fixes-rev-short.md
 - articles/drafts/a-week-after-two-fixes-rev.svg, drawn by studies/LH034/scripts/draw_piece_figure_rev.py (its printed output is draw_piece_figure_rev_output.txt)
-- articles/drafts/a-week-after-two-fixes-rev-checks.md (the writer's check note)
+- notes/week-one-rev-checks-2026-11-25.md (the writer's check note)
 
 Against: studies/LH033/LH033.md (1.2) and its Censys bodies under data/; studies/LH034/LH034.md (1.1) with data/record_v1.json and the raw daily summaries; studies/LH034/oneoff-2026-11-25/ (note, fetch log, the three kept bodies); LH037's retained Apigee bodies (data/read-2026-11-02T1530Z and read-2026-11-23T1425Z, google__apigee-gcp-2026-072.raw.gz) and checkpoints/2026-11-02T1530Z.md; notes/php-flags-2026-11-02-decision.md; notes/R-0128, R-0131, R-0133; the first edition articles/a-week-after-two-fixes.md (16a713b); investigations/software-updates.md; programme.md's Next; essays/seen-from-outside-seen-from-inside.md. I made no web request.
 
