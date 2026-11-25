@@ -116,3 +116,5 @@ By the writing subagent that drafted the revision, after reading notes/R-0138-we
 ## Released
 
 25 November 2026: released as version 2.0 at articles/a-week-after-two-fixes.md, articles/short/a-week-after-two-fixes.md and articles/a-week-after-two-fixes.svg (the draft files removed; git holds them). Links changed from ../../ to ../, the figure renamed, the colophon given its reviews (R-0138, R-0139, R-0140).
+
+25 November 2026, after R-0141: the "Corrections" item was wrong. The first edition's 12 to 16 per cent rounds correctly from 11.794 and 16.462; the piece now says the revision gives the range to one decimal, and that nothing was wrong (notes/R-0141-essay-rev-evidence.md, Resolution).

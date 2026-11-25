@@ -1,0 +1,8 @@
+Unfixed share days -7..7: [16.2, 15.1, 14.9, 12.7, 14.1, 16.5, 15.6, 14.3, 13.3, 11.8, 13.0, 14.8, 12.4, 13.2, 14.7] range 11.8 16.5
+Unfixed share day 30: 11.5
+Days 0-30 weekend range (M): 15.6 18.1  weekday range (M): 26.7 38.9
+23 Sep to 20 Nov: max weekend 18082722 min weekday 19912263 every weekend below every weekday: True
+amended: day 30 {'22': 65.5, '24': 74.3, '26': 96.3}; S30 {'22': 66.28, '24': 74.32, '26': 96.36}; L {'22': 0.196, '24': 0.047, '26': 0.299}; median L 0.196; test B gap 8.03
+as written: day 30 {'22': 39.8, '24': 60.6, '26': 85.8}; S30 {'22': 43.34, '24': 62.17, '26': 85.75}; L {'22': -0.23, '24': -0.139, '26': 0.212}; median L -0.139; test B gap 18.83
+record measure_2.summary day30_unfixed_pct, weekend, weekday: 11.5 [15.6, 18.1] [26.7, 38.9]
+Unrounded unfixed share days -7..7: min 11.794 (day 2), max 16.462 (day -2); whole numbers 12 to 16
