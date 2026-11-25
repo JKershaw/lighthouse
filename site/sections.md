@@ -12,7 +12,7 @@ summaries:
 - essays/what-the-watch-would-see.md | An invented case of software that copies itself, walked through the public records: what would show, how soon, and what never would.
 - essays/it-was-only-a-test.md | A message board, an ordinary research task and a maintainer drawn into someone else’s test: what agents leave for the next worker.
 - articles/php-emergency-first-reading.md | An attributed early attack trace, defensive discovery and published fixes, with deployment and attack outcomes unmeasured.
-- articles/a-week-after-two-fixes.md | How far two fixes had spread a week on, in two counts that measure different things.
+- articles/a-week-after-two-fixes.md | How far two fixes had spread a month on, in two counts that measure different things.
 - essays/seen-from-outside-seen-from-inside.md | What watching software from outside and from inside each shows, and what each misses.
 - articles/where-software-updates-go.md | Follow ordinary software through public records, and see where the trail stops.
 - articles/tests-read-the-lockfile.md | What pinned projects' build instructions read, and why an instruction is not a run.

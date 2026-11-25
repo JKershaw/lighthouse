@@ -59,6 +59,7 @@ pieces:
 - articles/recipes-follow-the-pin.md
 - articles/tests-read-the-lockfile.md
 - articles/php-emergency-first-reading.md
+- articles/a-week-after-two-fixes.md
 
 **In short.** Of the fifty most downloaded Python libraries, 37 released new versions between April and August 2026, and for 26 of them most new versions made up half of the library's daily downloads within two days; fewer libraries did so further down the rankings. In the four libraries followed, software held at an exact version by a pin or lockfile took weeks to move to security fixes; that reviewed account is [the synthesis](../articles/where-software-updates-go.md). A download is a fetch, not an install, and none of these records reaches software actually running. Studies now follow October's PHP, Node.js and WordPress fixes and several releases on npm and PyPI that security firms report were compromised, counting how far each travelled.
 

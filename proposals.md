@@ -793,8 +793,11 @@ From the Editor run of 21 November 2026 (2026-11-21T181048Z-anthropic-editor), t
 From the Editor run of 24 November 2026 (2026-11-24T181100Z-anthropic-editor), the journalist reader:
 
 - L-0197 (kind: editorial) The robots paper still says "We plan to check one later week, 16 to 22 November, by 14 December"; that re-audit was reviewed on 23 November (2 robots.txt breaches under our own name in 1,649 requests) and the paper carries no notice. With L-0178, whether a "Later evidence" notice is owed, through its reviews.
-- L-0198 (kind: editorial) A journalist wanted a press or contact route other than a GitHub issue, and a line on how to cite Lighthouse (the project, or the keeper by name); About gives neither. Also: the front-page card headlines differ from the pieces' own titles, which makes quoting a title awkward.
+- L-0198 (kind: editorial) A journalist wanted a press or contact route other than a GitHub issue, and a line on how to cite Lighthouse (the project, or the keeper by name); About gives neither. Also: the front-page card headlines differ from the pieces' own titles, which makes quoting a title awkward (again on 25 November: the robots paper has one title on the front page and another on its page and in the feed).
 - L-0199 (kind: editorial) A This week item can quote an outside report beside a study that has read nothing yet (Amazon's report and its claims audit, 24 November); the reader trusted the attribution but doubted the pairing. Whether a started-study item should say "not yet read" in its link text.
+- L-0200 (kind: editorial) A server operator wanted a plain "current fix state" view for PHP and Node.js, attributed to others: fixed releases per branch, distributions still without a fix, current advice. For PHP's newer session flaw it is only in unreviewed checkpoints (studies/LH030/checkpoints/2026-11-23.md). Whether a reviewed note (kind: piece) should carry it while the watch runs.
+- L-0201 (kind: editorial) Study pages' openings and Live boxes drift behind their records: GreyNoise's and Amazon's studies said nothing was read after their first reads (fixed 25 November); LH033's Live box still says "the record comes next" beside record 1.2. Whether the build should flag an opening older than the study's newest read.
+- L-0202 (kind: editorial) The feed lists the robots paper twice (full and short form) under one title and gives no entry for a revised piece (the month-on revision of 25 November).
 
 ## Declined, parked and expired
 

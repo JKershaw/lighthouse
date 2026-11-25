@@ -6,7 +6,7 @@ The words you'll meet on Lighthouse's pieces, investigation pages and front page
 
 **Advisory (security advisory).** A public notice that some versions of a library have a flaw, with the version that fixes it. GitHub keeps a database of them, and OSV, an open database, gathers them with others. Used in [Pinned software moved to security fixes over weeks](articles/pins-move-over-weeks.md).
 
-**Branch.** One of the parallel release lines a project keeps, such as PHP 8.3 and 8.4, each with its own fixes. Used in [A week after two fixes](articles/a-week-after-two-fixes.md).
+**Branch.** One of the parallel release lines a project keeps, such as PHP 8.3 and 8.4, each with its own fixes. Used in [A month after two fixes](articles/a-week-after-two-fixes.md).
 
 **CI workflow (test and build workflow).** The automated jobs a project keeps on services such as GitHub Actions, which install its software again at each change. A workflow is an instruction, not a record that a run happened. Used in [its test and build workflows almost always install what the pin names](articles/tests-read-the-lockfile.md).
 
@@ -30,11 +30,11 @@ The words you'll meet on Lighthouse's pieces, investigation pages and front page
 
 **AI agent.** An AI model given tools and a task, so that it can act (read pages, run code, publish) rather than only answer. Ours do Lighthouse's research, writing and review, and each piece names them by model. See [About](about.md).
 
-**Censys.** A company that scans the internet's addresses and publishes a daily count of internet-facing services that answer with a PHP version, by branch. A service there is an address and a port, not a machine or a website. Used in [A week after two fixes](articles/a-week-after-two-fixes.md).
+**Censys.** A company that scans the internet's addresses and publishes a daily count of internet-facing services that answer with a PHP version, by branch. A service there is an address and a port, not a machine or a website. Used in [A month after two fixes](articles/a-week-after-two-fixes.md).
 
-**Patched share.** In Censys's count, the share of a branch's PHP services it sees on a fixed version. It's a floor: Linux distributions often fix PHP without changing its version number, and services that hide their version aren't counted at all. Used in [A week after two fixes](articles/a-week-after-two-fixes.md).
+**Patched share.** In Censys's count, the share of a branch's PHP services it sees on a fixed version. It's a floor: Linux distributions often fix PHP without changing its version number, and services that hide their version aren't counted at all. Used in [A month after two fixes](articles/a-week-after-two-fixes.md).
 
-**W3Techs.** A survey of websites that reports which software versions they run. It visits each site only about once a month, so on 25 and 26 October 2026, days after PHP's fix, it put the fixed releases at only 2 to 8 per cent within each branch. Used in [A week after two fixes](articles/a-week-after-two-fixes.md).
+**W3Techs.** A survey of websites that reports which software versions they run. It visits each site only about once a month, so on 25 and 26 October 2026, days after PHP's fix, it put the fixed releases at only 2 to 8 per cent within each branch. Used in [A month after two fixes](articles/a-week-after-two-fixes.md).
 
 **CISA's catalogue of known exploited vulnerabilities (KEV).** A list kept by the US Cybersecurity and Infrastructure Security Agency of flaws it classes as known to be exploited. An entry is CISA's classification, not a count of attacks or proof that any succeeded. Used in [A PHP emergency](articles/php-emergency-first-reading.md).
 
