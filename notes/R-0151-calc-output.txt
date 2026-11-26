@@ -1,0 +1,86 @@
+sha256 hours.csv: b802c9cd4404f6ad3013a98c747c766c8dbecf849d0bf1b57dc6b9d2cfb07ec4
+sha256 counts.csv: 5c665090d4b3d13c7f72e71ed67d32b95bf45491418f29980aef3d52529cc72e
+range 2026-11-09-0..2026-11-26-12: 421 hours; held 421; rows 421; missing []
+json errors >0: 0
+gap hours (recomputed): 257; disagreements with collector flag: []
+hours by read: {'2026-11-13T1541Z': 111, '2026-11-16T1419Z': 70, '2026-11-19T1425Z': 72, '2026-11-23T1431Z': 97, '2026-11-26T1413Z': 71}
+bytes total: 2034300715
+PullRequestEvent per hour: min 990 at 2026-11-24-18; max 2209; min within first 181 hours 1130
+gap runs: 19; longest 2026-11-09-8..2026-11-11-20 (61 hours)
+check: every M1 opened cell has distinct_repos == events: ok
+
+== M1 totals over all held hours (counts.csv rows; Push/Create/Delete rows exist only in non-gap hours)
+  PullRequestEvent opened: 655
+  PullRequestEvent closed: 6
+  PullRequestEvent reopened: 0
+  PullRequestEvent other: 3
+  PullRequestReviewEvent created: 14
+  PullRequestReviewEvent updated: 17
+  CreateEvent all: 3
+  DeleteEvent all: 21
+  PushEvent all: 8
+  M1 review hours: 2026-11-10-20..2026-11-11-13
+  M1 opened hours: 2026-11-10-13..2026-11-12-18; top two [('2026-11-11-12', 121), ('2026-11-11-11', 117)]
+  M1 by day from 13 November: {'2026-11-14': {'DeleteEvent branch': 4, 'PullRequestEvent closed': 1}, '2026-11-15': {'DeleteEvent branch': 1}, '2026-11-16': {'PullRequestEvent other': 1}, '2026-11-18': {'DeleteEvent branch': 3}, '2026-11-21': {'PushEvent': 2}, '2026-11-22': {'PushEvent': 6, 'PullRequestEvent closed': 1, 'DeleteEvent branch': 2}, '2026-11-23': {'DeleteEvent branch': 2}}
+
+== Measure 2: onset
+  onset 2026-11-10-13; M1 events in it 10
+  vendor start hour 2026-11-10-12: held True; gap True; M1 PR 0; M1 RV 0
+  hours before onset 37; gap among them 29
+
+== Measure 3: probe coverage
+  Aikido E4: 2026-11-10-12..2026-11-11-14 27 hours, held 27, gap 27; opened 595; /61839 = 0.9622%  -> a small fraction; in non-gap hours 0
+  StepSecurity E1: 2026-11-10-0..2026-11-12-7 56 hours, held 56, gap 49; opened 606; /63000 = 0.9619% (upper estimate) -> a small fraction; in non-gap hours 3
+
+== Measure 4: internal completeness, onset..2026-11-12-23
+  hours 59; non-gap 8: ['2026-11-11-21', '2026-11-11-22', '2026-11-11-23', '2026-11-12-2', '2026-11-12-3', '2026-11-12-4', '2026-11-12-5', '2026-11-12-23']
+  per non-gap hour (create, opened): [('2026-11-12-2', 1, 0), ('2026-11-12-4', 1, 0), ('2026-11-12-5', 1, 3)]
+  sums: create 3; opened 3; opened in gap hours 652 (51 gap hours)
+
+== Measure 5: cleanup by UTC day (complete days only)
+  10 Nov held 24 gap 24 opened 167 closed 1 reopened 0 other 0 delete 0 cum 1/167 = 0.60%
+  11 Nov held 24 gap 21 opened 428 closed 2 reopened 0 other 2 delete 5 cum 3/595 = 0.50%
+  12 Nov held 24 gap 19 opened  60 closed 1 reopened 0 other 0 delete 4 cum 4/655 = 0.61%
+  13 Nov held 24 gap 17 opened   0 closed 0 reopened 0 other 0 delete 0 cum 4/655 = 0.61%
+  14 Nov held 24 gap  6 opened   0 closed 1 reopened 0 other 0 delete 4 cum 5/655 = 0.76%
+  15 Nov held 24 gap  6 opened   0 closed 0 reopened 0 other 0 delete 1 cum 5/655 = 0.76%
+  16 Nov held 24 gap  9 opened   0 closed 0 reopened 0 other 1 delete 0 cum 5/655 = 0.76%
+  17 Nov held 24 gap 22 opened   0 closed 0 reopened 0 other 0 delete 0 cum 5/655 = 0.76%
+  18 Nov held 24 gap 21 opened   0 closed 0 reopened 0 other 0 delete 3 cum 5/655 = 0.76%
+  19 Nov held 24 gap 21 opened   0 closed 0 reopened 0 other 0 delete 0 cum 5/655 = 0.76%
+  20 Nov held 24 gap 17 opened   0 closed 0 reopened 0 other 0 delete 0 cum 5/655 = 0.76%
+  21 Nov held 24 gap  3 opened   0 closed 0 reopened 0 other 0 delete 0 cum 5/655 = 0.76%
+  22 Nov held 24 gap  0 opened   0 closed 1 reopened 0 other 0 delete 2 cum 6/655 = 0.92%
+  23 Nov held 24 gap  5 opened   0 closed 0 reopened 0 other 0 delete 2 cum 6/655 = 0.92%
+  24 Nov held 24 gap 21 opened   0 closed 0 reopened 0 other 0 delete 0 cum 6/655 = 0.92%
+  25 Nov held 24 gap 20 opened   0 closed 0 reopened 0 other 0 delete 0 cum 6/655 = 0.92%
+  26 Nov incomplete: held 13 gap 9; opened 0 closed 0 other 0 delete 0
+  complete days 10..25 Nov: hours 384, gap 232; M1 deletions total 21
+  vendors: 100-90 = 10%; 100-92 = 8% no longer open by their searches
+
+== Measure 6: M2 and M3 by type, baseline vs after (unknown hours left out)
+  M2 PullRequestEvent: baseline: known 36, total 4, median 0, range 0..2; after: known 385, total 35, median 0, range 0..2
+  M2 PullRequestReviewEvent: baseline: known 36, total 0, median 0, range 0..0; after: known 385, total 5, median 0, range 0..1
+  M2 CreateEvent: baseline: known 8, total 0, median 0, range 0..0; after: known 156, total 224, median 0, range 0..81
+  M2 DeleteEvent: baseline: known 8, total 0, median 0, range 0..0; after: known 156, total 225, median 0, range 0..83
+  M2 PushEvent: baseline: known 8, total 0, median 0, range 0..0; after: known 156, total 211, median 0, range 0..83
+  M3 PullRequestEvent: baseline: known 36, total 0, median 0, range 0..0; after: known 385, total 0, median 0, range 0..0
+  M3 PullRequestReviewEvent: baseline: known 36, total 0, median 0, range 0..0; after: known 385, total 0, median 0, range 0..0
+  M3 CreateEvent: baseline: known 8, total 0, median 0, range 0..0; after: known 156, total 0, median 0, range 0..0
+  M3 DeleteEvent: baseline: known 8, total 0, median 0, range 0..0; after: known 156, total 0, median 0, range 0..0
+  M3 PushEvent: baseline: known 8, total 0, median 0, range 0..0; after: known 156, total 0, median 0, range 0..0
+  M2 CreateEvent in 12 Nov 02:00-05:59: 208 of 224
+  M2 DeleteEvent in 12 Nov 02:00-05:59: 217 of 225
+  M2 PushEvent in 12 Nov 02:00-05:59: 203 of 211
+
+== Measure 7: M1 PullRequestEvent in gap and other hours from onset
+  2026-11-10-13..2026-11-26-12 gap: 228 hours, M1 PR 658 {'opened': 652, 'closed': 4, 'reopened': 0, 'other': 2}
+  2026-11-10-13..2026-11-26-12 other: 156 hours, M1 PR 6 {'opened': 3, 'closed': 2, 'reopened': 0, 'other': 1}
+  2026-11-10-13..2026-11-12-23 gap: 51 hours, M1 PR 658 {'opened': 652, 'closed': 4, 'reopened': 0, 'other': 2}
+  2026-11-10-13..2026-11-12-23 other: 8 hours, M1 PR 3 {'opened': 3, 'closed': 0, 'reopened': 0, 'other': 0}
+  2026-11-13-0..2026-11-26-12 gap: 177 hours, M1 PR 0 {'opened': 0, 'closed': 0, 'reopened': 0, 'other': 0}
+  2026-11-13-0..2026-11-26-12 other: 148 hours, M1 PR 3 {'opened': 0, 'closed': 2, 'reopened': 0, 'other': 1}
+
+== Since the checkpoint (hours 2026-11-16-13..last)
+  hours 240, gap 146
+  M1 in them: {'DeleteEvent branch': 7, 'PushEvent': 8, 'PullRequestEvent closed': 1}
