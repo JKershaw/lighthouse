@@ -280,6 +280,40 @@ class ModelTests(unittest.TestCase):
                                 row('publish', kind='publish', depends_on='review')])
         self.assertNotIn('review-predecessor:publish', report['warnings'])
 
+    def test_flow_warnings_name_avoidable_waits_without_blocking_work(self):
+        done = dict(status='done', ref='evidence.md')
+        report = self.evaluate([
+            row('collect', kind='observe', **done),
+            row('record', depends_on='collect', earliest='2026-11-20', latest='2026-11-30'),
+            row('reasoned', depends_on='collect', earliest='2026-11-20', note='not-before: uses the 19 November read'),
+            row('pending', depends_on='record', earliest='2026-11-20'),
+            row('gate', kind='plan', status='blocked', note='Waiting for the stop condition'),
+            row('dated-gate', kind='plan', status='blocked', latest='2026-11-30', note='Waiting for the stop condition'),
+        ])
+        self.assertTrue(report['valid'])
+        self.assertIn('date-only-wait:record', report['warnings'])
+        self.assertNotIn('date-only-wait:reasoned', report['warnings'])
+        self.assertNotIn('date-only-wait:pending', report['warnings'])
+        self.assertIn('gate-without-deadline:gate', report['warnings'])
+        self.assertNotIn('gate-without-deadline:dated-gate', report['warnings'])
+
+    def test_held_reads_warn_until_a_write_up_is_near(self):
+        def reads(*days):
+            return [row(f'read-{day}', kind='observe', status='done', ref='evidence.md', updated=f'2026-11-{day}T12:00:00Z') for day in days]
+        written = row('first-record', status='done', ref='evidence.md', updated='2026-11-05T12:00:00Z')
+        closure = row('closure', kind='plan', earliest='2027-01-10')
+        far = row('final', depends_on='closure')
+        report = self.evaluate([written, *reads('03', '08', '12'), closure, far])
+        self.assertIn('held-reads:LH900', report['warnings'])
+        self.assertIn('2 reads done', next(c['message'] for c in report['coverage'] if c['id'] == 'held-reads:LH900'))
+        near = row('interim', earliest='2026-11-20')
+        self.assertNotIn('held-reads:LH900', self.evaluate([written, *reads('08', '12'), closure, far, near])['warnings'])
+        self.assertNotIn('held-reads:LH900', self.evaluate([written, *reads('08'), closure, far])['warnings'])
+        excused = row('final', depends_on='closure', note='no-interim: the answer only changes at closure')
+        self.assertNotIn('held-reads:LH900', self.evaluate([written, *reads('08', '12'), closure, excused])['warnings'])
+        gate = row('closure', kind='plan', status='blocked', note='Waiting')
+        self.assertIn('no write-up allowed before no date', next(c['message'] for c in self.evaluate([written, *reads('08', '12'), gate, far])['coverage'] if c['id'] == 'held-reads:LH900'))
+
     def test_ms365_successful_availability_attempt_is_not_substantive_report_gate(self):
         report = self.evaluate([row('availability', kind='observe', status='done', ref='evidence.md'),
                                 row('report-gate', kind='plan', status='blocked', note='No accessible substantive report'),

@@ -257,7 +257,7 @@ def _validate(root: Path, rows: list[dict], diagnostics: list[str]) -> dict[str,
     return by_id
 
 
-def _coverage(root: Path, rows: list[dict], by_id: dict[str, dict]) -> tuple[list[dict], list[str], list[str]]:
+def _coverage(root: Path, rows: list[dict], by_id: dict[str, dict], today: date | None = None) -> tuple[list[dict], list[str], list[str]]:
     coverage, gaps, warnings = [], [], []
     active_studies = {row['study'] for row in rows if row['status'] not in TERMINAL}
     for brief in sorted(root.glob('studies/LH*/brief.md')):
@@ -281,7 +281,96 @@ def _coverage(root: Path, rows: list[dict], by_id: dict[str, dict]) -> tuple[lis
             coverage.append({'id': identity, 'study': row['study'], 'row_id': row['id'],
                              'message': f'{row["id"]}: publication has no declared review predecessor; audit the release checks'})
             warnings.append(identity)
+    if today is not None:
+        _flow(rows, by_id, today, coverage, warnings)
     return coverage, gaps, warnings
+
+
+# Flow warnings (the keeper, 26 November 2026). On that day 25 studies held 73 reads collected
+# since their last write-up, while records waited on not-before dates no brief had set, on
+# blocked stop gates nobody re-tested and on closures weeks away. These advisories name each
+# kind of avoidable wait so the next run clears it; none of them changes readiness.
+WRITE_UP_KINDS = {'analyse', 'review', 'publish'}
+HELD_READS = 2
+HELD_HORIZON = timedelta(days=14)
+NO_INTERIM_REASON = re.compile(r'no-interim:', re.I)
+NOT_BEFORE_REASON = re.compile(r'not-before:', re.I)
+
+
+def _effective_start(identity: str, by_id: dict[str, dict], today: date, memo: dict) -> date | None:
+    """Earliest day a row could start under the queue as written; None means no date at all."""
+    if identity in memo:
+        return memo[identity]
+    memo[identity] = None  # cycles are diagnosed elsewhere
+    row = by_id.get(identity)
+    if row is None or row['status'] in {'missed', 'cancelled'}:
+        return None
+    if row['status'] == 'done':
+        memo[identity] = today
+        return today
+    if row['status'] in {'blocked', 'keeper'}:
+        start = row['_latest']
+        if start is None:
+            return None
+    else:
+        start = row['_earliest'] or today
+    start = max(start, today)
+    for dependency in row['_dependencies']:
+        upstream = _effective_start(dependency, by_id, today, memo)
+        if upstream is None:
+            return None
+        start = max(start, upstream)
+    memo[identity] = start
+    return start
+
+
+def _flow(rows: list[dict], by_id: dict[str, dict], today: date, coverage: list[dict], warnings: list[str]) -> None:
+    for row in rows:
+        if row['status'] == 'open' and row['kind'] in WRITE_UP_KINDS and row['_earliest'] and row['_earliest'] > today \
+                and all(by_id.get(dep, {}).get('status') == 'done' for dep in row['_dependencies']) \
+                and not NOT_BEFORE_REASON.search(row['note']):
+            identity = f'date-only-wait:{row["id"]}'
+            coverage.append({'id': identity, 'study': row['study'], 'row_id': row['id'],
+                             'message': f'{row["id"]}: everything it depends on is done, but it waits for {row["_earliest"].isoformat()}; clear the date unless the brief sets it, and then say why in the note ("not-before: ...")'})
+            warnings.append(identity)
+        if row['status'] == 'blocked' and row['note'] != SCOPE_HOLD and row['_latest'] is None:
+            identity = f'gate-without-deadline:{row["id"]}'
+            coverage.append({'id': identity, 'study': row['study'], 'row_id': row['id'],
+                             'message': f'{row["id"]}: blocked with no deadline, so nothing after it can ever be scheduled; give it the date by which a run must re-test its condition'})
+            warnings.append(identity)
+    memo: dict = {}
+    studies: dict[str, list[dict]] = {}
+    for row in rows:
+        if re.fullmatch(r'LH[0-9]+', row['study']):
+            studies.setdefault(row['study'], []).append(row)
+    for study, members in sorted(studies.items()):
+        writes = [r for r in members if r['kind'] in WRITE_UP_KINDS and r['status'] != 'done' and r['status'] not in TERMINAL]
+        analyses = [r for r in writes if r['kind'] == 'analyse']
+        if not analyses or any(NO_INTERIM_REASON.search(r['note']) for r in analyses):
+            continue
+        last = max((day for r in members if r['status'] == 'done' and r['kind'] in WRITE_UP_KINDS
+                    and (day := _day(r['updated'])) is not None), default=None)
+        held = [r for r in members if r['status'] == 'done' and r['kind'] == 'observe'
+                and (day := _day(r['updated'])) is not None and (last is None or day > last)]
+        if len(held) < HELD_READS:
+            continue
+        starts = [_effective_start(r['id'], by_id, today, memo) for r in analyses]
+        known = [s for s in starts if s is not None]
+        soonest = min(known) if known else None
+        if soonest is not None and soonest <= today + HELD_HORIZON:
+            continue
+        identity = f'held-reads:{study}'
+        when = soonest.isoformat() if soonest else 'no date'
+        coverage.append({'id': identity, 'study': study,
+                         'message': f'{study}: {len(held)} reads done since its last write-up and no write-up allowed before {when}; add an interim checkpoint if the new evidence could change the answer, or say why not in the next analysis row\'s note ("no-interim: ...")'})
+        warnings.append(identity)
+
+
+def _day(value: str) -> date | None:
+    try:
+        return date.fromisoformat((value or '')[:10])
+    except ValueError:
+        return None
 
 
 def evaluate(root: Path | str, now: datetime) -> dict:
@@ -363,7 +452,7 @@ def evaluate(root: Path | str, now: datetime) -> dict:
         if stale:
             groups['stale'].append(row['id'])
     try:
-        coverage, groups['gaps'], groups['warnings'] = _coverage(root, rows, by_id)
+        coverage, groups['gaps'], groups['warnings'] = _coverage(root, rows, by_id, today)
     except (OSError, RuntimeError, ValueError) as exc:
         identity = 'coverage:unavailable'
         coverage = [{'id': identity, 'message': f'Pipeline coverage audit could not read local metadata: {exc}'}]

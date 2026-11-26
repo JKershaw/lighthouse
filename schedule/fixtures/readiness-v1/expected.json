@@ -237,9 +237,25 @@
       "old-claim"
     ],
     "gaps": [],
-    "warnings": []
+    "warnings": [
+      "gate-without-deadline:gate",
+      "date-only-wait:scheduled"
+    ]
   },
-  "coverage": [],
+  "coverage": [
+    {
+      "id": "gate-without-deadline:gate",
+      "study": "LH900",
+      "row_id": "gate",
+      "message": "gate: blocked with no deadline, so nothing after it can ever be scheduled; give it the date by which a run must re-test its condition"
+    },
+    {
+      "id": "date-only-wait:scheduled",
+      "study": "LH900",
+      "row_id": "scheduled",
+      "message": "scheduled: everything it depends on is done, but it waits for 2026-11-15; clear the date unless the brief sets it, and then say why in the note (\"not-before: ...\")"
+    }
+  ],
   "ready": [
     "record"
   ],
@@ -253,5 +269,8 @@
     "old-claim"
   ],
   "gaps": [],
-  "warnings": []
+  "warnings": [
+    "gate-without-deadline:gate",
+    "date-only-wait:scheduled"
+  ]
 }
