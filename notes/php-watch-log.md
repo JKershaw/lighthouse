@@ -6,6 +6,16 @@ date: 2026-10-23
 
 A few plain lines on each read day (daily to 30 October 2026, Mondays and Thursdays since) on what the fixed PHP panels saw, newest first, each linking the day's checkpoints. These are working records: what a source said and when Lighthouse read it, not reviewed findings. Anything that would change [the public account](../articles/php-emergency-first-reading.md) is flagged here and goes through review before it reaches that page. How the watch runs is in [the continuation plan](php-watch-continuation-2026-10-23.md).
 
+## 26 November 2026
+
+The Thursday read (Watch run, 14:14 to 14:20 UTC). LH030 did not read: its last scheduled read was 23 November, and its closure waits on Research.
+
+- **A vendor ties the newer flaw to the November fixes:** Google's bulletin GCP-2026-090 carries an update dated 23 November saying its patched runtimes also cover CVE-2026-115560, which it calls "a critical PHP vulnerability where a session serializer mismatch can lead to a remote code execution". Cisco's feed lists a critical advisory of 24 November for the other November session flaw, CVE-2026-126714, and Oracle Linux a second OL10 php8.4 erratum. No vendor class changed for the October flaws (7 of 20 with a statement) and no vendor says its products were exploited ([LH037](../studies/LH037/checkpoints/2026-11-26T1414Z.md)).
+- **CISA's catalogue:** version 2026.11.25 lists the two PHP flaws as before; CVE-2026-115560 is not listed. Palo Alto Networks' advisory, its machine-readable file (same 20 fixed builds) and Unit 42's brief are unchanged in substance ([LH031](../studies/LH031/checkpoints/2026-11-26.md)).
+- **Products embedding PHP:** no new commit to the Dutch NCSC's list since 19 November: 976 entries, 218 recording a fix for each original flaw; its README still points to "the next regular bugfix release" for CVE-2026-115560 ([LH032](../studies/LH032/checkpoints/2026-11-26.md)).
+- **Media sweep, 14:18 UTC:** 94 distinct URLs, 2 new; one page read, one refused by robots.txt; no report of exploitation of CVE-2026-115560, and no result mentions the 19 November releases ([sweep](php-media-sweep/2026-11-26T1418Z.md)).
+- **Flagged for review:** with Splunk's advisory of 20 November, Google's update makes two vendors on the panel that tie CVE-2026-115560 to fixes from PHP's 19 November releases. This bears on the public account's sentence that the newer flaw awaits PHP's next regular release, which already waits on LH030's closure and record.
+
 ## 23 November 2026
 
 The Monday read (Watch run, 14:19 to 14:26 UTC), the last scheduled read for how PHP's 23 October instruction travels.
