@@ -1,0 +1,26 @@
+{
+ "url": "http://users.umiacs.umd.edu/~tdumitra/papers/USENIX-SECURITY-2018a.pdf",
+ "read_utc": "2026-11-26T20:48:06Z",
+ "final_url": "http://users.umiacs.umd.edu/~tudor/papers/USENIX-SECURITY-2018a.pdf",
+ "http_status": 200,
+ "content_type": "application/pdf",
+ "bytes": 365567,
+ "sha256": "d6216cd4240723decab3ece4b5f19db77b8e15b0f445fcc075e1638898f73079",
+ "used_for": "LH061 search-and-read row, 25 November 2026: inclusion decision and claims (claims.csv)",
+ "body_kept": "no: no licence allowing redistribution, and no public-domain statement, found in the document read",
+ "body_removed": "Body not kept under the keeper's decision of 21 November 2026 (notes/keeper/2026-11-21-robots-intent.md): the site's robots.txt refuses AI-training or archiving crawlers, or all bots, or the page reserves itself from AI use, so Lighthouse keeps the URL, read time, status, SHA-256 of the bytes received and the facts its records use, not the page.",
+ "extracted": {
+  "title": "Kim, Kwon, Kozák, Gates and Dumitraș, \"The Broken Shield: Measuring Revocation Effectiveness in the Windows Code-Signing PKI\"",
+  "venue": "USENIX Security Symposium 2018, as the project page names it (peer reviewed; the PDF read is the authors' copy and carries no venue line)",
+  "licence": "none stated in the document read",
+  "funder_and_interest": "\"partially supported by the National Science Foundation (award CNS-1564143) and the Department of Defense\"; one author's affiliation is a security vendor's research laboratory, and the paper uses that vendor's telemetry and internal sample repository, as stated",
+  "measure": "revocation of code-signing certificates that were compromised or used to sign malware, by the certificate authorities that issued them",
+  "inclusion": "included (Part A): condition 1, revocation of abused credentials in the field; condition 2, it measures how long certificates stayed unrevoked after signed malware was detected, whether revocation stopped signed malware being trusted, and whether revocations stayed on the lists; condition 3, populations, data sources and periods stated",
+  "data": "seven datasets; the authors \"make three data sets publicly available\" (revocation information, revocation publication date list, list reachability history), as stated and not checked; certificate corpus partly from public prior datasets and partly from the vendor's internal repository; binary metadata from the vendor's customer telemetry and a commercial scanning service",
+  "claim_A03_1": "revocation delay, from the earliest detection of a signed malware sample to the certificate's addition to its revocation list, for 254 certificates (of 2,617 revoked certificates whose revocation was published between 16 April and 10 September 2017, 468 found in the vendor's telemetry): \"The revocation delay ranges from one day to 1553 days\"; \"The average delay is 171.4 days (5.6 months) (std 324.9 days, median 38 days)\"; the detection date is \"a conservative estimate\", as the authors say",
+  "claim_A03_2": "of 1,022 revoked certificates among 45,613 certificates signing samples in the vendor's telemetry with scanning-service reports, 891 had soft revocation; for 45 (5.1%) the effective revocation date was later than the first malware signing date, and \"250 malware (5.3% out of the 4,716 malware) signed with the 45 certificates still remain valid\"; the gap ran from one day to \"1019 days (2.8 years)\". The paper's Table 1 gives \"62 certificates, causing 402 signed malware to remain valid\"; the paper does not reconcile the two figures. The authors give a reason; it is not restated (brief, Never done)",
+  "claim_A03_3": "on the revocation lists monitored daily from 16 April to 10 September 2017, \"278 certificates are added and then later removed from 18 CRLs\"; \"Most removed serial numbers are never re-added\", one re-added after 106 days. The authors give reasons; not restated",
+  "claim_A03_4": "\"19 certificates have inconsistent responses from CRLs and OCSP\" (valid by one revocation check, revoked by the other), and Windows presented malware signed with them as valid in the authors' test. The authors give a reason; not restated",
+  "not_recorded": "the paper's estimate of how many abused certificates one vendor sees (a discovery estimate, not an outcome of revocation) and its findings on missing, unreachable, stale or uncertain revocation information by certificate authority (reasons revocation fails to reach clients, which the brief does not restate or tally); no certificate authority, host or list address is named in this record"
+ }
+}

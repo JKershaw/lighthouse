@@ -15,7 +15,8 @@ CLASSES = ["measured outcome", "self-reported", "modelled", "asserted"]
 
 def data_label(value):
     v = value.strip().lower()
-    for key in ("yes", "partly", "no", "not applicable"):
+    # "not applicable" is tested before "no", which it starts with (fixed 26 November 2026 after R-0158 S3).
+    for key in ("yes", "partly", "not applicable", "no"):
         if v.startswith(key):
             return key
     return "other: " + value
