@@ -323,6 +323,14 @@ Ranked by the sweep of 20 November 2026 (scientific value, decision relevance, e
 - Research safety (for the gate): the table names networks beside counts of unpatched services. Offered narrowing: size bands only (by `services` or `ips` per network), no network named in anything kept or published, no host looked up, and nothing ranked by how vulnerable a network is.
 - Next step: the gate decides between started (a deepening of an active investigation), backlog, or declined on safety grounds; first establish from Censys's own documentation whether the list is complete.
 
+### P-0052 How much of GitHub's public event stream GH Archive's hourly files now hold, against an independent total
+
+- Kind: repair (of a measurement several studies use). Priority: normal. Status: backlog (proposed by the reader-and-inference review of LH051's record, notes/R-0153.md, 26 November 2026, for the next sweep's fresh gate). Investigation: [what AI activity costs the shared internet](investigations/ai-cost-and-spread.md).
+- Source: [LH051](studies/LH051/LH051.md), version 1.2: in one vendor's window the files hold 41,014 pull request events of every kind against that vendor's 61,839 probe pull requests by GitHub's search, so the files' volume caps any campaign's share; [LH046](studies/LH046/LH046.md) found whole event types missing from two in three sampled hours and pull request events at roughly half their earlier level.
+- Why: LH051's low share and LH046's gap both turn on what fraction of GitHub's public activity the files hold, which no Lighthouse study has measured against a total that does not come from GH Archive itself. Asking whether LH051's share is typical of campaigns would not separate source from campaign; this would.
+- Cost: to be found: an independent total is needed (GitHub's public events feed polled beside the files, which LH046's December re-check already weighs, or a published count); github.com's pages answered this container 403 (L-0040), so feasibility comes first.
+- Next step: the gate decides; it may fold into LH046-recheck rather than stand alone.
+
 ### P-0051 Standing and rebuilt inside one unit: build-server fetches against the rest, day by day, for one fix in PyPI's logs
 
 - Kind: new question (a deepening of where software updates go). Priority: normal. Status: backlog (proposed by the reader-and-inference review of the essay's revision, notes/R-0142-essay-rev-reader.md, 25 November 2026, for the next sweep's fresh gate). Investigation: [where software updates go](investigations/software-updates.md).
