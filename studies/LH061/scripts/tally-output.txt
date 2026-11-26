@@ -4,9 +4,9 @@ claims in file: 36
 == Part A: 24 claims
 by class: measured outcome 22, self-reported 0, modelled 1, asserted 1
 by setting: {'field': 21, 'laboratory': 3}
-vendor yes: 9
+vendor yes: 14
 data public: {'no': 11, 'partly': 9, 'yes': 3, 'not applicable': 1}
-measured claims: 22; of these vendor 8, laboratory 2, field 20, exercise 0
+measured claims: 22; of these vendor 13, laboratory 2, field 20, exercise 0
 measured claims, data public: {'no': 10, 'partly': 9, 'yes': 3}
 per document (class counts; documents are not pooled):
   A01 Alowaisheq and others, NDSS 2019: total 5; measured outcome 5, self-reported 0, modelled 0, asserted 0
@@ -17,11 +17,11 @@ per document (class counts; documents are not pooled):
   A08 Kaya and others, arXiv 2611.30483: total 2; measured outcome 2, self-reported 0, modelled 0, asserted 0
   A09 Ife and others, arXiv 2104.01631 (text states RAID 2021): total 2; measured outcome 2, self-reported 0, modelled 0, asserted 0
 per claim, direction as recorded:
-  A01-1: measured outcome | field | vendor no | duration: about two years on average
-  A01-2: measured outcome | field | vendor no | measure ended (released) for a share; the authors call the ten-month span short
-  A01-3: measured outcome | field | vendor no | fell then returned (for these domains)
-  A01-4: measured outcome | field | vendor no | fell then returned (two confirmed cases)
-  A01-5: measured outcome | field | vendor no | duration: varied by party
+  A01-1: measured outcome | field | vendor yes | duration: about two years on average
+  A01-2: measured outcome | field | vendor yes | measure ended (released) for a share; the authors call the ten-month span short
+  A01-3: measured outcome | field | vendor yes | fell then returned (for these domains)
+  A01-4: measured outcome | field | vendor yes | fell then returned (two confirmed cases)
+  A01-5: measured outcome | field | vendor yes | duration: varied by party
   A02-1: measured outcome | field | vendor no | fell (small share)
   A02-2: measured outcome | field | vendor no | no visible change (exposure persisted)
   A03-1: measured outcome | field | vendor yes | duration: 1 to 1,553 days, average 171.4, median 38
