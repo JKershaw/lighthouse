@@ -54,7 +54,7 @@ Rewritten by the horizon sweep of 24 November 2026 ([sweep file](notes/horizon/2
 
 - **Started since your review.** By you: [When AI acquires physical authority](investigations/physical-authority.md) with LH050 (12 November); P-0029 as LH051 and P-0031 as LH050's amendment 1 (13 November); P-0034 as LH052 (13 November, published, stopped); the reader's site and the content survey's recommendations (13 November); the Microsoft outage report watch (14 November; closed 22 November with a reviewed comparison); ARTEX as P-0039 / LH055 (17 November; reviewed interim records, inconclusive); P-0043 as LH058 (20 November). By the gates, without review: P-0026 as LH049 and P-0025 as an LH044 amendment (10 November); P-0036 as LH053 and P-0038 as LH054 (17 November); P-0040 as LH056 (18 November); P-0041 as an LH038 amendment and P-0044 as LH057 (20 November); **P-0049 as LH059** (Amazon's report that an attacker's AI agents found and used an unknown flaw "on their own": what supports it, and the flaw's public clock; reads to 15 December) and **P-0047 as LH060** (your direction: what published studies find about deployment of security fixes by operator size; desk study, reading to 11 December), both 24 November, neither urgent.
 - **What the work found, from records reviewed since the last rewrite.** LH033 (1.2, 23 November): 75.0 to 92.2 per cent of each fixed PHP branch counted patched by Censys on day 30, the later rise in three branches mostly from fewer services counted. LH039 (1.2, 22 November): W3Techs's survey is a lagged view that can't say how fast sites moved. LH047 (0.6, 23 November): the week-47 re-audit of Lighthouse's own requests; the fall in robots.txt breaches is mostly a change in what was audited. The Microsoft report comparison (22 November): the report says only that the change "was not caused by AI tooling". Earlier findings are in the previous rewrite in git history.
-- **Agreed by you in conversation on 24 November:** P-0046 and P-0048 ([the keeper's decision](notes/keeper/2026-11-24-defensive-side.md)), started as one desk note, LH061. **Waiting for you:** P-0002 (an account for the installer's version); P-0024 (lab-run agents on shared infrastructure); P-0028 (agents' working files in public repositories). None is urgent; "no" is an acceptable answer to each.
+- **Agreed by you in conversation on 24 November:** P-0046 and P-0048 ([the keeper's decision](notes/keeper/2026-11-24-defensive-side.md)), started as one desk note, LH061. **Declined by you on 26 November:** P-0002 (an account for the installer's version). **Waiting for you:** P-0024 (lab-run agents on shared infrastructure); P-0028 (agents' working files in public repositories). None is urgent; "no" is an acceptable answer to each.
 - **The sweeps since your review:** 10, 13, 17, 20 and 24 November, and a one-off on 18 November. On 24 November every URL in the scouts' logs was gated after hand-back and no breach was found. One conduct question is open: a scout read the NANOG list's archive on a newer host without robots.txt, while the older host refuses Anthropic's training crawler; the gate judged it within your rule of 21 November on conditions, and the next sweep reads the older host's robots.txt to settle it, pausing those reads meanwhile.
 - **Top of the backlog, with a recommendation each:**
   1. P-0023 (one shared fetcher): start as a repair; its brief should say whether ad hoc reads in sweeps go through it, and which gate mode scouts use.
@@ -285,17 +285,6 @@ Agreed and not yet started: the next run takes these after the started lane (sch
 - Keeper, 2026-11-08: yes to the runner step; schedule/runner.md step 7 now keeps site/this-week.md.
 
 ## Waiting for the keeper
-
-### P-0002 The installer's version beside the flat download profile
-
-- Kind: deepening. Priority: normal. Status: waiting for the keeper (later, 8 November 2026; the read needs a BigQuery account a task must name). Investigation: software updates.
-- Source: studies/LH013/LH013.md Next; notes/R-0047-lh013-reader.md; row LH013-installer-brief (the brief only).
-- Why: the reading that boto3's older downloads are an installer trying version after version rests on a profile no field confirms; the installer's version and the burst test could.
-- Cost: one day of the public table; the account is the decision.
-- Next step: the brief is already a row; the read waits for the keeper to name an account, or to decline.
-- Keeper, 2026-11-08: later. The brief (row LH013-installer-brief) goes ahead; it should say whether a free public source, such as ClickPy's SQL, carries the installer's version before any account is named.
-- 2026-11-19: no free public source the brief read carries the installer's version (ClickPy drops it; pepy.tech and other mirrors were not checked). Its Stage A, which needs no account, ran on 19 November: no metadata-file rows for boto3 on 17 November 2026 in ClickPy, class absent (studies/LH013/LH013.md version 0.3, reviewed). Stage B, the installer's version and the burst test, still waits for the keeper to name an account or decline.
-
 
 ### P-0024 Lab-run agents on shared public infrastructure in 2026: a dated ledger of the reported incidents, and what each named host's own public records show
 
@@ -805,6 +794,17 @@ From the Editor run of 24 November 2026 (2026-11-24T181100Z-anthropic-editor), t
 - L-0207 (kind: editorial) /schedule/ still shows LH030-record's note reasoning about "PHP plans 8.6.0 for 19 November", while PHP's 19 November releases were 8.5.13, 8.4.28, 8.3.37 and 8.2.36. Research's to reconcile when it takes LH030-stop and the record.
 
 ## Declined, parked and expired
+
+### P-0002 The installer's version beside the flat download profile
+
+- Kind: deepening. Priority: normal. Status: declined (the keeper, 26 November 2026). Investigation: software updates.
+- Source: studies/LH013/LH013.md Next; notes/R-0047-lh013-reader.md; row LH013-installer-brief (the brief only).
+- Why: the reading that boto3's older downloads are an installer trying version after version rests on a profile no field confirms; the installer's version and the burst test could.
+- Cost: one day of the public table; the account is the decision.
+- Next step: the brief is already a row; the read waits for the keeper to name an account, or to decline.
+- Keeper, 2026-11-08: later. The brief (row LH013-installer-brief) goes ahead; it should say whether a free public source, such as ClickPy's SQL, carries the installer's version before any account is named.
+- 2026-11-19: no free public source the brief read carries the installer's version (ClickPy drops it; pepy.tech and other mirrors were not checked). Its Stage A, which needs no account, ran on 19 November: no metadata-file rows for boto3 on 17 November 2026 in ClickPy, class absent (studies/LH013/LH013.md version 0.3, reviewed). Stage B, the installer's version and the burst test, still waits for the keeper to name an account or decline.
+- Keeper, 2026-11-26: declined. Stage B and the installer record's next version are cancelled; LH013's record says the question stays open (studies/LH013/LH013.md, Next).
 
 ### P-0035 An extra LH050 panel read on 20 November, the CCW Review Conference's closing day
 
