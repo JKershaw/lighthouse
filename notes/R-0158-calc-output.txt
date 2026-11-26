@@ -1,0 +1,36 @@
+R-0158 calc
+
+== 1. tally.py rerun
+rerun sha256     c85281e193870a880af97e7bd8bae4c05be1835570f4a40f4937f7c60055527e
+committed sha256 c85281e193870a880af97e7bd8bae4c05be1835570f4a40f4937f7c60055527e
+identical: True
+
+== 2. data_public labels as tally.py sorts them
+  A05-2: value 'not applicable' sorted as 'no'
+Part A data public, as tally.py: {'no': 12, 'partly': 6, 'yes': 2}
+Part A data public, corrected:  {'no': 11, 'partly': 6, 'not applicable': 1, 'yes': 2}
+Part A measured, corrected:     {'no': 10, 'partly': 6, 'yes': 2}
+
+== 3. reread hashes against fetchlog.csv
+  A01-alowaisheq-ndss2019: logged 2281755 bytes 87c3432a1eaed781, reread 2281755 bytes 87c3432a1eaed781: same bytes
+  A02-meli-ndss2019: logged 423795 bytes b660895aa0b5fa61, reread 423795 bytes b660895aa0b5fa61: same bytes
+  A03-kim-usenix2018: logged 8522 bytes 4546ba7ec595d67c, reread 8522 bytes 4546ba7ec595d67c: same bytes
+  A05-nadji-ccs2013: logged 576571 bytes d24b6ca0719c9db0, reread 576571 bytes d24b6ca0719c9db0: same bytes
+  A07-arxiv2603.12498: logged 1034943 bytes 800ed93fdbee6b8d, reread 1034943 bytes 800ed93fdbee6b8d: same bytes
+  A08-arxiv2611.30483: logged 452625 bytes a3d646eb856c40b6, reread 452625 bytes a3d646eb856c40b6: same bytes
+  A09-arxiv2104.01631: logged 5498363 bytes 3a2766109ba7cbfa, reread 5498363 bytes 3a2766109ba7cbfa: same bytes
+  B04-simex24: logged 77777 bytes aef7e84f7cd86148, reread 77778 bytes a26fd2695df464ac: different bytes (HTML page; 1 bytes difference)
+  B07-quantumdawn-vii: logged 2166342 bytes 05da103f7564f8a6, reread 2166342 bytes 05da103f7564f8a6: same bytes
+  B11-canada-capstone-2024: logged 59029 bytes 92ef446703f072bc, reread 59029 bytes d2c3b012f8004eea: different bytes (HTML page; 0 bytes difference)
+same bytes: 8 of 10
+
+== 4. A07 percentages from the paper's counts
+  exposures day 0 to 14: 1405 to 706, fall 49.8%
+  still-valid day 0 to 14: 1175 to 865, fall 26.4%
+  exposures day 14 to 172: 706 to 1019, rise 44.3%
+  still-valid day 14 to 172: 865 to 660, fall 23.7%
+
+== 5. Part A labels under the review's should-fix rulings (claims.csv unchanged)
+  setting, all Part A: {'field': 17, 'laboratory': 3}
+  vendor yes, all Part A: 6
+  measured claims: field 16 laboratory 2 vendor 5 of 18
