@@ -86,3 +86,4 @@ date_utc,run_id,component,amount,currency,basis,note
 2026-11-26,2026-11-26T141100Z-anthropic-watch,driver,3.20,USD,list_rate_estimate,"hb drivercost from 14:11 UTC (2.66 before the close, plus an allowance for it)"
 2026-11-26,2026-11-26T141100Z-anthropic-watch,subagents_opus,2.88,USD,list_rate_estimate,"three Opus 5.5 subagents priced by hb tokens: LH050 panel read 1.11, LH031 and LH037 checkpoints 1.25, LH036 and LH054 checkpoints 0.53"
 2026-11-26,2026-11-26T141100Z-anthropic-watch,subagents_sonnet,,,unavailable,"one Sonnet 5.5 media-sweep subagent (about 363,000 cache-read, 72,000 cache-write and 4,300 output tokens by hb tokens); prices.json has no Sonnet 5.5 rate"
+2026-11-26,2026-11-26T151100Z-anthropic-research,driver,1.29,USD,list_rate_estimate,"driver session priced by hb drivercost since 15:10Z (18 calls); no subagents; final run-record steps after the reading are not included"
