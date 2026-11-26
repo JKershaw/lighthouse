@@ -1,7 +1,8 @@
 {
  "reads": [
   "2026-11-19T1420Z",
-  "2026-11-23T1429Z"
+  "2026-11-23T1429Z",
+  "2026-11-26T1414Z"
  ],
  "events": {
   "F": "2026-11-03",
@@ -2898,6 +2899,1641 @@
      "text_sha256": "c5ae3b767adef7d0c46c42a1df1d4aff5fe0bb02c93ea89e28014b9113161c25"
     }
    }
+  },
+  "2026-11-26T1414Z": {
+   "kev": {
+    "source": "LH036/data/read-2026-11-26T1414Z",
+    "state": "not listed",
+    "catalogVersion": "2026.11.25",
+    "dateReleased": "2026-11-25T19:48:12.4344Z"
+   },
+   "record": {
+    "cve_dateUpdated": "2026-11-23T08:00:56.806Z",
+    "cna_dateUpdated": "2026-11-23T08:00:56.806Z",
+    "cna_cvss": [
+     [
+      "CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:U/C:N/I:N/A:H",
+      7.5
+     ]
+    ],
+    "adp": [
+     {
+      "provider": "CVE",
+      "dateUpdated": "2026-11-20T04:06:11.697Z"
+     },
+     {
+      "provider": "CISA-ADP",
+      "dateUpdated": "2026-11-17T18:08:29.805Z",
+      "cvss": [
+       "CVSS:3.1/AV:N/AC:H/PR:N/UI:N/S:U/C:N/I:N/A:H",
+       5.9
+      ],
+      "ssvc": {
+       "Exploitation": "none",
+       "Automatable": "yes",
+       "Technical Impact": "partial"
+      }
+     }
+    ],
+    "cve_refs": [
+     "http://www.openwall.com/lists/oss-security/2026/11/15/2",
+     "http://www.openwall.com/lists/oss-security/2026/11/20/1",
+     "http://www.openwall.com/lists/oss-security/2026/11/20/3",
+     "https://git.kernel.org/stable/c/1ab6de9bf42a4349e789de1fe287d2a726bfd21e",
+     "https://git.kernel.org/stable/c/4e2b3ef19e0e04adca38442f07dd6bc93c712bf1",
+     "https://git.kernel.org/stable/c/82b98cca88e1856245e5f18fd3ddd99b6dab4550",
+     "https://git.kernel.org/stable/c/8e5172cbd227fae32f3313cba1f3e1b9edb5c4fd",
+     "https://git.kernel.org/stable/c/a2f5923c195a1d2b0a3988240b28bd89e078793c",
+     "https://git.kernel.org/stable/c/cedc85d95ce0d552519c4506927a691c5b97a5dc",
+     "https://git.kernel.org/stable/c/d69100340b4cae08d40f898f1b601032403f6be6",
+     "https://git.kernel.org/stable/c/eb8a2d156f2c1d862fffdfd1b3432bfbcd939879"
+    ],
+    "nvd_vulnStatus": "Received",
+    "nvd_lastModified": "2026-11-23T08:17:33.490",
+    "nvd_metrics": [
+     [
+      "cvssMetricV31",
+      "416baaa9-dc9f-4396-8d5f-8c081fb06d67",
+      "Secondary",
+      "CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:U/C:N/I:N/A:H"
+     ],
+     [
+      "cvssMetricV31",
+      "134c704f-9b21-4f2e-91b3-4a467353bcc0",
+      "Secondary",
+      "CVSS:3.1/AV:N/AC:H/PR:N/UI:N/S:U/C:N/I:N/A:H"
+     ],
+     [
+      "ssvcV203",
+      "134c704f-9b21-4f2e-91b3-4a467353bcc0",
+      null,
+      null
+     ]
+    ],
+    "osv_modified": "2026-11-24T20:45:32.912015931Z",
+    "osv_related": [
+     "ALSA-2026:102167",
+     "ALSA-2026:102168",
+     "ALSA-2026:102218",
+     "ALSA-2026:102219"
+    ],
+    "osv_refs": [
+     "http://www.openwall.com/lists/oss-security/2026/11/15/2",
+     "http://www.openwall.com/lists/oss-security/2026/11/20/1",
+     "http://www.openwall.com/lists/oss-security/2026/11/20/3",
+     "https://git.kernel.org/pub/scm/linux/kernel/git/stable/linux.git",
+     "https://git.kernel.org/stable/c/1ab6de9bf42a4349e789de1fe287d2a726bfd21e",
+     "https://git.kernel.org/stable/c/4e2b3ef19e0e04adca38442f07dd6bc93c712bf1",
+     "https://git.kernel.org/stable/c/82b98cca88e1856245e5f18fd3ddd99b6dab4550",
+     "https://git.kernel.org/stable/c/8e5172cbd227fae32f3313cba1f3e1b9edb5c4fd",
+     "https://git.kernel.org/stable/c/a2f5923c195a1d2b0a3988240b28bd89e078793c",
+     "https://git.kernel.org/stable/c/cedc85d95ce0d552519c4506927a691c5b97a5dc",
+     "https://git.kernel.org/stable/c/d69100340b4cae08d40f898f1b601032403f6be6",
+     "https://git.kernel.org/stable/c/eb8a2d156f2c1d862fffdfd1b3432bfbcd939879",
+     "https://github.com/CVEProject/cvelistV5/tree/main/cves/2026/99xxx/CVE-2026-99288.json",
+     "https://nvd.nist.gov/vuln/detail/CVE-2026-99288"
+    ]
+   },
+   "debian": [
+    {
+     "package": "linux",
+     "release": "bookworm",
+     "version": "6.1.176-1",
+     "status": "vulnerable"
+    },
+    {
+     "package": "linux",
+     "release": "bookworm (security)",
+     "version": "6.1.192-2",
+     "status": "fixed"
+    },
+    {
+     "package": "linux",
+     "release": "trixie",
+     "version": "6.12.117-1",
+     "status": "fixed"
+    },
+    {
+     "package": "linux",
+     "release": "trixie (security)",
+     "version": "6.12.118-1",
+     "status": "fixed"
+    },
+    {
+     "package": "linux",
+     "release": "forky",
+     "version": "7.3.5-1",
+     "status": "fixed"
+    },
+    {
+     "package": "linux",
+     "release": "sid",
+     "version": "7.3.6-1",
+     "status": "fixed"
+    },
+    {
+     "package": "linux-6.12",
+     "release": "bookworm (security)",
+     "version": "6.12.117-1~deb12u1",
+     "status": "fixed"
+    }
+   ],
+   "ubuntu": {
+    "priority": "high",
+    "linux": {
+     "trusty": [
+      "not-affected",
+      "3.11.0-12.19"
+     ],
+     "upstream": [
+      "released",
+      "7.4~rc2, 6.8.y, 7.0.y, 7.3.4"
+     ],
+     "bionic": [
+      "pending",
+      "4.15.0-264.276"
+     ],
+     "focal": [
+      "pending",
+      "5.4.0-248.268"
+     ],
+     "jammy": [
+      "pending",
+      "5.15.0-205.215"
+     ],
+     "noble": [
+      "pending",
+      "6.8.0-152.152"
+     ],
+     "resolute": [
+      "pending",
+      "7.0.0-45.45"
+     ],
+     "stonking": [
+      "pending",
+      "7.3.0-12.13"
+     ],
+     "xenial": [
+      "pending",
+      "4.4.0-294.328"
+     ]
+    },
+    "notices": []
+   },
+   "redhat": {
+    "threat_severity": "Important",
+    "cvss3": {
+     "cvss3_base_score": "7.5",
+     "cvss3_scoring_vector": "CVSS:3.1/AV:N/AC:H/PR:L/UI:N/S:U/C:H/I:H/A:H",
+     "status": "verified"
+    },
+    "package_state": [
+     [
+      "Red Hat Enterprise Linux 6",
+      "kernel",
+      "Not affected"
+     ],
+     [
+      "Red Hat Enterprise Linux 7",
+      "kernel",
+      "Not affected"
+     ],
+     [
+      "Red Hat Enterprise Linux 7",
+      "kernel-rt",
+      "Not affected"
+     ],
+     [
+      "Red Hat OpenShift Container Platform 4",
+      "openshift/ose-rhel-coreos-8",
+      "Affected"
+     ],
+     [
+      "Red Hat OpenShift Container Platform 4",
+      "openshift/ose-rhel-coreos-9",
+      "Affected"
+     ],
+     [
+      "Red Hat OpenShift Container Platform 5",
+      "openshift/ose-rhel-coreos-10",
+      "Affected"
+     ],
+     [
+      "Red Hat OpenShift Container Platform 5",
+      "openshift/ose-rhel-coreos-9",
+      "Affected"
+     ]
+    ],
+    "affected_release": [
+     [
+      "Red Hat Enterprise Linux 10",
+      "kernel-0:6.12.0-264.19.1.el10_3",
+      "RHSA-2026:102168",
+      "2026-11-23T00:00:00Z"
+     ],
+     [
+      "Red Hat Enterprise Linux 8",
+      "kernel-0:4.18.0-553.189.1.el8_10",
+      "RHSA-2026:102218",
+      "2026-11-23T00:00:00Z"
+     ],
+     [
+      "Red Hat Enterprise Linux 8",
+      "kernel-rt-0:4.18.0-553.189.1.rt7.530.el8_10",
+      "RHSA-2026:102219",
+      "2026-11-23T00:00:00Z"
+     ],
+     [
+      "Red Hat Enterprise Linux 8.8 Telecommunications Update Service",
+      "kernel-0:4.18.0-477.181.1.el8_8",
+      "RHSA-2026:102709",
+      "2026-11-24T00:00:00Z"
+     ],
+     [
+      "Red Hat Enterprise Linux 8.8 Update Services for SAP Solutions",
+      "kernel-0:4.18.0-477.181.1.el8_8",
+      "RHSA-2026:102709",
+      "2026-11-24T00:00:00Z"
+     ],
+     [
+      "Red Hat Enterprise Linux 9",
+      "kernel-0:5.14.0-741.26.1.el9_9",
+      "RHSA-2026:102167",
+      "2026-11-23T00:00:00Z"
+     ],
+     [
+      "Red Hat Enterprise Linux 9",
+      "kernel-0:5.14.0-741.26.1.el9_9",
+      "RHSA-2026:102167",
+      "2026-11-23T00:00:00Z"
+     ]
+    ]
+   },
+   "suse": {
+    "overall": "Pending",
+    "states": [
+     [
+      "SUSE Linux Enterprise Desktop 15 SP7",
+      "kernel-64kb",
+      "In progress"
+     ],
+     [
+      "SUSE Linux Enterprise Desktop 15 SP7",
+      "kernel-default",
+      "In progress"
+     ],
+     [
+      "SUSE Linux Enterprise Desktop 15 SP7",
+      "kernel-default-base",
+      "In progress"
+     ],
+     [
+      "SUSE Linux Enterprise Desktop 15 SP7",
+      "kernel-docs",
+      "In progress"
+     ],
+     [
+      "SUSE Linux Enterprise Desktop 15 SP7",
+      "kernel-obs-build",
+      "In progress"
+     ],
+     [
+      "SUSE Linux Enterprise Desktop 15 SP7",
+      "kernel-source",
+      "In progress"
+     ],
+     [
+      "SUSE Linux Enterprise Desktop 15 SP7",
+      "kernel-syms",
+      "In progress"
+     ],
+     [
+      "SUSE Linux Enterprise Desktop 15 SP7",
+      "kernel-zfcpdump",
+      "In progress"
+     ],
+     [
+      "SUSE Linux Enterprise High Availability Extension 15 SP7",
+      "kernel-default",
+      "In progress"
+     ],
+     [
+      "SUSE Linux Enterprise High Availability Extension 15 SP7",
+      "kernel-source",
+      "Affected"
+     ],
+     [
+      "SUSE Linux Enterprise High Availability Extension 16.0",
+      "kernel-default",
+      "Affected"
+     ],
+     [
+      "SUSE Linux Enterprise High Availability Extension 16.0",
+      "kernel-source",
+      "Affected"
+     ],
+     [
+      "SUSE Linux Enterprise High Availability Extension 16.1",
+      "kernel-default",
+      "Affected"
+     ],
+     [
+      "SUSE Linux Enterprise High Availability Extension 16.1",
+      "kernel-source",
+      "Affected"
+     ],
+     [
+      "SUSE Linux Enterprise Micro 5.4",
+      "kernel-default",
+      "Affected"
+     ],
+     [
+      "SUSE Linux Enterprise Micro 5.4",
+      "kernel-rt",
+      "Affected"
+     ],
+     [
+      "SUSE Linux Enterprise Micro 5.4",
+      "kernel-source",
+      "In progress"
+     ],
+     [
+      "SUSE Linux Enterprise Micro 5.4",
+      "kernel-source-rt",
+      "In progress"
+     ],
+     [
+      "SUSE Linux Enterprise Micro 5.5",
+      "kernel-default",
+      "Affected"
+     ],
+     [
+      "SUSE Linux Enterprise Micro 5.5",
+      "kernel-source",
+      "In progress"
+     ],
+     [
+      "SUSE Linux Enterprise Micro 5.5",
+      "kernel-source-rt",
+      "In progress"
+     ],
+     [
+      "SUSE Linux Enterprise Module for Basesystem 15 SP7",
+      "kernel-64kb",
+      "In progress"
+     ],
+     [
+      "SUSE Linux Enterprise Module for Basesystem 15 SP7",
+      "kernel-default",
+      "In progress"
+     ],
+     [
+      "SUSE Linux Enterprise Module for Basesystem 15 SP7",
+      "kernel-default-base",
+      "In progress"
+     ],
+     [
+      "SUSE Linux Enterprise Module for Basesystem 15 SP7",
+      "kernel-source",
+      "In progress"
+     ],
+     [
+      "SUSE Linux Enterprise Module for Basesystem 15 SP7",
+      "kernel-zfcpdump",
+      "In progress"
+     ],
+     [
+      "SUSE Linux Enterprise Module for Development Tools 15 SP7",
+      "kernel-default",
+      "Affected"
+     ],
+     [
+      "SUSE Linux Enterprise Module for Development Tools 15 SP7",
+      "kernel-docs",
+      "In progress"
+     ],
+     [
+      "SUSE Linux Enterprise Module for Development Tools 15 SP7",
+      "kernel-obs-build",
+      "In progress"
+     ],
+     [
+      "SUSE Linux Enterprise Module for Development Tools 15 SP7",
+      "kernel-source",
+      "In progress"
+     ],
+     [
+      "SUSE Linux Enterprise Module for Development Tools 15 SP7",
+      "kernel-syms",
+      "In progress"
+     ],
+     [
+      "SUSE Linux Enterprise Module for Legacy 15 SP7",
+      "kernel-default",
+      "In progress"
+     ],
+     [
+      "SUSE Linux Enterprise Module for Public Cloud 15 SP7",
+      "kernel-azure",
+      "In progress"
+     ],
+     [
+      "SUSE Linux Enterprise Real Time 15 SP7",
+      "kernel-source-rt",
+      "In progress"
+     ],
+     [
+      "SUSE Linux Enterprise Server 15 SP7",
+      "kernel-64kb",
+      "In progress"
+     ],
+     [
+      "SUSE Linux Enterprise Server 15 SP7",
+      "kernel-azure",
+      "In progress"
+     ],
+     [
+      "SUSE Linux Enterprise Server 15 SP7",
+      "kernel-default",
+      "In progress"
+     ],
+     [
+      "SUSE Linux Enterprise Server 15 SP7",
+      "kernel-default-base",
+      "In progress"
+     ],
+     [
+      "SUSE Linux Enterprise Server 15 SP7",
+      "kernel-docs",
+      "In progress"
+     ],
+     [
+      "SUSE Linux Enterprise Server 15 SP7",
+      "kernel-obs-build",
+      "In progress"
+     ],
+     [
+      "SUSE Linux Enterprise Server 15 SP7",
+      "kernel-source",
+      "In progress"
+     ],
+     [
+      "SUSE Linux Enterprise Server 15 SP7",
+      "kernel-syms",
+      "In progress"
+     ],
+     [
+      "SUSE Linux Enterprise Server 15 SP7",
+      "kernel-zfcpdump",
+      "In progress"
+     ],
+     [
+      "SUSE Linux Enterprise Server 16.0",
+      "kernel-default",
+      "Affected"
+     ],
+     [
+      "SUSE Linux Enterprise Server 16.0",
+      "kernel-source",
+      "In progress"
+     ],
+     [
+      "SUSE Linux Enterprise Server 16.1",
+      "kernel-default",
+      "Affected"
+     ],
+     [
+      "SUSE Linux Enterprise Server 16.1",
+      "kernel-source",
+      "Affected"
+     ],
+     [
+      "SUSE Linux Enterprise Server for NVIDIA 16.1",
+      "kernel-default",
+      "Affected"
+     ],
+     [
+      "SUSE Linux Enterprise Server for NVIDIA 16.1",
+      "kernel-source",
+      "Affected"
+     ],
+     [
+      "SUSE Linux Enterprise Server for NVIDIA 16.1",
+      "kernel-source-nvidia",
+      "Affected"
+     ],
+     [
+      "SUSE Linux Enterprise Server for SAP Applications 15 SP7",
+      "kernel-64kb",
+      "In progress"
+     ],
+     [
+      "SUSE Linux Enterprise Server for SAP Applications 15 SP7",
+      "kernel-azure",
+      "In progress"
+     ],
+     [
+      "SUSE Linux Enterprise Server for SAP Applications 15 SP7",
+      "kernel-default",
+      "In progress"
+     ],
+     [
+      "SUSE Linux Enterprise Server for SAP Applications 15 SP7",
+      "kernel-default-base",
+      "In progress"
+     ],
+     [
+      "SUSE Linux Enterprise Server for SAP Applications 15 SP7",
+      "kernel-docs",
+      "In progress"
+     ],
+     [
+      "SUSE Linux Enterprise Server for SAP Applications 15 SP7",
+      "kernel-obs-build",
+      "In progress"
+     ],
+     [
+      "SUSE Linux Enterprise Server for SAP Applications 15 SP7",
+      "kernel-source",
+      "In progress"
+     ],
+     [
+      "SUSE Linux Enterprise Server for SAP Applications 15 SP7",
+      "kernel-syms",
+      "In progress"
+     ],
+     [
+      "SUSE Linux Enterprise Server for SAP Applications 15 SP7",
+      "kernel-zfcpdump",
+      "In progress"
+     ],
+     [
+      "SUSE Linux Enterprise Server for SAP applications 16.0",
+      "kernel-default",
+      "Affected"
+     ],
+     [
+      "SUSE Linux Enterprise Server for SAP applications 16.0",
+      "kernel-source",
+      "In progress"
+     ],
+     [
+      "SUSE Linux Enterprise Server for SAP applications 16.1",
+      "kernel-default",
+      "Affected"
+     ],
+     [
+      "SUSE Linux Enterprise Server for SAP applications 16.1",
+      "kernel-source",
+      "Affected"
+     ],
+     [
+      "SUSE Linux Enterprise Workstation Extension 15 SP7",
+      "kernel-default",
+      "In progress"
+     ],
+     [
+      "SUSE Linux Micro 6.0",
+      "kernel-default",
+      "Released"
+     ],
+     [
+      "SUSE Linux Micro 6.0",
+      "kernel-source",
+      "Released"
+     ],
+     [
+      "SUSE Linux Micro 6.0",
+      "kernel-source-rt",
+      "Affected"
+     ],
+     [
+      "SUSE Linux Micro 6.1",
+      "kernel-default",
+      "Released"
+     ],
+     [
+      "SUSE Linux Micro 6.1",
+      "kernel-source",
+      "Released"
+     ],
+     [
+      "SUSE Linux Micro 6.1",
+      "kernel-source-rt",
+      "Affected"
+     ],
+     [
+      "SUSE Linux Micro 6.2",
+      "kernel-default",
+      "Affected"
+     ],
+     [
+      "SUSE Linux Micro 6.2",
+      "kernel-source",
+      "In progress"
+     ],
+     [
+      "SUSE Linux Micro Extras 6.0",
+      "kernel-default",
+      "Released"
+     ],
+     [
+      "SUSE Linux Micro Extras 6.0",
+      "kernel-source",
+      "Released"
+     ],
+     [
+      "SUSE Linux Micro Extras 6.0",
+      "kernel-source-rt",
+      "Affected"
+     ],
+     [
+      "SUSE Linux Micro Extras 6.1",
+      "kernel-default",
+      "Released"
+     ],
+     [
+      "SUSE Linux Micro Extras 6.1",
+      "kernel-source",
+      "Released"
+     ],
+     [
+      "SUSE Real Time Module 15 SP7",
+      "kernel-source-rt",
+      "In progress"
+     ],
+     [
+      "openSUSE Leap 16.0",
+      "kernel-source",
+      "Affected"
+     ],
+     [
+      "openSUSE Leap 16.1",
+      "kernel-source",
+      "Affected"
+     ],
+     [
+      "openSUSE Leap 16.1",
+      "kernel-source-nvidia",
+      "Affected"
+     ],
+     [
+      "SUSE Linux Enterprise High Performance Computing 12 SP5",
+      "kernel-source",
+      "Affected"
+     ],
+     [
+      "SUSE Linux Enterprise High Performance Computing 15 SP4-LTSS",
+      "kernel-default",
+      "Affected"
+     ],
+     [
+      "SUSE Linux Enterprise High Performance Computing 15 SP4-LTSS",
+      "kernel-source",
+      "Affected"
+     ],
+     [
+      "SUSE Linux Enterprise High Performance Computing 15 SP5-LTSS",
+      "kernel-default",
+      "Affected"
+     ],
+     [
+      "SUSE Linux Enterprise High Performance Computing 15 SP5-LTSS",
+      "kernel-source",
+      "Affected"
+     ],
+     [
+      "SUSE Linux Enterprise Server 11 SP4 LTSS EXTREME CORE",
+      "kernel-default",
+      "Not affected"
+     ],
+     [
+      "SUSE Linux Enterprise Server 11 SP4 LTSS EXTREME CORE",
+      "kernel-source",
+      "Not affected"
+     ],
+     [
+      "SUSE Linux Enterprise Server 12 SP5",
+      "kernel-source",
+      "Affected"
+     ],
+     [
+      "SUSE Linux Enterprise Server 12 SP5-LTSS",
+      "kernel-default",
+      "In progress"
+     ],
+     [
+      "SUSE Linux Enterprise Server 12 SP5-LTSS",
+      "kernel-source",
+      "In progress"
+     ],
+     [
+      "SUSE Linux Enterprise Server 12 SP5-LTSS",
+      "kernel-syms",
+      "In progress"
+     ],
+     [
+      "SUSE Linux Enterprise Server 15 SP4-LTSS",
+      "kernel-default",
+      "Affected"
+     ],
+     [
+      "SUSE Linux Enterprise Server 15 SP4-LTSS",
+      "kernel-source",
+      "Affected"
+     ],
+     [
+      "SUSE Linux Enterprise Server 15 SP5-LTSS",
+      "kernel-default",
+      "Affected"
+     ],
+     [
+      "SUSE Linux Enterprise Server 15 SP5-LTSS",
+      "kernel-source",
+      "Affected"
+     ],
+     [
+      "SUSE Linux Enterprise Server 15 SP6-LTSS",
+      "kernel-default",
+      "Affected"
+     ],
+     [
+      "SUSE Linux Enterprise Server 15 SP6-LTSS",
+      "kernel-source",
+      "Affected"
+     ],
+     [
+      "SUSE Linux Enterprise Server LTSS Extended Security 12 SP5",
+      "kernel-default",
+      "In progress"
+     ],
+     [
+      "SUSE Linux Enterprise Server LTSS Extended Security 12 SP5",
+      "kernel-source",
+      "In progress"
+     ],
+     [
+      "SUSE Linux Enterprise Server LTSS Extended Security 12 SP5",
+      "kernel-syms",
+      "In progress"
+     ],
+     [
+      "SUSE Linux Enterprise Server for SAP Applications 15 SP4",
+      "kernel-default",
+      "Affected"
+     ],
+     [
+      "SUSE Linux Enterprise Server for SAP Applications 15 SP4",
+      "kernel-source",
+      "Affected"
+     ],
+     [
+      "SUSE Linux Enterprise Server for SAP Applications 15 SP5",
+      "kernel-default",
+      "Affected"
+     ],
+     [
+      "SUSE Linux Enterprise Server for SAP Applications 15 SP5",
+      "kernel-source",
+      "Affected"
+     ],
+     [
+      "SUSE Linux Enterprise Server for SAP Applications 15 SP6",
+      "kernel-default",
+      "Affected"
+     ],
+     [
+      "SUSE Linux Enterprise Server for SAP Applications 15 SP6",
+      "kernel-source",
+      "Affected"
+     ],
+     [
+      "SUSE CaaS Platform 4.0",
+      "kernel-source",
+      "Affected"
+     ],
+     [
+      "SUSE Enterprise Storage 6",
+      "kernel-source",
+      "Affected"
+     ],
+     [
+      "SUSE Enterprise Storage 7",
+      "kernel-source",
+      "Affected"
+     ],
+     [
+      "SUSE Enterprise Storage 7.1",
+      "kernel-source",
+      "Affected"
+     ],
+     [
+      "SUSE Linux Enterprise Desktop 11 SP4",
+      "kernel-source",
+      "Not affected"
+     ],
+     [
+      "SUSE Linux Enterprise Desktop 15 SP1",
+      "kernel-source",
+      "Affected"
+     ],
+     [
+      "SUSE Linux Enterprise Desktop 15 SP2",
+      "kernel-source",
+      "Affected"
+     ],
+     [
+      "SUSE Linux Enterprise Desktop 15 SP3",
+      "kernel-source",
+      "Affected"
+     ],
+     [
+      "SUSE Linux Enterprise Desktop 15 SP4",
+      "kernel-source",
+      "Affected"
+     ],
+     [
+      "SUSE Linux Enterprise Desktop 15 SP5",
+      "kernel-source",
+      "Affected"
+     ],
+     [
+      "SUSE Linux Enterprise Desktop 15 SP6",
+      "kernel-source",
+      "Affected"
+     ],
+     [
+      "SUSE Linux Enterprise High Performance Computing 15 SP1",
+      "kernel-source",
+      "Affected"
+     ],
+     [
+      "SUSE Linux Enterprise High Performance Computing 15 SP1-ESPOS",
+      "kernel-source",
+      "Affected"
+     ],
+     [
+      "SUSE Linux Enterprise High Performance Computing 15 SP1-LTSS",
+      "kernel-source",
+      "Affected"
+     ],
+     [
+      "SUSE Linux Enterprise High Performance Computing 15 SP2",
+      "kernel-source",
+      "Affected"
+     ],
+     [
+      "SUSE Linux Enterprise High Performance Computing 15 SP2-ESPOS",
+      "kernel-source",
+      "Affected"
+     ],
+     [
+      "SUSE Linux Enterprise High Performance Computing 15 SP2-LTSS",
+      "kernel-source",
+      "Affected"
+     ],
+     [
+      "SUSE Linux Enterprise High Performance Computing 15 SP3",
+      "kernel-source",
+      "Affected"
+     ],
+     [
+      "SUSE Linux Enterprise High Performance Computing 15 SP3-ESPOS",
+      "kernel-source",
+      "Affected"
+     ],
+     [
+      "SUSE Linux Enterprise High Performance Computing 15 SP3-LTSS",
+      "kernel-source",
+      "Affected"
+     ],
+     [
+      "SUSE Linux Enterprise High Performance Computing 15 SP4",
+      "kernel-source",
+      "Affected"
+     ],
+     [
+      "SUSE Linux Enterprise High Performance Computing 15 SP4-ESPOS",
+      "kernel-source",
+      "Affected"
+     ],
+     [
+      "SUSE Linux Enterprise High Performance Computing 15 SP5",
+      "kernel-source",
+      "Affected"
+     ],
+     [
+      "SUSE Linux Enterprise High Performance Computing 15 SP5-ESPOS",
+      "kernel-source",
+      "Affected"
+     ],
+     [
+      "SUSE Linux Enterprise Micro 5.0",
+      "kernel-default",
+      "Affected"
+     ],
+     [
+      "SUSE Linux Enterprise Micro 5.1",
+      "kernel-default",
+      "Affected"
+     ],
+     [
+      "SUSE Linux Enterprise Micro 5.2",
+      "kernel-default",
+      "Affected"
+     ],
+     [
+      "SUSE Linux Enterprise Micro 5.2",
+      "kernel-source",
+      "Affected"
+     ],
+     [
+      "SUSE Linux Enterprise Micro 5.3",
+      "kernel-default",
+      "Affected"
+     ],
+     [
+      "SUSE Linux Enterprise Micro 5.3",
+      "kernel-rt",
+      "Affected"
+     ],
+     [
+      "SUSE Linux Enterprise Micro 5.3",
+      "kernel-source",
+      "Affected"
+     ],
+     [
+      "SUSE Linux Enterprise Micro 5.3",
+      "kernel-source-rt",
+      "Affected"
+     ],
+     [
+      "SUSE Linux Enterprise Module for Basesystem 15 SP1",
+      "kernel-source",
+      "Affected"
+     ],
+     [
+      "SUSE Linux Enterprise Module for Basesystem 15 SP2",
+      "kernel-source",
+      "Affected"
+     ],
+     [
+      "SUSE Linux Enterprise Module for Basesystem 15 SP3",
+      "kernel-source",
+      "Affected"
+     ],
+     [
+      "SUSE Linux Enterprise Module for Basesystem 15 SP4",
+      "kernel-source",
+      "Affected"
+     ],
+     [
+      "SUSE Linux Enterprise Module for Basesystem 15 SP5",
+      "kernel-source",
+      "Affected"
+     ],
+     [
+      "SUSE Linux Enterprise Module for Basesystem 15 SP6",
+      "kernel-source",
+      "Affected"
+     ],
+     [
+      "SUSE Linux Enterprise Module for Development Tools 15 SP1",
+      "kernel-source",
+      "Affected"
+     ],
+     [
+      "SUSE Linux Enterprise Module for Development Tools 15 SP2",
+      "kernel-source",
+      "Affected"
+     ],
+     [
+      "SUSE Linux Enterprise Module for Development Tools 15 SP3",
+      "kernel-source",
+      "Affected"
+     ],
+     [
+      "SUSE Linux Enterprise Module for Development Tools 15 SP4",
+      "kernel-source",
+      "Affected"
+     ],
+     [
+      "SUSE Linux Enterprise Module for Development Tools 15 SP5",
+      "kernel-source",
+      "Affected"
+     ],
+     [
+      "SUSE Linux Enterprise Module for Development Tools 15 SP6",
+      "kernel-source",
+      "Affected"
+     ],
+     [
+      "SUSE Linux Enterprise Real Time 15 SP2",
+      "kernel-source",
+      "Affected"
+     ],
+     [
+      "SUSE Linux Enterprise Real Time 15 SP3",
+      "kernel-source",
+      "Affected"
+     ],
+     [
+      "SUSE Linux Enterprise Real Time 15 SP4",
+      "kernel-source",
+      "Affected"
+     ],
+     [
+      "SUSE Linux Enterprise Real Time 15 SP4",
+      "kernel-source-rt",
+      "Affected"
+     ],
+     [
+      "SUSE Linux Enterprise Real Time 15 SP5",
+      "kernel-source-rt",
+      "Affected"
+     ],
+     [
+      "SUSE Linux Enterprise Server 11 SP4",
+      "kernel-source",
+      "Not affected"
+     ],
+     [
+      "SUSE Linux Enterprise Server 11 SP4-LTSS",
+      "kernel-source",
+      "Not affected"
+     ],
+     [
+      "SUSE Linux Enterprise Server 15 SP1",
+      "kernel-source",
+      "Affected"
+     ],
+     [
+      "SUSE Linux Enterprise Server 15 SP1-BCL",
+      "kernel-source",
+      "Affected"
+     ],
+     [
+      "SUSE Linux Enterprise Server 15 SP1-LTSS",
+      "kernel-default",
+      "Affected"
+     ],
+     [
+      "SUSE Linux Enterprise Server 15 SP1-LTSS",
+      "kernel-source",
+      "Affected"
+     ],
+     [
+      "SUSE Linux Enterprise Server 15 SP2",
+      "kernel-source",
+      "Affected"
+     ],
+     [
+      "SUSE Linux Enterprise Server 15 SP2-BCL",
+      "kernel-source",
+      "Affected"
+     ],
+     [
+      "SUSE Linux Enterprise Server 15 SP2-LTSS",
+      "kernel-default",
+      "Affected"
+     ],
+     [
+      "SUSE Linux Enterprise Server 15 SP2-LTSS",
+      "kernel-source",
+      "Affected"
+     ],
+     [
+      "SUSE Linux Enterprise Server 15 SP3",
+      "kernel-source",
+      "Affected"
+     ],
+     [
+      "SUSE Linux Enterprise Server 15 SP3-BCL",
+      "kernel-source",
+      "Affected"
+     ],
+     [
+      "SUSE Linux Enterprise Server 15 SP3-LTSS",
+      "kernel-default",
+      "Affected"
+     ],
+     [
+      "SUSE Linux Enterprise Server 15 SP3-LTSS",
+      "kernel-source",
+      "Affected"
+     ],
+     [
+      "SUSE Linux Enterprise Server 15 SP4",
+      "kernel-source",
+      "Affected"
+     ],
+     [
+      "SUSE Linux Enterprise Server 15 SP5",
+      "kernel-source",
+      "Affected"
+     ],
+     [
+      "SUSE Linux Enterprise Server 15 SP6",
+      "kernel-source",
+      "Affected"
+     ],
+     [
+      "SUSE Linux Enterprise Server for SAP Applications 15 SP1",
+      "kernel-source",
+      "Affected"
+     ],
+     [
+      "SUSE Linux Enterprise Server for SAP Applications 15 SP2",
+      "kernel-source",
+      "Affected"
+     ],
+     [
+      "SUSE Linux Enterprise Server for SAP Applications 15 SP3",
+      "kernel-source",
+      "Affected"
+     ],
+     [
+      "SUSE Manager Proxy 4.0",
+      "kernel-source",
+      "Affected"
+     ],
+     [
+      "SUSE Manager Proxy 4.1",
+      "kernel-source",
+      "Affected"
+     ],
+     [
+      "SUSE Manager Proxy 4.2",
+      "kernel-source",
+      "Affected"
+     ],
+     [
+      "SUSE Manager Proxy 4.3",
+      "kernel-source",
+      "Affected"
+     ],
+     [
+      "SUSE Manager Proxy LTS 4.3",
+      "kernel-source",
+      "Affected"
+     ],
+     [
+      "SUSE Manager Retail Branch Server 4.0",
+      "kernel-source",
+      "Affected"
+     ],
+     [
+      "SUSE Manager Retail Branch Server 4.1",
+      "kernel-source",
+      "Affected"
+     ],
+     [
+      "SUSE Manager Retail Branch Server 4.2",
+      "kernel-source",
+      "Affected"
+     ],
+     [
+      "SUSE Manager Retail Branch Server 4.3",
+      "kernel-source",
+      "Affected"
+     ],
+     [
+      "SUSE Manager Retail Branch Server LTS 4.3",
+      "kernel-source",
+      "Affected"
+     ],
+     [
+      "SUSE Manager Server 4.0",
+      "kernel-source",
+      "Affected"
+     ],
+     [
+      "SUSE Manager Server 4.1",
+      "kernel-source",
+      "Affected"
+     ],
+     [
+      "SUSE Manager Server 4.2",
+      "kernel-source",
+      "Affected"
+     ],
+     [
+      "SUSE Manager Server 4.3",
+      "kernel-source",
+      "Affected"
+     ],
+     [
+      "SUSE Manager Server LTS 4.3",
+      "kernel-source",
+      "Affected"
+     ],
+     [
+      "SUSE Real Time Module 15 SP4",
+      "kernel-source-rt",
+      "Affected"
+     ],
+     [
+      "SUSE Real Time Module 15 SP5",
+      "kernel-source-rt",
+      "Affected"
+     ],
+     [
+      "openSUSE Leap 15.3",
+      "kernel-source",
+      "Affected"
+     ],
+     [
+      "openSUSE Leap 15.4",
+      "kernel-source",
+      "Affected"
+     ],
+     [
+      "openSUSE Leap 15.4",
+      "kernel-source-rt",
+      "Affected"
+     ],
+     [
+      "openSUSE Leap 15.5",
+      "kernel-source",
+      "Affected"
+     ],
+     [
+      "openSUSE Leap 15.5",
+      "kernel-source-rt",
+      "Affected"
+     ],
+     [
+      "openSUSE Leap 15.6",
+      "kernel-source",
+      "Affected"
+     ]
+    ],
+    "main_kernel_summary": {
+     "SUSE CaaS Platform 4.0": [
+      "Affected"
+     ],
+     "SUSE Enterprise Storage 6": [
+      "Affected"
+     ],
+     "SUSE Enterprise Storage 7": [
+      "Affected"
+     ],
+     "SUSE Enterprise Storage 7.1": [
+      "Affected"
+     ],
+     "SUSE Linux Enterprise Desktop 11 SP4": [
+      "Not affected"
+     ],
+     "SUSE Linux Enterprise Desktop 15 SP1": [
+      "Affected"
+     ],
+     "SUSE Linux Enterprise Desktop 15 SP2": [
+      "Affected"
+     ],
+     "SUSE Linux Enterprise Desktop 15 SP3": [
+      "Affected"
+     ],
+     "SUSE Linux Enterprise Desktop 15 SP4": [
+      "Affected"
+     ],
+     "SUSE Linux Enterprise Desktop 15 SP5": [
+      "Affected"
+     ],
+     "SUSE Linux Enterprise Desktop 15 SP6": [
+      "Affected"
+     ],
+     "SUSE Linux Enterprise Desktop 15 SP7": [
+      "In progress"
+     ],
+     "SUSE Linux Enterprise High Availability Extension 15 SP7": [
+      "Affected",
+      "In progress"
+     ],
+     "SUSE Linux Enterprise High Availability Extension 16.0": [
+      "Affected"
+     ],
+     "SUSE Linux Enterprise High Availability Extension 16.1": [
+      "Affected"
+     ],
+     "SUSE Linux Enterprise High Performance Computing 12 SP5": [
+      "Affected"
+     ],
+     "SUSE Linux Enterprise High Performance Computing 15 SP1": [
+      "Affected"
+     ],
+     "SUSE Linux Enterprise High Performance Computing 15 SP1-ESPOS": [
+      "Affected"
+     ],
+     "SUSE Linux Enterprise High Performance Computing 15 SP1-LTSS": [
+      "Affected"
+     ],
+     "SUSE Linux Enterprise High Performance Computing 15 SP2": [
+      "Affected"
+     ],
+     "SUSE Linux Enterprise High Performance Computing 15 SP2-ESPOS": [
+      "Affected"
+     ],
+     "SUSE Linux Enterprise High Performance Computing 15 SP2-LTSS": [
+      "Affected"
+     ],
+     "SUSE Linux Enterprise High Performance Computing 15 SP3": [
+      "Affected"
+     ],
+     "SUSE Linux Enterprise High Performance Computing 15 SP3-ESPOS": [
+      "Affected"
+     ],
+     "SUSE Linux Enterprise High Performance Computing 15 SP3-LTSS": [
+      "Affected"
+     ],
+     "SUSE Linux Enterprise High Performance Computing 15 SP4": [
+      "Affected"
+     ],
+     "SUSE Linux Enterprise High Performance Computing 15 SP4-ESPOS": [
+      "Affected"
+     ],
+     "SUSE Linux Enterprise High Performance Computing 15 SP4-LTSS": [
+      "Affected"
+     ],
+     "SUSE Linux Enterprise High Performance Computing 15 SP5": [
+      "Affected"
+     ],
+     "SUSE Linux Enterprise High Performance Computing 15 SP5-ESPOS": [
+      "Affected"
+     ],
+     "SUSE Linux Enterprise High Performance Computing 15 SP5-LTSS": [
+      "Affected"
+     ],
+     "SUSE Linux Enterprise Micro 5.0": [
+      "Affected"
+     ],
+     "SUSE Linux Enterprise Micro 5.1": [
+      "Affected"
+     ],
+     "SUSE Linux Enterprise Micro 5.2": [
+      "Affected"
+     ],
+     "SUSE Linux Enterprise Micro 5.3": [
+      "Affected"
+     ],
+     "SUSE Linux Enterprise Micro 5.4": [
+      "Affected",
+      "In progress"
+     ],
+     "SUSE Linux Enterprise Micro 5.5": [
+      "Affected",
+      "In progress"
+     ],
+     "SUSE Linux Enterprise Module for Basesystem 15 SP1": [
+      "Affected"
+     ],
+     "SUSE Linux Enterprise Module for Basesystem 15 SP2": [
+      "Affected"
+     ],
+     "SUSE Linux Enterprise Module for Basesystem 15 SP3": [
+      "Affected"
+     ],
+     "SUSE Linux Enterprise Module for Basesystem 15 SP4": [
+      "Affected"
+     ],
+     "SUSE Linux Enterprise Module for Basesystem 15 SP5": [
+      "Affected"
+     ],
+     "SUSE Linux Enterprise Module for Basesystem 15 SP6": [
+      "Affected"
+     ],
+     "SUSE Linux Enterprise Module for Basesystem 15 SP7": [
+      "In progress"
+     ],
+     "SUSE Linux Enterprise Module for Development Tools 15 SP1": [
+      "Affected"
+     ],
+     "SUSE Linux Enterprise Module for Development Tools 15 SP2": [
+      "Affected"
+     ],
+     "SUSE Linux Enterprise Module for Development Tools 15 SP3": [
+      "Affected"
+     ],
+     "SUSE Linux Enterprise Module for Development Tools 15 SP4": [
+      "Affected"
+     ],
+     "SUSE Linux Enterprise Module for Development Tools 15 SP5": [
+      "Affected"
+     ],
+     "SUSE Linux Enterprise Module for Development Tools 15 SP6": [
+      "Affected"
+     ],
+     "SUSE Linux Enterprise Module for Development Tools 15 SP7": [
+      "Affected",
+      "In progress"
+     ],
+     "SUSE Linux Enterprise Module for Legacy 15 SP7": [
+      "In progress"
+     ],
+     "SUSE Linux Enterprise Real Time 15 SP2": [
+      "Affected"
+     ],
+     "SUSE Linux Enterprise Real Time 15 SP3": [
+      "Affected"
+     ],
+     "SUSE Linux Enterprise Real Time 15 SP4": [
+      "Affected"
+     ],
+     "SUSE Linux Enterprise Server 11 SP4": [
+      "Not affected"
+     ],
+     "SUSE Linux Enterprise Server 11 SP4 LTSS EXTREME CORE": [
+      "Not affected"
+     ],
+     "SUSE Linux Enterprise Server 11 SP4-LTSS": [
+      "Not affected"
+     ],
+     "SUSE Linux Enterprise Server 12 SP5": [
+      "Affected"
+     ],
+     "SUSE Linux Enterprise Server 12 SP5-LTSS": [
+      "In progress"
+     ],
+     "SUSE Linux Enterprise Server 15 SP1": [
+      "Affected"
+     ],
+     "SUSE Linux Enterprise Server 15 SP1-BCL": [
+      "Affected"
+     ],
+     "SUSE Linux Enterprise Server 15 SP1-LTSS": [
+      "Affected"
+     ],
+     "SUSE Linux Enterprise Server 15 SP2": [
+      "Affected"
+     ],
+     "SUSE Linux Enterprise Server 15 SP2-BCL": [
+      "Affected"
+     ],
+     "SUSE Linux Enterprise Server 15 SP2-LTSS": [
+      "Affected"
+     ],
+     "SUSE Linux Enterprise Server 15 SP3": [
+      "Affected"
+     ],
+     "SUSE Linux Enterprise Server 15 SP3-BCL": [
+      "Affected"
+     ],
+     "SUSE Linux Enterprise Server 15 SP3-LTSS": [
+      "Affected"
+     ],
+     "SUSE Linux Enterprise Server 15 SP4": [
+      "Affected"
+     ],
+     "SUSE Linux Enterprise Server 15 SP4-LTSS": [
+      "Affected"
+     ],
+     "SUSE Linux Enterprise Server 15 SP5": [
+      "Affected"
+     ],
+     "SUSE Linux Enterprise Server 15 SP5-LTSS": [
+      "Affected"
+     ],
+     "SUSE Linux Enterprise Server 15 SP6": [
+      "Affected"
+     ],
+     "SUSE Linux Enterprise Server 15 SP6-LTSS": [
+      "Affected"
+     ],
+     "SUSE Linux Enterprise Server 15 SP7": [
+      "In progress"
+     ],
+     "SUSE Linux Enterprise Server 16.0": [
+      "Affected",
+      "In progress"
+     ],
+     "SUSE Linux Enterprise Server 16.1": [
+      "Affected"
+     ],
+     "SUSE Linux Enterprise Server LTSS Extended Security 12 SP5": [
+      "In progress"
+     ],
+     "SUSE Linux Enterprise Server for NVIDIA 16.1": [
+      "Affected"
+     ],
+     "SUSE Linux Enterprise Server for SAP Applications 15 SP1": [
+      "Affected"
+     ],
+     "SUSE Linux Enterprise Server for SAP Applications 15 SP2": [
+      "Affected"
+     ],
+     "SUSE Linux Enterprise Server for SAP Applications 15 SP3": [
+      "Affected"
+     ],
+     "SUSE Linux Enterprise Server for SAP Applications 15 SP4": [
+      "Affected"
+     ],
+     "SUSE Linux Enterprise Server for SAP Applications 15 SP5": [
+      "Affected"
+     ],
+     "SUSE Linux Enterprise Server for SAP Applications 15 SP6": [
+      "Affected"
+     ],
+     "SUSE Linux Enterprise Server for SAP Applications 15 SP7": [
+      "In progress"
+     ],
+     "SUSE Linux Enterprise Server for SAP applications 16.0": [
+      "Affected",
+      "In progress"
+     ],
+     "SUSE Linux Enterprise Server for SAP applications 16.1": [
+      "Affected"
+     ],
+     "SUSE Linux Enterprise Workstation Extension 15 SP7": [
+      "In progress"
+     ],
+     "SUSE Linux Micro 6.0": [
+      "Released"
+     ],
+     "SUSE Linux Micro 6.1": [
+      "Released"
+     ],
+     "SUSE Linux Micro 6.2": [
+      "Affected",
+      "In progress"
+     ],
+     "SUSE Linux Micro Extras 6.0": [
+      "Released"
+     ],
+     "SUSE Linux Micro Extras 6.1": [
+      "Released"
+     ],
+     "SUSE Manager Proxy 4.0": [
+      "Affected"
+     ],
+     "SUSE Manager Proxy 4.1": [
+      "Affected"
+     ],
+     "SUSE Manager Proxy 4.2": [
+      "Affected"
+     ],
+     "SUSE Manager Proxy 4.3": [
+      "Affected"
+     ],
+     "SUSE Manager Proxy LTS 4.3": [
+      "Affected"
+     ],
+     "SUSE Manager Retail Branch Server 4.0": [
+      "Affected"
+     ],
+     "SUSE Manager Retail Branch Server 4.1": [
+      "Affected"
+     ],
+     "SUSE Manager Retail Branch Server 4.2": [
+      "Affected"
+     ],
+     "SUSE Manager Retail Branch Server 4.3": [
+      "Affected"
+     ],
+     "SUSE Manager Retail Branch Server LTS 4.3": [
+      "Affected"
+     ],
+     "SUSE Manager Server 4.0": [
+      "Affected"
+     ],
+     "SUSE Manager Server 4.1": [
+      "Affected"
+     ],
+     "SUSE Manager Server 4.2": [
+      "Affected"
+     ],
+     "SUSE Manager Server 4.3": [
+      "Affected"
+     ],
+     "SUSE Manager Server LTS 4.3": [
+      "Affected"
+     ],
+     "openSUSE Leap 15.3": [
+      "Affected"
+     ],
+     "openSUSE Leap 15.4": [
+      "Affected"
+     ],
+     "openSUSE Leap 15.5": [
+      "Affected"
+     ],
+     "openSUSE Leap 15.6": [
+      "Affected"
+     ],
+     "openSUSE Leap 16.0": [
+      "Affected"
+     ],
+     "openSUSE Leap 16.1": [
+      "Affected"
+     ]
+    }
+   },
+   "pages": {
+    "oss_security_post": {
+     "status": 200,
+     "sha256": "01dda3ca336606935c3e4a1d04cbd1044d6319a38caa06acb0cfab4615d3a54c",
+     "dateModified": null,
+     "text_sha256": "c5ae3b767adef7d0c46c42a1df1d4aff5fe0bb02c93ea89e28014b9113161c25"
+    }
+   }
   }
  },
  "epss_series": {
@@ -2960,6 +4596,21 @@
    "epss": 0.00252,
    "percentile": 0.16847,
    "first_read": "2026-11-23T1429Z"
+  },
+  "2026-11-25": {
+   "epss": 0.00716,
+   "percentile": 0.49528,
+   "first_read": "2026-11-26T1414Z"
+  },
+  "2026-11-24": {
+   "epss": 0.00716,
+   "percentile": 0.54509,
+   "first_read": "2026-11-26T1414Z"
+  },
+  "2026-11-23": {
+   "epss": 0.00716,
+   "percentile": 0.54711,
+   "first_read": "2026-11-26T1414Z"
   }
  },
  "epss_first_date": "2026-11-11",
