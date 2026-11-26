@@ -1,0 +1,982 @@
+[
+  {
+    "stratum": "rule_panel",
+    "vendor": "Microsoft",
+    "kind": "routes",
+    "name": "microsoft__msrc_109618",
+    "url": "https://api.msrc.microsoft.com/sug/v2.0/en-US/affectedProduct?%24filter=cveNumber%20eq%20%27CVE-2026-109618%27",
+    "start_utc": "2026-11-26T14:14:58.143323+00:00",
+    "finish_utc": "2026-11-26T14:14:59.506979+00:00",
+    "status": 200,
+    "final_url": "https://api.msrc.microsoft.com/sug/v2.0/en-US/affectedProduct?%24filter=cveNumber%20eq%20%27CVE-2026-109618%27",
+    "content_type": "application/json; odata.metadata=minimal; odata.streaming=true; charset=utf-8",
+    "last_modified": "",
+    "bytes": 134,
+    "sha256": "efb1c068ccc3a2f7d45ef7cdf4cf33692f8c1531e4b4b7410d962496f4a64735",
+    "mentions": {
+      "CVE-2026-109618": 0,
+      "CVE-2026-109619": 0,
+      "CVE-2026-115560": 0,
+      "PHP": 0,
+      "php_prefix": 0,
+      "cve_any_case": {
+        "CVE-2026-109618": 0,
+        "CVE-2026-109619": 0,
+        "CVE-2026-115560": 0
+      }
+    },
+    "file": "microsoft__msrc_109618.raw.gz"
+  },
+  {
+    "stratum": "rule_panel",
+    "vendor": "Microsoft",
+    "kind": "routes",
+    "name": "microsoft__msrc_109619",
+    "url": "https://api.msrc.microsoft.com/sug/v2.0/en-US/affectedProduct?%24filter=cveNumber%20eq%20%27CVE-2026-109619%27",
+    "start_utc": "2026-11-26T14:14:59.509873+00:00",
+    "finish_utc": "2026-11-26T14:15:00.155328+00:00",
+    "status": 200,
+    "final_url": "https://api.msrc.microsoft.com/sug/v2.0/en-US/affectedProduct?%24filter=cveNumber%20eq%20%27CVE-2026-109619%27",
+    "content_type": "application/json; odata.metadata=minimal; odata.streaming=true; charset=utf-8",
+    "last_modified": "",
+    "bytes": 134,
+    "sha256": "efb1c068ccc3a2f7d45ef7cdf4cf33692f8c1531e4b4b7410d962496f4a64735",
+    "mentions": {
+      "CVE-2026-109618": 0,
+      "CVE-2026-109619": 0,
+      "CVE-2026-115560": 0,
+      "PHP": 0,
+      "php_prefix": 0,
+      "cve_any_case": {
+        "CVE-2026-109618": 0,
+        "CVE-2026-109619": 0,
+        "CVE-2026-115560": 0
+      }
+    },
+    "file": "microsoft__msrc_109619.raw.gz"
+  },
+  {
+    "stratum": "rule_panel",
+    "vendor": "Apple",
+    "kind": "routes",
+    "name": "apple__security_releases",
+    "url": "https://support.apple.com/en-us/100100",
+    "start_utc": "2026-11-26T14:15:00.156555+00:00",
+    "finish_utc": "2026-11-26T14:15:00.616917+00:00",
+    "status": 200,
+    "final_url": "https://support.apple.com/en-us/100100",
+    "content_type": "text/html;charset=utf-8",
+    "last_modified": "Tue, 17 Nov 2026 22:05:13 GMT",
+    "bytes": 290461,
+    "sha256": "49967f74289af518c7da35fea7faf12242e87f8ac637508282c8e425e3670f74",
+    "mentions": {
+      "CVE-2026-109618": 0,
+      "CVE-2026-109619": 0,
+      "CVE-2026-115560": 0,
+      "PHP": 0,
+      "php_prefix": 0,
+      "cve_any_case": {
+        "CVE-2026-109618": 0,
+        "CVE-2026-109619": 0,
+        "CVE-2026-115560": 0
+      }
+    },
+    "file": "apple__security_releases.raw.gz"
+  },
+  {
+    "stratum": "rule_panel",
+    "vendor": "Cisco",
+    "kind": "routes",
+    "name": "cisco__psirt_rss",
+    "url": "https://sec.cloudapps.cisco.com/security/center/psirtrss20/CiscoSecurityAdvisory.xml",
+    "start_utc": "2026-11-26T14:15:00.665996+00:00",
+    "finish_utc": "2026-11-26T14:15:01.473534+00:00",
+    "status": 200,
+    "final_url": "https://sec.cloudapps.cisco.com/security/center/psirtrss20/CiscoSecurityAdvisory.xml",
+    "content_type": "application/xml;charset=utf-8",
+    "last_modified": "",
+    "bytes": 142690,
+    "sha256": "4e817a1981f0940e06e0bc0ccf75ab719d75c5e10c19f52dbb255a4abf145d0c",
+    "mentions": {
+      "CVE-2026-109618": 3,
+      "CVE-2026-109619": 3,
+      "CVE-2026-115560": 0,
+      "PHP": 7,
+      "php_prefix": 24,
+      "cve_any_case": {
+        "CVE-2026-109618": 3,
+        "CVE-2026-109619": 3,
+        "CVE-2026-115560": 0
+      }
+    },
+    "file": "cisco__psirt_rss.raw.gz"
+  },
+  {
+    "stratum": "rule_panel",
+    "vendor": "Cisco",
+    "kind": "advisories",
+    "name": "cisco__cisco-sa-php-october26",
+    "url": "https://sec.cloudapps.cisco.com/security/center/content/CiscoSecurityAdvisory/cisco-sa-php-october26-Jj384Daq",
+    "start_utc": "2026-11-26T14:15:01.496694+00:00",
+    "finish_utc": "2026-11-26T14:15:02.011467+00:00",
+    "status": 200,
+    "final_url": "https://sec.cloudapps.cisco.com/security/center/content/CiscoSecurityAdvisory/cisco-sa-php-october26-Jj384Daq",
+    "content_type": "text/html;charset=ISO-8859-1",
+    "last_modified": "",
+    "bytes": 239869,
+    "sha256": "bcab3fbe355b805f5520cd5c449efc7b5d2ed7870416c1e7764b0d2d495d2226",
+    "mentions": {
+      "CVE-2026-109618": 8,
+      "CVE-2026-109619": 8,
+      "CVE-2026-115560": 0,
+      "PHP": 18,
+      "php_prefix": 39,
+      "cve_any_case": {
+        "CVE-2026-109618": 8,
+        "CVE-2026-109619": 8,
+        "CVE-2026-115560": 0
+      }
+    },
+    "file": "cisco__cisco-sa-php-october26.raw.gz"
+  },
+  {
+    "stratum": "rule_panel",
+    "vendor": "Google",
+    "kind": "routes",
+    "name": "google__gcp_security_bulletins_feed",
+    "url": "https://cloud.google.com/feeds/google-cloud-security-bulletins.xml",
+    "start_utc": "2026-11-26T14:15:02.052006+00:00",
+    "finish_utc": "2026-11-26T14:15:02.772146+00:00",
+    "status": 200,
+    "final_url": "https://docs.cloud.google.com/feeds/google-cloud-security-bulletins.xml",
+    "content_type": "text/xml",
+    "last_modified": "Thu, 26 Nov 2026 00:05:42 GMT",
+    "bytes": 98191,
+    "sha256": "efa9870fc08b74f3a117f1beded3335206cb575513dac0286c58e070940d7c85",
+    "mentions": {
+      "CVE-2026-109618": 5,
+      "CVE-2026-109619": 5,
+      "CVE-2026-115560": 6,
+      "PHP": 42,
+      "php_prefix": 52,
+      "cve_any_case": {
+        "CVE-2026-109618": 6,
+        "CVE-2026-109619": 6,
+        "CVE-2026-115560": 6
+      }
+    },
+    "file": "google__gcp_security_bulletins_feed.raw.gz"
+  },
+  {
+    "stratum": "rule_panel",
+    "vendor": "Google",
+    "kind": "advisories",
+    "name": "google__apigee-gcp-2026-072",
+    "url": "https://docs.cloud.google.com/apigee/docs/security-bulletins/security-bulletins",
+    "start_utc": "2026-11-26T14:15:03.276509+00:00",
+    "finish_utc": "2026-11-26T14:15:04.820665+00:00",
+    "status": 200,
+    "final_url": "https://docs.cloud.google.com/apigee/docs/security-bulletins/security-bulletins",
+    "content_type": "text/html; charset=utf-8",
+    "last_modified": "Fri, 20 Nov 2026 01:19:54 GMT",
+    "bytes": 249839,
+    "sha256": "4890e7051e011d42e815a0baa7b04eb7eb61d46ea6dc268d750f4721b539ebb4",
+    "mentions": {
+      "CVE-2026-109618": 3,
+      "CVE-2026-109619": 3,
+      "CVE-2026-115560": 0,
+      "PHP": 38,
+      "php_prefix": 55,
+      "cve_any_case": {
+        "CVE-2026-109618": 3,
+        "CVE-2026-109619": 3,
+        "CVE-2026-115560": 0
+      }
+    },
+    "file": "google__apigee-gcp-2026-072.raw.gz"
+  },
+  {
+    "stratum": "rule_panel",
+    "vendor": "Google",
+    "kind": "advisories",
+    "name": "google__blog-php-2026-10",
+    "url": "https://cloud.google.com/blog/products/identity-security/responding-to-core-php-vulnerabilities-cve-2026-109618-cve-2026-109619",
+    "start_utc": "2026-11-26T14:15:04.862862+00:00",
+    "finish_utc": "2026-11-26T14:15:08.842716+00:00",
+    "status": 200,
+    "final_url": "https://cloud.google.com/blog/products/identity-security/responding-to-core-php-vulnerabilities-cve-2026-109618-cve-2026-109619",
+    "content_type": "text/html; charset=utf-8",
+    "last_modified": "",
+    "bytes": 321993,
+    "sha256": "c4a87e1488d3f004d34376aa86c5fa6b9754f8c5625d265601312e656e3d3d2e",
+    "mentions": {
+      "CVE-2026-109618": 34,
+      "CVE-2026-109619": 34,
+      "CVE-2026-115560": 0,
+      "PHP": 152,
+      "php_prefix": 230,
+      "cve_any_case": {
+        "CVE-2026-109618": 65,
+        "CVE-2026-109619": 65,
+        "CVE-2026-115560": 0
+      }
+    },
+    "file": "google__blog-php-2026-10.raw.gz"
+  },
+  {
+    "stratum": "rule_panel",
+    "vendor": "Google",
+    "kind": "advisories",
+    "name": "google__cloud-run-release-notes",
+    "url": "https://docs.cloud.google.com/run/docs/release-notes",
+    "start_utc": "2026-11-26T14:15:08.892720+00:00",
+    "finish_utc": "2026-11-26T14:15:09.355949+00:00",
+    "status": 200,
+    "final_url": "https://docs.cloud.google.com/run/docs/release-notes",
+    "content_type": "text/html; charset=utf-8",
+    "last_modified": "Mon, 23 Nov 2026 14:03:56 GMT",
+    "bytes": 296588,
+    "sha256": "0d46958da74138e8c1e257e8be73ef791093785ff8454f7fa7f6c5234eda6538",
+    "mentions": {
+      "CVE-2026-109618": 0,
+      "CVE-2026-109619": 0,
+      "CVE-2026-115560": 0,
+      "PHP": 13,
+      "php_prefix": 25,
+      "cve_any_case": {
+        "CVE-2026-109618": 2,
+        "CVE-2026-109619": 2,
+        "CVE-2026-115560": 0
+      }
+    },
+    "file": "google__cloud-run-release-notes.raw.gz"
+  },
+  {
+    "stratum": "rule_panel",
+    "vendor": "Google",
+    "kind": "advisories",
+    "name": "google__cloud-run-functions-release-notes",
+    "url": "https://docs.cloud.google.com/functions/docs/release-notes",
+    "start_utc": "2026-11-26T14:15:09.402681+00:00",
+    "finish_utc": "2026-11-26T14:15:10.029269+00:00",
+    "status": 200,
+    "final_url": "https://docs.cloud.google.com/functions/docs/release-notes",
+    "content_type": "text/html; charset=utf-8",
+    "last_modified": "Mon, 23 Nov 2026 14:03:56 GMT",
+    "bytes": 254783,
+    "sha256": "ca8c29df1e185957f27258a1fbbf238aa1846b4bf540aa8c0d2c6614f2f780d6",
+    "mentions": {
+      "CVE-2026-109618": 0,
+      "CVE-2026-109619": 0,
+      "CVE-2026-115560": 0,
+      "PHP": 23,
+      "php_prefix": 43,
+      "cve_any_case": {
+        "CVE-2026-109618": 2,
+        "CVE-2026-109619": 2,
+        "CVE-2026-115560": 0
+      }
+    },
+    "file": "google__cloud-run-functions-release-notes.raw.gz"
+  },
+  {
+    "stratum": "rule_panel",
+    "vendor": "Google",
+    "kind": "advisories",
+    "name": "google__appengine-php-gen2-release-notes",
+    "url": "https://docs.cloud.google.com/appengine/docs/standard/php-gen2/release-notes",
+    "start_utc": "2026-11-26T14:15:10.070899+00:00",
+    "finish_utc": "2026-11-26T14:15:10.544954+00:00",
+    "status": 200,
+    "final_url": "https://docs.cloud.google.com/appengine/docs/standard/php-gen2/release-notes",
+    "content_type": "text/html; charset=utf-8",
+    "last_modified": "Fri, 13 Nov 2026 18:49:57 GMT",
+    "bytes": 202481,
+    "sha256": "2d0564d992082bd4256010d4cab2576e5c56bf9810d0aa68cf126659d19f82a9",
+    "mentions": {
+      "CVE-2026-109618": 0,
+      "CVE-2026-109619": 0,
+      "CVE-2026-115560": 0,
+      "PHP": 49,
+      "php_prefix": 131,
+      "cve_any_case": {
+        "CVE-2026-109618": 2,
+        "CVE-2026-109619": 2,
+        "CVE-2026-115560": 0
+      }
+    },
+    "file": "google__appengine-php-gen2-release-notes.raw.gz"
+  },
+  {
+    "stratum": "rule_panel",
+    "vendor": "Ivanti",
+    "kind": "routes",
+    "name": "ivanti__advisory_blog_rss",
+    "url": "https://www.ivanti.com/blog/topics/security-advisory/rss",
+    "start_utc": "2026-11-26T14:15:10.591095+00:00",
+    "finish_utc": "2026-11-26T14:15:11.011422+00:00",
+    "status": 200,
+    "final_url": "https://www.ivanti.com/blog/topics/security-advisory/rss",
+    "content_type": "text/xml; charset=utf-8",
+    "last_modified": "Thu, 26 Nov 2026 08:09:53 GMT",
+    "bytes": 68925,
+    "sha256": "01dc556037d8f5a67b468236d59a6c41f06db744565baad3d76bcf4cb43e938c",
+    "mentions": {
+      "CVE-2026-109618": 0,
+      "CVE-2026-109619": 0,
+      "CVE-2026-115560": 0,
+      "PHP": 0,
+      "php_prefix": 0,
+      "cve_any_case": {
+        "CVE-2026-109618": 0,
+        "CVE-2026-109619": 0,
+        "CVE-2026-115560": 0
+      }
+    },
+    "file": "ivanti__advisory_blog_rss.raw.gz"
+  },
+  {
+    "stratum": "rule_panel",
+    "vendor": "Fortinet",
+    "kind": "routes",
+    "name": "fortinet__psirt_rss",
+    "url": "https://filestore.fortinet.com/fortiguard/rss/ir.xml",
+    "start_utc": "2026-11-26T14:15:11.021034+00:00",
+    "finish_utc": "2026-11-26T14:15:13.527318+00:00",
+    "status": 200,
+    "final_url": "https://filestore.fortinet.com/fortiguard/rss/ir.xml",
+    "content_type": "text/xml",
+    "last_modified": "Thu, 26 Nov 2026 14:00:11 GMT",
+    "bytes": 50949,
+    "sha256": "def7caae3f793af1e18ea5ae136b3b2d92ce4a95f9414d83fac28f73a89ff18a",
+    "mentions": {
+      "CVE-2026-109618": 0,
+      "CVE-2026-109619": 0,
+      "CVE-2026-115560": 0,
+      "PHP": 0,
+      "php_prefix": 0,
+      "cve_any_case": {
+        "CVE-2026-109618": 0,
+        "CVE-2026-109619": 0,
+        "CVE-2026-115560": 0
+      }
+    },
+    "file": "fortinet__psirt_rss.raw.gz"
+  },
+  {
+    "stratum": "rule_panel",
+    "vendor": "Fortinet",
+    "kind": "advisories",
+    "name": "fortinet__FG-IR-26-186",
+    "url": "https://fortiguard.fortinet.com/psirt/FG-IR-26-186",
+    "start_utc": "2026-11-26T14:15:13.535246+00:00",
+    "finish_utc": "2026-11-26T14:15:15.266252+00:00",
+    "status": 200,
+    "final_url": "https://fortiguard.fortinet.com/psirt/FG-IR-26-186",
+    "content_type": "text/html; charset=utf-8",
+    "last_modified": "",
+    "bytes": 110847,
+    "sha256": "1e6025d288f8aec32300d463c4ad7bf48207d9ad7c0c28d1fc3411b45e208e67",
+    "mentions": {
+      "CVE-2026-109618": 5,
+      "CVE-2026-109619": 5,
+      "CVE-2026-115560": 2,
+      "PHP": 4,
+      "php_prefix": 7,
+      "cve_any_case": {
+        "CVE-2026-109618": 8,
+        "CVE-2026-109619": 8,
+        "CVE-2026-115560": 2
+      }
+    },
+    "file": "fortinet__FG-IR-26-186.raw.gz"
+  },
+  {
+    "stratum": "rule_panel",
+    "vendor": "Fortinet",
+    "kind": "advisories",
+    "name": "fortinet__FG-IR-26-186_csaf",
+    "url": "https://filestore.fortinet.com/fortiguard/psirt/csaf_php-core-rce-vulnerability-patches-cve-2026-109618-and-cve-2026-109619_fg-ir-26-186.json",
+    "start_utc": "2026-11-26T14:15:15.282358+00:00",
+    "finish_utc": "2026-11-26T14:15:16.161687+00:00",
+    "status": 200,
+    "final_url": "https://filestore.fortinet.com/fortiguard/psirt/csaf_php-core-rce-vulnerability-patches-cve-2026-109618-and-cve-2026-109619_fg-ir-26-186.json",
+    "content_type": "application/json",
+    "last_modified": "Thu, 05 Nov 2026 10:11:29 GMT",
+    "bytes": 23891,
+    "sha256": "1aa12cfd403a2b1e64c6f1cf689f5dbfd1142915d05cd04e5af74a3da911645a",
+    "mentions": {
+      "CVE-2026-109618": 11,
+      "CVE-2026-109619": 11,
+      "CVE-2026-115560": 8,
+      "PHP": 8,
+      "php_prefix": 13,
+      "cve_any_case": {
+        "CVE-2026-109618": 15,
+        "CVE-2026-109619": 15,
+        "CVE-2026-115560": 8
+      }
+    },
+    "file": "fortinet__FG-IR-26-186_csaf.raw.gz"
+  },
+  {
+    "stratum": "rule_panel",
+    "vendor": "Adobe",
+    "kind": "routes",
+    "name": "adobe__bulletins",
+    "url": "https://helpx.adobe.com/security/security-bulletin.html",
+    "start_utc": "2026-11-26T14:15:16.165122+00:00",
+    "finish_utc": "2026-11-26T14:15:16.595114+00:00",
+    "status": 403,
+    "final_url": "https://helpx.adobe.com/security/security-bulletin.html",
+    "content_type": "text/html",
+    "last_modified": "",
+    "bytes": 412,
+    "sha256": "c73479477e0568fe9434180a9d77cc9d973157fececff0147c1ad70759f15ef7",
+    "mentions": {
+      "CVE-2026-109618": 0,
+      "CVE-2026-109619": 0,
+      "CVE-2026-115560": 0,
+      "PHP": 0,
+      "php_prefix": 0,
+      "cve_any_case": {
+        "CVE-2026-109618": 0,
+        "CVE-2026-109619": 0,
+        "CVE-2026-115560": 0
+      }
+    },
+    "file": "adobe__bulletins.raw.gz"
+  },
+  {
+    "stratum": "rule_panel",
+    "vendor": "Oracle",
+    "kind": "routes",
+    "name": "oracle__oracle_linux_109618",
+    "url": "https://linux.oracle.com/cve/CVE-2026-109618.html",
+    "start_utc": "2026-11-26T14:15:16.595594+00:00",
+    "finish_utc": "2026-11-26T14:15:17.576378+00:00",
+    "status": 200,
+    "final_url": "https://linux.oracle.com/cve/CVE-2026-109618.html",
+    "content_type": "text/html; charset=UTF-8",
+    "last_modified": "Tue, 24 Nov 2026 19:13:06 GMT",
+    "bytes": 18309,
+    "sha256": "1bb5a91d70c6e6a9daa3d85933fc6413042d05acb90941d4b11ad1a6700cb1b3",
+    "mentions": {
+      "CVE-2026-109618": 7,
+      "CVE-2026-109619": 0,
+      "CVE-2026-115560": 0,
+      "PHP": 1,
+      "php_prefix": 34,
+      "cve_any_case": {
+        "CVE-2026-109618": 7,
+        "CVE-2026-109619": 0,
+        "CVE-2026-115560": 0
+      }
+    },
+    "file": "oracle__oracle_linux_109618.raw.gz"
+  },
+  {
+    "stratum": "rule_panel",
+    "vendor": "Oracle",
+    "kind": "routes",
+    "name": "oracle__oracle_linux_109619",
+    "url": "https://linux.oracle.com/cve/CVE-2026-109619.html",
+    "start_utc": "2026-11-26T14:15:17.579650+00:00",
+    "finish_utc": "2026-11-26T14:15:18.060391+00:00",
+    "status": 200,
+    "final_url": "https://linux.oracle.com/cve/CVE-2026-109619.html",
+    "content_type": "text/html; charset=UTF-8",
+    "last_modified": "Tue, 24 Nov 2026 19:13:08 GMT",
+    "bytes": 18468,
+    "sha256": "64f0155d821713a78a1652a59fe39239c85e005482246a928db3207721eb9f91",
+    "mentions": {
+      "CVE-2026-109618": 0,
+      "CVE-2026-109619": 7,
+      "CVE-2026-115560": 0,
+      "PHP": 1,
+      "php_prefix": 35,
+      "cve_any_case": {
+        "CVE-2026-109618": 0,
+        "CVE-2026-109619": 7,
+        "CVE-2026-115560": 0
+      }
+    },
+    "file": "oracle__oracle_linux_109619.raw.gz"
+  },
+  {
+    "stratum": "rule_panel",
+    "vendor": "Oracle",
+    "kind": "routes",
+    "name": "oracle__security_rss",
+    "url": "https://www.oracle.com/ocom/groups/public/@otn/documents/webcontent/rss-otn-sec.xml",
+    "start_utc": "2026-11-26T14:15:18.063752+00:00",
+    "finish_utc": "2026-11-26T14:15:18.474900+00:00",
+    "status": 403,
+    "final_url": "https://www.oracle.com/ocom/groups/public/@otn/documents/webcontent/rss-otn-sec.xml",
+    "content_type": "text/html",
+    "last_modified": "",
+    "bytes": 3988,
+    "sha256": "01a401c132582e5b69bec60ffbbcf42219abfbabf92c12f4dd2188f264dbabe8",
+    "mentions": {
+      "CVE-2026-109618": 0,
+      "CVE-2026-109619": 0,
+      "CVE-2026-115560": 0,
+      "PHP": 0,
+      "php_prefix": 0,
+      "cve_any_case": {
+        "CVE-2026-109618": 0,
+        "CVE-2026-109619": 0,
+        "CVE-2026-115560": 0
+      }
+    },
+    "file": "oracle__security_rss.raw.gz"
+  },
+  {
+    "stratum": "rule_panel",
+    "vendor": "Oracle",
+    "kind": "advisories",
+    "name": "oracle__alert-cve-2026-109618",
+    "url": "https://www.oracle.com/security-alerts/alert-cve-2026-109618.html",
+    "start_utc": "2026-11-26T14:15:18.476071+00:00",
+    "finish_utc": "2026-11-26T14:15:18.635865+00:00",
+    "status": 403,
+    "final_url": "https://www.oracle.com/security-alerts/alert-cve-2026-109618.html",
+    "content_type": "text/html",
+    "last_modified": "",
+    "bytes": 3988,
+    "sha256": "978e03111d324e5d7151e517eac60e4e8eee9153eb4bce9c9045970473919eb2",
+    "mentions": {
+      "CVE-2026-109618": 0,
+      "CVE-2026-109619": 0,
+      "CVE-2026-115560": 0,
+      "PHP": 0,
+      "php_prefix": 0,
+      "cve_any_case": {
+        "CVE-2026-109618": 0,
+        "CVE-2026-109619": 0,
+        "CVE-2026-115560": 0
+      }
+    },
+    "file": "oracle__alert-cve-2026-109618.raw.gz"
+  },
+  {
+    "stratum": "rule_panel",
+    "vendor": "Citrix",
+    "kind": "routes",
+    "name": "citrix__securitybulletins",
+    "url": "https://support.citrix.com/securitybulletins/",
+    "start_utc": "2026-11-26T14:15:18.636982+00:00",
+    "finish_utc": "2026-11-26T14:15:19.269680+00:00",
+    "status": 200,
+    "final_url": "https://support.citrix.com/securitybulletins/",
+    "content_type": "text/html",
+    "last_modified": "Fri, 23 Oct 2026 14:19:21 GMT",
+    "bytes": 8422,
+    "sha256": "531d5ef180ea093ebfa6fe387eebb5ec8e7133228454f213b7294dd6fdb9b184",
+    "mentions": {
+      "CVE-2026-109618": 0,
+      "CVE-2026-109619": 0,
+      "CVE-2026-115560": 0,
+      "PHP": 0,
+      "php_prefix": 0,
+      "cve_any_case": {
+        "CVE-2026-109618": 0,
+        "CVE-2026-109619": 0,
+        "CVE-2026-115560": 0
+      }
+    },
+    "file": "citrix__securitybulletins.raw.gz"
+  },
+  {
+    "stratum": "rule_panel",
+    "vendor": "D-Link",
+    "kind": "routes",
+    "name": "d-link__announcements",
+    "url": "https://supportannouncement.us.dlink.com/",
+    "start_utc": "2026-11-26T14:15:19.271703+00:00",
+    "finish_utc": "2026-11-26T14:15:20.426535+00:00",
+    "status": 200,
+    "final_url": "https://supportannouncement.us.dlink.com/",
+    "content_type": "text/html; charset=utf-8",
+    "last_modified": "",
+    "bytes": 50525,
+    "sha256": "fbc0deef9d4ca01bc69471ed0c3ab39adf5a5140a21305b9b451ef6de64025ed",
+    "mentions": {
+      "CVE-2026-109618": 0,
+      "CVE-2026-109619": 0,
+      "CVE-2026-115560": 0,
+      "PHP": 0,
+      "php_prefix": 1,
+      "cve_any_case": {
+        "CVE-2026-109618": 0,
+        "CVE-2026-109619": 0,
+        "CVE-2026-115560": 0
+      }
+    },
+    "file": "d-link__announcements.raw.gz"
+  },
+  {
+    "stratum": "rule_panel",
+    "vendor": "D-Link",
+    "kind": "advisories",
+    "name": "d-link__SAP10524",
+    "url": "https://supportannouncement.us.dlink.com/security/publication.aspx?name=SAP10524",
+    "start_utc": "2026-11-26T14:15:20.756025+00:00",
+    "finish_utc": "2026-11-26T14:15:21.299453+00:00",
+    "status": 200,
+    "final_url": "https://supportannouncement.us.dlink.com/security/publication.aspx?name=SAP10524",
+    "content_type": "text/html; charset=utf-8",
+    "last_modified": "",
+    "bytes": 28411,
+    "sha256": "dfc366a0a77f981b12028b9c06047591b728f4b8f5a260887ba8e36fe3514b6d",
+    "mentions": {
+      "CVE-2026-109618": 1,
+      "CVE-2026-109619": 1,
+      "CVE-2026-115560": 0,
+      "PHP": 5,
+      "php_prefix": 8,
+      "cve_any_case": {
+        "CVE-2026-109618": 1,
+        "CVE-2026-109619": 1,
+        "CVE-2026-115560": 0
+      }
+    },
+    "file": "d-link__SAP10524.raw.gz"
+  },
+  {
+    "stratum": "rule_panel",
+    "vendor": "Palo Alto Networks",
+    "kind": "routes",
+    "name": "palo-alto-networks__rss",
+    "url": "https://security.paloaltonetworks.com/rss.xml",
+    "start_utc": "2026-11-26T14:15:21.644277+00:00",
+    "finish_utc": "2026-11-26T14:15:22.039213+00:00",
+    "status": 200,
+    "final_url": "https://security.paloaltonetworks.com/rss.xml",
+    "content_type": "application/xml; charset=utf-8",
+    "last_modified": "",
+    "bytes": 8484,
+    "sha256": "a26b9108a637ee79df0d8ebc09985a2e514e5c704c1ef69327622651acbaddc0",
+    "mentions": {
+      "CVE-2026-109618": 4,
+      "CVE-2026-109619": 1,
+      "CVE-2026-115560": 0,
+      "PHP": 1,
+      "php_prefix": 1,
+      "cve_any_case": {
+        "CVE-2026-109618": 4,
+        "CVE-2026-109619": 1,
+        "CVE-2026-115560": 0
+      }
+    },
+    "file": "palo-alto-networks__rss.raw.gz"
+  },
+  {
+    "stratum": "rule_panel",
+    "vendor": "Palo Alto Networks",
+    "kind": "routes",
+    "name": "palo-alto-networks__advisory_109619",
+    "url": "https://security.paloaltonetworks.com/CVE-2026-109619",
+    "start_utc": "2026-11-26T14:15:22.041130+00:00",
+    "finish_utc": "2026-11-26T14:15:22.241144+00:00",
+    "status": 404,
+    "final_url": "https://security.paloaltonetworks.com/CVE-2026-109619",
+    "content_type": "text/html; charset=utf-8",
+    "last_modified": "",
+    "bytes": 2694,
+    "sha256": "48b9e484250fc6f11b2a4d1ebf6f45655a457fe42395f645ffae30ce171718e4",
+    "mentions": {
+      "CVE-2026-109618": 0,
+      "CVE-2026-109619": 1,
+      "CVE-2026-115560": 0,
+      "PHP": 0,
+      "php_prefix": 0,
+      "cve_any_case": {
+        "CVE-2026-109618": 0,
+        "CVE-2026-109619": 1,
+        "CVE-2026-115560": 0
+      }
+    },
+    "file": "palo-alto-networks__advisory_109619.raw.gz"
+  },
+  {
+    "stratum": "rule_panel",
+    "vendor": "Synacor",
+    "kind": "routes",
+    "name": "synacor__zimbra_security_center",
+    "url": "https://wiki.zimbra.com/wiki/Security_Center",
+    "start_utc": "2026-11-26T14:15:22.242365+00:00",
+    "finish_utc": "2026-11-26T14:15:22.878509+00:00",
+    "status": 200,
+    "final_url": "https://wiki.zimbra.com/wiki/Security_Center",
+    "content_type": "text/html; charset=UTF-8",
+    "last_modified": "Fri, 23 Oct 2026 20:18:51 GMT",
+    "bytes": 287617,
+    "sha256": "4ae26529c84b04b872f23df2edef1fcf99605d730da1609b168056dfcf61331b",
+    "mentions": {
+      "CVE-2026-109618": 0,
+      "CVE-2026-109619": 0,
+      "CVE-2026-115560": 0,
+      "PHP": 5,
+      "php_prefix": 5,
+      "cve_any_case": {
+        "CVE-2026-109618": 0,
+        "CVE-2026-109619": 0,
+        "CVE-2026-115560": 0
+      }
+    },
+    "file": "synacor__zimbra_security_center.raw.gz"
+  },
+  {
+    "stratum": "rule_panel",
+    "vendor": "Android",
+    "kind": "routes",
+    "name": "android__bulletins",
+    "url": "https://source.android.com/docs/security/bulletin",
+    "start_utc": "2026-11-26T14:15:22.916298+00:00",
+    "finish_utc": "2026-11-26T14:15:23.927513+00:00",
+    "status": 200,
+    "final_url": "https://source.android.com/docs/security/bulletin",
+    "content_type": "text/html; charset=utf-8",
+    "last_modified": "Wed, 30 Sep 2026 18:29:37 GMT",
+    "bytes": 156722,
+    "sha256": "cd3bae8bb857064cdca86bd9e5b0a000d2026d3be8bda5b802f99c56457452ac",
+    "mentions": {
+      "CVE-2026-109618": 0,
+      "CVE-2026-109619": 0,
+      "CVE-2026-115560": 0,
+      "PHP": 0,
+      "php_prefix": 0,
+      "cve_any_case": {
+        "CVE-2026-109618": 0,
+        "CVE-2026-109619": 0,
+        "CVE-2026-115560": 0
+      }
+    },
+    "file": "android__bulletins.raw.gz"
+  },
+  {
+    "stratum": "rule_panel",
+    "vendor": "Samsung",
+    "kind": "routes",
+    "name": "samsung__mobile_updates",
+    "url": "https://security.samsungmobile.com/securityUpdate.smsb",
+    "start_utc": "2026-11-26T14:15:23.954673+00:00",
+    "finish_utc": "2026-11-26T14:15:25.527830+00:00",
+    "status": 200,
+    "final_url": "https://security.samsungmobile.com/securityUpdate.smsb",
+    "content_type": "text/html;charset=UTF-8",
+    "last_modified": "",
+    "bytes": 162937,
+    "sha256": "13572cbd808396f92973ddec2a155052c04056efb1e67d7f4cd7eef14d629cb8",
+    "mentions": {
+      "CVE-2026-109618": 0,
+      "CVE-2026-109619": 0,
+      "CVE-2026-115560": 0,
+      "PHP": 0,
+      "php_prefix": 0,
+      "cve_any_case": {
+        "CVE-2026-109618": 0,
+        "CVE-2026-109619": 0,
+        "CVE-2026-115560": 0
+      }
+    },
+    "file": "samsung__mobile_updates.raw.gz"
+  },
+  {
+    "stratum": "rule_panel",
+    "vendor": "Zyxel",
+    "kind": "routes",
+    "name": "zyxel__advisories",
+    "url": "https://www.zyxel.com/global/en/support/security-advisories",
+    "start_utc": "2026-11-26T14:15:25.557838+00:00",
+    "finish_utc": "2026-11-26T14:15:26.093104+00:00",
+    "status": 200,
+    "final_url": "https://www.zyxel.com/global/en/support/security-advisories",
+    "content_type": "text/html; charset=UTF-8",
+    "last_modified": "Thu, 26 Nov 2026 13:52:29 GMT",
+    "bytes": 126272,
+    "sha256": "04d81965b3364bc42e2f82bd2534d1c72a32fd73157c73bb0ac08d4e59c35ca0",
+    "mentions": {
+      "CVE-2026-109618": 2,
+      "CVE-2026-109619": 2,
+      "CVE-2026-115560": 0,
+      "PHP": 1,
+      "php_prefix": 2,
+      "cve_any_case": {
+        "CVE-2026-109618": 3,
+        "CVE-2026-109619": 3,
+        "CVE-2026-115560": 0
+      }
+    },
+    "file": "zyxel__advisories.raw.gz"
+  },
+  {
+    "stratum": "rule_panel",
+    "vendor": "Zyxel",
+    "kind": "advisories",
+    "name": "zyxel__statement-2026-10-28",
+    "url": "https://www.zyxel.com/global/en/support/security-advisories/zyxel-statement-for-php-core-rce-vulnerabilities-cve-2026-109618-and-cve-2026-109619-10-28-2026",
+    "start_utc": "2026-11-26T14:15:26.113371+00:00",
+    "finish_utc": "2026-11-26T14:15:27.026479+00:00",
+    "status": 200,
+    "final_url": "https://www.zyxel.com/global/en/support/security-advisories/zyxel-statement-for-php-core-rce-vulnerabilities-cve-2026-109618-and-cve-2026-109619-10-28-2026",
+    "content_type": "text/html; charset=UTF-8",
+    "last_modified": "Thu, 26 Nov 2026 14:15:26 GMT",
+    "bytes": 119218,
+    "sha256": "3cb1fbd1bf2b0135e8195c78f5d83315bb7ca23cc14f1d011ba95dbf699ea938",
+    "mentions": {
+      "CVE-2026-109618": 17,
+      "CVE-2026-109619": 17,
+      "CVE-2026-115560": 0,
+      "PHP": 24,
+      "php_prefix": 42,
+      "cve_any_case": {
+        "CVE-2026-109618": 35,
+        "CVE-2026-109619": 35,
+        "CVE-2026-115560": 0
+      }
+    },
+    "file": "zyxel__statement-2026-10-28.raw.gz"
+  },
+  {
+    "stratum": "rule_panel",
+    "vendor": "SonicWall",
+    "kind": "routes",
+    "name": "sonicwall__vuln_list",
+    "url": "https://psirt.global.sonicwall.com/vuln-list",
+    "start_utc": "2026-11-26T14:15:27.045465+00:00",
+    "finish_utc": "2026-11-26T14:15:27.892308+00:00",
+    "status": 200,
+    "final_url": "https://psirt.global.sonicwall.com/vuln-list",
+    "content_type": "text/html",
+    "last_modified": "Fri, 15 Aug 2025 20:21:44 GMT",
+    "bytes": 729,
+    "sha256": "e7f0026e34e37ba03ee2ce84f89e1ebaa0933c4de6cba2228dcc1236436b09e1",
+    "mentions": {
+      "CVE-2026-109618": 0,
+      "CVE-2026-109619": 0,
+      "CVE-2026-115560": 0,
+      "PHP": 0,
+      "php_prefix": 0,
+      "cve_any_case": {
+        "CVE-2026-109618": 0,
+        "CVE-2026-109619": 0,
+        "CVE-2026-115560": 0
+      }
+    },
+    "file": "sonicwall__vuln_list.raw.gz"
+  },
+  {
+    "stratum": "rule_panel",
+    "vendor": "Roundcube",
+    "kind": "routes",
+    "name": "roundcube__news",
+    "url": "https://roundcube.net/news",
+    "start_utc": "2026-11-26T14:15:27.893265+00:00",
+    "finish_utc": "2026-11-26T14:15:29.097606+00:00",
+    "status": 200,
+    "final_url": "https://roundcube.net/news/",
+    "content_type": "text/html; charset=utf-8",
+    "last_modified": "Mon, 23 Nov 2026 11:28:18 GMT",
+    "bytes": 24437,
+    "sha256": "304475be8b5334e8bc70fcb5b54982911169159b3b9c512b556f943a4fe1f839",
+    "mentions": {
+      "CVE-2026-109618": 0,
+      "CVE-2026-109619": 0,
+      "CVE-2026-115560": 0,
+      "PHP": 1,
+      "php_prefix": 2,
+      "cve_any_case": {
+        "CVE-2026-109618": 0,
+        "CVE-2026-109619": 0,
+        "CVE-2026-115560": 0
+      }
+    },
+    "file": "roundcube__news.raw.gz"
+  },
+  {
+    "stratum": "rule_panel",
+    "vendor": "VMware",
+    "kind": "routes",
+    "name": "vmware__broadcom_advisories",
+    "url": "https://support.broadcom.com/web/ecx/security-advisory",
+    "start_utc": "2026-11-26T14:15:29.102013+00:00",
+    "finish_utc": "2026-11-26T14:15:29.571833+00:00",
+    "status": 200,
+    "final_url": "https://support.broadcom.com/web/ecx/security-advisory",
+    "content_type": "text/html;charset=UTF-8",
+    "last_modified": "",
+    "bytes": 342417,
+    "sha256": "d79124078cddffa3fe8dfe7c5b78ceacd53a0739b8e9a201a1300dc8a4515b17",
+    "mentions": {
+      "CVE-2026-109618": 0,
+      "CVE-2026-109619": 0,
+      "CVE-2026-115560": 0,
+      "PHP": 0,
+      "php_prefix": 0,
+      "cve_any_case": {
+        "CVE-2026-109618": 0,
+        "CVE-2026-109619": 0,
+        "CVE-2026-115560": 0
+      }
+    },
+    "file": "vmware__broadcom_advisories.raw.gz"
+  },
+  {
+    "stratum": "named_stratum",
+    "vendor": "Splunk",
+    "kind": "routes",
+    "name": "splunk__advisories",
+    "url": "https://advisory.splunk.com/",
+    "start_utc": "2026-11-26T14:15:29.617779+00:00",
+    "finish_utc": "2026-11-26T14:15:30.153343+00:00",
+    "status": 200,
+    "final_url": "https://advisory.splunk.com/",
+    "content_type": "text/html; charset=utf-8",
+    "last_modified": "Wed, 25 Nov 2026 22:38:17 GMT",
+    "bytes": 1581463,
+    "sha256": "ca6a7a345cd1031fc7bd6106d947fea035e35cc71e9c01ea6bd315c87e3c85fc",
+    "mentions": {
+      "CVE-2026-109618": 4,
+      "CVE-2026-109619": 4,
+      "CVE-2026-115560": 3,
+      "PHP": 9,
+      "php_prefix": 48,
+      "cve_any_case": {
+        "CVE-2026-109618": 4,
+        "CVE-2026-109619": 4,
+        "CVE-2026-115560": 3
+      }
+    },
+    "file": "splunk__advisories.raw.gz"
+  },
+  {
+    "stratum": "named_stratum",
+    "vendor": "Splunk",
+    "kind": "advisories",
+    "name": "splunk__SVD-2026-1013",
+    "url": "https://advisory.splunk.com/advisories/SVD-2026-1013",
+    "start_utc": "2026-11-26T14:15:31.788949+00:00",
+    "finish_utc": "2026-11-26T14:15:32.042573+00:00",
+    "status": 200,
+    "final_url": "https://advisory.splunk.com/advisories/SVD-2026-1013",
+    "content_type": "text/html; charset=utf-8",
+    "last_modified": "Wed, 25 Nov 2026 22:38:17 GMT",
+    "bytes": 9394,
+    "sha256": "b0fb227b28ac08bc9f626a7b8c52d2e5a8ae3bef4be92842204750730b3863e8",
+    "mentions": {
+      "CVE-2026-109618": 4,
+      "CVE-2026-109619": 4,
+      "CVE-2026-115560": 0,
+      "PHP": 17,
+      "php_prefix": 28,
+      "cve_any_case": {
+        "CVE-2026-109618": 4,
+        "CVE-2026-109619": 4,
+        "CVE-2026-115560": 0
+      }
+    },
+    "file": "splunk__SVD-2026-1013.raw.gz"
+  }
+]
