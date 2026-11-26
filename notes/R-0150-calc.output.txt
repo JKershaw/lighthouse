@@ -1,0 +1,9 @@
+C07 hosts with a PQC key exchange: 688814/1523998 = 45.2%
+C07 entities with one on >=1 IP: 10788/27012 = 39.9%
+C07 entities without: 16224/27012 = 60.1%; 10788+16224 = 27012
+C08 Small (<50)        perimeter/zero trust/hybrid = [3, 5, 2] (n=10)
+C08 Medium (50-250)    perimeter/zero trust/hybrid = [8, 10, 6] (n=24)
+C08 Large (250-500)    perimeter/zero trust/hybrid = [4, 3, 5] (n=12)
+C08 Very large (>500)  perimeter/zero trust/hybrid = [7, 3, 3] (n=13)
+C08 four size groups, N=59 (the 5 N/A excluded): chi2=4.27 df=6 p=0.64
+C08 smallest expected count 2.71; cells with expected < 5: 9 of 12
