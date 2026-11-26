@@ -1,0 +1,113 @@
+29 read directories with classes.json; skipped (no classes.json): read-2026-11-09T1422Z
+read-2026-10-23T1715Z: rerun classes.json identical to retained
+read-2026-10-24T0630Z: rerun classes.json identical to retained
+read-2026-10-24T1230Z: rerun classes.json identical to retained
+read-2026-10-24T1830Z: rerun classes.json identical to retained
+read-2026-10-25T0030Z: rerun classes.json identical to retained
+read-2026-10-25T0630Z: rerun classes.json identical to retained
+read-2026-10-25T1230Z: rerun classes.json identical to retained
+read-2026-10-25T1830Z: rerun classes.json identical to retained
+read-2026-10-26T0634Z: rerun classes.json identical to retained
+read-2026-10-26T1230Z: rerun classes.json identical to retained
+read-2026-10-26T1830Z: rerun classes.json identical to retained
+read-2026-10-27T0633Z: rerun classes.json identical to retained
+read-2026-10-27T1230Z: rerun classes.json identical to retained
+read-2026-10-27T1830Z: rerun classes.json identical to retained
+read-2026-10-28T0634Z: rerun classes.json identical to retained
+read-2026-10-28T1230Z: rerun classes.json identical to retained
+read-2026-10-28T1830Z: rerun classes.json identical to retained
+read-2026-10-29T0634Z: rerun classes.json identical to retained
+read-2026-10-29T1230Z: rerun classes.json identical to retained
+read-2026-10-29T1830Z: rerun classes.json identical to retained
+read-2026-10-30T0634Z: rerun classes.json identical to retained
+read-2026-10-30T1300Z: rerun classes.json identical to retained
+read-2026-11-02T1526Z: rerun classes.json identical to retained
+read-2026-11-05T1414Z: rerun classes.json identical to retained
+read-2026-11-09T1423Z: rerun classes.json identical to retained
+read-2026-11-12T1416Z: rerun classes.json identical to retained
+read-2026-11-16T1419Z: rerun classes.json identical to retained
+read-2026-11-19T1417Z: rerun classes.json identical to retained
+read-2026-11-23T1421Z: rerun classes.json identical to retained
+classifier replay mismatches: 0
+
+Per entry: read label, access state (HTTP status), I, II, III, IV hand decision, V; printed at the first read and at each change.
+php (reference)
+  2026-10-23T1715Z: read (200); I=True II=True III=True IV=none V=True
+cve_org (records)
+  2026-10-23T1715Z: no record (404); I=False II=False III=False IV=n/a V=False
+  2026-11-23T1421Z: read (200); I=True II=False III=True IV=none V=True
+nvd (records)
+  2026-10-23T1715Z: no record (200); I=False II=False III=False IV=n/a V=False
+  2026-11-23T1421Z: read (200); I=True II=False III=True IV=none V=True
+osv (records)
+  2026-10-23T1715Z: no record (404); I=False II=False III=False IV=n/a V=False
+debian (records)
+  2026-10-23T1715Z: no record (404); I=False II=False III=False IV=n/a V=False
+  2026-11-23T1421Z: read (200); I=True II=False III=True IV=explicit V=True
+ubuntu (records)
+  2026-10-23T1715Z: no record (404); I=False II=False III=False IV=n/a V=False
+  2026-10-24T0630Z: unavailable (None); I=False II=False III=False IV=n/a V=False
+  2026-10-24T1230Z: no record (404); I=False II=False III=False IV=n/a V=False
+  2026-10-26T1230Z: unavailable (None); I=False II=False III=False IV=n/a V=False
+  2026-10-27T0633Z: no record (404); I=False II=False III=False IV=n/a V=False
+  2026-10-28T1830Z: unavailable (None); I=False II=False III=False IV=n/a V=False
+  2026-10-29T1230Z: no record (404); I=False II=False III=False IV=n/a V=False
+  2026-11-05T1414Z: unavailable (503); I=False II=False III=False IV=n/a V=False
+  2026-11-09T1423Z: unavailable (None); I=False II=False III=False IV=n/a V=False
+  2026-11-12T1416Z: no record (404); I=False II=False III=False IV=n/a V=False
+  2026-11-23T1421Z: read (200); I=True II=False III=False IV=none V=True
+redhat (records)
+  2026-10-23T1715Z: no record (404); I=False II=False III=False IV=n/a V=False
+  2026-11-23T1421Z: read (200); I=True II=True III=True IV=none V=True
+suse (records)
+  2026-10-23T1715Z: no record (404); I=False II=False III=False IV=n/a V=False
+  2026-11-05T1414Z: read (200); I=True II=False III=False IV=none V=True
+  2026-11-23T1421Z: read (200); I=True II=False III=True IV=none V=True
+ncsc_uk (notices)
+  2026-10-23T1715Z: read (200); I=False II=False III=False IV=none V=False
+cisa (notices)
+  2026-10-23T1715Z: unavailable (403); I=False II=False III=False IV=n/a V=False
+cert_eu (notices)
+  2026-10-23T1715Z: read (200); I=True II=True III=False IV=none V=False
+cloudflare (notices)
+  2026-10-23T1715Z: read (200); I=True II=False III=False IV=explicit V=True
+fastly (notices)
+  2026-10-23T1715Z: read (200/200); I=False II=False III=False IV=none V=False
+  2026-11-23T1421Z: read (200/200); I=True II=False III=False IV=none V=False
+akamai (notices)
+  2026-10-23T1715Z: unavailable (403); I=False II=False III=False IV=n/a V=False
+aws (notices)
+  2026-10-23T1715Z: read (200/200); I=False II=False III=False IV=none V=False
+google_cloud (notices)
+  2026-10-23T1715Z: read (200/200); I=False II=False III=False IV=none V=False
+
+Readable entries per read (an entry counts as readable when at least one of its URLs was read in full or answered "no record"; the PHP reference is not counted):
+  2026-10-23T1715Z: 13 of 15; not readable: akamai, cisa
+  2026-10-24T0630Z: 12 of 15; not readable: akamai, cisa, ubuntu
+  2026-10-24T1230Z: 13 of 15; not readable: akamai, cisa
+  2026-10-24T1830Z: 13 of 15; not readable: akamai, cisa
+  2026-10-25T0030Z: 13 of 15; not readable: akamai, cisa
+  2026-10-25T0630Z: 13 of 15; not readable: akamai, cisa
+  2026-10-25T1230Z: 13 of 15; not readable: akamai, cisa
+  2026-10-25T1830Z: 13 of 15; not readable: akamai, cisa
+  2026-10-26T0634Z: 13 of 15; not readable: akamai, cisa
+  2026-10-26T1230Z: 12 of 15; not readable: akamai, cisa, ubuntu
+  2026-10-26T1830Z: 12 of 15; not readable: akamai, cisa, ubuntu
+  2026-10-27T0633Z: 13 of 15; not readable: akamai, cisa
+  2026-10-27T1230Z: 13 of 15; not readable: akamai, cisa
+  2026-10-27T1830Z: 13 of 15; not readable: akamai, cisa
+  2026-10-28T0634Z: 13 of 15; not readable: akamai, cisa
+  2026-10-28T1230Z: 13 of 15; not readable: akamai, cisa
+  2026-10-28T1830Z: 12 of 15; not readable: akamai, cisa, ubuntu
+  2026-10-29T0634Z: 12 of 15; not readable: akamai, cisa, ubuntu
+  2026-10-29T1230Z: 13 of 15; not readable: akamai, cisa
+  2026-10-29T1830Z: 13 of 15; not readable: akamai, cisa
+  2026-10-30T0634Z: 13 of 15; not readable: akamai, cisa
+  2026-10-30T1300Z: 13 of 15; not readable: akamai, cisa
+  2026-11-02T1526Z: 13 of 15; not readable: akamai, cisa
+  2026-11-05T1414Z: 12 of 15; not readable: akamai, cisa, ubuntu
+  2026-11-09T1423Z: 12 of 15; not readable: akamai, cisa, ubuntu
+  2026-11-12T1416Z: 13 of 15; not readable: akamai, cisa
+  2026-11-16T1419Z: 13 of 15; not readable: akamai, cisa
+  2026-11-19T1417Z: 13 of 15; not readable: akamai, cisa
+  2026-11-23T1421Z: 13 of 15; not readable: akamai, cisa
