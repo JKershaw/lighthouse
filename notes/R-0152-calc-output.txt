@@ -1,0 +1,266 @@
+R-0152: calculations kept for the evidence review of studies/LH030/LH030.md version 1.0
+(git blob a41d3b75dd0fdfcd4a4bda26741db66cc7a313aa, sha256 a80414a7c9971f50c73fc2ad515a6edf4786848efa7a42f8867c4c3180a8074b, last changed in 8c66ca3).
+Run 26 November 2026 from the retained bodies only; no network read. Commands run from /home/user/lighthouse; SCRATCH is a scratch directory.
+
+== 1. The record's replay, rerun and compared with its kept output
+$ python3 -I studies/LH030/scripts/replay_final.py > SCRATCH/replay.txt; diff SCRATCH/replay.txt studies/LH030/record-1.0-output.txt
+exit 0; diff empty: rerun output is byte for byte record-1.0-output.txt (29 reads, 0 classifier mismatches; readable 12 or 13 of 15 at every read). git status of studies/LH030 clean afterwards.
+
+== 2. classify.py and tabulate.py run by hand on copies of six reads (retained classes.json untouched)
+for r in read-2026-10-23T1715Z read-2026-11-02T1526Z read-2026-11-05T1414Z read-2026-11-16T1419Z read-2026-11-19T1417Z read-2026-11-23T1421Z; do
+  cp -r studies/LH030/data/$r SCRATCH/copies/$r; python3 -I studies/LH030/scripts/classify.py SCRATCH/copies/$r; cmp SCRATCH/copies/$r/classes.json studies/LH030/data/$r/classes.json; python3 -I studies/LH030/scripts/tabulate.py SCRATCH/copies/$r; done
+Result: all six classes.json identical (cmp silent). Per-entry rows (entry, states, I, II, III, IV first 60 chars, count of V links):
+-- read-2026-10-23T1715Z
+  php ['php_0:200:read'] I True II True III True IV none: the IV snippets are in the 21 October entries that fol V 1
+  cve_org ['cve_org_0:404:no record'] I False II False III False IV n/a V 0
+  nvd ['nvd_0:200:no record'] I False II False III False IV n/a V 0
+  osv ['osv_0:404:no record'] I False II False III False IV n/a V 0
+  debian ['debian_0:404:no record'] I False II False III False IV n/a V 0
+  ubuntu ['ubuntu_0:404:no record'] I False II False III False IV n/a V 0
+  redhat ['redhat_0:404:no record'] I False II False III False IV n/a V 0
+  suse ['suse_0:404:no record'] I False II False III False IV n/a V 0
+  ncsc_uk ['ncsc_uk_0:200:read'] I False II False III False IV none V 0
+  cisa ['cisa_0:403:unavailable'] I False II False III False IV n/a V 0
+  cert_eu ['cert_eu_0:200:read'] I True II True III False IV none: the snippets are the advisory's 'Affected Products' li V 0
+  cloudflare ['cloudflare_0:200:read'] I True II False III False IV explicit: 'It affects fully patched PHP releases, including  V 1
+  fastly ['fastly_0:200:read', 'fastly_1:200:read'] I False II False III False IV none V 0
+  akamai ['akamai_0:403:unavailable'] I False II False III False IV n/a V 0
+  aws ['aws_0:200:read', 'aws_1:200:read'] I False II False III False IV none V 0
+  google_cloud ['google_cloud_0:200:read', 'google_cloud_1:200:read'] I False II False III False IV none V 0
+-- read-2026-11-02T1526Z
+  php ['php_0:200:read'] I True II True III True IV none: the IV snippets are in the 21 October entries that fol V 1
+  cve_org ['cve_org_0:404:no record'] I False II False III False IV n/a V 0
+  nvd ['nvd_0:200:no record'] I False II False III False IV n/a V 0
+  osv ['osv_0:404:no record'] I False II False III False IV n/a V 0
+  debian ['debian_0:404:no record'] I False II False III False IV n/a V 0
+  ubuntu ['ubuntu_0:404:no record'] I False II False III False IV n/a V 0
+  redhat ['redhat_0:404:no record'] I False II False III False IV n/a V 0
+  suse ['suse_0:404:no record'] I False II False III False IV n/a V 0
+  ncsc_uk ['ncsc_uk_0:200:read'] I False II False III False IV none V 0
+  cisa ['cisa_0:403:unavailable'] I False II False III False IV n/a V 0
+  cert_eu ['cert_eu_0:200:read'] I True II True III False IV none: the snippets are the advisory's 'Affected Products' li V 0
+  cloudflare ['cloudflare_0:200:read'] I True II False III False IV explicit: 'It affects fully patched PHP releases, including  V 1
+  fastly ['fastly_0:200:read', 'fastly_1:200:read'] I False II False III False IV none V 0
+  akamai ['akamai_0:403:unavailable'] I False II False III False IV n/a V 0
+  aws ['aws_0:200:read', 'aws_1:200:read'] I False II False III False IV none V 0
+  google_cloud ['google_cloud_0:200:read', 'google_cloud_1:200:read'] I False II False III False IV none V 0
+-- read-2026-11-05T1414Z
+  php ['php_0:200:read'] I True II True III True IV none: the IV snippets are in the 21 October entries that fol V 1
+  cve_org ['cve_org_0:404:no record'] I False II False III False IV n/a V 0
+  nvd ['nvd_0:200:no record'] I False II False III False IV n/a V 0
+  osv ['osv_0:404:no record'] I False II False III False IV n/a V 0
+  debian ['debian_0:404:no record'] I False II False III False IV n/a V 0
+  ubuntu ['ubuntu_0:503:unavailable'] I False II False III False IV n/a V 0
+  redhat ['redhat_0:404:no record'] I False II False III False IV n/a V 0
+  suse ['suse_0:200:read'] I True II False III False IV none V 9
+  ncsc_uk ['ncsc_uk_0:200:read'] I False II False III False IV none V 0
+  cisa ['cisa_0:403:unavailable'] I False II False III False IV n/a V 0
+  cert_eu ['cert_eu_0:200:read'] I True II True III False IV none: the snippets are the advisory's 'Affected Products' li V 0
+  cloudflare ['cloudflare_0:200:read'] I True II False III False IV explicit: 'It affects fully patched PHP releases, including  V 1
+  fastly ['fastly_0:200:read', 'fastly_1:200:read'] I False II False III False IV none V 0
+  akamai ['akamai_0:403:unavailable'] I False II False III False IV n/a V 0
+  aws ['aws_0:200:read', 'aws_1:200:read'] I False II False III False IV none V 0
+  google_cloud ['google_cloud_0:200:read', 'google_cloud_1:200:read'] I False II False III False IV none V 0
+-- read-2026-11-16T1419Z
+  php ['php_0:200:read'] I True II True III True IV none: the IV snippets are in the 21 October entries that fol V 1
+  cve_org ['cve_org_0:404:no record'] I False II False III False IV n/a V 0
+  nvd ['nvd_0:200:no record'] I False II False III False IV n/a V 0
+  osv ['osv_0:404:no record'] I False II False III False IV n/a V 0
+  debian ['debian_0:404:no record'] I False II False III False IV n/a V 0
+  ubuntu ['ubuntu_0:404:no record'] I False II False III False IV n/a V 0
+  redhat ['redhat_0:404:no record'] I False II False III False IV n/a V 0
+  suse ['suse_0:200:read'] I True II False III False IV none V 9
+  ncsc_uk ['ncsc_uk_0:200:read'] I False II False III False IV none V 0
+  cisa ['cisa_0:403:unavailable'] I False II False III False IV n/a V 0
+  cert_eu ['cert_eu_0:200:read'] I True II True III False IV none: the snippets are the advisory's 'Affected Products' li V 0
+  cloudflare ['cloudflare_0:200:read'] I True II False III False IV explicit: 'It affects fully patched PHP releases, including  V 1
+  fastly ['fastly_0:200:read', 'fastly_1:200:read'] I False II False III False IV none V 0
+  akamai ['akamai_0:403:unavailable'] I False II False III False IV n/a V 0
+  aws ['aws_0:200:read', 'aws_1:200:read'] I False II False III False IV none V 0
+  google_cloud ['google_cloud_0:200:read', 'google_cloud_1:200:read'] I False II False III False IV none V 0
+-- read-2026-11-19T1417Z
+  php ['php_0:200:read'] I True II True III True IV none: the IV snippets are in the 21 October entries that fol V 1
+  cve_org ['cve_org_0:404:no record'] I False II False III False IV n/a V 0
+  nvd ['nvd_0:200:no record'] I False II False III False IV n/a V 0
+  osv ['osv_0:404:no record'] I False II False III False IV n/a V 0
+  debian ['debian_0:404:no record'] I False II False III False IV n/a V 0
+  ubuntu ['ubuntu_0:404:no record'] I False II False III False IV n/a V 0
+  redhat ['redhat_0:404:no record'] I False II False III False IV n/a V 0
+  suse ['suse_0:200:read'] I True II False III False IV none V 9
+  ncsc_uk ['ncsc_uk_0:200:read'] I False II False III False IV none V 0
+  cisa ['cisa_0:403:unavailable'] I False II False III False IV n/a V 0
+  cert_eu ['cert_eu_0:200:read'] I True II True III False IV none: the snippets are the advisory's 'Affected Products' li V 0
+  cloudflare ['cloudflare_0:200:read'] I True II False III False IV explicit: 'It affects fully patched PHP releases, including  V 1
+  fastly ['fastly_0:200:read', 'fastly_1:200:read'] I False II False III False IV none V 0
+  akamai ['akamai_0:403:unavailable'] I False II False III False IV n/a V 0
+  aws ['aws_0:200:read', 'aws_1:200:read'] I False II False III False IV none V 0
+  google_cloud ['google_cloud_0:200:read', 'google_cloud_1:200:read'] I False II False III False IV none V 0
+-- read-2026-11-23T1421Z
+  php ['php_0:200:read'] I True II True III True IV none: the IV snippets are in the 21 October entries that fol V 1
+  cve_org ['cve_org_0:200:read'] I True II False III True IV none V 2
+  nvd ['nvd_0:200:read'] I True II False III True IV none V 2
+  osv ['osv_0:404:no record'] I False II False III False IV n/a V 0
+  debian ['debian_0:200:read'] I True II False III True IV explicit: the per-release status table gives 'php8.4 ( PTS ) V 17
+  ubuntu ['ubuntu_0:200:read'] I True II False III False IV none V 1
+  redhat ['redhat_0:200:read'] I True II True III True IV none V 1
+  suse ['suse_0:200:read'] I True II False III True IV none V 9
+  ncsc_uk ['ncsc_uk_0:200:read'] I False II False III False IV none V 0
+  cisa ['cisa_0:403:unavailable'] I False II False III False IV n/a V 0
+  cert_eu ['cert_eu_0:200:read'] I True II True III False IV none: the snippets are the advisory's 'Affected Products' li V 0
+  cloudflare ['cloudflare_0:200:read'] I True II False III False IV explicit: 'It affects fully patched PHP releases, including  V 1
+  fastly ['fastly_0:200:read', 'fastly_1:200:read'] I True II False III False IV none: the snippets are the October changelog entry's sentenc V 0
+  akamai ['akamai_0:403:unavailable'] I False II False III False IV n/a V 0
+  aws ['aws_0:200:read', 'aws_1:200:read'] I False II False III False IV none V 0
+  google_cloud ['google_cloud_0:200:read', 'google_cloud_1:200:read'] I False II False III False IV none V 0
+
+== 3. Independent check without the classifier (code below, then output)
+$ python3 -I SCRATCH/indep.py studies/LH030/data
+--- code ---
+#!/usr/bin/env python3
+"""R-0152 independent check of LH030 (does not use classify.py or tabulate.py).
+For each read: verify each retained body's SHA-256 against its log, then per URL print status, bytes, and raw-substring
+presence of CVE-2026-115560 and of 'upload_progress' in the raw bytes. Prints first read with the CVE string per URL,
+Ubuntu non-404/non-200 reads, GET counts and bytes per read."""
+import hashlib, json, sys
+from pathlib import Path
+DATA = Path(sys.argv[1])
+reads = sorted(DATA.glob('read-*'))
+first = {}; prev = {}
+total_gets = 0; hash_bad = 0
+for d in reads:
+    log = json.loads((d / 'read_log.json').read_text())
+    total_gets += len(log)
+    recv = sum(r.get('bytes') or 0 for r in log)
+    starts = [r['start_utc'] for r in log if r.get('start_utc')]; fins = [r['finish_utc'] for r in log if r.get('finish_utc')]
+    print(f"{d.name}: {len(log)} GETs, {recv} bytes logged, {min(starts)[:19]} to {max(fins)[:19]}")
+    for r in log:
+        f = d / r['file'] if r.get('file') else None
+        raw = f.read_bytes() if f and f.exists() else None
+        if raw is not None and hashlib.sha256(raw).hexdigest() != r.get('sha256'):
+            hash_bad += 1
+            # bodies with emails redacted after hashing would differ; report
+            print(f"   hash differs: {r['name']}")
+        cve = raw is not None and b'CVE-2026-115560' in raw
+        up = raw is not None and b'upload_progress' in raw
+        key = r['name']
+        state = (r.get('status'), cve)
+        if key not in first and cve: first[key] = (d.name, prev.get(key))
+        if r['source'] == 'ubuntu' and r.get('status') not in (200, 404):
+            print(f"   ubuntu status {r.get('status')} at {r.get('start_utc')} err={r.get('error','')}")
+        prev[key] = (d.name, r.get('status'))
+print('total GETs', total_gets, 'hash mismatches', hash_bad)
+print('first read whose raw body contains CVE-2026-115560 (and previous read, status):')
+for k, v in sorted(first.items()): print(' ', k, v)
+--- output ---
+read-2026-10-23T1715Z: 19 GETs, 2360870 bytes logged, 2026-10-23T17:14:55 to 2026-10-23T17:15:16
+read-2026-10-24T0630Z: 19 GETs, 2422647 bytes logged, 2026-10-24T06:34:23 to 2026-10-24T06:34:57
+   ubuntu status None at 2026-10-24T06:34:25.261037+00:00 err=TimeoutError: The read operation timed out
+read-2026-10-24T1230Z: 19 GETs, 2422522 bytes logged, 2026-10-24T12:33:52 to 2026-10-24T12:34:01
+read-2026-10-24T1830Z: 19 GETs, 2424113 bytes logged, 2026-10-24T18:34:12 to 2026-10-24T18:34:20
+read-2026-10-25T0030Z: 19 GETs, 2424039 bytes logged, 2026-10-25T00:34:39 to 2026-10-25T00:34:47
+read-2026-10-25T0630Z: 19 GETs, 2424093 bytes logged, 2026-10-25T06:34:24 to 2026-10-25T06:34:32
+read-2026-10-25T1230Z: 19 GETs, 2424110 bytes logged, 2026-10-25T12:34:11 to 2026-10-25T12:34:23
+read-2026-10-25T1830Z: 19 GETs, 2424091 bytes logged, 2026-10-25T18:34:08 to 2026-10-25T18:34:20
+read-2026-10-26T0634Z: 19 GETs, 2423930 bytes logged, 2026-10-26T06:34:15 to 2026-10-26T06:34:25
+read-2026-10-26T1230Z: 19 GETs, 2424050 bytes logged, 2026-10-26T12:35:53 to 2026-10-26T12:36:27
+   ubuntu status None at 2026-10-26T12:35:55.371850+00:00 err=TimeoutError: The read operation timed out
+read-2026-10-26T1830Z: 19 GETs, 2424052 bytes logged, 2026-10-26T18:34:24 to 2026-10-26T18:34:58
+   ubuntu status None at 2026-10-26T18:34:25.991680+00:00 err=TimeoutError: The read operation timed out
+read-2026-10-27T0633Z: 19 GETs, 2425264 bytes logged, 2026-10-27T06:33:58 to 2026-10-27T06:34:14
+read-2026-10-27T1230Z: 19 GETs, 2425083 bytes logged, 2026-10-27T12:37:45 to 2026-10-27T12:38:02
+read-2026-10-27T1830Z: 19 GETs, 2425132 bytes logged, 2026-10-27T18:34:22 to 2026-10-27T18:34:31
+read-2026-10-28T0634Z: 19 GETs, 2425049 bytes logged, 2026-10-28T06:34:20 to 2026-10-28T06:34:28
+read-2026-10-28T1230Z: 19 GETs, 2425039 bytes logged, 2026-10-28T12:38:02 to 2026-10-28T12:38:22
+read-2026-10-28T1830Z: 19 GETs, 2426881 bytes logged, 2026-10-28T18:33:55 to 2026-10-28T18:34:29
+   ubuntu status None at 2026-10-28T18:33:57.265917+00:00 err=TimeoutError: The read operation timed out
+read-2026-10-29T0634Z: 19 GETs, 2426983 bytes logged, 2026-10-29T06:34:14 to 2026-10-29T06:34:49
+   ubuntu status None at 2026-10-29T06:34:16.350076+00:00 err=TimeoutError: The read operation timed out
+read-2026-10-29T1230Z: 19 GETs, 2427283 bytes logged, 2026-10-29T12:43:10 to 2026-10-29T12:43:27
+read-2026-10-29T1830Z: 19 GETs, 2427928 bytes logged, 2026-10-29T18:34:09 to 2026-10-29T18:34:18
+read-2026-10-30T0634Z: 19 GETs, 2427950 bytes logged, 2026-10-30T06:34:09 to 2026-10-30T06:34:21
+read-2026-10-30T1300Z: 19 GETs, 2428136 bytes logged, 2026-10-30T13:04:15 to 2026-10-30T13:04:23
+read-2026-11-02T1526Z: 19 GETs, 2428061 bytes logged, 2026-11-02T15:26:32 to 2026-11-02T15:26:40
+read-2026-11-05T1414Z: 19 GETs, 2511342 bytes logged, 2026-11-05T14:14:53 to 2026-11-05T14:15:21
+   ubuntu status 503 at 2026-11-05T14:14:55.615585+00:00 err=
+read-2026-11-09T1422Z: 19 GETs, 2231309 bytes logged, 2026-11-09T14:22:27 to 2026-11-09T14:22:47
+read-2026-11-09T1423Z: 19 GETs, 2231233 bytes logged, 2026-11-09T14:23:12 to 2026-11-09T14:23:52
+   hash differs: php_0
+   ubuntu status None at 2026-11-09T14:23:15.379294+00:00 err=TimeoutError: The read operation timed out
+   hash differs: ncsc_uk_0
+   hash differs: cert_eu_0
+   hash differs: google_cloud_1
+read-2026-11-12T1416Z: 19 GETs, 2238396 bytes logged, 2026-11-12T14:16:53 to 2026-11-12T14:17:07
+   hash differs: php_0
+   hash differs: ncsc_uk_0
+   hash differs: cert_eu_0
+   hash differs: google_cloud_1
+read-2026-11-16T1419Z: 19 GETs, 2240345 bytes logged, 2026-11-16T14:19:12 to 2026-11-16T14:19:26
+   hash differs: php_0
+   hash differs: ncsc_uk_0
+   hash differs: cert_eu_0
+   hash differs: google_cloud_1
+read-2026-11-19T1417Z: 19 GETs, 2254008 bytes logged, 2026-11-19T14:17:55 to 2026-11-19T14:18:18
+   hash differs: php_0
+   hash differs: ncsc_uk_0
+   hash differs: cert_eu_0
+   hash differs: google_cloud_1
+read-2026-11-23T1421Z: 19 GETs, 2432090 bytes logged, 2026-11-23T14:21:23 to 2026-11-23T14:21:37
+   hash differs: php_0
+   hash differs: nvd_0
+   hash differs: ncsc_uk_0
+   hash differs: cert_eu_0
+   hash differs: google_cloud_1
+total GETs 570 hash mismatches 21
+first read whose raw body contains CVE-2026-115560 (and previous read, status):
+  cert_eu_0 ('read-2026-10-23T1715Z', None)
+  cloudflare_0 ('read-2026-10-23T1715Z', None)
+  cve_org_0 ('read-2026-11-23T1421Z', ('read-2026-11-19T1417Z', 404))
+  debian_0 ('read-2026-10-23T1715Z', None)
+  fastly_1 ('read-2026-11-23T1421Z', ('read-2026-11-19T1417Z', 200))
+  nvd_0 ('read-2026-11-23T1421Z', ('read-2026-11-19T1417Z', 200))
+  php_0 ('read-2026-10-23T1715Z', None)
+  redhat_0 ('read-2026-11-23T1421Z', ('read-2026-11-19T1417Z', 404))
+  suse_0 ('read-2026-11-05T1414Z', ('read-2026-11-02T1526Z', 404))
+  ubuntu_0 ('read-2026-10-23T1715Z', None)
+Reading of section 3: 570 GETs in 30 logs; bytes per read 2,231,233 to 2,511,342. Hash differences from 9 November are bodies whose addresses were withheld after hashing (each differing file holds the placeholder '[email withheld by Lighthouse]'), as the 9 November amendment says. Debian's and Ubuntu's 404 bodies echo the identifier and are 'no record' under tabulate's rule; the first 200 with the identifier is 5 Nov for SUSE and 23 Nov for CVE Program, NVD, Debian, Ubuntu, Red Hat and Fastly's changelog (fastly_1).
+
+== 4. Status tally per URL over the 29 reads (failed 9 Nov 14:22 attempt excluded): (HTTP status, body >= 1000 bytes): count
+  php_0 {(200, True): 29}
+  cve_org_0 {(404, False): 28, (200, True): 1}
+  nvd_0 {(200, False): 28, (200, True): 1}
+  osv_0 {(404, False): 29}
+  debian_0 {(404, False): 28, (200, True): 1}
+  ubuntu_0 {(404, False): 21, (None, False): 6, (503, False): 1, (200, True): 1}
+  redhat_0 {(404, False): 28, (200, True): 1}
+  suse_0 {(404, True): 23, (200, True): 6}
+  ncsc_uk_0 {(200, True): 29}
+  cisa_0 {(403, False): 29}
+  cert_eu_0 {(200, True): 29}
+  cloudflare_0 {(200, True): 29}
+  fastly_0 {(200, True): 29}
+  fastly_1 {(200, True): 29}
+  akamai_0 {(403, False): 29}
+  aws_0 {(200, True): 29}
+  aws_1 {(200, True): 29}
+  google_cloud_0 {(200, True): 29}
+  google_cloud_1 {(200, True): 29}
+
+== 5. Spot facts from the 23 November bodies
+  CVE cveMetadata {'cveId': 'CVE-2026-115560', 'assignerOrgId': 'dd77f84a-d19a-4638-8c3d-a322d820ed2b', 'state': 'PUBLISHED', 'assignerShortName': 'php', 'dateReserved': '2026-10-22T22:24:17.695Z', 'datePublished': '2026-11-19T14:42:48.511Z', 'dateUpdated': '2026-11-22T00:27:16.496Z'}
+  CVE cna providerMetadata.dateUpdated 2026-11-19T19:36:33.887Z
+  ADP CISA-ADP 2026-11-20T04:56:42.040Z
+  ADP CVE 2026-11-22T00:27:16.496Z
+  NVD 2026-11-19T15:17:24.610 2026-11-22T01:16:52.303 Awaiting Analysis
+  Ubuntu 2026-11-19T14:00:00 2026-11-19T15:50:31.183807+00:00 active medium ''
+  Red Hat 2026-11-19T14:41:13Z Critical 9 affected_release rows; [('Red Hat Enterprise Linux 10', 'php'), ('Red Hat Enterprise Linux 9', 'php'), ('Red Hat Enterprise Linux 9', 'php:8.2/php'), ('Red Hat Enterprise Linux 9', 'php:8.4/php')]
+  SUSE page text (23 Nov): 'Released' 126, 'Not affected' 49, 'Affected' 29, 'Analysis' 0; 'CVE page last modified: Mon Nov 23 12:55:10 2026'; 8.5.13 package string reads 'php8 >= 8.5.13-1.1'.
+  SUSE page text: last modified 'Wed Nov 4 17:54:00 2026' on 5 and 9 Nov; 'Tue Nov 10 14:01:47 2026' on 12, 16, 19 Nov, when three SLES 16.1 product rows (php8, Analysis) appear; Description empty to 19 Nov.
+  Cloudflare dateModified 2026-10-23T15:09:11.234Z on 30 Oct, 19 Nov and 23 Nov.
+  PHP news page: the four 19 Nov release entries' extracted text identical at 19 and 23 Nov (43 lines each); 'CVE-2026-115560' occurs once in each raw body; the 18 Nov pre-announcement absent on 16 Nov.
+  CERT-EU and Cloudflare extracted text, baseline vs 23 Nov: CERT-EU differs only by one withheld address; Cloudflare only by page furniture (menu items, an author name, a subscribe message).
+  NCSC UK, AWS (both) byte-identical 19 vs 23 Nov; Google Cloud bulletins 23 Nov: GCP-2026-090 'Published: 2026-11-20', no 'CVE-2026-115560' in body.
+
+== 6. Addresses still in retained bodies (read only; counted with scripts/redact_emails.py's patterns, nothing changed)
+$ python3 -c "import sys,glob; sys.path.insert(0,'scripts'); from redact_emails import redact_bytes; ...count per file over studies/LH030/data/read-*/*.raw"
+  files with matches: 96 in 24 reads ( read-2026-10-23T1715Z to read-2026-11-05T1414Z ); by URL: {'ncsc_uk_0.raw': 24, 'php_0.raw': 24, 'google_cloud_1.raw': 24, 'cert_eu_0.raw': 24}
+  The matches are CERT-EU's contact address, one address in Google Cloud's bulletins page, a social-media handle on PHP's page, and image file names that look like addresses (logo@2x.png, encoded on NCSC's page). Addresses not printed here.
