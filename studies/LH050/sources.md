@@ -84,3 +84,11 @@ Row LH050-policy-after. Each is one reference step from PA-S16, the conference p
 | PA-S41 | https://docs-library.unoda.org/Convention_on_Certain_Conventional_Weapons_-SeventhReview_Conference_(2026)/CCW-CONF.VII-WP.10.pdf | PA-S16 | 19 November 2026 | observer State (Holy See), working paper | readable |
 | PA-S42 | https://docs-library.unoda.org/Convention_on_Certain_Conventional_Weapons_-SeventhReview_Conference_(2026)/CCW-CONF.VII-WP.18.pdf | PA-S16 | 20 November 2026 | States (Uganda for NAM and other States), working paper | readable |
 | PA-S43 | https://docs.un.org/CCW/CONF.VII/11 | Symbol the drafts give the final document (PA-S35, para 30) | not shown | UN (documents) | language shell readable, no text; document route documents.un.org disallowed by robots.txt |
+
+## Added at the final document check, 27 November 2026 (read label 2026-11-27T1415Z)
+
+Row LH050-policy-final. One reference step from PA-S16, listed there under Documents on 26 and 27 November 2026 as "CCW/CONF.VII/CRP.1/Rev.3 - Final document - as adopted". Read once, as a one-off read. CCW/CONF.VII/11, the symbol under which the document says it "will be issued" (para 31), was not requested: its document route on documents.un.org is disallowed by robots.txt (PA-S43, 21 November).
+
+| ID | URL | Discovery route | Publication date | Source family | Access at this read |
+| --- | --- | --- | --- | --- | --- |
+| PA-S44 | https://docs-library.unoda.org/Convention_on_Certain_Conventional_Weapons_-SeventhReview_Conference_(2026)/CCW-CONF.VII-CRP.1-Rev.3.pdf | PA-S16 | 20 November 2026 on its face; PDF created 23 November 2026 08:25 UTC; first listed on PA-S16 between the reads of 21 November 14:14Z and 26 November 14:14Z | UN (UNODA; conference final document as posted, labelled "as adopted") | readable |

@@ -1,0 +1,12 @@
+# Bodies withheld from LH050's data, 27 November 2026
+
+Withheld on 27 November 2026 under the keeper's decision of 21 November 2026 ([notes/keeper/2026-11-21-robots-intent.md](../../../notes/keeper/2026-11-21-robots-intent.md)): where a site's robots.txt refuses AI-training or archiving crawlers, or all bots, Lighthouse keeps no copy of the page in its public repository. assemblymag.com's robots.txt refuses meta-externalagent, an AI-training crawler, at the article's path; `lh_fetch.keep_decision` gave that answer at the weekly read of 26 November (when the body was first not kept) and again on 27 November just before the removal (about 14:17Z). The site's robots.txt bytes were identical on 19 and 26 November.
+
+**Withheld (2 files):**
+
+- `2026-11-13T1454Z/bodies/S26_assemblymag.html` (PA-S26, read LH050-R029, baseline; retained SHA-256 448dd9c3b436b1d240c55e1a7e9b0eb93ad42d25803596f03ab171aa53162f87)
+- `2026-11-19T1417Z/bodies/S26_assemblymag.html` (PA-S26, read LH050-R042, weekly read P03; retained SHA-256 0bfa853000dbcac9ffea8a7f9501dea31c3786c2a6bd807f1ba92e25a425390d)
+
+Each is replaced by `S26_assemblymag.derived.json` in the same folder, written from the body by [scripts/derive_assembly.py](../scripts/derive_assembly.py) through `lh_fetch.write_derived`: URL, read time, status, size and SHA-256 of the bytes received and of the copy kept until now, the title, standfirst and dates, the short passages claims LH050-C022, C031 and C032 quote (the script checks each is in the page), and a SHA-256 of the article's visible text under a stated rule (the same for both reads: b829caa1..., so the article text was unchanged from 13 to 19 November, as the 19 November checkpoint says). Later weekly reads can compare the article text with that hash by the same rule without a copy.
+
+What changed in the record's files: reads.csv rows LH050-R029 and R042 point to the derived files, with the old retained hash in the note; case_matrix.py names the derived file for LH050-R029, and the rebuilt case_matrix.csv differs from the previous one only in the retained-path column of the 8 rows citing LH050-R029; the review script `review/r0074_matrix_split.py` gives output identical to `review/r0074_matrix_split.out`. The fetch logs of 13 and 19 November are left as written, as logs of what happened then. No claim, cell or conclusion changed. The bodies remain in git history before the removal commit; history is not rewritten.

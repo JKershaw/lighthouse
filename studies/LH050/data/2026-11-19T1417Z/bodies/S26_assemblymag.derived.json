@@ -1,0 +1,35 @@
+{
+ "url": "https://www.assemblymag.com/articles/99717-start-up-aims-to-make-humanoid-robots-for-military",
+ "read_id": "LH050-R042",
+ "read_utc": "2026-11-19T14:17:44Z",
+ "http_status": 200,
+ "bytes_received": 99550,
+ "sha256_received": "615b2264609f449c503692a193c79ddcbc47377ffbeb97ce2d852a9a4a5b47d1",
+ "sha256_copy_kept_until_2026_11_27": "0bfa853000dbcac9ffea8a7f9501dea31c3786c2a6bd807f1ba92e25a425390d",
+ "used_for": "The weekly comparison of 19 November with LH050-R029 (checkpoints/2026-11-19-read.md) and the previous readable copy for the 26 November comparison (checkpoints/2026-11-26-read.md).",
+ "removed": "27 November 2026; the copy is in git history before the removal commit (studies/LH050/data/REMOVED.md)",
+ "body_kept": "no: meta-externalagent (a training or archiving crawler) is refused at this path",
+ "body_removed": "Body not kept under the keeper's decision of 21 November 2026 (notes/keeper/2026-11-21-robots-intent.md): the site's robots.txt refuses AI-training or archiving crawlers, or all bots, or the page reserves itself from AI use, so Lighthouse keeps the URL, read time, status, SHA-256 of the bytes received and the facts its records use, not the page.",
+ "extracted": {
+  "title": "Start-up Aims to Make Humanoid Robots for Military",
+  "standfirst": "Robot could carry weaponry into battle.",
+  "date_shown": "December 17, 2025",
+  "datePublished": "2025-12-17T16:00:00-05:00",
+  "dateModified": "2025-12-17T17:24:13-05:00",
+  "quotes_used": {
+   "LH050-C022": [
+    "is designed to carry a maximum payload of 44 pounds, including lethal weaponry",
+    "Pretending that you don’t need to weaponize robots...sounds virtuous on face value, but it really isn’t"
+   ],
+   "LH050-C031": [
+    "Foundation’s business model is to lease the robots, rather than sell them"
+   ],
+   "LH050-C032": [
+    "The company plans to build 40 robots this year, 10,000 in 2026, and 40,000 in 2027"
+   ]
+  },
+  "article_text_sha256": "b829caa1907b8d5731d9c0c9c5b7f10c94846159f98689a736df939412e9f22b",
+  "article_text_rule": "SHA-256 of the page's visible text lines (scripts, styles, comments and tags removed; lines stripped; blank lines dropped; joined with newlines) from the line starting 'SAN FRANCISCO' to the line ending 'efficiency of electric motors.', as computed by this script",
+  "article_paragraph_count_lines": 11
+ }
+}

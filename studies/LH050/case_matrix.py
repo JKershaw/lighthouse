@@ -13,7 +13,7 @@ R = {  # read_id: (source_id, observed_at, retained path or robots record)
     "R005": ("PA-S05", "2026-11-13T14:55:04Z", B + "bodies/S05_spf.html"),
     "R027": ("PA-S24", "2026-11-13T14:57:58Z", B + "bodies/S24_techcentral.html"),
     "R028": ("PA-S25", "2026-11-13T14:58:00Z", B + "bodies/S25_eweek.html"),
-    "R029": ("PA-S26", "2026-11-13T14:58:02Z", B + "bodies/S26_assemblymag.html"),
+    "R029": ("PA-S26", "2026-11-13T14:58:02Z", B + "bodies/S26_assemblymag.derived.json (derived; body removed 27 Nov 2026)"),
     "R030": ("PA-S27", "2026-11-13T14:58:04Z", B + "bodies/S27_tnw.html"),
     "R032": ("PA-S29", "2026-11-13T14:58:56Z", B + "bodies/S29_htx_gibson.html"),
     "R033": ("PA-S28", "2026-11-13T14:59:09Z", B + "bodies/S28_spf_gibson_lc.html"),
