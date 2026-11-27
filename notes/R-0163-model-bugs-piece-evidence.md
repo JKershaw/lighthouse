@@ -83,3 +83,31 @@ The retained oss-security body studies/LH038/data/read-2026-11-17T1419Z/ref_oss_
 ## Verdict
 
 **Cleared with listed wording changes.** Every date, count, day difference and quote in the piece, figure and short form matches the retained bodies and the reviewed records. M1 to M3 must be made before release; none changes a figure. S1 to S6 are recommended. Whatever the round writes to resolve this review goes to one fresh reading before release, as AGENTS.md step 4 says, after the reader-and-inference review.
+
+## Resolution (version 0.2)
+
+Resolved on 27 November 2026 by a Claude Code writing subagent on Claude Opus 5.5 (claude-opus-5-5), editing the piece, figure and short form in place to version 0.2. No web requests; each change was checked against the retained bodies and outputs this review names (notes/R-0163-model-bugs-piece/dates_output.txt; the post body of 17 November; studies/LH036/data/read-2026-11-01T0830Z/read_log.json and read-2026-11-16T1419Z/read_log.json for read times). No figure, date or day count changed. The figure was rendered at 720 by 800 in light and dark after the edits: legible, no overlap. No em or en dashes in any of the three files; the short form's body is about 241 words.
+
+**M1 (Ubuntu's dates).** Fixed. Ubuntu's 10 November date is now attributed to its tracker everywhere and the unread notice pages stay unknown. New text: "and the earliest notice on Ubuntu's tracker 10 November" (What can be dated, and the figure's alt text); "Ubuntu's own notices, as its tracker lists them, came after the post; the earliest is dated 10 November" (Beside the rules); "Debian's advisory dates, the dates on Ubuntu's own notice pages (its tracker dates the earliest 10 November), the fix's first public appearance, the post's text on 27 October, and whether the distributions' private list was used are all unknown here"; "The unknowns that could still fall before the post are Debian's own advisories, and any Ubuntu notice its tracker doesn't list." Figure label: "10 Nov · Earliest notice on Ubuntu's tracker".
+
+**M2 (post modified 30 October).** Fixed. New text after "with no code" in Beside the rules: "That's the page as we read it on 17 November; it says it was last modified on 30 October, and we couldn't check what it said on the 27th." "the post's text on 27 October" was added to the unknowns (quoted under M1). The figure's post note now reads "In prose, with no code, as we read it on 17 Nov", its description adds "it says it was last modified on 30 October", and the short form says "The post, in prose without code when we read it on 17 November, came inside every 45-day window we could count."
+
+**M3 (short form's title).** Fixed. New title: "When was the Linux flaw in Anthropic's exploit post reported?" The first line keeps "Anthropic said", now with "after initial prompting" (S3).
+
+**S1 (title).** Adopted. New title: "Stable Linux had the fix 12 to 16 days before Anthropic's exploit post; no source we read in November says when the flaw was reported" (23 words, from 27), carrying its window. All the sources read for the piece were read between 1 and 21 November. The short form's summary also gains "in November".
+
+**S2 (what the wait covers).** Adopted. Summary: "though neither text defines the details that wait covers." Body: "But the page doesn't define \"full technical details\", and the post's own wording, \"details beyond what is already included in a public advisory\", isn't defined either." (That wording was checked verbatim in the post body.) Short form: "But neither text defines the details that wait covers".
+
+**S3 (after initial prompting).** Adopted in the piece ("The post says that, after initial prompting, its model, Claude, wrote an exploit that ...") and the short form; verified in dates_output.txt.
+
+**S4 (capability claim).** Adopted: "If a model can do that, what happened first ..."; the figure's title now reads "the Linux kernel flaw Anthropic says its model wrote an exploit for".
+
+**S5 (small exactness points).** All adopted: "The flaw's number was reserved on 25 September"; summary "the flaw's public record (15 October)"; "was the fix out before the story"; "After we had seen SUSE's two dates, and before reading the list, we also checked SUSE's page for the flaw"; closing "a kernel flaw whose finder is a named person, with no model credited" (matching LH054's brief); a sentence in the limits, "The policies are as we read them on 4 November; what they said in September and October isn't shown."; figure subtitle "as UTC days where a time is given" (the description likewise), footer and description "1 to 21 November 2026".
+
+**S6 (colophon read times).** All adopted: policies "14:15 to 14:16 UTC"; trackers, SUSE's page and CISA's catalogue "read 16 November 2026 at 14:20 UTC" (read log: KEV 14:20:03, trackers 14:20:04 to 14:20:07, SUSE 14:20:07); the CVE dates "as the timeline's brief records them and as the core watch's read of 16 November 2026 at 14:19 UTC shows them"; added "the Debian tracker's first read, 1 November 2026 at 08:30 UTC". Methods now says the day counts were "recomputed from the retained pages by the evidence review".
+
+**Colophon and header.** Version 0.2, draft; byline "Draft, version 0.2, not yet released"; colophon: "Evidence review done, by a fresh Claude Code subagent on the same model, with its fixes applied; reader review pending; not released." The model disclosure is unchanged in the opening, colophon and short form.
+
+**Aside (redactor).** Not acted on in this round; it concerns a retained body, not the piece.
+
+As the verdict says, this resolution goes to the reader-and-inference review and then one fresh reading before release.
