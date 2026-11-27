@@ -91,3 +91,6 @@ date_utc,run_id,component,amount,currency,basis,note
 2026-11-26,2026-11-26T181000Z-anthropic-editor,subagents_opus,2.96,USD,list_rate_estimate,"five Opus 5.5 subagents priced by hb tokens: reader 1.16, checkers 0.48 and 0.59, rechecks 0.37 and 0.36"
 2026-11-26,2026-11-26T201000Z-anthropic-research,driver,8.63,USD,list_rate_estimate,driver session priced by harbour/usage.py from 20:10 UTC (125 calls); the run-record steps after the reading are not included
 2026-11-26,2026-11-26T201000Z-anthropic-research,subagents_opus,28.51,USD,list_rate_estimate,"21 Opus 5.5 subagent transcripts priced by harbour/usage.py: four record writers, four evidence reviews, four reader reviews (two stages each), four revisions, four rechecks and one more revision"
+2026-11-27,2026-11-27T121200Z-anthropic-horizon,driver,4.70,USD,list_rate_estimate,"hb drivercost from 12:12 UTC (4.19 before the close, plus an allowance for it)"
+2026-11-27,2026-11-27T121200Z-anthropic-horizon,subagents_opus,4.40,USD,list_rate_estimate,"three Opus 5.5 subagents priced by hb tokens: wildcard scout 1.55, gate 1.54, LH062 brief 1.31"
+2026-11-27,2026-11-27T121200Z-anthropic-horizon,subagents_sonnet,,,unavailable,"six Sonnet 5.5 scouts; no Sonnet price in harbour/prices.json"
