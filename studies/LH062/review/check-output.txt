@@ -1,0 +1,8 @@
+tally.py output identical to tally-output.txt: True
+A07 exposed day14/day0 50.2%, day172/day0 72.5%; valid day14/day0 73.6%, day172/day0 56.2%
+A07 fall in valid by day 14: 26.4% (authors: about 26%); fall in exposed: 49.8% (authors: 50%)
+A07 day-0 counts as share of 1,748: exposed 80.4%, valid 67.2%
+A07 delivered 1,668 / 2,435 entities = 68.5%; 1,668/(1,668+767) = 68.5%
+B1 36,293/36,425 = 99.64%; 18,332/110,993 = 16.52%; 36,425/110,993 = 32.8%
+unit labels by document: {'A07': ['credential', 'credential (distinct credentials exposed)'], 'A02': ['repository', 'secret'], 'B1': ['mini-app'], 'W4': ['case (key taken down)', 'file', 'secret (key)'], 'W6': ['leak', 'repository']}
+A07 unit labels differ within one document: True
