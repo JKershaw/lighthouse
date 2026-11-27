@@ -10,8 +10,8 @@ Nothing is kept in the repository by this script except the log line. The bytes 
 extraction (pdftotext reading from stdin for a PDF; tags stripped for HTML) go to a working folder outside
 the repository (argument --work, the session's scratchpad), only so that the reading agent can read the
 document; that folder is deleted at the end of the session. Whether a body may be kept is decided later,
-per document, by keep.py through save_body (keep_decision) and the document's own licence statement, and
-otherwise write_derived. No code from any download is run; pdftotext only parses the bytes as a PDF.
+per document, by the reading agent through save_body (keep_decision) and the document's own licence statement,
+and otherwise write_derived (in LH062, derive.py; no keep.py exists; this comment corrected for record 0.2). No code from any download is run; pdftotext only parses the bytes as a PDF.
 
 Usage: LIGHTHOUSE_PROVIDER=anthropic python3 -I studies/LH062/fetch.py --work <dir> --kind document
          --stream venue|vendor --id <id> --url <url>

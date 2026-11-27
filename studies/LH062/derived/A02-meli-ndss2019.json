@@ -19,7 +19,7 @@
    "Monitoring: 'we began monitoring all secrets collected via the Search API after they were discovered starting on April 4th, 2018'; hourly for 24 hours from discovery whether the repo, the file and the secret still existed on the head of the default branch; then daily (figure to day 16). Search API collection ran 31 October 2017 to 20 April 2018. Number of monitored secrets: not stated.",
    "'about 6% of all detected secrets were removed' in the first hour; 'at the end of the first day, over 12% of secrets were gone, while only 19% were gone after 16 days'; '81% of the secrets we discover were not removed'; '19% of our results amounts of tens of thousands of secrets'.",
    "History: for secrets removed while the repo was kept, 'none of the monitored repos had their history rewritten, meaning the secrets were trivially accessible via Git history' (checked through the Commits API).",
-   "Validity over time: not measured (validity assessed at discovery only). Notification: none during monitoring; 'as of the camera-ready we are currently working to notify'. Platform notices during the window: not stated.",
+   "Validity: not checked with providers by this study. The authors' 'valid secrets' are candidates that passed their filters, which they note are not always sensitive (corrected 27 November 2026, record 0.2, after R-0162; 0.1 said 'validity assessed at discovery only'). Notification: none during monitoring; 'as of the camera-ready we are currently working to notify'. Platform notices during the window: not stated.",
    "Data: public sources (GitHub Search API, BigQuery); dataset release not stated. Funder: not stated in the text read. AI providers' keys: not among the population named."
   ]
  }

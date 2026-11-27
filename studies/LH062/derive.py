@@ -36,9 +36,9 @@ DOCS = {
      "After notification, exposures: 'reducing 50% from 1,405 (Day 0) to 706 (Day 14)'.",
      "After notification, still valid: 'verified credential exposures dropping from 1,175 to 865 ... about 26% within 14 days'.",
      "Day 172: 'total non-removed exposures increase from 706 (Day 14) to 1,019 (Day 172) but non-revoked exposure counts show a further decrease from 865 (Day 14) to 660 (Day 172)'. The authors offer an interpretation of the rise (not restated).",
-     "Day 0 totals differ because, the authors say, some services blocked their address during verification (services not recorded here).",
+     "Day 0 totals differ because, the authors say, some services blocked their address during verification (services not recorded here). The paper's text doesn't reconcile the day-0 counts with 1,748 (R-0162's reread). The authors call the 1,405 'exposures' and their Figure 7 'total number of exposed credentials found on web each day'; whether distinct credentials or credentials counted per site is not stated.",
      "Design: the authors compare the post-notification fall with the same credentials' archival rate; no unnotified group observed in the same period. Classed before-and-after.",
-     "Data: analysis data not shared; only monitoring-crawler code released. Funder: not stated. AI providers' keys: one AI developer's API keys are among the 14 services (named by the study); no per-provider figure kept.",
+     "Data: analysis data not shared; only monitoring-crawler code released. Funders, as the authors' acknowledgments state them: the US National Science Foundation, a Sloan Research Fellowship and a gift from Google, Inc., and for one author the EU's Horizon Europe programme (corrected 27 November 2026, record 0.2, after evidence review R-0162; 0.1 said 'not stated'). AI providers' keys: one AI developer's API keys are among the 14 services (named by the study); no per-provider figure kept.",
      "Per-provider and per-country figures exist in the paper; not recorded (brief, Never done). The authors give reasons for exposure and for removal without revocation; not restated."]}),
  "D02-V2-A02": ("A02-meli-ndss2019.json", PDF, {
    "title": "How Bad Can It Git? Characterizing Secret Leakage in Public GitHub Repositories",
@@ -49,7 +49,7 @@ DOCS = {
      "Monitoring: 'we began monitoring all secrets collected via the Search API after they were discovered starting on April 4th, 2018'; hourly for 24 hours from discovery whether the repo, the file and the secret still existed on the head of the default branch; then daily (figure to day 16). Search API collection ran 31 October 2017 to 20 April 2018. Number of monitored secrets: not stated.",
      "'about 6% of all detected secrets were removed' in the first hour; 'at the end of the first day, over 12% of secrets were gone, while only 19% were gone after 16 days'; '81% of the secrets we discover were not removed'; '19% of our results amounts of tens of thousands of secrets'.",
      "History: for secrets removed while the repo was kept, 'none of the monitored repos had their history rewritten, meaning the secrets were trivially accessible via Git history' (checked through the Commits API).",
-     "Validity over time: not measured (validity assessed at discovery only). Notification: none during monitoring; 'as of the camera-ready we are currently working to notify'. Platform notices during the window: not stated.",
+     "Validity: not checked with providers by this study. The authors' 'valid secrets' are candidates that passed their filters, which they note are not always sensitive (corrected 27 November 2026, record 0.2, after R-0162; 0.1 said 'validity assessed at discovery only'). Notification: none during monitoring; 'as of the camera-ready we are currently working to notify'. Platform notices during the window: not stated.",
      "Data: public sources (GitHub Search API, BigQuery); dataset release not stated. Funder: not stated in the text read. AI providers' keys: not among the population named."]}),
  "D03-V3-arxiv2307.09317": ("arxiv2307.09317v1.json", PDF, {
    "title": "Measuring the Leakage and Exploitability of Authentication Secrets in Super-apps: The WeChat Case",
@@ -57,11 +57,9 @@ DOCS = {
    "version_read": "arXiv 2307.09317v1, 18 July 2023, category cs.CR (stamp on page 1); the text states RAID 2023, not one of the five conferences, so venue stream tier 2",
    "inclusion": "included: measures validity at two or more points (first analysis December 2022, recheck March 2023, July 2023) and presence in current versions (sample of 100, January and March 2023); population stated; method stated at the document's level. Its contribution includes an analysis framework and an exploitability analysis; nothing of either is recorded",
    "facts": [
-     "Population: WeChat mini-app packages crawled July to December 2021 (115,392 crawled; 110,993 unpacked); app secrets found in 36,425 (32.8%) mini-apps with valid secrets at the first analysis (December 2022). The study is of one platform's mini-apps; figures are the study's whole population.",
-     "Recheck: 'tested all the previously identified WeChat mini-apps with app secrets (36,425 mini-apps) if those app secrets are still valid ... in March 2023 ... for 36,293 mini-apps (99.6%) the secrets remain valid'.",
-     "Sample: 100 mini-apps chosen at random from those with valid secrets; current versions downloaded 24 January and 6 March 2023, 'before and after our report to WeChat respectively': 83 still had the same secret hard-coded; 4 had removed it but the earlier secret was still valid; 3 had changed to other hard-coded values; 9 had invalid earlier secrets and no secret in current code; results the same in January and March 2023.",
-     "July 2023: 'we observed a significant decrease in the percentage of valid secrets to 16.5% (18,332 mini-apps) as a result of WeChat's restrictions'; denominator not stated (16.5% matches 18,332 of the 110,993 analysed, Lighthouse's arithmetic). The causal attribution is the authors'.",
-     "Notification: the authors reported to the platform operator (the secrets' issuer), between the January and March 2023 downloads (date not stated); whether owners (developers) were told is not stated; the operator's reply says it will notify developers of existing ones. The platform introduced a publishing restriction 'exact timeline unknown'.",
+     "Population: the study analyses two super-app platforms' mini-apps, by the authors' account 110,993 of one platform's and 10,000 of the other's (corrected 27 November 2026, record 0.2, after evidence review R-0162; 0.1 called it a study of one platform).",
+     "Figures withheld (record 0.2): the study's follow-up of validity and presence over time (December 2022 to July 2023) covers one named platform's mini-apps only, a group defined by naming a platform, so under the brief's Never done rule no figure from it is kept here. The figures written by record 0.1 are in git at commit 82e159c.",
+     "Notification: the authors reported to the platform operator that issued the secrets, in early 2023 (date not stated); whether owners (developers) were told is not stated.",
      "Data: not stated as released (tool offered on request). Funder: not stated. AI providers' keys: none."]}),
  "D07-W4-truffle-never-revoked": ("W4-truffle-2024-01-10.json", NOLIC, {
    "title": "74% of publicly leaked keys are never revoked", "publisher": "Truffle Security Co. (vendor; own blog, 'The Dig')",
@@ -73,7 +71,7 @@ DOCS = {
      "'63% of files exposing live/valid secrets were still public and continued to expose the live/valid secret on GitHub, 31 days after exposure.'",
      "'Only 17% of all files containing a secret were unpublished; the rest remained public.' Unpublishing most likely within the first week.",
      "'In more than 50% of cases when exposed keys were taken down off GitHub, they remained live/valid.'",
-     "Clock: each secret tracked 'for 31 days since the initial exposure date' (commits seen on public event feeds; whether the date is commit time or first observation is not stated). Notification of owners: not stated. Data: the vendor's own tool's data, not public."]}),
+     "Clock: each secret tracked 'for 31 days since the initial exposure date': the day the commit appeared in the public event feed the vendor monitored, which the post treats as both exposure and discovery; commit time and first observation are not told apart (wording from R-0162's reread, record 0.2). Notification of owners: not stated. Data: the vendor's own tool's data, not public."]}),
  "D08-W5-gg-why-stay-valid": ("W5-gitguardian-2025-06-05.json", NOLIC, {
    "title": "Why Most Exposed Secrets Never Get Fixed", "publisher": "GitGuardian (vendor; own blog)",
    "author_date": "Anna Nabiullina, 5 June 2025",

@@ -20,7 +20,7 @@
    "'63% of files exposing live/valid secrets were still public and continued to expose the live/valid secret on GitHub, 31 days after exposure.'",
    "'Only 17% of all files containing a secret were unpublished; the rest remained public.' Unpublishing most likely within the first week.",
    "'In more than 50% of cases when exposed keys were taken down off GitHub, they remained live/valid.'",
-   "Clock: each secret tracked 'for 31 days since the initial exposure date' (commits seen on public event feeds; whether the date is commit time or first observation is not stated). Notification of owners: not stated. Data: the vendor's own tool's data, not public."
+   "Clock: each secret tracked 'for 31 days since the initial exposure date': the day the commit appeared in the public event feed the vendor monitored, which the post treats as both exposure and discovery; commit time and first observation are not told apart (wording from R-0162's reread, record 0.2). Notification of owners: not stated. Data: the vendor's own tool's data, not public."
   ]
  }
 }

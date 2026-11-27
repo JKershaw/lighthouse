@@ -25,9 +25,9 @@
    "After notification, exposures: 'reducing 50% from 1,405 (Day 0) to 706 (Day 14)'.",
    "After notification, still valid: 'verified credential exposures dropping from 1,175 to 865 ... about 26% within 14 days'.",
    "Day 172: 'total non-removed exposures increase from 706 (Day 14) to 1,019 (Day 172) but non-revoked exposure counts show a further decrease from 865 (Day 14) to 660 (Day 172)'. The authors offer an interpretation of the rise (not restated).",
-   "Day 0 totals differ because, the authors say, some services blocked their address during verification (services not recorded here).",
+   "Day 0 totals differ because, the authors say, some services blocked their address during verification (services not recorded here). The paper's text doesn't reconcile the day-0 counts with 1,748 (R-0162's reread). The authors call the 1,405 'exposures' and their Figure 7 'total number of exposed credentials found on web each day'; whether distinct credentials or credentials counted per site is not stated.",
    "Design: the authors compare the post-notification fall with the same credentials' archival rate; no unnotified group observed in the same period. Classed before-and-after.",
-   "Data: analysis data not shared; only monitoring-crawler code released. Funder: not stated. AI providers' keys: one AI developer's API keys are among the 14 services (named by the study); no per-provider figure kept.",
+   "Data: analysis data not shared; only monitoring-crawler code released. Funders, as the authors' acknowledgments state them: the US National Science Foundation, a Sloan Research Fellowship and a gift from Google, Inc., and for one author the EU's Horizon Europe programme (corrected 27 November 2026, record 0.2, after evidence review R-0162; 0.1 said 'not stated'). AI providers' keys: one AI developer's API keys are among the 14 services (named by the study); no per-provider figure kept.",
    "Per-provider and per-country figures exist in the paper; not recorded (brief, Never done). The authors give reasons for exposure and for removal without revocation; not restated."
   ]
  }

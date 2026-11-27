@@ -1,5 +1,7 @@
 #!/usr/bin/env python3
-"""LH062: the tallies and the within-study arithmetic quoted in LH062.md (record 0.1, 27 November 2026).
+"""LH062: the tallies and the within-study arithmetic quoted in LH062.md (record 0.1, 27 November 2026; revised for
+record 0.2 the same day after evidence review R-0162: rows whose `kept` field is not "yes" are withheld under the
+brief's Never done rule, listed by id and left out of every count; B1's arithmetic is removed with its figures).
 
 Reads only retained files in this directory: claims.csv, fetchlog.csv and searches.md. Makes no request.
 Counts claims by stream, class, vendor label, notification status, outcome and unit; checks the brief's stop
@@ -13,11 +15,14 @@ Run: python3 -I studies/LH062/tally.py   (output kept in tally-output.txt)
 import collections, csv, os, re
 
 HERE = os.path.dirname(os.path.abspath(__file__))
-claims = list(csv.DictReader(open(os.path.join(HERE, "claims.csv"), encoding="utf-8")))
+all_rows = list(csv.DictReader(open(os.path.join(HERE, "claims.csv"), encoding="utf-8")))
+claims = [r for r in all_rows if r["kept"] == "yes"]
+withheld = [r["claim_id"] for r in all_rows if r["kept"] != "yes"]
 fetch = list(csv.DictReader(open(os.path.join(HERE, "fetchlog.csv"), encoding="utf-8")))
 searches = open(os.path.join(HERE, "searches.md"), encoding="utf-8").read()
 
 print("== Claims")
+print("rows in claims.csv:", len(all_rows), "; withheld under Never done (not counted):", len(withheld), withheld)
 print("total claims:", len(claims))
 print("-- by document (from the claim id):", dict(collections.Counter(r["claim_id"].split("-")[1] for r in claims)))
 for field in ["stream", "doc", "class", "vendor_label", "prompt", "outcome", "unit", "design"]:
@@ -74,12 +79,6 @@ for d, n in [(14, 706), (172, 1019)]:
 print("A07, after notification, still valid as checked (credentials, day 0 = 1,175):")
 for d, n in [(14, 865), (172, 660)]:
     print(f"   day {d}: {n} of 1175 = {100*n/1175:.1f}% of day 0")
-need("V-B1-1", "36,293", "36,425")
-print(f"B1, still valid March 2023: 36293 of 36425 = {100*36293/36425:.2f}%")
-need("V-B1-3", "18,332")
-print(f"B1, July 2023: 18332 of 110993 analysed = {100*18332/110993:.2f}% (denominator not stated by the authors)")
-need("V-B1-2", "83", "4", "3", "9")
-print("B1 sample of 100: 83 + 4 + 3 + 9 =", 83 + 4 + 3 + 9, "(one further app recorded separately)")
 need("V-A02-1", "81%", "19%")
 print("A02: 19% removed and 81% not removed sum to", 19 + 81)
 need("W-W6-2", "28.2%", "71.8%")

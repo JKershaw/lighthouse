@@ -1,9 +1,10 @@
 == Claims
-total claims: 15
--- by document (from the claim id): {'A07': 5, 'A02': 2, 'B1': 3, 'W4': 3, 'W6': 2}
+rows in claims.csv: 15 ; withheld under Never done (not counted): 3 ['V-B1-1', 'V-B1-2', 'V-B1-3']
+total claims: 12
+-- by document (from the claim id): {'A07': 5, 'A02': 2, 'W4': 3, 'W6': 2}
 -- by stream (stream, value): count
    vendor | vendor: 5
-   venue | venue: 10
+   venue | venue: 7
 -- by doc (stream, value): count
    vendor | W4: 2
    vendor | W4 (Truffle Security, 10 January 2024): 1
@@ -11,48 +12,39 @@ total claims: 15
    vendor | W6 (GitGuardian, 29 April 2024): 1
    venue | A02: 2
    venue | A07: 5
-   venue | B1: 2
-   venue | B1 (arXiv 2307.09317): 1
 -- by class (stream, value): count
    vendor | measured: 5
-   venue | measured: 10
+   venue | measured: 7
 -- by vendor_label (stream, value): count
    vendor | vendor: 5
-   venue | not vendor: 7
+   venue | not vendor: 5
    venue | not vendor (HTTP Archive is open data): 1
-   venue | not vendor (academic crawl): 1
    venue | not vendor (public GitHub APIs): 1
 -- by prompt (stream, value): count
    vendor | after notification: 2
    vendor | as W-W4-1: 2
    vendor | not stated whether owners were notified: 1
    venue | after notification: 3
-   venue | mixed (as V-B1-1): 1
-   venue | mixed: recheck after the authors' report to the platform operator (the secrets' issuer); whether owners were told is not stated: 1
-   venue | mixed; after a platform restriction the authors credit for the fall: 1
    venue | unprompted: 3
    venue | unprompted (no notification during monitoring; platform notices not stated): 1
 -- by outcome (stream, value): count
    vendor | still exposed: 1
-   vendor | still exposed (repository public): 1
+   vendor | still exposed (repository still public after the secret was gone; whether the secret stayed reachable is not stated): 1
    vendor | still valid after removal: 1
    vendor | still valid as the authors checked it: 2
    venue | still exposed: 2
    venue | still exposed (duration): 1
    venue | still exposed (in Git history): 1
-   venue | still exposed (in current package); still valid as the authors checked it: 1
    venue | still exposed (on the head of the default branch): 1
    venue | still exposed; still valid as the authors checked it: 1
-   venue | still valid as the authors checked it: 3
+   venue | still valid as the authors checked it: 1
 -- by unit (stream, value): count
    vendor | case (key taken down): 1
    vendor | file: 1
    vendor | leak: 1
    vendor | repository: 1
    vendor | secret (key): 1
-   venue | credential: 4
-   venue | credential (distinct credentials exposed): 1
-   venue | mini-app: 3
+   venue | credential: 5
    venue | repository: 1
    venue | secret: 1
 -- by design (stream, value): count
@@ -61,9 +53,6 @@ total claims: 15
    venue | (blank): 4
    venue | before and after only: 2
    venue | before and after only (authors compare with the same credentials' archival rate; no concurrent unnotified group): 1
-   venue | before and after the report to the operator: 1
-   venue | none stated: 1
-   venue | none stated for owners (before and after the report to the operator): 1
 
 == Unit and outcome groups (stream, unit, outcome family): claim ids
    vendor | case (key taken down) | still valid: W-W4-3  (documents: W4)
@@ -71,11 +60,8 @@ total claims: 15
    vendor | leak | still valid: W-W6-1  (documents: W6)
    vendor | repository | still exposed: W-W6-2  (documents: W6)
    vendor | secret (key) | still valid: W-W4-1  (documents: W4)
-   venue | credential | still exposed: V-A07-1, V-A07-2, V-A07-5  (documents: A07)
+   venue | credential | still exposed: V-A07-1, V-A07-2, V-A07-3, V-A07-5  (documents: A07)
    venue | credential | still valid: V-A07-4, V-A07-5  (documents: A07)
-   venue | credential (distinct credentials exposed) | still exposed: V-A07-3  (documents: A07)
-   venue | mini-app | still exposed: V-B1-2  (documents: B1)
-   venue | mini-app | still valid: V-B1-1, V-B1-2, V-B1-3  (documents: B1)
    venue | repository | still exposed: V-A02-2  (documents: A02)
    venue | secret | still exposed: V-A02-1  (documents: A02)
 groups spanning more than one document: 0 []
@@ -96,8 +82,5 @@ A07, after notification, still exposed (credentials, day 0 = 1,405):
 A07, after notification, still valid as checked (credentials, day 0 = 1,175):
    day 14: 865 of 1175 = 73.6% of day 0
    day 172: 660 of 1175 = 56.2% of day 0
-B1, still valid March 2023: 36293 of 36425 = 99.64%
-B1, July 2023: 18332 of 110993 analysed = 16.52% (denominator not stated by the authors)
-B1 sample of 100: 83 + 4 + 3 + 9 = 99 (one further app recorded separately)
 A02: 19% removed and 81% not removed sum to 100
 W6: 28.2% + 71.8% = 100.0
