@@ -15,8 +15,8 @@ import hashlib, os, re, sys
 
 PLACEHOLDER = b"[email withheld by Lighthouse]"
 EMAIL = re.compile(rb"(?<![A-Za-z0-9._%+-])[A-Za-z0-9._%+-]+@[A-Za-z0-9-]+(?:\.[A-Za-z0-9-]+)*\.[A-Za-z]{2,}(?![A-Za-z0-9-])")
-# also the JSON-escaped and URL-encoded forms of "@"
-EMAIL_ENC = re.compile(rb"[A-Za-z0-9._%+-]+(?:\\u0040|%40)[A-Za-z0-9-]+(?:\.[A-Za-z0-9-]+)*\.[A-Za-z]{2,}")
+# also the JSON-escaped, URL-encoded and HTML-entity forms of "@"
+EMAIL_ENC = re.compile(rb"[A-Za-z0-9._%+-]+(?:\\u0040|%40|&#64;)[A-Za-z0-9-]+(?:\.[A-Za-z0-9-]+)*\.[A-Za-z]{2,}")
 BINARY_EXT = {".pdf", ".zip", ".gz", ".png", ".jpg", ".jpeg", ".gif", ".webp", ".ico", ".woff", ".woff2", ".parquet"}
 
 

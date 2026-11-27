@@ -1,0 +1,77 @@
+== Stable changelogs: release commit (first) and the fix commit (upstream e3f33b0a1d89)
+6.18.56: release author date 2026-10-11 13:26 UTC; fix author date 2026-10-01 22:12:53 UTC; Reported-by trailers 1, any date in them: False
+7.2.10: release author date 2026-10-11 13:27 UTC; fix author date 2026-10-01 22:12:53 UTC; Reported-by trailers 1, any date in them: False
+6.12.113: release author date 2026-10-15 09:56 UTC; fix author date 2026-10-01 22:12:53 UTC; Reported-by trailers 1, any date in them: False
+5.10.272: release author date 2026-10-15 12:13 UTC; fix author date 2026-10-01 22:12:53 UTC; Reported-by trailers 1, any date in them: False
+5.15.223: release author date 2026-10-15 12:14 UTC; fix author date 2026-10-01 22:12:53 UTC; Reported-by trailers 1, any date in them: False
+6.1.190: release author date 2026-10-15 12:15 UTC; fix author date 2026-10-01 22:12:53 UTC; Reported-by trailers 1, any date in them: False
+6.6.159: release author date 2026-10-15 12:16 UTC; fix author date 2026-10-01 22:12:53 UTC; Reported-by trailers 1, any date in them: False
+  stable releases on 2026-10-11: 2 ['6.18.56', '7.2.10']
+  stable releases on 2026-10-15: 5 ['5.10.272', '5.15.223', '6.1.190', '6.12.113', '6.6.159']
+
+== CVE record (LH036 retained cve_org, read 16 Nov)
+dateReserved 2026-09-25T10:25:14.348Z | datePublished 2026-10-15T12:08:22.205Z
+
+== Anthropic post (LH038 read 17 Nov)
+datePublished 2026-10-27T00:00:00.000Z | visible "Published Oct 27, 2026": True
+  quote present: 'allows a remote attacker to send packets to Linux servers wi'... -> True
+  quote present: 'it takes 48 minutes to leak a kernel pointer and another fiv'... -> True
+  quote present: 'We reported each vulnerability to the affected vendor under '... -> True
+  quote present: '90 days to patch and a further 45 days'... -> True
+  quote present: 'unreleased, internal research model'... -> True
+  quote present: 'After initial prompting, Claude wrote an exploit that allows'... -> True
+  <pre> or <code> in post body: False
+
+== Policies (read 4 Nov)
+  Anthropic policy: 'we would generally wait 45 days before publishing '... -> True
+  Anthropic policy: 'if the details are already publicly known through '... -> True
+  "full technical details" defined anywhere on the page (count of phrase): 2
+  Ubuntu: "held private for at least one week after fixes are published" -> True
+  Kernel CVE: automatic only after fix applied to stable -> True | early identifier on request -> True
+
+== SUSE advisory pages (Release Date, read 17 Nov) and list messages (archive date, read 21 Nov)
+  SUSE-SU-2026:24386-1 Release Date 2026-10-24T11:15:59Z; list message 2026-10-29 08:45:55 UTC; CVE named in message: True
+  SUSE-SU-2026:24422-1 Release Date 2026-10-24T10:42:33Z; list message 2026-10-29 08:36:14 UTC; CVE named in message: True
+  SUSE-SU-2026:24437-1 Release Date 2026-10-24T11:15:59Z; list message 2026-10-29 16:42:30 UTC; CVE named in message: True
+  SUSE-SU-2026:24446-1 Release Date 2026-10-24T10:42:33Z; list message 2026-10-29 16:38:06 UTC; CVE named in message: True
+  SUSE-SU-2026:24479-1 Release Date 2026-11-02T08:57:18Z; list message 2026-11-03 16:44:08 UTC; CVE named in message: True
+  SUSE-SU-2026:24480-1 Release Date 2026-11-02T08:57:53Z; list message 2026-11-03 16:43:49 UTC; CVE named in message: True
+  SUSE-SU-2026:24481-1 Release Date 2026-11-02T08:58:28Z; list message 2026-11-03 16:43:32 UTC; CVE named in message: True
+  SUSE-SU-2026:24482-1 Release Date 2026-11-02T08:58:28Z; list message 2026-11-03 16:43:16 UTC; CVE named in message: True
+  SUSE-SU-2026:24483-1 Release Date 2026-11-02T08:58:28Z; list message 2026-11-03 16:42:59 UTC; CVE named in message: True
+  SUSE-SU-2026:24484-1 Release Date 2026-11-02T08:58:28Z; list message 2026-11-03 16:42:42 UTC; CVE named in message: True
+  SUSE-SU-2026:24485-1 Release Date 2026-11-02T09:02:26Z; list message 2026-11-03 16:42:23 UTC; CVE named in message: True
+  SUSE-SU-2026:24486-1 Release Date 2026-11-02T09:02:26Z; list message 2026-11-03 16:42:05 UTC; CVE named in message: True
+  groups: 4 with Release Date 24 Oct, list days [datetime.date(2026, 10, 29)]; 8 with 2 Nov, list days [datetime.date(2026, 11, 3)]
+
+== SUSE CVE page (LH036 read 16 Nov): announcement stamps before the post
+  items with a published stamp 190; distinct SUSE-SU ids 186; stamped before 27 Oct (UTC): 0; earliest 2026-10-29 12:04:53
+
+== Red Hat errata (Issued, read 17 Nov)
+  earliest issued 2026-11-01 | count on that day 4
+
+== oss-security first message naming the CVE (read 17 Nov)
+  Date: Thu, 29 Oct 2026 17:21:41 -0700 = 2026-10-30 00:21 UTC; forwards Go announcement citing the post: True
+  index 2026-09: subjects naming the CVE/MPTCP/multipath: []
+  index 2026-10: subjects naming the CVE/MPTCP/multipath: [('30/1', 'Fwd: Protecting against CVE-2026-98432 when using Go\n programs'), ('30/6', 'Re: Protecting against CVE-2026-98432 when using Go\n programs'), ('31/5', 'CVE-2026-98432: init_on_free=1 as an additional interim mitigation')]
+  index 2026-11: subjects naming the CVE/MPTCP/multipath: [('03/1', 'Re: CVE-2026-98432: init_on_free=1 as an additional\n interim mitigation')]
+
+== Ubuntu notices (LH036 read 16 Nov) and KEV
+  notices 20; earliest 2026-11-10T08:42:59.690866; latest 2026-11-13T10:30:15.131941
+  KEV catalogVersion 2026.11.13 | lists CVE-2026-98432: False
+
+== Day counts the piece states (UTC calendar-date differences)
+  post - last stable (piece: 12): 12  [OK]
+  post - first stable (piece: 16): 16  [OK]
+  post - fix author date (piece: 26, upper end of "12 to 26"): 26  [OK]
+  post - CVE published (record/investigation: 12): 12  [OK]
+  post - SUSE Release Date (piece: "three days before the post"): 3  [OK]
+  SUSE list day - post (piece: "two days after"): 2  [OK]
+  oss-security first message day - post (record: 2 to 3 days): 3  [OK]
+  Red Hat earliest - post: 5  [OK]
+  Ubuntu earliest - post: 14  [OK]
+  reserved -> fix author date (reserved earlier: positive): 6
+  first stable -> CVE published (published after: positive): 4  [OK]
+  45-day window ends: fix 2026-10-01 -> 2026-11-15 (post inside: True); first stable 2026-10-11 -> 2026-11-25 (post inside: True); last stable 2026-10-15 -> 2026-11-29 (post inside: True); CVE published 2026-10-15 -> 2026-11-29 (post inside: True); SUSE Release Date 2026-10-24 -> 2026-12-08 (post inside: True)
+  Ubuntu one-week: first stable +7 = 2026-10-18 | last stable +7 = 2026-10-22 | post after both: True
+  Figure scale: 25 Sep to 10 Nov = 46 days
