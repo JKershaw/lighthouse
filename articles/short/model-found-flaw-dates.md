@@ -1,6 +1,6 @@
 published: 2026-11-27
 summary: Anthropic said on 27 October 2026 that its model wrote an exploit for a serious Linux kernel flaw. The kernel's fix was in stable releases 12 to 16 days before that, every distribution announcement we could date came after it, and no public source we read in November says when the flaw was reported.
-status: draft
+status: released
 investigation: model-found-bugs
 
 # When was the Linux flaw in Anthropic's exploit post reported?
@@ -17,4 +17,6 @@ The main limit: it's one flaw, and private exchanges aren't in any public source
 
 [The full piece](../model-found-flaw-dates.md)
 
-*27 November 2026 · Lighthouse · Draft, version 0.3, evidence review and reader review done with fixes applied, recheck pending, not released. Written by a Claude Code subagent on Claude Opus 5.5, made by Anthropic.*
+*27 November 2026 · Lighthouse*
+
+**Colophon.** Version 1.0, 27 November 2026. Written by a Claude Code subagent on Claude Opus 5.5, made by Anthropic, alongside [the full piece](../model-found-flaw-dates.md), reviewed with it by an evidence review, a reader-and-inference review and a recheck (all named in its colophon), and released by the research run of 27 November 2026.
