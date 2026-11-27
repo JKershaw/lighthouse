@@ -1,6 +1,6 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 720 800" width="720" height="800" role="img" aria-labelledby="t d">
 <title id="t">The public dates of CVE-2026-98432, the Linux kernel flaw Anthropic says its model wrote an exploit for, from 25 September to 10 November 2026, with its report date unknown</title>
-<desc id="d">A vertical timeline, to scale from 25 September 2026. Above it, off the scale, the report: no public source we read dates it, so it is not placed. 25 September: the CVE number reserved. 1 October: the fix's author date; when the fix was first public isn't dated. 11 October: the first stable kernels with the fix, 6.18.56 and 7.2.10. 15 October: the CVE published, and five more stable kernels released. 24 October: the release date on the four earliest SUSE advisory pages we followed that name the flaw, shown hollow because what it marks isn't stated. 27 October: Anthropic's post describing the exploit, in prose with no code as read on 17 November; it says it was last modified on 30 October. 29 October: SUSE announces those four advisories on its public list, and eight more on 3 November. 30 October, in UTC: the first oss-security message whose subject names the CVE, forwarding Go's announcement. 1 November: Red Hat's earliest errata we followed. 10 November: the earliest notice on Ubuntu's tracker. Debian's fixes were in place by our first read on 1 November, but its pages give no dates. Each date is on its own source's clock, as UTC days where a time is given. Sources: kernel.org stable changelogs, the CVE record, SUSE's advisory pages and announcement list, Anthropic's post, the oss-security archive, Red Hat's and Ubuntu's trackers, read by Lighthouse from 1 to 21 November 2026.</desc>
+<desc id="d">A vertical timeline, to scale from 25 September 2026. Set apart from it, in a dashed box at the top, the report: no public source we read dates it, so it is not on the timeline. 25 September: the CVE number reserved. 1 October: the fix's author date; when the fix was first public isn't dated. 11 October: the first stable kernels with the fix, 6.18.56 and 7.2.10. 15 October: the CVE published, and five more stable kernels released. 24 October: the release date on the four earliest SUSE advisory pages we followed that name the flaw, shown hollow because what it marks isn't stated. 27 October: Anthropic's post describing the exploit, in prose with no code as read on 17 November; it gives a modified date of 30 October. 29 October: SUSE announces those four advisories on its public list, and eight more on 3 November. 30 October, in UTC: the first oss-security message whose subject names the CVE, forwarding Go's announcement. 1 November: Red Hat's earliest errata we followed. 10 November: the earliest notice on Ubuntu's tracker. Debian's fixes were in place by our first read on 1 November, but its pages give no dates. Each date is on its own source's clock, as UTC days where a time is given. Sources: kernel.org stable changelogs, the CVE record, SUSE's advisory pages and announcement list, Anthropic's post, the oss-security archive, Red Hat's and Ubuntu's trackers, read by Lighthouse from 1 to 21 November 2026.</desc>
 <style>
 svg { --bg:#fbfaf7; --ink:#1f1f1f; --muted:#5d5850; --grid:#d9d2c4; --accent:#1f6576; --hollow:#93600c; color-scheme:light dark; }
 @media (prefers-color-scheme: dark) { svg { --bg:#15191b; --ink:#e6e2d9; --muted:#aaa498; --grid:#3a4245; --accent:#8ec4d4; --hollow:#e0a650; } }
@@ -19,18 +19,19 @@ text { font-family:'Source Sans 3', 'Helvetica Neue', Arial, sans-serif; fill:va
 .posttext { fill:var(--accent); }
 .hollow { fill:var(--bg); stroke:var(--hollow); stroke-width:2; }
 .unknown { fill:var(--bg); stroke:var(--muted); stroke-width:2; stroke-dasharray:3 3; }
+.box { fill:none; stroke:var(--grid); stroke-width:1; stroke-dasharray:4 4; }
 .q { font-size:13px; font-weight:600; fill:var(--muted); }
 </style>
 <rect class="bg" x="0" y="0" width="720" height="800"/>
 <text class="h" x="24" y="34">One Linux flaw's public dates, autumn 2026</text>
 <text class="sub" x="24" y="54">Each on its own source's clock, as UTC days where a time is given; to scale from 25 September</text>
 
-<!-- unknown report, off the scale -->
-<line class="dash" x1="170" y1="104" x2="170" y2="146"/>
-<circle class="unknown" cx="170" cy="92" r="11"/>
-<text class="q" x="170" y="97" text-anchor="middle">?</text>
-<text class="lab" x="200" y="90">Reported: date unknown</text>
-<text class="note" x="200" y="107">No public source we read dates it, so it isn't placed on the scale</text>
+<!-- unknown report, set apart from the timeline -->
+<rect class="box" x="24" y="70" width="672" height="50" rx="6"/>
+<circle class="unknown" cx="52" cy="95" r="11"/>
+<text class="q" x="52" y="100" text-anchor="middle">?</text>
+<text class="lab" x="76" y="91">Reported: date unknown, so not on the timeline</text>
+<text class="note" x="76" y="108">No public source we read dates it, so it has no place on the scale below</text>
 
 <!-- axis -->
 <line class="axis" x1="170" y1="150" x2="170" y2="712"/>
