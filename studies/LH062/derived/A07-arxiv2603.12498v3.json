@@ -1,0 +1,34 @@
+{
+ "url": "https://arxiv.org/pdf/2603.12498",
+ "read_utc": "2026-11-27T14:17:08Z",
+ "final_url": "https://arxiv.org/pdf/2603.12498",
+ "http_status": 200,
+ "content_type": "application/pdf",
+ "bytes": 1034943,
+ "sha256": "800ed93fdbee6b8d852997973b7bbfe24142de1169d8cafbcc18c7054ab226ce",
+ "used_for": "LH062 search-and-read row, 27 November 2026: inclusion decision and claims (claims.csv)",
+ "body_kept": "no: PDF: never kept under LH062's brief (email addresses in compressed streams the redaction can't reach)",
+ "body_removed": "Body not kept under the keeper's decision of 21 November 2026 (notes/keeper/2026-11-21-robots-intent.md): the site's robots.txt refuses AI-training or archiving crawlers, or all bots, or the page reserves itself from AI use, so Lighthouse keeps the URL, read time, status, SHA-256 of the bytes received and the facts its records use, not the page.",
+ "extracted": {
+  "title": "Keys on Doormats: Exposed API Credentials on the Web",
+  "authors": "Demir, Vekaria, Smaragdakis, Durumeric",
+  "version_read": "arXiv 2603.12498v3, 14 September 2026, category cs.CR (stamp on page 1)",
+  "venue": "text states ACM CCS 2026 (Proceedings, 15 to 19 November 2026); venue stream, tier 1",
+  "licence_statement_found": "This work is licensed under a Creative Commons Attribution 4.0 International License. (body still not kept: PDF)",
+  "sha256_vs_LH061": "matches LH061's derived file A07-arxiv2603.12498.json (800ed93f...)",
+  "inclusion": "included: measures removal and revocation over time (archival snapshots before notification; daily days 0 to 14 and day 172 after notification), population stated (1,748 verified credentials, 14 services, HTTP Archive September 2025 crawl), method stated (rescan and daily verification; nine HTTP Archive snapshots)",
+  "facts": [
+   "Population: 1,748 credentials confirmed valid, for 14 services, from HTTP Archive's September 2025 crawl (landing pages; about 10M rendered websites in the abstract, 11.9M hostnames after filtering in the method).",
+   "Unprompted (archival): nine HTTP Archive snapshots, up to five years before September 2025; 'exposed credentials remain publicly accessible for an average of 12 months (min: 1; SD: 14; max: 60)'; 'In the first month after exposure, we observe a 10% reduction in the number of active credentials'; later called 'approximately 10% removed per month without intervention'.",
+   "Notification: 2,435 entities notified (2,279 first-party, 156 third-party), 9,746 emails; at least one email delivered to 1,668 websites (68.5%); 'we sent notifications to 71% of sites (1,729 domains)'; reminder after one week. Day 0 = day of first disclosure email, measured before sending; calendar date not stated.",
+   "Observation points after notification: daily rescan and daily validity check for the first two weeks, then one scan at day 172.",
+   "After notification, exposures: 'reducing 50% from 1,405 (Day 0) to 706 (Day 14)'.",
+   "After notification, still valid: 'verified credential exposures dropping from 1,175 to 865 ... about 26% within 14 days'.",
+   "Day 172: 'total non-removed exposures increase from 706 (Day 14) to 1,019 (Day 172) but non-revoked exposure counts show a further decrease from 865 (Day 14) to 660 (Day 172)'. The authors offer an interpretation of the rise (not restated).",
+   "Day 0 totals differ because, the authors say, some services blocked their address during verification (services not recorded here).",
+   "Design: the authors compare the post-notification fall with the same credentials' archival rate; no unnotified group observed in the same period. Classed before-and-after.",
+   "Data: analysis data not shared; only monitoring-crawler code released. Funder: not stated. AI providers' keys: one AI developer's API keys are among the 14 services (named by the study); no per-provider figure kept.",
+   "Per-provider and per-country figures exist in the paper; not recorded (brief, Never done). The authors give reasons for exposure and for removal without revocation; not restated."
+  ]
+ }
+}

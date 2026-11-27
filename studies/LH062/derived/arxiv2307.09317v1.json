@@ -1,0 +1,26 @@
+{
+ "url": "https://arxiv.org/pdf/2307.09317",
+ "read_utc": "2026-11-27T14:17:09Z",
+ "final_url": "https://arxiv.org/pdf/2307.09317",
+ "http_status": 200,
+ "content_type": "application/pdf",
+ "bytes": 1318793,
+ "sha256": "70d69cd5c2c146fa0e8c76e36425ed7a64dc6801ddde54985a83d2ca1c6531d9",
+ "used_for": "LH062 search-and-read row, 27 November 2026: inclusion decision and claims (claims.csv)",
+ "body_kept": "no: PDF: never kept under LH062's brief (email addresses in compressed streams the redaction can't reach)",
+ "body_removed": "Body not kept under the keeper's decision of 21 November 2026 (notes/keeper/2026-11-21-robots-intent.md): the site's robots.txt refuses AI-training or archiving crawlers, or all bots, or the page reserves itself from AI use, so Lighthouse keeps the URL, read time, status, SHA-256 of the bytes received and the facts its records use, not the page.",
+ "extracted": {
+  "title": "Measuring the Leakage and Exploitability of Authentication Secrets in Super-apps: The WeChat Case",
+  "authors": "Baskaran, Zhao, Mannan, Youssef",
+  "version_read": "arXiv 2307.09317v1, 18 July 2023, category cs.CR (stamp on page 1); the text states RAID 2023, not one of the five conferences, so venue stream tier 2",
+  "inclusion": "included: measures validity at two or more points (first analysis December 2022, recheck March 2023, July 2023) and presence in current versions (sample of 100, January and March 2023); population stated; method stated at the document's level. Its contribution includes an analysis framework and an exploitability analysis; nothing of either is recorded",
+  "facts": [
+   "Population: WeChat mini-app packages crawled July to December 2021 (115,392 crawled; 110,993 unpacked); app secrets found in 36,425 (32.8%) mini-apps with valid secrets at the first analysis (December 2022). The study is of one platform's mini-apps; figures are the study's whole population.",
+   "Recheck: 'tested all the previously identified WeChat mini-apps with app secrets (36,425 mini-apps) if those app secrets are still valid ... in March 2023 ... for 36,293 mini-apps (99.6%) the secrets remain valid'.",
+   "Sample: 100 mini-apps chosen at random from those with valid secrets; current versions downloaded 24 January and 6 March 2023, 'before and after our report to WeChat respectively': 83 still had the same secret hard-coded; 4 had removed it but the earlier secret was still valid; 3 had changed to other hard-coded values; 9 had invalid earlier secrets and no secret in current code; results the same in January and March 2023.",
+   "July 2023: 'we observed a significant decrease in the percentage of valid secrets to 16.5% (18,332 mini-apps) as a result of WeChat's restrictions'; denominator not stated (16.5% matches 18,332 of the 110,993 analysed, Lighthouse's arithmetic). The causal attribution is the authors'.",
+   "Notification: the authors reported to the platform operator (the secrets' issuer), between the January and March 2023 downloads (date not stated); whether owners (developers) were told is not stated; the operator's reply says it will notify developers of existing ones. The platform introduced a publishing restriction 'exact timeline unknown'.",
+   "Data: not stated as released (tool offered on request). Funder: not stated. AI providers' keys: none."
+  ]
+ }
+}

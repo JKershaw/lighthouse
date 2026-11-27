@@ -1,0 +1,21 @@
+{
+ "url": "https://blog.gitguardian.com/why-exposed-secrets-stay-valid",
+ "read_utc": "2026-11-27T14:19:09Z",
+ "final_url": "https://blog.gitguardian.com/why-exposed-secrets-stay-valid/",
+ "http_status": 200,
+ "content_type": "text/html; charset=utf-8",
+ "bytes": 69819,
+ "sha256": "854ab1b1d8572cad17821eb62f7110539b0291747c39500a14ef634f33f74864",
+ "used_for": "LH062 search-and-read row, 27 November 2026: inclusion decision and claims (claims.csv)",
+ "body_kept": "no: no licence allowing redistribution stated on the page read (copyright notice only)",
+ "body_removed": "Body not kept under the keeper's decision of 21 November 2026 (notes/keeper/2026-11-21-robots-intent.md): the site's robots.txt refuses AI-training or archiving crawlers, or all bots, or the page reserves itself from AI use, so Lighthouse keeps the URL, read time, status, SHA-256 of the bytes received and the facts its records use, not the page.",
+ "extracted": {
+  "title": "Why Most Exposed Secrets Never Get Fixed",
+  "publisher": "GitGuardian (vendor; own blog)",
+  "author_date": "Anna Nabiullina, 5 June 2025",
+  "inclusion": "excluded: fails condition 3 (no stated method: how exposure and validity were established is not described in the post); relays the vendor's State of Secrets Sprawl 2025 report, whose page robots.txt refused (D05)",
+  "facts": [
+   "Headline relay only, not a claim of this study: '70% of secrets exposed in public repositories in 2022 are still valid today'. The post gives reasons; not restated. Per-service shares not recorded."
+  ]
+ }
+}

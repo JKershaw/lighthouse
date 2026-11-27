@@ -1,0 +1,26 @@
+{
+ "url": "https://www.ndss-symposium.org/wp-content/uploads/2019/02/ndss2019_04B-3_Meli_paper.pdf",
+ "read_utc": "2026-11-27T14:17:09Z",
+ "final_url": "https://www.ndss-symposium.org/wp-content/uploads/2019/02/ndss2019_04B-3_Meli_paper.pdf",
+ "http_status": 200,
+ "content_type": "application/pdf",
+ "bytes": 423795,
+ "sha256": "b660895aa0b5fa61577b06173ca1daf009a08779f5d9df6988eed496e7c3cba9",
+ "used_for": "LH062 search-and-read row, 27 November 2026: inclusion decision and claims (claims.csv)",
+ "body_kept": "no: PDF: never kept under LH062's brief (email addresses in compressed streams the redaction can't reach)",
+ "body_removed": "Body not kept under the keeper's decision of 21 November 2026 (notes/keeper/2026-11-21-robots-intent.md): the site's robots.txt refuses AI-training or archiving crawlers, or all bots, or the page reserves itself from AI use, so Lighthouse keeps the URL, read time, status, SHA-256 of the bytes received and the facts its records use, not the page.",
+ "extracted": {
+  "title": "How Bad Can It Git? Characterizing Secret Leakage in Public GitHub Repositories",
+  "authors": "Meli, McNiece, Reaves",
+  "venue": "NDSS 2019 (copy on the symposium's site); venue stream, tier 1",
+  "sha256_vs_LH061": "matches LH061's derived file A02-meli-ndss2019.json (b660895a...)",
+  "inclusion": "included: measures removal over time (hourly for 24 hours, then daily to 16 days), population stated as a frame (secrets collected through GitHub's Search API from 4 April 2018; count of monitored secrets not stated), method stated",
+  "facts": [
+   "Monitoring: 'we began monitoring all secrets collected via the Search API after they were discovered starting on April 4th, 2018'; hourly for 24 hours from discovery whether the repo, the file and the secret still existed on the head of the default branch; then daily (figure to day 16). Search API collection ran 31 October 2017 to 20 April 2018. Number of monitored secrets: not stated.",
+   "'about 6% of all detected secrets were removed' in the first hour; 'at the end of the first day, over 12% of secrets were gone, while only 19% were gone after 16 days'; '81% of the secrets we discover were not removed'; '19% of our results amounts of tens of thousands of secrets'.",
+   "History: for secrets removed while the repo was kept, 'none of the monitored repos had their history rewritten, meaning the secrets were trivially accessible via Git history' (checked through the Commits API).",
+   "Validity over time: not measured (validity assessed at discovery only). Notification: none during monitoring; 'as of the camera-ready we are currently working to notify'. Platform notices during the window: not stated.",
+   "Data: public sources (GitHub Search API, BigQuery); dataset release not stated. Funder: not stated in the text read. AI providers' keys: not among the population named."
+  ]
+ }
+}

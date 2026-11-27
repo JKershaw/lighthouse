@@ -1,0 +1,26 @@
+{
+ "url": "https://trufflesecurity.com/blog/most-publicly-leaked-keys-are-never-revoked",
+ "read_utc": "2026-11-27T14:19:08Z",
+ "final_url": "https://trufflesecurity.com/blog/most-publicly-leaked-keys-are-never-revoked",
+ "http_status": 200,
+ "content_type": "text/html",
+ "bytes": 304694,
+ "sha256": "f84589395d09e9b48c6b3e0409aa866a1db1e28942ae9d5eca8406e61b61c11e",
+ "used_for": "LH062 search-and-read row, 27 November 2026: inclusion decision and claims (claims.csv)",
+ "body_kept": "no: no licence allowing redistribution stated on the page read (copyright notice only)",
+ "body_removed": "Body not kept under the keeper's decision of 21 November 2026 (notes/keeper/2026-11-21-robots-intent.md): the site's robots.txt refuses AI-training or archiving crawlers, or all bots, or the page reserves itself from AI use, so Lighthouse keeps the URL, read time, status, SHA-256 of the bytes received and the facts its records use, not the page.",
+ "extracted": {
+  "title": "74% of publicly leaked keys are never revoked",
+  "publisher": "Truffle Security Co. (vendor; own blog, 'The Dig')",
+  "author_date": "Joe Leon, 10 January 2024",
+  "inclusion": "included (vendor stream): daily checks over 31 days of file availability, key presence and validity; population stated (10,000 live secrets in 9,399 public GitHub files from public event feeds, commits 28 September to 17 October 2023); method stated at the post's level",
+  "facts": [
+   "'74% of all leaked keys were still live/valid 31 days after being leaked.'",
+   "'If a key was revoked, the developer most likely revoked it in the first 3 days.'",
+   "'63% of files exposing live/valid secrets were still public and continued to expose the live/valid secret on GitHub, 31 days after exposure.'",
+   "'Only 17% of all files containing a secret were unpublished; the rest remained public.' Unpublishing most likely within the first week.",
+   "'In more than 50% of cases when exposed keys were taken down off GitHub, they remained live/valid.'",
+   "Clock: each secret tracked 'for 31 days since the initial exposure date' (commits seen on public event feeds; whether the date is commit time or first observation is not stated). Notification of owners: not stated. Data: the vendor's own tool's data, not public."
+  ]
+ }
+}

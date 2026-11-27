@@ -1,0 +1,24 @@
+{
+ "url": "https://blog.gitguardian.com/zombie-leaks/",
+ "read_utc": "2026-11-27T14:19:10Z",
+ "final_url": "https://blog.gitguardian.com/zombie-leaks/",
+ "http_status": 200,
+ "content_type": "text/html; charset=utf-8",
+ "bytes": 69482,
+ "sha256": "b781211df5be7cbeb672fcda6364e399922b7a58cfea816370b08465cbc4eb68",
+ "used_for": "LH062 search-and-read row, 27 November 2026: inclusion decision and claims (claims.csv)",
+ "body_kept": "no: no licence allowing redistribution stated on the page read (copyright notice only)",
+ "body_removed": "Body not kept under the keeper's decision of 21 November 2026 (notes/keeper/2026-11-21-robots-intent.md): the site's robots.txt refuses AI-training or archiving crawlers, or all bots, or the page reserves itself from AI use, so Lighthouse keeps the URL, read time, status, SHA-256 of the bytes received and the facts its records use, not the page.",
+ "extracted": {
+  "title": "Zombie Leaks: Unrevoked Secrets Lurking on GitHub",
+  "publisher": "GitGuardian (vendor; own blog)",
+  "author_date": "Thomas Segura, 29 April 2024",
+  "inclusion": "included (vendor stream), narrowly: repeated validity checks over five days after the vendor's alert to repository owners; population stated as a frame (secrets the pro-bono service alerted on in public Git commits; count not stated); method stated at the post's level (repeated checks over five days). Relays the vendor's own State of Secrets Sprawl 2024 report, not read (robots refusal, D06)",
+  "facts": [
+   "'GitGuardian's pro-bono service alerts repository owners when we discover a leaked secret in their public Git commits. Over the next five days, we'll perform repeated checks to determine whether those secrets remain valid.'",
+   "'over 91% of leaks remained valid after 5 days'.",
+   "'Randomly selecting 5,000 repositories where the secret was gone within 5 days showed that 28.2% of the repositories were still public while 71.8% had been deleted or made private.' What 'gone' means is not stated.",
+   "Observation period: the report's past year (calendar dates not stated). Data: the vendor's own, not public."
+  ]
+ }
+}
