@@ -1,0 +1,9 @@
+hf-disclosure.txt total=141 placeholder=1 avatar_or_upload_cdn=136 site_pages=2 other=2
+hf-timeline.txt total=94 placeholder=2 avatar_or_upload_cdn=89 site_pages=3 other=0
+
+Reading (R-0172, 27 November 2026): every "other" match in hf-disclosure.txt sits on line 76,
+inside the page's reader-comment data (a commenter's own link), not in Hugging Face's account;
+the hf-timeline.txt matches are its own placeholders (<attacker>/<staging-repo>), its CDN and
+its blog and papers pages. No other retained account text has a repository-shaped link. So the
+count check agrees with LH043's "none ... names a public identifier", read as the accounts'
+own text. Identifiers were deliberately not printed here.
