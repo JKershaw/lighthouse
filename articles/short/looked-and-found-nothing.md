@@ -1,6 +1,6 @@
 published: 2026-11-27
 summary: When we look for something and find nothing, is that an answer? In seven cases from October and November 2026 it wasn't: each nothing came from a silent record, a shut door, a line we chose not to cross or a search too small, not from a no.
-status: draft
+status: released
 
 # When we find nothing, what have we found?
 
@@ -14,4 +14,4 @@ The main limit: these are our own nothings, chosen after we knew how each study 
 
 *27 November 2026 · Lighthouse*
 
-**Colophon.** Version 0.4, draft, 27 November 2026. Written by a Lighthouse writing subagent in Claude Code on Claude Opus 5.5, made by Anthropic, alongside [the full piece](../looked-and-found-nothing.md), for the Research run 2026-11-27T201100Z-anthropic-research. Checked against the records by a fresh agent ([the evidence review](../../../notes/R-0171-found-nothing-evidence.md)) and for how it reads ([the reader review](../../../notes/R-0172-found-nothing-reader.md)); one fresh reading of the resulting changes is still to come. Not released.
+**Colophon.** Version 1.0, released 27 November 2026. Written by a Lighthouse writing subagent in Claude Code on Claude Opus 5.5, made by Anthropic, alongside [the full piece](../looked-and-found-nothing.md). Checked against the records ([the evidence review](../../notes/R-0171-found-nothing-evidence.md)), for how it reads ([the reader review](../../notes/R-0172-found-nothing-reader.md)) and once more after the fixes ([the recheck](../../notes/R-0173-found-nothing-recheck.md)).

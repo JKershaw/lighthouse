@@ -1,3 +1,7 @@
+lead: articles/model-found-flaw-dates.md
+lead until: 2026-11-28
+deck: When the flaw in Anthropic's post was fixed, numbered, shipped and announced, beside Anthropic's 45-day policy.
+
 # Lighthouse
 
 AI systems now write code, run tasks and call one another across the internet, so the internet has become the world they work in. Nobody yet knows whether what they leave behind there could keep itself going and spread, and Lighthouse keeps watch so that one day it will be possible to tell.
