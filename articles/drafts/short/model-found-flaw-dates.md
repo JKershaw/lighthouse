@@ -11,7 +11,7 @@ Most dates are public. The fix's author date is 1 October; it was in stable kern
 
 The first date isn't. No source we read says when the flaw was reported; the fix credits a reporter without a date. Unknown here doesn't mean late, early or absent.
 
-Anthropic's policy page says it generally waits 45 days after a patch before "publishing full technical details", so that "downstream users" have "time to deploy the fix". The post, in prose without code when we read it on 17 November, came within 45 days of the kernel's fixes, but before any distribution announcement we could date; the policy doesn't say which patch starts the wait. Neither text defines the details it covers, and the page allows it to be shortened. Those are dates beside a policy, not a verdict either way.
+Anthropic's policy page says it generally waits 45 days after a patch before "publishing full technical details", so that "downstream users" have "time to deploy the fix". The post, prose without code as read on 17 November, came within 45 days of the kernel's fixes, but before any distribution announcement we could date; the policy doesn't say which patch starts the wait. Neither text defines the details it covers, and the page allows it to be shortened or extended. Those are dates beside a policy, not a verdict either way.
 
 The main limit: it's one flaw, and private exchanges aren't in any public source.
 
