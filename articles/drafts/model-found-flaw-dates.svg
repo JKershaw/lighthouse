@@ -1,0 +1,99 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 720 800" width="720" height="800" role="img" aria-labelledby="t d">
+<title id="t">The public dates of CVE-2026-98432, the Linux kernel flaw Anthropic's model wrote an exploit for, from 25 September to 10 November 2026, with its report date unknown</title>
+<desc id="d">A vertical timeline, to scale from 25 September 2026. Above it, off the scale, the report: no public source we read dates it, so it is not placed. 25 September: the CVE number reserved. 1 October: the fix's author date; when the fix was first public isn't dated. 11 October: the first stable kernels with the fix, 6.18.56 and 7.2.10. 15 October: the CVE published, and five more stable kernels released. 24 October: the release date on the four earliest SUSE advisory pages we followed that name the flaw, shown hollow because what it marks isn't stated. 27 October: Anthropic's post describing the exploit, in prose with no code. 29 October: SUSE announces those four advisories on its public list, and eight more on 3 November. 30 October, in UTC: the first oss-security message whose subject names the CVE, forwarding Go's announcement. 1 November: Red Hat's earliest errata we followed. 10 November: Ubuntu's earliest notice. Debian's fixes were in place by our first read on 1 November, but its pages give no dates. Each date is on its own source's clock, as UTC days. Sources: kernel.org stable changelogs, the CVE record, SUSE's advisory pages and announcement list, Anthropic's post, the oss-security archive, Red Hat's and Ubuntu's trackers, read by Lighthouse from 16 to 21 November 2026.</desc>
+<style>
+svg { --bg:#fbfaf7; --ink:#1f1f1f; --muted:#5d5850; --grid:#d9d2c4; --accent:#1f6576; --hollow:#93600c; color-scheme:light dark; }
+@media (prefers-color-scheme: dark) { svg { --bg:#15191b; --ink:#e6e2d9; --muted:#aaa498; --grid:#3a4245; --accent:#8ec4d4; --hollow:#e0a650; } }
+.bg { fill:var(--bg); }
+text { font-family:'Source Sans 3', 'Helvetica Neue', Arial, sans-serif; fill:var(--ink); }
+.h { font-size:17px; font-weight:600; }
+.sub { font-size:13px; fill:var(--muted); }
+.lab { font-size:14px; font-weight:600; }
+.note { font-size:12.5px; fill:var(--muted); }
+.tick { font-size:12px; fill:var(--muted); }
+.axis { stroke:var(--grid); stroke-width:2; }
+.dash { stroke:var(--grid); stroke-width:2; stroke-dasharray:3 5; }
+.lead { stroke:var(--grid); stroke-width:1; fill:none; }
+.dot { fill:var(--ink); }
+.post { fill:var(--accent); }
+.posttext { fill:var(--accent); }
+.hollow { fill:var(--bg); stroke:var(--hollow); stroke-width:2; }
+.unknown { fill:var(--bg); stroke:var(--muted); stroke-width:2; stroke-dasharray:3 3; }
+.q { font-size:13px; font-weight:600; fill:var(--muted); }
+</style>
+<rect class="bg" x="0" y="0" width="720" height="800"/>
+<text class="h" x="24" y="34">One Linux flaw's public dates, autumn 2026</text>
+<text class="sub" x="24" y="54">Each on its own source's clock, as UTC days; spaced to scale from 25 September</text>
+
+<!-- unknown report, off the scale -->
+<line class="dash" x1="170" y1="104" x2="170" y2="146"/>
+<circle class="unknown" cx="170" cy="92" r="11"/>
+<text class="q" x="170" y="97" text-anchor="middle">?</text>
+<text class="lab" x="200" y="90">Reported: date unknown</text>
+<text class="note" x="200" y="107">No public source we read dates it, so it isn't placed on the scale</text>
+
+<!-- axis -->
+<line class="axis" x1="170" y1="150" x2="170" y2="712"/>
+<g class="tick" text-anchor="end">
+<text x="152" y="154">25 Sep</text>
+<text x="152" y="226">1 Oct</text>
+<text x="152" y="394">15 Oct</text>
+<text x="152" y="598">1 Nov</text>
+<text x="152" y="706">10 Nov</text>
+</g>
+
+<!-- 25 Sep, y150 -->
+<circle class="dot" cx="170" cy="150" r="5"/>
+<text class="lab" x="200" y="148">25 Sep · CVE number reserved</text>
+<text class="note" x="200" y="165">The CVE record's date</text>
+
+<!-- 1 Oct, y222 -->
+<circle class="dot" cx="170" cy="222" r="5"/>
+<text class="lab" x="200" y="220">1 Oct · Fix written (its author date)</text>
+<text class="note" x="200" y="237">When the fix was first public isn't dated</text>
+
+<!-- 11 Oct, y342 -->
+<circle class="dot" cx="170" cy="342" r="5"/>
+<text class="lab" x="200" y="340">11 Oct · First stable kernels with the fix</text>
+<text class="note" x="200" y="357">6.18.56 and 7.2.10</text>
+
+<!-- 15 Oct, y390 -->
+<circle class="dot" cx="170" cy="390" r="5"/>
+<text class="lab" x="200" y="388">15 Oct · CVE published; five more stable kernels</text>
+<text class="note" x="200" y="405">6.12.113, 6.6.159, 6.1.190, 5.15.223 and 5.10.272</text>
+
+<!-- 24 Oct, y498 -->
+<circle class="hollow" cx="170" cy="498" r="5"/>
+<text class="lab" x="200" y="496">24 Oct · Release date on four SUSE advisory pages we followed</text>
+<text class="note" x="200" y="513">What this date marks isn't stated</text>
+
+<!-- 27 Oct, y534 -->
+<circle class="post" cx="170" cy="534" r="6"/>
+<text class="lab posttext" x="200" y="536">27 Oct · Anthropic's post describes the exploit</text>
+<text class="note" x="200" y="553">In prose, with no code</text>
+
+<!-- 29 Oct, dot y558, label y574 -->
+<circle class="dot" cx="170" cy="558" r="5"/>
+<path class="lead" d="M176 558 L190 572 L196 572"/>
+<text class="lab" x="200" y="576">29 Oct · SUSE announces those four on its public list</text>
+<text class="note" x="200" y="593">Eight more on 3 Nov</text>
+
+<!-- 30 Oct, dot y570, label y614 -->
+<circle class="dot" cx="170" cy="570" r="5"/>
+<path class="lead" d="M176 571 L188 612 L196 612"/>
+<text class="lab" x="200" y="616">30 Oct · First oss-security subject naming the CVE</text>
+<text class="note" x="200" y="633">Forwarding Go's announcement of 29 Oct, Pacific time</text>
+
+<!-- 1 Nov, dot y594, label y654 -->
+<circle class="dot" cx="170" cy="594" r="5"/>
+<path class="lead" d="M176 595 L186 652 L196 652"/>
+<text class="lab" x="200" y="656">1 Nov · Red Hat's earliest errata we followed</text>
+
+<!-- 10 Nov, y702 -->
+<circle class="dot" cx="170" cy="702" r="5"/>
+<text class="lab" x="200" y="700">10 Nov · Ubuntu's earliest notice</text>
+<text class="note" x="200" y="717">Debian had fixes by our first read on 1 Nov; its pages give no dates</text>
+
+<text class="note" x="24" y="760">Hollow: a date whose meaning isn't stated. The stable dates are the release commits' author dates.</text>
+<text class="note" x="24" y="779">Sources read by Lighthouse, 16 to 21 November 2026.</text>
+</svg>
