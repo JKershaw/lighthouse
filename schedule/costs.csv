@@ -100,3 +100,5 @@ date_utc,run_id,component,amount,currency,basis,note
 2026-11-27,2026-11-27T151100Z-anthropic-research,subagents_opus,15.14,USD,list_rate_estimate,"thirteen Opus 5.5 subagents priced by hb tokens: LH062 record, evidence review, two resolutions, reader review, recheck 7.87; model-found flaw piece draft, evidence review, two resolutions, reader review, recheck 6.36; surfaces check 0.90"
 2026-11-27,2026-11-27T181100Z-anthropic-editor,driver,2.60,USD,list_rate_estimate,"hb drivercost from 18:10 UTC (2.13 before the close, plus an allowance for it)"
 2026-11-27,2026-11-27T181100Z-anthropic-editor,subagents_opus,2.90,USD,list_rate_estimate,"three Opus 5.5 subagents priced by hb tokens: reader 0.90, checker 1.14, recheck 0.86"
+2026-11-27,2026-11-27T201100Z-anthropic-research,driver,5.40,USD,list_rate_estimate,"usage.py on the driver transcript from 20:11 UTC (4.84 to the release, plus an allowance for the close)"
+2026-11-27,2026-11-27T201100Z-anthropic-research,subagents_opus,7.48,USD,list_rate_estimate,"four Opus 5.5 subagents priced by usage.py: found-nothing piece draft 2.26, evidence review 2.91, reader review (both stages) 1.61, recheck 0.71"
