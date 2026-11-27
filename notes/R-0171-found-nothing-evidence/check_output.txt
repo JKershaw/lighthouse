@@ -1,0 +1,80 @@
+== 1. LH013 Stage A (studies/LH013/data/installer/)
+A1 groups: 20 | distinct installer names (blank counted separately): 15 + blank
+A1 rows summed: 79,782,285 | metadata_rows summed: 0 | groups with metadata_rows > 0: 0
+A1 Python 3.9 rows: 41,777,672 | other: 38,004,613
+A2: 2026-11-17 boto3 79,782,285 | equals A1: True
+read log: 2026-11-19T14:28:30Z A1
+read log: 2026-11-19T14:28:33Z A2
+
+== 2. LH036 (studies/LH036/data/read-*/): CISA catalogue and the kernel announcement
+2026-11-01T0830Z reviewed   KEV 2026.10.30 (released 2026-10-30T17:02) title='CISA Catalog of Known Exploited Vulnerabilities' CVE-2026-98432 listed: False | announcement: HTTP 200, challenge page: True
+2026-11-02T1526Z reviewed   KEV 2026.10.30 (released 2026-10-30T17:02) title='CISA Catalog of Known Exploited Vulnerabilities' CVE-2026-98432 listed: False | announcement: HTTP 200, challenge page: True
+2026-11-05T1414Z reviewed   KEV 2026.11.04 (released 2026-11-04T20:00) title='CISA Catalog of Known Exploited Vulnerabilities' CVE-2026-98432 listed: False | announcement: HTTP 200, challenge page: True
+2026-11-09T1430Z reviewed   KEV 2026.11.06 (released 2026-11-06T19:44) title='CISA Catalog of Known Exploited Vulnerabilities' CVE-2026-98432 listed: False | announcement: not fetched: Disallow: / for ClaudeBot (not fetched: disallowed by robots.txt)
+2026-11-12T1417Z reviewed   KEV 2026.11.10 (released 2026-11-10T19:03) title='CISA Catalog of Known Exploited Vulnerabilities' CVE-2026-98432 listed: False | announcement: not fetched: Disallow: / for ClaudeBot (not fetched: disallowed by robots.txt)
+2026-11-16T1419Z reviewed   KEV 2026.11.13 (released 2026-11-13T20:24) title='CISA Catalog of Known Exploited Vulnerabilities' CVE-2026-98432 listed: False | announcement: not fetched: Disallow: / for ClaudeBot (not fetched: disallowed by robots.txt)
+2026-11-19T1420Z UNREVIEWED KEV 2026.11.18 (released 2026-11-18T19:17) title='CISA Catalog of Known Exploited Vulnerabilities' CVE-2026-98432 listed: False | announcement: not fetched: Disallow: / for ClaudeBot (not fetched: disallowed by robots.txt)
+2026-11-23T1427Z UNREVIEWED KEV 2026.11.23 (released 2026-11-23T12:54) title='CISA Catalog of Known Exploited Vulnerabilities' CVE-2026-98432 listed: False | announcement: not fetched: Disallow: / for ClaudeBot (not fetched: disallowed by robots.txt)
+2026-11-26T1414Z UNREVIEWED KEV 2026.11.25 (released 2026-11-25T19:48) title='CISA Catalog of Known Exploited Vulnerabilities' CVE-2026-98432 listed: False | announcement: not fetched: Disallow: / for ClaudeBot (not fetched: disallowed by robots.txt)
+
+== 3. LH038 read of 17 November (studies/LH038/data/read-2026-11-17T1419Z/)
+changelog_5.10.272.raw.gz | release commit date: Thu Oct 15 14:13:41 2026 +0200 | fix author date: Thu Oct 1 22:12:53 2026 +0000 | Reported-by lines: 1 | a date in them: False
+changelog_5.15.223.raw.gz | release commit date: Thu Oct 15 14:14:32 2026 +0200 | fix author date: Thu Oct 1 22:12:53 2026 +0000 | Reported-by lines: 1 | a date in them: False
+changelog_6.1.190.raw.gz | release commit date: Thu Oct 15 14:15:52 2026 +0200 | fix author date: Thu Oct 1 22:12:53 2026 +0000 | Reported-by lines: 1 | a date in them: False
+changelog_6.12.113.raw.gz | release commit date: Thu Oct 15 11:56:43 2026 +0200 | fix author date: Thu Oct 1 22:12:53 2026 +0000 | Reported-by lines: 1 | a date in them: False
+changelog_6.18.56.raw.gz | release commit date: Sun Oct 11 15:26:12 2026 +0200 | fix author date: Thu Oct 1 22:12:53 2026 +0000 | Reported-by lines: 1 | a date in them: False
+changelog_6.6.159.raw.gz | release commit date: Thu Oct 15 14:16:28 2026 +0200 | fix author date: Thu Oct 1 22:12:53 2026 +0000 | Reported-by lines: 1 | a date in them: False
+changelog_7.2.10.raw.gz | release commit date: Sun Oct 11 15:27:50 2026 +0200 | fix author date: Thu Oct 1 22:12:53 2026 +0000 | Reported-by lines: 1 | a date in them: False
+post quote present: True | datePublished: ['2026-10-27T00:00:00.000Z']
+
+== 4. LH030 (studies/LH030/data/read-*/)
+read directories: 30 | retained reads (no FAILED.md): 29 | first: read-2026-10-23T1715Z | last: read-2026-11-23T1421Z
+CISA and Akamai log entries (all 30 logs): 60 | statuses: {'cisa_0': [403], 'akamai_0': [403]}
+2026-10-23T1715Z {'cve_org': 404, 'nvd': '200/total=0', 'osv': 404, 'debian': 404, 'ubuntu': 404, 'redhat': 404, 'suse': 404} | no record: 7 of 7
+2026-10-24T0630Z {'cve_org': 404, 'nvd': '200/total=0', 'osv': 404, 'debian': 404, 'ubuntu': None, 'redhat': 404, 'suse': 404} | no record: 6 of 7
+2026-10-24T1230Z {'cve_org': 404, 'nvd': '200/total=0', 'osv': 404, 'debian': 404, 'ubuntu': 404, 'redhat': 404, 'suse': 404} | no record: 7 of 7
+2026-10-24T1830Z {'cve_org': 404, 'nvd': '200/total=0', 'osv': 404, 'debian': 404, 'ubuntu': 404, 'redhat': 404, 'suse': 404} | no record: 7 of 7
+2026-10-25T0030Z {'cve_org': 404, 'nvd': '200/total=0', 'osv': 404, 'debian': 404, 'ubuntu': 404, 'redhat': 404, 'suse': 404} | no record: 7 of 7
+2026-10-25T0630Z {'cve_org': 404, 'nvd': '200/total=0', 'osv': 404, 'debian': 404, 'ubuntu': 404, 'redhat': 404, 'suse': 404} | no record: 7 of 7
+2026-10-25T1230Z {'cve_org': 404, 'nvd': '200/total=0', 'osv': 404, 'debian': 404, 'ubuntu': 404, 'redhat': 404, 'suse': 404} | no record: 7 of 7
+2026-10-25T1830Z {'cve_org': 404, 'nvd': '200/total=0', 'osv': 404, 'debian': 404, 'ubuntu': 404, 'redhat': 404, 'suse': 404} | no record: 7 of 7
+2026-10-26T0634Z {'cve_org': 404, 'nvd': '200/total=0', 'osv': 404, 'debian': 404, 'ubuntu': 404, 'redhat': 404, 'suse': 404} | no record: 7 of 7
+2026-10-26T1230Z {'cve_org': 404, 'nvd': '200/total=0', 'osv': 404, 'debian': 404, 'ubuntu': None, 'redhat': 404, 'suse': 404} | no record: 6 of 7
+2026-10-26T1830Z {'cve_org': 404, 'nvd': '200/total=0', 'osv': 404, 'debian': 404, 'ubuntu': None, 'redhat': 404, 'suse': 404} | no record: 6 of 7
+2026-10-27T0633Z {'cve_org': 404, 'nvd': '200/total=0', 'osv': 404, 'debian': 404, 'ubuntu': 404, 'redhat': 404, 'suse': 404} | no record: 7 of 7
+2026-10-27T1230Z {'cve_org': 404, 'nvd': '200/total=0', 'osv': 404, 'debian': 404, 'ubuntu': 404, 'redhat': 404, 'suse': 404} | no record: 7 of 7
+2026-10-27T1830Z {'cve_org': 404, 'nvd': '200/total=0', 'osv': 404, 'debian': 404, 'ubuntu': 404, 'redhat': 404, 'suse': 404} | no record: 7 of 7
+2026-10-28T0634Z {'cve_org': 404, 'nvd': '200/total=0', 'osv': 404, 'debian': 404, 'ubuntu': 404, 'redhat': 404, 'suse': 404} | no record: 7 of 7
+2026-10-28T1230Z {'cve_org': 404, 'nvd': '200/total=0', 'osv': 404, 'debian': 404, 'ubuntu': 404, 'redhat': 404, 'suse': 404} | no record: 7 of 7
+2026-10-28T1830Z {'cve_org': 404, 'nvd': '200/total=0', 'osv': 404, 'debian': 404, 'ubuntu': None, 'redhat': 404, 'suse': 404} | no record: 6 of 7
+2026-10-29T0634Z {'cve_org': 404, 'nvd': '200/total=0', 'osv': 404, 'debian': 404, 'ubuntu': None, 'redhat': 404, 'suse': 404} | no record: 6 of 7
+2026-10-29T1230Z {'cve_org': 404, 'nvd': '200/total=0', 'osv': 404, 'debian': 404, 'ubuntu': 404, 'redhat': 404, 'suse': 404} | no record: 7 of 7
+2026-10-29T1830Z {'cve_org': 404, 'nvd': '200/total=0', 'osv': 404, 'debian': 404, 'ubuntu': 404, 'redhat': 404, 'suse': 404} | no record: 7 of 7
+2026-10-30T0634Z {'cve_org': 404, 'nvd': '200/total=0', 'osv': 404, 'debian': 404, 'ubuntu': 404, 'redhat': 404, 'suse': 404} | no record: 7 of 7
+2026-10-30T1300Z {'cve_org': 404, 'nvd': '200/total=0', 'osv': 404, 'debian': 404, 'ubuntu': 404, 'redhat': 404, 'suse': 404} | no record: 7 of 7
+2026-11-02T1526Z {'cve_org': 404, 'nvd': '200/total=0', 'osv': 404, 'debian': 404, 'ubuntu': 404, 'redhat': 404, 'suse': 404} | no record: 7 of 7
+2026-11-05T1414Z {'cve_org': 404, 'nvd': '200/total=0', 'osv': 404, 'debian': 404, 'ubuntu': 503, 'redhat': 404, 'suse': 200} | no record: 5 of 7
+2026-11-09T1423Z {'cve_org': 404, 'nvd': '200/total=0', 'osv': 404, 'debian': 404, 'ubuntu': None, 'redhat': 404, 'suse': 200} | no record: 5 of 7
+2026-11-12T1416Z {'cve_org': 404, 'nvd': '200/total=0', 'osv': 404, 'debian': 404, 'ubuntu': 404, 'redhat': 404, 'suse': 200} | no record: 6 of 7
+2026-11-16T1419Z {'cve_org': 404, 'nvd': '200/total=0', 'osv': 404, 'debian': 404, 'ubuntu': 404, 'redhat': 404, 'suse': 200} | no record: 6 of 7
+2026-11-19T1417Z {'cve_org': 404, 'nvd': '200/total=0', 'osv': 404, 'debian': 404, 'ubuntu': 404, 'redhat': 404, 'suse': 200} | no record: 6 of 7
+2026-11-23T1421Z {'cve_org': 200, 'nvd': '200/total=1', 'osv': 404, 'debian': 200, 'ubuntu': 200, 'redhat': 200, 'suse': 200} | no record: 1 of 7
+2026-11-19T1417Z php_0: CVE-2026-115560 occurrences: 1 | promise present: True | entries dated 19 Nov 2026: 4 | of them saying 'This is a security release': 4 | naming CVE-2026-115560: 0
+   the entry naming the flaw is dated: ['23 Oct 2026']
+   titles of the entries dated 19 Nov 2026: ['PHP 8.5.13 Released!', 'PHP 8.4.28 Released!', 'PHP 8.3.37 Released!', 'PHP 8.2.36 Released!']
+2026-11-23T1421Z php_0: CVE-2026-115560 occurrences: 1 | promise present: True | entries dated 19 Nov 2026: 5 | of them saying 'This is a security release': 4 | naming CVE-2026-115560: 0
+   the entry naming the flaw is dated: ['23 Oct 2026']
+   titles of the entries dated 19 Nov 2026: ['PHP 8.6.0 Released!', 'PHP 8.5.13 Released!', 'PHP 8.4.28 Released!', 'PHP 8.3.37 Released!', 'PHP 8.2.36 Released!']
+
+== 5. LH043 (studies/LH043/data/sources/)
+GITHUB_ACCOUNT_A (whole word) in INC-2026-07-28-01: 15 | PERSON_C: 28
+anonymity quote present: True
+'Organization 1' in openai-hf-report: 21
+'[account name redacted]' in metr-hf-investigation: 1
+fetch log: documents 12 | status 200: 11 | refused: [('403', 'https://openai.com/index/hugging-face-model-evaluation-security-incident/')] | times: 2026-11-08T18:59:39Z to 2026-11-08T19:01:12Z
+
+== 6. LH060 (studies/LH060/)
+fetches: 15 | dates: ['2026-11-25']
+searches: 6
+brief, fewer-than-three rule present: True
+register summary line: ['- Included: 3 (C07, C08, C10). Excluded: 12. Candidates not read: 0.'] | C08 excluded line present: True
