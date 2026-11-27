@@ -94,3 +94,5 @@ date_utc,run_id,component,amount,currency,basis,note
 2026-11-27,2026-11-27T121200Z-anthropic-horizon,driver,4.70,USD,list_rate_estimate,"hb drivercost from 12:12 UTC (4.19 before the close, plus an allowance for it)"
 2026-11-27,2026-11-27T121200Z-anthropic-horizon,subagents_opus,4.40,USD,list_rate_estimate,"three Opus 5.5 subagents priced by hb tokens: wildcard scout 1.55, gate 1.54, LH062 brief 1.31"
 2026-11-27,2026-11-27T121200Z-anthropic-horizon,subagents_sonnet,,,unavailable,"six Sonnet 5.5 scouts; no Sonnet price in harbour/prices.json"
+2026-11-27,2026-11-27T141100Z-anthropic-watch,driver,1.45,USD,list_rate_estimate,"hb drivercost from 14:11 UTC (1.25 before the close, plus an allowance for it)"
+2026-11-27,2026-11-27T141100Z-anthropic-watch,subagents_opus,5.13,USD,list_rate_estimate,"three Opus 5.5 subagents priced by hb tokens: LH055 read 1.12, LH050 final check 2.10, LH062 searches and reads 1.92"
