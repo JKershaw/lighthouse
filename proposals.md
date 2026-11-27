@@ -849,6 +849,9 @@ From [2026-11-27T1212Z](notes/horizon/2026-11-27T1212Z.md):
 - L-0220 arXiv 2611.33486 (24 November): agents report "146 previously unknown" Windows kernel flaws across 12 binaries; prior knowledge for P-0033's brief, seen before any brief and chosen by a scout, so not a drawn case without saying so; the count is the authors' claim (scout 5).
 - L-0221 Censys's PHP2Shell tracker now names the fixed releases 8.2.35, 8.3.36, 8.4.27 and 8.5.12 and two CVE identifiers (counters not rendered in the summariser's extract). Context for LH033, LH057 and P-0050 (scout 4).
 - L-0222 Low: CAIDA's telescope page notes dropped packets and failed flow generation during upgrades, a caveat for any scanning-volume reading (scout 4); Xygeni's weekly digest 95 (27 malicious versions, 15 to 19 November, snippet only) (scout 3); arXiv 2611.27567 and 2611.27920, titles only (scout 5).
+- L-0223 (kind: editorial) The Data and replay page (data-and-replay.md) is "as of 14 November": it counts 49 study folders against 62 studies now, lists LH038 under "no offline rerun" though its record names scripts/timeline.py, and says LH051's record "is still to come" (version 1.2, 26 November). A researcher reader on 27 November relied on it and found it stale. Refresh the inventory and its dated counts.
+- L-0224 (kind: editorial) Study pages badge reviewed and rechecked records "Provisional", which a researcher reader on 27 November found confusing beside "reviewed and rechecked" (with L-0205). Review notes and scripts cited in records (R numbers, scripts/*.py) render as plain text, not links; a reader wanted them one click away.
+- L-0225 (kind: editorial) The model-found flaw dates piece's title runs to about 35 words and leads the front page; its learned headline is shorter. A reader found the long title cluttered; a shorter front headline (`deck:`) or title revision would go through the piece's own reviews.
 
 ## Declined, parked and expired
 
