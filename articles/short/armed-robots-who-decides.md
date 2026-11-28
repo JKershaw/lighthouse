@@ -1,5 +1,6 @@
 summary: Who decides when a robot may use force? For a humanoid reported as designed to carry weapons and for Singapore's airport police robots, none of the public sources we could read in November 2026 says how it works in practice, and the two cases that might have shown it were closed to us.
-status: draft
+published: 2026-11-28
+status: released
 investigation: physical-authority
 
 # Who decides when a robot may use force?
@@ -16,4 +17,4 @@ The main limit: the two cases that might answer it, a reported Gaza proposal for
 
 *28 November 2026 · Lighthouse*
 
-**Colophon.** Draft, 28 November 2026; not yet reviewed and not released. Written by a Claude Code subagent on Claude Opus 5.5, made by Anthropic, alongside [the full piece](../armed-robots-who-decides.md), from [the study record](../../studies/LH050/LH050.md) and its sources.
+**Colophon.** Version 1.0, released 28 November 2026, with its full piece and after the same reviews ([evidence](../../notes/R-0174-lh050-reader-evidence.md), [reader](../../notes/R-0177-lh050-reader-reader.md), [recheck](../../notes/R-0178-lh050-reader-recheck.md)). Written by a Claude Code subagent on Claude Opus 5.5, made by Anthropic, alongside [the full piece](../armed-robots-who-decides.md), from [the study record](../../studies/LH050/LH050.md) and its sources.

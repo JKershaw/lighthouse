@@ -8,6 +8,8 @@ essays lede: Essays are interpretation, kept apart from findings. Each says whic
 map lead: articles/who-watches-the-internet.md
 map lede: The map brings partial views of the internet together with the edges of each instrument stated. Its findings are reviewed against sources; the observation catalogue and investigations link to the working records. An unobserved region is not an empty one.
 summaries:
+- articles/armed-robots-who-decides.md | What the public sources we could read say about who controls force for three chosen robots, and why the two cases that could have shown it were closed to us.
+- essays/when-the-machine-works-as-intended.md | Why a robot that obeys can still harm the people it is used on, and what to ask of whoever controls it.
 - articles/looked-and-found-nothing.md | Seven times our studies found nothing, and what kind of nothing each was: a silent record, a shut door, a line we chose not to cross, a search too small.
 - articles/model-found-flaw-dates.md | When the Linux flaw in Anthropic's exploit post was fixed, numbered, shipped and announced, beside Anthropic's 45-day policy.
 - articles/rules-for-robots.md | What sites ask of automated readers, how others count compliance, and how our own requests of one evening fared.
@@ -35,7 +37,7 @@ summaries:
 - notes/php-watch-log.md | Unreviewed dated readings from fixed sources; changes await review before becoming findings.
 - observations.md | Every reading so far, linked to its record and the instruments it relied on.
 - investigations/software-updates.md | The question, current account and studies behind the software-update investigation.
-- investigations/physical-authority.md | A new investigation of armed robots, human control and civilian consequences; its baseline is planned, not a deployment finding.
+- investigations/physical-authority.md | A pilot investigation of armed robots, human control and civilian consequences; a reviewed baseline and its reader account, no deployment or harm finding.
 - studies/LH002 | Where a change in a small software neighbourhood shows next
 - studies/LH020 | PHP's notice beside its official images
 - studies/LH028 | The first public attack trace before PHP's notice
@@ -84,6 +86,8 @@ summaries:
 - studies/LH042 | Published counts of exposed AI services
 - studies/LH035 | Who watches each layer of the internet
 labels:
+- articles/armed-robots-who-decides.md | Armed robots
+- essays/when-the-machine-works-as-intended.md | Armed robots
 - articles/looked-and-found-nothing.md | Found nothing
 - articles/model-found-flaw-dates.md | Model-found flaw
 - articles/rules-for-robots.md | Rules for robots

@@ -6,6 +6,9 @@ question: What can public evidence establish about the capabilities, deployment 
 started: 2026-11-12
 studies:
 - studies/LH050/brief.md
+pieces:
+- articles/armed-robots-who-decides.md
+- essays/when-the-machine-works-as-intended.md
 
 # When AI acquires physical authority
 
@@ -37,7 +40,7 @@ The [source register](../studies/LH050/sources.md) starts with Autonomous Weapon
 
 On policy, unreviewed: the Geneva review conference's final document, as posted on its page and labelled "as adopted", read on 27 November ([checkpoint](../studies/LH050/checkpoints/2026-11-27-policy-final.md)), records that the work of the expert group on lethal autonomous weapons "is to continue", that the group is "to elaborate, by consensus, an instrument, without prejudging its nature", meeting "for 10 days in Geneva each year" and reporting to the 2028 Meeting with a recommendation on whether to adopt it "as a binding protocol". It was adopted "as orally amended", so the issued text may differ, and the elements it endorses weren't read.
 
-A reader account of the baseline and a revision of the essay given to us when the investigation began are drafted and under review; neither is released. The [original essay](../notes/physical-authority/original-essay.md) stays background, not a released account.
+Our reader account of the baseline, [Who decides when a robot may use force? The sources we could read in November 2026 didn't say how it works in practice](../articles/armed-robots-who-decides.md), was released on 28 November 2026 and says the same at the same certainty. The essay given to us when the investigation began was revised and released the same day as [When the machine works as intended](../essays/when-the-machine-works-as-intended.md): interpretation, not a finding, with every claim we couldn't read cut or attributed. Those are the two pieces the pilot allows. The [original essay](../notes/physical-authority/original-essay.md) is kept unchanged as background.
 
 ## What we will not infer
 
