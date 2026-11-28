@@ -1,0 +1,120 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 720 560" width="720" height="560" role="img" aria-labelledby="t d">
+<title id="t">What the public sources we could read on 13 November 2026 say about six robot configurations, field by field</title>
+<desc id="d">A grid of six rows and seven columns. The rows are configurations: Foundation's Phantom humanoid in a proposed Gaza use; Phantom's design and stated aims; Phantom MK-1's logistics demonstration in Ukraine; an armed non-humanoid comparison robot; the Singapore police patrol robot at Changi Airport from 2023; and the GIBSON ride-on robot on trial there since July 2025. The columns are: armed, AI's role, target choice (who picks targets), force decision (who allows force), human takeover (how a person steps in), stage reached, and effects on people. The middle three columns are marked as control. The Gaza row and the comparison row are entirely unreadable: the Gaza report is refused to our agents by robots.txt and the comparison's official page returned HTTP 403. Supported by a source: Phantom's design aim to carry weapons; the stage reached in all four readable rows; GIBSON's manual takeover of movement; and GIBSON's reported encounters with the public. One entry conflicts: two reported statements of Phantom's intentions on autonomy in combat decisions. Every other entry in the readable rows is not established by any source read: whether any of these robots is armed in the field, any role for AI, who picks targets, who allows force in practice, and any harm. Three squares are split in two: design aim against fielded weapon, stated intention against practice, and reported encounters against harm. 45 entries in all: 7 supported, 23 not established, 14 unreadable, 1 conflicting. The entries are Lighthouse's codings of what sources say, not counts of robots, weapons or events.</desc>
+<style>
+svg { --bg:#fbfaf7; --ink:#1f1f1f; --muted:#5d5850; --grid:#b9b1a2; --line:#d9d2c4; --sup:#1f6576; --unav:#cfc8ba; --conf:#b5770f; color-scheme:light dark; }
+@media (prefers-color-scheme: dark) { svg { --bg:#15191b; --ink:#e6e2d9; --muted:#aaa498; --grid:#6a7477; --line:#3a4245; --sup:#8ec4d4; --unav:#4a5356; --conf:#e0a650; } }
+.bg { fill:var(--bg); }
+text { font-family:'Source Sans 3', 'Helvetica Neue', Arial, sans-serif; fill:var(--ink); }
+.h { font-size:17px; font-weight:600; }
+.sub { font-size:13px; fill:var(--muted); }
+.row { font-size:13.5px; font-weight:600; }
+.rnote { font-size:12px; fill:var(--muted); }
+.col { font-size:12px; fill:var(--muted); }
+.ctl { font-size:12px; font-weight:600; fill:var(--ink); }
+.note { font-size:12px; fill:var(--muted); }
+.sup { fill:var(--sup); }
+.ne { fill:var(--bg); stroke:var(--grid); stroke-width:1.5; }
+.un { fill:var(--unav); }
+.cf { fill:var(--conf); }
+.rule { stroke:var(--line); stroke-width:1; }
+.brace { stroke:var(--ink); stroke-width:1.5; fill:none; }
+</style>
+<rect class="bg" x="0" y="0" width="720" height="560"/>
+<text class="h" x="20" y="32">Who decides on force? What the sources we could read say</text>
+<text class="sub" x="20" y="52">Six robot configurations, seven questions each; sources read 13 November 2026</text>
+
+<!-- control bracket over columns 3 to 5 (x 366 to 538) -->
+<path class="brace" d="M368 80 v-6 h168 v6"/>
+<text class="ctl" x="452" y="68" text-anchor="middle">control</text>
+
+<!-- column headers; column x: 240 303 366 429 492 555 618, width 56 -->
+<g class="col" text-anchor="middle">
+<text x="268" y="98">Armed</text>
+<text x="331" y="98">AI's role</text>
+<text x="394" y="98">Target</text><text x="394" y="112">choice</text>
+<text x="457" y="98">Force</text><text x="457" y="112">decision</text>
+<text x="520" y="98">Human</text><text x="520" y="112">takeover</text>
+<text x="583" y="98">Stage</text><text x="583" y="112">reached</text>
+<text x="646" y="98">Effects on</text><text x="646" y="112">people</text>
+</g>
+
+<!-- row 1: Phantom, proposed Gaza use; y 126 -->
+<text class="row" x="20" y="142">Humanoid: proposed Gaza use</text>
+<text class="rnote" x="20" y="158">Report refused to our agents</text>
+<g class="un">
+<rect x="240" y="126" width="56" height="38" rx="3"/><rect x="303" y="126" width="56" height="38" rx="3"/><rect x="366" y="126" width="56" height="38" rx="3"/><rect x="429" y="126" width="56" height="38" rx="3"/><rect x="492" y="126" width="56" height="38" rx="3"/><rect x="555" y="126" width="56" height="38" rx="3"/><rect x="618" y="126" width="56" height="38" rx="3"/>
+</g>
+
+<!-- row 2: Phantom design and stated aims; y 172 -->
+<text class="row" x="20" y="188">Humanoid: design, stated aims</text>
+<text class="rnote" x="20" y="204">Trade reports relaying the maker</text>
+<rect class="sup" x="240" y="172" width="27" height="38" rx="3"/>
+<rect class="ne" x="269.75" y="172.75" width="25.5" height="36.5" rx="3"/>
+<rect class="ne" x="303.75" y="172.75" width="54.5" height="36.5" rx="3"/>
+<rect class="ne" x="366.75" y="172.75" width="54.5" height="36.5" rx="3"/>
+<rect class="cf" x="429" y="172" width="27" height="38" rx="3"/>
+<rect class="ne" x="458.75" y="172.75" width="25.5" height="36.5" rx="3"/>
+<rect class="ne" x="492.75" y="172.75" width="54.5" height="36.5" rx="3"/>
+<rect class="sup" x="555" y="172" width="56" height="38" rx="3"/>
+<rect class="ne" x="618.75" y="172.75" width="54.5" height="36.5" rx="3"/>
+
+<!-- row 3: Phantom MK-1 Ukraine demo; y 218 -->
+<text class="row" x="20" y="234">Humanoid: Ukraine demo</text>
+<text class="rnote" x="20" y="250">Logistics only, as reported</text>
+<rect class="ne" x="240.75" y="218.75" width="54.5" height="36.5" rx="3"/>
+<rect class="ne" x="303.75" y="218.75" width="54.5" height="36.5" rx="3"/>
+<rect class="ne" x="366.75" y="218.75" width="54.5" height="36.5" rx="3"/>
+<rect class="ne" x="429.75" y="218.75" width="54.5" height="36.5" rx="3"/>
+<rect class="ne" x="492.75" y="218.75" width="54.5" height="36.5" rx="3"/>
+<rect class="sup" x="555" y="218" width="56" height="38" rx="3"/>
+<rect class="ne" x="618.75" y="218.75" width="54.5" height="36.5" rx="3"/>
+
+<line class="rule" x1="20" y1="268" x2="674" y2="268"/>
+
+<!-- row 4: armed comparison; y 280 -->
+<text class="row" x="20" y="296">Armed comparison robot</text>
+<text class="rnote" x="20" y="312">Official page refused (HTTP 403)</text>
+<g class="un">
+<rect x="240" y="280" width="56" height="38" rx="3"/><rect x="303" y="280" width="56" height="38" rx="3"/><rect x="366" y="280" width="56" height="38" rx="3"/><rect x="429" y="280" width="56" height="38" rx="3"/><rect x="492" y="280" width="56" height="38" rx="3"/><rect x="555" y="280" width="56" height="38" rx="3"/><rect x="618" y="280" width="56" height="38" rx="3"/>
+</g>
+
+<line class="rule" x1="20" y1="330" x2="674" y2="330"/>
+
+<!-- row 5: Changi 2023 patrol robot; y 342 -->
+<text class="row" x="20" y="358">Airport patrol robot, 2023</text>
+<text class="rnote" x="20" y="374">Singapore police</text>
+<rect class="ne" x="240.75" y="342.75" width="54.5" height="36.5" rx="3"/>
+<rect class="ne" x="303.75" y="342.75" width="54.5" height="36.5" rx="3"/>
+<rect class="ne" x="366.75" y="342.75" width="54.5" height="36.5" rx="3"/>
+<rect class="ne" x="429.75" y="342.75" width="54.5" height="36.5" rx="3"/>
+<rect class="ne" x="492.75" y="342.75" width="54.5" height="36.5" rx="3"/>
+<rect class="sup" x="555" y="342" width="56" height="38" rx="3"/>
+<rect class="ne" x="618.75" y="342.75" width="54.5" height="36.5" rx="3"/>
+
+<!-- row 6: GIBSON; y 388 -->
+<text class="row" x="20" y="404">Airport ride-on robot, trial</text>
+<text class="rnote" x="20" y="420">Singapore police and HTX</text>
+<rect class="ne" x="240.75" y="388.75" width="54.5" height="36.5" rx="3"/>
+<rect class="ne" x="303.75" y="388.75" width="54.5" height="36.5" rx="3"/>
+<rect class="ne" x="366.75" y="388.75" width="54.5" height="36.5" rx="3"/>
+<rect class="ne" x="429.75" y="388.75" width="54.5" height="36.5" rx="3"/>
+<rect class="sup" x="492" y="388" width="56" height="38" rx="3"/>
+<rect class="sup" x="555" y="388" width="56" height="38" rx="3"/>
+<rect class="sup" x="618" y="388" width="27" height="38" rx="3"/>
+<rect class="ne" x="647.75" y="388.75" width="25.5" height="36.5" rx="3"/>
+
+<!-- legend -->
+<line class="rule" x1="20" y1="446" x2="674" y2="446"/>
+<rect class="sup" x="20" y="462" width="18" height="14" rx="2"/>
+<text class="note" x="44" y="474">A source says so</text>
+<rect class="ne" x="160.75" y="462.75" width="16.5" height="12.5" rx="2"/>
+<text class="note" x="184" y="474">No source we read settles it</text>
+<rect class="un" x="348" y="462" width="18" height="14" rx="2"/>
+<text class="note" x="372" y="474">Source couldn't be read</text>
+<rect class="cf" x="520" y="462" width="18" height="14" rx="2"/>
+<text class="note" x="544" y="474">Two reports conflict</text>
+<text class="note" x="20" y="500">Split squares: design aim | fielded weapon; stated intention | practice; reported encounters | harm.</text>
+<text class="note" x="20" y="518">The one filled control square is the ride-on robot's manual takeover of its movement, not force.</text>
+<text class="note" x="20" y="536">45 entries: 7 say so, 23 not settled, 14 unreadable, 1 conflict. Our codings, not counts of robots.</text>
+</svg>
