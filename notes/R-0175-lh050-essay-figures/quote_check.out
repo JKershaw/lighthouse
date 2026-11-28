@@ -1,0 +1,68 @@
+PDF sha256 725afe2f7f9f7aa2791f008deccae19bb4ab91cc9bf8cda89311595be5ce6ffe
+OK  1 S26_assembly_derived: is designed to carry a maximum payload of 44 pounds, including lethal weaponry
+OK  1 S24_techcentral: can carry more than 20kg of equipment or weapons
+MISS 0 S25_eweek: earlier this year
+OK  1 S25_eweek: remain far from battlefield-ready
+OK  1 S25_eweek: lacks waterproofing, and does not yet have the battery life needed for extended deployments
+OK  1 S27_tnw: earlier this year
+OK  1 S27_tnw: for feasibility testing in inspection, logistics, and weapons handling
+OK  1 S24_techcentral: Phantoms will not have full autonomy when it comes to making decisions in combat
+OK  1 S27_tnw: said some weaponised uses of the Phantom robots will retain human confirmation in the decision loop
+OK  1 S27_tnw: In certain time-critical scenarios, the robots will need to make fully autonomous decisions.
+OK  1 S25_eweek: for industrial work and defense applications
+MISS 0 S27_tnw: Making robots look like humans is a complex and expensive engineering challenge.
+OK  1 S24_techcentral: could paradoxically make military action more likely by reducing the perceived risks and consequences
+OK  1 S11_icrc: requires qualitative understanding of factors such as intent, conduct and context that a machine calculation cannot provide
+OK  1 S11_icrc: can change rapidly
+OK  1 S11_icrc: International humanitarian law already applies to autonomous weapons
+OK  1 S11_icrc: does not disappear simply because technology becomes more accurate
+OK  1 S11_icrc: designed to target humans directly
+OK  1 S11_icrc: unpredictable in their effects
+OK  1 S11_icrc: not whether the weapon flies autonomously, but whether it has autonomy in the critical targeting functions
+OK  1 S05_spf: capable of autonomous patrol
+OK  1 S05_spf: interim intervention measures (blinkers, siren, and speakers) to enforce a cordon or warn bystanders
+OK  1 S05_spf: April 2023
+MISS 0 S28_spf_gibson: on trial at the Terminal 4 Departure Hall since July 2025
+OK  1 S29_htx: arm and activate the handlebar when they first take over manual control
+OK  1 S29_htx: largely unresponsive
+OK  1 S29_htx: Excuse me
+OK  2 S44_final: is to continue
+OK  1 S44_final: to elaborate, by consensus, an instrument, without prejudging its nature, that specifies international humanitarian law, including principles and requirements, applicable to lethal autonomous weapon systems
+OK  1 S44_final: for 10 days in Geneva each year
+OK  1 S44_final: to the 2028 Meeting
+OK  1 S44_final: whether the High Contracting Parties should adopt the instrument as a binding protocol
+OK  1 S44_final: as orally amended
+OK  1 S44_final: Final document
+
+-- word search in final document (case-insensitive) --
+human control 0
+negotiat 1
+binding 1
+legally binding 0
+moratorium 0
+deadline 0
+mandate 4
+
+-- weapon in Changi texts (case-insensitive) --
+S05_spf 0 arm(ed) 0
+S28_spf_gibson 0 arm(ed) 0
+S29_htx 0 arm(ed) 0
+
+-- precision/civilian/casualty in Foundation reports --
+S24_techcentral {'precis': 0, 'civilian': 0, 'casualt': 0, 'gaza': 0, 'israel': 0}
+S25_eweek {'precis': 0, 'civilian': 0, 'casualt': 0, 'gaza': 0, 'israel': 0}
+S27_tnw {'precis': 1, 'civilian': 0, 'casualt': 0, 'gaza': 0, 'israel': 0}
+
+-- misses re-checked case-insensitively and without trailing punctuation --
+FOUND S25_eweek | ound Earlier this year, Foun
+FOUND S27_tnw | y. " Making robots look like humans is a complex and expensive engineering challenge, " sa
+FOUND S28_spf_gibson | ce . On trial at the Terminal 4 Departure Hall since July 2025, GIBS
+
+-- final document context: para 49 subject; para 31 --
+49. The Seventh Review Conference decides that the work of the open-ended Group of Governmental Experts related to emerging technologies in the area of lethal autonomous weapons systems established by Decision 1 of the Fifth Review Conference as contained in document CCW/CONF.V/10, adhering to the agreed recommendations contained in document CCW/CONF.V/2, is to continue, to strengthen the Convention. 50. In the conte
+31. At its final plenary meeting, on 20 November 2026, the Conference adopted its Final Document, as contained in CCW/CONF.VII/CRP.1/Rev.3, as orally amended, which will be issued as document CCW/CONF.VII/11. Part II Final Declaration I. With the aim of contin
+
+-- final document: passages on how weapons are used (tests the essay line "neither says anything about how any state builds or uses a weapon") --
+condemns any use of incendiary weapons 1
+Calls on all parties to armed conflicts to respect 1
+all feasible precautions, in the use of laser systems 1
