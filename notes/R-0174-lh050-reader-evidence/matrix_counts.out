@@ -1,0 +1,24 @@
+cells 45
+all statuses {'unavailable': 14, 'supported-by-source': 7, 'not-established': 23, 'conflicting': 1}
+configurations 6
+readable configurations 4
+readable rows, stage (deployment evidence): n=4 {'supported-by-source': 4}
+readable rows, control (target, force, intervention): n=13 {'not-established': 11, 'conflicting': 1, 'supported-by-source': 1}
+readable rows, armament: n=5 {'supported-by-source': 1, 'not-established': 4}
+readable rows, AI function: n=4 {'not-established': 4}
+readable rows, civilian evidence: n=5 {'not-established': 4, 'supported-by-source': 1}
+supported control cells in readable rows:
+   GIBSON rideable indoor patrol robot, Terminal 4 De | intervention | 
+figure grid, by configuration (field[facet]:status):
+  Phantom, proposed Gaza application
+     armament:unavailable; AI function:unavailable; target selection:unavailable; force authorisation:unavailable; intervention:unavailable; deployment evidence:unavailable; civilian evidence:unavailable
+  Phantom, design and stated company intentions
+     armament[design intention]:supported-by-source; armament[fielded]:not-established; AI function:not-established; target selection:not-established; force authorisation[stated intention]:conflicting; force authorisation[in practice]:not-established; intervention:not-established; deployment evidence:supported-by-source; civilian evidence:not-established
+  Phantom MK-1, Ukraine logistics pilot (two ro
+     armament:not-established; AI function:not-established; target selection:not-established; force authorisation:not-established; intervention:not-established; deployment evidence:supported-by-source; civilian evidence:not-established
+  candidate: US Marine Corps armed quadruped te
+     armament:unavailable; AI function:unavailable; target selection:unavailable; force authorisation:unavailable; intervention:unavailable; deployment evidence:unavailable; civilian evidence:unavailable
+  SPF patrol robot (2023 type), Changi Airport 
+     armament:not-established; AI function:not-established; target selection:not-established; force authorisation:not-established; intervention:not-established; deployment evidence:supported-by-source; civilian evidence:not-established
+  GIBSON rideable indoor patrol robot, Terminal
+     armament:not-established; AI function:not-established; target selection:not-established; force authorisation:not-established; intervention:supported-by-source; deployment evidence:supported-by-source; civilian evidence[reported public interaction]:supported-by-source; civilian evidence[harm]:not-established

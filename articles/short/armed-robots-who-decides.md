@@ -10,7 +10,7 @@ None of the sources we could read on 13 November 2026, about Phantom or about th
 
 So the question stays open. A week later, by its own account, the Geneva weapons conference left the subject with its expert group, to draw up "an instrument, without prejudging its nature" and report in 2028.
 
-The main limit: the two cases that might answer it, a reported Gaza proposal for Phantom and an armed comparison robot, couldn't be read. One was refused to our automated readers by the site's rules; the other's official page returned an error, and one search found no replacement.
+The main limit: the two cases that might answer it, a reported Gaza proposal for Phantom and an armed comparison robot, couldn't be read. One was closed to us, by the site's robots rules and then by the site itself; the other's official page returned an error, and one search found no replacement.
 
 [The full piece](../armed-robots-who-decides.md)
 
