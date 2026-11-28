@@ -1,12 +1,12 @@
-summary: In November 2026 we read what public sources we could on three kinds of robot: a humanoid its maker is reported to have designed to carry weapons, an armed robot for comparison, and police patrol robots at Singapore's Changi Airport. The sources we could read say how far each had got, mostly in the maker's or the government's own words, but none says who would pick targets or decide to use force, and the two cases that could have shown it couldn't be read. On 20 November, by its own account, the Geneva weapons conference adopted a text that keeps the subject with an expert group, to report in 2028, without deciding what kind of instrument it should produce.
+summary: In November 2026 we read what public sources we could on three kinds of robot: a humanoid its maker is reported to have designed to carry weapons, an armed robot for comparison, and police patrol robots at Singapore's Changi Airport. The sources we could read say how far each had got, mostly in the maker's or the government's own words, but none says who picks targets or decides to use force in practice (one reported statement of the maker's intentions aside), and the two cases that could have shown it couldn't be read. On 20 November, by its own account, the Geneva weapons conference adopted a text that keeps the subject with an expert group, to report in 2028, without deciding what kind of instrument it should produce.
 status: draft
 investigation: physical-authority
 
-# Who decides when a robot may use force? The sources we could read in November 2026 didn't say
+# Who decides when a robot may use force? The sources we could read in November 2026 didn't say how it works in practice
 
 In the departure hall of Changi Airport's Terminal 4, a police robot called GIBSON began a trial in July 2025, patrolling on its own and finding its way with laser scanners, depth cameras and sonar. Officers could call it to them with an app and ride it like a scooter. During its trial, according to HTX, the Singapore government agency that developed it with A*STAR researchers, some people tried to hop on and hitch a ride while it was driving itself. The engineers added sensors that stop it when someone does that, and put a cordon on it. When officers first take over by hand, they have to arm and activate the handlebar, "to prevent accidents from occurring".
 
-That's a lot of detail about who's in charge of a police robot's movement. We went looking for the same kind of detail about force: when a robot carries a weapon, or might, who picks the target and who decides to fire? We read what public sources we could on three kinds of robot. For the robots we followed, none of the sources we could read says. And the two cases where it might have been said were the two we couldn't read.
+That's a lot of detail about who's in charge of a police robot's movement. We went looking for the same kind of detail about force: when a robot carries a weapon, or might, who picks the target and who decides to fire? We read what public sources we could on three kinds of robot. For the robots we followed, none of the sources we could read says how that works in practice; the nearest is two reported statements of what one maker intends, which don't agree. And the two cases where it might have been said were the two we couldn't read.
 
 *28 November 2026 · Lighthouse*
 
@@ -18,7 +18,7 @@ For each, we looked for the same seven things: whether it's armed, what AI is sa
 
 ![A grid of six robot configurations against seven questions. The two rows for the proposed Gaza use and the armed comparison are entirely grey: their sources couldn't be read. In the four readable rows, every "stage reached" square is filled, meaning a source says how far the robot had got, while the three control columns, target choice, force decision and human takeover, are empty except for the airport ride-on robot's manual takeover of its movement and one square where two reports about the humanoid's intended autonomy conflict.](armed-robots-who-decides.svg)
 
-*Every readable row says how far the robot had got; none says who would choose a target or decide to use force.*
+*Every readable row says how far the robot had got; none says who chooses a target or decides to use force in practice.*
 
 ## What the readable sources say
 
@@ -34,7 +34,7 @@ What none of them says, in either case, is who would select a target or authoris
 
 ## The two we couldn't read
 
-The Financial Times report said to describe the Gaza discussions, and a Wired article that the earlier survey's search turned up on the company's weapons ambitions, were both refused on 13 November by the sites' own rules for robots (their robots.txt files), under the rule we then followed for automated readers, which we obey. A single read of the Financial Times page on 28 November, under a narrower rule we now use for one-off reads, was refused by the site itself (HTTP 403); Wired's rules still refused us. So we don't know what they say, and the Gaza use is neither established nor ruled out by anything we read.
+The Financial Times report said to describe the Gaza discussions, and a Wired article that the search made when this work was commissioned turned up on the company's weapons ambitions, were both refused on 13 November by the sites' own rules for robots (their robots.txt files), under the rule we then followed for automated readers, which we obey. A single read of the Financial Times page on 28 November, under a narrower rule we now use for one-off reads, was refused by the site itself (HTTP 403); Wired's rules still refused us. Those two reads of 28 November were fact checks for a separate essay, made after we knew the first attempts had failed and kept outside the study's own reads ([their log](../notes/physical-authority/essay-checks/2026-11-28/fetchlog.md)). So we don't know what they say, and the Gaza use is neither established nor ruled out by anything we read.
 
 The armed comparison fared no better. Our candidate was a US Marine Corps news page that a search listing described as a test of an armed robot; opening it returned a refusal (HTTP 403). We allowed ourselves one fixed search for a replacement, and none of its first ten results was a first-hand record of an armed ground-robot test, judged by their sites and titles.
 
